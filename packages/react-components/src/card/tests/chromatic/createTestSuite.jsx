@@ -20,7 +20,7 @@ export function createTestSuite(element, stories) {
         .add("default", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("illustration", () =>
@@ -29,14 +29,14 @@ export function createTestSuite(element, stories) {
                     <Image src={Nasa} alt="NASA" width="100px" />
                 </Illustration>
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("text header", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
                 <Header>2021/01/01</Header>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("link header", () =>
@@ -45,7 +45,7 @@ export function createTestSuite(element, stories) {
                 <Header>
                     <TextLink href="https://www.nasa.gov">Website</TextLink>
                 </Header>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("rich content", () =>
@@ -53,7 +53,7 @@ export function createTestSuite(element, stories) {
                 <Heading>Nasa</Heading>
                 <Content>
                     <Paragraph>
-                        <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink> is an <strong>independent agency of the U.S</strong>. federal government responsible for the civilian space program, as well as aeronautics and space research.
+                        <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                     </Paragraph>
                     <UnorderedList>
                         <ListItem>Space Shuttle program</ListItem>
@@ -67,14 +67,14 @@ export function createTestSuite(element, stories) {
         .add("button", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
                 <Button>Visit</Button>
             </Card>
         )
         .add("button group", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
                     <Button>Next</Button>
                     <Button>Visit</Button>
@@ -89,7 +89,7 @@ export function createTestSuite(element, stories) {
                         Website
                     </TextLink>
                 </Header>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
                     <Button>Next</Button>
                     <Button>Visit</Button>
@@ -134,20 +134,20 @@ export function createTestSuite(element, stories) {
         .add("heading overflow", () =>
             <Card element={element}>
                 <Heading>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("header overflow", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
                 <Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Header>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
         .add("button overflow", () =>
             <Card element={element}>
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
@@ -159,7 +159,7 @@ export function createTestSuite(element, stories) {
             <Card element={element}>
                 <Heading>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Heading>
                 <Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Header>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
@@ -173,7 +173,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Content>
+                <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         );
 }
