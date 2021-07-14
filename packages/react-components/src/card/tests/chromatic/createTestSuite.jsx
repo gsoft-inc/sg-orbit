@@ -148,9 +148,9 @@ export function createTestSuite(element, stories) {
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
                 </ButtonGroup>
             </Card>
         )
@@ -160,9 +160,9 @@ export function createTestSuite(element, stories) {
                 <Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Header>
                 <Content>The National Aeronautics and Space Administration</Content>
                 <ButtonGroup>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                    <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
+                    <Button>Lorem ipsum dolor sit amet.</Button>
                 </ButtonGroup>
             </Card>
         );
