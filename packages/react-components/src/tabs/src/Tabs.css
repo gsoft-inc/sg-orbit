@@ -172,6 +172,7 @@
 /* PANEL */
 .o-ui-tab-panel {
     color: var(--o-ui-alias-text-1);
+    text-align: left;
 }
 
 /* PANEL | ORIENTATION | HORIZONTAL */

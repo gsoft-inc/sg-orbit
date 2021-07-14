@@ -11,10 +11,6 @@ export interface InnerCardProps {
      */
     orientation: "horizontal" | "vertical";
     /**
-     * Whether or not the card take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -34,7 +30,6 @@ export interface InnerCardProps {
 
 export function InnerCard({
     orientation = "vertical",
-    fluid,
     as = "section",
     children,
     forwardedRef,
@@ -102,8 +97,7 @@ export function InnerCard({
                 {
                     className: cssModule(
                         "o-ui-card",
-                        orientation,
-                        fluid && "fluid"
+                        orientation
                     ),
                     as,
                     ref: forwardedRef

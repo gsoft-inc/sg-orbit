@@ -165,14 +165,5 @@ export function createTestSuite(element, stories) {
                     <Button>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 </ButtonGroup>
             </Card>
-        )
-        .add("fluid", () =>
-            <Card
-                fluid
-                element={element}
-            >
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
-            </Card>
         );
 }
