@@ -1,4 +1,3 @@
-import { Apollo11Banner, Nasa } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
@@ -6,6 +5,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Nasa, NasaHeadquarters } from "./assets";
 
 <Meta
     title="Components/Card"
@@ -45,10 +45,10 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ Apollo11Banner }} style={{ "width": "300px" }}>
+<Preview scope={{ NasaHeadquarters }} style={{ "width": "300px" }}>
     <Story name="image">
         <Card>
-            <Image src={Apollo11Banner} alt="Appolo 11 Banner" />
+            <Image src={NasaHeadquarters} alt="Appolo 11 Banner" />
             <Heading>Nasa Headquarters</Heading>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
