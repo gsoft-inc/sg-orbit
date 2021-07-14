@@ -38,7 +38,7 @@ stories()
     )
     .add("illustration", () =>
         <Modal>
-            <Illustration>
+            <Illustration color="sunray-50">
                 <Image src={Nasa} alt="NASA" width="200px" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>

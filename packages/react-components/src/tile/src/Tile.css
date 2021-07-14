@@ -1,0 +1,9 @@
+.o-ui-tile {
+    width: 100%;
+    min-width: 200px;
+}
+
+.o-ui-tile[aria-checked="true"],
+.o-ui-tile[aria-pressed="true"] {
+    background-color: blueviolet;
+}

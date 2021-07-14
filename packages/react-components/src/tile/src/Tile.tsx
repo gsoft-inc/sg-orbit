@@ -1,37 +1,9 @@
 import "./Tile.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent, useMemo } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useCheckableProps, useControllableState, useEventCallback, useSlots } from "../../shared";
-
-/*
-Fluid by default?
-
-Checkable
--> Render as a a button (like ToggleButton)
--> When checkabled, ARIA should match a RADIO or CHECKBOX depending if it's in a RadioGroup or a CheckboxGroup
--> When not in a group, use "aria-pressed"
-
-Clickable
--> Render as a "a" -> when rendering as a "a", aria-pressed or -checked will not be rendered anyway since "isChecked" will be undefined
-
--> Clickable
--> checkable
-
-TileGroup ?!?!? For clickable tiles (similar to ButtonGroup but for Tiles)
-*/
-
-/*
-Fluid by default?
-
--> When checkable, render as a button (like ToggleButton) and implements ARIA for RADIO of CHECKBOX
--> When not checkable, render a a link
-
--> Clickable
--> Selectable
-
--> How to let screen reader understand the label? Add an aria-labelledby?!?! Should I add an aria-hidden="true" on the image/illustration?
-*/
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
+import { InteractionStatesProps, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { useTile } from "./useTile";
 
 export interface InnerTileProps extends InteractionStatesProps {
     /**
@@ -84,6 +56,7 @@ export function InnerTile(props: InnerTileProps) {
         value,
         onChange,
         onCheck,
+        autoFocus,
         active,
         focus,
         hover,
@@ -98,6 +71,8 @@ export function InnerTile(props: InnerTileProps) {
 
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
+    const ref = useMergedRefs(forwardedRef);
+
     const handleClick = useEventCallback((event: MouseEvent<HTMLButtonElement>) => {
         setIsChecked(!isChecked);
 
@@ -110,26 +85,18 @@ export function InnerTile(props: InnerTileProps) {
         }
     });
 
-    const { image, illustration, heading, content } = useSlots(children, useMemo(() => ({
-        _: {
-            required: ["heading", "content"]
-        },
-        image: {
-            className: "o-ui-tile-image"
-        },
-        illustration: {
-            className: "o-ui-tile-illustration"
-        },
-        heading: {
-            className: "o-ui-tile-heading",
-            size: "sm",
-            as: "h5"
-        },
-        content: {
-            className: "o-ui-tile-content",
-            as: Text
-        }
-    }), []));
+    const { tileProps, markup } = useTile({
+        variant: "checkable",
+        active,
+        focus,
+        hover,
+        children
+    });
+
+    useAutoFocus(ref, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
 
     return (
         <Box
@@ -137,22 +104,14 @@ export function InnerTile(props: InnerTileProps) {
                 rest,
                 {
                     onClick: handleClick,
-                    className: cssModule(
-                        "o-ui-tile",
-                        active && "active",
-                        focus && "focus",
-                        hover && "hover"
-                    ),
                     [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
                     as,
-                    ref: forwardedRef
-                }
+                    ref
+                },
+                tileProps
             )}
         >
-            {image}
-            {illustration}
-            {heading}
-            {content}
+            {markup}
         </Box>
     );
 }
