@@ -1,3 +1,4 @@
+import { Box } from "../../../box";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
 import { Heading, Paragraph } from "@react-components/typography";
