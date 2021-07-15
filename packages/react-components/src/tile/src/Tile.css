@@ -12,6 +12,7 @@
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
     cursor: pointer;
+    text-align: center;
 }
 
 .o-ui-tile[aria-checked="true"],
@@ -20,8 +21,8 @@
     border-color: var(--o-ui-alias-border-1-active);
 }
 
-.o-ui-tile:hover,
-.o-ui-tile-hover {
+.o-ui-tile:hover:not([disabled]),
+.o-ui-tile-hover:not([disabled]) {
     border-color: var(--o-ui-alias-border-1-hover);
 }
 
