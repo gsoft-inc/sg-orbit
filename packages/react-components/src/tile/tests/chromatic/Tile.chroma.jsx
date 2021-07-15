@@ -1,12 +1,10 @@
-import { CheckboxGroup } from "@react-components/checkbox";
 import { Content } from "@react-components/placeholders";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
-import { RadioGroup } from "@react-components/radio";
 import { Spaceship } from "./assets";
 import { Stack } from "@react-components/layout";
-import { Tile, TileGroup } from "@react-components/tile";
+import { Tile } from "@react-components/tile";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -102,54 +100,6 @@ stories()
                 <Content>Fuel configuration and level</Content>
             </Tile>
         </Stack>
-    )
-    .add("tile group", () =>
-        <TileGroup>
-            <Tile>
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </Tile>
-            <Tile>
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile>
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </Tile>
-        </TileGroup>
-    )
-    .add("checkbox group", () =>
-        <CheckboxGroup>
-            <Tile value="map">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </Tile>
-            <Tile value="fuel">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile value="setting">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </Tile>
-        </CheckboxGroup>
-    )
-    .add("radio group", () =>
-        <RadioGroup>
-            <Tile value="map">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </Tile>
-            <Tile value="fuel">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile value="setting">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </Tile>
-        </RadioGroup>
     )
     .add("styling", () =>
         <Stack>

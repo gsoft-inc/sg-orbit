@@ -1,5 +1,6 @@
 .o-ui-tile {
     width: 100%;
+    min-width: 100px;
 }
 
 .o-ui-tile[aria-checked="true"],
