@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { InteractionStatesProps, cssModule, useSlots } from "../../shared";
 import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
@@ -35,6 +36,13 @@ export function useTile({
         }
     }), []));
 
+    const imageMarkup = image && (
+        <Box className="o-ui-tile-thumbnail">
+            {image}
+        </Box>
+    );
+
+
     return {
         tileProps: {
             className: cssModule(
@@ -47,10 +55,12 @@ export function useTile({
         },
         markup: (
             <>
-                {image}
+                {imageMarkup}
                 {illustration}
-                {heading}
-                {content}
+                <div className="o-ui-tile-main">
+                    {heading}
+                    {content}
+                </div>
             </>
         )
     };

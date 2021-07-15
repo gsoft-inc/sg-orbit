@@ -1,8 +1,8 @@
+import { Apollo11Banner, Nasa } from "./assets";
 import { Content } from "@react-components/placeholders";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
-import { Spaceship } from "./assets";
 import { Stack } from "@react-components/layout";
 import { Tile } from "@react-components/tile";
 import { storiesOfBuilder } from "@stories/utils";
@@ -21,16 +21,16 @@ stories()
         </Tile>
     )
     .add("image", () =>
-        <Tile>
-            <Image src={Spaceship} width="100px" />
+        <Tile style={{ "width": "300px" }}>
+            <Image src={Apollo11Banner} alt="Spaceship" />
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     )
     .add("illustration", () =>
         <Tile>
-            <Illustration color="#000">
-                <Image src={Spaceship} width="100px" />
+            <Illustration color="marine-100">
+                <Image src={Nasa} width="100px" />
             </Illustration>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -38,8 +38,8 @@ stories()
     )
     .add("all sections", () =>
         <Tile>
-            <Illustration color="#000">
-                <Image src={Spaceship} width="100px" />
+            <Illustration color="marine-100">
+                <Image src={Nasa} width="100px" />
             </Illustration>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
