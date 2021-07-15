@@ -48,7 +48,7 @@
     outline: none;
 }
 
-.o-ui-tile:focus:after,
+.o-ui-tile:focus-visible:after,
 .o-ui-tile-focus:after {
     opacity: 1;
 }

@@ -1,10 +1,10 @@
+import { Apollo11Badge, NoResults, StoragePrimary, StorageSunray } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
 import { Illustration, InnerIllustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
-import { NoResults, StoragePrimary, StorageSunray } from "./assets";
 
 <Meta
     title="Components/Illustration"
@@ -40,10 +40,10 @@ An illustration can render horizontally.
 
 An illustration can render vertically.
 
-<Preview scope={{ StoragePrimary }} style={{ height: "400px" }}>
+<Preview scope={{ Apollo11Badge }} style={{ height: "500px" }}>
     <Story name="vertical">
-        <Illustration orientation="vertical" color="primary-50" style={{ width: "256px" }}>
-            <Image src={StoragePrimary} alt="Storage" width="160px" />
+        <Illustration orientation="vertical" color="#A7D2CB" style={{ width: "225px" }}>
+            <Image src={Apollo11Badge} alt="Apollo 11 poster" width="175px" />
         </Illustration>
     </Story>
 </Preview>
@@ -52,10 +52,10 @@ An illustration can render vertically.
 
 An illustration can have a `rounded` shape.
 
-<Preview scope={{ StorageSunray }}>
+<Preview scope={{ Apollo11Badge }}>
     <Story name="shape">
-        <Illustration shape="rounded" color="sunray-50" style={{ height: "185px" }}>
-            <Image src={StorageSunray} alt="Storage" width="160px" />
+        <Illustration shape="rounded" color="#A7D2CB" style={{ height: "225px" }}>
+            <Image src={Apollo11Badge} alt="Apollo 11 poster" width="175px" />
         </Illustration>
     </Story>
 </Preview>
