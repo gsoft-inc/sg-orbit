@@ -59,13 +59,4 @@ stories()
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         </div>
-    ).add("min width", () =>
-        <div style={{ "display": "flex" }}>
-            <Card style={{ "width": "auto" }}>
-                <Heading>Nasa</Heading>
-                <Content>
-                    Pizza Planet
-                </Content>
-            </Card>
-        </div>
     );
