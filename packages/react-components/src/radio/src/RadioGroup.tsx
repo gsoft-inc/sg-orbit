@@ -198,9 +198,10 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
                     checkedValue
                 }}
             >
-                {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
+                {Children.toArray(children).filter(x => x).map((x: ReactElement, index) => {
                     return augmentElement(x, {
                         ...itemProps,
+                        value: index,
                         role: "radio",
                         name: groupName
                     });

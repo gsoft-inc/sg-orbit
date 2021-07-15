@@ -185,9 +185,10 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                             checkedValue
                         }}
                     >
-                        {Children.toArray(items).filter(x => x).map((x: ReactElement) => {
+                        {Children.toArray(items).filter(x => x).map((x: ReactElement, index) => {
                             return augmentElement(x, {
                                 ...itemProps,
+                                value: index,
                                 role: "checkbox"
                             });
                         })}

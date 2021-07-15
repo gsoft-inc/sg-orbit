@@ -1,5 +1,6 @@
 .o-ui-tile {
     width: 100%;
+    min-width: 100px;
     border: 1px solid var(--o-ui-alias-border-1);
     background-color: var(--o-ui-alias-background-1);
     padding: 0;
