@@ -46,7 +46,6 @@ export function InnerTileLink({
     active,
     focus,
     hover,
-    as: As = Link,
     children,
     forwardedRef,
     ...rest
@@ -60,7 +59,7 @@ export function InnerTileLink({
     });
 
     return (
-        <As
+        <Link
             {...mergeProps(
                 rest,
                 {
@@ -73,7 +72,7 @@ export function InnerTileLink({
             )}
         >
             {markup}
-        </As>
+        </Link>
     );
 }
 

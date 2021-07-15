@@ -16,7 +16,7 @@ import { Tabs } from "@react-components/tabs";
 
 # Card
 
-<Tagline>An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.</Tagline>
+<Tagline>A card group information into a container to let users browse a group of related items and actions.</Tagline>
 
 <ComponentInfo
     usage={"import { Card, Heading, Header, Content } from \"@orbit-ui/react-components\";"}
@@ -24,6 +24,8 @@ import { Tabs } from "@react-components/tabs";
 />
 
 ## Usage
+
+> A card is a non interactive container which contains elements you can interact with. If you need an interactive or naviguable element, please have a look at the [tile component](?path=/story/tile--default-story).
 
 ### Default
 
@@ -35,9 +37,9 @@ A card must have an heading and a content.
             <Heading>NASA Headquarters</Heading>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                Washington, DC 20546<br/>
+                (202) 358-0001 (Office)<br/>
+                (202) 358-4338 (Fax)
             </Content>
         </Card>
     </Story>
@@ -50,32 +52,32 @@ A card can have an [image](?path=/story/chromatic-image--default):
 <Preview scope={{ NasaHeadquarters }} style={{ "width": "300px" }}>
     <Story name="image">
         <Card>
-            <Image src={NasaHeadquarters} alt="Appolo 11 Banner" />
+            <Image src={NasaHeadquarters} alt="Nasa headquarters" />
             <Heading>Nasa Headquarters</Heading>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                Washington, DC 20546<br/>
+                (202) 358-0001 (Office)<br/>
+                (202) 358-4338 (Fax)
             </Content>
         </Card>
     </Story>
 </Preview>
 
-Or a centered [illustration](?path=/docs/illustration--horizontal) with a background color:
+Or an [illustration](?path=/docs/illustration--horizontal) with a background color:
 
 <Preview scope={{ Nasa }} style={{ "width": "300px" }}>
     <Story name="illustration">
         <Card >
             <Illustration color="marine-100">
-                <Image src={Nasa} alt="NASA" width="100px" />
+                <Image src={Nasa} alt="Nasa" width="100px" />
             </Illustration>
             <Heading>Nasa Headquarters</Heading>
             <Content>
-            300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                300 E. Street SW, Suite 5R30<br/>
+                Washington, DC 20546<br/>
+                (202) 358-0001 (Office)<br/>
+                (202) 358-4338 (Fax)
             </Content>
         </Card>
     </Story>
@@ -91,10 +93,10 @@ A card can have an header.
             <Heading>Nasa Headquarters</Heading>
             <Header>No unexpected visitors allowed.</Header>
             <Content>
-            300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                300 E. Street SW, Suite 5R30<br/>
+                Washington, DC 20546<br/>
+                (202) 358-0001 (Office)<br/>
+                (202) 358-4338 (Fax)
             </Content>
         </Card>
     </Story>
@@ -110,10 +112,10 @@ A card can have a single [button](?path=/docs/button--default-story):
             <Heading>Nasa Headquarters</Heading>
             <Header>No unexpected visitors allowed.</Header>
             <Content>
-            300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)
+                300 E. Street SW, Suite 5R30<br/>
+                Washington, DC 20546<br/>
+                (202) 358-0001 (Office)<br/>
+                (202) 358-4338 (Fax)
             </Content>
             <Button>Plan a visit</Button>
         </Card>
@@ -128,18 +130,18 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
             <Heading>Nasa Headquarters</Heading>
             <Content>
                 <Paragraph>
-            300 E. Street SW, Suite 5R30<br/>
-            Washington, DC 20546<br/>
-            (202) 358-0001 (Office)<br/>
-            (202) 358-4338 (Fax)<br/>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)<br/>
                 </Paragraph>
                 <Paragraph>
                     <em>Any trespassers are going to be sent in space.</em>
                 </Paragraph>
             </Content>
             <ButtonGroup>
-                <Button variant="outline">Cancel a Booking</Button>
-                <Button>Plan a Visit</Button>
+                <Button>Plan a visit</Button>
+                <Button variant="outline">Cancel a booking</Button>
             </ButtonGroup>
         </Card>
     </Story>
@@ -174,10 +176,10 @@ A card can render any components like [tabs](?path=/story/tabs--default-story).
 A card can render horizontally.
 
 <Preview scope={{ Nasa }}>
-    <Story name="horizontal">
+    <Story name="orientation">
         <Card orientation="horizontal" style={{ "width": "800px" }}>
             <Illustration color="marine-100">
-                <Image src={Nasa} alt="NASA" width="100px" />
+                <Image src={Nasa} alt="Nasa" width="100px" />
             </Illustration>
             <Heading>Nasa</Heading>
             <Content>

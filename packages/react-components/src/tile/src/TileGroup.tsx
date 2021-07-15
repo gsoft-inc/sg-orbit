@@ -1,13 +1,18 @@
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { Group } from "../../group";
 import { RadioGroup } from "../../radio";
 import { arrayify, augmentElement, forwardRef, isNil, mergeProps, useEventCallback } from "../../shared";
 
 export interface InnerTileGroupProps {
     /**
+     * The value of the tile group.
+     */
+    value?: string[] | null;
+    /**
      * The type of selection that is allowed.
      */
-    selectionMode?: "single" | "multiple";
+    selectionMode?: "none" | "single" | "multiple";
     /**
      * The number of tiles per row.
      */
@@ -41,8 +46,15 @@ export interface InnerTileGroupProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+const GroupType = {
+    "none": Group,
+    "single": RadioGroup,
+    "multiple": CheckboxGroup
+};
+
 export function InnerTileGroup({
-    selectionMode = "single",
+    value,
+    selectionMode = "none",
     rowSize = 1,
     onChange,
     disabled,
@@ -50,40 +62,42 @@ export function InnerTileGroup({
     forwardedRef,
     ...rest
 }: InnerTileGroupProps) {
-    const Group = selectionMode === "single" ? RadioGroup : CheckboxGroup;
+    const As = GroupType[selectionMode];
 
-    const tileSize = `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`;
-
-    const handleChange = useEventCallback((event, value) => {
+    const handleChange = useEventCallback((event, newValue) => {
         if (!isNil(onChange)) {
-            onChange(event, arrayify(value));
+            onChange(event, arrayify(newValue));
         }
     });
 
     return (
-        <Group
+        <As
             {...mergeProps<any>(
                 rest,
                 {
                     orientation: "horizontal",
-                    onChange: handleChange,
-                    // If you change the gap, also update the tile size gap (currently 16px).
+                    // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
                     wrap: true,
                     fluid: true,
-                    disabled,
                     ref: forwardedRef
+                },
+                selectionMode === "none" ? {} : {
+                    value,
+                    onChange: handleChange,
+                    disabled
                 }
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
+                    disabled: selectionMode === "none" ? disabled : undefined,
                     style: {
-                        width: tileSize
+                        width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
                     }
                 });
             })}
-        </Group>
+        </As>
     );
 }
 
