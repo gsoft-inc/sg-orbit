@@ -11,6 +11,8 @@
     align-items: center;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
+    cursor: pointer;
+    text-align: center;
 }
 
 .o-ui-tile[aria-checked="true"],
@@ -19,8 +21,8 @@
     border-color: var(--o-ui-alias-border-1-active);
 }
 
-.o-ui-tile:hover,
-.o-ui-tile-hover {
+.o-ui-tile:hover:not([disabled]),
+.o-ui-tile-hover:not([disabled]) {
     border-color: var(--o-ui-alias-border-1-hover);
 }
 
@@ -56,14 +58,20 @@
 
 .o-ui-tile-thumbnail {
     align-self: stretch;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-image {
     width: 100%;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-illustration {
     padding: var(--o-ui-global-scale-golf);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-main {
