@@ -10,6 +10,7 @@
     align-items: center;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
+    cursor: pointer;
 }
 
 .o-ui-tile[aria-checked="true"],
@@ -55,14 +56,20 @@
 
 .o-ui-tile-thumbnail {
     align-self: stretch;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-image {
     width: 100%;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-illustration {
     padding: var(--o-ui-global-scale-golf);
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
 }
 
 .o-ui-tile-main {

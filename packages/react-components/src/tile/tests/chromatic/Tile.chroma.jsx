@@ -24,7 +24,7 @@ stories()
     )
     .add("image", () =>
         <Tile style={{ "width": "300px" }}>
-            <Image src={Apollo11Banner} alt="Spaceship" />
+            <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
@@ -32,7 +32,7 @@ stories()
     .add("illustration", () =>
         <Tile>
             <Illustration color="marine-100">
-                <Image src={Nasa} width="100px" />
+                <Image src={Nasa} width="100px" alt="Nasa Logo" />
             </Illustration>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -41,7 +41,7 @@ stories()
     .add("all sections", () =>
         <Tile>
             <Illustration color="marine-100">
-                <Image src={Nasa} width="100px" />
+                <Image src={Nasa} width="100px" alt="Nasa Logo" />
             </Illustration>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
