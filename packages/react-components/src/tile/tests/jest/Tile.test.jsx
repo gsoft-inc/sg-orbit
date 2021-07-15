@@ -152,7 +152,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Tile ref={ref} data-testid="tile">
+        <Tile ref={ref}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
@@ -172,7 +172,6 @@ test("when using a callback ref, ref is a DOM element", async () => {
             ref={node => {
                 refNode = node;
             }}
-            data-testid="tile"
         >
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -189,7 +188,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Tile ref={handler} data-testid="tile">
+        <Tile ref={handler}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
