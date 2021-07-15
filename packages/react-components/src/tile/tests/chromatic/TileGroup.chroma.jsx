@@ -11,53 +11,37 @@ function stories(segment) {
 }
 
 stories()
-    .add("no selection", () =>
-        <TileGroup selectionMode="none">
-            <TileLink href="https://www.google.com">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </TileLink>
-        </TileGroup>
-    )
-    .add("single selection", () =>
-        <TileGroup selectionMode="single">
-            <Tile value="map">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </Tile>
-            <Tile value="fuel">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile value="setting">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </Tile>
-        </TileGroup>
-    )
-    .add("multiple selection", () =>
-        <TileGroup selectionMode="multiple">
-            <Tile value="map">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </Tile>
-            <Tile value="field">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile value="setting">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </Tile>
-        </TileGroup>
+    .add("selection", () =>
+        <Stack>
+            <TileGroup defaultValue={["fuel"]} selectionMode="single" rowSize={3}>
+                <Tile value="map">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </Tile>
+                <Tile value="fuel">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile value="setting">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </Tile>
+            </TileGroup>
+            <TileGroup defaultValue={["fuel", "setting"]} selectionMode="multiple" rowSize={3}>
+                <Tile value="map">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </Tile>
+                <Tile value="fuel">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile value="setting">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </Tile>
+            </TileGroup>
+        </Stack>
     )
     .add("1 per row", () =>
         <TileGroup rowSize={1}>
