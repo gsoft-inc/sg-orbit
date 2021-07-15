@@ -198,7 +198,7 @@ test("call the checkbox onValueChange handler when a checkbox is selected", asyn
 
     const { getAllByTestId } = render(
         <CheckboxGroup>
-            <Checkbox onChange={handler} value="1" data-testid="checkbox">1</Checkbox>
+            <Checkbox onValueChange={handler} value="1" data-testid="checkbox">1</Checkbox>
             <Checkbox value="2" data-testid="checkbox">2</Checkbox>
             <Checkbox value="3" data-testid="checkbox">3</Checkbox>
         </CheckboxGroup>
