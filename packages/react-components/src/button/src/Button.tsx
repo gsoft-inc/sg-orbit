@@ -84,8 +84,6 @@ export function InnerButton(props: InnerButtonProps) {
     const [inputGroupProps] = useInputGroupButtonAddonProps();
     const [styleProps] = useStyleProps("button");
 
-    console.log(styleProps);
-
     const {
         variant = "solid",
         color,

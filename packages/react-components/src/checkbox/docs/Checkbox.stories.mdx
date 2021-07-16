@@ -250,19 +250,3 @@ A checkbox group can handle `value` state in controlled mode.
 />
 
 <ArgsTable of={InnerCheckboxGroup} sort="alpha" />
-
-<Story
-    name="playground - checkbox group"
-    parameters={paramsBuilder()
-        .component(InnerCheckboxGroup)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <CheckboxGroup {...args}>
-            <Checkbox value="milky-way" >Milky Way</Checkbox>
-            <Checkbox value="andromeda">Andromeda</Checkbox>
-            <Checkbox value="medusa">Medusa</Checkbox>
-        </CheckboxGroup>
-    }
-</Story>
