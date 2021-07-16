@@ -2,8 +2,8 @@ import { Content } from "@react-components/placeholders";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
+import { Inline, Stack } from "@react-components/layout";
 import { Nasa } from "./assets";
-import { Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
 function Tile({ element, ...rest }) {
@@ -70,26 +70,42 @@ export function createTestSuite(element, stories) {
         )
         .add("states", () =>
             <Stack>
-                <Tile element={element} active>
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile element={element} focus>
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile element={element} hover>
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile element={element} focus hover>
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile element={element} disabled>
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
+                <Inline>
+                    <Tile element={element} active>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} focus>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} hover>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} focus hover>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Inline>
+                <Inline>
+                    <Tile element={element} disabled>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} disabled active>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} disabled hover>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile element={element} disabled focus>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Inline>
             </Stack>
         )
         .add("styling", () =>

@@ -111,17 +111,13 @@
     padding: var(--o-ui-global-scale-foxtrot) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf);
 }
 
-/* IMAGE */
+/* IMAGE & ILLUSTRATION */
 .o-ui-card-illustration {
     height: 100%;
     padding: var(--o-ui-global-scale-golf);
 }
 
-.o-ui-card-image {
-    width: 100%;
-}
-
-/* IMAGE | HORIZONTAL */
+/* IMAGE & ILLUSTRATION | HORIZONTAL */
 .o-ui-card-horizontal .o-ui-card-illustration,
 .o-ui-card-horizontal .o-ui-card-image {
     grid-area: image;
@@ -129,7 +125,7 @@
     border-top-left-radius: inherit;
 }
 
-/* IMAGE | VERTICAL */
+/* IMAGE & ILLUSTRATION | VERTICAL */
 .o-ui-card-vertical .o-ui-card-illustration,
 .o-ui-card-vertical .o-ui-card-image {
     grid-column-start: 1;
