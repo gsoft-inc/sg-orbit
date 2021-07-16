@@ -49,7 +49,7 @@ A modal must have an heading and a content.
 
 ### Image
 
-A modal can have an [image](?path=/story/chromatic-image--default):
+A modal can have a side banner [image](?path=/story/chromatic-image--default):
 
 <Preview scope={{ Apollo11Poster }}>
     <Story name="image">
@@ -67,15 +67,15 @@ A modal can have an [image](?path=/story/chromatic-image--default):
     </Story>
 </Preview>
 
-Or an [illustration](?path=/docs/illustration--horizontal) with a background color:
+Or an [illustration](?path=/docs/illustration--horizontal):
 
 <Preview scope={{ Apollo11Badge }}>
     <Story name="illustration centered">
         <ModalTrigger>
             <Button>Open</Button>
             <Modal>
-                <Illustration color="#A7D2CB">
-                    <Image src={Apollo11Badge} alt="Apollo 11 poster" width="225px" />
+                <Illustration color="#E7BE68">
+                    <Image src={Apollo11Badge} alt="Apollo 11 poster" />
                 </Illustration>
                 <Heading>Apollo 11</Heading>
                 <Content>

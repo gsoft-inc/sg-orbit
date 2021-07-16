@@ -1,3 +1,4 @@
+import { Box } from "../../../box";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
@@ -12,69 +13,71 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Illustration orientation="vertical">
-            <Image src={Nasa} width="100px" alt="NASA" />
+        <Illustration>
+            <Image src={Nasa} alt="Nasa" width="150px" />
         </Illustration>
     )
     .add("horizontal", () =>
         <Stack>
-            <Illustration orientation="horizontal">
-                <Image src={Nasa} width="100px" alt="NASA" />
+            <Illustration orientation="horizontal" style={{ width: "700px", height: "200px" }} color="primary-200">
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Illustration orientation="horizontal" style={{ width: "300px" }}>
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
-            <Illustration orientation="horizontal" style={{ height: "200px" }}>
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
+            <Box style={{ width: "700px", height: "200px" }}>
+                <Illustration orientation="horizontal" color="primary-200">
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Box>
         </Stack>
     )
     .add("vertical", () =>
-        <Inline style={{ height: "100%" }}>
-            <Illustration orientation="vertical">
-                <Image src={Nasa} width="100px" alt="NASA" />
+        <Inline>
+            <Illustration orientation="vertical" style={{ width: "200px", height: "500px" }} color="primary-200">
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Illustration orientation="vertical" style={{ height: "300px" }}>
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
-            <Illustration orientation="vertical" style={{ height: "200px" }}>
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
+            <Box style={{ width: "200px", height: "500px" }}>
+                <Illustration orientation="vertical" color="primary-200">
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Box>
         </Inline>
     )
     .add("straight", () =>
-        <Illustration shape="straight" color="primary-200">
-            <Image src={Nasa} width="100px" alt="NASA" />
+        <Illustration shape="straight" style={{ width: "700px", height: "200px" }} color="primary-200">
+            <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("rounded", () =>
-        <Illustration shape="rounded" color="primary-200">
-            <Image src={Nasa} width="100px" alt="NASA" />
+        <Illustration shape="rounded" style={{ width: "700px", height: "200px" }} color="primary-200">
+            <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("color", () =>
         <Stack>
-            <Illustration color="primary-200">
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
-            <Illustration color="rgb(151, 231, 222)">
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
-            <Illustration color="hsla(173, 63%, 75%, 1)">
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
-            <Illustration color="#97e7de">
-                <Image src={Nasa} width="100px" alt="NASA" />
-            </Illustration>
+            <Inline>
+                <Illustration color="primary-200" style={{ width: "700px", height: "200px" }}>
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+                <Illustration color="rgb(151, 231, 222)" style={{ width: "700px", height: "200px" }}>
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Inline>
+            <Inline>
+                <Illustration color="hsla(173, 63%, 75%, 1)" style={{ width: "700px", height: "200px" }}>
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+                <Illustration color="#97e7de" style={{ width: "700px", height: "200px" }}>
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Inline>
         </Stack>
     )
     .add("styling", () =>
         <Stack>
-            <Illustration className="border-red">
-                <Image src={Nasa} width="100px" alt="NASA" />
+            <Illustration className="border-red" style={{ width: "700px", height: "200px" }}>
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Illustration style={{ border: "1px solid red" }}>
-                <Image src={Nasa} width="100px" alt="NASA" />
+            <Illustration style={{ border: "1px solid red", width: "700px", height: "200px" }}>
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Stack>
     );

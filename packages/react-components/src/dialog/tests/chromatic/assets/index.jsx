@@ -1,5 +1,5 @@
-import BlueOrigin from "./blue-origin.png";
+import Apollo11Poster from "./apollo-11-poster.png";
 import Nasa from "./nasa.png";
-import SpaceX from "./spacex.png";
+import TheMartianPoster from "./the-martian-poster.jpg";
 
-export { Nasa, SpaceX, BlueOrigin };
+export { Nasa, Apollo11Poster, TheMartianPoster };

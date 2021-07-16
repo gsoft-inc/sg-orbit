@@ -58,6 +58,7 @@ function useModalContentMarkup(content: ReactElement) {
             if (getSlotKey(x) === "card") {
                 cards.push(augmentElement(x, {
                     key: index,
+                    fluid: true,
                     className: "o-ui-modal-choice"
                 }));
 
