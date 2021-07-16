@@ -22,6 +22,13 @@ export function createTestSuite(element, stories) {
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
+        .add("image", () =>
+            <Card element={element}>
+                <Image src={Nasa} alt="NASA" width="100px" />
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+        )
         .add("illustration", () =>
             <Card element={element}>
                 <Illustration color="sunray-50">

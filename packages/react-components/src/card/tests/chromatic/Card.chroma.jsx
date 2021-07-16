@@ -1,4 +1,4 @@
-import { AppoloBanner, AppoloPoster } from "./assets";
+import { AppoloBanner, AppoloPoster, Nasa } from "./assets";
 import { Box } from "@react-components/box";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
@@ -31,7 +31,7 @@ stories()
             </Card>
         </Inline>
     )
-    .add("image", () =>
+    .add("hero image", () =>
         <Inline>
             <Stack>
                 <Card orientation="horizontal">
