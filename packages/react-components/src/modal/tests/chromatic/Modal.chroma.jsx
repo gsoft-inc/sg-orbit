@@ -1,4 +1,4 @@
-import { BlueOrigin, Nasa, SpaceX } from "./assets";
+import { Apollo11Poster, BlueOrigin, Nasa, SpaceX } from "./assets";
 import { Button } from "@react-components/button";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
@@ -27,7 +27,7 @@ stories()
     )
     .add("image", () =>
         <Modal>
-            <Image src={Nasa} alt="NASA" width="200px" />
+            <Image src={Apollo11Poster} alt="Apollo 11" />
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
@@ -39,7 +39,7 @@ stories()
     .add("illustration", () =>
         <Modal>
             <Illustration color="sunray-50">
-                <Image src={Nasa} alt="NASA" width="200px" />
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -54,13 +54,13 @@ stories()
             <Heading>Space agencies</Heading>
             <Content>
                 <Card>
-                    <Image src={SpaceX} alt="SpaceX" width="149px" />
+                    <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content> It's about believing in the future and thinking that the future will be better than the past.</Content>
                     <Button>Choose</Button>
                 </Card>
                 <Card>
-                    <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
+                    <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
                     <Button>Choose</Button>
@@ -74,13 +74,13 @@ stories()
             <Content>
                 <Text>Which of the following space agency do you prefer?</Text>
                 <Card>
-                    <Image src={SpaceX} alt="SpaceX" width="149px" />
+                    <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
                     <Button>Choose</Button>
                 </Card>
                 <Card>
-                    <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
+                    <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
                     <Button>Choose</Button>
@@ -94,14 +94,14 @@ stories()
             <Content>
                 <Text>Which of the following space agency do you prefer?</Text>
                 <Card>
-                    <Image src={SpaceX} alt="SpaceX" width="149px" />
+                    <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
                     <Button>Choose</Button>
                 </Card>
                 <Text>Thank you for participating.</Text>
                 <Card>
-                    <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
+                    <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
                     <Button>Choose</Button>
@@ -121,8 +121,8 @@ stories()
     )
     .add("fullscreen with illustration (should not render as fullscreen)", () =>
         <Modal fullscreen>
-            <Illustration>
-                <Image src={Nasa} alt="NASA" width="200px" />
+            <Illustration color="sunray-50">
+                <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -137,13 +137,13 @@ stories()
             <Heading>Space agencies</Heading>
             <Content>
                 <Card>
-                    <Image src={SpaceX} alt="SpaceX" width="149px" />
+                    <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content> It's about believing in the future and thinking that the future will be better than the past.</Content>
                     <Button>Choose</Button>
                 </Card>
                 <Card>
-                    <Image src={BlueOrigin} alt="Blue Origin" width="149px" />
+                    <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
                     <Button>Choose</Button>

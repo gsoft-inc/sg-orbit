@@ -3,13 +3,21 @@ import "./Card.css";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, isString, mergeProps, slot, useSlots } from "../../shared";
+import { cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {
     /**
      * The orientation of the card.
      */
-    orientation: "horizontal" | "vertical";
+    orientation?: "horizontal" | "vertical";
+    /**
+     * A card can vary in size.
+     */
+    size?: "xs" | "sm" | "md" | "lg" | "xl";
+    /**
+     * Whether or not the card take up the width of its container.
+     */
+    fluid?: boolean;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -30,6 +38,8 @@ export interface InnerCardProps {
 
 export function InnerCard({
     orientation = "vertical",
+    size,
+    fluid,
     as = "section",
     children,
     forwardedRef,
@@ -39,11 +49,9 @@ export function InnerCard({
         _: {
             required: ["heading", "content"]
         },
-        image: {
-            className: "o-ui-card-image"
-        },
+        image: null,
         illustration: {
-            orientation,
+            orientation: orientation === "horizontal" ? "vertical" : "horizontal",
             className: "o-ui-card-illustration"
         },
         heading: {
@@ -97,7 +105,9 @@ export function InnerCard({
                 {
                     className: cssModule(
                         "o-ui-card",
-                        orientation
+                        orientation,
+                        !fluid && normalizeSize(size),
+                        fluid && "fluid"
                     ),
                     as,
                     ref: forwardedRef

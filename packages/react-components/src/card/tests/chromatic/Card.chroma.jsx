@@ -1,4 +1,4 @@
-import { AppoloBanner, AppoloPoster, Nasa } from "./assets";
+import { ApolloBanner, ApolloPoster } from "./assets";
 import { Box } from "@react-components/box";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
@@ -14,9 +14,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Card orientation="horizontal" style={{ "width": "500px" }} />, stories("/horizontal"));
+createTestSuite(<Card orientation="horizontal" />, stories("/horizontal"));
 
-createTestSuite(<Card orientation="vertical" style={{ "width": "300px" }} />, stories("/vertical"));
+createTestSuite(<Card orientation="vertical" />, stories("/vertical"));
 
 stories()
     .add("styling", () =>
@@ -31,55 +31,93 @@ stories()
             </Card>
         </Inline>
     )
-    .add("hero image", () =>
-        <Inline>
-            <Stack>
-                <Card orientation="horizontal">
-                    <Image src={AppoloPoster} alt="Appolo 11 Poster" width="100px" />
-                    <Heading>Nasa</Heading>
-                    <Content>The National Aeronautics and Space Administration</Content>
-                </Card>
-                <Card orientation="vertical" style={{ "width": "300px" }}>
-                    <Image src={AppoloBanner} alt="Appolo 11 Banner" width="100px" />
-                    <Heading>Nasa</Heading>
-                    <Content>The National Aeronautics and Space Administration</Content>
-                </Card>
-            </Stack>
-        </Inline>
+    .add("horizontal & image", () =>
+        <Stack>
+            <Card orientation="horizontal">
+                <Image src={ApolloPoster} alt="Appolo 11" />
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+            <Card fluid orientation="horizontal">
+                <Image src={ApolloPoster} alt="Appolo 11" style={{ width: "200px" }} />
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+        </Stack>
+    )
+    .add("vertical & image", () =>
+        <Stack>
+            <Card orientation="vertical">
+                <Image src={ApolloBanner} alt="Appolo 11" />
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+            <Card fluid orientation="vertical">
+                <Image src={ApolloBanner} alt="Appolo 11" fit="cover" style={{ height: "200px" }} />
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+        </Stack>
     )
     .add("grid layout", () =>
-        <Box style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
-            <Card>
-                <Image src={AppoloBanner} alt="Appolo 11 Banner" width="100px" />
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
-            </Card>
-            <Card orientation="horizontal">
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
-            </Card>
-        </Box>
+        <Stack>
+            <Box style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
+                <Card>
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card orientation="horizontal">
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Box>
+            <Box style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
+                <Card fluid>
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card fluid orientation="horizontal">
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Box>
+        </Stack>
     )
     .add("flex layout", () =>
-        <Box style={{ "display": "flex", gap: "24px" }}>
-            <Card style={{ width: "275px" }}>
-                <Image src={AppoloBanner} alt="Appolo 11 Banner" width="100px" />
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
-            </Card>
-            <Card style={{ width: "500px" }} orientation="horizontal">
-                <Heading>Nasa</Heading>
-                <Content>The National Aeronautics and Space Administration</Content>
-            </Card>
-        </Box>
-    )
-    .add("min width", () =>
-        <Box style={{ "display": "flex" }}>
-            <Card style={{ "width": "auto" }}>
-                <Heading>Nasa</Heading>
-                <Content>
-                    Pizza Planet
-                </Content>
-            </Card>
-        </Box>
+        <Stack>
+            <Box style={{ "display": "flex", gap: "24px" }}>
+                <Card>
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card orientation="horizontal">
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card orientation="horizontal">
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Box>
+            <Box style={{ "display": "flex", gap: "24px" }}>
+                <Card fluid>
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card fluid orientation="horizontal">
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+                <Card fluid orientation="horizontal">
+                    <Image src={ApolloBanner} alt="Appolo 11 Banner" />
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Box>
+        </Stack>
     );

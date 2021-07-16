@@ -5,6 +5,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Nasa, NasaHeadquarters } from "./assets";
 import { Tabs } from "@react-components/tabs";
@@ -31,7 +32,7 @@ import { Tabs } from "@react-components/tabs";
 
 A card must have an heading and a content.
 
-<Preview style={{ "width": "300px" }}>
+<Preview>
     <Story name="default">
         <Card>
             <Heading>NASA Headquarters</Heading>
@@ -49,7 +50,7 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ NasaHeadquarters }} style={{ "width": "300px" }}>
+<Preview scope={{ NasaHeadquarters }}>
     <Story name="image">
         <Card>
             <Image src={NasaHeadquarters} alt="Nasa headquarters" />
@@ -64,9 +65,9 @@ A card can have an [image](?path=/story/chromatic-image--default):
     </Story>
 </Preview>
 
-Or an [illustration](?path=/docs/illustration--horizontal) with a background color:
+Or an [illustration](?path=/docs/illustration--horizontal):
 
-<Preview scope={{ Nasa }} style={{ "width": "300px" }}>
+<Preview scope={{ Nasa }}>
     <Story name="illustration">
         <Card >
             <Illustration color="marine-100">
@@ -87,7 +88,7 @@ Or an [illustration](?path=/docs/illustration--horizontal) with a background col
 
 A card can have an header.
 
-<Preview style={{ "width": "300px" }}>
+<Preview>
     <Story name="header">
         <Card>
             <Heading>Nasa Headquarters</Heading>
@@ -106,7 +107,7 @@ A card can have an header.
 
 A card can have a single [button](?path=/docs/button--default-story):
 
-<Preview style={{ "width": "300px" }}>
+<Preview>
     <Story name="button">
         <Card>
             <Heading>Nasa Headquarters</Heading>
@@ -124,9 +125,9 @@ A card can have a single [button](?path=/docs/button--default-story):
 
 Or a [group of button](?path=/docs/button--default-story#button-group):
 
-<Preview style={{ "width": "300px" }}>
+<Preview>
     <Story name="buttons">
-        <Card >
+        <Card>
             <Heading>Nasa Headquarters</Heading>
             <Content>
                 <Paragraph>
@@ -147,12 +148,124 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
     </Story>
 </Preview>
 
-### Tab
+### Orientation
+
+A card can render horizontally.
+
+<Preview scope={{ Nasa }}>
+    <Story name="orientation">
+        <Card orientation="horizontal">
+            <Illustration color="marine-100">
+                <Image src={Nasa} alt="Nasa" />
+            </Illustration>
+            <Heading>Nasa</Heading>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Size
+
+A card can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Stack>
+            <Inline>
+                <Card size="xs">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card size="sm">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card>
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+            </Inline>
+            <Inline>
+                <Card size="lg">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card size="xl">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+            </Inline>
+        </Stack>
+    </Story>
+</Preview>
+
+### Fluid
+
+A card can take the width of its container.
+
+<Preview scope={{ Nasa }}>
+    <Story name="fluid">
+        <Card fluid orientation="horizontal">
+            <Illustration color="marine-100" style={{ width: "150px" }}>
+                <Image src={Nasa} alt="Nasa" />
+            </Illustration>
+            <Heading>Nasa</Heading>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Tabs
 
 A card can render any components like [tabs](?path=/story/tabs--default-story).
 
-<Preview style={{ "width": "600px" }}>
-    <Story name="tab">
+<Preview>
+    <Story name="tabs">
         <Card>
             <Heading>Nasa</Heading>
             <Content>
@@ -166,32 +279,6 @@ A card can render any components like [tabs](?path=/story/tabs--default-story).
                         <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
                     </Item>
                 </Tabs>
-            </Content>
-        </Card>
-    </Story>
-</Preview>
-
-### Orientation
-
-A card can render horizontally.
-
-<Preview scope={{ Nasa }}>
-    <Story name="orientation">
-        <Card orientation="horizontal" style={{ "width": "800px" }}>
-            <Illustration color="marine-100">
-                <Image src={Nasa} alt="Nasa" width="100px" />
-            </Illustration>
-            <Heading>Nasa</Heading>
-            <Content>
-                <Paragraph>
-                    300 E. Street SW, Suite 5R30<br/>
-                    Washington, DC 20546<br/>
-                    (202) 358-0001 (Office)<br/>
-                    (202) 358-4338 (Fax)
-                </Paragraph>
-                <Paragraph>
-                    <em>Please note that we are moving from December 12th to December 23rd.</em>
-                </Paragraph>
             </Content>
         </Card>
     </Story>

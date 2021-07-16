@@ -2,6 +2,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Important for image size when the illustration is fluid. */
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* IMAGE */
+.o-ui-illustration-image {
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* ORIENTATION */
@@ -12,7 +22,7 @@
 
 .o-ui-illustration-vertical {
     flex-direction: row;
-    height: 100%;
+    height: 100%
 }
 
 /* SHAPES */
