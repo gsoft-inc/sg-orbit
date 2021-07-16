@@ -5,6 +5,7 @@ import { Text } from "../../typography";
 
 export interface UseTileProps extends InteractionStatesProps {
     variant: "checkable" | "link";
+    orientation: "horizontal" | "vertical";
     children: ReactNode;
 }
 
@@ -27,7 +28,7 @@ export function useTile({
         },
         heading: {
             className: "o-ui-tile-heading",
-            size: "sm",
+            size: "2xs",
             as: "h5"
         },
         content: {

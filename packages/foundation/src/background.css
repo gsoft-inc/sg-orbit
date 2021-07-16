@@ -1,6 +1,8 @@
 .o-ui-light {
     --o-ui-alias-background: var(--o-ui-global-white);
     --o-ui-alias-background-1: var(--o-ui-global-white);
+    --o-ui-alias-background-1-hover: var(--o-ui-global-cloud-50);
+    --o-ui-alias-background-1-active: var(--o-ui-global-cloud-100);
     --o-ui-alias-background-2: var(--o-ui-global-cloud-100);
     --o-ui-alias-background-2-hover: var(--o-ui-global-cloud-200);
     --o-ui-alias-background-2-active: var(--o-ui-global-cloud-500);
@@ -38,6 +40,8 @@
 .o-ui-dark {
     --o-ui-alias-background: hsl(226deg, 20%, 15%);
     --o-ui-alias-background-1: #2B2F3C;
+    --o-ui-alias-background-1-hover: var(--o-ui-global-cloud-900);
+    --o-ui-alias-background-1-active: var(--o-ui-global-cloud-800);
     --o-ui-alias-background-2: var(--o-ui-global-cloud-800);
     --o-ui-alias-background-2-hover: var(--o-ui-global-cloud-900);
     --o-ui-alias-background-2-active: var(--o-ui-global-cloud-600);

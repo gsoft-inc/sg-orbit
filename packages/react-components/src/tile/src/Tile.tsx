@@ -2,7 +2,7 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil,isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 export interface InnerTileProps extends InteractionStatesProps {
@@ -10,6 +10,10 @@ export interface InnerTileProps extends InteractionStatesProps {
      * A controlled checked value.
      */
     checked?: boolean | null;
+    /**
+     * The orientation of the card.
+     */
+    orientation: "horizontal" | "vertical";
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -58,6 +62,7 @@ export function InnerTile(props: InnerTileProps) {
         onCheck,
         autoFocus,
         active,
+        orientation = "vertical",
         focus,
         hover,
         as = "button",
@@ -88,6 +93,7 @@ export function InnerTile(props: InnerTileProps) {
     const { tileProps, markup } = useTile({
         variant: "checkable",
         active,
+        orientation,
         focus,
         hover,
         children
@@ -103,6 +109,10 @@ export function InnerTile(props: InnerTileProps) {
             {...mergeProps<any>(
                 rest,
                 {
+                    className: cssModule(
+                        "o-ui-tile",
+                        orientation
+                    ),
                     onClick: handleClick,
                     [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
                     as,
