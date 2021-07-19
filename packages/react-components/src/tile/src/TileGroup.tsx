@@ -29,6 +29,10 @@ export interface InnerTileGroupProps {
      */
     onChange?: (event: SyntheticEvent, value: string[]) => void;
     /**
+     * The orientation of the group tiles.
+     */
+    orientation?: "horizontal" | "vertical";
+    /**
      * Whether or not the first tile of the group should autoFocus on render.
      */
     autoFocus?: boolean | number;
@@ -97,6 +101,7 @@ export function InnerTileGroup({
     selectionMode = "none",
     rowSize = 1,
     onChange,
+    orientation,
     disabled,
     children,
     forwardedRef,
@@ -132,6 +137,7 @@ export function InnerTileGroup({
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
+                    orientation,
                     disabled: selectionMode === "none" ? disabled : undefined,
                     style: {
                         width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`

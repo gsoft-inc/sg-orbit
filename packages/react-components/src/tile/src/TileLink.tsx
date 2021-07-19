@@ -9,10 +9,6 @@ export interface InnerTileLinkProps extends InteractionStatesProps {
      */
     href?: string;
     /**
-     * The orientation of the card.
-     */
-    orientation: "horizontal" | "vertical";
-    /**
      * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     target?: string;
@@ -20,6 +16,10 @@ export interface InnerTileLinkProps extends InteractionStatesProps {
      * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     rel?: string;
+    /**
+     * The orientation of the tile.
+     */
+    orientation?: "horizontal" | "vertical";
     /**
      * Whether or not this is an external link.
      */
@@ -47,8 +47,8 @@ export interface InnerTileLinkProps extends InteractionStatesProps {
 }
 
 export function InnerTileLink({
-    disabled,
     orientation,
+    disabled,
     active,
     focus,
     hover,
