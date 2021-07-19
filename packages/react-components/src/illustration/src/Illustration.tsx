@@ -79,7 +79,7 @@ export function InnerIllustration({
         }
     }), []));
 
-    console.log("*** image: ", image);
+    console.log("*** illustration image: ", image);
 
     return (
         <Box
