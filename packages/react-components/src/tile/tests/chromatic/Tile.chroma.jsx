@@ -4,7 +4,7 @@ import { Heading } from "@react-components/typography";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Tile } from "@react-components/tile";
-import { createTestSuite } from "./createTestSuite";
+import { createTileTestSuite } from "./createTileTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -13,9 +13,9 @@ function stories(segment) {
         .build();
 }
 
-createTestSuite(<Tile orientation="horizontal" style={{ "width": "600px" }} />, stories("/horizontal"));
+createTileTestSuite(<Tile orientation="horizontal" style={{ "width": "600px" }} />, stories("/horizontal"));
 
-createTestSuite(<Tile orientation="vertical" style={{ "width": "300px" }} />, stories("/vertical"));
+createTileTestSuite(<Tile orientation="vertical" style={{ "width": "300px" }} />, stories("/vertical"));
 
 stories()
     .add("images", () =>

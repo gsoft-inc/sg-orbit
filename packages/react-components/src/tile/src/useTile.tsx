@@ -11,6 +11,7 @@ export interface UseTileProps extends InteractionStatesProps {
 
 export function useTile({
     variant,
+    orientation,
     active,
     focus,
     hover,
@@ -49,6 +50,7 @@ export function useTile({
             className: cssModule(
                 "o-ui-tile",
                 variant,
+                orientation,
                 active && "active",
                 focus && "focus",
                 hover && "hover"

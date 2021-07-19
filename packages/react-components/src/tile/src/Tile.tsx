@@ -110,8 +110,7 @@ export function InnerTile(props: InnerTileProps) {
                 rest,
                 {
                     className: cssModule(
-                        "o-ui-tile",
-                        orientation
+                        "o-ui-tile"
                     ),
                     onClick: handleClick,
                     value,
