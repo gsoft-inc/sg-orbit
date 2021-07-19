@@ -12,6 +12,12 @@
     cursor: pointer;
     box-shadow: var(--o-ui-global-shadow-200);
 }
+
+/* HEADING */
+.o-ui-tile-heading {
+    display: block;
+}
+
 /* STATES */
 /* HOVER */
 .o-ui-tile:not([disabled]):hover,
