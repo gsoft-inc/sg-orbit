@@ -48,7 +48,7 @@ export interface InnerTileLinkProps extends InteractionStatesProps {
 
 export function InnerTileLink({
     disabled,
-    orientation,
+    orientation = "vertical",
     active,
     focus,
     hover,

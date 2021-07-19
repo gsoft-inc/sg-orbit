@@ -115,7 +115,6 @@ export function InnerTileGroup({
             {...mergeProps<any>(
                 rest,
                 {
-                    orientation: "horizontal",
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
                     wrap: true,
