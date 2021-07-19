@@ -102,36 +102,96 @@ stories()
         </TileGroup>
     )
     .add("vertical", () =>
-        <TileGroup orientation="vertical" rowSize={3}>
-            <TileLink href="https://www.google.com">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </TileLink>
-        </TileGroup>
+        <Stack>
+            <TileGroup selectionMode="none" orientation="vertical" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+            <TileGroup selectionMode="single" orientation="vertical" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+            <TileGroup selectionMode="multiple" orientation="vertical" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+        </Stack>
     )
     .add("horizontal", () =>
-        <TileGroup orientation="horizontal" rowSize={3}>
-            <TileLink href="https://www.google.com">
-                <Heading>Map</Heading>
-                <Content>View space map</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
-                <Heading>Setting</Heading>
-                <Content>Cockpit settings</Content>
-            </TileLink>
-        </TileGroup>
+        <Stack>
+            <TileGroup selectionMode="none" orientation="horizontal" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+            <TileGroup selectionMode="single" orientation="horizontal" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+            <TileGroup selectionMode="multiple" orientation="horizontal" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
+        </Stack>
     )
     .add("disabled", () =>
         <Stack>
@@ -150,6 +210,20 @@ stories()
                 </TileLink>
             </TileGroup>
             <TileGroup selectionMode="single" disabled rowSize={3}>
+                <Tile value="map">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </Tile>
+                <Tile value="fuel">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile value="setting">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </Tile>
+            </TileGroup>
+            <TileGroup selectionMode="multiple" disabled rowSize={3}>
                 <Tile value="map">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>

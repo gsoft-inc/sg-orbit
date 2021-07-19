@@ -2,7 +2,19 @@ import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
 import { RadioGroup } from "../../radio";
-import { arrayify, augmentElement, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
+import {
+    arrayify,
+    augmentElement,
+    forwardRef,
+    isNil,
+    isNumber,
+    mergeProps,
+    useAutoFocusChild,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useMergedRefs
+} from "../../shared";
 
 export interface InnerTileGroupProps {
     /**
