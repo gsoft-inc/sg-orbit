@@ -1,10 +1,11 @@
-import { Apollo11Badge, NoResults } from "./assets";
+import { Apollo11Badge } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
 import { Illustration, InnerIllustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
+import { ReactComponent as NoResults } from "./assets/no-results.svg";
 
 <Meta
     title="Components/Illustration"
@@ -29,7 +30,7 @@ An illustration can render horizontally.
 <Preview scope={{ NoResults }}>
     <Story name="horizontal">
         <Illustration>
-            <Image src={NoResults} alt="No Results" />
+            <NoResults slot="image" style={{ stroke: "var(--o-ui-alias-icon-1)" }} />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
         </Illustration>
@@ -67,7 +68,7 @@ An illustration backgroud color can be a name from our foundations (e.g. `sunray
 <Preview scope={{ NoResults }}>
     <Story name="color">
         <Illustration color="--o-ui-alias-background-info-1" style={{ height: "300px" }}>
-            <Image src={NoResults} alt="No Results" />
+            <NoResults slot="image" style={{ stroke: "var(--o-ui-alias-icon-1)" }} />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
         </Illustration>
