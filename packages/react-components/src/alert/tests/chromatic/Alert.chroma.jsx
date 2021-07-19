@@ -4,14 +4,6 @@ import { Heading } from "@react-components/typography";
 import { createTestSuite } from "./createTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
-/*
-JEST TEST:
-- autofocus primary button when autoFocusButton is "primary"
-- autofocus secondary button when autoFocusButton is "secondary"
-- autofocus cancel button when autoFocusButton is "cancel"
-- when autoFocusButton is not specified, the primary button is focused
-*/
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Alert")
         .segment(segment)

@@ -25,25 +25,25 @@ export function useTile({
             className: "o-ui-tile-image"
         },
         illustration: {
+            orientation: orientation === "horizontal" ? "vertical" : "horizontal",
             className: "o-ui-tile-illustration"
         },
         heading: {
             className: "o-ui-tile-heading",
             size: "xs",
-            as: "h5"
+            as: "span"
         },
         content: {
             className: "o-ui-tile-content",
             as: Text
         }
-    }), []));
+    }), [orientation]));
 
     const imageMarkup = image && (
         <Box className="o-ui-tile-thumbnail">
             {image}
         </Box>
     );
-
 
     return {
         tileProps: {

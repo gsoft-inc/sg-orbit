@@ -11,10 +11,6 @@ export interface InnerTileProps extends InteractionStatesProps {
      */
     checked?: boolean | null;
     /**
-     * The orientation of the card.
-     */
-    orientation: "horizontal" | "vertical";
-    /**
      * The initial value of `checked` when uncontrolled.
      */
     defaultChecked?: boolean;
@@ -29,6 +25,10 @@ export interface InnerTileProps extends InteractionStatesProps {
      * @returns {void}
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
+    /**
+     * The orientation of the tile.
+     */
+    orientation?: "horizontal" | "vertical";
     /**
      * Whether or not the tile should autoFocus on render.
      */

@@ -2,7 +2,19 @@ import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
 import { RadioGroup } from "../../radio";
-import { arrayify, augmentElement, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
+import {
+    arrayify,
+    augmentElement,
+    forwardRef,
+    isNil,
+    isNumber,
+    mergeProps,
+    useAutoFocusChild,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useMergedRefs
+} from "../../shared";
 
 export interface InnerTileGroupProps {
     /**
@@ -28,6 +40,10 @@ export interface InnerTileGroupProps {
      * @returns {void}
      */
     onChange?: (event: SyntheticEvent, value: string[]) => void;
+    /**
+     * The orientation of the group tiles.
+     */
+    orientation?: "horizontal" | "vertical";
     /**
      * Whether or not the first tile of the group should autoFocus on render.
      */
@@ -97,6 +113,7 @@ export function InnerTileGroup({
     selectionMode = "none",
     rowSize = 1,
     onChange,
+    orientation,
     disabled,
     children,
     forwardedRef,
@@ -115,6 +132,7 @@ export function InnerTileGroup({
             {...mergeProps<any>(
                 rest,
                 {
+                    orientation: "horizontal",
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
                     wrap: true,
@@ -131,6 +149,7 @@ export function InnerTileGroup({
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
+                    orientation,
                     disabled: selectionMode === "none" ? disabled : undefined,
                     style: {
                         width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
