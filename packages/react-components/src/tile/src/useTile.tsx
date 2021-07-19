@@ -25,6 +25,7 @@ export function useTile({
             className: "o-ui-tile-image"
         },
         illustration: {
+            orientation: orientation === "horizontal" ? "vertical" : "horizontal",
             className: "o-ui-tile-illustration"
         },
         heading: {
@@ -36,14 +37,13 @@ export function useTile({
             className: "o-ui-tile-content",
             as: Text
         }
-    }), []));
+    }), [orientation]));
 
     const imageMarkup = image && (
         <Box className="o-ui-tile-thumbnail">
             {image}
         </Box>
     );
-
 
     return {
         tileProps: {
