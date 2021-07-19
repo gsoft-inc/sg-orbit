@@ -11,6 +11,22 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <TileGroup autoFocus rowSize={3}>
+            <Tile value="map">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </Tile>
+            <Tile value="fuel">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </Tile>
+            <Tile value="setting">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </Tile>
+        </TileGroup>
+    )
     .add("selection", () =>
         <Stack>
             <TileGroup defaultValue={["fuel"]} selectionMode="single" rowSize={3}>

@@ -18,9 +18,8 @@
                 show={show}
                 onDismiss={toggleVisibility}
             >
-                <EmailIcon />
-                <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-                <Button>Undo</Button>
+                <Content>We offer the safest space travel of the industry!</Content>
+                <Button>Book now</Button>
             </Message>
         </Stack>
     );
