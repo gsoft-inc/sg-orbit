@@ -9,6 +9,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Nasa, NasaHeadquarters } from "./assets";
 import { Tabs } from "@react-components/tabs";
+import { Tile } from "@react-components/tile";
 
 <Meta
     title="Components/Card"
@@ -34,15 +35,21 @@ A card must have an heading and a content.
 
 <Preview>
     <Story name="default">
-        <Card>
-            <Heading>NASA Headquarters</Heading>
-            <Content>
+        <Inline>
+            <Card>
+                <Heading>NASA Headquarters</Heading>
+                <Content>
                 300 E. Street SW, Suite 5R30<br/>
                 Washington, DC 20546<br/>
                 (202) 358-0001 (Office)<br/>
                 (202) 358-4338 (Fax)
-            </Content>
-        </Card>
+                </Content>
+            </Card>
+            <Tile>
+                <Heading>Buy a ticket</Heading>
+                <Content>Purchase a ticket for any of our space travel adventure.</Content>
+            </Tile>
+        </Inline>
     </Story>
 </Preview>
 
@@ -53,8 +60,8 @@ A card can have an [image](?path=/story/chromatic-image--default):
 <Preview scope={{ NasaHeadquarters }}>
     <Story name="image">
         <Card>
-            <Image src={NasaHeadquarters} alt="Nasa headquarters" />
-            <Heading>Nasa Headquarters</Heading>
+            <Image src={ NasaHeadquarters } alt="Nasa headquarters" />
+            <Heading>NASA Headquarters</Heading>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
                 Washington, DC 20546<br/>
@@ -73,7 +80,7 @@ Or an [illustration](?path=/docs/illustration--horizontal):
             <Illustration color="marine-100">
                 <Image src={Nasa} alt="Nasa" width="100px" />
             </Illustration>
-            <Heading>Nasa Headquarters</Heading>
+            <Heading>NASA Headquarters</Heading>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
                 Washington, DC 20546<br/>
@@ -91,7 +98,7 @@ A card can have an header.
 <Preview>
     <Story name="header">
         <Card>
-            <Heading>Nasa Headquarters</Heading>
+            <Heading>NASA Headquarters</Heading>
             <Header>No unexpected visitors allowed.</Header>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
@@ -110,7 +117,7 @@ A card can have a single [button](?path=/docs/button--default-story):
 <Preview>
     <Story name="button">
         <Card>
-            <Heading>Nasa Headquarters</Heading>
+            <Heading>NASA Headquarters</Heading>
             <Header>No unexpected visitors allowed.</Header>
             <Content>
                 300 E. Street SW, Suite 5R30<br/>
@@ -128,7 +135,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 <Preview>
     <Story name="buttons">
         <Card>
-            <Heading>Nasa Headquarters</Heading>
+            <Heading>NASA Headquarters</Heading>
             <Content>
                 <Paragraph>
                     300 E. Street SW, Suite 5R30<br/>
@@ -158,7 +165,7 @@ A card can render horizontally.
             <Illustration color="marine-100">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Heading>Nasa</Heading>
+            <Heading>NASA</Heading>
             <Content>
                 <Paragraph>
                     300 E. Street SW, Suite 5R30<br/>
@@ -244,7 +251,7 @@ A card can take the width of its container.
             <Illustration color="marine-100" style={{ width: "150px" }}>
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Heading>Nasa</Heading>
+            <Heading>NASA</Heading>
             <Content>
                 <Paragraph>
                     300 E. Street SW, Suite 5R30<br/>
@@ -267,7 +274,7 @@ A card can render any components like [tabs](?path=/story/tabs--default-story).
 <Preview>
     <Story name="tabs">
         <Card>
-            <Heading>Nasa</Heading>
+            <Heading>NASA</Heading>
             <Content>
                 <Tabs aria-label="NASA">
                     <Item key="vision">

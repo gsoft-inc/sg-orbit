@@ -29,7 +29,7 @@ export function useTile({
         },
         heading: {
             className: "o-ui-tile-heading",
-            size: "2xs",
+            size: "xs",
             as: "h5"
         },
         content: {

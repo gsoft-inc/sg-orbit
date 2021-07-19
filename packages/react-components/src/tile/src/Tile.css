@@ -55,7 +55,7 @@
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
-    background-color: var(--o-ui-alias-background-1-active);
+    background-color: var(--o-ui-alias-background-4);
     border-color: var(--o-ui-alias-border-1-active);
 }
 
@@ -147,10 +147,15 @@
     padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
 }
 
+/* HEADING */
+.o-ui-tile-heading {
+    margin-bottom: var(--o-ui-global-scale-delta);
+}
+
 /* ORIENTATIONS */
 .o-ui-tile.o-ui-tile-vertical {
     text-align: center;
-    align-items: center;
+    align-items: start;
     grid-template-areas:
         "image"
         "aside";

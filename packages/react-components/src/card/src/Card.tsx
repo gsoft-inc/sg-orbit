@@ -56,7 +56,7 @@ export function InnerCard({
         },
         heading: {
             className: "o-ui-card-heading",
-            size: "sm",
+            size: "xs",
             as: "h5"
         },
         header: {

@@ -70,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--o-ui-global-scale-foxtrot);
+    margin-bottom: var(--o-ui-global-scale-delta);
 }
 
 .o-ui-card-footer-section {
@@ -112,7 +112,7 @@
 .o-ui-card-horizontal .o-ui-card-aside {
     grid-area: aside;
     align-content: start;
-    padding: var(--o-ui-global-scale-golf);
+    padding: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-card-horizontal .o-ui-card-illustration + .o-ui-card-aside {
@@ -123,12 +123,12 @@
 .o-ui-card-vertical .o-ui-card-aside {
     grid-column-start: 1;
     grid-column-end: 3;
-    padding: var(--o-ui-global-scale-golf);
+    padding: var(--o-ui-global-scale-echo);
 }
 
 .o-ui-card-vertical .o-ui-card-illustration + .o-ui-card-aside,
 .o-ui-card-vertical .o-ui-card-image + .o-ui-card-aside {
-    padding: var(--o-ui-global-scale-foxtrot) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf) var(--o-ui-global-scale-golf);
+    padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
 }
 
 /* IMAGE */
