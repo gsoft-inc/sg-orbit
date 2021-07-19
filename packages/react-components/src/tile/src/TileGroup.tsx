@@ -1,14 +1,18 @@
 import { CheckboxGroup } from "../../checkbox";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
-import { Group } from "../../group";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
+import { Group, GroupProps } from "../../group";
 import { RadioGroup } from "../../radio";
-import { arrayify, augmentElement, forwardRef, isNil, mergeProps, useEventCallback } from "../../shared";
+import { arrayify, augmentElement, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
 
 export interface InnerTileGroupProps {
     /**
      * The value of the tile group.
      */
     value?: string[] | null;
+    /**
+     * The initial value of `value`.
+     */
+    defaultValue?: string[];
     /**
      * The type of selection that is allowed.
      */
@@ -46,14 +50,50 @@ export interface InnerTileGroupProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+// @ts-ignore
+export interface UnselectableGroupProps extends GroupProps {
+    autoFocus?: boolean | number;
+}
+
+const UnselectableGroup = reactForwardRef(({ autoFocus, children, ...rest }: UnselectableGroupProps, ref) => {
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const groupRef = useMergedRefs(setFocusRef, ref);
+
+    const focusManager = useFocusManager(focusScope);
+
+    useAutoFocusChild(focusManager, {
+        isDisabled: !autoFocus,
+        delay: isNumber(autoFocus) ? autoFocus : undefined
+    });
+
+    return (
+        <Group
+            {...rest}
+            ref={groupRef}
+        >
+            {children}
+        </Group>
+    );
+});
+
 const GroupType = {
-    "none": Group,
+    "none": UnselectableGroup,
     "single": RadioGroup,
     "multiple": CheckboxGroup
 };
 
+function denormalizeValue(value: string[] | null, selectionMode: "single" | "multiple") {
+    if (!isNil(value) && selectionMode === "single") {
+        return value[0];
+    }
+
+    return value;
+}
+
 export function InnerTileGroup({
     value,
+    defaultValue,
     selectionMode = "none",
     rowSize = 1,
     onChange,
@@ -83,7 +123,8 @@ export function InnerTileGroup({
                     ref: forwardedRef
                 },
                 selectionMode === "none" ? {} : {
-                    value,
+                    value: denormalizeValue(value, selectionMode),
+                    defaultValue: denormalizeValue(defaultValue, selectionMode),
                     onChange: handleChange,
                     disabled
                 }

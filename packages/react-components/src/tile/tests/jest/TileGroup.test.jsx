@@ -7,9 +7,96 @@ import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
-test("when autofocus is true, the first tile is focused on render", async () => {
+test("when selectionMode is \"single\" and a value is specified, the tile matching the value is checked", async () => {
     const { getByTestId } = render(
-        <TileGroup autoFocus>
+        <TileGroup value={["2"]} selectionMode="single">
+            <Tile value="1">
+                <Heading>1</Heading>
+                <Content>1</Content>
+            </Tile>
+            <Tile value="2" data-testid="tile-2">
+                <Heading>2</Heading>
+                <Content>2</Content>
+            </Tile>
+        </TileGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
+});
+
+test("when selectionMode is \"single\" and a default value is specified, the tile matching the value is checked", async () => {
+    const { getByTestId } = render(
+        <TileGroup defaultValue={["2"]} selectionMode="single">
+            <Tile value="1">
+                <Heading>1</Heading>
+                <Content>1</Content>
+            </Tile>
+            <Tile value="2" data-testid="tile-2">
+                <Heading>2</Heading>
+                <Content>2</Content>
+            </Tile>
+        </TileGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
+});
+
+test("when selectionMode is \"none\" and autofocus is true, the first tile is focused on render", async () => {
+    const { getByTestId } = render(
+        <TileGroup autoFocus selectionMode="none">
+            <Tile data-testid="tile-1">
+                <Heading>1</Heading>
+                <Content>1</Content>
+            </Tile>
+            <Tile>
+                <Heading>2</Heading>
+                <Content>2</Content>
+            </Tile>
+        </TileGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("tile-1")).toHaveFocus());
+});
+
+test("when selectionMode is \"single\" and autofocus is true, the first tile is focused on render", async () => {
+    const { getByTestId } = render(
+        <TileGroup autoFocus selectionMode="single">
+            <Tile data-testid="tile-1">
+                <Heading>1</Heading>
+                <Content>1</Content>
+            </Tile>
+            <Tile>
+                <Heading>2</Heading>
+                <Content>2</Content>
+            </Tile>
+        </TileGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("tile-1")).toHaveFocus());
+});
+
+test("when selectionMode is \"single\", there is a selected title and autofocus is true, the selected tile is focused on render", async () => {
+    const { getByTestId } = render(
+        <TileGroup autoFocus defaultValue={["2"]} selectionMode="single">
+            <Tile value="1" data-testid="tile-1">
+                <Heading>1</Heading>
+                <Content>1</Content>
+            </Tile>
+            <Tile value="2" data-testid="tile-2">
+                <Heading>2</Heading>
+                <Content>2</Content>
+            </Tile>
+        </TileGroup>
+    );
+
+    await waitFor(() => expect(getByTestId("tile-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(getByTestId("tile-2")).toHaveFocus());
+});
+
+test("when selectionMode is \"multiple\" and autofocus is true, the first tile is focused on render", async () => {
+    const { getByTestId } = render(
+        <TileGroup autoFocus selectionMode="multiple">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
                 <Content>1</Content>

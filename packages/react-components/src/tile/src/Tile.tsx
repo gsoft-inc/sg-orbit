@@ -2,7 +2,7 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, isNil,isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 export interface InnerTileProps extends InteractionStatesProps {
@@ -113,6 +113,7 @@ export function InnerTile(props: InnerTileProps) {
                         "o-ui-tile"
                     ),
                     onClick: handleClick,
+                    value,
                     [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
                     as,
                     ref
