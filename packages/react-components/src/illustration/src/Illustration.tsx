@@ -79,8 +79,6 @@ export function InnerIllustration({
         }
     }), []));
 
-    console.log("*** illustration image: ", image);
-
     return (
         <Box
             {...mergeProps<any>(

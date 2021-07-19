@@ -74,8 +74,6 @@ export function InnerCard({
         }
     }), [orientation]));
 
-    console.log("*** card image: ", image);
-
     const headerMarkup = isString(header?.props?.children)
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
         : header;

@@ -4,6 +4,52 @@ import { Heading } from "@react-components/typography";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
+// ***** Behaviors *****
+
+test("when autoFocusButton value is \"primary\", autofocus the primary button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="primary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
+    );
+
+    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
+});
+
+test("when autoFocusButton value is \"secondary\", autofocus the secondary button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="secondary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
+    );
+
+    await waitFor(() => expect(getByText("Secondary").parentElement).toHaveFocus());
+});
+
+test("when autoFocusButton value is \"cancel\", autofocus the cancel button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="cancel" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
+    );
+
+    await waitFor(() => expect(getByText("Cancel").parentElement).toHaveFocus());
+});
+
+test("when autoFocusButton value is not defined, autofocus the primary button", async () => {
+    const { getByText } = render(
+        <Alert primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
+    );
+
+    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
