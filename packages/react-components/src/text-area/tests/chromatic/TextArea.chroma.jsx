@@ -86,27 +86,30 @@ stories()
     .add("states", () =>
         <Stack>
             <Inline verticalAlign="end">
+                <TextArea loading placeholder="Where to?" />
+                <TextArea disabled placeholder="Where to?" />
+                <TextArea readOnly placeholder="Where to?" />
+            </Inline>
+            <Inline verticalAlign="end">
                 <TextArea active placeholder="Where to?" />
                 <TextArea loading active placeholder="Where to?" />
+                <TextArea disabled active placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextArea focus placeholder="Where to?" />
                 <TextArea loading focus placeholder="Where to?" />
+                <TextArea disabled focus placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextArea hover placeholder="Where to?" />
                 <TextArea loading hover placeholder="Where to?" />
+                <TextArea disabled hover placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextArea focus hover placeholder="Where to?" />
                 <TextArea loading focus hover placeholder="Where to?" />
+                <TextArea disabled focus hover placeholder="Where to?" />
             </Inline>
-            <div>
-                <TextArea disabled placeholder="Where to?" />
-            </div>
-            <div>
-                <TextArea readOnly placeholder="Where to?" />
-            </div>
         </Stack>
     )
     .add("autosize", () =>

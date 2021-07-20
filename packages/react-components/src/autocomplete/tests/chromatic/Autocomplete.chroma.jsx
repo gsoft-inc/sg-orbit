@@ -283,12 +283,36 @@ stories()
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
+                <Autocomplete readOnly placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+            <Inline>
                 <Autocomplete disabled placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-                <Autocomplete readOnly placeholder="Select a planet" aria-label="Planets">
+                <Autocomplete disabled active placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete disabled focus placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+            </Inline>
+            <Inline>
+                <Autocomplete disabled hover placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Autocomplete>
+                <Autocomplete disabled focus hover placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>

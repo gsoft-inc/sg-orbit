@@ -73,14 +73,22 @@ stories()
         </Inline>
     )
     .add("states", () =>
-        <Stack>
-            <DateRangeInput active />
-            <DateRangeInput focus />
-            <DateRangeInput hover />
-            <DateRangeInput focus hover />
-            <DateRangeInput disabled />
-            <DateRangeInput readOnly />
-        </Stack>
+        <Inline>
+            <Stack>
+                <DateRangeInput active />
+                <DateRangeInput focus />
+                <DateRangeInput hover />
+                <DateRangeInput focus hover />
+                <DateRangeInput readOnly />
+            </Stack>
+            <Stack>
+                <DateRangeInput disabled />
+                <DateRangeInput disabled active />
+                <DateRangeInput disabled focus />
+                <DateRangeInput disabled hover />
+                <DateRangeInput disabled focus hover />
+            </Stack>
+        </Inline>
     )
     .add("styling", () =>
         <Inline>

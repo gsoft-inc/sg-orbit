@@ -16,7 +16,15 @@ export function createLinkTestSuite(element, stories) {
                 <Link focus href="#" element={element} />
                 <Link hover href="#" element={element} />
                 <Link focus hover href="#" element={element} />
+            </Inline>
+        )
+        .add("disabled states", () =>
+            <Inline wrap>
                 <Link disabled href="#" element={element} />
+                <Link disabled active href="#" element={element} />
+                <Link disabled focus href="#" element={element} />
+                <Link disabled hover href="#" element={element} />
+                <Link disabled focus hover href="#" element={element} />
             </Inline>
         )
         .add("external", () =>

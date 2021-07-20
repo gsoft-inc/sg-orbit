@@ -56,9 +56,29 @@ export function createIconLinkTestSuite(element, stories) {
                     <IconLink focus hover size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                     <IconLink focus hover aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 </Inline>
+            </Stack>
+        )
+        .add("disabled states", () =>
+            <Stack>
                 <Inline verticalAlign="end">
                     <IconLink disabled size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                     <IconLink disabled aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconLink disabled active size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                    <IconLink disabled active aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconLink disabled focus size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                    <IconLink disabled focus aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconLink disabled hover size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                    <IconLink disabled hover aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconLink disabled focus hover size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                    <IconLink disabled focus hover aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 </Inline>
             </Stack>
         )
