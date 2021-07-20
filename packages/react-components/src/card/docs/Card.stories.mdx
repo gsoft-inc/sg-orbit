@@ -10,7 +10,6 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Nasa, NasaHeadquarters } from "./assets";
 import { Tabs } from "@react-components/tabs";
-import { Tile } from "@react-components/tile";
 
 <Meta
     title="Components/Card"
@@ -36,18 +35,12 @@ A card must have an heading and a content.
 
 <Preview>
     <Story name="default">
-        <Inline>
-            <Card>
-                <Heading>NASA Headquarters</Heading>
-                <Content>
-                    <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
-                </Content>
-            </Card>
-            <Tile>
-                <Heading>Buy a ticket</Heading>
-                <Content>Purchase a ticket for any of our space travel adventure.</Content>
-            </Tile>
-        </Inline>
+        <Card>
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+        </Card>
     </Story>
 </Preview>
 
