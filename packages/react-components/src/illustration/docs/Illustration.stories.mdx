@@ -4,7 +4,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
 import { Illustration, InnerIllustration } from "@react-components/illustration";
-import { Image } from "@react-components/image";
+import { Image, SvgImage } from "@react-components/image";
 import { ReactComponent as NoResults } from "./assets/no-results.svg";
 
 <Meta
@@ -30,7 +30,7 @@ An illustration can render horizontally.
 <Preview scope={{ NoResults }}>
     <Story name="horizontal">
         <Illustration>
-            <NoResults slot="image" style={{ stroke: "var(--o-ui-alias-icon-1)" }} />
+            <SvgImage src={NoResults} stroke="alias-icon-1" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
         </Illustration>
@@ -67,8 +67,8 @@ An illustration backgroud color can be a name from our foundations (e.g. `sunray
 
 <Preview scope={{ NoResults }}>
     <Story name="color">
-        <Illustration color="--o-ui-alias-background-info-1" style={{ height: "300px" }}>
-            <NoResults slot="image" style={{ stroke: "var(--o-ui-alias-icon-1)" }} />
+        <Illustration color="alias-background-info-1" style={{ height: "300px" }}>
+            <SvgImage src={NoResults} stroke="alias-icon-1" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
         </Illustration>
