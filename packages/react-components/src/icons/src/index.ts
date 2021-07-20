@@ -7,15 +7,15 @@ export * from "./MultiVariantIcon";
 export * from "./IconList";
 export * from "./EmbeddedIcon";
 
-function createOrbitIcon(source: ElementType, displayName: string) {
-    const Component = createIcon(source);
+function createOrbitIcon(src: ElementType, displayName: string) {
+    const Component = createIcon(src);
     Component.displayName = displayName;
 
     return Component;
 }
 
-function createOrbitMultiVariantIcon(source24: ElementType, source32: ElementType, displayName: string) {
-    const Component = createMultiVariantIcon(source24, source32);
+function createOrbitMultiVariantIcon(src24: ElementType, src32: ElementType, displayName: string) {
+    const Component = createMultiVariantIcon(src24, src32);
     Component.displayName = displayName;
 
     return Component;

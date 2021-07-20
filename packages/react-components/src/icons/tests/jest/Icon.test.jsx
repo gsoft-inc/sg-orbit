@@ -4,7 +4,7 @@ import { render, waitFor } from "@testing-library/react";
 
 function createAzureIcon(props = {}) {
     return <Icon
-        type={AzureIcon32}
+        src={AzureIcon32}
         {...props}
     />;
 }

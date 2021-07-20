@@ -32,6 +32,10 @@ export interface InnerSvgImageProps extends AriaLabelingProps {
      */
     "aria-label": string;
     /**
+     * Default slot override.
+     */
+    slot?: string;
+    /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;

@@ -37,6 +37,10 @@ export interface InnerImageProps {
      */
     position?: string;
     /**
+     * Default slot override.
+     */
+    slot?: string;
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;

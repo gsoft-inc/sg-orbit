@@ -14,28 +14,28 @@ export interface InnerMultiVariantIconProps {
     /**
      * An icon as a React component for the 24px variant.
      */
-    type24: ElementType;
+    src24: ElementType;
     /**
      * An icon as a React component for the 32px variant.
      */
-    type32: ElementType;
+    src32: ElementType;
     /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
 }
 
-export const InnerMultiVariantIcon = (({ type24: Component24, type32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {
-    let type = Component24;
+export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {
+    let src = Component24;
 
     if (size === "lg" || size === "xl") {
-        type = Component32;
+        src = Component32;
     }
 
     return (
         <Icon
             {...rest}
-            type={type}
+            src={src}
             size={size}
             ref={forwardedRef}
         />
@@ -52,12 +52,12 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 
 ////////
 
-export function createMultiVariantIcon(type24: ElementType, type32: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "type24" | "type32">, "svg">((props, ref) =>
+export function createMultiVariantIcon(src24: ElementType, src32: ElementType) {
+    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "src24" | "src32">, "svg">((props, ref) =>
         <InnerMultiVariantIcon
             {...props}
-            type24={type24}
-            type32={type32}
+            src24={src24}
+            src32={src32}
             forwardedRef={ref}
         />
     ));
