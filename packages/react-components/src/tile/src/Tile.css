@@ -21,7 +21,7 @@
 
 /* STATES */
 /* HOVER */
-.o-ui-tile:not([disabled]):hover,
+.o-ui-tile:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]):hover,
 .o-ui-tile-hover {
     border-color: var(--o-ui-alias-border-1-hover);
     background-color: var(--o-ui-alias-background-6-hover);
@@ -79,17 +79,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--o-ui-alias-text-1);
+    mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
 }
 
-.o-ui-tile:hover:not([disabled])::before {
-    opacity: 1;
+.o-ui-tile-checkable:hover:not([disabled]):not([aria-checked="true"]):not([aria-pressed="true"])::before {
+    opacity: 0.8;
 }
 
 .o-ui-tile[aria-checked="true"]::before,
 .o-ui-tile[aria-pressed="true"]::before {
     opacity: 1;
-    background-color: var(--o-ui-alias-text-1);
-    mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
 }
 
 /* DISABLED */
