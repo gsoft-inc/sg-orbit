@@ -101,42 +101,70 @@ export function createIconButtonTestSuite(element, stories) {
             </Stack>
         )
         .add("states", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <IconButton active size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton active size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton active size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton active aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading active aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton focus size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading focus aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton hover aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading hover aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton focus hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton focus hover aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading focus hover aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton disabled size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton disabled size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton disabled size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton disabled aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
+            <Inline>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <IconButton active size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton active size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton active size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton active aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton loading active aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton focus size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton loading focus aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton loading hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton focus hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton focus hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton loading focus hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                </Stack>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <IconButton disabled size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton disabled active size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled active size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled active size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled active aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton disabled focus size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton disabled hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <IconButton disabled focus hover size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus hover size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus hover size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                        <IconButton disabled focus hover aria-label="Add" element={element}><AddIcon /></IconButton>
+                    </Inline>
+                </Stack>
+            </Inline>
         )
         .add("as anchor", () =>
             <IconButton as="a" href="#" aria-label="Add" element={element}><AddIcon /></IconButton>

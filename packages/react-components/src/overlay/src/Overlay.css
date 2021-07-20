@@ -84,7 +84,8 @@
 }
 
 /* STATE | FOCUS */
-.o-ui-overlay-focus-ring:focus-visible {
+.o-ui-overlay-focus-ring:focus-visible,
+.o-ui-overlay-focus-ring-focus {
     outline: none;
 }
 

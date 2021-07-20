@@ -3,6 +3,7 @@ import "./Popover.css";
 import {
     AriaLabelingProps,
     DomProps,
+    InteractionStatesProps,
     forwardRef,
     isNil,
     isString,
@@ -20,7 +21,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, use
 import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
-export interface InnerPopoverProps extends DomProps, AriaLabelingProps {
+export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -37,6 +38,7 @@ export interface InnerPopoverProps extends DomProps, AriaLabelingProps {
 
 export function InnerPopover({
     id,
+    focus,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = "section",
@@ -71,7 +73,7 @@ export function InnerPopover({
         })
     });
 
-    const focusRingProps = useOverlayFocusRing();
+    const focusRingProps = useOverlayFocusRing({ focus });
 
     const popoverId = useId(id, "o-ui-popover");
 

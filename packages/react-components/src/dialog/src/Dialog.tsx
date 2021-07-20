@@ -3,6 +3,7 @@ import "./Dialog.css";
 import {
     AriaLabelingProps,
     DomProps,
+    InteractionStatesProps,
     MergedRef,
     cssModule,
     forwardRef,
@@ -27,7 +28,7 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export interface InnerDialogProps extends DomProps, AriaLabelingProps {
+export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
     /**
      * The dialog role.
      */
@@ -126,6 +127,7 @@ export function InnerDialog({
     role = "dialog",
     size,
     dismissable = true,
+    focus,
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
@@ -181,7 +183,7 @@ export function InnerDialog({
         })
     });
 
-    const focusRingProps = useOverlayFocusRing();
+    const focusRingProps = useOverlayFocusRing({ focus });
 
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         if (!isNil(close)) {
@@ -293,7 +295,8 @@ export function InnerDialog({
                             id: dialogId,
                             className: cssModule(
                                 "o-ui-dialog",
-                                size === "fullscreen" ? size : normalizeSize(size)
+                                size === "fullscreen" ? size : normalizeSize(size),
+                                focus && "focus"
                             ),
                             tabIndex: -1,
                             role,

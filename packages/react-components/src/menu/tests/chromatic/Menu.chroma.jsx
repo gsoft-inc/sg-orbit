@@ -388,6 +388,13 @@ stories()
                     <Item disabled key="neptune">Neptune</Item>
                     <Item key="saturn">Saturn</Item>
                 </Menu>
+                <Menu aria-label="Planets">
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item disabled active key="earth">Earth</Item>
+                    <Item disabled focus key="jupiter">Jupiter</Item>
+                    <Item disabled hover key="mars">Mars</Item>
+                    <Item disabled focus hover key="mercury">Mercury</Item>
+                </Menu>
                 <Menu selectionMode="single" aria-label="Planets">
                     <Item active key="earth">Earth</Item>
                     <Item focus key="jupiter">Jupiter</Item>
@@ -395,6 +402,13 @@ stories()
                     <Item focus hover key="mercury">Mercury</Item>
                     <Item disabled key="neptune">Neptune</Item>
                     <Item key="saturn">Saturn</Item>
+                </Menu>
+                <Menu selectionMode="single" aria-label="Planets">
+                    <Item disabled key="neptune">Neptune</Item>
+                    <Item disabled active key="earth">Earth</Item>
+                    <Item disabled focus key="jupiter">Jupiter</Item>
+                    <Item disabled hover key="mars">Mars</Item>
+                    <Item disabled focus hover key="mercury">Mercury</Item>
                 </Menu>
             </Inline>
         </Stack>

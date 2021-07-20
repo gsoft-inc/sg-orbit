@@ -19,6 +19,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     width: max-content;
     min-width: 200px;
     max-width: 325px;
+    height: max-content;
     box-shadow: var(--o-ui-alias-elevation-lifted);
     overflow-y: auto;
 }

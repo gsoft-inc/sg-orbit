@@ -102,6 +102,12 @@ stories()
             </ButtonGroup>
         </Popover>
     )
+    .add("focused", () =>
+        <Popover focus>
+            <Heading>Space News</Heading>
+            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+        </Popover>
+    )
     .add("className", () =>
         <Popover className="border-red">
             <Heading>Space News</Heading>

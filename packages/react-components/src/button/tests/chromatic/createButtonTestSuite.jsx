@@ -386,32 +386,52 @@ export function createButtonTestSuite(element, stories) {
             </Stack>
         )
         .add("states", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <Button active size="sm" element={element}>Button</Button>
-                    <Button active element={element}>Button</Button>
-                    <Button loading active element={element}>Button</Button>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Button focus size="sm" element={element}>Button</Button>
-                    <Button focus element={element}>Button</Button>
-                    <Button loading focus element={element}>Button</Button>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Button hover size="sm" element={element}>Button</Button>
-                    <Button hover element={element}>Button</Button>
-                    <Button loading hover element={element}>Button</Button>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Button focus hover size="sm" element={element}>Button</Button>
-                    <Button focus hover element={element}>Button</Button>
-                    <Button loading focus hover element={element}>Button</Button>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Button disabled size="sm" element={element}>Button</Button>
-                    <Button disabled element={element}>Button</Button>
-                </Inline>
-            </Stack>
+            <Inline>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Button active size="sm" element={element}>Button</Button>
+                        <Button active element={element}>Button</Button>
+                        <Button loading active element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button focus size="sm" element={element}>Button</Button>
+                        <Button focus element={element}>Button</Button>
+                        <Button loading focus element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button hover size="sm" element={element}>Button</Button>
+                        <Button hover element={element}>Button</Button>
+                        <Button loading hover element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button focus hover size="sm" element={element}>Button</Button>
+                        <Button focus hover element={element}>Button</Button>
+                        <Button loading focus hover element={element}>Button</Button>
+                    </Inline>
+                </Stack>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Button disabled size="sm" element={element}>Button</Button>
+                        <Button disabled element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button disabled active size="sm" element={element}>Button</Button>
+                        <Button disabled active element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button disabled focus size="sm" element={element}>Button</Button>
+                        <Button disabled focus element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button disabled hover size="sm" element={element}>Button</Button>
+                        <Button disabled hover element={element}>Button</Button>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Button disabled focus hover size="sm" element={element}>Button</Button>
+                        <Button disabled focus hover element={element}>Button</Button>
+                    </Inline>
+                </Stack>
+            </Inline>
         )
         .add("as anchor", () =>
             <Button as="a" href="https://www.sharegate.com" target="_blank" element={element}>Button</Button>

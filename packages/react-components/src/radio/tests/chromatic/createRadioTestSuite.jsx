@@ -1,3 +1,4 @@
+import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
@@ -101,23 +102,39 @@ export function createRadioTestSuite(element, stories) {
             </Stack>
         )
         .add("states", () =>
-            <Stack>
-                <div>
-                    <Radio active value="any" element={element}>Milky Way</Radio>
-                </div>
-                <div>
-                    <Radio focus value="any" element={element}>Milky Way</Radio>
-                </div>
-                <div>
-                    <Radio hover value="any" element={element}>Milky Way</Radio>
-                </div>
-                <div>
-                    <Radio focus hover value="any" element={element}>Milky Way</Radio>
-                </div>
-                <div>
-                    <Radio disabled value="any" element={element}>Milky Way</Radio>
-                </div>
-            </Stack>
+            <Inline>
+                <Stack>
+                    <Box>
+                        <Radio active value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio focus value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio hover value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio focus hover value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                </Stack>
+                <Stack>
+                    <Box>
+                        <Radio disabled value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio disabled active value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio disabled focus value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio disabled hover value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                    <Box>
+                        <Radio disabled focus hover value="any" element={element}>Milky Way</Radio>
+                    </Box>
+                </Stack>
+            </Inline>
         )
         .add("overflow", () =>
             <Stack>

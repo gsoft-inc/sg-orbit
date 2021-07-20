@@ -174,28 +174,48 @@ export function createCheckboxTestSuite(element, stories) {
             </Stack>
         )
         .add("states", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <Checkbox active size="sm" element={element}>Milky Way</Checkbox>
-                    <Checkbox active element={element}>Milky Way</Checkbox>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Checkbox focus size="sm" element={element}>Milky Way</Checkbox>
-                    <Checkbox focus element={element}>Milky Way</Checkbox>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Checkbox hover size="sm" element={element}>Milky Way</Checkbox>
-                    <Checkbox hover element={element}>Milky Way</Checkbox>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Checkbox focus hover size="sm" element={element}>Milky Way</Checkbox>
-                    <Checkbox focus hover element={element}>Milky Way</Checkbox>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Checkbox disabled size="sm" element={element}>Milky Way</Checkbox>
-                    <Checkbox disabled element={element}>Milky Way</Checkbox>
-                </Inline>
-            </Stack>
+            <Inline>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Checkbox active size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox active element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox focus size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox focus element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox hover size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox hover element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox focus hover size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox focus hover element={element}>Milky Way</Checkbox>
+                    </Inline>
+                </Stack>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Checkbox disabled size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox disabled element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox disabled active size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox disabled active element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox disabled focus size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox disabled focus element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox disabled hover size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox disabled hover element={element}>Milky Way</Checkbox>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Checkbox disabled focus hover size="sm" element={element}>Milky Way</Checkbox>
+                        <Checkbox disabled focus hover element={element}>Milky Way</Checkbox>
+                    </Inline>
+                </Stack>
+            </Inline>
         )
         .add("overflow", () =>
             <Stack>

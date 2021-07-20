@@ -1,5 +1,14 @@
-export function useOverlayFocusRing() {
+import { cssModule } from "../../shared";
+
+interface UseOverlayFocusRingProps {
+    focus?: boolean;
+}
+
+export function useOverlayFocusRing({ focus }: UseOverlayFocusRingProps = {}) {
     return {
-        className: "o-ui-overlay-focus-ring"
+        className: cssModule(
+            "o-ui-overlay-focus-ring",
+            focus && "focus"
+        )
     };
 }
