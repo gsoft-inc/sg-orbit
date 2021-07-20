@@ -1,5 +1,5 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps } from "../../shared";
+import { InteractionStatesProps, forwardRef, mergeProps } from "../../shared";
 import { Link } from "../../link";
 import { useTile } from "./useTile";
 
@@ -48,7 +48,6 @@ export interface InnerTileLinkProps extends InteractionStatesProps {
 
 export function InnerTileLink({
     orientation = "vertical",
-    disabled,
     active,
     focus,
     hover,
@@ -70,10 +69,7 @@ export function InnerTileLink({
             {...mergeProps(
                 rest,
                 {
-                    className: cssModule(
-                        "o-ui-tile-link",
-                        disabled && "disabled"
-                    ),
+                    className: "o-ui-tile-link",
                     active,
                     focus,
                     hover,
