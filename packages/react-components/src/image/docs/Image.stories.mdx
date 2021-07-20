@@ -1,8 +1,8 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Image, InnerImage } from "@react-components/image";
+import { Image, InnerImage, InnerSvgImage, SvgImage } from "@react-components/image";
 import { Inline } from "@react-components/layout";
-import { LaunchImage, LaunchImage2x, LaunchImageLg } from "./assets";
+import { LaunchImage, LaunchImage2x, LaunchImageLg, NoResults } from "./assets";
 
 <Meta
     title="Components/Image"
@@ -14,7 +14,7 @@ import { LaunchImage, LaunchImage2x, LaunchImageLg } from "./assets";
 <Tagline>Use this component to display an image.</Tagline>
 
 <ComponentInfo
-    usage={"import { Image } from \"@orbit-ui/react-components\";"}
+    usage={"import { Image, SvgImage } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/image/src"
 />
 
@@ -61,6 +61,26 @@ _Avoid serving images that are unecessary big, images should be resized to the i
     </Story>
 </Preview>
 
+## SvgImage
+
+For some use cases, like dark mode support, an SVG image is a better fit than a standard PNG or JPG image. Orbit provide a component for these images which will take care for you of the accessibility attributes and enforce a mandatory `aria-label` attribute.
+
+<Preview scope={{ NoResults }}>
+    <Story name="svg image">
+        <SvgImage src={NoResults} stroke="alias-icon-1" aria-label="No results" />
+    </Story>
+</Preview>
+
+### Color
+
+An SVG image `stroke` and `fill` color can vary.
+
+<Preview scope={{ NoResults }}>
+    <Story name="svg image color">
+        <SvgImage stroke="marine-500" fill="sunray-50" src={NoResults} aria-label="No results" />
+    </Story>
+</Preview>
+
 ## API
 
 ### Image
@@ -71,3 +91,12 @@ _Avoid serving images that are unecessary big, images should be resized to the i
 />
 
 <ArgsTable of={InnerImage} sort="alpha" />
+
+### SvgImage
+
+<ComponentInfo
+    usage={"import { SvgImage } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerSvgImage} sort="alpha" />

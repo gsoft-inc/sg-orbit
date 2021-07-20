@@ -1,10 +1,10 @@
 import "./Icon.css";
 
+import { AriaLabelingProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerIconProps {
+export interface InnerIconProps extends AriaLabelingProps {
     /**
      * An icon as a React component.
      */
@@ -48,6 +48,7 @@ export const InnerIcon = ((props: InnerIconProps) => {
                         disabled && "disabled",
                         size && size === "inherit" ? "inherit-size" : normalizeSize(size)
                     ),
+                    // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
                     focusable: false,
                     as: type,
                     "aria-hidden": isNil(ariaLabel),

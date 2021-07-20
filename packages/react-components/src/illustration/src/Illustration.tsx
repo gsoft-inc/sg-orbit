@@ -43,11 +43,11 @@ function useColor(color: string) {
                 return color;
             } else if (color.startsWith("--")) {
                 return `var(${color})`;
-            } else {
-                const prefix = color.includes("primary") ? "alias" : "global";
-
-                return `var(--o-ui-${prefix}-${color})`;
+            } else if (color.startsWith("alias") || color.startsWith("global")) {
+                return `var(--o-ui-${color})`;
             }
+
+            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
         }
     }, [color]);
 }
