@@ -55,6 +55,9 @@
     --o-ui-alias-background-5: var(--o-ui-global-marine-600);
     --o-ui-alias-background-5-hover: var(--o-ui-global-marine-500);
     --o-ui-alias-background-5-active: var(--o-ui-global-marine-400);
+    --o-ui-alias-background-6: var(--o-ui-global-neutral-dark-900);
+    --o-ui-alias-background-6-hover: var(--o-ui-global-neutral-dark-800);
+    --o-ui-alias-background-6-active: var(--o-ui-global-neutral-dark-700);
     --o-ui-alias-background-primary-1: var(--o-ui-alias-primary-700);
     --o-ui-alias-background-primary-1-hover: var(--o-ui-alias-primary-500);
     --o-ui-alias-background-primary-1-active: var(--o-ui-alias-primary-400);

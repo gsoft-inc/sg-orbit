@@ -16,6 +16,7 @@
 /* HEADING */
 .o-ui-tile-heading {
     display: block;
+    margin-bottom: var(--o-ui-global-scale-delta);
 }
 
 /* STATES */
@@ -23,7 +24,7 @@
 .o-ui-tile:not([disabled]):hover,
 .o-ui-tile-hover {
     border-color: var(--o-ui-alias-border-1-hover);
-    background-color: var(--o-ui-alias-background-1-hover);
+    background-color: var(--o-ui-alias-background-6-hover);
 }
 
 /* FOCUS */
@@ -61,7 +62,7 @@
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
-    background-color: var(--o-ui-alias-background-4);
+    background-color: var(--o-ui-alias-background-6-active);
     border-color: var(--o-ui-alias-border-1-active);
 }
 
@@ -87,7 +88,8 @@
 .o-ui-tile[aria-checked="true"]::before,
 .o-ui-tile[aria-pressed="true"]::before {
     opacity: 1;
-    background-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
+    background-color: var(--o-ui-alias-text-1);
+    mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
 }
 
 /* DISABLED */
@@ -147,20 +149,17 @@
 .o-ui-tile-main {
     padding: var(--o-ui-global-scale-echo);
     grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .o-ui-tile-thumbnail + .o-ui-tile-main {
     padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
 }
 
-/* HEADING */
-.o-ui-tile-heading {
-    margin-bottom: var(--o-ui-global-scale-delta);
-}
-
 /* ORIENTATIONS */
 .o-ui-tile.o-ui-tile-vertical {
-    text-align: center;
     align-items: start;
     grid-template-areas:
         "image"
@@ -173,7 +172,6 @@
 }
 
 .o-ui-tile.o-ui-tile-horizontal {
-    text-align: left;
     grid-template-areas: "image aside";
     grid-template-columns: max-content auto;
 }

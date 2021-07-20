@@ -1,7 +1,9 @@
+import { Apollo11Banner, Apollo11Poster, Nasa } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
 import { Heading, InnerHeading } from "@react-components/typography";
+import { Illustration } from "@react-components/illustration";
 import { InnerTile, InnerTileGroup, InnerTileLink, Tile, TileGroup, TileLink } from "@react-components/tile";
 import { RouterLink } from "./RouterLink";
 
@@ -21,11 +23,11 @@ import { RouterLink } from "./RouterLink";
 
 ## Basic
 
-A basic tile is checkable. It's work like a radio button or a checkbox depending if it's used in a [single or multiple selection context](?path=/docs/tile--tile#tilegroup). An heading and a content is required.
+A basic tile is checkable. It works like a radio button or a checkbox depending if it's used in a [single or multiple selection context](?path=/docs/tile--tile#tilegroup). An heading and a content is required.
 
 <Preview>
     <Story name="tile">
-        <Tile>
+        <Tile style={{ "width": "500px" }}>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -34,9 +36,31 @@ A basic tile is checkable. It's work like a radio button or a checkbox depending
 
 ### Image
 
-A tile can have an [image](?path=/story/chromatic-image--default):
+A tile can have an [image](?path=/story/chromatic-image--default).
 
-Or an [illustration](?path=/docs/illustration--horizontal) with a background color:
+<Preview scope={{ Apollo11Banner }}>
+    <Story name="image">
+        <Tile style={{ "width": "500px" }}>
+            <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </Tile>
+    </Story>
+</Preview>
+
+Or an [illustration](?path=/docs/illustration--horizontal) with a background color.
+
+<Preview scope={{ Nasa }}>
+    <Story name="illustration">
+        <Tile style={{ "width": "500px" }}>
+            <Illustration color="--o-ui-alias-background-info-1">
+                <Image src={Nasa} width="100px" alt="Nasa Logo" />
+            </Illustration>
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </Tile>
+    </Story>
+</Preview>
 
 ### Checked
 
@@ -44,7 +68,7 @@ A tile can be checked.
 
 <Preview>
     <Story name="checked">
-        <Tile defaultChecked>
+        <Tile defaultChecked style={{ "width": "500px" }}>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -57,7 +81,7 @@ A tile can be disabled.
 
 <Preview>
     <Story name="disabled">
-        <Tile>
+        <Tile disabled style={{ "width": "500px" }}>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -66,7 +90,17 @@ A tile can be disabled.
 
 ### Orientation
 
-A title can render horizontally.
+A tile can render horizontally.
+
+<Preview scope={{ Apollo11Poster }}>
+    <Story name="orientation">
+        <Tile style={{ "width": "500px" }} orientation="horizontal">
+            <Image src={Apollo11Poster} alt="Apollo 11 Poster" />
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </Tile>
+    </Story>
+</Preview>
 
 ### Controlled
 
@@ -80,7 +114,7 @@ A tile can also be naviguable. It is similar to a [link](?path=/docs/link--defau
 
 <Preview>
     <Story name="link">
-        <TileLink href="https://www.virgingalactic.com">
+        <TileLink href="https://www.virgingalactic.com" style={{ "width": "500px" }}>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </TileLink>
@@ -93,7 +127,7 @@ To integrate with a third-party routing library like [React Router](https://reac
 
 <Preview scope={{ RouterLink }}>
     <Story name="react router">
-        <TileLink as={RouterLink} to="/buy">
+        <TileLink as={RouterLink} to="/buy" style={{ "width": "500px" }}>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </TileLink>

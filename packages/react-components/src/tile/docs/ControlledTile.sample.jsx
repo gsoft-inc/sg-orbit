@@ -8,6 +8,7 @@
 
     return (
         <Tile
+            style={{ "width": "500px" }}
             checked={isChecked}
             onChange={handleChange}
         >

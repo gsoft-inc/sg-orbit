@@ -8,23 +8,23 @@
 
 /* SIZES */
 .o-ui-card-xs {
-    width: 240px;
+    width: 15rem;
 }
 
 .o-ui-card-sm {
-    width: 320px;
+    width: 20rem;
 }
 
 .o-ui-card-md {
-    width: 480px;
+    width: 30rem;
 }
 
 .o-ui-card-lg {
-    width: 560px;
+    width: 35rem;
 }
 
 .o-ui-card-xl {
-    width: 640px;
+    width: 40rem;
 }
 
 /* FLUID */
@@ -47,7 +47,6 @@
 
 /* VERTICAL */
 .o-ui-card-vertical {
-    text-align: center;
     grid-template-areas:
         "image"
         "aside";
@@ -56,7 +55,6 @@
 
 /* VERTICAL | SECTION */
 .o-ui-card-vertical .o-ui-card-header-section {
-    align-self: center;
     flex-direction: column;
 }
 
@@ -69,18 +67,13 @@
 .o-ui-card-header-section {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     margin-bottom: var(--o-ui-global-scale-delta);
 }
 
 .o-ui-card-footer-section {
     display: flex;
     margin-top: var(--o-ui-global-scale-foxtrot);
-}
-
-/* VERTICAL | SPACING */
-.o-ui-card-vertical .o-ui-card-footer-section {
-    justify-content: center;
 }
 
 /* HEADING */
