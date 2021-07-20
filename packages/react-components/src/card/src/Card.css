@@ -155,7 +155,6 @@
 .o-ui-card-horizontal .o-ui-card-illustration,
 .o-ui-card-horizontal .o-ui-card-image {
     grid-area: image;
-    height: 100%;
     border-bottom-left-radius: inherit;
     border-top-left-radius: inherit;
 }
@@ -197,7 +196,6 @@
 
 .o-ui-card-vertical .o-ui-card-image img {
     width: 100%;
-    height: 100%;
 }
 
 /* IMAGE | HORIZONTAL | SIZES */
