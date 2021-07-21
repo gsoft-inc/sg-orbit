@@ -1,5 +1,5 @@
-import Apollo11Banner from "./apollo-11-banner.png";
-import Apollo11Poster from "./apollo-11-poster.png";
-import Nasa from "./nasa.png";
+import Planet from "./planet.png";
+import SpaceLandscape from "./space-landscape.png";
+import SpacePortrait from "./space-portrait.png";
 
-export { Apollo11Poster, Apollo11Banner, Nasa };
+export { Planet, SpaceLandscape, SpacePortrait };

@@ -1,4 +1,4 @@
-import Apollo11Badge from "./apollo-11-badge.png";
 import NoResults from "./no-results.svg";
+import Planet from "./planet.png";
 
-export { NoResults, Apollo11Badge };
+export { NoResults, Planet };

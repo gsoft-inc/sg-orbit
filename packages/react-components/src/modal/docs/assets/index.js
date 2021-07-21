@@ -1,6 +1,6 @@
-import Apollo11Badge from "./apollo-11-badge.png";
-import Apollo11Poster from "./apollo-11-poster.png";
 import ET from "./et-poster.jpg";
+import Planet from "./planet.png";
+import SpacePortrait from "./space-portrait.png";
 import TheMartian from "./the-martian-poster.jpg";
 
-export { Apollo11Poster, Apollo11Badge, ET, TheMartian };
+export { Planet, ET, TheMartian, SpacePortrait };

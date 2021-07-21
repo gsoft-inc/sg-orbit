@@ -1,10 +1,10 @@
-import { Apollo11Banner, Apollo11Poster, Nasa } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
 import { Heading, InnerHeading } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { InnerTile, InnerTileGroup, InnerTileLink, Tile, TileGroup, TileLink } from "@react-components/tile";
+import { Planet, SpaceLandscape, SpacePortrait } from "./assets";
 import { RouterLink } from "./RouterLink";
 
 <Meta
@@ -38,10 +38,10 @@ A basic tile is checkable. It works like a radio button or a checkbox depending 
 
 A tile can have an [image](?path=/story/chromatic-image--default).
 
-<Preview scope={{ Apollo11Banner }} style={{ "width": "500px" }}>
+<Preview scope={{ SpaceLandscape }} style={{ "width": "500px" }}>
     <Story name="image">
         <Tile>
-            <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
+            <Image src={SpaceLandscape} alt="Planet over another planet" />
             <Heading>Buy a ticket</Heading>
             <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
         </Tile>
@@ -50,11 +50,11 @@ A tile can have an [image](?path=/story/chromatic-image--default).
 
 Or an [illustration](?path=/docs/illustration--horizontal) with a background color.
 
-<Preview scope={{ Nasa }} style={{ "width": "500px" }}>
+<Preview scope={{ Planet }} style={{ "width": "500px" }}>
     <Story name="illustration">
         <Tile>
             <Illustration color="alias-background-info-1">
-                <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                <Image src={Planet} width="100px" alt="Planet" />
             </Illustration>
             <Heading>Buy a ticket</Heading>
             <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes</Content>
@@ -92,10 +92,10 @@ A tile can be disabled.
 
 A tile can render horizontally.
 
-<Preview scope={{ Apollo11Poster }} style={{ "width": "500px" }} >
+<Preview scope={{ SpacePortrait }} style={{ "width": "500px" }} >
     <Story name="orientation">
         <Tile orientation="horizontal">
-            <Image src={Apollo11Poster} alt="Apollo 11 Poster" />
+            <Image src={SpacePortrait} alt="Space Portrait" />
             <Heading>Buy a ticket</Heading>
             <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
         </Tile>

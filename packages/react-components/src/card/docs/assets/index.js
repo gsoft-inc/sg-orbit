@@ -1,4 +1,4 @@
-import Nasa from "./nasa.png";
-import NasaHeadquarters from "./nasa-headquarters.png";
+import Planet from "./planet.png";
+import SpaceLandscape from "./space-landscape.png";
 
-export { Nasa, NasaHeadquarters };
+export { Planet, SpaceLandscape };

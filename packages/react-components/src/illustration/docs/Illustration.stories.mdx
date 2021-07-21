@@ -1,4 +1,3 @@
-import { Apollo11Badge } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@react-components/placeholders";
@@ -6,6 +5,7 @@ import { Heading } from "@react-components/typography";
 import { Illustration, InnerIllustration } from "@react-components/illustration";
 import { Image, SvgImage } from "@react-components/image";
 import { ReactComponent as NoResults } from "./assets/no-results.svg";
+import { Planet } from "./assets";
 
 <Meta
     title="Components/Illustration"
@@ -41,10 +41,10 @@ An illustration can render horizontally.
 
 An illustration can render vertically.
 
-<Preview scope={{ Apollo11Badge }} style={{ height: "500px" }}>
+<Preview scope={{ Planet }} style={{ height: "500px" }}>
     <Story name="vertical">
-        <Illustration orientation="vertical" color="#E7BE68" style={{ width: "225px", padding: "24px" }}>
-            <Image src={Apollo11Badge} alt="Apollo 11 poster" />
+        <Illustration orientation="vertical" color="#998BAF" style={{ width: "225px", padding: "24px" }}>
+            <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
 </Preview>
@@ -53,10 +53,10 @@ An illustration can render vertically.
 
 An illustration can have a `rounded` shape.
 
-<Preview scope={{ Apollo11Badge }}>
+<Preview scope={{ Planet }}>
     <Story name="shape">
-        <Illustration shape="rounded" color="#E7BE68" style={{ height: "225px", padding: "24px" }}>
-            <Image src={Apollo11Badge} alt="Apollo 11 poster" />
+        <Illustration shape="rounded" color="#998BAF" style={{ height: "225px", padding: "24px" }}>
+            <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
 </Preview>

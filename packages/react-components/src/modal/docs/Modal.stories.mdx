@@ -1,10 +1,10 @@
-import { Apollo11Badge, Apollo11Poster, ET, TheMartian } from "./assets";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ButtonGroup } from "@react-components/button";
 import { Card } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Footer, Header, InnerContent, InnerFooter, InnerHeader } from "@react-components/placeholders";
+import { ET, Planet, SpacePortrait, TheMartian } from "./assets";
 import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
@@ -51,12 +51,12 @@ A modal must have an heading and a content.
 
 A modal can have a side banner [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ Apollo11Poster }}>
+<Preview scope={{ SpacePortrait }}>
     <Story name="image">
         <ModalTrigger>
             <Button>Open</Button>
             <Modal>
-                <Image src={Apollo11Poster} alt="Apollo 11 poster" />
+                <Image src={SpacePortrait} alt="Planet with a flag" />
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
                     <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
@@ -69,13 +69,13 @@ A modal can have a side banner [image](?path=/story/chromatic-image--default):
 
 Or an [illustration](?path=/docs/illustration--horizontal):
 
-<Preview scope={{ Apollo11Badge }}>
+<Preview scope={{ Planet }}>
     <Story name="illustration centered">
         <ModalTrigger>
             <Button>Open</Button>
             <Modal>
-                <Illustration color="#E7BE68">
-                    <Image src={Apollo11Badge} alt="Apollo 11 poster" />
+                <Illustration color="#7a49a5">
+                    <Image src={Planet} alt="Planet Logo" />
                 </Illustration>
                 <Heading>Apollo 11</Heading>
                 <Content>

@@ -8,7 +8,7 @@ import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
-import { Nasa, NasaHeadquarters } from "./assets";
+import { Planet, SpaceLandscape } from "./assets";
 import { Tabs } from "@react-components/tabs";
 
 <Meta
@@ -48,10 +48,10 @@ A card must have an heading and a content.
 
 A card can have an [image](?path=/story/chromatic-image--default):
 
-<Preview scope={{ NasaHeadquarters }}>
+<Preview scope={{ SpaceLandscape }}>
     <Story name="image">
         <Card>
-            <Image src={ NasaHeadquarters } alt="Nasa headquarters" />
+            <Image src={ SpaceLandscape } alt="Planet over another one" />
             <Heading>NASA Headquarters</Heading>
             <Content>
                 <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
@@ -62,11 +62,11 @@ A card can have an [image](?path=/story/chromatic-image--default):
 
 Or an [illustration](?path=/docs/illustration--horizontal):
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Planet }}>
     <Story name="illustration">
         <Card >
             <Illustration color="marine-100">
-                <Image src={Nasa} alt="Nasa" width="100px" />
+                <Image src={Planet} alt="Planet over another one" width="100px" />
             </Illustration>
             <Heading>NASA Headquarters</Heading>
             <Content>
@@ -138,11 +138,11 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 
 A card can render horizontally.
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Planet }}>
     <Story name="orientation">
         <Card orientation="horizontal">
             <Illustration color="marine-100">
-                <Image src={Nasa} alt="Nasa" />
+                <Image src={Planet} alt="Planet over another one" />
             </Illustration>
             <Heading>NASA</Heading>
             <Content>
@@ -224,11 +224,11 @@ A card can vary in size.
 
 A card can take the width of its container.
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Planet }}>
     <Story name="fluid">
         <Card fluid orientation="horizontal">
             <Illustration color="marine-100" style={{ width: "150px" }}>
-                <Image src={Nasa} alt="Nasa" />
+                <Image src={Planet} alt="Planet over another one" />
             </Illustration>
             <Heading>NASA</Heading>
             <Content>
