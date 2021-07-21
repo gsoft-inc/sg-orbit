@@ -2,7 +2,7 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 type DisposableFunction = Function;
 
 // Took from https://github.com/tailwindlabs/headlessui/blob/develop/packages/%40headlessui-react/src/utils/disposables.ts
-export function disposables() {
+export function createDisposables() {
     // eslint-disable-next-line no-shadow
     const _disposables: DisposableFunction[] = [];
 
@@ -39,7 +39,7 @@ export function disposables() {
 
 export function useDisposables() {
     // Using useState instead of useRef so that we can use the initializer function.
-    const [d] = useState(disposables);
+    const [d] = useState(createDisposables);
 
     useEffect(() => {
         return () => {

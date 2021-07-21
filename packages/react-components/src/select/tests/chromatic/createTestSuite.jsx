@@ -1,7 +1,7 @@
 import { GroupIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 import { paramsBuilder } from "@stories/utils";
 
@@ -279,6 +279,11 @@ export function createTestSuite(element, stories) {
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
+                    <Select readOnly placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
                 </Inline>
                 <Inline>
                     <Select disabled placeholder="Select a planet" aria-label="Planets" element={element}>
@@ -286,7 +291,22 @@ export function createTestSuite(element, stories) {
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                    <Select readOnly placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Select disabled active placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select disabled focus placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select disabled hover placeholder="Select a planet" aria-label="Planets" element={element}>
+                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <Select disabled focus hover placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>

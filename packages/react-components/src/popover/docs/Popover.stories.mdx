@@ -1,12 +1,9 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
-import { Button } from "@react-components/button";
+import { Button, ButtonGroup } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Footer, InnerContent } from "@react-components/placeholders";
-import { Heading, InnerHeading } from "@react-components/heading";
-import { Image } from "@react-components/image";
+import { Heading, InnerHeading } from "@react-components/typography";
 import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@react-components/popover";
-import { Launch } from "./assets";
-import { Paragraph } from "../../paragraph";
 
 <Meta
     title="Components/Popover"
@@ -18,7 +15,7 @@ import { Paragraph } from "../../paragraph";
 <Tagline>A Popover can be used to display some content on top of another.</Tagline>
 
 <ComponentInfo
-    usage={"import { PopoverTrigger, Popover, Heading, Content, Footer, PopoverTriggerContext, usePopoverTriggerContext } from \"@orbit-ui/react-components\";"}
+    usage={"import { PopoverTrigger, Popover, Heading, Content, Footer, usePopoverTriggerContext } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/popover/src"
 />
 
@@ -34,7 +31,7 @@ A popover is not meant to be used as a [tooltip](?path=/docs/tooltip--default-st
 
 ### Default
 
-A default popover.
+A default popover must have an heading and a content.
 
 <Preview>
     <Story name="default">
@@ -48,9 +45,9 @@ A default popover.
     </Story>
 </Preview>
 
-### Button
+### Buttons
 
-A popper can have a single button or a group of button.
+A popper can have a single [button](?path=/docs/button--default-story):
 
 <Preview>
     <Story name="button">
@@ -58,8 +55,26 @@ A popper can have a single button or a group of button.
             <Button>Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Button>Got it</Button>
+            </Popover>
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+Or a [group of button](?path=/docs/button--default-story#button-group):
+
+<Preview>
+    <Story name="button group">
+        <PopoverTrigger>
+            <Button>Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Button color="primary">Got it</Button>
+                <ButtonGroup>
+                    <Button>Next</Button>
+                    <Button>Got it</Button>
+                </ButtonGroup>
             </Popover>
         </PopoverTrigger>
     </Story>
@@ -76,27 +91,8 @@ A popper can have footer text.
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Button color="primary">Got it</Button>
+                <Button>Got it</Button>
                 <Footer>All right reserved.</Footer>
-            </Popover>
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
-### Trigger
-
-A popover can be triggered on *hover* instead of on *click*.
-
-<Preview scope={{ Launch }}>
-    <Story name="trigger">
-        <PopoverTrigger trigger="hover">
-            <Button>Trigger</Button>
-            <Popover>
-                <Heading>SpaceX launch</Heading>
-                <Content>
-                    <Image src={Launch} alt="SpaceX launch" />
-                    <Paragraph className="mt3">SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Paragraph>
-                </Content>
             </Popover>
         </PopoverTrigger>
     </Story>
@@ -139,27 +135,10 @@ A call to action can dismiss the popover by calling a `close` function which can
                     <Popover>
                         <Heading>WikiSpace</Heading>
                         <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                        <Button onClick={close} color="primary">Close</Button>
+                        <Button onClick={close}>Close</Button>
                     </Popover>
                 </>
             )}
-        </PopoverTrigger>
-    </Story>
-</Preview>
-
-### Autofocus
-
-A *focusable element* of a popover can be autofocused on open. To do so, ensure your component *support autofocus* and add the `autoFocus` prop to the component.
-
-<Preview>
-    <Story name="autofocus">
-        <PopoverTrigger>
-            <Button>Trigger</Button>
-            <Popover>
-                <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                <Button autoFocus color="primary">Accept</Button>
-            </Popover>
         </PopoverTrigger>
     </Story>
 </Preview>

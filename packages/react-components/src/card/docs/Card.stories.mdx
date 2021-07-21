@@ -1,0 +1,311 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button, ButtonGroup } from "@react-components/button";
+import { Card, InnerCard } from "@react-components/card";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
+import { Heading, InnerHeading, Paragraph } from "@react-components/typography";
+import { Illustration } from "@react-components/illustration";
+import { Image } from "@react-components/image";
+import { Inline, Stack } from "@react-components/layout";
+import { Item } from "@react-components/collection";
+import { Planet, SpaceLandscape } from "./assets";
+import { Tabs } from "@react-components/tabs";
+
+<Meta
+    title="Components/Card"
+    id="card"
+/>
+
+# Card
+
+<Tagline>A card group information into a container to let users browse a group of related items and actions.</Tagline>
+
+<ComponentInfo
+    usage={"import { Card, Heading, Header, Content } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/card/src"
+/>
+
+## Usage
+
+> A card is a non interactive container which contains elements you can interact with. If you need an interactive or naviguable element, please have a look at the [tile component](?path=/story/tile--default-story).
+
+### Default
+
+A card must have an heading and a content.
+
+<Preview>
+    <Story name="default">
+        <Card>
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Image
+
+A card can have an [image](?path=/story/chromatic-image--default):
+
+<Preview scope={{ SpaceLandscape }}>
+    <Story name="image">
+        <Card>
+            <Image src={ SpaceLandscape } alt="Planet over another one" />
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+Or an [illustration](?path=/docs/illustration--horizontal):
+
+<Preview scope={{ Planet }}>
+    <Story name="illustration">
+        <Card >
+            <Illustration color="marine-100">
+                <Image src={Planet} alt="Planet over another one" width="100px" />
+            </Illustration>
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Header
+
+A card can have an header.
+
+<Preview>
+    <Story name="header">
+        <Card>
+            <Heading>NASA Headquarters</Heading>
+            <Header>No unexpected visitors allowed.</Header>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Buttons
+
+A card can have a single [button](?path=/docs/button--default-story):
+
+<Preview>
+    <Story name="button">
+        <Card>
+            <Heading>NASA Headquarters</Heading>
+            <Header>No unexpected visitors allowed.</Header>
+            <Content>
+                <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
+            </Content>
+            <Button>Plan a visit</Button>
+        </Card>
+    </Story>
+</Preview>
+
+Or a [group of button](?path=/docs/button--default-story#button-group):
+
+<Preview>
+    <Story name="buttons">
+        <Card>
+            <Heading>NASA Headquarters</Heading>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)<br/>
+                </Paragraph>
+                <Paragraph>
+                    <em>Any trespassers are going to be sent in space.</em>
+                </Paragraph>
+            </Content>
+            <ButtonGroup>
+                <Button>Plan a visit</Button>
+                <Button variant="outline">Cancel a booking</Button>
+            </ButtonGroup>
+        </Card>
+    </Story>
+</Preview>
+
+### Orientation
+
+A card can render horizontally.
+
+<Preview scope={{ Planet }}>
+    <Story name="orientation">
+        <Card orientation="horizontal">
+            <Illustration color="marine-100">
+                <Image src={Planet} alt="Planet over another one" />
+            </Illustration>
+            <Heading>NASA</Heading>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Size
+
+A card can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Stack>
+            <Inline>
+                <Card size="xs">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card size="sm">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card>
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+            </Inline>
+            <Inline>
+                <Card size="lg">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+                <Card size="xl">
+                    <Heading>NASA Headquarters</Heading>
+                    <Content>
+                        300 E. Street SW, Suite 5R30<br/>
+                        Washington, DC 20546<br/>
+                        (202) 358-0001 (Office)<br/>
+                        (202) 358-4338 (Fax)
+                    </Content>
+                </Card>
+            </Inline>
+        </Stack>
+    </Story>
+</Preview>
+
+### Fluid
+
+A card can take the width of its container.
+
+<Preview scope={{ Planet }}>
+    <Story name="fluid">
+        <Card fluid orientation="horizontal">
+            <Illustration color="marine-100" style={{ width: "150px" }}>
+                <Image src={Planet} alt="Planet over another one" />
+            </Illustration>
+            <Heading>NASA</Heading>
+            <Content>
+                <Paragraph>
+                    300 E. Street SW, Suite 5R30<br/>
+                    Washington, DC 20546<br/>
+                    (202) 358-0001 (Office)<br/>
+                    (202) 358-4338 (Fax)
+                </Paragraph>
+                <Paragraph>
+                    <em>Please note that we are moving from December 12th to December 23rd.</em>
+                </Paragraph>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+### Tabs
+
+A card can render any components like [tabs](?path=/story/tabs--default-story).
+
+<Preview>
+    <Story name="tabs">
+        <Card>
+            <Heading>NASA</Heading>
+            <Content>
+                <Paragraph>The National Aeronautics and Space Administration is an independent agency of the U.S. federal government responsible for the civilian space program, as well as aeronautics and space research.</Paragraph>
+                <Tabs aria-label="NASA">
+                    <Item key="vision">
+                        <Header>Vision</Header>
+                        <Content>We reach for new heights and reveal the unknown for the benefit of humankind</Content>
+                    </Item>
+                    <Item key="mission">
+                        <Header>Mission</Header>
+                        <Content>Drive advances in science, technology, aeronautics, and space exploration to enhance knowledge, education, innovation, economic vitality and stewardship of Earth</Content>
+                    </Item>
+                </Tabs>
+            </Content>
+        </Card>
+    </Story>
+</Preview>
+
+## API
+
+### Card
+
+<ComponentInfo
+    usage={"import { Card } from \"@orbit-ui/react-components\";"}
+    slots={["image", "illustration", "heading", "header", "content", "button", "button-group"]}
+    compact
+/>
+
+<ArgsTable of={InnerCard} sort="alpha" />
+
+### Heading
+
+<ComponentInfo
+    usage={"import { Heading } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeading} sort="alpha" />
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />

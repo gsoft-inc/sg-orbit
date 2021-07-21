@@ -54,7 +54,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                 }
             )}
         >
-            {Children.map(children, (x: ReactElement) => {
+            {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return x && augmentElement(x, {
                     size
                 });

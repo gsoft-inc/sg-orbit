@@ -317,6 +317,19 @@ test("when autofocus is specified with a delay, the first item header is focused
 
 // ***** Aria *****
 
+test("when an id is provided, the tab id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <Tabs id="foo" aria-label="Tabs" data-testid="tabs">
+            <Item>
+                <Header>Header 1</Header>
+                <Content>Content 1</Content>
+            </Item>
+        </Tabs>
+    );
+
+    await waitFor(() => expect(getByTestId("tabs")).toHaveAttribute("id", "foo"));
+});
+
 test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = render(
         <Tabs id="foo" aria-label="Tabs">

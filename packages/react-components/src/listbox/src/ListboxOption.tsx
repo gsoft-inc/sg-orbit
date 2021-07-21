@@ -3,9 +3,9 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useListboxContext } from "./ListboxContext";
 
@@ -97,31 +97,28 @@ export function InnerListboxOption({
         setHasMouseOver(false);
     });
 
-    const labelId = `${id}-label`;
-    const descriptionId = `${id}-description`;
-
     const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: (_matching: ReactElement, all: Record<string, any>) => {
+        icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(all.description) ? "sm" : "md"
+                size: isNil(slotElements.description) ? "sm" : "lg"
             };
         },
-        avatar: (_matching: ReactElement, all: Record<string, any>) => {
+        avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
-                size: isNil(all.description) ? "2xs" : "sm"
+                size: isNil(slotElements.description) ? "2xs" : "md"
             };
         },
         text: {
-            id: labelId,
+            id: `${id}-label`,
             className: "o-ui-listbox-option-label"
         },
         description: {
-            id: descriptionId,
+            id: `${id}-description`,
             className: "o-ui-listbox-option-description",
             size: "md"
         },
@@ -129,7 +126,10 @@ export function InnerListboxOption({
             size: "sm",
             className: "o-ui-listbox-option-end-icon"
         }
-    }), [labelId, descriptionId]));
+    }), [id]));
+
+    const labelId = text?.props?.id;
+    const descriptionId = description?.props?.id;
 
     const optionMarkup = (
         <Box

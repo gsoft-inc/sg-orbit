@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
 import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 export interface InnerTagProps extends InteractionStatesProps {
@@ -14,7 +14,7 @@ export interface InnerTagProps extends InteractionStatesProps {
     variant?: "solid" | "outline";
     /**
      * Called when the remove button is clicked.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @returns {void}
      */
     onRemove?: (event: SyntheticEvent) => void;

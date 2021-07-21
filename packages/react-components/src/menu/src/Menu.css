@@ -1,6 +1,5 @@
 /*
-IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or rename them:
-    - Properties: "--o-ui-menu-border-size" and "--o-ui-menu-item-height"
+IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrollable size, do not remove or rename them:
     - Classes: "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider"
 */
 
@@ -20,6 +19,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
     width: max-content;
     min-width: 200px;
     max-width: 325px;
+    height: max-content;
     box-shadow: var(--o-ui-alias-elevation-lifted);
     overflow-y: auto;
 }
@@ -30,6 +30,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
     list-style: none;
     padding-right: var(--o-ui-global-scale-hotel);
     padding-left: var(--o-ui-global-scale-charlie);
+    padding-top: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
     margin: 0;
     display: flex;
     align-items: center;
@@ -45,8 +47,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
-    padding-top: var(--o-ui-global-scale-bravo);
-    padding-bottom: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
@@ -57,6 +57,11 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
     margin-right: var(--o-ui-global-scale-alpha);
     grid-row-start: 1;
     grid-row-end: 3;
+}
+
+.o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
+    margin-right: var(--o-ui-global-scale-bravo);
+    align-self: start;
 }
 
 /* ITEM | ICON | END  */
@@ -179,4 +184,5 @@ IMPORTANT: The Menu component hardcoded a few CSS values, do not remove or renam
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-global-scale-bravo);
     grid-area: aside;
+    align-self: start;
 }

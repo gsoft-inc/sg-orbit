@@ -1,6 +1,6 @@
 import { Field, Label } from "@react-components/field";
 import { InputGroup } from "@react-components/input-group";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { TextInput } from "@react-components/text-input";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";

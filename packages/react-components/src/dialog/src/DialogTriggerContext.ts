@@ -2,7 +2,6 @@ import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface DialogTriggerContextType {
     isOpen?: boolean;
-    open?: (event: SyntheticEvent) => void;
     close?: (event: SyntheticEvent) => void;
 }
 

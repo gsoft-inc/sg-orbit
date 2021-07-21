@@ -1,17 +1,11 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
-import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
-
-/*
-TODO:
-    - FocusTrap
-    - I believe we need some way to hide the elements behind the underlay from screen readers.. See spectrum.
-*/
+import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 
 export interface InnerDialogTriggerProps {
     /**
-     * Whether or not to show the modal element.
+     * Whether or not to show the dialog.
      */
     open?: boolean | null;
     /**
@@ -20,17 +14,17 @@ export interface InnerDialogTriggerProps {
     defaultOpen?: boolean;
     /**
      * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * Whether or not the modal should close on outside interactions.
+     * Whether or not the dialog should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-     * z-index of the modal.
+     * The z-index of of the dialog.
      */
     zIndex?: number;
     /**
@@ -51,7 +45,7 @@ export function InnerDialogTrigger({
     open: openProp,
     defaultOpen,
     onOpenChange,
-    dismissable,
+    dismissable = true,
     zIndex = 1,
     as = "div",
     children,
@@ -60,7 +54,7 @@ export function InnerDialogTrigger({
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const modalRef = useMergedRefs(forwardedRef);
+    const dialogRef = useRef();
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         setIsOpen(newValue);
@@ -81,7 +75,7 @@ export function InnerDialogTrigger({
     const [trigger, modal] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(modal)) {
-        throw new Error("A modal trigger must have exactly 2 children.");
+        throw new Error("A dialog trigger must have exactly 2 children.");
     }
 
     const triggerProps = useOverlayTrigger(isOpen, {
@@ -94,8 +88,7 @@ export function InnerDialogTrigger({
         hideOnLeave: false
     });
 
-    // TODO: not sure it should use this hook, it's been designed for popups.
-    const overlayDismissProps = useOverlayLightDismiss(modalRef, {
+    const overlayDismissProps = useOverlayLightDismiss(dialogRef, {
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
@@ -106,17 +99,16 @@ export function InnerDialogTrigger({
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
-    const modalMarkup = augmentElement(modal, {
+    const dialogMarkup = augmentElement(modal, {
         dismissable,
         zIndex: zIndex + 1,
-        ref: modalRef
+        ref: dialogRef
     });
 
     return (
         <DialogTriggerContext.Provider
             value={{
                 isOpen,
-                open,
                 close
             }}
         >
@@ -127,12 +119,13 @@ export function InnerDialogTrigger({
                     {
                         show: isOpen,
                         zIndex,
-                        as
+                        as,
+                        ref: forwardedRef
                     },
                     overlayDismissProps
                 )}
             >
-                {modalMarkup}
+                {dialogMarkup}
             </Overlay>
         </DialogTriggerContext.Provider>
     );

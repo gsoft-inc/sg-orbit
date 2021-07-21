@@ -1,6 +1,5 @@
 /*
-IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or rename them:
-    - Properties: "--o-ui-listbox-border-size" and "--o-ui-listbox-option-height"
+IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic scrollable size, do not remove or rename them:
     - Classes: "o-ui-listbox-option" and "o-ui-listbox-section"
 */
 
@@ -46,10 +45,10 @@ IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or re
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
-    padding-top: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
+    align-content: center;
 }
 
 /* OPTION | DESCRIPTION */
@@ -139,6 +138,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values, do not remove or re
 
 /* OPTION | WITH DESCRIPTION | ICONS | START ICON */
 .o-ui-listbox-option-has-description .o-ui-listbox-option-start-icon {
+    margin-right: var(--o-ui-global-scale-bravo);
     align-self: start;
 }
 

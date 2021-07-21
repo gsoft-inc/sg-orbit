@@ -41,7 +41,7 @@ export interface InnerCheckboxGroupProps {
     validationState?: "valid" | "invalid";
     /**
      * Called when any of the children is checked or unchecked..
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string[]} value - The new value.
      * @returns {void}
      */
@@ -185,9 +185,10 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                             checkedValue
                         }}
                     >
-                        {Children.map(items, (x: ReactElement) => {
+                        {Children.toArray(items).filter(x => x).map((x: ReactElement, index) => {
                             return augmentElement(x, {
                                 ...itemProps,
+                                value: index.toString(),
                                 role: "checkbox"
                             });
                         })}

@@ -1,27 +1,32 @@
 () => {
-    const [show, setShow] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
-    const toggleAlert = useCallback(() => {
-        setShow(x => !x);
-        console.log(!show);
-    }, [show, setShow]);
+    const handleOpenChange = useCallback((event, newValue) => {
+        setIsOpen(newValue);
+        console.log(newValue);
+    }, [setIsOpen]);
+
+    const handleClose = useCallback(() => {
+        setIsOpen(false);
+    }, [setIsOpen]);
 
     return (
-        <Stack style={{ minHeight: "110px" }}>
-            <Button
-                color="secondary"
-                onClick={toggleAlert}
-            >
-                {show ? "Hide" : "Show"}
-            </Button>
+        <AlertTrigger
+            open={isOpen}
+            onPrimaryButtonClick={handleClose}
+            onSecondaryButtonClick={handleClose}
+            onCancelButtonClick={handleClose}
+            onOpenChange={handleOpenChange}
+        >
+            <Button>Open</Button>
             <Alert
-                show={show}
-                onDismiss={toggleAlert}
+                primaryButtonLabel="Yes"
+                secondaryButtonLabel="Postpone"
+                cancelButtonLabel="No"
             >
-                <EmailIcon />
-                <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-                <Button>Undo</Button>
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
             </Alert>
-        </Stack>
+        </AlertTrigger>
     );
 };

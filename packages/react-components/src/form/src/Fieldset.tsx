@@ -1,7 +1,7 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, mergeProps, useId } from "../../shared";
+import { DomProps, forwardRef, mergeProps, useId } from "../../shared";
 
-export interface InnerFieldsetProps {
+export interface InnerFieldsetProps extends DomProps {
     /**
      * A label identifying the group.
      */
@@ -21,19 +21,22 @@ export interface InnerFieldsetProps {
 }
 
 export function InnerFieldset({
+    id,
     label,
     as: As = "div",
     children,
     forwardedRef,
     ...rest
 }: InnerFieldsetProps) {
-    const labelId = useId(null, "o-ui-fieldset-label");
+    const rootId = useId(id, "o-ui-fieldset");
+    const labelId = `${rootId}-label`;
 
     return (
         <As
             {...mergeProps(
                 rest,
                 {
+                    id: rootId,
                     className: "o-ui-fieldset",
                     role: "group",
                     "aria-labelledby": labelId,

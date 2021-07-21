@@ -29,7 +29,7 @@ export interface InnerMenuTriggerProps extends DomProps {
     defaultOpen?: boolean;
     /**
      * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {boolean} isOpen - Indicate if the menu is visible.
      * @returns {void}
      */
@@ -55,7 +55,7 @@ export interface InnerMenuTriggerProps extends DomProps {
      */
     allowPreventOverflow?: boolean;
     /**
-     * z-index of the menu.
+     * The z-index of the menu.
      */
     zIndex?: number;
     /**
@@ -120,8 +120,8 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         hideOnEscape: true,
         hideOnLeave: true,
         hideOnOutsideClick: true,
-        autoFocus: false,
         restoreFocus: true,
+        trigger: "click",
         position: `${direction}-${align}` as const,
         offset: [0, 4],
         disabled: disabled || readOnly || trigger.props.disabled,

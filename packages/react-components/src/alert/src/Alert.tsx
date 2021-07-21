@@ -1,151 +1,198 @@
 import "./Alert.css";
 
-import { CheckIcon, InfoIcon, NotificationIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { Content } from "../../placeholders";
-import { CrossButton } from "../../button";
-import { StyleProvider, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
-import { Text, TextProps } from "../../text";
-import { Transition } from "../../transition";
+import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { Button, ButtonGroup } from "../../button";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
+import { Dialog, useDialogTriggerContext } from "../../dialog";
+import { Header } from "../../placeholders";
+import { InfoIcon, WarningIcon } from "../../icons";
 
-const Role = {
-    info: "status",
-    positive: "status",
-    warning: "alert",
-    critical: "alert"
-};
-
-type InnerAlertContentProps = TextProps;
-
-const AlertContent = forwardRef<InnerAlertContentProps>(({
-    as = "div",
-    children,
-    ...rest
-}, ref) => {
-    return (
-        <Text
-            {...rest}
-            as={as}
-            ref={ref}
-        >
-            <StyleProvider
-                value={{
-                    link: {
-                        color: "inherit"
-                    },
-                    heading: {
-                        size: "2xs",
-                        className: "o-ui-alert-title"
-                    }
-                }}
-            >
-                {children}
-            </StyleProvider>
-        </Text>
-    );
-});
-
-export interface InnerAlertProps {
-    /**
-     * A controlled show value.
-     */
-    show?: boolean;
+export interface InnerAlertProps extends DomProps, AriaLabelingProps {
     /**
      * The style to use.
      */
-    tone?: "info" | "positive" | "warning" | "critical";
+    variant?: "confirmation" | "destructive" | "warning" | "negative";
     /**
-     * Called when the dismiss button is clicked.
-     * @param {MouseEvent} event - React's original synthetic event.
+     * The primary button label.
+     */
+    primaryButtonLabel: string;
+    /**
+     * Whether or not the primary button is disabled.
+     */
+    primaryButtonDisabled?: boolean;
+    /**
+     * The secondary button label.
+     */
+    secondaryButtonLabel?: string;
+    /**
+     * Whether or not the secondary button is disabled.
+     */
+    secondaryButtonDisabled?: boolean;
+    /**
+     * The cancel button label.
+     */
+    cancelButtonLabel?: string;
+    /**
+     * The button to focus by default when the alert open.
+     */
+    autoFocusButton?: "primary" | "secondary" | "cancel";
+    /**
+     * Called when the primary button is clicked.
+     * @param {MouseEvent} event - React's original event.
      * @returns {void}
      */
-    onDismiss?: (event: MouseEvent) => void;
+    onPrimaryButtonClick?: (event: MouseEvent) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * Called when the secondary button is clicked.
+     * @param {MouseEvent} event - React's original event.
+     * @returns {void}
      */
+    onSecondaryButtonClick?: (event: MouseEvent) => void;
+    /**
+     * Called when the cancel button is clicked.
+     * @param {MouseEvent} event - React's original event.
+     * @returns {void}
+     */
+    onCancelButtonClick?: (event: MouseEvent) => void;
+    /**
+      * The z-index of the alert.
+      */
+    zIndex?: number;
+    /**
+      * Additional props to render on the wrapper element.
+      */
+    wrapperProps?: Record<string, any>;
+    /**
+      * An HTML element type or a custom React element type to render as.
+      */
     as?: ElementType;
     /**
-     * React children.
-     */
+      * React children.
+      */
     children: ReactNode;
     /**
-     * @ignore
-     */
-    role?: string;
-    /**
-     * @ignore
-     */
+      * @ignore
+      */
     forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAlert({
-    show = true,
-    tone = "info",
-    onDismiss,
-    role: roleProp,
-    as = "div",
+    variant = "confirmation",
+    primaryButtonLabel,
+    primaryButtonDisabled,
+    secondaryButtonLabel,
+    secondaryButtonDisabled,
+    cancelButtonLabel,
+    autoFocusButton,
+    onPrimaryButtonClick,
+    onSecondaryButtonClick,
+    onCancelButtonClick,
+    zIndex = 1,
     children,
     forwardedRef,
     ...rest
 }: InnerAlertProps) {
-    const ref = useMergedRefs(forwardedRef);
+    const { close } = useDialogTriggerContext();
 
-    const { icon, content, button } = useSlots(children, useMemo(() => ({
+    const { heading, content } = useSlots(children, useMemo(() => ({
         _: {
-            defaultWrapper: Content
+            required: ["heading", "content"]
         },
-        icon: {
-            className: "o-ui-alert-icon"
-        },
-        content: {
-            className: "o-ui-alert-content",
-            as: AlertContent
-        },
-        button: {
-            variant: "ghost",
-            color: "inherit",
-            condensed: true,
-            size: "sm",
-            className: "o-ui-alert-action"
-        }
+        heading: null,
+        content: null
     }), []));
 
-    const dismissMarkup = !isNil(onDismiss) && (
-        <CrossButton
-            color="inherit"
-            onClick={onDismiss}
-            size="sm"
-            className="o-ui-alert-dismiss"
-            aria-label="Dismiss"
-        />
+    const handlePrimaryButtonClick = useChainedEventCallback(onPrimaryButtonClick, event => {
+        if (!isNil(close)) {
+            close(event);
+        }
+    });
+
+    const handleSecondaryButtonClick = useChainedEventCallback(onSecondaryButtonClick, event => {
+        if (!isNil(close)) {
+            close(event);
+        }
+    });
+
+    const handleCancelButtonClick = useChainedEventCallback(onCancelButtonClick, event => {
+        if (!isNil(close)) {
+            close(event);
+        }
+    });
+
+    const warningIconMarkup = variant === "warning" && (
+        <Header>
+            <WarningIcon size="lg" className="o-ui-alert-warning-icon" />
+        </Header>
     );
 
+    const negativeIconMarkup = variant === "negative" && (
+        <Header>
+            <InfoIcon size="lg" className="o-ui-alert-negative-icon" />
+        </Header>
+    );
+
+    const primaryButtonMarkup = (
+        <Button
+            color={variant === "destructive" ? "danger" : undefined}
+            disabled={primaryButtonDisabled}
+            onClick={handlePrimaryButtonClick}
+            autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
+        >
+            {primaryButtonLabel}
+        </Button>
+    );
+
+    const secondaryButtonMarkup = !isNilOrEmpty(secondaryButtonLabel) && (
+        <Button
+            variant="outline"
+            disabled={secondaryButtonDisabled}
+            onClick={handleSecondaryButtonClick}
+            autoFocus={autoFocusButton === "secondary"}
+        >
+            {secondaryButtonLabel}
+        </Button>
+    );
+
+    const cancelButtonMarkup = !isNilOrEmpty(cancelButtonLabel) && (
+        <Button
+            variant="outline"
+            onClick={handleCancelButtonClick}
+            autoFocus={autoFocusButton === "cancel"}
+        >
+            {cancelButtonLabel}
+        </Button>
+    );
+
+    const buttonsMarkup = isNil(secondaryButtonMarkup) && isNil(cancelButtonMarkup)
+        ? primaryButtonMarkup
+        : (
+            <ButtonGroup>
+                {cancelButtonMarkup}
+                {secondaryButtonMarkup}
+                {primaryButtonMarkup}
+            </ButtonGroup>
+        );
+
     return (
-        <Transition
-            {...mergeProps(
+        <Dialog
+            {...mergeProps<any>(
                 rest,
                 {
-                    show,
-                    enter: "o-ui-fade-in",
-                    leave: "o-ui-fade-out",
-                    className: cssModule(
-                        "o-ui-alert",
-                        tone,
-                        icon && "has-icon",
-                        button && "has-action",
-                        dismissMarkup && "has-dismiss"
-                    ),
-                    role: (roleProp ?? Role[tone]) ?? "alert",
-                    as,
-                    ref
+                    role: "alertdialog",
+                    size: "sm",
+                    dismissable: false,
+                    zIndex,
+                    ref: forwardedRef
                 }
             )}
         >
-            {icon}
+            {heading}
+            {warningIconMarkup}
+            {negativeIconMarkup}
             {content}
-            {button}
-            {dismissMarkup}
-        </Transition>
+            {buttonsMarkup}
+        </Dialog>
     );
 }
 
@@ -156,89 +203,3 @@ export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
 export type AlertProps = ComponentProps<typeof Alert>;
 
 Alert.displayName = "Alert";
-
-////////
-
-const variations: { tone: keyof typeof Role; icon: ReactElement }[] = [
-    { tone: "info", icon: <NotificationIcon /> },
-    { tone: "positive", icon: <CheckIcon /> },
-    { tone: "warning", icon: <WarningIcon /> },
-    { tone: "critical", icon: <InfoIcon /> }
-];
-
-const [
-    InfoAlert,
-    PositiveAlert,
-    WarningAlert,
-    CriticalAlert
-] = Object.values(variations).map(({ tone, icon }) => {
-    return forwardRef<InnerAlertProps>(({
-        children,
-        ...rest
-    }, ref) => {
-        const { content, button } = useSlots(children, useMemo(() => ({
-            _: {
-                defaultWrapper: Content
-            },
-            content: null,
-            button: null
-        }), []));
-
-        return (
-            <Alert
-                tone={tone}
-                {...rest}
-                ref={ref}
-            >
-                {icon}
-                {content}
-                {button}
-            </Alert>
-        );
-    });
-});
-
-export interface AlertTemplateProps {
-    /**
-     * A controlled show value.
-     */
-    show?: boolean;
-    /**
-     * Called when the dismiss button is clicked.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
-     */
-    onDismiss?: (event: MouseEvent) => void;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-}
-
-// Dummy component for documentation purpose.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function AlertTemplate(_props: AlertTemplateProps): JSX.Element {
-    return null;
-}
-
-InfoAlert.displayName = "InfoAlert";
-PositiveAlert.displayName = "PositiveAlert";
-WarningAlert.displayName = "WarningAlert";
-CriticalAlert.displayName = "CriticalAlert";
-
-
-export type InfoAlertProps = ComponentProps<typeof InfoAlert>;
-export type PositiveAlertProps = ComponentProps<typeof PositiveAlert>;
-export type WarningAlertProps = ComponentProps<typeof WarningAlert>;
-export type CriticalAlertProps = ComponentProps<typeof CriticalAlert>;
-
-export {
-    InfoAlert,
-    PositiveAlert,
-    WarningAlert,
-    CriticalAlert
-};

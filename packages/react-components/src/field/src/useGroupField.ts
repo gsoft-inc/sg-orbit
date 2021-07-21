@@ -15,6 +15,7 @@ export interface UseGroupFieldProps {
 export interface UseGroupFieldReturn {
     fieldId: string;
     fieldProps: {
+        id: string;
         className: string;
         role: string;
         ref: MergedRef<any>;
@@ -55,6 +56,7 @@ export function useGroupField({
     return {
         fieldId,
         fieldProps: {
+            id: fieldId,
             className: mergeClasses(
                 cssModule(
                     "o-ui-field",

@@ -1,11 +1,9 @@
-import { Alert, AlertTemplate, CriticalAlert, InfoAlert, InnerAlert, PositiveAlert, WarningAlert } from "@react-components/alert";
+import { Alert, AlertTrigger, InnerAlert } from "@react-components/alert";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
-import { EmailIcon } from "@react-components/icons";
-import { Heading } from "@react-components/heading";
-import { TextLink } from "@react-components/link";
+import { Heading, InnerHeading } from "@react-components/typography";
 
 <Meta
     title="Components/Alert"
@@ -14,11 +12,11 @@ import { TextLink } from "@react-components/link";
 
 # Alert
 
-<Tagline>An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.</Tagline>
+<Tagline>An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.</Tagline>
 
 <ComponentInfo
-    usage={"import { Alert, Content } from \"@orbit-ui/react-components\";"}
-    ariaPath="#alert"
+    usage={"import { Alert, Heading, Content, useAlertTriggerContext } from \"@orbit-ui/react-components\";"}
+    ariaPath="#alertdialog"
     githubPath="/packages/react-components/src/alert/src"
 />
 
@@ -26,180 +24,185 @@ import { TextLink } from "@react-components/link";
 
 ### Default
 
-A default alert.
+An alert must have an heading, some content and a primary button label.
 
 <Preview>
     <Story name="default">
-        <Alert>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Alert>
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert primaryButtonLabel="Yes">
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Icon
+### Secondary button
 
-An alert can have an [icon](?path=/docs/icon-gallery--page).
+An alert can have a secondary button.
 
 <Preview>
-    <Story name="icon">
-        <Alert>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-        </Alert>
+    <Story name="secondary button">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                secondaryButtonLabel="Postpone"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Rich content
+### Cancel button
 
-An alert can also accept rich content.
+An alert can have a cancel button.
 
 <Preview>
-    <Story name="rich content">
-        <Alert>
-            <EmailIcon />
-            <Content>
-                <Heading>booking@spacetravel.com</Heading>
-                Your email has been sent! Tracking info available <TextLink href="#">here</TextLink>.
-            </Content>
-        </Alert>
+    <Story name="cancel button">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Action
+### Disabled buttons
 
-An alert can accept an action [button](?path=/docs/button--default-story).
+An alert primary and secondary buttons can be disabled.
 
 <Preview>
-    <Story name="action">
-        <Alert>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </Alert>
+    <Story name="disabled buttons">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                primaryButtonLabel="Yes"
+                primaryButtonDisabled
+                secondaryButtonLabel="Postpone"
+                secondaryButtonDisabled
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Dismissible
+### Confirmation
 
-An alert can be dismissible by specifying an `onDismiss` handler.
+Use a confirmation alert when a non destructive action is required from a user.
 
 <Preview>
-    <Story name="dismissible">
-        <Alert onDismiss={() => {}}>
-            <EmailIcon />
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </Alert>
+    <Story name="confirmation">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="confirmation"
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Autopilot</Heading>
+                <Content>Are you use sure you want to engage autopilot?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Info
+### Destructive
 
-Use an info alert to notify a user of a change that's relevant for them to achieve their current goal.
-
-<Preview>
-    <Story name="info">
-        <InfoAlert onDismiss={() => {}}>
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </InfoAlert>
-    </Story>
-</Preview>
-
-### Positive
-
-Use a positive alert to inform a user that an action has completed successfuly.
+Use a destructive alert to confirm a permanent change, like deleting data.
 
 <Preview>
-    <Story name="positive">
-        <PositiveAlert onDismiss={() => {}}>
-            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
-            <Button>Undo</Button>
-        </PositiveAlert>
+    <Story name="destructive">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="destructive"
+                primaryButtonLabel="Yes"
+                cancelButtonLabel="No"
+            >
+                <Heading>Eject</Heading>
+                <Content>Are you sure you want to eject into the void?</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
 ### Warning
 
-Use a warning alert to help a user avoid an issue.
+Use a warning alert to inform of a significant change.
 
 <Preview>
     <Story name="warning">
-        <WarningAlert onDismiss={() => {}}>
-            <Content>We are having trouble contacting the email server.</Content>
-            <Button>Retry</Button>
-        </WarningAlert>
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="warning"
+                primaryButtonLabel="Ok"
+                secondaryButtonLabel="Diagnose"
+            >
+                <Heading>Low carburant</Heading>
+                <Content>The space shuttle will be out of carburant in an hour.</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
-### Critical
+### Negative
 
-Use an error alert to help a user understand a critical issue at the system level.
+Use a negative alert to inform that something went wrong, like a server error.
 
 <Preview>
-    <Story name="critical">
-        <CriticalAlert onDismiss={() => {}}>
-            <Content>Cannot contact email server.</Content>
-            <Button>Retry</Button>
-        </CriticalAlert>
+    <Story name="negative">
+        <AlertTrigger>
+            <Button>Open</Button>
+            <Alert
+                variant="negative"
+                primaryButtonLabel="Retry"
+                cancelButtonLabel="Cancel"
+            >
+                <Heading>Network error</Heading>
+                <Content>Something went wrong while connecting to NASA network. Please try again in a few minutes.</Content>
+            </Alert>
+        </AlertTrigger>
     </Story>
 </Preview>
 
 ### Controlled
 
-An alert can handle `show` state in controlled mode.
+The `open` state can be handled in controlled mode.
 
 <Preview filePath="/alert/docs/ControlledAlert" />
 
-## Props
+## API
 
 ### Alert
 
 <ComponentInfo
     usage={"import { Alert } from \"@orbit-ui/react-components\";"}
-    slots={["icon", "content", "button"]}
+    slots={["heading", "content"]}
     compact
 />
 
 <ArgsTable of={InnerAlert} sort="alpha" />
 
-### InfoAlert
+### Heading
 
 <ComponentInfo
-    usage={"import { InfoAlert } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
+    usage={"import { Heading } from \"@orbit-ui/react-components\";"}
     compact
 />
 
-<ArgsTable of={AlertTemplate} sort="alpha" />
-
-### PositiveAlert
-
-<ComponentInfo
-    usage={"import { PositiveAlert } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={AlertTemplate} sort="alpha" />
-
-### WarningAlert
-
-<ComponentInfo
-    usage={"import { WarningAlert } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={AlertTemplate} sort="alpha" />
-
-### CriticalAlert
-
-<ComponentInfo
-    usage={"import { CriticalAlert } from \"@orbit-ui/react-components\";"}
-    slots={["content", "button"]}
-    compact
-/>
-
-<ArgsTable of={AlertTemplate} sort="alpha" />
+<ArgsTable of={InnerHeading} sort="alpha" />
 
 ### Content
 

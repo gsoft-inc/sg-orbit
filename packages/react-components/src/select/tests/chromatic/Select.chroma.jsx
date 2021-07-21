@@ -79,7 +79,7 @@ stories()
             </Inline>
         );
     })
-    .add("with name", () =>
+    .add("name", () =>
         <Select name="planet" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>

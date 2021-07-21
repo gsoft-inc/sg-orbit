@@ -7,20 +7,10 @@
     /* Must keep a max width. */
     width: 325px;
     position: relative;
-    border: 1px solid var(--o-ui-alias-border-2);
 }
 
-/* OVERLAY */
-.o-ui-popover-overlay > *:first-child {
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-global-transparent);
-}
-
-.o-ui-popover-overlay:focus-visible > *:first-child {
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
-}
-
-/* HEADER */
-.o-ui-popover-header {
+/* HEADER | SECTION */
+.o-ui-popover-header-section {
     margin-bottom: var(--o-ui-global-scale-bravo);
 }
 
@@ -30,8 +20,8 @@
     overflow-wrap: break-word;
 }
 
-/* FOOTER */
-.o-ui-popover-footer {
+/* FOOTER | SECTION */
+.o-ui-popover-footer-section {
     margin-top: var(--o-ui-global-scale-delta);
     display: grid;
     align-items: center;
@@ -40,14 +30,9 @@
 }
 
 /* FOOTER | TEXT */
-.o-ui-popover-footer-text {
+.o-ui-popover-footer {
     grid-area: text;
     margin-right: var(--o-ui-global-scale-bravo);
-}
-
-/* IMAGE */
-.o-ui-popover img {
-    border-radius: var(--o-ui-global-border-radius-pill);
 }
 
 /* BUTTONS */

@@ -1,3 +1,3 @@
-export * from "./Modal";
+export * from "./Dialog";
 export * from "./DialogTrigger";
 export * from "./DialogTriggerContext";

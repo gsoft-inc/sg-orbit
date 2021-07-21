@@ -2,7 +2,7 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
 
@@ -36,9 +36,11 @@ function useColor(color: string) {
                 return color;
             } else if (color.startsWith("--")) {
                 return `var(${color})`;
-            } else {
-                return `var(--o-ui-global-${color})`;
+            } else if (color.startsWith("alias") || color.startsWith("global")) {
+                return `var(--o-ui-${color})`;
             }
+
+            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
         }
     }, [color]);
 }

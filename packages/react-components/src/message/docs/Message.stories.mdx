@@ -1,0 +1,151 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, InnerContent } from "@react-components/placeholders";
+import { Heading } from "@react-components/typography";
+import { InnerMessage, Message } from "@react-components/message";
+import { TextLink } from "@react-components/link";
+
+<Meta
+    title="Components/Message"
+    id="message"
+/>
+
+# Message
+
+<Tagline>A message is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.</Tagline>
+
+<ComponentInfo
+    usage={"import { Message, Content } from \"@orbit-ui/react-components\";"}
+    ariaPath="#alert"
+    githubPath="/packages/react-components/src/message/src"
+/>
+
+## Usage
+
+### Default
+
+A default message.
+
+<Preview>
+    <Story name="default">
+        <Message>We offer the safest space travel of the industry!</Message>
+    </Story>
+</Preview>
+
+### Rich content
+
+A message can also accept rich content.
+
+<Preview>
+    <Story name="rich content">
+        <Message>
+            <Content>
+                <Heading>Travel with us!</Heading>
+                We offer the safest space travel of the industry. Consult our safety policy <TextLink href="#">here</TextLink>.
+            </Content>
+        </Message>
+    </Story>
+</Preview>
+
+### Action
+
+A message can accept an action [button](?path=/docs/button--default-story).
+
+<Preview>
+    <Story name="action">
+        <Message>
+            <Content>We offer the safest space travel of the industry!</Content>
+            <Button>Book now</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Dismissable
+
+A message can be dismissable by specifying an `onDismiss` handler.
+
+<Preview>
+    <Story name="dismissable">
+        <Message onDismiss={() => {}}>We offer the safest space travel of the industry!</Message>
+    </Story>
+</Preview>
+
+### Informative
+
+Use an informative message to notify a user of a change that's relevant for them to achieve their current goal.
+
+<Preview>
+    <Story name="informative">
+        <Message variant="informative" onDismiss={() => {}}>
+            <Content>We offer the safest space travel of the industry!</Content>
+            <Button>Book now</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Warning
+
+Use a warning message to help a user avoid an issue.
+
+<Preview>
+    <Story name="warning">
+        <Message variant="warning" onDismiss={() => {}}>
+            <Content>We are having trouble contacting the email server.</Content>
+            <Button>Retry</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Positive
+
+Use a positive message to inform a user that an action has completed successfuly.
+
+<Preview>
+    <Story name="positive">
+        <Message variant="positive" onDismiss={() => {}}>
+            <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
+            <Button>Undo</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Negative
+
+Use a negative message to help a user understand a critical issue at the system level.
+
+<Preview>
+    <Story name="negative">
+        <Message variant="negative" onDismiss={() => {}}>
+            <Content>Cannot contact email server.</Content>
+            <Button>Retry</Button>
+        </Message>
+    </Story>
+</Preview>
+
+### Controlled
+
+A message can handle `show` state in controlled mode.
+
+<Preview filePath="/message/docs/ControlledMessage" />
+
+## Props
+
+### Message
+
+<ComponentInfo
+    usage={"import { Message } from \"@orbit-ui/react-components\";"}
+    slots={["content", "button"]}
+    compact
+/>
+
+<ArgsTable of={InnerMessage} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />

@@ -3,7 +3,7 @@ import "./Disclosure.css";
 import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import { DomProps, Keys, augmentElement, cssModule, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
 export interface InnerDisclosureProps extends DomProps {
@@ -17,7 +17,7 @@ export interface InnerDisclosureProps extends DomProps {
     defaultOpen?: boolean;
     /**
      * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isOpen - Whether or not the content is visible.
      * @returns {void}
      */
@@ -124,6 +124,7 @@ export function InnerDisclosure({
                 {...mergeProps(
                     rest,
                     {
+                        id: rootId,
                         className: cssModule("o-ui-disclosure-content", transitionClasses),
                         as,
                         ref: contentRef

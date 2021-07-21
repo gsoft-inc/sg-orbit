@@ -6,7 +6,7 @@ import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
@@ -50,14 +50,14 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
     validationState?: "valid" | "invalid";
     /**
      * Called when the select value change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {string} selectedKey - The new selected key.
      * @returns {void}
      */
     onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
     /**
      * Called when the select open state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {boolean} isOpen - Indicate if the menu is open.
      * @returns {void}
      */
@@ -107,7 +107,7 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      */
     allowResponsiveMenuWidth?: boolean;
     /**
-     * z-index of the overlay element.
+     * The z-index of the overlay element.
      */
     zIndex?: number;
     /**

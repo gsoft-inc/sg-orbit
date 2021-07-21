@@ -1,7 +1,7 @@
 import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 

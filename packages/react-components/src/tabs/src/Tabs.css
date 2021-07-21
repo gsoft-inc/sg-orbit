@@ -1,3 +1,8 @@
+/* TABS */
+.o-ui-tabs {
+    height: max-content;
+}
+
 /* TABS | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical {
     display: flex;
@@ -172,6 +177,7 @@
 /* PANEL */
 .o-ui-tab-panel {
     color: var(--o-ui-alias-text-1);
+    text-align: left;
 }
 
 /* PANEL | ORIENTATION | HORIZONTAL */

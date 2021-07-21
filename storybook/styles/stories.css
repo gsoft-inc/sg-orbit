@@ -18,6 +18,10 @@
     fill: red !important;
 }
 
+.stroke-red {
+    stroke: red !important;
+}
+
 .bg-blue.bg-blue.bg-blue.bg-blue {
     background: blue !important;
 }

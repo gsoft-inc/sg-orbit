@@ -2,7 +2,7 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { cssModule, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
 
 export interface InnerCounterProps {

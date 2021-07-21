@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Heading } from "@react-components/heading";
+import { Heading } from "@react-components/typography";
 import { Popover, PopoverTrigger } from "@react-components/popover";
 import { Transition } from "@react-components/transition";
 import { act, render, waitFor } from "@testing-library/react";
@@ -13,292 +13,63 @@ beforeAll(() => {
 
 // ***** Behaviors *****
 
-describe("\"click\" trigger", () => {
-    test("focus the popover overlay on show", async () => {
-        const { getByTestId } = render(
-            <PopoverTrigger
-                trigger="click"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
+test("when a popover is dismissable, hide the popover on outside click", async () => {
+    const { getByTestId, queryByTestId } = render(
+        <PopoverTrigger
+            dismissable
+            data-testid="overlay"
+        >
+            <Button data-testid="trigger">Trigger</Button>
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </PopoverTrigger>
+    );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        await waitFor(() => expect(getByTestId("overlay")).toHaveFocus());
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
-    test("when a popover is dismissable, hide the popover on outside click", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <PopoverTrigger
-                dismissable
-                trigger="click"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    act(() => {
+        userEvent.click(document.body);
     });
 
-    test("when a popover is not dismissable, do not hide the popover on outside click", async () => {
-        const { getByTestId } = render(
-            <PopoverTrigger
-                dismissable={false}
-                trigger="click"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
-
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
+    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 });
 
-describe("\"hover\" trigger", () => {
-    test("do not focus the popover overlay on show", async () => {
-        const { getByTestId } = render(
-            <PopoverTrigger
-                trigger="hover"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
+test("when a popover is not dismissable, do not hide the popover on outside click", async () => {
+    const { getByTestId } = render(
+        <PopoverTrigger
+            dismissable={false}
+            data-testid="overlay"
+        >
+            <Button data-testid="trigger">Trigger</Button>
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </PopoverTrigger>
+    );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        await waitFor(() => expect(getByTestId("overlay")).not.toHaveFocus());
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
-    test("when a popover is dismissable, hide the popover on outside click", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <PopoverTrigger
-                dismissable
-                trigger="hover"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    act(() => {
+        userEvent.click(document.body);
     });
 
-    test("when a popover is not dismissable, do not hide the popover on outside click", async () => {
-        const { getByTestId } = render(
-            <PopoverTrigger
-                dismissable={false}
-                trigger="hover"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
-
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.click(document.body);
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-    test("when a popover is dismissable, hide on unhover", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <PopoverTrigger
-                dismissable
-                trigger="hover"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
-
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when a popover is not dismissable, do not hide on unhover", async () => {
-        const { getByTestId } = render(
-            <PopoverTrigger
-                dismissable={false}
-                trigger="hover"
-                data-testid="overlay"
-            >
-                <Button data-testid="trigger">Trigger</Button>
-                <Popover>
-                    <Heading>Space News</Heading>
-                    <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                </Popover>
-            </PopoverTrigger>
-        );
-
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
-
-
-
-    test("when a popover is dismissable, hide on blur", async () => {
-        const { getByTestId, queryByTestId } = render(
-            <>
-                <button type="button" data-testid="focusable-element">Focusable element</button>
-                <PopoverTrigger
-                    dismissable
-                    trigger="hover"
-                    data-testid="overlay"
-                >
-                    <Button data-testid="trigger">Trigger</Button>
-                    <Popover>
-                        <Heading>Space News</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                    </Popover>
-                </PopoverTrigger>
-            </>
-        );
-
-        act(() => {
-            getByTestId("trigger").focus();
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("focusable-element").focus();
-        });
-
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
-    });
-
-    test("when a popover is not dismissable, do not hide on blur", async () => {
-        const { getByTestId } = render(
-            <>
-                <button type="button" data-testid="focusable-element">Focusable element</button>
-                <PopoverTrigger
-                    dismissable={false}
-                    trigger="hover"
-                    data-testid="overlay"
-                >
-                    <Button data-testid="trigger">Trigger</Button>
-                    <Popover>
-                        <Heading>Space News</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-                    </Popover>
-                </PopoverTrigger>
-            </>
-        );
-
-        act(() => {
-            getByTestId("trigger").focus();
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-        act(() => {
-            getByTestId("focusable-element").focus();
-        });
-
-        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    });
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 });
-
 
 // ***** Aria *****
 
-test("a popover have an aria-haspopup attribute", async () => {
+test("a popover trigger have an aria-haspopup attribute", async () => {
     const { getByTestId } = render(
         <PopoverTrigger data-testid="overlay">
             <Button data-testid="trigger">Trigger</Button>
@@ -316,26 +87,6 @@ test("a popover have an aria-haspopup attribute", async () => {
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-haspopup", "dialog"));
-});
-
-test("when an id is provided for the popover, it is used as the popover id", async () => {
-    const { getByTestId } = render(
-        <PopoverTrigger data-testid="overlay">
-            <Button data-testid="trigger">Trigger</Button>
-            <Popover id="popover-id" data-testid="popover">
-                <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
-            </Popover>
-        </PopoverTrigger>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
-
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-    await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("id", "popover-id"));
 });
 
 // ***** Api *****

@@ -5,9 +5,8 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
 import { InfoIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { ToggleButton } from "@react-components/button";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Components/Checkbox"
@@ -19,7 +18,7 @@ import { paramsBuilder } from "@stories/utils";
 <Tagline>A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.</Tagline>
 
 <ComponentInfo
-    usage={"import { Checkbox, CheckboxGroup, useCheckableProps } from \"@orbit-ui/react-components\";"}
+    usage={"import { Checkbox, CheckboxGroup } from \"@orbit-ui/react-components\";"}
     ariaPath="#checkbox"
     githubPath="/packages/react-components/src/checkbox/src"
 />
@@ -197,22 +196,6 @@ The example below illustrates how one would validate if the user has checked all
 
 <Preview filePath="/checkbox/docs/AllCheckedValidation" />
 
-### Toggle buttons
-
-In somes cases, you might want a group of toggle buttons to behave like a checkbox group.
-
-<Preview>
-    <Story name="toggle buttons">
-        <CheckboxGroup gap={2}>
-            <ToggleButton value="none" variant="outline">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
-            <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
-            <ToggleButton value="3" variant="outline" shape="circular">3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" shape="circular">4+</ToggleButton>
-        </CheckboxGroup>
-    </Story>
-</Preview>
-
 ### Custom components
 
 Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckableProps` hook.
@@ -266,19 +249,3 @@ A checkbox group can handle `value` state in controlled mode.
 />
 
 <ArgsTable of={InnerCheckboxGroup} sort="alpha" />
-
-<Story
-    name="playground - checkbox group"
-    parameters={paramsBuilder()
-        .component(InnerCheckboxGroup)
-        .excludeFromDocs()
-        .build()}
->
-    {args =>
-        <CheckboxGroup {...args}>
-            <Checkbox value="milky-way" >Milky Way</Checkbox>
-            <Checkbox value="andromeda">Andromeda</Checkbox>
-            <Checkbox value="medusa">Medusa</Checkbox>
-        </CheckboxGroup>
-    }
-</Story>

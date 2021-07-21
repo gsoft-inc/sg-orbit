@@ -15,6 +15,7 @@ export interface UseFieldProps {
 export interface UseFieldReturn {
     fieldId: string;
     fieldProps: {
+        id: string;
         className: string;
         ref: MergedRef<any>;
 
@@ -51,6 +52,7 @@ export function useField({
     return {
         fieldId,
         fieldProps: {
+            id: fieldId,
             className: mergeClasses(
                 cssModule(
                     "o-ui-field",

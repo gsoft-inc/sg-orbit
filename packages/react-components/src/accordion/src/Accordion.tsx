@@ -34,7 +34,7 @@ export interface InnerAccordionProps extends DomProps {
     defaultExpandedKeys?: string[];
     /**
      * Called when an accordion item is toggled.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {String[]} keys - The keys of the expanded items.
      * @returns {void}
      */
@@ -84,7 +84,9 @@ export function InnerAccordion({
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const items = useAccordionItems(children, useId(id, "o-ui-accordion"));
+    const accordionId = useId(id, "o-ui-accordion");
+
+    const items = useAccordionItems(children, accordionId);
 
     const focusManager = useFocusManager(focusScope);
 
@@ -125,6 +127,7 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
+                    id: accordionId,
                     className: cssModule(
                         "o-ui-accordion",
                         variant

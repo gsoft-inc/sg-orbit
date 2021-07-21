@@ -34,12 +34,7 @@ export class AccordionBuilder {
             throw new Error("An accordion must have children.");
         }
 
-        return Children.map(children, (element: ReactElement, index) => {
-            // Support conditional rendering like {false && <Item ... />}
-            if (isNil(element)) {
-                return null;
-            }
-
+        return Children.toArray(children).filter(x => x).map((element: ReactElement, index) => {
             const [header, content] = Children.toArray(element.props.children) as ReactElement[];
 
             if (isNil(header) || isNil(content)) {

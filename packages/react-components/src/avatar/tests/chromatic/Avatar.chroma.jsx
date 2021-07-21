@@ -60,6 +60,9 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("failing remote src", () =>
+        <Avatar src="https://www.google.com" name="Neil Armstrong" />
+    )
     .add("styling", () =>
         <Inline>
             <Avatar name="Sally Ride" className="border-red" />

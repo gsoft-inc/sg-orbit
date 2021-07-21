@@ -1,6 +1,8 @@
 .o-ui-light {
     --o-ui-alias-background: var(--o-ui-global-white);
     --o-ui-alias-background-1: var(--o-ui-global-white);
+    --o-ui-alias-background-1-hover: var(--o-ui-global-cloud-50);
+    --o-ui-alias-background-1-active: var(--o-ui-global-cloud-100);
     --o-ui-alias-background-2: var(--o-ui-global-cloud-100);
     --o-ui-alias-background-2-hover: var(--o-ui-global-cloud-200);
     --o-ui-alias-background-2-active: var(--o-ui-global-cloud-500);
@@ -11,6 +13,9 @@
     --o-ui-alias-background-5: var(--o-ui-global-marine-500);
     --o-ui-alias-background-5-hover: var(--o-ui-global-marine-700);
     --o-ui-alias-background-5-active: var(--o-ui-global-marine-900);
+    --o-ui-alias-background-6: var(--o-ui-global-neutral-50);
+    --o-ui-alias-background-6-hover: var(--o-ui-global-neutral-100);
+    --o-ui-alias-background-6-active: var(--o-ui-global-neutral-200);
     --o-ui-alias-background-primary-1: var(--o-ui-alias-primary-500);
     --o-ui-alias-background-primary-1-hover: var(--o-ui-alias-primary-700);
     --o-ui-alias-background-primary-1-active: var(--o-ui-alias-primary-900);
@@ -38,6 +43,8 @@
 .o-ui-dark {
     --o-ui-alias-background: hsl(226deg, 20%, 15%);
     --o-ui-alias-background-1: #2B2F3C;
+    --o-ui-alias-background-1-hover: var(--o-ui-global-cloud-900);
+    --o-ui-alias-background-1-active: var(--o-ui-global-cloud-800);
     --o-ui-alias-background-2: var(--o-ui-global-cloud-800);
     --o-ui-alias-background-2-hover: var(--o-ui-global-cloud-900);
     --o-ui-alias-background-2-active: var(--o-ui-global-cloud-600);
@@ -48,6 +55,9 @@
     --o-ui-alias-background-5: var(--o-ui-global-marine-600);
     --o-ui-alias-background-5-hover: var(--o-ui-global-marine-500);
     --o-ui-alias-background-5-active: var(--o-ui-global-marine-400);
+    --o-ui-alias-background-6: var(--o-ui-global-neutral-dark-900);
+    --o-ui-alias-background-6-hover: var(--o-ui-global-neutral-dark-800);
+    --o-ui-alias-background-6-active: var(--o-ui-global-neutral-dark-700);
     --o-ui-alias-background-primary-1: var(--o-ui-alias-primary-700);
     --o-ui-alias-background-primary-1-hover: var(--o-ui-alias-primary-500);
     --o-ui-alias-background-primary-1-active: var(--o-ui-alias-primary-400);

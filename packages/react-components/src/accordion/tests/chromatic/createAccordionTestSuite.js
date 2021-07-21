@@ -5,7 +5,7 @@ import { Counter } from "@react-components/counter";
 import { InfoIcon } from "@react-components/icons";
 import { Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { augmentElement } from "@react-components/shared";
 import { cloneElement } from "react";
 
@@ -186,28 +186,48 @@ export function createAccordionTestSuite(element, stories) {
             </div>
         )
         .add("states", () =>
-            <Accordion element={element}>
-                <Item active>
-                    <Header as="h3">Uranus</Header>
-                    <Content>Uranus is the seventh planet from the Sun.</Content>
-                </Item>
-                <Item focus>
-                    <Header as="h3">Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
-                </Item>
-                <Item hover>
-                    <Header as="h3">Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item focus hover>
-                    <Header as="h3">Venus</Header>
-                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-                <Item disabled>
-                    <Header as="h3">Saturn</Header>
-                    <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
-                </Item>
-            </Accordion>
+            <Stack>
+                <Accordion element={element}>
+                    <Item active>
+                        <Header as="h3">Uranus</Header>
+                        <Content>Uranus is the seventh planet from the Sun.</Content>
+                    </Item>
+                    <Item focus>
+                        <Header as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                    <Item hover>
+                        <Header as="h3">Jupiter</Header>
+                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                    </Item>
+                    <Item focus hover>
+                        <Header as="h3">Venus</Header>
+                        <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                    </Item>
+                </Accordion>
+                <Accordion element={element}>
+                    <Item disabled>
+                        <Header as="h3">Uranus</Header>
+                        <Content>Uranus is the seventh planet from the Sun.</Content>
+                    </Item>
+                    <Item disabled active>
+                        <Header as="h3">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    </Item>
+                    <Item disabled focus>
+                        <Header as="h3">Jupiter</Header>
+                        <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                    </Item>
+                    <Item disabled hover>
+                        <Header as="h3">Venus</Header>
+                        <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                    </Item>
+                    <Item disabled focus hover>
+                        <Header as="h3">Saturn</Header>
+                        <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
+                    </Item>
+                </Accordion>
+            </Stack>
         )
         .add("dynamic items", () =>
             <Stack>

@@ -103,23 +103,30 @@ stories()
     .add("states", () =>
         <Stack>
             <Inline verticalAlign="end">
+                <TextInput loading placeholder="Where to?" />
+                <TextInput disabled placeholder="Where to?" />
+                <TextInput readOnly placeholder="Where to?" />
+            </Inline>
+            <Inline verticalAlign="end">
                 <TextInput active placeholder="Where to?" />
                 <TextInput loading active placeholder="Where to?" />
+                <TextInput disabled active placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextInput focus placeholder="Where to?" />
                 <TextInput loading focus placeholder="Where to?" />
+                <TextInput disabled focus placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextInput hover placeholder="Where to?" />
                 <TextInput loading hover placeholder="Where to?" />
+                <TextInput disabled hover placeholder="Where to?" />
             </Inline>
             <Inline verticalAlign="end">
                 <TextInput focus hover placeholder="Where to?" />
                 <TextInput loading focus hover placeholder="Where to?" />
+                <TextInput disabled focus hover placeholder="Where to?" />
             </Inline>
-            <TextInput disabled placeholder="Where to?" />
-            <TextInput readOnly placeholder="Where to?" />
         </Stack>
     )
     .add("styling", () =>

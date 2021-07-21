@@ -5,7 +5,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Lozenge } from "@react-components/lozenge";
 import { Tab, TabPanel, Tabs, useTabsContext } from "@react-components/tabs";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -251,9 +251,27 @@ stories()
                     <Header>Saturn</Header>
                     <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Item>
+            </Tabs>
+            <Tabs aria-label="Planets">
                 <Item disabled>
-                    <Header>Neptune</Header>
-                    <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
+                    <Header>Uranus</Header>
+                    <Content>Uranus is the seventh planet from the Sun.</Content>
+                </Item>
+                <Item disabled active>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item disabled focus>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item disabled hover>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+                <Item disabled focus hover>
+                    <Header>Saturn</Header>
+                    <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Item>
             </Tabs>
             <Tabs aria-label="Planets">
@@ -551,30 +569,54 @@ stories("/vertical")
         </Tabs>
     )
     .add("states", () =>
-        <Tabs orientation="vertical" aria-label="Planets">
-            <Item selected>
-                <Header>Uranus</Header>
-                <Content>Uranus is the seventh planet from the Sun.</Content>
-            </Item>
-            <Item active>
-                <Header>Mars</Header>
-                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-            </Item>
-            <Item focus>
-                <Header>Jupiter</Header>
-                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-            </Item>
-            <Item hover>
-                <Header>Venus</Header>
-                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-            </Item>
-            <Item focus hover>
-                <Header>Saturn</Header>
-                <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
-            </Item>
-            <Item disabled>
-                <Header>Neptune</Header>
-                <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
-            </Item>
-        </Tabs>
+        <Inline>
+            <Tabs orientation="vertical" aria-label="Planets">
+                <Item selected>
+                    <Header>Uranus</Header>
+                    <Content>Uranus is the seventh planet from the Sun.</Content>
+                </Item>
+                <Item active>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item focus>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item hover>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+                <Item focus hover>
+                    <Header>Saturn</Header>
+                    <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
+                </Item>
+                <Item disabled>
+                    <Header>Neptune</Header>
+                    <Content>Neptune is the eighth and farthest-known Solar planet from the Sun.</Content>
+                </Item>
+            </Tabs>
+            <Tabs orientation="vertical" aria-label="Planets">
+                <Item disabled>
+                    <Header>Uranus</Header>
+                    <Content>Uranus is the seventh planet from the Sun.</Content>
+                </Item>
+                <Item disabled active>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                </Item>
+                <Item disabled focus>
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+                </Item>
+                <Item disabled hover>
+                    <Header>Venus</Header>
+                    <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+                </Item>
+                <Item disabled focus hover>
+                    <Header>Saturn</Header>
+                    <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
+                </Item>
+            </Tabs>
+        </Inline>
     );

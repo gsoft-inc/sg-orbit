@@ -112,6 +112,25 @@ test("when autofocus is specified with a delay, accordion header is focused afte
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
 });
 
+// ***** Aria *****
+
+test("when an id is provided, the accordion id attribute match the provided value", async () => {
+    const { getByTestId } = render(
+        <Accordion id="foo" data-testid="accordion">
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+            <Item>
+                <Header as="h3">Header</Header>
+                <Content>Content</Content>
+            </Item>
+        </Accordion>
+    );
+
+    await waitFor(() => expect(getByTestId("accordion")).toHaveAttribute("id", "foo"));
+});
+
 // ***** Api *****
 
 test("when single, call onExpansionChange when the expanded tab change", async () => {

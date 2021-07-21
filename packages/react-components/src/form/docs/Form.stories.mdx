@@ -3,7 +3,7 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@react-components/field";
-import { Fieldset, Form, InnerForm, InnerRow, Row } from "@react-components/form";
+import { Fieldset, Form, InnerFieldset, InnerForm, InnerRow, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 
@@ -17,7 +17,7 @@ import { PasswordInput, TextInput } from "@react-components/text-input";
 <Tagline>Forms are commonly used to provide user interaction in web applications.</Tagline>
 
 <ComponentInfo
-    usage={"import { Form, Row, FormContext, useFormField, useFormButton } from \"@orbit-ui/react-components\";"}
+    usage={"import { Form, Row, Fieldset, FormContext, useFormField, useFormButton } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/form/src"
 />
 
@@ -251,4 +251,13 @@ The form state and validation could be managed by an external library like [Form
 />
 
 <ArgsTable of={InnerRow} sort="alpha" />
+
+### Fieldset
+
+<ComponentInfo
+    usage={"import { Fieldset } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerFieldset} sort="alpha" />
 

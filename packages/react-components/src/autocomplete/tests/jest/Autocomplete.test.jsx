@@ -586,6 +586,18 @@ test("when autofocus is specified with a delay, the autocomplete trigger is focu
 
 // ***** Aria *****
 
+test("when an id is provided, it is used as the trigger id", async () => {
+    const { getByTestId } = render(
+        <Autocomplete id="foo" aria-label="Planet" data-testid="autocomplete">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Autocomplete>
+    );
+
+    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("id", "foo"));
+});
+
 test("an autocomplete have the \"combobox\" role", async () => {
     const { getByTestId } = render(
         <Autocomplete aria-label="Planet" data-testid="autocomplete">

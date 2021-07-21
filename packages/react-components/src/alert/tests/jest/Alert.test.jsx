@@ -1,39 +1,53 @@
 import { Alert } from "@react-components/alert";
+import { Content } from "@react-components/placeholders";
+import { Heading } from "@react-components/typography";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-// ***** Aria *****
+// ***** Behaviors *****
 
-test("when an alert tone is info, role is \"status\"", async () => {
-    const { getByTestId } = render(
-        <Alert tone="info" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+test("when autoFocusButton value is \"primary\", autofocus the primary button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="primary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
 });
 
-test("when an alert tone is positive, role is \"status\"", async () => {
-    const { getByTestId } = render(
-        <Alert tone="positive" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+test("when autoFocusButton value is \"secondary\", autofocus the secondary button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="secondary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(getByText("Secondary").parentElement).toHaveFocus());
 });
 
-test("when an alert tone is warning, role is \"alert\"", async () => {
-    const { getByTestId } = render(
-        <Alert tone="warning" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+test("when autoFocusButton value is \"cancel\", autofocus the cancel button on render", async () => {
+    const { getByText } = render(
+        <Alert autoFocusButton="cancel" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(getByText("Cancel").parentElement).toHaveFocus());
 });
 
-test("when an alert tone is critical, role is \"alert\"", async () => {
-    const { getByTestId } = render(
-        <Alert tone="critical" data-testid="alert">Scheduled launch today at 1PM.</Alert>
+test("when autoFocusButton value is not defined, autofocus the primary button", async () => {
+    const { getByText } = render(
+        <Alert primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
     );
 
-    await waitFor(() => expect(getByTestId("alert")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
 });
 
 // ***** Refs *****
@@ -42,13 +56,16 @@ test("ref is a DOM element", async () => {
     const ref = createRef();
 
     render(
-        <Alert ref={ref}>Scheduled launch today at 1PM.</Alert>
+        <Alert ref={ref}>
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
+        </Alert>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     await waitFor(() => expect(ref.current instanceof HTMLElement).toBeTruthy());
-    await waitFor(() => expect(ref.current.tagName).toBe("DIV"));
+    await waitFor(() => expect(ref.current.tagName).toBe("SECTION"));
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {
@@ -60,14 +77,15 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
         >
-            Scheduled launch today at 1PM.
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
         </Alert>
     );
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
     await waitFor(() => expect(refNode instanceof HTMLElement).toBeTruthy());
-    await waitFor(() => expect(refNode.tagName).toBe("DIV"));
+    await waitFor(() => expect(refNode.tagName).toBe("SECTION"));
 });
 
 test("set ref once", async () => {
@@ -75,7 +93,8 @@ test("set ref once", async () => {
 
     render(
         <Alert ref={handler}>
-            Scheduled launch today at 1PM.
+            <Heading>Autopilot</Heading>
+            <Content>Are you use sure you want to engage autopilot?</Content>
         </Alert>
     );
 

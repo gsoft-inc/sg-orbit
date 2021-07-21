@@ -9,7 +9,7 @@ import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
 import { Switch } from "@react-components/switch";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { TextArea } from "@react-components/text-area";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -193,9 +193,11 @@ stories()
     .add("styling", () =>
         <Inline>
             <Field className="border-red">
+                <Label>Launch date</Label>
                 <TextInput />
             </Field>
             <Field style={{ border: "1px solid red" }}>
+                <Label>Launch date</Label>
                 <TextInput />
             </Field>
         </Inline>

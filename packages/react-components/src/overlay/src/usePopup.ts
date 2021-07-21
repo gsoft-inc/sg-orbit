@@ -1,20 +1,8 @@
-import {
-    AutoFocusChildOptions,
-    isNil,
-    isNumber,
-    mergeProps,
-    useAutoFocusChild,
-    useControllableState,
-    useEventCallback,
-    useFocusManager,
-    useFocusScope,
-    useId,
-    useMergedRefs
-} from "../../shared";
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
-import { OverlayTrigger, useOverlayTrigger } from "./useOverlayTrigger";
+import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { isTargetParent } from "./isTargetParent";
+import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
@@ -27,9 +15,7 @@ export interface UsePopupOptions {
     hideOnLeave?: boolean;
     hideOnOutsideClick?: boolean;
     restoreFocus?: boolean;
-    autoFocus?: boolean | number;
-    autoFocusOptions?: AutoFocusChildOptions;
-    trigger?: OverlayTrigger;
+    trigger?: "none" | "click";
     hasArrow?: boolean;
     position?: OverlayPosition;
     offset?: number[];
@@ -49,10 +35,8 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     hideOnLeave = true,
     hideOnOutsideClick,
     restoreFocus = true,
-    autoFocus,
-    autoFocusOptions = {},
     trigger = "click",
-    hasArrow = false,
+    hasArrow,
     position,
     offset,
     disabled,
@@ -111,17 +95,8 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         hideOnOutsideClick
     });
 
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
     const focusManager = useFocusManager(focusScope, { keyProp });
-
-    useAutoFocusChild(focusManager, {
-        ...autoFocusOptions,
-        isDisabled: !autoFocus || !isOpen,
-        delay: isNumber(autoFocus) ? autoFocus : undefined,
-        onNotFound: useEventCallback(() => {
-            overlayRef.current?.focus();
-        })
-    });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
 
     const overlayId = useId(id, "o-ui-overlay");
 
@@ -144,7 +119,6 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
             {
                 id: overlayId,
                 show: isOpen,
-                tabIndex: -1,
                 ref: overlayRef
             },
             overlayDismissProps,

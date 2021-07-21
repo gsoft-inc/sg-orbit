@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { PanelType } from "./useTabsItems";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { forwardRef, mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 

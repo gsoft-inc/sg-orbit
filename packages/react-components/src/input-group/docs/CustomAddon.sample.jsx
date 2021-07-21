@@ -2,7 +2,7 @@ function CustomAddon({ children, ...props }) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     return (
-        <Box
+        <Text
             {...mergeProps(
                 props,
                 {
@@ -20,14 +20,14 @@ function CustomAddon({ children, ...props }) {
             )}
         >
             {children}
-        </Box>
+        </Text>
     );
 }
 
 render(() => {
     return (
         <InputGroup>
-            <TextInput arial-label="Url" />
+            <TextInput aria-label="Url" />
             <CustomAddon>.space</CustomAddon>
         </InputGroup>
     );

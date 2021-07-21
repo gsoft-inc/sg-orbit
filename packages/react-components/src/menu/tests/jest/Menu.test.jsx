@@ -2,7 +2,7 @@ import { Divider } from "@react-components/divider";
 import { Item, Section } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { Menu } from "@react-components/menu";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";
@@ -505,6 +505,18 @@ test("when autofocus is specified with a delay, the first menu item is focused a
 });
 
 // ***** Aria *****
+
+test("when an id is provided, the menu id attribute match the provided id", async () => {
+    const { getByTestId } = render(
+        <Menu id="foo" aria-label="Planets" data-testid="menu">
+            <Item key="earth">Earth</Item>
+            <Item key="jupiter">Jupiter</Item>
+            <Item key="mars">Mars</Item>
+        </Menu>
+    );
+
+    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("id", "foo"));
+});
 
 test("a menu role is \"menu\"", async () => {
     const { getByTestId } = render(

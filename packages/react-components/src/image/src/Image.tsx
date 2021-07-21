@@ -1,7 +1,7 @@
 import "./Image.css";
 
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
+import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
 export interface InnerImageProps {
     /**
@@ -27,7 +27,7 @@ export interface InnerImageProps {
     /**
      * The image shape.
      */
-    shape?: "rounded" | "circular";
+    shape?: "straight" | "rounded" | "circular";
     /**
      * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
@@ -36,6 +36,10 @@ export interface InnerImageProps {
      * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
     position?: string;
+    /**
+     * Default slot override.
+     */
+    slot?: string;
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -46,9 +50,8 @@ export interface InnerImageProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-
 export function InnerImage({
-    shape,
+    shape = "straight",
     size,
     width,
     height,
@@ -80,9 +83,9 @@ export function InnerImage({
     );
 }
 
-export const Image = forwardRef<InnerImageProps>((props, ref) => (
+export const Image = slot("image", forwardRef<InnerImageProps>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
-));
+)));
 
 export type ImageProps = ComponentProps<typeof Image>;
 

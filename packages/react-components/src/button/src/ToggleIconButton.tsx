@@ -1,9 +1,9 @@
-import { AriaLabelingProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleIconButtonProps extends AriaLabelingProps {
+export interface InnerToggleIconButtonProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * A controlled checked value.
      */
@@ -18,7 +18,7 @@ export interface InnerToggleIconButtonProps extends AriaLabelingProps {
     value?: string;
     /**
      * Called when the toggle icon button checked state change.
-     * @param {SyntheticEvent} event - React's original SyntheticEvent.
+     * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isChecked - Whether the button is checked.
      * @returns {void}
      */
@@ -64,10 +64,6 @@ export interface InnerToggleIconButtonProps extends AriaLabelingProps {
      */
     slot?: string;
     /**
-     * @ignore
-     */
-    active?: boolean;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -89,7 +85,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         onChange,
         active,
         "aria-label": ariaLabel,
-        as,
+        as = "button",
         children,
         forwardedRef,
         ...rest

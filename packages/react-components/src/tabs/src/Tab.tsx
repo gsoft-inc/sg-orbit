@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, useMemo } from "react";
 import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
-import { Text } from "../../text";
+import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
 
 export const TabKeyProp = "data-o-ui-key";

@@ -1,7 +1,8 @@
+import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Text } from "@react-components/text";
+import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 
 function Switch({ element, ...rest }) {
@@ -108,9 +109,9 @@ export function createTestSuite(element, stories) {
         )
         .add("reverse", () =>
             <Stack>
-                <div>
+                <Box>
                     <Switch reverse element={element}>Engines</Switch>
-                </div>
+                </Box>
                 <Inline>
                     <Switch reverse element={element}>
                         <Text>Engines</Text>
@@ -169,28 +170,48 @@ export function createTestSuite(element, stories) {
             </Stack>
         )
         .add("states", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <Switch active size="sm" element={element}>Engines</Switch>
-                    <Switch active element={element}>Engines</Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch focus size="sm" element={element}>Engines</Switch>
-                    <Switch focus element={element}>Engines</Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch hover size="sm" element={element}>Engines</Switch>
-                    <Switch hover element={element}>Engines</Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch focus hover size="sm" element={element}>Engines</Switch>
-                    <Switch focus hover element={element}>Engines</Switch>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <Switch disabled size="sm" element={element}>Engines</Switch>
-                    <Switch disabled element={element}>Engines</Switch>
-                </Inline>
-            </Stack>
+            <Inline>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Switch active size="sm" element={element}>Engines</Switch>
+                        <Switch active element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch focus size="sm" element={element}>Engines</Switch>
+                        <Switch focus element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch hover size="sm" element={element}>Engines</Switch>
+                        <Switch hover element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch focus hover size="sm" element={element}>Engines</Switch>
+                        <Switch focus hover element={element}>Engines</Switch>
+                    </Inline>
+                </Stack>
+                <Stack>
+                    <Inline verticalAlign="end">
+                        <Switch disabled size="sm" element={element}>Engines</Switch>
+                        <Switch disabled element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch disabled active size="sm" element={element}>Engines</Switch>
+                        <Switch disabled active element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch disabled focus size="sm" element={element}>Engines</Switch>
+                        <Switch disabled focus element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch disabled hover size="sm" element={element}>Engines</Switch>
+                        <Switch disabled hover element={element}>Engines</Switch>
+                    </Inline>
+                    <Inline verticalAlign="end">
+                        <Switch disabled focus hover size="sm" element={element}>Engines</Switch>
+                        <Switch disabled focus hover element={element}>Engines</Switch>
+                    </Inline>
+                </Stack>
+            </Inline>
         )
         .add("overflow", () =>
             <Stack>

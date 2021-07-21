@@ -1,11 +1,27 @@
 import "./Popover.css";
 
+import {
+    AriaLabelingProps,
+    DomProps,
+    InteractionStatesProps,
+    forwardRef,
+    isNil,
+    isString,
+    mergeProps,
+    useAutoFocusChild,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useId,
+    useMergedRefs,
+    useSlots
+} from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text } from "../../text";
-import { forwardRef, mergeProps, useSlots } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useCallback, useMemo } from "react";
+import { Text } from "../../typography";
+import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
-export interface InnerPopoverProps {
+export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -21,27 +37,62 @@ export interface InnerPopoverProps {
 }
 
 export function InnerPopover({
+    id,
+    focus,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
     as = "section",
     children,
     forwardedRef,
     ...rest
 }: InnerPopoverProps) {
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
+
+    const focusManager = useFocusManager(focusScope);
+
+    useTrapFocus(focusManager);
+
+    useAutoFocusChild(focusManager, {
+        canFocus: useCallback((element: HTMLElement) => {
+            // Do not autofocus the popover itself.
+            if (element === popoverRef.current) {
+                return false;
+            }
+
+            // Do not autofocus a link.
+            if (element?.tagName === "A") {
+                return false;
+            }
+
+            return true;
+        }, [popoverRef]),
+        onNotFound: useEventCallback(() => {
+            popoverRef.current?.focus();
+        })
+    });
+
+    const focusRingProps = useOverlayFocusRing({ focus });
+
+    const popoverId = useId(id, "o-ui-popover");
+
     const { heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
         heading: {
+            id: `${popoverId}-heading`,
             size: "sm",
             as: "h3"
         },
         content: {
             className: "o-ui-popover-content",
-            role: "dialog",
             as: Text
         },
         footer: {
-            className: "o-ui-popover-footer-text",
-            as: Text
+            className: "o-ui-popover-footer",
+            as: "footer"
         },
         button: {
             className: "o-ui-popover-button",
@@ -51,17 +102,23 @@ export function InnerPopover({
             className: "o-ui-popover-button-group",
             size: "sm"
         }
-    }), []));
+    }), [popoverId]));
 
-    const headerMarkup = heading && (
-        <header className="o-ui-popover-header">
+    const headingId = heading?.props?.id;
+
+    const footerMarkup = isString(footer?.props?.children)
+        ? cloneElement(footer, { children: <Text>{footer?.props?.children}</Text> })
+        : footer;
+
+    const headerSectionMarkup = heading && (
+        <header className="o-ui-popover-header-section">
             {heading}
         </header>
     );
 
-    const footerMarkup = (button || buttonGroup || footer) && (
-        <footer className="o-ui-popover-footer">
-            {footer}
+    const footerSectionMarkup = (footer || button || buttonGroup) && (
+        <footer className="o-ui-popover-footer-section">
+            {footerMarkup}
             {button}
             {buttonGroup}
         </footer>
@@ -72,15 +129,21 @@ export function InnerPopover({
             {...mergeProps(
                 rest,
                 {
+                    id,
                     className: "o-ui-popover",
+                    tabIndex: -1,
+                    role: "dialog",
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                     as,
-                    ref: forwardedRef
-                }
+                    ref: popoverRef
+                },
+                focusRingProps
             )}
         >
-            {headerMarkup}
+            {headerSectionMarkup}
             {content}
-            {footerMarkup}
+            {footerSectionMarkup}
         </Box>
     );
 }

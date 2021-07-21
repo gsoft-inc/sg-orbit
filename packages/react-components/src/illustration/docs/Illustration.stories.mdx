@@ -1,0 +1,88 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@react-components/placeholders";
+import { Heading } from "@react-components/typography";
+import { Illustration, InnerIllustration } from "@react-components/illustration";
+import { Image, SvgImage } from "@react-components/image";
+import { ReactComponent as NoResults } from "./assets/no-results.svg";
+import { Planet } from "./assets";
+
+<Meta
+    title="Components/Illustration"
+    id="illustration"
+/>
+
+# Illustration
+
+<Tagline>Use an illustration to compose an image with a background color, some text or wathever else you need.</Tagline>
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/illustration/src"
+/>
+
+## Usage
+
+### Horizontal
+
+An illustration can render horizontally.
+
+<Preview scope={{ NoResults }}>
+    <Story name="horizontal">
+        <Illustration>
+            <SvgImage src={NoResults} stroke="alias-icon-1" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </Illustration>
+    </Story>
+</Preview>
+
+### Vertical
+
+An illustration can render vertically.
+
+<Preview scope={{ Planet }} style={{ height: "500px" }}>
+    <Story name="vertical">
+        <Illustration orientation="vertical" color="#998BAF" style={{ width: "225px", padding: "24px" }}>
+            <Image src={Planet} alt="Planet over another planet" />
+        </Illustration>
+    </Story>
+</Preview>
+
+### Shape
+
+An illustration can have a `rounded` shape.
+
+<Preview scope={{ Planet }}>
+    <Story name="shape">
+        <Illustration shape="rounded" color="#998BAF" style={{ height: "225px", padding: "24px" }}>
+            <Image src={Planet} alt="Planet over another planet" />
+        </Illustration>
+    </Story>
+</Preview>
+
+### Color
+
+An illustration backgroud color can be a name from our foundations (e.g. `sunray-50`, `primary-500`), an hexadecimal color code (e.g. `#c5cac8`), an `hsl`, an `hsla`, a `rgb` or a `rgba` color code.
+
+<Preview scope={{ NoResults }}>
+    <Story name="color">
+        <Illustration color="alias-background-info-1" style={{ height: "300px" }}>
+            <SvgImage src={NoResults} stroke="alias-icon-1" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </Illustration>
+    </Story>
+</Preview>
+
+## API
+
+### Illustration
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@orbit-ui/react-components\";"}
+    slots={["image", "heading", "content"]}
+    compact
+/>
+
+<ArgsTable of={InnerIllustration} sort="alpha" />

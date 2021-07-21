@@ -1,14 +1,14 @@
 import "./Icon.css";
 
+import { AriaLabelingProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerIconProps {
+export interface InnerIconProps extends AriaLabelingProps {
     /**
      * An icon as a React component.
      */
-    type: ElementType;
+    src: ElementType;
     /**
      * An icon can vary in size.
      */
@@ -27,7 +27,7 @@ export const InnerIcon = ((props: InnerIconProps) => {
     const [styleProps] = useStyleProps("icon");
 
     const {
-        type,
+        src,
         size,
         disabled,
         "aria-label": ariaLabel,
@@ -48,8 +48,9 @@ export const InnerIcon = ((props: InnerIconProps) => {
                         disabled && "disabled",
                         size && size === "inherit" ? "inherit-size" : normalizeSize(size)
                     ),
+                    // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
                     focusable: false,
-                    as: type,
+                    as: src,
                     "aria-hidden": isNil(ariaLabel),
                     "aria-label": ariaLabel,
                     ref: forwardedRef
@@ -69,11 +70,11 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
-export function createIcon(type: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerIconProps, "type">, "svg">((props, ref) =>
+export function createIcon(src: ElementType) {
+    return slot("icon", forwardRef<Omit<InnerIconProps, "src">, "svg">((props, ref) =>
         <InnerIcon
             {...props}
-            type={type}
+            src={src}
             forwardedRef={ref}
         />
     ));
