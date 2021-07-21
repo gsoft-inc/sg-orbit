@@ -1,4 +1,5 @@
 import "./Tile.css";
+import { ReactComponent as Checkmark } from "./checkmark.svg";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";

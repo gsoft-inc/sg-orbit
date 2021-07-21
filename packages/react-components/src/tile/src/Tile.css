@@ -71,8 +71,8 @@
     content: "";
     opacity: 0;
     position: absolute;
-    right: 12px;
-    top: 12px;
+    right: 8px;
+    bottom: 8px;
     border-radius: var(--o-ui-shape-rounded);
     width: 24px;
     height: 24px;
@@ -84,7 +84,7 @@
 }
 
 .o-ui-tile-checkable:hover:not([disabled]):not([aria-checked="true"]):not([aria-pressed="true"])::before {
-    opacity: 0.8;
+    opacity: 1;
 }
 
 .o-ui-tile[aria-checked="true"]::before,
@@ -147,7 +147,7 @@
 
 /* MAIN SECTION */
 .o-ui-tile-main {
-    padding: var(--o-ui-global-scale-echo);
+    padding: var(--o-ui-global-scale-foxtrot);
     grid-area: aside;
     display: flex;
     flex-direction: column;

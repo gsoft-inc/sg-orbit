@@ -101,7 +101,7 @@
     margin-top: var(--o-ui-global-scale-delta);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
 }
 
 /* DIALOG | FOOTER SECTION */

@@ -5,3 +5,7 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--o-ui-global-scale-golf);
 }
+
+.o-ui-modal-choice {
+    height: 100%;
+}
