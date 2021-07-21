@@ -25,10 +25,7 @@
                         The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.
                     </Paragraph>
                 </Content>
-                <Button
-                    color="primary"
-                    onClick={handleClose}
-                >
+                <Button onClick={handleClose}>
                     Close
                 </Button>
             </Modal>

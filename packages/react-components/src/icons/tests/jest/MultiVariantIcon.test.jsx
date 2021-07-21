@@ -4,8 +4,8 @@ import { render } from "@testing-library/react";
 
 function createIcon(props = {}) {
     return <MultiVariantIcon
-        type24={FilterIcon24}
-        type32={FilterIcon32}
+        src24={FilterIcon24}
+        src32={FilterIcon32}
         {...props}
     />;
 }

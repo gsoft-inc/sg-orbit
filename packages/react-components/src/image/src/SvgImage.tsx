@@ -1,8 +1,12 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { augmentElement } from "../../../dist/shared";
-import { forwardRef, mergeProps, slot } from "../../shared";
+import { AriaLabelingProps, forwardRef, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
+import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, useCallback, useMemo } from "react";
 
-export interface InnerSvgImageProps {
+export interface InnerSvgImageProps extends AriaLabelingProps {
+    /**
+     * An SVG as a React component.
+     */
+    src: ElementType;
     /**
      * Width and height in a single value.
      */
@@ -15,39 +19,95 @@ export interface InnerSvgImageProps {
     * @ignore
     */
     height?: number;
+    /**
+     * The SVG stroke attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
+     */
     stroke?: string;
+    /**
+     * The SVG fill attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill).
+     */
     fill?: string;
     /**
-     * React children.
+     * Defines a string value that labels the current element.
      */
-    children: ReactNode;
+    "aria-label": string;
+    /**
+     * Default slot override.
+     */
+    slot?: string;
     /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
 }
 
+function useColor(color: string) {
+    return useMemo(() => {
+        if (!isNil(color)) {
+            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
+                return color;
+            } else if (color.startsWith("--")) {
+                return `var(${color})`;
+            } else if (color.startsWith("alias") || color.startsWith("global")) {
+                return `var(--o-ui-${color})`;
+            }
+
+            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
+        }
+    }, [color]);
+}
+
 export function InnerSvgImage({
+    src,
     size,
     width,
     height,
     stroke,
     fill,
-    children,
+    "aria-label": ariaLabel,
     forwardedRef,
     ...rest
 }: InnerSvgImageProps) {
-    const markup = augmentElement(children, mergeProps(
-        rest,
-        {
-            width: width ?? size,
-            height: height ?? size,
-            ref: forwardedRef
+    const hideUseElement = useCallback((element: HTMLElement) => {
+        if (!isNil(element)) {
+            // Remove auto-generated title if available.
+            const titleElement = element.querySelector("title");
+
+            if (!isNil(titleElement)) {
+                titleElement.remove();
+            }
+
+            // Hide content from screen readers.
+            element.querySelector("use")?.setAttribute("aria-hidden", "true");
+
+            element.querySelectorAll("path").forEach((x: SVGPathElement) => {
+                x.setAttribute("aria-hidden", "true");
+            });
         }
-    ));
+    }, []);
+
+    const ref = useMergedRefs(forwardedRef, hideUseElement);
 
     return (
-        <>{markup}</>
+        <Box
+            {...mergeProps(
+                rest,
+                {
+                    width: width ?? size,
+                    height: height ?? size,
+                    style: {
+                        stroke: useColor(stroke),
+                        fill: useColor(fill)
+                    },
+                    // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-convey-information
+                    role: "img",
+                    focusable: false,
+                    as: src,
+                    "aria-label": ariaLabel,
+                    ref
+                }
+            )}
+        />
     );
 }
 
@@ -55,6 +115,6 @@ export const SvgImage = slot("image", forwardRef<InnerSvgImageProps>((props, ref
     <InnerSvgImage {...props} forwardedRef={ref} />
 )));
 
-export type ImageProps = ComponentProps<typeof SvgImage>;
+export type SvgImageProps = ComponentProps<typeof SvgImage>;
 
 SvgImage.displayName = "SvgImage";

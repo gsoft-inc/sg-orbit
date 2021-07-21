@@ -25,9 +25,9 @@ import { RouterLink } from "./RouterLink";
 
 A basic tile is checkable. It works like a radio button or a checkbox depending if it's used in a [single or multiple selection context](?path=/docs/tile--tile#tilegroup). An heading and a content is required.
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="tile">
-        <Tile style={{ "width": "500px" }}>
+        <Tile>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -38,9 +38,9 @@ A basic tile is checkable. It works like a radio button or a checkbox depending 
 
 A tile can have an [image](?path=/story/chromatic-image--default).
 
-<Preview scope={{ Apollo11Banner }}>
+<Preview scope={{ Apollo11Banner }} style={{ "width": "500px" }}>
     <Story name="image">
-        <Tile style={{ "width": "300px" }}>
+        <Tile>
             <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -50,9 +50,9 @@ A tile can have an [image](?path=/story/chromatic-image--default).
 
 Or an [illustration](?path=/docs/illustration--horizontal) with a background color.
 
-<Preview scope={{ Nasa }}>
+<Preview scope={{ Nasa }} style={{ "width": "500px" }}>
     <Story name="illustration">
-        <Tile style={{ "width": "500px" }}>
+        <Tile>
             <Illustration color="--o-ui-alias-background-info-1">
                 <Image src={Nasa} width="100px" alt="Nasa Logo" />
             </Illustration>
@@ -66,9 +66,9 @@ Or an [illustration](?path=/docs/illustration--horizontal) with a background col
 
 A tile can be checked.
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="checked">
-        <Tile defaultChecked style={{ "width": "500px" }}>
+        <Tile defaultChecked>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -79,9 +79,9 @@ A tile can be checked.
 
 A tile can be disabled.
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="disabled">
-        <Tile disabled style={{ "width": "500px" }}>
+        <Tile disabled>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -92,9 +92,9 @@ A tile can be disabled.
 
 A tile can render horizontally.
 
-<Preview scope={{ Apollo11Poster }}>
+<Preview scope={{ Apollo11Poster }} style={{ "width": "500px" }} >
     <Story name="orientation">
-        <Tile style={{ "width": "500px" }} orientation="horizontal">
+        <Tile orientation="horizontal">
             <Image src={Apollo11Poster} alt="Apollo 11 Poster" />
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -112,9 +112,9 @@ A tite can handle `checked` state in controlled mode.
 
 A tile can also be naviguable. It is similar to a [link](?path=/docs/link--default-story) and it does share the same props.
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="link">
-        <TileLink href="https://www.virgingalactic.com" style={{ "width": "500px" }}>
+        <TileLink href="https://www.virgingalactic.com">
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </TileLink>
@@ -125,9 +125,9 @@ A tile can also be naviguable. It is similar to a [link](?path=/docs/link--defau
 
 To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any other custom component.
 
-<Preview scope={{ RouterLink }}>
+<Preview scope={{ RouterLink }} style={{ "width": "500px" }}>
     <Story name="react router">
-        <TileLink as={RouterLink} to="/buy" style={{ "width": "500px" }}>
+        <TileLink as={RouterLink} to="/buy">
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </TileLink>
@@ -138,7 +138,7 @@ To integrate with a third-party routing library like [React Router](https://reac
 
 Related tiles can be grouped together. By default a tile group doesn't allow any selection. This is usually what you want if you need to group together naviguable tiles.
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="no selection">
         <TileGroup>
             <TileLink href="https://www.virgingalactic.com">
@@ -161,7 +161,7 @@ Related tiles can be grouped together. By default a tile group doesn't allow any
 
 A tile group can allow a single selection. This is a behavior similar to a [radio group](?path=/docs/radio-group--default-story).
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="single selection">
         <TileGroup selectionMode="single">
             <Tile value="buy">
@@ -184,7 +184,7 @@ A tile group can allow a single selection. This is a behavior similar to a [radi
 
 A tile group can allow a multiple selection. This is a behavior similar to a [checkbox group](?path=/docs/checkbox--default-story#checkbox-group).
 
-<Preview>
+<Preview style={{ "width": "500px" }}>
     <Story name="multiple selection">
         <TileGroup selectionMode="multiple">
             <Tile value="buy">
