@@ -72,7 +72,7 @@ stories()
         <Modal>
             <Heading>Space agencies</Heading>
             <Content>
-                <Text>Which of the following space agency do you prefer?</Text>
+                <Paragraph>Which of the following space agency do you prefer?</Paragraph>
                 <Card>
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
