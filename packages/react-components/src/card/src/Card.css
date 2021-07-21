@@ -81,9 +81,6 @@
 .o-ui-card-button,
 .o-ui-card-button-group {
     margin-top: var(--o-ui-global-scale-foxtrot);
-}
-
-.o-ui-button-group {
     flex-wrap: wrap;
 }
 

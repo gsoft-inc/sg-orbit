@@ -1,3 +1,8 @@
+/* TABS */
+.o-ui-tabs {
+    height: max-content;
+}
+
 /* TABS | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical {
     display: flex;
