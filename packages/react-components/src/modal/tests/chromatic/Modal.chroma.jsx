@@ -2,7 +2,7 @@ import { Apollo11Poster, BlueOrigin, Nasa, SpaceX } from "./assets";
 import { Button } from "@react-components/button";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
-import { Heading, Paragraph, Text } from "@react-components/typography";
+import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Modal } from "@react-components/modal";
@@ -72,7 +72,7 @@ stories()
         <Modal>
             <Heading>Space agencies</Heading>
             <Content>
-                <Text>Which of the following space agency do you prefer?</Text>
+                <Paragraph>Which of the following space agency do you prefer?</Paragraph>
                 <Card>
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
@@ -92,14 +92,14 @@ stories()
         <Modal>
             <Heading>Space agencies</Heading>
             <Content>
-                <Text>Which of the following space agency do you prefer?</Text>
+                <Paragraph>Which of the following space agency do you prefer?</Paragraph>
                 <Card>
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
                     <Button>Choose</Button>
                 </Card>
-                <Text>Thank you for participating.</Text>
+                <Paragraph>Thank you for participating.</Paragraph>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>

@@ -1,8 +1,8 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { GalaxyImage, GalaxyImage2x, GalaxyImageLg, NoResults } from "./assets";
 import { Image, InnerImage, InnerSvgImage, SvgImage } from "@react-components/image";
 import { Inline } from "@react-components/layout";
-import { LaunchImage, LaunchImage2x, LaunchImageLg, NoResults } from "./assets";
 
 <Meta
     title="Components/Image"
@@ -28,11 +28,11 @@ An image must have an `alt` attribute.
 
 An image can use a different shape.
 
-<Preview scope={{ LaunchImage }}>
+<Preview scope={{ GalaxyImage }}>
     <Story name="shape">
         <Inline>
-            <Image shape="rounded" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
-            <Image shape="circular" src={LaunchImage} alt="SpaceX launch" width="100px" height="100px" />
+            <Image shape="rounded" src={GalaxyImage} alt="Galaxy" width="100px" height="100px" />
+            <Image shape="circular" src={GalaxyImage} alt="Galaxy" width="100px" height="100px" />
         </Inline>
     </Story>
 </Preview>
@@ -41,9 +41,9 @@ An image can use a different shape.
 
 An image can adjust it's size by using the `size` prop or the native `width` and `height` props.
 
-<Preview scope={{ LaunchImageLg }}>
+<Preview scope={{ GalaxyImageLg }}>
     <Story name="size">
-        <Image size="200px" src={LaunchImageLg} alt="SpaceX launch" />
+        <Image size="200px" src={GalaxyImageLg} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -55,9 +55,9 @@ It is highly recommended to serve a _1x_ image as well as a _2x_ image, twice th
 
 _Avoid serving images that are unecessary big, images should be resized to the intended final image display size. This assures we don't waste bandwith for the user._
 
-<Preview scope={{ LaunchImage, LaunchImage2x }}>
+<Preview scope={{ GalaxyImage, GalaxyImage2x }}>
     <Story name="retina">
-        <Image size="100px" srcSet={`${LaunchImage} 1x, ${LaunchImage2x} 2x`} alt="SpaceX launch" />
+        <Image size="100px" srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
     </Story>
 </Preview>
 

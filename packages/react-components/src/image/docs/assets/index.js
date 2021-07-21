@@ -1,6 +1,6 @@
 import { ReactComponent as NoResults } from "./no-results.svg";
-import LaunchImage from "./launch.png";
-import LaunchImage2x from "./launch@2x.png";
-import LaunchImageLg from "./launch-lg.png";
+import GalaxyImage from "./galaxy.png";
+import GalaxyImage2x from "./galaxy@2x.png";
+import GalaxyImageLg from "./galaxy-lg.png";
 
-export { LaunchImage, LaunchImageLg, LaunchImage2x, NoResults };
+export { GalaxyImage, GalaxyImageLg, GalaxyImage2x, NoResults };

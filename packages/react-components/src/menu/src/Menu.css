@@ -28,8 +28,10 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item {
     min-height: var(--o-ui-menu-item-height);
     list-style: none;
-    padding-right: var(--o-ui-global-scale-echo);
+    padding-right: var(--o-ui-global-scale-hotel);
     padding-left: var(--o-ui-global-scale-charlie);
+    padding-top: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-global-scale-bravo);
     margin: 0;
     display: flex;
     align-items: center;
@@ -45,8 +47,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
     grid-auto-flow: column;
-    padding-top: var(--o-ui-global-scale-bravo);
-    padding-bottom: var(--o-ui-global-scale-bravo);
     grid-template-areas:
         "aside label"
         "aside description";
