@@ -121,7 +121,7 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
-    align-self: start;
+    align-self: stretch;
 }
 
 /* IMAGE | PADDING */
