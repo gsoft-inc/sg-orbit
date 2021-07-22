@@ -1,8 +1,6 @@
-import "./Flex.css";
-
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 export interface InnerFlexProps {
     /**
@@ -87,6 +85,10 @@ export interface InnerFlexProps {
      */
     as?: ElementType;
     /**
+     * @ignore
+     */
+    style: CSSProperties;
+    /**
      * React children
      */
     children: ReactNode;
@@ -113,42 +115,8 @@ const Spacing = [
     "--o-ui-global-scale-mike"
 ];
 
-let globalIsGapSupported: boolean = undefined;
-
-// @supports doesn't work for flexbox-gap.
-function useIsGapSupported(noGap: boolean) {
-    return useMemo(() => {
-        if (noGap) {
-            return false;
-        }
-
-        if (!isNil(globalIsGapSupported)) {
-            return globalIsGapSupported;
-        }
-
-        const element = document.createElement("DIV");
-
-        element.innerHTML = `
-            <div id="o-ui-flex-gap-support" style="display: inline-flex; gap: 1px; visibility: hidden">
-                <div style="width: 1px"></div>
-                <div style="width: 1px"></div>
-            </div>
-        `;
-
-        document.body.appendChild(element);
-
-        const width = document.getElementById("o-ui-flex-gap-support").clientWidth;
-
-        document.body.removeChild(element);
-
-        globalIsGapSupported = width === 3;
-
-        return globalIsGapSupported;
-    }, [noGap]);
-}
-
 export function InnerFlex({
-    direction,
+    direction = "row",
     inline,
     reverse,
     alignContent,
@@ -157,42 +125,36 @@ export function InnerFlex({
     gap,
     wrap,
     fluid,
+    style: { width, height, ...style } = {},
     children,
     forwardedRef,
     ...rest
 }: InnerFlexProps) {
     const noGap = isNilOrEmpty(gap) || gap === 0;
-    const isGapSupported = useIsGapSupported(noGap);
-
-    const items = children;
 
     return (
         <Box
             {...mergeProps<any>(
                 rest,
                 {
-                    className: cssModule(
-                        "o-ui-flex",
-                        direction || "row",
-                        inline && "inline",
-                        reverse && "reverse",
-                        fluid && "fluid",
-                        !isGapSupported && "no-gap"
-                    ),
                     style: {
+                        ...style,
+                        display: inline ? "inline-flex" : "flex",
                         flexDirection: direction ? (`${direction}${reverse ? "-reverse" : ""}` as const) : undefined,
                         // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                         alignContent: alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end"),
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
                         justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
-                        ["--o-ui-flex-gap" as any]: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`)
+                        gap: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`),
+                        width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined),
+                        height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined)
                     },
                     ref: forwardedRef
                 }
             )}
         >
-            {items}
+            {children}
         </Box>
     );
 }
