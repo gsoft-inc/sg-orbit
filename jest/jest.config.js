@@ -16,6 +16,7 @@ module.exports = {
         "@testing-library/jest-dom/extend-expect",
         "<rootDir>/jest/setup-jest.js"
     ],
+    testEnvironment: "jsdom",
     testPathIgnorePatterns: [
         "<rootDir>/packages/react-components/dist"
     ],
