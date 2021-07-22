@@ -21,7 +21,9 @@ export function createDisposables() {
         },
 
         setTimeout(...args: Parameters<typeof setTimeout>) {
+            // setTimeout(handler: TimerHandler, timeout?: number, ...args: any[]) {
             const timer = setTimeout(...args);
+            // const timer = setTimeout(handler, timeout, ...args);
             api.add(() => clearTimeout(timer));
         },
 

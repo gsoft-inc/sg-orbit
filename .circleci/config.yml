@@ -12,7 +12,7 @@ aliases:
 jobs:
     build:
         docker:
-            - image: circleci/node:14
+            - image: cimg/node:16.5.0
         resource_class: large
         working_directory: ~/build
         steps:
@@ -40,7 +40,7 @@ jobs:
                 type: boolean
                 default: true
         docker:
-            - image: circleci/node:14
+            - image: cimg/node:16.5.0
         working_directory: ~/chromatic
         steps:
             - checkout

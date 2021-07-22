@@ -56,6 +56,9 @@ function DecoratedLivePreview({ ...rest }) {
 
     const decorators = docsContext.storyStore._globalMetadata.decorators;
 
+    // If the following throw occurs "Error: Storybook preview hooks can only be called inside decorators and story functions."
+    // it is because decorators contains a few decorators which are not compatible with how this preview block works.
+    // Removing these decorators, when possible should do the trick.
     return decorators
         ? defaultDecorateStory(() => <JarlePreview {...rest} />, decorators)(docsContext)
         : <JarlePreview {...rest} />;
