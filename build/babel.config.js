@@ -40,6 +40,15 @@ module.exports = {
             }
         ],
         [
+            // Added to silent the following warning.
+            // The "loose" option must be the same for @babel/plugin-proposal-class-properties, @babel/plugin-proposal-private-methods and @babel/plugin-proposal-private-property-in-object (when they are enabled):
+            // you can silence this warning by explicitly adding ["@babel/plugin-proposal-private-methods", { "loose": true }] of the "plugins" section of your Babel config.
+            "@babel/plugin-proposal-private-methods",
+            {
+                "loose": true
+            }
+        ],
+        [
             "@babel/plugin-transform-runtime",
             {
                 corejs: false,
@@ -50,7 +59,6 @@ module.exports = {
         ],
         "@babel/plugin-proposal-nullish-coalescing-operator",
         "@babel/plugin-proposal-optional-chaining",
-        "babel-plugin-jsx-control-statements",
         IS_PRODUCTION && "babel-plugin-jsx-remove-data-test-id",
         !IS_TEST && [
             "babel-plugin-named-asset-import",

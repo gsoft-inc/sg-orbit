@@ -9,6 +9,10 @@ export function useDeferredValue<T>(value: T, delay?: number, defaultValue?: T) 
     useEffect(() => {
         disposables.dispose();
 
+        // setTimeout(() => {
+        //     setDeferredValue(value);
+        // }, delay);
+
         disposables.setTimeout(() => {
             setDeferredValue(value);
         }, delay);

@@ -1,5 +1,6 @@
 const path = require("path");
 const FilterWarningsPlugin = require("webpack-filter-warnings-plugin");
+const webpack = require("webpack");
 
 function addWebpackAliases(config) {
     const existingAlias = config.resolve.alias || {};
@@ -31,11 +32,29 @@ function ignoreJarleWarning(config) {
     }));
 }
 
+function ignorePrettierParsers(config) {
+    config.plugins.push(new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/parser-standalone$/,
+        contextRegExp: /prettier$/
+    }));
+
+    config.plugins.push(new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/parser-flow$/,
+        contextRegExp: /prettier$/
+    }));
+
+    config.plugins.push(new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/parser-typescript$/,
+        contextRegExp: /prettier$/
+    }));
+}
+
 module.exports = {
     customizeWebpack: async config => {
         addWebpackAliases(config);
         supportPackagesWithDependencyOnNodeFileSystem(config);
         ignoreJarleWarning(config);
+        ignorePrettierParsers(config);
 
         return config;
     }

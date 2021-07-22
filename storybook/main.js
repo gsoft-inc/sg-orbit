@@ -7,7 +7,6 @@ let stories = [];
 
 if (includeDocs) {
     stories = [
-        ...stories,
         "../docs/**/*.stories.mdx",
         "../packages/icons/docs/**/*.stories.mdx",
         "../packages/react-components/src/**/docs/**/*.stories.mdx"
@@ -30,7 +29,10 @@ module.exports = {
             options: {
                 actions: false,
                 backgrounds: false,
-                controls: false
+                controls: false,
+                // Enabling measure & outline plugin will break our custom preview block.
+                measure: false,
+                outline: false
             }
         },
         {
