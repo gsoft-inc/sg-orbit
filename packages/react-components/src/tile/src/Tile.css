@@ -151,7 +151,6 @@
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    align-items: start;
     text-align: left;
 }
 
