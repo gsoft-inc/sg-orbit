@@ -88,7 +88,7 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
-"@babel/core@7.14.8", "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.1.2", "@babel/core@^7.11.4", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.7.2", "@babel/core@^7.7.5":
+"@babel/core@7.14.8", "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.11.4", "@babel/core@^7.12.10", "@babel/core@^7.12.3", "@babel/core@^7.7.2", "@babel/core@^7.7.5":
   version "7.14.8"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.14.8.tgz#20cdf7c84b5d86d83fac8710a8bc605a7ba3f010"
   integrity sha512-/AtaeEhT6ErpDhInbXmjHcUQXH0L0TEgscfcxk1qbOvLuKCa5aZT0SOOtDKFY96/CLROwbLSKyFor6idgNaU4Q==
@@ -5625,13 +5625,6 @@ babel-plugin-jest-hoist@^27.0.6:
     "@babel/types" "^7.3.3"
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
-
-babel-plugin-jsx-control-statements@4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jsx-control-statements/-/babel-plugin-jsx-control-statements-4.1.0.tgz#d7bec01c0aeaf4b7bfa49352110df07299777a58"
-  integrity sha512-YNHX/yJ79cjZ5ZOZ6oiixoihm1SfhQKIcMfxDT+t8Olpd9NyNBrxjYjwJKxYQVZrfMBnCLxC4Mqj5Ru+OXtQ0w==
-  dependencies:
-    "@babel/core" "^7.1.2"
 
 babel-plugin-jsx-remove-data-test-id@3.0.0:
   version "3.0.0"
