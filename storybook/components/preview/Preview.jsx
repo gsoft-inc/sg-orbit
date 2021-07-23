@@ -4,7 +4,7 @@ import { CodeTheme, useFormattedCode } from "@stories/components";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs/blocks";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
-import { defaultDecorateStory } from "@storybook/client-api";
+import { applyHooks, defaultDecorateStory } from "@storybook/client-api";
 import { isNil } from "@react-components/shared";
 import { object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
@@ -56,11 +56,13 @@ function DecoratedLivePreview({ ...rest }) {
 
     const decorators = docsContext.storyStore._globalMetadata.decorators;
 
-    // If the following throw occurs "Error: Storybook preview hooks can only be called inside decorators and story functions."
+    // "applyHooks" is required otherwise we get: "Error: Storybook preview hooks can only be called inside decorators and story functions."
     // it is because decorators contains a few decorators which are not compatible with how this preview block works.
     // Removing these decorators, when possible should do the trick.
+    const decorateStory = applyHooks(defaultDecorateStory);
+
     return decorators
-        ? defaultDecorateStory(() => <JarlePreview {...rest} />, decorators)(docsContext)
+        ? decorateStory(() => <JarlePreview {...rest} />, decorators)(docsContext)
         : <JarlePreview {...rest} />;
 }
 

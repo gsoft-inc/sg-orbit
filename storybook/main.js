@@ -30,7 +30,6 @@ module.exports = {
                 actions: false,
                 backgrounds: false,
                 controls: false,
-                // Enabling measure & outline plugin will break our custom preview block.
                 measure: false,
                 outline: false
             }
