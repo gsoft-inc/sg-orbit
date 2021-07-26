@@ -2,6 +2,24 @@ import { Avatar } from "@react-components/avatar";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
+// ***** Aria *****
+
+test("when no image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
+    const { getByLabelText } = render(
+        <Avatar name="Elon Musk" aria-label="Maye Musk" />
+    );
+
+    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+});
+
+test("when an image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
+    const { getByLabelText } = render(
+        <Avatar src="dummy" name="Elon Musk" aria-label="Maye Musk" />
+    );
+
+    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {

@@ -31,15 +31,23 @@ stories()
         </Inline>
     )
     .add("remote image", () =>
-        <Inline>
-            <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me/api/portraits/men/10.jpg" />
-            <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me" />
-        </Inline>,
+        <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me/api/portraits/men/10.jpg" />,
          {
              ...paramsBuilder()
                  .chromaticDelay(500)
                  .build()
          }
+    )
+    .add("failing remote src", () =>
+        <Inline verticalAlign="center">
+            <Avatar size="2xs" src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar size="xs" src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar size="sm" src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar size="lg" src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar size="xl" src="https://www.google.com" name="Neil Armstrong" />
+            <Avatar size="2xl" src="https://www.google.com" name="Neil Armstrong" />
+        </Inline>
     )
     .add("initials", () =>
         <Stack>
@@ -60,8 +68,16 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("failing remote src", () =>
-        <Avatar src="https://www.google.com" name="Neil Armstrong" />
+    .add("empty src", () =>
+        <Inline verticalAlign="center">
+            <Avatar src="" size="2xs" name="Neil Armstrong" />
+            <Avatar src="" size="xs" name="Neil Armstrong" />
+            <Avatar src="" size="sm" name="Neil Armstrong" />
+            <Avatar src="" name="Neil Armstrong" />
+            <Avatar src="" size="lg" name="Neil Armstrong" />
+            <Avatar src="" size="xl" name="Neil Armstrong" />
+            <Avatar src="" size="2xl" name="Neil Armstrong" />
+        </Inline>
     )
     .add("styling", () =>
         <Inline>
