@@ -1,4 +1,5 @@
 import { ChangeEvent, ChangeEventHandler, ForwardedRef, SyntheticEvent, useCallback, useState } from "react";
+import { areEqualDates } from "./date-utils";
 import { isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs, useRefState } from "../../shared";
 import { useMaskedInput } from "./useMaskedInput";
 
@@ -51,10 +52,6 @@ function toLongString(date: Date) {
         : "";
 }
 
-function datesAreEqual(x: Date, y: Date) {
-    return x?.getTime() === y?.getTime();
-}
-
 export interface UseDateInputProps {
     value?: Date | null;
     defaultValue?: Date;
@@ -95,7 +92,7 @@ export function useDateInput({
     const ref = useMergedRefs(setInputElement, forwardedRef);
 
     const updateValue = useCallback((event, newDate) => {
-        if (!datesAreEqual(value, newDate)) {
+        if (!areEqualDates(value, newDate)) {
             setValue(newDate);
 
             if (!isNil(onDateChange)) {

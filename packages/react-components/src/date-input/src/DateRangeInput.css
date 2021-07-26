@@ -100,7 +100,17 @@
     right: var(--o-ui-global-scale-alpha);
 }
 
+/* BUTTON PRESETS */
+.o-ui-date-range-input-button-presets {
+    display: inline-flex;
+    align-items: center;
+}
+
+.o-ui-date-range-input-button-presets .o-ui-date-range-input {
+    margin-right: var(--o-ui-global-scale-bravo);
+}
+
 /* IN GROUP */
-.o-ui-date-range-input-in-group {
+.o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
     width: 300px;
 }

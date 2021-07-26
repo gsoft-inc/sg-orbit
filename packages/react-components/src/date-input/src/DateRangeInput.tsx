@@ -1,6 +1,7 @@
 import "./DateRangeInput.css";
 
 import { Box } from "../../box";
+import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
     ComponentProps,
@@ -12,13 +13,13 @@ import {
     SyntheticEvent,
     useCallback,
     useImperativeHandle,
+    useMemo,
     useRef,
     useState
 } from "react";
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
-import { CrossButton, IconButton } from "../../button";
+import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
-import { DisclosureArrow } from "../../disclosure";
 import { Divider } from "../../divider";
 import {
     InteractionStatesProps,
@@ -38,12 +39,12 @@ import {
     useFocusWithin,
     useMergedRefs
 } from "../../shared";
-import { Item } from "../../collection";
-import { Menu, MenuTrigger } from "../../menu";
+import { MenuPresets } from "./MenuPresets";
+import { areEqualDates, toMidnightDate } from "./date-utils";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface DatePreset {
+export interface DateRangePreset {
     text: string;
     startDate: Date;
     endDate: Date;
@@ -109,7 +110,11 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     /**
      * Array of pre-determined dates range.
      */
-    presets?: DatePreset[];
+    presets?: DateRangePreset[];
+    /**
+     * The presets style to use.
+     */
+    presetsVariant?: "compact" | "expanded";
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -402,6 +407,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         onFocus,
         onBlur,
         presets,
+        presetsVariant,
         autoFocus,
         fluid,
         disabled,
@@ -425,7 +431,6 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const containerRef = useRef<HTMLElement>();
     const rangeRef = useRef<HTMLInputElement>();
-    const presetButtonRef = useRef<HTMLButtonElement>();
 
     useImperativeHandle(forwardedRef, () => {
         // For presets, used the input group container as the ref element.
@@ -453,16 +458,32 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         }
     }, [onDatesChange, startDate, setStartDate, endDate, setEndDate]);
 
-    const handleSelectPreset = useEventCallback((event: SyntheticEvent, keys: string[]) => {
-        const index = parseInt(keys[0]);
-        const preset = presets[index];
+    const handleSelectPreset = useEventCallback((event: SyntheticEvent, newIndex: number) => {
+        const preset = presets[newIndex];
 
         if (!isNil(preset)) {
             applyDates(event, preset.startDate, preset.endDate);
-
-            presetButtonRef.current?.focus();
         }
     });
+
+    const presetsProps = useMemo(() => {
+        if (!isNil(presets)) {
+
+            const selectedIndex = presets.findIndex(x =>
+                areEqualDates(toMidnightDate(x.startDate), toMidnightDate(startDate)) &&
+                areEqualDates(toMidnightDate(x.endDate), toMidnightDate(endDate))
+            );
+
+            return {
+                values: presets.map(x => x.text),
+                selectedIndex: selectedIndex !== -1 ? selectedIndex : undefined,
+                onSelectionChange: handleSelectPreset,
+                disabled
+            };
+        }
+
+        return null;
+    }, [presets, disabled, startDate, endDate, handleSelectPreset]);
 
     const rangeMarkup = (
         <RangeInput
@@ -488,37 +509,29 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         />
     );
 
-    if (!isNil(presets)) {
-        return (
-            <InputGroup
-                {...mergeProps(
-                    rest,
-                    {
-                        as,
-                        ref: containerRef
-                    }
-                )}
-            >
-                {rangeMarkup}
-                <MenuTrigger>
-                    <IconButton
-                        disabled={disabled || readOnly}
-                        aria-label="Date presets"
-                        ref={presetButtonRef}
-                    >
-                        <DisclosureArrow />
-                    </IconButton>
-                    <Menu onSelectionChange={handleSelectPreset}>
-                        {presets.map((x, index) => (
-                            // eslint-disable-next-line react/no-array-index-key
-                            <Item key={index.toString()}>
-                                {x.text}
-                            </Item>
-                        ))}
-                    </Menu>
-                </MenuTrigger>
-            </InputGroup>
-        );
+    if (!isNil(presetsProps)) {
+        return presetsVariant === "compact"
+            ? (
+                <InputGroup
+                    {...mergeProps(
+                        rest,
+                        {
+                            fluid,
+                            as,
+                            ref: containerRef
+                        }
+                    )}
+                >
+                    {rangeMarkup}
+                    <MenuPresets {...presetsProps} />
+                </InputGroup>
+            )
+            : (
+                <Box className="o-ui-date-range-input-button-presets">
+                    {rangeMarkup}
+                    <ButtonPresets {...presetsProps} />
+                </Box>
+            );
     }
 
     return (

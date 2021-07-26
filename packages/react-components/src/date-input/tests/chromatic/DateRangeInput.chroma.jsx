@@ -57,14 +57,46 @@ stories()
         </Stack>
     )
     .add("presets", () =>
-        <DateRangeInput
-            presets={[
-                { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
-                { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
-                { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
-                { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
-            ]}
-        />
+        <Stack>
+            <DateRangeInput
+                presets={[
+                    { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                    { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                    { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                    { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                ]}
+                presetsVariant="compact"
+            />
+            <DateRangeInput
+                fluid
+                presets={[
+                    { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                    { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                    { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                    { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                ]}
+                presetsVariant="compact"
+            />
+            <DateRangeInput
+                presets={[
+                    { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                    { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                    { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                    { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                ]}
+                presetsVariant="expanded"
+            />
+            <DateRangeInput
+                fluid
+                presets={[
+                    { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                    { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                    { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                    { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                ]}
+                presetsVariant="expanded"
+            />
+        </Stack>
     )
     .add("validation", () =>
         <Inline>
