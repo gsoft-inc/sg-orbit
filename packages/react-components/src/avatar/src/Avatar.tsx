@@ -1,12 +1,12 @@
 import "./Avatar.css";
 
+import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
-import { createSizeAdapter, cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot } from "../../shared";
 
-export interface InnerAvatarProps {
+export interface InnerAvatarProps extends AriaLabelingProps {
     /**
      * The name of the person in the avatar.
      */
@@ -40,7 +40,9 @@ export interface InnerAvatarProps {
 function AvatarImage({
     name,
     src,
-    retryCount
+    retryCount,
+    size,
+    "aria-label": ariaLabel
 }: Partial<AvatarProps>) {
     if (!isString(src)) {
         return (
@@ -56,7 +58,11 @@ function AvatarImage({
             retryCount={retryCount}
             className="o-ui-avatar-image"
         >
-            <AvatarInitials name={name} />
+            <AvatarInitials
+                name={name}
+                size={size}
+                aria-label={ariaLabel}
+            />
         </AsyncImage>
     );
 }
@@ -78,7 +84,7 @@ const O365InitialsColorsForName = [
     "#B91D47"
 ];
 
-function AvatarInitials({ name, size }: Partial<AvatarProps>) {
+function AvatarInitials({ name, size, "aria-label": ariaLabel }: Partial<AvatarProps>) {
     const initials = useMemo(() => {
         const cleanName = name.replace(/\s+/g, " ").trim();
 
@@ -109,7 +115,7 @@ function AvatarInitials({ name, size }: Partial<AvatarProps>) {
                 backgroundColor: color
             }}
             role="img"
-            aria-label={name}
+            aria-label={ariaLabel ?? name}
         >
             {initials}
         </AvatarText>
@@ -157,21 +163,25 @@ export function InnerAvatar({
     src,
     retryCount,
     size,
+    "aria-label": ariaLabel,
     as = "div",
     forwardedRef,
     ...rest
 }: InnerAvatarProps) {
-    const content = !isNil(src)
+    const content = !isNilOrEmpty(src)
         ? (
             <AvatarImage
                 name={name}
                 src={src}
                 retryCount={retryCount}
+                size={size}
+                aria-label={ariaLabel}
             />
         ) : (
             <AvatarInitials
                 name={name}
                 size={size}
+                aria-label={ariaLabel}
             />
         );
 

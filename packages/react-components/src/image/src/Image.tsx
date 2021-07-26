@@ -7,7 +7,11 @@ export interface InnerImageProps {
     /**
      * The path to the image.
      */
-    src: string;
+    src?: string;
+    /**
+     * One or more strings separated by commas, indicating possible image sources for the user agent to use. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset).
+     */
+    srcSet?: string;
     /**
      * A text description of the image.
      */
