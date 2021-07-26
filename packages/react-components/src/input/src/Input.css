@@ -135,9 +135,9 @@
 /* STATES */
 /* STATES | FOCUS */
 .o-ui-input input:focus-visible,
-.o-ui-input-focus input,
 .o-ui-input textarea:focus-visible,
-.o-ui-input-focus textarea {
+.o-ui-input-focus:not(.o-ui-input-disabled) input,
+.o-ui-input-focus:not(.o-ui-input-disabled) textarea {
     outline: none;
     box-shadow: var(--o-ui-focus-ring-inset-md);
 }

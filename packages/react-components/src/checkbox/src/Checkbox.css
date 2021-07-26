@@ -164,79 +164,41 @@
 }
 
 /* STATE | FOCUS */
-.o-ui-checkbox input[type="checkbox"]:focus-visible + .o-ui-checkbox-box::before,
-.o-ui-checkbox.o-ui-checkbox-focus .o-ui-checkbox-box::before {
+.o-ui-checkbox input[type="checkbox"]:not([disabled]):focus-visible + .o-ui-checkbox-box::before,
+.o-ui-checkbox:not(.o-ui-checkbox-disabled).o-ui-checkbox-focus .o-ui-checkbox-box::before {
     opacity: 1;
 }
 
 /* STATE | ACTIVE */
 .o-ui-checkbox:not(.o-ui-checkbox-checked) input[type="checkbox"]:active:not([disabled]) + .o-ui-checkbox-box,
-.o-ui-checkbox:not(.o-ui-checkbox-checked).o-ui-checkbox-active input:not([disabled]) + .o-ui-checkbox-box {
+.o-ui-checkbox:not(.o-ui-checkbox-checked).o-ui-checkbox-active input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-active) inset;
 }
 
 /* STATE | HOVER */
-.o-ui-checkbox:hover .o-ui-checkbox-box,
-.o-ui-checkbox-hover .o-ui-checkbox-box {
+.o-ui-checkbox:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box,
+.o-ui-checkbox-hover:not(.o-ui-checkbox-disabled) .o-ui-checkbox-box {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-1-hover) inset;
 }
 
 /* STATE | HOVER | CHECKED */
-.o-ui-checkbox-checked:hover .o-ui-checkbox-box,
-.o-ui-checkbox-checked.o-ui-checkbox-hover .o-ui-checkbox-box {
+.o-ui-checkbox-checked:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box,
+.o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-hover .o-ui-checkbox-box {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-primary-1) inset;
 }
 
-/* STATE | HOVER | DISABLED | CHECKED */
-.o-ui-checkbox-checked.o-ui-checkbox-disabled:hover .o-ui-checkbox-box,
-.o-ui-checkbox-checked.o-ui-checkbox-disabled.o-ui-checkbox-hover .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-border-primary-1);
-}
-
 /* STATE | HOVER | CHECKED | BOX */
-.o-ui-checkbox-checked:hover .o-ui-checkbox-box:before,
-.o-ui-checkbox-checked.o-ui-checkbox-hover .o-ui-checkbox-box:before {
+.o-ui-checkbox-checked:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-hover .o-ui-checkbox-box:before {
     box-shadow: 0 0 0 1px var(--o-ui-alias-border-primary-1) inset;
 }
 
 /* STATE | HOVER | CHECKED | FOCUS | BOX */
-.o-ui-checkbox-checked:hover input[type="checkbox"]:focus-visible + .o-ui-checkbox-box:before,
-.o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:focus-visible + .o-ui-checkbox-box:before,
-.o-ui-checkbox-checked.o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
-.o-ui-checkbox-checked.o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
+.o-ui-checkbox-checked:hover input[type="checkbox"]:not([disabled]):focus-visible + .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:not([disabled]):focus-visible + .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
+.o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
-}
-
-/* STATE | HOVER | DISABLED */
-.o-ui-checkbox-disabled:hover .o-ui-checkbox-box,
-.o-ui-checkbox-disabled.o-ui-checkbox-hover .o-ui-checkbox-box,
-.o-ui-checkbox:disabled:hover .o-ui-checkbox-box,
-.o-ui-checkbox:disabled.o-ui-checkbox-hover .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-border-1) inset;
-}
-
-/* STATE | HOVER | DISABLED | BOX */
-.o-ui-checkbox-disabled:hover .o-ui-checkbox-box:before,
-.o-ui-checkbox-disabled.o-ui-checkbox-hover .o-ui-checkbox-box:before,
-.o-ui-checkbox:disabled:hover .o-ui-checkbox-box:before,
-.o-ui-checkbox:disabled.o-ui-checkbox-hover .o-ui-checkbox-box:before {
-    border: 1px solid var(--o-ui-alias-border-1);
-}
-
-/* STATE | HOVER | DISABLED | CHECKED */
-.o-ui.checkbox.o-ui-checkbox-disabled.o-ui-checkbox-checked:hover .o-ui-checkbox-box,
-.o-ui.checkbox.o-ui-checkbox-disabled.o-ui-checkbox-checked.hover .o-ui-checkbox-box,
-.o-ui.checkbox:disabled.checked:hover .o-ui-checkbox-box,
-.o-ui.checkbox:disabled.checked.hover .o-ui-checkbox-box {
-    border: 1px solid var(--o-ui-alias-border-primary-1);
-}
-
-/* STATE | HOVER | DISABLED | BOX */
-.o-ui.checkbox.o-ui-checkbox-disabled.o-ui-checkbox-checked:hover .o-ui-checkbox-box:before,
-.o-ui.checkbox.o-ui-checkbox-disabled.o-ui-checkbox-checked.hover .o-ui-checkbox-box:before,
-.o-ui.checkbox:disabled.checked:hover .o-ui-checkbox-box:before,
-.o-ui.checkbox:disabled.checked.hover .o-ui-checkbox-box:before {
-    border: 1px solid var(--o-ui-alias-border-primary-1);
 }
 
 /* SIZING */
