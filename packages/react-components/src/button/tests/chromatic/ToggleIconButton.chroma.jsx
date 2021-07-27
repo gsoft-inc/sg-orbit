@@ -23,7 +23,7 @@ stories()
                 <ToggleIconButton hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            </Inline>à
+            </Inline>
             <Inline verticalAlign="end">
                 <ToggleIconButton color="primary" checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="primary" active aria-label="Activate"><CheckIcon /></ToggleIconButton>
