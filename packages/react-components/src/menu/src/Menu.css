@@ -82,8 +82,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 /* ITEM | STATE | FOCUS */
-.o-ui-menu-item-focus,
-.o-ui-menu-item:focus {
+.o-ui-menu-item:focus,
+.o-ui-menu-item-focus {
     outline: none;
     background-color: var(--o-ui-alias-background-4-hover);
 }
@@ -101,8 +101,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 /* ITEM | STATE | ACTIVE */
-.o-ui-menu-item-active:not([aria-disabled="true"]),
-.o-ui-menu-item:active:not([aria-disabled="true"]) {
+.o-ui-menu-item:active:not([aria-disabled="true"]),
+.o-ui-menu-item-active:not([aria-disabled="true"]) {
     background-color: var(--o-ui-alias-background-4-active);
 }
 

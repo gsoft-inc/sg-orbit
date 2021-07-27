@@ -103,7 +103,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* OPTION | STATE | HOVER */
 .o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
-.o-ui-listbox-option-hover {
+.o-ui-listbox-option-hover:not([aria-disabled="true"]) {
     background-color: var(--o-ui-alias-background-4);
 }
 
