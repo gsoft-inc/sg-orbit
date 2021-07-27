@@ -393,61 +393,6 @@ test("tab keypress from outside will focus the start date input", async () => {
 //     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
 // });
 
-test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-    const { container, getByRole } = render(
-        <DateRangeInput
-            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
-            name="date-range"
-        />
-    );
-
-    act(() => {
-        userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
-    });
-
-    await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
-
-    act(() => {
-        userEvent.click(getByRole("menuitem"));
-    });
-
-    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
-    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
-
-    act(() => {
-        getStartDateInput(container).focus();
-    });
-
-    await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
-
-    act(() => {
-        getEndDateInput(container).focus();
-    });
-
-    await waitFor(() => expect(getEndDateInput(container)).toHaveValue("07/01/2020"));
-});
-
-test("when a preset is select, the preset menu trigger is focused", async () => {
-    const { container, getByRole } = render(
-        <DateRangeInput
-            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
-            name="date-range"
-        />
-    );
-
-    act(() => {
-        userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
-    });
-
-    await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
-
-    act(() => {
-        userEvent.click(getByRole("menuitem"));
-    });
-
-    await waitFor(() => expect(container.querySelector(":scope > [aria-label=\"Date presets\"]")).toHaveFocus());
-});
-
 test("when autofocus is true, the date range input is focused on render", async () => {
     const { container, getByTestId } = render(
         <DateRangeInput
@@ -505,6 +450,166 @@ test("when autofocus is specified with a delay, the date range input is focused 
 
     await waitFor(() => expect(getByTestId("date-range-input")).toHaveClass("o-ui-date-range-input-focus"));
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
+});
+
+describe("compact presets", () => {
+    test("when a preset is selected, both inputs are filled with the preset dates", async () => {
+        const { container, getByRole } = render(
+            <DateRangeInput
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+        await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
+
+        act(() => {
+            getStartDateInput(container).focus();
+        });
+
+        await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
+
+        act(() => {
+            getEndDateInput(container).focus();
+        });
+
+        await waitFor(() => expect(getEndDateInput(container)).toHaveValue("07/01/2020"));
+    });
+
+    test("when a preset is selected, the preset menu trigger is focused", async () => {
+        const { container, getByRole } = render(
+            <DateRangeInput
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(container.querySelector(":scope > [aria-label=\"Date presets\"]")).toHaveFocus());
+    });
+
+    test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
+        const { container, getByRole } = render(
+            <DateRangeInput
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="compact"
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
+    });
+
+    test("when dates match a preset, the selected item of the menu match the preset", async () => {
+        const { container, getByRole } = render(
+            <DateRangeInput
+                startDate={new Date(2020, 0, 1)}
+                endDate={new Date(2020, 0, 7)}
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="compact"
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
+    });
+});
+
+describe("extended presets", () => {
+    test("when a preset is selected, both inputs are filled with the preset dates", async () => {
+        const { container, getByRole } = render(
+            <DateRangeInput
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="extended"
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByRole("radio"));
+        });
+
+        await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
+        await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Tue, Jan 7, 2020"));
+
+        act(() => {
+            getStartDateInput(container).focus();
+        });
+
+        await waitFor(() => expect(getStartDateInput(container)).toHaveValue("01/01/2020"));
+
+        act(() => {
+            getEndDateInput(container).focus();
+        });
+
+        await waitFor(() => expect(getEndDateInput(container)).toHaveValue("07/01/2020"));
+    });
+
+    test("when a preset is selected, the toggled button match the selected preset", async () => {
+        const { getByRole } = render(
+            <DateRangeInput
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="expanded"
+                name="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByRole("radio"));
+        });
+
+        await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));
+    });
+
+    test("when dates match a preset, the toggled button match the preset", async () => {
+        const { getByRole } = render(
+            <DateRangeInput
+                startDate={new Date(2020, 0, 1)}
+                endDate={new Date(2020, 0, 7)}
+                presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="expanded"
+                name="date-range"
+            />
+        );
+
+        await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));
+    });
 });
 
 // ***** Aria *****
@@ -646,7 +751,7 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
     await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
     act(() => {
-        userEvent.click(getByRole("menuitem"));
+        userEvent.click(getByRole("menuitemradio"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

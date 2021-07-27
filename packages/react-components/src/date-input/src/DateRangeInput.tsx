@@ -407,7 +407,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         onFocus,
         onBlur,
         presets,
-        presetsVariant,
+        presetsVariant = "compact",
         autoFocus,
         fluid,
         disabled,
