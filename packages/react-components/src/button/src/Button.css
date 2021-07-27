@@ -509,7 +509,6 @@ a.o-ui-button {
 
 /* INHERIT | OUTLINE */
 .o-ui-button-inherit-color.o-ui-button-outline {
-    --o-ui-focus-ring-color: currentColor;
     color: inherit;
     box-shadow: 0 0 0 1px currentColor inset;
 }
@@ -517,18 +516,30 @@ a.o-ui-button {
 .o-ui-button:hover.o-ui-button-inherit-color.o-ui-button-outline,
 .o-ui-button-hover.o-ui-button-inherit-color.o-ui-button-outline {
     background-color: rgba(0, 0, 0, 0.04);
+    color: inherit;
+    box-shadow: 0 0 0 1px currentColor inset;
 }
 
+/* INHERIT | OUTLINE | ACTIVE */
 .o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline,
 .o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline {
     background-color: currentColor;
+    color: inherit;
+    box-shadow: 0 0 0 1px currentColor inset;
 }
 
 .o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-text,
-.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-text {
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-text,
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-end-icon,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-end-icon,
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-start-icon,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-start-icon,
+.o-ui-button-active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-counter,
+.o-ui-button:active.o-ui-button-inherit-color.o-ui-button-outline .o-ui-button-counter {
     color: var(--o-ui-global-white);
 }
 
+/* INHERIT | OUTLINE | LOADING */
 .o-ui-button-inherit-color.o-ui-button-loading.o-ui-button-outline::before {
     border-color: rgba(0, 0, 0, 0.25);
     border-top-color: currentColor;
