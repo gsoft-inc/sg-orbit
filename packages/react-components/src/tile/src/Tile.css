@@ -22,7 +22,7 @@
 /* STATES */
 /* HOVER */
 .o-ui-tile:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]):hover,
-.o-ui-tile-hover {
+.o-ui-tile-hover:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]) {
     border-color: var(--o-ui-alias-border-1-hover);
     background-color: var(--o-ui-alias-background-6-hover);
 }
@@ -49,13 +49,13 @@
 }
 
 .o-ui-tile:focus-visible:after,
-.o-ui-tile-focus:after {
+.o-ui-tile-focus:not([disabled]):after {
     opacity: 1;
 }
 
 /* ACTIVE */
 .o-ui-tile:active,
-.o-ui-tile-active {
+.o-ui-tile-active:not([disabled]) {
     border-color: var(--o-ui-alias-border-1-active);
 }
 
