@@ -23,7 +23,7 @@
 
 /* STATES */
 /* STATES | FOCUS */
-.o-ui-date-range-input-focus {
+.o-ui-date-range-input-focus:not(.o-ui-date-range-input-disabled) {
     box-shadow: var(--o-ui-focus-ring-inset-md);
 }
 
@@ -108,7 +108,7 @@
 }
 
 .o-ui-date-range-input-button-presets .o-ui-date-range-input {
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-global-scale-delta);
 }
 
 /* BUTTON PRESETS | FLUID */
