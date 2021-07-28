@@ -104,21 +104,15 @@
 }
 
 /* TAB | STATE | FOCUS */
-.o-ui-tab:focus-visible:before,
-.o-ui-tab-focus:before {
+.o-ui-tab:not([disabled]):focus-visible:before,
+.o-ui-tab-focus:not([disabled]):before {
     border-color: var(--o-ui-focus-ring-color);
 }
 
 /* TAB | STATE | HOVER */
-.o-ui-tab:hover,
-.o-ui-tab-hover {
+.o-ui-tab:not([disabled]):hover,
+.o-ui-tab-hover:not([disabled]) {
     color: var(--o-ui-alias-text-1);
-}
-
-/* TAB | STATE | HOVER | DISABLED */
-.o-ui-tab[disabled]:hover,
-.o-ui-tab-hover[disabled] {
-    color: var(--o-ui-alias-text-2);
 }
 
 /* TAB | STATE | SELECTED */

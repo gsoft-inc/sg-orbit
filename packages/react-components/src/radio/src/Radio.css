@@ -75,11 +75,12 @@
 }
 
 .o-ui-radio-invalid .o-ui-radio-button {
-    border-color: var(--o-ui-alias-border-negative-2);
+    border-color: var(--o-ui-alias-border-negative-1);
 }
 
-.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-alias-border-negative-2);
+.o-ui-radio-invalid.o-ui-radio:hover > input[type="radio"]:not([disabled]) + .o-ui-radio-button,
+.o-ui-radio-invalid.o-ui-radio-hover > input[type="radio"]:not([disabled]) + .o-ui-radio-button {
+    border-color: var(--o-ui-alias-border-negative-1-hover);
 }
 
 .o-ui-radio.o-ui-radio-invalid .o-ui-radio-button::before {
@@ -95,8 +96,9 @@
     border-color: var(--o-ui-alias-border-negative-1);
 }
 
-.o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover .o-ui-radio-button {
-    border-color: var(--o-ui-alias-border-negative-1);
+.o-ui-radio-checked.o-ui-radio-invalid.o-ui-radio:hover > input[type="radio"]:not([disabled]) + .o-ui-radio-button,
+.o-ui-radio-checked:not(.o-ui-radio-disabled).o-ui-radio-invalid.o-ui-radio-hover .o-ui-radio-button {
+    border-color: var(--o-ui-alias-border-negative-1-hover);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button::before {
@@ -119,31 +121,20 @@
 }
 
 .o-ui-radio input[type="radio"]:focus-visible + .o-ui-radio-button:after,
-.o-ui-radio-focus .o-ui-radio-button:after {
+.o-ui-radio-focus:not(.o-ui-radio-disabled) .o-ui-radio-button:after {
     opacity: 1;
 }
 
 /* STATE | HOVER */
-.o-ui-radio:hover .o-ui-radio-button,
-.o-ui-radio-hover .o-ui-radio-button {
+.o-ui-radio:hover input[type="radio"]:not([disabled]) + .o-ui-radio-button,
+.o-ui-radio-hover:not(.o-ui-radio-disabled) .o-ui-radio-button {
     border: 1px solid var(--o-ui-alias-border-1-hover);
 }
 
-/* STATE | HOVER | DISABLED */
-.o-ui-radio-disabled:hover .o-ui-radio-button,
-.o-ui-radio-disabled-hover .o-ui-radio-button {
-    border: 1px solid var(--o-ui-alias-border-1);
-}
-
 /* STATE | DISABLED */
-.o-ui-radio-disabled  {
+.o-ui-radio-disabled {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
-}
-
-/* STATE | DISABLED | FOCUS | CIRCLE */
-.o-ui-radio-disabled input[type="radio"]:focus-visible + .o-ui-radio-button {
-    box-shadow: none;
 }
 
 /* REVERSE */

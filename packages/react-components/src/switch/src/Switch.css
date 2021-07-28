@@ -101,7 +101,7 @@
 }
 
 .o-ui-switch input[type="checkbox"]:focus-visible + .o-ui-switch-control:after,
-.o-ui-switch-focus .o-ui-switch-control:after {
+.o-ui-switch-focus:not(.o-ui-switch-disabled) .o-ui-switch-control:after {
     opacity: 1;
 }
 
