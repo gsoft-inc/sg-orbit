@@ -17,10 +17,10 @@ createDateInputTestSuite(<DateInput />, stories("/input"));
 createDateInputTestSuite(
     <DateInput
         presets={[
-            { text: "7 D", date: subWeeks(new Date(), 1) },
-            { text: "1 M", date: subMonths(new Date(), 1) },
-            { text: "3 M", date: subMonths(new Date(), 3) },
-            { text: "6 M", date: subMonths(new Date(), 6) }
+            { text: "Last week", date: subWeeks(new Date(), 1) },
+            { text: "Last month", date: subMonths(new Date(), 1) },
+            { text: "Last 3 months", date: subMonths(new Date(), 3) },
+            { text: "Last 6 months", date: subMonths(new Date(), 6) }
         ]}
         presetsVariant="compact"
     />,
