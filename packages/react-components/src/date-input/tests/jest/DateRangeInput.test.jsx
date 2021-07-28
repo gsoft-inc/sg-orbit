@@ -775,6 +775,44 @@ test("can focus the start date input with the focus api", async () => {
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
 });
 
+test("when compact presets are provided, can focus the start date input with the focus api", async () => {
+    const ref = createRef();
+
+    const { container } = render(
+        <DateRangeInput
+            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+            presetsVariant="compact"
+            name="date-range"
+            ref={ref}
+        />
+    );
+
+    act(() => {
+        ref.current.focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
+});
+
+test("when expanded presets are provided, can focus the start date input with the focus api", async () => {
+    const ref = createRef();
+
+    const { container } = render(
+        <DateRangeInput
+            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+            presetsVariant="expanded"
+            name="date-range"
+            ref={ref}
+        />
+    );
+
+    act(() => {
+        ref.current.focus();
+    });
+
+    await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
@@ -782,6 +820,40 @@ test("ref is a DOM element", async () => {
 
     render(
         <DateRangeInput ref={ref} />
+    );
+
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+});
+
+test("when compact presets are provided, ref is a DOM element", async () => {
+    const ref = createRef();
+
+    render(
+        <DateRangeInput
+            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+            presetsVariant="compact"
+            ref={ref}
+        />
+    );
+
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+});
+
+test("when expanded presets are provided, ref is a DOM element", async () => {
+    const ref = createRef();
+
+    render(
+        <DateRangeInput
+            presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+            presetsVariant="expanded"
+            ref={ref}
+        />
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());

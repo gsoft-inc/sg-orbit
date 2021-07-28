@@ -13,8 +13,7 @@ export interface ButtonPresetsProps extends AriaLabelingProps {
 export function ButtonPresets({
     values,
     selectedIndex,
-    onSelectionChange,
-    disabled
+    onSelectionChange
 }: ButtonPresetsProps) {
     const handleSelectPreset = useEventCallback((event: SyntheticEvent, value: string) => {
         onSelectionChange(event, parseInt(value));
@@ -25,7 +24,6 @@ export function ButtonPresets({
             value={!isNil(selectedIndex) ? selectedIndex.toString() : null}
             onChange={handleSelectPreset}
             orientation="horizontal"
-            disabled={disabled}
             gap={2}
             aria-label="Date presets"
         >

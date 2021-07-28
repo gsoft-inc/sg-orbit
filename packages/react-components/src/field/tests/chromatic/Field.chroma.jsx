@@ -1,10 +1,13 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
+import { DisclosureArrow } from "@react-components/disclosure";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
+import { IconButton } from "@react-components/button";
 import { Inline, Stack } from "@react-components/layout";
 import { InputGroup } from "@react-components/input-group";
 import { Item } from "@react-components/collection";
+import { Menu, MenuTrigger } from "@react-components/menu";
 import { NumberInput } from "@react-components/number-input";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 import { Select } from "@react-components/select";
@@ -181,14 +184,26 @@ stories()
         </Field>
     )
     .add("input group", () =>
-        <Field>
-            <Label>Launch date</Label>
-            <InputGroup>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
-            <HelpMessage>In how many days does your flight will launch?</HelpMessage>
-        </Field>
+        <Stack>
+            <Field>
+                <Label>Launch date</Label>
+                <InputGroup>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+                <HelpMessage>In how many days does your flight will launch?</HelpMessage>
+            </Field>
+            <Inline>
+                <Field validationState="invalid">
+                    <Label>Launch date</Label>
+                    <InputGroup>
+                        <TextInput />
+                        <Text>Days</Text>
+                    </InputGroup>
+                    <HelpMessage>In how many days does your flight will launch?</HelpMessage>
+                </Field>
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

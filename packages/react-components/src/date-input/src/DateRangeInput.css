@@ -104,10 +104,16 @@
 .o-ui-date-range-input-button-presets {
     display: inline-flex;
     align-items: center;
+    width: max-content;
 }
 
 .o-ui-date-range-input-button-presets .o-ui-date-range-input {
     margin-right: var(--o-ui-global-scale-bravo);
+}
+
+/* BUTTON PRESETS | FLUID */
+.o-ui-date-range-input-button-presets-fluid {
+    width: 100%;
 }
 
 /* IN GROUP */

@@ -9,14 +9,12 @@ export interface MenuPresetsProps extends AriaLabelingProps {
     values: string[];
     selectedIndex?: number;
     onSelectionChange: (event: SyntheticEvent, index: number) => void;
-    disabled?: boolean;
 }
 
 export function MenuPresets({
     values,
     selectedIndex,
-    onSelectionChange,
-    disabled
+    onSelectionChange
 }: MenuPresetsProps) {
     const presetButtonRef = useRef<HTMLButtonElement>();
 
@@ -29,7 +27,6 @@ export function MenuPresets({
     return (
         <MenuTrigger>
             <IconButton
-                disabled={disabled}
                 aria-label="Date presets"
                 ref={presetButtonRef}
             >

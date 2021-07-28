@@ -2,6 +2,22 @@
     width: 160px;
 }
 
+/* BUTTON PRESETS */
+.o-ui-date-input-button-presets {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+}
+
+.o-ui-date-input-button-presets .o-ui-date-input {
+    margin-right: var(--o-ui-global-scale-bravo);
+}
+
+/* BUTTON PRESETS | FLUID */
+.o-ui-date-input-button-presets-fluid {
+    width: 100%;
+}
+
 /* IN GROUP */
 .o-ui-date-input-in-group {
     width: 140px;

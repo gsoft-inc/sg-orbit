@@ -1,6 +1,7 @@
 .o-ui-input-group {
     display: inline-flex;
     align-items: center;
+    width: max-content;
 }
 
 .o-ui-input-group-fluid {
