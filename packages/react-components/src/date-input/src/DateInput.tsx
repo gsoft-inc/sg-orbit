@@ -261,7 +261,8 @@ export function InnerDateInput({
                 {
                     value,
                     placeholder,
-                    onDateChange: handleDateChange
+                    onDateChange: handleDateChange,
+                    ref: inputRef
                 }
             )}
         />

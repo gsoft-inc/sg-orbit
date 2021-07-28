@@ -10,8 +10,6 @@ export function createDateInputTestSuite(element, stories) {
         .add("default", () =>
             <Stack>
                 <DateInput element={element} />
-                <DateInput disabled element={element}></DateInput>
-                <DateInput readOnly element={element} />
                 <DateInput fluid element={element} />
                 <div className="w-10">
                     <DateInput fluid element={element} />

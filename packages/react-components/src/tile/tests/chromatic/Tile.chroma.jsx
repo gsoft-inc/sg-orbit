@@ -36,20 +36,38 @@ stories()
         </Inline>
     )
     .add("flex layout", () =>
-        <Inline>
-            <Tile style={{ "width": "500px" }} orientation="horizontal">
-                <Illustration color="marine-100">
-                    <Image src={Nasa} width="100px" alt="Nasa Logo" />
-                </Illustration>
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-            <Tile style={{ "width": "500px" }} orientation="horizontal">
-                <Illustration color="marine-100">
-                    <Image src={Nasa} width="100px" alt="Nasa Logo" />
-                </Illustration>
-                <Heading>Fuel</Heading>
-                <Content>Fuel configuration and level</Content>
-            </Tile>
-        </Inline>
+        <Stack>
+            <Inline>
+                <Tile style={{ "width": "500px" }} orientation="vertical">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile style={{ "width": "500px" }} orientation="vertical">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+            </Inline>
+            <Inline>
+                <Tile style={{ "width": "500px" }} orientation="horizontal">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile style={{ "width": "500px" }} orientation="horizontal">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+            </Inline>
+        </Stack>
     );
