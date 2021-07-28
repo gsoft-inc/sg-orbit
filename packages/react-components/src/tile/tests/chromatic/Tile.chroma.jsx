@@ -1,6 +1,7 @@
-import { Apollo11Banner, Apollo11Poster } from "./assets";
+import { Apollo11Banner, Apollo11Poster, Nasa } from "./assets";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
+import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Tile } from "@react-components/tile";
@@ -33,4 +34,40 @@ stories()
                 </Tile>
             </Stack>
         </Inline>
+    )
+    .add("flex layout", () =>
+        <Stack>
+            <Inline>
+                <Tile style={{ "width": "500px" }} orientation="vertical">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile style={{ "width": "500px" }} orientation="vertical">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+            </Inline>
+            <Inline>
+                <Tile style={{ "width": "500px" }} orientation="horizontal">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+                <Tile style={{ "width": "500px" }} orientation="horizontal">
+                    <Illustration color="marine-100">
+                        <Image src={Nasa} width="100px" alt="Nasa Logo" />
+                    </Illustration>
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </Tile>
+            </Inline>
+        </Stack>
     );

@@ -1,6 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DateInput, InnerDateInput } from "@react-components/date-input";
+import { subMonths, subWeeks } from "date-fns";
 
 <Meta
     title="Components/DateInput"
@@ -37,6 +38,39 @@ A date input can have a value.
 <Preview>
     <Story name="value">
         <DateInput defaultValue={new Date(1970, 0, 5)} />
+    </Story>
+</Preview>
+
+### Presets
+
+A date input can offer a predefined set of frequently used dates:
+
+<Preview scope={{ subMonths, subWeeks }}>
+    <Story name="presets">
+        <DateInput
+            presets={[
+                { text: "Last week", date: subWeeks(new Date(), 1) },
+                { text: "Last month", date: subMonths(new Date(), 1) },
+                { text: "Last 3 months", date: subMonths(new Date(), 3) },
+                { text: "Last 6 months", date: subMonths(new Date(), 6) }
+            ]}
+        />
+    </Story>
+</Preview>
+
+By default, presets are displayed as *compact* but they could also be displayed as *expanded*:
+
+<Preview scope={{ subMonths, subWeeks }}>
+    <Story name="expanded presets">
+        <DateInput
+            presetsVariant="expanded"
+            presets={[
+                { text: "7 D", date: subWeeks(new Date(), 1) },
+                { text: "1 M", date: subMonths(new Date(), 1) },
+                { text: "3 M", date: subMonths(new Date(), 3) },
+                { text: "6 M", date: subMonths(new Date(), 6) }
+            ]}
+        />
     </Story>
 </Preview>
 

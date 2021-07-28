@@ -14,8 +14,20 @@ import {
 } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
-import { CSSProperties, ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, SyntheticEvent, useCallback, useImperativeHandle, useMemo, useRef } from "react";
-import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
+import {
+    CSSProperties,
+    ChangeEvent,
+    ChangeEventHandler,
+    ComponentProps,
+    ElementType,
+    ForwardedRef,
+    SyntheticEvent,
+    useCallback,
+    useImperativeHandle,
+    useMemo,
+    useRef
+} from "react";
+import { InputGroup, useInputGroupProps } from "../../input-group";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./date-utils";
@@ -175,7 +187,7 @@ export function InnerDateInput({
     placeholder = "dd/mm/yyyy",
     onDateChange,
     presets,
-    presetsVariant,
+    presetsVariant = "compact",
     fluid,
     wrapperProps,
     disabled,
@@ -186,36 +198,6 @@ export function InnerDateInput({
     forwardedRef,
     ...rest
 }: InnerDateInputProps) {
-    // const [inputGroupProps, isInGroup] = useInputGroupProps();
-
-    // const {
-    //     value: valueProp,
-    //     defaultValue,
-    //     placeholder = "dd/mm/yyyy",
-    //     onDateChange,
-    //     presets,
-    //     presetsVariant,
-    //     fluid,
-    //     wrapperProps,
-    //     disabled,
-    //     readOnly,
-    //     className,
-    //     style,
-    //     as,
-    //     forwardedRef,
-    //     ...rest
-    // } = mergeProps(
-    //     props,
-    //     wrappedInputPropsAdapter(inputGroupProps)
-    // );
-
-    // const [inputGroupProps, isInGroup] = useInputGroupProps();
-
-    // const  = mergeProps(
-    //     props,
-    //     wrappedInputPropsAdapter(inputGroupProps)
-    // );
-
     const [value, setValue] = useControllableState(valueProp, defaultValue, null);
 
     const containerRef = useRef<HTMLElement>();
@@ -272,34 +254,6 @@ export function InnerDateInput({
         return null;
     }, [presets, value, handleSelectPreset]);
 
-    /*
-    TODO:
-        - onFocus?
-        - onBlur?
-    */
-    // const inputMarkup = (
-    //     <Input
-    //         value={value}
-    //         placeholder={placeholder}
-    //         min={min}
-    //         max={max}
-    //         required={required}
-    //         validationState={validationState}
-    //         onChange={onChange}
-    //         onDateChange={handleDateChange}
-    //         autoFocus={autoFocus}
-    //         wrapperProps={wrapperProps}
-    //         fluid={fluid}
-    //         disabled={disabled}
-    //         readOnly={readOnly}
-    //         active={active}
-    //         focus={focus}
-    //         hover={focus}
-    //         name={name}
-    //         ref={inputRef}
-    //     />
-    // );
-
     const inputMarkup = (
         <Input
             {...mergeProps(
@@ -307,7 +261,8 @@ export function InnerDateInput({
                 {
                     value,
                     placeholder,
-                    onDateChange: handleDateChange
+                    onDateChange: handleDateChange,
+                    ref: inputRef
                 }
             )}
         />
@@ -375,27 +330,6 @@ export function InnerDateInput({
             })}
         </>
     );
-
-    // <ClearInputGroupContext>
-    //     {augmentElement(inputMarkup, mergeProps(
-    //         rest,
-    //         {
-    //             disabled,
-    //             readOnly,
-    //             fluid,
-    //             wrapperProps: mergeProps(
-    //                 wrapperProps ?? {},
-    //                 {
-    //                     className: cssModule(
-    //                         "o-ui-date-input",
-    //                         isInGroup && "in-group"
-    //                     )
-    //                 }
-    //             ),
-    //             as
-    //         }
-    //     ))}
-    // </ClearInputGroupContext>
 }
 
 export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) => (

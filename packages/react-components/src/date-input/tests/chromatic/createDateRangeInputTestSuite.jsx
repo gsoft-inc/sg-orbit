@@ -10,11 +10,7 @@ export function createDateRangeInputTestSuite(element, stories) {
         .add("default", () =>
             <Stack>
                 <DateRangeInput element={element} />
-                <DateRangeInput disabled element={element} />
-                <DateRangeInput readOnly element={element} />
-                <div>
-                    <DateRangeInput fluid element={element} />
-                </div>
+                <DateRangeInput fluid element={element} />
                 <div className="w-10">
                     <DateRangeInput fluid element={element} />
                 </div>
@@ -25,9 +21,7 @@ export function createDateRangeInputTestSuite(element, stories) {
                 <DateRangeInput placeholder="custom" element={element} />
                 <DateRangeInput disabled placeholder="custom" element={element} />
                 <DateRangeInput readOnly placeholder="custom" element={element} />
-                <div>
-                    <DateRangeInput fluid placeholder="custom" element={element} />
-                </div>
+                <DateRangeInput fluid placeholder="custom" element={element} />
                 <div className="w-10">
                     <DateRangeInput fluid placeholder="custom" element={element} />
                 </div>

@@ -457,6 +457,7 @@ describe("compact presets", () => {
         const { container, getByRole } = render(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="compact"
                 name="date-range"
             />
         );
@@ -491,6 +492,7 @@ describe("compact presets", () => {
         const { container, getByRole } = render(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
+                presetsVariant="compact"
                 name="date-range"
             />
         );
