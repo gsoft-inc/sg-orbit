@@ -1,3 +1,5 @@
+import "./ButtonPresets.css";
+
 import { AriaLabelingProps, isNil, useEventCallback } from "../../shared";
 import { RadioGroup } from "../../radio";
 import { SyntheticEvent } from "react";
@@ -21,6 +23,7 @@ export function ButtonPresets({
 
     return (
         <RadioGroup
+            className="o-ui-button-presets"
             value={!isNil(selectedIndex) ? selectedIndex.toString() : null}
             onChange={handleSelectPreset}
             orientation="horizontal"
