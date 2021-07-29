@@ -18,7 +18,7 @@
 }
 
 /* STATES */
-.o-ui-input-group:not(:focus-within) > *:hover {
+.o-ui-input-group:not(:focus-within) > *:not(.o-ui-input-group-text-addon):hover {
     z-index: 1;
 }
 
