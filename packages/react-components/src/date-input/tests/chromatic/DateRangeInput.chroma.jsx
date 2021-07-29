@@ -17,10 +17,10 @@ createDateRangeInputTestSuite(<DateRangeInput />, stories("/input"));
 createDateRangeInputTestSuite(
     <DateRangeInput
         presets={[
-            { text: "Last week", date: subWeeks(new Date(), 1) },
-            { text: "Last month", date: subMonths(new Date(), 1) },
-            { text: "Last 3 months", date: subMonths(new Date(), 3) },
-            { text: "Last 6 months", date: subMonths(new Date(), 6) }
+            { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+            { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+            { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+            { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
         ]}
         presetsVariant="compact"
     />,
