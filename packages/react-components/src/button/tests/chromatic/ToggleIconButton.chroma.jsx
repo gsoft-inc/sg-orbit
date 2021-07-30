@@ -24,6 +24,22 @@ stories()
                 <ToggleIconButton focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
+            <Inline verticalAlign="end">
+                <ToggleIconButton color="primary" checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="primary" active aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="primary" focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="primary" hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="primary" focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="primary" disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            </Inline>
+            <Inline verticalAlign="end">
+                <ToggleIconButton color="secondary" checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="secondary" active aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="secondary" focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="secondary" hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="secondary" focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
+                <ToggleIconButton color="secondary" disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            </Inline>
         </Stack>
     )
     .add("circular outline", () =>

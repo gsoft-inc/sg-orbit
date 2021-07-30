@@ -41,7 +41,7 @@ A date range input can have values.
 
 ### Presets
 
-A date range input can offer a predefined set of frequently used ranges.
+A date range input can offer a predefined set of frequently used ranges:
 
 <Preview scope={{ subMonths, subWeeks }}>
     <Story name="presets">
@@ -51,6 +51,22 @@ A date range input can offer a predefined set of frequently used ranges.
                 { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
                 { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
                 { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+            ]}
+        />
+    </Story>
+</Preview>
+
+By default, presets are displayed as *compact* but they could also be displayed as *expanded*:
+
+<Preview scope={{ subMonths, subWeeks }}>
+    <Story name="expanded presets">
+        <DateRangeInput
+            presetsVariant="expanded"
+            presets={[
+                { text: "7 D", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                { text: "1 M", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                { text: "3 M", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                { text: "1 Y", startDate: subMonths(new Date(), 6), endDate: new Date() }
             ]}
         />
     </Story>

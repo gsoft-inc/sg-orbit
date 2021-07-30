@@ -3,6 +3,8 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
 import { Heading, InnerHeading } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
+import { Image } from "@react-components/image";
+import { Inline } from "@react-components/layout";
 import { InnerTile, InnerTileGroup, InnerTileLink, Tile, TileGroup, TileLink } from "@react-components/tile";
 import { Planet, SpaceLandscape, SpacePortrait } from "./assets";
 import { RouterLink } from "./RouterLink";
@@ -92,13 +94,22 @@ A tile can be disabled.
 
 A tile can render horizontally.
 
-<Preview scope={{ SpacePortrait }} style={{ "width": "500px" }} >
+<Preview scope={{ SpacePortrait, Planet }} style={{ "width": "1000px" }} >
     <Story name="orientation">
-        <Tile orientation="horizontal">
-            <Image src={SpacePortrait} alt="Space Portrait" />
-            <Heading>Buy a ticket</Heading>
-            <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
-        </Tile>
+        <Inline>
+            <Tile orientation="horizontal">
+                <Image src={SpacePortrait} alt="Space Portrait" />
+                <Heading>Buy a ticket</Heading>
+                <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
+            </Tile>
+            <Tile orientation="horizontal">
+                <Illustration>
+                    <Image src={Planet} width="100px" alt="Planet" />
+                </Illustration>
+                <Heading>Buy a ticket</Heading>
+                <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
+            </Tile>
+        </Inline>
     </Story>
 </Preview>
 

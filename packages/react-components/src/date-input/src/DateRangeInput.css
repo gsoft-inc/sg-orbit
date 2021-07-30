@@ -13,23 +13,31 @@
     border: 1px solid var(--o-ui-date-range-input-border-color);
     color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);
+}
+
+.o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
     width: 325px;
 }
 
 /* FLUID */
 .o-ui-date-range-input-fluid {
-    width: 100%;
+    flex-grow: 1;
 }
 
 /* STATES */
 /* STATES | FOCUS */
-.o-ui-date-range-input-focus {
+.o-ui-date-range-input-focus:not(.o-ui-date-range-input-disabled) {
     box-shadow: var(--o-ui-focus-ring-inset-md);
 }
 
 /* STATES | FOCUS / INVALID */
 .o-ui-date-range-input-focus.o-ui-date-range-input-invalid {
-    box-shadow: var(--o-ui-focus-ring-inset-md-negative);
+    border-color: var(--o-ui-alias-border-negative-1);
+}
+
+/* STATES | FOCUS | HOVER / INVALID */
+.o-ui-date-range-input-focus:hover:not(.o-ui-date-range-input-disabled).o-ui-date-range-input-invalid {
+    border-color: var(--o-ui-alias-border-negative-1-hover);
 }
 
 /* STATES | HOVER */
@@ -61,6 +69,7 @@
 /* STATES | INVALID */
 .o-ui-date-range-input-invalid {
     --o-ui-date-range-input-border-color: var(--o-ui-alias-border-negative-1);
+    z-index: 2;
 }
 
 /* DATE INPUT */
@@ -100,7 +109,24 @@
     right: var(--o-ui-global-scale-alpha);
 }
 
+/* BUTTON PRESETS */
+.o-ui-date-range-input-button-presets {
+    display: inline-flex;
+    align-items: center;
+    width: max-content;
+}
+
+.o-ui-date-range-input-button-presets .o-ui-date-range-input {
+    margin-right: var(--o-ui-global-scale-delta);
+}
+
+/* BUTTON PRESETS | FLUID */
+.o-ui-date-range-input-button-presets-fluid {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
 /* IN GROUP */
-.o-ui-date-range-input-in-group {
+.o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
     width: 300px;
 }

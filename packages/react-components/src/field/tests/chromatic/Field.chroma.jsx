@@ -181,14 +181,26 @@ stories()
         </Field>
     )
     .add("input group", () =>
-        <Field>
-            <Label>Launch date</Label>
-            <InputGroup>
-                <TextInput />
-                <Text>Days</Text>
-            </InputGroup>
-            <HelpMessage>In how many days does your flight will launch?</HelpMessage>
-        </Field>
+        <Stack>
+            <Field>
+                <Label>Launch date</Label>
+                <InputGroup>
+                    <TextInput />
+                    <Text>Days</Text>
+                </InputGroup>
+                <HelpMessage>In how many days does your flight will launch?</HelpMessage>
+            </Field>
+            <Inline>
+                <Field validationState="invalid">
+                    <Label>Launch date</Label>
+                    <InputGroup>
+                        <TextInput />
+                        <Text>Days</Text>
+                    </InputGroup>
+                    <HelpMessage>In how many days does your flight will launch?</HelpMessage>
+                </Field>
+            </Inline>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

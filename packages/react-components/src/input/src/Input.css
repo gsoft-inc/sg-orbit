@@ -90,10 +90,10 @@
 }
 
 /* STATE | HOVER | INVALID */
-.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover input:not([disabled]):not(:focus-visible),
-.o-ui-input.o-ui-input-invalid:not(.o-ui-input-focus):hover textarea:not([disabled]):not(:focus-visible),
-.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) input:not([disabled]):not(:focus-visible),
-.o-ui-input-hover.o-ui-input-invalid:not(.o-ui-input-focus) textarea:not([disabled]):not(:focus-visible) {
+.o-ui-input.o-ui-input-invalid:hover input:not([disabled]),
+.o-ui-input.o-ui-input-invalid:hover textarea:not([disabled]),
+.o-ui-input-hover.o-ui-input-invalid input:not([disabled]),
+.o-ui-input-hover.o-ui-input-invalid textarea:not([disabled]) {
     border-color: var(--o-ui-alias-border-negative-1-hover);
 }
 

@@ -291,6 +291,152 @@ test("when autofocus is specified with a de lay, the date input is focused after
     await waitFor(() => expect(getByTestId("date")).toHaveFocus());
 });
 
+describe("compact presets", () => {
+    test("when a preset is selected, both inputs are filled with the preset dates", async () => {
+        const { container, getByRole, getByPlaceholderText } = render(
+            <DateInput
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="compact"
+                placeholder="date-input"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("Wed, Jan 1, 2020"));
+
+        act(() => {
+            getByPlaceholderText("date-input").focus();
+        });
+
+        await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("01/01/2020"));
+    });
+
+    test("when a preset is selected, the preset menu trigger is focused", async () => {
+        const { container, getByRole } = render(
+            <DateInput
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="compact"
+                placeholder="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(container.querySelector(":scope > [aria-label=\"Date presets\"]")).toHaveFocus());
+    });
+
+    test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
+        const { container, getByRole } = render(
+            <DateInput
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="compact"
+                placeholder="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
+        });
+
+        await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
+    });
+
+    test("when the date value match a preset, the selected item of the menu match the preset", async () => {
+        const { container, getByRole } = render(
+            <DateInput
+                value={new Date(2020, 0, 1)}
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="compact"
+                placeholder="date-range"
+            />
+        );
+
+        act(() => {
+            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        });
+
+        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+        await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
+    });
+});
+
+describe("expanded presets", () => {
+    test("when a preset is selected, the input is filled with the preset date", async () => {
+        const { getByRole, getByPlaceholderText } = render(
+            <DateInput
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="extended"
+                placeholder="date-input"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByRole("radio"));
+        });
+
+        await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("Wed, Jan 1, 2020"));
+
+        act(() => {
+            getByPlaceholderText("date-input").focus();
+        });
+
+        await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("01/01/2020"));
+    });
+
+    test("when a preset is selected, the toggled button match the selected preset", async () => {
+        const { getByRole } = render(
+            <DateInput
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="expanded"
+                placeholder="date-input"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByRole("radio"));
+        });
+
+        await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));
+    });
+
+    test("when the date match a preset, the toggled button match the preset", async () => {
+        const { getByRole } = render(
+            <DateInput
+                value={new Date(2020, 0, 1)}
+                presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+                presetsVariant="expanded"
+                placeholder="date-input"
+            />
+        );
+
+        await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));
+    });
+});
+
 // ***** Api *****
 
 test("when the input has no value and a valid date has been entered, call onDateChange with the new date on blur", async () => {
@@ -528,6 +674,30 @@ test("when a valid date has been entered and the date exceed the specified min o
     await waitFor(() => expect(handleDateChange).toHaveBeenCalledTimes(1));
 });
 
+test("when a preset is selected, call onDateChange with the preset date", async () => {
+    const handler = jest.fn();
+
+    const { container, getByRole } = render(
+        <DateInput
+            presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+            onDateChange={handler}
+        />
+    );
+
+    act(() => {
+        userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+    });
+
+    await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByRole("menuitemradio"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), new Date(2020, 0, 1)));
+});
+
 test("can focus the date input with the focus api", async () => {
     let refNode = null;
 
@@ -547,6 +717,44 @@ test("can focus the date input with the focus api", async () => {
     await waitFor(() => expect(refNode).toHaveFocus());
 });
 
+test("when compact presets are provided, can focus the input with the focus api", async () => {
+    const ref = createRef();
+
+    const { getByPlaceholderText } = render(
+        <DateInput
+            presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+            presetsVariant="compact"
+            placeholder="date-input"
+            ref={ref}
+        />
+    );
+
+    act(() => {
+        ref.current.focus();
+    });
+
+    await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveFocus());
+});
+
+test("when expanded presets are provided, can focus the input with the focus api", async () => {
+    const ref = createRef();
+
+    const { getByPlaceholderText } = render(
+        <DateInput
+            presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+            presetsVariant="expanded"
+            placeholder="date-input"
+            ref={ref}
+        />
+    );
+
+    act(() => {
+        ref.current.focus();
+    });
+
+    await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveFocus());
+});
+
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
@@ -560,6 +768,40 @@ test("ref is a DOM element", async () => {
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
     expect(ref.current.tagName).toBe("INPUT");
+});
+
+test("when compact presets are provided, ref is a DOM element", async () => {
+    const ref = createRef();
+
+    render(
+        <DateInput
+            presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+            presetsVariant="compact"
+            ref={ref}
+        />
+    );
+
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
+});
+
+test("when expanded presets are provided, ref is a DOM element", async () => {
+    const ref = createRef();
+
+    render(
+        <DateInput
+            presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
+            presetsVariant="expanded"
+            ref={ref}
+        />
+    );
+
+    await waitFor(() => expect(ref.current).not.toBeNull());
+
+    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current.tagName).toBe("DIV");
 });
 
 test("when using a callback ref, ref is a DOM element", async () => {

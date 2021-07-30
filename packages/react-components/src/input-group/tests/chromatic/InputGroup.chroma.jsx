@@ -50,6 +50,16 @@ stories()
                     <TextInput aria-label="Duration" />
                 </InputGroup>
             </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                </InputGroup>
+                <InputGroup>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                    <Text>Days</Text>
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("button addon", () =>
@@ -109,6 +119,16 @@ stories()
                     <Button focus hover>Copy</Button>
                 </InputGroup>
             </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                    <Button>Copy</Button>
+                </InputGroup>
+                <InputGroup>
+                    <Button>Copy</Button>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("icon button addon", () =>
@@ -166,6 +186,16 @@ stories()
                 <InputGroup>
                     <TextInput aria-label="Duration" />
                     <IconButton focus hover aria-label="Icon"><LightbulbIcon /></IconButton>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                    <IconButton aria-label="Icon"><LightbulbIcon /></IconButton>
+                </InputGroup>
+                <InputGroup>
+                    <IconButton aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <TextInput validationState="invalid" aria-label="Duration" />
                 </InputGroup>
             </Inline>
         </Stack>
@@ -251,6 +281,30 @@ stories()
                     </MenuTrigger>
                     <TextInput aria-label="Planet" />
                 </InputGroup>
+                <InputGroup disabled>
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput aria-label="Planet" />
+                </InputGroup>
+                <InputGroup disabled>
+                    <TextInput aria-label="Planet" />
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                </InputGroup>
+            </Inline>
+            <Inline>
                 <InputGroup readOnly>
                     <MenuTrigger>
                         <Button>Trigger</Button>
@@ -261,6 +315,52 @@ stories()
                         </Menu>
                     </MenuTrigger>
                     <TextInput aria-label="Planet" />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput aria-label="Planet" />
+                </InputGroup>
+                <InputGroup readOnly>
+                    <TextInput aria-label="Planet" />
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput validationState="invalid" aria-label="Planet" />
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                </InputGroup>
+                <InputGroup>
+                    <MenuTrigger>
+                        <IconButton aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <Menu aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </MenuTrigger>
+                    <TextInput validationState="invalid" aria-label="Planet" />
                 </InputGroup>
             </Inline>
         </Stack>
@@ -360,14 +460,34 @@ stories()
                     <TextInput aria-label="Planet" />
                 </InputGroup>
             </Inline>
-            <InputGroup>
-                <Select focus hover placeholder="Planet" aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="saturn">Saturn</Item>
-                </Select>
-                <TextInput aria-label="Planet" />
-            </InputGroup>
+            <Inline>
+                <InputGroup>
+                    <Select focus hover placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput aria-label="Planet" />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <TextInput validationState="invalid" aria-label="Planet" />
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                </InputGroup>
+                <InputGroup>
+                    <Select placeholder="Planet" aria-label="Planets">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                    </Select>
+                    <TextInput validationState="invalid" aria-label="Planet" />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("placeholder", () =>
@@ -427,6 +547,12 @@ stories()
                     <TextInput aria-label="Duration" focus />
                 </InputGroup>
             </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <TextInput validationState="invalid" aria-label="Duration" />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("number input", () =>
@@ -458,6 +584,12 @@ stories()
                 <InputGroup>
                     <Text>Days</Text>
                     <NumberInput focus aria-label="Duration" />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Days</Text>
+                    <NumberInput validationState="invalid" aria-label="Duration" />
                 </InputGroup>
             </Inline>
         </Stack>
@@ -493,6 +625,12 @@ stories()
                     <PasswordInput focus aria-label="Password" />
                 </InputGroup>
             </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Access key</Text>
+                    <PasswordInput validationState="invalid" aria-label="Password" />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("search input", () =>
@@ -524,6 +662,12 @@ stories()
                 <InputGroup>
                     <Text>Origin</Text>
                     <SearchInput focus aria-label="Origin" />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <SearchInput validationState="invalid" aria-label="Origin" />
                 </InputGroup>
             </Inline>
         </Stack>
@@ -559,6 +703,12 @@ stories()
                     <DateInput focus aria-label="Date" />
                 </InputGroup>
             </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateInput validationState="invalid" aria-label="Date" />
+                </InputGroup>
+            </Inline>
         </Stack>
     )
     .add("date range input", () =>
@@ -572,13 +722,13 @@ stories()
                     <DateRangeInput aria-label="Date" />
                     <Text>When</Text>
                 </InputGroup>
+            </Inline>
+            <Inline>
                 <InputGroup>
                     <Text>When</Text>
                     <DateRangeInput aria-label="Date" />
                     <Text>When</Text>
                 </InputGroup>
-            </Inline>
-            <Inline>
                 <InputGroup>
                     <Text>When</Text>
                     <DateRangeInput
@@ -604,6 +754,12 @@ stories()
                 <InputGroup>
                     <Text>When</Text>
                     <DateRangeInput focus aria-label="Date" />
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>When</Text>
+                    <DateRangeInput validationState="invalid" aria-label="Date" />
                 </InputGroup>
             </Inline>
         </Stack>
@@ -653,6 +809,17 @@ stories()
                 <InputGroup readOnly>
                     <Text>Origin</Text>
                     <Autocomplete aria-label="Planet">
+                        <Item key="earth">Earth</Item>
+                        <Item key="mars">Mars</Item>
+                        <Item key="saturn">Saturn</Item>
+                        <Item key="jupiter">Jupiter</Item>
+                    </Autocomplete>
+                </InputGroup>
+            </Inline>
+            <Inline>
+                <InputGroup>
+                    <Text>Origin</Text>
+                    <Autocomplete validationState="invalid" aria-label="Planet">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>

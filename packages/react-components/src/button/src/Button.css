@@ -126,7 +126,7 @@ a.o-ui-button {
 }
 
 /* SOLID | SECONDARY | HOVER */
-.o-ui-button-solid.o-ui-button-secondary:hover,
+.o-ui-button-solid:not([disabled]).o-ui-button-secondary:hover,
 .o-ui-button-solid:not([disabled]).o-ui-button-secondary.o-ui-button-hover {
     background-color: var(--o-ui-alias-background-2-hover);
 }

@@ -80,7 +80,11 @@ export function InnerOverlay({
     );
 
     // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
-    return <>{createPortal(content, containerElement || document.body)}</>;
+    return (
+        <>
+            {createPortal(content, containerElement || document.body)}
+        </>
+    );
 }
 
 export const Overlay = forwardRef<InnerOverlayProps>((props, ref) => (

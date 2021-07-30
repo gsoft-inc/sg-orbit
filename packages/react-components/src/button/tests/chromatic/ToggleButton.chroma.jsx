@@ -31,6 +31,34 @@ stories()
                     <LightbulbIcon />
                 </ToggleButton>
             </div>
+            <Inline verticalAlign="end">
+                <ToggleButton color="primary" checked>Cutoff</ToggleButton>
+                <ToggleButton color="primary" active>Cutoff</ToggleButton>
+                <ToggleButton color="primary" focus>Cutoff</ToggleButton>
+                <ToggleButton color="primary" hover>Cutoff</ToggleButton>
+                <ToggleButton color="primary" focus hover>Cutoff</ToggleButton>
+                <ToggleButton color="primary" disabled>Cutoff</ToggleButton>
+            </Inline>
+            <div>
+                <ToggleButton color="primary">
+                    <Text>Cutoff</Text>
+                    <LightbulbIcon />
+                </ToggleButton>
+            </div>
+            <Inline verticalAlign="end">
+                <ToggleButton color="secondary" checked>Cutoff</ToggleButton>
+                <ToggleButton color="secondary" active>Cutoff</ToggleButton>
+                <ToggleButton color="secondary" focus>Cutoff</ToggleButton>
+                <ToggleButton color="secondary" hover>Cutoff</ToggleButton>
+                <ToggleButton color="secondary" focus hover>Cutoff</ToggleButton>
+                <ToggleButton color="secondary" disabled>Cutoff</ToggleButton>
+            </Inline>
+            <div>
+                <ToggleButton color="secondary">
+                    <Text>Cutoff</Text>
+                    <LightbulbIcon />
+                </ToggleButton>
+            </div>
         </Stack>
     )
     .add("circular outline", () =>

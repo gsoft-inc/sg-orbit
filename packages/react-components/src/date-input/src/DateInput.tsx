@@ -1,18 +1,49 @@
 import "./DateInput.css";
 
-import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef } from "react";
+import {
+    AriaLabelingProps,
+    InteractionStatesProps,
+    augmentElement,
+    cssModule,
+    forwardRef,
+    isNil,
+    mergeClasses,
+    mergeProps,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
+import { ButtonPresets } from "./ButtonPresets";
+import {
+    CSSProperties,
+    ChangeEvent,
+    ChangeEventHandler,
+    ComponentProps,
+    ElementType,
+    ForwardedRef,
+    SyntheticEvent,
+    useCallback,
+    useImperativeHandle,
+    useMemo,
+    useRef
+} from "react";
+import { InputGroup, useInputGroupProps } from "../../input-group";
+import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
+import { areEqualDates, toMidnightDate } from "./date-utils";
 import { useDateInput } from "./useDateInput";
-import { useInputGroupProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
 // Used to generate BoxProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerDateInputProps {
+export interface DatePreset {
+    text: string;
+    date: Date;
+}
+
+export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelingProps {
     /**
      * A controlled value.
      */
@@ -53,6 +84,14 @@ export interface InnerDateInputProps {
      */
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     /**
+     * Array of pre-determined dates.
+     */
+    presets?: DatePreset[];
+    /**
+     * The presets style to use.
+     */
+    presetsVariant?: "compact" | "expanded";
+    /**
      * Whether or not the input should autofocus on render.
      */
     autoFocus?: boolean | number;
@@ -65,6 +104,22 @@ export interface InnerDateInputProps {
      */
     wrapperProps?: Partial<BoxProps>;
     /**
+     * @ignore
+     */
+    disabled?: boolean;
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly?: boolean;
+    /**
+     * @ignore
+     */
+    className?: string;
+    /**
+     * @ignore
+     */
+    style?: CSSProperties;
+    /**
      * An HTML element type or a custom React element type to render as.
      */
     as?: ElementType;
@@ -74,20 +129,18 @@ export interface InnerDateInputProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-export function InnerDateInput(props: InnerDateInputProps) {
+const Input = forwardRef<any>((props, ref) => {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
         value,
-        defaultValue,
-        placeholder = "dd/mm/yyyy",
         min,
         max,
         onChange,
         onDateChange,
         wrapperProps,
-        as = "input",
-        forwardedRef,
+        className,
+        style,
         ...rest
     } = mergeProps(
         props,
@@ -96,12 +149,11 @@ export function InnerDateInput(props: InnerDateInputProps) {
 
     const dateProps = useDateInput({
         value,
-        defaultValue,
         min,
         max,
         onChange,
         onDateChange,
-        forwardedRef
+        forwardedRef: ref
     });
 
     return (
@@ -109,21 +161,174 @@ export function InnerDateInput(props: InnerDateInputProps) {
             {...mergeProps(
                 rest,
                 {
-                    placeholder,
                     wrapperProps: mergeProps(
                         wrapperProps ?? {},
                         {
-                            className: cssModule(
-                                "o-ui-date-input",
-                                isInGroup && "in-group"
-                            )
+                            className: mergeClasses(
+                                className,
+                                cssModule(
+                                    "o-ui-date-input",
+                                    isInGroup && "in-group"
+                                )
+                            ),
+                            style
                         }
-                    ),
-                    as
+                    )
                 },
                 dateProps
             )}
         />
+    );
+});
+
+export function InnerDateInput({
+    value: valueProp,
+    defaultValue,
+    placeholder = "dd/mm/yyyy",
+    onDateChange,
+    presets,
+    presetsVariant = "compact",
+    fluid,
+    wrapperProps,
+    disabled,
+    readOnly,
+    className,
+    style,
+    as,
+    forwardedRef,
+    ...rest
+}: InnerDateInputProps) {
+    const [value, setValue] = useControllableState(valueProp, defaultValue, null);
+
+    const containerRef = useRef<HTMLElement>();
+    const inputRef = useRef<HTMLInputElement>();
+
+    useImperativeHandle(forwardedRef, () => {
+        // For presets, used the group container as the ref element.
+        if (!isNil(presets)) {
+            const element = containerRef.current;
+
+            element.focus = () => {
+                inputRef.current?.focus();
+            };
+
+            return element;
+        }
+
+        return inputRef.current;
+    });
+
+    const applyDate = useCallback((event, newDate) => {
+        if (!areEqualDates(value, newDate)) {
+            setValue(newDate);
+
+            if (!isNil(onDateChange)) {
+                onDateChange(event, newDate);
+            }
+        }
+    }, [onDateChange, value, setValue]);
+
+    const handleDateChange = useEventCallback((event, newDate) => {
+        applyDate(event, newDate);
+    });
+
+    const handleSelectPreset = useEventCallback((event: SyntheticEvent, newIndex: number) => {
+        const preset = presets[newIndex];
+
+        if (!isNil(preset)) {
+            applyDate(event, preset.date);
+        }
+    });
+
+    const presetsProps = useMemo(() => {
+        if (!isNil(presets)) {
+            const selectedIndex = presets.findIndex(x => areEqualDates(toMidnightDate(x.date), toMidnightDate(value)));
+
+            return {
+                values: presets.map(x => x.text),
+                selectedIndex: selectedIndex !== -1 ? selectedIndex : undefined,
+                onSelectionChange: handleSelectPreset
+            };
+        }
+
+        return null;
+    }, [presets, value, handleSelectPreset]);
+
+    const inputMarkup = (
+        <Input
+            {...mergeProps(
+                rest,
+                {
+                    value,
+                    placeholder,
+                    onDateChange: handleDateChange,
+                    ref: inputRef
+                }
+            )}
+        />
+    );
+
+    if (!isNil(presetsProps)) {
+        return presetsVariant === "compact"
+            ?
+            (
+                <InputGroup
+                    {...mergeProps<any>(
+                        {
+                            disabled,
+                            readOnly,
+                            fluid,
+                            className,
+                            style,
+                            as,
+                            ref: containerRef
+                        },
+                        wrapperProps ?? {}
+                    )}
+                >
+                    {inputMarkup}
+                    <MenuPresets {...presetsProps} />
+                </InputGroup>
+            )
+            : (
+                <Box
+                    {...mergeProps<any>(
+                        {
+                            className: mergeClasses(
+                                className,
+                                cssModule(
+                                    "o-ui-date-input-button-presets",
+                                    fluid && "fluid"
+                                )
+                            ),
+                            style,
+                            as,
+                            ref: containerRef
+                        },
+                        wrapperProps ?? {}
+                    )}
+                >
+                    {inputMarkup}
+                    {!disabled && !readOnly && (
+                        <ButtonPresets {...presetsProps} />
+                    )}
+                </Box>
+            );
+    }
+
+    // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
+    return (
+        <>
+            {augmentElement(inputMarkup, {
+                disabled,
+                readOnly,
+                wrapperProps,
+                fluid,
+                className,
+                style,
+                as
+            })}
+        </>
     );
 }
 
