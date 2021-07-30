@@ -11,6 +11,15 @@ In a terminal, use the followings commands
 - Then type `npx npm-check-updates -u` to bump the versions in the `package.json` file
 - Install the new packages with `yarn update`
 
+## Meow
+
+Cannot update `meow` to version 10.
+
+Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: C:\Dev\gsoft\sg-orbit\node_modules\meow\index.js
+require() of ES modules is not supported.
+require() of C:\Dev\gsoft\sg-orbit\node_modules\meow\index.js from C:\Dev\gsoft\sg-orbit\scripts\copy-root-license.js is an ES module file as it is a .js file whose nearest parent package.json contains "type": "module" which defines all .js files in that package scope as ES modules.
+Instead rename index.js to end in .cjs, change the requiring code to use import(), or remove "type": "module" from C:\Dev\gsoft\sg-orbit\node_modules\meow\package.json.   
+
 ## PostCSS
 
 We currently cannot upgrade to postcss 8 because `tachyons-build-css` has a dependency on `postcss-rtl` which doesn't works with postcss 8
