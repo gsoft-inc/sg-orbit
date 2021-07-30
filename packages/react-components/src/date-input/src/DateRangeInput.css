@@ -13,12 +13,15 @@
     border: 1px solid var(--o-ui-date-range-input-border-color);
     color: var(--o-ui-alias-text-1);
     background-color: var(--o-ui-alias-background-1);
+}
+
+.o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
     width: 325px;
 }
 
 /* FLUID */
 .o-ui-date-range-input-fluid {
-    width: 100%;
+    flex-grow: 1;
 }
 
 /* STATES */
@@ -66,6 +69,7 @@
 /* STATES | INVALID */
 .o-ui-date-range-input-invalid {
     --o-ui-date-range-input-border-color: var(--o-ui-alias-border-negative-1);
+    z-index: 2;
 }
 
 /* DATE INPUT */
@@ -119,6 +123,7 @@
 /* BUTTON PRESETS | FLUID */
 .o-ui-date-range-input-button-presets-fluid {
     width: 100%;
+    flex-wrap: wrap;
 }
 
 /* IN GROUP */
