@@ -23,7 +23,7 @@ export function ButtonPresets({
 
     return (
         <RadioGroup
-            className="o-ui-button-presets"
+            className="o-ui-date-input-button-presets"
             value={!isNil(selectedIndex) ? selectedIndex.toString() : null}
             onChange={handleSelectPreset}
             orientation="horizontal"
