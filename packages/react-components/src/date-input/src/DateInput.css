@@ -7,15 +7,20 @@
     display: inline-flex;
     align-items: center;
     width: max-content;
+    flex-wrap: wrap;
 }
 
 .o-ui-date-input-button-presets .o-ui-date-input {
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-global-scale-delta);
 }
 
 /* BUTTON PRESETS | FLUID */
 .o-ui-date-input-button-presets-fluid {
     width: 100%;
+}
+
+.o-ui-date-input-button-presets-fluid .o-ui-date-input {
+    flex: 1;
 }
 
 /* IN GROUP */
