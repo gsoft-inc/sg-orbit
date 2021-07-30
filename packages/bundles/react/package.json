@@ -28,5 +28,6 @@
         "@orbit-ui/icons": "9.0.0",
         "@orbit-ui/react-components": "18.1.0",
         "@orbit-ui/tachyons": "7.1.0"
-    }
+    },
+    "gitHead": "4d7ad695b1605caf34c39464f1635023890da087"
 }
