@@ -20,6 +20,18 @@ import { Heading, InnerHeading } from "@react-components/typography";
     githubPath="/packages/react-components/src/alert/src"
 />
 
+## Guidelines
+
+### Accessibility
+
+An alert comes with the `alertdialog` role and should only be used when an alert, error, or warning occurs.
+
+- This role requires an accessible name (through `aria-labelledby` provided by the `<Heading>` element), and an accessible description (using `aria-discribedby` provided by the `<Content>` element).
+- Alert dialog must have at least one focusable control and focus must be moved to that control when the alert dialog appears. Generally alert dialogs have at least a Confirmation, Close or Cancel button that can be used to move focus to.
+- The tab order inside the alert dialog must wrap.
+
+When the _alert dialog_ is correctly labeled and focus is moved to a control inside the dialog, screen readers should announce the dialog's accessible role, name and optionally description before announcing the focused element.
+
 ## Usage
 
 ### Default
