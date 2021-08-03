@@ -26,7 +26,6 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, clone
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
-import { is } from "date-fns/locale";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
@@ -132,6 +131,7 @@ export function InnerDialog({
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
+    "aria-describedby": ariaDescribedBy,
     wrapperProps,
     as = "section",
     children,
@@ -307,7 +307,7 @@ export function InnerDialog({
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
-                            "aria-describedby": contentId,
+                            "aria-describedby": !isNil(ariaDescribedBy) ? ariaDescribedBy : contentId ?? undefined,
                             as,
                             ref: dialogRef
                         },
