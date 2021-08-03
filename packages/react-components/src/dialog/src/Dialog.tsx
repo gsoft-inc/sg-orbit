@@ -26,6 +26,7 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, clone
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { is } from "date-fns/locale";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
@@ -213,6 +214,7 @@ export function InnerDialog({
             as: "header"
         },
         content: {
+            id: `${dialogId}-content`,
             className: "o-ui-dialog-content",
             as: Text
         },
@@ -229,6 +231,8 @@ export function InnerDialog({
     }), [dialogId]));
 
     const headingId = heading?.props?.id;
+
+    const contentId = content?.props?.id;
 
     const imageMarkup = image && (
         <Box className="o-ui-dialog-image">
@@ -303,6 +307,7 @@ export function InnerDialog({
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
+                            "aria-describedby": contentId,
                             as,
                             ref: dialogRef
                         },
