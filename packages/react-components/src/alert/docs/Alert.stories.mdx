@@ -26,11 +26,15 @@ An alert comes with the `alertdialog` role and should be used to display a confi
 
 It requires:
 - The focus to be trapped inside the alert.
-- A control focused when the dialog appears, provided by the `primaryButtonLabel` prop. To specify which button should be focused, use the `autoFocusButton` prop.
+- A control focused when the dialog appears, provided by the `primaryButtonLabel` prop.
 - A label, provided by the `<Heading>`.
 - A description, provided by the `<Content>`.
 
 Label and description can be overwritten with the use of `aria-label` and `aria-describedby` props on the alert.
+
+If the alert calls for an action, make sure to set the focus correctly to avoid any unwanted action.
+To do so, you can use the `autoFocusButton` prop on the alert to specify which control should have the initial focus.
+For example, if your alert is destructive, you can offer a secondary button _Cancel_ and set the focus to it with `autoFocusButton="seconday"`.
 
 ## Usage
 
