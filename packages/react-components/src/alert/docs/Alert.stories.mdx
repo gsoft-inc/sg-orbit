@@ -22,14 +22,15 @@ import { Heading, InnerHeading } from "@react-components/typography";
 
 ## Accessibility
 
-An alert comes with the `alertdialog` role and should be used to display a confirmation message, an alert, error, or warning.
+An alert comes with the `alertdialog` role and should be used to display a confirmation message, an alert, an error, or a warning.
 
 It requires:
-- The focus to be trapped inside the Alert.
+- The focus to be trapped inside the alert.
+- A control focused when the dialog appears, provided by the `primaryButtonLabel` prop. To specify which button should be focused, use the `autoFocusButton` prop.
 - A label, provided by the `<Heading>`.
-- Optionally, A description, provided by the `<Content>`.
+- A description, provided by the `<Content>`.
 
-Label and Description can be overwritten with the use of `aria-label` and `aria-describedby` on the Alert component.
+Label and description can be overwritten with the use of `aria-label` and `aria-describedby` props on the alert.
 
 ## Usage
 
