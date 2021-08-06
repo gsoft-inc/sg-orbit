@@ -1,0 +1,256 @@
+/* BACKGROUND COLOR */
+.o-ui-bgc-white {
+    background-color: var(--o-ui-white);
+}
+
+.o-ui-bgc-black {
+    background-color: var(--o-ui-black);
+}
+
+/* BACKGROUND COLOR | MARINE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-marine-#{$i} {
+        background-color: var(--o-ui-marine-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | SUNRAY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-sunray-#{$i} {
+        background-color: var(--o-ui-sunray-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | MOONSTONE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-moonstone-#{$i} {
+        background-color: var(--o-ui-moonstone-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | CLOUD */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-cloud-#{$i} {
+        background-color: var(--o-ui-cloud-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | NEUTRAL */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-neutral-#{$i} {
+        background-color: var(--o-ui-neutral-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | NEUTRAL DARK */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-neutral-dark-#{$i} {
+        background-color: var(--o-ui-neutral-dark-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | BEETLE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-beetle-#{$i} {
+        background-color: var(--o-ui-beetle-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | BOTANIC */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-botanic-#{$i} {
+        background-color: var(--o-ui-botanic-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | APRICOT */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-apricot-#{$i} {
+        background-color: var(--o-ui-apricot-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | PRIMARY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-bgc-primary-#{$i} {
+        background-color: var(--o-ui-primary-#{$i});
+    }
+}
+
+/* BACKGROUND COLOR | ROLE */
+.o-ui-background-1 {
+    background-color: var(--o-ui-background-1);
+}
+
+.o-ui-background-1-hover:hover {
+    background-color: var(--o-ui-background-1-hover);
+}
+
+.o-ui-background-1-active:active {
+    background-color: var(--o-ui-background-1-active);
+}
+
+.o-ui-background-2 {
+    background-color: var(--o-ui-background-2);
+}
+
+.o-ui-background-2-hover:hover {
+    background-color: var(--o-ui-background-2-hover);
+}
+
+.o-ui-background-2-active:active {
+    background-color: var(--o-ui-background-2-active);
+}
+
+.o-ui-background-3 {
+    background-color: var(--o-ui-background-3);
+}
+
+.o-ui-background-3-hover:hover {
+    background-color: var(--o-ui-background-3-hover);
+}
+
+.o-ui-background-3-active:active {
+    background-color: var(--o-ui-background-3-active);
+}
+
+.o-ui-background-4 {
+    background-color: var(--o-ui-background-4);
+}
+
+.o-ui-background-4-hover:hover {
+    background-color: var(--o-ui-background-4-hover);
+}
+
+.o-ui-background-4-active:active {
+    background-color: var(--o-ui-background-4-active);
+}
+
+.o-ui-background-5 {
+    background-color: var(--o-ui-background-5);
+}
+
+.o-ui-background-5-hover:hover {
+    background-color: var(--o-ui-background-5-hover);
+}
+
+.o-ui-background-5-active:active {
+    background-color: var(--o-ui-background-5-active);
+}
+
+.o-ui-background-6 {
+    background-color: var(--o-ui-background-6);
+}
+
+.o-ui-background-6-hover:hover {
+    background-color: var(--o-ui-background-6-hover);
+}
+
+.o-ui-background-6-active:active {
+    background-color: var(--o-ui-background-6-active);
+}
+
+/* BACKGROUND COLOR | ROLE | PRIMARY */
+.o-ui-background-primary-1 {
+    background-color: var(--o-ui-background-primary-1);
+}
+
+.o-ui-background-primary-1-hover:hover {
+    background-color: var(--o-ui-background-primary-1-hover);
+}
+
+.o-ui-background-primary-1-active:active {
+    background-color: var(--o-ui-background-primary-1-active);
+}
+
+.o-ui-background-primary-1-focus:focus {
+    background-color: var(--o-ui-background-primary-1-focus);
+}
+
+.o-ui-background-primary-2 {
+    background-color: var(--o-ui-background-primary-2);
+}
+
+/* BACKGROUND COLOR | ROLE | NEGATIVE */
+.o-ui-background-negative-1 {
+    background-color: var(--o-ui-background-negative-1);
+}
+
+.o-ui-background-negative-1-hover:hover {
+    background-color: var(--o-ui-background-negative-1-hover);
+}
+
+.o-ui-background-negative-1-active:active {
+    background-color: var(--o-ui-background-negative-1-active);
+}
+
+.o-ui-background-negative-1-focus:focus {
+    background-color: var(--o-ui-background-negative-1-focus);
+}
+
+.o-ui-background-negative-2 {
+    background-color: var(--o-ui-background-negative-2);
+}
+
+/* BACKGROUND COLOR | ROLE | WARNING */
+.o-ui-background-warning-1 {
+    background-color: var(--o-ui-background-warning-1);
+}
+
+.o-ui-background-warning-1-hover:hover {
+    background-color: var(--o-ui-background-warning-1-hover);
+}
+
+.o-ui-background-warning-1-active:active {
+    background-color: var(--o-ui-background-warning-1-active);
+}
+
+.o-ui-background-warning-1-focus:focus {
+    background-color: var(--o-ui-background-warning-1-focus);
+}
+
+.o-ui-background-warning-2 {
+    background-color: var(--o-ui-background-warning-2);
+}
+
+/* BACKGROUND COLOR | ROLE | POSITIVE */
+.o-ui-background-positive-1 {
+    background-color: var(--o-ui-background-positive-1);
+}
+
+.o-ui-background-positive-1-hover:hover {
+    background-color: var(--o-ui-background-positive-1-hover);
+}
+
+.o-ui-background-positive-1-active:active {
+    background-color: var(--o-ui-background-positive-1-active);
+}
+
+.o-ui-background-positive-1-focus:focus {
+    background-color: var(--o-ui-background-positive-1-focus);
+}
+
+.o-ui-background-positive-2 {
+    background-color: var(--o-ui-background-positive-2);
+}
+
+/* BACKGROUND COLOR | ROLE | INFO */
+.o-ui-background-info-1 {
+    background-color: var(--o-ui-background-info-1);
+}
+
+.o-ui-background-info-1-hover:hover {
+    background-color: var(--o-ui-background-info-1-hover);
+}
+
+.o-ui-background-info-1-active:active {
+    background-color: var(--o-ui-background-info-1-active);
+}
+
+.o-ui-background-info-1-focus:focus {
+    background-color: var(--o-ui-background-info-1-focus);
+}
+
+.o-ui-background-info-2 {
+    background-color: var(--o-ui-background-info-2);
+}

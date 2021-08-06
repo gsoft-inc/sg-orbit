@@ -1,0 +1,6 @@
+/* BORDER WIDTH */
+@for $i from 1 through 5 {
+    .o-ui-bw-#{$i} {
+        border-width: var(--o-ui-border-widths-#{$i});
+    }
+}

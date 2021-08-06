@@ -16,14 +16,20 @@
         "access": "public"
     },
     "scripts": {
-        "start": "yarn watch",
+        "setup": "yarn create-dist",
+        "start": "yarn copy-css-index-to-dist",
+        "start-components": "yarn watch",
         "prebuild": "yarn clean",
-        "build": "yarn build:types && yarn build:js",
+        "build": "run-s build:*",
         "build:types": "tsc -p ./tsconfig.types.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
-        "prewatch": "yarn clean",
-        "watch": "yarn build:js --watch",
-        "clean": "rimraf dist"
+        "prewatch": "yarn clean && yarn copy-css-index-to-dist",
+        "watch": "run-p build:*",
+        "watch:js": "yarn build:js --watch",
+        "clean": "yarn clear-dist",
+        "clear-dist": "node scripts/clear-dist",
+        "create-dist": "node scripts/create-dist",
+        "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
     },
     "peerDependencies": {
         "@orbit-ui/css-normalize": "*",

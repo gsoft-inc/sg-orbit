@@ -1,0 +1,18 @@
+/* BORDER RADIUS */
+@for $i from 1 through 4 {
+    .o-ui-br-#{$i} {
+        border-radius: var(--o-ui-radii-#{$i});
+    }
+}
+
+.o-ui-br-0 {
+    border-radius: 0;
+}
+
+.o-ui-br-100 {
+    border-radius: 100;
+}
+
+.o-ui-br-pill {
+    border-radius: 9999px;
+}

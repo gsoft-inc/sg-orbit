@@ -118,7 +118,7 @@
 
 /* APRICOT */
 .o-ui-apricot {
-    --o-ui-alias-primary-50: var(--o-ui-global-apricot-50);
+    --o-ui-alias-primary-50:  var(--o-ui-global-apricot-50);
     --o-ui-alias-primary-100: var(--o-ui-global-apricot-100);
     --o-ui-alias-primary-200: var(--o-ui-global-apricot-200);
     --o-ui-alias-primary-300: var(--o-ui-global-apricot-300);

@@ -1,0 +1,14 @@
+/* MAX HEIGHT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-mh-#{$i} {
+        height: var(--o-ui-space-#{$i});
+    }
+}
+
+.o-ui-mh-100 {
+    height: 100%;
+}
+
+.o-ui-mh-auto {
+    height: auto;
+}

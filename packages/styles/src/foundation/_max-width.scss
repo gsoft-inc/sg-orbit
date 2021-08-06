@@ -1,0 +1,14 @@
+/* MAX WIDTH */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-mw-#{$i} {
+        width: var(--o-ui-space-#{$i});
+    }
+}
+
+.o-ui-mw-100 {
+    width: 100%;
+}
+
+.o-ui-mw-auto {
+    width: auto;
+}

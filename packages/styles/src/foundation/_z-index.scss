@@ -1,0 +1,22 @@
+/* Z-INDEX */
+@for $i from 1 through 5 {
+    .o-ui-zi-#{$i} {
+        z-index: var(--o-ui-z-indices-#{$i});
+    }
+}
+
+.o-ui-zi-0 {
+    z-index: 0;
+}
+
+.o-ui-zi-999 {
+    z-index: 999;
+}
+
+.o-ui-zi-9999 {
+    z-index: 9999;
+}
+
+.o-ui-zi-max {
+    z-index: 2147483647;
+}

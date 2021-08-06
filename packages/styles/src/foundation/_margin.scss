@@ -1,0 +1,55 @@
+/* MARGIN | TOP */
+@for $i from 1 through $spacing-scale-size {
+    .mt-#{$i} {
+        margin-top: var(--o-ui-spacing-#{$i});
+    }
+}
+
+/* MARGIN | BOTTOM */
+@for $i from 1 through $spacing-scale-size {
+    .mb-#{$i} {
+        margin-bottom: var(--o-ui-spacing-#{$i});
+    }
+}
+
+/* MARGIN | LEFT */
+@for $i from 1 through $spacing-scale-size {
+    .ml-#{$i} {
+        margin-left: var(--o-ui-spacing-#{$i});
+    }
+}
+
+/* MARGIN | RIGHT */
+@for $i from 1 through $spacing-scale-size {
+    .mr-#{$i} {
+        margin-right: var(--o-ui-space-#{$i});
+    }
+}
+
+/* NEGATIVE MARGIN | TOP */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-nmt-#{$i} {
+        margin-top: calc(-1 * var(--o-ui-space-#{$i}));
+    }
+}
+
+/* NEGATIVE MARGIN | BOTTOM */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-nmb-#{$i} {
+        margin-bottom: calc(-1 * var(--o-ui-space-#{$i}));
+    }
+}
+
+/* NEGATIVE MARGIN | LEFT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-nml-#{$i} {
+        margin-left: calc(-1 * var(--o-ui-space-#{$i}));
+    }
+}
+
+/* NEGATIVE MARGIN | RIGHT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-nmr-#{$i} {
+        margin-right: calc(-1 * var(--o-ui-space-#{$i}));
+    }
+}

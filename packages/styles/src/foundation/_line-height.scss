@@ -1,0 +1,6 @@
+/* LINE HEIGHT */
+@for $i from 1 through 6 {
+    .o-ui-lh-#{$i} {
+        line-height: var(--o-ui-line-heights-#{$i});
+    }
+}

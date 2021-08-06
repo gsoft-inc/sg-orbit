@@ -1,0 +1,78 @@
+/* FILL */
+.o-ui-fi-white {
+    fill: var(--o-ui-white);
+}
+
+.o-ui-fi-black {
+    fill: var(--o-ui-black);
+}
+
+/* FILL | MARINE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-marine-#{$i} {
+        fill: var(--o-ui-marine-#{$i});
+    }
+}
+
+/* FILL | SUNRAY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-sunray-#{$i} {
+        fill: var(--o-ui-sunray-#{$i});
+    }
+}
+
+/* FILL | MOONSTONE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-moonstone-#{$i} {
+        fill: var(--o-ui-moonstone-#{$i});
+    }
+}
+
+/* FILL | CLOUD */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-cloud-#{$i} {
+        fill: var(--o-ui-cloud-#{$i});
+    }
+}
+
+/* FILL | NEUTRAL */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-neutral-#{$i} {
+        fill: var(--o-ui-neutral-#{$i});
+    }
+}
+
+/* FILL | NEUTRAL DARK */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-neutral-dark-#{$i} {
+        fill: var(--o-ui-neutral-dark-#{$i});
+    }
+}
+
+/* FILL | BEETLE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-beetle-#{$i} {
+        fill: var(--o-ui-beetle-#{$i});
+    }
+}
+
+/* FILL | BOTANIC */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-botanic-#{$i} {
+        fill: var(--o-ui-botanic-#{$i});
+    }
+}
+
+/* FILL | APRICOT */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-apricot-#{$i} {
+        fill: var(--o-ui-apricot-#{$i});
+    }
+}
+
+/* FILL | PRIMARY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-fi-primary-#{$i} {
+        fill: var(--o-ui-primary-#{$i});
+    }
+}

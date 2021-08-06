@@ -4,7 +4,6 @@ export * from "./figure";
 export * from "./github-link";
 export * from "./link";
 export * from "./table";
-export * from "./tachyons-file";
 export * from "./tagline";
 export * from "./ref-logger";
 export * from "./component-info";

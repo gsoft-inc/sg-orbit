@@ -1,0 +1,21 @@
+/*
+TODO FOR COMPONENTS:
+- Add a "Pre" component
+- Add a "Grid" component
+- Add an official "Flex" component
+- Should every component have a css definition for the font or should it use the defined font?!
+
+TODO ATOMIC:
+- Should we have classes for "initial", "inherit", "unset" etc.. ?!?
+*/
+
+$spacing-scale-size: 13;
+$color-palette-size: 10;
+
+/* NORMALIZE */
+
+@import "./normalize";
+
+/* FOUNDATION */
+
+@import "./foundation";

@@ -1,0 +1,38 @@
+export function isNull(value: any): value is null {
+    return value == null;
+}
+
+export function isUndefined(value: any): value is undefined {
+    return typeof value === "undefined" || value === undefined;
+}
+
+export function isNil(value: any): value is null | undefined {
+    return isNull(value) || isUndefined(value);
+}
+
+export function isString(value: any): value is string {
+    return Object.prototype.toString.call(value) === "[object String]";
+}
+
+export function isNumber(value: any): value is number {
+    return typeof value === "number";
+}
+
+export function isArray<T>(value: any): value is Array<T> {
+    return Array.isArray(value);
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function isFunction(value: any): value is Function {
+    return typeof value === "function";
+}
+
+export function isPlainObject(value: any): value is Record<string, any> {
+    if (Object.prototype.toString.call(value) !== "[object Object]") {
+        return false;
+    }
+
+    const prototype = Object.getPrototypeOf(value);
+
+    return prototype === null || prototype === Object.prototype;
+}

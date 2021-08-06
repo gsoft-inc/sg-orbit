@@ -1,0 +1,6 @@
+/* TEXT SHADOW */
+@for $i from 1 through 4 {
+    .o-ui-ts-#{$i} {
+        text-shadow: var(--o-ui-shadows-#{$i});
+    }
+}

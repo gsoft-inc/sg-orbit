@@ -1,0 +1,27 @@
+/* PADDING | TOP */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pt-#{$i} {
+        padding-top: var(--o-ui-space-#{$i});
+    }
+}
+
+/* PADDING | BOTTOM */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pb-#{$i} {
+        padding-bottom: var(--o-ui-space-#{$i});
+    }
+}
+
+/* PADDING | LEFT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pl-#{$i} {
+        padding-left: var(--o-ui-space-#{$i});
+    }
+}
+
+/* PADDING | RIGHT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pr-#{$i} {
+        padding-right: var(--o-ui-space-#{$i});
+    }
+}
