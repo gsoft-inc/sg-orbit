@@ -169,6 +169,28 @@ test("when no aria-label or aria-labelledby attributes are provided, the dialog 
     await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-labelledby", "heading-1"));
 });
 
+test("when an aria-describedby attribute is provided, the dialog aria-describedby attribute value match the provided value", async () => {
+    const { getByTestId } = render(
+        <Dialog aria-describedby="content-1" data-testid="dialog">
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Dialog>
+    );
+
+    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
+});
+
+test("when no aria-describedby attributes is provided, the dialog aria-describedby attribute value match the content id", async () => {
+    const { getByTestId } = render(
+        <Dialog data-testid="dialog">
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content id="content-1">This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Dialog>
+    );
+
+    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
+});
+
 // ***** Ref *****
 
 test("ref is a DOM element", async () => {
