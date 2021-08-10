@@ -1,9 +1,9 @@
 import "./Alert.css";
 
-import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergePropsInto, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
-import { Dialog, useDialogTriggerContext } from "../../dialog";
+import { Dialog, DialogProps, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
 
@@ -176,7 +176,7 @@ export function InnerAlert({
 
     return (
         <Dialog
-            {...mergeProps<any>(
+            {...mergePropsInto<DialogProps>(
                 rest,
                 {
                     role: "alertdialog",

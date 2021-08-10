@@ -1,10 +1,10 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, slot } from "../../shared";
+import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, mergePropsInto, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text } from "../../typography";
+import { Text, TextProps } from "../../typography";
 
 export interface InnerAvatarProps extends AriaLabelingProps {
     /**
@@ -136,15 +136,17 @@ const textSize = createSizeAdapter({
     "2xl": "2xl"
 });
 
-export function AvatarText({
-    size,
-    as = "span",
-    children,
-    ...rest
-}: AvatarTextProps) {
+export function AvatarText(props: AvatarTextProps) {
+    const {
+        size,
+        as = "span",
+        children,
+        ...rest
+    } = omitProps(props, ["src", "color"]);
+
     return (
         <Text
-            {...mergeProps<any>(
+            {...mergePropsInto<TextProps>(
                 rest,
                 {
                     size: textSize(size),

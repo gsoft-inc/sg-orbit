@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Flex } from "./Flex";
-import { forwardRef, isNil, mergeProps } from "../../shared";
+import { Flex, FlexProps } from "./Flex";
+import { forwardRef, isNil, mergePropsInto } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 export interface InnerInlineProps {
@@ -59,7 +59,7 @@ export function InnerInline({
 
     return (
         <Flex
-            {...mergeProps<any>(
+            {...mergePropsInto<FlexProps>(
                 rest,
                 {
                     gap: gap !== 0 ? gap : undefined,

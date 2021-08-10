@@ -1,8 +1,8 @@
 import "./Tile.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, cssModule, forwardRef, isNil, isNumber, mergeProps, mergePropsInto, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 export interface InnerTileProps extends InteractionStatesProps {
@@ -106,7 +106,7 @@ export function InnerTile(props: InnerTileProps) {
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergePropsInto<BoxProps>(
                 rest,
                 {
                     className: cssModule(

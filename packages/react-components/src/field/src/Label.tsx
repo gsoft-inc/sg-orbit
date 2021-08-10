@@ -1,8 +1,8 @@
 import "./Label.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
+import { Text, TextProps } from "../../typography";
+import { forwardRef, mergeProps, mergePropsInto } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
 export interface InnerLabelProps {
@@ -46,7 +46,7 @@ export function InnerLabel(props: InnerLabelProps) {
 
     return (
         <Text
-            {...mergeProps<any>(
+            {...mergePropsInto<TextProps>(
                 rest,
                 {
                     size: "md",

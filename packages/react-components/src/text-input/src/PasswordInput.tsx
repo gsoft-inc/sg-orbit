@@ -2,8 +2,8 @@ import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { TextInput } from "./TextInput";
-import { forwardRef, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { TextInput, TextInputProps } from "./TextInput";
+import { forwardRef, mergeProps, mergePropsInto, useControllableState, useEventCallback } from "../../shared";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
 import { wrappedInputPropsAdapter } from "../../input";
@@ -126,7 +126,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
 
     return (
         <TextInput
-            {...mergeProps<any>(
+            {...mergePropsInto<TextInputProps>(
                 rest,
                 {
                     value: inputValue,

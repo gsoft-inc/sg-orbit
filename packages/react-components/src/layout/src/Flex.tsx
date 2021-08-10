@@ -1,6 +1,6 @@
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { forwardRef, isNil, isNilOrEmpty, isString, mergePropsInto } from "../../shared";
 
 export interface InnerFlexProps {
     /**
@@ -134,7 +134,7 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergePropsInto<BoxProps>(
                 rest,
                 {
                     style: {

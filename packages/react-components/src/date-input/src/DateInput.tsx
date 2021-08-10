@@ -9,6 +9,7 @@ import {
     isNil,
     mergeClasses,
     mergeProps,
+    mergePropsInto,
     useControllableState,
     useEventCallback
 } from "../../shared";
@@ -27,7 +28,7 @@ import {
     useMemo,
     useRef
 } from "react";
-import { InputGroup, useInputGroupProps } from "../../input-group";
+import { InputGroup, InputGroupProps, useInputGroupProps } from "../../input-group";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./date-utils";
@@ -273,7 +274,7 @@ export function InnerDateInput({
             ?
             (
                 <InputGroup
-                    {...mergeProps<any>(
+                    {...mergePropsInto<InputGroupProps>(
                         {
                             disabled,
                             readOnly,
@@ -292,7 +293,7 @@ export function InnerDateInput({
             )
             : (
                 <Box
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         {
                             className: mergeClasses(
                                 className,

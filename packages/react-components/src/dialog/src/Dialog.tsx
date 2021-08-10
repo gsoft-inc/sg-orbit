@@ -10,6 +10,7 @@ import {
     isNil,
     isString,
     mergeProps,
+    mergePropsInto,
     normalizeSize,
     useAutoFocusChild,
     useEventCallback,
@@ -21,7 +22,7 @@ import {
     useResizeObserver,
     useSlots
 } from "../../shared";
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
@@ -278,7 +279,7 @@ export function InnerDialog({
         <>
             <Underlay zIndex={zIndex} />
             <Box
-                {...mergeProps<any>(
+                {...mergePropsInto<BoxProps>(
                     wrapperProps ?? {},
                     {
                         className: cssModule(

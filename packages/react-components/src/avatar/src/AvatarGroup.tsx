@@ -1,9 +1,9 @@
 import { AvatarText } from "./Avatar";
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { Group } from "../../group";
+import { Group, GroupProps } from "../../group";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, forwardRef, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { augmentElement, cssModule, forwardRef, isNil, mergeClasses, mergePropsInto, normalizeSize } from "../../shared";
 
 export interface InnerAvatarGroupProps {
     /**
@@ -33,7 +33,7 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
     return (
         <TooltipTrigger>
             <Box
-                {...mergeProps<any>(
+                {...mergePropsInto<BoxProps>(
                     rest,
                     {
                         className: mergeClasses(
@@ -109,7 +109,7 @@ export function InnerAvatarGroup({
 
     return (
         <Group
-            {...mergeProps<any>(
+            {...mergePropsInto<GroupProps>(
                 rest,
                 {
                     gap: 1,

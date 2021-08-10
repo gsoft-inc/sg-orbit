@@ -5,7 +5,7 @@ import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
 import { Tag, TagProps } from "./Tag";
-import { forwardRef, isNil, mergeProps, useEventCallback } from "../../shared";
+import { forwardRef, isNil, mergeProps, mergePropsInto, useEventCallback } from "../../shared";
 
 export interface InnerTagListProps {
     /**
@@ -65,7 +65,7 @@ function TagItem({
 
     return (
         <Tag
-            {...mergeProps<any>(
+            {...mergePropsInto<TagProps>(
                 rest,
                 {
                     variant: "outline",

@@ -3,10 +3,10 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, mergePropsInto, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
-import { TooltipTrigger } from "../../tooltip";
+import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
 import { useListboxContext } from "./ListboxContext";
 
 // Used to generate CollectionItem instead of any in the auto-generated documentation
@@ -133,7 +133,7 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     id,
@@ -175,7 +175,7 @@ export function InnerListboxOption({
 
         return (
             <TooltipTrigger
-                {...mergeProps<any>(
+                {...mergePropsInto<TooltipTriggerProps>(
                     tooltipProps,
                     {
                         position: "left"

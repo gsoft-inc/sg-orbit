@@ -9,6 +9,7 @@ import {
     isNil,
     isNilOrEmpty,
     mergeProps,
+    mergePropsInto,
     useControllableState,
     useEventCallback,
     useFocusWithin,
@@ -20,7 +21,7 @@ import { Box, BoxProps } from "../../box";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
-import { SearchInput } from "../../text-input";
+import { SearchInput, SearchInputProps } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useCallback, useRef, useState } from "react";
@@ -471,7 +472,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 disabled={disabled}
             />
             <SearchInput
-                {...mergeProps<any>(
+                {...mergePropsInto<SearchInputProps>(
                     rest,
                     {
                         id: triggerId,

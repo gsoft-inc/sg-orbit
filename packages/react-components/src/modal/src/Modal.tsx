@@ -8,12 +8,12 @@ import {
     forwardRef,
     getSlotKey,
     isNil,
-    mergeProps,
+    mergePropsInto,
     useSlots
 } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { Dialog } from "../../dialog";
+import { Dialog, DialogProps } from "../../dialog";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
@@ -141,7 +141,7 @@ export function InnerModal({
 
     return (
         <Dialog
-            {...mergeProps<any>(
+            {...mergePropsInto<DialogProps>(
                 rest,
                 {
                     size,
