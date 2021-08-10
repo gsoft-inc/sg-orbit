@@ -131,13 +131,3 @@ export function mergeProps<T extends Props[]>(...args: T) {
     return result as UnionToIntersection<TupleTypes<T>>;
 }
 
-export function mergePropsInto<T extends Props>(...args: Partial<T>[]): T {
-    let result = {};
-
-    args.forEach(x => {
-        result = merge(result, x);
-    });
-
-    return result as T;
-}
-

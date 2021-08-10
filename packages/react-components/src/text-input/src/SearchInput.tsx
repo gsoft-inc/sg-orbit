@@ -3,10 +3,9 @@ import "./SearchInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, mergePropsInto, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
-import { TextInputProps } from "./TextInput";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
@@ -152,7 +151,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
 
     return (
         <TextInput
-            {...mergePropsInto<TextInputProps>(
+            {...mergeProps(
                 rest,
                 {
                     value: inputValue,
@@ -169,7 +168,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     autoComplete: "off",
                     as,
                     ref: inputRef
-                }
+                } as const
             )}
         />
     );

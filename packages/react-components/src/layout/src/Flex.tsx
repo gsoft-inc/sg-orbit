@@ -1,6 +1,6 @@
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, isNil, isNilOrEmpty, isString, mergePropsInto } from "../../shared";
+import { forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 export interface InnerFlexProps {
     /**
@@ -87,7 +87,7 @@ export interface InnerFlexProps {
     /**
      * @ignore
      */
-    style: CSSProperties;
+    style?: CSSProperties;
     /**
      * React children
      */
@@ -134,7 +134,7 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergePropsInto<BoxProps>(
+            {...mergeProps(
                 rest,
                 {
                     style: {
@@ -149,7 +149,7 @@ export function InnerFlex({
                         gap: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`),
                         width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined),
                         height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined)
-                    },
+                    } as const,
                     ref: forwardedRef
                 }
             )}

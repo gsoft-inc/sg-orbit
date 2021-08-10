@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Flex, FlexProps } from "./Flex";
-import { forwardRef, isNil, mergePropsInto } from "../../shared";
+import { Flex } from "./Flex";
+import { forwardRef, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 export interface InnerStackProps {
@@ -60,14 +60,14 @@ export function InnerStack({
 
     return (
         <Flex
-            {...mergePropsInto<FlexProps>(
+            {...mergeProps(
                 rest,
                 {
                     direction: "column",
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                },
+                } as const,
                 alignProps
             )}
         >

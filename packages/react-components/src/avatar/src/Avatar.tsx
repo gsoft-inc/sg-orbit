@@ -1,10 +1,10 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, mergePropsInto, normalizeSize, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
-import { Text, TextProps } from "../../typography";
+import { Text } from "../../typography";
 
 export interface InnerAvatarProps extends AriaLabelingProps {
     /**
@@ -146,13 +146,13 @@ export function AvatarText(props: AvatarTextProps) {
 
     return (
         <Text
-            {...mergePropsInto<TextProps>(
+            {...mergeProps(
                 rest,
                 {
                     size: textSize(size),
                     className: "o-ui-avatar-text",
                     as
-                }
+                } as const
             )}
         >
             {children}

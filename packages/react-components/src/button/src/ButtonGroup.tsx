@@ -1,8 +1,8 @@
 import "./ButtonGroup.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { Group, GroupProps } from "../../group";
-import { augmentElement, cssModule, forwardRef, mergeProps, mergePropsInto, normalizeSize, omitProps, slot } from "../../shared";
+import { Group } from "../../group";
+import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 export interface InnerButtonGroupProps {
@@ -70,7 +70,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
 
     return (
         <Group
-            {...mergePropsInto<GroupProps>(
+            {...mergeProps(
                 rest,
                 {
                     orientation,
@@ -84,7 +84,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     ),
                     role: !isInField ? "group" : undefined,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {

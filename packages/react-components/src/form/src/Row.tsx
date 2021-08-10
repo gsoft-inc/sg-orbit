@@ -1,6 +1,6 @@
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { Inline, InlineProps } from "../../layout";
-import { augmentElement, forwardRef, mergeProps, mergePropsInto, omitProps } from "../../shared";
+import { Inline } from "../../layout";
+import { augmentElement, forwardRef, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
 export interface InnerRowProps {
@@ -38,14 +38,14 @@ export function InnerRow(props: InnerRowProps) {
 
     return (
         <Inline
-            {...mergePropsInto<InlineProps>(
+            {...mergeProps(
                 rest,
                 {
                     fluid,
                     gap: 4,
                     align: "start",
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {

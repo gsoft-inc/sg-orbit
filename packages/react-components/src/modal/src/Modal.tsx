@@ -8,12 +8,12 @@ import {
     forwardRef,
     getSlotKey,
     isNil,
-    mergePropsInto,
+    mergeProps,
     useSlots
 } from "../../shared";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { Dialog, DialogProps } from "../../dialog";
+import { Dialog } from "../../dialog";
 
 export interface InnerModalProps extends DomProps, AriaLabelingProps {
     /**
@@ -136,19 +136,19 @@ export function InnerModal({
             return "lg";
         }
 
-        return fullscreen ? "fullscreen" : "sm";
+        return fullscreen ? "fullscreen" : "sm" as const;
     }, [fullscreen, image, illustration, hasCards]);
 
     return (
         <Dialog
-            {...mergePropsInto<DialogProps>(
+            {...mergeProps(
                 rest,
                 {
                     size,
                     dismissable,
                     zIndex,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {image}

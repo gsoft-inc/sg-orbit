@@ -1,9 +1,9 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, SlotElements, cssModule, forwardRef, isNil, mergeProps, mergePropsInto, useEventCallback, useSlots } from "../../shared";
+import { DomProps, InteractionStatesProps, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../typography";
-import { TooltipTrigger, TooltipTriggerProps } from "../../tooltip";
+import { TooltipTrigger } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./Menu";
@@ -138,11 +138,11 @@ export function InnerMenuItem({
 
         return (
             <TooltipTrigger
-                {...mergePropsInto<TooltipTriggerProps>(
+                {...mergeProps(
                     tooltipProps,
                     {
                         position: "left"
-                    }
+                    } as const
                 )}
             >
                 {itemMarkup}

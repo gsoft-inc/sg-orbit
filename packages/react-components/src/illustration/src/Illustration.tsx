@@ -1,9 +1,9 @@
 import "./Illustration.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, mergePropsInto, slot, useSlots } from "../../shared";
+import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerIllustrationProps {
     /**
@@ -81,7 +81,7 @@ export function InnerIllustration({
 
     return (
         <Box
-            {...mergePropsInto<BoxProps>(
+            {...mergeProps(
                 rest,
                 {
                     className: cssModule(

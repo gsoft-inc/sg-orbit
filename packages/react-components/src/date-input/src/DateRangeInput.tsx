@@ -1,6 +1,6 @@
 import "./DateRangeInput.css";
 
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
@@ -17,7 +17,7 @@ import {
     useRef,
     useState
 } from "react";
-import { ClearInputGroupContext, InputGroup, InputGroupProps, useInputGroupProps } from "../../input-group";
+import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
@@ -31,7 +31,6 @@ import {
     isNilOrEmpty,
     isNumber,
     mergeProps,
-    mergePropsInto,
     omitProps,
     useAutoFocus,
     useControllableState,
@@ -515,7 +514,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         return presetsVariant === "compact"
             ? (
                 <InputGroup
-                    {...mergePropsInto<InputGroupProps>(
+                    {...mergeProps(
                         rest,
                         {
                             disabled,
@@ -532,7 +531,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             )
             : (
                 <Box
-                    {...mergePropsInto<BoxProps>(
+                    {...mergeProps(
                         rest,
                         {
                             className: cssModule(

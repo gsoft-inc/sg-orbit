@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
-import { forwardRef, isNil, mergePropsInto } from "../../shared";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
+import { forwardRef, isNil, mergeProps } from "../../shared";
 
 export interface InnerGroupProps {
     /**
@@ -66,12 +66,12 @@ export function InnerGroup({
 
     return (
         <Flex
-            {...mergePropsInto<FlexProps>(
+            {...mergeProps(
                 rest,
                 {
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                },
+                } as const,
                 directionProps,
                 alignProps
             )}

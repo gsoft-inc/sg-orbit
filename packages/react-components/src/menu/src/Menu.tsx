@@ -11,7 +11,6 @@ import {
     isNil,
     isNumber,
     mergeProps,
-    mergePropsInto,
     useAutoFocusChild,
     useControllableState,
     useDisposables,
@@ -23,7 +22,7 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
@@ -289,7 +288,7 @@ export function InnerMenu({
 
     return (
         <Box
-            {...mergePropsInto<BoxProps>(
+            {...mergeProps(
                 rest,
                 {
                     id: rootId,
@@ -307,7 +306,7 @@ export function InnerMenu({
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     as,
                     ref: containerRef
-                },
+                } as const,
                 scrollableProps
             )}
         >

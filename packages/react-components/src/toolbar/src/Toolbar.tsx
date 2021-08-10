@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, forwardRef, isNil, isNumber, mergePropsInto, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
+import { Keys, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
 export interface InnerToolbarProps {
@@ -106,7 +106,7 @@ export function InnerToolbar({
 
     return (
         <Flex
-            {...mergePropsInto<FlexProps>(
+            {...mergeProps(
                 rest,
                 {
                     role: "toolbar",
@@ -115,7 +115,7 @@ export function InnerToolbar({
                     as,
                     ref: containerRef,
                     "aria-orientation": orientation
-                },
+                } as const,
                 directionProps,
                 alignProps,
                 arrowNavigationProps

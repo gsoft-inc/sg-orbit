@@ -1,8 +1,8 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ElementType, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergePropsInto } from "../../shared";
-import { Text, TextProps } from "../../typography";
+import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
+import { Text } from "../../typography";
 
 export interface InnerFieldMessageProps {
     /**
@@ -43,7 +43,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
 }, ref) => {
     return (
         <Text
-            {...mergePropsInto<TextProps>(
+            {...mergeProps(
                 rest,
                 {
                     size: "md",
@@ -54,7 +54,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
                     ),
                     as,
                     ref
-                }
+                } as const
             )}
         >
             <StyleProvider
