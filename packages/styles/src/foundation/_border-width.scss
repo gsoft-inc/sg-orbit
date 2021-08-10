@@ -1,12 +1,12 @@
 /* BORDER WIDTH */
 .o-ui-ba-0 {
-    border-style: solid;
+    // border-style: solid;
     border-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-ba-#{$i} {
-        border-style: solid;
+        // border-style: solid;
         border-width: var(--o-ui-bw-#{$i});
     }
 }
@@ -19,62 +19,62 @@
 
 @for $i from 1 through 5 {
     .o-ui-bt-#{$i} {
-        border-top-style: solid;
+        // border-top-style: solid;
         border-top-width: var(--o-ui-bw-#{$i});
     }
 }
 
 /* BORDER WIDTH | BOTTOM */
 .o-ui-bb-0 {
-    border-bottom-style: solid;
+    // border-bottom-style: solid;
     border-bottom-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-bb-#{$i} {
-        border-bottom-style: solid;
+        // border-bottom-style: solid;
         border-bottom-width: var(--o-ui-bw-#{$i});
     }
 }
 
 /* BORDER WIDTH | LEFT */
 .o-ui-bl-0 {
-    border-left-style: solid;
+    // border-left-style: solid;
     border-left-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-bl-#{$i} {
-        border-left-style: solid;
+        // border-left-style: solid;
         border-left-width: var(--o-ui-bw-#{$i});
     }
 }
 
 /* BORDER WIDTH | RIGHT */
 .o-ui-br-0 {
-    border-right-style: solid;
+    // border-right-style: solid;
     border-right-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-br-#{$i} {
-        border-right-style: solid;
+        // border-right-style: solid;
         border-right-width: var(--o-ui-bw-#{$i});
     }
 }
 
 /* BORDER WIDTH | VERTICAL */
 .o-ui-bv-0 {
-    border-top-style: solid;
-    border-bottom-style: solid;
+    // border-top-style: solid;
+    // border-bottom-style: solid;
     border-top-width: 0;
     border-bottom-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-bv-#{$i} {
-        border-top-style: solid;
-        border-bottom-style: solid;
+        // border-top-style: solid;
+        // border-bottom-style: solid;
         border-top-width: var(--o-ui-bw-#{$i});
         border-bottom-width: var(--o-ui-bw-#{$i});
     }
@@ -82,16 +82,16 @@
 
 /* BORDER WIDTH | HORIZONTAL */
 .o-ui-bh-0 {
-    border-left-style: solid;
-    border-right-style: solid;
+    // border-left-style: solid;
+    // border-right-style: solid;
     border-left-width: 0;
     border-right-width: 0;
 }
 
 @for $i from 1 through 5 {
     .o-ui-bh-#{$i} {
-        border-left-style: solid;
-        border-right-style: solid;
+        // border-left-style: solid;
+        // border-right-style: solid;
         border-left-width: var(--o-ui-bw-#{$i});
         border-right-width: var(--o-ui-bw-#{$i});
     }

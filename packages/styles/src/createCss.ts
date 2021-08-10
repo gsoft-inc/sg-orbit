@@ -1,6 +1,6 @@
 import { isArray, isNil, isString, isNumber } from "./assertions";
 import { OrbitTheme, ColorSchemes } from "./themes";
-import { JsonObject, JsonValue } from "type-fest";
+import { JsonObject, JsonValue, Entry } from "type-fest";
 
 type Bucket = string[];
 
@@ -63,7 +63,7 @@ function appendJsonValue(name: string, value: JsonValue, prefix: string, bucket:
 }
 
 function appendJsonObject(values: JsonObject, prefix: string, bucket: Bucket) {
-    Object.entries(values).forEach((x) => {
+    Object.entries(values).forEach((x: Entry<JsonObject>) => {
         appendJsonValue(x[0], x[1], prefix, bucket);
     });
 }
