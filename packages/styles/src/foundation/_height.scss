@@ -1,4 +1,8 @@
 /* HEIGHT */
+.o-ui-h-0 {
+    height: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-h-#{$i} {
         height: var(--o-ui-space-#{$i});
@@ -7,6 +11,10 @@
 
 .o-ui-h-100 {
     height: 100%;
+}
+
+.o-ui-h-screen {
+    height: 100vh;
 }
 
 .o-ui-h-auto {

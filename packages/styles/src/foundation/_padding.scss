@@ -1,4 +1,8 @@
 /* PADDING | TOP */
+.o-ui-pt-0 {
+    padding-top: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pt-#{$i} {
         padding-top: var(--o-ui-space-#{$i});
@@ -6,6 +10,10 @@
 }
 
 /* PADDING | BOTTOM */
+.o-ui-pb-0 {
+    padding-bottom: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pb-#{$i} {
         padding-bottom: var(--o-ui-space-#{$i});
@@ -13,6 +21,10 @@
 }
 
 /* PADDING | LEFT */
+.o-ui-pl-0 {
+    padding-left: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pl-#{$i} {
         padding-left: var(--o-ui-space-#{$i});
@@ -20,8 +32,49 @@
 }
 
 /* PADDING | RIGHT */
+.o-ui-pr-0 {
+    padding-right: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pr-#{$i} {
+        padding-right: var(--o-ui-space-#{$i});
+    }
+}
+
+/* PADDING | ALL */
+.o-ui-pa-0 {
+    padding: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pa-#{$i} {
+        padding: var(--o-ui-space-#{$i});
+    }
+}
+
+// PADDING | VERTICAL
+.o-ui-pv-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-pv-#{$i} {
+        padding-top: var(--o-ui-space-#{$i});
+        padding-bottom: var(--o-ui-space-#{$i});
+    }
+}
+
+// PADDING | HORIZONTAL
+.o-ui-ph-0 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-ph-#{$i} {
+        padding-left: var(--o-ui-space-#{$i});
         padding-right: var(--o-ui-space-#{$i});
     }
 }

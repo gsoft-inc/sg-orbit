@@ -1,7 +1,7 @@
 /* BORDER RADIUS */
 @for $i from 1 through 4 {
     .o-ui-br-#{$i} {
-        border-radius: var(--o-ui-radii-#{$i});
+        border-radius: var(--o-ui-br-#{$i});
     }
 }
 
@@ -13,6 +13,6 @@
     border-radius: 100;
 }
 
-.o-ui-br-pill {
+.o-ui-pill {
     border-radius: 9999px;
 }

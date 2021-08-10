@@ -1,4 +1,8 @@
 /* WIDTH */
+.o-ui-w-0 {
+    width: 0;
+}
+
 @for $i from 1 through $spacing-scale-size {
     .o-ui-w-#{$i} {
         width: var(--o-ui-space-#{$i});
@@ -7,6 +11,10 @@
 
 .o-ui-w-100 {
     width: 100%;
+}
+
+.o-ui-w-screen {
+    width: 100vh;
 }
 
 .o-ui-w-auto {

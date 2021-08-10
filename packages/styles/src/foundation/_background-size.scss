@@ -1,9 +1,12 @@
-/* BACKGROUND-SIZE | COVER */
-.o-ui-bgs-cover {
+/* BACKGROUND-SIZE */
+.o-ui-bg-auto {
+    background-size: auto;
+}
+
+.o-ui-bg-cover {
     background-size: cover;
 }
 
-/* BACKGROUND-SIZE | CONTAIN */
-.o-ui-bgs-contain {
+.o-ui-bg-contain {
     background-size: contain;
 }

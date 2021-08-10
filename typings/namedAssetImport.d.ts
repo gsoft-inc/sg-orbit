@@ -6,5 +6,6 @@ declare module "*.svg" {
     > & { title?: string }>;
 
     const src: string;
+
     export default src;
 }

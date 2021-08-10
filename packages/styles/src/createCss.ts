@@ -1,5 +1,6 @@
 import { isArray, isNil, isString, isNumber } from "./assertions";
-import { OrbitShadowsColorSchemes, OrbitTheme, OrbitColorSchemes } from "./themes";
+import { OrbitTheme, ColorSchemes } from "./themes";
+import { JsonObject, JsonValue } from "type-fest";
 
 type Bucket = string[];
 
@@ -7,45 +8,41 @@ type StringArray = readonly string[];
 
 type NumberArray = readonly number[];
 
-// @ts-ignore: circularly references itself
-type ObjectValue = string | number | StringArray | NumberArray | ObjectLiteral;
-
-// @ts-ignore: circularly references itself
-type ObjectLiteral = Record<string, ObjectValue>;
+type Array = StringArray | NumberArray;
 
 function normalizeName(name: string, prefix?: string) {
     return isNil(prefix) ? `--o-ui-${name}` : `--o-ui-${prefix}-${name}`;
-}
-
-function interpolateValue(value: string) {
-    return value[0] === "$" ? `var(--o-ui-${value.substr(1)})` : value;
 }
 
 function augmentPrefix(current: string, newPart: string) {
     return isNil(current) ? newPart : `${current}-${newPart}`;
 }
 
-function appendStringValue(name: string, value: string, prefix: string, bucket: Bucket) {
+function interpolateValue(value: string) {
+    return value[0] === "$" ? `var(--o-ui-${value.substr(1)})` : value;
+}
+
+function appendString(name: string, value: string, prefix: string, bucket: Bucket) {
     bucket.push(`${normalizeName(`${name}`, prefix)}: ${interpolateValue(value.replace(/\s+/gm, " ").trim())};`);
 }
 
-function appendNumberValue(name: string, value: number, prefix: string, bucket: Bucket) {
+function appendNumber(name: string, value: number, prefix: string, bucket: Bucket) {
     bucket.push(`${normalizeName(`${name}`, prefix)}: ${value};`);
 }
 
 function appendStringArray(values: StringArray, prefix: string, bucket: Bucket) {
     values.forEach((x, index) => {
-        appendStringValue(`${index + 1}`, x, prefix, bucket);
+        appendString(`${index + 1}`, x, prefix, bucket);
     });
 }
 
 function appendNumberArray(values: NumberArray, prefix: string, bucket: Bucket) {
     values.forEach((x, index) => {
-        appendNumberValue(`${index + 1}`, x, prefix, bucket)
+        appendNumber(`${index + 1}`, x, prefix, bucket)
     });
 }
 
-function appendArray(values: StringArray | NumberArray, prefix: string, bucket: Bucket) {
+function appendArray(values: Array, prefix: string, bucket: Bucket) {
     if (isString(values[0])) {
         appendStringArray(values as StringArray, prefix, bucket);
     } else {
@@ -53,38 +50,38 @@ function appendArray(values: StringArray | NumberArray, prefix: string, bucket: 
     }
 }
 
-function appendObjectValue(name: string, value: ObjectValue, prefix: string, bucket: Bucket) {
+function appendJsonValue(name: string, value: JsonValue, prefix: string, bucket: Bucket) {
     if (isString(value)) {
-        appendStringValue(name, value, prefix, bucket);
+        appendString(name, value, prefix, bucket);
     } else if (isNumber(value)) {
-        appendNumberValue(name, value, prefix, bucket);
+        appendNumber(name, value, prefix, bucket);
     } else if (isArray(value)) {
-        appendArray(value as (StringArray | NumberArray), augmentPrefix(prefix, name), bucket);
+        appendArray(value as Array, augmentPrefix(prefix, name), bucket);
     } else {
-        appendObjectLiteral(value as ObjectLiteral, prefix, bucket);
+        appendJsonObject(value as JsonObject, prefix, bucket);
     }
 }
 
-function appendObjectLiteral(values: ObjectLiteral, prefix: string, bucket: Bucket) {
+function appendJsonObject(values: JsonObject, prefix: string, bucket: Bucket) {
     Object.entries(values).forEach((x) => {
-        appendObjectValue(x[0], x[1], prefix, bucket);
+        appendJsonValue(x[0], x[1], prefix, bucket);
     });
 }
 
-function appendColorScheme(values: StringArray | NumberArray | ObjectLiteral, prefix: string, bucket: Bucket) {
+function appendColorScheme(values: Array | JsonObject, prefix: string, bucket: Bucket) {
     if (isArray(values)) {
-        appendArray(values as (StringArray | NumberArray), prefix, bucket);
+        appendArray(values as Array, prefix, bucket);
     } else {
-        appendObjectLiteral(values, prefix, bucket);
+        appendJsonObject(values as JsonObject, prefix, bucket);
     }
 }
 
-function appendColorSchemes(
-    values: StringArray | NumberArray | ObjectLiteral | OrbitColorSchemes<any, any, any>,
+function appendColorSchemes<C, L, D>(
+    values: C | L | D | ColorSchemes<C, L, D>,
     prefix: string,
     { common, light, dark }: { common?: Bucket, light: Bucket, dark: Bucket }
 ) {
-    const colorSchemes = values as OrbitShadowsColorSchemes;
+    const colorSchemes = values as ColorSchemes<C, L, D>;
 
     if (!isNil(colorSchemes.common) || !isNil(colorSchemes.light) || !isNil(colorSchemes.dark)) {
         if (!isNil(colorSchemes.common)) {
@@ -100,6 +97,7 @@ function appendColorSchemes(
 
 function renderBucket(id: string, content: string) {
     const element = document.createElement("style");
+
     element.setAttribute("id", id);
     element.innerText = content;
 
@@ -111,15 +109,15 @@ export function createCss(theme: OrbitTheme) {
     const light: Bucket = [];
     const dark: Bucket = [];
 
-    appendStringArray(theme.space, "space", common);
-    appendObjectLiteral(theme.fontSizes, "font-sizes", common);
-    appendNumberArray(theme.fontWeights, "font-weights", common);
-    appendNumberArray(theme.lineHeights, "line-heights", common);
-    appendStringArray(theme.borderWidths, "border-widths", common);
-    appendColorSchemes(theme.shadows, "shadows", { common, light, dark });
-    appendObjectLiteral(theme.elevations, "elevations", common);
-    appendStringArray(theme.radii, "radii", common);
-    appendNumberArray(theme.zIndices, "z-indices", common);
+    appendArray(theme.space, "space", common);
+    appendJsonObject(theme.fontSizes, "fs", common);
+    appendArray(theme.fontWeights, "fw", common);
+    appendArray(theme.lineHeights, "lh", common);
+    appendArray(theme.borderWidths, "bw", common);
+    appendArray(theme.borderRadii, "br", common);
+    appendColorSchemes(theme.boxShadows, "bs", { common, light, dark });
+    appendJsonObject(theme.elevations, "elevation", common);
+    appendArray(theme.zIndices, "z", common);
     appendColorSchemes(theme.colors, null, { common, light, dark });
 
     renderBucket(theme.name, `.o-ui { ${common.join(" ")} }`);

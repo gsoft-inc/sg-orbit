@@ -1,78 +1,86 @@
 /* STROKE */
-.o-ui-sk-white {
-    background-color: var(--o-ui-white);
+.o-ui-stroke-current {
+    stroke: currentColor;
 }
 
-.o-ui-sk-black {
-    background-color: var(--o-ui-black);
+.o-ui-stroke-transparent {
+    stroke: transparent;
 }
 
-/* FILL | MARINE */
+.o-ui-stroke-white {
+    stroke: var(--o-ui-white);
+}
+
+.o-ui-stroke-black {
+    stroke: var(--o-ui-black);
+}
+
+/* STROKE | MARINE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-marine-#{$i} {
-        background-color: var(--o-ui-marine-#{$i});
+    .o-ui-stroke-marine-#{$i} {
+        stroke: var(--o-ui-marine-#{$i});
     }
 }
 
-/* FILL | SUNRAY */
+/* STROKE | SUNRAY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-sunray-#{$i} {
-        background-color: var(--o-ui-sunray-#{$i});
+    .o-ui-stroke-sunray-#{$i} {
+        stroke: var(--o-ui-sunray-#{$i});
     }
 }
 
-/* FILL | MOONSTONE */
+/* STROKE | MOONSTONE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-moonstone-#{$i} {
-        background-color: var(--o-ui-moonstone-#{$i});
+    .o-ui-stroke-moonstone-#{$i} {
+        stroke: var(--o-ui-moonstone-#{$i});
     }
 }
 
-/* FILL | CLOUD */
+/* STROKE | CLOUD */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-cloud-#{$i} {
-        background-color: var(--o-ui-cloud-#{$i});
+    .o-ui-stroke-cloud-#{$i} {
+        stroke: var(--o-ui-cloud-#{$i});
     }
 }
 
-/* FILL | NEUTRAL */
+/* STROKE | NEUTRAL */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-neutral-#{$i} {
-        background-color: var(--o-ui-neutral-#{$i});
+    .o-ui-stroke-neutral-#{$i} {
+        stroke: var(--o-ui-neutral-#{$i});
     }
 }
 
-/* FILL | NEUTRAL DARK */
+/* STROKE | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-neutral-dark-#{$i} {
-        background-color: var(--o-ui-neutral-dark-#{$i});
+    .o-ui-stroke-neutral-dark-#{$i} {
+        stroke: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
-/* FILL | BEETLE */
+/* STROKE | BEETLE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-beetle-#{$i} {
-        background-color: var(--o-ui-beetle-#{$i});
+    .o-ui-stroke-beetle-#{$i} {
+        stroke: var(--o-ui-beetle-#{$i});
     }
 }
 
-/* FILL | BOTANIC */
+/* STROKE | BOTANIC */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-botanic-#{$i} {
-        background-color: var(--o-ui-botanic-#{$i});
+    .o-ui-stroke-botanic-#{$i} {
+        stroke: var(--o-ui-botanic-#{$i});
     }
 }
 
-/* FILL | APRICOT */
+/* STROKE | APRICOT */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-apricot-#{$i} {
-        background-color: var(--o-ui-apricot-#{$i});
+    .o-ui-stroke-apricot-#{$i} {
+        stroke: var(--o-ui-apricot-#{$i});
     }
 }
 
-/* FILL | PRIMARY */
+/* STROKE | PRIMARY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-sk-primary-#{$i} {
-        background-color: var(--o-ui-primary-#{$i});
+    .o-ui-stroke-primary-#{$i} {
+        stroke: var(--o-ui-primary-#{$i});
     }
 }

@@ -1,24 +1,36 @@
-/* BACKGROUND-POSITION | TOP */
-.o-ui-bgp-t {
+/* BACKGROUND-POSITION */
+.o-ui-bg-top {
     background-position: top;
 }
 
-/* BACKGROUND-POSITION | BOTTOM */
-.o-ui-bgp-b {
+.o-ui-bg-bottom {
     background-position: bottom;
 }
 
-/* BACKGROUND-POSITION | LEFT */
-.o-ui-bgp-l {
+.o-ui-bg-left {
     background-position: left;
 }
 
-/* BACKGROUND-POSITION | RIGHT */
-.o-ui-bgp-r {
+.o-ui-bg-right {
     background-position: right;
 }
 
-/* BACKGROUND-POSITION | CENTER */
-.o-ui-bgp-c {
+.o-ui-bg-center {
     background-position: center;
+}
+
+.o-ui-bg-left-top {
+    background-position: left top;
+}
+
+.o-ui-bg-left-bottom {
+    background-position: left bottom;
+}
+
+.o-ui-bg-right-top {
+    background-position: right top;
+}
+
+.o-ui-bg-right-bottom {
+    background-position: right bottom;
 }

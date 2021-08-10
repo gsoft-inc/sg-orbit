@@ -1,78 +1,86 @@
 /* FILL */
-.o-ui-fi-white {
+.o-ui-fill-current {
+    fill: currentColor;
+}
+
+.o-ui-fill-transparent {
+    fill: transparent;
+}
+
+.o-ui-fill-white {
     fill: var(--o-ui-white);
 }
 
-.o-ui-fi-black {
+.o-ui-fill-black {
     fill: var(--o-ui-black);
 }
 
 /* FILL | MARINE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-marine-#{$i} {
+    .o-ui-fill-marine-#{$i} {
         fill: var(--o-ui-marine-#{$i});
     }
 }
 
 /* FILL | SUNRAY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-sunray-#{$i} {
+    .o-ui-fill-sunray-#{$i} {
         fill: var(--o-ui-sunray-#{$i});
     }
 }
 
 /* FILL | MOONSTONE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-moonstone-#{$i} {
+    .o-ui-fill-moonstone-#{$i} {
         fill: var(--o-ui-moonstone-#{$i});
     }
 }
 
 /* FILL | CLOUD */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-cloud-#{$i} {
+    .o-ui-fill-cloud-#{$i} {
         fill: var(--o-ui-cloud-#{$i});
     }
 }
 
 /* FILL | NEUTRAL */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-neutral-#{$i} {
+    .o-ui-fill-neutral-#{$i} {
         fill: var(--o-ui-neutral-#{$i});
     }
 }
 
 /* FILL | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-neutral-dark-#{$i} {
+    .o-ui-fill-neutral-dark-#{$i} {
         fill: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
 /* FILL | BEETLE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-beetle-#{$i} {
+    .o-ui-fill-beetle-#{$i} {
         fill: var(--o-ui-beetle-#{$i});
     }
 }
 
 /* FILL | BOTANIC */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-botanic-#{$i} {
+    .o-ui-fill-botanic-#{$i} {
         fill: var(--o-ui-botanic-#{$i});
     }
 }
 
 /* FILL | APRICOT */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-apricot-#{$i} {
+    .o-ui-fill-apricot-#{$i} {
         fill: var(--o-ui-apricot-#{$i});
     }
 }
 
 /* FILL | PRIMARY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-fi-primary-#{$i} {
+    .o-ui-fill-primary-#{$i} {
         fill: var(--o-ui-primary-#{$i});
     }
 }

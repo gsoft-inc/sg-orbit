@@ -1,199 +1,17 @@
+import { ColorPalette, ColorPalettes, ColorRoles, ColorSchemes, OrbitTheme } from "./types";
+
 /*
 POTENTIALLY MISSING:
 - letterSpacings -> YES
 - breakpoints
 */
 
-export type FixedSizeArray<N extends number, T> = N extends 0 ? never[] : {
-    0: T;
-    length: N;
-} & ReadonlyArray<T>;
-
-export type OrbitColorSchemes<C, L, D> = {
-    common?: Partial<C>;
-    light: Partial<L>;
-    dark: Partial<D>;
-}
-
-export type OrbitSpace = FixedSizeArray<13, string>;
-
-export type OrbitFontSizes = {
-    "1": string;
-    "2": string;
-    "3": string;
-    "4": string;
-    "5": string;
-    "6": string;
-    "7": string;
-    "8": string;
-    "9": string;
-    "subheadline": string;
-    "headline": string;
-}
-
-export type OrbitFontWeights = FixedSizeArray<9, number>;
-
-export type OrbitLineHeights = FixedSizeArray<6, number>;
-
-export type OrbitBorderWidths = FixedSizeArray<5, string>;
-
-export type OrbitShadows = FixedSizeArray<4, string>;
-export type OrbitShadowsColorSchemes = OrbitColorSchemes<OrbitShadows, OrbitShadows, OrbitShadows>;
-
-export type OrbitElevations = {
-    "skim": string;
-    "lifted": string;
-    "raised": string;
-    "floating": string;
-}
-
-export type OrbitRadii = FixedSizeArray<4, string>;
-
-export type OrbitZIndices = FixedSizeArray<5, number>;
-
-export type OrbitColorPalette = FixedSizeArray<10, string>;
-
-export type OrbitColors = {
-    white: string;
-    black: string;
-    marine: OrbitColorPalette;
-    sunray: OrbitColorPalette;
-    moonstone: OrbitColorPalette;
-    cloud: OrbitColorPalette;
-    neutral: OrbitColorPalette;
-    "neutral-dark": OrbitColorPalette;
-    beetle: OrbitColorPalette;
-    botanic: OrbitColorPalette;
-    primary: OrbitColorPalette;
-}
-
-export type OrbitColorRoles = {
-    /* Background */
-    "background-1": string;
-    "background-1-hover": string;
-    "background-1-active": string;
-    "background-2": string;
-    "background-2-hover": string;
-    "background-2-active": string;
-    "background-3": string;
-    "background-4": string;
-    "background-4-hover": string;
-    "background-4-active": string;
-    "background-5": string;
-    "background-5-hover": string;
-    "background-5-active": string;
-    "background-6": string;
-    "background-6-hover": string;
-    "background-6-active": string;
-    "background-primary-1": string;
-    "background-primary-1-hover": string;
-    "background-primary-1-active": string;
-    "background-primary-1-focus": string;
-    "background-primary-2": string;
-    "background-negative-1": string;
-    "background-negative-1-hover": string;
-    "background-negative-1-active": string;
-    "background-negative-2": string;
-    "background-warning-1": string;
-    "background-warning-1-hover": string;
-    "background-warning-1-active": string;
-    "background-warning-2": string;
-    "background-positive-1": string;
-    "background-positive-1-hover": string;
-    "background-positive-1-active": string;
-    "background-positive-2": string;
-    "background-info-1": string;
-    "background-info-1-hover": string;
-    "background-info-active": string;
-    /* Border */
-    "border-1": string;
-    "border-1-hover": string;
-    "border-1-active": string;
-    "border-2": string;
-    "border-3": string;
-    "border-3-hover": string;
-    "border-3-active": string;
-    "border-4": string;
-    "border-4-hover": string;
-    "border-primary-1": string;
-    "border-primary-1-hover": string;
-    "border-primary-1-active": string;
-    "border-primary-1-translucent": string;
-    "border-negative-1": string;
-    "border-negative-1-hover": string;
-    "border-negative-1-active": string;
-    "border-negative-1-translucent": string;
-    "border-negative-2": string;
-    "border-warning-1": string;
-    "border-warning-1-hover": string;
-    "border-warning-1-active": string;
-    "border-positive-1": string;
-    "border-positive-1-hover": string;
-    "border-positive-1-active": string;
-    /* Icon */
-    "icon-1": string;
-    "icon-2": string;
-    "icon-primary-1": string;
-    "icon-negative-1": string;
-    "icon-negative-2": string;
-    "icon-positive-1": string;
-    "icon-positive-2": string;
-    "icon-warning-1": string;
-    "icon-warning-2": string;
-    "icon-info-1": string;
-    /* Text */
-    "text-1": string;
-    "text-1-hover": string;
-    "text-1-active": string;
-    "text-2": string;
-    "text-2-hover": string;
-    "text-2-active": string;
-    "text-3": string;
-    "text-3-hover": string;
-    "text-3-active": string;
-    "text-4": string;
-    "text-primary-1": string;
-    "text-primary-1-hover": string;
-    "text-primary-1-active": string;
-    "text-negative-1": string;
-    "text-negative-1-hover": string;
-    "text-negative-1-active": string;
-    "text-negative-2": string;
-    "text-info-1": string;
-    "text-info-1-hover": string;
-    "text-info-1-active": string;
-    "text-positive-1": string;
-    "text-positive-1-hover": string;
-    "text-positive-1-active": string;
-    "text-positive-2": string;
-    "text-warning-1": string;
-    "text-warning-1-hover": string;
-    "text-warning-1-active": string;
-    "text-warning-2": string;
-    "text-input-selection": string;
-    "text-input-placeholder": string;
-}
-
-export interface OrbitTheme {
-    name: string;
-    space: OrbitSpace;
-    fontSizes: OrbitFontSizes;
-    fontWeights: OrbitFontWeights;
-    lineHeights: OrbitLineHeights;
-    borderWidths: OrbitBorderWidths;
-    shadows: OrbitShadows | OrbitShadowsColorSchemes;
-    elevations: OrbitElevations;
-    radii: OrbitRadii;
-    zIndices: OrbitZIndices;
-    colors: OrbitColors | OrbitColorSchemes<OrbitColors, OrbitColorRoles, OrbitColorRoles>;
-}
-
-export type ApricotColors = OrbitColors & {
-    apricot: OrbitColorPalette
+export type ApricotColors = ColorPalettes & {
+    apricot: ColorPalette
 }
 
 export interface ApricotTheme extends OrbitTheme {
-    colors: ApricotColors | OrbitColorSchemes<ApricotColors, OrbitColorRoles, OrbitColorRoles>;
+    colors: ApricotColors | ColorSchemes<ApricotColors, ColorRoles, ColorRoles>;
 }
 
 export const ApricotTheme: ApricotTheme = {
@@ -215,7 +33,8 @@ export const ApricotTheme: ApricotTheme = {
     fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
     borderWidths: [".125rem", ".25rem", ".5rem", "1rem", "2rem"],
-    shadows: {
+    borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
+    boxShadows: {
         light: [`
             0 0.1px 0.3px rgba(0, 0, 0, 0.022),
             0 0.1px 0.7px rgba(0, 0, 0, 0.032),
@@ -283,7 +102,6 @@ export const ApricotTheme: ApricotTheme = {
         "raised": "$shadows-3",
         "floating": "$shadows-4",
     },
-    radii: [".125rem", ".25rem", ".5rem", "1rem"],
     zIndices: [1, 2, 3, 4, 5],
     colors: {
         common: {

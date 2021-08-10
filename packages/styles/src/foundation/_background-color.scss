@@ -1,78 +1,86 @@
 /* BACKGROUND COLOR */
-.o-ui-bgc-white {
+.o-ui-bg-current {
+    background-color: currentcolor;
+}
+
+.o-ui-bg-transparent {
+    background-color: transparent;
+}
+
+.o-ui-bg-white {
     background-color: var(--o-ui-white);
 }
 
-.o-ui-bgc-black {
+.o-ui-bg-black {
     background-color: var(--o-ui-black);
 }
 
 /* BACKGROUND COLOR | MARINE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-marine-#{$i} {
+    .o-ui-bg-marine-#{$i} {
         background-color: var(--o-ui-marine-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | SUNRAY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-sunray-#{$i} {
+    .o-ui-bg-sunray-#{$i} {
         background-color: var(--o-ui-sunray-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | MOONSTONE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-moonstone-#{$i} {
+    .o-ui-bg-moonstone-#{$i} {
         background-color: var(--o-ui-moonstone-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | CLOUD */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-cloud-#{$i} {
+    .o-ui-bg-cloud-#{$i} {
         background-color: var(--o-ui-cloud-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | NEUTRAL */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-neutral-#{$i} {
+    .o-ui-bg-neutral-#{$i} {
         background-color: var(--o-ui-neutral-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-neutral-dark-#{$i} {
+    .o-ui-bg-neutral-dark-#{$i} {
         background-color: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | BEETLE */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-beetle-#{$i} {
+    .o-ui-bg-beetle-#{$i} {
         background-color: var(--o-ui-beetle-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | BOTANIC */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-botanic-#{$i} {
+    .o-ui-bg-botanic-#{$i} {
         background-color: var(--o-ui-botanic-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | APRICOT */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-apricot-#{$i} {
+    .o-ui-bg-apricot-#{$i} {
         background-color: var(--o-ui-apricot-#{$i});
     }
 }
 
 /* BACKGROUND COLOR | PRIMARY */
 @for $i from 1 through $color-palette-size {
-    .o-ui-bgc-primary-#{$i} {
+    .o-ui-bg-primary-#{$i} {
         background-color: var(--o-ui-primary-#{$i});
     }
 }
