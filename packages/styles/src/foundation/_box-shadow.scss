@@ -1,6 +1,6 @@
 /* BOX SHADOW */
 @for $i from 1 through 4 {
-    .o-ui-shadow-#{$i} {
+    .o-ui-bs-#{$i} {
         box-shadow: var(--o-ui-bs-#{$i});
     }
 }

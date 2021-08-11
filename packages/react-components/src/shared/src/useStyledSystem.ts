@@ -14,7 +14,22 @@ export type GlobalValues =
     "revert" |
     "unset";
 
-const OrbitSpacing = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] as const;
+const OrbitSpacing = [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+] as const;
 
 function createOrbitSpacingClasses(section: string) {
     return OrbitSpacing.reduce((acc, x) => {
@@ -297,9 +312,11 @@ const OrbitColors = [
     "primary-10"
 ] as const;
 
-function createOrbitColorClasses(section: string) {
+function createOrbitColorClasses(section?: string) {
+    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
+
     return OrbitColors.reduce((acc, x) => {
-        acc[x] = `o-ui-${section}-${x}`;
+        acc[x] = template(x);
 
         return acc;
     }, {} as Record<typeof OrbitColors[number], string>);
@@ -375,39 +392,114 @@ const BorderStyleClasses = {
     "none": "o-ui-b-none"
 } as const;
 
-const BorderWidthClasses = {
-    ...createOrbitSpacingClasses("ba"),
-    0: "o-ui-ba-0"
+const BorderWidthClasses = createOrbitSpacingClasses("ba");
+
+const BorderTopWidthClasses = createOrbitSpacingClasses("bt");
+
+const BorderBottomWidthClasses = createOrbitSpacingClasses("bb");
+
+const BorderLeftWidthClasses = createOrbitSpacingClasses("bl");
+
+const BorderRightWidthClasses = createOrbitSpacingClasses("br");
+
+const BorderVerticalWidthClasses = createOrbitSpacingClasses("bv");
+
+const BorderHorizontalWidthClasses = createOrbitSpacingClasses("bh");
+
+const BoxShadowClasses = {
+    1: "o-ui-bs-1",
+    2: "o-ui-bs-2",
+    3: "o-ui-bs-3",
+    4: "o-ui-bs-4"
 } as const;
 
-const BorderTopWidthClasses = {
-    ...createOrbitSpacingClasses("bt"),
-    0: "o-ui-bt-0"
+const ColorClasses = {
+    ...createOrbitColorClasses(),
+    "text-1": "o-ui-text-1",
+    "text-2": "o-ui-text-2",
+    "text-3": "o-ui-text-3",
+    "text-4": "o-ui-text-4",
+    "text-primary-1": "o-ui-text-primary-1",
+    "text-negative-1": "o-ui-text-negative-1",
+    "text-negative-2": "o-ui-text-negative-2",
+    "text-info-1": "o-ui-text-info-1",
+    "text-positive-1": "o-ui-text-positive-1",
+    "text-positive-2": "o-ui-text-positive-2",
+    "text-warning-1": "o-ui-text-warning-1",
+    "text-warning-2": "o-ui-text-warning-2",
+    "text-input-selection": "o-ui-text-input-selection",
+    "text-input-placeholder": "o-ui-text-input-placeholder"
 } as const;
 
-const BorderBottomWidthClasses = {
-    ...createOrbitSpacingClasses("bb"),
-    0: "o-ui-bb-0"
+const FillClasses = {
+    ...createOrbitColorClasses("fill"),
+    "icon-1": "icon-1",
+    "icon-2": "icon-2",
+    "icon-primary-1": "icon-primary-1",
+    "icon-negative-1": "icon-negative-1",
+    "icon-negative-2": "icon-negative-2",
+    "icon-positive-1": "icon-positive-1",
+    "icon-positive-2": "icon-positive-2",
+    "icon-warning-1": "icon-warning-1",
+    "icon-warning-2": "icon-warning-2",
+    "icon-info-1": "icon-info-1"
 } as const;
 
-const BorderLeftWidthClasses = {
-    ...createOrbitSpacingClasses("bl"),
-    0: "o-ui-bl-0"
-} as const;
-const BorderRightWidthClasses = {
-    ...createOrbitSpacingClasses("br"),
-    0: "o-ui-br-0"
+const FontSizeClasses = {
+    1: "o-ui-fs-1",
+    2: "o-ui-fs-2",
+    3: "o-ui-fs-3",
+    4: "o-ui-fs-4",
+    5: "o-ui-fs-5",
+    6: "o-ui-fs-6",
+    7: "o-ui-fs-7",
+    8: "o-ui-fs-8",
+    9: "o-ui-fs-9",
+    "subheadline": "o-ui-fs-subheadline",
+    "headline": "o-ui-fs-headline"
 } as const;
 
-const BorderVerticalWidthClasses = {
-    ...createOrbitSpacingClasses("bv"),
-    0: "o-ui-bv-0"
+const FontWeightClasses = {
+    1: "o-i-fw-1",
+    2: "o-i-fw-2",
+    3: "o-i-fw-3",
+    4: "o-i-fw-4",
+    5: "o-i-fw-5",
+    6: "o-i-fw-6",
+    7: "o-i-fw-7",
+    8: "o-i-fw-8",
+    9: "o-i-fw-9"
 } as const;
 
-const BorderHorizontalWidthClasses = {
-    ...createOrbitSpacingClasses("bh"),
-    0: "o-ui-bh-0"
+const HeightClasses = {
+    ...createOrbitSpacingClasses("h"),
+    100: "o-ui-h-100",
+    "screen": "o-ui-h-screen",
+    "auto": "o-ui-h-auto"
 } as const;
+
+const LineHeightClasses = {
+    1: "o-ui-lh-1",
+    2: "o-ui-lh-2",
+    3: "o-ui-lh-3",
+    4: "o-ui-lh-4",
+    5: "o-ui-lh-5",
+    6: "o-ui-lh-6"
+};
+
+const MarginClasses = createOrbitSpacingClasses("ma");
+
+const MarginTopClasses = createOrbitSpacingClasses("mt");
+
+const MarginBottomClasses = createOrbitSpacingClasses("mb");
+
+const MarginLeftClasses = createOrbitSpacingClasses("ml");
+
+const MarginRightClasses = createOrbitSpacingClasses("mr");
+
+const MarginVerticalClasses = createOrbitSpacingClasses("mv");
+
+const MarginHorizontalClasses = createOrbitSpacingClasses("mh");
 
 export type BackgroundColor = keyof typeof BackgroundColorClasses | CssNamedColors | ColorCode | GlobalValues;
 
@@ -415,7 +507,7 @@ export type BackgroundPosition = LiteralUnion<keyof typeof BackgroundPositionCla
 
 export type BackgroundSize = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValues;
 
-export type BorderColor = LiteralUnion<keyof typeof BorderColorClasses, string> | GlobalValues;
+export type BorderColor = keyof typeof BorderColorClasses | CssNamedColors | ColorCode | GlobalValues;
 
 export type BorderRadius = keyof typeof BorderRadiusClasses | GlobalValues;
 
@@ -434,6 +526,34 @@ export type BorderRightWidth = LiteralUnion<keyof typeof BorderRightWidthClasses
 export type BorderVerticalWidth = LiteralUnion<keyof typeof BorderVerticalWidthClasses, string> | GlobalValues;
 
 export type BorderHorizontalWidth = LiteralUnion<keyof typeof BorderHorizontalWidthClasses, string> | GlobalValues;
+
+export type BoxShadow = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValues;
+
+export type Color = keyof typeof BackgroundColorClasses | CssNamedColors | ColorCode | GlobalValues;
+
+export type Fill = keyof typeof FillClasses | CssNamedColors | ColorCode | GlobalValues;
+
+export type FontSize = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValues;
+
+export type FontWeight = keyof typeof FontWeightClasses | GlobalValues;
+
+export type Height = LiteralUnion<keyof typeof HeightClasses, string> | GlobalValues;
+
+export type LineHeight = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValues;
+
+export type Margin = LiteralUnion<keyof typeof MarginClasses, string> | GlobalValues;
+
+export type MarginTop = LiteralUnion<keyof typeof MarginTopClasses, string> | GlobalValues;
+
+export type MarginBottom = LiteralUnion<keyof typeof MarginBottomClasses, string> | GlobalValues;
+
+export type MarginLeft = LiteralUnion<keyof typeof MarginLeftClasses, string> | GlobalValues;
+
+export type MarginRight = LiteralUnion<keyof typeof MarginRightClasses, string> | GlobalValues;
+
+export type MarginVertical = LiteralUnion<keyof typeof MarginVerticalClasses, string> | GlobalValues;
+
+export type MarginHorizontal = LiteralUnion<keyof typeof MarginHorizontalClasses, string> | GlobalValues;
 
 export interface StyleProps {
     backgroundColor?: BackgroundColor;
@@ -454,6 +574,20 @@ export interface StyleProps {
     borderRightWidth?: BorderRightWidth;
     borderVerticalWidth?: BorderVerticalWidth;
     borderHorizontalWidth?: BorderHorizontalWidth;
+    boxShadow?: BoxShadow;
+    color?: Color;
+    fill?: Fill;
+    fontSize?: FontSize;
+    fontWeight?: FontWeight;
+    height?: Height;
+    lineHeight?: LineHeight;
+    margin?: Margin;
+    marginTop?: MarginTop;
+    marginBottom?: MarginBottom;
+    marginLeft?: MarginLeft;
+    marginRight?: MarginRight;
+    marginVertical?: MarginVertical;
+    marginHorizontal?: MarginHorizontal;
 }
 
 interface Context {
@@ -487,7 +621,21 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
     borderRightWidth: createPropHandler(BorderRightWidthClasses),
     borderVerticalWidth: createPropHandler(BorderVerticalWidthClasses),
-    borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses)
+    borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses),
+    boxShadow: createPropHandler(BoxShadowClasses),
+    color: createPropHandler(ColorClasses),
+    fill: createPropHandler(FillClasses),
+    fontSize: createPropHandler(FontSizeClasses),
+    fontWeight: createPropHandler(FontWeightClasses),
+    height: createPropHandler(HeightClasses),
+    lineHeight: createPropHandler(LineHeightClasses),
+    margin: createPropHandler(MarginClasses),
+    marginTop: createPropHandler(MarginTopClasses),
+    marginBottom: createPropHandler(MarginBottomClasses),
+    marginLeft: createPropHandler(MarginLeftClasses),
+    marginRight: createPropHandler(MarginRightClasses),
+    marginVertical: createPropHandler(MarginVerticalClasses),
+    marginHorizontal: createPropHandler(MarginHorizontalClasses)
 };
 
 /*
