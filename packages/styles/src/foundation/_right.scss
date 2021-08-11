@@ -1,0 +1,10 @@
+/* RIGHT */
+.o-ui-right-0 {
+    right: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-right-#{$i} {
+        right: var(--o-ui-space-#{$i});
+    }
+}

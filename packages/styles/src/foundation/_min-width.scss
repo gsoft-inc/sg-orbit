@@ -1,0 +1,14 @@
+/* MIN WIDTH */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-min-w-#{$i} {
+        min-width: var(--o-ui-space-#{$i});
+    }
+}
+
+.o-ui-min-w-100 {
+    min-width: 100%;
+}
+
+.o-ui-min-w-auto {
+    min-width: auto;
+}

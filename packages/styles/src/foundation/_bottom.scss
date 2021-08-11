@@ -1,0 +1,10 @@
+/* BOTTOM */
+.o-ui-bottom-0 {
+    bottom: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-bottom-#{$i} {
+        bottom: var(--o-ui-space-#{$i});
+    }
+}

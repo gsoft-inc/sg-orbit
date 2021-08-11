@@ -1,11 +1,12 @@
-import { Entry, LiteralUnion } from "type-fest";
+import { CSSProperties, useMemo } from "react";
+import { Entry, LiteralUnion, Simplify } from "type-fest";
 import { isNil } from "./assertions";
-import { useMemo } from "react";
 
 /*
 TODO:
-- Unhandled style props
-- Interpolation
+- Chromatic tests
+- Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
+- Interpolation for style values (and props like "border")
 */
 
 export type GlobalValues =
@@ -14,32 +15,43 @@ export type GlobalValues =
     "revert" |
     "unset";
 
-const OrbitSpacing = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    13
-] as const;
+export type LengthTypes =
+    "px" |
+    "em" |
+    "rem" |
+    "ch" |
+    "vw" |
+    "vh" |
+    "vmin" |
+    "vmax";
 
-function createOrbitSpacingClasses(section: string) {
-    return OrbitSpacing.reduce((acc, x) => {
-        acc[x] = `o-ui-${section}-${x}`;
+export type LengthUnit = `${number}${LengthTypes}`;
+
+export type LengthShorthand =
+    `${LengthUnit}` |
+    `${LengthUnit} ${LengthUnit}` |
+    `${LengthUnit} ${LengthUnit} ${LengthUnit}` |
+    `${LengthUnit} ${LengthUnit} ${LengthUnit} ${LengthUnit}`;
+
+const OrbitSpacing = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] as const;
+
+function createOrbitSpacingClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
+    const classes: Record<number, string> = {};
+
+    if (includeZero) {
+        classes[0] = `o - ui - ${section} -0`;
+    }
+
+    OrbitSpacing.reduce((acc, x) => {
+        acc[x] = `o - ui - ${section} -${x} `;
 
         return acc;
-    }, {} as Record<typeof OrbitSpacing[number], string>);
+    }, classes);
+
+    return classes as Record<IncludeZero extends true ? 0 | typeof OrbitSpacing[number] : typeof OrbitSpacing[number], string>;
 }
 
-export type CssNamedColors =
+export type NamedColors =
     "aliceblue" |
     "antiquewhite" |
     "aqua" |
@@ -189,22 +201,16 @@ export type CssNamedColors =
     "yellow" |
     "yellowgreen";
 
-export type HexColor = `#${string}`;
+export type ColorExpressionTypes =
+    "#" |
+    "rgb" |
+    "rgba" |
+    "hsl" |
+    "hsla";
 
-export type RgbColor = `rgb${string}`;
+export type ColorExpression = `${ColorExpressionTypes}${string}`;
 
-export type RgbaColor = `rgba${string}`;
-
-export type HslColor = `hsl${string}`;
-
-export type HslaColor = `hsla${string}`;
-
-export type ColorCode =
-    HexColor |
-    RgbColor |
-    RgbaColor |
-    HslColor |
-    HslaColor;
+export type Color = ColorExpression | NamedColors;
 
 const OrbitColors = [
     "current",
@@ -313,7 +319,7 @@ const OrbitColors = [
 ] as const;
 
 function createOrbitColorClasses(section?: string) {
-    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
+    const template = isNil(section) ? (x: string) => `o - ui - ${x} ` : (x: string) => `o - ui - ${section} -${x} `;
 
     return OrbitColors.reduce((acc, x) => {
         acc[x] = template(x);
@@ -380,7 +386,7 @@ const BorderRadiusClasses = {
     2: "o-ui-br-2",
     3: "o-ui-br-3",
     4: "o-ui-br-4",
-    100: "o-ui-br-100",
+    "100": "o-ui-br-100",
     "pill": "o-ui-pill"
 } as const;
 
@@ -392,19 +398,21 @@ const BorderStyleClasses = {
     "none": "o-ui-b-none"
 } as const;
 
-const BorderWidthClasses = createOrbitSpacingClasses("ba");
+const BorderWidthClasses = createOrbitSpacingClasses("ba", true);
 
-const BorderTopWidthClasses = createOrbitSpacingClasses("bt");
+const BorderTopWidthClasses = createOrbitSpacingClasses("bt", true);
 
-const BorderBottomWidthClasses = createOrbitSpacingClasses("bb");
+const BorderBottomWidthClasses = createOrbitSpacingClasses("bb", true);
 
-const BorderLeftWidthClasses = createOrbitSpacingClasses("bl");
+const BorderLeftWidthClasses = createOrbitSpacingClasses("bl", true);
 
-const BorderRightWidthClasses = createOrbitSpacingClasses("br");
+const BorderRightWidthClasses = createOrbitSpacingClasses("br", true);
 
-const BorderVerticalWidthClasses = createOrbitSpacingClasses("bv");
+const BorderVerticalWidthClasses = createOrbitSpacingClasses("bv", true);
 
-const BorderHorizontalWidthClasses = createOrbitSpacingClasses("bh");
+const BorderHorizontalWidthClasses = createOrbitSpacingClasses("bh", true);
+
+const BottomClasses = createOrbitSpacingClasses("bottom", true);
 
 const BoxShadowClasses = {
     1: "o-ui-bs-1",
@@ -429,6 +437,28 @@ const ColorClasses = {
     "text-warning-2": "o-ui-text-warning-2",
     "text-input-selection": "o-ui-text-input-selection",
     "text-input-placeholder": "o-ui-text-input-placeholder"
+} as const;
+
+const DisplayClasses = {
+    "none": "o-ui-dn",
+    "block": "o-ui-db",
+    "inline-block": "o-ui-dib",
+    "inline": "o-ui-di",
+    "flex": "o-ui-df",
+    "inline-flex": "o-ui-dif",
+    "table": "o-ui-dt",
+    "inline-table": "o-ui-dit",
+    "table-caption": "o-ui-dt-caption",
+    "table-cell": "o-ui-dt-cell",
+    "table-column": "o-ui-dt-column",
+    "table-column-group": "o-ui-dt-cg",
+    "table-footer-group": "o-ui-dt-fg",
+    "table-header-group": "o-ui-dt-hg",
+    "table-row-group": "o-ui-dt-rg",
+    "table-row": "o-ui-dt-row",
+    "grid": "o-ui-dg",
+    "inline-grid": "o-ui-dig",
+    "list-item": "o-ui-dli"
 } as const;
 
 const FillClasses = {
@@ -472,11 +502,13 @@ const FontWeightClasses = {
 } as const;
 
 const HeightClasses = {
-    ...createOrbitSpacingClasses("h"),
-    100: "o-ui-h-100",
+    ...createOrbitSpacingClasses("h", true),
+    "100%": "o-ui-h-100",
     "screen": "o-ui-h-screen",
     "auto": "o-ui-h-auto"
 } as const;
+
+const LeftClasses = createOrbitSpacingClasses("left", true);
 
 const LineHeightClasses = {
     1: "o-ui-lh-1",
@@ -485,109 +517,242 @@ const LineHeightClasses = {
     4: "o-ui-lh-4",
     5: "o-ui-lh-5",
     6: "o-ui-lh-6"
-};
+} as const;
 
-const MarginClasses = createOrbitSpacingClasses("ma");
+const MarginClasses = createOrbitSpacingClasses("ma", true);
 
-const MarginTopClasses = createOrbitSpacingClasses("mt");
+const MarginTopClasses = createOrbitSpacingClasses("mt", true);
 
-const MarginBottomClasses = createOrbitSpacingClasses("mb");
+const MarginBottomClasses = createOrbitSpacingClasses("mb", true);
 
-const MarginLeftClasses = createOrbitSpacingClasses("ml");
+const MarginLeftClasses = createOrbitSpacingClasses("ml", true);
 
-const MarginRightClasses = createOrbitSpacingClasses("mr");
+const MarginRightClasses = createOrbitSpacingClasses("mr", true);
 
-const MarginVerticalClasses = createOrbitSpacingClasses("mv");
+const MarginVerticalClasses = createOrbitSpacingClasses("mv", true);
 
-const MarginHorizontalClasses = createOrbitSpacingClasses("mh");
+const MarginHorizontalClasses = createOrbitSpacingClasses("mh", true);
 
-export type BackgroundColor = keyof typeof BackgroundColorClasses | CssNamedColors | ColorCode | GlobalValues;
+const MaxHeightClasses = {
+    ...createOrbitSpacingClasses("max-h"),
+    "100%": "o-ui-max-h-100",
+    "auto": "o-ui-max-h-auto"
+} as const;
 
-export type BackgroundPosition = LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValues;
+const MaxWidthClasses = {
+    ...createOrbitSpacingClasses("max-w"),
+    "100%": "o-ui-max-w-100",
+    "auto": "o-ui-max-w-auto"
+} as const;
 
-export type BackgroundSize = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValues;
+const MinHeightClasses = {
+    ...createOrbitSpacingClasses("min-h"),
+    "100%": "o-ui-min-h-100",
+    "auto": "o-ui-min-h-auto"
+} as const;
 
-export type BorderColor = keyof typeof BorderColorClasses | CssNamedColors | ColorCode | GlobalValues;
+const MinWidthClasses = {
+    ...createOrbitSpacingClasses("min-w"),
+    "100%": "o-ui-min-w-100",
+    "auto": "o-ui-min-w-auto"
+} as const;
 
-export type BorderRadius = keyof typeof BorderRadiusClasses | GlobalValues;
+const PaddingClasses = createOrbitSpacingClasses("pa", true);
 
-export type BorderStyle = keyof typeof BorderStyleClasses | GlobalValues;
+const PaddingTopClasses = createOrbitSpacingClasses("pt", true);
 
-export type BorderWidth = LiteralUnion<keyof typeof BorderWidthClasses, string> | GlobalValues;
+const PaddingBottomClasses = createOrbitSpacingClasses("pb", true);
 
-export type BorderTopWidth = LiteralUnion<keyof typeof BorderTopWidthClasses, string> | GlobalValues;
+const PaddingLeftClasses = createOrbitSpacingClasses("pl", true);
 
-export type BorderBottomWidth = LiteralUnion<keyof typeof BorderBottomWidthClasses, string> | GlobalValues;
+const PaddingRightClasses = createOrbitSpacingClasses("pr", true);
 
-export type BorderLeftWidth = LiteralUnion<keyof typeof BorderLeftWidthClasses, string> | GlobalValues;
+const PaddingVerticalClasses = createOrbitSpacingClasses("pv", true);
 
-export type BorderRightWidth = LiteralUnion<keyof typeof BorderRightWidthClasses, string> | GlobalValues;
+const PaddingHorizontalClasses = createOrbitSpacingClasses("ph", true);
 
-export type BorderVerticalWidth = LiteralUnion<keyof typeof BorderVerticalWidthClasses, string> | GlobalValues;
+const PositionClasses = {
+    "static": "o-ui-static",
+    "fixed": "o-ui-fixed",
+    "absolute": "o-ui-absolute",
+    "relative": "o-ui-relative",
+    "sticky": "o-ui-sticky"
+} as const;
 
-export type BorderHorizontalWidth = LiteralUnion<keyof typeof BorderHorizontalWidthClasses, string> | GlobalValues;
+const RightClasses = createOrbitSpacingClasses("right", true);
 
-export type BoxShadow = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValues;
+const StrokeClasses = createOrbitColorClasses("stroke");
 
-export type Color = keyof typeof BackgroundColorClasses | CssNamedColors | ColorCode | GlobalValues;
+const TopClasses = createOrbitSpacingClasses("top", true);
 
-export type Fill = keyof typeof FillClasses | CssNamedColors | ColorCode | GlobalValues;
+const WidthClasses = {
+    ...createOrbitSpacingClasses("w", true),
+    "100%": "o-ui-w-100",
+    "screen": "o-ui-w-screen",
+    "auto": "o-ui-w-auto"
+} as const;
 
-export type FontSize = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValues;
+const ZIndexClasses = {
+    0: "o-ui-z-0",
+    1: "o-ui-z-1",
+    2: "o-ui-z-2",
+    3: "o-ui-z-3",
+    4: "o-ui-z-4",
+    5: "o-ui-z-5",
+    "999": "o-ui-z-999",
+    "9999": "o-ui-z-9999",
+    "max": "o-ui-z-9999"
+} as const;
 
-export type FontWeight = keyof typeof FontWeightClasses | GlobalValues;
+export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorClasses | Color | GlobalValues>;
 
-export type Height = LiteralUnion<keyof typeof HeightClasses, string> | GlobalValues;
+export type BackgroundPositionProp = LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValues;
 
-export type LineHeight = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValues;
+export type BackgroundSizeProp = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValues;
 
-export type Margin = LiteralUnion<keyof typeof MarginClasses, string> | GlobalValues;
+export type BorderColorProp = Simplify<keyof typeof BorderColorClasses | Color | GlobalValues>;
 
-export type MarginTop = LiteralUnion<keyof typeof MarginTopClasses, string> | GlobalValues;
+export type BorderRadiusProp = keyof typeof BorderRadiusClasses | GlobalValues;
 
-export type MarginBottom = LiteralUnion<keyof typeof MarginBottomClasses, string> | GlobalValues;
+export type BorderStyleProp = keyof typeof BorderStyleClasses | GlobalValues;
 
-export type MarginLeft = LiteralUnion<keyof typeof MarginLeftClasses, string> | GlobalValues;
+export type BorderWidthProp = keyof typeof BorderWidthClasses | LengthUnit | GlobalValues;
 
-export type MarginRight = LiteralUnion<keyof typeof MarginRightClasses, string> | GlobalValues;
+export type BorderTopWidthProp = keyof typeof BorderTopWidthClasses | LengthUnit | GlobalValues;
 
-export type MarginVertical = LiteralUnion<keyof typeof MarginVerticalClasses, string> | GlobalValues;
+export type BorderBottomWidthProp = keyof typeof BorderBottomWidthClasses | LengthUnit | GlobalValues;
 
-export type MarginHorizontal = LiteralUnion<keyof typeof MarginHorizontalClasses, string> | GlobalValues;
+export type BorderLeftWidthProp = keyof typeof BorderLeftWidthClasses | LengthUnit | GlobalValues;
+
+export type BorderRightWidthProp = keyof typeof BorderRightWidthClasses | LengthUnit | GlobalValues;
+
+export type BorderVerticalWidthProp = keyof typeof BorderVerticalWidthClasses | LengthUnit | GlobalValues;
+
+export type BorderHorizontalWidthProp = keyof typeof BorderHorizontalWidthClasses | LengthUnit | GlobalValues;
+
+export type BottomProp = LiteralUnion<keyof typeof BottomClasses, string> | GlobalValues;
+
+export type BoxShadowProp = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValues;
+
+export type ColorProp = Simplify<keyof typeof BackgroundColorClasses | Color | GlobalValues>;
+
+export type DisplayProp = keyof typeof DisplayClasses | GlobalValues;
+
+export type FillProp = Simplify<keyof typeof FillClasses | Color | GlobalValues>;
+
+export type FontSizeProp = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValues;
+
+export type FontWeightProp = keyof typeof FontWeightClasses | GlobalValues;
+
+export type HeightProp = keyof typeof HeightClasses | LengthUnit | GlobalValues;
+
+export type LeftProp = LiteralUnion<keyof typeof LeftClasses, string> | GlobalValues;
+
+export type LineHeightProp = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValues;
+
+export type MarginProp = keyof typeof MarginClasses | LengthShorthand | GlobalValues;
+
+export type MarginTopProp = keyof typeof MarginTopClasses | LengthUnit | GlobalValues;
+
+export type MarginBottomProp = keyof typeof MarginBottomClasses | LengthUnit | GlobalValues;
+
+export type MarginLeftProp = keyof typeof MarginLeftClasses | LengthUnit | GlobalValues;
+
+export type MarginRightProp = keyof typeof MarginRightClasses | LengthUnit | GlobalValues;
+
+export type MarginVerticalProp = keyof typeof MarginVerticalClasses | LengthUnit | GlobalValues;
+
+export type MarginHorizontalProp = keyof typeof MarginHorizontalClasses | LengthUnit | GlobalValues;
+
+export type MaxHeightProp = keyof typeof MaxHeightClasses | LengthUnit | GlobalValues;
+
+export type MaxWidthProp = keyof typeof MaxWidthClasses | LengthUnit | GlobalValues;
+
+export type MinHeightProp = keyof typeof MinHeightClasses | LengthUnit | GlobalValues;
+
+export type MinWidthProp = keyof typeof MinWidthClasses | LengthUnit | GlobalValues;
+
+export type PaddingProp = keyof typeof PaddingClasses | LengthShorthand | GlobalValues;
+
+export type PaddingTopProp = keyof typeof PaddingTopClasses | LengthUnit | GlobalValues;
+
+export type PaddingBottomProp = keyof typeof PaddingBottomClasses | LengthUnit | GlobalValues;
+
+export type PaddingLeftProp = keyof typeof PaddingLeftClasses | LengthUnit | GlobalValues;
+
+export type PaddingRightProp = keyof typeof PaddingRightClasses | LengthUnit | GlobalValues;
+
+export type PaddingVerticalProp = keyof typeof PaddingVerticalClasses | LengthUnit | GlobalValues;
+
+export type PaddingHorizontalProp = keyof typeof PaddingHorizontalClasses | LengthUnit | GlobalValues;
+
+export type PositionProp = keyof typeof PositionClasses | GlobalValues;
+
+export type RightProp = LiteralUnion<keyof typeof RightClasses, string> | GlobalValues;
+
+export type StrokeProp = Simplify<keyof typeof FillClasses | Color | GlobalValues>;
+
+export type TopProp = LiteralUnion<keyof typeof TopClasses, string> | GlobalValues;
+
+export type WidthProp = keyof typeof WidthClasses | LengthUnit | GlobalValues;
+
+export type ZIndexProp = LiteralUnion<keyof typeof ZIndexClasses, string> | GlobalValues;
 
 export interface StyleProps {
-    backgroundColor?: BackgroundColor;
-    backgroundPosition?: BackgroundPosition;
-    backgroundSize?: BackgroundSize;
+    className?: string;
+    style?: CSSProperties;
+    backgroundColor?: BackgroundColorProp;
+    backgroundPosition?: BackgroundPositionProp;
+    backgroundSize?: BackgroundSizeProp;
     border?: string;
-    borderColor?: BorderColor;
-    borderRadius?: BorderRadius;
-    borderStyle?: BorderStyle;
-    borderWidth?: BorderWidth;
+    borderColor?: BorderColorProp;
+    borderRadius?: BorderRadiusProp;
+    borderStyle?: BorderStyleProp;
+    borderWidth?: BorderWidthProp;
     borderTop?: string;
-    borderTopWidth?: BorderTopWidth;
+    borderTopWidth?: BorderTopWidthProp;
     borderBottom?: string;
-    borderBottomWidth?: BorderBottomWidth;
+    borderBottomWidth?: BorderBottomWidthProp;
     borderLeft?: string;
-    borderLeftWidth?: BorderLeftWidth;
+    borderLeftWidth?: BorderLeftWidthProp;
     borderRight?: string;
-    borderRightWidth?: BorderRightWidth;
-    borderVerticalWidth?: BorderVerticalWidth;
-    borderHorizontalWidth?: BorderHorizontalWidth;
-    boxShadow?: BoxShadow;
-    color?: Color;
-    fill?: Fill;
-    fontSize?: FontSize;
-    fontWeight?: FontWeight;
-    height?: Height;
-    lineHeight?: LineHeight;
-    margin?: Margin;
-    marginTop?: MarginTop;
-    marginBottom?: MarginBottom;
-    marginLeft?: MarginLeft;
-    marginRight?: MarginRight;
-    marginVertical?: MarginVertical;
-    marginHorizontal?: MarginHorizontal;
+    borderRightWidth?: BorderRightWidthProp;
+    borderVerticalWidth?: BorderVerticalWidthProp;
+    borderHorizontalWidth?: BorderHorizontalWidthProp;
+    bottom?: BottomProp;
+    boxShadow?: BoxShadowProp;
+    color?: ColorProp;
+    display?: DisplayProp;
+    fill?: FillProp;
+    fontSize?: FontSizeProp;
+    fontWeight?: FontWeightProp;
+    height?: HeightProp;
+    left?: LeftProp;
+    lineHeight?: LineHeightProp;
+    margin?: MarginProp;
+    marginTop?: MarginTopProp;
+    marginBottom?: MarginBottomProp;
+    marginLeft?: MarginLeftProp;
+    marginRight?: MarginRightProp;
+    marginVertical?: MarginVerticalProp;
+    marginHorizontal?: MarginHorizontalProp;
+    maxHeight?: MaxHeightProp;
+    maxWidth?: MaxWidthProp;
+    minHeight?: MinHeightProp;
+    minWidth?: MinWidthProp;
+    padding?: PaddingProp;
+    paddingTop?: PaddingTopProp;
+    paddingBottom?: PaddingBottomProp;
+    paddingLeft?: PaddingLeftProp;
+    paddingRight?: PaddingRightProp;
+    paddingVertical?: PaddingVerticalProp;
+    paddingHorizontal?: PaddingHorizontalProp;
+    position?: PositionProp;
+    right?: RightProp;
+    stroke?: StrokeProp;
+    top?: TopProp;
+    width?: WidthProp;
+    zIndex?: ZIndexProp;
 }
 
 interface Context {
@@ -622,12 +787,15 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     borderRightWidth: createPropHandler(BorderRightWidthClasses),
     borderVerticalWidth: createPropHandler(BorderVerticalWidthClasses),
     borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses),
+    bottom: createPropHandler(BottomClasses),
     boxShadow: createPropHandler(BoxShadowClasses),
     color: createPropHandler(ColorClasses),
+    display: createPropHandler(DisplayClasses),
     fill: createPropHandler(FillClasses),
     fontSize: createPropHandler(FontSizeClasses),
     fontWeight: createPropHandler(FontWeightClasses),
     height: createPropHandler(HeightClasses),
+    left: createPropHandler(LeftClasses),
     lineHeight: createPropHandler(LineHeightClasses),
     margin: createPropHandler(MarginClasses),
     marginTop: createPropHandler(MarginTopClasses),
@@ -635,7 +803,24 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginLeft: createPropHandler(MarginLeftClasses),
     marginRight: createPropHandler(MarginRightClasses),
     marginVertical: createPropHandler(MarginVerticalClasses),
-    marginHorizontal: createPropHandler(MarginHorizontalClasses)
+    marginHorizontal: createPropHandler(MarginHorizontalClasses),
+    maxHeight: createPropHandler(MaxHeightClasses),
+    maxWidth: createPropHandler(MaxWidthClasses),
+    minHeight: createPropHandler(MinHeightClasses),
+    minWidth: createPropHandler(MinWidthClasses),
+    padding: createPropHandler(PaddingClasses),
+    paddingTop: createPropHandler(PaddingTopClasses),
+    paddingBottom: createPropHandler(PaddingBottomClasses),
+    paddingLeft: createPropHandler(PaddingLeftClasses),
+    paddingRight: createPropHandler(PaddingRightClasses),
+    paddingVertical: createPropHandler(PaddingVerticalClasses),
+    paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
+    position: createPropHandler(PositionClasses),
+    right: createPropHandler(RightClasses),
+    stroke: createPropHandler(StrokeClasses),
+    top: createPropHandler(TopClasses),
+    width: createPropHandler(WidthClasses),
+    zIndex: createPropHandler(ZIndexClasses)
 };
 
 /*
@@ -650,12 +835,14 @@ EXAMPLE:
 */
 export function useStyledSystem(props: Partial<StyleProps>) {
     return useMemo(() => {
+        const { className, style, ...rest } = props;
+
         const context: Context = {
-            classes: [],
-            style: []
+            classes: !isNil(className) ? [className] : [],
+            style: style ?? {}
         };
 
-        Object.entries(props).forEach((x: Entry<StyleProps>) => {
+        Object.entries(rest).forEach((x: Entry<StyleProps>) => {
             const [key, value] = x;
 
             const handler = PropsHandlers[key];

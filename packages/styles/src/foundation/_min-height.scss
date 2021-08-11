@@ -1,0 +1,14 @@
+/* MIN HEIGHT */
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-min-h-#{$i} {
+        min-height: var(--o-ui-space-#{$i});
+    }
+}
+
+.o-ui-min-h-100 {
+    min-height: 100%;
+}
+
+.o-ui-min-h-auto {
+    min-height: auto;
+}

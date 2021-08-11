@@ -1,0 +1,10 @@
+/* TOP */
+.o-ui-top-0 {
+    top: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-top-#{$i} {
+        top: var(--o-ui-space-#{$i});
+    }
+}
