@@ -4,18 +4,20 @@ import { isNil } from "./assertions";
 
 /*
 TODO:
+- -> Height & Width & Others should support max-content, min-content, fit-content
+- Elevation
 - Chromatic tests
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
-- Interpolation for style values (and props like "border")
+- Interpolation for style values (and props like "border") -> Do we support it or not? Not supporting it would encourage using the other props
 */
 
-export type GlobalValues =
+export type GlobalValue =
     "inherit" |
     "initial" |
     "revert" |
     "unset";
 
-export type LengthTypes =
+export type LengthType =
     "px" |
     "em" |
     "rem" |
@@ -25,7 +27,7 @@ export type LengthTypes =
     "vmin" |
     "vmax";
 
-export type LengthUnit = `${number}${LengthTypes}`;
+export type LengthUnit = `${number}${LengthType}`;
 
 export type LengthShorthand =
     `${LengthUnit}` |
@@ -33,25 +35,43 @@ export type LengthShorthand =
     `${LengthUnit} ${LengthUnit} ${LengthUnit}` |
     `${LengthUnit} ${LengthUnit} ${LengthUnit} ${LengthUnit}`;
 
-const OrbitSpacing = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] as const;
+const OrbitSpacing = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+] as const;
+
+export type OrbitSpace = typeof OrbitSpacing[number];
 
 function createOrbitSpacingClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
     const classes: Record<number, string> = {};
 
     if (includeZero) {
-        classes[0] = `o - ui - ${section} -0`;
+        classes[0] = `o-ui-${section}-0`;
     }
 
     OrbitSpacing.reduce((acc, x) => {
-        acc[x] = `o - ui - ${section} -${x} `;
+        acc[x] = `o-ui-${section}-${x}`;
 
         return acc;
     }, classes);
 
-    return classes as Record<IncludeZero extends true ? 0 | typeof OrbitSpacing[number] : typeof OrbitSpacing[number], string>;
+    return classes as Record<IncludeZero extends true ? 0 | OrbitSpace : OrbitSpace, string>;
 }
 
-export type NamedColors =
+export type SpaceValue = OrbitSpace | LengthUnit | GlobalValue;
+
+export type NamedColor =
     "aliceblue" |
     "antiquewhite" |
     "aqua" |
@@ -201,16 +221,16 @@ export type NamedColors =
     "yellow" |
     "yellowgreen";
 
-export type ColorExpressionTypes =
+export type ColorExpressionType =
     "#" |
     "rgb" |
     "rgba" |
     "hsl" |
     "hsla";
 
-export type ColorExpression = `${ColorExpressionTypes}${string}`;
+export type ColorExpression = `${ColorExpressionType}${string}`;
 
-export type Color = ColorExpression | NamedColors;
+export type CssColor = ColorExpression | NamedColor;
 
 const OrbitColors = [
     "current",
@@ -318,18 +338,21 @@ const OrbitColors = [
     "primary-10"
 ] as const;
 
+export type OrbitColor = typeof OrbitColors[number];
+
 function createOrbitColorClasses(section?: string) {
-    const template = isNil(section) ? (x: string) => `o - ui - ${x} ` : (x: string) => `o - ui - ${section} -${x} `;
+    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
         acc[x] = template(x);
 
         return acc;
-    }, {} as Record<typeof OrbitColors[number], string>);
+    }, {} as Record<OrbitColor, string>);
 }
 
-const BackgroundColorClasses = {
-    ...createOrbitColorClasses("bg"),
+export type ColorValue = OrbitColor | CssColor | GlobalValue;
+
+const BackgroundColorRoleClasses = {
     "background-1": "o-ui-background-1",
     "background-2": "o-ui-background-2",
     "background-3": "o-ui-background-3",
@@ -346,6 +369,8 @@ const BackgroundColorClasses = {
     "background-positive-2": "o-ui-positive-2",
     "background-info-1": "o-ui-info-1"
 } as const;
+
+const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
 
 const BackgroundPositionClasses = {
     "top": "o-ui-bg-top",
@@ -365,8 +390,7 @@ const BackgroundSizeClasses = {
     "contain": "o-ui-bg-contain"
 } as const;
 
-const BorderColorClasses = {
-    ...createOrbitColorClasses("b"),
+const BorderColorRoleClasses = {
     "border-1": "o-ui-border-1",
     "border-2": "o-ui-border-2",
     "border-3": "o-ui-border-3",
@@ -379,6 +403,8 @@ const BorderColorClasses = {
     "border-warning-1": "o-ui-warning-1",
     "border-positive-1": "o-ui-positive-1"
 } as const;
+
+const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
 
 const BorderRadiusClasses = {
     0: "o-ui-br-0",
@@ -421,8 +447,7 @@ const BoxShadowClasses = {
     4: "o-ui-bs-4"
 } as const;
 
-const ColorClasses = {
-    ...createOrbitColorClasses(),
+const ColorRoleClasses = {
     "text-1": "o-ui-text-1",
     "text-2": "o-ui-text-2",
     "text-3": "o-ui-text-3",
@@ -439,8 +464,9 @@ const ColorClasses = {
     "text-input-placeholder": "o-ui-text-input-placeholder"
 } as const;
 
+const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
+
 const DisplayClasses = {
-    "none": "o-ui-dn",
     "block": "o-ui-db",
     "inline-block": "o-ui-dib",
     "inline": "o-ui-di",
@@ -458,11 +484,11 @@ const DisplayClasses = {
     "table-row": "o-ui-dt-row",
     "grid": "o-ui-dg",
     "inline-grid": "o-ui-dig",
-    "list-item": "o-ui-dli"
+    "list-item": "o-ui-dli",
+    "none": "o-ui-dn"
 } as const;
 
-const FillClasses = {
-    ...createOrbitColorClasses("fill"),
+const FillRoleClasses = {
     "icon-1": "icon-1",
     "icon-2": "icon-2",
     "icon-primary-1": "icon-primary-1",
@@ -474,6 +500,8 @@ const FillClasses = {
     "icon-warning-2": "icon-warning-2",
     "icon-info-1": "icon-info-1"
 } as const;
+
+const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
 
 const FontSizeClasses = {
     1: "o-ui-fs-1",
@@ -501,12 +529,13 @@ const FontWeightClasses = {
     9: "o-i-fw-9"
 } as const;
 
-const HeightClasses = {
-    ...createOrbitSpacingClasses("h", true),
+const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
     "screen": "o-ui-h-screen",
     "auto": "o-ui-h-auto"
 } as const;
+
+const HeightClasses = { ...createOrbitSpacingClasses("h", true), ...HeightAdditionalClasses };
 
 const LeftClasses = createOrbitSpacingClasses("left", true);
 
@@ -516,7 +545,8 @@ const LineHeightClasses = {
     3: "o-ui-lh-3",
     4: "o-ui-lh-4",
     5: "o-ui-lh-5",
-    6: "o-ui-lh-6"
+    6: "o-ui-lh-6",
+    "none": "o-ui-lh-none"
 } as const;
 
 const MarginClasses = createOrbitSpacingClasses("ma", true);
@@ -533,29 +563,33 @@ const MarginVerticalClasses = createOrbitSpacingClasses("mv", true);
 
 const MarginHorizontalClasses = createOrbitSpacingClasses("mh", true);
 
-const MaxHeightClasses = {
-    ...createOrbitSpacingClasses("max-h"),
+const MaxHeightAdditionalClasses = {
     "100%": "o-ui-max-h-100",
     "auto": "o-ui-max-h-auto"
 } as const;
 
-const MaxWidthClasses = {
-    ...createOrbitSpacingClasses("max-w"),
+const MaxHeightClasses = { ...createOrbitSpacingClasses("max-h"), ...MaxHeightAdditionalClasses };
+
+const MaxWidthAdditionalClasses = {
     "100%": "o-ui-max-w-100",
     "auto": "o-ui-max-w-auto"
 } as const;
 
-const MinHeightClasses = {
-    ...createOrbitSpacingClasses("min-h"),
+const MaxWidthClasses = { ...createOrbitSpacingClasses("max-w"), ...MaxWidthAdditionalClasses };
+
+const MinHeightAdditionalClasses = {
     "100%": "o-ui-min-h-100",
     "auto": "o-ui-min-h-auto"
 } as const;
 
-const MinWidthClasses = {
-    ...createOrbitSpacingClasses("min-w"),
+const MinHeightClasses = { ...createOrbitSpacingClasses("min-h"), ...MinHeightAdditionalClasses };
+
+const MinWidthAdditionalClasses = {
     "100%": "o-ui-min-w-100",
     "auto": "o-ui-min-w-auto"
 } as const;
+
+const MinWidthClasses = { ...createOrbitSpacingClasses("min-w"), ...MinWidthAdditionalClasses };
 
 const PaddingClasses = createOrbitSpacingClasses("pa", true);
 
@@ -585,12 +619,13 @@ const StrokeClasses = createOrbitColorClasses("stroke");
 
 const TopClasses = createOrbitSpacingClasses("top", true);
 
-const WidthClasses = {
-    ...createOrbitSpacingClasses("w", true),
+const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
     "screen": "o-ui-w-screen",
     "auto": "o-ui-w-auto"
 } as const;
+
+const WidthClasses = { ...createOrbitSpacingClasses("w", true), ...WidthAdditionalClasses };
 
 const ZIndexClasses = {
     0: "o-ui-z-0",
@@ -604,99 +639,99 @@ const ZIndexClasses = {
     "max": "o-ui-z-9999"
 } as const;
 
-export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorClasses | Color | GlobalValues>;
+export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
 
-export type BackgroundPositionProp = LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValues;
+export type BackgroundPositionProp = LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue;
 
-export type BackgroundSizeProp = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValues;
+export type BackgroundSizeProp = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue;
 
-export type BorderColorProp = Simplify<keyof typeof BorderColorClasses | Color | GlobalValues>;
+export type BorderColorProp = Simplify<keyof typeof BorderColorRoleClasses | ColorValue>;
 
-export type BorderRadiusProp = keyof typeof BorderRadiusClasses | GlobalValues;
+export type BorderRadiusProp = keyof typeof BorderRadiusClasses | GlobalValue;
 
-export type BorderStyleProp = keyof typeof BorderStyleClasses | GlobalValues;
+export type BorderStyleProp = keyof typeof BorderStyleClasses | GlobalValue;
 
-export type BorderWidthProp = keyof typeof BorderWidthClasses | LengthUnit | GlobalValues;
+export type BorderWidthProp = Simplify<SpaceValue>;
 
-export type BorderTopWidthProp = keyof typeof BorderTopWidthClasses | LengthUnit | GlobalValues;
+export type BorderTopWidthProp = Simplify<SpaceValue>;
 
-export type BorderBottomWidthProp = keyof typeof BorderBottomWidthClasses | LengthUnit | GlobalValues;
+export type BorderBottomWidthProp = Simplify<SpaceValue>;
 
-export type BorderLeftWidthProp = keyof typeof BorderLeftWidthClasses | LengthUnit | GlobalValues;
+export type BorderLeftWidthProp = Simplify<SpaceValue>;
 
-export type BorderRightWidthProp = keyof typeof BorderRightWidthClasses | LengthUnit | GlobalValues;
+export type BorderRightWidthProp = Simplify<SpaceValue>;
 
-export type BorderVerticalWidthProp = keyof typeof BorderVerticalWidthClasses | LengthUnit | GlobalValues;
+export type BorderVerticalWidthProp = Simplify<SpaceValue>;
 
-export type BorderHorizontalWidthProp = keyof typeof BorderHorizontalWidthClasses | LengthUnit | GlobalValues;
+export type BorderHorizontalWidthProp = Simplify<SpaceValue>;
 
-export type BottomProp = LiteralUnion<keyof typeof BottomClasses, string> | GlobalValues;
+export type BottomProp = LiteralUnion<keyof typeof BottomClasses, string> | GlobalValue;
 
-export type BoxShadowProp = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValues;
+export type BoxShadowProp = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValue;
 
-export type ColorProp = Simplify<keyof typeof BackgroundColorClasses | Color | GlobalValues>;
+export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
 
-export type DisplayProp = keyof typeof DisplayClasses | GlobalValues;
+export type DisplayProp = keyof typeof DisplayClasses | GlobalValue;
 
-export type FillProp = Simplify<keyof typeof FillClasses | Color | GlobalValues>;
+export type FillProp = Simplify<keyof typeof FillRoleClasses | ColorValue>;
 
-export type FontSizeProp = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValues;
+export type FontSizeProp = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValue;
 
-export type FontWeightProp = keyof typeof FontWeightClasses | GlobalValues;
+export type FontWeightProp = keyof typeof FontWeightClasses | GlobalValue;
 
-export type HeightProp = keyof typeof HeightClasses | LengthUnit | GlobalValues;
+export type HeightProp = Simplify<keyof typeof HeightAdditionalClasses | SpaceValue>;
 
-export type LeftProp = LiteralUnion<keyof typeof LeftClasses, string> | GlobalValues;
+export type LeftProp = LiteralUnion<keyof typeof LeftClasses, string> | GlobalValue;
 
-export type LineHeightProp = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValues;
+export type LineHeightProp = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue;
 
-export type MarginProp = keyof typeof MarginClasses | LengthShorthand | GlobalValues;
+export type MarginProp = keyof typeof MarginClasses | LengthShorthand | GlobalValue;
 
-export type MarginTopProp = keyof typeof MarginTopClasses | LengthUnit | GlobalValues;
+export type MarginTopProp = Simplify<SpaceValue>;
 
-export type MarginBottomProp = keyof typeof MarginBottomClasses | LengthUnit | GlobalValues;
+export type MarginBottomProp = Simplify<SpaceValue>;
 
-export type MarginLeftProp = keyof typeof MarginLeftClasses | LengthUnit | GlobalValues;
+export type MarginLeftProp = Simplify<SpaceValue>;
 
-export type MarginRightProp = keyof typeof MarginRightClasses | LengthUnit | GlobalValues;
+export type MarginRightProp = Simplify<SpaceValue>;
 
-export type MarginVerticalProp = keyof typeof MarginVerticalClasses | LengthUnit | GlobalValues;
+export type MarginVerticalProp = Simplify<SpaceValue>;
 
-export type MarginHorizontalProp = keyof typeof MarginHorizontalClasses | LengthUnit | GlobalValues;
+export type MarginHorizontalProp = Simplify<SpaceValue>;
 
-export type MaxHeightProp = keyof typeof MaxHeightClasses | LengthUnit | GlobalValues;
+export type MaxHeightProp = Simplify<keyof typeof MaxHeightAdditionalClasses | SpaceValue>;
 
-export type MaxWidthProp = keyof typeof MaxWidthClasses | LengthUnit | GlobalValues;
+export type MaxWidthProp = Simplify<keyof typeof MaxWidthAdditionalClasses | SpaceValue>;
 
-export type MinHeightProp = keyof typeof MinHeightClasses | LengthUnit | GlobalValues;
+export type MinHeightProp = Simplify<keyof typeof MinHeightAdditionalClasses | SpaceValue>;
 
-export type MinWidthProp = keyof typeof MinWidthClasses | LengthUnit | GlobalValues;
+export type MinWidthProp = Simplify<keyof typeof MinWidthAdditionalClasses | SpaceValue>;
 
-export type PaddingProp = keyof typeof PaddingClasses | LengthShorthand | GlobalValues;
+export type PaddingProp = keyof typeof PaddingClasses | LengthShorthand | GlobalValue;
 
-export type PaddingTopProp = keyof typeof PaddingTopClasses | LengthUnit | GlobalValues;
+export type PaddingTopProp = Simplify<SpaceValue>;
 
-export type PaddingBottomProp = keyof typeof PaddingBottomClasses | LengthUnit | GlobalValues;
+export type PaddingBottomProp = Simplify<SpaceValue>;
 
-export type PaddingLeftProp = keyof typeof PaddingLeftClasses | LengthUnit | GlobalValues;
+export type PaddingLeftProp = Simplify<SpaceValue>;
 
-export type PaddingRightProp = keyof typeof PaddingRightClasses | LengthUnit | GlobalValues;
+export type PaddingRightProp = Simplify<SpaceValue>;
 
-export type PaddingVerticalProp = keyof typeof PaddingVerticalClasses | LengthUnit | GlobalValues;
+export type PaddingVerticalProp = Simplify<SpaceValue>;
 
-export type PaddingHorizontalProp = keyof typeof PaddingHorizontalClasses | LengthUnit | GlobalValues;
+export type PaddingHorizontalProp = Simplify<SpaceValue>;
 
-export type PositionProp = keyof typeof PositionClasses | GlobalValues;
+export type PositionProp = keyof typeof PositionClasses | GlobalValue;
 
-export type RightProp = LiteralUnion<keyof typeof RightClasses, string> | GlobalValues;
+export type RightProp = LiteralUnion<keyof typeof RightClasses, string> | GlobalValue;
 
-export type StrokeProp = Simplify<keyof typeof FillClasses | Color | GlobalValues>;
+export type StrokeProp = Simplify<ColorValue>;
 
-export type TopProp = LiteralUnion<keyof typeof TopClasses, string> | GlobalValues;
+export type TopProp = LiteralUnion<keyof typeof TopClasses, string> | GlobalValue;
 
-export type WidthProp = keyof typeof WidthClasses | LengthUnit | GlobalValues;
+export type WidthProp = Simplify<keyof typeof WidthAdditionalClasses | SpaceValue>;
 
-export type ZIndexProp = LiteralUnion<keyof typeof ZIndexClasses, string> | GlobalValues;
+export type ZIndexProp = LiteralUnion<keyof typeof ZIndexClasses, string> | GlobalValue;
 
 export interface StyleProps {
     className?: string;

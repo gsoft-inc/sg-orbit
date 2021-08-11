@@ -5,7 +5,6 @@
     "skipLibCheck": true, // Skip type checking of all declaration files
     "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
     "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
-    "noUnusedLocals": true, // Report errors on unused locals
     "noUnusedParameters": true, // Report errors on unused parameters
     "noImplicitReturns": false, // 6 errors, but i don't like the synthax in the hooks. not gonna turn this on for now
     // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.

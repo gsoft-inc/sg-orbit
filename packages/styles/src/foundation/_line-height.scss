@@ -4,3 +4,7 @@
         line-height: var(--o-ui-lh-#{$i});
     }
 }
+
+.o-ui-lh-none {
+    line-height: 1;
+}
