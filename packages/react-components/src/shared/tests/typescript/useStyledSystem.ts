@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
+/*
+TODO: instead define custom assertions function:
+
+- expectAssignable
+- expectNotAssignable
+*/
+
 import {
     BackgroundColorProp,
     BackgroundPositionProp,
@@ -31,6 +38,14 @@ import {
     WidthProp,
     ZindexProp
 } from "../../src";
+
+const expectAssignable = <T>(value: T) => {
+    // Do nothing, the TypeScript compiler handles this for us
+};
+
+const expectNotAssignable = <T>(value: any) => {
+    // Do nothing, the TypeScript compiler handles this for us
+};
 
 function globalValue() {
     const supportInherit: GlobalValue = "inherit";
@@ -90,7 +105,7 @@ function backgroundColorProp() {
     const supportColorExpression: BackgroundColorProp = "#fff";
     const supportNamedColor: BackgroundColorProp = "white";
     const supportOrbitColor: BackgroundColorProp = "sunray-1";
-    const supportRole: BackgroundColorProp = "background-1";
+    const supportRole: BackgroundColorProp = "bg-1";
 }
 
 function backgroundPositionProp() {
@@ -115,7 +130,7 @@ function borderColorProp() {
     const supportColorExpression: BorderColorProp = "#fff";
     const supportNamedColor: BorderColorProp = "white";
     const supportOrbitColor: BorderColorProp = "sunray-1";
-    const supportRole: BorderColorProp = "border-1";
+    const supportRole: BorderColorProp = "b-1";
 }
 
 function borderRadiusProp() {

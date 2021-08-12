@@ -1,7 +1,7 @@
 /* FONT-WEIGHT */
 @for $i from 1 through 9 {
     .o-ui-fw-#{$i} {
-        font-variation-settings: "wght" var(--o-ui-fw-#{$i});
+        font-variation-settings: "wght" var(--o-ui-font-weights-#{$i});
         font-weight: 400!important;
     }
 }

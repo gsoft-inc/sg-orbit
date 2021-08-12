@@ -1,22 +1,23 @@
 /* BOX SHADOW */
 @for $i from 1 through 4 {
     .o-ui-bs-#{$i} {
-        box-shadow: var(--o-ui-bs-#{$i});
+        box-shadow: var(--o-ui-box-shadows-#{$i});
     }
 }
 
+/* BOX SHADOW | ROLE */
 .o-ui-bs-skim {
-    box-shadow: var(--o-ui-elevation-skim);
+    box-shadow: var(--o-ui-box-shadows-skim);
 }
 
 .o-ui-bs-lifted {
-    box-shadow: var(--o-ui-elevation-lifted);
+    box-shadow: var(--o-ui-box-shadows-lifted);
 }
 
 .o-ui-bs-raised {
-    box-shadow: var(--o-ui-elevation-raised);
+    box-shadow: var(--o-ui-box-shadows-raised);
 }
 
 .o-ui-bs-floating {
-    box-shadow: var(--o-ui-elevation-floating);
+    box-shadow: var(--o-ui-box-shadows-floating);
 }

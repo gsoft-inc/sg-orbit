@@ -7,7 +7,7 @@
 @for $i from 1 through 5 {
     .o-ui-ba-#{$i} {
         // border-style: solid;
-        border-width: var(--o-ui-bw-#{$i});
+        border-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -20,7 +20,7 @@
 @for $i from 1 through 5 {
     .o-ui-bt-#{$i} {
         // border-top-style: solid;
-        border-top-width: var(--o-ui-bw-#{$i});
+        border-top-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -33,7 +33,7 @@
 @for $i from 1 through 5 {
     .o-ui-bb-#{$i} {
         // border-bottom-style: solid;
-        border-bottom-width: var(--o-ui-bw-#{$i});
+        border-bottom-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -46,7 +46,7 @@
 @for $i from 1 through 5 {
     .o-ui-bl-#{$i} {
         // border-left-style: solid;
-        border-left-width: var(--o-ui-bw-#{$i});
+        border-left-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -59,7 +59,7 @@
 @for $i from 1 through 5 {
     .o-ui-br-#{$i} {
         // border-right-style: solid;
-        border-right-width: var(--o-ui-bw-#{$i});
+        border-right-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -75,8 +75,8 @@
     .o-ui-bv-#{$i} {
         // border-top-style: solid;
         // border-bottom-style: solid;
-        border-top-width: var(--o-ui-bw-#{$i});
-        border-bottom-width: var(--o-ui-bw-#{$i});
+        border-top-width: var(--o-ui-border-widths-#{$i});
+        border-bottom-width: var(--o-ui-border-widths-#{$i});
     }
 }
 
@@ -92,7 +92,7 @@
     .o-ui-bh-#{$i} {
         // border-left-style: solid;
         // border-right-style: solid;
-        border-left-width: var(--o-ui-bw-#{$i});
-        border-right-width: var(--o-ui-bw-#{$i});
+        border-left-width: var(--o-ui-border-widths-#{$i});
+        border-right-width: var(--o-ui-border-widths-#{$i});
     }
 }

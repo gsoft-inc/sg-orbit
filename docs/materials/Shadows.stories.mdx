@@ -10,20 +10,17 @@ import { Table, Tagline } from "@stories/components";
 
 <Tagline>Shadows are used to make content appear elevated.</Tagline>
 
-## Utilities
-
-All Tachyons shadows utilities have been replaced to match Orbit Design values.
+## Values
 
 <Table
     columns={[
-        { title: "Class", headerStyle: { width: "200px" } },
-        { title: "Variable", headerStyle: { width: "300px" } },
+        { title: "Value", headerStyle: { width: "200px" } },
         { title: "Sample", headerStyle: { width: "350px" } } ]}
     rows={[
-        [{ value: "shadow-100", className: "code f7 o-90" }, { value: "--o-ui-global-shadow-100", className: "code f7 o-90" }, <div className="shadow-100 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-200", className: "code f7 o-90" }, { value: "--o-ui-global-shadow-200", className: "code f7 o-90" }, <div className="shadow-200 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-300", className: "code f7 o-90" }, { value: "--o-ui-global-shadow-300", className: "code f7 o-90" }, <div className="shadow-300 br2 bg-white h9 ma3"></div>],
-        [{ value: "shadow-400", className: "code f7 o-90" }, { value: "--o-ui-global-shadow-400", className: "code f7 o-90" }, <div className="shadow-400 br2 bg-white h9 ma3"></div>]
+        [1, <div className="shadow-100 br2 bg-white h9 ma3"></div>],
+        [2, <div className="shadow-200 br2 bg-white h9 ma3"></div>],
+        [3, <div className="shadow-300 br2 bg-white h9 ma3"></div>],
+        [4, <div className="shadow-400 br2 bg-white h9 ma3"></div>]
     ]}
     rowClassName="background-1"
 />
@@ -31,24 +28,28 @@ All Tachyons shadows utilities have been replaced to match Orbit Design values.
 CSS shadows are made using a system of 6 layers in order to provide silky smooth shadows. The shadows values can be previewed and altered on [shadows.brumm.af](https://shadows.brumm.af/).
 
 #### Shadow 100
+
 - Layers of shadows: 6
 - Final transparency: 0.08
 - Final vertical distance: 2
 - Final blur strength: 10
 
 #### Shadow 200
+
 - Layers of shadows: 6
 - Final transparency: 0.07
 - Final vertical distance: 7
 - Final blur strength: 20
 
 #### Shadow 300
+
 - Layers of shadows: 6
 - Final transparency: 0.06
 - Final vertical distance: 10
 - Final blur strength: 40
 
 #### Shadow 400
+
 - Layers of shadows: 6
 - Final transparency: 0.08
 - Final vertical distance: 25

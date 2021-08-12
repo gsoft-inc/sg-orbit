@@ -1,15 +1,15 @@
 /* BORDER RADIUS */
 @for $i from 1 through 4 {
-    .o-ui-br-#{$i} {
-        border-radius: var(--o-ui-br-#{$i});
+    .o-ui-b-radius-#{$i} {
+        border-radius: var(--o-ui-border-radii-#{$i});
     }
 }
 
-.o-ui-br-0 {
+.o-ui-b-radius-0 {
     border-radius: 0;
 }
 
-.o-ui-br-100 {
+.o-ui-b-radius-100 {
     border-radius: 100;
 }
 

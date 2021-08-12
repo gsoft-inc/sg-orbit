@@ -110,14 +110,13 @@ export function createCss(theme: OrbitTheme) {
     const dark: Bucket = [];
 
     appendArray(theme.space, "space", common);
-    appendJsonObject(theme.fontSizes, "fs", common);
-    appendArray(theme.fontWeights, "fw", common);
-    appendArray(theme.lineHeights, "lh", common);
-    appendArray(theme.borderWidths, "bw", common);
-    appendArray(theme.borderRadii, "br", common);
-    appendColorSchemes(theme.boxShadows, "bs", { common, light, dark });
-    // appendJsonObject(theme.elevations, "elevation", common);
-    appendArray(theme.zIndices, "z", common);
+    appendJsonObject(theme.fontSizes, "font-sizes", common);
+    appendArray(theme.fontWeights, "font-weights", common);
+    appendArray(theme.lineHeights, "line-heights", common);
+    appendArray(theme.borderWidths, "border-widths", common);
+    appendArray(theme.borderRadii, "border-radii", common);
+    appendColorSchemes(theme.boxShadows, "box-shadows", { common, light, dark });
+    appendArray(theme.zIndices, "z-indices", common);
     appendColorSchemes(theme.colors, null, { common, light, dark });
 
     renderBucket(theme.name, `.o-ui { ${common.join(" ")} }`);

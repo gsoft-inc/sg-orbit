@@ -4,9 +4,16 @@ import { isNil } from "./assertions";
 
 /*
 TODO:
-- Chromatic tests
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
 - Interpolation for style values (and props like "border") -> Do we support it or not? Not supporting it would encourage using the other props
+*/
+
+/*
+TODO FRANK:
+- Would love to introduce something like border="red" and the resulting atomic css class would also set by default border-width: "1px" & border-style" solid
+    -> Could it introduce some specifity bug if someone also a different border width or style?
+    -> Could also introduce a concept of "shorthands" at the useStyledSystem layer
+    -> Maybe it's easier to finally introduce interpolation and let the user do border="$border-widths-1 solid $sunray-1" <- not as cool as border="sunray-1"
 */
 
 export type GlobalValue =
@@ -33,7 +40,7 @@ export type LengthShorthand =
     `${LengthUnit} ${LengthUnit} ${LengthUnit}` |
     `${LengthUnit} ${LengthUnit} ${LengthUnit} ${LengthUnit}`;
 
-const OrbitSpacing = [
+const OrbitSpacingScale = [
     1,
     2,
     3,
@@ -49,16 +56,16 @@ const OrbitSpacing = [
     13
 ] as const;
 
-export type OrbitSpace = typeof OrbitSpacing[number];
+export type OrbitSpace = typeof OrbitSpacingScale[number];
 
-function createOrbitSpacingClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
+function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
     const classes: Record<number, string> = {};
 
     if (includeZero) {
         classes[0] = `o-ui-${section}-0`;
     }
 
-    OrbitSpacing.reduce((acc, x) => {
+    OrbitSpacingScale.reduce((acc, x) => {
         acc[x] = `o-ui-${section}-${x}`;
 
         return acc;
@@ -68,6 +75,34 @@ function createOrbitSpacingClasses<IncludeZero extends boolean = false>(section:
 }
 
 export type SpaceValue = OrbitSpace | LengthUnit | GlobalValue;
+
+const OrbitBorderWidthScale = [
+    1,
+    2,
+    3,
+    4,
+    5
+] as const;
+
+export type OrbitBorderWidth = typeof OrbitBorderWidthScale[number];
+
+function createOrbitBorderWidthScaleClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
+    const classes: Record<number, string> = {};
+
+    if (includeZero) {
+        classes[0] = `o-ui-${section}-0`;
+    }
+
+    OrbitBorderWidthScale.reduce((acc, x) => {
+        acc[x] = `o-ui-${section}-${x}`;
+
+        return acc;
+    }, classes);
+
+    return classes as Record<IncludeZero extends true ? 0 | OrbitBorderWidth : OrbitBorderWidth, string>;
+}
+
+export type BorderWithValue = OrbitBorderWidth | LengthUnit | GlobalValue;
 
 export type NamedColor =
     "aliceblue" |
@@ -230,7 +265,7 @@ export type ColorExpression = `${ColorExpressionType}${string}`;
 
 export type CssColor = ColorExpression | NamedColor;
 
-const OrbitColors = [
+export const OrbitColors = [
     "current",
     "transparent",
     "white",
@@ -350,27 +385,27 @@ function createOrbitColorClasses(section?: string) {
 
 export type ColorValue = OrbitColor | CssColor | GlobalValue;
 
-const BackgroundColorRoleClasses = {
-    "background-1": "o-ui-background-1",
-    "background-2": "o-ui-background-2",
-    "background-3": "o-ui-background-3",
-    "background-4": "o-ui-background-4",
-    "background-5": "o-ui-background-5",
-    "background-6": "o-ui-background-6",
-    "background-primary-1": "o-ui-primary-1",
-    "background-primary-2": "o-ui-primary-2",
-    "background-negative-1": "o-ui-negative-1",
-    "background-negative-2": "o-ui-negative-2",
-    "background-warning-1": "o-ui-warning-1",
-    "background-warning-2": "o-ui-warning-2",
-    "background-positive-1": "o-ui-positive-1",
-    "background-positive-2": "o-ui-positive-2",
-    "background-info-1": "o-ui-info-1"
+export const BackgroundColorRoleClasses = {
+    "bg-1": "o-ui-bg-1",
+    "bg-2": "o-ui-bg-2",
+    "bg-3": "o-ui-bg-3",
+    "bg-4": "o-ui-bg-4",
+    "bg-5": "o-ui-bg-5",
+    "bg-6": "o-ui-bg-6",
+    "bg-primary-1": "o-ui-bg-primary-1",
+    "bg-primary-2": "o-ui-bg-primary-2",
+    "bg-negative-1": "o-ui-bg-negative-1",
+    "bg-negative-2": "o-ui-bg-negative-2",
+    "bg-warning-1": "o-ui-bg-warning-1",
+    "bg-warning-2": "o-ui-bg-warning-2",
+    "bg-positive-1": "o-ui-bg-positive-1",
+    "bg-positive-2": "o-ui-bg-positive-2",
+    "bg-info-1": "o-ui-bg-info-1"
 } as const;
 
-const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
+export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
 
-const BackgroundPositionClasses = {
+export const BackgroundPositionClasses = {
     "top": "o-ui-bg-top",
     "bottom": "o-ui-bg-bottom",
     "left": "o-ui-bg-left",
@@ -382,39 +417,39 @@ const BackgroundPositionClasses = {
     "right-bottom": "o-ui-bg-right-bottom"
 } as const;
 
-const BackgroundSizeClasses = {
+export const BackgroundSizeClasses = {
     "auto": "o-ui-bg-auto",
     "cover": "o-ui-bg-cover",
     "contain": "o-ui-bg-contain"
 } as const;
 
-const BorderColorRoleClasses = {
-    "border-1": "o-ui-border-1",
-    "border-2": "o-ui-border-2",
-    "border-3": "o-ui-border-3",
-    "border-4": "o-ui-border-4",
-    "border-primary-1": "o-ui-primary-1",
-    "border-primary-1-translucent": "o-ui-primary-1-translucent",
-    "border-negative-1": "o-ui-negative-1",
-    "border-negative-1-translucent": "o-ui-negative-1-translucent",
-    "border-negative-2": "o-ui-negative-2",
-    "border-warning-1": "o-ui-warning-1",
-    "border-positive-1": "o-ui-positive-1"
+export const BorderColorRoleClasses = {
+    "b-1": "o-ui-b-1",
+    "b-2": "o-ui-b-2",
+    "b-3": "o-ui-b-3",
+    "b-4": "o-ui-b-4",
+    "b-primary-1": "o-ui-b-primary-1",
+    "b-primary-1-translucent": "o-ui-b-primary-1-translucent",
+    "b-negative-1": "o-ui-b-negative-1",
+    "b-negative-1-translucent": "o-ui-b-negative-1-translucent",
+    "b-negative-2": "o-ui-b-negative-2",
+    "b-warning-1": "o-ui-b-warning-1",
+    "b-positive-1": "o-ui-b-positive-1"
 } as const;
 
-const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
+export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
 
-const BorderRadiusClasses = {
-    0: "o-ui-br-0",
-    1: "o-ui-br-1",
-    2: "o-ui-br-2",
-    3: "o-ui-br-3",
-    4: "o-ui-br-4",
-    "100": "o-ui-br-100",
+export const BorderRadiusClasses = {
+    0: "o-ui-b-radius-0",
+    1: "o-ui-b-radius-1",
+    2: "o-ui-b-radius-2",
+    3: "o-ui-b-radius-3",
+    4: "o-ui-b-radius-4",
+    "100": "o-ui-b-radius-100",
     "pill": "o-ui-pill"
 } as const;
 
-const BorderStyleClasses = {
+export const BorderStyleClasses = {
     "solid": "o-ui-b-solid",
     "dashed": "o-ui-b-dashed",
     "dotted": "o-ui-b-dotted",
@@ -422,23 +457,25 @@ const BorderStyleClasses = {
     "none": "o-ui-b-none"
 } as const;
 
-const BorderWidthClasses = createOrbitSpacingClasses("ba", true);
+export const BorderWidthClasses = createOrbitBorderWidthScaleClasses("ba", true);
 
-const BorderTopWidthClasses = createOrbitSpacingClasses("bt", true);
+export const BorderTopWidthClasses = createOrbitBorderWidthScaleClasses("bt", true);
 
-const BorderBottomWidthClasses = createOrbitSpacingClasses("bb", true);
+export const BorderBottomWidthClasses = createOrbitBorderWidthScaleClasses("bb", true);
 
-const BorderLeftWidthClasses = createOrbitSpacingClasses("bl", true);
+export const BorderLeftWidthClasses = createOrbitBorderWidthScaleClasses("bl", true);
 
-const BorderRightWidthClasses = createOrbitSpacingClasses("br", true);
+export const BorderRightWidthClasses = createOrbitBorderWidthScaleClasses("br", true);
 
-const BorderVerticalWidthClasses = createOrbitSpacingClasses("bv", true);
+// TODO FRANK: Do we realistically need vertical border classes?
+export const BorderVerticalWidthClasses = createOrbitBorderWidthScaleClasses("bv", true);
 
-const BorderHorizontalWidthClasses = createOrbitSpacingClasses("bh", true);
+// TODO FRANK: Do we realistically need vertical border classes?
+export const BorderHorizontalWidthClasses = createOrbitBorderWidthScaleClasses("bh", true);
 
-const BottomClasses = createOrbitSpacingClasses("bottom", true);
+export const BottomClasses = createOrbitSpacingScaleClasses("bottom", true);
 
-const BoxShadowClasses = {
+export const BoxShadowClasses = {
     1: "o-ui-bs-1",
     2: "o-ui-bs-2",
     3: "o-ui-bs-3",
@@ -449,7 +486,7 @@ const BoxShadowClasses = {
     "floating": "o-ui-bs-floating"
 } as const;
 
-const ColorRoleClasses = {
+export const ColorRoleClasses = {
     "text-1": "o-ui-text-1",
     "text-2": "o-ui-text-2",
     "text-3": "o-ui-text-3",
@@ -466,9 +503,9 @@ const ColorRoleClasses = {
     "text-input-placeholder": "o-ui-text-input-placeholder"
 } as const;
 
-const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
+export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
 
-const DisplayClasses = {
+export const DisplayClasses = {
     "block": "o-ui-db",
     "inline-block": "o-ui-dib",
     "inline": "o-ui-di",
@@ -490,7 +527,7 @@ const DisplayClasses = {
     "none": "o-ui-dn"
 } as const;
 
-const FillRoleClasses = {
+export const FillRoleClasses = {
     "icon-1": "icon-1",
     "icon-2": "icon-2",
     "icon-primary-1": "icon-primary-1",
@@ -503,9 +540,9 @@ const FillRoleClasses = {
     "icon-info-1": "icon-info-1"
 } as const;
 
-const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
+export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
 
-const FontSizeClasses = {
+export const FontSizeClasses = {
     1: "o-ui-fs-1",
     2: "o-ui-fs-2",
     3: "o-ui-fs-3",
@@ -515,23 +552,23 @@ const FontSizeClasses = {
     7: "o-ui-fs-7",
     8: "o-ui-fs-8",
     9: "o-ui-fs-9",
-    "subheadline": "o-ui-fs-subheadline",
-    "headline": "o-ui-fs-headline"
+    "subheadline": "o-ui-subheadline",
+    "headline": "o-ui-headline"
 } as const;
 
-const FontWeightClasses = {
-    1: "o-i-fw-1",
-    2: "o-i-fw-2",
-    3: "o-i-fw-3",
-    4: "o-i-fw-4",
-    5: "o-i-fw-5",
-    6: "o-i-fw-6",
-    7: "o-i-fw-7",
-    8: "o-i-fw-8",
-    9: "o-i-fw-9"
+export const FontWeightClasses = {
+    1: "o-ui-fw-1",
+    2: "o-ui-fw-2",
+    3: "o-ui-fw-3",
+    4: "o-ui-fw-4",
+    5: "o-ui-fw-5",
+    6: "o-ui-fw-6",
+    7: "o-ui-fw-7",
+    8: "o-ui-fw-8",
+    9: "o-ui-fw-9"
 } as const;
 
-const HeightAdditionalClasses = {
+export const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
     "screen": "o-ui-h-screen",
     "auto": "o-ui-h-auto",
@@ -539,11 +576,11 @@ const HeightAdditionalClasses = {
     "min-content": "o-ui-h-min"
 } as const;
 
-const HeightClasses = { ...createOrbitSpacingClasses("h", true), ...HeightAdditionalClasses };
+export const HeightClasses = { ...createOrbitSpacingScaleClasses("h", true), ...HeightAdditionalClasses };
 
-const LeftClasses = createOrbitSpacingClasses("left", true);
+export const LeftClasses = createOrbitSpacingScaleClasses("left", true);
 
-const LineHeightClasses = {
+export const LineHeightClasses = {
     1: "o-ui-lh-1",
     2: "o-ui-lh-2",
     3: "o-ui-lh-3",
@@ -553,71 +590,71 @@ const LineHeightClasses = {
     "none": "o-ui-lh-none"
 } as const;
 
-const MarginClasses = createOrbitSpacingClasses("ma", true);
+export const MarginClasses = createOrbitSpacingScaleClasses("ma", true);
 
-const MarginTopClasses = createOrbitSpacingClasses("mt", true);
+export const MarginTopClasses = createOrbitSpacingScaleClasses("mt", true);
 
-const MarginBottomClasses = createOrbitSpacingClasses("mb", true);
+export const MarginBottomClasses = createOrbitSpacingScaleClasses("mb", true);
 
-const MarginLeftClasses = createOrbitSpacingClasses("ml", true);
+export const MarginLeftClasses = createOrbitSpacingScaleClasses("ml", true);
 
-const MarginRightClasses = createOrbitSpacingClasses("mr", true);
+export const MarginRightClasses = createOrbitSpacingScaleClasses("mr", true);
 
-const MarginVerticalClasses = createOrbitSpacingClasses("mv", true);
+export const MarginVerticalClasses = createOrbitSpacingScaleClasses("mv", true);
 
-const MarginHorizontalClasses = createOrbitSpacingClasses("mh", true);
+export const MarginHorizontalClasses = createOrbitSpacingScaleClasses("mh", true);
 
-const MaxHeightAdditionalClasses = {
+export const MaxHeightAdditionalClasses = {
     "100%": "o-ui-max-h-100",
     "auto": "o-ui-max-h-auto",
     "max-content": "o-ui-max-h-max",
     "min-content": "o-ui-max-h-min"
 } as const;
 
-const MaxHeightClasses = { ...createOrbitSpacingClasses("max-h"), ...MaxHeightAdditionalClasses };
+export const MaxHeightClasses = { ...createOrbitSpacingScaleClasses("max-h"), ...MaxHeightAdditionalClasses };
 
-const MaxWidthAdditionalClasses = {
+export const MaxWidthAdditionalClasses = {
     "100%": "o-ui-max-w-100",
     "auto": "o-ui-max-w-auto",
     "max-content": "o-ui-max-w-max",
     "min-content": "o-ui-max-w-min"
 } as const;
 
-const MaxWidthClasses = { ...createOrbitSpacingClasses("max-w"), ...MaxWidthAdditionalClasses };
+export const MaxWidthClasses = { ...createOrbitSpacingScaleClasses("max-w"), ...MaxWidthAdditionalClasses };
 
-const MinHeightAdditionalClasses = {
+export const MinHeightAdditionalClasses = {
     "100%": "o-ui-min-h-100",
     "auto": "o-ui-min-h-auto",
     "max-content": "o-ui-min-h-max",
     "min-content": "o-ui-min-h-min"
 } as const;
 
-const MinHeightClasses = { ...createOrbitSpacingClasses("min-h"), ...MinHeightAdditionalClasses };
+export const MinHeightClasses = { ...createOrbitSpacingScaleClasses("min-h"), ...MinHeightAdditionalClasses };
 
-const MinWidthAdditionalClasses = {
+export const MinWidthAdditionalClasses = {
     "100%": "o-ui-min-w-100",
     "auto": "o-ui-min-w-auto",
     "max-content": "o-ui-min-w-max",
     "min-content": "o-ui-min-w-min"
 } as const;
 
-const MinWidthClasses = { ...createOrbitSpacingClasses("min-w"), ...MinWidthAdditionalClasses };
+export const MinWidthClasses = { ...createOrbitSpacingScaleClasses("min-w"), ...MinWidthAdditionalClasses };
 
-const PaddingClasses = createOrbitSpacingClasses("pa", true);
+export const PaddingClasses = createOrbitSpacingScaleClasses("pa", true);
 
-const PaddingTopClasses = createOrbitSpacingClasses("pt", true);
+export const PaddingTopClasses = createOrbitSpacingScaleClasses("pt", true);
 
-const PaddingBottomClasses = createOrbitSpacingClasses("pb", true);
+export const PaddingBottomClasses = createOrbitSpacingScaleClasses("pb", true);
 
-const PaddingLeftClasses = createOrbitSpacingClasses("pl", true);
+export const PaddingLeftClasses = createOrbitSpacingScaleClasses("pl", true);
 
-const PaddingRightClasses = createOrbitSpacingClasses("pr", true);
+export const PaddingRightClasses = createOrbitSpacingScaleClasses("pr", true);
 
-const PaddingVerticalClasses = createOrbitSpacingClasses("pv", true);
+export const PaddingVerticalClasses = createOrbitSpacingScaleClasses("pv", true);
 
-const PaddingHorizontalClasses = createOrbitSpacingClasses("ph", true);
+export const PaddingHorizontalClasses = createOrbitSpacingScaleClasses("ph", true);
 
-const PositionClasses = {
+export const PositionClasses = {
     "static": "o-ui-static",
     "fixed": "o-ui-fixed",
     "absolute": "o-ui-absolute",
@@ -625,13 +662,13 @@ const PositionClasses = {
     "sticky": "o-ui-sticky"
 } as const;
 
-const RightClasses = createOrbitSpacingClasses("right", true);
+export const RightClasses = createOrbitSpacingScaleClasses("right", true);
 
-const StrokeClasses = createOrbitColorClasses("stroke");
+export const StrokeClasses = createOrbitColorClasses("stroke");
 
-const TopClasses = createOrbitSpacingClasses("top", true);
+export const TopClasses = createOrbitSpacingScaleClasses("top", true);
 
-const WidthAdditionalClasses = {
+export const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
     "screen": "o-ui-w-screen",
     "auto": "o-ui-w-auto",
@@ -639,9 +676,9 @@ const WidthAdditionalClasses = {
     "min-content": "o-ui-w-min"
 } as const;
 
-const WidthClasses = { ...createOrbitSpacingClasses("w", true), ...WidthAdditionalClasses };
+export const WidthClasses = { ...createOrbitSpacingScaleClasses("w", true), ...WidthAdditionalClasses };
 
-const ZindexClasses = {
+export const ZindexClasses = {
     0: "o-ui-z-0",
     1: "o-ui-z-1",
     2: "o-ui-z-2",
@@ -665,23 +702,23 @@ export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | Globa
 
 export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
-export type BorderWidthProp = Simplify<SpaceValue>;
+export type BorderWidthProp = Simplify<BorderWithValue>;
 
-export type BorderTopWidthProp = Simplify<SpaceValue>;
+export type BorderTopWidthProp = Simplify<BorderWithValue>;
 
-export type BorderBottomWidthProp = Simplify<SpaceValue>;
+export type BorderBottomWidthProp = Simplify<BorderWithValue>;
 
-export type BorderLeftWidthProp = Simplify<SpaceValue>;
+export type BorderLeftWidthProp = Simplify<BorderWithValue>;
 
-export type BorderRightWidthProp = Simplify<SpaceValue>;
+export type BorderRightWidthProp = Simplify<BorderWithValue>;
 
-export type BorderVerticalWidthProp = Simplify<SpaceValue>;
+export type BorderVerticalWidthProp = Simplify<BorderWithValue>;
 
-export type BorderHorizontalWidthProp = Simplify<SpaceValue>;
+export type BorderHorizontalWidthProp = Simplify<BorderWithValue>;
 
 export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | GlobalValue>;
 
-export type BoxShadowProp = Simplify<LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValue>;
+export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
 export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
 
