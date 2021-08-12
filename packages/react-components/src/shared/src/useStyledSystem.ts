@@ -785,8 +785,6 @@ export type WidthProp = Simplify<keyof typeof WidthAdditionalClasses | SpaceValu
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
 export interface StyleProps {
-    className?: string;
-    style?: CSSProperties;
     backgroundColor?: BackgroundColorProp;
     backgroundPosition?: BackgroundPositionProp;
     backgroundSize?: BackgroundSizeProp;
@@ -839,6 +837,8 @@ export interface StyleProps {
     top?: TopProp;
     width?: WidthProp;
     zIndex?: ZindexProp;
+    className?: string;
+    style?: CSSProperties;
 }
 
 interface Context {
@@ -929,12 +929,14 @@ export function useStyledSystem(props: Partial<StyleProps>) {
         };
 
         Object.entries(rest).forEach(([key, value]: Entry<StyleProps>) => {
-            const handler = PropsHandlers[key];
+            if (!isNil(value)) {
+                const handler = PropsHandlers[key];
 
-            if (!isNil(handler)) {
-                handler(key, value, context);
-            } else {
-                context.style[key] = value;
+                if (!isNil(handler)) {
+                    handler(key, value, context);
+                } else {
+                    context.style[key] = value;
+                }
             }
         });
 

@@ -33,9 +33,9 @@ import {
     PaddingVerticalClasses,
     StrokeClasses,
     WidthClasses,
-    omitProps,
-    useStyledSystem
+    omitProps
 } from "@react-components/shared";
+import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
@@ -44,19 +44,6 @@ function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/useStyledSystem")
         .segment(segment)
         .build();
-}
-
-function Box({ children, ...rest }) {
-    const { className, style } = useStyledSystem(rest);
-
-    return (
-        <div
-            className={className}
-            style={style}
-        >
-            {children}
-        </div>
-    );
 }
 
 function SmallSquare(props) {
@@ -79,11 +66,6 @@ function LargeSquare(props) {
     );
 }
 
-/*
-TODO:
-- all use cases work
-*/
-
 stories()
     .add("background color", () =>
         <Stack>
@@ -91,7 +73,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundColorClasses).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
-            <Inline>
+            <Inline gap={0}>
                 <SmallSquare backgroundColor="black" />
                 <SmallSquare backgroundColor="#000" />
             </Inline>
@@ -112,102 +94,70 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("border width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderWidthClasses).map(x => <LargeSquare borderWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
-    )
     .add("border style", () =>
         <Inline>
             {Object.keys(BorderStyleClasses).map(x => <LargeSquare borderStyle={x} borderWidth="1px" borderColor="#000" key={x} />)}
         </Inline>
     )
     .add("border radius", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderRadiusClasses).map(x => <LargeSquare borderRadius={x} borderWidth="1px" borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderRadius="10px" borderWidth="1px" borderStyle="solid" borderColor="#000" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderRadiusClasses).map(x => <LargeSquare borderRadius={x} borderWidth="1px" borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderRadius="10px" borderWidth="1px" borderStyle="solid" borderColor="#000" />
+        </Inline>
     )
     .add("border top", () =>
         <LargeSquare borderTop="1px solid #000" />
     )
+    .add("border width", () =>
+        <Inline>
+            {Object.keys(BorderWidthClasses).map(x => <LargeSquare borderWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderWidth="1px" borderStyle="solid" />
+        </Inline>
+    )
     .add("border top width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderTopWidthClasses).map(x => <LargeSquare borderTopWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderTopWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderTopWidthClasses).map(x => <LargeSquare borderTopWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderTopWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("border bottom", () =>
         <LargeSquare borderBottom="1px solid #000" />
     )
     .add("border bottom width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderBottomWidthClasses).map(x => <LargeSquare borderBottomWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderBottomWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderBottomWidthClasses).map(x => <LargeSquare borderBottomWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderBottomWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("border left", () =>
         <LargeSquare borderLeft="1px solid #000" />
     )
     .add("border left width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderLeftWidthClasses).map(x => <LargeSquare borderLeftWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderLeftWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderLeftWidthClasses).map(x => <LargeSquare borderLeftWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderLeftWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("border right", () =>
         <LargeSquare borderRight="1px solid #000" />
     )
     .add("border right width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderRightWidthClasses).map(x => <LargeSquare borderRightWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderRightWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderRightWidthClasses).map(x => <LargeSquare borderRightWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderRightWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("border vertical width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderVerticalWidthClasses).map(x => <LargeSquare borderVerticalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderVerticalWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderVerticalWidthClasses).map(x => <LargeSquare borderVerticalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderVerticalWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("border horizontal width", () =>
-        <Stack>
-            <Inline>
-                {Object.keys(BorderHorizontalWidthClasses).map(x => <LargeSquare borderHorizontalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            </Inline>
-            <Inline>
-                <LargeSquare borderColor="black" borderHorizontalWidth="1px" borderStyle="solid" />
-            </Inline>
-        </Stack>
+        <Inline>
+            {Object.keys(BorderHorizontalWidthClasses).map(x => <LargeSquare borderHorizontalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
+            <LargeSquare borderColor="black" borderHorizontalWidth="1px" borderStyle="solid" />
+        </Inline>
     )
     .add("box shadow", () =>
         <Inline>
