@@ -4,3 +4,19 @@
         box-shadow: var(--o-ui-bs-#{$i});
     }
 }
+
+.o-ui-bs-skim {
+    box-shadow: var(--o-ui-elevation-skim);
+}
+
+.o-ui-bs-lifted {
+    box-shadow: var(--o-ui-elevation-lifted);
+}
+
+.o-ui-bs-raised {
+    box-shadow: var(--o-ui-elevation-raised);
+}
+
+.o-ui-bs-floating {
+    box-shadow: var(--o-ui-elevation-floating);
+}

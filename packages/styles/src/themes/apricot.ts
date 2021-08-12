@@ -35,6 +35,12 @@ export const ApricotTheme: ApricotTheme = {
     borderWidths: [".125rem", ".25rem", ".5rem", "1rem", "2rem"],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
+        common: {
+            "skim": "$shadows-1",
+            "lifted": "$shadows-2",
+            "raised": "$shadows-3",
+            "floating": "$shadows-4",
+        },
         light: [`
             0 0.1px 0.3px rgba(0, 0, 0, 0.022),
             0 0.1px 0.7px rgba(0, 0, 0, 0.032),
@@ -95,12 +101,6 @@ export const ApricotTheme: ApricotTheme = {
             0 25px 80px rgba(0, 0, 0, 0.12)
             `
         ]
-    },
-    elevations: {
-        "skim": "$shadows-1",
-        "lifted": "$shadows-2",
-        "raised": "$shadows-3",
-        "floating": "$shadows-4",
     },
     zIndices: [1, 2, 3, 4, 5],
     colors: {

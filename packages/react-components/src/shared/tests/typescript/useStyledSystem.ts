@@ -29,7 +29,7 @@ import {
     SpaceValue,
     StyleProps,
     WidthProp,
-    ZIndexProp
+    ZindexProp
 } from "../../src";
 
 function globalValue() {
@@ -141,6 +141,10 @@ function boxShadowProp() {
     const support2: BoxShadowProp = 2;
     const support3: BoxShadowProp = 3;
     const support4: BoxShadowProp = 4;
+    const supportSkim: BoxShadowProp = "skim";
+    const supportLifted: BoxShadowProp = "lifted";
+    const supportRaised: BoxShadowProp = "raised";
+    const supportFloating: BoxShadowProp = "floating";
 }
 
 function colorProp() {
@@ -274,15 +278,15 @@ function widthProp() {
 }
 
 function zIndexProp() {
-    const support0: ZIndexProp = 0;
-    const support1: ZIndexProp = 1;
-    const support2: ZIndexProp = 2;
-    const support3: ZIndexProp = 3;
-    const support4: ZIndexProp = 4;
-    const support5: ZIndexProp = 5;
-    const support999: ZIndexProp = "999";
-    const support9999: ZIndexProp = "9999";
-    const supportMax: ZIndexProp = "max";
+    const support0: ZindexProp = 0;
+    const support1: ZindexProp = 1;
+    const support2: ZindexProp = 2;
+    const support3: ZindexProp = 3;
+    const support4: ZindexProp = 4;
+    const support5: ZindexProp = 5;
+    const support999: ZindexProp = "999";
+    const support9999: ZindexProp = "9999";
+    const supportMax: ZindexProp = "max";
 }
 
 const styleProps: StyleProps = {

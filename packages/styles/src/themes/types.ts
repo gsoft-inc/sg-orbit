@@ -30,7 +30,7 @@ export type BorderWidthValues = FixedLengthArray<string, 5>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
-export type ElevationValues = {
+export type BoxShadowRoles = {
     "skim": string;
     "lifted": string;
     "raised": string;
@@ -172,8 +172,7 @@ export interface OrbitTheme {
     lineHeights: LineHeightValues;
     borderWidths: BorderWidthValues;
     borderRadii: BorderRadiusValues;
-    boxShadows: BoxShadowValues | ColorSchemes<BoxShadowValues, BoxShadowValues, BoxShadowValues>;
-    elevations: ElevationValues;
+    boxShadows: BoxShadowValues | ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
     zIndices: ZIndexValues;
     colors: ColorPalettes | ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
 }

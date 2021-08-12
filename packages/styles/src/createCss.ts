@@ -116,7 +116,7 @@ export function createCss(theme: OrbitTheme) {
     appendArray(theme.borderWidths, "bw", common);
     appendArray(theme.borderRadii, "br", common);
     appendColorSchemes(theme.boxShadows, "bs", { common, light, dark });
-    appendJsonObject(theme.elevations, "elevation", common);
+    // appendJsonObject(theme.elevations, "elevation", common);
     appendArray(theme.zIndices, "z", common);
     appendColorSchemes(theme.colors, null, { common, light, dark });
 

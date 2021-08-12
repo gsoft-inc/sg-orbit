@@ -4,8 +4,6 @@ import { isNil } from "./assertions";
 
 /*
 TODO:
-- -> Height & Width & Others should support max-content, min-content, fit-content
-- Elevation
 - Chromatic tests
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
 - Interpolation for style values (and props like "border") -> Do we support it or not? Not supporting it would encourage using the other props
@@ -444,7 +442,11 @@ const BoxShadowClasses = {
     1: "o-ui-bs-1",
     2: "o-ui-bs-2",
     3: "o-ui-bs-3",
-    4: "o-ui-bs-4"
+    4: "o-ui-bs-4",
+    "skim": "o-ui-bs-skim",
+    "lifted": "o-ui-bs-lifted",
+    "raised": "o-ui-bs-raised",
+    "floating": "o-ui-bs-floating"
 } as const;
 
 const ColorRoleClasses = {
@@ -639,7 +641,7 @@ const WidthAdditionalClasses = {
 
 const WidthClasses = { ...createOrbitSpacingClasses("w", true), ...WidthAdditionalClasses };
 
-const ZIndexClasses = {
+const ZindexClasses = {
     0: "o-ui-z-0",
     1: "o-ui-z-1",
     2: "o-ui-z-2",
@@ -653,15 +655,15 @@ const ZIndexClasses = {
 
 export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
 
-export type BackgroundPositionProp = LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue;
+export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
 
-export type BackgroundSizeProp = LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue;
+export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue>;
 
 export type BorderColorProp = Simplify<keyof typeof BorderColorRoleClasses | ColorValue>;
 
-export type BorderRadiusProp = keyof typeof BorderRadiusClasses | GlobalValue;
+export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | GlobalValue>;
 
-export type BorderStyleProp = keyof typeof BorderStyleClasses | GlobalValue;
+export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
 export type BorderWidthProp = Simplify<SpaceValue>;
 
@@ -677,27 +679,27 @@ export type BorderVerticalWidthProp = Simplify<SpaceValue>;
 
 export type BorderHorizontalWidthProp = Simplify<SpaceValue>;
 
-export type BottomProp = LiteralUnion<keyof typeof BottomClasses, string> | GlobalValue;
+export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | GlobalValue>;
 
-export type BoxShadowProp = LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValue;
+export type BoxShadowProp = Simplify<LiteralUnion<keyof typeof BoxShadowClasses, string> | GlobalValue>;
 
 export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
 
-export type DisplayProp = keyof typeof DisplayClasses | GlobalValue;
+export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
 
 export type FillProp = Simplify<keyof typeof FillRoleClasses | ColorValue>;
 
-export type FontSizeProp = LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValue;
+export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValue>;
 
-export type FontWeightProp = keyof typeof FontWeightClasses | GlobalValue;
+export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
 export type HeightProp = Simplify<keyof typeof HeightAdditionalClasses | SpaceValue>;
 
-export type LeftProp = LiteralUnion<keyof typeof LeftClasses, string> | GlobalValue;
+export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | GlobalValue>;
 
-export type LineHeightProp = LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue;
+export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
-export type MarginProp = keyof typeof MarginClasses | LengthShorthand | GlobalValue;
+export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand | GlobalValue>;
 
 export type MarginTopProp = Simplify<SpaceValue>;
 
@@ -719,7 +721,7 @@ export type MinHeightProp = Simplify<keyof typeof MinHeightAdditionalClasses | S
 
 export type MinWidthProp = Simplify<keyof typeof MinWidthAdditionalClasses | SpaceValue>;
 
-export type PaddingProp = keyof typeof PaddingClasses | LengthShorthand | GlobalValue;
+export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
 export type PaddingTopProp = Simplify<SpaceValue>;
 
@@ -733,17 +735,17 @@ export type PaddingVerticalProp = Simplify<SpaceValue>;
 
 export type PaddingHorizontalProp = Simplify<SpaceValue>;
 
-export type PositionProp = keyof typeof PositionClasses | GlobalValue;
+export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
-export type RightProp = LiteralUnion<keyof typeof RightClasses, string> | GlobalValue;
+export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | GlobalValue>;
 
 export type StrokeProp = Simplify<ColorValue>;
 
-export type TopProp = LiteralUnion<keyof typeof TopClasses, string> | GlobalValue;
+export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
 
 export type WidthProp = Simplify<keyof typeof WidthAdditionalClasses | SpaceValue>;
 
-export type ZIndexProp = LiteralUnion<keyof typeof ZIndexClasses, string> | GlobalValue;
+export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
 export interface StyleProps {
     className?: string;
@@ -799,7 +801,7 @@ export interface StyleProps {
     stroke?: StrokeProp;
     top?: TopProp;
     width?: WidthProp;
-    zIndex?: ZIndexProp;
+    zIndex?: ZindexProp;
 }
 
 interface Context {
@@ -867,7 +869,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     stroke: createPropHandler(StrokeClasses),
     top: createPropHandler(TopClasses),
     width: createPropHandler(WidthClasses),
-    zIndex: createPropHandler(ZIndexClasses)
+    zIndex: createPropHandler(ZindexClasses)
 };
 
 /*
@@ -889,9 +891,7 @@ export function useStyledSystem(props: Partial<StyleProps>) {
             style: style ?? {}
         };
 
-        Object.entries(rest).forEach((x: Entry<StyleProps>) => {
-            const [key, value] = x;
-
+        Object.entries(rest).forEach(([key, value]: Entry<StyleProps>) => {
             const handler = PropsHandlers[key];
 
             if (!isNil(handler)) {
