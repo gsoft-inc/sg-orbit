@@ -104,22 +104,24 @@ function renderBucket(id: string, content: string) {
     document.head.appendChild(element);
 }
 
-export function createCss(theme: OrbitTheme) {
-    const common: Bucket = [];
-    const light: Bucket = [];
-    const dark: Bucket = [];
+export function createCss(themes: OrbitTheme[]) {
+    themes.forEach(theme => {
+        const common: Bucket = [];
+        const light: Bucket = [];
+        const dark: Bucket = [];
 
-    appendArray(theme.space, "space", common);
-    appendJsonObject(theme.fontSizes, "font-sizes", common);
-    appendArray(theme.fontWeights, "font-weights", common);
-    appendArray(theme.lineHeights, "line-heights", common);
-    appendArray(theme.borderWidths, "border-widths", common);
-    appendArray(theme.borderRadii, "border-radii", common);
-    appendColorSchemes(theme.boxShadows, "box-shadows", { common, light, dark });
-    appendArray(theme.zIndices, "z-indices", common);
-    appendColorSchemes(theme.colors, null, { common, light, dark });
+        appendArray(theme.space, "space", common);
+        appendJsonObject(theme.fontSizes, "font-sizes", common);
+        appendArray(theme.fontWeights, "font-weights", common);
+        appendArray(theme.lineHeights, "line-heights", common);
+        appendArray(theme.borderWidths, "border-widths", common);
+        appendArray(theme.borderRadii, "border-radii", common);
+        appendColorSchemes(theme.boxShadows, "box-shadows", { common, light, dark });
+        appendArray(theme.zIndices, "z-indices", common);
+        appendColorSchemes(theme.colors, null, { common, light, dark });
 
-    renderBucket(theme.name, `.o-ui { ${common.join(" ")} }`);
-    renderBucket(`${theme.name}-light`, `.o-ui-light { ${light.join(" ")} }`);
-    renderBucket(`${theme.name}-dark`, `.o-ui-dark { ${dark.join(" ")} }`);
+        renderBucket(theme.name, `.o-ui-${theme.name} { ${common.join(" ")} }`);
+        renderBucket(`${theme.name}-light`, `.o-ui-${theme.name}-light { ${light.join(" ")} }`);
+        renderBucket(`${theme.name}-dark`, `.o-ui-${theme.name}-dark { ${dark.join(" ")} }`);
+    });
 }

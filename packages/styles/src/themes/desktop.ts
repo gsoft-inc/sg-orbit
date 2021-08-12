@@ -6,8 +6,8 @@ POTENTIALLY MISSING:
 - breakpoints
 */
 
-export const ApricotTheme: OrbitTheme = {
-    name: "apricot",
+export const DesktopTheme: OrbitTheme = {
+    name: "desktop",
     space: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
     // TODO FRANK: How many font sizes we realistically need.
     fontSizes: {
@@ -199,16 +199,16 @@ export const ApricotTheme: OrbitTheme = {
                 "hsla(138, 89%, 36%, 1)"
             ],
             primary: [
-                "hsla(174, 61%, 94%, 1)",
-                "hsla(173, 63%, 85%, 1)",
-                "hsla(173, 63%, 75%, 1)",
-                "hsla(173, 64%, 65%, 1)",
-                "hsla(173, 64%, 50%, 1)",
-                "hsla(172, 65%, 48%, 1)",
-                "hsla(173, 65%, 46%, 1)",
-                "hsla(172, 63%, 45%, 1)",
-                "hsla(172, 64%, 43%, 1)",
-                "hsla(172, 62%, 41%, 1)"
+                "#FEEEE4",
+                "#FCD5BC",
+                "#FAB990",
+                "#F79D64",
+                "#F68842",
+                "#F47321",
+                "#EB6300",
+                "#DD5306",
+                "#CE4409",
+                "#AC3400"
             ]
         },
         light: {

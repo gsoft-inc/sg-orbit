@@ -35,6 +35,7 @@
         "@orbit-ui/css-normalize": "*",
         "@orbit-ui/icons": "*",
         "@orbit-ui/tachyons": "*",
+        "@orbit-ui/styles": "*",
         "react": "*",
         "react-dom": "*"
     },

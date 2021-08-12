@@ -38,6 +38,7 @@ import {
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { ThemeProvider } from "@react-components/theme-provider";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -69,10 +70,14 @@ function LargeSquare(props) {
 stories()
     .add("background color", () =>
         <Stack>
-            {/* TODO: Add per color schemes with the theme provider. */}
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundColorClasses).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
+            <ThemeProvider colorScheme="dark">
+                <Inline gap={0} wrap>
+                    {Object.keys(BackgroundColorClasses).map(x => <SmallSquare backgroundColor={x} key={x} />)}
+                </Inline>
+            </ThemeProvider>
             <Inline gap={0}>
                 <SmallSquare backgroundColor="black" />
                 <SmallSquare backgroundColor="#000" />
@@ -84,13 +89,17 @@ stories()
     )
     .add("border color", () =>
         <Stack>
-            {/* TODO: Add per color schemes with the theme provider. */}
             <Inline gap={1} wrap>
-                {Object.keys(BorderColorClasses).map(x => <SmallSquare borderColor={x} borderWidth="1px" borderStyle="solid" key={x} />)}
+                {Object.keys(BorderColorClasses).map(x => <SmallSquare borderColor={x} borderWidth="4px" borderStyle="solid" key={x} />)}
             </Inline>
+            <ThemeProvider colorScheme="dark">
+                <Inline gap={1} wrap>
+                    {Object.keys(BorderColorClasses).map(x => <SmallSquare borderColor={x} borderWidth="4px" borderStyle="solid" key={x} />)}
+                </Inline>
+            </ThemeProvider>
             <Inline>
-                <SmallSquare borderColor="black" borderWidth="1px" borderStyle="solid" />
-                <SmallSquare borderColor="#000" borderWidth="1px" borderStyle="solid" />
+                <SmallSquare borderColor="black" borderWidth="4px" borderStyle="solid" />
+                <SmallSquare borderColor="#000" borderWidth="4px" borderStyle="solid" />
             </Inline>
         </Stack>
     )
@@ -166,10 +175,14 @@ stories()
     )
     .add("color", () =>
         <Stack>
-            {/* TODO: Add per color schemes with the theme provider. */}
             <Inline gap={0} wrap>
                 {Object.keys(ColorClasses).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
             </Inline>
+            <ThemeProvider colorScheme="dark">
+                <Inline gap={0} wrap>
+                    {Object.keys(ColorClasses).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
+                </Inline>
+            </ThemeProvider>
             <Inline>
                 <SmallSquare color="red">T</SmallSquare>
                 <SmallSquare color="#ff0000">T</SmallSquare>
@@ -179,10 +192,14 @@ stories()
     .add("fill", () =>
         <Stack>
             {/* /TODO-1: Icon need to implement useStyledSystem. */}
-            {/* /TODO-2: Add per color schemes with the theme provider. */}
             <Inline gap={0} wrap>
                 {Object.keys(FillClasses).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
+            <ThemeProvider colorScheme="dark">
+                <Inline gap={0} wrap>
+                    {Object.keys(FillClasses).map(x => <FileIcon fill={x} key={x} />)}
+                </Inline>
+            </ThemeProvider>
             <Inline>
                 <FileIcon fill="red" />
                 <FileIcon fill="#ff0000" />
@@ -312,10 +329,14 @@ stories()
     .add("stroke", () =>
         <Stack>
             {/* TODO-1: Icon need to implement useStyledSystem. */}
-            {/* TODO-2: Add per color schemes with the theme provider. */}
             <Inline gap={0} wrap>
                 {Object.keys(StrokeClasses).map(x => <FileIcon stroke={x} key={x} />)}
             </Inline>
+            <ThemeProvider colorScheme="dark">
+                <Inline gap={0} wrap>
+                    {Object.keys(StrokeClasses).map(x => <FileIcon stroke={x} key={x} />)}
+                </Inline>
+            </ThemeProvider>
             <Inline>
                 <FileIcon stroke="red" />
                 <FileIcon stroke="#ff0000" />

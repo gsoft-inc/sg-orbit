@@ -1,4 +1,4 @@
-import { ApricotTheme, createCss } from "@orbit-ui/styles";
+import { ApricotTheme, DesktopTheme, createCss } from "@orbit-ui/styles";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
@@ -14,7 +14,7 @@ import "@orbit-ui/styles/dist/index.css";
 
 import "./styles";
 
-createCss(ApricotTheme);
+createCss([ApricotTheme, DesktopTheme]);
 
 // TODO: Need to do something for this
 // if (!isChromatic) {
@@ -70,7 +70,7 @@ export const globalTypes = {
         defaultValue: "apricot",
         toolbar: {
             icon: "photo",
-            items: ["apricot", "desktop"]
+            items: [ApricotTheme.name, DesktopTheme.name]
         }
     },
     colorScheme: {

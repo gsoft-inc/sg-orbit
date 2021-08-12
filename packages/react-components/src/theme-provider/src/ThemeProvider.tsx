@@ -1,18 +1,19 @@
+import { ApricotTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ElementType, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
 import { useColorScheme } from "./useColorScheme";
 
-export type Theme = "apricot" | "desktop";
 export type ColorScheme = "light" | "dark";
+
 export type ColorSchemeOrSystem = ColorScheme | "system";
 
 export interface ThemeProviderProps {
     /**
      * The theme to use.
      */
-    theme?: Theme;
+    theme?: string;
     /**
      * The color scheme to use.
      */
@@ -32,7 +33,7 @@ export interface ThemeProviderProps {
 }
 
 export function ThemeProvider({
-    theme = "apricot",
+    theme: userTheme,
     colorScheme,
     defaultColorScheme,
     children,
@@ -40,6 +41,8 @@ export function ThemeProvider({
     ...rest
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
+
+    const theme = userTheme ?? ApricotTheme.name;
 
     colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
@@ -62,7 +65,7 @@ export function ThemeProvider({
                         className: mergeClasses(
                             "o-ui",
                             `o-ui-${theme}`,
-                            `o-ui-${colorScheme}`
+                            `o-ui-${theme}-${colorScheme}`
                         ),
                         as
                     }
