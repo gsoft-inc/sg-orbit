@@ -210,6 +210,8 @@ function heightProp() {
     const support100: HeightProp = "100%";
     const supportScreen: HeightProp = "screen";
     const supportAuto: HeightProp = "auto";
+    const supportMaxContent: HeightProp = "max-content";
+    const supportMinContent: HeightProp = "min-content";
 }
 
 function lineHeightProp() {
@@ -226,24 +228,32 @@ function maxHeightProp() {
     const supportOrbitSpace: MaxHeightProp = 1;
     const support100: MaxHeightProp = "100%";
     const supportAuto: MaxHeightProp = "auto";
+    const supportMaxContent: MaxHeightProp = "max-content";
+    const supportMinContent: MaxHeightProp = "min-content";
 }
 
 function maxWidthProp() {
     const supportOrbitSpace: MaxWidthProp = 1;
     const support100: MaxWidthProp = "100%";
     const supportAuto: MaxWidthProp = "auto";
+    const supportMaxContent: MaxWidthProp = "max-content";
+    const supportMinContent: MaxWidthProp = "min-content";
 }
 
 function minHeightProp() {
     const supportOrbitSpace: MinHeightProp = 1;
-    const support100: MaxHeightProp = "100%";
-    const supportAuto: MaxHeightProp = "auto";
+    const support100: MinHeightProp = "100%";
+    const supportAuto: MinHeightProp = "auto";
+    const supportMaxContent: MinHeightProp = "max-content";
+    const supportMinContent: MinHeightProp = "min-content";
 }
 
 function minWidthProp() {
     const supportOrbitSpace: MinWidthProp = 1;
-    const support100: MaxWidthProp = "100%";
-    const supportAuto: MaxWidthProp = "auto";
+    const support100: MinWidthProp = "100%";
+    const supportAuto: MinWidthProp = "auto";
+    const supportMaxContent: MinWidthProp = "max-content";
+    const supportMinContent: MinWidthProp = "min-content";
 }
 
 function positionProp() {
@@ -259,6 +269,8 @@ function widthProp() {
     const support100: WidthProp = "100%";
     const supportScreen: WidthProp = "screen";
     const supportAuto: WidthProp = "auto";
+    const supportMaxContent: WidthProp = "max-content";
+    const supportMinContent: WidthProp = "min-content";
 }
 
 function zIndexProp() {

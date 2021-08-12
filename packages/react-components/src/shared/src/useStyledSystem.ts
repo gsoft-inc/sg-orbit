@@ -532,7 +532,9 @@ const FontWeightClasses = {
 const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
     "screen": "o-ui-h-screen",
-    "auto": "o-ui-h-auto"
+    "auto": "o-ui-h-auto",
+    "max-content": "o-ui-h-max",
+    "min-content": "o-ui-h-min"
 } as const;
 
 const HeightClasses = { ...createOrbitSpacingClasses("h", true), ...HeightAdditionalClasses };
@@ -565,28 +567,36 @@ const MarginHorizontalClasses = createOrbitSpacingClasses("mh", true);
 
 const MaxHeightAdditionalClasses = {
     "100%": "o-ui-max-h-100",
-    "auto": "o-ui-max-h-auto"
+    "auto": "o-ui-max-h-auto",
+    "max-content": "o-ui-max-h-max",
+    "min-content": "o-ui-max-h-min"
 } as const;
 
 const MaxHeightClasses = { ...createOrbitSpacingClasses("max-h"), ...MaxHeightAdditionalClasses };
 
 const MaxWidthAdditionalClasses = {
     "100%": "o-ui-max-w-100",
-    "auto": "o-ui-max-w-auto"
+    "auto": "o-ui-max-w-auto",
+    "max-content": "o-ui-max-w-max",
+    "min-content": "o-ui-max-w-min"
 } as const;
 
 const MaxWidthClasses = { ...createOrbitSpacingClasses("max-w"), ...MaxWidthAdditionalClasses };
 
 const MinHeightAdditionalClasses = {
     "100%": "o-ui-min-h-100",
-    "auto": "o-ui-min-h-auto"
+    "auto": "o-ui-min-h-auto",
+    "max-content": "o-ui-min-h-max",
+    "min-content": "o-ui-min-h-min"
 } as const;
 
 const MinHeightClasses = { ...createOrbitSpacingClasses("min-h"), ...MinHeightAdditionalClasses };
 
 const MinWidthAdditionalClasses = {
     "100%": "o-ui-min-w-100",
-    "auto": "o-ui-min-w-auto"
+    "auto": "o-ui-min-w-auto",
+    "max-content": "o-ui-min-w-max",
+    "min-content": "o-ui-min-w-min"
 } as const;
 
 const MinWidthClasses = { ...createOrbitSpacingClasses("min-w"), ...MinWidthAdditionalClasses };
@@ -622,7 +632,9 @@ const TopClasses = createOrbitSpacingClasses("top", true);
 const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
     "screen": "o-ui-w-screen",
-    "auto": "o-ui-w-auto"
+    "auto": "o-ui-w-auto",
+    "max-content": "o-ui-w-max",
+    "min-content": "o-ui-w-min"
 } as const;
 
 const WidthClasses = { ...createOrbitSpacingClasses("w", true), ...WidthAdditionalClasses };
