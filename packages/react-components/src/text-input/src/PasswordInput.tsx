@@ -126,7 +126,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
 
     return (
         <TextInput
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     value: inputValue,
@@ -137,7 +137,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
                     type: isHidden ? "password" : "text",
                     button: showButtonMarkup,
                     ref: forwardedRef
-                }
+                } as const
             )}
         />
     );

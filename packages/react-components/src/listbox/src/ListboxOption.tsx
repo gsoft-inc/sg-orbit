@@ -133,7 +133,7 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     id,
@@ -175,11 +175,11 @@ export function InnerListboxOption({
 
         return (
             <TooltipTrigger
-                {...mergeProps<any>(
+                {...mergeProps(
                     tooltipProps,
                     {
                         position: "left"
-                    }
+                    } as const
                 )}
             >
                 {optionMarkup}

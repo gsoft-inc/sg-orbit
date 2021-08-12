@@ -138,11 +138,11 @@ export function InnerMenuItem({
 
         return (
             <TooltipTrigger
-                {...mergeProps<any>(
+                {...mergeProps(
                     tooltipProps,
                     {
                         position: "left"
-                    }
+                    } as const
                 )}
             >
                 {itemMarkup}

@@ -33,7 +33,7 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
     return (
         <TooltipTrigger>
             <Box
-                {...mergeProps<any>(
+                {...mergeProps(
                     rest,
                     {
                         className: mergeClasses(
@@ -43,7 +43,7 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
                                 normalizeSize(size)
                             )
                         )
-                    }
+                    } as const
                 )}
             >
                 <AvatarText size={size}>
@@ -109,14 +109,14 @@ export function InnerAvatarGroup({
 
     return (
         <Group
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     gap: 1,
                     className: "o-ui-avatar-group",
                     as,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {avatarsMarkup}

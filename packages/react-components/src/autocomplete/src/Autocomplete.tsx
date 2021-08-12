@@ -471,7 +471,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 disabled={disabled}
             />
             <SearchInput
-                {...mergeProps<any>(
+                {...mergeProps(
                     rest,
                     {
                         id: triggerId,
@@ -506,7 +506,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         "aria-describedby": ariaDescribedBy,
                         as,
                         ref: triggerRef
-                    },
+                    } as const,
                     triggerProps
                 )}
             />

@@ -66,12 +66,12 @@ export function InnerGroup({
 
     return (
         <Flex
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                },
+                } as const,
                 directionProps,
                 alignProps
             )}

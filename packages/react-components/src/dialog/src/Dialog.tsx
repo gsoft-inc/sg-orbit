@@ -278,7 +278,7 @@ export function InnerDialog({
         <>
             <Underlay zIndex={zIndex} />
             <Box
-                {...mergeProps<any>(
+                {...mergeProps(
                     wrapperProps ?? {},
                     {
                         className: cssModule(
