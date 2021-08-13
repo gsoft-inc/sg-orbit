@@ -424,7 +424,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         selectItem(event, newKeys[0] ?? null);
     });
 
-    const handleListboxFocusChange = useEventCallback((_event: FocusEvent, newKey, activeElement) => {
+    const handleListboxFocusChange = useEventCallback((event: FocusEvent, newKey, activeElement) => {
         setFocusedItem({
             id: activeElement.id,
             key: newKey

@@ -69,7 +69,7 @@ export function useSelect(children: ReactNode, {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event: SyntheticEvent, isVisible: boolean) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
             setFocusTarget(FocusTarget.first);
