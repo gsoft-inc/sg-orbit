@@ -55,6 +55,18 @@ Theme providers can be nested.
     </Story>
 </Preview>
 
+A nested theme inherits his parent `theme` and `colorScheme`. Therefore, in the previous example, the nested theme `colorScheme` could be omitted.
+
+<Preview>
+    <Story name="inheritance">
+        <ThemeProvider colorScheme="light">
+            <ThemeProvider theme="desktop">
+                <Button color="primary">Cutoff</Button>
+            </ThemeProvider>
+        </ThemeProvider>
+    </Story>
+</Preview>
+
 ### User setting
 
 A theme provider can select a color scheme according to the user's operating system setting.

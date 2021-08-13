@@ -191,7 +191,6 @@ stories()
     )
     .add("fill", () =>
         <Stack>
-            {/* /TODO-1: Icon need to implement useStyledSystem. */}
             <Inline gap={0} wrap>
                 {Object.keys(FillClasses).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
@@ -328,7 +327,6 @@ stories()
     )
     .add("stroke", () =>
         <Stack>
-            {/* TODO-1: Icon need to implement useStyledSystem. */}
             <Inline gap={0} wrap>
                 {Object.keys(StrokeClasses).map(x => <FileIcon stroke={x} key={x} />)}
             </Inline>

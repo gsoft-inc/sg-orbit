@@ -1,15 +1,15 @@
 import { ApricotTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ElementType, ReactNode, useCallback, useState } from "react";
-import { ThemeContext } from "./ThemeContext";
-import { mergeClasses, mergeProps } from "../../shared";
+import { StyleProps, mergeClasses, mergeProps } from "../../shared";
+import { ThemeContext, useThemeContext } from "./ThemeContext";
 import { useColorScheme } from "./useColorScheme";
 
 export type ColorScheme = "light" | "dark";
 
 export type ColorSchemeOrSystem = ColorScheme | "system";
 
-export interface ThemeProviderProps {
+export interface ThemeProviderProps extends StyleProps {
     /**
      * The theme to use.
      */
@@ -40,15 +40,17 @@ export function ThemeProvider({
     as = "div",
     ...rest
 }: ThemeProviderProps) {
+    const parentTheme = useThemeContext();
+
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
-    const theme = userTheme ?? ApricotTheme.name;
-
-    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
+    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme ?? parentTheme.colorScheme, defaultColorScheme);
 
     const setColorScheme = useCallback(newColorScheme => {
         setRemoteColorScheme(newColorScheme);
     }, [setRemoteColorScheme]);
+
+    const theme = userTheme ?? parentTheme.theme ?? ApricotTheme.name;
 
     return (
         <ThemeContext.Provider

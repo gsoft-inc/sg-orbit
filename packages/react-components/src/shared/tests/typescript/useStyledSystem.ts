@@ -105,7 +105,7 @@ function backgroundColorProp() {
     const supportColorExpression: BackgroundColorProp = "#fff";
     const supportNamedColor: BackgroundColorProp = "white";
     const supportOrbitColor: BackgroundColorProp = "sunray-1";
-    const supportRole: BackgroundColorProp = "bg-1";
+    const supportRole: BackgroundColorProp = "alias-1";
 }
 
 function backgroundPositionProp() {
@@ -130,7 +130,7 @@ function borderColorProp() {
     const supportColorExpression: BorderColorProp = "#fff";
     const supportNamedColor: BorderColorProp = "white";
     const supportOrbitColor: BorderColorProp = "sunray-1";
-    const supportRole: BorderColorProp = "b-1";
+    const supportRole: BorderColorProp = "alias-1";
 }
 
 function borderRadiusProp() {
@@ -156,17 +156,17 @@ function boxShadowProp() {
     const support2: BoxShadowProp = 2;
     const support3: BoxShadowProp = 3;
     const support4: BoxShadowProp = 4;
-    const supportSkim: BoxShadowProp = "skim";
-    const supportLifted: BoxShadowProp = "lifted";
-    const supportRaised: BoxShadowProp = "raised";
-    const supportFloating: BoxShadowProp = "floating";
+    const supportSkim: BoxShadowProp = "alias-skim";
+    const supportLifted: BoxShadowProp = "alias-lifted";
+    const supportRaised: BoxShadowProp = "alias-raised";
+    const supportFloating: BoxShadowProp = "alias-floating";
 }
 
 function colorProp() {
     const supportColorExpression: ColorProp = "#fff";
     const supportNamedColor: ColorProp = "white";
     const supportOrbitColor: ColorProp = "sunray-1";
-    const supportRole: ColorProp = "text-1";
+    const supportRole: ColorProp = "alias-1";
 }
 
 function displayProp() {
@@ -195,7 +195,7 @@ function fillProp() {
     const supportColorExpression: FillProp = "#fff";
     const supportNamedColor: FillProp = "white";
     const supportOrbitColor: FillProp = "sunray-1";
-    const supportRole: FillProp = "icon-1";
+    const supportRole: FillProp = "alias-icon-1";
 }
 
 function fontSizeProp() {

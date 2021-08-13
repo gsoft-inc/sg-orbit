@@ -1,8 +1,8 @@
 import { createContext, useContext } from "react";
-import type { ColorScheme, Theme } from "./ThemeProvider";
+import type { ColorScheme } from "./ThemeProvider";
 
 export interface ThemeContextType {
-    theme?: Theme;
+    theme?: string;
     colorScheme?: ColorScheme;
     setColorScheme?: (newColorScheme: ColorScheme) => void;
 }

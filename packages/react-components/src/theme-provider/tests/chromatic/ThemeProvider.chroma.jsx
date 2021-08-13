@@ -1,3 +1,4 @@
+import { Box } from "@react-components/box";
 import { Inline } from "@react-components/layout";
 import { ThemeProvider, useThemeContext } from "@react-components/theme-provider";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -15,16 +16,25 @@ function stories(segment) {
 function PrimaryColors() {
     return (
         <Inline gap={0}>
-            <div className="pa4 bg-primary-50" />
-            <div className="pa4 bg-primary-100" />
-            <div className="pa4 bg-primary-200" />
-            <div className="pa4 bg-primary-300" />
-            <div className="pa4 bg-primary-400" />
-            <div className="pa4 bg-primary-500" />
-            <div className="pa4 bg-primary-600" />
-            <div className="pa4 bg-primary-700" />
-            <div className="pa4 bg-primary-800" />
-            <div className="pa4 bg-primary-900" />
+            <Box padding={4} backgroundColor="primary-1" />
+            <Box padding={4} backgroundColor="primary-2" />
+            <Box padding={4} backgroundColor="primary-3" />
+            <Box padding={4} backgroundColor="primary-4" />
+            <Box padding={4} backgroundColor="primary-5" />
+            <Box padding={4} backgroundColor="primary-6" />
+            <Box padding={4} backgroundColor="primary-7" />
+            <Box padding={4} backgroundColor="primary-8" />
+            <Box padding={4} backgroundColor="primary-9" />
+            <Box padding={4} backgroundColor="primary-10" />
+        </Inline>
+    );
+}
+
+function PrimaryAliasColors() {
+    return (
+        <Inline gap={0}>
+            <Box padding={4} backgroundColor="alias-primary-1" />
+            <Box padding={4} backgroundColor="alias-primary-2" />
         </Inline>
     );
 }
@@ -34,6 +44,20 @@ stories()
         <ThemeProvider theme="apricot">
             <ThemeProvider theme="desktop">
                 <PrimaryColors />
+            </ThemeProvider>
+        </ThemeProvider>
+    )
+    .add("theme inheritance", () =>
+        <ThemeProvider theme="apricot">
+            <ThemeProvider colorScheme="dark">
+                <PrimaryAliasColors />
+            </ThemeProvider>
+        </ThemeProvider>
+    )
+    .add("color scheme inheritance", () =>
+        <ThemeProvider colorScheme="dark">
+            <ThemeProvider theme="desktop">
+                <PrimaryAliasColors />
             </ThemeProvider>
         </ThemeProvider>
     )
@@ -49,12 +73,12 @@ stories()
     )
     .add("light", () =>
         <ThemeProvider colorScheme="light">
-            <div className="pa4 background-2"></div>
+            <Box padding={4} backgroundColor="alias-2" />
         </ThemeProvider>
     )
     .add("dark", () =>
         <ThemeProvider colorScheme="dark">
-            <div className="pa4 background-2"></div>
+            <Box padding={4} backgroundColor="alias-2" />
         </ThemeProvider>
     )
     .add("set color scheme with api", () => {
@@ -75,10 +99,4 @@ stories()
                 <PrimaryColors />
             </ThemeProvider>
         );
-    })
-    .add("styling", () =>
-        <Inline>
-            <ThemeProvider className="border-red" theme="apricot" colorScheme="light">className</ThemeProvider>
-            <ThemeProvider style={{ border: "1px solid red" }} theme="apricot" colorScheme="light">style</ThemeProvider>
-        </Inline>
-    );
+    });

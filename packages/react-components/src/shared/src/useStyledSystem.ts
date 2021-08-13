@@ -386,21 +386,21 @@ function createOrbitColorClasses(section?: string) {
 export type ColorValue = OrbitColor | CssColor | GlobalValue;
 
 export const BackgroundColorRoleClasses = {
-    "bg-1": "o-ui-bg-1",
-    "bg-2": "o-ui-bg-2",
-    "bg-3": "o-ui-bg-3",
-    "bg-4": "o-ui-bg-4",
-    "bg-5": "o-ui-bg-5",
-    "bg-6": "o-ui-bg-6",
-    "bg-primary-1": "o-ui-bg-primary-1",
-    "bg-primary-2": "o-ui-bg-primary-2",
-    "bg-negative-1": "o-ui-bg-negative-1",
-    "bg-negative-2": "o-ui-bg-negative-2",
-    "bg-warning-1": "o-ui-bg-warning-1",
-    "bg-warning-2": "o-ui-bg-warning-2",
-    "bg-positive-1": "o-ui-bg-positive-1",
-    "bg-positive-2": "o-ui-bg-positive-2",
-    "bg-info-1": "o-ui-bg-info-1"
+    "alias-1": "o-ui-alias-bg-1",
+    "alias-2": "o-ui-alias-bg-2",
+    "alias-3": "o-ui-alias-bg-3",
+    "alias-4": "o-ui-alias-bg-4",
+    "alias-5": "o-ui-alias-bg-5",
+    "alias-6": "o-ui-alias-bg-6",
+    "alias-primary-1": "o-ui-alias-bg-primary-1",
+    "alias-primary-2": "o-ui-alias-bg-primary-2",
+    "alias-negative-1": "o-ui-alias-bg-negative-1",
+    "alias-negative-2": "o-ui-alias-bg-negative-2",
+    "alias-warning-1": "o-ui-alias-bg-warning-1",
+    "alias-warning-2": "o-ui-alias-bg-warning-2",
+    "alias-positive-1": "o-ui-alias-bg-positive-1",
+    "alias-positive-2": "o-ui-alias-bg-positive-2",
+    "alias-info-1": "o-ui-alias-bg-info-1"
 } as const;
 
 export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
@@ -424,17 +424,17 @@ export const BackgroundSizeClasses = {
 } as const;
 
 export const BorderColorRoleClasses = {
-    "b-1": "o-ui-b-1",
-    "b-2": "o-ui-b-2",
-    "b-3": "o-ui-b-3",
-    "b-4": "o-ui-b-4",
-    "b-primary-1": "o-ui-b-primary-1",
-    "b-primary-1-translucent": "o-ui-b-primary-1-translucent",
-    "b-negative-1": "o-ui-b-negative-1",
-    "b-negative-1-translucent": "o-ui-b-negative-1-translucent",
-    "b-negative-2": "o-ui-b-negative-2",
-    "b-warning-1": "o-ui-b-warning-1",
-    "b-positive-1": "o-ui-b-positive-1"
+    "alias-1": "o-ui-alias-b-1",
+    "alias-2": "o-ui-alias-b-2",
+    "alias-3": "o-ui-alias-b-3",
+    "alias-4": "o-ui-alias-b-4",
+    "alias-primary-1": "o-ui-alias-b-primary-1",
+    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent",
+    "alias-negative-1": "o-ui-alias-b-negative-1",
+    "alias-negative-1-translucent": "o-ui-alias-b-negative-1-translucent",
+    "alias-negative-2": "o-ui-alias-b-negative-2",
+    "alias-warning-1": "o-ui-alias-b-warning-1",
+    "alias-positive-1": "o-ui-alias-b-positive-1"
 } as const;
 
 export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
@@ -480,27 +480,27 @@ export const BoxShadowClasses = {
     2: "o-ui-bs-2",
     3: "o-ui-bs-3",
     4: "o-ui-bs-4",
-    "skim": "o-ui-bs-skim",
-    "lifted": "o-ui-bs-lifted",
-    "raised": "o-ui-bs-raised",
-    "floating": "o-ui-bs-floating"
+    "alias-skim": "o-ui-alias-bs-skim",
+    "alias-lifted": "o-ui-alias-bs-lifted",
+    "alias-raised": "o-ui-alias-bs-raised",
+    "alias-floating": "o-ui-alias-bs-floating"
 } as const;
 
 export const ColorRoleClasses = {
-    "text-1": "o-ui-text-1",
-    "text-2": "o-ui-text-2",
-    "text-3": "o-ui-text-3",
-    "text-4": "o-ui-text-4",
-    "text-primary-1": "o-ui-text-primary-1",
-    "text-negative-1": "o-ui-text-negative-1",
-    "text-negative-2": "o-ui-text-negative-2",
-    "text-info-1": "o-ui-text-info-1",
-    "text-positive-1": "o-ui-text-positive-1",
-    "text-positive-2": "o-ui-text-positive-2",
-    "text-warning-1": "o-ui-text-warning-1",
-    "text-warning-2": "o-ui-text-warning-2",
-    "text-input-selection": "o-ui-text-input-selection",
-    "text-input-placeholder": "o-ui-text-input-placeholder"
+    "alias-1": "o-ui-alias-text-1",
+    "alias-2": "o-ui-alias-text-2",
+    "alias-3": "o-ui-alias-text-3",
+    "alias-4": "o-ui-alias-text-4",
+    "alias-primary-1": "o-ui-alias-text-primary-1",
+    "alias-negative-1": "o-ui-alias-text-negative-1",
+    "alias-negative-2": "o-ui-alias-text-negative-2",
+    "alias-info-1": "o-ui-alias-text-info-1",
+    "alias-positive-1": "o-ui-alias-text-positive-1",
+    "alias-positive-2": "o-ui-alias-text-positive-2",
+    "alias-warning-1": "o-ui-alias-text-warning-1",
+    "alias-warning-2": "o-ui-alias-text-warning-2",
+    "alias-input-selection": "o-ui-alias-text-input-selection",
+    "alias-input-placeholder": "o-ui-alias-text-input-placeholder"
 } as const;
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
@@ -528,16 +528,16 @@ export const DisplayClasses = {
 } as const;
 
 export const FillRoleClasses = {
-    "icon-1": "icon-1",
-    "icon-2": "icon-2",
-    "icon-primary-1": "icon-primary-1",
-    "icon-negative-1": "icon-negative-1",
-    "icon-negative-2": "icon-negative-2",
-    "icon-positive-1": "icon-positive-1",
-    "icon-positive-2": "icon-positive-2",
-    "icon-warning-1": "icon-warning-1",
-    "icon-warning-2": "icon-warning-2",
-    "icon-info-1": "icon-info-1"
+    "alias-icon-1": "o-ui-alias-icon-1",
+    "alias-icon-2": "o-ui-alias-icon-2",
+    "alias-icon-primary-1": "o-ui-alias-icon-primary-1",
+    "alias-icon-negative-1": "o-ui-alias-icon-negative-1",
+    "alias-icon-negative-2": "o-ui-alias-icon-negative-2",
+    "alias-icon-positive-1": "o-ui-alias-icon-positive-1",
+    "alias-icon-positive-2": "o-ui-alias-icon-positive-2",
+    "alias-icon-warning-1": "o-ui-alias-icon-warning-1",
+    "alias-icon-warning-2": "o-ui-alias-icon-warning-2",
+    "alias-icon-info-1": "o-ui-alias-icon-info-1"
 } as const;
 
 export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
