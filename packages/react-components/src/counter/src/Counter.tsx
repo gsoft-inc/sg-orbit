@@ -1,9 +1,9 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 
 export interface InnerCounterProps {
     /**
@@ -90,7 +90,7 @@ export function InnerCounter(props: InnerCounterProps) {
     );
 }
 
-export const Counter = slot("counter", forwardRef<InnerCounterProps>((props, ref) => (
+export const Counter = slot("counter", forwardRef<any, Omit<InnerCounterProps, "forwardedRef">>((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
 

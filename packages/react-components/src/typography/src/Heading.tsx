@@ -1,9 +1,9 @@
 import "./Heading.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerHeadingProps {
+export interface InnerHeadingProps extends DomProps{
     /**
      * A heading can vary in size.
      */
@@ -54,7 +54,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     );
 }
 
-export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref) => (
+export const Heading = slot("heading", forwardRef<any, Omit<InnerHeadingProps, "forwardedRef">>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));
 
@@ -65,7 +65,7 @@ Heading.displayName = "Heading";
 // Aliases
 
 function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
-    return slot("heading", forwardRef<Omit<InnerHeadingProps, "size" | "as">, typeof as>((props, ref) => (
+    return slot("heading", forwardRef<any, Omit<InnerHeadingProps, "size" | "as" | "forwardedRef">>((props, ref) => (
         <InnerHeading
             {...props}
             size={size}

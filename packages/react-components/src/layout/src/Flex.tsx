@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 export interface InnerFlexProps {
     /**
@@ -159,7 +159,7 @@ export function InnerFlex({
     );
 }
 
-export const Flex = forwardRef<InnerFlexProps>((props, ref) => (
+export const Flex = forwardRef<any, Omit<InnerFlexProps, "forwardedRef">>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
 

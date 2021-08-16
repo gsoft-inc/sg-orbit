@@ -1,7 +1,7 @@
 import "./Paragraph.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
 export interface InnerParagraphProps {
@@ -70,7 +70,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
     );
 }
 
-export const Paragraph = forwardRef<InnerParagraphProps>((props, ref) => (
+export const Paragraph = forwardRef<any, Omit<InnerParagraphProps, "forwardedRef">>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
 

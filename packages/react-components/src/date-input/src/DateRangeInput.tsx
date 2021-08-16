@@ -11,6 +11,7 @@ import {
     ForwardedRef,
     KeyboardEvent,
     SyntheticEvent,
+    forwardRef,
     useCallback,
     useImperativeHandle,
     useMemo,
@@ -26,7 +27,6 @@ import {
     Keys,
     augmentElement,
     cssModule,
-    forwardRef,
     isNil,
     isNilOrEmpty,
     isNumber,
@@ -137,7 +137,7 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-const DateInput = forwardRef<any, "input">(({
+const DateInput = forwardRef<HTMLInputElement, any>(({
     value,
     placeholder = "dd/mm/yyyy",
     required,
@@ -187,7 +187,7 @@ const DateInput = forwardRef<any, "input">(({
     );
 });
 
-const RangeInput = forwardRef<any>((props, ref) => {
+const RangeInput = forwardRef<any, any>((props, ref) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, isInField] = useFieldInputProps();
     const [inputGroupProps, isInGroup] = useInputGroupProps();
@@ -565,7 +565,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     );
 }
 
-export const DateRangeInput = forwardRef<InnerDateRangeInputProps>((props, ref) => (
+export const DateRangeInput = forwardRef<any, Omit<InnerDateRangeInputProps, "forwardedRef">>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));
 

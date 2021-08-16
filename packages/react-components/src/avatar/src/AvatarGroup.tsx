@@ -1,9 +1,9 @@
 import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, forwardRef, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
 export interface InnerAvatarGroupProps {
     /**
@@ -125,7 +125,7 @@ export function InnerAvatarGroup({
     );
 }
 
-export const AvatarGroup = forwardRef<InnerAvatarGroupProps>((props, ref) => (
+export const AvatarGroup = forwardRef<any, Omit<InnerAvatarGroupProps, "forwardedRef">>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));
 

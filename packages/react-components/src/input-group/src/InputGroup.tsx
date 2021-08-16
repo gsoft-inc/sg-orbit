@@ -1,12 +1,12 @@
 import "./InputGroup.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
-import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import { cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 
 export interface InnerInputGroupProps {
     /**
@@ -121,7 +121,7 @@ export function InnerInputGroup({
     );
 }
 
-export const InputGroup = forwardRef<InnerInputGroupProps>((props, ref) => (
+export const InputGroup = forwardRef<any, Omit<InnerInputGroupProps, "forwardedRef">>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));
 

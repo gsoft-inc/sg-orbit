@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
+import { mergeProps } from "../../shared";
 
 export interface InnerListItemProps {
     /**
@@ -45,7 +45,7 @@ export function InnerListItem({
     );
 }
 
-export const ListItem = forwardRef<InnerListItemProps>((props, ref) => (
+export const ListItem = forwardRef<any, Omit<InnerListItemProps, "forwardedRef">>((props, ref) => (
     <InnerListItem {...props} forwardedRef={ref} />
 ));
 

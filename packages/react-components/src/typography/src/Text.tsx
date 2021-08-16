@@ -1,10 +1,10 @@
 import "./Text.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerTextProps {
+export interface InnerTextProps extends DomProps{
     /**
      * A text can vary in size.
      */
@@ -66,7 +66,7 @@ export function InnerText(props: InnerTextProps) {
     );
 }
 
-export const Text = slot("text", forwardRef<InnerTextProps>((props, ref) => (
+export const Text = slot("text", forwardRef<any, Omit<InnerTextProps, "forwardedRef">>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
 

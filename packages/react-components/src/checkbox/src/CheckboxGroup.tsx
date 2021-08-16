@@ -3,7 +3,6 @@ import "./CheckboxGroup.css";
 import {
     CheckableContext,
     augmentElement,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -16,7 +15,7 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
@@ -199,7 +198,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     );
 }
 
-export const CheckboxGroup = forwardRef<InnerCheckboxGroupProps>((props, ref) => (
+export const CheckboxGroup = forwardRef<any, Omit<InnerCheckboxGroupProps, "forwardedRef">>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
 

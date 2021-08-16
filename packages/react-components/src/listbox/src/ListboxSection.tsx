@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, mergeProps } from "../../shared";
 
 export interface InnerListboxSectionProps extends DomProps {
     /**
@@ -56,7 +56,7 @@ export function InnerListboxSection({
     );
 }
 
-export const ListboxSection = forwardRef<InnerListboxSectionProps>((props, ref) => (
+export const ListboxSection = forwardRef<any, Omit<InnerListboxSectionProps, "forwardedRef">>((props, ref) => (
     <InnerListboxSection {...props} forwardedRef={ref} />
 ));
 

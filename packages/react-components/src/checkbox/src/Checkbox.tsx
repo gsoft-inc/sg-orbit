@@ -1,8 +1,8 @@
 import "./Checkbox.css";
 
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -211,7 +211,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
     );
 }
 
-export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
+export const Checkbox = forwardRef<any, Omit<InnerCheckboxProps, "forwardedRef">>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
 

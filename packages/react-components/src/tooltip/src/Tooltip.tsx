@@ -1,8 +1,8 @@
 import "./Tooltip.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps,ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
+import { mergeProps } from "../../shared";
 
 export interface InnerTooltipProps {
     /**
@@ -42,7 +42,7 @@ export function InnerTooltip({
     );
 }
 
-export const Tooltip = forwardRef<InnerTooltipProps>((props, ref) => (
+export const Tooltip = forwardRef<any, Omit<InnerTooltipProps, "forwardedRef">>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));
 

@@ -1,8 +1,8 @@
 import "./TextInput.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
@@ -209,7 +209,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     );
 }
 
-export const TextInput = forwardRef<InnerTextInputProps, "input">((props, ref) => (
+export const TextInput = forwardRef<HTMLInputElement, Omit<InnerTextInputProps, "forwardedRef">>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
 

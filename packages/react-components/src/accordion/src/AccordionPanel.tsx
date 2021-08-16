@@ -1,8 +1,8 @@
 import "./Accordion.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, mergeProps, omitProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { mergeProps, omitProps } from "../../shared";
 
 export interface InnerAccordionPanelProps {
     /**
@@ -49,7 +49,7 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     );
 }
 
-export const AccordionPanel = forwardRef<InnerAccordionPanelProps>((props, ref) => (
+export const AccordionPanel = forwardRef<any, InnerAccordionPanelProps>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));
 

@@ -1,9 +1,9 @@
 import "./Illustration.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 export interface InnerIllustrationProps {
     /**
@@ -104,7 +104,7 @@ export function InnerIllustration({
     );
 }
 
-export const Illustration = slot("illustration", forwardRef<InnerIllustrationProps>((props, ref) => (
+export const Illustration = slot("illustration", forwardRef<any, Omit<InnerIllustrationProps, "forwardedRef">>((props, ref) => (
     <InnerIllustration {...props} forwardedRef={ref} />
 )));
 

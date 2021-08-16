@@ -1,9 +1,9 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
+import { cssModule, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
 
 export interface InnerDotProps {
@@ -82,7 +82,7 @@ export function InnerDot(props: InnerDotProps) {
     );
 }
 
-export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (
+export const Dot = slot("dot", forwardRef<any, Omit<InnerDotProps, "forwardedRef">>((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
 

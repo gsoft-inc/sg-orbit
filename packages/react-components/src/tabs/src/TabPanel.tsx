@@ -1,9 +1,9 @@
 import "./Tabs.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
 export interface InnerTabPanelProps {
@@ -54,7 +54,7 @@ export function InnerTabPanel({
     );
 }
 
-export const TabPanel = forwardRef<InnerTabPanelProps>((props, ref) => (
+export const TabPanel = forwardRef<any, Omit<InnerTabPanelProps, "forwardedRef">>((props, ref) => (
     <InnerTabPanel {...props} forwardedRef={ref} />
 ));
 

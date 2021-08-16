@@ -1,7 +1,7 @@
 import "./FieldMessage.css";
 
-import { ComponentProps, ElementType, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { StyleProvider, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 export interface InnerFieldMessageProps {
@@ -34,7 +34,7 @@ export function getValidationProps(validationState: string) {
     };
 }
 
-export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
+export const FieldMessage = forwardRef<any, Omit<InnerFieldMessageProps, "forwardedRef">>(({
     tone,
     fluid,
     as = "div",

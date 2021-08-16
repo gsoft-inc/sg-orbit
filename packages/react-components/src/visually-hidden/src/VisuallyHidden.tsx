@@ -1,8 +1,8 @@
 import "./VisuallyHidden.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { mergeProps } from "../../shared";
 
 export interface InnerVisuallyHiddenProps {
     /**
@@ -41,7 +41,7 @@ export function InnerVisuallyHidden({
     );
 }
 
-export const VisuallyHidden = forwardRef<InnerVisuallyHiddenProps>((props, ref) => (
+export const VisuallyHidden = forwardRef<any, Omit<InnerVisuallyHiddenProps, "forwardedRef">>((props, ref) => (
     <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));
 

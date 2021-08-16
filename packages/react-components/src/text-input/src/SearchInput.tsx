@@ -1,9 +1,9 @@
 import "./SearchInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, useCallback } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, Keys, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -150,6 +150,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     );
 
     return (
+    <a tabIndex
         <TextInput
             {...mergeProps(
                 rest,
@@ -174,7 +175,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     );
 }
 
-export const SearchInput = forwardRef<InnerSearchInputProps, "input">((props, ref) => (
+export const SearchInput = forwardRef<HTMLInputElement, Omit<InnerSearchInputProps, "forwardedRef">>((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));
 

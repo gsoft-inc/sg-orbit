@@ -1,8 +1,8 @@
 import "./Label.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
+import { mergeProps } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
 export interface InnerLabelProps {
@@ -62,7 +62,7 @@ export function InnerLabel(props: InnerLabelProps) {
     );
 }
 
-export const Label = forwardRef<InnerLabelProps>((props, ref) => (
+export const Label = forwardRef<any, Omit<InnerLabelProps, "forwardedRef">>((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));
 

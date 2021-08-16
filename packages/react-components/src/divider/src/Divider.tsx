@@ -1,11 +1,11 @@
 import "./Divider.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
 
-export interface InnerDividerProps {
+export interface InnerDividerProps extends DomProps{
     /**
      * The orientation of the divider.
      */
@@ -58,7 +58,7 @@ export function InnerDivider({
     );
 }
 
-export const Divider = forwardRef<InnerDividerProps>((props, ref) => (
+export const Divider = forwardRef<any, Omit<InnerDividerProps, "forwardedRef">>((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));
 

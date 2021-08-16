@@ -1,14 +1,14 @@
 import "./IconButton.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, DomProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps {
+export interface InnerIconButtonProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
     /**
      * The icon button style to use.
      */
@@ -143,7 +143,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     );
 }
 
-export const IconButton = slot("button", forwardRef<InnerIconButtonProps, "button">((props, ref) => (
+export const IconButton = slot("button", forwardRef<HTMLButtonElement, Omit<InnerIconButtonProps, "forwardedRef">>((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 

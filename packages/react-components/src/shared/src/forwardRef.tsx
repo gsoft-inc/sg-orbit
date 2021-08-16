@@ -2,10 +2,12 @@
 
 import {
     ComponentProps,
+    ComponentType,
     ElementRef,
     ElementType,
     ForwardRefExoticComponent,
     ForwardRefRenderFunction,
+    ForwardedRef,
     HTMLProps,
     RefAttributes,
     WeakValidationMap,
@@ -33,7 +35,7 @@ export type RightJoinProps<
 export type OmitCommonProps<
     Target,
     OmitAdditionalProps extends keyof any = never
-> = Omit<Target, "forwardedRef" | OmitAdditionalProps>;
+> = Omit<Target, keyof BaseOrbitComponentProps| OmitAdditionalProps>;
 
 type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P, "slot"> & {
     /**
@@ -42,11 +44,27 @@ type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P, "slot"> &
     slot?: string;
 }>;
 
-export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
+interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {
     defaultProps?: Partial<any>;
     propTypes?: WeakValidationMap<any>;
 }
 
-export function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<AsRef<T>, P>) {
+function forwardRef<P extends Record<string, any>, T = HTMLElement>(render: ForwardRefRenderFunction<AsRef<T>, P>) {
     return (reactForwardRef(render) as unknown) as OrbitComponent<T, P>;
+}
+
+interface BaseOrbitComponentProps {
+    as?: ElementType<any>;
+}
+
+type GetProps<T> = T extends ComponentType<infer U>? Omit<U, "forwardedRef"> : never;
+
+export function as<CT extends ComponentType<BaseOrbitComponentProps>, AT extends ElementType>(component: CT, asP: AT) {
+    const Component = component as any;
+
+    return forwardRef<GetProps<CT>, AT>((props, ref) => {
+        return (
+            <Component ref={ref} as={asP} {...props} />
+        );
+    });
 }

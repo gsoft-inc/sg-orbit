@@ -1,8 +1,8 @@
 import "./TextArea.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -233,7 +233,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     );
 }
 
-export const TextArea = forwardRef<InnerTextAreaProps>((props, ref) => (
+export const TextArea = forwardRef<any, Omit<InnerTextAreaProps, "forwardedRef">>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
 

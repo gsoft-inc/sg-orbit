@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useEffect, useState } from "react";
-import { forwardRef, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useEffect, useState } from "react";
+import { isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 export interface InnerTransitionProps {
     /**
@@ -88,7 +88,7 @@ export function InnerTransition({
     );
 }
 
-export const Transition = forwardRef<InnerTransitionProps>((props, ref) => (
+export const Transition = forwardRef<any, Omit<InnerTransitionProps, "forwardedRef">>((props, ref) => (
     <InnerTransition {...props} forwardedRef={ref} />
 ));
 

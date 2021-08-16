@@ -1,5 +1,4 @@
-import { ComponentProps, ElementType, ReactNode } from "react";
-import { forwardRef } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 
 export interface InnerSectionProps {
     /**
@@ -21,7 +20,7 @@ export function InnerSection(_props: InnerSectionProps): JSX.Element {
     return null;
 }
 
-export const Section = forwardRef<InnerSectionProps>((props, ref) => (
+export const Section = forwardRef<any, Omit<InnerSectionProps, "forwardedRef">>((props, ref) => (
     // @ts-ignore Not sure what is going on with the InnerSection.
     <InnerSection {...props} forwardedRef={ref} />
 ));

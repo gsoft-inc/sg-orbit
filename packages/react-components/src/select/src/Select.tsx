@@ -1,7 +1,7 @@
 import "./Select.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, isNil, mergeProps } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
@@ -275,7 +275,7 @@ export function InnerSelect(props: InnerSelectProps) {
     );
 }
 
-export const Select = forwardRef<InnerSelectProps>((props, ref) => (
+export const Select = forwardRef<any, Omit<InnerSelectProps, "forwardedRef">>((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));
 

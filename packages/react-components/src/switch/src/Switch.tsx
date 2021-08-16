@@ -1,8 +1,8 @@
 import "./Switch.css";
 
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -175,7 +175,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
 }
 
 
-export const Switch = forwardRef<InnerSwitchProps>((props, ref) => (
+export const Switch = forwardRef<any, Omit<InnerSwitchProps, "forwardedRef">>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
 

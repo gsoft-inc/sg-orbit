@@ -1,5 +1,5 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef,ReactNode, forwardRef } from "react";
+import { InteractionStatesProps, cssModule, mergeProps } from "../../shared";
 import { Link } from "../../link";
 import { useTile } from "./useTile";
 
@@ -88,7 +88,7 @@ export function InnerTileLink({
     );
 }
 
-export const TileLink = forwardRef<InnerTileLinkProps>((props, ref) => (
+export const TileLink = forwardRef<any, Omit<InnerTileLinkProps, "forwardedRef">>((props, ref) => (
     <InnerTileLink {...props} forwardedRef={ref} />
 ));
 

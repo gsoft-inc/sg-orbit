@@ -1,7 +1,7 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, omitProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, omitProps } from "../../shared";
 
-export interface InnerBoxProps {
+export interface InnerBoxProps extends DomProps {
     /**
     * An HTML element type or a custom React element type to render as.
     */
@@ -38,7 +38,7 @@ export function InnerBox(props: InnerBoxProps) {
     );
 }
 
-export const Box = forwardRef<InnerBoxProps>((props, ref) => (
+export const Box = forwardRef<any, Omit<InnerBoxProps, "forwardedRef">>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 

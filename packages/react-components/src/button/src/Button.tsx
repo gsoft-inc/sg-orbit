@@ -1,8 +1,8 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { DomProps, InteractionStatesProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { ElementType, ForwardedRef, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -10,7 +10,7 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerButtonProps extends InteractionStatesProps {
+export interface InnerButtonProps extends DomProps, InteractionStatesProps {
     /**
      * The button style to use.
      */
@@ -178,10 +178,6 @@ export function InnerButton(props: InnerButtonProps) {
     );
 }
 
-export const Button = slot("button", forwardRef<InnerButtonProps, "button">((props, ref) => (
+export const Button = slot("button", forwardRef<HTMLButtonElement, Omit<InnerButtonProps, "forwardedRef">>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
-
-export type ButtonProps = ComponentProps<typeof Button>;
-
-Button.displayName = "Button";

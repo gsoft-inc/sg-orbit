@@ -1,8 +1,8 @@
 import "./Tile.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InteractionStatesProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 export interface InnerTileProps extends InteractionStatesProps {
@@ -126,7 +126,7 @@ export function InnerTile(props: InnerTileProps) {
     );
 }
 
-export const Tile = forwardRef<InnerTileProps>((props, ref) => (
+export const Tile = forwardRef<any, Omit<InnerTileProps, "forwardedRef">>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));
 

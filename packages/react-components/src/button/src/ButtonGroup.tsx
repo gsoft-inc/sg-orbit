@@ -1,8 +1,8 @@
 import "./ButtonGroup.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { augmentElement, cssModule, forwardRef, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 export interface InnerButtonGroupProps {
@@ -98,7 +98,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
     );
 }
 
-export const ButtonGroup = slot("button-group", forwardRef<InnerButtonGroupProps>((props, ref) => (
+export const ButtonGroup = slot("button-group", forwardRef<any, Omit<InnerButtonGroupProps, "forwardedRef">>((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));
 

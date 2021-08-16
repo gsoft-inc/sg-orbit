@@ -1,9 +1,9 @@
 import "./Tag.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionStatesProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
@@ -132,7 +132,7 @@ export function InnerTag({
     );
 }
 
-export const Tag = forwardRef<InnerTagProps>((props, ref) => (
+export const Tag = forwardRef<any, Omit<InnerTagProps, "forwardedRef">>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
 

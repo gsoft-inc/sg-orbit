@@ -1,5 +1,4 @@
-import { ComponentProps, ForwardedRef, ReactNode } from "react";
-import { forwardRef } from "../../shared";
+import { ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
 
 export interface InnerItemProps {
     /**
@@ -25,7 +24,7 @@ export function InnerItem(_props: InnerItemProps): JSX.Element {
     return null;
 }
 
-export const Item = forwardRef<InnerItemProps>((props, ref) => (
+export const Item = forwardRef<any, Omit<InnerItemProps, "forwardedRef">>((props, ref) => (
     // @ts-ignore Not sure what is going on with the InnerItem.
     <InnerItem {...props} forwardedRef={ref} />
 ));

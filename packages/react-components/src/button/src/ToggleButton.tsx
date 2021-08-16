@@ -1,6 +1,6 @@
 import { Button } from "./Button";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InteractionStatesProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 export interface InnerToggleButtonProps extends InteractionStatesProps {
@@ -73,7 +73,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as = "button",
+        as:asProps = "button",
         children,
         forwardedRef,
         ...rest
@@ -102,7 +102,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    as
+                    asProps
                 },
                 buttonProps
             )}
@@ -112,7 +112,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     );
 }
 
-export const ToggleButton = slot("button", forwardRef<InnerToggleButtonProps, "button">((props, ref) => (
+export const ToggleButton = slot("button", forwardRef<HTMLButtonElement, Omit<InnerToggleButtonProps, "forwardedRef">>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 )));
 

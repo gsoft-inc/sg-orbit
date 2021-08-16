@@ -1,8 +1,8 @@
 import "./Icon.css";
 
-import { AriaLabelingProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { AriaLabelingProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef,forwardRef } from "react";
 
 export interface InnerIconProps extends AriaLabelingProps {
     /**
@@ -60,7 +60,7 @@ export const InnerIcon = ((props: InnerIconProps) => {
     );
 });
 
-export const Icon = slot("icon", forwardRef<InnerIconProps, "svg">((props, ref) => (
+export const Icon = slot("icon", forwardRef<SVGSVGElement, Omit<InnerIconProps, "forwardedRef">>((props, ref) => (
     <InnerIcon {...props} forwardedRef={ref} />)
 ));
 
@@ -71,7 +71,7 @@ export type IconProps = ComponentProps<typeof Icon>;
 ////////
 
 export function createIcon(src: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerIconProps, "src">, "svg">((props, ref) =>
+    return slot("icon", forwardRef<SVGSVGElement, Omit<InnerIconProps, "src" | "forwardedRef">>((props, ref) =>
         <InnerIcon
             {...props}
             src={src}

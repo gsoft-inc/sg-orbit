@@ -1,16 +1,16 @@
 import "./Message.css";
 
 import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
+import { ComponentProps,ElementType, ForwardedRef, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, augmentElement, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
 type InnerMessageContentProps = TextProps;
 
-const MessageContent = forwardRef<InnerMessageContentProps>(({
+const MessageContent = forwardRef<any, Omit<InnerMessageContentProps, "forwardedRef">>(({
     as = "div",
     children,
     ...rest
@@ -154,7 +154,7 @@ export function InnerMessage({
     );
 }
 
-export const Message = forwardRef<InnerMessageProps>((props, ref) => (
+export const Message = forwardRef<any, Omit<InnerMessageProps, "forwardedRef">>((props, ref) => (
     <InnerMessage {...props} forwardedRef={ref} />
 ));
 

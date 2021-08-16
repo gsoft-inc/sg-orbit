@@ -1,5 +1,5 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps, useId } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, mergeProps, useId } from "../../shared";
 
 export interface InnerFieldsetProps extends DomProps {
     /**
@@ -55,7 +55,7 @@ export function InnerFieldset({
     );
 }
 
-export const Fieldset = forwardRef<InnerFieldsetProps>((props, ref) => (
+export const Fieldset = forwardRef<any, Omit<InnerFieldsetProps, "forwardedRef">>((props, ref) => (
     <InnerFieldset {...props} forwardedRef={ref} />
 ));
 

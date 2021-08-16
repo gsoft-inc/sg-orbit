@@ -2,9 +2,9 @@ import "./RadioGroup.css";
 
 import {
     CheckableContext,
+    DomProps,
     Keys,
     augmentElement,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -19,13 +19,13 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerRadioGroupProps {
+export interface InnerRadioGroupProps extends DomProps{
     /**
      * The value of the radio group.
      */
@@ -211,7 +211,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     );
 }
 
-export const RadioGroup = forwardRef<InnerRadioGroupProps>((props, ref) => (
+export const RadioGroup = forwardRef<any, Omit<InnerRadioGroupProps, "forwardedRef">>((props, ref) => (
     <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
 

@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
+import { mergeProps } from "../../shared";
 
 export interface InnerOverlayArrowProps {
     /**
@@ -32,7 +32,7 @@ export function InnerOverlayArrow({
     );
 }
 
-export const OverlayArrow = forwardRef<InnerOverlayArrowProps>((props, ref) => (
+export const OverlayArrow = forwardRef<any, Omit<InnerOverlayArrowProps, "forwardedRef">>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));
 

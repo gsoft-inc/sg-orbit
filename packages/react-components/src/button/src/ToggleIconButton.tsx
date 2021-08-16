@@ -1,5 +1,5 @@
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { AriaLabelingProps, InteractionStatesProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { ComponentProps,ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
@@ -128,7 +128,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     );
 }
 
-export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonProps, "button">((props, ref) => (
+export const ToggleIconButton = slot("button", forwardRef<HTMLButtonElement, Omit<InnerToggleIconButtonProps, "forwardedRef">>((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
 

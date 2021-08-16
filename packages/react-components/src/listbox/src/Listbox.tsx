@@ -7,7 +7,6 @@ import {
     Keys,
     appendEventKey,
     cssModule,
-    forwardRef,
     isEmptyArray,
     isNil,
     isNumber,
@@ -32,6 +31,7 @@ import {
     KeyboardEvent,
     ReactNode,
     SyntheticEvent,
+    forwardRef,
     useImperativeHandle,
     useMemo
 } from "react";
@@ -488,7 +488,7 @@ export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 };
 
-export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref) => (
+export const Listbox = forwardRef<ListboxElement, Omit<InnerListboxProps, "forwardedRef">>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 

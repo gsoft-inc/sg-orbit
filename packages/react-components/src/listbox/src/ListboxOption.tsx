@@ -2,8 +2,8 @@ import "./Listbox.css";
 
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
-import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -191,7 +191,7 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
-export const ListboxOption = forwardRef<InnerListboxOptionProps>((props, ref) => (
+export const ListboxOption = forwardRef<any, Omit<InnerListboxOptionProps, "forwardedRef">>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));
 

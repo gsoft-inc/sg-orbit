@@ -1,11 +1,10 @@
 import { CheckboxGroup } from "../../checkbox";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
 import { RadioGroup } from "../../radio";
 import {
     arrayify,
     augmentElement,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -160,7 +159,7 @@ export function InnerTileGroup({
     );
 }
 
-export const TileGroup = forwardRef<InnerTileGroupProps>((props, ref) => (
+export const TileGroup = forwardRef<any, Omit<InnerTileGroupProps, "forwardedRef">>((props, ref) => (
     <InnerTileGroup {...props} forwardedRef={ref} />
 ));
 

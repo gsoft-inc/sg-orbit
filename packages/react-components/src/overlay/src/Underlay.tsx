@@ -1,8 +1,8 @@
 import "./Underlay.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
+import { mergeProps } from "../../shared";
 
 export interface InnerUnderlayProps {
     /**
@@ -43,7 +43,7 @@ export function InnerUnderlay({
     );
 }
 
-export const Underlay = forwardRef<InnerUnderlayProps>((props, ref) => (
+export const Underlay = forwardRef<any, Omit<InnerUnderlayProps, "forwardedRef">>((props, ref) => (
     <InnerUnderlay {...props} forwardedRef={ref} />
 ));
 

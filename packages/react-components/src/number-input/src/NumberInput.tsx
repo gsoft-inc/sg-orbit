@@ -5,7 +5,6 @@ import {
     DomProps,
     InteractionStatesProps,
     cssModule,
-    forwardRef,
     isNil,
     isNilOrEmpty,
     mergeClasses,
@@ -30,6 +29,7 @@ import {
     MouseEvent,
     ReactElement,
     SyntheticEvent,
+    forwardRef,
     useCallback,
     useMemo
 } from "react";
@@ -452,7 +452,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     );
 }
 
-export const NumberInput = forwardRef<InnerNumberInputProps>((props, ref) => (
+export const NumberInput = forwardRef<any, Omit<InnerNumberInputProps, "forwardedRef">>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));
 

@@ -1,12 +1,12 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, DomProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 
-export interface InnerAvatarProps extends AriaLabelingProps {
+export interface InnerAvatarProps extends DomProps, AriaLabelingProps {
     /**
      * The name of the person in the avatar.
      */
@@ -206,7 +206,7 @@ export function InnerAvatar({
     );
 }
 
-export const Avatar = slot("avatar", forwardRef<InnerAvatarProps>((props, ref) => (
+export const Avatar = slot("avatar", forwardRef<any, Omit<InnerAvatarProps, "forwardedRef">>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));
 

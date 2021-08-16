@@ -6,7 +6,6 @@ import {
     Keys,
     appendEventKey,
     cssModule,
-    forwardRef,
     isEmptyArray,
     isNil,
     isNumber,
@@ -24,7 +23,7 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -334,7 +333,7 @@ export function InnerMenu({
     );
 }
 
-export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
+export const Menu = forwardRef<any, Omit<InnerMenuProps, "forwardedRef">>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));
 

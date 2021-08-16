@@ -5,7 +5,6 @@ import {
     InteractionStatesProps,
     Keys,
     augmentElement,
-    forwardRef,
     isNil,
     isNilOrEmpty,
     mergeProps,
@@ -22,8 +21,8 @@ import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
+import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
-import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -532,7 +531,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 }
 
-export const Autocomplete = forwardRef<InnerAutocompleteProps, "input">((props, ref) => (
+export const Autocomplete = forwardRef<HTMLInputElement, Omit<InnerAutocompleteProps, "forwardedRef">>((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));
 

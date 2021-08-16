@@ -1,11 +1,10 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import {
     DomProps,
     FocusTarget,
     Keys,
     augmentElement,
-    forwardRef,
     isNil,
     mergeProps,
     resolveChildren,
@@ -211,7 +210,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     );
 }
 
-export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
+export const MenuTrigger = forwardRef<any, Omit<InnerMenuTriggerProps, "forwardedRef">>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
 

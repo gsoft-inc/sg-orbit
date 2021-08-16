@@ -3,12 +3,11 @@ import "./Accordion.css";
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     DomProps,
     Keys,
     cssModule,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -165,7 +164,7 @@ export function InnerAccordion({
     );
 }
 
-export const Accordion = forwardRef<InnerAccordionProps>((props, ref) => (
+export const Accordion = forwardRef<any, Omit<InnerAccordionProps, "forwardedRef">>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
 

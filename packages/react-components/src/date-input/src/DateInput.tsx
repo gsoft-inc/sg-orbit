@@ -5,7 +5,6 @@ import {
     InteractionStatesProps,
     augmentElement,
     cssModule,
-    forwardRef,
     isNil,
     mergeClasses,
     mergeProps,
@@ -22,6 +21,7 @@ import {
     ElementType,
     ForwardedRef,
     SyntheticEvent,
+    forwardRef,
     useCallback,
     useImperativeHandle,
     useMemo,
@@ -129,7 +129,7 @@ export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelin
     forwardedRef: ForwardedRef<any>;
 }
 
-const Input = forwardRef<any>((props, ref) => {
+const Input = forwardRef<any, any>((props, ref) => {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
@@ -332,7 +332,7 @@ export function InnerDateInput({
     );
 }
 
-export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) => (
+export const DateInput = forwardRef<HTMLInputElement, Omit<InnerDateInputProps, "forwardedRef">>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));
 

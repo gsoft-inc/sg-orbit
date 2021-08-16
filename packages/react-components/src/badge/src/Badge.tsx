@@ -1,8 +1,8 @@
 import "./Badge.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { StyleProvider, cssModule, mergeProps } from "../../shared";
 
 export interface InnerBadgeProps {
     /**
@@ -74,7 +74,7 @@ export function InnerBadge({
     );
 }
 
-export const Badge = forwardRef<InnerBadgeProps>((props, ref) => (
+export const Badge = forwardRef<any, Omit<InnerBadgeProps, "forwardedRef">>((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
 

@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, mergeProps } from "../../shared";
 
 export interface InnerMenuSectionProps extends DomProps {
     /**
@@ -61,7 +61,7 @@ export function InnerMenuSection({
     );
 }
 
-export const MenuSection = forwardRef<InnerMenuSectionProps>((props, ref) => (
+export const MenuSection = forwardRef<any, Omit<InnerMenuSectionProps, "forwardedRef">>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));
 

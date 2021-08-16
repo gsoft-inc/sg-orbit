@@ -6,7 +6,6 @@ import {
     InteractionStatesProps,
     MergedRef,
     cssModule,
-    forwardRef,
     isNil,
     isString,
     mergeProps,
@@ -22,7 +21,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
@@ -329,7 +328,7 @@ export function InnerDialog({
     );
 }
 
-export const Dialog = forwardRef<InnerDialogProps>((props, ref) => (
+export const Dialog = forwardRef<any, Omit<InnerDialogProps, "forwardedRef">>((props, ref) => (
     <InnerDialog {...props} forwardedRef={ref} />
 ));
 

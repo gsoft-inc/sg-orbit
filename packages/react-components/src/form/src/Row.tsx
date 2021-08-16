@@ -1,6 +1,6 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { augmentElement, forwardRef, mergeProps, omitProps } from "../../shared";
+import { augmentElement, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
 export interface InnerRowProps {
@@ -57,7 +57,7 @@ export function InnerRow(props: InnerRowProps) {
     );
 }
 
-export const Row = forwardRef<InnerRowProps>((props, ref) => (
+export const Row = forwardRef<any, Omit<InnerRowProps, "forwardedRef">>((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
 

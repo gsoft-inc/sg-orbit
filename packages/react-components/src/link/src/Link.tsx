@@ -1,8 +1,8 @@
 import "./Link.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { forwardRef, mergeProps, useStyleProps } from "../../shared";
+import { mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
 export interface InnerLinkProps {
@@ -96,7 +96,7 @@ export function InnerLink(props: InnerLinkProps) {
     );
 }
 
-export const Link = forwardRef<InnerLinkProps>((props, ref) => (
+export const Link = forwardRef<any, Omit<InnerLinkProps, "forwardedRef">>((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));
 

@@ -1,9 +1,9 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps,ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
 export interface InnerTooltipTriggerProps {
     /**
@@ -202,7 +202,7 @@ export function InnerTooltipTrigger({
     );
 }
 
-export const TooltipTrigger = forwardRef<InnerTooltipTriggerProps>((props, ref) => (
+export const TooltipTrigger = forwardRef<any, Omit<InnerTooltipTriggerProps, "forwardedRef">>((props, ref) => (
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));
 

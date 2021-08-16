@@ -1,11 +1,10 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, FormEvent, ForwardedRef, ReactNode, useImperativeHandle, useMemo, useRef } from "react";
+import { ComponentProps, ElementType, FormEvent, ForwardedRef, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
     InteractionStatesProps,
     cssModule,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -211,7 +210,7 @@ export function InnerRadio(props: InnerRadioProps) {
     );
 }
 
-export const Radio = forwardRef<InnerRadioProps>((props, ref) => (
+export const Radio = forwardRef<any, Omit<InnerRadioProps, "forwardedRef">>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));
 

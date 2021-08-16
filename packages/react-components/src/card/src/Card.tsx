@@ -1,9 +1,9 @@
 import "./Card.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
+import { cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 
 export interface InnerCardProps {
     /**
@@ -125,7 +125,7 @@ export function InnerCard({
     );
 }
 
-export const Card = slot("card", forwardRef<InnerCardProps>((props, ref) => (
+export const Card = slot("card", forwardRef<any, Omit<InnerCardProps, "forwardedRef">>((props, ref) => (
     <InnerCard {...props} forwardedRef={ref} />
 )));
 

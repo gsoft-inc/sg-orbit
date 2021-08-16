@@ -1,13 +1,13 @@
 import "./Overlay.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { DomProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
-import { cssModule, forwardRef, mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
-export interface InnerOverlayProps {
+export interface InnerOverlayProps extends DomProps{
     /**
      * Whether or not to show the overlay element.
      */
@@ -87,7 +87,7 @@ export function InnerOverlay({
     );
 }
 
-export const Overlay = forwardRef<InnerOverlayProps>((props, ref) => (
+export const Overlay = forwardRef<any, Omit<InnerOverlayProps, "forwardedRef">>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />
 ));
 

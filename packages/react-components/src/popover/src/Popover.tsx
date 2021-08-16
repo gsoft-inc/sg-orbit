@@ -4,7 +4,6 @@ import {
     AriaLabelingProps,
     DomProps,
     InteractionStatesProps,
-    forwardRef,
     isNil,
     isString,
     mergeProps,
@@ -17,7 +16,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useCallback, useMemo } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
@@ -148,7 +147,7 @@ export function InnerPopover({
     );
 }
 
-export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
+export const Popover = forwardRef<any, Omit<InnerPopoverProps, "forwardedRef">>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
 

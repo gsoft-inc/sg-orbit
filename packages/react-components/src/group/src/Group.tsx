@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { forwardRef, isNil, mergeProps } from "../../shared";
+import { isNil, mergeProps } from "../../shared";
 
 export interface InnerGroupProps {
     /**
@@ -81,7 +81,7 @@ export function InnerGroup({
     );
 }
 
-export const Group = forwardRef<InnerGroupProps>((props, ref) => (
+export const Group = forwardRef<any, Omit<InnerGroupProps, "forwardedRef">>((props, ref) => (
     <InnerGroup {...props} forwardedRef={ref} />
 ));
 

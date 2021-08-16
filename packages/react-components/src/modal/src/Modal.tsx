@@ -5,13 +5,12 @@ import {
     DomProps,
     StyleProvider,
     augmentElement,
-    forwardRef,
     getSlotKey,
     isNil,
     mergeProps,
     useSlots
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
 
@@ -163,7 +162,7 @@ export function InnerModal({
     );
 }
 
-export const Modal = forwardRef<InnerModalProps>((props, ref) => (
+export const Modal = forwardRef<any, Omit<InnerModalProps, "forwardedRef">>((props, ref) => (
     <InnerModal {...props} forwardedRef={ref} />
 ));
 

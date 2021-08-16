@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
-import { forwardRef, isNil, mergeProps } from "../../shared";
+import { isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 export interface InnerInlineProps {
@@ -74,7 +74,7 @@ export function InnerInline({
     );
 }
 
-export const Inline = forwardRef<InnerInlineProps>((props, ref) => (
+export const Inline = forwardRef<any, Omit<InnerInlineProps, "forwardedRef">>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
 

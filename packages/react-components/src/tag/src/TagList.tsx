@@ -3,9 +3,9 @@ import "./TagList.css";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps,ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { Tag, TagProps } from "./Tag";
-import { forwardRef, isNil, mergeProps, useEventCallback } from "../../shared";
+import { isNil, mergeProps, useEventCallback } from "../../shared";
 
 export interface InnerTagListProps {
     /**
@@ -128,7 +128,7 @@ export function InnerTagList({
     );
 }
 
-export const TagList = forwardRef<InnerTagListProps>((props, ref) => (
+export const TagList = forwardRef<any, Omit<InnerTagListProps, "forwardedRef">>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));
 
