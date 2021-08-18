@@ -4,7 +4,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { DomProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerTextProps extends DomProps{
+const defaultElement = "span";
+
+export interface InnerTextProps extends DomProps, ComponentProps<typeof defaultElement>{
     /**
      * A text can vary in size.
      */
@@ -37,7 +39,7 @@ export function InnerText(props: InnerTextProps) {
     const {
         size,
         color,
-        as = "span",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

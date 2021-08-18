@@ -47,7 +47,9 @@ type SelectionMode = "none" | "single" | "multiple";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
-export interface InnerListboxProps extends DomProps, AriaLabelingProps {
+const defaultElement = "div";
+
+export interface InnerListboxProps extends DomProps, AriaLabelingProps, ComponentProps<typeof defaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.
@@ -187,7 +189,7 @@ export function InnerListbox({
     fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

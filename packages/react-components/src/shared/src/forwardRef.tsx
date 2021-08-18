@@ -7,7 +7,6 @@ import {
     ElementType,
     ForwardRefExoticComponent,
     ForwardRefRenderFunction,
-    ForwardedRef,
     HTMLProps,
     RefAttributes,
     WeakValidationMap,

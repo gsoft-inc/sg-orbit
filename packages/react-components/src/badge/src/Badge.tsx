@@ -4,7 +4,9 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { StyleProvider, cssModule, mergeProps } from "../../shared";
 
-export interface InnerBadgeProps {
+const defaultElement = "div";
+
+export interface InnerBadgeProps extends ComponentProps<typeof defaultElement>{
     /**
      * The style to use.
      */
@@ -30,7 +32,7 @@ export interface InnerBadgeProps {
 export function InnerBadge({
     variant = "count",
     overlap,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

@@ -2,7 +2,7 @@ import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent,ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { TextInput } from "./TextInput";
+import { TextInput, TextInputProps } from "./TextInput";
 import { mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
@@ -12,7 +12,7 @@ import { wrappedInputPropsAdapter } from "../../input";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerPasswordInputProps {
+export interface InnerPasswordInputProps extends TextInputProps {
     /**
      * A controlled value.
      */

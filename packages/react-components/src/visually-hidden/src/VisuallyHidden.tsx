@@ -1,10 +1,12 @@
 import "./VisuallyHidden.css";
 
+import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
-export interface InnerVisuallyHiddenProps {
+const defaultElement = "div";
+
+export interface InnerVisuallyHiddenProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -20,7 +22,7 @@ export interface InnerVisuallyHiddenProps {
 }
 
 export function InnerVisuallyHidden({
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

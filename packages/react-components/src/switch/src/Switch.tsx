@@ -10,7 +10,9 @@ import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingProps {
+const defaultElement = "label";
+
+export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "onChange"> {
     /**
      * @ignore
      */
@@ -90,7 +92,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         disabled,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = "label",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

@@ -6,7 +6,9 @@ import { DomProps, Keys, augmentElement, cssModule, isNil, mergeProps, resolveCh
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-export interface InnerDisclosureProps extends DomProps {
+const defaultElement = "div";
+
+export interface InnerDisclosureProps extends DomProps, Omit<ComponentProps<typeof defaultElement>, "color"> {
     /**
      * A controlled open value.
      */
@@ -41,7 +43,7 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onOpenChange,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

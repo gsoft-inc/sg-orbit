@@ -2,7 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { DomProps, mergeProps } from "../../shared";
 
-export interface InnerMenuSectionProps extends DomProps {
+const defaultElement = "li";
+
+export interface InnerMenuSectionProps extends DomProps, ComponentProps<typeof defaultElement> {
     /**
      * The section name.
      */
@@ -24,7 +26,7 @@ export interface InnerMenuSectionProps extends DomProps {
 export function InnerMenuSection({
     id,
     title,
-    as = "li",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

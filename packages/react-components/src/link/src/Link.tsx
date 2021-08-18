@@ -5,7 +5,9 @@ import { NewTabIndicator } from "./NewTabIndicator";
 import { mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
-export interface InnerLinkProps {
+const defaultElement = "a";
+
+export interface InnerLinkProps extends ComponentProps<typeof defaultElement>{
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -61,7 +63,7 @@ export function InnerLink(props: InnerLinkProps) {
         focus,
         hover,
         disabled,
-        as: As = "a",
+        as: As = defaultElement,
         children,
         forwardedRef,
         ...rest

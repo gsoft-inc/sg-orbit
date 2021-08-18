@@ -2,7 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps,ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { slot } from "../../shared";
 
-export interface InnerHeaderProps {
+const defaultElement = "div";
+
+export interface InnerHeaderProps extends ComponentProps<typeof defaultElement> {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -22,7 +24,7 @@ export interface InnerHeaderProps {
 }
 
 export function InnerHeader({
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

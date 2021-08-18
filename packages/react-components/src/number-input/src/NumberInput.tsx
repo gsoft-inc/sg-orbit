@@ -42,7 +42,9 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
+const defaultElement = "div";
+
+export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "onChange"> {
     /**
      * A controlled value.
      */
@@ -251,7 +253,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: wrapperPropsProp,
-        as = "div",
+        as = defaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(

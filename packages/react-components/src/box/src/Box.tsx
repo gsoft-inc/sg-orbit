@@ -1,7 +1,9 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { DomProps, omitProps } from "../../shared";
 
-export interface InnerBoxProps extends DomProps {
+const defaultElement = "div";
+
+export interface InnerBoxProps extends DomProps, Omit<AllHTMLAttributes<any>, "as"> {
     /**
     * An HTML element type or a custom React element type to render as.
     */
@@ -22,7 +24,7 @@ export interface InnerBoxProps extends DomProps {
 
 export function InnerBox(props: InnerBoxProps) {
     const {
-        as: As = "div",
+        as: As = defaultElement,
         children,
         forwardedRef,
         ...rest

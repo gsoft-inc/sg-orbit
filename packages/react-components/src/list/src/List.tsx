@@ -3,7 +3,9 @@ import "./List.css";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
 import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
-export interface InnerListProps {
+const defaultElement = "ul";
+
+export interface InnerListProps extends ComponentProps<typeof defaultElement>{
     /**
      * A list can vary in size.
      */
@@ -32,7 +34,7 @@ const List = forwardRef<any, Omit<InnerListProps, "forwardedRef">>((props, ref) 
     const {
         size,
         color,
-        as: As = "ul",
+        as: As = defaultElement,
         children,
         ...rest
     } = mergeProps(
@@ -70,8 +72,10 @@ List.displayName = "List";
 
 ////////
 
+const orderedDefaultElement = "ol";
+
 export function InnerOrderedList({
-    as = "ol",
+    as = orderedDefaultElement,
     forwardedRef,
     ...rest
 }: InnerListProps) {
@@ -95,7 +99,7 @@ OrderedList.displayName = "OrderedList";
 ////////
 
 function InnerUnorderedList({
-    as = "ul",
+    as = defaultElement,
     forwardedRef,
     ...rest
 }: InnerListProps) {

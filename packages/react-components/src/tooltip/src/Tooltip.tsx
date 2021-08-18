@@ -4,7 +4,9 @@ import { ComponentProps,ElementType, ForwardedRef, ReactNode, forwardRef } from 
 import { Text } from "../../typography";
 import { mergeProps } from "../../shared";
 
-export interface InnerTooltipProps {
+const defaultElement = "div";
+
+export interface InnerTooltipProps extends Omit<ComponentProps<typeof defaultElement>, "color"> {
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -20,7 +22,7 @@ export interface InnerTooltipProps {
 }
 
 export function InnerTooltip({
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

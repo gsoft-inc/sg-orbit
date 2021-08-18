@@ -5,7 +5,9 @@ import { Text } from "../../typography";
 import { mergeProps } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
-export interface InnerLabelProps {
+const defaultElement = "label";
+
+export interface InnerLabelProps extends Omit<ComponentProps<typeof defaultElement>, "color">{
     /**
      * Whether or not the label show a required state.
      */
@@ -35,7 +37,7 @@ export function InnerLabel(props: InnerLabelProps) {
 
     const {
         required,
-        as = "label",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

@@ -5,7 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { FormContext } from "./FormContext";
 import { cssModule, mergeProps } from "../../shared";
 
-export interface InnerFormProps {
+const defaultElement = "form";
+
+export interface InnerFormProps extends ComponentProps<typeof defaultElement> {
     /**
      * Whether or not the form take up the width of its container.
      */
@@ -32,7 +34,7 @@ export function InnerForm(props: InnerFormProps) {
     const {
         fluid,
         disabled,
-        as = "form",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

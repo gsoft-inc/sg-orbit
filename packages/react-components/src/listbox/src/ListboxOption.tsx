@@ -13,7 +13,9 @@ import { useListboxContext } from "./ListboxContext";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
-export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
+const defaultElement = "div";
+
+export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps, ComponentProps<typeof defaultElement> {
     /**
     * Matching collection item.
     */
@@ -43,7 +45,7 @@ export function InnerListboxOption({
     active,
     focus,
     hover,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

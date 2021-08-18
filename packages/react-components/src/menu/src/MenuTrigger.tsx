@@ -17,7 +17,9 @@ import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-export interface InnerMenuTriggerProps extends DomProps {
+const defaultElement = "div";
+
+export interface InnerMenuTriggerProps extends DomProps, ComponentProps<typeof defaultElement> {
     /**
      * Whether or not to show the menu.
      */
@@ -87,7 +89,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         allowFlip,
         allowPreventOverflow,
         zIndex = 10000,
-        as = "div",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

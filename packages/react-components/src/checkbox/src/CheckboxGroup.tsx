@@ -18,10 +18,10 @@ import {
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { Group } from "../../group";
+import { Group, GroupProps } from "../../group";
 import { useGroupInput } from "../../input";
 
-export interface InnerCheckboxGroupProps {
+export interface InnerCheckboxGroupProps extends GroupProps{
     /**
    * The value of the checkbox group.
    */

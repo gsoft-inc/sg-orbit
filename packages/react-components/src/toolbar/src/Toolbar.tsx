@@ -3,7 +3,9 @@ import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { Keys, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
-export interface InnerToolbarProps {
+const defaultElement = "div";
+
+export interface InnerToolbarProps extends ComponentProps<typeof defaultElement> {
     /**
          * Whether or not the toolbar should autoFocus the first tabbable element on render.
          */
@@ -74,7 +76,7 @@ export function InnerToolbar({
     gap = 5,
     wrap,
     disabled,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

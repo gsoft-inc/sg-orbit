@@ -13,7 +13,9 @@ import { wrappedInputPropsAdapter } from "../../input";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerSearchInputProps extends InteractionStatesProps {
+const defaultElement = "input";
+
+export interface InnerSearchInputProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -90,7 +92,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         onKeyDown,
         icon,
         wrapperProps,
-        as = "input",
+        as = defaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -150,7 +152,6 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     );
 
     return (
-    <a tabIndex
         <TextInput
             {...mergeProps(
                 rest,

@@ -8,7 +8,9 @@ import { InputGroupContext } from "./InputGroupContext";
 import { TextAddon } from "./TextAddon";
 import { cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 
-export interface InnerInputGroupProps {
+const defaultElement = "div";
+
+export interface InnerInputGroupProps extends ComponentProps<typeof defaultElement>{
     /**
      * Whether or not the input group take up the width of its container.
      */
@@ -55,7 +57,7 @@ export function InnerInputGroup({
     fluid,
     disabled,
     readOnly,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

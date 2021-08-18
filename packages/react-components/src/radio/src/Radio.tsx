@@ -20,7 +20,9 @@ import {
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 
-export interface InnerRadioProps extends InteractionStatesProps {
+const defaultElement = "label";
+
+export interface InnerRadioProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */
@@ -101,7 +103,7 @@ export function InnerRadio(props: InnerRadioProps) {
         focus,
         hover,
         disabled,
-        as = "label",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

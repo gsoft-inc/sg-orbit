@@ -33,7 +33,9 @@ import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabelingProps {
+const defaultElement = "input";
+
+export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
     /**
      * Whether or not to open the autocomplete element.
      */
@@ -212,7 +214,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         "aria-describedby": ariaDescribedBy,
         wrapperProps,
         overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
-        as = "input",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

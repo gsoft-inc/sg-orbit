@@ -3,7 +3,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, f
 import { InteractionStatesProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleButtonProps extends InteractionStatesProps {
+const defaultElement = "button";
+
+export interface InnerToggleButtonProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -73,7 +75,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as:asProps = "button",
+        as:asProps = defaultElement,
         children,
         forwardedRef,
         ...rest

@@ -43,7 +43,7 @@ export interface DatePreset {
     date: Date;
 }
 
-export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelingProps {
+export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
      * A controlled value.
      */

@@ -7,7 +7,9 @@ import { ComponentProps,ElementType, ForwardedRef, ReactNode, SyntheticEvent, fo
 import { Tag, TagProps } from "./Tag";
 import { isNil, mergeProps, useEventCallback } from "../../shared";
 
-export interface InnerTagListProps {
+const defaultElement = "div";
+
+export interface InnerTagListProps extends ComponentProps<typeof defaultElement> {
     /**
      * A tag list can vary in size.
      */
@@ -85,7 +87,7 @@ export function InnerTagList({
     onRemove,
     onClear,
     readOnly,
-    as = "div",
+    as = defaultElement,
     forwardedRef,
     children,
     ...rest

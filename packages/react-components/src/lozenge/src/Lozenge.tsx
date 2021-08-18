@@ -6,7 +6,9 @@ import { Text } from "../../typography";
 import { createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 
-export interface InnerLozengeProps {
+const defaultElement = "span";
+
+export interface InnerLozengeProps extends ComponentProps<typeof defaultElement>{
     /**
      * The badge color accent.
      */
@@ -37,7 +39,7 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     color,
     size,
-    as = "span",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

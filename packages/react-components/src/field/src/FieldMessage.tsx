@@ -4,7 +4,9 @@ import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { StyleProvider, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerFieldMessageProps {
+const defaultElement = "div";
+
+export interface InnerFieldMessageProps extends Omit<ComponentProps<typeof defaultElement>, "color">{
     /**
      * The style to use.
      */
@@ -37,7 +39,7 @@ export function getValidationProps(validationState: string) {
 export const FieldMessage = forwardRef<any, Omit<InnerFieldMessageProps, "forwardedRef">>(({
     tone,
     fluid,
-    as = "div",
+    as = defaultElement,
     children,
     ...rest
 }, ref) => {

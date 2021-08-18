@@ -6,7 +6,9 @@ import { Text } from "../../typography";
 import { mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
-export interface InnerTabPanelProps {
+const defaultElement = "div";
+
+export interface InnerTabPanelProps extends Omit<ComponentProps<typeof defaultElement>, "color"> {
     /**
      * Matching panel item.
      */
@@ -27,7 +29,7 @@ export interface InnerTabPanelProps {
 
 export function InnerTabPanel({
     panel: { key, tabId, panelId },
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

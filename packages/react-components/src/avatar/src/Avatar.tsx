@@ -6,7 +6,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 
-export interface InnerAvatarProps extends DomProps, AriaLabelingProps {
+const avatarDefaultElement = "div";
+
+export interface InnerAvatarProps extends DomProps, AriaLabelingProps, ComponentProps<typeof avatarDefaultElement> {
     /**
      * The name of the person in the avatar.
      */
@@ -166,7 +168,7 @@ export function InnerAvatar({
     retryCount,
     size,
     "aria-label": ariaLabel,
-    as = "div",
+    as = avatarDefaultElement,
     forwardedRef,
     ...rest
 }: InnerAvatarProps) {

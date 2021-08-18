@@ -1,11 +1,11 @@
 import "./ButtonGroup.css";
 
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { Group } from "../../group";
+import { Group, GroupProps } from "../../group";
 import { augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
-export interface InnerButtonGroupProps {
+export interface InnerButtonGroupProps extends GroupProps{
     /**
      * The orientation of the buttons.
      */

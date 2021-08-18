@@ -7,7 +7,9 @@ import { InteractionStatesProps, cssModule, isNil, mergeProps, normalizeSize, us
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
-export interface InnerTagProps extends InteractionStatesProps {
+const defaultElement = "div";
+
+export interface InnerTagProps extends InteractionStatesProps, ComponentProps<typeof defaultElement> {
     /**
      * The tag style to use.
      */
@@ -54,7 +56,7 @@ export function InnerTag({
     active,
     focus,
     hover,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

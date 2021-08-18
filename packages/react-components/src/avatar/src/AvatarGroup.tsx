@@ -5,7 +5,9 @@ import { Group } from "../../group";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 import { augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
-export interface InnerAvatarGroupProps {
+const defaultElement = "div";
+
+export interface InnerAvatarGroupProps extends ComponentProps<typeof defaultElement>{
     /**
      * The avatars of the group can vary in size.
      */
@@ -75,7 +77,7 @@ const AvailableSlots = 4;
 
 export function InnerAvatarGroup({
     size,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

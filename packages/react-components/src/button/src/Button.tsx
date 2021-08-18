@@ -1,8 +1,8 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
+import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
 import { DomProps, InteractionStatesProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
-import { ElementType, ForwardedRef, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -10,7 +10,9 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerButtonProps extends DomProps, InteractionStatesProps {
+const defaultElement = "button";
+
+export interface InnerButtonProps extends DomProps, InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
     /**
      * The button style to use.
      */
@@ -98,7 +100,7 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         hover,
         type,
-        as = "button",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

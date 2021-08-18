@@ -27,7 +27,9 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
+const defaultElement = "section";
+
+export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof defaultElement> {
     /**
      * The dialog role.
      */
@@ -132,7 +134,7 @@ export function InnerDialog({
     "aria-labelledby": ariaLabelledBy,
     "aria-describedby": ariaDescribedBy,
     wrapperProps,
-    as = "section",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

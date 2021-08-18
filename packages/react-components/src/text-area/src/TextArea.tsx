@@ -10,7 +10,9 @@ import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input"
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
+const defaultElement = "div";
+
+export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"textarea">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -128,7 +130,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
-        as = "div",
+        as = defaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(

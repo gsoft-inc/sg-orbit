@@ -22,7 +22,8 @@ import {
 } from "../../shared";
 import { useAccordionItems } from "./useAccordionItems";
 
-export interface InnerAccordionProps extends DomProps {
+const defaultElement = "div";
+export interface InnerAccordionProps extends DomProps, ComponentProps<typeof defaultElement> {
     /**
      * A controlled set of expanded item keys.
      */
@@ -72,7 +73,7 @@ export function InnerAccordion({
     expansionMode = "single",
     autoFocus,
     variant = "borderless",
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

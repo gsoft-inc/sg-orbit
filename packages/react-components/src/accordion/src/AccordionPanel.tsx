@@ -4,7 +4,8 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { mergeProps, omitProps } from "../../shared";
 
-export interface InnerAccordionPanelProps {
+const defaultElement = "div";
+export interface InnerAccordionPanelProps extends ComponentProps<typeof defaultElement>{
     /**
      * The panel item props
      */
@@ -27,7 +28,7 @@ export interface InnerAccordionPanelProps {
 
 export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     const {
-        as = "div",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest

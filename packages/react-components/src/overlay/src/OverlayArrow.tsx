@@ -2,7 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
-export interface InnerOverlayArrowProps {
+const defaultElement = "div";
+
+export interface InnerOverlayArrowProps extends ComponentProps<typeof defaultElement>{
     /**
      * An HTML element type or a custom React element type to render as.
      */
@@ -14,7 +16,7 @@ export interface InnerOverlayArrowProps {
 }
 
 export function InnerOverlayArrow({
-    as = "div",
+    as = defaultElement,
     forwardedRef,
     ...rest
 }: InnerOverlayArrowProps) {

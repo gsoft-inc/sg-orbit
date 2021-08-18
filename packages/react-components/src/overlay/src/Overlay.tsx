@@ -7,7 +7,9 @@ import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
 import { useThemeContext } from "../../theme-provider";
 
-export interface InnerOverlayProps extends DomProps{
+const defaultElement = "div";
+
+export interface InnerOverlayProps extends DomProps, ComponentProps<typeof defaultElement>{
     /**
      * Whether or not to show the overlay element.
      */
@@ -44,7 +46,7 @@ export function InnerOverlay({
     borderOffset,
     containerElement,
     zIndex,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

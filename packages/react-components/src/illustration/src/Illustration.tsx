@@ -5,7 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMe
 import { Text } from "../../typography";
 import { cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 
-export interface InnerIllustrationProps {
+const defaultElement ="div";
+
+export interface InnerIllustrationProps extends ComponentProps<typeof defaultElement>{
     /**
      * The orientation of the illustration.
      */
@@ -56,7 +58,7 @@ export function InnerIllustration({
     orientation = "horizontal",
     shape = "straight",
     color,
-    as = "div",
+    as = defaultElement,
     children,
     forwardedRef,
     ...rest

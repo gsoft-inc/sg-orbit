@@ -8,7 +8,9 @@ import { FieldContext } from "./FieldContext";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
-export interface InnerFieldProps extends DomProps {
+const defaultElement = "div";
+
+export interface InnerFieldProps extends DomProps, ComponentProps<typeof defaultElement> {
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -45,7 +47,7 @@ export function InnerField(props: InnerFieldProps) {
         required,
         fluid,
         disabled,
-        as = "div",
+        as = defaultElement,
         className,
         children,
         forwardedRef,

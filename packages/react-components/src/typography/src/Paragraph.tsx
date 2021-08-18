@@ -4,7 +4,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerParagraphProps {
+const defaultElement = "p";
+
+export interface InnerParagraphProps extends ComponentProps<typeof defaultElement> {
     /**
      * A paragraph can vary in size.
      */
@@ -32,7 +34,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
 
     const {
         size,
-        as = "p",
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest
