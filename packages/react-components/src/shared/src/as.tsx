@@ -1,5 +1,3 @@
-// Idea and naming based off Chakra UI. https://github.com/chakra-ui/chakra-ui/blob/main/packages/system/src/system.types.tsx
-
 import {
     ComponentProps,
     ElementType,
