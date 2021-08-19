@@ -1,8 +1,8 @@
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
-import { DomProps, slot } from "../../shared";
 import { Icon } from "./Icon";
+import { slot } from "../../shared";
 
-export interface InnerMultiVariantIconProps extends DomProps, ComponentProps<"svg"> {
+export interface InnerMultiVariantIconProps extends ComponentProps<"svg"> {
     /**
      * An icon can vary in size.
      */

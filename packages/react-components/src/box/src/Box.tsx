@@ -1,9 +1,9 @@
 import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, omitProps } from "../../shared";
+import { omitProps } from "../../shared";
 
 const defaultElement = "div";
 
-export interface InnerBoxProps extends DomProps, Omit<AllHTMLAttributes<any>, "as"> {
+export interface InnerBoxProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
     * @ignore
     */

@@ -2,7 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { DomProps, InteractionStatesProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { InteractionStatesProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const defaultElement = "button";
 
-export interface InnerButtonProps extends DomProps, InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
+export interface InnerButtonProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
     /**
      * The button style to use.
      */

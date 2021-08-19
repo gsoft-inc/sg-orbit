@@ -2,7 +2,6 @@ import "./RadioGroup.css";
 
 import {
     CheckableContext,
-    DomProps,
     Keys,
     augmentElement,
     isNil,
@@ -25,7 +24,7 @@ import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerRadioGroupProps extends DomProps{
+export interface InnerRadioGroupProps {
     /**
      * The value of the radio group.
      */

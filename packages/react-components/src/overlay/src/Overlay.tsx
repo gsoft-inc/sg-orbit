@@ -1,15 +1,15 @@
 import "./Overlay.css";
 
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
+import { cssModule, mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
 const defaultElement = "div";
 
-export interface InnerOverlayProps extends DomProps, ComponentProps<typeof defaultElement>{
+export interface InnerOverlayProps extends ComponentProps<typeof defaultElement>{
     /**
      * Whether or not to show the overlay element.
      */

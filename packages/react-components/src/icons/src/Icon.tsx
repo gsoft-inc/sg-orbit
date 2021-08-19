@@ -2,7 +2,7 @@ import "./Icon.css";
 
 import { AriaLabelingProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef,forwardRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
 
 export interface InnerIconProps extends AriaLabelingProps {
     /**

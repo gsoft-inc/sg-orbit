@@ -2,12 +2,12 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
+import { cssModule, mergeProps } from "../../shared";
 
 const defaultElement = "div";
 
-export interface InnerDividerProps extends DomProps, ComponentProps<typeof defaultElement> {
+export interface InnerDividerProps extends ComponentProps<typeof defaultElement> {
     /**
      * The orientation of the divider.
      */

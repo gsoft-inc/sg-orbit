@@ -1,11 +1,11 @@
 import "./Image.css";
 
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
-import { DomProps, cssModule, mergeProps, slot } from "../../shared";
+import { cssModule, mergeProps, slot } from "../../shared";
 
 const defaultElement = "img";
 
-export interface InnerImageProps extends DomProps, ComponentProps<typeof defaultElement> {
+export interface InnerImageProps extends ComponentProps<typeof defaultElement> {
     /**
      * The path to the image.
      */

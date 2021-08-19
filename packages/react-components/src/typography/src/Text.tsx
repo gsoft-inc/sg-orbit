@@ -2,11 +2,11 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const defaultElement = "span";
 
-export interface InnerTextProps extends DomProps, ComponentProps<typeof defaultElement>{
+export interface InnerTextProps extends ComponentProps<typeof defaultElement>{
     /**
      * A text can vary in size.
      */

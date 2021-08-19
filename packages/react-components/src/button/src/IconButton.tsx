@@ -1,6 +1,6 @@
 import "./IconButton.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
@@ -10,7 +10,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const defaultElement = "button";
 
-export interface InnerIconButtonProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */
