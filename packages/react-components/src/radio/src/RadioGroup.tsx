@@ -88,6 +88,10 @@ export interface InnerRadioGroupProps extends DomProps{
     /**
      * @ignore
      */
+    className?: string;
+    /**
+     * @ignore
+     */
     forwardedRef: ForwardedRef<any>;
 }
 
