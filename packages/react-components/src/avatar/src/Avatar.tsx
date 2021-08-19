@@ -1,6 +1,6 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, DomProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
@@ -8,7 +8,7 @@ import { Text } from "../../typography";
 
 const avatarDefaultElement = "div";
 
-export interface InnerAvatarProps extends DomProps, AriaLabelingProps, ComponentProps<typeof avatarDefaultElement> {
+export interface InnerAvatarProps extends AriaLabelingProps, ComponentProps<typeof avatarDefaultElement> {
     /**
      * The name of the person in the avatar.
      */
