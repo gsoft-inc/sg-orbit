@@ -25,7 +25,7 @@ export interface InnerListboxOptionProps extends DomProps, InteractionStatesProp
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

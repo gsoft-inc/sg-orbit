@@ -40,7 +40,7 @@ export interface InnerTileProps extends InteractionStatesProps, Omit<ComponentPr
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

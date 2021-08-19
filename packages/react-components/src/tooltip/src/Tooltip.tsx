@@ -8,7 +8,7 @@ const defaultElement = "div";
 
 export interface InnerTooltipProps extends Omit<ComponentProps<typeof defaultElement>, "color"> {
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

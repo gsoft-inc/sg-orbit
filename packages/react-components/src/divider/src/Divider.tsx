@@ -13,7 +13,7 @@ export interface InnerDividerProps extends DomProps, ComponentProps<typeof defau
      */
     orientation?: "horizontal" | "vertical";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

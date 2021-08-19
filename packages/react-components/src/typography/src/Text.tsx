@@ -16,7 +16,7 @@ export interface InnerTextProps extends DomProps, ComponentProps<typeof defaultE
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

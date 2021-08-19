@@ -10,7 +10,7 @@ export interface InnerListItemProps extends Omit<ComponentProps<typeof defaultEl
      */
     size?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

@@ -6,7 +6,7 @@ const defaultElement = "div";
 
 export interface InnerContentProps extends ComponentProps<typeof defaultElement>{
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

@@ -24,7 +24,7 @@ const defaultElement = "section";
 
 export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof defaultElement> {
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

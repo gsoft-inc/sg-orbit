@@ -63,7 +63,7 @@ export interface InnerAlertProps extends DomProps, AriaLabelingProps {
       */
     wrapperProps?: Record<string, any>;
     /**
-      * An HTML element type or a custom React element type to render as.
+      * @ignore
       */
     as?: ElementType;
     /**

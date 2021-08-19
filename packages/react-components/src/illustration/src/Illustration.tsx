@@ -21,7 +21,7 @@ export interface InnerIllustrationProps extends ComponentProps<typeof defaultEle
      */
     color?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

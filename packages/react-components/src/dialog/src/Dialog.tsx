@@ -51,7 +51,7 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps, Interacti
      */
     wrapperProps?: Record<string, any>;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

@@ -78,7 +78,7 @@ export interface InnerRadioGroupProps extends DomProps{
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

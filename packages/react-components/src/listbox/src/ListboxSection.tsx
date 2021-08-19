@@ -10,7 +10,7 @@ export interface InnerListboxSectionProps extends DomProps, ComponentProps<typeo
      */
     title: string;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

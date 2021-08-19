@@ -57,7 +57,7 @@ export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingPr
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

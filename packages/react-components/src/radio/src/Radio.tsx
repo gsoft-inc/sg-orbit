@@ -71,7 +71,7 @@ export interface InnerRadioProps extends InteractionStatesProps, Omit<ComponentP
      */
     name?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

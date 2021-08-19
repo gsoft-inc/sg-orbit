@@ -13,7 +13,7 @@ export interface InnerAvatarGroupProps extends ComponentProps<typeof defaultElem
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

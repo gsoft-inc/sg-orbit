@@ -24,7 +24,7 @@ export interface ThemeProviderProps extends Omit<ComponentProps<typeof defaultEl
      */
     defaultColorScheme?: ColorScheme;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

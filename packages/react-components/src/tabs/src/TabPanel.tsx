@@ -14,7 +14,7 @@ export interface InnerTabPanelProps extends Omit<ComponentProps<typeof defaultEl
      */
     panel: PanelType;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

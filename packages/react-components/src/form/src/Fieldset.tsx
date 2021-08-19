@@ -9,7 +9,7 @@ export interface InnerFieldsetProps extends DomProps, ComponentProps<typeof defa
      */
     label: string;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

@@ -12,7 +12,7 @@ export interface InnerFieldMessageProps extends Omit<ComponentProps<typeof defau
      */
     tone: "neutral" | "success" | "error";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

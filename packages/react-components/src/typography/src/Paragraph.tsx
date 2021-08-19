@@ -16,7 +16,7 @@ export interface InnerParagraphProps extends ComponentProps<typeof defaultElemen
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

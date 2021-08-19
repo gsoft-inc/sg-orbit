@@ -25,7 +25,7 @@ export interface InnerDisclosureProps extends DomProps, Omit<ComponentProps<type
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

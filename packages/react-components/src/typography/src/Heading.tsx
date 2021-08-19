@@ -11,7 +11,7 @@ export interface InnerHeadingProps extends DomProps, ComponentProps<typeof defau
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

@@ -56,7 +56,7 @@ export interface InnerMessageProps extends ComponentProps<typeof defaultElement>
      */
     onDismiss?: (event: MouseEvent) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

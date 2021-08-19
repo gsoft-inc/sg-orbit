@@ -24,7 +24,7 @@ export interface InnerInputGroupProps extends ComponentProps<typeof defaultEleme
      */
     readOnly?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

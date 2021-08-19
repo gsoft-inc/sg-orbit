@@ -77,7 +77,7 @@ export interface InnerPasswordInputProps extends TextInputProps {
      */
     wrapperProps?: Partial<BoxProps>;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

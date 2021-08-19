@@ -1,3 +1,4 @@
+import { UnionToIntersection } from "type-fest";
 import { createChainedFunction } from "./useChainedEventCallback";
 import { isFunction, isNil, isUndefined } from "./assertions";
 import { mergeClasses } from "./mergeClasses";
@@ -115,7 +116,6 @@ function merge(props: Record<string, any>, newProps: Record<string, any>) {
 
 // Taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379.
 type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
-type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 
 interface Props {
     [key: string]: any;

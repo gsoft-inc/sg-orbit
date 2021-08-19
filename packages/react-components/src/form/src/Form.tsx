@@ -17,7 +17,7 @@ export interface InnerFormProps extends ComponentProps<typeof defaultElement> {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

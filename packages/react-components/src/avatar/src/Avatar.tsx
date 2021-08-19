@@ -26,7 +26,7 @@ export interface InnerAvatarProps extends DomProps, AriaLabelingProps, Component
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

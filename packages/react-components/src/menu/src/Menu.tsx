@@ -79,7 +79,7 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentPr
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

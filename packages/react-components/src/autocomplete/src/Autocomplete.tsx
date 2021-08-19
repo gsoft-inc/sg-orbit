@@ -156,7 +156,7 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

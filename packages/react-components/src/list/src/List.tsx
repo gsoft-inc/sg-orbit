@@ -15,7 +15,7 @@ export interface InnerListProps extends ComponentProps<typeof defaultElement>{
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

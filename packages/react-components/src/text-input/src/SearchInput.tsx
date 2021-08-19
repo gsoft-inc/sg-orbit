@@ -72,7 +72,7 @@ export interface InnerSearchInputProps extends InteractionStatesProps, Omit<Comp
      */
     wrapperProps?: Partial<BoxProps>;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

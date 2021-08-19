@@ -13,7 +13,7 @@ export interface InnerAccordionPanelProps extends ComponentProps<typeof defaultE
         key: string;
     };
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

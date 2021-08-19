@@ -20,7 +20,7 @@ export interface InnerMenuItemProps extends DomProps, InteractionStatesProps, Co
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

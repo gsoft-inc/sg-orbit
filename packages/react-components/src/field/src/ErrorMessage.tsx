@@ -5,7 +5,7 @@ import { useFieldMessageProps } from "./FieldContext";
 
 export interface InnerErrorMessageProps {
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**

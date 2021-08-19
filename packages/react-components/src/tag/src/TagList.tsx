@@ -36,7 +36,7 @@ export interface InnerTagListProps extends ComponentProps<typeof defaultElement>
      */
     children: ReactNode;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**
