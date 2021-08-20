@@ -5,7 +5,7 @@ import { Group, GroupProps } from "../../group";
 import { augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
-export interface InnerButtonGroupProps extends GroupProps{
+export interface InnerButtonGroupProps extends Omit<GroupProps, "size"> {
     /**
      * The orientation of the buttons.
      */

@@ -15,7 +15,7 @@ import {
     useMergedRefs
 } from "../../shared";
 
-export interface InnerTileGroupProps {
+export interface InnerTileGroupProps extends Omit<GroupProps, "autoFocus" | "onChange"> {
     /**
      * The value of the tile group.
      */

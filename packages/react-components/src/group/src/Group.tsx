@@ -1,8 +1,8 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
+import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
 import { isNil, mergeProps } from "../../shared";
 
-export interface InnerGroupProps {
+export interface InnerGroupProps extends Omit<FlexProps, "wrap">{
     /**
      * The orientation of the elements.
      */

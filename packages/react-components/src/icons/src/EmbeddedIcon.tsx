@@ -1,7 +1,7 @@
-import { Children, ReactElement, ReactNode } from "react";
+import { Children, ReactElement, ReactNode, SVGProps } from "react";
 import { augmentElement, createSizeAdapter } from "../../shared";
 
-export interface EmbeddedIconProps {
+export interface EmbeddedIconProps extends SVGProps<SVGSVGElement>{
     /**
      * An icon can vary in size.
      */

@@ -57,6 +57,10 @@ export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingPr
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
+     * Whether or not the switch is disabled.
+     */
+    disabled?: boolean;
+    /**
      * @ignore
      */
     as?: ElementType;

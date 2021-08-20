@@ -1,9 +1,9 @@
 import { ComponentProps, ElementType, ForwardedRef,ReactNode, forwardRef } from "react";
 import { InteractionStatesProps, cssModule, mergeProps } from "../../shared";
-import { Link } from "../../link";
+import { Link, LinkProps } from "../../link";
 import { useTile } from "./useTile";
 
-export interface InnerTileLinkProps extends InteractionStatesProps {
+export interface InnerTileLinkProps extends InteractionStatesProps, LinkProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */

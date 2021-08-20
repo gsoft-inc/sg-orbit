@@ -1,9 +1,9 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { Flex } from "./Flex";
+import { Flex, FlexProps } from "./Flex";
 import { isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
-export interface InnerStackProps {
+export interface InnerStackProps extends Omit<FlexProps, "wrap"> {
     /**
      * Whether or not to inline the elements.
      */

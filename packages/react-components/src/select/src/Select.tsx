@@ -15,7 +15,7 @@ import { useSelect } from "./useSelect";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps {
+export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"button">, "autoFocus"> {
     /**
      * @ignore
      */

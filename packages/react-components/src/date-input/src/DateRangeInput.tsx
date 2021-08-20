@@ -52,7 +52,7 @@ export interface DateRangePreset {
 
 const defaultElement = "div";
 
-export interface InnerDateRangeInputProps extends InteractionStatesProps, ComponentProps<typeof defaultElement> {
+export interface InnerDateRangeInputProps extends InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
      * @ignore
      */

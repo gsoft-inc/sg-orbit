@@ -21,7 +21,7 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group, GroupProps } from "../../group";
 import { useGroupInput } from "../../input";
 
-export interface InnerCheckboxGroupProps extends GroupProps{
+export interface InnerCheckboxGroupProps extends Omit<GroupProps, "size" | "autoFocus" | "onChange"> {
     /**
    * The value of the checkbox group.
    */

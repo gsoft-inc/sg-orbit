@@ -44,7 +44,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const defaultElement = "div";
 
-export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "onChange"> {
+export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */

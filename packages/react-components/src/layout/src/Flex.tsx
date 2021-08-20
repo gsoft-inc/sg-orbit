@@ -1,8 +1,8 @@
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
-export interface InnerFlexProps {
+export interface InnerFlexProps extends BoxProps{
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

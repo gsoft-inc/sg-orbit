@@ -1,9 +1,9 @@
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { FieldMessage, getValidationProps } from "./FieldMessage";
+import { FieldMessage, FieldMessageProps, getValidationProps } from "./FieldMessage";
 import { mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-export interface InnerErrorMessageProps {
+export interface InnerErrorMessageProps extends Omit<FieldMessageProps, "children"> {
     /**
      * @ignore
      */
