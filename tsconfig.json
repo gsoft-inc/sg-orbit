@@ -25,7 +25,15 @@
     "isolatedModules": true,
 
     // we don't create declaration files when linting
-    "noEmit": true
+    "noEmit": true,
+    "baseUrl": ".",
+    "paths": {
+      "@utils/*": ["jest/utils/*"],
+      "@react-components/*": ["packages/react-components/src/*"]
+    }
+
+        // "@utils/(.*)$": "<rootDir>/jest/utils/$1",
+        // "@react-components/(.*)$": "<rootDir>/packages/react-components/src/$1"
   },
   "include": ["packages", "typings"],
 }
