@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { DomScope, FocusManager } from "@react-components/shared";
 import { MutableRefObject, createRef } from "react";
 

@@ -576,6 +576,7 @@ test("can focus the input with the focus api", async () => {
 test("when the entered value exceed the specified min or max value, onValueChange is called with the clamped value before onBlur is called", async () => {
     const handleValueChange = jest.fn();
 
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     const onBlur = () => {
 
     };

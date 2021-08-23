@@ -1,7 +1,7 @@
 import { Alert } from "@react-components/alert";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
-import { Ref, createRef } from "react";
+import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****

@@ -1,5 +1,5 @@
 import { Box } from "@react-components/box";
-import { Ref, createRef } from "react";
+import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 // ***** Refs *****

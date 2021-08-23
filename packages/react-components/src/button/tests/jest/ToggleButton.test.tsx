@@ -1,6 +1,6 @@
-import { Ref, createRef } from "react";
 import { ToggleButton } from "@react-components/button";
 import { act, render, waitFor } from "@testing-library/react";
+import { createRef } from "react";
 import { waitDelay } from "@utils/waitDelay";
 import userEvent from "@testing-library/user-event";
 

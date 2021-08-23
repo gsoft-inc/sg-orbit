@@ -1,6 +1,6 @@
 import { CrossButton } from "@react-components/button";
-import { Ref, createRef } from "react";
 import { act, render, waitFor } from "@testing-library/react";
+import { createRef } from "react";
 
 // ***** Api *****
 

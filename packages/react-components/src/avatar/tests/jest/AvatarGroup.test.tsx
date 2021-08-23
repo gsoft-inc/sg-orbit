@@ -1,5 +1,5 @@
 import { Avatar, AvatarGroup } from "@react-components/avatar";
-import { Ref, createRef } from "react";
+import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 // ***** Refs *****
