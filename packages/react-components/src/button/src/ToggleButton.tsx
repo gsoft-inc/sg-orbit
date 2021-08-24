@@ -75,7 +75,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as:asProps = defaultElement,
+        as = defaultElement,
         children,
         forwardedRef,
         ...rest
@@ -104,7 +104,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    asProps
+                    as
                 },
                 buttonProps
             )}
