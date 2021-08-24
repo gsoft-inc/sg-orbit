@@ -99,7 +99,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
 
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
 
-    const handleOpenChange = useChainedEventCallback(onOpenChange, (_event: SyntheticEvent, isVisible: boolean) => {
+    const handleOpenChange = useChainedEventCallback(onOpenChange, (event: SyntheticEvent, isVisible: boolean) => {
         // When the menu is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
             setFocusTarget(FocusTarget.first);
