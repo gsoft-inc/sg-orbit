@@ -34,7 +34,7 @@ export interface InnerRadioProps extends InteractionStatesProps, Omit<ComponentP
     /**
      * The value to associate with when in a group.
      */
-    value: string;
+    value?: string;
     /**
      * Whether or not the radio should autoFocus on render.
      */
