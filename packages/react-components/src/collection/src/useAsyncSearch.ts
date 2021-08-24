@@ -13,7 +13,7 @@ export function useAsyncSearch<T>(load: (query: string, signal: AbortSignal) => 
         }
     }, [abortController, setAbortController]);
 
-    const search = useCallback(async (_event: SyntheticEvent, query: string) => {
+    const search = useCallback(async (event: SyntheticEvent, query: string) => {
         cancelRequest();
         setAbortController(new AbortController());
 
