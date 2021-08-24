@@ -11,7 +11,7 @@ test("when external, add rel=\"noopener noreferrer\"", async () => {
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "noopener noreferrer"));
 });
 
-test("when external and rel is , don't add rel=\"noopener noreferrer\"", async () => {
+test("when external and rel is stylesheet, don't add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = render(<TextLink rel="stylesheet" external href="#" data-testid="text-link">Flight details</TextLink>);
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "stylesheet"));
