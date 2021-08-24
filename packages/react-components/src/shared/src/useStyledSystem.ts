@@ -470,7 +470,7 @@ export const BorderRightWidthClasses = createOrbitBorderWidthScaleClasses("br", 
 // TODO FRANK: Do we realistically need vertical border classes?
 export const BorderVerticalWidthClasses = createOrbitBorderWidthScaleClasses("bv", true);
 
-// TODO FRANK: Do we realistically need vertical border classes?
+// TODO FRANK: Do we realistically need horizontal border classes?
 export const BorderHorizontalWidthClasses = createOrbitBorderWidthScaleClasses("bh", true);
 
 export const BottomClasses = createOrbitSpacingScaleClasses("bottom", true);

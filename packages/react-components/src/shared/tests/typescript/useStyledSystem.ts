@@ -35,11 +35,6 @@ const expectAssignable = <T>(value: T) => {
     // Do nothing, the TypeScript compiler handles this for us
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const expectNotAssignable = <T>(value: any) => {
-    // Do nothing, the TypeScript compiler handles this for us
-};
-
 expectAssignable<GlobalValue>("inherit");
 expectAssignable<GlobalValue>("initial");
 expectAssignable<GlobalValue>("revert");
