@@ -26,10 +26,9 @@
 
     // we don't create declaration files when linting
     "noEmit": true,
-    "baseUrl": ".",
     "paths": {
-      "@utils/*": ["jest/utils/*"],
-      "@react-components/*": ["packages/react-components/src/*"]
+      "@utils/*": ["./jest/utils/*"],
+      "@react-components/*": ["./packages/react-components/src/*"]
     }
   },
   "include": ["packages", "typings"],
