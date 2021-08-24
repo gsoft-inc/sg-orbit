@@ -3,9 +3,9 @@ import { DomProps, augmentElement, isNil, mergeProps, resolveChildren, useMerged
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends DomProps, ComponentProps<typeof defaultElement> {
+export interface InnerPopoverTriggerProps extends DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the popover.
      */
@@ -85,7 +85,7 @@ export function InnerPopoverTrigger({
     allowPreventOverflow = true,
     containerElement,
     zIndex = 10000,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

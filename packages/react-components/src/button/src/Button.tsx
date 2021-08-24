@@ -10,9 +10,9 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-const defaultElement = "button";
+const DefaultElement = "button";
 
-export interface InnerButtonProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
+export interface InnerButtonProps extends InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The button style to use.
      */
@@ -100,7 +100,7 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         hover,
         type,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

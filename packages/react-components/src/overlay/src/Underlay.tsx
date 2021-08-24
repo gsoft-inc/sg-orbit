@@ -4,9 +4,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerUnderlayProps extends ComponentProps<typeof defaultElement> {
+export interface InnerUnderlayProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The z-index of the underlay.
      */
@@ -23,7 +23,7 @@ export interface InnerUnderlayProps extends ComponentProps<typeof defaultElement
 
 export function InnerUnderlay({
     zIndex,
-    as = defaultElement,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerUnderlayProps) {

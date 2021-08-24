@@ -2,9 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { slot } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerContentProps extends ComponentProps<typeof defaultElement>{
+export interface InnerContentProps extends ComponentProps<typeof DefaultElement>{
     /**
      * @ignore
      */
@@ -24,7 +24,7 @@ export interface InnerContentProps extends ComponentProps<typeof defaultElement>
 }
 
 export function InnerContent({
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

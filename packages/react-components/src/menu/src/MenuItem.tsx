@@ -8,9 +8,9 @@ import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./Menu";
 
-const defaultElement = "li";
+const DefaultElement = "li";
 
-export interface InnerMenuItemProps extends DomProps, InteractionStatesProps, ComponentProps<typeof defaultElement> {
+export interface InnerMenuItemProps extends DomProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching collection item.
      */
@@ -46,7 +46,7 @@ export function InnerMenuItem({
     active,
     focus,
     hover,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

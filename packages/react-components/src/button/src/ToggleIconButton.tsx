@@ -3,9 +3,9 @@ import { ComponentProps,ElementType, ForwardedRef, ReactElement, ReactNode, Synt
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
-const defaultElement = "button";
+const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -87,7 +87,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         onChange,
         active,
         "aria-label": ariaLabel,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

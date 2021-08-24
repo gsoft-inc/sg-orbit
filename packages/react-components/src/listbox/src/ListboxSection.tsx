@@ -2,9 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { DomProps, mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerListboxSectionProps extends DomProps, ComponentProps<typeof defaultElement> {
+export interface InnerListboxSectionProps extends DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */
@@ -26,7 +26,7 @@ export interface InnerListboxSectionProps extends DomProps, ComponentProps<typeo
 export function InnerListboxSection({
     id,
     title,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

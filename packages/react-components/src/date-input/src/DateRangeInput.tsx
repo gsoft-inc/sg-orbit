@@ -50,7 +50,7 @@ export interface DateRangePreset {
     endDate: Date;
 }
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
 export interface InnerDateRangeInputProps extends InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
@@ -421,7 +421,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         focus = false,
         hover,
         name,
-        as = defaultElement,
+        as = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(

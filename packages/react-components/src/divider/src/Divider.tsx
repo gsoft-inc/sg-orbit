@@ -5,9 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { Text } from "../../typography";
 import { cssModule, mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerDividerProps extends ComponentProps<typeof defaultElement> {
+export interface InnerDividerProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the divider.
      */
@@ -28,7 +28,7 @@ export interface InnerDividerProps extends ComponentProps<typeof defaultElement>
 
 export function InnerDivider({
     orientation = "horizontal",
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

@@ -8,9 +8,9 @@ import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
-const defaultElement = "a";
+const DefaultElement = "a";
 
-export interface InnerTextLinkProps extends ComponentProps<typeof defaultElement> {
+export interface InnerTextLinkProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -78,7 +78,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         hover,
         visited,
         disabled,
-        as: As = defaultElement,
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest

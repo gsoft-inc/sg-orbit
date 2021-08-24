@@ -5,9 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { Text } from "../../typography";
 import { cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 
-const defaultElement = "span";
+const DefaultElement = "span";
 
-export interface InnerCounterProps extends ComponentProps<typeof defaultElement>{
+export interface InnerCounterProps extends ComponentProps<typeof DefaultElement>{
     /**
      * The style to use.
      */
@@ -62,7 +62,7 @@ export function InnerCounter(props: InnerCounterProps) {
         reverse,
         size,
         pushed,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

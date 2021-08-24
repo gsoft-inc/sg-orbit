@@ -8,9 +8,9 @@ import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-const defaultElement = "button";
+const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */
@@ -91,7 +91,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         type,
         "aria-label": ariaLabel,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

@@ -4,9 +4,9 @@ import { ComponentProps,ElementType, ForwardedRef, ReactNode, forwardRef } from 
 import { Text } from "../../typography";
 import { mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerTooltipProps extends Omit<ComponentProps<typeof defaultElement>, "color"> {
+export interface InnerTooltipProps extends Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * @ignore
      */
@@ -22,7 +22,7 @@ export interface InnerTooltipProps extends Omit<ComponentProps<typeof defaultEle
 }
 
 export function InnerTooltip({
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

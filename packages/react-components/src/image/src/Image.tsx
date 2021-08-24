@@ -3,9 +3,9 @@ import "./Image.css";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
 import { cssModule, mergeProps, slot } from "../../shared";
 
-const defaultElement = "img";
+const DefaultElement = "img";
 
-export interface InnerImageProps extends ComponentProps<typeof defaultElement> {
+export interface InnerImageProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The path to the image.
      */
@@ -63,7 +63,7 @@ export function InnerImage({
     height,
     fit,
     position,
-    as: As = defaultElement,
+    as: As = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerImageProps) {

@@ -10,10 +10,10 @@ import { Transition } from "../../transition";
 
 type InnerMessageContentProps = TextProps;
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
 const MessageContent = forwardRef<any, Omit<InnerMessageContentProps, "forwardedRef">>(({
-    as = defaultElement,
+    as = DefaultElement,
     children,
     ...rest
 }, ref) => {
@@ -40,7 +40,7 @@ const MessageContent = forwardRef<any, Omit<InnerMessageContentProps, "forwarded
     );
 });
 
-export interface InnerMessageProps extends ComponentProps<typeof defaultElement> {
+export interface InnerMessageProps extends ComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value.
      */
@@ -92,7 +92,7 @@ export function InnerMessage({
     variant = "informative",
     onDismiss,
     role: roleProp,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

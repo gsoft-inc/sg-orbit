@@ -2,9 +2,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { Text } from "../../typography";
 import { mergeProps } from "../../shared";
 
-const defaultElement = "li";
+const DefaultElement = "li";
 
-export interface InnerListItemProps extends Omit<ComponentProps<typeof defaultElement>, "color"> {
+export interface InnerListItemProps extends Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A list item can vary in size.
      */
@@ -26,7 +26,7 @@ export interface InnerListItemProps extends Omit<ComponentProps<typeof defaultEl
 
 export function InnerListItem({
     size,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

@@ -8,9 +8,9 @@ export type Theme = "apricot" | "desktop";
 export type ColorScheme = "light" | "dark";
 export type ColorSchemeOrSystem = ColorScheme | "system";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface ThemeProviderProps extends Omit<ComponentProps<typeof defaultElement>, "ref"> {
+export interface ThemeProviderProps extends Omit<ComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * The theme to use.
      */
@@ -38,7 +38,7 @@ export function ThemeProvider({
     colorScheme,
     defaultColorScheme,
     children,
-    as = defaultElement,
+    as = DefaultElement,
     ...rest
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();

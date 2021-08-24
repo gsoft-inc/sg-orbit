@@ -6,9 +6,9 @@ import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
-const defaultElement = "a";
+const DefaultElement = "a";
 
-export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps, ComponentProps<typeof defaultElement> {
+export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -80,7 +80,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         visited,
         disabled,
         "aria-label": ariaLabel,
-        as: As = defaultElement,
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest

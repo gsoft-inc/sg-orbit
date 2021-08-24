@@ -20,9 +20,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, for
 import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
-const defaultElement = "section";
+const DefaultElement = "section";
 
-export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof defaultElement> {
+export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * @ignore
      */
@@ -42,7 +42,7 @@ export function InnerPopover({
     focus,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

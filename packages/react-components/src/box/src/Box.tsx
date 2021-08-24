@@ -1,7 +1,7 @@
 import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { omitProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
 export interface InnerBoxProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
@@ -24,7 +24,7 @@ export interface InnerBoxProps extends Omit<AllHTMLAttributes<any>, "as"> {
 
 export function InnerBox(props: InnerBoxProps) {
     const {
-        as: As = defaultElement,
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest

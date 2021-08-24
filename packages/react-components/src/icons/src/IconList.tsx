@@ -2,9 +2,9 @@ import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, Reac
 import { Inline } from "../../layout";
 import { slot } from "../../shared";
 
-const defaultElement = "span";
+const DefaultElement = "span";
 
-export interface InnerIconListProps extends ComponentProps<typeof defaultElement>{
+export interface InnerIconListProps extends ComponentProps<typeof DefaultElement>{
     /**
      * Whether or not the IconList is disabled.
      */
@@ -31,7 +31,7 @@ export function InnerIconList({
     size,
     disabled,
     children,
-    as = defaultElement,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerIconListProps) {

@@ -8,9 +8,9 @@ import { FieldContext } from "./FieldContext";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerGroupFieldProps extends DomProps, ComponentProps<typeof defaultElement>{
+export interface InnerGroupFieldProps extends DomProps, ComponentProps<typeof DefaultElement>{
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -47,7 +47,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         required,
         fluid,
         disabled,
-        as = defaultElement,
+        as = DefaultElement,
         className,
         children,
         forwardedRef,

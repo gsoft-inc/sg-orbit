@@ -36,9 +36,9 @@ export const ItemKeyProp = "data-o-ui-key";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
-const defaultElement = "ul";
+const DefaultElement = "ul";
 
-export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentProps<typeof defaultElement> {
+export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */
@@ -115,7 +115,7 @@ export function InnerMenu({
     fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

@@ -5,9 +5,9 @@ import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverl
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 import { augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends ComponentProps<typeof defaultElement> {
+export interface InnerTooltipTriggerProps extends ComponentProps<typeof DefaultElement> {
     /**
     * Whether or not to show the tooltip.
     */
@@ -96,7 +96,7 @@ export function InnerTooltipTrigger({
     allowPreventOverflow = true,
     containerElement,
     zIndex = 10000,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

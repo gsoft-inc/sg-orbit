@@ -2,9 +2,9 @@ import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
 import { mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerOverlayArrowProps extends ComponentProps<typeof defaultElement>{
+export interface InnerOverlayArrowProps extends ComponentProps<typeof DefaultElement>{
     /**
      * @ignore
      */
@@ -16,7 +16,7 @@ export interface InnerOverlayArrowProps extends ComponentProps<typeof defaultEle
 }
 
 export function InnerOverlayArrow({
-    as = defaultElement,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerOverlayArrowProps) {

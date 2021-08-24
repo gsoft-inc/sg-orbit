@@ -5,9 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, Synth
 import { InteractionStatesProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
-const defaultElement = "button";
+const DefaultElement = "button";
 
-export interface InnerTileProps extends InteractionStatesProps, Omit<ComponentProps<typeof defaultElement>, "autoFocus" | "onChange"> {
+export interface InnerTileProps extends InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -67,7 +67,7 @@ export function InnerTile(props: InnerTileProps) {
         orientation = "vertical",
         focus,
         hover,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

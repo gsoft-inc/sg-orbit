@@ -7,9 +7,9 @@ import { createPortal } from "react-dom";
 import { cssModule, mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerOverlayProps extends ComponentProps<typeof defaultElement>{
+export interface InnerOverlayProps extends ComponentProps<typeof DefaultElement>{
     /**
      * Whether or not to show the overlay element.
      */
@@ -46,7 +46,7 @@ export function InnerOverlay({
     borderOffset,
     containerElement,
     zIndex,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

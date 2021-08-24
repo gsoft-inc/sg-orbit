@@ -4,7 +4,7 @@ import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, ReactNode
 import { Box } from "../../box";
 import { mergeProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
 export interface InnerVisuallyHiddenProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
@@ -22,7 +22,7 @@ export interface InnerVisuallyHiddenProps extends Omit<AllHTMLAttributes<any>, "
 }
 
 export function InnerVisuallyHidden({
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

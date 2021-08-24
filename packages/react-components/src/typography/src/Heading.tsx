@@ -3,9 +3,9 @@ import "./Heading.css";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
 import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerHeadingProps extends ComponentProps<typeof defaultElement>{
+export interface InnerHeadingProps extends ComponentProps<typeof DefaultElement>{
     /**
      * A heading can vary in size.
      */
@@ -29,7 +29,7 @@ export function InnerHeading(props: InnerHeadingProps) {
 
     const {
         size,
-        as: As = defaultElement,
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest

@@ -3,9 +3,9 @@ import { DialogTriggerContext } from "./DialogTriggerContext";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 import { augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 
-const defaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerDialogTriggerProps extends ComponentProps<typeof defaultElement>{
+export interface InnerDialogTriggerProps extends ComponentProps<typeof DefaultElement>{
     /**
      * Whether or not to show the dialog.
      */
@@ -49,7 +49,7 @@ export function InnerDialogTrigger({
     onOpenChange,
     dismissable = true,
     zIndex = 1,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

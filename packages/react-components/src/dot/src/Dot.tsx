@@ -6,9 +6,9 @@ import { Text } from "../../typography";
 import { cssModule, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
 
-const defaultElement = "span";
+const DefaultElement = "span";
 
-export interface InnerDotProps extends ComponentProps<typeof defaultElement> {
+export interface InnerDotProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */
@@ -50,7 +50,7 @@ function useColor(color: string) {
 export function InnerDot(props: InnerDotProps) {
     const {
         color,
-        as = defaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

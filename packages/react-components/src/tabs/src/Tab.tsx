@@ -9,9 +9,9 @@ import { useTabsContext } from "./TabsContext";
 
 export const TabKeyProp = "data-o-ui-key";
 
-const defaultElement = "button";
+const DefaultElement = "button";
 
-export interface InnerTabProps extends InteractionStatesProps, ComponentProps<typeof defaultElement> {
+export interface InnerTabProps extends InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching tab item.
      */
@@ -44,7 +44,7 @@ export function InnerTab({
     active,
     focus,
     hover,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

@@ -5,9 +5,9 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, for
 import { Text } from "../../typography";
 import { cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 
-const defaultElement = "section";
+const DefaultElement = "section";
 
-export interface InnerCardProps extends ComponentProps<typeof defaultElement> {
+export interface InnerCardProps extends ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the card.
      */
@@ -42,7 +42,7 @@ export function InnerCard({
     orientation = "vertical",
     size,
     fluid,
-    as = defaultElement,
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
