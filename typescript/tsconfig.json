@@ -27,7 +27,9 @@
     // we don't create declaration files when linting
     "noEmit": true,
     "paths": {
-      "@typescript/*": ["./*"]
+      "@typescript/*": ["./*"],
+      "@utils/*": ["../jest/utils/*"],
+      "@react-components/*": ["../packages/react-components/src/*"]
     }
   },
   "include": ["../packages", "./typings"],

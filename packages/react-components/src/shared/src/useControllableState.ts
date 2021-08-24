@@ -67,7 +67,7 @@ export interface OnChangeContext {
 }
 
 export interface ControllableStateOptions<T> {
-    onChange?: (newState: T, context: OnChangeContext) => T | undefined;
+    onChange?: (newState: T, context?: OnChangeContext) => T | undefined;
 }
 
 /**
