@@ -5,6 +5,7 @@ import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from
 import { mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
+
 export interface InnerAccordionPanelProps extends ComponentProps<typeof DefaultElement>{
     /**
      * The panel item props

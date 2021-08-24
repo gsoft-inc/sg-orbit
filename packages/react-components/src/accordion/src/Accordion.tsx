@@ -23,6 +23,7 @@ import {
 import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
+
 export interface InnerAccordionProps extends DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of expanded item keys.
