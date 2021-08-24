@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { expectAssignable } from "../../../../../../typescript/tests/helpers";
+import { expectAssignable } from "@typescript/tests";
 import { getSlots } from "../../src";
 
 const node: ReactNode = null;
@@ -21,4 +21,4 @@ expectAssignable<keyof typeof result>("icon");
 expectAssignable<keyof typeof result>("text");
 
 // @ts-expect-error
-expectAssignable<keyof typeof result>("autre");
+expectAssignable<keyof typeof result>("other");

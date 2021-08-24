@@ -1,4 +1,4 @@
-import { expectAssignable } from "../../../../../../typescript/tests/helpers";
+import { expectAssignable } from "@typescript/tests";
 import { mergeProps } from "../../src";
 
 const a1:{ a?:string; b?:string } = {};

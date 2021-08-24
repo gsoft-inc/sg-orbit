@@ -1,4 +1,4 @@
-import { expectAssignable } from "../../../../../../typescript/tests/helpers";
+import { expectAssignable } from "@typescript/tests";
 import { omitProps } from "../../src";
 
 interface MyObject {
@@ -17,6 +17,7 @@ const result = omitProps(obj, ["a"]);
 expectAssignable<Omit<MyObject, "a">>(result);
 expectAssignable<string>(result.b);
 expectAssignable<string>(result.c);
+
 // @ts-expect-error
 expectAssignable<any>(result.a);
 // @ts-expect-error

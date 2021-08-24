@@ -25,7 +25,10 @@
     "isolatedModules": true,
 
     // we don't create declaration files when linting
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@typescript/*": ["./*"]
+    }
   },
   "include": ["../packages", "./typings"],
 }
