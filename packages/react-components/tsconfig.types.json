@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig",
+  "extends": "../../typescript/tsconfig",
   "compilerOptions": {
     "outDir": "./dist",
     "declaration": true,
@@ -10,6 +10,6 @@
   },
   "include": [
     "src/**/*",
-    "../../typings/*"
+    "../../typescript/typings/*"
   ]
 }

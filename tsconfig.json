@@ -1,35 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "moduleResolution": "node",
-    "skipLibCheck": true, // Skip type checking of all declaration files
-    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
-    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
-    "noImplicitReturns": false, // 6 errors, but i don't like the synthax in the hooks. not gonna turn this on for now
-    // "strict": true, // Enabling --strict enables --noImplicitAny, --noImplicitThis, --alwaysStrict, --strictBindCallApply, --strictNullChecks, --strictFunctionTypes and --strictPropertyInitialization.
-
-    // preparing for strict mode
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictBindCallApply": true,
-    "strictNullChecks": false, // 312 errors
-    "strictPropertyInitialization": false, // passes, but needs null checks
-    "strictFunctionTypes": false, // 12 errors
-
-    //  the bare minimum for our project
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "esModuleInterop": true,
-
-    // Ensure that Babel can safely transpile files in the TypeScript project
-    "isolatedModules": true,
-
-    // we don't create declaration files when linting
-    "noEmit": true,
-    "paths": {
-      "@utils/*": ["./jest/utils/*"],
-      "@react-components/*": ["./packages/react-components/src/*"]
-    }
-  },
-  "include": ["packages", "typings"],
+    "extends": "./typescript/tsconfig.json"
 }
