@@ -16,7 +16,7 @@ export function InnerAlertTrigger({
     );
 }
 
-export const AlertTrigger = forwardRef<any, InnerAlertTriggerProps>((props, ref) => (
+export const AlertTrigger = forwardRef<any, Omit<InnerAlertTriggerProps, "forwardedRef">>((props, ref) => (
     <InnerAlertTrigger {...props} forwardedRef={ref} />
 ));
 

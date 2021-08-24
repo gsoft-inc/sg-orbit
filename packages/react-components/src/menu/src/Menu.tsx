@@ -89,6 +89,10 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentPr
     /**
      * @ignore
      */
+    disabled?: boolean;
+    /**
+     * @ignore
+     */
     forwardedRef: ForwardedRef<any>;
 }
 

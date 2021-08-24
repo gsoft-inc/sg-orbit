@@ -119,6 +119,10 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps, Componen
     /**
      * @ignore
      */
+    disabled?: boolean;
+    /**
+     * @ignore
+     */
     forwardedRef: ForwardedRef<any>;
 }
 

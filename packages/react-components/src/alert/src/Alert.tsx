@@ -196,7 +196,7 @@ export function InnerAlert({
     );
 }
 
-export const Alert = forwardRef<any, InnerAlertProps>((props, ref) => (
+export const Alert = forwardRef<any, Omit<InnerAlertProps, "forwardedRef">>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 

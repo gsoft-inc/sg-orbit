@@ -50,7 +50,7 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     );
 }
 
-export const AccordionPanel = forwardRef<any, InnerAccordionPanelProps>((props, ref) => (
+export const AccordionPanel = forwardRef<any, Omit<InnerAccordionPanelProps, "forwardedRef">>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));
 
