@@ -40,8 +40,8 @@ export function useLink({
 
     return {
         linkProps: {
-            target,
-            rel: rel ?? external ? "noopener noreferrer" : undefined,
+            target: target ?? (external ? "_blank" : undefined),
+            rel: rel ?? (external ? "noopener noreferrer" : undefined),
             className: mergeClasses(
                 module,
                 cssModule(
