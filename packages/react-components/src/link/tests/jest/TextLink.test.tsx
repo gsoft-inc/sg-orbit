@@ -11,6 +11,24 @@ test("when external, add rel=\"noopener noreferrer\"", async () => {
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "noopener noreferrer"));
 });
 
+test("when external and rel is specified, don't add rel=\"noopener noreferrer\"", async () => {
+    const { getByTestId } = render(<TextLink rel="stylesheet" external href="#" data-testid="text-link">Flight details</TextLink>);
+
+    await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "stylesheet"));
+});
+
+test("when external, add target=\"_blank\"", async () => {
+    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
+
+    await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("target", "_blank"));
+});
+
+test("when external and target is specified, don't add target=\"_blank\"", async () => {
+    const { getByTestId } = render(<TextLink external target="_self" href="#" data-testid="text-link">Flight details</TextLink>);
+
+    await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("target", "_self"));
+});
+
 test("when autofocus is true, the icon link is focused on render", async () => {
     const { getByTestId } = render(
         <TextLink autoFocus href="#" data-testid="text-link">
