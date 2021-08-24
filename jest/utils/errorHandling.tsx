@@ -1,5 +1,5 @@
-const React = require("react");
-import {ReactNode, Component} from "react"
+import { ReactNode, Component } from "react"
+
 // React logs errors to the console when an error is thrown, even when a boundary exists. Silence it temporarily.
 // https://github.com/facebook/react/issues/15520
 function muteConsoleErrors(patterns: string[]) {
@@ -52,10 +52,5 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> 
         return children;
     }
 }
-
-module.exports = {
-    muteConsoleErrors,
-    ErrorBoundary
-};
 
 export { muteConsoleErrors, ErrorBoundary }
