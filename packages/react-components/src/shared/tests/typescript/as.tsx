@@ -15,4 +15,5 @@ const RouterLink = (props: RouterLinkProps) => {
 
 const RouterButton = as(Button, RouterLink);
 
-<RouterButton onClick={() => console.log("test")} a="a" b={false} >aa</RouterButton>;
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+<RouterButton onClick={() => {}} a="a" b={false} >aa</RouterButton>;
