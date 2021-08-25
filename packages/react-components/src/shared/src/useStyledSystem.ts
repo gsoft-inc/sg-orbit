@@ -457,6 +457,11 @@ export const BorderStyleClasses = {
     "none": "o-ui-b-none"
 } as const;
 
+export const BoxSizingClasses = {
+    "border-box": "o-ui-bs-border-box",
+    "content-box": "o-ui-bs-content-box"
+} as const;
+
 export const BorderWidthClasses = createOrbitBorderWidthScaleClasses("ba", true);
 
 export const BorderTopWidthClasses = createOrbitBorderWidthScaleClasses("bt", true);
