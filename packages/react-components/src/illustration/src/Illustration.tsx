@@ -81,7 +81,7 @@ export function InnerIllustration({
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     className: cssModule(

@@ -117,7 +117,11 @@ function merge(props: Record<string, any>, newProps: Record<string, any>) {
 type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((k: infer I) => void) ? I : never;
 
-export function mergeProps<T extends Record<string, any>[]>(...args: T) {
+interface Props {
+    [key: string]: any;
+}
+
+export function mergeProps<T extends Props[]>(...args: T) {
     let result = {};
 
     args.forEach(x => {
@@ -126,3 +130,4 @@ export function mergeProps<T extends Record<string, any>[]>(...args: T) {
 
     return result as UnionToIntersection<TupleTypes<T>>;
 }
+

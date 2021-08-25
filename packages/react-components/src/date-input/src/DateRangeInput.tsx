@@ -514,7 +514,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         return presetsVariant === "compact"
             ? (
                 <InputGroup
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         rest,
                         {
                             disabled,
@@ -531,7 +531,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             )
             : (
                 <Box
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         rest,
                         {
                             className: cssModule(

@@ -43,7 +43,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
 }, ref) => {
     return (
         <Text
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     size: "md",
@@ -54,7 +54,7 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
                     ),
                     as,
                     ref
-                }
+                } as const
             )}
         >
             <StyleProvider

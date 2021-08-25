@@ -71,7 +71,7 @@ export interface UnselectableGroupProps extends GroupProps {
     autoFocus?: boolean | number;
 }
 
-const UnselectableGroup = reactForwardRef(({ autoFocus, children, ...rest }: UnselectableGroupProps, ref) => {
+const UnselectableGroup = reactForwardRef<HTMLElement, UnselectableGroupProps>(({ autoFocus, children, ...rest }, ref) => {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const groupRef = useMergedRefs(setFocusRef, ref);

@@ -151,7 +151,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
 
     return (
         <TextInput
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     value: inputValue,
@@ -168,7 +168,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     autoComplete: "off",
                     as,
                     ref: inputRef
-                }
+                } as const
             )}
         />
     );

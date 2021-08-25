@@ -101,13 +101,13 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (_iconElement: ReactElement, slotElements: SlotElements) => {
+        icon: (iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
                 size: isNil(slotElements.description) ? "sm" : "lg"
             };
         },
-        avatar: (_avatarElement: ReactElement, slotElements: SlotElements) => {
+        avatar: (avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
                 size: isNil(slotElements.description) ? "2xs" : "md"
@@ -133,7 +133,7 @@ export function InnerListboxOption({
 
     const optionMarkup = (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     id,
@@ -175,11 +175,11 @@ export function InnerListboxOption({
 
         return (
             <TooltipTrigger
-                {...mergeProps<any>(
+                {...mergeProps(
                     tooltipProps,
                     {
                         position: "left"
-                    }
+                    } as const
                 )}
             >
                 {optionMarkup}

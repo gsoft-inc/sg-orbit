@@ -176,7 +176,7 @@ export function InnerAlert({
 
     return (
         <Dialog
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     role: "alertdialog",
@@ -184,7 +184,7 @@ export function InnerAlert({
                     dismissable: false,
                     zIndex,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {heading}

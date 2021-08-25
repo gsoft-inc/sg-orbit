@@ -106,7 +106,7 @@ export function InnerTile(props: InnerTileProps) {
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     className: cssModule(
