@@ -3,14 +3,6 @@
 
 import { ElementType, ForwardedRef } from "react";
 
-export interface DomProps {
-    /**
-     * The element's unique identifier.
-     * @ignore
-     */
-    id?: string;
-}
-
 export interface InternalProps {
     /**
      * @ignore

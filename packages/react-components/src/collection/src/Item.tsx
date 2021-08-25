@@ -1,7 +1,11 @@
 import { ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps } from "../../shared";
 
-export interface InnerItemProps extends DomProps {
+export interface InnerItemProps {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * A unique key to identify the item.
      */

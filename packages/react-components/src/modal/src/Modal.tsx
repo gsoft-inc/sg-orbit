@@ -2,7 +2,6 @@ import "./Modal.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     InternalProps,
     StyleProvider,
     augmentElement,
@@ -15,7 +14,12 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
 
-export interface InnerModalProps extends InternalProps, DomProps, AriaLabelingProps {
+export interface InnerModalProps extends InternalProps, AriaLabelingProps {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * Whether or not the modal should take almost all the available space.
      */

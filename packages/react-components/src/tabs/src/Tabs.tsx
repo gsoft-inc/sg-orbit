@@ -1,6 +1,6 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, DomProps, InternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { AriaLabelingProps, InternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { TabList } from "./TabList";
@@ -9,7 +9,12 @@ import { TabsContext } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-export interface InnerTabsProps extends InternalProps, DomProps, AriaLabelingProps {
+export interface InnerTabsProps extends InternalProps, AriaLabelingProps {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * A controlled selected key.
      */
