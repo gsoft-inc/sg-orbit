@@ -2,7 +2,6 @@ import "./Listbox.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     FocusManager,
     InternalProps,
     Keys,
@@ -48,7 +47,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxProps extends InternalProps, DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxProps extends InternalProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.

@@ -1,7 +1,6 @@
 import { Children, ComponentProps, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import {
-    DomProps,
     FocusTarget,
     InternalProps,
     Keys,
@@ -20,7 +19,7 @@ import { useInputGroupMenuAddonProps } from "../../input-group";
 
 const DefaultElement = "div";
 
-export interface InnerMenuTriggerProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the menu.
      */

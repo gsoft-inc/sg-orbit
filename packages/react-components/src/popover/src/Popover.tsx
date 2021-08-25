@@ -2,7 +2,6 @@ import "./Popover.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     InteractionStatesProps,
     InternalProps,
     isNil,
@@ -23,7 +22,7 @@ import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
-export interface InnerPopoverProps extends InternalProps, DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverProps extends InternalProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

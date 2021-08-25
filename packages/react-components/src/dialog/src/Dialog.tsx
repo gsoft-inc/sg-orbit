@@ -2,7 +2,6 @@ import "./Dialog.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     InteractionStatesProps,
     InternalProps,
     MergedRef,
@@ -30,7 +29,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */

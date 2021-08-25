@@ -1,6 +1,6 @@
 import "./TextInput.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, InternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
@@ -14,7 +14,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "input";
 
-export interface InnerTextInputProps extends InternalProps, DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerTextInputProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */

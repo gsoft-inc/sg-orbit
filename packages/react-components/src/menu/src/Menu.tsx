@@ -2,7 +2,6 @@ import "./Menu.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     InternalProps,
     Keys,
     appendEventKey,
@@ -39,7 +38,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends InternalProps, DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */

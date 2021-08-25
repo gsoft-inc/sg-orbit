@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { DomProps, InteractionStatesProps, InternalProps, Keys, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -15,7 +15,7 @@ interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxOptionProps extends InternalProps, DomProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
     * Matching collection item.
     */

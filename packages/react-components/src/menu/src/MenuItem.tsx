@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { DomProps, InteractionStatesProps, InternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -10,7 +10,7 @@ import type { SelectionMode } from "./Menu";
 
 const DefaultElement = "li";
 
-export interface InnerMenuItemProps extends InternalProps, DomProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching collection item.
      */

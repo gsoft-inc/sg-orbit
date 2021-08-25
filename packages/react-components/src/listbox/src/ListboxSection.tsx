@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { DomProps, InternalProps, mergeProps } from "../../shared";
+import { InternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerListboxSectionProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */

@@ -2,13 +2,13 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { DomProps, InternalProps, Keys, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, Keys, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
 const DefaultElement = "div";
 
-export interface InnerDisclosureProps extends InternalProps, DomProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerDisclosureProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A controlled open value.
      */

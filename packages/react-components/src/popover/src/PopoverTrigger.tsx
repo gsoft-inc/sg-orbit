@@ -1,11 +1,11 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { DomProps, InternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { InternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the popover.
      */

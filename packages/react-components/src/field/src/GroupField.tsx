@@ -3,14 +3,14 @@ import "./Field.css";
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { DomProps, InternalProps, mergeProps } from "../../shared";
 import { FieldContext } from "./FieldContext";
+import { InternalProps, mergeProps } from "../../shared";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
 const DefaultElement = "div";
 
-export interface InnerGroupFieldProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement>{
+export interface InnerGroupFieldProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * Whether the field should display as "valid" or "invalid".
      */

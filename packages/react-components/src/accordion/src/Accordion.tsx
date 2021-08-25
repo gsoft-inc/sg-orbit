@@ -5,7 +5,6 @@ import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
-    DomProps,
     InternalProps,
     Keys,
     cssModule,
@@ -25,7 +24,7 @@ import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAccordionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of expanded item keys.
      */

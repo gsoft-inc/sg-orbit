@@ -2,7 +2,6 @@ import "./NumberInput.css";
 
 import {
     AriaLabelingProps,
-    DomProps,
     InteractionStatesProps,
     InternalProps,
     cssModule,
@@ -43,7 +42,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerNumberInputProps extends InternalProps, DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
+export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
