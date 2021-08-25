@@ -1,5 +1,5 @@
 import { Alert, AlertTrigger, InnerAlert } from "@react-components/alert";
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";;
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, InnerContent } from "@react-components/placeholders";
@@ -19,6 +19,25 @@ import { Heading, InnerHeading } from "@react-components/typography";
     ariaPath="#alertdialog"
     githubPath="/packages/react-components/src/alert/src"
 />
+
+## Accessibility
+
+An alert comes with the `alertdialog` role and should be used to display a confirmation message, an alert, an error, or a warning.
+
+It requires:
+- The focus to be trapped inside the alert.
+- A control focused when the dialog appears, provided by the `primaryButtonLabel` prop.
+- A label, provided by the `<Heading>`.
+- A description, provided by the `<Content>`.
+
+Label and description can be overwritten with the use of `aria-label` and `aria-describedby` props on the alert.
+
+### Focus
+
+If the alert calls for an action, make sure to set the focus correctly to avoid any unwanted action.
+To do so, you can use the `autoFocusButton` prop on the alert to specify which control should have the initial focus.
+
+If your alert is destructive, you can offer a secondary button _Cancel_ and set the focus to it with `autoFocusButton="seconday"`.
 
 ## Usage
 

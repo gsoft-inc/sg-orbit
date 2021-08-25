@@ -60,5 +60,3 @@ export const Fieldset = forwardRef<InnerFieldsetProps>((props, ref) => (
 ));
 
 export type FieldsetProps = ComponentProps<typeof Fieldset>;
-
-Fieldset.displayName = "Fieldset";

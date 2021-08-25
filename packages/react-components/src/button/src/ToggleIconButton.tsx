@@ -133,5 +133,3 @@ export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonP
 )));
 
 export type ToggleIconButtonProps = ComponentProps<typeof ToggleIconButton>;
-
-ToggleIconButton.displayName = "ToggleIconButton";

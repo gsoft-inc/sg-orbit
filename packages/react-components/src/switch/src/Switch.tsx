@@ -180,5 +180,3 @@ export const Switch = forwardRef<InnerSwitchProps>((props, ref) => (
 ));
 
 export type SwitchProps = ComponentProps<typeof Switch>;
-
-Switch.displayName = "Switch";

@@ -156,5 +156,3 @@ export const PopoverTrigger = forwardRef<InnerPopoverTriggerProps>((props, ref) 
 ));
 
 export type PopoverTriggerProps = ComponentProps<typeof PopoverTrigger>;
-
-PopoverTrigger.displayName = "PopoverTrigger";

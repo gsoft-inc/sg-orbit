@@ -97,5 +97,3 @@ export type TransitionProps = ComponentProps<typeof Transition>;
 // Jest tests requires to disable the animation because "onAnimationEnd" is never fired. I can't figure out why.
 // @ts-ignore
 Transition.disableAnimation = false;
-
-Transition.displayName = "Transition";

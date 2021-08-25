@@ -21,7 +21,7 @@ export interface InnerItemProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function InnerItem(_props: InnerItemProps): JSX.Element {
+export function InnerItem(props: InnerItemProps): JSX.Element {
     return null;
 }
 
@@ -31,5 +31,3 @@ export const Item = forwardRef<InnerItemProps>((props, ref) => (
 ));
 
 export type ItemProps = ComponentProps<typeof Item>;
-
-Item.displayName = "Item";

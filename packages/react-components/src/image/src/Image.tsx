@@ -92,5 +92,3 @@ export const Image = slot("image", forwardRef<InnerImageProps>((props, ref) => (
 )));
 
 export type ImageProps = ComponentProps<typeof Image>;
-
-Image.displayName = "Image";

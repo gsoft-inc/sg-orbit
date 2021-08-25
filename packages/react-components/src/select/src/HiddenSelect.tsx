@@ -39,5 +39,3 @@ export function HiddenSelect({ name, selectedKey, required, validationState, ...
         />
     );
 }
-
-HiddenSelect.displayName = "HiddenSelect";

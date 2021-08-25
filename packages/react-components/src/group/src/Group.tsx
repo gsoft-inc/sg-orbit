@@ -66,12 +66,12 @@ export function InnerGroup({
 
     return (
         <Flex
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                },
+                } as const,
                 directionProps,
                 alignProps
             )}
@@ -86,5 +86,3 @@ export const Group = forwardRef<InnerGroupProps>((props, ref) => (
 ));
 
 export type GroupProps = ComponentProps<typeof Group>;
-
-Group.displayName = "Group";

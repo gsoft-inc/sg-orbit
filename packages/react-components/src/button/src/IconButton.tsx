@@ -149,8 +149,6 @@ export const IconButton = slot("button", forwardRef<InnerIconButtonProps, "butto
 
 export type IconButtonProps = ComponentProps<typeof IconButton>;
 
-IconButton.displayName = "IconButton";
-
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",
     "md": "xs"

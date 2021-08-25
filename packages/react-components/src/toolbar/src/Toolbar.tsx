@@ -106,7 +106,7 @@ export function InnerToolbar({
 
     return (
         <Flex
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     role: "toolbar",
@@ -115,7 +115,7 @@ export function InnerToolbar({
                     as,
                     ref: containerRef,
                     "aria-orientation": orientation
-                },
+                } as const,
                 directionProps,
                 alignProps,
                 arrowNavigationProps
@@ -138,5 +138,3 @@ export const Toolbar = forwardRef<InnerToolbarProps>((props, ref) => (
 ));
 
 export type ToolbarProps = ComponentProps<typeof Toolbar>;
-
-Toolbar.displayName = "Toolbar";

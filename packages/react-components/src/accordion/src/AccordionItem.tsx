@@ -67,5 +67,3 @@ export function AccordionItem({
         </Disclosure>
     );
 }
-
-AccordionItem.displayName = "AccordionItem";

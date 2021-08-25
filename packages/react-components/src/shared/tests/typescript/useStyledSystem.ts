@@ -28,12 +28,8 @@ import {
     StyleProps,
     WidthProp,
     ZindexProp
-} from "../../src";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const expectAssignable = <T>(value: T) => {
-    // Do nothing, the TypeScript compiler handles this for us
-};
+} from "@react-components/shared";
+import { expectAssignable } from "@typescript/tests";
 
 expectAssignable<GlobalValue>("inherit");
 expectAssignable<GlobalValue>("initial");

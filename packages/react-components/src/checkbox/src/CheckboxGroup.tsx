@@ -204,5 +204,3 @@ export const CheckboxGroup = forwardRef<InnerCheckboxGroupProps>((props, ref) =>
 ));
 
 export type CheckboxGroupProps = ComponentProps<typeof CheckboxGroup>;
-
-CheckboxGroup.displayName = "CheckboxGroup";

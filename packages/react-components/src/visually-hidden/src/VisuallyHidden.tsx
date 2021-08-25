@@ -47,5 +47,3 @@ export const VisuallyHidden = forwardRef<InnerVisuallyHiddenProps>((props, ref) 
 
 export type VisuallyHiddenProps = ComponentProps<typeof VisuallyHidden>;
 
-VisuallyHidden.displayName = "VisuallyHidden";
-

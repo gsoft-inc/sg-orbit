@@ -1,4 +1,4 @@
-import { DocsContainer } from "@storybook/addon-docs/blocks";
+import { DocsContainer } from "@storybook/addon-docs";
 import { ThemeProvider } from "@react-components/theme-provider";
 
 function ThemedDocsContainer({ context, children }) {

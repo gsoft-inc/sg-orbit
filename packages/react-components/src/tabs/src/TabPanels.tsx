@@ -35,5 +35,3 @@ export function TabPanels({ panels, ...rest }: TabPanelsProps) {
         </div>
     );
 }
-
-TabPanels.displayName = "TabPanels";

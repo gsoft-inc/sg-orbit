@@ -136,5 +136,3 @@ export const DialogTrigger = forwardRef<InnerDialogTriggerProps>((props, ref) =>
 ));
 
 export type DialogTriggerProps = ComponentProps<typeof DialogTrigger>;
-
-DialogTrigger.displayName = "DialogTrigger";

@@ -70,7 +70,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
 
     return (
         <Group
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     orientation,
@@ -84,7 +84,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     ),
                     role: !isInField ? "group" : undefined,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
@@ -103,5 +103,3 @@ export const ButtonGroup = slot("button-group", forwardRef<InnerButtonGroupProps
 )));
 
 export type ButtonGroupProps = ComponentProps<typeof ButtonGroup>;
-
-ButtonGroup.displayName = "ButtonGroup";

@@ -116,5 +116,3 @@ export const SvgImage = slot("image", forwardRef<InnerSvgImageProps>((props, ref
 )));
 
 export type SvgImageProps = ComponentProps<typeof SvgImage>;
-
-SvgImage.displayName = "SvgImage";

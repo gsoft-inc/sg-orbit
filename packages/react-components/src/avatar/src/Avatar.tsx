@@ -1,6 +1,6 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, slot } from "../../shared";
+import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
@@ -136,21 +136,23 @@ const textSize = createSizeAdapter({
     "2xl": "2xl"
 });
 
-export function AvatarText({
-    size,
-    as = "span",
-    children,
-    ...rest
-}: AvatarTextProps) {
+export function AvatarText(props: AvatarTextProps) {
+    const {
+        size,
+        as = "span",
+        children,
+        ...rest
+    } = omitProps(props, ["src", "color"]);
+
     return (
         <Text
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     size: textSize(size),
                     className: "o-ui-avatar-text",
                     as
-                }
+                } as const
             )}
         >
             {children}
@@ -209,6 +211,4 @@ export const Avatar = slot("avatar", forwardRef<InnerAvatarProps>((props, ref) =
 )));
 
 export type AvatarProps = ComponentProps<typeof Avatar>;
-
-Avatar.displayName = "Avatar";
 

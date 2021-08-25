@@ -17,7 +17,7 @@ export interface InnerSectionProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function InnerSection(_props: InnerSectionProps): JSX.Element {
+export function InnerSection(props: InnerSectionProps): JSX.Element {
     return null;
 }
 
@@ -27,5 +27,3 @@ export const Section = forwardRef<InnerSectionProps>((props, ref) => (
 ));
 
 export type SectionProps = ComponentProps<typeof Section>;
-
-Section.displayName = "Section";

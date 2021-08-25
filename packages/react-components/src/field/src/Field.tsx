@@ -90,5 +90,3 @@ export const Field = forwardRef<InnerFieldProps>((props, ref) => (
 ));
 
 export type FieldProps = ComponentProps<typeof Field>;
-
-Field.displayName = "Field";

@@ -273,7 +273,7 @@ export function InnerDateInput({
             ?
             (
                 <InputGroup
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         {
                             disabled,
                             readOnly,
@@ -282,7 +282,7 @@ export function InnerDateInput({
                             style,
                             as,
                             ref: containerRef
-                        },
+                        } as const,
                         wrapperProps ?? {}
                     )}
                 >
@@ -292,7 +292,7 @@ export function InnerDateInput({
             )
             : (
                 <Box
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         {
                             className: mergeClasses(
                                 className,
@@ -337,5 +337,3 @@ export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) =
 ));
 
 export type DateInputProps = ComponentProps<typeof DateInput>;
-
-DateInput.displayName = "DateInput";

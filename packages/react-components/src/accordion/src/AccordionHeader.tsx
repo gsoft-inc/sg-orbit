@@ -104,5 +104,3 @@ export const AccordionHeader = forwardRef<InnerAccordionHeaderProps>((props, ref
 ));
 
 export type AccordionHeaderProps = ComponentProps<typeof AccordionHeader>;
-
-AccordionHeader.displayName = "AccordionHeader";

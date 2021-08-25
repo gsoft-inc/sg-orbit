@@ -40,6 +40,7 @@ type MergeWithAs<T, P> = RightJoinProps<PropsOf<T>, OmitCommonProps<P, "slot"> &
      * Default slot override. Added to every orbit component
      */
     slot?: string;
+    "data-testid"?: string;
 }>;
 
 export interface OrbitComponent<T, P> extends ForwardRefExoticComponent<MergeWithAs<T, P>> {

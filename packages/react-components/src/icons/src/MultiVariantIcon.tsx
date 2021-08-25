@@ -46,8 +46,6 @@ export const MultiVariantIcon = slot("icon", forwardRef<InnerMultiVariantIconPro
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 )));
 
-Icon.displayName = "MultiVariantIcon";
-
 export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 
 ////////

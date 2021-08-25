@@ -514,7 +514,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         return presetsVariant === "compact"
             ? (
                 <InputGroup
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         rest,
                         {
                             disabled,
@@ -531,7 +531,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             )
             : (
                 <Box
-                    {...mergeProps<any>(
+                    {...mergeProps(
                         rest,
                         {
                             className: cssModule(
@@ -570,5 +570,3 @@ export const DateRangeInput = forwardRef<InnerDateRangeInputProps>((props, ref) 
 ));
 
 export type DateRangeInputProps = ComponentProps<typeof DateRangeInput>;
-
-DateRangeInput.displayName = "DateRangeInput";

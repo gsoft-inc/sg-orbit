@@ -142,5 +142,3 @@ export const Tabs = forwardRef<InnerTabsProps>((props, ref) => (
 ));
 
 export type TabsProps = ComponentProps<typeof Tabs>;
-
-Tabs.displayName = "Tabs";

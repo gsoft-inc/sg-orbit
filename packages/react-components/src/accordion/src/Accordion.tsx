@@ -170,5 +170,3 @@ export const Accordion = forwardRef<InnerAccordionProps>((props, ref) => (
 ));
 
 export type AccordionProps = ComponentProps<typeof Accordion>;
-
-Accordion.displayName = "Accordion";

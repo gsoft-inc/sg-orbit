@@ -60,14 +60,14 @@ export function InnerStack({
 
     return (
         <Flex
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     direction: "column",
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
-                },
+                } as const,
                 alignProps
             )}
         >
@@ -81,5 +81,3 @@ export const Stack = forwardRef<InnerStackProps>((props, ref) => (
 ));
 
 export type StackProps = ComponentProps<typeof Stack>;
-
-Stack.displayName = "Stack";

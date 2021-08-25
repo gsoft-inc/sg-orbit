@@ -49,5 +49,3 @@ export const ErrorMessage = forwardRef<InnerErrorMessageProps>((props, ref) => (
 ));
 
 export type ErrorMessageProps = ComponentProps<typeof ErrorMessage>;
-
-ErrorMessage.displayName = "ErrorMessage";

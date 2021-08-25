@@ -111,5 +111,3 @@ export const AsyncImage = forwardRef<InnerAsyncImageProps>((props, ref) => (
 ));
 
 export type AsyncImageProps = ComponentProps<typeof AsyncImage>;
-
-AsyncImage.displayName = "AsyncImage";

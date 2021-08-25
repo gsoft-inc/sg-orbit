@@ -1,5 +1,6 @@
 import { Inline } from "@react-components/layout";
-import { ListItem, OrderedList, UnorderedList } from "@react-components/list";
+import { Item } from "@react-components/collection";
+import { OrderedList, UnorderedList } from "@react-components/list";
 import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -11,30 +12,30 @@ function stories() {
 stories()
     .add("ordered", () =>
         <OrderedList>
-            <ListItem>Celestial</ListItem>
-            <ListItem>Dark matter</ListItem>
-            <ListItem>Eclipse</ListItem>
+            <Item>Celestial</Item>
+            <Item>Dark matter</Item>
+            <Item>Eclipse</Item>
         </OrderedList>
     )
     .add("unordered", () =>
         <UnorderedList>
-            <ListItem>Celestial</ListItem>
-            <ListItem>Dark matter</ListItem>
-            <ListItem>Eclipse</ListItem>
+            <Item>Celestial</Item>
+            <Item>Dark matter</Item>
+            <Item>Eclipse</Item>
         </UnorderedList>
     )
     .add("inherit", () =>
         <Text size="lg">
             <Inline>
                 <OrderedList size="inherit">
-                    <ListItem>Celestial</ListItem>
-                    <ListItem>Dark matter</ListItem>
-                    <ListItem>Eclipse</ListItem>
+                    <Item>Celestial</Item>
+                    <Item>Dark matter</Item>
+                    <Item>Eclipse</Item>
                 </OrderedList>
                 <UnorderedList size="inherit">
-                    <ListItem>Celestial</ListItem>
-                    <ListItem>Dark matter</ListItem>
-                    <ListItem>Eclipse</ListItem>
+                    <Item>Celestial</Item>
+                    <Item>Dark matter</Item>
+                    <Item>Eclipse</Item>
                 </UnorderedList>
             </Inline>
         </Text>
@@ -42,14 +43,14 @@ stories()
     .add("styling", () =>
         <Inline>
             <OrderedList className="bg-red">
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
+                <Item>Celestial</Item>
+                <Item>Dark matter</Item>
+                <Item>Eclipse</Item>
             </OrderedList>
             <UnorderedList style={{ backgroundColor: "red" }}>
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
+                <Item>Celestial</Item>
+                <Item>Dark matter</Item>
+                <Item>Eclipse</Item>
             </UnorderedList>
         </Inline>
     );

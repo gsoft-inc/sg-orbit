@@ -138,7 +138,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const groupRef = useMergedRefs(setFocusRef, forwardedRef);
 
-    const handleArrowSelect = useEventCallback((_event, element) => {
+    const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
         const newValue = element.dataset.type === "number"
             ? parseInt(element.value)
@@ -216,6 +216,4 @@ export const RadioGroup = forwardRef<InnerRadioGroupProps>((props, ref) => (
 ));
 
 export type RadioGroupProps = ComponentProps<typeof RadioGroup>;
-
-RadioGroup.displayName = "RadioGroup";
 

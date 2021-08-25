@@ -133,5 +133,3 @@ export const IconLink = forwardRef<InnerIconLinkProps>((props, ref) => (
 ));
 
 export type IconLinkProps = ComponentProps<typeof IconLink>;
-
-IconLink.displayName = "IconLink";

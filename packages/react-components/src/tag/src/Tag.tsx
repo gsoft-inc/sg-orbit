@@ -138,5 +138,3 @@ export const Tag = forwardRef<InnerTagProps>((props, ref) => (
 
 export type TagProps = ComponentProps<typeof Tag>;
 
-Tag.displayName = "Tag";
-

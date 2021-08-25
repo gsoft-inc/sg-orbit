@@ -33,7 +33,7 @@ export interface InnerRadioProps extends InteractionStatesProps {
     /**
      * The value to associate with when in a group.
      */
-    value: string;
+    value?: string;
     /**
      * Whether or not the radio should autoFocus on render.
      */
@@ -216,5 +216,3 @@ export const Radio = forwardRef<InnerRadioProps>((props, ref) => (
 ));
 
 export type RadioProps = ComponentProps<typeof Radio>;
-
-Radio.displayName = "Radio";

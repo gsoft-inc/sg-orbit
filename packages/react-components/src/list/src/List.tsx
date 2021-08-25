@@ -1,7 +1,9 @@
 import "./List.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
+import { CollectionItem, NodeType, useCollection } from "../../collection";
+import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ListItem } from "./ListItem";
+import { cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 
 export interface InnerListProps {
     /**
@@ -26,6 +28,29 @@ export interface InnerListProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+function renderItem({
+    key,
+    elementType: As = ListItem,
+    ref,
+    content,
+    props = {}
+}: CollectionItem, size?: string) {
+    return (
+        <As
+            {...mergeProps(
+                props,
+                {
+                    size,
+                    key,
+                    ref
+                }
+            )}
+        >
+            {content}
+        </As>
+    );
+}
+
 const List = forwardRef<InnerListProps>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
@@ -39,6 +64,8 @@ const List = forwardRef<InnerListProps>((props, ref) => {
         props,
         styleProps
     );
+
+    const nodes = useCollection(children);
 
     return (
         <As
@@ -54,19 +81,19 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                 }
             )}
         >
-            {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
-                return x && augmentElement(x, {
-                    size
-                });
-
+            {nodes.map(node => {
+                switch (node.type) {
+                    case NodeType.item:
+                        return renderItem(node as CollectionItem, size);
+                    default:
+                        return null;
+                }
             })}
         </As>
     );
 });
 
 export type ListProps = ComponentProps<typeof List>;
-
-List.displayName = "List";
 
 ////////
 
@@ -90,11 +117,9 @@ export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
 
 export type OrderedListProps = ComponentProps<typeof OrderedList>;
 
-OrderedList.displayName = "OrderedList";
-
 ////////
 
-function InnerUnorderedList({
+export function InnerUnorderedList({
     as = "ul",
     forwardedRef,
     ...rest
@@ -113,5 +138,3 @@ export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
 ));
 
 export type UnorderedListProps = ComponentProps<typeof UnorderedList>;
-
-UnorderedList.displayName = "UnorderedList";

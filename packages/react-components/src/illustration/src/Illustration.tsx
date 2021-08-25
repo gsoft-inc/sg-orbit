@@ -81,7 +81,7 @@ export function InnerIllustration({
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     className: cssModule(
@@ -109,5 +109,3 @@ export const Illustration = slot("illustration", forwardRef<InnerIllustrationPro
 )));
 
 export type IllustrationProps = ComponentProps<typeof Illustration>;
-
-Illustration.displayName = "Illustration";

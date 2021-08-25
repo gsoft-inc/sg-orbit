@@ -493,5 +493,3 @@ export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref
 ));
 
 export type ListboxProps = ComponentProps<typeof Listbox>;
-
-Listbox.displayName = "Listbox";

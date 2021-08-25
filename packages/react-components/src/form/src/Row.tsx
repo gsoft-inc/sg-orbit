@@ -38,14 +38,14 @@ export function InnerRow(props: InnerRowProps) {
 
     return (
         <Inline
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     fluid,
                     gap: 4,
                     align: "start",
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
@@ -62,5 +62,3 @@ export const Row = forwardRef<InnerRowProps>((props, ref) => (
 ));
 
 export type RowProps = ComponentProps<typeof Row>;
-
-Row.displayName = "Row";

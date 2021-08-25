@@ -69,5 +69,3 @@ export const Form = forwardRef<InnerFormProps>((props, ref) => (
 ));
 
 export type FormProps = ComponentProps<typeof Form>;
-
-Form.displayName = "Form";

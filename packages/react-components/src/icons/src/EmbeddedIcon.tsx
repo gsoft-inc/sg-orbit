@@ -34,5 +34,3 @@ export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps) {
         ...rest
     });
 }
-
-EmbeddedIcon.displayName = "EmbeddedIcon";

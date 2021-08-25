@@ -288,7 +288,7 @@ export function InnerMenu({
 
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     id: rootId,
@@ -306,7 +306,7 @@ export function InnerMenu({
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     as,
                     ref: containerRef
-                },
+                } as const,
                 scrollableProps
             )}
         >
@@ -339,5 +339,3 @@ export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
 ));
 
 export type MenuProps = ComponentProps<typeof Menu>;
-
-Menu.displayName = "Menu";

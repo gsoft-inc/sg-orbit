@@ -54,5 +54,3 @@ export const DisclosureArrow = slot("icon", forwardRef<InnerDisclosureArrowProps
 )));
 
 export type DisclosureArrowProps = ComponentProps<typeof DisclosureArrow>;
-
-DisclosureArrow.displayName = "DisclosureArrow";

@@ -238,5 +238,3 @@ export const TextArea = forwardRef<InnerTextAreaProps>((props, ref) => (
 ));
 
 export type TextAreaProps = ComponentProps<typeof TextArea>;
-
-TextArea.displayName = "TextArea";

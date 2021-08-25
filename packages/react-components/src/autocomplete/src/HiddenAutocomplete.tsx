@@ -39,5 +39,3 @@ export function HiddenAutocomplete({ name, value, required, validationState, ...
         />
     );
 }
-
-HiddenAutocomplete.displayName = "HiddenComboBox";

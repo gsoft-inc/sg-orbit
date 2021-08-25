@@ -159,5 +159,3 @@ export const Message = forwardRef<InnerMessageProps>((props, ref) => (
 ));
 
 export type MessageProps = ComponentProps<typeof Message>;
-
-Message.displayName = "Message";

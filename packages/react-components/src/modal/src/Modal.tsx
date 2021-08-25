@@ -136,19 +136,19 @@ export function InnerModal({
             return "lg";
         }
 
-        return fullscreen ? "fullscreen" : "sm";
+        return fullscreen ? "fullscreen" : "sm" as const;
     }, [fullscreen, image, illustration, hasCards]);
 
     return (
         <Dialog
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     size,
                     dismissable,
                     zIndex,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {image}
@@ -168,5 +168,3 @@ export const Modal = forwardRef<InnerModalProps>((props, ref) => (
 ));
 
 export type ModalProps = ComponentProps<typeof Modal>;
-
-Modal.displayName = "Modal";

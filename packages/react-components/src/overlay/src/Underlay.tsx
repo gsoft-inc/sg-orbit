@@ -48,5 +48,3 @@ export const Underlay = forwardRef<InnerUnderlayProps>((props, ref) => (
 ));
 
 export type UnderlayProps = ComponentProps<typeof Underlay>;
-
-Underlay.displayName = "Underlay";

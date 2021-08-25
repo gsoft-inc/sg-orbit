@@ -46,14 +46,14 @@ export function InnerLabel(props: InnerLabelProps) {
 
     return (
         <Text
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
                     size: "md",
                     className: "o-ui-field-label",
                     as,
                     ref: forwardedRef
-                }
+                } as const
             )}
         >
             {children}
@@ -67,5 +67,3 @@ export const Label = forwardRef<InnerLabelProps>((props, ref) => (
 ));
 
 export type LabelProps = ComponentProps<typeof Label>;
-
-Label.displayName = "Label";

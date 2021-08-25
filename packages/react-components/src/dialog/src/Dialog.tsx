@@ -131,6 +131,7 @@ export function InnerDialog({
     zIndex = 1,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
+    "aria-describedby": ariaDescribedBy,
     wrapperProps,
     as = "section",
     children,
@@ -213,6 +214,7 @@ export function InnerDialog({
             as: "header"
         },
         content: {
+            id: `${dialogId}-content`,
             className: "o-ui-dialog-content",
             as: Text
         },
@@ -229,6 +231,8 @@ export function InnerDialog({
     }), [dialogId]));
 
     const headingId = heading?.props?.id;
+
+    const contentId = content?.props?.id;
 
     const imageMarkup = image && (
         <Box className="o-ui-dialog-image">
@@ -274,7 +278,7 @@ export function InnerDialog({
         <>
             <Underlay zIndex={zIndex} />
             <Box
-                {...mergeProps<any>(
+                {...mergeProps(
                     wrapperProps ?? {},
                     {
                         className: cssModule(
@@ -303,6 +307,7 @@ export function InnerDialog({
                             "aria-modal": true,
                             "aria-label": ariaLabel,
                             "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
+                            "aria-describedby": !isNil(ariaDescribedBy) ? ariaDescribedBy : contentId ?? undefined,
                             as,
                             ref: dialogRef
                         },
@@ -329,5 +334,3 @@ export const Dialog = forwardRef<InnerDialogProps>((props, ref) => (
 ));
 
 export type DialogProps = ComponentProps<typeof Dialog>;
-
-Dialog.displayName = "Dialog";

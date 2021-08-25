@@ -1,4 +1,4 @@
-import { DocsContext } from "@storybook/addon-docs/blocks";
+import { DocsContext } from "@storybook/addon-docs";
 import { isNil, isString } from "@react-components/shared";
 import { useContext, useMemo } from "react";
 

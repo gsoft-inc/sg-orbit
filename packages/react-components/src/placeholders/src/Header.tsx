@@ -43,5 +43,3 @@ export const Header = slot("header", forwardRef<InnerHeaderProps>((props, ref) =
 )));
 
 export type HeaderProps = ComponentProps<typeof Header>;
-
-Header.displayName = "Header";
