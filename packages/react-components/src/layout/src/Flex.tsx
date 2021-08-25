@@ -1,8 +1,14 @@
-import { Box, BoxProps } from "../../box";
+import { Box } from "../../box";
 import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
-export interface InnerFlexProps extends InternalProps, BoxProps{
+const DefaultElement = "div";
+
+export interface InnerFlexProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+    /**
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
+     */
+    slot?: string;
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
@@ -90,7 +96,6 @@ export interface InnerFlexProps extends InternalProps, BoxProps{
     children: ReactNode;
 }
 
-
 const Spacing = [
     "--o-ui-global-scale-alpha",
     "--o-ui-global-scale-bravo",
@@ -114,6 +119,7 @@ export function InnerFlex({
     alignContent,
     alignItems,
     justifyContent,
+    as = DefaultElement,
     gap,
     wrap,
     fluid,
@@ -129,6 +135,7 @@ export function InnerFlex({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     style: {
                         ...style,
                         display: inline ? "inline-flex" : "flex",

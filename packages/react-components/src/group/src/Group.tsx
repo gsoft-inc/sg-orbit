@@ -1,8 +1,75 @@
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
+import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
+import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { InternalProps, isNil, mergeProps } from "../../shared";
 
-export interface InnerGroupProps extends InternalProps, Omit<FlexProps, "wrap">{
+const DefaultElement = "div";
+
+export interface InnerGroupProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+    /**
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
+     */
+    slot?: string;
+    /**
+     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: "row" | "column";
+    /**
+     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     */
+    alignContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     */
+    alignItems?: (
+        "start" |
+        "end" |
+        "center" |
+        "stretch" |
+        "self-start" |
+        "self-end" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "left" |
+        "right" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * Whether to wrap children in a `div` element.
+     */
+    wrapChildren?: boolean;
+    /**
+     * @ignore
+     */
+    style?: CSSProperties;
     /**
      * The orientation of the elements.
      */
@@ -44,12 +111,14 @@ export interface InnerGroupProps extends InternalProps, Omit<FlexProps, "wrap">{
      */
     children: ReactNode;
 }
+
 export function InnerGroup({
     orientation,
     align,
     verticalAlign,
     wrap,
     children,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerGroupProps) {
@@ -61,6 +130,7 @@ export function InnerGroup({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
                 } as const,
