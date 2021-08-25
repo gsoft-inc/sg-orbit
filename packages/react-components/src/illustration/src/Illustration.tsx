@@ -109,5 +109,3 @@ export const Illustration = slot("illustration", forwardRef<InnerIllustrationPro
 )));
 
 export type IllustrationProps = ComponentProps<typeof Illustration>;
-
-Illustration.displayName = "Illustration";

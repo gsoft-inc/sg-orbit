@@ -43,5 +43,3 @@ export const Footer = slot("footer", forwardRef<InnerFooterProps>((props, ref) =
 )));
 
 export type FooterProps = ComponentProps<typeof Footer>;
-
-Footer.displayName = "Footer";

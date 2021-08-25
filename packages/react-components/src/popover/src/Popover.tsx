@@ -153,5 +153,3 @@ export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
 ));
 
 export type PopoverProps = ComponentProps<typeof Popover>;
-
-Popover.displayName = "Popover";

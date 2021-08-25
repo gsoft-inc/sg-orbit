@@ -329,5 +329,3 @@ export const Dialog = forwardRef<InnerDialogProps>((props, ref) => (
 ));
 
 export type DialogProps = ComponentProps<typeof Dialog>;
-
-Dialog.displayName = "Dialog";

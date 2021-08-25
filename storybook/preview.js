@@ -32,6 +32,7 @@ export const parameters = {
                 "Materials",
                 ["Colors", "Icons", "Shadows", "Spacing", "Typography", "Motion"],
                 "Components",
+                "Content",
                 "Placeholders",
                 "Collection",
                 "Chromatic"

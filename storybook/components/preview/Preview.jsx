@@ -1,7 +1,7 @@
 import "./Preview.css";
 
 import { CodeTheme, useFormattedCode } from "@stories/components";
-import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs/blocks";
+import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
 import { applyHooks, defaultDecorateStory } from "@storybook/client-api";

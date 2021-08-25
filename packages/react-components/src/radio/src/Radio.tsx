@@ -216,5 +216,3 @@ export const Radio = forwardRef<InnerRadioProps>((props, ref) => (
 ));
 
 export type RadioProps = ComponentProps<typeof Radio>;
-
-Radio.displayName = "Radio";

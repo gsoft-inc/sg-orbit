@@ -131,5 +131,3 @@ export const Tile = forwardRef<InnerTileProps>((props, ref) => (
 ));
 
 export type TileProps = ComponentProps<typeof Tile>;
-
-Tile.displayName = "Tile";

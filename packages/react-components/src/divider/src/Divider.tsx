@@ -64,5 +64,3 @@ export const Divider = forwardRef<InnerDividerProps>((props, ref) => (
 
 export type DividerProps = ComponentProps<typeof Divider>;
 
-Divider.displayName = "Divider";
-

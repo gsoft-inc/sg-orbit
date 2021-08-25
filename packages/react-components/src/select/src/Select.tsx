@@ -280,5 +280,3 @@ export const Select = forwardRef<InnerSelectProps>((props, ref) => (
 ));
 
 export type SelectProps = ComponentProps<typeof Select>;
-
-Select.displayName = "Select";

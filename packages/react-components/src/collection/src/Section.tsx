@@ -27,5 +27,3 @@ export const Section = forwardRef<InnerSectionProps>((props, ref) => (
 ));
 
 export type SectionProps = ComponentProps<typeof Section>;
-
-Section.displayName = "Section";

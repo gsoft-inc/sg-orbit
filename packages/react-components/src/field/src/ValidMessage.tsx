@@ -49,5 +49,3 @@ export const ValidMessage = forwardRef<InnerValidMessageProps>((props, ref) => (
 ));
 
 export type ValidMessageProps = ComponentProps<typeof ValidMessage>;
-
-ValidMessage.displayName = "ValidMessage";

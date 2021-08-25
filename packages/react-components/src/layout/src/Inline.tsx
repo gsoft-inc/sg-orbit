@@ -79,5 +79,3 @@ export const Inline = forwardRef<InnerInlineProps>((props, ref) => (
 ));
 
 export type InlineProps = ComponentProps<typeof Inline>;
-
-Inline.displayName = "Inline";

@@ -85,5 +85,3 @@ export const Lozenge = slot("lozenge", forwardRef<InnerLozengeProps>((props, ref
 )));
 
 export type LozengeProps = ComponentProps<typeof Lozenge>;
-
-Lozenge.displayName = "Lozenge";

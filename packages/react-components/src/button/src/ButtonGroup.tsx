@@ -103,5 +103,3 @@ export const ButtonGroup = slot("button-group", forwardRef<InnerButtonGroupProps
 )));
 
 export type ButtonGroupProps = ComponentProps<typeof ButtonGroup>;
-
-ButtonGroup.displayName = "ButtonGroup";

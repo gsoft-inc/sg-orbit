@@ -148,5 +148,3 @@ export const PasswordInput = forwardRef<InnerPasswordInputProps, "input">((props
 ));
 
 export type PasswordInputProps = ComponentProps<typeof PasswordInput>;
-
-PasswordInput.displayName = "PasswordInput";

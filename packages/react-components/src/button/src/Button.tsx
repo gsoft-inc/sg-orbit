@@ -183,5 +183,3 @@ export const Button = slot("button", forwardRef<InnerButtonProps, "button">((pro
 )));
 
 export type ButtonProps = ComponentProps<typeof Button>;
-
-Button.displayName = "Button";

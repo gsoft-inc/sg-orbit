@@ -60,5 +60,3 @@ export const CrossButton = slot("button", forwardRef<InnerCrossButtonProps, "but
 )));
 
 export type CrossButtonProps = ComponentProps<typeof CrossButton>;
-
-CrossButton.displayName = "CrossButton";

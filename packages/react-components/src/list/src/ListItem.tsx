@@ -21,7 +21,6 @@ export interface InnerListItemProps {
     forwardedRef: ForwardedRef<any>;
 }
 
-
 export function InnerListItem({
     size,
     as = "li",

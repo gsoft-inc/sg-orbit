@@ -79,5 +79,3 @@ export const Badge = forwardRef<InnerBadgeProps>((props, ref) => (
 ));
 
 export type BadgeProps = ComponentProps<typeof Badge>;
-
-Badge.displayName = "Badge";

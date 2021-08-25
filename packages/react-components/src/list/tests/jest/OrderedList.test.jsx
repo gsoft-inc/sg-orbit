@@ -1,4 +1,5 @@
-import { ListItem, OrderedList } from "@react-components/list";
+import { Item } from "@react-components/collection";
+import { OrderedList } from "@react-components/list";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
@@ -8,8 +9,8 @@ const List = forwardRef((props, ref) => {
             {...props}
             ref={ref}
         >
-            <ListItem>Item 1</ListItem>
-            <ListItem>Item 2</ListItem>
+            <Item>Item 1</Item>
+            <Item>Item 2</Item>
         </OrderedList>
     );
 });

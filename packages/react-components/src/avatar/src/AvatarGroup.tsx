@@ -130,5 +130,3 @@ export const AvatarGroup = forwardRef<InnerAvatarGroupProps>((props, ref) => (
 ));
 
 export type AvatarGroupProps = ComponentProps<typeof AvatarGroup>;
-
-AvatarGroup.displayName = "AvatarGroup";

@@ -111,7 +111,6 @@ export class CollectionBuilder {
             key: index.toString(),
             index,
             type: NodeType.divider,
-            // Use a custom type if available otherwise let the final component choose his type.
             elementType: Divider,
             ref: (element as RefAttributes<any>).ref,
             content: children,

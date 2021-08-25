@@ -62,5 +62,3 @@ export const Row = forwardRef<InnerRowProps>((props, ref) => (
 ));
 
 export type RowProps = ComponentProps<typeof Row>;
-
-Row.displayName = "Row";

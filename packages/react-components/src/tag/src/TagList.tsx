@@ -133,5 +133,3 @@ export const TagList = forwardRef<InnerTagListProps>((props, ref) => (
 ));
 
 export type TagListProps = ComponentProps<typeof TagList>;
-
-TagList.displayName = "TagList";

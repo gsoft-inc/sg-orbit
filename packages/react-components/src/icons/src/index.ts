@@ -7,6 +7,7 @@ export * from "./MultiVariantIcon";
 export * from "./IconList";
 export * from "./EmbeddedIcon";
 
+// TODO: I dont think we need to provide a "displayName" since the following release https://github.com/styleguidist/react-docgen-typescript/releases/tag/v2.1.0.
 function createOrbitIcon(src: ElementType, displayName: string) {
     const Component = createIcon(src);
     Component.displayName = displayName;

@@ -126,5 +126,3 @@ export const InputGroup = forwardRef<InnerInputGroupProps>((props, ref) => (
 ));
 
 export type InputGroupProps = ComponentProps<typeof InputGroup>;
-
-InputGroup.displayName = "InputGroup";

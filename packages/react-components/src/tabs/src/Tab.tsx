@@ -127,5 +127,3 @@ export const Tab = forwardRef<InnerTabProps>((props, ref) => (
 ));
 
 export type TabProps = ComponentProps<typeof Tab>;
-
-Tab.displayName = "Tab";

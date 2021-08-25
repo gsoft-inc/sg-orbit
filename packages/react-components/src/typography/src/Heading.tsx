@@ -60,8 +60,6 @@ export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref
 
 export type HeadingProps = ComponentProps<typeof Heading>;
 
-Heading.displayName = "Heading";
-
 // Aliases
 
 function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {

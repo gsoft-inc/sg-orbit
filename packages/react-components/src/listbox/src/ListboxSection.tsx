@@ -61,5 +61,3 @@ export const ListboxSection = forwardRef<InnerListboxSectionProps>((props, ref) 
 ));
 
 export type ListboxSectionProps = ComponentProps<typeof ListboxSection>;
-
-ListboxSection.displayName = "ListboxSection";

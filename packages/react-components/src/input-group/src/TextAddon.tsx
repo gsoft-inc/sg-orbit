@@ -52,5 +52,3 @@ export const TextAddon = forwardRef<InnerTextAddonProps>((props, ref) => (
 ));
 
 export type TextAddonProps = ComponentProps<typeof TextAddon>;
-
-TextAddon.displayName = "TextAddon";

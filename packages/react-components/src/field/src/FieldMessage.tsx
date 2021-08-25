@@ -87,5 +87,3 @@ export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
 });
 
 export type FieldMessageProps = ComponentProps<typeof FieldMessage>;
-
-FieldMessage.displayName = "FieldMessage";

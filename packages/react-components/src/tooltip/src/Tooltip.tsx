@@ -47,5 +47,3 @@ export const Tooltip = forwardRef<InnerTooltipProps>((props, ref) => (
 ));
 
 export type TooltipProps = ComponentProps<typeof Tooltip>;
-
-Tooltip.displayName = "Tooltip";

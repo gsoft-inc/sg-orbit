@@ -165,5 +165,3 @@ export const TileGroup = forwardRef<InnerTileGroupProps>((props, ref) => (
 ));
 
 export type TileGroupProps = ComponentProps<typeof TileGroup>;
-
-TileGroup.displayName = "TileGroup";

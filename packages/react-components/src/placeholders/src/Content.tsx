@@ -43,5 +43,3 @@ export const Content = slot("content", forwardRef<InnerContentProps>((props, ref
 )));
 
 export type ContentProps = ComponentProps<typeof Content>;
-
-Content.displayName = "Content";

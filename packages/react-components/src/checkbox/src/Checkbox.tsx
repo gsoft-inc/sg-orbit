@@ -215,7 +215,4 @@ export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
 
-
 export type CheckboxProps = ComponentProps<typeof Checkbox>;
-
-Checkbox.displayName = "Checkbox";

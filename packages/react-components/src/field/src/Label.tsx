@@ -67,5 +67,3 @@ export const Label = forwardRef<InnerLabelProps>((props, ref) => (
 ));
 
 export type LabelProps = ComponentProps<typeof Label>;
-
-Label.displayName = "Label";

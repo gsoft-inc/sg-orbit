@@ -130,5 +130,3 @@ export const Card = slot("card", forwardRef<InnerCardProps>((props, ref) => (
 )));
 
 export type CardProps = ComponentProps<typeof Card>;
-
-Card.displayName = "Card";

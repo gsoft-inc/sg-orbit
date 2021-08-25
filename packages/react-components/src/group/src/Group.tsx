@@ -86,5 +86,3 @@ export const Group = forwardRef<InnerGroupProps>((props, ref) => (
 ));
 
 export type GroupProps = ComponentProps<typeof Group>;
-
-Group.displayName = "Group";

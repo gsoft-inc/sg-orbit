@@ -101,5 +101,3 @@ export const Link = forwardRef<InnerLinkProps>((props, ref) => (
 ));
 
 export type LinkProps = ComponentProps<typeof Link>;
-
-Link.displayName = "Link";

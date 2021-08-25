@@ -210,5 +210,3 @@ export const Avatar = slot("avatar", forwardRef<InnerAvatarProps>((props, ref) =
 
 export type AvatarProps = ComponentProps<typeof Avatar>;
 
-Avatar.displayName = "Avatar";
-

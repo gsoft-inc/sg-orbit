@@ -196,5 +196,3 @@ export const ListboxOption = forwardRef<InnerListboxOptionProps>((props, ref) =>
 ));
 
 export type ListboxOptionProps = ComponentProps<typeof ListboxOption>;
-
-ListboxOption.displayName = "ListboxOption";

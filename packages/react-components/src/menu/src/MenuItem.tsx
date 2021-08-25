@@ -160,5 +160,3 @@ export const MenuItem = forwardRef<InnerMenuItemProps>((props, ref) => (
 
 export type MenuItemProps = ComponentProps<typeof MenuItem>;
 
-MenuItem.displayName = "MenuItem";
-

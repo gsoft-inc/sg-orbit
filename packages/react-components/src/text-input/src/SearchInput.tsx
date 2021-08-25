@@ -179,5 +179,3 @@ export const SearchInput = forwardRef<InnerSearchInputProps, "input">((props, re
 ));
 
 export type SearchInputProps = ComponentProps<typeof SearchInput>;
-
-SearchInput.displayName = "SearchInput";

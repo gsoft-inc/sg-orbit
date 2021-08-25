@@ -538,5 +538,3 @@ export const Autocomplete = forwardRef<InnerAutocompleteProps, "input">((props, 
 
 export type AutocompleteProps = ComponentProps<typeof Autocomplete>;
 
-Autocomplete.displayName = "Autocomplete";
-

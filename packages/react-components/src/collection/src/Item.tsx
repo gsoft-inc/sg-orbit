@@ -31,5 +31,3 @@ export const Item = forwardRef<InnerItemProps>((props, ref) => (
 ));
 
 export type ItemProps = ComponentProps<typeof Item>;
-
-Item.displayName = "Item";

@@ -143,5 +143,3 @@ export const Disclosure = forwardRef<InnerDisclosureProps>((props, ref) => (
 ));
 
 export type DisclosureProps = ComponentProps<typeof Disclosure>;
-
-Disclosure.displayName = "Disclosure";

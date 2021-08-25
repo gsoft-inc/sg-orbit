@@ -23,5 +23,3 @@ export const ModalTrigger = forwardRef<InnerModalTriggerProps>((props, ref) => (
 ));
 
 export type ModalTriggerProps = ComponentProps<typeof ModalTrigger>;
-
-ModalTrigger.displayName = "ModalTrigger";

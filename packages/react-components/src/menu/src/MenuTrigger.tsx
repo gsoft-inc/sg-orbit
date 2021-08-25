@@ -216,5 +216,3 @@ export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
 ));
 
 export type MenuTriggerProps = ComponentProps<typeof MenuTrigger>;
-
-MenuTrigger.displayName = "MenuTrigger";

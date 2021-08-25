@@ -217,5 +217,3 @@ export const RadioGroup = forwardRef<InnerRadioGroupProps>((props, ref) => (
 
 export type RadioGroupProps = ComponentProps<typeof RadioGroup>;
 
-RadioGroup.displayName = "RadioGroup";
-

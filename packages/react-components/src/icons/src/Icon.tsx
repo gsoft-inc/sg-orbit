@@ -64,8 +64,6 @@ export const Icon = slot("icon", forwardRef<InnerIconProps, "svg">((props, ref) 
     <InnerIcon {...props} forwardedRef={ref} />)
 ));
 
-Icon.displayName = "Icon";
-
 export type IconProps = ComponentProps<typeof Icon>;
 
 ////////

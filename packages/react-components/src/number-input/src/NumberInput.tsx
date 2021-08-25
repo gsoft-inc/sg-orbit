@@ -457,5 +457,3 @@ export const NumberInput = forwardRef<InnerNumberInputProps>((props, ref) => (
 ));
 
 export type NumberInputProps = ComponentProps<typeof NumberInput>;
-
-NumberInput.displayName = "NumberInput";

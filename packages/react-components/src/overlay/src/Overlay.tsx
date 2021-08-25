@@ -92,5 +92,3 @@ export const Overlay = forwardRef<InnerOverlayProps>((props, ref) => (
 ));
 
 export type OverlayProps = ComponentProps<typeof Overlay>;
-
-Overlay.displayName = "Overlay";

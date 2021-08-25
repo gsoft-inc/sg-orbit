@@ -339,5 +339,3 @@ export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
 ));
 
 export type MenuProps = ComponentProps<typeof Menu>;
-
-Menu.displayName = "Menu";

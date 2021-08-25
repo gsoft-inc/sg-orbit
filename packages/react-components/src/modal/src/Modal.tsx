@@ -168,5 +168,3 @@ export const Modal = forwardRef<InnerModalProps>((props, ref) => (
 ));
 
 export type ModalProps = ComponentProps<typeof Modal>;
-
-Modal.displayName = "Modal";

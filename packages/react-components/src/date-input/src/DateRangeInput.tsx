@@ -570,5 +570,3 @@ export const DateRangeInput = forwardRef<InnerDateRangeInputProps>((props, ref) 
 ));
 
 export type DateRangeInputProps = ComponentProps<typeof DateRangeInput>;
-
-DateRangeInput.displayName = "DateRangeInput";

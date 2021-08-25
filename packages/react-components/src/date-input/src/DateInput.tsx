@@ -337,5 +337,3 @@ export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) =
 ));
 
 export type DateInputProps = ComponentProps<typeof DateInput>;
-
-DateInput.displayName = "DateInput";

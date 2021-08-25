@@ -54,5 +54,3 @@ export const AccordionPanel = forwardRef<InnerAccordionPanelProps>((props, ref) 
 ));
 
 export type AccordionPanelProps = ComponentProps<typeof AccordionPanel>;
-
-AccordionPanel.displayName = "AccordionPanel";

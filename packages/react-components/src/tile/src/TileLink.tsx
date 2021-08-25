@@ -94,6 +94,4 @@ export const TileLink = forwardRef<InnerTileLinkProps>((props, ref) => (
 
 export type TileLinkProps = ComponentProps<typeof TileLink>;
 
-TileLink.displayName = "TileLink";
-
 

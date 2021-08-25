@@ -22,5 +22,3 @@ export const AlertTrigger = forwardRef<InnerAlertTriggerProps>((props, ref) => (
 ));
 
 export type AlertTriggerProps = ComponentProps<typeof AlertTrigger>;
-
-AlertTrigger.displayName = "AlertTrigger";

@@ -81,5 +81,3 @@ export const Stack = forwardRef<InnerStackProps>((props, ref) => (
 ));
 
 export type StackProps = ComponentProps<typeof Stack>;
-
-Stack.displayName = "Stack";
