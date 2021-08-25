@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     DomProps,
     InteractionStatesProps,
+    InternalProps,
     isNil,
     isString,
     mergeProps,
@@ -16,25 +17,17 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
+import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
-export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface InnerPopoverProps extends InternalProps, DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPopover({

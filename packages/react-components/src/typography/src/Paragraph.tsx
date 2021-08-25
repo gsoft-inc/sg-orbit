@@ -1,12 +1,12 @@
 import "./Paragraph.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "p";
 
-export interface InnerParagraphProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerParagraphProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A paragraph can vary in size.
      */
@@ -16,17 +16,9 @@ export interface InnerParagraphProps extends ComponentProps<typeof DefaultElemen
      */
     color?: "inherit";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {

@@ -1,13 +1,13 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps,ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { InternalProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerTooltipTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
     * Whether or not to show the tooltip.
     */
@@ -59,10 +59,6 @@ export interface InnerTooltipTriggerProps extends ComponentProps<typeof DefaultE
      */
     zIndex?: number;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -70,10 +66,6 @@ export interface InnerTooltipTriggerProps extends ComponentProps<typeof DefaultE
      * @ignore
      */
     containerElement?: HTMLElement;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function parseTooltipTrigger(children: ReactNode) {

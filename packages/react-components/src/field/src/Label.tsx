@@ -1,29 +1,21 @@
 import "./Label.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
-import { mergeProps } from "../../shared";
 import { useFieldLabelProps } from "./FieldContext";
 
 const DefaultElement = "label";
 
-export interface InnerLabelProps extends Omit<ComponentProps<typeof DefaultElement>, "color">{
+export interface InnerLabelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color">{
     /**
      * Whether or not the label show a required state.
      */
     required?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function RequiredIndicator() {

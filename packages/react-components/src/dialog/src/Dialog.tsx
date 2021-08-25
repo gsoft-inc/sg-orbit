@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     DomProps,
     InteractionStatesProps,
+    InternalProps,
     MergedRef,
     cssModule,
     isNil,
@@ -21,7 +22,7 @@ import {
     useSlots
 } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
@@ -29,7 +30,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, DomProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */
@@ -51,17 +52,9 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps, Interacti
      */
     wrapperProps?: Record<string, any>;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useHideBodyScrollbar() {

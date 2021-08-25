@@ -1,9 +1,10 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, FormEvent, ForwardedRef, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
+import { ComponentProps, FormEvent, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
     InteractionStatesProps,
+    InternalProps,
     cssModule,
     isNil,
     isNumber,
@@ -22,7 +23,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */
@@ -71,17 +72,9 @@ export interface InnerRadioProps extends InteractionStatesProps, Omit<ComponentP
      */
     name?: string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerRadio(props: InnerRadioProps) {

@@ -1,25 +1,17 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, mergeProps, useId } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { DomProps, InternalProps, mergeProps, useId } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFieldsetProps extends DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerFieldsetProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * A label identifying the group.
      */
     label: string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerFieldset({

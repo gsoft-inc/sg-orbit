@@ -2,6 +2,7 @@ import "./RadioGroup.css";
 
 import {
     CheckableContext,
+    InternalProps,
     Keys,
     augmentElement,
     isNil,
@@ -18,13 +19,13 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerRadioGroupProps {
+export interface InnerRadioGroupProps extends InternalProps {
     /**
      * The value of the radio group.
      */
@@ -77,10 +78,6 @@ export interface InnerRadioGroupProps {
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -88,10 +85,6 @@ export interface InnerRadioGroupProps {
      * @ignore
      */
     className?: string;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const NavigationKeyBinding = {

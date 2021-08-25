@@ -1,25 +1,17 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { augmentElement, mergeProps, omitProps } from "../../shared";
+import { InternalProps, augmentElement, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
-export interface InnerRowProps {
+export interface InnerRowProps extends InternalProps {
     /**
      * Whether or not the fields take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 

@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     DomProps,
     FocusManager,
+    InternalProps,
     Keys,
     appendEventKey,
     cssModule,
@@ -26,8 +27,6 @@ import { Box } from "../../box";
 import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import {
     ComponentProps,
-    ElementType,
-    ForwardedRef,
     KeyboardEvent,
     ReactNode,
     SyntheticEvent,
@@ -49,7 +48,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxProps extends DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxProps extends InternalProps, DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.
@@ -111,19 +110,11 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps, Componen
     /**
      * @ignore
      */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
     children?: ReactNode;
     /**
      * @ignore
      */
     disabled?: boolean;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {

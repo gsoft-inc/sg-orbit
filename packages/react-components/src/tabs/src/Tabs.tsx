@@ -1,15 +1,15 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, DomProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { AriaLabelingProps, DomProps, InternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-export interface InnerTabsProps extends DomProps, AriaLabelingProps {
+export interface InnerTabsProps extends InternalProps, DomProps, AriaLabelingProps {
     /**
      * A controlled selected key.
      */
@@ -42,10 +42,6 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      */
     orientation?: "horizontal" | "vertical";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Tabs title for screen readers.
      */
     "aria-label": string;
@@ -53,10 +49,6 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTabs({

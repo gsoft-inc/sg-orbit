@@ -3,6 +3,7 @@ import "./Menu.css";
 import {
     AriaLabelingProps,
     DomProps,
+    InternalProps,
     Keys,
     appendEventKey,
     cssModule,
@@ -23,7 +24,7 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -38,7 +39,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, DomProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */
@@ -79,10 +80,6 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentPr
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -90,10 +87,6 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps, ComponentPr
      * @ignore
      */
     disabled?: boolean;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {

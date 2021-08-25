@@ -1,12 +1,12 @@
 import "./Text.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerTextProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerTextProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * A text can vary in size.
      */
@@ -16,10 +16,6 @@ export interface InnerTextProps extends ComponentProps<typeof DefaultElement>{
      */
     color?: "inherit";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
     slot?: string;
@@ -27,10 +23,6 @@ export interface InnerTextProps extends ComponentProps<typeof DefaultElement>{
      * @ignore
      */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerText(props: InnerTextProps) {

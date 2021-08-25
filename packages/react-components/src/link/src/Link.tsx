@@ -1,13 +1,13 @@
 import "./Link.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerLinkProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerLinkProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -37,17 +37,9 @@ export interface InnerLinkProps extends ComponentProps<typeof DefaultElement>{
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerLink(props: InnerLinkProps) {

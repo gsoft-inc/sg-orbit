@@ -1,9 +1,9 @@
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent,ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, forwardRef } from "react";
+import { ChangeEvent,ChangeEventHandler, ComponentProps, ReactElement, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
+import { InternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { TextInput, TextInputProps } from "./TextInput";
-import { mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
 import { wrappedInputPropsAdapter } from "../../input";
@@ -12,7 +12,7 @@ import { wrappedInputPropsAdapter } from "../../input";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerPasswordInputProps extends TextInputProps {
+export interface InnerPasswordInputProps extends InternalProps, TextInputProps {
     /**
      * A controlled value.
      */
@@ -76,14 +76,6 @@ export interface InnerPasswordInputProps extends TextInputProps {
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPasswordInput(props: InnerPasswordInputProps) {

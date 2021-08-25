@@ -1,13 +1,13 @@
 import "./Illustration.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 
 const DefaultElement ="div";
 
-export interface InnerIllustrationProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerIllustrationProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The orientation of the illustration.
      */
@@ -21,10 +21,6 @@ export interface InnerIllustrationProps extends ComponentProps<typeof DefaultEle
      */
     color?: string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Default slot override.
      */
     slot?: string;
@@ -32,10 +28,6 @@ export interface InnerIllustrationProps extends ComponentProps<typeof DefaultEle
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useColor(color: string) {

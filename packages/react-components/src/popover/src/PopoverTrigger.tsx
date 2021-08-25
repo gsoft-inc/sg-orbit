@@ -1,11 +1,11 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { DomProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { DomProps, InternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the popover.
      */
@@ -61,17 +61,9 @@ export interface InnerPopoverTriggerProps extends DomProps, ComponentProps<typeo
      */
     containerElement?: HTMLElement;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPopoverTrigger({

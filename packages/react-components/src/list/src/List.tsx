@@ -1,11 +1,11 @@
 import "./List.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
-import { augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { InternalProps, augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
 const DefaultElement = "ul";
 
-export interface InnerListProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerListProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * A list can vary in size.
      */
@@ -15,17 +15,9 @@ export interface InnerListProps extends ComponentProps<typeof DefaultElement>{
      */
     color?: "inherit";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const List = forwardRef<any, Omit<InnerListProps, "forwardedRef">>((props, ref) => {

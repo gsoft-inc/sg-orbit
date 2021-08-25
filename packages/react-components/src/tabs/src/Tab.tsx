@@ -1,8 +1,8 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, Keys, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
@@ -11,7 +11,7 @@ export const TabKeyProp = "data-o-ui-key";
 
 const DefaultElement = "button";
 
-export interface InnerTabProps extends InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTabProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching tab item.
      */
@@ -25,17 +25,9 @@ export interface InnerTabProps extends InteractionStatesProps, ComponentProps<ty
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTab({

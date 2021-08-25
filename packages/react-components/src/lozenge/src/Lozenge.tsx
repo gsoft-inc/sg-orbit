@@ -1,14 +1,14 @@
 import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerLozengeProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The badge color accent.
      */
@@ -18,17 +18,9 @@ export interface InnerLozengeProps extends ComponentProps<typeof DefaultElement>
      */
     size?: "sm" | "md";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const textSize = createSizeAdapter({

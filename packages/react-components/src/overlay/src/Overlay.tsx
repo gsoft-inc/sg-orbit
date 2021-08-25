@@ -1,15 +1,15 @@
 import "./Overlay.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
-import { cssModule, mergeProps } from "../../shared";
 import { useThemeContext } from "../../theme-provider";
 
 const DefaultElement = "div";
 
-export interface InnerOverlayProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerOverlayProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * Whether or not to show the overlay element.
      */
@@ -28,17 +28,9 @@ export interface InnerOverlayProps extends ComponentProps<typeof DefaultElement>
      */
     zIndex?: number;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerOverlay({

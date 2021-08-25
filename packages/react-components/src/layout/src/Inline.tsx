@@ -1,9 +1,9 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, FlexProps } from "./Flex";
-import { isNil, mergeProps } from "../../shared";
+import { InternalProps, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
-export interface InnerInlineProps extends Omit<FlexProps, "wrap"> {
+export interface InnerInlineProps extends InternalProps, Omit<FlexProps, "wrap"> {
     /**
      * Whether or not to inline the elements.
      */
@@ -33,17 +33,9 @@ export interface InnerInlineProps extends Omit<FlexProps, "wrap"> {
      */
     fluid?: boolean;
     /**
-    * @ignore
-    */
-    as?: ElementType;
-    /**
      * React children
     */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerInline({

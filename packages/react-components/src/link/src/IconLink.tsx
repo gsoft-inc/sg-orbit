@@ -1,14 +1,14 @@
 import "./Link.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -46,10 +46,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -57,10 +53,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
     * @ignore
     */
     visited?: boolean;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {

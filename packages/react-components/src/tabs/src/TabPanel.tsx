@@ -1,30 +1,22 @@
 import "./Tabs.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
-import { mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
 const DefaultElement = "div";
 
-export interface InnerTabPanelProps extends Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTabPanelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * Matching panel item.
      */
     panel: PanelType;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTabPanel({

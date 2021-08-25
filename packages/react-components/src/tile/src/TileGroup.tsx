@@ -1,8 +1,8 @@
 import { CheckboxGroup } from "../../checkbox";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
-import { RadioGroup } from "../../radio";
 import {
+    InternalProps,
     arrayify,
     augmentElement,
     isNil,
@@ -14,8 +14,9 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
+import { RadioGroup } from "../../radio";
 
-export interface InnerTileGroupProps extends Omit<GroupProps, "autoFocus" | "onChange"> {
+export interface InnerTileGroupProps extends InternalProps, Omit<GroupProps, "autoFocus" | "onChange"> {
     /**
      * The value of the tile group.
      */
@@ -52,17 +53,9 @@ export interface InnerTileGroupProps extends Omit<GroupProps, "autoFocus" | "onC
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 // @ts-ignore

@@ -1,8 +1,8 @@
 import "./IconButton.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
@@ -10,7 +10,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */
@@ -52,10 +52,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      */
     onClick?: MouseEventHandler;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Default slot override.
      */
     slot?: string;
@@ -67,10 +63,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconButton(props: InnerIconButtonProps) {

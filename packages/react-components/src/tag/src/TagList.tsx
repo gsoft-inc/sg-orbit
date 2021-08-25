@@ -3,13 +3,13 @@ import "./TagList.css";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
-import { ComponentProps,ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InternalProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
-import { isNil, mergeProps, useEventCallback } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerTagListProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerTagListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A tag list can vary in size.
      */
@@ -35,14 +35,6 @@ export interface InnerTagListProps extends ComponentProps<typeof DefaultElement>
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export interface TagItemProps extends Omit<TagProps, "children"> {

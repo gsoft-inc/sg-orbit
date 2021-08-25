@@ -1,14 +1,10 @@
 import { Box } from "../../box";
-import { ComponentProps,ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { slot } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, slot } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerHeaderProps extends ComponentProps<typeof DefaultElement> {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface InnerHeaderProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Default slot override.
      */
@@ -17,10 +13,6 @@ export interface InnerHeaderProps extends ComponentProps<typeof DefaultElement> 
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHeader({

@@ -1,8 +1,8 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, FlexProps, useFlexAlignment, useFlexDirection } from "../../layout";
-import { isNil, mergeProps } from "../../shared";
+import { InternalProps, isNil, mergeProps } from "../../shared";
 
-export interface InnerGroupProps extends Omit<FlexProps, "wrap">{
+export interface InnerGroupProps extends InternalProps, Omit<FlexProps, "wrap">{
     /**
      * The orientation of the elements.
      */
@@ -40,17 +40,9 @@ export interface InnerGroupProps extends Omit<FlexProps, "wrap">{
      */
     role?: string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 export function InnerGroup({
     orientation,

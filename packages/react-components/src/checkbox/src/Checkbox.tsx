@@ -1,8 +1,8 @@
 import "./Checkbox.css";
 
-import { AriaLabelingProps, InteractionStatesProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerCheckboxProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerCheckboxProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * @ignore
      */
@@ -79,15 +79,7 @@ export interface InnerCheckboxProps extends InteractionStatesProps, AriaLabeling
     /**
      * @ignore
      */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
     children?: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerCheckbox(props: InnerCheckboxProps) {

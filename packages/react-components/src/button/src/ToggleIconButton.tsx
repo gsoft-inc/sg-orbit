@@ -1,11 +1,11 @@
-import { AriaLabelingProps, InteractionStatesProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
-import { ComponentProps,ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -58,10 +58,6 @@ export interface InnerToggleIconButtonProps extends InteractionStatesProps, Aria
      */
     "aria-label": string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Default slot override.
      */
     slot?: string;
@@ -69,10 +65,6 @@ export interface InnerToggleIconButtonProps extends InteractionStatesProps, Aria
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {

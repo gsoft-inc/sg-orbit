@@ -1,13 +1,13 @@
 import "./Alert.css";
 
-import { AriaLabelingProps, DomProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { AriaLabelingProps, DomProps, InternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Dialog, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
 
-export interface InnerAlertProps extends DomProps, AriaLabelingProps {
+export interface InnerAlertProps extends InternalProps, DomProps, AriaLabelingProps {
     /**
      * The style to use.
      */
@@ -63,17 +63,9 @@ export interface InnerAlertProps extends DomProps, AriaLabelingProps {
       */
     wrapperProps?: Record<string, any>;
     /**
-      * @ignore
-      */
-    as?: ElementType;
-    /**
       * React children.
       */
     children: ReactNode;
-    /**
-      * @ignore
-      */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAlert({

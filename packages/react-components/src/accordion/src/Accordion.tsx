@@ -3,9 +3,10 @@ import "./Accordion.css";
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     DomProps,
+    InternalProps,
     Keys,
     cssModule,
     isNil,
@@ -24,7 +25,7 @@ import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionProps extends DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAccordionProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of expanded item keys.
      */
@@ -53,17 +54,9 @@ export interface InnerAccordionProps extends DomProps, ComponentProps<typeof Def
      */
     autoFocus?: boolean | number;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAccordion({

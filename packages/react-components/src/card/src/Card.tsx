@@ -1,13 +1,13 @@
 import "./Card.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
+import { InternalProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 
 const DefaultElement = "section";
 
-export interface InnerCardProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerCardProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the card.
      */
@@ -21,10 +21,6 @@ export interface InnerCardProps extends ComponentProps<typeof DefaultElement> {
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Default slot override.
      */
     slot?: string;
@@ -32,10 +28,6 @@ export interface InnerCardProps extends ComponentProps<typeof DefaultElement> {
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerCard({

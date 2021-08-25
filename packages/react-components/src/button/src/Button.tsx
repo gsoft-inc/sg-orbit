@@ -1,8 +1,8 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerButtonProps extends InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerButtonProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The button style to use.
      */
@@ -58,10 +58,6 @@ export interface InnerButtonProps extends InteractionStatesProps, Omit<Component
     */
     onClick?: MouseEventHandler;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Default slot override.
      */
     slot?: string;
@@ -69,10 +65,6 @@ export interface InnerButtonProps extends InteractionStatesProps, Omit<Component
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const condensedTextSize = createSizeAdapter({

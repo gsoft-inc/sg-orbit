@@ -1,24 +1,16 @@
 import "./Underlay.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { ComponentProps, forwardRef } from "react";
+import { InternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerUnderlayProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerUnderlayProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The z-index of the underlay.
      */
     zIndex?: number;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerUnderlay({

@@ -1,16 +1,16 @@
 import "./Link.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
-import { augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerTextLinkProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerTextLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -48,17 +48,9 @@ export interface InnerTextLinkProps extends ComponentProps<typeof DefaultElement
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {

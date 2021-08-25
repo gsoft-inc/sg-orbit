@@ -2,15 +2,15 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { DomProps, InternalProps, mergeProps } from "../../shared";
 import { FieldContext } from "./FieldContext";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
 const DefaultElement = "div";
 
-export interface InnerFieldProps extends DomProps, ComponentProps<typeof DefaultElement> {
+export interface InnerFieldProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -24,17 +24,9 @@ export interface InnerFieldProps extends DomProps, ComponentProps<typeof Default
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerField(props: InnerFieldProps) {

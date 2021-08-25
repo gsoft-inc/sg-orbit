@@ -1,29 +1,21 @@
 import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
+import { InternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerAvatarGroupProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The avatars of the group can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 interface RemainingAvatarsProps {

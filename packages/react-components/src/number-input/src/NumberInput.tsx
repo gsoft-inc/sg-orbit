@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     DomProps,
     InteractionStatesProps,
+    InternalProps,
     cssModule,
     isNil,
     isNilOrEmpty,
@@ -22,10 +23,8 @@ import {
     ChangeEvent,
     ChangeEventHandler,
     ComponentProps,
-    ElementType,
     FocusEvent,
     FocusEventHandler,
-    ForwardedRef,
     MouseEvent,
     ReactElement,
     SyntheticEvent,
@@ -44,7 +43,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
+export interface InnerNumberInputProps extends InternalProps, DomProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -120,14 +119,6 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 interface SpinnerProps extends ComponentProps<"div"> {

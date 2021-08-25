@@ -1,14 +1,14 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerDotProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */
@@ -20,15 +20,7 @@ export interface InnerDotProps extends ComponentProps<typeof DefaultElement> {
     /**
      * @ignore
      */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useColor(color: string) {

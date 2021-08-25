@@ -1,11 +1,11 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { InternalProps, Keys, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
 const DefaultElement = "div";
 
-export interface InnerToolbarProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerToolbarProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
          * Whether or not the toolbar should autoFocus the first tabbable element on render.
          */
@@ -39,17 +39,9 @@ export interface InnerToolbarProps extends ComponentProps<typeof DefaultElement>
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 

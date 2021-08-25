@@ -1,12 +1,12 @@
 import "./Badge.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { StyleProvider, cssModule, mergeProps } from "../../shared";
+import { Children, ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBadgeProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerBadgeProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The style to use.
      */
@@ -16,17 +16,9 @@ export interface InnerBadgeProps extends ComponentProps<typeof DefaultElement>{
      */
     overlap?: "circle" | "icon";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerBadge({

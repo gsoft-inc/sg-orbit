@@ -1,10 +1,10 @@
 import "./Message.css";
 
 import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
-import { ComponentProps,ElementType, ForwardedRef, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
@@ -40,7 +40,7 @@ const MessageContent = forwardRef<any, Omit<InnerMessageContentProps, "forwarded
     );
 });
 
-export interface InnerMessageProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerMessageProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value.
      */
@@ -56,10 +56,6 @@ export interface InnerMessageProps extends ComponentProps<typeof DefaultElement>
      */
     onDismiss?: (event: MouseEvent) => void;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -67,10 +63,6 @@ export interface InnerMessageProps extends ComponentProps<typeof DefaultElement>
      * @ignore
      */
     role?: string;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const Role = {

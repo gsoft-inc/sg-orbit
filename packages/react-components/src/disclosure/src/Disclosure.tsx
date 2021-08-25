@@ -1,14 +1,14 @@
 import "./Disclosure.css";
 
-import { Children, ComponentProps,ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { DomProps, Keys, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { DomProps, InternalProps, Keys, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
 const DefaultElement = "div";
 
-export interface InnerDisclosureProps extends DomProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerDisclosureProps extends InternalProps, DomProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A controlled open value.
      */
@@ -25,17 +25,9 @@ export interface InnerDisclosureProps extends DomProps, Omit<ComponentProps<type
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerDisclosure({

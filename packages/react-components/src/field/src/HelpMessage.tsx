@@ -1,21 +1,13 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { mergeProps } from "../../shared";
+import { InternalProps, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-export interface InnerHelpMessageProps {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface InnerHelpMessageProps extends InternalProps {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHelpMessage(props: InnerHelpMessageProps) {

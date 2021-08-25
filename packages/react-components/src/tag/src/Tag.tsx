@@ -1,15 +1,15 @@
 import "./Tag.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionStatesProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
-export interface InnerTagProps extends InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTagProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The tag style to use.
      */
@@ -33,17 +33,9 @@ export interface InnerTagProps extends InteractionStatesProps, ComponentProps<ty
      */
     size?: "sm" | "md";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 

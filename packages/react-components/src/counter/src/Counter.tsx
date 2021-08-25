@@ -1,13 +1,13 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerCounterProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerCounterProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The style to use.
      */
@@ -41,17 +41,9 @@ export interface InnerCounterProps extends ComponentProps<typeof DefaultElement>
      */
     slot?: string;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef?: ForwardedRef<any>;
 }
 
 export function InnerCounter(props: InnerCounterProps) {

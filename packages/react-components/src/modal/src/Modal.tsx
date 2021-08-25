@@ -3,6 +3,7 @@ import "./Modal.css";
 import {
     AriaLabelingProps,
     DomProps,
+    InternalProps,
     StyleProvider,
     augmentElement,
     getSlotKey,
@@ -10,11 +11,11 @@ import {
     mergeProps,
     useSlots
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
 
-export interface InnerModalProps extends DomProps, AriaLabelingProps {
+export interface InnerModalProps extends InternalProps, DomProps, AriaLabelingProps {
     /**
      * Whether or not the modal should take almost all the available space.
      */
@@ -32,17 +33,9 @@ export interface InnerModalProps extends DomProps, AriaLabelingProps {
      */
     wrapperProps?: Record<string, any>;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
       * React children.
       */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useModalContentMarkup(content: ReactElement) {

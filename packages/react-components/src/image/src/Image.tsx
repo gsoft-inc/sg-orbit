@@ -1,11 +1,11 @@
 import "./Image.css";
 
-import { ComponentProps, ElementType, ForwardedRef, forwardRef } from "react";
-import { cssModule, mergeProps, slot } from "../../shared";
+import { ComponentProps, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
-export interface InnerImageProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerImageProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The path to the image.
      */
@@ -46,14 +46,6 @@ export interface InnerImageProps extends ComponentProps<typeof DefaultElement> {
      * Default slot override.
      */
     slot?: string;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerImage({

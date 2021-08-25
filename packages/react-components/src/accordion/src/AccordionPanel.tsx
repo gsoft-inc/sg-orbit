@@ -1,12 +1,12 @@
 import "./Accordion.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { mergeProps, omitProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionPanelProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerAccordionPanelProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * The panel item props
      */
@@ -14,17 +14,9 @@ export interface InnerAccordionPanelProps extends ComponentProps<typeof DefaultE
         key: string;
     };
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAccordionPanel(props: InnerAccordionPanelProps) {

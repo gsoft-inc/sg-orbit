@@ -1,21 +1,13 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, mergeProps } from "../../shared";
 import { useInputGroupAddonProps } from "../../input-group";
 
-export interface InnerTextAddonProps {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface InnerTextAddonProps extends InternalProps {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextAddon(props: InnerTextAddonProps) {

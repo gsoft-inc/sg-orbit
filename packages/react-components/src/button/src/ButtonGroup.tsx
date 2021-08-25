@@ -1,11 +1,11 @@
 import "./ButtonGroup.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group, GroupProps } from "../../group";
-import { augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { InternalProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
-export interface InnerButtonGroupProps extends Omit<GroupProps, "size"> {
+export interface InnerButtonGroupProps extends InternalProps, Omit<GroupProps, "size"> {
     /**
      * The orientation of the buttons.
      */
@@ -27,17 +27,9 @@ export interface InnerButtonGroupProps extends Omit<GroupProps, "size"> {
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const Gap = {

@@ -1,13 +1,13 @@
 import "./Divider.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerDividerProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerDividerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the divider.
      */
@@ -15,15 +15,7 @@ export interface InnerDividerProps extends ComponentProps<typeof DefaultElement>
     /**
      * @ignore
      */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
     children?: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef?: ForwardedRef<any>;
 }
 
 export function InnerDivider({

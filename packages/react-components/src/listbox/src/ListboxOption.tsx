@@ -2,8 +2,8 @@ import "./Listbox.css";
 
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
-import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { DomProps, InteractionStatesProps, InternalProps, Keys, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -15,7 +15,7 @@ interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxOptionProps extends InternalProps, DomProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
     * Matching collection item.
     */
@@ -25,17 +25,9 @@ export interface InnerListboxOptionProps extends DomProps, InteractionStatesProp
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListboxOption({

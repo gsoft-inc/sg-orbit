@@ -1,9 +1,9 @@
-import { ComponentProps, ElementType, ForwardedRef,ReactNode, forwardRef } from "react";
-import { InteractionStatesProps, cssModule, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InteractionStatesProps, InternalProps, cssModule, mergeProps } from "../../shared";
 import { Link, LinkProps } from "../../link";
 import { useTile } from "./useTile";
 
-export interface InnerTileLinkProps extends InteractionStatesProps, LinkProps {
+export interface InnerTileLinkProps extends InternalProps, InteractionStatesProps, LinkProps {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -33,17 +33,9 @@ export interface InnerTileLinkProps extends InteractionStatesProps, LinkProps {
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTileLink({

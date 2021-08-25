@@ -2,15 +2,15 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { DomProps, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { DomProps, InternalProps, mergeProps } from "../../shared";
 import { FieldContext } from "./FieldContext";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
 const DefaultElement = "div";
 
-export interface InnerGroupFieldProps extends DomProps, ComponentProps<typeof DefaultElement>{
+export interface InnerGroupFieldProps extends InternalProps, DomProps, ComponentProps<typeof DefaultElement>{
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -24,17 +24,9 @@ export interface InnerGroupFieldProps extends DomProps, ComponentProps<typeof De
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerGroupField(props: InnerGroupFieldProps) {

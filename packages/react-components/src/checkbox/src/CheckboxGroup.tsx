@@ -2,6 +2,7 @@ import "./CheckboxGroup.css";
 
 import {
     CheckableContext,
+    InternalProps,
     augmentElement,
     isNil,
     isNumber,
@@ -15,13 +16,13 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group, GroupProps } from "../../group";
 import { useGroupInput } from "../../input";
 
-export interface InnerCheckboxGroupProps extends Omit<GroupProps, "size" | "autoFocus" | "onChange"> {
+export interface InnerCheckboxGroupProps extends InternalProps, Omit<GroupProps, "size" | "autoFocus" | "onChange"> {
     /**
    * The value of the checkbox group.
    */
@@ -74,17 +75,9 @@ export interface InnerCheckboxGroupProps extends Omit<GroupProps, "size" | "auto
      */
     reverse?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {

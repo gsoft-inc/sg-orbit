@@ -1,9 +1,9 @@
 import "./SearchInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -15,7 +15,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "input";
 
-export interface InnerSearchInputProps extends InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -71,14 +71,6 @@ export interface InnerSearchInputProps extends InteractionStatesProps, Omit<Comp
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSearchInput(props: InnerSearchInputProps) {

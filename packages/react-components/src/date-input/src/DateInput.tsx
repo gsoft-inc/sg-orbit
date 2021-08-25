@@ -3,6 +3,7 @@ import "./DateInput.css";
 import {
     AriaLabelingProps,
     InteractionStatesProps,
+    InternalProps,
     augmentElement,
     cssModule,
     isNil,
@@ -18,8 +19,6 @@ import {
     ChangeEvent,
     ChangeEventHandler,
     ComponentProps,
-    ElementType,
-    ForwardedRef,
     SyntheticEvent,
     forwardRef,
     useCallback,
@@ -43,7 +42,7 @@ export interface DatePreset {
     date: Date;
 }
 
-export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
+export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
      * A controlled value.
      */
@@ -119,14 +118,6 @@ export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelin
      * @ignore
      */
     style?: CSSProperties;
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const Input = forwardRef<any, any>((props, ref) => {

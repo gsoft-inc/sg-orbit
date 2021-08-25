@@ -1,13 +1,13 @@
 import "./Form.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
-import { cssModule, mergeProps } from "../../shared";
+import { InternalProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "form";
 
-export interface InnerFormProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerFormProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the form take up the width of its container.
      */
@@ -17,17 +17,9 @@ export interface InnerFormProps extends ComponentProps<typeof DefaultElement> {
      */
     disabled?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerForm(props: InnerFormProps) {

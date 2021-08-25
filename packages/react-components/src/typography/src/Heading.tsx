@@ -1,27 +1,19 @@
 import "./Heading.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef } from "react";
-import { cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { InternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerHeadingProps extends ComponentProps<typeof DefaultElement>{
+export interface InnerHeadingProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
      * A heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHeading(props: InnerHeadingProps) {

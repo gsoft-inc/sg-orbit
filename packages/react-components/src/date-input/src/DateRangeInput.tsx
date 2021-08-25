@@ -5,10 +5,8 @@ import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
     ComponentProps,
-    ElementType,
     FocusEvent,
     FocusEventHandler,
-    ForwardedRef,
     KeyboardEvent,
     SyntheticEvent,
     forwardRef,
@@ -24,6 +22,7 @@ import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
 import {
     InteractionStatesProps,
+    InternalProps,
     Keys,
     augmentElement,
     cssModule,
@@ -52,7 +51,7 @@ export interface DateRangePreset {
 
 const DefaultElement = "div";
 
-export interface InnerDateRangeInputProps extends InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
+export interface InnerDateRangeInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
      * @ignore
      */
@@ -126,17 +125,9 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps, Omit<C
      */
     fluid?: boolean;
     /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
      * Whether or not the input is readonly.
      */
     readOnly?: boolean;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({

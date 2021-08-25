@@ -1,10 +1,10 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, forwardRef, useEffect, useState } from "react";
-import { isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
+import { InternalProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerTransitionProps extends ComponentProps<typeof DefaultElement> {
+export interface InnerTransitionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value that determined whether or not the component is displayed.
      */
@@ -24,15 +24,7 @@ export interface InnerTransitionProps extends ComponentProps<typeof DefaultEleme
     /**
      * @ignore
      */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTransition({
