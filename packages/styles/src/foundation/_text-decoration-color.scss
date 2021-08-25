@@ -1,0 +1,183 @@
+/* TEXD DECORATION COLOR */
+.o-ui-text-decoration-color-current {
+    text-decoration-color: currentColor;
+}
+
+.o-ui-text-decoration-color-transparent {
+    text-decoration-color: transparent;
+}
+
+.o-ui-text-decoration-color-white {
+    text-decoration-color: var(--o-ui-white);
+}
+
+.o-ui-text-decoration-color-black {
+    text-decoration-color: var(--o-ui-black);
+}
+
+/* TEXD DECORATION COLOR | MARINE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-marine-#{$i} {
+        text-decoration-color: var(--o-ui-marine-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | SUNRAY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-sunray-#{$i} {
+        text-decoration-color: var(--o-ui-sunray-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | MOONSTONE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-moonstone-#{$i} {
+        text-decoration-color: var(--o-ui-moonstone-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | CLOUD */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-cloud-#{$i} {
+        text-decoration-color: var(--o-ui-cloud-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | NEUTRAL */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-neutral-#{$i} {
+        text-decoration-color: var(--o-ui-neutral-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | NEUTRAL DARK */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-neutral-dark-#{$i} {
+        text-decoration-color: var(--o-ui-neutral-dark-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | BEETLE */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-beetle-#{$i} {
+        text-decoration-color: var(--o-ui-beetle-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | BOTANIC */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-botanic-#{$i} {
+        text-decoration-color: var(--o-ui-botanic-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | APRICOT */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-apricot-#{$i} {
+        text-decoration-color: var(--o-ui-apricot-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | PRIMARY */
+@for $i from 1 through $color-palette-size {
+    .o-ui-text-decoration-color-primary-#{$i} {
+        text-decoration-color: var(--o-ui-primary-#{$i});
+    }
+}
+
+/* TEXD DECORATION COLOR | ROLE */
+.o-ui-alias-b-1 {
+    text-decoration-color: var(--o-ui-alias-b-1);
+}
+
+.o-ui-alias-b-1-hover:hover {
+    text-decoration-color: var(--o-ui-alias-b-1-hover);
+}
+
+.o-ui-alias-b-1-active:active {
+    text-decoration-color: var(--o-ui-alias-b-1-active);
+}
+
+.o-ui-alias-b-2 {
+    text-decoration-color: var(--o-ui-alias-b-2);
+}
+
+.o-ui-alias-b-3 {
+    text-decoration-color: var(--o-ui-alias-b-3);
+}
+
+.o-ui-alias-b-4 {
+    text-decoration-color: var(--o-ui-alias-b-4);
+}
+
+.o-ui-alias-b-4-hover:hover {
+    text-decoration-color: var(--o-ui-alias-b-4-hover);
+}
+
+/* TEXD DECORATION COLOR | ROLE | PRIMARY */
+.o-ui-alias-b-primary-1 {
+    text-decoration-color: var(--o-ui-alias-b-primary-1);
+}
+
+.o-ui-alias-b-primary-1-hover {
+    text-decoration-color: var(--o-ui-alias-b-primary-1-hover);
+}
+
+.o-ui-alias-b-primary-1-active {
+    text-decoration-color: var(--o-ui-alias-b-primary-1-active);
+}
+
+.o-ui-alias-b-primary-1-translucent {
+    text-decoration-color: var(--o-ui-alias-b-primary-1-translucent);
+}
+
+/* TEXD DECORATION COLOR | ROLE | NEGATIVE */
+.o-ui-alias-b-negative-1 {
+    text-decoration-color: var(--o-ui-alias-b-negative-1);
+}
+
+.o-ui-alias-b-negative-1-hover {
+    text-decoration-color: var(--o-ui-alias-b-negative-1-hover);
+}
+
+.o-ui-alias-b-negative-1-active {
+    text-decoration-color: var(--o-ui-alias-b-negative-1-active);
+}
+
+.o-ui-alias-b-negative-1-translucent {
+    text-decoration-color: var(--o-ui-alias-b-negative-1-translucent);
+}
+
+/* TEXD DECORATION COLOR | ROLE | WARNING */
+.o-ui-alias-b-warning-1 {
+    text-decoration-color: var(--o-ui-alias-b-warning-1);
+}
+
+.o-ui-alias-b-warning-1-hover {
+    text-decoration-color: var(--o-ui-alias-b-warning-1-hover);
+}
+
+.o-ui-alias-b-warning-1-active {
+    text-decoration-color: var(--o-ui-alias-b-warning-1-active);
+}
+
+.o-ui-alias-b-warning-1-translucent {
+    text-decoration-color: var(--o-ui-alias-b-warning-1-translucent);
+}
+
+/* TEXD DECORATION COLOR | ROLE | POSITIVE */
+.o-ui-alias-b-positive-1 {
+    text-decoration-color: var(--o-ui-alias-b-positive-1);
+}
+
+.o-ui-alias-b-positive-1-hover {
+    text-decoration-color: var(--o-ui-alias-b-positive-1-hover);
+}
+
+.o-ui-alias-b-positive-1-active {
+    text-decoration-color: var(--o-ui-alias-b-positive-1-active);
+}
+
+.o-ui-alias-b-positive-1-translucent {
+    text-decoration-color: var(--o-ui-alias-b-positive-1-translucent);
+}

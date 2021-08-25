@@ -115,6 +115,7 @@ export function createCss(themes: OrbitTheme[]) {
         appendArray(theme.fontWeights, "font-weights", common);
         appendArray(theme.lineHeights, "line-heights", common);
         appendArray(theme.borderWidths, "border-widths", common);
+        appendArray(theme.textDecorationThickness, "text-decoration-thickness", common);
         appendArray(theme.borderRadii, "border-radii", common);
         appendColorSchemes(theme.boxShadows, "box-shadows", { common, light, dark });
         appendArray(theme.zIndices, "z-indices", common);

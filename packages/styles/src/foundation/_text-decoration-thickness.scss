@@ -1,0 +1,18 @@
+/* TEXT-DECORATION-THICKNESS */
+.o-ui-text-decoration-thickness-0 {
+    text-decoration-thickness: 0;
+}
+
+.o-ui-text-decoration-thickness-auto {
+    text-decoration-thickness: auto;
+}
+
+.o-ui-text-decoration-thickness-from-font {
+    text-decoration-thickness: from-font;
+}
+
+@for $i from 1 through 5 {
+    .o-ui-text-decoration-thickness-#{$i} {
+        text-decoration-thickness: var(--o-ui-text-decoration-thickness-#{$i});
+    }
+}

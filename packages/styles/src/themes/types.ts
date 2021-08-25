@@ -28,6 +28,8 @@ export type LineHeightValues = FixedLengthArray<number, 6>;
 
 export type BorderWidthValues = FixedLengthArray<string, 5>;
 
+export type TextDecorationThicknessValues = FixedLengthArray<string, 5>;
+
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
 export type BoxShadowRoles = {
@@ -171,6 +173,7 @@ export interface OrbitTheme {
     fontWeights: FontWeightValues;
     lineHeights: LineHeightValues;
     borderWidths: BorderWidthValues;
+    textDecorationThickness: TextDecorationThicknessValues;
     borderRadii: BorderRadiusValues;
     boxShadows: BoxShadowValues & BoxShadowRoles | ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
     zIndices: ZIndexValues;
