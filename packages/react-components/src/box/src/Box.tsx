@@ -1,9 +1,13 @@
-import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
+import { AllHTMLAttributes, ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
 export interface InnerBoxProps extends InternalProps, Omit<AllHTMLAttributes<any>, "as"> {
+    /**
+     * An HTML element type or a custom React element type to render as.
+     */
+    as?: ElementType;
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
