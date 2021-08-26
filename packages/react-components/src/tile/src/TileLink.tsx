@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitForwardedRefProp, cssModule, mergeProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
 import { Link, LinkProps } from "../../link";
 import { useTile } from "./useTile";
 
@@ -80,7 +80,7 @@ export function InnerTileLink({
     );
 }
 
-export const TileLink = forwardRef<any, OmitForwardedRefProp<InnerTileLinkProps>>((props, ref) => (
+export const TileLink = forwardRef<any, OmitInternalProps<InnerTileLinkProps>>((props, ref) => (
     <InnerTileLink {...props} forwardedRef={ref} />
 ));
 

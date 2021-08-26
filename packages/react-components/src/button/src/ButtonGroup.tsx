@@ -2,7 +2,7 @@ import "./ButtonGroup.css";
 
 import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { InternalProps, OmitForwardedRefProp, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
@@ -184,7 +184,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
     );
 }
 
-export const ButtonGroup = slot("button-group", forwardRef<any, OmitForwardedRefProp<InnerButtonGroupProps>>((props, ref) => (
+export const ButtonGroup = slot("button-group", forwardRef<any, OmitInternalProps<InnerButtonGroupProps>>((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));
 

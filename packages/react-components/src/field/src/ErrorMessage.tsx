@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldMessage, FieldMessageProps, getValidationProps } from "./FieldMessage";
-import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
 export interface InnerErrorMessageProps extends InternalProps, Omit<FieldMessageProps, "children"> {
@@ -36,7 +36,7 @@ export function InnerErrorMessage(props: InnerErrorMessageProps) {
     );
 }
 
-export const ErrorMessage = forwardRef<any, OmitForwardedRefProp<InnerErrorMessageProps>>((props, ref) => (
+export const ErrorMessage = forwardRef<any, OmitInternalProps<InnerErrorMessageProps>>((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));
 

@@ -1,6 +1,6 @@
 import { ComponentProps, ReactElement, ReactNode, forwardRef, useCallback, useEffect, useState } from "react";
 import { InnerImageProps, Image as OrbitImage } from "./Image";
-import { OmitForwardedRefProp, isNil, useRefState } from "../../shared";
+import { OmitInternalProps, isNil, useRefState } from "../../shared";
 
 export interface InnerAsyncImageProps extends InnerImageProps {
     /**
@@ -106,7 +106,7 @@ function InnerAsyncImage({
     return children as ReactElement;
 }
 
-export const AsyncImage = forwardRef<any, OmitForwardedRefProp<InnerAsyncImageProps>>((props, ref) => (
+export const AsyncImage = forwardRef<any, OmitInternalProps<InnerAsyncImageProps>>((props, ref) => (
     <InnerAsyncImage {...props} forwardedRef={ref} />
 ));
 

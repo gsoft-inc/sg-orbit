@@ -1,6 +1,6 @@
 import { Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitForwardedRefProp, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
@@ -106,7 +106,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     );
 }
 
-export const ToggleButton = slot("button", forwardRef<HTMLButtonElement, OmitForwardedRefProp<InnerToggleButtonProps>>((props, ref) => (
+export const ToggleButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 )));
 

@@ -5,7 +5,7 @@ import {
     InteractionStatesProps,
     InternalProps,
     Keys,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -527,7 +527,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 }
 
-export const Autocomplete = forwardRef<HTMLInputElement, OmitForwardedRefProp<InnerAutocompleteProps>>((props, ref) => (
+export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<InnerAutocompleteProps>>((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));
 

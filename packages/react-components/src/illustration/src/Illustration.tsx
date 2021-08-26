@@ -2,7 +2,7 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitForwardedRefProp, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement ="div";
@@ -98,7 +98,7 @@ export function InnerIllustration({
     );
 }
 
-export const Illustration = slot("illustration", forwardRef<any, OmitForwardedRefProp<InnerIllustrationProps>>((props, ref) => (
+export const Illustration = slot("illustration", forwardRef<any, OmitInternalProps<InnerIllustrationProps>>((props, ref) => (
     <InnerIllustration {...props} forwardedRef={ref} />
 )));
 

@@ -3,7 +3,7 @@ import "./Modal.css";
 import {
     AriaLabelingProps,
     InternalProps,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     StyleProvider,
     augmentElement,
     getSlotKey,
@@ -160,7 +160,7 @@ export function InnerModal({
     );
 }
 
-export const Modal = forwardRef<any, OmitForwardedRefProp<InnerModalProps>>((props, ref) => (
+export const Modal = forwardRef<any, OmitInternalProps<InnerModalProps>>((props, ref) => (
     <InnerModal {...props} forwardedRef={ref} />
 ));
 

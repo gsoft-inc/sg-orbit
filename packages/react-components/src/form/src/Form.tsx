@@ -3,7 +3,7 @@ import "./Form.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
-import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "form";
 
@@ -58,7 +58,7 @@ export function InnerForm(props: InnerFormProps) {
     );
 }
 
-export const Form = forwardRef<any, OmitForwardedRefProp<InnerFormProps>>((props, ref) => (
+export const Form = forwardRef<any, OmitInternalProps<InnerFormProps>>((props, ref) => (
     <InnerForm {...props} forwardedRef={ref} />
 ));
 

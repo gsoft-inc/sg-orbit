@@ -1,6 +1,6 @@
 import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { InternalProps, OmitForwardedRefProp, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, isNil, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -143,7 +143,7 @@ export function InnerGroup({
     );
 }
 
-export const Group = forwardRef<any, OmitForwardedRefProp<InnerGroupProps>>((props, ref) => (
+export const Group = forwardRef<any, OmitInternalProps<InnerGroupProps>>((props, ref) => (
     <InnerGroup {...props} forwardedRef={ref} />
 ));
 

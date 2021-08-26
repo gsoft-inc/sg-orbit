@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, Keys, OmitForwardedRefProp, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -185,7 +185,7 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
-export const ListboxOption = forwardRef<any, OmitForwardedRefProp<InnerListboxOptionProps>>((props, ref) => (
+export const ListboxOption = forwardRef<any, OmitInternalProps<InnerListboxOptionProps>>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));
 

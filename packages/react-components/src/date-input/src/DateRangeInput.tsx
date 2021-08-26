@@ -24,7 +24,7 @@ import {
     InteractionStatesProps,
     InternalProps,
     Keys,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     augmentElement,
     cssModule,
     isNil,
@@ -559,7 +559,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     );
 }
 
-export const DateRangeInput = forwardRef<any, OmitForwardedRefProp<InnerDateRangeInputProps>>((props, ref) => (
+export const DateRangeInput = forwardRef<any, OmitInternalProps<InnerDateRangeInputProps>>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));
 

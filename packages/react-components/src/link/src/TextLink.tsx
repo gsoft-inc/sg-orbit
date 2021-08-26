@@ -1,7 +1,7 @@
 import "./Link.css";
 
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitForwardedRefProp, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -131,7 +131,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     );
 }
 
-export const TextLink = forwardRef<any, OmitForwardedRefProp<InnerTextLinkProps>>((props, ref) => (
+export const TextLink = forwardRef<any, OmitInternalProps<InnerTextLinkProps>>((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
 

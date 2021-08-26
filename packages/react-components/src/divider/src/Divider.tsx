@@ -2,7 +2,7 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -52,7 +52,7 @@ export function InnerDivider({
     );
 }
 
-export const Divider = forwardRef<any, OmitForwardedRefProp<InnerDividerProps>>((props, ref) => (
+export const Divider = forwardRef<any, OmitInternalProps<InnerDividerProps>>((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));
 

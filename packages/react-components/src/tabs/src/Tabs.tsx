@@ -1,6 +1,6 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, InternalProps, OmitForwardedRefProp, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { AriaLabelingProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { TabList } from "./TabList";
@@ -134,7 +134,7 @@ export function InnerTabs({
     );
 }
 
-export const Tabs = forwardRef<any, OmitForwardedRefProp<InnerTabsProps>>((props, ref) => (
+export const Tabs = forwardRef<any, OmitInternalProps<InnerTabsProps>>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
 

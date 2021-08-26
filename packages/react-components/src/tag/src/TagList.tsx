@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, isNil, mergeProps, useEventCallback } from "../../shared";
+import { InternalProps, OmitInternalProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
 
 const DefaultElement = "div";
@@ -122,7 +122,7 @@ export function InnerTagList({
     );
 }
 
-export const TagList = forwardRef<any, OmitForwardedRefProp<InnerTagListProps>>((props, ref) => (
+export const TagList = forwardRef<any, OmitInternalProps<InnerTagListProps>>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));
 

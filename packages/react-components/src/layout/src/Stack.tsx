@@ -1,6 +1,6 @@
 import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
-import { InternalProps, OmitForwardedRefProp, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 const DefaultElement = "div";
@@ -137,7 +137,7 @@ export function InnerStack({
     );
 }
 
-export const Stack = forwardRef<any, OmitForwardedRefProp<InnerStackProps>>((props, ref) => (
+export const Stack = forwardRef<any, OmitInternalProps<InnerStackProps>>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
 

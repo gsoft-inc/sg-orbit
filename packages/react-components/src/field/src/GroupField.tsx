@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
-import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
@@ -84,7 +84,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
     );
 }
 
-export const GroupField = forwardRef<any, OmitForwardedRefProp<InnerGroupFieldProps>>((props, ref) => (
+export const GroupField = forwardRef<any, OmitInternalProps<InnerGroupFieldProps>>((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));
 

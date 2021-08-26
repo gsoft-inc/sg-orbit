@@ -1,6 +1,6 @@
 import "./IconButton.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitForwardedRefProp, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
 import { Children, ComponentProps, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
@@ -137,7 +137,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     );
 }
 
-export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitForwardedRefProp<InnerIconButtonProps>>((props, ref) => (
+export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerIconButtonProps>>((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 

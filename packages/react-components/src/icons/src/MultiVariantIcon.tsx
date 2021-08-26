@@ -1,6 +1,6 @@
 import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
 import { Icon } from "./Icon";
-import { OmitForwardedRefProp, slot } from "../../shared";
+import { OmitInternalProps, slot } from "../../shared";
 
 export interface InnerMultiVariantIconProps extends SVGProps<SVGSVGElement>{
     /**
@@ -42,7 +42,7 @@ export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32,
     );
 });
 
-export const MultiVariantIcon = slot("icon", forwardRef<SVGSVGElement, OmitForwardedRefProp<InnerMultiVariantIconProps>>((props, ref) => (
+export const MultiVariantIcon = slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerMultiVariantIconProps>>((props, ref) => (
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 )));
 
@@ -53,7 +53,7 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 ////////
 
 export function createMultiVariantIcon(src24: ElementType, src32: ElementType) {
-    return slot("icon", forwardRef<SVGSVGElement, OmitForwardedRefProp<InnerMultiVariantIconProps, "src24" | "src32">>((props, ref) =>
+    return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerMultiVariantIconProps, "src24" | "src32">>((props, ref) =>
         <InnerMultiVariantIcon
             {...props}
             src24={src24}

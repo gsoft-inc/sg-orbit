@@ -1,4 +1,4 @@
-import { AriaLabelingProps, InternalProps, OmitForwardedRefProp, slot } from "../../shared";
+import { AriaLabelingProps, InternalProps, OmitInternalProps, slot } from "../../shared";
 import { ComponentProps, MouseEventHandler, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton, IconButtonProps } from "./IconButton";
@@ -47,7 +47,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
     );
 }
 
-export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitForwardedRefProp<InnerCrossButtonProps>>((props, ref) => (
+export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
 

@@ -2,7 +2,7 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -68,7 +68,7 @@ export function InnerBadge({
     );
 }
 
-export const Badge = forwardRef<any, OmitForwardedRefProp<InnerBadgeProps>>((props, ref) => (
+export const Badge = forwardRef<any, OmitInternalProps<InnerBadgeProps>>((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
 

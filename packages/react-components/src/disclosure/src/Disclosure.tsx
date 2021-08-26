@@ -2,7 +2,7 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { InternalProps, Keys, OmitForwardedRefProp, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
@@ -132,7 +132,7 @@ export function InnerDisclosure({
     );
 }
 
-export const Disclosure = forwardRef<any, OmitForwardedRefProp<InnerDisclosureProps>>((props, ref) => (
+export const Disclosure = forwardRef<any, OmitInternalProps<InnerDisclosureProps>>((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
 ));
 

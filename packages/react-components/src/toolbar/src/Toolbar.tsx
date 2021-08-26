@@ -1,6 +1,6 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { InternalProps, Keys, OmitForwardedRefProp, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
 const DefaultElement = "div";
@@ -127,7 +127,7 @@ export function InnerToolbar({
     );
 }
 
-export const Toolbar = forwardRef<any, OmitForwardedRefProp<InnerToolbarProps>>((props, ref) => (
+export const Toolbar = forwardRef<any, OmitInternalProps<InnerToolbarProps>>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
 

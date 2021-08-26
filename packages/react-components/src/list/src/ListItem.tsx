@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "li";
@@ -39,7 +39,7 @@ export function InnerListItem({
     );
 }
 
-export const ListItem = forwardRef<any, OmitForwardedRefProp<InnerListItemProps>>((props, ref) => (
+export const ListItem = forwardRef<any, OmitInternalProps<InnerListItemProps>>((props, ref) => (
     <InnerListItem {...props} forwardedRef={ref} />
 ));
 

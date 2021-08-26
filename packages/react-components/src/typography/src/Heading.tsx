@@ -1,7 +1,7 @@
 import "./Heading.css";
 
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -48,7 +48,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     );
 }
 
-export const Heading = slot("heading", forwardRef<any, OmitForwardedRefProp<InnerHeadingProps>>((props, ref) => (
+export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps>>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));
 
@@ -59,7 +59,7 @@ Heading.displayName = "Heading";
 // Aliases
 
 function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
-    return slot("heading", forwardRef<any, OmitForwardedRefProp<InnerHeadingProps, "size" | "as">>((props, ref) => (
+    return slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps, "size" | "as">>((props, ref) => (
         <InnerHeading
             {...props}
             size={size}

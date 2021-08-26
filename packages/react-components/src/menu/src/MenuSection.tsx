@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "li";
 
@@ -55,7 +55,7 @@ export function InnerMenuSection({
     );
 }
 
-export const MenuSection = forwardRef<any, OmitForwardedRefProp<InnerMenuSectionProps>>((props, ref) => (
+export const MenuSection = forwardRef<any, OmitInternalProps<InnerMenuSectionProps>>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));
 

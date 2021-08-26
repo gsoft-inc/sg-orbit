@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
-import { InternalProps, OmitForwardedRefProp, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { InternalProps, OmitInternalProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -82,7 +82,7 @@ export function InnerTransition({
     );
 }
 
-export const Transition = forwardRef<any, OmitForwardedRefProp<InnerTransitionProps>>((props, ref) => (
+export const Transition = forwardRef<any, OmitInternalProps<InnerTransitionProps>>((props, ref) => (
     <InnerTransition {...props} forwardedRef={ref} />
 ));
 

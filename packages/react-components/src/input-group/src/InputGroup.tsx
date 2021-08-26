@@ -5,7 +5,7 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
-import { InternalProps, OmitForwardedRefProp, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
@@ -115,7 +115,7 @@ export function InnerInputGroup({
     );
 }
 
-export const InputGroup = forwardRef<any, OmitForwardedRefProp<InnerInputGroupProps>>((props, ref) => (
+export const InputGroup = forwardRef<any, OmitInternalProps<InnerInputGroupProps>>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));
 

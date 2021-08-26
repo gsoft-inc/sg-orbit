@@ -2,7 +2,7 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitForwardedRefProp, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 const DefaultElement = "button";
@@ -120,7 +120,7 @@ export function InnerTile(props: InnerTileProps) {
     );
 }
 
-export const Tile = forwardRef<any, OmitForwardedRefProp<InnerTileProps>>((props, ref) => (
+export const Tile = forwardRef<any, OmitInternalProps<InnerTileProps>>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));
 

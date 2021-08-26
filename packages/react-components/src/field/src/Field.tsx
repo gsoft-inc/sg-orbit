@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
-import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
@@ -79,7 +79,7 @@ export function InnerField(props: InnerFieldProps) {
     );
 }
 
-export const Field = forwardRef<any, OmitForwardedRefProp<InnerFieldProps>>((props, ref) => (
+export const Field = forwardRef<any, OmitInternalProps<InnerFieldProps>>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
 

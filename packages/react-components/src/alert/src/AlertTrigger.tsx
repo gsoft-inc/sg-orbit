@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef } from "react";
 import { DialogTrigger, InnerDialogTriggerProps } from "../../dialog";
-import { OmitForwardedRefProp } from "../../shared";
+import { OmitInternalProps } from "../../shared";
 
 export type InnerAlertTriggerProps = InnerDialogTriggerProps;
 
@@ -17,7 +17,7 @@ export function InnerAlertTrigger({
     );
 }
 
-export const AlertTrigger = forwardRef<any, OmitForwardedRefProp<InnerAlertTriggerProps>>((props, ref) => (
+export const AlertTrigger = forwardRef<any, OmitInternalProps<InnerAlertTriggerProps>>((props, ref) => (
     <InnerAlertTrigger {...props} forwardedRef={ref} />
 ));
 

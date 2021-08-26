@@ -5,7 +5,7 @@ import {
     FocusManager,
     InternalProps,
     Keys,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -485,7 +485,7 @@ export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 };
 
-export const Listbox = forwardRef<ListboxElement, OmitForwardedRefProp<InnerListboxProps>>((props, ref) => (
+export const Listbox = forwardRef<ListboxElement, OmitInternalProps<InnerListboxProps>>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 

@@ -4,7 +4,7 @@ import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, Synth
 import {
     CheckableContext,
     InternalProps,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     augmentElement,
     isNil,
     isNumber,
@@ -284,7 +284,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     );
 }
 
-export const CheckboxGroup = forwardRef<any, OmitForwardedRefProp<InnerCheckboxGroupProps>>((props, ref) => (
+export const CheckboxGroup = forwardRef<any, OmitInternalProps<InnerCheckboxGroupProps>>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));
 

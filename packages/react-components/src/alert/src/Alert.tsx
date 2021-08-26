@@ -1,6 +1,6 @@
 import "./Alert.css";
 
-import { AriaLabelingProps, InternalProps, OmitForwardedRefProp, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { AriaLabelingProps, InternalProps, OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Dialog, useDialogTriggerContext } from "../../dialog";
@@ -193,7 +193,7 @@ export function InnerAlert({
     );
 }
 
-export const Alert = forwardRef<any, OmitForwardedRefProp<InnerAlertProps>>((props, ref) => (
+export const Alert = forwardRef<any, OmitInternalProps<InnerAlertProps>>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 

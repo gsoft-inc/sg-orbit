@@ -3,7 +3,7 @@ import { CheckboxGroup } from "../../checkbox";
 import { Group, GroupProps } from "../../group";
 import {
     InternalProps,
-    OmitForwardedRefProp,
+    OmitInternalProps,
     arrayify,
     augmentElement,
     isNil,
@@ -254,7 +254,7 @@ export function InnerTileGroup({
     );
 }
 
-export const TileGroup = forwardRef<any, OmitForwardedRefProp<InnerTileGroupProps>>((props, ref) => (
+export const TileGroup = forwardRef<any, OmitInternalProps<InnerTileGroupProps>>((props, ref) => (
     <InnerTileGroup {...props} forwardedRef={ref} />
 ));
 

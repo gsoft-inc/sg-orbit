@@ -1,6 +1,6 @@
 import "./Link.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitForwardedRefProp, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
@@ -122,7 +122,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     );
 }
 
-export const IconLink = forwardRef<any, OmitForwardedRefProp<InnerIconLinkProps>>((props, ref) => (
+export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
 

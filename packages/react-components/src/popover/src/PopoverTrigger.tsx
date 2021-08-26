@@ -1,5 +1,5 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitForwardedRefProp, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
@@ -145,7 +145,7 @@ export function InnerPopoverTrigger({
     );
 }
 
-export const PopoverTrigger = forwardRef<any, OmitForwardedRefProp<InnerPopoverTriggerProps>>((props, ref) => (
+export const PopoverTrigger = forwardRef<any, OmitInternalProps<InnerPopoverTriggerProps>>((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));
 
