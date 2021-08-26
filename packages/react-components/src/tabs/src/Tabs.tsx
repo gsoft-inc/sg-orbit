@@ -46,7 +46,7 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      */
     as?: ElementType;
     /**
-     * Tabs title for screen readers.
+     * Defines a string value that labels the current element.
      */
     "aria-label": string;
     /**

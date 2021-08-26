@@ -1,3 +1,6 @@
+@import "./align-content";
+@import "./align-items";
+@import "./align-self";
 @import "./background-color";
 @import "./background-position";
 @import "./background-size";
@@ -12,9 +15,16 @@
 @import "./cursor";
 @import "./display";
 @import "./fill";
+@import "./flex";
+@import "./flex-basis";
+@import "./flex-direction";
+@import "./flex-grow";
+@import "./flex-shrink";
+@import "./flex-wrap";
 @import "./font-size";
 @import "./font-weight";
 @import "./height";
+@import "./justify-content";
 @import "./left";
 @import "./line-height";
 @import "./margin";

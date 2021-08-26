@@ -40,6 +40,8 @@ export type LengthShorthand =
     `${LengthUnit} ${LengthUnit} ${LengthUnit}` |
     `${LengthUnit} ${LengthUnit} ${LengthUnit} ${LengthUnit}`;
 
+export type PercentageUnit = `${number}%`;
+
 const OrbitSpacingScale = [
     1,
     2,
@@ -59,7 +61,7 @@ const OrbitSpacingScale = [
 export type OrbitSpace = typeof OrbitSpacingScale[number];
 
 function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
-    const classes: Record<number, string> = {};
+    const classes: Record<number | string, string> = {};
 
     if (includeZero) {
         classes[0] = `o-ui-${section}-0`;
@@ -74,7 +76,18 @@ function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(sec
     return classes as Record<IncludeZero extends true ? 0 | OrbitSpace : OrbitSpace, string>;
 }
 
-export type SpaceValue = OrbitSpace | LengthUnit | GlobalValue;
+export type SpaceValue = OrbitSpace | LengthUnit | PercentageUnit | GlobalValue;
+
+export type WidthValue =
+    SpaceValue |
+    "max-content" |
+    "min-content" |
+    "fit-content" |
+    `fit-content(${LengthUnit})` |
+    `fit-content(${PercentageUnit})` |
+    "auto";
+
+export type HeightValue = WidthValue;
 
 const OrbitBorderWidthScale = [
     1,
@@ -102,7 +115,13 @@ function createOrbitBorderWidthScaleClasses<IncludeZero extends boolean = false>
     return classes as Record<IncludeZero extends true ? 0 | OrbitBorderWidth : OrbitBorderWidth, string>;
 }
 
-export type BorderWithValue = OrbitBorderWidth | LengthUnit | GlobalValue;
+export type BorderWidthValue =
+    OrbitBorderWidth |
+    LengthUnit |
+    "thin" |
+    "medium" |
+    "thick" |
+    GlobalValue;
 
 export type NamedColor =
     "aliceblue" |
@@ -385,6 +404,41 @@ function createOrbitColorClasses(section?: string) {
 
 export type ColorValue = OrbitColor | CssColor | GlobalValue;
 
+export const AlignContentClasses = {
+    "center": "o-ui-content-center",
+    "start": "o-ui-content-start",
+    "end": "o-ui-content-end",
+    "left": "o-ui-content-left",
+    "right": "o-ui-content-right",
+    "space-between": "o-ui-content-between",
+    "space-around": "o-ui-content-around",
+    "space-evenly": "o-ui-content-evenly",
+    "stretch": "o-ui-content-strech",
+    "normal": "o-ui-content-normal"
+} as const;
+
+export const AlignItemsClasses = {
+    "center": "o-ui-items-center",
+    "start": "o-ui-items-start",
+    "end": "o-ui-items-end",
+    "flex-start": "o-ui-items-flex-start",
+    "flex-end": "o-ui-items-flex-end",
+    "baseline": "o-ui-items-baseline",
+    "stretch": "o-ui-items-stretch",
+    "normal": "o-ui-items-normal"
+} as const;
+
+export const AlignSelfClasses = {
+    "center": "o-ui-self-center",
+    "start": "o-ui-self-start",
+    "end": "o-ui-self-end",
+    "flex-start": "o-ui-self-flex-start",
+    "flex-end": "o-ui-self-flex-end",
+    "baseline": "o-ui-self-baseline",
+    "stretch": "o-ui-self-stretch",
+    "normal": "o-ui-self-normal"
+} as const;
+
 export const BackgroundColorRoleClasses = {
     "alias-1": "o-ui-alias-bg-1",
     "alias-2": "o-ui-alias-bg-2",
@@ -478,7 +532,7 @@ export const BorderVerticalWidthClasses = createOrbitBorderWidthScaleClasses("bv
 // TODO FRANK: Do we realistically need horizontal border classes?
 export const BorderHorizontalWidthClasses = createOrbitBorderWidthScaleClasses("bh", true);
 
-export const BottomClasses = createOrbitSpacingScaleClasses("bottom", true);
+export const BottomClasses = { ...createOrbitSpacingScaleClasses("bottom", true), "auto": "o-ui-bottom-auto" };
 
 export const BoxShadowClasses = {
     1: "o-ui-bs-1",
@@ -547,6 +601,47 @@ export const FillRoleClasses = {
 
 export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
 
+export const FlexBasisClasses = {
+    "auto": "o-ui-basis-auto",
+    "fill": "o-ui-basis-fill",
+    "max-content": "o-ui-basis-max",
+    "min-content": "o-ui-basis-min",
+    "fit-content": "o-ui-basis-fit",
+    "content": "o-ui-basic-content"
+} as const;
+
+export const FlexClasses = {
+    "auto": "o-ui-flex-auto",
+    "max-content": "o-ui-flex-max",
+    "min-content": "o-ui-flex-min",
+    "none": "o-ui-flex-none"
+} as const;
+
+export const FlexDirectionClasses = {
+    "row": "o-ui-flex-row",
+    "row-reverse": "o-ui-flex-row-reverse",
+    "column": "o-ui-flex-col",
+    "column-reverse": "o-ui-flex-col-reverse"
+} as const;
+
+export const FlexGrowClasses = {
+    0: "o-ui-grow-0",
+    1: "o-ui-grow-1",
+    2: "o-ui-grow-2"
+} as const;
+
+export const FlexShrinkClasses = {
+    0: "o-ui-shrink-0",
+    1: "o-ui-shrink-1",
+    2: "o-ui-shrink-2"
+} as const;
+
+export const FlexWrapClasses = {
+    "wrap": "o-ui-flex-wrap",
+    "nowrap": "o-ui-flex-nowrap",
+    "wrap-reverse": "o-ui-flex-wrap-reverse"
+} as const;
+
 export const FontSizeClasses = {
     1: "o-ui-fs-1",
     2: "o-ui-fs-2",
@@ -578,12 +673,26 @@ export const HeightAdditionalClasses = {
     "screen": "o-ui-h-screen",
     "auto": "o-ui-h-auto",
     "max-content": "o-ui-h-max",
-    "min-content": "o-ui-h-min"
+    "min-content": "o-ui-h-min",
+    "fit-content": "o-ui-h-fit"
 } as const;
 
 export const HeightClasses = { ...createOrbitSpacingScaleClasses("h", true), ...HeightAdditionalClasses };
 
-export const LeftClasses = createOrbitSpacingScaleClasses("left", true);
+export const JustifyContentClasses = {
+    "center": "o-ui-justify-center",
+    "start": "o-ui-justify-start",
+    "end": "o-ui-justify-end",
+    "left": "o-ui-justify-left",
+    "right": "o-ui-justify-right",
+    "space-between": "o-ui-justify-between",
+    "space-around": "o-ui-justify-around",
+    "space-evenly": "o-ui-justify-evenly",
+    "stretch": "o-ui-justify-strech",
+    "normal": "o-ui-justify-normal"
+} as const;
+
+export const LeftClasses = { ...createOrbitSpacingScaleClasses("left", true), "auto": "o-ui-left-auto" };
 
 export const LineHeightClasses = {
     1: "o-ui-lh-1",
@@ -592,28 +701,30 @@ export const LineHeightClasses = {
     4: "o-ui-lh-4",
     5: "o-ui-lh-5",
     6: "o-ui-lh-6",
+    "normal": "o-ui-lh-normal",
     "none": "o-ui-lh-none"
 } as const;
 
-export const MarginClasses = createOrbitSpacingScaleClasses("ma", true);
+export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-auto" };
 
-export const MarginTopClasses = createOrbitSpacingScaleClasses("mt", true);
+export const MarginTopClasses = { ...createOrbitSpacingScaleClasses("mt", true), "auto": "o-ui-mt-auto" };
 
-export const MarginBottomClasses = createOrbitSpacingScaleClasses("mb", true);
+export const MarginBottomClasses = { ...createOrbitSpacingScaleClasses("mb", true), "auto": "o-ui-mb-auto" };
 
-export const MarginLeftClasses = createOrbitSpacingScaleClasses("ml", true);
+export const MarginLeftClasses = { ...createOrbitSpacingScaleClasses("ml", true), "auto": "o-ui-ml-auto" };
 
-export const MarginRightClasses = createOrbitSpacingScaleClasses("mr", true);
+export const MarginRightClasses = { ...createOrbitSpacingScaleClasses("mr", true), "auto": "o-ui-mr-auto" };
 
-export const MarginVerticalClasses = createOrbitSpacingScaleClasses("mv", true);
+export const MarginVerticalClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-auto" };
 
-export const MarginHorizontalClasses = createOrbitSpacingScaleClasses("mh", true);
+export const MarginHorizontalClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-auto" };
 
 export const MaxHeightAdditionalClasses = {
     "100%": "o-ui-max-h-100",
     "auto": "o-ui-max-h-auto",
     "max-content": "o-ui-max-h-max",
-    "min-content": "o-ui-max-h-min"
+    "min-content": "o-ui-max-h-min",
+    "fit-content": "o-ui-max-h-fit"
 } as const;
 
 export const MaxHeightClasses = { ...createOrbitSpacingScaleClasses("max-h"), ...MaxHeightAdditionalClasses };
@@ -622,7 +733,8 @@ export const MaxWidthAdditionalClasses = {
     "100%": "o-ui-max-w-100",
     "auto": "o-ui-max-w-auto",
     "max-content": "o-ui-max-w-max",
-    "min-content": "o-ui-max-w-min"
+    "min-content": "o-ui-max-w-min",
+    "fit-content": "o-ui-max-w-fit"
 } as const;
 
 export const MaxWidthClasses = { ...createOrbitSpacingScaleClasses("max-w"), ...MaxWidthAdditionalClasses };
@@ -631,7 +743,8 @@ export const MinHeightAdditionalClasses = {
     "100%": "o-ui-min-h-100",
     "auto": "o-ui-min-h-auto",
     "max-content": "o-ui-min-h-max",
-    "min-content": "o-ui-min-h-min"
+    "min-content": "o-ui-min-h-min",
+    "fit-content": "o-ui-min-h-fit"
 } as const;
 
 export const MinHeightClasses = { ...createOrbitSpacingScaleClasses("min-h"), ...MinHeightAdditionalClasses };
@@ -640,7 +753,8 @@ export const MinWidthAdditionalClasses = {
     "100%": "o-ui-min-w-100",
     "auto": "o-ui-min-w-auto",
     "max-content": "o-ui-min-w-max",
-    "min-content": "o-ui-min-w-min"
+    "min-content": "o-ui-min-w-min",
+    "fit-content": "o-ui-min-w-fit"
 } as const;
 
 export const MinWidthClasses = { ...createOrbitSpacingScaleClasses("min-w"), ...MinWidthAdditionalClasses };
@@ -667,18 +781,19 @@ export const PositionClasses = {
     "sticky": "o-ui-sticky"
 } as const;
 
-export const RightClasses = createOrbitSpacingScaleClasses("right", true);
+export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), "auto": "o-ui-right-auto" };
 
 export const StrokeClasses = createOrbitColorClasses("stroke");
 
-export const TopClasses = createOrbitSpacingScaleClasses("top", true);
+export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
 
 export const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
     "screen": "o-ui-w-screen",
     "auto": "o-ui-w-auto",
     "max-content": "o-ui-w-max",
-    "min-content": "o-ui-w-min"
+    "min-content": "o-ui-w-min",
+    "fit-content": "o-ui-w-fit"
 } as const;
 
 export const WidthClasses = { ...createOrbitSpacingScaleClasses("w", true), ...WidthAdditionalClasses };
@@ -695,6 +810,12 @@ export const ZindexClasses = {
     "max": "o-ui-z-9999"
 } as const;
 
+export type AlignContentProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
+
+export type AlignItemsProp = Simplify<keyof typeof AlignItemsClasses | GlobalValue>;
+
+export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue>;
+
 export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
@@ -707,21 +828,21 @@ export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | Globa
 
 export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
-export type BorderWidthProp = Simplify<BorderWithValue>;
+export type BorderWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderTopWidthProp = Simplify<BorderWithValue>;
+export type BorderTopWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderBottomWidthProp = Simplify<BorderWithValue>;
+export type BorderBottomWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderLeftWidthProp = Simplify<BorderWithValue>;
+export type BorderLeftWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderRightWidthProp = Simplify<BorderWithValue>;
+export type BorderRightWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderVerticalWidthProp = Simplify<BorderWithValue>;
+export type BorderVerticalWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderHorizontalWidthProp = Simplify<BorderWithValue>;
+export type BorderHorizontalWidthProp = Simplify<BorderWidthValue>;
 
-export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | GlobalValue>;
+export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | SpaceValue | GlobalValue>;
 
 export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
@@ -731,37 +852,55 @@ export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
 
 export type FillProp = Simplify<keyof typeof FillRoleClasses | ColorValue>;
 
+export type FlexProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+
+export type FlexBasisProp = Simplify<keyof typeof FlexBasisClasses | LengthUnit | PercentageUnit | GlobalValue>;
+
+export type FlexDirectionProp = Simplify<keyof typeof FlexDirectionClasses | GlobalValue>;
+
+export type FlexGrowProp = Simplify<LiteralUnion<keyof typeof FlexGrowClasses, number> | GlobalValue>;
+
+export type FlexShrinkProp = Simplify<LiteralUnion<keyof typeof FlexShrinkClasses, number> | GlobalValue>;
+
+export type FlexWrapProp = Simplify<keyof typeof FlexWrapClasses | GlobalValue>;
+
+export type FlexFlowProp = FlexDirectionProp | FlexWrapProp | `${FlexDirectionProp} ${FlexWrapProp}`;
+
 export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValue>;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
-export type HeightProp = Simplify<keyof typeof HeightAdditionalClasses | SpaceValue>;
+export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
 
-export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | GlobalValue>;
+export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
+
+export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | SpaceValue | GlobalValue>;
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
 export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand | GlobalValue>;
 
-export type MarginTopProp = Simplify<SpaceValue>;
+export type MarginTopProp = Simplify<keyof typeof MarginTopClasses | GlobalValue>;
 
-export type MarginBottomProp = Simplify<SpaceValue>;
+export type MarginBottomProp = Simplify<keyof typeof MarginBottomClasses | SpaceValue>;
 
-export type MarginLeftProp = Simplify<SpaceValue>;
+export type MarginLeftProp = Simplify<keyof typeof MarginLeftClasses | SpaceValue>;
 
-export type MarginRightProp = Simplify<SpaceValue>;
+export type MarginRightProp = Simplify<keyof typeof MarginRightClasses | SpaceValue>;
 
-export type MarginVerticalProp = Simplify<SpaceValue>;
+export type MarginVerticalProp = Simplify<keyof typeof MarginVerticalClasses | SpaceValue>;
 
-export type MarginHorizontalProp = Simplify<SpaceValue>;
+export type MarginHorizontalProp = Simplify<keyof typeof MarginHorizontalClasses | SpaceValue>;
 
-export type MaxHeightProp = Simplify<keyof typeof MaxHeightAdditionalClasses | SpaceValue>;
+export type MaxHeightProp = Simplify<keyof typeof MaxHeightClasses | HeightValue>;
 
-export type MaxWidthProp = Simplify<keyof typeof MaxWidthAdditionalClasses | SpaceValue>;
+export type MaxWidthProp = Simplify<keyof typeof MaxWidthClasses | WidthValue>;
 
-export type MinHeightProp = Simplify<keyof typeof MinHeightAdditionalClasses | SpaceValue>;
+export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | SpaceValue>;
 
-export type MinWidthProp = Simplify<keyof typeof MinWidthAdditionalClasses | SpaceValue>;
+export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
+
+export type OrderProp = number | GlobalValue;
 
 export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
@@ -779,17 +918,20 @@ export type PaddingHorizontalProp = Simplify<SpaceValue>;
 
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
-export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | GlobalValue>;
+export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | SpaceValue | GlobalValue>;
 
 export type StrokeProp = Simplify<ColorValue>;
 
-export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
+export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | SpaceValue | GlobalValue>;
 
-export type WidthProp = Simplify<keyof typeof WidthAdditionalClasses | SpaceValue>;
+export type WidthProp = Simplify<keyof typeof WidthClasses | WidthValue>;
 
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
 export interface StyleProps {
+    alignContent?: AlignContentProp;
+    alignItems?: AlignItemsProp;
+    alignSelf?: AlignSelfProp;
     backgroundColor?: BackgroundColorProp;
     backgroundPosition?: BackgroundPositionProp;
     backgroundSize?: BackgroundSizeProp;
@@ -813,9 +955,17 @@ export interface StyleProps {
     color?: ColorProp;
     display?: DisplayProp;
     fill?: FillProp;
+    flex?: FlexProp;
+    flexBasis?: FlexBasisProp;
+    flexDirection?: FlexDirectionProp;
+    flexFlow?: FlexFlowProp;
+    flexGrow?: FlexGrowProp;
+    flexShrink?: FlexShrinkProp;
+    flexWrap?: FlexWrapProp;
     fontSize?: FontSizeProp;
     fontWeight?: FontWeightProp;
     height?: HeightProp;
+    justifyContent?: JustifyContentProp;
     left?: LeftProp;
     lineHeight?: LineHeightProp;
     margin?: MarginProp;
@@ -829,6 +979,7 @@ export interface StyleProps {
     maxWidth?: MaxWidthProp;
     minHeight?: MinHeightProp;
     minWidth?: MinWidthProp;
+    order?: OrderProp;
     padding?: PaddingProp;
     paddingTop?: PaddingTopProp;
     paddingBottom?: PaddingBottomProp;
@@ -853,7 +1004,7 @@ interface Context {
 
 type PropHandler<T> = (name: string, value: T, context: Context) => void;
 
-function createPropHandler<V extends string>(classes: Record<V, string>): PropHandler<V> {
+function createClassesPropHandler<V extends string>(classes: Record<V, string>): PropHandler<V> {
     return (name, value, context) => {
         const className = classes[value as keyof typeof classes];
 
@@ -865,53 +1016,100 @@ function createPropHandler<V extends string>(classes: Record<V, string>): PropHa
     };
 }
 
+function createStylePropHandler<V extends string>(): PropHandler<V> {
+    return (name, value, context) => {
+        context.style[name] = value;
+    };
+}
+
+// TODO: should we introduce some kind of generic shorthandHandler?
+function flexFlowHandler(name: string, value: string, context: Context) {
+    const parts = value.split(" ");
+
+    if (parts.length === 2) {
+        const direction = FlexDirectionClasses[parts[0] as keyof typeof FlexDirectionClasses];
+        const wrap = FlexWrapClasses[parts[1] as keyof typeof FlexWrapClasses];
+
+        if (!isNil(direction) && !isNil(wrap)) {
+            context.classes.push(direction);
+            context.classes.push(wrap);
+        } else {
+            context.style[name] = value;
+        }
+    } else {
+        let className: any = FlexDirectionClasses[value as keyof typeof FlexDirectionClasses];
+
+        if (!isNil(className)) {
+            className = FlexWrapClasses[value as keyof typeof FlexWrapClasses];
+        }
+
+        if (!isNil(className)) {
+            context.classes.push(className);
+        } else {
+            context.style[name] = value;
+        }
+    }
+}
+
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    backgroundColor: createPropHandler(BackgroundColorClasses),
-    backgroundPosition: createPropHandler(BackgroundPositionClasses),
-    backgroundSize: createPropHandler(BackgroundSizeClasses),
-    borderColor: createPropHandler(BorderColorClasses),
-    borderRadius: createPropHandler(BorderRadiusClasses),
-    borderWidth: createPropHandler(BorderWidthClasses),
-    borderTopWidth: createPropHandler(BorderTopWidthClasses),
-    borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
-    borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
-    borderRightWidth: createPropHandler(BorderRightWidthClasses),
-    borderVerticalWidth: createPropHandler(BorderVerticalWidthClasses),
-    borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses),
-    bottom: createPropHandler(BottomClasses),
-    boxShadow: createPropHandler(BoxShadowClasses),
-    color: createPropHandler(ColorClasses),
-    display: createPropHandler(DisplayClasses),
-    fill: createPropHandler(FillClasses),
-    fontSize: createPropHandler(FontSizeClasses),
-    fontWeight: createPropHandler(FontWeightClasses),
-    height: createPropHandler(HeightClasses),
-    left: createPropHandler(LeftClasses),
-    lineHeight: createPropHandler(LineHeightClasses),
-    margin: createPropHandler(MarginClasses),
-    marginTop: createPropHandler(MarginTopClasses),
-    marginBottom: createPropHandler(MarginBottomClasses),
-    marginLeft: createPropHandler(MarginLeftClasses),
-    marginRight: createPropHandler(MarginRightClasses),
-    marginVertical: createPropHandler(MarginVerticalClasses),
-    marginHorizontal: createPropHandler(MarginHorizontalClasses),
-    maxHeight: createPropHandler(MaxHeightClasses),
-    maxWidth: createPropHandler(MaxWidthClasses),
-    minHeight: createPropHandler(MinHeightClasses),
-    minWidth: createPropHandler(MinWidthClasses),
-    padding: createPropHandler(PaddingClasses),
-    paddingTop: createPropHandler(PaddingTopClasses),
-    paddingBottom: createPropHandler(PaddingBottomClasses),
-    paddingLeft: createPropHandler(PaddingLeftClasses),
-    paddingRight: createPropHandler(PaddingRightClasses),
-    paddingVertical: createPropHandler(PaddingVerticalClasses),
-    paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
-    position: createPropHandler(PositionClasses),
-    right: createPropHandler(RightClasses),
-    stroke: createPropHandler(StrokeClasses),
-    top: createPropHandler(TopClasses),
-    width: createPropHandler(WidthClasses),
-    zIndex: createPropHandler(ZindexClasses)
+    alignContent: createClassesPropHandler(AlignContentClasses),
+    alignItems: createClassesPropHandler(AlignItemsClasses),
+    alignSelf: createClassesPropHandler(AlignSelfClasses),
+    backgroundColor: createClassesPropHandler(BackgroundColorClasses),
+    backgroundPosition: createClassesPropHandler(BackgroundPositionClasses),
+    backgroundSize: createClassesPropHandler(BackgroundSizeClasses),
+    borderColor: createClassesPropHandler(BorderColorClasses),
+    borderRadius: createClassesPropHandler(BorderRadiusClasses),
+    borderWidth: createClassesPropHandler(BorderWidthClasses),
+    borderTopWidth: createClassesPropHandler(BorderTopWidthClasses),
+    borderBottomWidth: createClassesPropHandler(BorderBottomWidthClasses),
+    borderLeftWidth: createClassesPropHandler(BorderLeftWidthClasses),
+    borderRightWidth: createClassesPropHandler(BorderRightWidthClasses),
+    borderVerticalWidth: createClassesPropHandler(BorderVerticalWidthClasses),
+    borderHorizontalWidth: createClassesPropHandler(BorderHorizontalWidthClasses),
+    bottom: createClassesPropHandler(BottomClasses),
+    boxShadow: createClassesPropHandler(BoxShadowClasses),
+    color: createClassesPropHandler(ColorClasses),
+    display: createClassesPropHandler(DisplayClasses),
+    flex: createClassesPropHandler(FlexClasses),
+    flexBasis: createClassesPropHandler(FlexBasisClasses),
+    flexDirection: createClassesPropHandler(FlexDirectionClasses),
+    flexFlow: flexFlowHandler,
+    flexGrow: createClassesPropHandler(FlexGrowClasses),
+    flexShrink: createClassesPropHandler(FlexShrinkClasses),
+    flexWrap: createClassesPropHandler(FlexWrapClasses),
+    fill: createClassesPropHandler(FillClasses),
+    fontSize: createClassesPropHandler(FontSizeClasses),
+    fontWeight: createClassesPropHandler(FontWeightClasses),
+    height: createClassesPropHandler(HeightClasses),
+    justifyContent: createClassesPropHandler(JustifyContentClasses),
+    left: createClassesPropHandler(LeftClasses),
+    lineHeight: createClassesPropHandler(LineHeightClasses),
+    margin: createClassesPropHandler(MarginClasses),
+    marginTop: createClassesPropHandler(MarginTopClasses),
+    marginBottom: createClassesPropHandler(MarginBottomClasses),
+    marginLeft: createClassesPropHandler(MarginLeftClasses),
+    marginRight: createClassesPropHandler(MarginRightClasses),
+    marginVertical: createClassesPropHandler(MarginVerticalClasses),
+    marginHorizontal: createClassesPropHandler(MarginHorizontalClasses),
+    maxHeight: createClassesPropHandler(MaxHeightClasses),
+    maxWidth: createClassesPropHandler(MaxWidthClasses),
+    minHeight: createClassesPropHandler(MinHeightClasses),
+    minWidth: createClassesPropHandler(MinWidthClasses),
+    order: createStylePropHandler(),
+    padding: createClassesPropHandler(PaddingClasses),
+    paddingTop: createClassesPropHandler(PaddingTopClasses),
+    paddingBottom: createClassesPropHandler(PaddingBottomClasses),
+    paddingLeft: createClassesPropHandler(PaddingLeftClasses),
+    paddingRight: createClassesPropHandler(PaddingRightClasses),
+    paddingVertical: createClassesPropHandler(PaddingVerticalClasses),
+    paddingHorizontal: createClassesPropHandler(PaddingHorizontalClasses),
+    position: createClassesPropHandler(PositionClasses),
+    right: createClassesPropHandler(RightClasses),
+    stroke: createClassesPropHandler(StrokeClasses),
+    top: createClassesPropHandler(TopClasses),
+    width: createClassesPropHandler(WidthClasses),
+    zIndex: createClassesPropHandler(ZindexClasses)
 };
 
 /*

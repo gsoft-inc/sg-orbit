@@ -2,6 +2,8 @@ import { isArray, isNil, isString, isNumber } from "./assertions";
 import { OrbitTheme, ColorSchemes } from "./themes";
 import { JsonObject, JsonValue, Entry } from "type-fest";
 
+// TODO: Rename to createThemeVars?
+
 type VarsBucket = string[];
 
 type StringArray = readonly string[];
