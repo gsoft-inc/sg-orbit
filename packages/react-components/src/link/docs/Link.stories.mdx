@@ -1,7 +1,7 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink } from "@react-components/link";
+import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink, TextLinkAsButton } from "@react-components/link";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { LaunchImage } from "./assets";
@@ -114,7 +114,7 @@ A link can behave like a button.
 
 <Preview>
     <Story name="button">
-        <TextLink as="button">Flight details</TextLink>
+        <TextLinkAsButton>Flight details</TextLinkAsButton>
     </Story>
 </Preview>
 

@@ -1,7 +1,7 @@
 import "./Link.css";
 
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -136,5 +136,7 @@ export const TextLink = forwardRef<any, OmitInternalProps<InnerTextLinkProps>>((
 ));
 
 export type TextLinkProps = ComponentProps<typeof TextLink>;
+
+export const TextLinkAsButton = as(TextLink, "button");
 
 TextLink.displayName = "TextLink";
