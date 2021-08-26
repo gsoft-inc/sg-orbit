@@ -1,6 +1,6 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, InternalProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { AriaLabelingProps, InternalProps, OmitForwardedRefProp, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
@@ -200,7 +200,7 @@ export function InnerAvatar({
     );
 }
 
-export const Avatar = slot("avatar", forwardRef<any, Omit<InnerAvatarProps, "forwardedRef">>((props, ref) => (
+export const Avatar = slot("avatar", forwardRef<any, OmitForwardedRefProp<InnerAvatarProps>>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));
 

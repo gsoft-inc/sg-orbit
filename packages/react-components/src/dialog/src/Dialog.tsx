@@ -5,6 +5,7 @@ import {
     InteractionStatesProps,
     InternalProps,
     MergedRef,
+    OmitForwardedRefProp,
     cssModule,
     isNil,
     isString,
@@ -322,7 +323,7 @@ export function InnerDialog({
     );
 }
 
-export const Dialog = forwardRef<any, Omit<InnerDialogProps, "forwardedRef">>((props, ref) => (
+export const Dialog = forwardRef<any, OmitForwardedRefProp<InnerDialogProps>>((props, ref) => (
     <InnerDialog {...props} forwardedRef={ref} />
 ));
 

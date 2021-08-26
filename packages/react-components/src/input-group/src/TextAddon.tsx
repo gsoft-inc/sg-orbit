@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
 import { useInputGroupAddonProps } from "../../input-group";
 
 export interface InnerTextAddonProps extends InternalProps {
@@ -39,7 +39,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     );
 }
 
-export const TextAddon = forwardRef<any, Omit<InnerTextAddonProps, "forwardedRef">>((props, ref) => (
+export const TextAddon = forwardRef<any, OmitForwardedRefProp<InnerTextAddonProps>>((props, ref) => (
     <InnerTextAddon {...props} forwardedRef={ref} />
 ));
 

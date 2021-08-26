@@ -1,7 +1,7 @@
 import "./Overlay.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
@@ -81,7 +81,7 @@ export function InnerOverlay({
     );
 }
 
-export const Overlay = forwardRef<any, Omit<InnerOverlayProps, "forwardedRef">>((props, ref) => (
+export const Overlay = forwardRef<any, OmitForwardedRefProp<InnerOverlayProps>>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />
 ));
 

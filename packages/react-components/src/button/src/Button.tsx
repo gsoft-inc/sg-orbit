@@ -2,7 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitForwardedRefProp, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -172,6 +172,6 @@ export function InnerButton(props: InnerButtonProps) {
     );
 }
 
-export const Button = slot("button", forwardRef<HTMLButtonElement, Omit<InnerButtonProps, "forwardedRef">>((props, ref) => (
+export const Button = slot("button", forwardRef<HTMLButtonElement, OmitForwardedRefProp<InnerButtonProps>>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));

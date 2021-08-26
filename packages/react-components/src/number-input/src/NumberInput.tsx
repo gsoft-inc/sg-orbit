@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     InteractionStatesProps,
     InternalProps,
+    OmitForwardedRefProp,
     cssModule,
     isNil,
     isNilOrEmpty,
@@ -444,7 +445,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     );
 }
 
-export const NumberInput = forwardRef<any, Omit<InnerNumberInputProps, "forwardedRef">>((props, ref) => (
+export const NumberInput = forwardRef<any, OmitForwardedRefProp<InnerNumberInputProps>>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));
 

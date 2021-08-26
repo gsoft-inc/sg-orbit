@@ -1,6 +1,6 @@
 import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
-import { InternalProps, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
 const DefaultElement = "div";
@@ -135,7 +135,7 @@ export function InnerInline({
     );
 }
 
-export const Inline = forwardRef<any, Omit<InnerInlineProps, "forwardedRef">>((props, ref) => (
+export const Inline = forwardRef<any, OmitForwardedRefProp<InnerInlineProps>>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
 

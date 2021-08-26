@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     InternalProps,
     Keys,
+    OmitForwardedRefProp,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -331,7 +332,7 @@ export function InnerMenu({
     );
 }
 
-export const Menu = forwardRef<any, Omit<InnerMenuProps, "forwardedRef">>((props, ref) => (
+export const Menu = forwardRef<any, OmitForwardedRefProp<InnerMenuProps>>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));
 

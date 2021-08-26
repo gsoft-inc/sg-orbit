@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, mergeProps, useId } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps, useId } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -49,7 +49,7 @@ export function InnerFieldset({
     );
 }
 
-export const Fieldset = forwardRef<any, Omit<InnerFieldsetProps, "forwardedRef">>((props, ref) => (
+export const Fieldset = forwardRef<any, OmitForwardedRefProp<InnerFieldsetProps>>((props, ref) => (
     <InnerFieldset {...props} forwardedRef={ref} />
 ));
 

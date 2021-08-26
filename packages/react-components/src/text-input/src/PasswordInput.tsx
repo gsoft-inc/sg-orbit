@@ -2,7 +2,7 @@ import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent,ChangeEventHandler, ComponentProps, ReactElement, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { IconButton } from "../../button";
-import { InternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { TextInput, TextInputProps } from "./TextInput";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
@@ -135,7 +135,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
     );
 }
 
-export const PasswordInput = forwardRef<HTMLInputElement, Omit<InnerPasswordInputProps, "forwardedRef">>((props, ref) => (
+export const PasswordInput = forwardRef<HTMLInputElement, OmitForwardedRefProp<InnerPasswordInputProps>>((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));
 

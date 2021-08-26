@@ -2,7 +2,7 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
@@ -74,7 +74,7 @@ export function InnerLozenge({
     );
 }
 
-export const Lozenge = slot("lozenge", forwardRef<any, Omit<InnerLozengeProps, "forwardedRef">>((props, ref) => (
+export const Lozenge = slot("lozenge", forwardRef<any, OmitForwardedRefProp<InnerLozengeProps>>((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));
 

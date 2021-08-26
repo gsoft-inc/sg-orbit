@@ -1,7 +1,7 @@
 import "./Tooltip.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -36,7 +36,7 @@ export function InnerTooltip({
     );
 }
 
-export const Tooltip = forwardRef<any, Omit<InnerTooltipProps, "forwardedRef">>((props, ref) => (
+export const Tooltip = forwardRef<any, OmitForwardedRefProp<InnerTooltipProps>>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));
 

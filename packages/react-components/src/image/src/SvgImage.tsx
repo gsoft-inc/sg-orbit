@@ -1,4 +1,4 @@
-import { AriaLabelingProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
+import { AriaLabelingProps, OmitForwardedRefProp, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef, useCallback, useMemo } from "react";
 
@@ -111,7 +111,7 @@ export function InnerSvgImage({
     );
 }
 
-export const SvgImage = slot("image", forwardRef<any, Omit<InnerSvgImageProps, "forwardedRef">>((props, ref) => (
+export const SvgImage = slot("image", forwardRef<any, OmitForwardedRefProp<InnerSvgImageProps>>((props, ref) => (
     <InnerSvgImage {...props} forwardedRef={ref} />
 )));
 

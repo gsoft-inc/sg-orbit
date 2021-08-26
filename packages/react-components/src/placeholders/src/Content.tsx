@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, slot } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, slot } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -32,7 +32,7 @@ export function InnerContent({
     );
 }
 
-export const Content = slot("content", forwardRef<any, Omit<InnerContentProps, "forwardedRef">>((props, ref) => (
+export const Content = slot("content", forwardRef<any, OmitForwardedRefProp<InnerContentProps>>((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
 )));
 

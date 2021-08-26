@@ -3,7 +3,7 @@ import "./Accordion.css";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading, Text } from "../../typography";
-import { InteractionStatesProps, InternalProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitForwardedRefProp, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
 export interface InnerAccordionHeaderProps extends InternalProps, InteractionStatesProps {
     /**
@@ -91,7 +91,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     );
 }
 
-export const AccordionHeader = forwardRef<any, Omit<InnerAccordionHeaderProps, "forwardedRef">>((props, ref) => (
+export const AccordionHeader = forwardRef<any, OmitForwardedRefProp<InnerAccordionHeaderProps>>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));
 

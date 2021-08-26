@@ -14,6 +14,9 @@ export interface InternalProps {
     forwardedRef: ForwardedRef<any>;
 }
 
+// Omit forwardedRef by default, but allow extra props to be ignored
+export type OmitForwardedRefProp<T extends { forwardedRef?: ForwardedRef<any> }, U extends string = never> = Omit<T, "forwardedRef" | U>;
+
 export interface AriaLabelingProps {
     /**
      * Defines a string value that labels the current element.

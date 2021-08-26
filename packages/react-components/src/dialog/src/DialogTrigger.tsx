@@ -1,6 +1,6 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
-import { InternalProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 
 const DefaultElement = "div";
@@ -125,7 +125,7 @@ export function InnerDialogTrigger({
     );
 }
 
-export const DialogTrigger = forwardRef<any, Omit<InnerDialogTriggerProps, "forwardedRef">>((props, ref) => (
+export const DialogTrigger = forwardRef<any, OmitForwardedRefProp<InnerDialogTriggerProps>>((props, ref) => (
     <InnerDialogTrigger {...props} forwardedRef={ref} />
 ));
 

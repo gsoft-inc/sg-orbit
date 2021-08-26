@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, slot } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, slot } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -32,7 +32,7 @@ export function InnerHeader({
     );
 }
 
-export const Header = slot("header", forwardRef<any, Omit<InnerHeaderProps, "forwardedRef">>((props, ref) => (
+export const Header = slot("header", forwardRef<any, OmitForwardedRefProp<InnerHeaderProps>>((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
 )));
 

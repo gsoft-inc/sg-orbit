@@ -4,6 +4,7 @@ import {
     FocusTarget,
     InternalProps,
     Keys,
+    OmitForwardedRefProp,
     augmentElement,
     isNil,
     mergeProps,
@@ -204,7 +205,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     );
 }
 
-export const MenuTrigger = forwardRef<any, Omit<InnerMenuTriggerProps, "forwardedRef">>((props, ref) => (
+export const MenuTrigger = forwardRef<any, OmitForwardedRefProp<InnerMenuTriggerProps>>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
 

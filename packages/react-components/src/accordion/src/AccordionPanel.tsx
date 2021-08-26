@@ -2,7 +2,7 @@ import "./Accordion.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, mergeProps, omitProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -43,7 +43,7 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     );
 }
 
-export const AccordionPanel = forwardRef<any, Omit<InnerAccordionPanelProps, "forwardedRef">>((props, ref) => (
+export const AccordionPanel = forwardRef<any, OmitForwardedRefProp<InnerAccordionPanelProps>>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />
 ));
 

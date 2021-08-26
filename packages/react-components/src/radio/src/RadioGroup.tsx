@@ -4,6 +4,7 @@ import {
     CheckableContext,
     InternalProps,
     Keys,
+    OmitForwardedRefProp,
     augmentElement,
     isNil,
     isNumber,
@@ -207,7 +208,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     );
 }
 
-export const RadioGroup = forwardRef<any, Omit<InnerRadioGroupProps, "forwardedRef">>((props, ref) => (
+export const RadioGroup = forwardRef<any, OmitForwardedRefProp<InnerRadioGroupProps>>((props, ref) => (
     <InnerRadioGroup {...props} forwardedRef={ref} />
 ));
 

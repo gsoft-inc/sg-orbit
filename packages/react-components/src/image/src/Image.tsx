@@ -1,7 +1,7 @@
 import "./Image.css";
 
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, cssModule, mergeProps, slot } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
@@ -81,7 +81,7 @@ export function InnerImage({
     );
 }
 
-export const Image = slot("image", forwardRef<any, Omit<InnerImageProps, "forwardedRef">>((props, ref) => (
+export const Image = slot("image", forwardRef<any, OmitForwardedRefProp<InnerImageProps>>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 )));
 

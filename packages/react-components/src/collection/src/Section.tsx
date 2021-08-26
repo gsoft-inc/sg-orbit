@@ -20,7 +20,7 @@ export function InnerSection(props: InnerSectionProps): JSX.Element {
     return null;
 }
 
-export const Section = forwardRef<any, Omit<InnerSectionProps, "forwardedRef">>((props, ref) => (
+export const Section = forwardRef<any, InnerSectionProps>((props, ref) => (
     // @ts-ignore Not sure what is going on with the InnerSection.
     <InnerSection {...props} forwardedRef={ref} />
 ));

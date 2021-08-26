@@ -2,7 +2,7 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "span";
 
@@ -60,7 +60,7 @@ export function InnerText(props: InnerTextProps) {
     );
 }
 
-export const Text = slot("text", forwardRef<any, Omit<InnerTextProps, "forwardedRef">>((props, ref) => (
+export const Text = slot("text", forwardRef<any, OmitForwardedRefProp<InnerTextProps>>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
 

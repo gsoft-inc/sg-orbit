@@ -1,7 +1,7 @@
 import "./List.css";
 
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
-import { InternalProps, augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
 const DefaultElement = "ul";
 
@@ -20,7 +20,7 @@ export interface InnerListProps extends InternalProps, ComponentProps<typeof Def
     children: ReactNode;
 }
 
-const List = forwardRef<any, Omit<InnerListProps, "forwardedRef">>((props, ref) => {
+const List = forwardRef<any, OmitForwardedRefProp<InnerListProps>>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
     const {
@@ -80,7 +80,7 @@ export function InnerOrderedList({
     );
 }
 
-export const OrderedList = forwardRef<any, Omit<InnerListProps, "forwardedRef">>((props, ref) => (
+export const OrderedList = forwardRef<any, OmitForwardedRefProp<InnerListProps>>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
@@ -104,7 +104,7 @@ function InnerUnorderedList({
     );
 }
 
-export const UnorderedList = forwardRef<any, Omit<InnerListProps, "forwardedRef">>((props, ref) => (
+export const UnorderedList = forwardRef<any, OmitForwardedRefProp<InnerListProps>>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
 

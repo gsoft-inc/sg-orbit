@@ -5,6 +5,7 @@ import { ComponentProps, FormEvent, ReactNode, forwardRef, useImperativeHandle, 
 import {
     InteractionStatesProps,
     InternalProps,
+    OmitForwardedRefProp,
     cssModule,
     isNil,
     isNumber,
@@ -205,7 +206,7 @@ export function InnerRadio(props: InnerRadioProps) {
     );
 }
 
-export const Radio = forwardRef<any, Omit<InnerRadioProps, "forwardedRef">>((props, ref) => (
+export const Radio = forwardRef<any, OmitForwardedRefProp<InnerRadioProps>>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));
 

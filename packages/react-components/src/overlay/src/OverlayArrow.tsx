@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -26,7 +26,7 @@ export function InnerOverlayArrow({
     );
 }
 
-export const OverlayArrow = forwardRef<any, Omit<InnerOverlayArrowProps, "forwardedRef">>((props, ref) => (
+export const OverlayArrow = forwardRef<any, OmitForwardedRefProp<InnerOverlayArrowProps>>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));
 

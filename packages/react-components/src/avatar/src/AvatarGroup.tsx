@@ -2,7 +2,7 @@ import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { InternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
@@ -119,7 +119,7 @@ export function InnerAvatarGroup({
     );
 }
 
-export const AvatarGroup = forwardRef<any, Omit<InnerAvatarGroupProps, "forwardedRef">>((props, ref) => (
+export const AvatarGroup = forwardRef<any, OmitForwardedRefProp<InnerAvatarGroupProps>>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));
 

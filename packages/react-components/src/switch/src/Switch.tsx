@@ -1,6 +1,6 @@
 import "./Switch.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
+import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitForwardedRefProp, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { Text } from "../../typography";
@@ -173,7 +173,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
 }
 
 
-export const Switch = forwardRef<any, Omit<InnerSwitchProps, "forwardedRef">>((props, ref) => (
+export const Switch = forwardRef<any, OmitForwardedRefProp<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
 

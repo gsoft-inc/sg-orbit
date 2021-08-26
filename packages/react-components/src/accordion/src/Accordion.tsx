@@ -7,6 +7,7 @@ import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InternalProps,
     Keys,
+    OmitForwardedRefProp,
     cssModule,
     isNil,
     isNumber,
@@ -158,7 +159,7 @@ export function InnerAccordion({
     );
 }
 
-export const Accordion = forwardRef<any, Omit<InnerAccordionProps, "forwardedRef">>((props, ref) => (
+export const Accordion = forwardRef<any, OmitForwardedRefProp<InnerAccordionProps>>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
 

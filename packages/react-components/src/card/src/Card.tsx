@@ -2,7 +2,7 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
-import { InternalProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "section";
@@ -119,7 +119,7 @@ export function InnerCard({
     );
 }
 
-export const Card = slot("card", forwardRef<any, Omit<InnerCardProps, "forwardedRef">>((props, ref) => (
+export const Card = slot("card", forwardRef<any, OmitForwardedRefProp<InnerCardProps>>((props, ref) => (
     <InnerCard {...props} forwardedRef={ref} />
 )));
 

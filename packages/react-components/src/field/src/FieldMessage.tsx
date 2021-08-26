@@ -36,7 +36,7 @@ export function getValidationProps(validationState: string) {
     };
 }
 
-export const FieldMessage = forwardRef<any, Omit<InnerFieldMessageProps, "forwardedRef">>(({
+export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
     tone,
     fluid,
     as = DefaultElement,

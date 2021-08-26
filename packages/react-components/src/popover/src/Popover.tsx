@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     InteractionStatesProps,
     InternalProps,
+    OmitForwardedRefProp,
     isNil,
     isString,
     mergeProps,
@@ -141,7 +142,7 @@ export function InnerPopover({
     );
 }
 
-export const Popover = forwardRef<any, Omit<InnerPopoverProps, "forwardedRef">>((props, ref) => (
+export const Popover = forwardRef<any, OmitForwardedRefProp<InnerPopoverProps>>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
 

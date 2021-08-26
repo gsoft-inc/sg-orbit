@@ -1,5 +1,5 @@
 import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, omitProps } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -32,7 +32,7 @@ export function InnerBox(props: InnerBoxProps) {
     );
 }
 
-export const Box = forwardRef<any, Omit<InnerBoxProps, "forwardedRef">>((props, ref) => (
+export const Box = forwardRef<any, OmitForwardedRefProp<InnerBoxProps>>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 

@@ -1,6 +1,6 @@
 import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { InternalProps, slot } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, slot } from "../../shared";
 
 const DefaultElement = "span";
 
@@ -45,7 +45,7 @@ export function InnerIconList({
     );
 }
 
-export const IconList = slot("icon", forwardRef<any, Omit<InnerIconListProps, "forwardedRef">>((props, ref) => (
+export const IconList = slot("icon", forwardRef<any, OmitForwardedRefProp<InnerIconListProps>>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));
 

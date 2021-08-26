@@ -4,6 +4,7 @@ import {
     AriaLabelingProps,
     InteractionStatesProps,
     InternalProps,
+    OmitForwardedRefProp,
     augmentElement,
     cssModule,
     isNil,
@@ -323,7 +324,7 @@ export function InnerDateInput({
     );
 }
 
-export const DateInput = forwardRef<HTMLInputElement, Omit<InnerDateInputProps, "forwardedRef">>((props, ref) => (
+export const DateInput = forwardRef<HTMLInputElement, OmitForwardedRefProp<InnerDateInputProps>>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));
 

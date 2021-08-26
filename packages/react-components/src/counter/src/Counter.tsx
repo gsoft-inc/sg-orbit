@@ -2,7 +2,7 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { InternalProps, OmitForwardedRefProp, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "span";
@@ -84,7 +84,7 @@ export function InnerCounter(props: InnerCounterProps) {
     );
 }
 
-export const Counter = slot("counter", forwardRef<any, Omit<InnerCounterProps, "forwardedRef">>((props, ref) => (
+export const Counter = slot("counter", forwardRef<any, OmitForwardedRefProp<InnerCounterProps>>((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
 
