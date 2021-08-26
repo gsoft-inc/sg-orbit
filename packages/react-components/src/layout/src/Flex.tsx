@@ -4,7 +4,7 @@ import { InternalProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../
 
 const DefaultElement = "div";
 
-export interface InnerFlexProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerFlexProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */

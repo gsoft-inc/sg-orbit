@@ -1,7 +1,7 @@
 import "./ButtonGroup.css";
 
 import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
-import { Group, GroupProps } from "../../group";
+import { Group } from "../../group";
 import { InternalProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 

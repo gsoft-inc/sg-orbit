@@ -115,7 +115,26 @@ function merge(props: Record<string, any>, newProps: Record<string, any>) {
 }
 
 // Taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379.
-type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
+// Convert an array of obj to a union of all the possibility
+// before
+// [{
+//     a?: string;
+//     b?: string;
+// }, {
+//     c: string;
+// }, {
+//     d: boolean;
+// }]
+// after
+// {
+//     a?: string;
+//     b?: string;
+// } | {
+//     c: string;
+// } | {
+//     d: boolean;
+// }
+export type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
 
 interface Props {
     [key: string]: any;
