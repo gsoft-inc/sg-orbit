@@ -1,4 +1,4 @@
-import { ComponentProps, ElementRef, ElementType, JSXElementConstructor, forwardRef } from "react";
+import { ComponentProps, ElementRef, JSXElementConstructor, forwardRef } from "react";
 import { Merge } from "type-fest";
 
 export function as<A extends JSXElementConstructor<any>, B extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>>(component: A, asProp: B) {

@@ -1,5 +1,5 @@
 import { ForwardedRef } from "react";
-import { OmitForwardedRefProp } from "../../src";
+import { OmitInternalProps } from "../../src";
 import { expectAssignable } from "@typescript/tests";
 
 interface FirstType {
@@ -8,10 +8,10 @@ interface FirstType {
     forwardedRef: ForwardedRef<any>;
 }
 
-expectAssignable<OmitForwardedRefProp<FirstType>>({ a: "", b: "" });
-expectAssignable<OmitForwardedRefProp<FirstType, "b">>({ a: "" });
+expectAssignable<OmitInternalProps<FirstType>>({ a: "", b: "" });
+expectAssignable<OmitInternalProps<FirstType, "b">>({ a: "" });
 
 // @ts-expect-error
-expectAssignable<OmitForwardedRefProp<FirstType>>({ a: "", b: "", forwardedRef: null });
+expectAssignable<OmitInternalProps<FirstType>>({ a: "", b: "", forwardedRef: null });
 // @ts-expect-error
-expectAssignable<OmitForwardedRefProp<FirstType, "b">>({ a: "", b: "" });
+expectAssignable<OmitInternalProps<FirstType, "b">>({ a: "", b: "" });
