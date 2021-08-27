@@ -1,12 +1,14 @@
 import "./Dialog.css";
 
+import { Box } from "../../box";
+import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CrossButton } from "../../button";
 import {
-    AriaLabelingProps,
-    DomProps,
     InteractionStatesProps,
+    InternalProps,
     MergedRef,
+    OmitInternalProps,
     cssModule,
-    forwardRef,
     isNil,
     isString,
     mergeProps,
@@ -21,14 +23,13 @@ import {
     useResizeObserver,
     useSlots
 } from "../../shared";
-import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, cloneElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export interface InnerDialogProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
+const DefaultElement = "section";
+
+export interface InnerDialogProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */
@@ -50,17 +51,9 @@ export interface InnerDialogProps extends DomProps, AriaLabelingProps, Interacti
      */
     wrapperProps?: Record<string, any>;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useHideBodyScrollbar() {
@@ -133,7 +126,7 @@ export function InnerDialog({
     "aria-labelledby": ariaLabelledBy,
     "aria-describedby": ariaDescribedBy,
     wrapperProps,
-    as = "section",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -329,7 +322,7 @@ export function InnerDialog({
     );
 }
 
-export const Dialog = forwardRef<InnerDialogProps>((props, ref) => (
+export const Dialog = forwardRef<any, OmitInternalProps<InnerDialogProps>>((props, ref) => (
     <InnerDialog {...props} forwardedRef={ref} />
 ));
 

@@ -1,11 +1,25 @@
 import "./NumberInput.css";
 
+import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
+import { CaretIcon } from "../../icons";
 import {
-    AriaLabelingProps,
-    DomProps,
-    InteractionStatesProps,
-    cssModule,
+    ChangeEvent,
+    ChangeEventHandler,
+    ComponentProps,
+    FocusEvent,
+    FocusEventHandler,
+    MouseEvent,
+    ReactElement,
+    SyntheticEvent,
     forwardRef,
+    useCallback,
+    useMemo
+} from "react";
+import {
+    InteractionStatesProps,
+    InternalProps,
+    OmitInternalProps,
+    cssModule,
     isNil,
     isNilOrEmpty,
     mergeClasses,
@@ -17,22 +31,6 @@ import {
     useFocusWithin,
     useRefState
 } from "../../shared";
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { CaretIcon } from "../../icons";
-import {
-    ChangeEvent,
-    ChangeEventHandler,
-    ComponentProps,
-    ElementType,
-    FocusEvent,
-    FocusEventHandler,
-    ForwardedRef,
-    MouseEvent,
-    ReactElement,
-    SyntheticEvent,
-    useCallback,
-    useMemo
-} from "react";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
@@ -42,7 +40,9 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerNumberInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "div";
+
+export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -118,14 +118,6 @@ export interface InnerNumberInputProps extends DomProps, InteractionStatesProps,
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 interface SpinnerProps extends ComponentProps<"div"> {
@@ -251,7 +243,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: wrapperPropsProp,
-        as = "div",
+        as = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -452,7 +444,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     );
 }
 
-export const NumberInput = forwardRef<InnerNumberInputProps>((props, ref) => (
+export const NumberInput = forwardRef<any, OmitInternalProps<InnerNumberInputProps>>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));
 

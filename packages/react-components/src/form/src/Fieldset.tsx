@@ -1,30 +1,24 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps, useId } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps, useId } from "../../shared";
 
-export interface InnerFieldsetProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerFieldsetProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A label identifying the group.
      */
     label: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerFieldset({
     id,
     label,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -57,7 +51,7 @@ export function InnerFieldset({
     );
 }
 
-export const Fieldset = forwardRef<InnerFieldsetProps>((props, ref) => (
+export const Fieldset = forwardRef<any, OmitInternalProps<InnerFieldsetProps>>((props, ref) => (
     <InnerFieldset {...props} forwardedRef={ref} />
 ));
 

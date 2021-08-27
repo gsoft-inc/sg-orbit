@@ -1,21 +1,6 @@
-import { AlignItemsProp, FlexDirectionProp, JustifyContentProp, StyleProps, forwardRef, isNil, mergeProps } from "../../shared";
+import { AlignItemsProp, FlexDirectionProp, InternalProps, JustifyContentProp, OmitInternalProps, OrbitComponentProps, StyleProps, isNil, mergeProps } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, JSXElementConstructor, ReactNode } from "react";
-
-export interface InternalProps {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
-}
-
-export type OrbitComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<T>> = Omit<ComponentProps<T>, "color">;
-
-//////////////
+import { ComponentProps, ReactNode, forwardRef } from "react";
 
 const DefaultElement = "div";
 
@@ -95,7 +80,7 @@ export function InnerFlex2({
     );
 }
 
-export const Flex2 = forwardRef<InnerFlex2Props>((props, ref) => (
+export const Flex2 = forwardRef<any, OmitInternalProps<InnerFlex2Props>>((props, ref) => (
     <InnerFlex2 {...props} forwardedRef={ref} />
 ));
 

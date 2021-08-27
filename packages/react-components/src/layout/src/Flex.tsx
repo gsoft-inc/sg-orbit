@@ -1,8 +1,10 @@
 import { Box } from "../../box";
-import { CSSProperties, ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
-export interface InnerFlexProps {
+const DefaultElement = "div";
+
+export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
@@ -81,23 +83,10 @@ export interface InnerFlexProps {
      */
     wrapChildren?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
-
 
 const Spacing = [
     "--o-ui-global-scale-alpha",
@@ -122,6 +111,7 @@ export function InnerFlex({
     alignContent,
     alignItems,
     justifyContent,
+    as = DefaultElement,
     gap,
     wrap,
     fluid,
@@ -134,9 +124,10 @@ export function InnerFlex({
 
     return (
         <Box
-            {...mergeProps(
+            {...mergeProps<any>(
                 rest,
                 {
+                    as,
                     style: {
                         ...style,
                         display: inline ? "inline-flex" : "flex",
@@ -159,7 +150,7 @@ export function InnerFlex({
     );
 }
 
-export const Flex = forwardRef<InnerFlexProps>((props, ref) => (
+export const Flex = forwardRef<any, OmitInternalProps<InnerFlexProps>>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));
 

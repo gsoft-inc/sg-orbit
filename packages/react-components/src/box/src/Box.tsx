@@ -1,23 +1,13 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { StyleProps, forwardRef, omitProps, useStyledSystem } from "../../shared";
+import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, StyleProps, omitProps, useStyledSystem } from "../../shared";
 
-export interface InnerBoxProps extends StyleProps {
-    /**
-    * An HTML element type or a custom React element type to render as.
-    */
-    as?: ElementType;
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+const DefaultElement = "div";
+
+export interface InnerBoxProps extends StyleProps, SlotProps, InternalProps, Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width"> {
     /**
     * @ignore
     */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerBox(props: InnerBoxProps) {
@@ -103,7 +93,7 @@ export function InnerBox(props: InnerBoxProps) {
         zIndex,
         className: userClassName,
         style: userStyle,
-        as: As = "div",
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -205,7 +195,7 @@ export function InnerBox(props: InnerBoxProps) {
     );
 }
 
-export const Box = forwardRef<InnerBoxProps>((props, ref) => (
+export const Box = forwardRef<any, OmitInternalProps<InnerBoxProps>>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 

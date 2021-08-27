@@ -13,7 +13,7 @@ export * from "./omitProps";
 export * from "./arrayify";
 export * from "./resolveChildren";
 export * from "./focusableTreeWalker";
-export * from "./forwardRef";
+export * from "./as";
 
 // Hooks
 export * from "./useMergedRefs";

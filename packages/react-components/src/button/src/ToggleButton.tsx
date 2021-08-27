@@ -1,9 +1,11 @@
 import { Button } from "./Button";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, forwardRef, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleButtonProps extends InteractionStatesProps {
+const DefaultElement = "button";
+
+export interface InnerToggleButtonProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -48,17 +50,9 @@ export interface InnerToggleButtonProps extends InteractionStatesProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerToggleButton(props: InnerToggleButtonProps) {
@@ -73,7 +67,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         onChange,
         onCheck,
         active,
-        as = "button",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -112,7 +106,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     );
 }
 
-export const ToggleButton = slot("button", forwardRef<InnerToggleButtonProps, "button">((props, ref) => (
+export const ToggleButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
 )));
 

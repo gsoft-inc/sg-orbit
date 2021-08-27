@@ -5,7 +5,10 @@ import { isNil } from "./assertions";
 /*
 TODO:
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
-- Interpolation for style values (and props like "border") -> Do we support it or not? Not supporting it would encourage using the other props
+- See if we can simplify the DOCS types by simplyfing a few types
+    Hints:
+        - Remove css native colors
+        - Remove length / percentage etc.. and only use string
 */
 
 /*

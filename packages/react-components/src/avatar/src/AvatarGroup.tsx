@@ -1,27 +1,21 @@
 import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
+import { InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
-import { augmentElement, cssModule, forwardRef, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 
-export interface InnerAvatarGroupProps {
+const DefaultElement = "div";
+
+export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The avatars of the group can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 interface RemainingAvatarsProps {
@@ -75,7 +69,7 @@ const AvailableSlots = 4;
 
 export function InnerAvatarGroup({
     size,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -125,7 +119,7 @@ export function InnerAvatarGroup({
     );
 }
 
-export const AvatarGroup = forwardRef<InnerAvatarGroupProps>((props, ref) => (
+export const AvatarGroup = forwardRef<any, OmitInternalProps<InnerAvatarGroupProps>>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));
 

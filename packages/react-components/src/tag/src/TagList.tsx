@@ -3,11 +3,13 @@ import "./TagList.css";
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
-import { forwardRef, isNil, mergeProps, useEventCallback } from "../../shared";
 
-export interface InnerTagListProps {
+const DefaultElement = "div";
+
+export interface InnerTagListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A tag list can vary in size.
      */
@@ -33,14 +35,6 @@ export interface InnerTagListProps {
      * React children.
      */
     children: ReactNode;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export interface TagItemProps extends Omit<TagProps, "children"> {
@@ -85,7 +79,7 @@ export function InnerTagList({
     onRemove,
     onClear,
     readOnly,
-    as = "div",
+    as = DefaultElement,
     forwardedRef,
     children,
     ...rest
@@ -128,7 +122,7 @@ export function InnerTagList({
     );
 }
 
-export const TagList = forwardRef<InnerTagListProps>((props, ref) => (
+export const TagList = forwardRef<any, OmitInternalProps<InnerTagListProps>>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));
 

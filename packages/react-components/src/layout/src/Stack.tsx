@@ -1,9 +1,15 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
-import { forwardRef, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
-export interface InnerStackProps {
+const DefaultElement = "div";
+
+export interface InnerStackProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "wrap"> {
+    /**
+     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: "row" | "column";
     /**
      * Whether or not to inline the elements.
      */
@@ -12,6 +18,59 @@ export interface InnerStackProps {
      * Whether or not to reverse the order of the elements.
      */
     reverse?: boolean;
+    /**
+     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     */
+    alignContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     */
+    alignItems?: (
+        "start" |
+        "end" |
+        "center" |
+        "stretch" |
+        "self-start" |
+        "self-end" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "left" |
+        "right" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * Whether to wrap children in a `div` element.
+     */
+    wrapChildren?: boolean;
     /**
      * The horizontal alignment of the elements.
      */
@@ -33,17 +92,9 @@ export interface InnerStackProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 
@@ -53,6 +104,7 @@ export function InnerStack({
     gap = 5,
     wrap,
     children,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerStackProps) {
@@ -63,6 +115,7 @@ export function InnerStack({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     direction: "column",
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
@@ -76,7 +129,7 @@ export function InnerStack({
     );
 }
 
-export const Stack = forwardRef<InnerStackProps>((props, ref) => (
+export const Stack = forwardRef<any, OmitInternalProps<InnerStackProps>>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));
 

@@ -1,9 +1,11 @@
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleIconButtonProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "button";
+
+export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -56,21 +58,9 @@ export interface InnerToggleIconButtonProps extends InteractionStatesProps, Aria
      */
     "aria-label": string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
@@ -85,7 +75,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         onChange,
         active,
         "aria-label": ariaLabel,
-        as = "button",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -128,7 +118,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     );
 }
 
-export const ToggleIconButton = slot("button", forwardRef<InnerToggleIconButtonProps, "button">((props, ref) => (
+export const ToggleIconButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleIconButtonProps>>((props, ref) => (
     <InnerToggleIconButton {...props} forwardedRef={ref} />
 )));
 

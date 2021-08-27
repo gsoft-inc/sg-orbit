@@ -1,14 +1,16 @@
 import "./IconButton.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, createEmbeddableAdapter, forwardRef, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "button";
+
+export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */
@@ -46,18 +48,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      */
     type?: "button" | "submit" | "reset";
     /**
-     * @ignore
-     */
-    onClick?: MouseEventHandler;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * Whether or not the button take up the width of its container.
      */
     fluid?: boolean;
@@ -65,10 +55,6 @@ export interface InnerIconButtonProps extends InteractionStatesProps, AriaLabeli
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconButton(props: InnerIconButtonProps) {
@@ -89,7 +75,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         type,
         "aria-label": ariaLabel,
-        as = "button",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -143,7 +129,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     );
 }
 
-export const IconButton = slot("button", forwardRef<InnerIconButtonProps, "button">((props, ref) => (
+export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerIconButtonProps>>((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));
 

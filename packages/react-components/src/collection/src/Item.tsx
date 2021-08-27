@@ -1,15 +1,11 @@
-import { ComponentProps, ForwardedRef, ReactNode } from "react";
-import { forwardRef } from "../../shared";
+import { AllHTMLAttributes, ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
+import { OmitInternalProps } from "../../shared";
 
-export interface InnerItemProps {
+export interface InnerItemProps extends AllHTMLAttributes<any> {
     /**
      * A unique key to identify the item.
      */
     key?: string;
-    /**
-     * Whether or not the item is disabled.
-     */
-    disabled?: boolean;
     /**
      * React children.
      */
@@ -25,7 +21,7 @@ export function InnerItem(props: InnerItemProps): JSX.Element {
     return null;
 }
 
-export const Item = forwardRef<InnerItemProps>((props, ref) => (
+export const Item = forwardRef<any, OmitInternalProps<InnerItemProps>>((props, ref) => (
     // @ts-ignore Not sure what is going on with the InnerItem.
     <InnerItem {...props} forwardedRef={ref} />
 ));

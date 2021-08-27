@@ -2,13 +2,15 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
-export interface InnerFieldProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerFieldProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -22,17 +24,9 @@ export interface InnerFieldProps extends DomProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerField(props: InnerFieldProps) {
@@ -45,7 +39,7 @@ export function InnerField(props: InnerFieldProps) {
         required,
         fluid,
         disabled,
-        as = "div",
+        as = DefaultElement,
         className,
         children,
         forwardedRef,
@@ -85,7 +79,7 @@ export function InnerField(props: InnerFieldProps) {
     );
 }
 
-export const Field = forwardRef<InnerFieldProps>((props, ref) => (
+export const Field = forwardRef<any, OmitInternalProps<InnerFieldProps>>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));
 

@@ -1,9 +1,9 @@
 import "./Select.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, cssModule, forwardRef, isNil, mergeProps } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../typography";
@@ -15,7 +15,7 @@ import { useSelect } from "./useSelect";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingProps {
+export interface InnerSelectProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"button">, "autoFocus"> {
     /**
      * @ignore
      */
@@ -115,17 +115,9 @@ export interface InnerSelectProps extends InteractionStatesProps, AriaLabelingPr
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSelect(props: InnerSelectProps) {
@@ -275,7 +267,7 @@ export function InnerSelect(props: InnerSelectProps) {
     );
 }
 
-export const Select = forwardRef<InnerSelectProps>((props, ref) => (
+export const Select = forwardRef<any, OmitInternalProps<InnerSelectProps>>((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));
 

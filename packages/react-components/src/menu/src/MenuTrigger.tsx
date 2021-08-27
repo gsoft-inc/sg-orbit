@@ -1,11 +1,11 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "../../disclosure";
 import {
-    DomProps,
     FocusTarget,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     augmentElement,
-    forwardRef,
     isNil,
     mergeProps,
     resolveChildren,
@@ -18,7 +18,9 @@ import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-export interface InnerMenuTriggerProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerMenuTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the menu.
      */
@@ -59,17 +61,9 @@ export interface InnerMenuTriggerProps extends DomProps {
      */
     zIndex?: number;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
@@ -88,7 +82,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         allowFlip,
         allowPreventOverflow,
         zIndex = 10000,
-        as = "div",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -211,7 +205,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     );
 }
 
-export const MenuTrigger = forwardRef<InnerMenuTriggerProps>((props, ref) => (
+export const MenuTrigger = forwardRef<any, OmitInternalProps<InnerMenuTriggerProps>>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));
 

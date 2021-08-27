@@ -1,9 +1,11 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { Keys, forwardRef, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
-export interface InnerToolbarProps {
+const DefaultElement = "div";
+
+export interface InnerToolbarProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
          * Whether or not the toolbar should autoFocus the first tabbable element on render.
          */
@@ -37,17 +39,9 @@ export interface InnerToolbarProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 
@@ -74,7 +68,7 @@ export function InnerToolbar({
     gap = 5,
     wrap,
     disabled,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -133,7 +127,7 @@ export function InnerToolbar({
     );
 }
 
-export const Toolbar = forwardRef<InnerToolbarProps>((props, ref) => (
+export const Toolbar = forwardRef<any, OmitInternalProps<InnerToolbarProps>>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));
 

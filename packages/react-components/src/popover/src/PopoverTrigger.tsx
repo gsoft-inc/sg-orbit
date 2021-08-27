@@ -1,9 +1,11 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
-import { DomProps, augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
-export interface InnerPopoverTriggerProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerPopoverTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the popover.
      */
@@ -59,17 +61,9 @@ export interface InnerPopoverTriggerProps extends DomProps {
      */
     containerElement?: HTMLElement;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPopoverTrigger({
@@ -83,7 +77,7 @@ export function InnerPopoverTrigger({
     allowPreventOverflow = true,
     containerElement,
     zIndex = 10000,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -151,7 +145,7 @@ export function InnerPopoverTrigger({
     );
 }
 
-export const PopoverTrigger = forwardRef<InnerPopoverTriggerProps>((props, ref) => (
+export const PopoverTrigger = forwardRef<any, OmitInternalProps<InnerPopoverTriggerProps>>((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));
 

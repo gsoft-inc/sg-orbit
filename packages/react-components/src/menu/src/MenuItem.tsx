@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -8,7 +8,9 @@ import { useMenuContext } from "./MenuContext";
 import type { CollectionItem } from "../../collection";
 import type { SelectionMode } from "./Menu";
 
-export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
+const DefaultElement = "li";
+
+export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching collection item.
      */
@@ -18,17 +20,9 @@ export interface InnerMenuItemProps extends DomProps, InteractionStatesProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const RoleBySelectionMode: Record<SelectionMode, string> = {
@@ -44,7 +38,7 @@ export function InnerMenuItem({
     active,
     focus,
     hover,
-    as = "li",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -154,7 +148,7 @@ export function InnerMenuItem({
     return itemMarkup;
 }
 
-export const MenuItem = forwardRef<InnerMenuItemProps>((props, ref) => (
+export const MenuItem = forwardRef<any, OmitInternalProps<InnerMenuItemProps>>((props, ref) => (
     <InnerMenuItem {...props} forwardedRef={ref} />
 ));
 

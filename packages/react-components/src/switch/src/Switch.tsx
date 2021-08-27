@@ -1,8 +1,8 @@
 import "./Switch.css";
 
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -10,7 +10,9 @@ import { useCheckbox } from "../../checkbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "label";
+
+export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * @ignore
      */
@@ -55,17 +57,13 @@ export interface InnerSwitchProps extends InteractionStatesProps, AriaLabelingPr
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * Whether or not the switch is disabled.
      */
-    as?: ElementType;
+    disabled?: boolean;
     /**
      * React children.
      */
     children?: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSwitch(props: InnerSwitchProps) {
@@ -90,7 +88,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         disabled,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = "label",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -175,7 +173,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
 }
 
 
-export const Switch = forwardRef<InnerSwitchProps>((props, ref) => (
+export const Switch = forwardRef<any, OmitInternalProps<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));
 

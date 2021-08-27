@@ -1,11 +1,11 @@
 import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
-import { ComponentProps, ForwardedRef } from "react";
-import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
+import { ComponentProps, ForwardedRef, forwardRef } from "react";
+import { OmitInternalProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { useDisclosureContext } from "./DisclosureContext";
 
-export interface InnerDisclosureArrowProps {
+export interface InnerDisclosureArrowProps extends ComponentProps<typeof ChevronIcon> {
     /**
      * A controlled open value that determined whether or not the arrow is up or down.
      */
@@ -49,7 +49,7 @@ export function InnerDisclosureArrow({
     );
 }
 
-export const DisclosureArrow = slot("icon", forwardRef<InnerDisclosureArrowProps>((props, ref) => (
+export const DisclosureArrow = slot("icon", forwardRef<any, OmitInternalProps<InnerDisclosureArrowProps>>((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />
 )));
 
