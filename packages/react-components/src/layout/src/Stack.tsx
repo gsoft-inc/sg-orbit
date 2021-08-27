@@ -1,4 +1,4 @@
-import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
 import { InternalProps, OmitInternalProps, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
@@ -75,10 +75,6 @@ export interface InnerStackProps extends InternalProps, Omit<ComponentProps<type
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * The horizontal alignment of the elements.
      */

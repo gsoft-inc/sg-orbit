@@ -1,4 +1,4 @@
-import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
 import { InternalProps, OmitInternalProps, isNil, mergeProps } from "../../shared";
 
@@ -66,10 +66,6 @@ export interface InnerGroupProps extends InternalProps, ComponentProps<typeof De
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * The orientation of the elements.
      */

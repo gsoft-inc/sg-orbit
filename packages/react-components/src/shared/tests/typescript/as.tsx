@@ -7,10 +7,7 @@ interface RouterLinkProps {
 }
 
 const RouterLink = (props: RouterLinkProps) => {
-    console.log(props.a);
-    console.log(props.b);
-
-    return <div></div>;
+    return <div>{props.b && props.a}</div>;
 };
 
 const RouterButton = as(Button, RouterLink);

@@ -82,10 +82,6 @@ export interface InnerTileGroupProps extends InternalProps, Omit<ComponentProps<
      */
     wrapChildren?: boolean;
     /**
-     * @ignore
-     */
-    style?: CSSProperties;
-    /**
      * Whether or not to inline the elements.
      */
     inline?: boolean;

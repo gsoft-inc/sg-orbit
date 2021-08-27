@@ -1,6 +1,6 @@
 import "./ButtonGroup.css";
 
-import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
 import { InternalProps, OmitInternalProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
@@ -69,10 +69,6 @@ export interface InnerButtonGroupProps extends InternalProps, Omit<ComponentProp
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * Whether or not to inline the elements.
      */

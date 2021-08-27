@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { CSSProperties, ComponentProps, ReactNode, forwardRef } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -86,10 +86,6 @@ export interface InnerFlexProps extends InternalProps, ComponentProps<typeof Def
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * React children
      */

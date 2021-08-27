@@ -1,6 +1,5 @@
 import "./CheckboxGroup.css";
 
-import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     CheckableContext,
     InternalProps,
@@ -18,13 +17,13 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
 import { useGroupInput } from "../../input";
 
 const DefaultElement = "div";
-
 
 export interface InnerCheckboxGroupProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
     /**
@@ -88,10 +87,6 @@ export interface InnerCheckboxGroupProps extends InternalProps, Omit<ComponentPr
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
     /**
      * Whether or not to inline the elements.
      */

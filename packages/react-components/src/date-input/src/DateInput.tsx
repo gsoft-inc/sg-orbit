@@ -16,7 +16,6 @@ import {
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
-    CSSProperties,
     ChangeEvent,
     ChangeEventHandler,
     ComponentProps,
@@ -115,10 +114,6 @@ export interface InnerDateInputProps extends InternalProps, InteractionStatesPro
      * @ignore
      */
     className?: string;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
 }
 
 const Input = forwardRef<any, any>((props, ref) => {
