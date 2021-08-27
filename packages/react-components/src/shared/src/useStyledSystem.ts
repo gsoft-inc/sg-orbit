@@ -1065,6 +1065,7 @@ export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
 // TODO: Add docs to all props.
+// TODO: I think it should extends from CSSProperties
 export interface StyleProps {
     alignContent?: AlignContentProp;
     alignItems?: AlignItemsProp;

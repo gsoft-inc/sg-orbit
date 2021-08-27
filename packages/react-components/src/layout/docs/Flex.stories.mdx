@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Flex2, InnerFlex2 } from "@react-components/layout";
+import { Flex2, Inline, InnerFlex2, InnerInline, InnerStack, Stack } from "@react-components/layout";
 
 <Meta
     title="Components/Flex"
@@ -12,11 +12,13 @@ import { Flex2, InnerFlex2 } from "@react-components/layout";
 <Tagline>Use this component to display an image.</Tagline>
 
 <ComponentInfo
-    usage={"import { Flex } from \"@orbit-ui/react-components\";"}
+    usage={"import { Flex, Inline, Stack } from \"@orbit-ui/react-components\";"}
     githubPath="/packages/react-components/src/flex/src"
 />
 
 ## Usage
+
+### Horizontal alignment
 
 ### Vertical alignment
 
@@ -31,17 +33,23 @@ A flex component can vertically align items.
     </Story>
 </Preview>
 
-### Horizon alignment
-
 ### Gap
 
 ### Align items
+
+### Align content
 
 ### Justify content
 
 ### Wrap
 
+### Reverse
+
 ### Nesting
+
+### Inline
+
+### Stack
 
 ## API
 
@@ -53,3 +61,21 @@ A flex component can vertically align items.
 />
 
 <ArgsTable of={InnerFlex2} sort="alpha" />
+
+### Inline
+
+<ComponentInfo
+    usage={"import { Inline } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerInline} sort="alpha" />
+
+### Stack
+
+<ComponentInfo
+    usage={"import { Stack } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerStack} sort="alpha" />
