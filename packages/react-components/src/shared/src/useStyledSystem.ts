@@ -42,6 +42,8 @@ export type LengthShorthand =
 
 export type PercentageUnit = `${number}%`;
 
+export type CalcExpression = `calc(${any})`;
+
 const OrbitSpacingScale = [
     1,
     2,
@@ -76,7 +78,7 @@ function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(sec
     return classes as Record<IncludeZero extends true ? 0 | OrbitSpace : OrbitSpace, string>;
 }
 
-export type SpaceValue = OrbitSpace | LengthUnit | PercentageUnit | GlobalValue;
+export type SpaceValue = OrbitSpace | LengthUnit | PercentageUnit | CalcExpression | GlobalValue;
 
 export type WidthValue =
     SpaceValue |
@@ -668,6 +670,8 @@ export const FontWeightClasses = {
     9: "o-ui-fw-9"
 } as const;
 
+export const GapClasses = createOrbitSpacingScaleClasses("gap");
+
 export const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
     "screen": "o-ui-h-screen",
@@ -870,6 +874,8 @@ export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, s
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
+export type GapProp = Simplify<SpaceValue>;
+
 export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
@@ -900,7 +906,7 @@ export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | SpaceValue>
 
 export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
 
-export type OrderProp = number | GlobalValue;
+export type OrderProp = Simplify<number | GlobalValue>;
 
 export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
@@ -964,6 +970,7 @@ export interface StyleProps {
     flexWrap?: FlexWrapProp;
     fontSize?: FontSizeProp;
     fontWeight?: FontWeightProp;
+    gap?: GapProp;
     height?: HeightProp;
     justifyContent?: JustifyContentProp;
     left?: LeftProp;
@@ -1016,7 +1023,7 @@ function createClassesPropHandler<V extends string>(classes: Record<V, string>):
     };
 }
 
-function createStylePropHandler<V extends string>(): PropHandler<V> {
+function createStyleOnlyPropHandler<V extends string>(): PropHandler<V> {
     return (name, value, context) => {
         context.style[name] = value;
     };
@@ -1051,6 +1058,9 @@ function flexFlowHandler(name: string, value: string, context: Context) {
     }
 }
 
+// TODO: What about the other props which we don't define? I think we need some kind of fallback for other props to
+// render them as style.
+
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createClassesPropHandler(AlignContentClasses),
     alignItems: createClassesPropHandler(AlignItemsClasses),
@@ -1081,6 +1091,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     fill: createClassesPropHandler(FillClasses),
     fontSize: createClassesPropHandler(FontSizeClasses),
     fontWeight: createClassesPropHandler(FontWeightClasses),
+    gap: createClassesPropHandler(GapClasses),
     height: createClassesPropHandler(HeightClasses),
     justifyContent: createClassesPropHandler(JustifyContentClasses),
     left: createClassesPropHandler(LeftClasses),
@@ -1096,7 +1107,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     maxWidth: createClassesPropHandler(MaxWidthClasses),
     minHeight: createClassesPropHandler(MinHeightClasses),
     minWidth: createClassesPropHandler(MinWidthClasses),
-    order: createStylePropHandler(),
+    order: createStyleOnlyPropHandler(),
     padding: createClassesPropHandler(PaddingClasses),
     paddingTop: createClassesPropHandler(PaddingTopClasses),
     paddingBottom: createClassesPropHandler(PaddingBottomClasses),

@@ -1,0 +1,10 @@
+/* GAP */
+.o-ui-gap-0 {
+    gap: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-gap-#{$i} {
+        gap: var(--o-ui-space-#{$i});
+    }
+}
