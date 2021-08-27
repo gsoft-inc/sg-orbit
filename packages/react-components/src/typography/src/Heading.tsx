@@ -7,10 +7,6 @@ const DefaultElement = "div";
 
 export interface InnerHeadingProps extends InternalProps, ComponentProps<typeof DefaultElement>{
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * A heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
