@@ -7,7 +7,7 @@ import { Text } from "../../typography";
 
 const DefaultElement ="div";
 
-export interface InnerIllustrationProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerIllustrationProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the illustration.
      */

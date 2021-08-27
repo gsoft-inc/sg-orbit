@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, isNil, mergeProps } from "../../share
 
 const DefaultElement = "div";
 
-export interface InnerGroupProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */

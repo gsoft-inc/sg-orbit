@@ -10,7 +10,7 @@ import { useGroupField } from "./useGroupField";
 
 const DefaultElement = "div";
 
-export interface InnerGroupFieldProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerGroupFieldProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether the field should display as "valid" or "invalid".
      */

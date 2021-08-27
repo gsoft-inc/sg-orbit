@@ -8,7 +8,7 @@ import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerLozengeProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The badge color accent.
      */

@@ -5,7 +5,7 @@ import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overla
 
 const DefaultElement = "div";
 
-export interface InnerDialogTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerDialogTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the dialog.
      */

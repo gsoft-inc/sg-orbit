@@ -7,7 +7,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "span";
 
-export interface InnerCounterProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerCounterProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The style to use.
      */

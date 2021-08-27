@@ -7,7 +7,7 @@ import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
 
-export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The avatars of the group can vary in size.
      */

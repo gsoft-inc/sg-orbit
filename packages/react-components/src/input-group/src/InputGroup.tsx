@@ -10,7 +10,7 @@ import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
 
-export interface InnerInputGroupProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerInputGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the input group take up the width of its container.
      */

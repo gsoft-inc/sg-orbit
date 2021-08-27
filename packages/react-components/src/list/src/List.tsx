@@ -5,7 +5,7 @@ import { InternalProps, OmitInternalProps, augmentElement, cssModule, mergeProps
 
 const DefaultElement = "ul";
 
-export interface InnerListProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A list can vary in size.
      */

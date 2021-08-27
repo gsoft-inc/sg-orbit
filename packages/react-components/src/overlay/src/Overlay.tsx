@@ -9,7 +9,7 @@ import { useThemeContext } from "../../theme-provider";
 
 const DefaultElement = "div";
 
-export interface InnerOverlayProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerOverlayProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the overlay element.
      */

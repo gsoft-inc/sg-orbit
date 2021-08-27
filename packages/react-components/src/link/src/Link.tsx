@@ -7,7 +7,7 @@ import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerLinkProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */

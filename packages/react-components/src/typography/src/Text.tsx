@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize,
 
 const DefaultElement = "span";
 
-export interface InnerTextProps extends InternalProps, ComponentProps<typeof DefaultElement>{
+export interface InnerTextProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A text can vary in size.
      */
