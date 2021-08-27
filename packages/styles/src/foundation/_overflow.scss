@@ -1,20 +1,62 @@
 /* OVERFLOW */
-.o-ui-overflow-hidden {
+.o-ui-ovf-h {
     overflow: hidden;
 }
 
-.o-ui-overflow-visible {
+.o-ui-ovf-v {
     overflow: visible;
 }
 
-.o-ui-overflow-scroll {
+.o-ui-ovf-scroll {
     overflow: scroll;
 }
 
-.o-ui-overflow-clip {
+.o-ui-ovf-c {
     overflow: clip;
 }
 
-.o-ui-overflow-auto {
+.o-ui-ovf-a {
     overflow: auto;
+}
+
+/* OVERFLOW-X */
+.o-ui-ovf-x-h {
+    overflow-x: hidden;
+}
+
+.o-ui-ovf-x-v {
+    overflow-x: visible;
+}
+
+.o-ui-ovf-x-scroll {
+    overflow-x: scroll;
+}
+
+.o-ui-ovf-x-c {
+    overflow-x: clip;
+}
+
+.o-ui-ovf-x-a {
+    overflow-x: auto;
+}
+
+/* OVERFLOW-Y */
+.o-ui-ovf-y-h {
+    overflow-y: hidden;
+}
+
+.o-ui-ovf-y-v {
+    overflow-y: visible;
+}
+
+.o-ui-ovf-y-scroll {
+    overflow-y: scroll;
+}
+
+.o-ui-ovf-y-a {
+    overflow-y: auto;
+}
+
+.o-ui-ovf-y-c {
+    overflow-y: clip;
 }
