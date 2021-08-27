@@ -1,5 +1,5 @@
-import { CSSProperties, Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
 import { CheckboxGroup } from "../../checkbox";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
 import {
     InternalProps,
