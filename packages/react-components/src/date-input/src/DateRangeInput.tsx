@@ -125,10 +125,6 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionStat
      * Whether or not the input take up the width of its container.
      */
     fluid?: boolean;
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly?: boolean;
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({

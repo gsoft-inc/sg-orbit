@@ -1,6 +1,6 @@
-import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { AllHTMLAttributes, ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 
-export interface InnerSectionProps {
+export interface InnerSectionProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
      * The section name.
      */

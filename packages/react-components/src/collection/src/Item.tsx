@@ -1,20 +1,11 @@
-import { ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
+import { AllHTMLAttributes, ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
 import { OmitInternalProps } from "../../shared";
 
-export interface InnerItemProps {
-    /**
-     * The element's unique identifier.
-     * @ignore
-     */
-    id?: string;
+export interface InnerItemProps extends AllHTMLAttributes<any> {
     /**
      * A unique key to identify the item.
      */
     key?: string;
-    /**
-     * Whether or not the item is disabled.
-     */
-    disabled?: boolean;
     /**
      * React children.
      */

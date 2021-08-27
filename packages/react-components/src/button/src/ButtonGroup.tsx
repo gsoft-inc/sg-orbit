@@ -89,10 +89,6 @@ export interface InnerButtonGroupProps extends InternalProps, Omit<ComponentProp
      * Whether elements are forced onto one line or can wrap onto multiple lines
      */
     wrap?: boolean;
-    /**
-     * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
-     */
-    role?: string;
 
     /**
      * The orientation of the buttons.

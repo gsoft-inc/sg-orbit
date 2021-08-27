@@ -15,7 +15,9 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { Content } from "../../placeholders";
 import { Dialog } from "../../dialog";
 
-export interface InnerModalProps extends InternalProps, AriaLabelingProps {
+const DefaultElement = "section";
+
+export interface InnerModalProps extends InternalProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "role"> {
     /**
      * The element's unique identifier.
      * @ignore
@@ -104,6 +106,7 @@ export function InnerModal({
     zIndex = 1,
     children,
     forwardedRef,
+    as = DefaultElement,
     ...rest
 }: InnerModalProps) {
     const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
@@ -141,6 +144,7 @@ export function InnerModal({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     size,
                     dismissable,
                     zIndex,

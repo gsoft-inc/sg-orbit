@@ -2,7 +2,7 @@ import "./IconButton.css";
 
 import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, MouseEventHandler, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
@@ -47,10 +47,6 @@ export interface InnerIconButtonProps extends InternalProps, InteractionStatesPr
      * The icon button type.
      */
     type?: "button" | "submit" | "reset";
-    /**
-     * @ignore
-     */
-    onClick?: MouseEventHandler;
     /**
      * Default slot override.
      */
