@@ -1,5 +1,6 @@
 import "./Image.css";
 
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
 import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
@@ -61,13 +62,13 @@ export function InnerImage({
     height,
     fit,
     position,
-    as: As = "img",
+    as = "img",
     forwardedRef,
     ...rest
 }: InnerImageProps) {
     return (
-        <As
-            {...mergeProps(
+        <Box
+            {...mergeProps<any>(
                 rest,
                 {
                     width: width ?? size,
@@ -80,6 +81,7 @@ export function InnerImage({
                         objectFit: fit,
                         objectPosition: position
                     },
+                    as,
                     ref: forwardedRef
                 }
             )}
