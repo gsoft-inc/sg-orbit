@@ -27,7 +27,6 @@ export const ApricotTheme: OrbitTheme = {
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
     // TODO FRANK: How many border widths we realistically need. I do think only need one.
     borderWidths: [".125rem", ".25rem", ".5rem", "1rem", "2rem"],
-    textDecorationThickness: [".125rem", ".25rem", ".5rem", "1rem", "2rem"],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
         common: {

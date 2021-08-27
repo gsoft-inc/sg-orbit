@@ -11,6 +11,7 @@ import {
     BorderVerticalWidthClasses,
     BorderWidthClasses,
     BoxShadowClasses,
+    BoxSizingClasses,
     ColorClasses,
     FillClasses,
     FontSizeClasses,
@@ -24,6 +25,10 @@ import {
     MarginRightClasses,
     MarginTopClasses,
     MarginVerticalClasses,
+    ObjectFitClasses,
+    OverflowClasses,
+    OverflowXClasses,
+    OverflowYClasses,
     PaddingBottomClasses,
     PaddingClasses,
     PaddingHorizontalClasses,
@@ -32,12 +37,21 @@ import {
     PaddingTopClasses,
     PaddingVerticalClasses,
     StrokeClasses,
+    TextAlignClasses,
+    TextDecorationClasses,
+    TextOverflowClasses,
+    TextTransformClasses,
+    VerticalAlignClasses,
+    WhiteSpaceClasses,
     WidthClasses,
+    WordBreakClasses,
     omitProps
 } from "@react-components/shared";
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
+import { Launch } from "./assets";
+import { Paragraph, Text } from "@react-components/typography";
 import { ThemeProvider } from "@react-components/theme-provider";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -63,6 +77,17 @@ function LargeSquare(props) {
             {...props}
             width="60px"
             height="60px"
+        />
+    );
+}
+
+function Image(props) {
+    return (
+        <Box
+            {...props}
+            width="140px"
+            height="140px"
+            as="img"
         />
     );
 }
@@ -171,6 +196,11 @@ stories()
     .add("box shadow", () =>
         <Inline>
             {Object.keys(BoxShadowClasses).map(x => <LargeSquare boxShadow={x} key={x} />)}
+        </Inline>
+    )
+    .add("box sizing", () =>
+        <Inline>
+            {Object.keys(BoxSizingClasses).map(x => <LargeSquare boxSizing={x} key={x} border="1px solid" />)}
         </Inline>
     )
     .add("color", () =>
@@ -282,6 +312,26 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("object fit", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(ObjectFitClasses).map(x => <Image objectFit={x} key={x} src={Launch} width="160px" height="160px" alt="Space X" />)}
+        </Inline>
+    )
+    .add("overflow", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OverflowClasses).map(x => <Box overflow={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+        </Inline>
+    )
+    .add("overflow x", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OverflowXClasses).map(x => <Box overflowX={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+        </Inline>
+    )
+    .add("overflow y", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OverflowYClasses).map(x => <Box overflowY={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+        </Inline>
+    )
     .add("padding", () =>
         <Inline gap={0} wrap>
             {Object.keys(PaddingClasses).map(x => <SmallSquare padding={x} backgroundColor="#000" key={x} />)}
@@ -319,7 +369,6 @@ stories()
         </Inline>
     )
     .add("padding horizontal", () =>
-
         <Inline gap={0} wrap>
             {Object.keys(PaddingHorizontalClasses).map(x => <SmallSquare paddingHorizontal={x} backgroundColor="#000" key={x} />)}
             <SmallSquare paddingHorizontal="12px" backgroundColor="#000" />
@@ -341,10 +390,53 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("text align", () =>
+        <Stack>
+            {Object.keys(TextAlignClasses).map(x => <Box textAlign={x} key={x} width="200px">exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute</Box>)}
+        </Stack>
+    )
+    .add("text decoration", () =>
+        <Stack>
+            {Object.keys(TextDecorationClasses).map(x => <Box textDecoration={x} key={x}>Space exploration</Box>)}
+        </Stack>
+    )
+    .add("text overflow", () =>
+        <Stack>
+            {Object.keys(TextOverflowClasses).map(x => <Box textOverflow={x} key={x} width="45px" whiteSpace="nowrap" overflow="hidden">Space exploration</Box>)}
+        </Stack>
+    )
+    .add("text transform", () =>
+        <Stack>
+            {Object.keys(TextTransformClasses).map(x => <Box textTransform={x} key={x}>Space exploration</Box>)}
+        </Stack>
+    )
+    .add("vertical align", () =>
+        <Stack>
+            {Object.keys(VerticalAlignClasses).map(x => <Box key={x}>Space exploration<Text verticalAlign={x}>*</Text></Box>)}
+        </Stack>
+    )
+    .add("white space", () =>
+        <Stack>
+            {Object.keys(WhiteSpaceClasses).map(x => <Box whiteSpace={x} key={x} width="16rem" border="1px solid red"><Paragraph>
+                But ere she from the church-door stepped
+     She smiled and told us why:
+'It was a wicked woman's curse,'
+     Quoth she, 'and what care I?'
+
+She smiled, and smiled, and passed it off
+     Ere from the door she stept—
+            </Paragraph></Box>)}
+        </Stack>
+    )
     .add("width", () =>
         <Stack style={{ height: "200px" }}>
             {Object.keys(omitProps(WidthClasses, ["max-content", "min-content"])).map(x => <Box width={x} height="20px" backgroundColor="#000" key={x} />)}
             <Box width="43px" height="20px" backgroundColor="#000" />
+        </Stack>
+    )
+    .add("word break", () =>
+        <Stack>
+            {Object.keys(WordBreakClasses).map(x => <Box wordBreak={x} key={x} width="288px">Honorificabilitudinitatibus califragilisticexpialidocious Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu 次の単語グレートブリ</Box>)}
         </Stack>
     )
     .add("className", () =>

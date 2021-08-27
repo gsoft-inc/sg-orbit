@@ -513,11 +513,6 @@ export const BorderStyleClasses = {
     "none": "o-ui-b-none"
 } as const;
 
-export const BoxSizingClasses = {
-    "border-box": "o-ui-bs-border-box",
-    "content-box": "o-ui-bs-content-box"
-} as const;
-
 export const BorderWidthClasses = createOrbitBorderWidthScaleClasses("ba", true);
 
 export const BorderTopWidthClasses = createOrbitBorderWidthScaleClasses("bt", true);
@@ -547,6 +542,11 @@ export const BoxShadowClasses = {
     "alias-floating": "o-ui-alias-bs-floating"
 } as const;
 
+export const BoxSizingClasses = {
+    "border-box": "o-ui-box-sizing-border-box",
+    "content-box": "o-ui-box-sizing-content-box"
+} as const;
+
 export const ColorRoleClasses = {
     "alias-1": "o-ui-alias-text-1",
     "alias-2": "o-ui-alias-text-2",
@@ -565,6 +565,16 @@ export const ColorRoleClasses = {
 } as const;
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
+
+export const CursorClasses = {
+    "help": "o-ui-cursor-help",
+    "auto": "o-ui-cursor-auto",
+    "wait": "o-ui-cursor-wait",
+    "crosshair": "o-ui-cursor-crosshair",
+    "not-allowed": "o-ui-cursor-not-allowed",
+    "grab": "o-ui-cursor-grab",
+    "zoom-in": "o-ui-cursor-zoom-in"
+} as const;
 
 export const DisplayClasses = {
     "block": "o-ui-db",
@@ -763,6 +773,38 @@ export const MinWidthAdditionalClasses = {
 
 export const MinWidthClasses = { ...createOrbitSpacingScaleClasses("min-w"), ...MinWidthAdditionalClasses };
 
+export const ObjectFitClasses = {
+    "fill": "o-ui-of-fill",
+    "contain": "o-ui-of-contain",
+    "cover": "o-ui-of-cover",
+    "none": "o-ui-of-none",
+    "scale-down": "o-ui-of-scale-down"
+} as const;
+
+export const OverflowClasses = {
+    "hidden": "o-ui-overflow-hidden",
+    "visible": "o-ui-overflow-visible",
+    "scroll": "o-ui-overflow-scroll",
+    "clip": "o-ui-overflow-clip",
+    "auto": "o-ui-overflow-auto"
+} as const;
+
+export const OverflowXClasses = {
+    "hidden": "o-ui-overflow-x-hidden",
+    "visible": "o-ui-overflow-x-visible",
+    "scroll": "o-ui-overflow-x-scroll",
+    "auto": "o-ui-overflow-x-auto",
+    "clip": "o-ui-overflow-x-clip"
+} as const;
+
+export const OverflowYClasses = {
+    "hidden": "o-ui-overflow-y-hidden",
+    "visible": "o-ui-overflow-y-visible",
+    "scroll": "o-ui-overflow-y-scroll",
+    "auto": "o-ui-overflow-y-auto",
+    "clip": "o-ui-overflow-y-clip"
+} as const;
+
 export const PaddingClasses = createOrbitSpacingScaleClasses("pa", true);
 
 export const PaddingTopClasses = createOrbitSpacingScaleClasses("pt", true);
@@ -789,7 +831,47 @@ export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), 
 
 export const StrokeClasses = createOrbitColorClasses("stroke");
 
+export const TextAlignClasses = {
+    "start": "o-ui-ta-s",
+    "end": "o-ui-ta-e",
+    "left": "o-ui-ta-l",
+    "right": "o-ui-ta-r",
+    "center": "o-ui-ta-c",
+    "justify": "o-ui-ta-j",
+    "justify-all": "o-ui-ta-ja",
+    "match-parent": "o-ui-ta-mp"
+} as const;
+
+export const TextDecorationClasses = {
+    "underline": "o-ui-underline",
+    "strike": "o-ui-strike",
+    "no-underline": "o-ui-no-underline"
+} as const;
+
+export const TextOverflowClasses = {
+    "ellipsis": "o-ui-to-ellipsis",
+    "clip": "o-ui-to-clip"
+} as const;
+
+export const TextTransformClasses = {
+    "uppercase": "o-ui-tt-u",
+    "lowercase": "o-ui-tt-l",
+    "capitalize": "o-ui-tt-c",
+    "none": "o-ui-tt-none"
+} as const;
+
 export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
+
+export const VerticalAlignClasses = {
+    "top": "o-ui-va-top",
+    "middle": "o-ui-va-middle",
+    "bottom": "o-ui-va-bottom",
+    "baseline": "o-ui-va-baseline",
+    "sub": "o-ui-va-sub",
+    "super": "o-ui-va-super",
+    "text-top": "o-ui-va-text-top",
+    "text-bottom": "o-ui-va-text-bottom"
+} as const;
 
 export const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
@@ -800,7 +882,23 @@ export const WidthAdditionalClasses = {
     "fit-content": "o-ui-w-fit"
 } as const;
 
+export const WhiteSpaceClasses = {
+    "nowrap": "o-ui-ws-nowrap",
+    "pre": "o-ui-ws-pre",
+    "pre-wrap": "o-ui-ws-pre-wrap",
+    "pre-line": "o-ui-ws-pre-line",
+    "break-spaces": "o-ui-ws-break-spaces",
+    "normal": "o-ui-ws-normal"
+} as const;
+
 export const WidthClasses = { ...createOrbitSpacingScaleClasses("w", true), ...WidthAdditionalClasses };
+
+export const WordBreakClasses = {
+    "normal": "o-ui-wb-normal",
+    "break-all": "o-ui-wb-break-all",
+    "break-word": "o-ui-wb-break-word",
+    "keep-all": "o-ui-wb-keep-all"
+} as const;
 
 export const ZindexClasses = {
     0: "o-ui-z-0",
@@ -850,7 +948,11 @@ export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, strin
 
 export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
+export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue>;
+
 export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
+
+export type CursorProp = Simplify<keyof typeof CursorClasses | ColorValue>;
 
 export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
 
@@ -908,6 +1010,14 @@ export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
 
 export type OrderProp = Simplify<number | GlobalValue>;
 
+export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
+
+export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
+
+export type OverflowXProp = Simplify<keyof typeof OverflowXClasses | GlobalValue>;
+
+export type OverflowYProp = Simplify<keyof typeof OverflowYClasses | GlobalValue>;
+
 export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
 export type PaddingTopProp = Simplify<SpaceValue>;
@@ -928,9 +1038,23 @@ export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string>
 
 export type StrokeProp = Simplify<ColorValue>;
 
-export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | SpaceValue | GlobalValue>;
+export type TextAlignProp = Simplify<keyof typeof TextAlignClasses | GlobalValue>;
+
+export type TextDecorationProp = Simplify<keyof typeof TextDecorationClasses | GlobalValue>;
+
+export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | GlobalValue>;
+
+export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | GlobalValue>;
+
+export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
+
+export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
+
+export type WhiteSpaceProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>;
 
 export type WidthProp = Simplify<keyof typeof WidthClasses | WidthValue>;
+
+export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>;
 
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
@@ -958,7 +1082,9 @@ export interface StyleProps {
     borderHorizontalWidth?: BorderHorizontalWidthProp;
     bottom?: BottomProp;
     boxShadow?: BoxShadowProp;
+    boxSizing?: BoxSizingProp;
     color?: ColorProp;
+    cursor?: CursorProp;
     display?: DisplayProp;
     fill?: FillProp;
     flex?: FlexProp;
@@ -986,6 +1112,10 @@ export interface StyleProps {
     maxWidth?: MaxWidthProp;
     minHeight?: MinHeightProp;
     minWidth?: MinWidthProp;
+    objectFit?: ObjectFitProp;
+    overflow?: OverflowProp;
+    overflowX?: OverflowXProp;
+    overflowY?: OverflowYProp;
     order?: OrderProp;
     padding?: PaddingProp;
     paddingTop?: PaddingTopProp;
@@ -997,8 +1127,15 @@ export interface StyleProps {
     position?: PositionProp;
     right?: RightProp;
     stroke?: StrokeProp;
+    textAlign?: TextAlignProp;
+    textDecoration?: TextDecorationProp;
+    textOverflow?: TextOverflowProp;
+    textTransform?: TextTransformProp;
     top?: TopProp;
+    verticalAlign?: VerticalAlignProp;
+    whiteSpace?: WhiteSpaceProp;
     width?: WidthProp;
+    wordBreak?: WordBreakProp;
     zIndex?: ZindexProp;
     className?: string;
     style?: CSSProperties;
@@ -1079,8 +1216,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     borderHorizontalWidth: createClassesPropHandler(BorderHorizontalWidthClasses),
     bottom: createClassesPropHandler(BottomClasses),
     boxShadow: createClassesPropHandler(BoxShadowClasses),
+    boxSizing: createClassesPropHandler(BoxSizingClasses),
     color: createClassesPropHandler(ColorClasses),
+    cursor: createClassesPropHandler(CursorClasses),
     display: createClassesPropHandler(DisplayClasses),
+    fill: createClassesPropHandler(FillClasses),
     flex: createClassesPropHandler(FlexClasses),
     flexBasis: createClassesPropHandler(FlexBasisClasses),
     flexDirection: createClassesPropHandler(FlexDirectionClasses),
@@ -1088,7 +1228,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     flexGrow: createClassesPropHandler(FlexGrowClasses),
     flexShrink: createClassesPropHandler(FlexShrinkClasses),
     flexWrap: createClassesPropHandler(FlexWrapClasses),
-    fill: createClassesPropHandler(FillClasses),
     fontSize: createClassesPropHandler(FontSizeClasses),
     fontWeight: createClassesPropHandler(FontWeightClasses),
     gap: createClassesPropHandler(GapClasses),
@@ -1107,7 +1246,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     maxWidth: createClassesPropHandler(MaxWidthClasses),
     minHeight: createClassesPropHandler(MinHeightClasses),
     minWidth: createClassesPropHandler(MinWidthClasses),
+    objectFit: createClassesPropHandler(ObjectFitClasses),
     order: createStyleOnlyPropHandler(),
+    overflow: createClassesPropHandler(OverflowClasses),
+    overflowX: createClassesPropHandler(OverflowXClasses),
+    overflowY: createClassesPropHandler(OverflowYClasses),
     padding: createClassesPropHandler(PaddingClasses),
     paddingTop: createClassesPropHandler(PaddingTopClasses),
     paddingBottom: createClassesPropHandler(PaddingBottomClasses),
@@ -1118,8 +1261,15 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     position: createClassesPropHandler(PositionClasses),
     right: createClassesPropHandler(RightClasses),
     stroke: createClassesPropHandler(StrokeClasses),
+    textAlign: createClassesPropHandler(TextAlignClasses),
+    textDecoration: createClassesPropHandler(TextDecorationClasses),
+    textOverflow: createClassesPropHandler(TextOverflowClasses),
+    textTransform: createClassesPropHandler(TextTransformClasses),
     top: createClassesPropHandler(TopClasses),
+    verticalAlign: createClassesPropHandler(VerticalAlignClasses),
+    whiteSpace: createClassesPropHandler(WhiteSpaceClasses),
     width: createClassesPropHandler(WidthClasses),
+    wordBreak: createClassesPropHandler(WordBreakClasses),
     zIndex: createClassesPropHandler(ZindexClasses)
 };
 
