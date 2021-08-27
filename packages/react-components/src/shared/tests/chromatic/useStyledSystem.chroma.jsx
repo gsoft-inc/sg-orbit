@@ -27,6 +27,8 @@ import {
     MarginVerticalClasses,
     ObjectFitClasses,
     OverflowClasses,
+    OverflowXClasses,
+    OverflowYClasses,
     PaddingBottomClasses,
     PaddingClasses,
     PaddingHorizontalClasses,
@@ -302,12 +304,22 @@ stories()
     )
     .add("object fit", () =>
         <Inline gap={0} wrap>
-            {Object.keys(ObjectFitClasses).map(x => <Image objectFit={x} key={x} src={Launch} width="100%" height="100%" />)}
+            {Object.keys(ObjectFitClasses).map(x => <Image objectFit={x} key={x} src={Launch} width="160px" height="160px" alt="Space X" />)}
         </Inline>
     )
     .add("overflow", () =>
         <Inline gap={0} wrap>
-            {Object.keys(OverflowClasses).map(x => <Box overflow={x} key={x} width="100px" height="100px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+            {Object.keys(OverflowClasses).map(x => <Box overflow={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+        </Inline>
+    )
+    .add("overflow x", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OverflowXClasses).map(x => <Box overflowX={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
+        </Inline>
+    )
+    .add("overflow y", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OverflowYClasses).map(x => <Box overflowY={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
         </Inline>
     )
     .add("padding", () =>

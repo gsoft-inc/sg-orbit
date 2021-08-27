@@ -782,17 +782,23 @@ export const OverflowClasses = {
     "visible": "o-ui-overflow-visible",
     "scroll": "o-ui-overflow-scroll",
     "clip": "o-ui-overflow-clip",
-    "auto": "o-ui-overflow-auto",
-    "x-hidden": "o-ui-overflow-x-hidden",
-    "x-visible": "o-ui-overflow-x-visible",
-    "x-scroll": "o-ui-overflow-x-scroll",
-    "x-clip": "o-ui-overflow-x-clip",
-    "x-auto": "o-ui-overflow-x-auto",
-    "y-hidden": "o-ui-overflow-y-hidden",
-    "y-visible": "o-ui-overflow-y-visible",
-    "y-scroll": "o-ui-overflow-y-scroll",
-    "y-auto": "o-ui-overflow-y-auto",
-    "y-clip": "o-ui-overflow-y-clip"
+    "auto": "o-ui-overflow-auto"
+} as const;
+
+export const OverflowXClasses = {
+    "hidden": "o-ui-overflow-x-hidden",
+    "visible": "o-ui-overflow-x-visible",
+    "scroll": "o-ui-overflow-x-scroll",
+    "auto": "o-ui-overflow-x-auto",
+    "clip": "o-ui-overflow-x-clip"
+} as const;
+
+export const OverflowYClasses = {
+    "hidden": "o-ui-overflow-y-hidden",
+    "visible": "o-ui-overflow-y-visible",
+    "scroll": "o-ui-overflow-y-scroll",
+    "auto": "o-ui-overflow-y-auto",
+    "clip": "o-ui-overflow-y-clip"
 } as const;
 
 export const PaddingClasses = createOrbitSpacingScaleClasses("pa", true);
@@ -998,9 +1004,13 @@ export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
 
 export type OrderProp = number | GlobalValue;
 
-export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | SpaceValue>;
+export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
-export type OverflowProp = Simplify<keyof typeof OverflowClasses | SpaceValue>;
+export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
+
+export type OverflowXProp = Simplify<keyof typeof OverflowXClasses | GlobalValue>;
+
+export type OverflowYProp = Simplify<keyof typeof OverflowYClasses | GlobalValue>;
 
 export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
@@ -1097,6 +1107,8 @@ export interface StyleProps {
     minWidth?: MinWidthProp;
     objectFit?: ObjectFitProp;
     overflow?: OverflowProp;
+    overflowX?: OverflowXProp;
+    overflowY?: OverflowYProp;
     order?: OrderProp;
     padding?: PaddingProp;
     paddingTop?: PaddingTopProp;
@@ -1226,6 +1238,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     objectFit: createClassesPropHandler(ObjectFitClasses),
     order: createStylePropHandler(),
     overflow: createClassesPropHandler(OverflowClasses),
+    overflowX: createClassesPropHandler(OverflowXClasses),
+    overflowY: createClassesPropHandler(OverflowYClasses),
     padding: createClassesPropHandler(PaddingClasses),
     paddingTop: createClassesPropHandler(PaddingTopClasses),
     paddingBottom: createClassesPropHandler(PaddingBottomClasses),
