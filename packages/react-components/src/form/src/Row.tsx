@@ -1,25 +1,17 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { augmentElement, forwardRef, mergeProps, omitProps } from "../../shared";
+import { InternalProps, OmitInternalProps, augmentElement, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
-export interface InnerRowProps {
+export interface InnerRowProps extends InternalProps {
     /**
      * Whether or not the fields take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 
@@ -57,7 +49,7 @@ export function InnerRow(props: InnerRowProps) {
     );
 }
 
-export const Row = forwardRef<InnerRowProps>((props, ref) => (
+export const Row = forwardRef<any, OmitInternalProps<InnerRowProps>>((props, ref) => (
     <InnerRow {...props} forwardedRef={ref} />
 ));
 

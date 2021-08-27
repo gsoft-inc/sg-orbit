@@ -1,9 +1,9 @@
 import "./TextInput.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
@@ -12,7 +12,9 @@ import { useToolbarProps } from "../../toolbar";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextInputProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "input";
+
+export interface InnerTextInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -76,14 +78,6 @@ export interface InnerTextInputProps extends DomProps, InteractionStatesProps, A
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextInput(props: InnerTextInputProps) {
@@ -121,7 +115,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
-        as: As = "input",
+        as: As = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -209,7 +203,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     );
 }
 
-export const TextInput = forwardRef<InnerTextInputProps, "input">((props, ref) => (
+export const TextInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerTextInputProps>>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));
 

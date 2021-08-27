@@ -1,12 +1,14 @@
 import "./Avatar.css";
 
-import { AriaLabelingProps, createSizeAdapter, cssModule, forwardRef, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerAvatarProps extends AriaLabelingProps {
+const avatarDefaultElement = "div";
+
+export interface InnerAvatarProps extends SlotProps, InternalProps, ComponentProps<typeof avatarDefaultElement> {
     /**
      * The name of the person in the avatar.
      */
@@ -23,18 +25,6 @@ export interface InnerAvatarProps extends AriaLabelingProps {
      * An avatar can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function AvatarImage({
@@ -166,7 +156,7 @@ export function InnerAvatar({
     retryCount,
     size,
     "aria-label": ariaLabel,
-    as = "div",
+    as = avatarDefaultElement,
     forwardedRef,
     ...rest
 }: InnerAvatarProps) {
@@ -206,7 +196,7 @@ export function InnerAvatar({
     );
 }
 
-export const Avatar = slot("avatar", forwardRef<InnerAvatarProps>((props, ref) => (
+export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvatarProps>>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));
 

@@ -1,11 +1,11 @@
 import "./Accordion.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading, Text } from "../../typography";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, omitProps, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
-export interface InnerAccordionHeaderProps extends InteractionStatesProps {
+export interface InnerAccordionHeaderProps extends InternalProps, InteractionStatesProps {
     /**
     * The header item props
     */
@@ -17,17 +17,9 @@ export interface InnerAccordionHeaderProps extends InteractionStatesProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
@@ -99,7 +91,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     );
 }
 
-export const AccordionHeader = forwardRef<InnerAccordionHeaderProps>((props, ref) => (
+export const AccordionHeader = forwardRef<any, OmitInternalProps<InnerAccordionHeaderProps>>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />
 ));
 

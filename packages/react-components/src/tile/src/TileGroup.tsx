@@ -1,11 +1,12 @@
 import { CheckboxGroup } from "../../checkbox";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
-import { RadioGroup } from "../../radio";
 import {
+    InternalProps,
+    OmitInternalProps,
+    SlotProps,
     arrayify,
     augmentElement,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -15,8 +16,100 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
+import { RadioGroup } from "../../radio";
 
-export interface InnerTileGroupProps {
+const DefaultElement = "div";
+
+export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+    /**
+     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: "row" | "column";
+    /**
+     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     */
+    alignContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     */
+    alignItems?: (
+        "start" |
+        "end" |
+        "center" |
+        "stretch" |
+        "self-start" |
+        "self-end" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "left" |
+        "right" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * Whether to wrap children in a `div` element.
+     */
+    wrapChildren?: boolean;
+    /**
+     * Whether or not to inline the elements.
+     */
+    inline?: boolean;
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse?: boolean;
+    /**
+     * The horizontal alignment of the elements.
+     */
+    align?: "start" | "end" | "center";
+    /**
+     * The vertical alignment of the elements.
+     */
+    verticalAlign?: "start" | "end" | "center";
+    /**
+     * Space to display between each elements.
+     */
+    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
+    /**
+     * Whether elements are forced onto one line or can wrap onto multiple lines
+     */
+    wrap?: boolean;
+    /**
+     * Whether the elements take up the width & height of their container.
+     */
+    fluid?: boolean;
+    /**
+     * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
+     */
+    role?: string;
     /**
      * The value of the tile group.
      */
@@ -53,17 +146,9 @@ export interface InnerTileGroupProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 // @ts-ignore
@@ -114,6 +199,7 @@ export function InnerTileGroup({
     rowSize = 1,
     onChange,
     orientation,
+    as = DefaultElement,
     disabled,
     children,
     forwardedRef,
@@ -132,6 +218,7 @@ export function InnerTileGroup({
             {...mergeProps<any>(
                 rest,
                 {
+                    as,
                     orientation: "horizontal",
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
@@ -160,7 +247,7 @@ export function InnerTileGroup({
     );
 }
 
-export const TileGroup = forwardRef<InnerTileGroupProps>((props, ref) => (
+export const TileGroup = forwardRef<any, OmitInternalProps<InnerTileGroupProps>>((props, ref) => (
     <InnerTileGroup {...props} forwardedRef={ref} />
 ));
 

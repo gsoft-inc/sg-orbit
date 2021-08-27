@@ -1,11 +1,12 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, FormEvent, ForwardedRef, ReactNode, useImperativeHandle, useMemo, useRef } from "react";
+import { ComponentProps, FormEvent, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
     InteractionStatesProps,
+    InternalProps,
+    OmitInternalProps,
     cssModule,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -21,7 +22,9 @@ import {
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 
-export interface InnerRadioProps extends InteractionStatesProps {
+const DefaultElement = "label";
+
+export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */
@@ -70,17 +73,9 @@ export interface InnerRadioProps extends InteractionStatesProps {
      */
     name?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerRadio(props: InnerRadioProps) {
@@ -102,7 +97,7 @@ export function InnerRadio(props: InnerRadioProps) {
         focus,
         hover,
         disabled,
-        as = "label",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -211,7 +206,7 @@ export function InnerRadio(props: InnerRadioProps) {
     );
 }
 
-export const Radio = forwardRef<InnerRadioProps>((props, ref) => (
+export const Radio = forwardRef<any, OmitInternalProps<InnerRadioProps>>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));
 

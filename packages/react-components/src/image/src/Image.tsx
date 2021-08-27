@@ -1,9 +1,11 @@
 import "./Image.css";
 
-import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { ComponentProps, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, slot } from "../../shared";
 
-export interface InnerImageProps {
+const DefaultElement = "img";
+
+export interface InnerImageProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The path to the image.
      */
@@ -40,18 +42,6 @@ export interface InnerImageProps {
      * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
     position?: string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerImage({
@@ -61,7 +51,7 @@ export function InnerImage({
     height,
     fit,
     position,
-    as: As = "img",
+    as: As = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerImageProps) {
@@ -87,7 +77,7 @@ export function InnerImage({
     );
 }
 
-export const Image = slot("image", forwardRef<InnerImageProps>((props, ref) => (
+export const Image = slot("image", forwardRef<any, OmitInternalProps<InnerImageProps>>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 )));
 

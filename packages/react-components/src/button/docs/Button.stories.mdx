@@ -3,6 +3,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { Box } from "@react-components/box";
 import {
     Button,
+    ButtonAsLink,
     ButtonGroup,
     IconButton,
     InnerButton,
@@ -30,7 +31,7 @@ import { Text } from "@react-components/typography";
 <Tagline>A button indicates a possible user action.</Tagline>
 
 <ComponentInfo
-    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, ButtonGroup } from \"@orbit-ui/react-components\";"}
+    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, ButtonGroup, ButtonAsLink } from \"@orbit-ui/react-components\";"}
     ariaPath="#button"
     githubPath="/packages/react-components/src/button/src"
 />
@@ -186,7 +187,7 @@ A button can be rendered as a link.
 
 <Preview>
     <Story name="as anchor">
-        <Button as="a" href="https://sharegate.com" target="_blank">Cutoff</Button>
+        <ButtonAsLink href="https://sharegate.com" target="_blank">Cutoff</ButtonAsLink>
     </Story>
 </Preview>
 
@@ -362,3 +363,12 @@ A toggle button can handle `checked` state in controlled mode.
 />
 
 <ArgsTable of={InnerButtonGroup} sort="alpha" />
+
+### ButtonAsLink
+
+<ComponentInfo
+    usage={"import { ButtonAsLink } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerButton} sort="alpha" />

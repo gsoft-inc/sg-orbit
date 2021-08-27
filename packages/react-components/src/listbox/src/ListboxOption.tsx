@@ -2,8 +2,8 @@ import "./Listbox.css";
 
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
-import { ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, useMemo } from "react";
-import { DomProps, InteractionStatesProps, Keys, SlotElements, cssModule, forwardRef, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -13,7 +13,9 @@ import { useListboxContext } from "./ListboxContext";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
-export interface InnerListboxOptionProps extends DomProps, InteractionStatesProps {
+const DefaultElement = "div";
+
+export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
     * Matching collection item.
     */
@@ -23,17 +25,9 @@ export interface InnerListboxOptionProps extends DomProps, InteractionStatesProp
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListboxOption({
@@ -43,7 +37,7 @@ export function InnerListboxOption({
     active,
     focus,
     hover,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -191,7 +185,7 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
-export const ListboxOption = forwardRef<InnerListboxOptionProps>((props, ref) => (
+export const ListboxOption = forwardRef<any, OmitInternalProps<InnerListboxOptionProps>>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));
 

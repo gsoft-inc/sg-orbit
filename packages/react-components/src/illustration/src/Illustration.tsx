@@ -1,11 +1,13 @@
 import "./Illustration.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, mergeProps, slot, useSlots } from "../../shared";
 
-export interface InnerIllustrationProps {
+const DefaultElement ="div";
+
+export interface InnerIllustrationProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the illustration.
      */
@@ -19,21 +21,9 @@ export interface InnerIllustrationProps {
      */
     color?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useColor(color: string) {
@@ -56,7 +46,7 @@ export function InnerIllustration({
     orientation = "horizontal",
     shape = "straight",
     color,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -104,7 +94,7 @@ export function InnerIllustration({
     );
 }
 
-export const Illustration = slot("illustration", forwardRef<InnerIllustrationProps>((props, ref) => (
+export const Illustration = slot("illustration", forwardRef<any, OmitInternalProps<InnerIllustrationProps>>((props, ref) => (
     <InnerIllustration {...props} forwardedRef={ref} />
 )));
 

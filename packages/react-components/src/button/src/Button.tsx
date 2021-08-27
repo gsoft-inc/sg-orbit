@@ -1,8 +1,8 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, createSizeAdapter, cssModule, forwardRef, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, as as asFunction, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -10,7 +10,9 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerButtonProps extends InteractionStatesProps {
+const DefaultElement = "button";
+
+export interface InnerButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The button style to use.
      */
@@ -56,21 +58,9 @@ export interface InnerButtonProps extends InteractionStatesProps {
     */
     onClick?: MouseEventHandler;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const condensedTextSize = createSizeAdapter({
@@ -98,7 +88,7 @@ export function InnerButton(props: InnerButtonProps) {
         focus,
         hover,
         type,
-        as = "button",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -178,10 +168,8 @@ export function InnerButton(props: InnerButtonProps) {
     );
 }
 
-export const Button = slot("button", forwardRef<InnerButtonProps, "button">((props, ref) => (
+export const Button = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerButtonProps>>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));
 
-export type ButtonProps = ComponentProps<typeof Button>;
-
-Button.displayName = "Button";
+export const ButtonAsLink = asFunction(Button, "a");

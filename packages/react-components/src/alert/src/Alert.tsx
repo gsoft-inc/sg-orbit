@@ -1,13 +1,18 @@
 import "./Alert.css";
 
-import { AriaLabelingProps, DomProps, forwardRef, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
+import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Dialog, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
+import { InternalProps, OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends DomProps, AriaLabelingProps {
+export interface InnerAlertProps extends InternalProps, ComponentProps<"section"> {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * The style to use.
      */
@@ -63,17 +68,9 @@ export interface InnerAlertProps extends DomProps, AriaLabelingProps {
       */
     wrapperProps?: Record<string, any>;
     /**
-      * An HTML element type or a custom React element type to render as.
-      */
-    as?: ElementType;
-    /**
       * React children.
       */
     children: ReactNode;
-    /**
-      * @ignore
-      */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAlert({
@@ -196,7 +193,7 @@ export function InnerAlert({
     );
 }
 
-export const Alert = forwardRef<InnerAlertProps>((props, ref) => (
+export const Alert = forwardRef<any, OmitInternalProps<InnerAlertProps>>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
 

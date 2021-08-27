@@ -1,9 +1,68 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
-import { forwardRef, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps } from "../../shared";
 import { useFlexAlignment } from "./adapters";
 
-export interface InnerInlineProps {
+const DefaultElement = "div";
+
+export interface InnerInlineProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "wrap"> {
+    /**
+     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: "row" | "column";
+    /**
+     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
+     */
+    alignContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
+     */
+    alignItems?: (
+        "start" |
+        "end" |
+        "center" |
+        "stretch" |
+        "self-start" |
+        "self-end" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent?: (
+        "start" |
+        "end" |
+        "center" |
+        "left" |
+        "right" |
+        "space-between" |
+        "space-around" |
+        "space-evenly" |
+        "stretch" |
+        "baseline" |
+        "first baseline" |
+        "last baseline" |
+        "safe center" |
+        "unsafe center");
+    /**
+     * Whether to wrap children in a `div` element.
+     */
+    wrapChildren?: boolean;
     /**
      * Whether or not to inline the elements.
      */
@@ -33,17 +92,9 @@ export interface InnerInlineProps {
      */
     fluid?: boolean;
     /**
-    * An HTML element type or a custom React element type to render as.
-    */
-    as?: ElementType;
-    /**
      * React children
     */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerInline({
@@ -51,6 +102,7 @@ export function InnerInline({
     verticalAlign,
     children,
     gap = 5,
+    as = DefaultElement,
     wrap,
     forwardedRef,
     ...rest
@@ -62,6 +114,7 @@ export function InnerInline({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     gap: gap !== 0 ? gap : undefined,
                     wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
@@ -74,7 +127,7 @@ export function InnerInline({
     );
 }
 
-export const Inline = forwardRef<InnerInlineProps>((props, ref) => (
+export const Inline = forwardRef<any, OmitInternalProps<InnerInlineProps>>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));
 

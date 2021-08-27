@@ -1,12 +1,14 @@
 import "./Menu.css";
 
+import { Box } from "../../box";
+import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
+import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
-    AriaLabelingProps,
-    DomProps,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     appendEventKey,
     cssModule,
-    forwardRef,
     isEmptyArray,
     isNil,
     isNumber,
@@ -22,9 +24,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, ReactNode, SyntheticEvent } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -37,7 +36,9 @@ export const ItemKeyProp = "data-o-ui-key";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
-export interface InnerMenuProps extends DomProps, AriaLabelingProps {
+const DefaultElement = "ul";
+
+export interface InnerMenuProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */
@@ -78,17 +79,13 @@ export interface InnerMenuProps extends DomProps, AriaLabelingProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>;
+    disabled?: boolean;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -110,7 +107,7 @@ export function InnerMenu({
     fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = "ul",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -334,7 +331,7 @@ export function InnerMenu({
     );
 }
 
-export const Menu = forwardRef<InnerMenuProps>((props, ref) => (
+export const Menu = forwardRef<any, OmitInternalProps<InnerMenuProps>>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));
 

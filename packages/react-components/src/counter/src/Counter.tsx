@@ -1,11 +1,13 @@
 import "./Counter.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot } from "../../shared";
 
-export interface InnerCounterProps {
+const DefaultElement = "span";
+
+export interface InnerCounterProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The style to use.
      */
@@ -35,21 +37,9 @@ export interface InnerCounterProps {
      */
     pushed?: boolean;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef?: ForwardedRef<any>;
 }
 
 export function InnerCounter(props: InnerCounterProps) {
@@ -60,7 +50,7 @@ export function InnerCounter(props: InnerCounterProps) {
         reverse,
         size,
         pushed,
-        as = "span",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -90,7 +80,7 @@ export function InnerCounter(props: InnerCounterProps) {
     );
 }
 
-export const Counter = slot("counter", forwardRef<InnerCounterProps>((props, ref) => (
+export const Counter = slot("counter", forwardRef<any, OmitInternalProps<InnerCounterProps>>((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));
 

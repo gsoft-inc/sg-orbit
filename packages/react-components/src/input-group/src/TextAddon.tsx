@@ -1,21 +1,13 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useInputGroupAddonProps } from "../../input-group";
 
-export interface InnerTextAddonProps {
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
+export interface InnerTextAddonProps extends InternalProps {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextAddon(props: InnerTextAddonProps) {
@@ -47,7 +39,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     );
 }
 
-export const TextAddon = forwardRef<InnerTextAddonProps>((props, ref) => (
+export const TextAddon = forwardRef<any, OmitInternalProps<InnerTextAddonProps>>((props, ref) => (
     <InnerTextAddon {...props} forwardedRef={ref} />
 ));
 

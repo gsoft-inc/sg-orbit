@@ -1,25 +1,19 @@
 import "./Heading.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerHeadingProps {
+const DefaultElement = "div";
+
+export interface InnerHeadingProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerHeading(props: InnerHeadingProps) {
@@ -27,7 +21,7 @@ export function InnerHeading(props: InnerHeadingProps) {
 
     const {
         size,
-        as: As = "div",
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -54,7 +48,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     );
 }
 
-export const Heading = slot("heading", forwardRef<InnerHeadingProps>((props, ref) => (
+export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps>>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));
 
@@ -65,7 +59,7 @@ Heading.displayName = "Heading";
 // Aliases
 
 function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
-    return slot("heading", forwardRef<Omit<InnerHeadingProps, "size" | "as">, typeof as>((props, ref) => (
+    return slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps, "size" | "as">>((props, ref) => (
         <InnerHeading
             {...props}
             size={size}

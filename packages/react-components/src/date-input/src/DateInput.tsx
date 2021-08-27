@@ -1,33 +1,31 @@
 import "./DateInput.css";
 
-import {
-    AriaLabelingProps,
-    InteractionStatesProps,
-    augmentElement,
-    cssModule,
-    forwardRef,
-    isNil,
-    mergeClasses,
-    mergeProps,
-    useControllableState,
-    useEventCallback
-} from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
-    CSSProperties,
     ChangeEvent,
     ChangeEventHandler,
     ComponentProps,
-    ElementType,
-    ForwardedRef,
     SyntheticEvent,
+    forwardRef,
     useCallback,
     useImperativeHandle,
     useMemo,
     useRef
 } from "react";
 import { InputGroup, useInputGroupProps } from "../../input-group";
+import {
+    InteractionStatesProps,
+    InternalProps,
+    OmitInternalProps,
+    augmentElement,
+    cssModule,
+    isNil,
+    mergeClasses,
+    mergeProps,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./date-utils";
@@ -43,7 +41,7 @@ export interface DatePreset {
     date: Date;
 }
 
-export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelingProps {
+export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
      * A controlled value.
      */
@@ -115,21 +113,9 @@ export interface InnerDateInputProps extends InteractionStatesProps, AriaLabelin
      * @ignore
      */
     className?: string;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
-const Input = forwardRef<any>((props, ref) => {
+const Input = forwardRef<any, any>((props, ref) => {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
@@ -332,7 +318,7 @@ export function InnerDateInput({
     );
 }
 
-export const DateInput = forwardRef<InnerDateInputProps, "input">((props, ref) => (
+export const DateInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerDateInputProps>>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));
 

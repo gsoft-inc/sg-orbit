@@ -1,10 +1,12 @@
 import "./Text.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerTextProps {
+const DefaultElement = "span";
+
+export interface InnerTextProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A text can vary in size.
      */
@@ -14,21 +16,9 @@ export interface InnerTextProps {
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
-    /**
      * @ignore
      */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerText(props: InnerTextProps) {
@@ -37,7 +27,7 @@ export function InnerText(props: InnerTextProps) {
     const {
         size,
         color,
-        as = "span",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -66,7 +56,7 @@ export function InnerText(props: InnerTextProps) {
     );
 }
 
-export const Text = slot("text", forwardRef<InnerTextProps>((props, ref) => (
+export const Text = slot("text", forwardRef<any, OmitInternalProps<InnerTextProps>>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));
 

@@ -1,28 +1,18 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { forwardRef, omitProps } from "../../shared";
+import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, omitProps } from "../../shared";
 
-export interface InnerBoxProps {
-    /**
-    * An HTML element type or a custom React element type to render as.
-    */
-    as?: ElementType;
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+const DefaultElement = "div";
+
+export interface InnerBoxProps extends SlotProps, InternalProps, Omit<AllHTMLAttributes<any>, "as"> {
     /**
     * @ignore
     */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerBox(props: InnerBoxProps) {
     const {
-        as: As = "div",
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -38,7 +28,7 @@ export function InnerBox(props: InnerBoxProps) {
     );
 }
 
-export const Box = forwardRef<InnerBoxProps>((props, ref) => (
+export const Box = forwardRef<any, OmitInternalProps<InnerBoxProps>>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));
 

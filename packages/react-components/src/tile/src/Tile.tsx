@@ -1,11 +1,13 @@
 import "./Tile.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, SyntheticEvent } from "react";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
-export interface InnerTileProps extends InteractionStatesProps {
+const DefaultElement = "button";
+
+export interface InnerTileProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -38,17 +40,9 @@ export interface InnerTileProps extends InteractionStatesProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTile(props: InnerTileProps) {
@@ -65,7 +59,7 @@ export function InnerTile(props: InnerTileProps) {
         orientation = "vertical",
         focus,
         hover,
-        as = "button",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -126,7 +120,7 @@ export function InnerTile(props: InnerTileProps) {
     );
 }
 
-export const Tile = forwardRef<InnerTileProps>((props, ref) => (
+export const Tile = forwardRef<any, OmitInternalProps<InnerTileProps>>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));
 

@@ -1,8 +1,10 @@
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, cloneElement } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { forwardRef, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, slot } from "../../shared";
 
-export interface InnerIconListProps {
+const DefaultElement = "span";
+
+export interface InnerIconListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the IconList is disabled.
      */
@@ -12,24 +14,16 @@ export interface InnerIconListProps {
      */
     size?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconList({
     size,
     disabled,
     children,
-    as = "span",
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerIconListProps) {
@@ -51,7 +45,7 @@ export function InnerIconList({
     );
 }
 
-export const IconList = slot("icon", forwardRef<InnerIconListProps>((props, ref) => (
+export const IconList = slot("icon", forwardRef<any, OmitInternalProps<InnerIconListProps>>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));
 

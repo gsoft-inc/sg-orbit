@@ -1,9 +1,11 @@
 import "./List.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
-import { augmentElement, cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, augmentElement, cssModule, mergeProps, useStyleProps } from "../../shared";
 
-export interface InnerListProps {
+const DefaultElement = "ul";
+
+export interface InnerListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A list can vary in size.
      */
@@ -13,26 +15,18 @@ export interface InnerListProps {
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
-const List = forwardRef<InnerListProps>((props, ref) => {
+const List = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
     const {
         size,
         color,
-        as: As = "ul",
+        as: As = DefaultElement,
         children,
         ...rest
     } = mergeProps(
@@ -70,8 +64,10 @@ List.displayName = "List";
 
 ////////
 
+const orderedDefaultElement = "ol";
+
 export function InnerOrderedList({
-    as = "ol",
+    as = orderedDefaultElement,
     forwardedRef,
     ...rest
 }: InnerListProps) {
@@ -84,7 +80,7 @@ export function InnerOrderedList({
     );
 }
 
-export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
+export const OrderedList = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
@@ -95,7 +91,7 @@ OrderedList.displayName = "OrderedList";
 ////////
 
 function InnerUnorderedList({
-    as = "ul",
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerListProps) {
@@ -108,7 +104,7 @@ function InnerUnorderedList({
     );
 }
 
-export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
+export const UnorderedList = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
 

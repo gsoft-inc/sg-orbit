@@ -1,11 +1,13 @@
 import "./Autocomplete.css";
 
+import { Box, BoxProps } from "../../box";
+import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
-    AriaLabelingProps,
     InteractionStatesProps,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     augmentElement,
-    forwardRef,
     isNil,
     isNilOrEmpty,
     mergeProps,
@@ -16,25 +18,25 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box, BoxProps } from "../../box";
-import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
+import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
-import { useCallback, useRef, useState } from "react";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
-import type { ChangeEvent, ComponentProps, ElementType, FocusEvent, ForwardedRef, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
+import type { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 
 // Used to generate OverlayProps instead of any in the auto-generated documentation
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "input";
+
+export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not to open the autocomplete element.
      */
@@ -155,17 +157,9 @@ export interface InnerAutocompleteProps extends InteractionStatesProps, AriaLabe
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
@@ -213,7 +207,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         "aria-describedby": ariaDescribedBy,
         wrapperProps,
         overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
-        as = "input",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -532,7 +526,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 }
 
-export const Autocomplete = forwardRef<InnerAutocompleteProps, "input">((props, ref) => (
+export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<InnerAutocompleteProps>>((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));
 

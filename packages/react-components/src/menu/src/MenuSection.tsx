@@ -1,30 +1,24 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
-export interface InnerMenuSectionProps extends DomProps {
+const DefaultElement = "li";
+
+export interface InnerMenuSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */
     title?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerMenuSection({
     id,
     title,
-    as = "li",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -61,7 +55,7 @@ export function InnerMenuSection({
     );
 }
 
-export const MenuSection = forwardRef<InnerMenuSectionProps>((props, ref) => (
+export const MenuSection = forwardRef<any, OmitInternalProps<InnerMenuSectionProps>>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));
 

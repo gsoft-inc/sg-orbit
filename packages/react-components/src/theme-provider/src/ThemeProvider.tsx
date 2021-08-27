@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ElementType, ReactNode, useCallback, useState } from "react";
+import { ComponentProps, ElementType, ReactNode, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { mergeClasses, mergeProps } from "../../shared";
 import { useColorScheme } from "./useColorScheme";
@@ -8,7 +8,9 @@ export type Theme = "apricot" | "desktop";
 export type ColorScheme = "light" | "dark";
 export type ColorSchemeOrSystem = ColorScheme | "system";
 
-export interface ThemeProviderProps {
+const DefaultElement = "div";
+
+export interface ThemeProviderProps extends Omit<ComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * The theme to use.
      */
@@ -22,7 +24,7 @@ export interface ThemeProviderProps {
      */
     defaultColorScheme?: ColorScheme;
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**
@@ -36,7 +38,7 @@ export function ThemeProvider({
     colorScheme,
     defaultColorScheme,
     children,
-    as = "div",
+    as = DefaultElement,
     ...rest
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();

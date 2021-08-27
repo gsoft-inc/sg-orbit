@@ -1,9 +1,9 @@
-import { AriaLabelingProps, forwardRef, slot } from "../../shared";
-import { ComponentProps, ElementType, ForwardedRef, MouseEventHandler } from "react";
+import { ComponentProps, MouseEventHandler, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
-import { IconButton } from "./IconButton";
+import { IconButton, IconButtonProps } from "./IconButton";
+import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared";
 
-export interface InnerCrossButtonProps extends AriaLabelingProps {
+export interface InnerCrossButtonProps extends SlotProps, InternalProps, Omit<IconButtonProps, "children"> {
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -28,18 +28,6 @@ export interface InnerCrossButtonProps extends AriaLabelingProps {
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
@@ -55,7 +43,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
     );
 }
 
-export const CrossButton = slot("button", forwardRef<InnerCrossButtonProps, "button">((props, ref) => (
+export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
 

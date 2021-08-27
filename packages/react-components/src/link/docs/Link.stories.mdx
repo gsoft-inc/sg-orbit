@@ -1,7 +1,7 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink } from "@react-components/link";
+import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink, TextLinkAsButton } from "@react-components/link";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { LaunchImage } from "./assets";
@@ -18,7 +18,7 @@ import { Text } from "@react-components/typography";
 <Tagline>Links allow a user to navigate between pages, scroll to a have page section, access files, or even to handle email addresses.</Tagline>
 
 <ComponentInfo
-    usage={"import { TextLink, IconLink, Link } from \"@orbit-ui/react-components\";"}
+    usage={"import { TextLink, IconLink, Link, TextLinkAsButton } from \"@orbit-ui/react-components\";"}
     ariaPath="#link"
     githubPath="/packages/react-components/src/link/src"
 />
@@ -114,7 +114,7 @@ A link can behave like a button.
 
 <Preview>
     <Story name="button">
-        <TextLink as="button">Flight details</TextLink>
+        <TextLinkAsButton>Flight details</TextLinkAsButton>
     </Story>
 </Preview>
 
@@ -208,3 +208,12 @@ A link can use a different shape to match his content shape on focus state.
 />
 
 <ArgsTable of={InnerLink} sort="alpha" />
+
+### TextLinkAsButton
+
+<ComponentInfo
+    usage={"import { TextLinkAsButton } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerTextLink} sort="alpha" />

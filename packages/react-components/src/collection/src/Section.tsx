@@ -1,13 +1,8 @@
-import { ComponentProps, ElementType, ReactNode } from "react";
-import { forwardRef } from "../../shared";
+import { AllHTMLAttributes, ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 
-export interface InnerSectionProps {
+export interface InnerSectionProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
-     * The section name.
-     */
-    title?: string;
-    /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**
@@ -21,7 +16,7 @@ export function InnerSection(props: InnerSectionProps): JSX.Element {
     return null;
 }
 
-export const Section = forwardRef<InnerSectionProps>((props, ref) => (
+export const Section = forwardRef<any, InnerSectionProps>((props, ref) => (
     // @ts-ignore Not sure what is going on with the InnerSection.
     <InnerSection {...props} forwardedRef={ref} />
 ));

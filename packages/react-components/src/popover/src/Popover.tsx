@@ -1,10 +1,11 @@
 import "./Popover.css";
 
+import { Box } from "../../box";
+import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {
-    AriaLabelingProps,
-    DomProps,
     InteractionStatesProps,
-    forwardRef,
+    InternalProps,
+    OmitInternalProps,
     isNil,
     isString,
     mergeProps,
@@ -16,24 +17,16 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
-import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useCallback, useMemo } from "react";
 import { Text } from "../../typography";
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
-export interface InnerPopoverProps extends DomProps, AriaLabelingProps, InteractionStatesProps {
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
+const DefaultElement = "section";
+
+export interface InnerPopoverProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerPopover({
@@ -41,7 +34,7 @@ export function InnerPopover({
     focus,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = "section",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -148,7 +141,7 @@ export function InnerPopover({
     );
 }
 
-export const Popover = forwardRef<InnerPopoverProps>((props, ref) => (
+export const Popover = forwardRef<any, OmitInternalProps<InnerPopoverProps>>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));
 

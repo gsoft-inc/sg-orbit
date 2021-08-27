@@ -1,12 +1,14 @@
 import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, OmitInternalProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { createSizeAdapter, cssModule, forwardRef, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 
-export interface InnerLozengeProps {
+const DefaultElement = "span";
+
+export interface InnerLozengeProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The badge color accent.
      */
@@ -16,17 +18,9 @@ export interface InnerLozengeProps {
      */
     size?: "sm" | "md";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const textSize = createSizeAdapter({
@@ -37,7 +31,7 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     color,
     size,
-    as = "span",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -80,7 +74,7 @@ export function InnerLozenge({
     );
 }
 
-export const Lozenge = slot("lozenge", forwardRef<InnerLozengeProps>((props, ref) => (
+export const Lozenge = slot("lozenge", forwardRef<any, OmitInternalProps<InnerLozengeProps>>((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));
 

@@ -3,12 +3,12 @@ import "./Accordion.css";
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
-    DomProps,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     cssModule,
-    forwardRef,
     isNil,
     isNumber,
     mergeProps,
@@ -23,7 +23,9 @@ import {
 } from "../../shared";
 import { useAccordionItems } from "./useAccordionItems";
 
-export interface InnerAccordionProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerAccordionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of expanded item keys.
      */
@@ -52,17 +54,9 @@ export interface InnerAccordionProps extends DomProps {
      */
     autoFocus?: boolean | number;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerAccordion({
@@ -73,7 +67,7 @@ export function InnerAccordion({
     expansionMode = "single",
     autoFocus,
     variant = "borderless",
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -165,7 +159,7 @@ export function InnerAccordion({
     );
 }
 
-export const Accordion = forwardRef<InnerAccordionProps>((props, ref) => (
+export const Accordion = forwardRef<any, OmitInternalProps<InnerAccordionProps>>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));
 

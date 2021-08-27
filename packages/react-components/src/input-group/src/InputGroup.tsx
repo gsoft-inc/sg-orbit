@@ -1,14 +1,16 @@
 import "./InputGroup.css";
 
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 import { TextAddon } from "./TextAddon";
-import { cssModule, forwardRef, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 
-export interface InnerInputGroupProps {
+const DefaultElement = "div";
+
+export interface InnerInputGroupProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the input group take up the width of its container.
      */
@@ -22,21 +24,9 @@ export interface InnerInputGroupProps {
      */
     readOnly?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function toAddon(element: ReactElement, key?: number): ReactNode {
@@ -55,7 +45,7 @@ export function InnerInputGroup({
     fluid,
     disabled,
     readOnly,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -121,7 +111,7 @@ export function InnerInputGroup({
     );
 }
 
-export const InputGroup = forwardRef<InnerInputGroupProps>((props, ref) => (
+export const InputGroup = forwardRef<any, OmitInternalProps<InnerInputGroupProps>>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));
 

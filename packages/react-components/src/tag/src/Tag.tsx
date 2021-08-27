@@ -1,13 +1,15 @@
 import "./Tag.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent, useMemo } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
-export interface InnerTagProps extends InteractionStatesProps {
+const DefaultElement = "div";
+
+export interface InnerTagProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The tag style to use.
      */
@@ -31,17 +33,9 @@ export interface InnerTagProps extends InteractionStatesProps {
      */
     size?: "sm" | "md";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 
@@ -54,7 +48,7 @@ export function InnerTag({
     active,
     focus,
     hover,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -132,7 +126,7 @@ export function InnerTag({
     );
 }
 
-export const Tag = forwardRef<InnerTagProps>((props, ref) => (
+export const Tag = forwardRef<any, OmitInternalProps<InnerTagProps>>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
 

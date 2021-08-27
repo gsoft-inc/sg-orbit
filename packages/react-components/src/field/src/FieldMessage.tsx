@@ -1,16 +1,18 @@
 import "./FieldMessage.css";
 
-import { ComponentProps, ElementType, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { StyleProvider, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerFieldMessageProps {
+const DefaultElement = "div";
+
+export interface InnerFieldMessageProps extends Omit<ComponentProps<typeof DefaultElement>, "color">{
     /**
      * The style to use.
      */
     tone: "neutral" | "success" | "error";
     /**
-     * An HTML element type or a custom React element type to render as.
+     * @ignore
      */
     as?: ElementType;
     /**
@@ -34,10 +36,10 @@ export function getValidationProps(validationState: string) {
     };
 }
 
-export const FieldMessage = forwardRef<InnerFieldMessageProps>(({
+export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
     tone,
     fluid,
-    as = "div",
+    as = DefaultElement,
     children,
     ...rest
 }, ref) => {

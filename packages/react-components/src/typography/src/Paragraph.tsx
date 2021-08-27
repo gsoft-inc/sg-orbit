@@ -1,10 +1,12 @@
 import "./Paragraph.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { StyleProvider, cssModule, forwardRef, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerParagraphProps {
+const DefaultElement = "p";
+
+export interface InnerParagraphProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A paragraph can vary in size.
      */
@@ -14,17 +16,9 @@ export interface InnerParagraphProps {
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {
@@ -32,7 +26,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
 
     const {
         size,
-        as = "p",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -70,7 +64,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
     );
 }
 
-export const Paragraph = forwardRef<InnerParagraphProps>((props, ref) => (
+export const Paragraph = forwardRef<any, OmitInternalProps<InnerParagraphProps>>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));
 

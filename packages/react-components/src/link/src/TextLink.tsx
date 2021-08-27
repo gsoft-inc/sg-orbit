@@ -1,14 +1,16 @@
 import "./Link.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InternalProps, OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
-import { augmentElement, forwardRef, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
-export interface InnerTextLinkProps {
+const DefaultElement = "a";
+
+export interface InnerTextLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -46,17 +48,9 @@ export interface InnerTextLinkProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {
@@ -76,7 +70,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         hover,
         visited,
         disabled,
-        as: As = "a",
+        as: As = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -137,10 +131,12 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     );
 }
 
-export const TextLink = forwardRef<InnerTextLinkProps>((props, ref) => (
+export const TextLink = forwardRef<any, OmitInternalProps<InnerTextLinkProps>>((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));
 
 export type TextLinkProps = ComponentProps<typeof TextLink>;
+
+export const TextLinkAsButton = as(TextLink, "button");
 
 TextLink.displayName = "TextLink";

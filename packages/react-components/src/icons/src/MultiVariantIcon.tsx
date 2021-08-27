@@ -1,16 +1,12 @@
-import { ComponentProps, ElementType, ForwardedRef } from "react";
+import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
 import { Icon } from "./Icon";
-import { forwardRef, slot } from "../../shared";
+import { OmitInternalProps, SlotProps, slot } from "../../shared";
 
-export interface InnerMultiVariantIconProps {
+export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGElement>{
     /**
      * An icon can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * An icon as a React component for the 24px variant.
      */
@@ -42,7 +38,7 @@ export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32,
     );
 });
 
-export const MultiVariantIcon = slot("icon", forwardRef<InnerMultiVariantIconProps, "svg">((props, ref) => (
+export const MultiVariantIcon = slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerMultiVariantIconProps>>((props, ref) => (
     <InnerMultiVariantIcon {...props} forwardedRef={ref} />
 )));
 
@@ -53,7 +49,7 @@ export type MultiVariantIconProps = ComponentProps<typeof MultiVariantIcon>;
 ////////
 
 export function createMultiVariantIcon(src24: ElementType, src32: ElementType) {
-    return slot("icon", forwardRef<Omit<InnerMultiVariantIconProps, "src24" | "src32">, "svg">((props, ref) =>
+    return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerMultiVariantIconProps, "src24" | "src32">>((props, ref) =>
         <InnerMultiVariantIcon
             {...props}
             src24={src24}

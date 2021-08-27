@@ -1,13 +1,23 @@
 import "./Listbox.css";
 
+import { Box } from "../../box";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import {
-    AriaLabelingProps,
-    DomProps,
+    ComponentProps,
+    KeyboardEvent,
+    ReactNode,
+    SyntheticEvent,
+    forwardRef,
+    useImperativeHandle,
+    useMemo
+} from "react";
+import {
     FocusManager,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     appendEventKey,
     cssModule,
-    forwardRef,
     isEmptyArray,
     isNil,
     isNumber,
@@ -23,18 +33,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
-import {
-    ComponentProps,
-    ElementType,
-    ForwardedRef,
-    KeyboardEvent,
-    ReactNode,
-    SyntheticEvent,
-    useImperativeHandle,
-    useMemo
-} from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -47,7 +45,9 @@ type SelectionMode = "none" | "single" | "multiple";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
-export interface InnerListboxProps extends DomProps, AriaLabelingProps {
+const DefaultElement = "div";
+
+export interface InnerListboxProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.
@@ -107,17 +107,13 @@ export interface InnerListboxProps extends DomProps, AriaLabelingProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * @ignore
      */
     children?: ReactNode;
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>;
+    disabled?: boolean;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -187,7 +183,7 @@ export function InnerListbox({
     fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -488,7 +484,7 @@ export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 };
 
-export const Listbox = forwardRef<InnerListboxProps, ListboxElement>((props, ref) => (
+export const Listbox = forwardRef<ListboxElement, OmitInternalProps<InnerListboxProps>>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));
 

@@ -1,8 +1,8 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ForwardedRef } from "react";
-import { Keys, forwardRef, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
+import { ComponentProps, ForwardedRef, forwardRef } from "react";
+import { Keys, OmitInternalProps, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
 import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
 import { useTabsContext } from "./TabsContext";
@@ -93,7 +93,7 @@ export function InnerTabList({
     );
 }
 
-export const TabList = forwardRef<InnerTabListProps>((props, ref) => (
+export const TabList = forwardRef<any, OmitInternalProps<InnerTabListProps>>((props, ref) => (
     <InnerTabList {...props} forwardedRef={ref} />
 ));
 

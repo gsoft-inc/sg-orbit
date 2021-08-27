@@ -1,30 +1,24 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
-export interface InnerListboxSectionProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerListboxSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */
     title: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListboxSection({
     id,
     title,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -56,7 +50,7 @@ export function InnerListboxSection({
     );
 }
 
-export const ListboxSection = forwardRef<InnerListboxSectionProps>((props, ref) => (
+export const ListboxSection = forwardRef<any, OmitInternalProps<InnerListboxSectionProps>>((props, ref) => (
     <InnerListboxSection {...props} forwardedRef={ref} />
 ));
 

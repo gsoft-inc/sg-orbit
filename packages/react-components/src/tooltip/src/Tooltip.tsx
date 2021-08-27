@@ -1,26 +1,20 @@
 import "./Tooltip.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
 
-export interface InnerTooltipProps {
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
+const DefaultElement = "div";
+
+export interface InnerTooltipProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTooltip({
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -42,7 +36,7 @@ export function InnerTooltip({
     );
 }
 
-export const Tooltip = forwardRef<InnerTooltipProps>((props, ref) => (
+export const Tooltip = forwardRef<any, OmitInternalProps<InnerTooltipProps>>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));
 

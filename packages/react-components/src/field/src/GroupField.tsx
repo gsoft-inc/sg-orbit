@@ -2,13 +2,15 @@ import "./Field.css";
 
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
-import { DomProps, forwardRef, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
-export interface InnerGroupFieldProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerGroupFieldProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether the field should display as "valid" or "invalid".
      */
@@ -22,17 +24,9 @@ export interface InnerGroupFieldProps extends DomProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerGroupField(props: InnerGroupFieldProps) {
@@ -45,7 +39,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         required,
         fluid,
         disabled,
-        as = "div",
+        as = DefaultElement,
         className,
         children,
         forwardedRef,
@@ -90,7 +84,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
     );
 }
 
-export const GroupField = forwardRef<InnerGroupFieldProps>((props, ref) => (
+export const GroupField = forwardRef<any, OmitInternalProps<InnerGroupFieldProps>>((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));
 

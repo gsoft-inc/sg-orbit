@@ -1,21 +1,13 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { forwardRef, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-export interface InnerValidMessageProps {
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
+export interface InnerValidMessageProps extends InternalProps {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerValidMessage(props: InnerValidMessageProps) {
@@ -44,7 +36,7 @@ export function InnerValidMessage(props: InnerValidMessageProps) {
     );
 }
 
-export const ValidMessage = forwardRef<InnerValidMessageProps>((props, ref) => (
+export const ValidMessage = forwardRef<any, OmitInternalProps<InnerValidMessageProps>>((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />
 ));
 

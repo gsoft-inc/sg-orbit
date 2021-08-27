@@ -1,15 +1,22 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, DomProps, cssModule, forwardRef, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, SyntheticEvent } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-export interface InnerTabsProps extends DomProps, AriaLabelingProps {
+const DefaultElement = "div";
+
+export interface InnerTabsProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * A controlled selected key.
      */
@@ -42,10 +49,6 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      */
     orientation?: "horizontal" | "vertical";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * Tabs title for screen readers.
      */
     "aria-label": string;
@@ -53,10 +56,6 @@ export interface InnerTabsProps extends DomProps, AriaLabelingProps {
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTabs({
@@ -137,7 +136,7 @@ export function InnerTabs({
     );
 }
 
-export const Tabs = forwardRef<InnerTabsProps>((props, ref) => (
+export const Tabs = forwardRef<any, OmitInternalProps<InnerTabsProps>>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));
 

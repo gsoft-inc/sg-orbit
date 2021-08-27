@@ -1,8 +1,8 @@
 import "./TextArea.css";
 
-import { AriaLabelingProps, DomProps, InteractionStatesProps, cssModule, forwardRef, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, ReactElement, useCallback, useLayoutEffect, useState } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -10,7 +10,9 @@ import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input"
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "div";
+
+export interface InnerTextAreaProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"textarea">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -86,14 +88,6 @@ export interface InnerTextAreaProps extends DomProps, InteractionStatesProps, Ar
      * @ignore
      */
     readOnly?: boolean;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const pxToInt = (value?: string) => {
@@ -128,7 +122,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
-        as = "div",
+        as = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -233,7 +227,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     );
 }
 
-export const TextArea = forwardRef<InnerTextAreaProps>((props, ref) => (
+export const TextArea = forwardRef<any, OmitInternalProps<InnerTextAreaProps>>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));
 

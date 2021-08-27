@@ -1,17 +1,19 @@
 import "./Message.css";
 
 import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
-import { ComponentProps, ElementType, ForwardedRef, MouseEvent, ReactNode, useMemo } from "react";
+import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { StyleProvider, augmentElement, cssModule, forwardRef, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
 type InnerMessageContentProps = TextProps;
 
-const MessageContent = forwardRef<InnerMessageContentProps>(({
-    as = "div",
+const DefaultElement = "div";
+
+const MessageContent = forwardRef<any, InnerMessageContentProps>(({
+    as = DefaultElement,
     children,
     ...rest
 }, ref) => {
@@ -38,7 +40,7 @@ const MessageContent = forwardRef<InnerMessageContentProps>(({
     );
 });
 
-export interface InnerMessageProps {
+export interface InnerMessageProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value.
      */
@@ -54,10 +56,6 @@ export interface InnerMessageProps {
      */
     onDismiss?: (event: MouseEvent) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -65,10 +63,6 @@ export interface InnerMessageProps {
      * @ignore
      */
     role?: string;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 const Role = {
@@ -90,7 +84,7 @@ export function InnerMessage({
     variant = "informative",
     onDismiss,
     role: roleProp,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -154,7 +148,7 @@ export function InnerMessage({
     );
 }
 
-export const Message = forwardRef<InnerMessageProps>((props, ref) => (
+export const Message = forwardRef<any, OmitInternalProps<InnerMessageProps>>((props, ref) => (
     <InnerMessage {...props} forwardedRef={ref} />
 ));
 

@@ -1,8 +1,10 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, useEffect, useState } from "react";
-import { forwardRef, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
+import { InternalProps, OmitInternalProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
-export interface InnerTransitionProps {
+const DefaultElement = "div";
+
+export interface InnerTransitionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value that determined whether or not the component is displayed.
      */
@@ -20,17 +22,9 @@ export interface InnerTransitionProps {
      */
     leave?: string;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * @ignore
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTransition({
@@ -38,7 +32,7 @@ export function InnerTransition({
     animateFirstRender = false,
     enter,
     leave,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -88,7 +82,7 @@ export function InnerTransition({
     );
 }
 
-export const Transition = forwardRef<InnerTransitionProps>((props, ref) => (
+export const Transition = forwardRef<any, OmitInternalProps<InnerTransitionProps>>((props, ref) => (
     <InnerTransition {...props} forwardedRef={ref} />
 ));
 

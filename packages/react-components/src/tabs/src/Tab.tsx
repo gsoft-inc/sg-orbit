@@ -1,15 +1,17 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactNode, useMemo } from "react";
-import { InteractionStatesProps, Keys, cssModule, forwardRef, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
 
 export const TabKeyProp = "data-o-ui-key";
 
-export interface InnerTabProps extends InteractionStatesProps {
+const DefaultElement = "button";
+
+export interface InnerTabProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * Matching tab item.
      */
@@ -23,17 +25,9 @@ export interface InnerTabProps extends InteractionStatesProps {
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTab({
@@ -42,7 +36,7 @@ export function InnerTab({
     active,
     focus,
     hover,
-    as = "button",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -122,7 +116,7 @@ export function InnerTab({
     );
 }
 
-export const Tab = forwardRef<InnerTabProps>((props, ref) => (
+export const Tab = forwardRef<any, OmitInternalProps<InnerTabProps>>((props, ref) => (
     <InnerTab {...props} forwardedRef={ref} />
 ));
 

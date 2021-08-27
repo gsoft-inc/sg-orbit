@@ -1,8 +1,8 @@
 import "./Checkbox.css";
 
-import { AriaLabelingProps, InteractionStatesProps, forwardRef, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
+import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -10,7 +10,9 @@ import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface InnerCheckboxProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "label";
+
+export interface InnerCheckboxProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * @ignore
      */
@@ -75,17 +77,9 @@ export interface InnerCheckboxProps extends InteractionStatesProps, AriaLabeling
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * @ignore
      */
     children?: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerCheckbox(props: InnerCheckboxProps) {
@@ -117,7 +111,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         "aria-label": ariaLabel,
         // Usually provided by the field inputs.
         "aria-labelledby": ariaLabelledBy,
-        as = "label",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -211,7 +205,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
     );
 }
 
-export const Checkbox = forwardRef<InnerCheckboxProps>((props, ref) => (
+export const Checkbox = forwardRef<any, OmitInternalProps<InnerCheckboxProps>>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));
 

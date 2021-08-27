@@ -1,21 +1,27 @@
 import "./Modal.css";
 
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { Content } from "../../placeholders";
+import { Dialog } from "../../dialog";
 import {
-    AriaLabelingProps,
-    DomProps,
+    InternalProps,
+    OmitInternalProps,
     StyleProvider,
     augmentElement,
-    forwardRef,
     getSlotKey,
     isNil,
     mergeProps,
     useSlots
 } from "../../shared";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, useMemo } from "react";
-import { Content } from "../../placeholders";
-import { Dialog } from "../../dialog";
 
-export interface InnerModalProps extends DomProps, AriaLabelingProps {
+const DefaultElement = "section";
+
+export interface InnerModalProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "role"> {
+    /**
+     * The element's unique identifier.
+     * @ignore
+     */
+    id?: string;
     /**
      * Whether or not the modal should take almost all the available space.
      */
@@ -33,17 +39,9 @@ export interface InnerModalProps extends DomProps, AriaLabelingProps {
      */
     wrapperProps?: Record<string, any>;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
       * React children.
       */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useModalContentMarkup(content: ReactElement) {
@@ -107,6 +105,7 @@ export function InnerModal({
     zIndex = 1,
     children,
     forwardedRef,
+    as = DefaultElement,
     ...rest
 }: InnerModalProps) {
     const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
@@ -144,6 +143,7 @@ export function InnerModal({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     size,
                     dismissable,
                     zIndex,
@@ -163,7 +163,7 @@ export function InnerModal({
     );
 }
 
-export const Modal = forwardRef<InnerModalProps>((props, ref) => (
+export const Modal = forwardRef<any, OmitInternalProps<InnerModalProps>>((props, ref) => (
     <InnerModal {...props} forwardedRef={ref} />
 ));
 
