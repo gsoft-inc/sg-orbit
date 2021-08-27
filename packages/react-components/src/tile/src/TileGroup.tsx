@@ -4,6 +4,7 @@ import { Group, GroupProps } from "../../group";
 import {
     InternalProps,
     OmitInternalProps,
+    SlotProps,
     arrayify,
     augmentElement,
     isNil,
@@ -19,11 +20,7 @@ import { RadioGroup } from "../../radio";
 
 const DefaultElement = "div";
 
-export interface InnerTileGroupProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

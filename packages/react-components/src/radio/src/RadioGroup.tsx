@@ -5,6 +5,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    SlotProps,
     augmentElement,
     isNil,
     isNumber,
@@ -28,11 +29,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

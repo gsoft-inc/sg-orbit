@@ -1,11 +1,11 @@
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */
@@ -57,10 +57,6 @@ export interface InnerToggleIconButtonProps extends InternalProps, InteractionSt
      * Defines a string value that labels the current element..
      */
     "aria-label": string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * React children.
      */

@@ -3,14 +3,14 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */
@@ -47,10 +47,6 @@ export interface InnerIconButtonProps extends InternalProps, InteractionStatesPr
      * The icon button type.
      */
     type?: "button" | "submit" | "reset";
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * Whether or not the button take up the width of its container.
      */

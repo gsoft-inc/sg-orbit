@@ -3,12 +3,12 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { Text } from "../../typography";
 
 const avatarDefaultElement = "div";
 
-export interface InnerAvatarProps extends InternalProps, ComponentProps<typeof avatarDefaultElement> {
+export interface InnerAvatarProps extends SlotProps, InternalProps, ComponentProps<typeof avatarDefaultElement> {
     /**
      * The name of the person in the avatar.
      */
@@ -25,10 +25,6 @@ export interface InnerAvatarProps extends InternalProps, ComponentProps<typeof a
      * An avatar can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
-    /**
-     * Default slot override.
-     */
-    slot?: string;
 }
 
 function AvatarImage({

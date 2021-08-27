@@ -1,9 +1,9 @@
 import { ComponentProps, MouseEventHandler, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton, IconButtonProps } from "./IconButton";
-import { InternalProps, OmitInternalProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared";
 
-export interface InnerCrossButtonProps extends InternalProps, Omit<IconButtonProps, "children"> {
+export interface InnerCrossButtonProps extends SlotProps, InternalProps, Omit<IconButtonProps, "children"> {
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -28,10 +28,6 @@ export interface InnerCrossButtonProps extends InternalProps, Omit<IconButtonPro
      * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
 }
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {

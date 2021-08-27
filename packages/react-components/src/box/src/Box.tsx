@@ -1,13 +1,9 @@
 import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, omitProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBoxProps extends InternalProps, Omit<AllHTMLAttributes<any>, "as"> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerBoxProps extends SlotProps, InternalProps, Omit<AllHTMLAttributes<any>, "as"> {
     /**
     * @ignore
     */

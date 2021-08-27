@@ -2,12 +2,12 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement ="div";
 
-export interface InnerIllustrationProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIllustrationProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the illustration.
      */
@@ -20,10 +20,6 @@ export interface InnerIllustrationProps extends InternalProps, ComponentProps<ty
      * The illustration background color, e.g "primary-200".
      */
     color?: string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * React children.
      */

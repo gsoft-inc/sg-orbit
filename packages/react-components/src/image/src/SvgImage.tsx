@@ -1,8 +1,8 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef, useCallback, useMemo } from "react";
-import { OmitInternalProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
+import { OmitInternalProps, SlotProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 
-export interface InnerSvgImageProps {
+export interface InnerSvgImageProps extends SlotProps {
     /**
      * An SVG as a React component.
      */
@@ -46,10 +46,6 @@ export interface InnerSvgImageProps {
      * @ignore
      */
     "aria-details"?: string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
     * @ignore
     */

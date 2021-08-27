@@ -2,12 +2,12 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "span";
 
-export interface InnerCounterProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerCounterProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The style to use.
      */
@@ -36,10 +36,6 @@ export interface InnerCounterProps extends InternalProps, ComponentProps<typeof 
      * Whether or not the counter push itself away from the leading sibling element.
      */
     pushed?: boolean;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * React children.
      */

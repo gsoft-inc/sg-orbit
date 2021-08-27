@@ -4,6 +4,7 @@ import {
     CheckableContext,
     InternalProps,
     OmitInternalProps,
+    SlotProps,
     augmentElement,
     isNil,
     isNumber,
@@ -25,11 +26,7 @@ import { useGroupInput } from "../../input";
 
 const DefaultElement = "div";
 
-export interface InnerCheckboxGroupProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerCheckboxGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

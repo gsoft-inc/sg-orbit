@@ -2,16 +2,12 @@ import "./ButtonGroup.css";
 
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { InternalProps, OmitInternalProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
 
-export interface InnerButtonGroupProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size"> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerButtonGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size"> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

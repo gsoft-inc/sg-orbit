@@ -3,6 +3,13 @@
 
 import { ElementType, ForwardedRef } from "react";
 
+export interface SlotProps {
+    /**
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
+     */
+    slot?: string;
+}
+
 export interface InternalProps {
     /**
      * @ignore

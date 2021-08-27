@@ -1,16 +1,12 @@
 import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
 import { Icon } from "./Icon";
-import { OmitInternalProps, slot } from "../../shared";
+import { OmitInternalProps, SlotProps, slot } from "../../shared";
 
-export interface InnerMultiVariantIconProps extends SVGProps<SVGSVGElement>{
+export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGElement>{
     /**
      * An icon can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * An icon as a React component for the 24px variant.
      */

@@ -1,14 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFlexProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
+export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

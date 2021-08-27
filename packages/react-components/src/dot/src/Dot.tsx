@@ -2,21 +2,17 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDotProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */
     color?: string;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * @ignore
      */

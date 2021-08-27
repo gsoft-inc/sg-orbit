@@ -5,12 +5,12 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
-import { InternalProps, OmitInternalProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
 
-export interface InnerInputGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerInputGroupProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the input group take up the width of its container.
      */
@@ -23,10 +23,6 @@ export interface InnerInputGroupProps extends InternalProps, ComponentProps<type
      * Whether or not the input group is readonly.
      */
     readOnly?: boolean;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
      * React children.
      */

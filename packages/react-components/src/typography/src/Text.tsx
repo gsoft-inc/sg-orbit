@@ -2,11 +2,11 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerTextProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTextProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A text can vary in size.
      */
@@ -15,10 +15,6 @@ export interface InnerTextProps extends InternalProps, ComponentProps<typeof Def
      * A text can inherit it's parent color.
      */
     color?: "inherit";
-    /**
-     * [Slot](?path=/docs/getting-started-slots--page) to render into.
-     */
-    slot?: string;
     /**
      * @ignore
      */

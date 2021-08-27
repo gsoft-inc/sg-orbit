@@ -2,9 +2,9 @@ import "./Icon.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerIconProps extends SVGProps<SVGSVGElement> {
+export interface InnerIconProps extends SlotProps, SVGProps<SVGSVGElement> {
     /**
      * An icon as a React component.
      */
@@ -13,10 +13,6 @@ export interface InnerIconProps extends SVGProps<SVGSVGElement> {
      * An icon can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
-    /**
-     * Default slot override.
-     */
-    slot?: string;
     /**
     * @ignore
     */
