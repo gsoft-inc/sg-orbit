@@ -8,3 +8,7 @@
         bottom: var(--o-ui-space-#{$i});
     }
 }
+
+.o-ui-bottom-auto {
+    bottom: auto;
+}

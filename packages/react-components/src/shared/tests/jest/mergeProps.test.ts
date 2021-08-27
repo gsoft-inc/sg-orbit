@@ -313,8 +313,24 @@ describe("mergeProps", () => {
         expect(func4).toHaveBeenCalledTimes(1);
         expect(func5).toHaveBeenCalledTimes(1);
         expect(func6).toHaveBeenCalledTimes(1);
+    });
 
+    test("resulting object does not contain the className prop when no classes have been merged", () => {
+        const result = mergeProps({}, {
+            placeholder: "SpaceX made it!"
+        });
 
+        // @ts-ignore
+        expect(result.className).toBeUndefined();
+    });
+
+    test("resulting object does not contain the style prop when no style have been merged", () => {
+        const result = mergeProps({}, {
+            placeholder: "SpaceX made it!"
+        });
+
+        // @ts-ignore
+        expect(result.style).toBeUndefined();
     });
 });
 

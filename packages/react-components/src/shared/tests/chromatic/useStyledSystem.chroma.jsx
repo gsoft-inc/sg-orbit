@@ -47,7 +47,9 @@ import {
 } from "@react-components/shared";
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
+import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
+import { Launch } from "./assets";
 import { Paragraph, Text } from "@react-components/typography";
 import { ThemeProvider } from "@react-components/theme-provider";
 import { storiesOfBuilder } from "@stories/utils";
@@ -300,7 +302,7 @@ stories()
     )
     .add("object fit", () =>
         <Inline gap={0} wrap>
-            {Object.keys(ObjectFitClasses).map(x => <Box objectFit={x} key={x}>a</Box>)}
+            {Object.keys(ObjectFitClasses).map(x => <Image objectFit={x} key={x} src={Launch} width="100%" height="100%" />)}
         </Inline>
     )
     .add("overflow", () =>

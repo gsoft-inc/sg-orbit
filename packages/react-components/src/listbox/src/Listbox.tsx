@@ -209,7 +209,7 @@ export function InnerListbox({
         keyProp: OptionKeyProp
     });
 
-    // Would be nice to find a better way to give control over the focused item to the parent.
+    // TODO: Would be nice to find a better way to give control over the focused item to the parent.
     useImperativeHandle(forwardedRef, () => {
         const element = containerRef.current;
 
