@@ -2,10 +2,6 @@ import { AllHTMLAttributes, ComponentProps, ElementType, ReactNode, forwardRef }
 
 export interface InnerSectionProps extends Omit<AllHTMLAttributes<any>, "as"> {
     /**
-     * The section name.
-     */
-    title?: string;
-    /**
      * @ignore
      */
     as?: ElementType;
