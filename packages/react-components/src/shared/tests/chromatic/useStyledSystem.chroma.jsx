@@ -49,7 +49,6 @@ import {
 } from "@react-components/shared";
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
-import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Launch } from "./assets";
 import { Paragraph, Text } from "@react-components/typography";
@@ -78,6 +77,17 @@ function LargeSquare(props) {
             {...props}
             width="60px"
             height="60px"
+        />
+    );
+}
+
+function Image(props) {
+    return (
+        <Box
+            {...props}
+            width="140px"
+            height="140px"
+            as="img"
         />
     );
 }
