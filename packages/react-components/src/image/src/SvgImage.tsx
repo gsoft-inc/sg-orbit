@@ -1,4 +1,4 @@
-import { AriaLabelingProps, forwardRef, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
+import { AriaLabelingProps, HeightProp, WidthProp, forwardRef, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, useCallback, useMemo } from "react";
 
@@ -93,8 +93,8 @@ export function InnerSvgImage({
             {...mergeProps(
                 rest,
                 {
-                    width: width ?? size,
-                    height: height ?? size,
+                    width: (width ?? size) as WidthProp,
+                    height: (height ?? size) as HeightProp,
                     style: {
                         stroke: useColor(stroke),
                         fill: useColor(fill)

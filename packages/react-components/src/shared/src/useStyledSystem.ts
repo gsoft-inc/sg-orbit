@@ -566,6 +566,8 @@ export const ColorRoleClasses = {
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
 
+export const ColumnGapClasses = createOrbitSpacingScaleClasses("c-gap", true);
+
 export const CursorClasses = {
     "help": "o-ui-cursor-help",
     "auto": "o-ui-cursor-auto",
@@ -680,7 +682,7 @@ export const FontWeightClasses = {
     9: "o-ui-fw-9"
 } as const;
 
-export const GapClasses = createOrbitSpacingScaleClasses("gap");
+export const GapClasses = createOrbitSpacingScaleClasses("gap", true);
 
 export const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
@@ -829,6 +831,8 @@ export const PositionClasses = {
 
 export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), "auto": "o-ui-right-auto" };
 
+export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
+
 export const StrokeClasses = createOrbitColorClasses("stroke");
 
 export const TextAlignClasses = {
@@ -952,6 +956,8 @@ export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue
 
 export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
 
+export type ColumnGapProp = Simplify<SpaceValue>;
+
 export type CursorProp = Simplify<keyof typeof CursorClasses | ColorValue>;
 
 export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
@@ -1036,6 +1042,8 @@ export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
 export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | SpaceValue | GlobalValue>;
 
+export type RowGapProp = Simplify<SpaceValue>;
+
 export type StrokeProp = Simplify<ColorValue>;
 
 export type TextAlignProp = Simplify<keyof typeof TextAlignClasses | GlobalValue>;
@@ -1058,6 +1066,7 @@ export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>
 
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
+// TODO: Add docs to all props.
 export interface StyleProps {
     alignContent?: AlignContentProp;
     alignItems?: AlignItemsProp;
@@ -1084,6 +1093,7 @@ export interface StyleProps {
     boxShadow?: BoxShadowProp;
     boxSizing?: BoxSizingProp;
     color?: ColorProp;
+    columnGap?: ColumnGapProp;
     cursor?: CursorProp;
     display?: DisplayProp;
     fill?: FillProp;
@@ -1126,6 +1136,7 @@ export interface StyleProps {
     paddingHorizontal?: PaddingHorizontalProp;
     position?: PositionProp;
     right?: RightProp;
+    rowGap?: RowGapProp;
     stroke?: StrokeProp;
     textAlign?: TextAlignProp;
     textDecoration?: TextDecorationProp;
@@ -1218,6 +1229,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     boxShadow: createClassesPropHandler(BoxShadowClasses),
     boxSizing: createClassesPropHandler(BoxSizingClasses),
     color: createClassesPropHandler(ColorClasses),
+    columnGap: createClassesPropHandler(ColumnGapClasses),
     cursor: createClassesPropHandler(CursorClasses),
     display: createClassesPropHandler(DisplayClasses),
     fill: createClassesPropHandler(FillClasses),
@@ -1260,6 +1272,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingHorizontal: createClassesPropHandler(PaddingHorizontalClasses),
     position: createClassesPropHandler(PositionClasses),
     right: createClassesPropHandler(RightClasses),
+    rowGap: createClassesPropHandler(RowGapClasses),
     stroke: createClassesPropHandler(StrokeClasses),
     textAlign: createClassesPropHandler(TextAlignClasses),
     textDecoration: createClassesPropHandler(TextDecorationClasses),

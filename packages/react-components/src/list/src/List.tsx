@@ -1,5 +1,6 @@
 import "./List.css";
 
+import { Box } from "../../box";
 import { CollectionItem, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { ListItem } from "./ListItem";
@@ -30,24 +31,25 @@ export interface InnerListProps {
 
 function renderItem({
     key,
-    elementType: As = ListItem,
+    elementType = ListItem,
     ref,
     content,
     props = {}
 }: CollectionItem, size?: string) {
     return (
-        <As
-            {...mergeProps(
+        <Box
+            {...mergeProps<any>(
                 props,
                 {
                     size,
                     key,
+                    as: elementType,
                     ref
                 }
             )}
         >
             {content}
-        </As>
+        </Box>
     );
 }
 
@@ -57,7 +59,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     const {
         size,
         color,
-        as: As = "ul",
+        as = "ul",
         children,
         ...rest
     } = mergeProps(
@@ -68,7 +70,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
     const nodes = useCollection(children);
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
                 {
@@ -77,6 +79,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                         size && "inherit-size",
                         color ? `color-${color}` : ""
                     ),
+                    as,
                     ref
                 }
             )}
@@ -89,7 +92,7 @@ const List = forwardRef<InnerListProps>((props, ref) => {
                         return null;
                 }
             })}
-        </As>
+        </Box>
     );
 });
 

@@ -1,5 +1,6 @@
 import "./Heading.css";
 
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { cssModule, forwardRef, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
@@ -27,7 +28,7 @@ export function InnerHeading(props: InnerHeadingProps) {
 
     const {
         size,
-        as: As = "div",
+        as = "div",
         children,
         forwardedRef,
         ...rest
@@ -37,7 +38,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     );
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
                 {
@@ -45,12 +46,13 @@ export function InnerHeading(props: InnerHeadingProps) {
                         "o-ui-heading",
                         normalizeSize(size)
                     ),
+                    as,
                     ref: forwardedRef
                 }
             )}
         >
             {children}
-        </As>
+        </Box>
     );
 }
 

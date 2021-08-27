@@ -1,5 +1,6 @@
 import "./Link.css";
 
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { forwardRef, mergeProps, useStyleProps } from "../../shared";
@@ -61,7 +62,7 @@ export function InnerLink(props: InnerLinkProps) {
         focus,
         hover,
         disabled,
-        as: As = "a",
+        as = "a",
         children,
         forwardedRef,
         ...rest
@@ -84,15 +85,18 @@ export function InnerLink(props: InnerLinkProps) {
     });
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
+                {
+                    as
+                },
                 linkProps
             )}
         >
             {children}
             {showNewTabIndicator && <NewTabIndicator />}
-        </As>
+        </Box>
     );
 }
 

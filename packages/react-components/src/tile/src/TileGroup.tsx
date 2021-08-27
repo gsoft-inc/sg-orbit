@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, forwardRef as reactForwardRef } from "react";
 import { Group, GroupProps } from "../../group";
@@ -119,7 +120,7 @@ export function InnerTileGroup({
     forwardedRef,
     ...rest
 }: InnerTileGroupProps) {
-    const As = GroupType[selectionMode];
+    const as = GroupType[selectionMode];
 
     const handleChange = useEventCallback((event, newValue) => {
         if (!isNil(onChange)) {
@@ -128,7 +129,7 @@ export function InnerTileGroup({
     });
 
     return (
-        <As
+        <Box
             {...mergeProps<any>(
                 rest,
                 {
@@ -137,6 +138,7 @@ export function InnerTileGroup({
                     gap: 4,
                     wrap: true,
                     fluid: true,
+                    as,
                     ref: forwardedRef
                 },
                 selectionMode === "none" ? {} : {
@@ -156,7 +158,7 @@ export function InnerTileGroup({
                     }
                 });
             })}
-        </As>
+        </Box>
     );
 }
 

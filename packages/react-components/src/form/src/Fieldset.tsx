@@ -1,3 +1,4 @@
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
 import { DomProps, forwardRef, mergeProps, useId } from "../../shared";
 
@@ -23,7 +24,7 @@ export interface InnerFieldsetProps extends DomProps {
 export function InnerFieldset({
     id,
     label,
-    as: As = "div",
+    as = "div",
     children,
     forwardedRef,
     ...rest
@@ -32,7 +33,7 @@ export function InnerFieldset({
     const labelId = `${rootId}-label`;
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
                 {
@@ -40,6 +41,7 @@ export function InnerFieldset({
                     className: "o-ui-fieldset",
                     role: "group",
                     "aria-labelledby": labelId,
+                    as,
                     ref: forwardedRef
                 }
             )}
@@ -51,7 +53,7 @@ export function InnerFieldset({
                 {label}
             </span>
             {children}
-        </As>
+        </Box>
     );
 }
 

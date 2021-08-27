@@ -2,9 +2,9 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { HeightProp, StyleProps, WidthProp, cssModule, forwardRef, mergeProps, slot } from "../../shared";
 
-export interface InnerImageProps {
+export interface InnerImageProps extends StyleProps {
     /**
      * The path to the image.
      */
@@ -22,14 +22,6 @@ export interface InnerImageProps {
      */
     size?: string;
     /**
-    * @ignore
-    */
-    width?: number;
-    /**
-    * @ignore
-    */
-    height?: number;
-    /**
      * The image shape.
      */
     shape?: "straight" | "rounded" | "circular";
@@ -37,10 +29,10 @@ export interface InnerImageProps {
      * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
     fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
-    /**
-     * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
-     */
-    position?: string;
+    // /**
+    //  * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
+    //  */
+    // position?: string;
     /**
      * Default slot override.
      */
@@ -68,11 +60,11 @@ export function InnerImage({
 }: InnerImageProps) {
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 rest,
                 {
-                    width: width ?? size,
-                    height: height ?? size,
+                    width: (width ?? size) as WidthProp,
+                    height: (height ?? size) as HeightProp,
                     className: cssModule(
                         "o-ui-image",
                         shape

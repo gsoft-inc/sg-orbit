@@ -1,5 +1,6 @@
 import "./Link.css";
 
+import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, ReactNode, useMemo } from "react";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
@@ -76,7 +77,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         hover,
         visited,
         disabled,
-        as: As = "a",
+        as = "a",
         children,
         forwardedRef,
         ...rest
@@ -123,9 +124,12 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     });
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
+                {
+                    as
+                },
                 linkProps
             )}
         >
@@ -133,7 +137,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
             {text}
             {iconMarkup}
             {showNewTabIndicator && <NewTabIndicator />}
-        </As>
+        </Box>
     );
 }
 

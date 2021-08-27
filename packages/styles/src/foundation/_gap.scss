@@ -8,3 +8,25 @@
         gap: var(--o-ui-space-#{$i});
     }
 }
+
+/* COLUMN GAP */
+.o-ui-c-gap-0 {
+    column-gap: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-c-gap-#{$i} {
+        column-gap: var(--o-ui-space-#{$i});
+    }
+}
+
+/* ROW GAP */
+.o-ui-r-gap-0 {
+    column-gap: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-r-gap-#{$i} {
+        column-gap: var(--o-ui-space-#{$i});
+    }
+}

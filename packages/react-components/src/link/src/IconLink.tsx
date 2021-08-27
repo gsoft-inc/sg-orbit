@@ -1,6 +1,7 @@
 import "./Link.css";
 
 import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, isNil, mergeProps, useStyleProps } from "../../shared";
+import { Box } from "../../box";
 import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
@@ -78,7 +79,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         visited,
         disabled,
         "aria-label": ariaLabel,
-        as: As = "a",
+        as = "a",
         children,
         forwardedRef,
         ...rest
@@ -113,18 +114,19 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     });
 
     return (
-        <As
+        <Box
             {...mergeProps(
                 rest,
                 {
-                    "aria-label": ariaLabel
+                    "aria-label": ariaLabel,
+                    as
                 },
                 linkProps
             )}
         >
             {iconMarkup}
             {showNewTabIndicator && <NewTabIndicator />}
-        </As>
+        </Box>
     );
 }
 

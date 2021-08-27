@@ -1,0 +1,55 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Flex2, InnerFlex2 } from "@react-components/layout";
+
+<Meta
+    title="Components/Flex"
+    id="flex"
+/>
+
+# Flex
+
+<Tagline>Use this component to display an image.</Tagline>
+
+<ComponentInfo
+    usage={"import { Flex } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/flex/src"
+/>
+
+## Usage
+
+### Vertical alignment
+
+A flex component can vertically align items.
+
+<Preview>
+    <Story name="vertical">
+        <Flex2 direction="column">
+            <div>Allo</div>
+            <div>Toto</div>
+        </Flex2>
+    </Story>
+</Preview>
+
+### Horizon alignment
+
+### Gap
+
+### Align items
+
+### Justify content
+
+### Wrap
+
+### Nesting
+
+## API
+
+### Flex
+
+<ComponentInfo
+    usage={"import { Flex } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerFlex2} sort="alpha" />

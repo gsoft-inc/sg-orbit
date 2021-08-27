@@ -121,7 +121,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         wrapperProps: userWrapperProps,
-        as: As = "input",
+        as = "input",
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -172,12 +172,13 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const content = (
         <>
             {iconMarkup}
-            <As
+            <Box
                 {...mergeProps(
                     rest,
                     {
                         "aria-label": ariaLabel,
-                        "aria-labelledby": ariaLabelledBy
+                        "aria-labelledby": ariaLabelledBy,
+                        as
                     },
                     inputProps
                 )}
