@@ -1,42 +1,42 @@
 /* JUSTIFY CONTENT */
-.o-ui-justify-center {
+.o-ui-jc-c {
     justify-content: center;
 }
 
-.o-ui-justify-start {
+.o-ui-jc-strt {
     /* "start" is not yet widely supported so we default to flex-start until it is. For items that are not children of a flex container, this value is treated like start. */
     justify-content: flex-start;
 }
 
-.o-ui-justify-end {
+.o-ui-jc-e {
     /* "end" is not yet widely supported so we default to flex-start until it is. For items that are not children of a flex container, this value is treated like end. */
     justify-content: flex-end;
 }
 
-.o-ui-justify-left {
+.o-ui-jc-l {
     justify-content: left;
 }
 
-.o-ui-justify-right {
+.o-ui-jc-r {
     justify-content: right;
 }
 
-.o-ui-justify-between {
+.o-ui-jc-b {
     justify-content: space-between;
 }
 
-.o-ui-justify-around {
+.o-ui-jc-a {
     justify-content: space-around;
 }
 
-.o-ui-justify-evenly {
+.o-ui-jc-evn {
     justify-content: space-evenly;
 }
 
-.o-ui-justify-stretch {
+.o-ui-jc-str {
     justify-content: stretch;
 }
 
-.o-ui-justify-normal {
+.o-ui-jc-n {
     justify-content: normal;
 }

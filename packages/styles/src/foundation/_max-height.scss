@@ -1,26 +1,26 @@
 /* MAX HEIGHT */
 @for $i from 1 through $spacing-scale-size {
-    .o-ui-max-h-#{$i} {
+    .o-ui-mh-#{$i} {
         max-height: var(--o-ui-space-#{$i});
     }
 }
 
-.o-ui-max-h-100 {
+.o-ui-mh-100 {
     max-height: 100%;
 }
 
-.o-ui-max-h-auto {
+.o-ui-mh-a {
     max-height: auto;
 }
 
-.o-ui-max-h-max {
+.o-ui-mh-mx {
     max-height: max-content;
 }
 
-.o-ui-max-h-min {
+.o-ui-mh-mn {
     max-height: min-content;
 }
 
-.o-ui-max-h-fit {
+.o-ui-mh-f {
     max-height: fit-content;
 }
