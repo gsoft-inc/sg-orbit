@@ -1,22 +1,5 @@
 import "./NumberInput.css";
 
-import {
-    AriaLabelingProps,
-    InteractionStatesProps,
-    InternalProps,
-    OmitInternalProps,
-    cssModule,
-    isNil,
-    isNilOrEmpty,
-    mergeClasses,
-    mergeProps,
-    omitProps,
-    useChainedEventCallback,
-    useControllableState,
-    useEventCallback,
-    useFocusWithin,
-    useRefState
-} from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { CaretIcon } from "../../icons";
 import {
@@ -32,6 +15,22 @@ import {
     useCallback,
     useMemo
 } from "react";
+import {
+    InteractionStatesProps,
+    InternalProps,
+    OmitInternalProps,
+    cssModule,
+    isNil,
+    isNilOrEmpty,
+    mergeClasses,
+    mergeProps,
+    omitProps,
+    useChainedEventCallback,
+    useControllableState,
+    useEventCallback,
+    useFocusWithin,
+    useRefState
+} from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
@@ -43,7 +42,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
+export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */

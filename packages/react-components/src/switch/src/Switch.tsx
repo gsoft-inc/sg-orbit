@@ -1,8 +1,8 @@
 import "./Switch.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * @ignore
      */

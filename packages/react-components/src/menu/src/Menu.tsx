@@ -1,7 +1,9 @@
 import "./Menu.css";
 
+import { Box } from "../../box";
+import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
+import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
-    AriaLabelingProps,
     InternalProps,
     Keys,
     OmitInternalProps,
@@ -22,9 +24,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
-import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
@@ -39,7 +38,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends InternalProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */

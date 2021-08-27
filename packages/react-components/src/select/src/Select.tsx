@@ -1,9 +1,9 @@
 import "./Select.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../typography";
@@ -15,7 +15,7 @@ import { useSelect } from "./useSelect";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerSelectProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"button">, "autoFocus"> {
+export interface InnerSelectProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"button">, "autoFocus"> {
     /**
      * @ignore
      */

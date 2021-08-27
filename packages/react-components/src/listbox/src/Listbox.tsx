@@ -1,7 +1,17 @@
 import "./Listbox.css";
 
+import { Box } from "../../box";
+import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import {
-    AriaLabelingProps,
+    ComponentProps,
+    KeyboardEvent,
+    ReactNode,
+    SyntheticEvent,
+    forwardRef,
+    useImperativeHandle,
+    useMemo
+} from "react";
+import {
     FocusManager,
     InternalProps,
     Keys,
@@ -23,17 +33,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
-import {
-    ComponentProps,
-    KeyboardEvent,
-    ReactNode,
-    SyntheticEvent,
-    forwardRef,
-    useImperativeHandle,
-    useMemo
-} from "react";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -48,7 +47,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxProps extends InternalProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.

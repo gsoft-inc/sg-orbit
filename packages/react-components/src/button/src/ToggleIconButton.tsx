@@ -1,11 +1,11 @@
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */

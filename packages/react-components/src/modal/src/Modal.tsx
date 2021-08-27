@@ -1,7 +1,9 @@
 import "./Modal.css";
 
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { Content } from "../../placeholders";
+import { Dialog } from "../../dialog";
 import {
-    AriaLabelingProps,
     InternalProps,
     OmitInternalProps,
     StyleProvider,
@@ -11,13 +13,10 @@ import {
     mergeProps,
     useSlots
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { Content } from "../../placeholders";
-import { Dialog } from "../../dialog";
 
 const DefaultElement = "section";
 
-export interface InnerModalProps extends InternalProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "role"> {
+export interface InnerModalProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "role"> {
     /**
      * The element's unique identifier.
      * @ignore

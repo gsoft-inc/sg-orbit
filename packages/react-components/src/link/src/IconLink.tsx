@@ -1,14 +1,14 @@
 import "./Link.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */

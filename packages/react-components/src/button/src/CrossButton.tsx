@@ -1,9 +1,9 @@
-import { AriaLabelingProps, InternalProps, OmitInternalProps, slot } from "../../shared";
 import { ComponentProps, MouseEventHandler, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
 import { IconButton, IconButtonProps } from "./IconButton";
+import { InternalProps, OmitInternalProps, slot } from "../../shared";
 
-export interface InnerCrossButtonProps extends InternalProps, AriaLabelingProps, Omit<IconButtonProps, "children"> {
+export interface InnerCrossButtonProps extends InternalProps, Omit<IconButtonProps, "children"> {
     /**
      * Whether or not the button content should takes additional space.
      */

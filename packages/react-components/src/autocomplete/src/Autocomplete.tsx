@@ -1,7 +1,8 @@
 import "./Autocomplete.css";
 
+import { Box, BoxProps } from "../../box";
+import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
-    AriaLabelingProps,
     InteractionStatesProps,
     InternalProps,
     Keys,
@@ -17,8 +18,6 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
-import { Box, BoxProps } from "../../box";
-import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
@@ -37,7 +36,7 @@ interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not to open the autocomplete element.
      */

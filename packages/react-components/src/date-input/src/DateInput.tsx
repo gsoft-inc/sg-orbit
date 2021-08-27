@@ -1,18 +1,5 @@
 import "./DateInput.css";
 
-import {
-    AriaLabelingProps,
-    InteractionStatesProps,
-    InternalProps,
-    OmitInternalProps,
-    augmentElement,
-    cssModule,
-    isNil,
-    mergeClasses,
-    mergeProps,
-    useControllableState,
-    useEventCallback
-} from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
@@ -27,6 +14,18 @@ import {
     useRef
 } from "react";
 import { InputGroup, useInputGroupProps } from "../../input-group";
+import {
+    InteractionStatesProps,
+    InternalProps,
+    OmitInternalProps,
+    augmentElement,
+    cssModule,
+    isNil,
+    mergeClasses,
+    mergeProps,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./date-utils";
@@ -42,7 +41,7 @@ export interface DatePreset {
     date: Date;
 }
 
-export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
+export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
      * A controlled value.
      */

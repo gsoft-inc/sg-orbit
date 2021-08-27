@@ -1,10 +1,10 @@
 import "./Icon.css";
 
-import { AriaLabelingProps, OmitInternalProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
+import { OmitInternalProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerIconProps extends AriaLabelingProps, SVGProps<SVGSVGElement> {
+export interface InnerIconProps extends SVGProps<SVGSVGElement> {
     /**
      * An icon as a React component.
      */

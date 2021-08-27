@@ -1,7 +1,9 @@
 import "./Dialog.css";
 
+import { Box } from "../../box";
+import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CrossButton } from "../../button";
 import {
-    AriaLabelingProps,
     InteractionStatesProps,
     InternalProps,
     MergedRef,
@@ -21,16 +23,13 @@ import {
     useResizeObserver,
     useSlots
 } from "../../shared";
-import { Box } from "../../box";
-import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, AriaLabelingProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */

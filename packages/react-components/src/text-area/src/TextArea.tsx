@@ -1,8 +1,8 @@
 import "./TextArea.css";
 
-import { AriaLabelingProps, InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -12,7 +12,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerTextAreaProps extends InternalProps, InteractionStatesProps, AriaLabelingProps, Omit<ComponentProps<"textarea">, "onChange" | "autoFocus"> {
+export interface InnerTextAreaProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"textarea">, "onChange" | "autoFocus"> {
     /**
      * A controlled value.
      */
