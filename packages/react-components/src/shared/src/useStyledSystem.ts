@@ -1014,8 +1014,6 @@ export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | SpaceValue>
 
 export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
 
-export type OrderProp = Simplify<number | GlobalValue>;
-
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
 export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
@@ -1126,7 +1124,6 @@ export interface StyleProps {
     overflow?: OverflowProp;
     overflowX?: OverflowXProp;
     overflowY?: OverflowYProp;
-    order?: OrderProp;
     padding?: PaddingProp;
     paddingTop?: PaddingTopProp;
     paddingBottom?: PaddingBottomProp;
@@ -1159,7 +1156,7 @@ interface Context {
 
 type PropHandler<T> = (name: string, value: T, context: Context) => void;
 
-function createClassesPropHandler<V extends string>(classes: Record<V, string>): PropHandler<V> {
+function createPropHandler<V extends string>(classes: Record<V, string>): PropHandler<V> {
     return (name, value, context) => {
         const className = classes[value as keyof typeof classes];
 
@@ -1168,12 +1165,6 @@ function createClassesPropHandler<V extends string>(classes: Record<V, string>):
         } else {
             context.style[name] = value;
         }
-    };
-}
-
-function createStyleOnlyPropHandler<V extends string>(): PropHandler<V> {
-    return (name, value, context) => {
-        context.style[name] = value;
     };
 }
 
@@ -1206,84 +1197,80 @@ function flexFlowHandler(name: string, value: string, context: Context) {
     }
 }
 
-// TODO: What about the other props which we don't define? I think we need some kind of fallback for other props to
-// render them as style.
-
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    alignContent: createClassesPropHandler(AlignContentClasses),
-    alignItems: createClassesPropHandler(AlignItemsClasses),
-    alignSelf: createClassesPropHandler(AlignSelfClasses),
-    backgroundColor: createClassesPropHandler(BackgroundColorClasses),
-    backgroundPosition: createClassesPropHandler(BackgroundPositionClasses),
-    backgroundSize: createClassesPropHandler(BackgroundSizeClasses),
-    borderColor: createClassesPropHandler(BorderColorClasses),
-    borderRadius: createClassesPropHandler(BorderRadiusClasses),
-    borderWidth: createClassesPropHandler(BorderWidthClasses),
-    borderTopWidth: createClassesPropHandler(BorderTopWidthClasses),
-    borderBottomWidth: createClassesPropHandler(BorderBottomWidthClasses),
-    borderLeftWidth: createClassesPropHandler(BorderLeftWidthClasses),
-    borderRightWidth: createClassesPropHandler(BorderRightWidthClasses),
-    borderVerticalWidth: createClassesPropHandler(BorderVerticalWidthClasses),
-    borderHorizontalWidth: createClassesPropHandler(BorderHorizontalWidthClasses),
-    bottom: createClassesPropHandler(BottomClasses),
-    boxShadow: createClassesPropHandler(BoxShadowClasses),
-    boxSizing: createClassesPropHandler(BoxSizingClasses),
-    color: createClassesPropHandler(ColorClasses),
-    columnGap: createClassesPropHandler(ColumnGapClasses),
-    cursor: createClassesPropHandler(CursorClasses),
-    display: createClassesPropHandler(DisplayClasses),
-    fill: createClassesPropHandler(FillClasses),
-    flex: createClassesPropHandler(FlexClasses),
-    flexBasis: createClassesPropHandler(FlexBasisClasses),
-    flexDirection: createClassesPropHandler(FlexDirectionClasses),
+    alignContent: createPropHandler(AlignContentClasses),
+    alignItems: createPropHandler(AlignItemsClasses),
+    alignSelf: createPropHandler(AlignSelfClasses),
+    backgroundColor: createPropHandler(BackgroundColorClasses),
+    backgroundPosition: createPropHandler(BackgroundPositionClasses),
+    backgroundSize: createPropHandler(BackgroundSizeClasses),
+    borderColor: createPropHandler(BorderColorClasses),
+    borderRadius: createPropHandler(BorderRadiusClasses),
+    borderWidth: createPropHandler(BorderWidthClasses),
+    borderTopWidth: createPropHandler(BorderTopWidthClasses),
+    borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
+    borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
+    borderRightWidth: createPropHandler(BorderRightWidthClasses),
+    borderVerticalWidth: createPropHandler(BorderVerticalWidthClasses),
+    borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses),
+    bottom: createPropHandler(BottomClasses),
+    boxShadow: createPropHandler(BoxShadowClasses),
+    boxSizing: createPropHandler(BoxSizingClasses),
+    color: createPropHandler(ColorClasses),
+    columnGap: createPropHandler(ColumnGapClasses),
+    cursor: createPropHandler(CursorClasses),
+    display: createPropHandler(DisplayClasses),
+    fill: createPropHandler(FillClasses),
+    flex: createPropHandler(FlexClasses),
+    flexBasis: createPropHandler(FlexBasisClasses),
+    flexDirection: createPropHandler(FlexDirectionClasses),
     flexFlow: flexFlowHandler,
-    flexGrow: createClassesPropHandler(FlexGrowClasses),
-    flexShrink: createClassesPropHandler(FlexShrinkClasses),
-    flexWrap: createClassesPropHandler(FlexWrapClasses),
-    fontSize: createClassesPropHandler(FontSizeClasses),
-    fontWeight: createClassesPropHandler(FontWeightClasses),
-    gap: createClassesPropHandler(GapClasses),
-    height: createClassesPropHandler(HeightClasses),
-    justifyContent: createClassesPropHandler(JustifyContentClasses),
-    left: createClassesPropHandler(LeftClasses),
-    lineHeight: createClassesPropHandler(LineHeightClasses),
-    margin: createClassesPropHandler(MarginClasses),
-    marginTop: createClassesPropHandler(MarginTopClasses),
-    marginBottom: createClassesPropHandler(MarginBottomClasses),
-    marginLeft: createClassesPropHandler(MarginLeftClasses),
-    marginRight: createClassesPropHandler(MarginRightClasses),
-    marginVertical: createClassesPropHandler(MarginVerticalClasses),
-    marginHorizontal: createClassesPropHandler(MarginHorizontalClasses),
-    maxHeight: createClassesPropHandler(MaxHeightClasses),
-    maxWidth: createClassesPropHandler(MaxWidthClasses),
-    minHeight: createClassesPropHandler(MinHeightClasses),
-    minWidth: createClassesPropHandler(MinWidthClasses),
-    objectFit: createClassesPropHandler(ObjectFitClasses),
-    order: createStyleOnlyPropHandler(),
-    overflow: createClassesPropHandler(OverflowClasses),
-    overflowX: createClassesPropHandler(OverflowXClasses),
-    overflowY: createClassesPropHandler(OverflowYClasses),
-    padding: createClassesPropHandler(PaddingClasses),
-    paddingTop: createClassesPropHandler(PaddingTopClasses),
-    paddingBottom: createClassesPropHandler(PaddingBottomClasses),
-    paddingLeft: createClassesPropHandler(PaddingLeftClasses),
-    paddingRight: createClassesPropHandler(PaddingRightClasses),
-    paddingVertical: createClassesPropHandler(PaddingVerticalClasses),
-    paddingHorizontal: createClassesPropHandler(PaddingHorizontalClasses),
-    position: createClassesPropHandler(PositionClasses),
-    right: createClassesPropHandler(RightClasses),
-    rowGap: createClassesPropHandler(RowGapClasses),
-    stroke: createClassesPropHandler(StrokeClasses),
-    textAlign: createClassesPropHandler(TextAlignClasses),
-    textDecoration: createClassesPropHandler(TextDecorationClasses),
-    textOverflow: createClassesPropHandler(TextOverflowClasses),
-    textTransform: createClassesPropHandler(TextTransformClasses),
-    top: createClassesPropHandler(TopClasses),
-    verticalAlign: createClassesPropHandler(VerticalAlignClasses),
-    whiteSpace: createClassesPropHandler(WhiteSpaceClasses),
-    width: createClassesPropHandler(WidthClasses),
-    wordBreak: createClassesPropHandler(WordBreakClasses),
-    zIndex: createClassesPropHandler(ZindexClasses)
+    flexGrow: createPropHandler(FlexGrowClasses),
+    flexShrink: createPropHandler(FlexShrinkClasses),
+    flexWrap: createPropHandler(FlexWrapClasses),
+    fontSize: createPropHandler(FontSizeClasses),
+    fontWeight: createPropHandler(FontWeightClasses),
+    gap: createPropHandler(GapClasses),
+    height: createPropHandler(HeightClasses),
+    justifyContent: createPropHandler(JustifyContentClasses),
+    left: createPropHandler(LeftClasses),
+    lineHeight: createPropHandler(LineHeightClasses),
+    margin: createPropHandler(MarginClasses),
+    marginTop: createPropHandler(MarginTopClasses),
+    marginBottom: createPropHandler(MarginBottomClasses),
+    marginLeft: createPropHandler(MarginLeftClasses),
+    marginRight: createPropHandler(MarginRightClasses),
+    marginVertical: createPropHandler(MarginVerticalClasses),
+    marginHorizontal: createPropHandler(MarginHorizontalClasses),
+    maxHeight: createPropHandler(MaxHeightClasses),
+    maxWidth: createPropHandler(MaxWidthClasses),
+    minHeight: createPropHandler(MinHeightClasses),
+    minWidth: createPropHandler(MinWidthClasses),
+    objectFit: createPropHandler(ObjectFitClasses),
+    overflow: createPropHandler(OverflowClasses),
+    overflowX: createPropHandler(OverflowXClasses),
+    overflowY: createPropHandler(OverflowYClasses),
+    padding: createPropHandler(PaddingClasses),
+    paddingTop: createPropHandler(PaddingTopClasses),
+    paddingBottom: createPropHandler(PaddingBottomClasses),
+    paddingLeft: createPropHandler(PaddingLeftClasses),
+    paddingRight: createPropHandler(PaddingRightClasses),
+    paddingVertical: createPropHandler(PaddingVerticalClasses),
+    paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
+    position: createPropHandler(PositionClasses),
+    right: createPropHandler(RightClasses),
+    rowGap: createPropHandler(RowGapClasses),
+    stroke: createPropHandler(StrokeClasses),
+    textAlign: createPropHandler(TextAlignClasses),
+    textDecoration: createPropHandler(TextDecorationClasses),
+    textOverflow: createPropHandler(TextOverflowClasses),
+    textTransform: createPropHandler(TextTransformClasses),
+    top: createPropHandler(TopClasses),
+    verticalAlign: createPropHandler(VerticalAlignClasses),
+    whiteSpace: createPropHandler(WhiteSpaceClasses),
+    width: createPropHandler(WidthClasses),
+    wordBreak: createPropHandler(WordBreakClasses),
+    zIndex: createPropHandler(ZindexClasses)
 };
 
 /*

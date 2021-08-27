@@ -1,8 +1,8 @@
-import { Flex2, FlexProps } from "@react-components/layout";
+import { Flex2, Flex2Props } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const Flexed = forwardRef<HTMLElement, Omit<FlexProps, "children">>((props, ref) => {
+const Flexed = forwardRef<HTMLDivElement, Omit<Flex2Props, "children">>((props, ref) => {
     return (
         <Flex2
             {...props}
@@ -16,7 +16,7 @@ const Flexed = forwardRef<HTMLElement, Omit<FlexProps, "children">>((props, ref)
 });
 
 test("ref is a DOM element", async () => {
-    const ref = createRef<HTMLElement>();
+    const ref = createRef<HTMLDivElement>();
 
     render(
         <Flexed ref={ref} />
@@ -24,12 +24,12 @@ test("ref is a DOM element", async () => {
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
-    expect(ref.current instanceof HTMLElement).toBeTruthy();
+    expect(ref.current instanceof HTMLDivElement).toBeTruthy();
     expect(ref.current.tagName).toBe("DIV");
 });
 
 test("using a callback ref, ref is a DOM element", async () => {
-    let refNode: HTMLElement = null;
+    let refNode: HTMLDivElement = null;
 
     render(
         <Flexed
@@ -41,7 +41,7 @@ test("using a callback ref, ref is a DOM element", async () => {
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
-    expect(refNode instanceof HTMLElement).toBeTruthy();
+    expect(refNode instanceof HTMLDivElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
 });
 
