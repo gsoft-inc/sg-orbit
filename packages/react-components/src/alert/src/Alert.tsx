@@ -1,13 +1,13 @@
 import "./Alert.css";
 
-import { AriaLabelingProps, InternalProps, OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Dialog, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
+import { InternalProps, OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends InternalProps, AriaLabelingProps {
+export interface InnerAlertProps extends InternalProps, ComponentProps<"section"> {
     /**
      * The element's unique identifier.
      * @ignore

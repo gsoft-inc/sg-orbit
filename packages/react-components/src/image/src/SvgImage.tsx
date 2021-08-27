@@ -1,8 +1,8 @@
-import { AriaLabelingProps, OmitInternalProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ForwardedRef, forwardRef, useCallback, useMemo } from "react";
+import { OmitInternalProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 
-export interface InnerSvgImageProps extends AriaLabelingProps {
+export interface InnerSvgImageProps {
     /**
      * An SVG as a React component.
      */
@@ -31,6 +31,21 @@ export interface InnerSvgImageProps extends AriaLabelingProps {
      * Defines a string value that labels the current element.
      */
     "aria-label": string;
+    /**
+     * Identifies the element (or elements) that labels the current element.
+     * @ignore
+     */
+    "aria-labelledby"?: string;
+    /**
+     * Identifies the element (or elements) that describes the object.
+     * @ignore
+     */
+    "aria-describedby"?: string;
+    /**
+     * Identifies the element (or elements) that provide a detailed, extended description for the object.
+     * @ignore
+     */
+    "aria-details"?: string;
     /**
      * Default slot override.
      */

@@ -1,15 +1,35 @@
 import "./ButtonPresets.css";
 
-import { AriaLabelingProps, isNil, useEventCallback } from "../../shared";
 import { RadioGroup } from "../../radio";
 import { SyntheticEvent } from "react";
 import { ToggleButton } from "../../button";
+import { isNil, useEventCallback } from "../../shared";
 
-export interface ButtonPresetsProps extends AriaLabelingProps {
+export interface ButtonPresetsProps {
     values: string[];
     selectedIndex?: number;
     onSelectionChange: (event: SyntheticEvent, index: number) => void;
     disabled?: boolean;
+    /**
+     * Defines a string value that labels the current element.
+     * @ignore
+     */
+    "aria-label"?: string;
+    /**
+     * Identifies the element (or elements) that labels the current element.
+     * @ignore
+     */
+    "aria-labelledby"?: string;
+    /**
+     * Identifies the element (or elements) that describes the object.
+     * @ignore
+     */
+    "aria-describedby"?: string;
+    /**
+     * Identifies the element (or elements) that provide a detailed, extended description for the object.
+     * @ignore
+     */
+    "aria-details"?: string;
 }
 
 export function ButtonPresets({

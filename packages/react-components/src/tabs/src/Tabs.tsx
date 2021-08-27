@@ -1,15 +1,17 @@
 import "./Tabs.css";
 
-import { AriaLabelingProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
-export interface InnerTabsProps extends InternalProps, AriaLabelingProps {
+const DefaultElement = "div";
+
+export interface InnerTabsProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The element's unique identifier.
      * @ignore
