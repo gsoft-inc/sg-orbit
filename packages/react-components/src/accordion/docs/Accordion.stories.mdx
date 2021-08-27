@@ -1,9 +1,11 @@
 import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@react-components/accordion";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@react-components/placeholders";
 import { HelpIcon, InfoIcon, NotificationIcon } from "@react-components/icons";
 import { InnerItem, Item } from "@react-components/collection";
+import { Paragraph } from "@react-components/typography";
 import { Text } from "@react-components/typography";
 
 <Meta
@@ -22,6 +24,28 @@ import { Text } from "@react-components/typography";
 />
 
 ## Accessibility
+
+The content in the Accordion is collapsable. For that reason, it is important to ensure the navigation is not focusing on content that is hidden.
+
+Orbit is taking care of handling the [`aria-hidden`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-hidden_attribute) value required to let the user know if the content is visible.
+
+<Preview>
+    <Story name="accessibility">
+        <Accordion>
+            <Item key="mars">
+                <Header as="h3">Mars</Header>
+                <Content>
+                    <Paragraph>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Paragraph>
+                    <Button>Cutoff</Button>
+                </Content>
+            </Item>
+            <Item key="jupiter">
+                <Header as="h3">Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
 
 The accordion header that shows and hides the content must be an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
 
