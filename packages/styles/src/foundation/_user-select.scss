@@ -1,0 +1,20 @@
+/* USER-SELECT */
+.o-ui-us-n {
+    user-select: none;
+}
+
+.o-ui-us-a {
+    user-select: auto;
+}
+
+.o-ui-us-t {
+    user-select: text;
+}
+
+.o-ui-us-c {
+    user-select: contain;
+}
+
+.o-ui-us-all {
+    user-select: all;
+}

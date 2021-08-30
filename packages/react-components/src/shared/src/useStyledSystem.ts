@@ -824,6 +824,12 @@ export const PaddingVerticalClasses = createOrbitSpacingScaleClasses("pv", true)
 
 export const PaddingHorizontalClasses = createOrbitSpacingScaleClasses("ph", true);
 
+export const PointerEventsClasses = {
+    "none": "o-ui-pe-n",
+    "auto": "o-ui-pe-a"
+} as const;
+
+
 export const PositionClasses = {
     "static": "o-ui-stc",
     "fixed": "o-ui-f",
@@ -875,6 +881,14 @@ export const TextTransformClasses = {
 } as const;
 
 export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
+
+export const UserSelectClasses = {
+    "none": "o-ui-us-n",
+    "auto": "o-ui-us-a",
+    "tenxt": "o-ui-us-t",
+    "contain": "o-ui-us-c",
+    "all": "o-ui-us-all"
+} as const;
 
 export const VerticalAlignClasses = {
     "top": "o-ui-va-t",
@@ -1046,6 +1060,8 @@ export type PaddingVerticalProp = Simplify<SpaceValue>;
 
 export type PaddingHorizontalProp = Simplify<SpaceValue>;
 
+export type PointerEventsProp = Simplify<keyof typeof PointerEventsClasses | GlobalValue>;
+
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
 export type ResizeProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
@@ -1065,6 +1081,8 @@ export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | Globa
 export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | GlobalValue>;
 
 export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
+
+export type UserSelectProp = Simplify<keyof typeof UserSelectClasses | GlobalValue>;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
@@ -1144,6 +1162,7 @@ export interface StyleProps {
     paddingRight?: PaddingRightProp;
     paddingVertical?: PaddingVerticalProp;
     paddingHorizontal?: PaddingHorizontalProp;
+    pointerEvents?: PointerEventsProp;
     position?: PositionProp;
     resize?: ResizeProp;
     right?: RightProp;
@@ -1154,6 +1173,7 @@ export interface StyleProps {
     textOverflow?: TextOverflowProp;
     textTransform?: TextTransformProp;
     top?: TopProp;
+    userSelect?: UserSelectProp;
     verticalAlign?: VerticalAlignProp;
     whiteSpace?: WhiteSpaceProp;
     width?: WidthProp;
@@ -1271,6 +1291,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingRight: createPropHandler(PaddingRightClasses),
     paddingVertical: createPropHandler(PaddingVerticalClasses),
     paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
+    pointerEvents: createPropHandler(PointerEventsClasses),
     position: createPropHandler(PositionClasses),
     resize: createPropHandler(ResizeClasses),
     right: createPropHandler(RightClasses),
@@ -1281,6 +1302,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     textOverflow: createPropHandler(TextOverflowClasses),
     textTransform: createPropHandler(TextTransformClasses),
     top: createPropHandler(TopClasses),
+    userSelect: createPropHandler(UserSelectClasses),
     verticalAlign: createPropHandler(VerticalAlignClasses),
     whiteSpace: createPropHandler(WhiteSpaceClasses),
     width: createPropHandler(WidthClasses),
