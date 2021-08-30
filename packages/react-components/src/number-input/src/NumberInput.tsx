@@ -64,15 +64,15 @@ export interface InnerNumberInputProps extends InternalProps, InteractionStatesP
      */
     placeholder?: string;
     /**
-     * The minimum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
+     * The minimum value of the input.
      */
     min?: number;
     /**
-     * The maximum value of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
+     * The maximum value of the input.
      */
     max?: number;
     /**
-     * The step used to increment or decrement the value. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number).
+     * The step used to increment or decrement the value.
      */
     step?: number;
     /**

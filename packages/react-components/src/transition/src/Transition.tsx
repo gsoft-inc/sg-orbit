@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, isNilOrEmpty, mergeProps, useEventCal
 
 const DefaultElement = "div";
 
-export interface InnerTransitionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTransitionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value that determined whether or not the component is displayed.
      */

@@ -47,7 +47,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.

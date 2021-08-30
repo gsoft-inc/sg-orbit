@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, mergeProps, omitProps } from "../../s
 
 const DefaultElement = "div";
 
-export interface InnerAccordionPanelProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAccordionPanelProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The panel item props
      */

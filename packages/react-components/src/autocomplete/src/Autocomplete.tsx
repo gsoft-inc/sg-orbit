@@ -36,7 +36,7 @@ interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not to open the autocomplete element.
      */

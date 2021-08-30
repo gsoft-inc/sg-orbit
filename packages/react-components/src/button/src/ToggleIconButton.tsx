@@ -5,7 +5,7 @@ import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */

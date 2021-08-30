@@ -38,7 +38,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of the selected item keys.
      */

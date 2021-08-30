@@ -5,10 +5,6 @@ import { isNil } from "./assertions";
 /*
 TODO:
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
-- See if we can simplify the DOCS types by simplyfing a few types
-    Hints:
-        - Remove css native colors
-        - Remove length / percentage etc.. and only use string
 */
 
 /*
@@ -83,8 +79,10 @@ function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(sec
 
 export type SpaceValue = OrbitSpace | LengthUnit | PercentageUnit | CalcExpression | GlobalValue;
 
+export type SpaceValueIncludingZero = 0 | SpaceValue;
+
 export type WidthValue =
-    SpaceValue |
+    SpaceValueIncludingZero |
     "max-content" |
     "min-content" |
     "fit-content" |
@@ -121,6 +119,7 @@ function createOrbitBorderWidthScaleClasses<IncludeZero extends boolean = false>
 }
 
 export type BorderWidthValue =
+    0 |
     OrbitBorderWidth |
     LengthUnit |
     "thin" |
@@ -128,155 +127,155 @@ export type BorderWidthValue =
     "thick" |
     GlobalValue;
 
-export type NamedColor =
-    "aliceblue" |
-    "antiquewhite" |
-    "aqua" |
-    "aquamarine" |
-    "azure" |
-    "beige" |
-    "bisque" |
-    "black" |
-    "blanchedalmond" |
-    "blue" |
-    "blueviolet" |
-    "brown" |
-    "burlywood" |
-    "cadetblue" |
-    "chartreuse" |
-    "chocolate" |
-    "coral" |
-    "cornflowerblue" |
-    "cornsilk" |
-    "crimson" |
-    "cyan" |
-    "darkblue" |
-    "darkcyan" |
-    "darkgoldenrod" |
-    "darkgray" |
-    "darkgreen" |
-    "darkgrey" |
-    "darkkhaki" |
-    "darkmagenta" |
-    "darkolivegreen" |
-    "darkorange" |
-    "darkorchid" |
-    "darkred" |
-    "darksalmon" |
-    "darkseagreen" |
-    "darkslateblue" |
-    "darkslategray" |
-    "darkslategrey" |
-    "darkturquoise" |
-    "darkviolet" |
-    "deeppink" |
-    "deepskyblue" |
-    "dimgray" |
-    "dimgrey" |
-    "dodgerblue" |
-    "firebrick" |
-    "floralwhite" |
-    "forestgreen" |
-    "fuchsia" |
-    "gainsboro" |
-    "ghostwhite" |
-    "gold" |
-    "goldenrod" |
-    "gray" |
-    "green" |
-    "greenyellow" |
-    "grey" |
-    "honeydew" |
-    "hotpink" |
-    "indianred" |
-    "indigo" |
-    "ivory" |
-    "khaki" |
-    "lavender" |
-    "lavenderblush" |
-    "lawngreen" |
-    "lemonchiffon" |
-    "lightblue" |
-    "lightcoral" |
-    "lightcyan" |
-    "lightgoldenrodyellow" |
-    "lightgray" |
-    "lightgreen" |
-    "lightgrey" |
-    "lightpink" |
-    "lightsalmon" |
-    "lightseagreen" |
-    "lightskyblue" |
-    "lightslategray" |
-    "lightslategrey" |
-    "lightsteelblue" |
-    "lightyellow" |
-    "lime" |
-    "limegreen" |
-    "linen" |
-    "magenta" |
-    "maroon" |
-    "mediumaquamarine" |
-    "mediumblue" |
-    "mediumorchid" |
-    "mediumpurple" |
-    "mediumseagreen" |
-    "mediumslateblue" |
-    "mediumspringgreen" |
-    "mediumturquoise" |
-    "mediumvioletred" |
-    "midnightblue" |
-    "mintcream" |
-    "mistyrose" |
-    "moccasin" |
-    "navajowhite" |
-    "navy" |
-    "oldlace" |
-    "olive" |
-    "olivedrab" |
-    "orange" |
-    "orangered" |
-    "orchid" |
-    "palegoldenrod" |
-    "palegreen" |
-    "paleturquoise" |
-    "palevioletred" |
-    "papayawhip" |
-    "peachpuff" |
-    "peru" |
-    "pink" |
-    "plum" |
-    "powderblue" |
-    "purple" |
-    "rebeccapurple" |
-    "red" |
-    "rosybrown" |
-    "royalblue" |
-    "saddlebrown" |
-    "salmon" |
-    "sandybrown" |
-    "seagreen" |
-    "seashell" |
-    "sienna" |
-    "silver" |
-    "skyblue" |
-    "slateblue" |
-    "slategray" |
-    "slategrey" |
-    "snow" |
-    "springgreen" |
-    "steelblue" |
-    "tan" |
-    "teal" |
-    "thistle" |
-    "tomato" |
-    "turquoise" |
-    "violet" |
-    "wheat" |
-    "white" |
-    "whitesmoke" |
-    "yellow" |
-    "yellowgreen";
+// export type NamedColor =
+//     "aliceblue" |
+//     "antiquewhite" |
+//     "aqua" |
+//     "aquamarine" |
+//     "azure" |
+//     "beige" |
+//     "bisque" |
+//     "black" |
+//     "blanchedalmond" |
+//     "blue" |
+//     "blueviolet" |
+//     "brown" |
+//     "burlywood" |
+//     "cadetblue" |
+//     "chartreuse" |
+//     "chocolate" |
+//     "coral" |
+//     "cornflowerblue" |
+//     "cornsilk" |
+//     "crimson" |
+//     "cyan" |
+//     "darkblue" |
+//     "darkcyan" |
+//     "darkgoldenrod" |
+//     "darkgray" |
+//     "darkgreen" |
+//     "darkgrey" |
+//     "darkkhaki" |
+//     "darkmagenta" |
+//     "darkolivegreen" |
+//     "darkorange" |
+//     "darkorchid" |
+//     "darkred" |
+//     "darksalmon" |
+//     "darkseagreen" |
+//     "darkslateblue" |
+//     "darkslategray" |
+//     "darkslategrey" |
+//     "darkturquoise" |
+//     "darkviolet" |
+//     "deeppink" |
+//     "deepskyblue" |
+//     "dimgray" |
+//     "dimgrey" |
+//     "dodgerblue" |
+//     "firebrick" |
+//     "floralwhite" |
+//     "forestgreen" |
+//     "fuchsia" |
+//     "gainsboro" |
+//     "ghostwhite" |
+//     "gold" |
+//     "goldenrod" |
+//     "gray" |
+//     "green" |
+//     "greenyellow" |
+//     "grey" |
+//     "honeydew" |
+//     "hotpink" |
+//     "indianred" |
+//     "indigo" |
+//     "ivory" |
+//     "khaki" |
+//     "lavender" |
+//     "lavenderblush" |
+//     "lawngreen" |
+//     "lemonchiffon" |
+//     "lightblue" |
+//     "lightcoral" |
+//     "lightcyan" |
+//     "lightgoldenrodyellow" |
+//     "lightgray" |
+//     "lightgreen" |
+//     "lightgrey" |
+//     "lightpink" |
+//     "lightsalmon" |
+//     "lightseagreen" |
+//     "lightskyblue" |
+//     "lightslategray" |
+//     "lightslategrey" |
+//     "lightsteelblue" |
+//     "lightyellow" |
+//     "lime" |
+//     "limegreen" |
+//     "linen" |
+//     "magenta" |
+//     "maroon" |
+//     "mediumaquamarine" |
+//     "mediumblue" |
+//     "mediumorchid" |
+//     "mediumpurple" |
+//     "mediumseagreen" |
+//     "mediumslateblue" |
+//     "mediumspringgreen" |
+//     "mediumturquoise" |
+//     "mediumvioletred" |
+//     "midnightblue" |
+//     "mintcream" |
+//     "mistyrose" |
+//     "moccasin" |
+//     "navajowhite" |
+//     "navy" |
+//     "oldlace" |
+//     "olive" |
+//     "olivedrab" |
+//     "orange" |
+//     "orangered" |
+//     "orchid" |
+//     "palegoldenrod" |
+//     "palegreen" |
+//     "paleturquoise" |
+//     "palevioletred" |
+//     "papayawhip" |
+//     "peachpuff" |
+//     "peru" |
+//     "pink" |
+//     "plum" |
+//     "powderblue" |
+//     "purple" |
+//     "rebeccapurple" |
+//     "red" |
+//     "rosybrown" |
+//     "royalblue" |
+//     "saddlebrown" |
+//     "salmon" |
+//     "sandybrown" |
+//     "seagreen" |
+//     "seashell" |
+//     "sienna" |
+//     "silver" |
+//     "skyblue" |
+//     "slateblue" |
+//     "slategray" |
+//     "slategrey" |
+//     "snow" |
+//     "springgreen" |
+//     "steelblue" |
+//     "tan" |
+//     "teal" |
+//     "thistle" |
+//     "tomato" |
+//     "turquoise" |
+//     "violet" |
+//     "wheat" |
+//     "white" |
+//     "whitesmoke" |
+//     "yellow" |
+//     "yellowgreen";
 
 export type ColorExpressionType =
     "#" |
@@ -287,7 +286,7 @@ export type ColorExpressionType =
 
 export type ColorExpression = `${ColorExpressionType}${string}`;
 
-export type CssColor = ColorExpression | NamedColor;
+export type CssColor = ColorExpression;
 
 export const OrbitColors = [
     "current",
@@ -526,12 +525,6 @@ export const BorderLeftWidthClasses = createOrbitBorderWidthScaleClasses("bl", t
 
 export const BorderRightWidthClasses = createOrbitBorderWidthScaleClasses("br", true);
 
-// TODO FRANK: Do we realistically need vertical border classes?
-export const BorderVerticalWidthClasses = createOrbitBorderWidthScaleClasses("bv", true);
-
-// TODO FRANK: Do we realistically need horizontal border classes?
-export const BorderHorizontalWidthClasses = createOrbitBorderWidthScaleClasses("bh", true);
-
 export const BottomClasses = { ...createOrbitSpacingScaleClasses("bottom", true), "auto": "o-ui-bottom-auto" };
 
 export const BoxShadowClasses = {
@@ -734,9 +727,9 @@ export const MarginLeftClasses = { ...createOrbitSpacingScaleClasses("ml", true)
 
 export const MarginRightClasses = { ...createOrbitSpacingScaleClasses("mr", true), "auto": "o-ui-mr-auto" };
 
-export const MarginVerticalClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-auto" };
+export const MarginXClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-auto" };
 
-export const MarginHorizontalClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-auto" };
+export const MarginYClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-auto" };
 
 export const MaxHeightAdditionalClasses = {
     "100%": "o-ui-mh-100",
@@ -820,9 +813,9 @@ export const PaddingLeftClasses = createOrbitSpacingScaleClasses("pl", true);
 
 export const PaddingRightClasses = createOrbitSpacingScaleClasses("pr", true);
 
-export const PaddingVerticalClasses = createOrbitSpacingScaleClasses("pv", true);
+export const PaddingXClasses = createOrbitSpacingScaleClasses("ph", true);
 
-export const PaddingHorizontalClasses = createOrbitSpacingScaleClasses("ph", true);
+export const PaddingYClasses = createOrbitSpacingScaleClasses("pv", true);
 
 export const PositionClasses = {
     "static": "o-ui-stc",
@@ -947,11 +940,7 @@ export type BorderLeftWidthProp = Simplify<BorderWidthValue>;
 
 export type BorderRightWidthProp = Simplify<BorderWidthValue>;
 
-export type BorderVerticalWidthProp = Simplify<BorderWidthValue>;
-
-export type BorderHorizontalWidthProp = Simplify<BorderWidthValue>;
-
-export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | SpaceValue | GlobalValue>;
+export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
 
 export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
@@ -959,7 +948,7 @@ export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue
 
 export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
 
-export type ColumnGapProp = Simplify<SpaceValue>;
+export type ColumnGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
 
 export type CursorProp = Simplify<keyof typeof CursorClasses | ColorValue>;
 
@@ -985,13 +974,13 @@ export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, s
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
-export type GapProp = Simplify<SpaceValue>;
+export type GapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
 
 export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
-export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | SpaceValue | GlobalValue>;
+export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
@@ -999,23 +988,23 @@ export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand |
 
 export type MarginTopProp = Simplify<keyof typeof MarginTopClasses | GlobalValue>;
 
-export type MarginBottomProp = Simplify<keyof typeof MarginBottomClasses | SpaceValue>;
+export type MarginBottomProp = Simplify<keyof typeof MarginBottomClasses | Omit<SpaceValue, OrbitSpace>>;
 
-export type MarginLeftProp = Simplify<keyof typeof MarginLeftClasses | SpaceValue>;
+export type MarginLeftProp = Simplify<keyof typeof MarginLeftClasses | Omit<SpaceValue, OrbitSpace>>;
 
-export type MarginRightProp = Simplify<keyof typeof MarginRightClasses | SpaceValue>;
+export type MarginRightProp = Simplify<keyof typeof MarginRightClasses | Omit<SpaceValue, OrbitSpace>>;
 
-export type MarginVerticalProp = Simplify<keyof typeof MarginVerticalClasses | SpaceValue>;
+export type MarginXProp = Simplify<keyof typeof MarginXClasses | Omit<SpaceValue, OrbitSpace>>;
 
-export type MarginHorizontalProp = Simplify<keyof typeof MarginHorizontalClasses | SpaceValue>;
+export type MarginYProp = Simplify<keyof typeof MarginYClasses | Omit<SpaceValue, OrbitSpace>>;
 
 export type MaxHeightProp = Simplify<keyof typeof MaxHeightClasses | HeightValue>;
 
 export type MaxWidthProp = Simplify<keyof typeof MaxWidthClasses | WidthValue>;
 
-export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | SpaceValue>;
+export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | Omit<SpaceValue, OrbitSpace>>;
 
-export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | SpaceValue>;
+export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | Omit<SpaceValue, OrbitSpace>>;
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
@@ -1027,23 +1016,23 @@ export type OverflowYProp = Simplify<keyof typeof OverflowYClasses | GlobalValue
 
 export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
 
-export type PaddingTopProp = Simplify<SpaceValue>;
+export type PaddingTopProp = Simplify<SpaceValueIncludingZero>;
 
-export type PaddingBottomProp = Simplify<SpaceValue>;
+export type PaddingBottomProp = Simplify<SpaceValueIncludingZero>;
 
-export type PaddingLeftProp = Simplify<SpaceValue>;
+export type PaddingLeftProp = Simplify<SpaceValueIncludingZero>;
 
-export type PaddingRightProp = Simplify<SpaceValue>;
+export type PaddingRightProp = Simplify<SpaceValueIncludingZero>;
 
-export type PaddingVerticalProp = Simplify<SpaceValue>;
+export type PaddingXProp = Simplify<SpaceValueIncludingZero>;
 
-export type PaddingHorizontalProp = Simplify<SpaceValue>;
+export type PaddingYProp = Simplify<SpaceValueIncludingZero>;
 
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
-export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | SpaceValue | GlobalValue>;
+export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
 
-export type RowGapProp = Simplify<SpaceValue>;
+export type RowGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
 
 export type StrokeProp = Simplify<ColorValue>;
 
@@ -1059,97 +1048,332 @@ export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | G
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
-export type WhiteSpaceProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>;
+export type WhiteSpaceProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
 export type WidthProp = Simplify<keyof typeof WidthClasses | WidthValue>;
 
-export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | SpaceValue>;
+export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
 
 // TODO: Add docs to all props.
 // TODO: I think it should extends from CSSProperties
 export interface StyleProps {
+    /**
+     * @ignore
+     */
     alignContent?: AlignContentProp;
+    /**
+     * @ignore
+     */
     alignItems?: AlignItemsProp;
+    /**
+     * @ignore
+     */
     alignSelf?: AlignSelfProp;
+    /**
+     * @ignore
+     */
     backgroundColor?: BackgroundColorProp;
+    /**
+     * @ignore
+     */
     backgroundPosition?: BackgroundPositionProp;
+    /**
+     * @ignore
+     */
     backgroundSize?: BackgroundSizeProp;
+    /**
+     * @ignore
+     */
     border?: string;
+    /**
+     * @ignore
+     */
     borderColor?: BorderColorProp;
+    /**
+     * @ignore
+     */
     borderRadius?: BorderRadiusProp;
+    /**
+     * @ignore
+     */
     borderStyle?: BorderStyleProp;
+    /**
+     * @ignore
+     */
     borderWidth?: BorderWidthProp;
+    /**
+     * @ignore
+     */
     borderTop?: string;
+    /**
+     * @ignore
+     */
     borderTopWidth?: BorderTopWidthProp;
+    /**
+     * @ignore
+     */
     borderBottom?: string;
+    /**
+     * @ignore
+     */
     borderBottomWidth?: BorderBottomWidthProp;
+    /**
+     * @ignore
+     */
     borderLeft?: string;
+    /**
+     * @ignore
+     */
     borderLeftWidth?: BorderLeftWidthProp;
+    /**
+     * @ignore
+     */
     borderRight?: string;
+    /**
+     * @ignore
+     */
     borderRightWidth?: BorderRightWidthProp;
-    borderVerticalWidth?: BorderVerticalWidthProp;
-    borderHorizontalWidth?: BorderHorizontalWidthProp;
+    /**
+     * @ignore
+     */
     bottom?: BottomProp;
+    /**
+     * @ignore
+     */
     boxShadow?: BoxShadowProp;
+    /**
+     * @ignore
+     */
     boxSizing?: BoxSizingProp;
+    /**
+     * @ignore
+     */
     color?: ColorProp;
+    /**
+     * @ignore
+     */
     columnGap?: ColumnGapProp;
+    /**
+     * @ignore
+     */
     cursor?: CursorProp;
+    /**
+     * @ignore
+     */
     display?: DisplayProp;
+    /**
+     * @ignore
+     */
     fill?: FillProp;
+    /**
+     * @ignore
+     */
     flex?: FlexProp;
+    /**
+     * @ignore
+     */
     flexBasis?: FlexBasisProp;
+    /**
+     * @ignore
+     */
     flexDirection?: FlexDirectionProp;
+    /**
+     * @ignore
+     */
     flexFlow?: FlexFlowProp;
+    /**
+     * @ignore
+     */
     flexGrow?: FlexGrowProp;
+    /**
+     * @ignore
+     */
     flexShrink?: FlexShrinkProp;
+    /**
+     * @ignore
+     */
     flexWrap?: FlexWrapProp;
+    /**
+     * @ignore
+     */
     fontSize?: FontSizeProp;
+    /**
+     * @ignore
+     */
     fontWeight?: FontWeightProp;
+    /**
+     * @ignore
+     */
     gap?: GapProp;
+    /**
+     * @ignore
+     */
     height?: HeightProp;
+    /**
+     * @ignore
+     */
     justifyContent?: JustifyContentProp;
+    /**
+     * @ignore
+     */
     left?: LeftProp;
+    /**
+     * @ignore
+     */
     lineHeight?: LineHeightProp;
+    /**
+     * @ignore
+     */
     margin?: MarginProp;
+    /**
+     * @ignore
+     */
     marginTop?: MarginTopProp;
+    /**
+     * @ignore
+     */
     marginBottom?: MarginBottomProp;
+    /**
+     * @ignore
+     */
     marginLeft?: MarginLeftProp;
+    /**
+     * @ignore
+     */
     marginRight?: MarginRightProp;
-    marginVertical?: MarginVerticalProp;
-    marginHorizontal?: MarginHorizontalProp;
+    /**
+     * @ignore
+     */
+    marginX?: MarginXProp;
+    /**
+     * @ignore
+     */
+    marginY?: MarginYProp;
+    /**
+     * @ignore
+     */
     maxHeight?: MaxHeightProp;
+    /**
+     * @ignore
+     */
     maxWidth?: MaxWidthProp;
+    /**
+     * @ignore
+     */
     minHeight?: MinHeightProp;
+    /**
+     * @ignore
+     */
     minWidth?: MinWidthProp;
+    /**
+     * @ignore
+     */
     objectFit?: ObjectFitProp;
+    /**
+     * @ignore
+     */
     overflow?: OverflowProp;
+    /**
+     * @ignore
+     */
     overflowX?: OverflowXProp;
+    /**
+     * @ignore
+     */
     overflowY?: OverflowYProp;
+    /**
+     * @ignore
+     */
     padding?: PaddingProp;
+    /**
+     * @ignore
+     */
     paddingTop?: PaddingTopProp;
+    /**
+     * @ignore
+     */
     paddingBottom?: PaddingBottomProp;
+    /**
+     * @ignore
+     */
     paddingLeft?: PaddingLeftProp;
+    /**
+     * @ignore
+     */
     paddingRight?: PaddingRightProp;
-    paddingVertical?: PaddingVerticalProp;
-    paddingHorizontal?: PaddingHorizontalProp;
+    /**
+     * @ignore
+     */
+    paddingX?: PaddingXProp;
+    /**
+     * @ignore
+     */
+    paddingY?: PaddingYProp;
+    /**
+     * @ignore
+     */
     position?: PositionProp;
+    /**
+     * @ignore
+     */
     right?: RightProp;
+    /**
+     * @ignore
+     */
     rowGap?: RowGapProp;
+    /**
+     * @ignore
+     */
     stroke?: StrokeProp;
+    /**
+     * @ignore
+     */
     textAlign?: TextAlignProp;
+    /**
+     * @ignore
+     */
     textDecoration?: TextDecorationProp;
+    /**
+     * @ignore
+     */
     textOverflow?: TextOverflowProp;
+    /**
+     * @ignore
+     */
     textTransform?: TextTransformProp;
+    /**
+     * @ignore
+     */
     top?: TopProp;
+    /**
+     * @ignore
+     */
     verticalAlign?: VerticalAlignProp;
+    /**
+     * @ignore
+     */
     whiteSpace?: WhiteSpaceProp;
+    /**
+     * @ignore
+     */
     width?: WidthProp;
+    /**
+     * @ignore
+     */
     wordBreak?: WordBreakProp;
+    /**
+     * @ignore
+     */
     zIndex?: ZindexProp;
+    /**
+     * @ignore
+     */
     className?: string;
+    /**
+     * @ignore
+     */
     style?: CSSProperties;
 }
 
@@ -1215,8 +1439,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
     borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
     borderRightWidth: createPropHandler(BorderRightWidthClasses),
-    borderVerticalWidth: createPropHandler(BorderVerticalWidthClasses),
-    borderHorizontalWidth: createPropHandler(BorderHorizontalWidthClasses),
     bottom: createPropHandler(BottomClasses),
     boxShadow: createPropHandler(BoxShadowClasses),
     boxSizing: createPropHandler(BoxSizingClasses),
@@ -1244,8 +1466,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginBottom: createPropHandler(MarginBottomClasses),
     marginLeft: createPropHandler(MarginLeftClasses),
     marginRight: createPropHandler(MarginRightClasses),
-    marginVertical: createPropHandler(MarginVerticalClasses),
-    marginHorizontal: createPropHandler(MarginHorizontalClasses),
+    marginX: createPropHandler(MarginXClasses),
+    marginY: createPropHandler(MarginYClasses),
     maxHeight: createPropHandler(MaxHeightClasses),
     maxWidth: createPropHandler(MaxWidthClasses),
     minHeight: createPropHandler(MinHeightClasses),
@@ -1259,8 +1481,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingBottom: createPropHandler(PaddingBottomClasses),
     paddingLeft: createPropHandler(PaddingLeftClasses),
     paddingRight: createPropHandler(PaddingRightClasses),
-    paddingVertical: createPropHandler(PaddingVerticalClasses),
-    paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
+    paddingX: createPropHandler(PaddingXClasses),
+    paddingY: createPropHandler(PaddingYClasses),
     position: createPropHandler(PositionClasses),
     right: createPropHandler(RightClasses),
     rowGap: createPropHandler(RowGapClasses),

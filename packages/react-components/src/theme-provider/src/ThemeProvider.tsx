@@ -11,7 +11,7 @@ export type ColorSchemeOrSystem = ColorScheme | "system";
 
 const DefaultElement = "div";
 
-export interface ThemeProviderProps extends StyleProps, Omit<ComponentProps<typeof DefaultElement>, "ref"> {
+export interface ThemeProviderProps extends StyleProps, Omit<OrbitComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * The theme to use.
      */

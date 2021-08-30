@@ -8,7 +8,7 @@ import { useTabsContext } from "./TabsContext";
 
 const DefaultElement = "div";
 
-export interface InnerTabPanelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTabPanelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * Matching panel item.
      */

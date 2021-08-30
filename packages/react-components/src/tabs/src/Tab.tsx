@@ -11,7 +11,7 @@ export const TabKeyProp = "data-o-ui-key";
 
 const DefaultElement = "button";
 
-export interface InnerTabProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTabProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Matching tab item.
      */

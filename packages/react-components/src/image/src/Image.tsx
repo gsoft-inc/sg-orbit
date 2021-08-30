@@ -2,17 +2,17 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HeightProp, InternalProps, OmitInternalProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
+import { HeightProp, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
-export interface InnerImageProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerImageProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The path to the image.
      */
     src?: string;
     /**
-     * One or more strings separated by commas, indicating possible image sources for the user agent to use. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset).
+     * One or more strings separated by commas, indicating possible image sources for the user agent to use.
      */
     srcSet?: string;
     /**
@@ -28,11 +28,11 @@ export interface InnerImageProps extends SlotProps, InternalProps, ComponentProp
      */
     shape?: "straight" | "rounded" | "circular";
     /**
-     * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
+     * How the image should be resized to fit its container.
      */
     fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
     /**
-     * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
+     * The alignment of the image within it's box.
      */
     position?: string;
 }

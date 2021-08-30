@@ -7,7 +7,7 @@ import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTooltipTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
     * Whether or not to show the tooltip.
     */

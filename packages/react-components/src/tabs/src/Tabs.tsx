@@ -11,7 +11,7 @@ import { useTabsItems } from "./useTabsItems";
 
 const DefaultElement = "div";
 
-export interface InnerTabsProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTabsProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The element's unique identifier.
      * @ignore

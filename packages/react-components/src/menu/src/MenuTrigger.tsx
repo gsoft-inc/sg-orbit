@@ -20,7 +20,7 @@ import { useInputGroupMenuAddonProps } from "../../input-group";
 
 const DefaultElement = "div";
 
-export interface InnerMenuTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the menu.
      */

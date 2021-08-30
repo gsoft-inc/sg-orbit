@@ -3,7 +3,7 @@ import { isNil, mergeProps } from "../../shared";
 
 export interface HiddenSelectProps extends ComponentProps<"input"> {
     /**
-     * Name of the element. Used by the server to identify the fields in form submits. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes).
+     * Name of the element. Used by the server to identify the fields in form submits.
      */
     name?: string;
     /**

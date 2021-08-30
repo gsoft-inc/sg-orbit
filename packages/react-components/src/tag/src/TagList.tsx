@@ -9,7 +9,7 @@ import { Tag, TagProps } from "./Tag";
 
 const DefaultElement = "div";
 
-export interface InnerTagListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTagListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A tag list can vary in size.
      */

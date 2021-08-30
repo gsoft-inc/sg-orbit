@@ -20,11 +20,11 @@ export interface InnerSvgImageProps extends SlotProps {
     */
     height?: number;
     /**
-     * The SVG stroke attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
+     * The SVG stroke attribute.
      */
     stroke?: string;
     /**
-     * The SVG fill attribute. See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill).
+     * The SVG fill attribute.
      */
     fill?: string;
     /**

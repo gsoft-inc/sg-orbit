@@ -40,7 +40,7 @@ const MessageContent = forwardRef<any, InnerMessageContentProps>(({
     );
 });
 
-export interface InnerMessageProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMessageProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A controlled show value.
      */

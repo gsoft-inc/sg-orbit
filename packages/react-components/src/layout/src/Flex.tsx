@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerFlexProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */

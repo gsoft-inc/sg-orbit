@@ -2,12 +2,12 @@ import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
 
-export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAvatarGroupProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The avatars of the group can vary in size.
      */

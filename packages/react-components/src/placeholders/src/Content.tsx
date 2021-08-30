@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared"
 
 const DefaultElement = "div";
 
-export interface InnerContentProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerContentProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

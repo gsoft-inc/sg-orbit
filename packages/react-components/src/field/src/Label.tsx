@@ -7,7 +7,7 @@ import { useFieldLabelProps } from "./FieldContext";
 
 const DefaultElement = "label";
 
-export interface InnerLabelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color">{
+export interface InnerLabelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * Whether or not the label show a required state.
      */

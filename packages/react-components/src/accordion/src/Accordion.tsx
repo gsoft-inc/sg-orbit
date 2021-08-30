@@ -8,6 +8,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -25,7 +26,7 @@ import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAccordionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A controlled set of expanded item keys.
      */
@@ -85,15 +86,15 @@ export function InnerAccordion({
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     });
 
     const handleToggle = useEventCallback((event: SyntheticEvent, toggledKey: string) => {
@@ -121,12 +122,12 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
-                    id: accordionId,
+                    as,
                     className: cssModule(
                         "o-ui-accordion",
                         variant
                     ),
-                    as,
+                    id: accordionId,
                     ref: containerRef
                 },
                 navigationProps

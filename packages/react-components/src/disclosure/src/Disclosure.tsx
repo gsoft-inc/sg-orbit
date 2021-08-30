@@ -8,7 +8,7 @@ import { useSlidingTransition } from "./useSlidingTransition";
 
 const DefaultElement = "div";
 
-export interface InnerDisclosureProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerDisclosureProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A controlled open value.
      */

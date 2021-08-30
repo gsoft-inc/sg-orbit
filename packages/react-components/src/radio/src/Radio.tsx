@@ -24,7 +24,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */

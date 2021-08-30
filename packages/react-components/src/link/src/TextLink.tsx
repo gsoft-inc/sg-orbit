@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -11,7 +11,7 @@ import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerTextLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTextLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */

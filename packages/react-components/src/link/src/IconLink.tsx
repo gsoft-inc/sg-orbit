@@ -3,13 +3,13 @@ import "./Link.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */

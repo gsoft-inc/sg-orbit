@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize,
 
 const DefaultElement = "div";
 
-export interface InnerHeadingProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerHeadingProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A heading can vary in size.
      */

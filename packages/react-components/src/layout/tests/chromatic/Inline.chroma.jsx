@@ -1,5 +1,16 @@
+import { Box } from "@react-components/box";
 import { Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
+
+function Div({ children, ...rest }) {
+    return (
+        <Box {...rest}>
+            {children}
+        </Box>
+    );
+}
+
+////////////
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Inline")
@@ -9,58 +20,100 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline fluid>
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+        <Inline>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("align start", () =>
-        <Inline align="start">
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("reverse", () =>
+        <Inline reverse>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("align end", () =>
-        <Inline align="end">
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align X start", () =>
+        <Inline alignX="start">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("align center", () =>
-        <Inline align="center">
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align X center", () =>
+        <Inline alignX="center">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("vertical align start", () =>
-        <Inline verticalAlign="start" style={{ height: "100px" }}>
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align X end", () =>
+        <Inline alignX="end">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("vertical align end", () =>
-        <Inline verticalAlign="end" style={{ height: "100px" }}>
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align Y start", () =>
+        <Inline alignY="start" height="100px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("vertical align center", () =>
-        <Inline verticalAlign="center" style={{ height: "100px" }}>
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align Y center", () =>
+        <Inline alignY="center" height="100px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("gap", () =>
-        <Inline gap={10}>
-            <div className="bg-primary-500">Alpha</div>
-            <div className="bg-primary-500">Bravo</div>
-            <div className="bg-primary-500">Charlie</div>
+    .add("align Y end", () =>
+        <Inline alignY="end" height="100px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Inline>
+    )
+    .add("wrap", () =>
+        <Inline wrap="wrap" width="25px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Inline>
+    )
+    .add("wrap reverse", () =>
+        <Inline wrap="wrap-reverse" width="25px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Inline>
+    )
+    .add("inline", () =>
+        <>
+            <Inline inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Inline>
+            <Inline inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Inline>
+        </>
+    )
+    .add("nested", () =>
+        <Inline gap={8}>
+            <Inline gap={1}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Inline>
+            <Inline gap={12}>
+                <Div backgroundColor="beetle-5">Delta</Div>
+                <Div backgroundColor="beetle-5">Echo</Div>
+                <Div backgroundColor="beetle-5">Foxtrot</Div>
+            </Inline>
         </Inline>
     );

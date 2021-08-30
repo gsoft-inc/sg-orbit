@@ -5,9 +5,9 @@ import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
-const DefaultElement ="div";
+const DefaultElement = "div";
 
-export interface InnerIllustrationProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIllustrationProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the illustration.
      */

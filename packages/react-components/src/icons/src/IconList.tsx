@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, slot } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerIconListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the IconList is disabled.
      */

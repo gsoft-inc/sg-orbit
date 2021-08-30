@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerUnderlayProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerUnderlayProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The z-index of the underlay.
      */

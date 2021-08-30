@@ -9,7 +9,7 @@ import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
-export interface InnerTagProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTagProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The tag style to use.
      */

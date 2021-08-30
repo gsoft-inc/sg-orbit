@@ -1,5 +1,6 @@
+import { GapProp, ValidationState, cssModule, normalizeSize } from "../../shared";
+import { Orientation } from "../../layout";
 import { Ref } from "react";
-import { cssModule, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
 const Gap = {
@@ -17,9 +18,9 @@ export interface UseGroupInputProps {
     role?: "group" | "radiogroup";
     cssModule?: string;
     required?: boolean;
-    validationState?: "valid" | "invalid";
-    orientation?: "horizontal" | "vertical";
-    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
+    validationState?: ValidationState;
+    orientation?: Orientation;
+    gap?: GapProp;
     wrap?: boolean;
     size?: "sm" | "md";
     reverse?: boolean;
@@ -31,22 +32,22 @@ export interface UseGroupInputProps {
 export interface UseGroupInputReturn {
     groupProps: {
         inline?: boolean;
-        orientation?: "horizontal" | "vertical";
+        orientation?: Orientation;
         align?: "end" | "start";
-        gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
+        gap?: GapProp;
         wrap?: boolean;
         className?: string;
         role?: "group" | "radiogroup";
         "aria-required"?: boolean;
         "aria-invalid"?: boolean;
-        "aria-orientation"?: "horizontal" | "vertical";
+        "aria-orientation"?: Orientation;
         "aria-disabled"?: boolean;
         ref?: Ref<any>;
     };
     itemProps: {
         size?: "sm" | "md";
         reverse?: boolean;
-        validationState?: "valid" | "invalid";
+        validationState?: ValidationState;
         disabled?: boolean;
     };
 }

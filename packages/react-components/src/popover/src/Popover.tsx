@@ -22,7 +22,7 @@ import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
-export interface InnerPopoverProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

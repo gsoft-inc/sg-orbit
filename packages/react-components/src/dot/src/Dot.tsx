@@ -8,7 +8,7 @@ import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDotProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */

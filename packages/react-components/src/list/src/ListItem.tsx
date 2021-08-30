@@ -4,7 +4,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "li";
 
-export interface InnerListItemProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerListItemProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A list item can vary in size.
      */

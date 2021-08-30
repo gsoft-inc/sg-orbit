@@ -5,6 +5,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     SlotProps,
     augmentElement,
     isNil,
@@ -21,7 +22,7 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
@@ -29,143 +30,62 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
-     */
-    direction?: "row" | "column";
-    /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
-     */
-    alignContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
-     */
-    alignItems?: (
-        "start" |
-        "end" |
-        "center" |
-        "stretch" |
-        "self-start" |
-        "self-end" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "left" |
-        "right" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren?: boolean;
-    /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
-    /**
-     * The horizontal alignment of the elements.
-     */
-    align?: "start" | "end" | "center";
-    /**
-     * The vertical alignment of the elements.
-     */
-    verticalAlign?: "start" | "end" | "center";
-    /**
-     * Whether the elements take up the width & height of their container.
-     */
-    fluid?: boolean;
-    /**
-     * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
-     */
-    role?: string;
+export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * The value of the radio group.
      */
     value?: string | null;
     /**
-     * The initial value of `value`.
-     */
+      * The initial value of `value`.
+      */
     defaultValue?: string;
     /**
-     * Whether or not a user input is required before form submission.
-     */
+      * Whether or not a user input is required before form submission.
+      */
     required?: boolean;
     /**
-     * Whether the group should display as "valid" or "invalid".
-     */
+      * Whether the group should display as "valid" or "invalid".
+      */
     validationState?: "valid" | "invalid";
     /**
-     * Radio group name.
-     */
+      * Radio group name.
+      */
     name?: string;
     /**
-     * Called when any of the group elements is checked or unchecked.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string} value - The new value.
-     * @returns {void}
-     */
+      * Called when any of the group elements is checked or unchecked.
+      * @param {SyntheticEvent} event - React's original event.
+      * @param {string} value - The new value.
+      * @returns {void}
+      */
     onChange?: (event: SyntheticEvent, value: string) => void;
     /**
-     * Whether or not the radio group should autoFocus on render.
-     */
+      * Whether or not the radio group should autoFocus on render.
+      */
     autoFocus?: boolean | number;
     /**
-     * The orientation of the group elements.
-     */
+      * The orientation of the group elements.
+      */
     orientation?: "horizontal" | "vertical";
     /**
-     * The space between the group elements.
-     */
+      * The space between the group elements.
+      */
     gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
-     * Whether the group elements are forced onto one line or can wrap onto multiple lines
-     */
+      * Whether the group elements are forced onto one line or can wrap onto multiple lines
+      */
     wrap?: boolean;
     /**
-     * Invert the order of the radio button and his label.
-     */
+      * Invert the order of the radio button and his label.
+      */
     reverse?: boolean;
     /**
-     * Whether or not the radio group is disabled.
-     */
+      * Whether or not the radio group is disabled.
+      */
     disabled?: boolean;
     /**
-     * React children.
-     */
+      * React children.
+      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    className?: string;
 }
 
 const NavigationKeyBinding = {

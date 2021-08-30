@@ -15,7 +15,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "input";
 
-export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */

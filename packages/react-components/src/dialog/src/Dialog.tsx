@@ -29,7 +29,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */

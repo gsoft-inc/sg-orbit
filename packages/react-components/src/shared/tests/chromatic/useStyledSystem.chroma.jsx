@@ -2,13 +2,11 @@ import {
     BackgroundColorClasses,
     BorderBottomWidthClasses,
     BorderColorClasses,
-    BorderHorizontalWidthClasses,
     BorderLeftWidthClasses,
     BorderRadiusClasses,
     BorderRightWidthClasses,
     BorderStyleClasses,
     BorderTopWidthClasses,
-    BorderVerticalWidthClasses,
     BorderWidthClasses,
     BoxShadowClasses,
     BoxSizingClasses,
@@ -20,22 +18,22 @@ import {
     LineHeightClasses,
     MarginBottomClasses,
     MarginClasses,
-    MarginHorizontalClasses,
     MarginLeftClasses,
     MarginRightClasses,
     MarginTopClasses,
-    MarginVerticalClasses,
+    MarginXClasses,
+    MarginYClasses,
     ObjectFitClasses,
     OverflowClasses,
     OverflowXClasses,
     OverflowYClasses,
     PaddingBottomClasses,
     PaddingClasses,
-    PaddingHorizontalClasses,
     PaddingLeftClasses,
     PaddingRightClasses,
     PaddingTopClasses,
-    PaddingVerticalClasses,
+    PaddingXClasses,
+    PaddingYClasses,
     StrokeClasses,
     TextAlignClasses,
     TextDecorationClasses,
@@ -181,18 +179,6 @@ stories()
             <LargeSquare borderColor="black" borderRightWidth="1px" borderStyle="solid" />
         </Inline>
     )
-    .add("border vertical width", () =>
-        <Inline>
-            {Object.keys(BorderVerticalWidthClasses).map(x => <LargeSquare borderVerticalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            <LargeSquare borderColor="black" borderVerticalWidth="1px" borderStyle="solid" />
-        </Inline>
-    )
-    .add("border horizontal width", () =>
-        <Inline>
-            {Object.keys(BorderHorizontalWidthClasses).map(x => <LargeSquare borderHorizontalWidth={x} borderStyle="solid" borderColor="#000" key={x} />)}
-            <LargeSquare borderColor="black" borderHorizontalWidth="1px" borderStyle="solid" />
-        </Inline>
-    )
     .add("box shadow", () =>
         <Inline>
             {Object.keys(BoxShadowClasses).map(x => <LargeSquare boxShadow={x} key={x} />)}
@@ -296,21 +282,21 @@ stories()
             <SmallSquare marginRight="12px" backgroundColor="#000" />
         </Inline>
     )
-    .add("margin vertical", () =>
-        <Inline gap={0} wrap>
-            {Object.keys(MarginVerticalClasses).map(x => <SmallSquare marginVertical={x} backgroundColor="#000" key={x} />)}
-            <SmallSquare marginVertical="12px" backgroundColor="#000" />
-        </Inline>
-    )
-    .add("margin horizontal", () =>
+    .add("margin X", () =>
         <Stack>
             <Inline gap={0} wrap>
-                {Object.keys(MarginHorizontalClasses).map(x => <SmallSquare marginHorizontal={x} backgroundColor="#000" key={x} />)}
+                {Object.keys(MarginXClasses).map(x => <SmallSquare marginX={x} backgroundColor="#000" key={x} />)}
             </Inline>
             <Inline>
-                <SmallSquare marginHorizontal="12px" backgroundColor="#000" />
+                <SmallSquare marginX="12px" backgroundColor="#000" />
             </Inline>
         </Stack>
+    )
+    .add("margin Y", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(MarginYClasses).map(x => <SmallSquare marginY={x} backgroundColor="#000" key={x} />)}
+            <SmallSquare marginY="12px" backgroundColor="#000" />
+        </Inline>
     )
     .add("object fit", () =>
         <Inline gap={0} wrap>
@@ -322,12 +308,12 @@ stories()
             {Object.keys(OverflowClasses).map(x => <Box overflow={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
         </Inline>
     )
-    .add("overflow x", () =>
+    .add("overflow X", () =>
         <Inline gap={0} wrap>
             {Object.keys(OverflowXClasses).map(x => <Box overflowX={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
         </Inline>
     )
-    .add("overflow y", () =>
+    .add("overflow Y", () =>
         <Inline gap={0} wrap>
             {Object.keys(OverflowYClasses).map(x => <Box overflowY={x} key={x} width="200px" height="200px"><Paragraph>Michaelmas term lately over, and 3.1415926535897932384626433832795029 the Lord Chancellor.</Paragraph></Box>)}
         </Inline>
@@ -362,16 +348,16 @@ stories()
             <SmallSquare paddingRight="12px" backgroundColor="#000" />
         </Inline>
     )
-    .add("padding vertical", () =>
+    .add("padding X", () =>
         <Inline gap={0} wrap>
-            {Object.keys(PaddingVerticalClasses).map(x => <SmallSquare paddingVertical={x} backgroundColor="#000" key={x} />)}
-            <SmallSquare paddingVertical="12px" backgroundColor="#000" />
+            {Object.keys(PaddingXClasses).map(x => <SmallSquare paddingX={x} backgroundColor="#000" key={x} />)}
+            <SmallSquare paddingX="12px" backgroundColor="#000" />
         </Inline>
     )
-    .add("padding horizontal", () =>
+    .add("padding Y", () =>
         <Inline gap={0} wrap>
-            {Object.keys(PaddingHorizontalClasses).map(x => <SmallSquare paddingHorizontal={x} backgroundColor="#000" key={x} />)}
-            <SmallSquare paddingHorizontal="12px" backgroundColor="#000" />
+            {Object.keys(PaddingYClasses).map(x => <SmallSquare paddingY={x} backgroundColor="#000" key={x} />)}
+            <SmallSquare paddingY="12px" backgroundColor="#000" />
         </Inline>
     )
     .add("stroke", () =>

@@ -6,7 +6,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTooltipProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */

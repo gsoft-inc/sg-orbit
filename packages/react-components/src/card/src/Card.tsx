@@ -7,7 +7,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "section";
 
-export interface InnerCardProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerCardProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the card.
      */

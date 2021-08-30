@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "li";
 
-export interface InnerMenuSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuSectionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */

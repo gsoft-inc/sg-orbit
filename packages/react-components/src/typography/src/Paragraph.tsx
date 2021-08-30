@@ -6,7 +6,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "p";
 
-export interface InnerParagraphProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerParagraphProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A paragraph can vary in size.
      */

@@ -5,7 +5,7 @@ import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not to show the popover.
      */

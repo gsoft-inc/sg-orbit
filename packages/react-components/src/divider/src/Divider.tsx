@@ -7,7 +7,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerDividerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDividerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the divider.
      */

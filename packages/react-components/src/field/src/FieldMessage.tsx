@@ -6,7 +6,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerFieldMessageProps extends Omit<ComponentProps<typeof DefaultElement>, "color">{
+export interface InnerFieldMessageProps extends Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * The style to use.
      */

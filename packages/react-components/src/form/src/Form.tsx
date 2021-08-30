@@ -7,7 +7,7 @@ import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../s
 
 const DefaultElement = "form";
 
-export interface InnerFormProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerFormProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the form take up the width of its container.
      */

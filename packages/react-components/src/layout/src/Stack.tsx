@@ -1,131 +1,104 @@
+import { Alignment, useFlexAlignment } from "./adapters";
+import {
+    ColumnGapProp,
+    FlexWrapProp,
+    GapProp,
+    InternalProps,
+    OmitInternalProps,
+    OrbitComponentProps,
+    RowGapProp,
+    SlotProps,
+    StyleProps,
+    mergeProps
+} from "../../shared";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex } from "./Flex";
-import { InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps } from "../../shared";
-import { useFlexAlignment } from "./adapters";
+import { Flex2 } from "./Flex2";
 
 const DefaultElement = "div";
 
-export interface InnerStackProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "wrap"> {
+export interface InnerStackProps extends
+    Omit<StyleProps,
+    "alignContent"
+    | "alignItems"
+    | "columnGap"
+    | "display"
+    | "flex"
+    | "flexDirection"
+    | "flexWrap"
+    | "gap"
+    | "justifyContent"
+    | "row-gap">,
+    SlotProps,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "wrap"> {
     /**
-     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
-     */
-    direction?: "row" | "column";
+      * The horizontal alignment of the elements.
+      */
+    alignX?: Alignment;
     /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
+       * The vertical alignment of the elements.
+       */
+    alignY?: Alignment;
     /**
-     * Whether or not to reverse the order of the elements.
-     */
-    reverse?: boolean;
+      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
+      */
+    columnGap?: ColumnGapProp;
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
-     */
-    alignContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
-     */
-    alignItems?: (
-        "start" |
-        "end" |
-        "center" |
-        "stretch" |
-        "self-start" |
-        "self-end" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "left" |
-        "right" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
-    /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren?: boolean;
-    /**
-     * The horizontal alignment of the elements.
-     */
-    align?: "start" | "end" | "center";
-    /**
-     * The vertical alignment of the elements.
-     */
-    verticalAlign?: "start" | "end" | "center";
-    /**
-     * Space to display between each elements.
-     */
-    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
-    /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
-     */
-    wrap?: boolean;
-    /**
-     * Whether the elements take up the all the space of their container.
-     */
+       * Whether the elements take up all the space of their container.
+       */
     fluid?: boolean;
     /**
-     * React children.
-     */
+      * Whether or not the element generate line breaks before or after himself.
+      */
+    inline?: boolean;
+    /**
+      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
+      */
+    gap?: GapProp;
+    /**
+       * Whether or not to reverse the order of the elements.
+       */
+    reverse?: boolean;
+    /**
+      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap).
+      */
+    rowGap?: RowGapProp;
+    /**
+       * Alias for flex-wrap.
+       */
+    wrap?: FlexWrapProp;
+    /**
+       * React children
+      */
     children: ReactNode;
 }
 
 
 export function InnerStack({
-    align,
-    verticalAlign,
+    alignX,
+    alignY,
     gap = 5,
-    wrap,
     children,
     as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerStackProps) {
-    const alignProps = useFlexAlignment("vertical", align, verticalAlign);
+    const alignProps = useFlexAlignment("vertical", alignX, alignY);
 
     return (
-        <Flex
+        <Flex2
             {...mergeProps(
                 rest,
                 {
+                    gap,
                     as,
-                    direction: "column",
-                    gap: gap !== 0 ? gap : undefined,
-                    wrap: !isNil(wrap) ? "wrap" : undefined,
                     ref: forwardedRef
                 } as const,
                 alignProps
             )}
         >
             {children}
-        </Flex>
+        </Flex2>
     );
 }
 

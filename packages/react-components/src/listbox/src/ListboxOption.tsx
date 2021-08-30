@@ -15,7 +15,7 @@ interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
     * Matching collection item.
     */

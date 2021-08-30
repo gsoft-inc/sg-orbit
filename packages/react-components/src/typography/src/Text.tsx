@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, nor
 
 const DefaultElement = "span";
 
-export interface InnerTextProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTextProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A text can vary in size.
      */

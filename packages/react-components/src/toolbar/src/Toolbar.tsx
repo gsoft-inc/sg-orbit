@@ -1,14 +1,14 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex, useFlexAlignment, useFlexDirection } from "../../layout";
-import { InternalProps, Keys, OmitInternalProps, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import { Flex, useFlexAlignment } from "../../layout";
+import { InternalProps, Keys, OmitInternalProps, OrbitComponentProps, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
 const DefaultElement = "div";
 
-export interface InnerToolbarProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerToolbarProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-         * Whether or not the toolbar should autoFocus the first tabbable element on render.
-         */
+     * Whether or not the toolbar should autoFocus the first tabbable element on render.
+     */
     autoFocus?: boolean | number;
     /**
      * The orientation of the elements.
@@ -43,7 +43,6 @@ export interface InnerToolbarProps extends InternalProps, ComponentProps<typeof 
      */
     children: ReactNode;
 }
-
 
 const NavigationKeyBinding = {
     horizontal: {
@@ -88,8 +87,6 @@ export function InnerToolbar({
 
     const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
-    const directionProps = useFlexDirection(orientation);
-
     const alignProps = useFlexAlignment(
         orientation,
         align,
@@ -110,7 +107,6 @@ export function InnerToolbar({
                     ref: containerRef,
                     "aria-orientation": orientation
                 } as const,
-                directionProps,
                 alignProps,
                 arrowNavigationProps
             )}

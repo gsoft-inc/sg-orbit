@@ -7,7 +7,7 @@ import { useTile } from "./useTile";
 
 const DefaultElement = "button";
 
-export interface InnerTileProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerTileProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * A controlled checked value.
      */

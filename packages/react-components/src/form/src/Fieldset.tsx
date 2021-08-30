@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, mergeProps, useId } from "../../share
 
 const DefaultElement = "div";
 
-export interface InnerFieldsetProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerFieldsetProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A label identifying the group.
      */

@@ -10,7 +10,7 @@ import type { SelectionMode } from "./Menu";
 
 const DefaultElement = "li";
 
-export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Matching collection item.
      */

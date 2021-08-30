@@ -10,7 +10,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The icon button style to use.
      */

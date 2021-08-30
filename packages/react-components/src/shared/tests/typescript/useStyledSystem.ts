@@ -34,16 +34,15 @@ import {
     LengthUnit,
     LineHeightProp,
     MarginBottomProp,
-    MarginHorizontalProp,
     MarginLeftProp,
     MarginProp,
     MarginRightProp,
-    MarginVerticalProp,
+    MarginXProp,
+    MarginYProp,
     MaxHeightProp,
     MaxWidthProp,
     MinHeightProp,
     MinWidthProp,
-    OrderProp,
     PercentageUnit,
     PositionProp,
     RightProp,
@@ -116,7 +115,6 @@ expectAssignable<ColorExpression>("hsl(100, 100%, 100%)");
 expectAssignable<ColorExpression>("hsl(100, 100%, 100%, 1)");
 
 expectAssignable<CssColor>("#fff");
-expectAssignable<CssColor>("white");
 
 expectAssignable<ColorValue>("#fff");
 expectAssignable<ColorValue>("white");
@@ -336,11 +334,11 @@ expectAssignable<MarginLeftProp>("auto");
 expectAssignable<MarginRightProp>(1);
 expectAssignable<MarginRightProp>("auto");
 
-expectAssignable<MarginVerticalProp>(1);
-expectAssignable<MarginVerticalProp>("auto");
+expectAssignable<MarginYProp>(1);
+expectAssignable<MarginYProp>("auto");
 
-expectAssignable<MarginHorizontalProp>(1);
-expectAssignable<MarginHorizontalProp>("auto");
+expectAssignable<MarginXProp>(1);
+expectAssignable<MarginXProp>("auto");
 
 expectAssignable<MaxHeightProp>(1);
 expectAssignable<MaxHeightProp>("100%");
@@ -365,11 +363,6 @@ expectAssignable<MinWidthProp>("100%");
 expectAssignable<MinWidthProp>("auto");
 expectAssignable<MinWidthProp>("max-content");
 expectAssignable<MinWidthProp>("min-content");
-
-expectAssignable<OrderProp>(1);
-expectAssignable<OrderProp>(2);
-expectAssignable<OrderProp>(3);
-expectAssignable<OrderProp>(4);
 
 expectAssignable<PositionProp>("static");
 expectAssignable<PositionProp>("fixed");
@@ -424,8 +417,6 @@ expectAssignable<StyleProps>({
     borderLeftWidth: 1,
     borderRight: "1px solid red",
     borderRightWidth: 1,
-    borderVerticalWidth: 1,
-    borderHorizontalWidth: 1,
     bottom: 1,
     boxShadow: 1,
     color: "sunray-1",
@@ -446,23 +437,24 @@ expectAssignable<StyleProps>({
     lineHeight: 1,
     margin: 1,
     marginBottom: 1,
-    marginHorizontal: 1,
     marginLeft: 1,
     marginRight: 1,
     marginTop: 1,
-    marginVertical: 1,
+    marginX: 1,
+    marginY: 1,
     maxHeight: 1,
     maxWidth: 1,
     minHeight: 1,
     minWidth: 1,
-    order: 1,
+    // Put back once style props inherits CSSProperties
+    // order: 1,
     padding: 1,
     paddingBottom: 1,
-    paddingHorizontal: 1,
     paddingLeft: 1,
     paddingRight: 1,
     paddingTop: 1,
-    paddingVertical: 1,
+    paddingX: 1,
+    paddingY: 1,
     position: "absolute",
     right: 1,
     stroke: "sunray-1",

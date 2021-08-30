@@ -6,7 +6,7 @@ import { InternalProps, OmitInternalProps, StyleProvider, cssModule, mergeProps 
 
 const DefaultElement = "div";
 
-export interface InnerBadgeProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerBadgeProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The style to use.
      */

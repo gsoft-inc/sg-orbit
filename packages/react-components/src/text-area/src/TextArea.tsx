@@ -26,7 +26,7 @@ export interface InnerTextAreaProps extends InternalProps, InteractionStatesProp
      */
     placeholder?: string;
     /**
-     * Whether or not an element is resizable, and if so, in which directions. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/resize).
+     * Whether or not an element is resizable, and if so, in which directions.
      */
     resize?: "vertical" | "none";
     /**
@@ -49,7 +49,7 @@ export interface InnerTextAreaProps extends InternalProps, InteractionStatesProp
      */
     onChange?: ChangeEventHandler;
     /**
-     * The type of the input. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
+     * The type of the input.
      */
     type?: "text" | "password" | "search" | "url" | "tel" | "email";
     /**

@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerListboxSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxSectionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The section name.
      */

@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * @ignore
      */
