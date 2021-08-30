@@ -1,119 +1,119 @@
 .stroke-primary-50 {
-    stroke: var(--o-ui-alias-primary-50);
+    stroke: var(--o-ui-primary-50);
 }
 
 .stroke-primary-100 {
-    stroke: var(--o-ui-alias-primary-100);
+    stroke: var(--o-ui-primary-100);
 }
 
 .stroke-primary-200 {
-    stroke: var(--o-ui-alias-primary-200);
+    stroke: var(--o-ui-primary-200);
 }
 
 .stroke-primary-300 {
-    stroke: var(--o-ui-alias-primary-300);
+    stroke: var(--o-ui-primary-300);
 }
 
 .stroke-primary-400 {
-    stroke: var(--o-ui-alias-primary-400);
+    stroke: var(--o-ui-primary-400);
 }
 
 .stroke-primary-500 {
-    stroke: var(--o-ui-alias-primary-500);
+    stroke: var(--o-ui-primary-500);
 }
 
 .stroke-primary-600 {
-    stroke: var(--o-ui-alias-primary-600);
+    stroke: var(--o-ui-primary-600);
 }
 
 .stroke-primary-700 {
-    stroke: var(--o-ui-alias-primary-700);
+    stroke: var(--o-ui-primary-700);
 }
 
 .stroke-primary-800 {
-    stroke: var(--o-ui-alias-primary-800);
+    stroke: var(--o-ui-primary-800);
 }
 
 .stroke-primary-900 {
-    stroke: var(--o-ui-alias-primary-900);
+    stroke: var(--o-ui-primary-900);
 }
 
 .hover-stroke-primary-50:hover {
-    stroke: var(--o-ui-alias-primary-50);
+    stroke: var(--o-ui-primary-50);
 }
 
 .hover-stroke-primary-100:hover {
-    stroke: var(--o-ui-alias-primary-100);
+    stroke: var(--o-ui-primary-100);
 }
 
 .hover-stroke-primary-200:hover {
-    stroke: var(--o-ui-alias-primary-200);
+    stroke: var(--o-ui-primary-200);
 }
 
 .hover-stroke-primary-300:hover {
-    stroke: var(--o-ui-alias-primary-300);
+    stroke: var(--o-ui-primary-300);
 }
 
 .hover-stroke-primary-400:hover {
-    stroke: var(--o-ui-alias-primary-400);
+    stroke: var(--o-ui-primary-400);
 }
 
 .hover-stroke-primary-500:hover {
-    stroke: var(--o-ui-alias-primary-500);
+    stroke: var(--o-ui-primary-500);
 }
 
 .hover-stroke-primary-600:hover {
-    stroke: var(--o-ui-alias-primary-600);
+    stroke: var(--o-ui-primary-600);
 }
 
 .hover-stroke-primary-700:hover {
-    stroke: var(--o-ui-alias-primary-700);
+    stroke: var(--o-ui-primary-700);
 }
 
 .hover-stroke-primary-800:hover {
-    stroke: var(--o-ui-alias-primary-800);
+    stroke: var(--o-ui-primary-800);
 }
 
 .hover-stroke-primary-900:hover {
-    stroke: var(--o-ui-alias-primary-900);
+    stroke: var(--o-ui-primary-900);
 }
 
 .focus-stroke-primary-50:focus {
-    stroke: var(--o-ui-alias-primary-50);
+    stroke: var(--o-ui-primary-50);
 }
 
 .focus-stroke-primary-100:focus {
-    stroke: var(--o-ui-alias-primary-100);
+    stroke: var(--o-ui-primary-100);
 }
 
 .focus-stroke-primary-200:focus {
-    stroke: var(--o-ui-alias-primary-200);
+    stroke: var(--o-ui-primary-200);
 }
 
 .focus-stroke-primary-300:focus {
-    stroke: var(--o-ui-alias-primary-300);
+    stroke: var(--o-ui-primary-300);
 }
 
 .focus-stroke-primary-400:focus {
-    stroke: var(--o-ui-alias-primary-400);
+    stroke: var(--o-ui-primary-400);
 }
 
 .focus-stroke-primary-500:focus {
-    stroke: var(--o-ui-alias-primary-500);
+    stroke: var(--o-ui-primary-500);
 }
 
 .focus-stroke-primary-600:focus {
-    stroke: var(--o-ui-alias-primary-600);
+    stroke: var(--o-ui-primary-600);
 }
 
 .focus-stroke-primary-700:focus {
-    stroke: var(--o-ui-alias-primary-700);
+    stroke: var(--o-ui-primary-700);
 }
 
 .focus-stroke-primary-800:focus {
-    stroke: var(--o-ui-alias-primary-800);
+    stroke: var(--o-ui-primary-800);
 }
 
 .focus-stroke-primary-900:focus {
-    stroke: var(--o-ui-alias-primary-900);
+    stroke: var(--o-ui-primary-900);
 }

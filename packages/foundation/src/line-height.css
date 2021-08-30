@@ -1,8 +1,8 @@
 .o-ui {
-    --o-ui-global-line-height-1: 1;
-    --o-ui-global-line-height-2: 1.2;
-    --o-ui-global-line-height-3: 1.25;
-    --o-ui-global-line-height-4: 1.3333333;
-    --o-ui-global-line-height-5: 1.454595;
-    --o-ui-global-line-height-6: 1.5;
+    --o-ui-line-heights-1: 1;
+    --o-ui-line-heights-2: 1.2;
+    --o-ui-line-heights-3: 1.25;
+    --o-ui-line-heights-4: 1.3333333;
+    --o-ui-line-heights-5: 1.454595;
+    --o-ui-line-heights-6: 1.5;
 }

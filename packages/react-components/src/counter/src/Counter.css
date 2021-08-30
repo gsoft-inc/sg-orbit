@@ -13,13 +13,13 @@
 
 /* PUSHED */
 .o-ui-counter-pushed {
-    margin-left: var(--o-ui-global-scale-bravo);
+    margin-left: var(--o-ui-space-2);
 }
 
 /* PUSHED | REVERSE */
 .o-ui-counter-pushed.o-ui-counter-reverse {
     margin-left: 0;
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-space-2);
 }
 
 /* DISABLED */
@@ -41,7 +41,7 @@
 .o-ui-counter-divider {
     display: inline-block;
     position: relative;
-    padding-left: var(--o-ui-global-scale-bravo);
+    padding-left: var(--o-ui-space-2);
 }
 
 /* Using a before element for the border to add an opacity to the border color when it's inherited. */
@@ -53,18 +53,18 @@
     left: 0;
     bottom: 0;
     height: 80%;
-    border-left: 1px solid var(--o-ui-alias-border-1);
+    border-left: 1px solid var(--o-ui-alias-b-1);
 }
 
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     padding-left: 0;
-    padding-right: var(--o-ui-global-scale-bravo);
+    padding-right: var(--o-ui-space-2);
 }
 
 .o-ui-counter-divider.o-ui-counter-reverse::before {
     border-left: 0;
-    border-right: 1px solid var(--o-ui-alias-border-1);
+    border-right: 1px solid var(--o-ui-alias-b-1);
 }
 
 /* DIVIDER | COLOR | INHERIT */

@@ -181,7 +181,7 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         show: isOpen,
-                        borderOffset: "var(--o-ui-global-scale-charlie)",
+                        borderOffset: "var(--o-ui-space-3)",
                         zIndex,
                         as,
                         ref: overlayRef

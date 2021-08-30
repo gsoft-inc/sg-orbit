@@ -1,11 +1,11 @@
 .o-ui {
-    --o-ui-avatar-2xs: var(--o-ui-global-scale-echo);
-    --o-ui-avatar-xs: var(--o-ui-global-scale-foxtrot);
-    --o-ui-avatar-sm: var(--o-ui-global-scale-golf);
-    --o-ui-avatar-md: var(--o-ui-global-scale-hotel);
-    --o-ui-avatar-lg: var(--o-ui-global-scale-india);
-    --o-ui-avatar-xl: var(--o-ui-global-scale-juliett);
-    --o-ui-avatar-2xl: var(--o-ui-global-scale-kilo);
+    --o-ui-avatar-2xs: var(--o-ui-space-5);
+    --o-ui-avatar-xs: var(--o-ui-space-6);
+    --o-ui-avatar-sm: var(--o-ui-space-7);
+    --o-ui-avatar-md: var(--o-ui-space-8);
+    --o-ui-avatar-lg: var(--o-ui-space-9);
+    --o-ui-avatar-xl: var(--o-ui-space-10);
+    --o-ui-avatar-2xl: var(--o-ui-space-11);
 }
 
 .o-ui-avatar {
@@ -17,38 +17,38 @@
 
 /* SIZES */
 .o-ui-avatar-2xs {
-    width: var(--o-ui-global-scale-echo);
-    height: var(--o-ui-global-scale-echo);
+    width: var(--o-ui-space-5);
+    height: var(--o-ui-space-5);
 }
 
 .o-ui-avatar-xs {
-    width: var(--o-ui-global-scale-foxtrot);
-    height: var(--o-ui-global-scale-foxtrot);
+    width: var(--o-ui-space-6);
+    height: var(--o-ui-space-6);
 }
 
 .o-ui-avatar-sm {
-    width: var(--o-ui-global-scale-golf);
-    height: var(--o-ui-global-scale-golf);
+    width: var(--o-ui-space-7);
+    height: var(--o-ui-space-7);
 }
 
 .o-ui-avatar-md {
-    width: var(--o-ui-global-scale-hotel);
-    height: var(--o-ui-global-scale-hotel);
+    width: var(--o-ui-space-8);
+    height: var(--o-ui-space-8);
 }
 
 .o-ui-avatar-lg {
-    width: var(--o-ui-global-scale-india);
-    height: var(--o-ui-global-scale-india);
+    width: var(--o-ui-space-9);
+    height: var(--o-ui-space-9);
 }
 
 .o-ui-avatar-xl {
-    width: var(--o-ui-global-scale-juliett);
-    height: var(--o-ui-global-scale-juliett);
+    width: var(--o-ui-space-10);
+    height: var(--o-ui-space-10);
 }
 
 .o-ui-avatar-2xl {
-    width: var(--o-ui-global-scale-kilo);
-    height: var(--o-ui-global-scale-kilo);
+    width: var(--o-ui-space-11);
+    height: var(--o-ui-space-11);
 }
 
 /* IMAGE */
@@ -62,7 +62,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--o-ui-global-white);
+    color: var(--o-ui-white);
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -78,7 +78,7 @@
 
 /* GROUPS | REMAININGS */
 .o-ui-avatar-group-remainings {
-    background-color: var(--o-ui-alias-background-3);
+    background-color: var(--o-ui-alias-bg-3);
 }
 
 .o-ui-avatar-group-remainings .o-ui-avatar-text {
@@ -93,9 +93,9 @@
 }
 
 .o-ui-avatar-group-remainings-list-item:not(:last-child) {
-    margin-bottom: var(--o-ui-global-scale-bravo);
+    margin-bottom: var(--o-ui-space-2);
 }
 
 .o-ui-avatar-group-remainings-list-item-avatar {
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-space-2);
 }

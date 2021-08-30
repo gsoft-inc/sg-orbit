@@ -5,5 +5,5 @@
 
 /* REQUIRED */
 .o-ui-field-label-required {
-    margin-left: var(--o-ui-global-scale-alpha);
+    margin-left: var(--o-ui-space-1);
 }

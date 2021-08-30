@@ -1,20 +1,20 @@
 .o-ui-autocomplete-menu-no-results {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--o-ui-alias-border-2);
-    border-radius: var(--o-ui-global-scale-alpha);
-    box-shadow: var(--o-ui-alias-elevation-lifted);
-    background-color: var(--o-ui-alias-background-1);
-    padding-right: var(--o-ui-global-scale-hotel);
-    padding-left: var(--o-ui-global-scale-charlie);
+    border: 1px solid var(--o-ui-alias-b-2);
+    border-radius: var(--o-ui-space-1);
+    box-shadow: var(--o-ui-box-shadows-alias-lifted);
+    background-color: var(--o-ui-alias-bg-1);
+    padding-right: var(--o-ui-space-8);
+    padding-left: var(--o-ui-space-3);
     position: relative;
     cursor: default;
-    height: calc(var(--o-ui-global-scale-golf) + 2px);
+    height: calc(var(--o-ui-space-7) + 2px);
 }
 
 .o-ui-autocomplete-no-results {
-    font-size: var(--o-ui-global-type-scale-7);
-    line-height: var(--o-ui-global-line-height-2);
+    font-size: var(--o-ui-font-sizes-3);
+    line-height: var(--o-ui-line-heights-2);
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

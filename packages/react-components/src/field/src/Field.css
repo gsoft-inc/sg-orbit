@@ -17,7 +17,7 @@
 /* LABEL */
 .o-ui-field .o-ui-field-label {
     grid-area: label;
-    padding-bottom: var(--o-ui-global-scale-bravo);
+    padding-bottom: var(--o-ui-space-2);
 }
 
 /* INPUT */
@@ -28,5 +28,5 @@
 /* MESSAGE */
 .o-ui-field .o-ui-field-message {
     grid-area: message;
-    padding-top: var(--o-ui-global-scale-bravo);
+    padding-top: var(--o-ui-space-2);
 }

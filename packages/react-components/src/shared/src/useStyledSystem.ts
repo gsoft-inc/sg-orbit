@@ -832,6 +832,13 @@ export const PositionClasses = {
     "sticky": "o-ui-stck"
 } as const;
 
+export const ResizeClasses = {
+    "none": "o-ui-rz-n",
+    "both": "o-ui-rz-b",
+    "horizontal": "o-ui-rz-h",
+    "vertical": "o-ui-rz-v"
+} as const;
+
 export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), "auto": "o-ui-right-auto" };
 
 export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
@@ -1041,6 +1048,8 @@ export type PaddingHorizontalProp = Simplify<SpaceValue>;
 
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
+export type ResizeProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
+
 export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | SpaceValue | GlobalValue>;
 
 export type RowGapProp = Simplify<SpaceValue>;
@@ -1136,6 +1145,7 @@ export interface StyleProps {
     paddingVertical?: PaddingVerticalProp;
     paddingHorizontal?: PaddingHorizontalProp;
     position?: PositionProp;
+    resize?: ResizeProp;
     right?: RightProp;
     rowGap?: RowGapProp;
     stroke?: StrokeProp;
@@ -1262,6 +1272,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingVertical: createPropHandler(PaddingVerticalClasses),
     paddingHorizontal: createPropHandler(PaddingHorizontalClasses),
     position: createPropHandler(PositionClasses),
+    resize: createPropHandler(ResizeClasses),
     right: createPropHandler(RightClasses),
     rowGap: createPropHandler(RowGapClasses),
     stroke: createPropHandler(StrokeClasses),

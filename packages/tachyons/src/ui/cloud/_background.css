@@ -1,119 +1,119 @@
 .bg-cloud-50 {
-    background-color: var(--o-ui-global-cloud-50);
+    background-color: var(--o-ui-cloud-50);
 }
 
 .bg-cloud-100 {
-    background-color: var(--o-ui-global-cloud-100);
+    background-color: var(--o-ui-cloud-100);
 }
 
 .bg-cloud-200 {
-    background-color: var(--o-ui-global-cloud-200);
+    background-color: var(--o-ui-cloud-200);
 }
 
 .bg-cloud-300 {
-    background-color: var(--o-ui-global-cloud-300);
+    background-color: var(--o-ui-cloud-300);
 }
 
 .bg-cloud-400 {
-    background-color: var(--o-ui-global-cloud-400);
+    background-color: var(--o-ui-cloud-400);
 }
 
 .bg-cloud-500 {
-    background-color: var(--o-ui-global-cloud-500);
+    background-color: var(--o-ui-cloud-500);
 }
 
 .bg-cloud-600 {
-    background-color: var(--o-ui-global-cloud-600);
+    background-color: var(--o-ui-cloud-600);
 }
 
 .bg-cloud-700 {
-    background-color: var(--o-ui-global-cloud-700);
+    background-color: var(--o-ui-cloud-700);
 }
 
 .bg-cloud-800 {
-    background-color: var(--o-ui-global-cloud-800);
+    background-color: var(--o-ui-cloud-800);
 }
 
 .bg-cloud-900 {
-    background-color: var(--o-ui-global-cloud-900);
+    background-color: var(--o-ui-cloud-900);
 }
 
 .hover-bg-cloud-50:hover {
-    background-color: var(--o-ui-global-cloud-50);
+    background-color: var(--o-ui-cloud-50);
 }
 
 .hover-bg-cloud-100:hover {
-    background-color: var(--o-ui-global-cloud-100);
+    background-color: var(--o-ui-cloud-100);
 }
 
 .hover-bg-cloud-200:hover {
-    background-color: var(--o-ui-global-cloud-200);
+    background-color: var(--o-ui-cloud-200);
 }
 
 .hover-bg-cloud-300:hover {
-    background-color: var(--o-ui-global-cloud-300);
+    background-color: var(--o-ui-cloud-300);
 }
 
 .hover-bg-cloud-400:hover {
-    background-color: var(--o-ui-global-cloud-400);
+    background-color: var(--o-ui-cloud-400);
 }
 
 .hover-bg-cloud-500:hover {
-    background-color: var(--o-ui-global-cloud-500);
+    background-color: var(--o-ui-cloud-500);
 }
 
 .hover-bg-cloud-600:hover {
-    background-color: var(--o-ui-global-cloud-600);
+    background-color: var(--o-ui-cloud-600);
 }
 
 .hover-bg-cloud-700:hover {
-    background-color: var(--o-ui-global-cloud-700);
+    background-color: var(--o-ui-cloud-700);
 }
 
 .hover-bg-cloud-800:hover {
-    background-color: var(--o-ui-global-cloud-800);
+    background-color: var(--o-ui-cloud-800);
 }
 
 .hover-bg-cloud-900:hover {
-    background-color: var(--o-ui-global-cloud-900);
+    background-color: var(--o-ui-cloud-900);
 }
 
 .focus-bg-cloud-50:focus {
-    background-color: var(--o-ui-global-cloud-50);
+    background-color: var(--o-ui-cloud-50);
 }
 
 .focus-bg-cloud-100:focus {
-    background-color: var(--o-ui-global-cloud-100);
+    background-color: var(--o-ui-cloud-100);
 }
 
 .focus-bg-cloud-200:focus {
-    background-color: var(--o-ui-global-cloud-200);
+    background-color: var(--o-ui-cloud-200);
 }
 
 .focus-bg-cloud-300:focus {
-    background-color: var(--o-ui-global-cloud-300);
+    background-color: var(--o-ui-cloud-300);
 }
 
 .focus-bg-cloud-400:focus {
-    background-color: var(--o-ui-global-cloud-400);
+    background-color: var(--o-ui-cloud-400);
 }
 
 .focus-bg-cloud-500:focus {
-    background-color: var(--o-ui-global-cloud-500);
+    background-color: var(--o-ui-cloud-500);
 }
 
 .focus-bg-cloud-600:focus {
-    background-color: var(--o-ui-global-cloud-600);
+    background-color: var(--o-ui-cloud-600);
 }
 
 .focus-bg-cloud-700:focus {
-    background-color: var(--o-ui-global-cloud-700);
+    background-color: var(--o-ui-cloud-700);
 }
 
 .focus-bg-cloud-800:focus {
-    background-color: var(--o-ui-global-cloud-800);
+    background-color: var(--o-ui-cloud-800);
 }
 
 .focus-bg-cloud-900:focus {
-    background-color: var(--o-ui-global-cloud-900);
+    background-color: var(--o-ui-cloud-900);
 }

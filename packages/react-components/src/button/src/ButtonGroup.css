@@ -1,4 +1,4 @@
 .o-ui-button-group-in-field {
-    margin-top: var(--o-ui-global-scale-alpha);
-    margin-bottom: var(--o-ui-global-scale-alpha);
+    margin-top: var(--o-ui-space-1);
+    margin-bottom: var(--o-ui-space-1);
 }

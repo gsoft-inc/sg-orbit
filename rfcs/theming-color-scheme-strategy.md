@@ -18,7 +18,7 @@ On top of design tokens lives *semantic variables*, these have an assigned meani
 
 Here is an example on how semantic variables work at a core level: 
 
-`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-global-beetle-500` when in a *light* theme and `--o-ui-global-beetle-700` when in a *dark* theme.
+`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-beetle-500` when in a *light* theme and `--o-ui-beetle-700` when in a *dark* theme.
 
 ### Supported Themes
 
@@ -34,7 +34,7 @@ Orbit supports themes as well as color schemes. Themes can ben defined with adje
 
 While developing or modifying an Orbit component, it is important to use alias variables whenever possible. Remember that aliases are theme sensitive, which is what we aim for in order to support a dark theme as well as keeping apps concise.
 
-Here instead of using `color: var(--o-ui-global-marine-900);` we refer to the defined primary text color.
+Here instead of using `color: var(--o-ui-marine-900);` we refer to the defined primary text color.
 
 ``` css
 // Label.css
@@ -53,7 +53,7 @@ Global variables have their use, spacing, typography and other static values are
 ```css
 // Label.css
 .o-ui-field-label-required {
-    margin-left: var(--o-ui-global-scale-alpha);
+    margin-left: var(--o-ui-space-1);
 }
 ```
 
@@ -64,7 +64,7 @@ Sometimes a component needs reusable values through it's UI while not explicitly
 ```css
 // Input.css
 .o-ui {
-    --o-ui-input-border-color: var(--o-ui-alias-border-1);
+    --o-ui-input-border-color: var(--o-ui-alias-b-1);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
 }
 

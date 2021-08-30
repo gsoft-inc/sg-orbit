@@ -1,119 +1,119 @@
 .fill-cloud-50 {
-    fill: var(--o-ui-global-cloud-50);
+    fill: var(--o-ui-cloud-50);
 }
 
 .fill-cloud-100 {
-    fill: var(--o-ui-global-cloud-100);
+    fill: var(--o-ui-cloud-100);
 }
 
 .fill-cloud-200 {
-    fill: var(--o-ui-global-cloud-200);
+    fill: var(--o-ui-cloud-200);
 }
 
 .fill-cloud-300 {
-    fill: var(--o-ui-global-cloud-300);
+    fill: var(--o-ui-cloud-300);
 }
 
 .fill-cloud-400 {
-    fill: var(--o-ui-global-cloud-400);
+    fill: var(--o-ui-cloud-400);
 }
 
 .fill-cloud-500 {
-    fill: var(--o-ui-global-cloud-500);
+    fill: var(--o-ui-cloud-500);
 }
 
 .fill-cloud-600 {
-    fill: var(--o-ui-global-cloud-600);
+    fill: var(--o-ui-cloud-600);
 }
 
 .fill-cloud-700 {
-    fill: var(--o-ui-global-cloud-700);
+    fill: var(--o-ui-cloud-700);
 }
 
 .fill-cloud-800 {
-    fill: var(--o-ui-global-cloud-800);
+    fill: var(--o-ui-cloud-800);
 }
 
 .fill-cloud-900 {
-    fill: var(--o-ui-global-cloud-900);
+    fill: var(--o-ui-cloud-900);
 }
 
 .hover-fill-cloud-50:hover {
-    fill: var(--o-ui-global-cloud-50);
+    fill: var(--o-ui-cloud-50);
 }
 
 .hover-fill-cloud-100:hover {
-    fill: var(--o-ui-global-cloud-100);
+    fill: var(--o-ui-cloud-100);
 }
 
 .hover-fill-cloud-200:hover {
-    fill: var(--o-ui-global-cloud-200);
+    fill: var(--o-ui-cloud-200);
 }
 
 .hover-fill-cloud-300:hover {
-    fill: var(--o-ui-global-cloud-300);
+    fill: var(--o-ui-cloud-300);
 }
 
 .hover-fill-cloud-400:hover {
-    fill: var(--o-ui-global-cloud-400);
+    fill: var(--o-ui-cloud-400);
 }
 
 .hover-fill-cloud-500:hover {
-    fill: var(--o-ui-global-cloud-500);
+    fill: var(--o-ui-cloud-500);
 }
 
 .hover-fill-cloud-600:hover {
-    fill: var(--o-ui-global-cloud-600);
+    fill: var(--o-ui-cloud-600);
 }
 
 .hover-fill-cloud-700:hover {
-    fill: var(--o-ui-global-cloud-700);
+    fill: var(--o-ui-cloud-700);
 }
 
 .hover-fill-cloud-800:hover {
-    fill: var(--o-ui-global-cloud-800);
+    fill: var(--o-ui-cloud-800);
 }
 
 .hover-fill-cloud-900:hover {
-    fill: var(--o-ui-global-cloud-900);
+    fill: var(--o-ui-cloud-900);
 }
 
 .focus-fill-cloud-50:focus {
-    fill: var(--o-ui-global-cloud-50);
+    fill: var(--o-ui-cloud-50);
 }
 
 .focus-fill-cloud-100:focus {
-    fill: var(--o-ui-global-cloud-100);
+    fill: var(--o-ui-cloud-100);
 }
 
 .focus-fill-cloud-200:focus {
-    fill: var(--o-ui-global-cloud-200);
+    fill: var(--o-ui-cloud-200);
 }
 
 .focus-fill-cloud-300:focus {
-    fill: var(--o-ui-global-cloud-300);
+    fill: var(--o-ui-cloud-300);
 }
 
 .focus-fill-cloud-400:focus {
-    fill: var(--o-ui-global-cloud-400);
+    fill: var(--o-ui-cloud-400);
 }
 
 .focus-fill-cloud-500:focus {
-    fill: var(--o-ui-global-cloud-500);
+    fill: var(--o-ui-cloud-500);
 }
 
 .focus-fill-cloud-600:focus {
-    fill: var(--o-ui-global-cloud-600);
+    fill: var(--o-ui-cloud-600);
 }
 
 .focus-fill-cloud-700:focus {
-    fill: var(--o-ui-global-cloud-700);
+    fill: var(--o-ui-cloud-700);
 }
 
 .focus-fill-cloud-800:focus {
-    fill: var(--o-ui-global-cloud-800);
+    fill: var(--o-ui-cloud-800);
 }
 
 .focus-fill-cloud-900:focus {
-    fill: var(--o-ui-global-cloud-900);
+    fill: var(--o-ui-cloud-900);
 }

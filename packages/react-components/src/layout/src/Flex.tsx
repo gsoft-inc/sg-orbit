@@ -89,19 +89,19 @@ export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps
 }
 
 const Spacing = [
-    "--o-ui-global-scale-alpha",
-    "--o-ui-global-scale-bravo",
-    "--o-ui-global-scale-charlie",
-    "--o-ui-global-scale-delta",
-    "--o-ui-global-scale-echo",
-    "--o-ui-global-scale-foxtrot",
-    "--o-ui-global-scale-golf",
-    "--o-ui-global-scale-hotel",
-    "--o-ui-global-scale-india",
-    "--o-ui-global-scale-juliett",
-    "--o-ui-global-scale-kilo",
-    "--o-ui-global-scale-lima",
-    "--o-ui-global-scale-mike"
+    "--o-ui-space-1",
+    "--o-ui-space-2",
+    "--o-ui-space-3",
+    "--o-ui-space-4",
+    "--o-ui-space-5",
+    "--o-ui-space-6",
+    "--o-ui-space-7",
+    "--o-ui-space-8",
+    "--o-ui-space-9",
+    "--o-ui-space-10",
+    "--o-ui-space-11",
+    "--o-ui-space-12",
+    "--o-ui-space-13"
 ];
 
 export function InnerFlex({

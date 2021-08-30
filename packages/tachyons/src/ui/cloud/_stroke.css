@@ -1,119 +1,119 @@
 .stroke-cloud-50 {
-    stroke: var(--o-ui-global-cloud-50);
+    stroke: var(--o-ui-cloud-50);
 }
 
 .stroke-cloud-100 {
-    stroke: var(--o-ui-global-cloud-100);
+    stroke: var(--o-ui-cloud-100);
 }
 
 .stroke-cloud-200 {
-    stroke: var(--o-ui-global-cloud-200);
+    stroke: var(--o-ui-cloud-200);
 }
 
 .stroke-cloud-300 {
-    stroke: var(--o-ui-global-cloud-300);
+    stroke: var(--o-ui-cloud-300);
 }
 
 .stroke-cloud-400 {
-    stroke: var(--o-ui-global-cloud-400);
+    stroke: var(--o-ui-cloud-400);
 }
 
 .stroke-cloud-500 {
-    stroke: var(--o-ui-global-cloud-500);
+    stroke: var(--o-ui-cloud-500);
 }
 
 .stroke-cloud-600 {
-    stroke: var(--o-ui-global-cloud-600);
+    stroke: var(--o-ui-cloud-600);
 }
 
 .stroke-cloud-700 {
-    stroke: var(--o-ui-global-cloud-700);
+    stroke: var(--o-ui-cloud-700);
 }
 
 .stroke-cloud-800 {
-    stroke: var(--o-ui-global-cloud-800);
+    stroke: var(--o-ui-cloud-800);
 }
 
 .stroke-cloud-900 {
-    stroke: var(--o-ui-global-cloud-900);
+    stroke: var(--o-ui-cloud-900);
 }
 
 .hover-stroke-cloud-50:hover {
-    stroke: var(--o-ui-global-cloud-50);
+    stroke: var(--o-ui-cloud-50);
 }
 
 .hover-stroke-cloud-100:hover {
-    stroke: var(--o-ui-global-cloud-100);
+    stroke: var(--o-ui-cloud-100);
 }
 
 .hover-stroke-cloud-200:hover {
-    stroke: var(--o-ui-global-cloud-200);
+    stroke: var(--o-ui-cloud-200);
 }
 
 .hover-stroke-cloud-300:hover {
-    stroke: var(--o-ui-global-cloud-300);
+    stroke: var(--o-ui-cloud-300);
 }
 
 .hover-stroke-cloud-400:hover {
-    stroke: var(--o-ui-global-cloud-400);
+    stroke: var(--o-ui-cloud-400);
 }
 
 .hover-stroke-cloud-500:hover {
-    stroke: var(--o-ui-global-cloud-500);
+    stroke: var(--o-ui-cloud-500);
 }
 
 .hover-stroke-cloud-600:hover {
-    stroke: var(--o-ui-global-cloud-600);
+    stroke: var(--o-ui-cloud-600);
 }
 
 .hover-stroke-cloud-700:hover {
-    stroke: var(--o-ui-global-cloud-700);
+    stroke: var(--o-ui-cloud-700);
 }
 
 .hover-stroke-cloud-800:hover {
-    stroke: var(--o-ui-global-cloud-800);
+    stroke: var(--o-ui-cloud-800);
 }
 
 .hover-stroke-cloud-900:hover {
-    stroke: var(--o-ui-global-cloud-900);
+    stroke: var(--o-ui-cloud-900);
 }
 
 .focus-stroke-cloud-50:focus {
-    stroke: var(--o-ui-global-cloud-50);
+    stroke: var(--o-ui-cloud-50);
 }
 
 .focus-stroke-cloud-100:focus {
-    stroke: var(--o-ui-global-cloud-100);
+    stroke: var(--o-ui-cloud-100);
 }
 
 .focus-stroke-cloud-200:focus {
-    stroke: var(--o-ui-global-cloud-200);
+    stroke: var(--o-ui-cloud-200);
 }
 
 .focus-stroke-cloud-300:focus {
-    stroke: var(--o-ui-global-cloud-300);
+    stroke: var(--o-ui-cloud-300);
 }
 
 .focus-stroke-cloud-400:focus {
-    stroke: var(--o-ui-global-cloud-400);
+    stroke: var(--o-ui-cloud-400);
 }
 
 .focus-stroke-cloud-500:focus {
-    stroke: var(--o-ui-global-cloud-500);
+    stroke: var(--o-ui-cloud-500);
 }
 
 .focus-stroke-cloud-600:focus {
-    stroke: var(--o-ui-global-cloud-600);
+    stroke: var(--o-ui-cloud-600);
 }
 
 .focus-stroke-cloud-700:focus {
-    stroke: var(--o-ui-global-cloud-700);
+    stroke: var(--o-ui-cloud-700);
 }
 
 .focus-stroke-cloud-800:focus {
-    stroke: var(--o-ui-global-cloud-800);
+    stroke: var(--o-ui-cloud-800);
 }
 
 .focus-stroke-cloud-900:focus {
-    stroke: var(--o-ui-global-cloud-900);
+    stroke: var(--o-ui-cloud-900);
 }

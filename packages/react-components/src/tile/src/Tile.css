@@ -1,8 +1,8 @@
 .o-ui-tile {
     width: 100%;
     min-width: 100px;
-    border: 1px solid var(--o-ui-alias-border-1);
-    background-color: var(--o-ui-alias-background-1);
+    border: 1px solid var(--o-ui-alias-b-1);
+    background-color: var(--o-ui-alias-bg-1);
     padding: 0;
     color: var(--o-ui-alias-text-primary);
     border-radius: var(--o-ui-shape-rounded);
@@ -16,15 +16,15 @@
 /* HEADING */
 .o-ui-tile-heading {
     display: block;
-    margin-bottom: var(--o-ui-global-scale-delta);
+    margin-bottom: var(--o-ui-space-4);
 }
 
 /* STATES */
 /* HOVER */
 .o-ui-tile:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]):hover,
 .o-ui-tile-hover:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]) {
-    border-color: var(--o-ui-alias-border-1-hover);
-    background-color: var(--o-ui-alias-background-6-hover);
+    border-color: var(--o-ui-alias-b-1-hover);
+    background-color: var(--o-ui-alias-bg-6-hover);
 }
 
 /* FOCUS */
@@ -56,14 +56,14 @@
 /* ACTIVE */
 .o-ui-tile:active,
 .o-ui-tile-active:not([disabled]) {
-    border-color: var(--o-ui-alias-border-1-active);
+    border-color: var(--o-ui-alias-b-1-active);
 }
 
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
-    background-color: var(--o-ui-alias-background-6-active);
-    border-color: var(--o-ui-alias-border-1-active);
+    background-color: var(--o-ui-alias-bg-6-active);
+    border-color: var(--o-ui-alias-b-1-active);
 }
 
 /* CHECKED | CHECKMARK */
@@ -132,7 +132,7 @@
 
 /* ILLUSTRATION */
 .o-ui-tile-illustration {
-    padding: var(--o-ui-global-scale-echo);
+    padding: var(--o-ui-space-5);
 }
 
 .o-ui-tile-vertical .o-ui-tile-illustration {
@@ -147,7 +147,7 @@
 
 /* MAIN SECTION */
 .o-ui-tile-main {
-    padding: var(--o-ui-global-scale-foxtrot);
+    padding: var(--o-ui-space-6);
     grid-area: aside;
     display: flex;
     flex-direction: column;
@@ -155,7 +155,7 @@
 }
 
 .o-ui-tile-thumbnail + .o-ui-tile-main {
-    padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
+    padding: var(--o-ui-space-4) var(--o-ui-space-5) var(--o-ui-space-5) var(--o-ui-space-5);
 }
 
 /* ORIENTATIONS */

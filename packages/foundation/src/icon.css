@@ -1,25 +1,25 @@
 .o-ui-light {
-    --o-ui-alias-icon-1: var(--o-ui-global-marine-900);
-    --o-ui-alias-icon-2: var(--o-ui-global-marine-500);
-    --o-ui-alias-icon-primary-1: var(--o-ui-alias-primary-500);
-    --o-ui-alias-icon-negative-1: var(--o-ui-global-beetle-500);
-    --o-ui-alias-icon-negative-2: var(--o-ui-global-beetle-900);
-    --o-ui-alias-icon-positive-1: var(--o-ui-global-botanic-500);
-    --o-ui-alias-icon-positive-2: var(--o-ui-global-botanic-900);
-    --o-ui-alias-icon-warning-1: var(--o-ui-global-sunray-500);
-    --o-ui-alias-icon-warning-2: var(--o-ui-global-sunray-900);
-    --o-ui-alias-icon-info-1: var(--o-ui-global-marine-500);
+    --o-ui-alias-icon-1: var(--o-ui-marine-900);
+    --o-ui-alias-icon-2: var(--o-ui-marine-500);
+    --o-ui-alias-icon-primary-1: var(--o-ui-primary-500);
+    --o-ui-alias-icon-negative-1: var(--o-ui-beetle-500);
+    --o-ui-alias-icon-negative-2: var(--o-ui-beetle-900);
+    --o-ui-alias-icon-positive-1: var(--o-ui-botanic-500);
+    --o-ui-alias-icon-positive-2: var(--o-ui-botanic-900);
+    --o-ui-alias-icon-warning-1: var(--o-ui-sunray-500);
+    --o-ui-alias-icon-warning-2: var(--o-ui-sunray-900);
+    --o-ui-alias-icon-info-1: var(--o-ui-marine-500);
 }
 
 .o-ui-dark {
-    --o-ui-alias-icon-1: var(--o-ui-global-white);
-    --o-ui-alias-icon-2: var(--o-ui-global-cloud-500);
-    --o-ui-alias-icon-primary-1: var(--o-ui-alias-primary-700);
-    --o-ui-alias-icon-negative-1: var(--o-ui-global-beetle-700);
-    --o-ui-alias-icon-negative-2: var(--o-ui-global-beetle-50);
-    --o-ui-alias-icon-positive-1: var(--o-ui-global-botanic-700);
-    --o-ui-alias-icon-positive-2: var(--o-ui-global-botanic-50);
-    --o-ui-alias-icon-warning-1: var(--o-ui-global-sunray-700);
-    --o-ui-alias-icon-warning-2: var(--o-ui-global-sunray-50);
-    --o-ui-alias-icon-info-1: var(--o-ui-global-marine-100);
+    --o-ui-alias-icon-1: var(--o-ui-white);
+    --o-ui-alias-icon-2: var(--o-ui-cloud-500);
+    --o-ui-alias-icon-primary-1: var(--o-ui-primary-700);
+    --o-ui-alias-icon-negative-1: var(--o-ui-beetle-700);
+    --o-ui-alias-icon-negative-2: var(--o-ui-beetle-50);
+    --o-ui-alias-icon-positive-1: var(--o-ui-botanic-700);
+    --o-ui-alias-icon-positive-2: var(--o-ui-botanic-50);
+    --o-ui-alias-icon-warning-1: var(--o-ui-sunray-700);
+    --o-ui-alias-icon-warning-2: var(--o-ui-sunray-50);
+    --o-ui-alias-icon-info-1: var(--o-ui-marine-100);
 }

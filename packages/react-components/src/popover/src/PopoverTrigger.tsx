@@ -129,7 +129,7 @@ export function InnerPopoverTrigger({
                 {...mergeProps(
                     rest,
                     {
-                        borderOffset: "var(--o-ui-global-scale-charlie)",
+                        borderOffset: "var(--o-ui-space-3)",
                         zIndex,
                         className: "o-ui-popover-overlay",
                         as,

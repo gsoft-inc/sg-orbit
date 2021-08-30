@@ -4,10 +4,10 @@
     width: 100%;
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--o-ui-global-moonstone-50);
+    background-color: var(--o-ui-moonstone-50);
     cursor: pointer;
     border: 0;
-    margin-top: var(--o-ui-global-scale-delta);
+    margin-top: var(--o-ui-space-4);
 }
 
 .o-ui-sb-gallery-item-variant-section-toggle:first-child {

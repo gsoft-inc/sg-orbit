@@ -1,119 +1,119 @@
 .bg-neutral-dark-50 {
-    background-color: var(--o-ui-global-neutral-dark-50);
+    background-color: var(--o-ui-neutral-dark-50);
 }
 
 .bg-neutral-dark-100 {
-    background-color: var(--o-ui-global-neutral-dark-100);
+    background-color: var(--o-ui-neutral-dark-100);
 }
 
 .bg-neutral-dark-200 {
-    background-color: var(--o-ui-global-neutral-dark-200);
+    background-color: var(--o-ui-neutral-dark-200);
 }
 
 .bg-neutral-dark-300 {
-    background-color: var(--o-ui-global-neutral-dark-300);
+    background-color: var(--o-ui-neutral-dark-300);
 }
 
 .bg-neutral-dark-400 {
-    background-color: var(--o-ui-global-neutral-dark-400);
+    background-color: var(--o-ui-neutral-dark-400);
 }
 
 .bg-neutral-dark-500 {
-    background-color: var(--o-ui-global-neutral-dark-500);
+    background-color: var(--o-ui-neutral-dark-500);
 }
 
 .bg-neutral-dark-600 {
-    background-color: var(--o-ui-global-neutral-dark-600);
+    background-color: var(--o-ui-neutral-dark-600);
 }
 
 .bg-neutral-dark-700 {
-    background-color: var(--o-ui-global-neutral-dark-700);
+    background-color: var(--o-ui-neutral-dark-700);
 }
 
 .bg-neutral-dark-800 {
-    background-color: var(--o-ui-global-neutral-dark-800);
+    background-color: var(--o-ui-neutral-dark-800);
 }
 
 .bg-neutral-dark-900 {
-    background-color: var(--o-ui-global-neutral-dark-900);
+    background-color: var(--o-ui-neutral-dark-900);
 }
 
 .hover-bg-neutral-dark-50:hover {
-    background-color: var(--o-ui-global-neutral-dark-50);
+    background-color: var(--o-ui-neutral-dark-50);
 }
 
 .hover-bg-neutral-dark-100:hover {
-    background-color: var(--o-ui-global-neutral-dark-100);
+    background-color: var(--o-ui-neutral-dark-100);
 }
 
 .hover-bg-neutral-dark-200:hover {
-    background-color: var(--o-ui-global-neutral-dark-200);
+    background-color: var(--o-ui-neutral-dark-200);
 }
 
 .hover-bg-neutral-dark-300:hover {
-    background-color: var(--o-ui-global-neutral-dark-300);
+    background-color: var(--o-ui-neutral-dark-300);
 }
 
 .hover-bg-neutral-dark-400:hover {
-    background-color: var(--o-ui-global-neutral-dark-400);
+    background-color: var(--o-ui-neutral-dark-400);
 }
 
 .hover-bg-neutral-dark-500:hover {
-    background-color: var(--o-ui-global-neutral-dark-500);
+    background-color: var(--o-ui-neutral-dark-500);
 }
 
 .hover-bg-neutral-dark-600:hover {
-    background-color: var(--o-ui-global-neutral-dark-600);
+    background-color: var(--o-ui-neutral-dark-600);
 }
 
 .hover-bg-neutral-dark-700:hover {
-    background-color: var(--o-ui-global-neutral-dark-700);
+    background-color: var(--o-ui-neutral-dark-700);
 }
 
 .hover-bg-neutral-dark-800:hover {
-    background-color: var(--o-ui-global-neutral-dark-800);
+    background-color: var(--o-ui-neutral-dark-800);
 }
 
 .hover-bg-neutral-dark-900:hover {
-    background-color: var(--o-ui-global-neutral-dark-900);
+    background-color: var(--o-ui-neutral-dark-900);
 }
 
 .focus-bg-neutral-dark-50:focus {
-    background-color: var(--o-ui-global-neutral-dark-50);
+    background-color: var(--o-ui-neutral-dark-50);
 }
 
 .focus-bg-neutral-dark-100:focus {
-    background-color: var(--o-ui-global-neutral-dark-100);
+    background-color: var(--o-ui-neutral-dark-100);
 }
 
 .focus-bg-neutral-dark-200:focus {
-    background-color: var(--o-ui-global-neutral-dark-200);
+    background-color: var(--o-ui-neutral-dark-200);
 }
 
 .focus-bg-neutral-dark-300:focus {
-    background-color: var(--o-ui-global-neutral-dark-300);
+    background-color: var(--o-ui-neutral-dark-300);
 }
 
 .focus-bg-neutral-dark-400:focus {
-    background-color: var(--o-ui-global-neutral-dark-400);
+    background-color: var(--o-ui-neutral-dark-400);
 }
 
 .focus-bg-neutral-dark-500:focus {
-    background-color: var(--o-ui-global-neutral-dark-500);
+    background-color: var(--o-ui-neutral-dark-500);
 }
 
 .focus-bg-neutral-dark-600:focus {
-    background-color: var(--o-ui-global-neutral-dark-600);
+    background-color: var(--o-ui-neutral-dark-600);
 }
 
 .focus-bg-neutral-dark-700:focus {
-    background-color: var(--o-ui-global-neutral-dark-700);
+    background-color: var(--o-ui-neutral-dark-700);
 }
 
 .focus-bg-neutral-dark-800:focus {
-    background-color: var(--o-ui-global-neutral-dark-800);
+    background-color: var(--o-ui-neutral-dark-800);
 }
 
 .focus-bg-neutral-dark-900:focus {
-    background-color: var(--o-ui-global-neutral-dark-900);
+    background-color: var(--o-ui-neutral-dark-900);
 }

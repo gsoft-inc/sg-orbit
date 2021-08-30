@@ -9,7 +9,7 @@ function CustomAddon({ children, ...props }) {
                     style: {
                         display: "flex",
                         alignItems: "center",
-                        height: "var(--o-ui-global-scale-hotel)",
+                        height: "var(--o-ui-space-8)",
                         border: "1px solid hsla(223, 12%, 87%, 1)",
                         borderTopRightRadius: "var(--o-ui-input-border-radius)",
                         borderBottomRightRadius: "var(--o-ui-input-border-radius)",

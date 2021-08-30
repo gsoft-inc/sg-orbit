@@ -1,11 +1,11 @@
 .stroke-white {
-    stroke: var(--o-ui-global-white);
+    stroke: var(--o-ui-white);
 }
 
 .hover-stroke-white:hover {
-    stroke: var(--o-ui-global-white);
+    stroke: var(--o-ui-white);
 }
 
 .focus-stroke-white:focus {
-    stroke: var(--o-ui-global-white);
+    stroke: var(--o-ui-white);
 }
