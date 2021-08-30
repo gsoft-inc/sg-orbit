@@ -3,20 +3,16 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { Text } from "../../typography";
 
-const avatarDefaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerAvatarProps extends SlotProps, InternalProps, ComponentProps<typeof avatarDefaultElement> {
+export interface InnerAvatarProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The name of the person in the avatar.
      */
     name: string;
-    /**
-     * The url of a remote image or an image object.
-     */
-    src?: string | ReactNode;
     /**
      * The allowed number of retry to load a remote image.
      */
@@ -25,6 +21,10 @@ export interface InnerAvatarProps extends SlotProps, InternalProps, ComponentPro
      * An avatar can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    /**
+     * The url of a remote image or an image object.
+     */
+    src?: string | ReactNode;
 }
 
 function AvatarImage({
@@ -116,6 +116,7 @@ export type AvatarTextProps = Partial<AvatarProps> & {
     children: ReactNode;
 };
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const textSize = createSizeAdapter({
     "2xs": "xs",
     "xs": "xs",
@@ -125,6 +126,7 @@ const textSize = createSizeAdapter({
     "xl": "xl",
     "2xl": "2xl"
 });
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function AvatarText(props: AvatarTextProps) {
     const {
@@ -139,9 +141,9 @@ export function AvatarText(props: AvatarTextProps) {
             {...mergeProps(
                 rest,
                 {
-                    size: textSize(size),
+                    as,
                     className: "o-ui-avatar-text",
-                    as
+                    size: textSize(size)
                 } as const
             )}
         >
@@ -156,7 +158,7 @@ export function InnerAvatar({
     retryCount,
     size,
     "aria-label": ariaLabel,
-    as = avatarDefaultElement,
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerAvatarProps) {
@@ -182,11 +184,11 @@ export function InnerAvatar({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-avatar",
                         normalizeSize(size)
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

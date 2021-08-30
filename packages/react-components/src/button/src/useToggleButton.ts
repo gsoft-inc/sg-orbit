@@ -2,16 +2,16 @@ import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
 export interface UseToggleButtonProps<Shape> {
-    variant?: "solid" | "outline" | "ghost";
-    shape?: Shape;
     active?: boolean;
     checked?: boolean | null;
     defaultChecked?: boolean;
-    value?: string;
+    forwardedRef?: ForwardedRef<any>;
+    isCheckable: boolean;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
     onCheck?: (event: FormEvent<HTMLButtonElement>, value: string) => void;
-    isCheckable: boolean;
-    forwardedRef?: ForwardedRef<any>;
+    shape?: Shape;
+    value?: string;
+    variant?: "solid" | "outline" | "ghost";
 }
 
 // The shape is generic since ToggleButton and ToggleIconButton don't allow the same shapes. The output type of useToggleButton
@@ -43,15 +43,15 @@ export function useToggleButton<Shape>({
     });
 
     return {
-        isChecked,
         buttonProps: {
-            variant,
-            shape,
-            onClick: handleClick,
-            value,
             active: active || isChecked,
+            onClick: handleClick,
+            ref: forwardedRef,
+            shape,
+            value,
             [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
-            ref: forwardedRef
-        }
+            variant
+        },
+        isChecked
     };
 }

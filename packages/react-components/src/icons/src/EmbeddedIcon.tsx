@@ -1,21 +1,22 @@
 import { Children, ReactElement, ReactNode, SVGProps } from "react";
 import { augmentElement, createSizeAdapter } from "../../shared";
 
-export interface EmbeddedIconProps extends SVGProps<SVGSVGElement>{
+export interface EmbeddedIconProps extends SVGProps<SVGSVGElement> {
     /**
-     * An icon can vary in size.
+     * Allow any extra props
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    [key: string]: any;
     /**
      * React children.
      */
     children: ReactNode;
     /**
-     * Allow any extra props
+     * An icon can vary in size.
      */
-    [key: string]: any;
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
 }
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 export const embeddedIconSize = createSizeAdapter({
     "2xs": "2xs",
     "xs": "2xs",
@@ -25,6 +26,7 @@ export const embeddedIconSize = createSizeAdapter({
     "xl": "lg",
     "inherit": "inherit"
 });
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps) {
     const icon = Children.only(children) as ReactElement;

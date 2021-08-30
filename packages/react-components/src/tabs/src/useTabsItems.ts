@@ -3,25 +3,25 @@ import { Content, Header } from "../../placeholders";
 import { isNil, mergeProps, resolveChildren } from "../../shared";
 
 export interface PanelType {
-    key: string;
-    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref?: Ref<any>;
+    index?: number;
+    key: string;
     panelId: string;
-    tabId: string;
     props?: Record<string, any>;
+    ref?: Ref<any>;
+    tabId: string;
 }
 
 export interface TabType {
-    key: string;
-    index?: number;
     disabled?: boolean;
     elementType?: ReactElement["type"];
-    ref?: Ref<any>;
-    tabId: string;
+    index?: number;
+    key: string;
     panelId: string;
     props?: Record<string, any>;
+    ref?: Ref<any>;
+    tabId: string;
 }
 
 export class TabsBuilder {
@@ -54,27 +54,27 @@ export class TabsBuilder {
             const panelId = this.makeId(content, "panel", key);
 
             tabs.push({
-                key,
-                index: index++,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
-                ref: header.ref,
-                tabId,
+                index: index++,
+                key,
                 panelId,
-                props: mergeProps(header.props, element.props)
+                props: mergeProps(header.props, element.props),
+                ref: header.ref,
+                tabId
             });
 
             index++;
 
             panels.push({
-                key,
-                index: index++,
                 // Use a custom type if available otherwise let the Tab component choose his default type.
                 elementType: content.type !== Content ? content.type : undefined,
-                ref: content.ref,
-                tabId,
+                index: index++,
+                key,
                 panelId,
-                props: content.props
+                props: content.props,
+                ref: content.ref,
+                tabId
             });
         });
 

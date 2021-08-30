@@ -13,45 +13,45 @@ const DefaultElement = "a";
 
 export interface InnerTextLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * Whether or not the link should autoFocus on render.
      */
-    href?: string;
+    autoFocus?: boolean | number;
     /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * React children.
      */
-    target?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
+    children: ReactNode;
     /**
      * The color accent.
      */
     color?: "primary" | "secondary" | "danger" | "inherit";
     /**
-     * The underline style.
+     * @ignore
      */
-    underline?: "solid" | "dotted" | "none";
+    disabled?: boolean;
     /**
      * Whether or not this is an external link.
      */
     external?: boolean;
     /**
-     * Whether or not the link should autoFocus on render.
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    autoFocus?: boolean | number;
+    href?: string;
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel?: string;
     /**
      * A link can vary in size.
      */
     size?: "sm" | "md" | "inherit";
     /**
-     * @ignore
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    disabled?: boolean;
+    target?: string;
     /**
-     * React children.
+     * The underline style.
      */
-    children: ReactNode;
+    underline?: "solid" | "dotted" | "none";
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {
@@ -82,39 +82,39 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     );
 
     const { linkProps, showNewTabIndicator } = useLink({
-        cssModule: "o-ui-text-link",
-        color,
-        underline,
-        external,
-        autoFocus,
         active,
-        focus,
-        hover,
-        visited,
+        autoFocus,
+        color,
+        cssModule: "o-ui-text-link",
         disabled,
-        target,
+        external,
+        focus,
+        forwardedRef,
+        hover,
         rel,
-        forwardedRef
+        target,
+        underline,
+        visited
     });
 
     const { "start-icon": startIcon, text, icon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
+        icon: null,
         "start-icon": {
-            size: embeddedIconSize(size),
-            className: "o-ui-link-start-icon"
+            className: "o-ui-link-start-icon",
+            size: embeddedIconSize(size)
         },
         text: {
-            size,
-            className: "o-ui-link-text"
-        },
-        icon: null
+            className: "o-ui-link-text",
+            size
+        }
     }), [size]));
 
     const iconMarkup = icon && augmentElement(icon, {
-        size: embeddedIconSize(size),
-        className: "o-ui-link-end-icon"
+        className: "o-ui-link-end-icon",
+        size: embeddedIconSize(size)
     });
 
     return (

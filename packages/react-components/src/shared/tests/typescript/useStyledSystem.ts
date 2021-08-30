@@ -394,10 +394,6 @@ expectAssignable<ZindexProp>("9999");
 expectAssignable<ZindexProp>("max");
 
 expectAssignable<StyleProps>({
-    className: "red-border",
-    style: {
-        border: "1px solid red"
-    },
     alignContent: "center",
     alignItems: "center",
     alignSelf: "center",
@@ -405,20 +401,21 @@ expectAssignable<StyleProps>({
     backgroundPosition: "bottom",
     backgroundSize: "auto",
     border: "1px solid red",
-    borderColor: "sunray-1",
-    borderRadius: 1,
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderTop: "1px solid red",
-    borderTopWidth: 1,
     borderBottom: "1px solid red",
     borderBottomWidth: 1,
+    borderColor: "sunray-1",
     borderLeft: "1px solid red",
     borderLeftWidth: 1,
+    borderRadius: 1,
     borderRight: "1px solid red",
     borderRightWidth: 1,
+    borderStyle: "solid",
+    borderTop: "1px solid red",
+    borderTopWidth: 1,
+    borderWidth: 1,
     bottom: 1,
     boxShadow: 1,
+    className: "red-border",
     color: "sunray-1",
     display: "block",
     fill: "sunray-1",
@@ -458,6 +455,9 @@ expectAssignable<StyleProps>({
     position: "absolute",
     right: 1,
     stroke: "sunray-1",
+    style: {
+        border: "1px solid red"
+    },
     top: 1,
     width: 1,
     zIndex: 1

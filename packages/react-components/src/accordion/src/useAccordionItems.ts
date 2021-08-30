@@ -3,23 +3,23 @@ import { Content, Header } from "../../placeholders";
 import { isNil, mergeProps } from "../../shared";
 
 export interface AccordionBuilderItem {
-    id: string;
-    key: string;
-    index: number;
     header: AccordionBuilderHeader;
+    id: string;
+    index: number;
+    key: string;
     panel: AccordionBuilderPanel;
 }
 
 export interface AccordionBuilderHeader {
     elementType: ReactElement["type"];
-    ref: Ref<any>;
     props: Record<string, any>;
+    ref: Ref<any>;
 }
 
 export interface AccordionBuilderPanel {
     elementType: ReactElement["type"];
-    ref: Ref<any>;
     props: Record<string, any>;
+    ref: Ref<any>;
 }
 
 export class AccordionBuilder {
@@ -46,22 +46,22 @@ export class AccordionBuilder {
             const headerProps = {
                 // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
                 elementType: header.type !== Header ? header.type : undefined,
-                ref: (header as RefAttributes<any>).ref,
-                props: mergeProps(header.props, element.props)
+                props: mergeProps(header.props, element.props),
+                ref: (header as RefAttributes<any>).ref
             };
 
             const panelProps = {
                 // Use a custom type if available otherwise let the AccordionPanel component choose his default type.
                 elementType: content.type !== Content ? content.type : undefined,
-                ref: (content as RefAttributes<any>).ref,
-                props: content.props
+                props: content.props,
+                ref: (content as RefAttributes<any>).ref
             };
 
             return {
-                id: `${this.rootId}-${key}`,
-                key,
-                index,
                 header: headerProps,
+                id: `${this.rootId}-${key}`,
+                index,
+                key,
                 panel: panelProps
             };
         });

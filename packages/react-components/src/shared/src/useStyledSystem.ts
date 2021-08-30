@@ -127,156 +127,6 @@ export type BorderWidthValue =
     "thick" |
     GlobalValue;
 
-// export type NamedColor =
-//     "aliceblue" |
-//     "antiquewhite" |
-//     "aqua" |
-//     "aquamarine" |
-//     "azure" |
-//     "beige" |
-//     "bisque" |
-//     "black" |
-//     "blanchedalmond" |
-//     "blue" |
-//     "blueviolet" |
-//     "brown" |
-//     "burlywood" |
-//     "cadetblue" |
-//     "chartreuse" |
-//     "chocolate" |
-//     "coral" |
-//     "cornflowerblue" |
-//     "cornsilk" |
-//     "crimson" |
-//     "cyan" |
-//     "darkblue" |
-//     "darkcyan" |
-//     "darkgoldenrod" |
-//     "darkgray" |
-//     "darkgreen" |
-//     "darkgrey" |
-//     "darkkhaki" |
-//     "darkmagenta" |
-//     "darkolivegreen" |
-//     "darkorange" |
-//     "darkorchid" |
-//     "darkred" |
-//     "darksalmon" |
-//     "darkseagreen" |
-//     "darkslateblue" |
-//     "darkslategray" |
-//     "darkslategrey" |
-//     "darkturquoise" |
-//     "darkviolet" |
-//     "deeppink" |
-//     "deepskyblue" |
-//     "dimgray" |
-//     "dimgrey" |
-//     "dodgerblue" |
-//     "firebrick" |
-//     "floralwhite" |
-//     "forestgreen" |
-//     "fuchsia" |
-//     "gainsboro" |
-//     "ghostwhite" |
-//     "gold" |
-//     "goldenrod" |
-//     "gray" |
-//     "green" |
-//     "greenyellow" |
-//     "grey" |
-//     "honeydew" |
-//     "hotpink" |
-//     "indianred" |
-//     "indigo" |
-//     "ivory" |
-//     "khaki" |
-//     "lavender" |
-//     "lavenderblush" |
-//     "lawngreen" |
-//     "lemonchiffon" |
-//     "lightblue" |
-//     "lightcoral" |
-//     "lightcyan" |
-//     "lightgoldenrodyellow" |
-//     "lightgray" |
-//     "lightgreen" |
-//     "lightgrey" |
-//     "lightpink" |
-//     "lightsalmon" |
-//     "lightseagreen" |
-//     "lightskyblue" |
-//     "lightslategray" |
-//     "lightslategrey" |
-//     "lightsteelblue" |
-//     "lightyellow" |
-//     "lime" |
-//     "limegreen" |
-//     "linen" |
-//     "magenta" |
-//     "maroon" |
-//     "mediumaquamarine" |
-//     "mediumblue" |
-//     "mediumorchid" |
-//     "mediumpurple" |
-//     "mediumseagreen" |
-//     "mediumslateblue" |
-//     "mediumspringgreen" |
-//     "mediumturquoise" |
-//     "mediumvioletred" |
-//     "midnightblue" |
-//     "mintcream" |
-//     "mistyrose" |
-//     "moccasin" |
-//     "navajowhite" |
-//     "navy" |
-//     "oldlace" |
-//     "olive" |
-//     "olivedrab" |
-//     "orange" |
-//     "orangered" |
-//     "orchid" |
-//     "palegoldenrod" |
-//     "palegreen" |
-//     "paleturquoise" |
-//     "palevioletred" |
-//     "papayawhip" |
-//     "peachpuff" |
-//     "peru" |
-//     "pink" |
-//     "plum" |
-//     "powderblue" |
-//     "purple" |
-//     "rebeccapurple" |
-//     "red" |
-//     "rosybrown" |
-//     "royalblue" |
-//     "saddlebrown" |
-//     "salmon" |
-//     "sandybrown" |
-//     "seagreen" |
-//     "seashell" |
-//     "sienna" |
-//     "silver" |
-//     "skyblue" |
-//     "slateblue" |
-//     "slategray" |
-//     "slategrey" |
-//     "snow" |
-//     "springgreen" |
-//     "steelblue" |
-//     "tan" |
-//     "teal" |
-//     "thistle" |
-//     "tomato" |
-//     "turquoise" |
-//     "violet" |
-//     "wheat" |
-//     "white" |
-//     "whitesmoke" |
-//     "yellow" |
-//     "yellowgreen";
-
 export type ColorExpressionType =
     "#" |
     "rgb" |
@@ -410,37 +260,37 @@ export type ColorValue = OrbitColor | CssColor | GlobalValue;
 
 export const AlignContentClasses = {
     "center": "o-ui-ac",
-    "start": "o-ui-ac-fs",
     "end": "o-ui-ac-fe",
     "left": "o-ui-ac-l",
+    "normal": "o-ui-ac-n",
     "right": "o-ui-ac-r",
-    "space-between": "o-ui-ac-sb",
     "space-around": "o-ui-ac-sa",
+    "space-between": "o-ui-ac-sb",
     "space-evenly": "o-ui-ac-se",
-    "stretch": "o-ui-ac-s",
-    "normal": "o-ui-ac-n"
+    "start": "o-ui-ac-fs",
+    "stretch": "o-ui-ac-s"
 } as const;
 
 export const AlignItemsClasses = {
-    "center": "o-ui-ai-c",
-    "start": "o-ui-ai-sta",
-    "end": "o-ui-ai-e",
-    "flex-start": "o-ui-ai-fs",
-    "flex-end": "o-ui-ai-fe",
     "baseline": "o-ui-ai-b",
-    "stretch": "o-ui-ai-str",
-    "normal": "o-ui-ai-n"
+    "center": "o-ui-ai-c",
+    "end": "o-ui-ai-e",
+    "flex-end": "o-ui-ai-fe",
+    "flex-start": "o-ui-ai-fs",
+    "normal": "o-ui-ai-n",
+    "start": "o-ui-ai-sta",
+    "stretch": "o-ui-ai-str"
 } as const;
 
 export const AlignSelfClasses = {
-    "center": "o-ui-as-c",
-    "start": "o-ui-as-strt",
-    "end": "o-ui-as-e",
-    "flex-start": "o-ui-as-fs",
-    "flex-end": "o-ui-as-fe",
     "baseline": "o-ui-as-b",
-    "stretch": "o-ui-as-str",
-    "normal": "o-ui-as-n"
+    "center": "o-ui-as-c",
+    "end": "o-ui-as-e",
+    "flex-end": "o-ui-as-fe",
+    "flex-start": "o-ui-as-fs",
+    "normal": "o-ui-as-n",
+    "start": "o-ui-as-strt",
+    "stretch": "o-ui-as-str"
 } as const;
 
 export const BackgroundColorRoleClasses = {
@@ -450,35 +300,35 @@ export const BackgroundColorRoleClasses = {
     "alias-4": "o-ui-alias-bg-4",
     "alias-5": "o-ui-alias-bg-5",
     "alias-6": "o-ui-alias-bg-6",
-    "alias-primary-1": "o-ui-alias-bg-primary-1",
-    "alias-primary-2": "o-ui-alias-bg-primary-2",
+    "alias-info-1": "o-ui-alias-bg-info-1",
     "alias-negative-1": "o-ui-alias-bg-negative-1",
     "alias-negative-2": "o-ui-alias-bg-negative-2",
-    "alias-warning-1": "o-ui-alias-bg-warning-1",
-    "alias-warning-2": "o-ui-alias-bg-warning-2",
     "alias-positive-1": "o-ui-alias-bg-positive-1",
     "alias-positive-2": "o-ui-alias-bg-positive-2",
-    "alias-info-1": "o-ui-alias-bg-info-1"
+    "alias-primary-1": "o-ui-alias-bg-primary-1",
+    "alias-primary-2": "o-ui-alias-bg-primary-2",
+    "alias-warning-1": "o-ui-alias-bg-warning-1",
+    "alias-warning-2": "o-ui-alias-bg-warning-2"
 } as const;
 
 export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
 
 export const BackgroundPositionClasses = {
-    "top": "o-ui-bg-t",
     "bottom": "o-ui-bg-b",
-    "left": "o-ui-bg-l",
-    "right": "o-ui-bg-r",
     "center": "o-ui-bgp-c",
-    "left-top": "o-ui-bg-lt",
+    "left": "o-ui-bg-l",
     "left-bottom": "o-ui-bg-lb",
+    "left-top": "o-ui-bg-lt",
+    "right": "o-ui-bg-r",
+    "right-bottom": "o-ui-bg-rb",
     "right-top": "o-ui-bg-rt",
-    "right-bottom": "o-ui-bg-rb"
+    "top": "o-ui-bg-t"
 } as const;
 
 export const BackgroundSizeClasses = {
     "auto": "o-ui-bg-a",
-    "cover": "o-ui-bg-cvr",
-    "contain": "o-ui-bg-cnt"
+    "contain": "o-ui-bg-cnt",
+    "cover": "o-ui-bg-cvr"
 } as const;
 
 export const BorderColorRoleClasses = {
@@ -486,13 +336,13 @@ export const BorderColorRoleClasses = {
     "alias-2": "o-ui-alias-b-2",
     "alias-3": "o-ui-alias-b-3",
     "alias-4": "o-ui-alias-b-4",
-    "alias-primary-1": "o-ui-alias-b-primary-1",
-    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent",
     "alias-negative-1": "o-ui-alias-b-negative-1",
     "alias-negative-1-translucent": "o-ui-alias-b-negative-1-translucent",
     "alias-negative-2": "o-ui-alias-b-negative-2",
-    "alias-warning-1": "o-ui-alias-b-warning-1",
-    "alias-positive-1": "o-ui-alias-b-positive-1"
+    "alias-positive-1": "o-ui-alias-b-positive-1",
+    "alias-primary-1": "o-ui-alias-b-primary-1",
+    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent",
+    "alias-warning-1": "o-ui-alias-b-warning-1"
 } as const;
 
 export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
@@ -500,19 +350,19 @@ export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderCo
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
     1: "o-ui-b-radius-1",
+    "100": "o-ui-b-radius-100",
     2: "o-ui-b-radius-2",
     3: "o-ui-b-radius-3",
     4: "o-ui-b-radius-4",
-    "100": "o-ui-b-radius-100",
     "pill": "o-ui-pill"
 } as const;
 
 export const BorderStyleClasses = {
-    "solid": "o-ui-b-s",
     "dashed": "o-ui-b-da",
     "dotted": "o-ui-b-dt",
     "double": "o-ui-b-db",
-    "none": "o-ui-b-n"
+    "none": "o-ui-b-n",
+    "solid": "o-ui-b-s"
 } as const;
 
 export const BorderWidthClasses = createOrbitBorderWidthScaleClasses("ba", true);
@@ -532,10 +382,10 @@ export const BoxShadowClasses = {
     2: "o-ui-bs-2",
     3: "o-ui-bs-3",
     4: "o-ui-bs-4",
-    "alias-skim": "o-ui-alias-bs-skim",
+    "alias-floating": "o-ui-alias-bs-floating",
     "alias-lifted": "o-ui-alias-bs-lifted",
     "alias-raised": "o-ui-alias-bs-raised",
-    "alias-floating": "o-ui-alias-bs-floating"
+    "alias-skim": "o-ui-alias-bs-skim"
 } as const;
 
 export const BoxSizingClasses = {
@@ -548,16 +398,16 @@ export const ColorRoleClasses = {
     "alias-2": "o-ui-alias-text-2",
     "alias-3": "o-ui-alias-text-3",
     "alias-4": "o-ui-alias-text-4",
-    "alias-primary-1": "o-ui-alias-text-primary-1",
+    "alias-info-1": "o-ui-alias-text-info-1",
+    "alias-input-placeholder": "o-ui-alias-text-input-placeholder",
+    "alias-input-selection": "o-ui-alias-text-input-selection",
     "alias-negative-1": "o-ui-alias-text-negative-1",
     "alias-negative-2": "o-ui-alias-text-negative-2",
-    "alias-info-1": "o-ui-alias-text-info-1",
     "alias-positive-1": "o-ui-alias-text-positive-1",
     "alias-positive-2": "o-ui-alias-text-positive-2",
+    "alias-primary-1": "o-ui-alias-text-primary-1",
     "alias-warning-1": "o-ui-alias-text-warning-1",
-    "alias-warning-2": "o-ui-alias-text-warning-2",
-    "alias-input-selection": "o-ui-alias-text-input-selection",
-    "alias-input-placeholder": "o-ui-alias-text-input-placeholder"
+    "alias-warning-2": "o-ui-alias-text-warning-2"
 } as const;
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
@@ -565,59 +415,59 @@ export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses 
 export const ColumnGapClasses = createOrbitSpacingScaleClasses("c-gap", true);
 
 export const CursorClasses = {
-    "help": "o-ui-c-h",
     "auto": "o-ui-c-a",
-    "wait": "o-ui-c-w",
     "crosshair": "o-ui-c-c",
-    "not-allowed": "o-ui-c-na",
     "grab": "o-ui-c-g",
+    "help": "o-ui-c-h",
+    "not-allowed": "o-ui-c-na",
+    "wait": "o-ui-c-w",
     "zoom-in": "o-ui-c-zi"
 } as const;
 
 export const DisplayClasses = {
     "block": "o-ui-db",
-    "inline-block": "o-ui-dib",
-    "inline": "o-ui-di",
     "flex": "o-ui-df",
+    "grid": "o-ui-dg",
+    "inline": "o-ui-di",
+    "inline-block": "o-ui-dib",
     "inline-flex": "o-ui-dif",
-    "table": "o-ui-dt",
+    "inline-grid": "o-ui-dig",
     "inline-table": "o-ui-dit",
+    "list-item": "o-ui-dli",
+    "none": "o-ui-dn",
+    "table": "o-ui-dt",
     "table-caption": "o-ui-dt-caption",
     "table-cell": "o-ui-dt-cell",
     "table-column": "o-ui-dt-column",
     "table-column-group": "o-ui-dt-cg",
     "table-footer-group": "o-ui-dt-fg",
     "table-header-group": "o-ui-dt-hg",
-    "table-row-group": "o-ui-dt-rg",
     "table-row": "o-ui-dt-row",
-    "grid": "o-ui-dg",
-    "inline-grid": "o-ui-dig",
-    "list-item": "o-ui-dli",
-    "none": "o-ui-dn"
+    "table-row-group": "o-ui-dt-rg"
 } as const;
 
 export const FillRoleClasses = {
     "alias-icon-1": "o-ui-alias-icon-1",
     "alias-icon-2": "o-ui-alias-icon-2",
-    "alias-icon-primary-1": "o-ui-alias-icon-primary-1",
+    "alias-icon-info-1": "o-ui-alias-icon-info-1",
     "alias-icon-negative-1": "o-ui-alias-icon-negative-1",
     "alias-icon-negative-2": "o-ui-alias-icon-negative-2",
     "alias-icon-positive-1": "o-ui-alias-icon-positive-1",
     "alias-icon-positive-2": "o-ui-alias-icon-positive-2",
+    "alias-icon-primary-1": "o-ui-alias-icon-primary-1",
     "alias-icon-warning-1": "o-ui-alias-icon-warning-1",
-    "alias-icon-warning-2": "o-ui-alias-icon-warning-2",
-    "alias-icon-info-1": "o-ui-alias-icon-info-1"
+    "alias-icon-warning-2": "o-ui-alias-icon-warning-2"
 } as const;
 
 export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
 
 export const FlexBasisClasses = {
     "auto": "o-ui-b-a",
+    "content": "o-ui-b-c",
     "fill": "o-ui-b-f",
-    "max-content": "o-ui-b-mxc",
-    "min-content": "o-ui-b-mnc",
     "fit-content": "o-ui-b-f",
-    "content": "o-ui-b-c"
+    "max-content": "o-ui-b-mxc",
+    "min-content": "o-ui-b-mnc"
 } as const;
 
 export const FlexClasses = {
@@ -628,10 +478,10 @@ export const FlexClasses = {
 } as const;
 
 export const FlexDirectionClasses = {
-    "row": "o-ui-fd-r",
-    "row-reverse": "o-ui-fd-rr",
     "column": "o-ui-fd-c",
-    "column-reverse": "o-ui-fd-cr"
+    "column-reverse": "o-ui-fd-cr",
+    "row": "o-ui-fd-r",
+    "row-reverse": "o-ui-fd-rr"
 } as const;
 
 export const FlexGrowClasses = {
@@ -647,8 +497,8 @@ export const FlexShrinkClasses = {
 } as const;
 
 export const FlexWrapClasses = {
-    "wrap": "o-ui-fw-w",
     "nowrap": "o-ui-fw-nw",
+    "wrap": "o-ui-fw-w",
     "wrap-reverse": "o-ui-fw-wr"
 } as const;
 
@@ -662,8 +512,8 @@ export const FontSizeClasses = {
     7: "o-ui-fs-7",
     8: "o-ui-fs-8",
     9: "o-ui-fs-9",
-    "subheadline": "o-ui-subheadline",
-    "headline": "o-ui-headline"
+    "headline": "o-ui-headline",
+    "subheadline": "o-ui-subheadline"
 } as const;
 
 export const FontWeightClasses = {
@@ -682,26 +532,26 @@ export const GapClasses = createOrbitSpacingScaleClasses("gap", true);
 
 export const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
-    "screen": "o-ui-h-screen",
     "auto": "o-ui-h-auto",
+    "fit-content": "o-ui-h-fit",
     "max-content": "o-ui-h-max",
     "min-content": "o-ui-h-min",
-    "fit-content": "o-ui-h-fit"
+    "screen": "o-ui-h-screen"
 } as const;
 
 export const HeightClasses = { ...createOrbitSpacingScaleClasses("h", true), ...HeightAdditionalClasses };
 
 export const JustifyContentClasses = {
     "center": "o-ui-jc-c",
-    "start": "o-ui-jc-strt",
     "end": "o-ui-jc-e",
     "left": "o-ui-jc-l",
+    "normal": "o-ui-jc-n",
     "right": "o-ui-jc-r",
-    "space-between": "o-ui-jc-b",
     "space-around": "o-ui-jc-a",
+    "space-between": "o-ui-jc-b",
     "space-evenly": "o-ui-jc-evn",
-    "stretch": "o-ui-jc-str",
-    "normal": "o-ui-jc-n"
+    "start": "o-ui-jc-strt",
+    "stretch": "o-ui-jc-str"
 } as const;
 
 export const LeftClasses = { ...createOrbitSpacingScaleClasses("left", true), "auto": "o-ui-left-auto" };
@@ -713,8 +563,8 @@ export const LineHeightClasses = {
     4: "o-ui-lh-4",
     5: "o-ui-lh-5",
     6: "o-ui-lh-6",
-    "normal": "o-ui-lh-normal",
-    "none": "o-ui-lh-none"
+    "none": "o-ui-lh-none",
+    "normal": "o-ui-lh-normal"
 } as const;
 
 export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-auto" };
@@ -734,9 +584,9 @@ export const MarginYClasses = { ...createOrbitSpacingScaleClasses("mv", true), "
 export const MaxHeightAdditionalClasses = {
     "100%": "o-ui-mh-100",
     "auto": "o-ui-mh-a",
+    "fit-content": "o-ui-mh-f",
     "max-content": "o-ui-mh-mx",
-    "min-content": "o-ui-mh-mn",
-    "fit-content": "o-ui-mh-f"
+    "min-content": "o-ui-mh-mn"
 } as const;
 
 export const MaxHeightClasses = { ...createOrbitSpacingScaleClasses("mh-"), ...MaxHeightAdditionalClasses };
@@ -744,9 +594,9 @@ export const MaxHeightClasses = { ...createOrbitSpacingScaleClasses("mh-"), ...M
 export const MaxWidthAdditionalClasses = {
     "100%": "o-ui-max-w-100",
     "auto": "o-ui-max-w-a",
+    "fit-content": "o-ui-max-w-fc",
     "max-content": "o-ui-max-w-mxc",
-    "min-content": "o-ui-max-w-mnc",
-    "fit-content": "o-ui-max-w-fc"
+    "min-content": "o-ui-max-w-mnc"
 } as const;
 
 export const MaxWidthClasses = { ...createOrbitSpacingScaleClasses("max-w"), ...MaxWidthAdditionalClasses };
@@ -754,9 +604,9 @@ export const MaxWidthClasses = { ...createOrbitSpacingScaleClasses("max-w"), ...
 export const MinHeightAdditionalClasses = {
     "100%": "o-ui-min-h-100",
     "auto": "o-ui-min-h-a",
+    "fit-content": "o-ui-min-h-f",
     "max-content": "o-ui-min-h-mxc",
-    "min-content": "o-ui-min-h-mnc",
-    "fit-content": "o-ui-min-h-f"
+    "min-content": "o-ui-min-h-mnc"
 } as const;
 
 export const MinHeightClasses = { ...createOrbitSpacingScaleClasses("min-h"), ...MinHeightAdditionalClasses };
@@ -764,43 +614,43 @@ export const MinHeightClasses = { ...createOrbitSpacingScaleClasses("min-h"), ..
 export const MinWidthAdditionalClasses = {
     "100%": "o-ui-min-w-100",
     "auto": "o-ui-min-w-a",
+    "fit-content": "o-ui-min-w-f",
     "max-content": "o-ui-min-w-mxc",
-    "min-content": "o-ui-min-w-mnc",
-    "fit-content": "o-ui-min-w-f"
+    "min-content": "o-ui-min-w-mnc"
 } as const;
 
 export const MinWidthClasses = { ...createOrbitSpacingScaleClasses("min-w"), ...MinWidthAdditionalClasses };
 
 export const ObjectFitClasses = {
-    "fill": "o-ui-of-f",
     "contain": "o-ui-of-cnt",
     "cover": "o-ui-of-cvr",
+    "fill": "o-ui-of-f",
     "none": "o-ui-of-n",
     "scale-down": "o-ui-of-sd"
 } as const;
 
 export const OverflowClasses = {
-    "hidden": "o-ui-ovf-h",
-    "visible": "o-ui-ovf-v",
-    "scroll": "o-ui-ovf-s",
     "auto": "o-ui-ovf-a",
-    "clip": "o-ui-ovf-c"
+    "clip": "o-ui-ovf-c",
+    "hidden": "o-ui-ovf-h",
+    "scroll": "o-ui-ovf-s",
+    "visible": "o-ui-ovf-v"
 } as const;
 
 export const OverflowXClasses = {
-    "hidden": "o-ui-ovf-x-h",
-    "visible": "o-ui-ovf-x-v",
-    "scroll": "o-ui-ovf-x-s",
     "auto": "o-ui-ovf-x-a",
-    "clip": "o-ui-ovf-x-c"
+    "clip": "o-ui-ovf-x-c",
+    "hidden": "o-ui-ovf-x-h",
+    "scroll": "o-ui-ovf-x-s",
+    "visible": "o-ui-ovf-x-v"
 } as const;
 
 export const OverflowYClasses = {
-    "hidden": "o-ui-ovf-y-h",
-    "visible": "o-ui-ovf-y-v",
-    "scroll": "o-ui-ovf-y-s",
     "auto": "o-ui-ovf-y-a",
-    "clip": "o-ui-ovf-y-c"
+    "clip": "o-ui-ovf-y-c",
+    "hidden": "o-ui-ovf-y-h",
+    "scroll": "o-ui-ovf-y-s",
+    "visible": "o-ui-ovf-y-v"
 } as const;
 
 export const PaddingClasses = createOrbitSpacingScaleClasses("pa", true);
@@ -818,10 +668,10 @@ export const PaddingXClasses = createOrbitSpacingScaleClasses("ph", true);
 export const PaddingYClasses = createOrbitSpacingScaleClasses("pv", true);
 
 export const PositionClasses = {
-    "static": "o-ui-stc",
-    "fixed": "o-ui-f",
     "absolute": "o-ui-a",
+    "fixed": "o-ui-f",
     "relative": "o-ui-r",
+    "static": "o-ui-stc",
     "sticky": "o-ui-stck"
 } as const;
 
@@ -832,72 +682,72 @@ export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
 export const StrokeClasses = createOrbitColorClasses("stroke");
 
 export const TextAlignClasses = {
-    "start": "o-ui-ta-s",
-    "end": "o-ui-ta-e",
-    "left": "o-ui-ta-l",
-    "right": "o-ui-ta-r",
     "center": "o-ui-ta-c",
+    "end": "o-ui-ta-e",
     "justify": "o-ui-ta-j",
     "justify-all": "o-ui-ta-ja",
-    "match-parent": "o-ui-ta-mp"
+    "left": "o-ui-ta-l",
+    "match-parent": "o-ui-ta-mp",
+    "right": "o-ui-ta-r",
+    "start": "o-ui-ta-s"
 } as const;
 
 export const TextDecorationClasses = {
-    "underline": "o-ui-td-u",
+    "no-underline": "o-ui-td-nu",
     "strike": "o-ui-td-s",
-    "no-underline": "o-ui-td-nu"
+    "underline": "o-ui-td-u"
 } as const;
 
 export const TextOverflowClasses = {
-    "ellipsis": "o-ui-to-ellipsis",
-    "clip": "o-ui-to-clip"
+    "clip": "o-ui-to-clip",
+    "ellipsis": "o-ui-to-ellipsis"
 } as const;
 
 export const TextTransformClasses = {
-    "uppercase": "o-ui-tt-u",
-    "lowercase": "o-ui-tt-l",
     "capitalize": "o-ui-tt-c",
-    "none": "o-ui-tt-n"
+    "lowercase": "o-ui-tt-l",
+    "none": "o-ui-tt-n",
+    "uppercase": "o-ui-tt-u"
 } as const;
 
 export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
 
 export const VerticalAlignClasses = {
-    "top": "o-ui-va-t",
-    "middle": "o-ui-va-m",
-    "bottom": "o-ui-va-b",
     "baseline": "o-ui-va-bs",
+    "bottom": "o-ui-va-b",
+    "middle": "o-ui-va-m",
     "sub": "o-ui-va-sb",
     "super": "o-ui-va-sp",
+    "text-bottom": "o-ui-va-tb",
     "text-top": "o-ui-va-tt",
-    "text-bottom": "o-ui-va-tb"
+    "top": "o-ui-va-t"
 } as const;
 
 export const WidthAdditionalClasses = {
     "100%": "o-ui-w-100",
-    "screen": "o-ui-w-s",
     "auto": "o-ui-w-a",
+    "fit-content": "o-ui-w-f",
     "max-content": "o-ui-w-mx",
     "min-content": "o-ui-w-mn",
-    "fit-content": "o-ui-w-f"
+    "screen": "o-ui-w-s"
 } as const;
 
 export const WhiteSpaceClasses = {
+    "break-spaces": "o-ui-ws-bs",
+    "normal": "o-ui-ws-n",
     "nowrap": "o-ui-ws-nw",
     "pre": "o-ui-ws-p",
-    "pre-wrap": "o-ui-ws-pw",
     "pre-line": "o-ui-ws-pl",
-    "break-spaces": "o-ui-ws-bs",
-    "normal": "o-ui-ws-n"
+    "pre-wrap": "o-ui-ws-pw"
 } as const;
 
 export const WidthClasses = { ...createOrbitSpacingScaleClasses("w", true), ...WidthAdditionalClasses };
 
 export const WordBreakClasses = {
-    "normal": "o-ui-wb-n",
     "break-all": "o-ui-wb-b",
     "break-word": "o-ui-wb-bw",
-    "keep-all": "o-ui-wb-ka"
+    "keep-all": "o-ui-wb-ka",
+    "normal": "o-ui-wb-n"
 } as const;
 
 export const ZindexClasses = {
@@ -1090,35 +940,15 @@ export interface StyleProps {
     /**
      * @ignore
      */
-    borderColor?: BorderColorProp;
-    /**
-     * @ignore
-     */
-    borderRadius?: BorderRadiusProp;
-    /**
-     * @ignore
-     */
-    borderStyle?: BorderStyleProp;
-    /**
-     * @ignore
-     */
-    borderWidth?: BorderWidthProp;
-    /**
-     * @ignore
-     */
-    borderTop?: string;
-    /**
-     * @ignore
-     */
-    borderTopWidth?: BorderTopWidthProp;
-    /**
-     * @ignore
-     */
     borderBottom?: string;
     /**
      * @ignore
      */
     borderBottomWidth?: BorderBottomWidthProp;
+    /**
+     * @ignore
+     */
+    borderColor?: BorderColorProp;
     /**
      * @ignore
      */
@@ -1130,11 +960,31 @@ export interface StyleProps {
     /**
      * @ignore
      */
+    borderRadius?: BorderRadiusProp;
+    /**
+     * @ignore
+     */
     borderRight?: string;
     /**
      * @ignore
      */
     borderRightWidth?: BorderRightWidthProp;
+    /**
+     * @ignore
+     */
+    borderStyle?: BorderStyleProp;
+    /**
+     * @ignore
+     */
+    borderTop?: string;
+    /**
+     * @ignore
+     */
+    borderTopWidth?: BorderTopWidthProp;
+    /**
+     * @ignore
+     */
+    borderWidth?: BorderWidthProp;
     /**
      * @ignore
      */
@@ -1147,6 +997,10 @@ export interface StyleProps {
      * @ignore
      */
     boxSizing?: BoxSizingProp;
+    /**
+     * @ignore
+     */
+    className?: string;
     /**
      * @ignore
      */
@@ -1230,10 +1084,6 @@ export interface StyleProps {
     /**
      * @ignore
      */
-    marginTop?: MarginTopProp;
-    /**
-     * @ignore
-     */
     marginBottom?: MarginBottomProp;
     /**
      * @ignore
@@ -1243,6 +1093,10 @@ export interface StyleProps {
      * @ignore
      */
     marginRight?: MarginRightProp;
+    /**
+     * @ignore
+     */
+    marginTop?: MarginTopProp;
     /**
      * @ignore
      */
@@ -1290,10 +1144,6 @@ export interface StyleProps {
     /**
      * @ignore
      */
-    paddingTop?: PaddingTopProp;
-    /**
-     * @ignore
-     */
     paddingBottom?: PaddingBottomProp;
     /**
      * @ignore
@@ -1303,6 +1153,10 @@ export interface StyleProps {
      * @ignore
      */
     paddingRight?: PaddingRightProp;
+    /**
+     * @ignore
+     */
+    paddingTop?: PaddingTopProp;
     /**
      * @ignore
      */
@@ -1327,6 +1181,10 @@ export interface StyleProps {
      * @ignore
      */
     stroke?: StrokeProp;
+    /**
+     * @ignore
+     */
+    style?: CSSProperties;
     /**
      * @ignore
      */
@@ -1367,14 +1225,6 @@ export interface StyleProps {
      * @ignore
      */
     zIndex?: ZindexProp;
-    /**
-     * @ignore
-     */
-    className?: string;
-    /**
-     * @ignore
-     */
-    style?: CSSProperties;
 }
 
 interface Context {
@@ -1432,13 +1282,13 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundColor: createPropHandler(BackgroundColorClasses),
     backgroundPosition: createPropHandler(BackgroundPositionClasses),
     backgroundSize: createPropHandler(BackgroundSizeClasses),
-    borderColor: createPropHandler(BorderColorClasses),
-    borderRadius: createPropHandler(BorderRadiusClasses),
-    borderWidth: createPropHandler(BorderWidthClasses),
-    borderTopWidth: createPropHandler(BorderTopWidthClasses),
     borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
+    borderColor: createPropHandler(BorderColorClasses),
     borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
+    borderRadius: createPropHandler(BorderRadiusClasses),
     borderRightWidth: createPropHandler(BorderRightWidthClasses),
+    borderTopWidth: createPropHandler(BorderTopWidthClasses),
+    borderWidth: createPropHandler(BorderWidthClasses),
     bottom: createPropHandler(BottomClasses),
     boxShadow: createPropHandler(BoxShadowClasses),
     boxSizing: createPropHandler(BoxSizingClasses),
@@ -1462,10 +1312,10 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     left: createPropHandler(LeftClasses),
     lineHeight: createPropHandler(LineHeightClasses),
     margin: createPropHandler(MarginClasses),
-    marginTop: createPropHandler(MarginTopClasses),
     marginBottom: createPropHandler(MarginBottomClasses),
     marginLeft: createPropHandler(MarginLeftClasses),
     marginRight: createPropHandler(MarginRightClasses),
+    marginTop: createPropHandler(MarginTopClasses),
     marginX: createPropHandler(MarginXClasses),
     marginY: createPropHandler(MarginYClasses),
     maxHeight: createPropHandler(MaxHeightClasses),
@@ -1477,10 +1327,10 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     overflowX: createPropHandler(OverflowXClasses),
     overflowY: createPropHandler(OverflowYClasses),
     padding: createPropHandler(PaddingClasses),
-    paddingTop: createPropHandler(PaddingTopClasses),
     paddingBottom: createPropHandler(PaddingBottomClasses),
     paddingLeft: createPropHandler(PaddingLeftClasses),
     paddingRight: createPropHandler(PaddingRightClasses),
+    paddingTop: createPropHandler(PaddingTopClasses),
     paddingX: createPropHandler(PaddingXClasses),
     paddingY: createPropHandler(PaddingYClasses),
     position: createPropHandler(PositionClasses),

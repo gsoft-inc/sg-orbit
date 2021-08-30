@@ -2,19 +2,19 @@ import "./Heading.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
 
 export interface InnerHeadingProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A heading can vary in size.
-     */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * A heading can vary in size.
+     */
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
 }
 
 export function InnerHeading(props: InnerHeadingProps) {
@@ -36,11 +36,11 @@ export function InnerHeading(props: InnerHeadingProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-heading",
                         normalizeSize(size)
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

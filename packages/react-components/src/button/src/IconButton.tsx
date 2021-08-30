@@ -3,7 +3,7 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -12,49 +12,45 @@ const DefaultElement = "button";
 
 export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
-     * The icon button style to use.
+     * Whether or not the icon button should autoFocus on render.
      */
-    variant?: "solid" | "outline" | "ghost";
+    autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The icon button color accent.
      */
     color?: "primary" | "secondary" | "danger" | "inherit";
     /**
-     * The icon button shape.
-     */
-    shape?: "rounded" | "circular";
-    /**
      * Whether or not the icon button content should takes additional space.
      */
     condensed?: boolean;
-    /**
-     * Whether or not the icon button should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * An icon button can show a loading indicator.
-     */
-    loading?: boolean;
-    /**
-     * An icon button can vary in size.
-     */
-    size?: "2xs" | "xs" | "sm" | "md";
-    /**
-     * Whether or not the icon button is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * The icon button type.
-     */
-    type?: "button" | "submit" | "reset";
     /**
      * Whether or not the button take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * React children.
+     * An icon button can show a loading indicator.
      */
-    children: ReactNode;
+    loading?: boolean;
+    /**
+     * The icon button shape.
+     */
+    shape?: "rounded" | "circular";
+    /**
+     * An icon button can vary in size.
+     */
+    size?: "2xs" | "xs" | "sm" | "md";
+    /**
+     * The icon button type.
+     */
+    type?: "button" | "submit" | "reset";
+    /**
+     * The icon button style to use.
+     */
+    variant?: "solid" | "outline" | "ghost";
 }
 
 export function InnerIconButton(props: InnerIconButtonProps) {
@@ -90,27 +86,27 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     }
 
     const buttonProps = useButton({
-        cssModule: "o-ui-icon-button",
-        variant,
-        color,
-        shape,
-        autoFocus,
-        fluid,
-        loading,
-        size,
         active,
-        focus,
-        hover,
-        type,
         as,
-        forwardedRef
+        autoFocus,
+        color,
+        cssModule: "o-ui-icon-button",
+        fluid,
+        focus,
+        forwardedRef,
+        hover,
+        loading,
+        shape,
+        size,
+        type,
+        variant
     });
 
     const icon = Children.only(children) as ReactElement;
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
-        size,
-        className: "o-ui-button-icon"
+        className: "o-ui-button-icon",
+        size
     });
 
     return (
@@ -118,8 +114,8 @@ export function InnerIconButton(props: InnerIconButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    as,
-                    "aria-label": ariaLabel
+                    "aria-label": ariaLabel,
+                    as
                 },
                 buttonProps
             )}
@@ -135,7 +131,9 @@ export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitInter
 
 export type IconButtonProps = ComponentProps<typeof IconButton>;
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 export const embedIconButton = createEmbeddableAdapter({
     "sm": "2xs",
     "md": "xs"
 });
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */

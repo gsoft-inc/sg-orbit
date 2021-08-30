@@ -46,8 +46,8 @@ export function useAsyncSearch<T>(load: (query: string, signal: AbortSignal) => 
     }, [cancelRequest]);
 
     return {
-        items,
         isLoading,
+        items,
         search
     };
 }

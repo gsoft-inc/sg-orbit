@@ -7,19 +7,19 @@ import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, is
 
 export interface InnerAccordionHeaderProps extends InternalProps, InteractionStatesProps {
     /**
-    * The header item props
-    */
-    header?: {
-        key: string;
-    };
+     * React children.
+     */
+    children: ReactNode;
     /**
      * Whether or not the tab is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
-     */
-    children: ReactNode;
+    * The header item props
+    */
+    header?: {
+        key: string;
+    };
 }
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
@@ -42,18 +42,18 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         _: {
             defaultWrapper: Text
         },
+        counter: {
+            color: "inherit",
+            pushed: true,
+            size: "inherit",
+            variant: "divider"
+        },
         icon: {
             className: "o-ui-accordion-icon"
         },
         text: {
-            size: "inherit",
-            className: "o-ui-accordion-title"
-        },
-        counter: {
-            size: "inherit",
-            variant: "divider",
-            color: "inherit",
-            pushed: true
+            className: "o-ui-accordion-title",
+            size: "inherit"
         }
     }), []));
 

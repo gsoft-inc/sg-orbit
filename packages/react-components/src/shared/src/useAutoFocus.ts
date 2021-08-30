@@ -6,8 +6,8 @@ import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
 
 export interface AbstractAutoFocusOptions {
-    isDisabled?: boolean;
     delay?: number;
+    isDisabled?: boolean;
     onFocus?: (element?: HTMLElement) => void;
 }
 
@@ -32,15 +32,15 @@ function useAbstractAutoFocus({ isDisabled, delay, onFocus }: AbstractAutoFocusO
 }
 
 export interface AutoFocusOptions {
-    isDisabled?: boolean;
     delay?: number;
+    isDisabled?: boolean;
     onFocus?: (element?: HTMLElement) => void;
 }
 
 export function useAutoFocus(targetRef: RefObject<HTMLElement>, { isDisabled, delay, onFocus }: AutoFocusOptions = {}) {
     useAbstractAutoFocus({
-        isDisabled,
         delay,
+        isDisabled,
         onFocus: useChainedEventCallback(onFocus, () => {
             if (!targetRef.current?.hasAttribute("disabled") && !targetRef.current?.contains(document.activeElement)) {
                 targetRef.current?.focus();
@@ -50,15 +50,15 @@ export function useAutoFocus(targetRef: RefObject<HTMLElement>, { isDisabled, de
 }
 
 export interface AutoFocusChildOptions extends FocusOptions {
-    target?: string;
-    isDisabled?: boolean;
     delay?: number;
+    isDisabled?: boolean;
+    target?: string;
 }
 
 export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusChildOptions = {}) {
     useAbstractAutoFocus({
-        isDisabled: isDisabled,
         delay,
+        isDisabled: isDisabled,
         onFocus: useEventCallback(() => {
             // Do not autofocus another child if there is already one focused.
             if (!focusManager.isInScope(document.activeElement as HTMLElement)) {

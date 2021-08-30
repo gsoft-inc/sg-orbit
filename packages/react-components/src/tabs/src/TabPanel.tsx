@@ -1,7 +1,7 @@
 import "./Tabs.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
@@ -10,13 +10,13 @@ const DefaultElement = "div";
 
 export interface InnerTabPanelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
-     * Matching panel item.
-     */
-    panel: PanelType;
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Matching panel item.
+     */
+    panel: PanelType;
 }
 
 export function InnerTabPanel({
@@ -33,13 +33,13 @@ export function InnerTabPanel({
             {...mergeProps(
                 rest,
                 {
-                    id: panelId,
-                    className: "o-ui-tab-panel",
-                    role: "tabpanel",
-                    hidden: key !== selectedKey,
                     "aria-labelledby": tabId,
                     as,
-                    ref: forwardedRef
+                    className: "o-ui-tab-panel",
+                    hidden: key !== selectedKey,
+                    id: panelId,
+                    ref: forwardedRef,
+                    role: "tabpanel"
                 }
             )}
         >

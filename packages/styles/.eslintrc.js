@@ -1,10 +1,15 @@
-// TODO: Extract to an MDX config into the sg-eslint packages.
-
 module.exports = {
     extends: [
-        "@sharegate/eslint-config-react"
+        "@sharegate/eslint-config-react",
+        "@sharegate/eslint-config-typescript"
     ],
     overrides: [
+        {
+            files: ["scripts/*.js"],
+            rules: {
+                "@typescript-eslint/no-var-requires": "off"
+            }
+        },
         {
             extends: ["plugin:mdx/recommended"],
             files: ["*.mdx"],
@@ -30,19 +35,7 @@ module.exports = {
             rules: {
                 "no-unused-expressions": "off",
                 "no-unused-vars": "off",
-                "no-undef": "off",
                 "react/jsx-no-undef": "off"
-            }
-        },
-        {
-            extends:[
-                "@sharegate/eslint-config-typescript"
-            ],
-            files: ["*.ts?(x)"],
-            rules: {
-                "@typescript-eslint/ban-ts-comment": "off",
-                "@typescript-eslint/no-explicit-any": "off",
-                "no-param-reassign": "off"
             }
         },
         {
@@ -55,6 +48,8 @@ module.exports = {
         }
     ],
     rules: {
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-explicit-any": "off",
         "no-param-reassign": "off",
         "react/destructuring-assignment": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx",".ts", ".tsx", ".mdx"] }]

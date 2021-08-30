@@ -5,6 +5,7 @@ import { Group, GroupProps } from "../../group";
 import {
     InternalProps,
     OmitInternalProps,
+    OrbitComponentProps,
     SlotProps,
     arrayify,
     augmentElement,
@@ -19,23 +20,23 @@ import {
 } from "../../shared";
 import { RadioGroup } from "../../radio";
 
-export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<"div">, "autoFocus" | "onChange"> {
+export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<"div">, "autoFocus" | "onChange"> {
     /**
-     * The value of the tile group.
-     */
-    value?: string[] | null;
+      * Whether or not the first tile of the group should autoFocus on render.
+      */
+    autoFocus?: boolean | number;
+    /**
+      * React children.
+      */
+    children: ReactNode;
     /**
       * The initial value of `value`.
       */
     defaultValue?: string[];
     /**
-      * The type of selection that is allowed.
+      * Whether or not the tiles are disabled.
       */
-    selectionMode?: "none" | "single" | "multiple";
-    /**
-      * The number of tiles per row.
-      */
-    rowSize?: number;
+    disabled?: boolean;
     /**
       * Called when any of the children is checked or unchecked..
       * @param {SyntheticEvent} event - React's original event.
@@ -48,20 +49,19 @@ export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<Comp
       */
     orientation?: "horizontal" | "vertical";
     /**
-      * Whether or not the first tile of the group should autoFocus on render.
+      * The number of tiles per row.
       */
-    autoFocus?: boolean | number;
+    rowSize?: number;
     /**
-      * Whether or not the tiles are disabled.
+      * The type of selection that is allowed.
       */
-    disabled?: boolean;
+    selectionMode?: "none" | "single" | "multiple";
     /**
-      * React children.
-      */
-    children: ReactNode;
+     * The value of the tile group.
+     */
+    value?: string[] | null;
 }
 
-// @ts-ignore
 export interface UnselectableGroupProps extends GroupProps {
     autoFocus?: boolean | number;
 }
@@ -74,8 +74,8 @@ const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({ aut
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     return (
@@ -89,9 +89,9 @@ const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({ aut
 });
 
 const GroupType = {
+    "multiple": CheckboxGroup,
     "none": UnselectableGroup,
-    "single": RadioGroup,
-    "multiple": CheckboxGroup
+    "single": RadioGroup
 };
 
 function denormalizeValue(value: string[] | null, selectionMode: "single" | "multiple") {
@@ -127,26 +127,29 @@ export function InnerTileGroup({
             {...mergeProps<any>(
                 rest,
                 {
-                    orientation: "horizontal",
+
+                    as,
+
+
+                    fluid: true,
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
-                    wrap: true,
-                    fluid: true,
-                    as,
-                    ref: forwardedRef
+                    orientation: "horizontal",
+                    ref: forwardedRef,
+                    wrap: true
                 },
                 selectionMode === "none" ? {} : {
-                    value: denormalizeValue(value, selectionMode),
                     defaultValue: denormalizeValue(defaultValue, selectionMode),
+                    disabled,
                     onChange: handleChange,
-                    disabled
+                    value: denormalizeValue(value, selectionMode)
                 }
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
-                    orientation,
                     disabled: selectionMode === "none" ? disabled : undefined,
+                    orientation,
                     style: {
                         width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
                     }

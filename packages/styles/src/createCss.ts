@@ -1,6 +1,6 @@
-import { isArray, isNil, isString, isNumber } from "./assertions";
-import { OrbitTheme, ColorSchemes } from "./themes";
-import { JsonObject, JsonValue, Entry } from "type-fest";
+import { ColorSchemes, OrbitTheme } from "./themes";
+import { Entry, JsonObject, JsonValue } from "type-fest";
+import { isArray, isNil, isNumber, isString } from "./assertions";
 
 // TODO: Rename to createThemeVars?
 
@@ -40,7 +40,7 @@ function appendStringArray(values: StringArray, prefix: string, bucket: VarsBuck
 
 function appendNumberArray(values: NumberArray, prefix: string, bucket: VarsBucket) {
     values.forEach((x, index) => {
-        appendNumber(`${index + 1}`, x, prefix, bucket)
+        appendNumber(`${index + 1}`, x, prefix, bucket);
     });
 }
 
@@ -81,7 +81,7 @@ function appendColorScheme(values: Array | JsonObject, prefix: string, bucket: V
 function appendColorSchemes<C, L, D>(
     values: C | L | D | ColorSchemes<C, L, D>,
     prefix: string,
-    { common, light, dark }: { common?: VarsBucket, light: VarsBucket, dark: VarsBucket }
+    { common, light, dark }: { common?: VarsBucket; dark: VarsBucket; light: VarsBucket }
 ) {
     const colorSchemes = values as ColorSchemes<C, L, D>;
 
@@ -118,9 +118,9 @@ export function createCss(themes: OrbitTheme[]) {
         appendArray(theme.lineHeights, "line-heights", common);
         appendArray(theme.borderWidths, "border-widths", common);
         appendArray(theme.borderRadii, "border-radii", common);
-        appendColorSchemes(theme.boxShadows, "box-shadows", { common, light, dark });
+        appendColorSchemes(theme.boxShadows, "box-shadows", { common, dark, light });
         appendArray(theme.zIndices, "z-indices", common);
-        appendColorSchemes(theme.colors, null, { common, light, dark });
+        appendColorSchemes(theme.colors, null, { common, dark, light });
 
         renderBucket(theme.name, common);
         renderBucket(`${theme.name}-light`, light);

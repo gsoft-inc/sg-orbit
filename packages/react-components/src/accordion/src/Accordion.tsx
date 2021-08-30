@@ -28,13 +28,25 @@ const DefaultElement = "div";
 
 export interface InnerAccordionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A controlled set of expanded item keys.
+     * Whether or not the first focusable accordion item should autoFocus on render.
      */
-    expandedKeys?: string[] | null;
+    autoFocus?: boolean | number;
+    /**
+     * React children
+     */
+    children: ReactNode;
     /**
      * The initial value of `expandedKeys` when uncontrolled.
      */
     defaultExpandedKeys?: string[];
+    /**
+     * A controlled set of expanded item keys.
+     */
+    expandedKeys?: string[] | null;
+    /**
+     * The type of expansion that is allowed.
+     */
+    expansionMode?: "single" | "multiple";
     /**
      * Called when an accordion item is toggled.
      * @param {SyntheticEvent} event - React's original event.
@@ -43,21 +55,9 @@ export interface InnerAccordionProps extends InternalProps, OrbitComponentProps<
      */
     onExpansionChange?: (event: SyntheticEvent, keys: string[]) => void;
     /**
-     * The type of expansion that is allowed.
-     */
-    expansionMode?: "single" | "multiple";
-    /**
      * The accordion style to use.
      */
     variant?: "borderless" | "bordered";
-    /**
-     * Whether or not the first focusable accordion item should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * React children
-     */
-    children: ReactNode;
 }
 
 export function InnerAccordion({
@@ -147,9 +147,9 @@ export function InnerAccordion({
                 }) => (
                     <AccordionItem
                         item={{
+                            header,
                             id: itemId,
                             key,
-                            header,
                             panel
                         }}
                         key={key}

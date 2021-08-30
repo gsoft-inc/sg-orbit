@@ -1,7 +1,7 @@
 import { ApricotTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ReactNode, useCallback, useState } from "react";
-import { StyleProps, mergeClasses, mergeProps } from "../../shared";
+import { ElementType, ReactNode, useCallback, useState } from "react";
+import { OrbitComponentProps, StyleProps, mergeClasses, mergeProps } from "../../shared";
 import { ThemeContext, useThemeContext } from "./ThemeContext";
 import { useColorScheme } from "./useColorScheme";
 
@@ -13,9 +13,13 @@ const DefaultElement = "div";
 
 export interface ThemeProviderProps extends StyleProps, Omit<OrbitComponentProps<typeof DefaultElement>, "ref"> {
     /**
-     * The theme to use.
+     * @ignore
      */
-    theme?: string;
+    as?: ElementType;
+    /**
+    * @ignore
+    */
+    children?: ReactNode;
     /**
      * The color scheme to use.
      */
@@ -25,13 +29,9 @@ export interface ThemeProviderProps extends StyleProps, Omit<OrbitComponentProps
      */
     defaultColorScheme?: ColorScheme;
     /**
-     * @ignore
+     * The theme to use.
      */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    children?: ReactNode;
+    theme?: string;
 }
 
 export function ThemeProvider({
@@ -57,21 +57,21 @@ export function ThemeProvider({
     return (
         <ThemeContext.Provider
             value={{
-                theme,
                 colorScheme,
-                setColorScheme
+                setColorScheme,
+                theme
             }}
         >
             <Box
                 {...mergeProps(
                     rest,
                     {
+                        as,
                         className: mergeClasses(
                             "o-ui",
                             `o-ui-${theme}`,
                             `o-ui-${theme}-${colorScheme}`
-                        ),
-                        as
+                        )
                     }
                 )}
             >

@@ -4,52 +4,49 @@ import { HeightProp, OmitInternalProps, SlotProps, WidthProp, isNil, mergeProps,
 
 export interface InnerSvgImageProps extends SlotProps {
     /**
-     * An SVG as a React component.
+     * @ignore
      */
-    src: ElementType;
+    "aria-describedby"?: string;
     /**
-     * Width and height in a single value.
+     * @ignore
      */
-    size?: string;
-    /**
-    * @ignore
-    */
-    width?: number;
-    /**
-    * @ignore
-    */
-    height?: number;
-    /**
-     * The SVG stroke attribute.
-     */
-    stroke?: string;
-    /**
-     * The SVG fill attribute.
-     */
-    fill?: string;
+    "aria-details"?: string;
     /**
      * Defines a string value that labels the current element.
      */
     "aria-label": string;
     /**
-     * Identifies the element (or elements) that labels the current element.
      * @ignore
      */
     "aria-labelledby"?: string;
     /**
-     * Identifies the element (or elements) that describes the object.
-     * @ignore
+     * The SVG fill attribute.
      */
-    "aria-describedby"?: string;
-    /**
-     * Identifies the element (or elements) that provide a detailed, extended description for the object.
-     * @ignore
-     */
-    "aria-details"?: string;
+    fill?: string;
     /**
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
+    /**
+    * @ignore
+    */
+    height?: number;
+    /**
+     * Width and height in a single value.
+     */
+    size?: string;
+    /**
+     * An SVG as a React component.
+     */
+    src: ElementType;
+    /**
+     * The SVG stroke attribute.
+     */
+    stroke?: string;
+    /**
+    * @ignore
+    */
+    width?: number;
 }
 
 function useColor(color: string) {
@@ -104,18 +101,18 @@ export function InnerSvgImage({
             {...mergeProps(
                 rest,
                 {
-                    width: (width ?? size) as WidthProp,
+                    "aria-label": ariaLabel,
+                    as: src,
+                    focusable: false,
                     height: (height ?? size) as HeightProp,
-                    style: {
-                        stroke: useColor(stroke),
-                        fill: useColor(fill)
-                    },
+                    ref,
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-convey-information
                     role: "img",
-                    focusable: false,
-                    as: src,
-                    "aria-label": ariaLabel,
-                    ref
+                    style: {
+                        fill: useColor(fill),
+                        stroke: useColor(stroke)
+                    },
+                    width: (width ?? size) as WidthProp
                 }
             )}
         />

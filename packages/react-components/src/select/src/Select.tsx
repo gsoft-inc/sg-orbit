@@ -1,9 +1,9 @@
 import "./Select.css";
 
-import { ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
+import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../typography";
@@ -15,85 +15,11 @@ import { useSelect } from "./useSelect";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerSelectProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"button">, "autoFocus"> {
-    /**
-     * @ignore
-     */
-    name?: string;
-    /**
-     * Whether or not to open the select element.
-     */
-    open?: boolean | null;
-    /**
-     * The initial value of open when in auto controlled mode.
-     */
-    defaultOpen?: boolean;
-    /**
-     * A controlled selected key.
-     */
-    selectedKey?: string | null;
-    /**
-     * The initial value of `selectedKey` when uncontrolled.
-     */
-    defaultSelectedKey?: string;
-    /**
-     * Temporary text that occupies the select trigger when no value is selected.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the select should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * Called when the select value change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string} selectedKey - The new selected key.
-     * @returns {void}
-     */
-    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
-    /**
-     * Called when the select open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the menu is open.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * The style to use.
-     */
-    variant?: "outline" | "ghost";
-    /**
-     * A trigger icon.
-     */
-    icon?: ReactElement;
-    /**
-     * The direction the select menu will open relative to the input.
-     */
-    direction?: "bottom" | "top";
+export interface InnerSelectProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<"button">, "autoFocus"> {
     /**
      * The horizontal alignment of the select menu relative to the input.
      */
     align?: "start" | "end";
-    /**
-     * Whether or not the select should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not the select take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * Whether or not the select is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not the select is readonly.
-     */
-    readOnly?: boolean;
     /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
@@ -107,17 +33,91 @@ export interface InnerSelectProps extends InternalProps, InteractionStatesProps,
      */
     allowResponsiveMenuWidth?: boolean;
     /**
-     * The z-index of the overlay element.
+     * Whether or not the select should autofocus on render.
      */
-    zIndex?: number;
+    autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The initial value of open when in auto controlled mode.
+     */
+    defaultOpen?: boolean;
+    /**
+     * The initial value of `selectedKey` when uncontrolled.
+     */
+    defaultSelectedKey?: string;
+    /**
+     * The direction the select menu will open relative to the input.
+     */
+    direction?: "bottom" | "top";
+    /**
+     * Whether or not the select is disabled.
+     */
+    disabled?: boolean;
+    /**
+     * Whether or not the select take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
+     * A trigger icon.
+     */
+    icon?: ReactElement;
+    /**
+     * @ignore
+     */
+    name?: string;
+    /**
+     * Called when the select open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the menu is open.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    /**
+     * Called when the select value change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {string} selectedKey - The new selected key.
+     * @returns {void}
+     */
+    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
+    /**
+     * Whether or not to open the select element.
+     */
+    open?: boolean | null;
     /**
      * Additional props to render on the menu of options.
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * React children.
+     * Temporary text that occupies the select trigger when no value is selected.
      */
-    children: ReactNode;
+    placeholder?: string;
+    /**
+     * Whether or not the select is readonly.
+     */
+    readOnly?: boolean;
+    /**
+     * Whether or not a user input is required before form submission.
+     */
+    required?: boolean;
+    /**
+     * A controlled selected key.
+     */
+    selectedKey?: string | null;
+    /**
+     * Whether or not the select should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * The style to use.
+     */
+    variant?: "outline" | "ghost";
+    /**
+     * The z-index of the overlay element.
+     */
+    zIndex?: number;
 }
 
 export function InnerSelect(props: InnerSelectProps) {
@@ -167,37 +167,37 @@ export function InnerSelect(props: InnerSelectProps) {
     );
 
     const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
-        id,
-        open,
-        defaultOpen,
-        selectedKey: selectedKeyProp,
-        defaultSelectedKey,
-        validationState,
-        onSelectionChange,
-        onOpenChange,
-        direction,
         align,
-        autoFocus,
-        disabled,
-        readOnly,
         allowFlip,
         allowPreventOverflow,
         allowResponsiveMenuWidth: allowResponsiveMenuWidth ?? variant !== "ghost",
+        ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
-        ariaDescribedBy,
+        autoFocus,
+        defaultOpen,
+        defaultSelectedKey,
+        direction,
+        disabled,
+        id,
+        onOpenChange,
+        onSelectionChange,
+        open,
         overlayProps: overlayPropsProp,
-        ref: forwardedRef
+        readOnly,
+        ref: forwardedRef,
+        selectedKey: selectedKeyProp,
+        validationState
     });
 
     const iconMarkup = icon && augmentElement(icon, {
-        size: "sm",
-        className: "o-ui-select-icon"
+        className: "o-ui-select-icon",
+        size: "sm"
     });
 
     const selectedIconMarkup = selectedItem?.icon && augmentElement(selectedItem.icon, {
-        size: "sm",
-        className: "o-ui-select-value-start-icon"
+        className: "o-ui-select-value-start-icon",
+        size: "sm"
     });
 
     const selectedTextMarkup = selectedItem?.text && (
@@ -207,8 +207,8 @@ export function InnerSelect(props: InnerSelectProps) {
     );
 
     const selectedEndIconMarkup = selectedItem?.endIcon && augmentElement(selectedItem.endIcon, {
-        size: "sm",
-        className: "o-ui-select-value-end-icon"
+        className: "o-ui-select-value-end-icon",
+        size: "sm"
     });
 
     const valueMarkup = isNil(selectedItem)

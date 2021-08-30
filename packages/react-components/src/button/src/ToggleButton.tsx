@@ -1,23 +1,35 @@
 import { Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
 export interface InnerToggleButtonProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
+     * Whether or not the toggle button should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
+    /**
      * A controlled checked value.
      */
     checked?: boolean | null;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The toggle button color accent.
+     */
+    color?: "primary" | "secondary";
     /**
      * The initial value of `checked` when uncontrolled.
      */
     defaultChecked?: boolean;
     /**
-     * The value to associate with when in a group.
+     * Whether or not the toggle button is disabled.
      */
-    value?: string;
+    disabled?: boolean;
     /**
      * Called when the toggle button checked state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -26,33 +38,21 @@ export interface InnerToggleButtonProps extends InternalProps, InteractionStates
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
     /**
-     * The style to use.
-     */
-    variant?: "solid" | "outline";
-    /**
-     * The toggle button color accent.
-     */
-    color?: "primary" | "secondary";
-    /**
      * The toggle button shape.
      */
     shape?: "pill" | "rounded" | "circular";
-    /**
-     * Whether or not the toggle button should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
     /**
      * A toggle button can vary in size.
      */
     size?: "sm" | "md";
     /**
-     * Whether or not the toggle button is disabled.
+     * The value to associate with when in a group.
      */
-    disabled?: boolean;
+    value?: string;
     /**
-     * React children.
+     * The style to use.
      */
-    children: ReactNode;
+    variant?: "solid" | "outline";
 }
 
 export function InnerToggleButton(props: InnerToggleButtonProps) {
@@ -77,16 +77,16 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     );
 
     const { buttonProps } = useToggleButton({
-        variant,
-        shape,
+        active,
         checked,
         defaultChecked,
-        value,
+        forwardedRef,
+        isCheckable,
         onChange,
         onCheck,
-        active,
-        isCheckable,
-        forwardedRef
+        shape,
+        value,
+        variant
     });
 
     const content = resolveChildren(children);

@@ -2,52 +2,52 @@ import { ChangeEvent, ElementType, ForwardedRef, Ref, useImperativeHandle, useLa
 import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 
 export interface UseCheckboxProps {
-    cssModule?: string;
-    isInField?: boolean;
-    id?: string;
-    checked?: boolean | null;
-    defaultChecked?: boolean;
-    indeterminate?: boolean | null;
-    defaultIndeterminate?: boolean;
-    autoFocus?: boolean | number;
-    required?: boolean;
-    validationState?: "invalid" | "valid";
-    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
-    size?: "sm" | "md";
-    reverse?: boolean;
-    name?: string;
-    tabIndex?: number;
     active?: boolean;
-    focus?: boolean;
-    hover?: boolean;
-    disabled?: boolean;
     ariaLabel?: string;
     ariaLabelledBy?: string;
+    autoFocus?: boolean | number;
+    checked?: boolean | null;
+    cssModule?: string;
+    defaultChecked?: boolean;
+    defaultIndeterminate?: boolean;
+    disabled?: boolean;
+    focus?: boolean;
     forwardedRef?: ForwardedRef<any>;
+    hover?: boolean;
+    id?: string;
+    indeterminate?: boolean | null;
+    isInField?: boolean;
+    name?: string;
+    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
+    required?: boolean;
+    reverse?: boolean;
+    size?: "sm" | "md";
+    tabIndex?: number;
+    validationState?: "invalid" | "valid";
 }
 
 export interface UseCheckboxReturn {
+    inputProps: {
+        "aria-checked": boolean | "mixed";
+        "aria-invalid": boolean;
+        "aria-label"?: string;
+        "aria-labelledby"?: string;
+        "aria-required": boolean;
+        as?: ElementType;
+        checked?: boolean;
+        disabled?: boolean;
+        id?: string;
+        name?: string;
+        onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+        ref: Ref<any>;
+        tabIndex?: number;
+        type?: "checkbox";
+    };
     isChecked: boolean;
     isIndeterminate?: boolean;
     wrapperProps: {
         className?: string;
         ref?: Ref<any>;
-    };
-    inputProps: {
-        id?: string;
-        as?: ElementType;
-        type?: "checkbox";
-        checked?: boolean;
-        onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-        disabled?: boolean;
-        name?: string;
-        tabIndex?: number;
-        "aria-label"?: string;
-        "aria-labelledby"?: string;
-        "aria-checked": boolean | "mixed";
-        "aria-required": boolean;
-        "aria-invalid": boolean;
-        ref: Ref<any>;
     };
 }
 
@@ -82,8 +82,8 @@ export function useCheckbox({
     const inputRef = useRef<HTMLInputElement>();
 
     useAutoFocus(inputRef, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const forwardInputApi = useForwardInputApi(inputRef);
@@ -110,6 +110,22 @@ export function useCheckbox({
     }, [inputRef, isIndeterminate]);
 
     return {
+        inputProps: {
+            "aria-checked": isIndeterminate ? "mixed" : isChecked,
+            "aria-invalid": validationState === "invalid" ? true : undefined,
+            "aria-label": ariaLabel,
+            "aria-labelledby": ariaLabelledBy,
+            "aria-required": required ? true : undefined,
+            as: "input",
+            checked: isChecked,
+            disabled,
+            id,
+            name,
+            onChange: handleChange,
+            ref: inputRef,
+            tabIndex,
+            type: "checkbox"
+        },
         isChecked,
         isIndeterminate,
         wrapperProps: {
@@ -127,22 +143,6 @@ export function useCheckbox({
                 normalizeSize(size)
             ),
             ref: wrapperRef
-        },
-        inputProps: {
-            id,
-            as: "input",
-            type: "checkbox",
-            checked: isChecked,
-            onChange: handleChange,
-            disabled,
-            name,
-            tabIndex,
-            "aria-label": ariaLabel,
-            "aria-labelledby": ariaLabelledBy,
-            "aria-checked": isIndeterminate ? "mixed" : isChecked,
-            "aria-required": required ? true : undefined,
-            "aria-invalid": validationState === "invalid" ? true : undefined,
-            ref: inputRef
         }
     };
 }

@@ -9,17 +9,13 @@ const DefaultElement = "div";
 
 export interface InnerButtonGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "size"> {
     /**
-     * The orientation of the buttons.
-     */
-    orientation?: "horizontal" | "vertical";
-    /**
       * The horizontal alignment of the buttons.
       */
     align?: "start" | "end" | "center";
     /**
-      * The buttons size.
+      * React children.
       */
-    size?: "sm" | "md";
+    children: ReactNode;
     /**
       * Whether or not the buttons are disabled.
       */
@@ -29,11 +25,16 @@ export interface InnerButtonGroupProps extends SlotProps, InternalProps, Omit<Or
       */
     fluid?: boolean;
     /**
-      * React children.
+     * The orientation of the buttons.
+     */
+    orientation?: "horizontal" | "vertical";
+    /**
+      * The buttons size.
       */
-    children: ReactNode;
+    size?: "sm" | "md";
 }
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const Gap = {
     "horizontal": {
         "sm": 3,
@@ -44,6 +45,7 @@ const Gap = {
         "md": 3
     }
 } as const;
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerButtonGroup(props: InnerButtonGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
@@ -68,26 +70,26 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
             {...mergeProps(
                 rest,
                 {
-                    as,
-                    orientation,
                     align,
-                    verticalAlign: orientation === "horizontal" ? "center" : undefined,
-                    fluid,
-                    gap: Gap[orientation][normalizeSize(size)],
+                    as,
                     className: cssModule(
                         "o-ui-button-group",
                         isInField && "in-field"
                     ),
+                    fluid,
+                    gap: Gap[orientation][normalizeSize(size)],
+                    orientation,
+                    ref: forwardedRef,
                     role: !isInField ? "group" : undefined,
-                    ref: forwardedRef
+                    verticalAlign: orientation === "horizontal" ? "center" : undefined
                 } as const
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
-                    size,
+                    disabled,
                     fluid,
-                    disabled
+                    size
                 });
             })}
         </Group>

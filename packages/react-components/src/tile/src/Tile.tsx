@@ -2,24 +2,32 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 const DefaultElement = "button";
 
 export interface InnerTileProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
+     * Whether or not the tile should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
+    /**
      * A controlled checked value.
      */
     checked?: boolean | null;
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The initial value of `checked` when uncontrolled.
      */
     defaultChecked?: boolean;
     /**
-     * The value to associate with when in a group.
+     * Whether or not the tile is disabled.
      */
-    value?: string;
+    disabled?: boolean;
     /**
      * Called when the tile checked state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -32,17 +40,9 @@ export interface InnerTileProps extends InternalProps, InteractionStatesProps, O
      */
     orientation?: "horizontal" | "vertical";
     /**
-     * Whether or not the tile should autoFocus on render.
+     * The value to associate with when in a group.
      */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not the tile is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+    value?: string;
 }
 
 export function InnerTile(props: InnerTileProps) {
@@ -85,17 +85,17 @@ export function InnerTile(props: InnerTileProps) {
     });
 
     const { tileProps, markup } = useTile({
-        variant: "checkable",
         active,
-        orientation,
+        children,
         focus,
         hover,
-        children
+        orientation,
+        variant: "checkable"
     });
 
     useAutoFocus(ref, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     return (
@@ -103,14 +103,14 @@ export function InnerTile(props: InnerTileProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-tile"
                     ),
                     onClick: handleClick,
-                    value,
                     [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
-                    as,
-                    ref
+                    ref,
+                    value
                 },
                 tileProps
             )}

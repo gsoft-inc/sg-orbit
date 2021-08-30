@@ -5,17 +5,17 @@ import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared"
 
 export interface InnerCrossButtonProps extends SlotProps, InternalProps, Omit<IconButtonProps, "children"> {
     /**
-     * Whether or not the button content should takes additional space.
+     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
-    condensed?: boolean;
+    "aria-label": string;
     /**
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
-     * A cross button can vary in size.
+     * Whether or not the button content should takes additional space.
      */
-    size?: "2xs" | "xs" | "sm" | "md";
+    condensed?: boolean;
     /**
      * Whether or not the cross button is disabled.
      */
@@ -25,9 +25,9 @@ export interface InnerCrossButtonProps extends SlotProps, InternalProps, Omit<Ic
      */
     onClick?: MouseEventHandler;
     /**
-     * A label providing an accessible name to the button. See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     * A cross button can vary in size.
      */
-    "aria-label": string;
+    size?: "2xs" | "xs" | "sm" | "md";
 }
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
@@ -44,6 +44,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
 }
 
 export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
+    // @ts-ignore
     <InnerCrossButton {...props} forwardedRef={ref} />
 )));
 

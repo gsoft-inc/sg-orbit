@@ -4,9 +4,9 @@ import { useEventCallback } from "./useEventCallback";
 import { useRefState } from "./useRefState";
 
 export interface UseFocusWithinOptions {
-    onFocus?: (event: FocusEvent) => void;
-    onBlur?: (event: FocusEvent) => void;
     isDisabled?: boolean;
+    onBlur?: (event: FocusEvent) => void;
+    onFocus?: (event: FocusEvent) => void;
 }
 
 export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinOptions = {}) {
@@ -37,7 +37,7 @@ export function useFocusWithin({ onFocus, onBlur, isDisabled }: UseFocusWithinOp
     });
 
     return isDisabled ? {} : {
-        onFocus: handleFocus,
-        onBlur: handleBlur
+        onBlur: handleBlur,
+        onFocus: handleFocus
     };
 }

@@ -3,22 +3,22 @@ import "./List.css";
 import { Box } from "../../box";
 import { CollectionItem, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps, useStyleProps } from "../../shared";
 import { ListItem } from "./ListItem";
 
-export interface InnerListProps extends InternalProps, ComponentProps<"ul"> {
+export interface InnerListProps extends InternalProps, OrbitComponentProps<"ul"> {
     /**
-     * A list can vary in size.
+     * React children.
      */
-    size?: "inherit";
+    children: ReactNode;
     /**
      * A list can inherit it's parent color.
      */
     color?: "inherit";
     /**
-     * React children.
+     * A list can vary in size.
      */
-    children: ReactNode;
+    size?: "inherit";
 }
 
 function renderItem({
@@ -33,10 +33,10 @@ function renderItem({
             {...mergeProps<any>(
                 props,
                 {
-                    size,
-                    key,
                     as: elementType,
-                    ref
+                    key,
+                    ref,
+                    size
                 }
             )}
         >
@@ -66,12 +66,12 @@ const List = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => 
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-list",
                         size && "inherit-size",
                         color ? `color-${color}` : ""
                     ),
-                    as,
                     ref
                 }
             )}

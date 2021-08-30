@@ -2,13 +2,17 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
 export interface InnerLozengeProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The badge color accent.
      */
@@ -17,16 +21,14 @@ export interface InnerLozengeProps extends InternalProps, OrbitComponentProps<ty
      * A lozenge can vary in size.
      */
     size?: "sm" | "md";
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const textSize = createSizeAdapter({
     "sm": "xs",
     "md": "sm"
 });
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerLozenge({
     color,
@@ -43,12 +45,12 @@ export function InnerLozenge({
             defaultWrapper: Text
         },
         icon: {
-            size: embeddedIconSize(size),
-            className: "o-ui-lozenge-icon"
+            className: "o-ui-lozenge-icon",
+            size: embeddedIconSize(size)
         },
         text: {
-            size: textSize(size),
-            className: "o-ui-lozenge-text"
+            className: "o-ui-lozenge-text",
+            size: textSize(size)
         }
     }), [size]));
 
@@ -57,13 +59,13 @@ export function InnerLozenge({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-lozenge",
                         color,
                         icon && "has-icon",
                         normalizeSize(size)
                     ),
-                    as,
                     ref
                 }
             )}

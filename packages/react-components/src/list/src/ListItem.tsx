@@ -1,18 +1,18 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "li";
 
 export interface InnerListItemProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
-     * A list item can vary in size.
-     */
-    size?: "inherit";
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * A list item can vary in size.
+     */
+    size?: "inherit";
 }
 
 export function InnerListItem({
@@ -27,9 +27,9 @@ export function InnerListItem({
             {...mergeProps(
                 rest,
                 {
-                    size,
                     as,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    size
                 }
             )}
         >

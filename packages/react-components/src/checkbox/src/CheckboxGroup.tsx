@@ -36,21 +36,17 @@ export interface InnerCheckboxGroupProps extends
     InternalProps,
     Omit<OrbitComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
     /**
-   * The value of the checkbox group.
-   */
-    value?: string[] | null;
+      * Whether or not the first checkbox of the group should autoFocus on render.
+      */
+    autoFocus?: AutoFocusProp;
+    /**
+      * React children.
+      */
+    children: ReactNode;
     /**
       * The initial value of `value`.
       */
     defaultValue?: string[];
-    /**
-      * Whether a user input is required before form submission.
-      */
-    required?: boolean;
-    /**
-      * Whether the group should display as "valid" or "invalid".
-      */
-    validationState?: ValidationState;
     /**
       * Called when any of the children is checked or unchecked.
       * @param {SyntheticEvent} event - React's original event.
@@ -59,29 +55,33 @@ export interface InnerCheckboxGroupProps extends
       */
     onChange?: (event: SyntheticEvent, value: string[]) => void;
     /**
-      * Whether or not the first checkbox of the group should autoFocus on render.
-      */
-    autoFocus?: AutoFocusProp;
-    /**
       * The orientation of the group elements.
       */
     orientation?: Orientation;
     /**
-      * Whether the group elements are forced onto one line or can wrap onto multiple lines
+      * Whether a user input is required before form submission.
       */
-    wrap?: boolean;
-    /**
-      * The group elements size.
-      */
-    size?: "sm" | "md";
+    required?: boolean;
     /**
       * Invert the order of the checkbox and his label.
       */
     reverse?: boolean;
     /**
-      * React children.
+      * The group elements size.
       */
-    children: ReactNode;
+    size?: "sm" | "md";
+    /**
+      * Whether the group should display as "valid" or "invalid".
+      */
+    validationState?: ValidationState;
+    /**
+   * The value of the checkbox group.
+   */
+    value?: string[] | null;
+    /**
+      * Whether the group elements are forced onto one line or can wrap onto multiple lines
+      */
+    wrap?: boolean;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {
@@ -137,22 +137,22 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-checkbox-group",
-        required,
-        validationState,
-        orientation,
-        gap,
-        wrap,
-        size,
-        reverse,
         disabled,
+        gap,
+        groupRef,
         isInField,
-        groupRef
+        orientation,
+        required,
+        reverse,
+        size,
+        validationState,
+        wrap
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
@@ -181,15 +181,15 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                 <ClearFieldContext>
                     <CheckableContext.Provider
                         value={{
-                            onCheck: handleCheck,
-                            checkedValue
+                            checkedValue,
+                            onCheck: handleCheck
                         }}
                     >
                         {Children.toArray(items).filter(x => x).map((x: ReactElement, index) => {
                             return augmentElement(x, {
                                 ...itemProps,
-                                value: index.toString(),
-                                role: "checkbox"
+                                role: "checkbox",
+                                value: index.toString()
                             });
                         })}
                     </CheckableContext.Provider>

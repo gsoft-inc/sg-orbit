@@ -53,6 +53,10 @@ export interface InnerFlex2Props extends
      */
     basis?: FlexBasisProp;
     /**
+     * React children
+     */
+    children: ReactNode;
+    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
      */
     columnGap?: ColumnGapProp;
@@ -65,13 +69,13 @@ export interface InnerFlex2Props extends
      */
     fluid?: boolean;
     /**
-     * Whether or not the element generate line breaks before or after himself.
-     */
-    inline?: boolean;
-    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
     gap?: GapProp;
+    /**
+     * Whether or not the element generate line breaks before or after himself.
+     */
+    inline?: boolean;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
@@ -88,10 +92,6 @@ export interface InnerFlex2Props extends
      * Alias for [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
     wrap?: FlexWrapProp;
-    /**
-     * React children
-     */
-    children: ReactNode;
 }
 
 export function InnerFlex2({
@@ -114,16 +114,16 @@ export function InnerFlex2({
             {...mergeProps(
                 rest,
                 {
-                    display: inline ? "inline-flex" : "flex",
-                    flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                     alignItems: (alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
-                    justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
-                    flexWrap: wrap,
-                    width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined),
-                    height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
                     as,
-                    ref: forwardedRef
+                    display: inline ? "inline-flex" : "flex",
+                    flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
+                    flexWrap: wrap,
+                    height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
+                    justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
+                    ref: forwardedRef,
+                    width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
                 } as const
             )}
         >

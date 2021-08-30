@@ -16,6 +16,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -49,24 +50,44 @@ const DefaultElement = "div";
 
 export interface InnerListboxProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
+     * Whether or not the listbox should autofocus on render.
+     */
+    autoFocus?: boolean | number;
+    /**
+     * @ignore
+     */
+    children?: ReactNode;
+    /**
+     * Default focus target when enabling autofocus.
+     */
+    defaultFocusTarget?: string;
+    /**
+     * The initial value of `selectedKeys` when uncontrolled.
+     */
+    defaultSelectedKeys?: string[];
+    /**
+     * @ignore
+     */
+    disabled?: boolean;
+    /**
+     * Whether or not the listbox take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
+     * Whether or not to focus the hovered item.
+     */
+    focusOnHover?: boolean;
+    /**
+     * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
+     */
+    nodes?: CollectionNode[];
+    /**
      * Called when the focus change.
      * @param {SyntheticEvent} event - React's original event.
      * @param {String[]} keys - The keys of the selected items.
      * @returns {void}
      */
     onFocusChange?: (event: SyntheticEvent, key: string, activeElement: HTMLElement) => void;
-    /**
-     * A controlled set of the selected item keys.
-     */
-    selectedKeys?: string[] | null;
-    /**
-     * The initial value of `selectedKeys` when uncontrolled.
-     */
-    defaultSelectedKeys?: string[];
-    /**
-     * Whether or not the listbox should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original event.
@@ -75,45 +96,25 @@ export interface InnerListboxProps extends InternalProps, OrbitComponentProps<ty
      */
     onSelectionChange?: (event: SyntheticEvent, key: string[]) => void;
     /**
+     * A controlled set of the selected item keys.
+     */
+    selectedKeys?: string[] | null;
+    /**
      * The type of selection that is allowed.
      */
     selectionMode?: SelectionMode;
-    /**
-     * A collection of nodes to render instead of children. It should only be used if you embed a Listbox inside another component like a custom Select.
-     */
-    nodes?: CollectionNode[];
-    /**
-     * Whether or not the listbox should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Default focus target when enabling autofocus.
-     */
-    defaultFocusTarget?: string;
-    /**
-     * Whether or not to focus the hovered item.
-     */
-    focusOnHover?: boolean;
-    /**
-     * Whether or not focus should be virtual (add a CSS class instead of switching the active element).
-     */
-    useVirtualFocus?: boolean;
     /**
      * Whether or not the listbox option should be reachable with tabs.
      */
     tabbable?: boolean;
     /**
-     * Whether or not the listbox take up the width of its container.
+     * Whether or not focus should be virtual (add a CSS class instead of switching the active element).
      */
-    fluid?: boolean;
+    useVirtualFocus?: boolean;
     /**
-     * @ignore
+     * Whether or not the listbox should display as "valid" or "invalid".
      */
-    children?: ReactNode;
-    /**
-     * @ignore
-     */
-    disabled?: boolean;
+    validationState?: "valid" | "invalid";
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -157,10 +158,10 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
         };
 
         return {
+            extendSelection,
             selectedKeys,
             toggleKey,
-            toggleSelection,
-            extendSelection
+            toggleSelection
         };
     }, [items, selectedKeys]);
 }
@@ -359,20 +360,23 @@ export function InnerListbox({
     });
 
     useKeyedRovingFocus(focusScope, selectionManager.selectedKeys[0], {
-        keyProp: OptionKeyProp,
-        isDisabled: !tabbable
+        isDisabled: !tabbable,
+        keyProp: OptionKeyProp
     });
 
     useAutoFocusChild(focusManager, {
-        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget
     });
 
     const scrollableProps = useScrollableCollection(containerRef, {
-        maxHeight: 12 * 32 + 2 * 1, // 32px is the default listbox option height.
-        paddingHeight: 2 * 1, // A listbox have a border-size of 1px
+        // A listbox have a border-size of 1px
         itemSelector: ".o-ui-listbox-option",
+
+        maxHeight: 12 * 32 + 2 * 1,
+        // 32px is the default listbox option height.
+        paddingHeight: 2 * 1,
         sectionSelector: ".o-ui-listbox-section"
     });
 
@@ -392,9 +396,9 @@ export function InnerListbox({
                 props,
                 {
                     id: `${rootId}-option-${index + 1}`,
+                    item: { key: key, tooltip },
                     key,
-                    ref,
-                    item: { key: key, tooltip }
+                    ref
                 }
             )}
         >
@@ -437,32 +441,32 @@ export function InnerListbox({
             {...mergeProps(
                 rest,
                 {
-                    id: rootId,
+                    "aria-activedescendant": !isNil(activeDescendant) ? activeDescendant.getAttribute("id") : undefined,
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                    "aria-multiselectable": selectionMode === "multiple" ? true : undefined,
+                    as,
                     className: cssModule(
                         "o-ui-listbox",
                         fluid && "fluid",
                         validationState
                     ),
+                    id: rootId,
                     onKeyDown: handleKeyDown,
-                    role: "listbox",
-                    "aria-label": ariaLabel,
-                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
-                    "aria-multiselectable": selectionMode === "multiple" ? true : undefined,
-                    "aria-invalid": validationState === "invalid" ? true : undefined,
-                    "aria-activedescendant": !isNil(activeDescendant) ? activeDescendant.getAttribute("id") : undefined,
-                    as,
-                    ref: containerRef
+                    ref: containerRef,
+                    role: "listbox"
                 },
                 scrollableProps
             )}
         >
             <ListboxContext.Provider
                 value={{
-                    selectedKeys: selectionManager.selectedKeys,
-                    onSelect: handleSelectOption,
-                    onFocus: handleFocusOption,
                     focusManager,
-                    focusOnHover
+                    focusOnHover,
+                    onFocus: handleFocusOption,
+                    onSelect: handleSelectOption,
+                    selectedKeys: selectionManager.selectedKeys
                 }}
             >
                 {nodes.map(node => {

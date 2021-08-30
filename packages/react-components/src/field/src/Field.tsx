@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
@@ -12,21 +12,21 @@ const DefaultElement = "div";
 
 export interface InnerFieldProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether the field should display as "valid" or "invalid".
+     * React children.
      */
-    validationState?: "valid" | "invalid";
-    /**
-     * Whether or not the field show a required state.
-     */
-    required?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the field take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * React children.
+     * Whether or not the field show a required state.
      */
-    children: ReactNode;
+    required?: boolean;
+    /**
+     * Whether the field should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
 }
 
 export function InnerField(props: InnerFieldProps) {
@@ -51,13 +51,13 @@ export function InnerField(props: InnerFieldProps) {
     );
 
     const { fieldProps, fieldContext } = useField({
-        id,
-        validationState,
-        required,
-        fluid,
-        disabled,
         className,
-        forwardedRef
+        disabled,
+        fluid,
+        forwardedRef,
+        id,
+        required,
+        validationState
     });
 
     return (

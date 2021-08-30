@@ -28,8 +28,8 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-input-group-text-addon",
                     as,
+                    className: "o-ui-input-group-text-addon",
                     ref: forwardedRef
                 }
             )}

@@ -2,7 +2,7 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
 
@@ -10,13 +10,13 @@ const DefaultElement = "span";
 
 export interface InnerDotProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The dot color, e.g "primary-200".
-     */
-    color?: string;
-    /**
      * @ignore
      */
     children?: ReactNode;
+    /**
+     * The dot color, e.g "primary-200".
+     */
+    color?: string;
 }
 
 function useColor(color: string) {
@@ -55,15 +55,15 @@ export function InnerDot(props: InnerDotProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-dot",
                         children && "has-label"
                     ),
+                    ref: forwardedRef,
                     style: {
                         ["--o-ui-dot-color" as any]: useColor(color)
-                    },
-                    as,
-                    ref: forwardedRef
+                    }
                 }
             )}
         >

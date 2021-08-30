@@ -2,12 +2,20 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "section";
 
 export interface InnerCardProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * Whether or not the card take up the width of its container.
+     */
+    fluid?: boolean;
     /**
      * The orientation of the card.
      */
@@ -16,14 +24,6 @@ export interface InnerCardProps extends SlotProps, InternalProps, OrbitComponent
      * A card can vary in size.
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl";
-    /**
-     * Whether or not the card take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerCard({
@@ -39,29 +39,29 @@ export function InnerCard({
         _: {
             required: ["heading", "content"]
         },
-        image: null,
-        illustration: {
-            orientation: orientation === "horizontal" ? "vertical" : "horizontal",
-            className: "o-ui-card-illustration"
-        },
-        heading: {
-            className: "o-ui-card-heading",
-            size: "xs",
-            as: "span"
-        },
-        header: {
-            className: "o-ui-card-header"
-        },
-        content: {
-            className: "o-ui-card-content",
-            as: Text
-        },
         button: {
             className: "o-ui-card-button"
         },
         "button-group": {
             className: "o-ui-card-button-group"
-        }
+        },
+        content: {
+            as: Text,
+            className: "o-ui-card-content"
+        },
+        header: {
+            className: "o-ui-card-header"
+        },
+        heading: {
+            as: "span",
+            className: "o-ui-card-heading",
+            size: "xs"
+        },
+        illustration: {
+            className: "o-ui-card-illustration",
+            orientation: orientation === "horizontal" ? "vertical" : "horizontal"
+        },
+        image: null
     }), [orientation]));
 
     const headerMarkup = isString(header?.props?.children)
@@ -93,13 +93,13 @@ export function InnerCard({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-card",
                         orientation,
                         !fluid && normalizeSize(size),
                         fluid && "fluid"
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

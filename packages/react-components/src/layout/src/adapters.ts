@@ -5,13 +5,13 @@ export type Alignment = "start" | "end" | "center";
 export function useFlexAlignment(orientation: Orientation, align: Alignment, verticalAlign: Alignment) {
     return orientation === "horizontal"
         ? {
-            direction: "row" as Direction,
             alignItems: verticalAlign,
+            direction: "row" as Direction,
             justifyContent: align
         }
         : {
-            direction: "column" as Direction,
             alignItems: align,
+            direction: "column" as Direction,
             justifyContent: verticalAlign
         };
 }

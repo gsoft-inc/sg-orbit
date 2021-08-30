@@ -5,37 +5,37 @@ import { useTile } from "./useTile";
 
 export interface InnerTileLinkProps extends InternalProps, InteractionStatesProps, LinkProps {
     /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
-     * The orientation of the tile.
-     */
-    orientation?: "horizontal" | "vertical";
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
-    /**
      * Whether or not the tile should autoFocus on render.
      */
     autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * Whether or not the tile is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether or not this is an external link.
      */
-    children: ReactNode;
+    external?: boolean;
+    /**
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    href?: string;
+    /**
+     * The orientation of the tile.
+     */
+    orientation?: "horizontal" | "vertical";
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel?: string;
+    /**
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target?: string;
 }
 
 export function InnerTileLink({
@@ -49,12 +49,12 @@ export function InnerTileLink({
     ...rest
 }: InnerTileLinkProps) {
     const { tileProps, markup } = useTile({
-        variant: "link",
-        orientation,
         active,
+        children,
         focus,
         hover,
-        children
+        orientation,
+        variant: "link"
     });
 
     return (
@@ -62,12 +62,12 @@ export function InnerTileLink({
             {...mergeProps(
                 rest,
                 {
+                    active,
                     className: cssModule(
                         "o-ui-tile-link",
                         disabled && "disabled"
                     ),
                     disabled,
-                    active,
                     focus,
                     hover,
                     ref: forwardedRef

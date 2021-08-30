@@ -1,18 +1,18 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
-import { InternalProps, OmitInternalProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
 export interface InnerTransitionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A controlled show value that determined whether or not the component is displayed.
-     */
-    show: boolean;
-    /**
      * 	Whether the transition should run on initial mount.
      */
     animateFirstRender?: boolean;
+    /**
+     * @ignore
+     */
+    children: ReactNode;
     /**
      * CSS classes to add to the transitioning element during the enter phase.
      */
@@ -22,9 +22,9 @@ export interface InnerTransitionProps extends InternalProps, OrbitComponentProps
      */
     leave?: string;
     /**
-     * @ignore
+     * A controlled show value that determined whether or not the component is displayed.
      */
-    children: ReactNode;
+    show: boolean;
 }
 
 export function InnerTransition({
@@ -66,13 +66,13 @@ export function InnerTransition({
             {...mergeProps(
                 rest,
                 {
-                    onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
+                    as,
                     className: show
                         ? isInitialRender
                             ? animateFirstRender ? enter : undefined
                             : enter
                         : leave,
-                    as,
+                    onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
                     ref: forwardedRef
                 }
             )}

@@ -17,19 +17,19 @@ export interface InnerGroupProps extends
     SlotProps,
     InternalProps,
     OrbitComponentProps<typeof DefaultElement> {
+    alignItems?: ShortAlignItemsProp;
     alignX?: Alignment;
     alignY?: Alignment;
-    alignItems?: ShortAlignItemsProp;
+    children: ReactNode;
     direction?: Direction;
-    justifyContent?: ShortJustifyContentProp;
+    fluid?: boolean;
+    gap?: GapProp;
     inline?: boolean;
+    justifyContent?: ShortJustifyContentProp;
     orientation?: Orientation;
     reverse?: boolean;
-    gap?: GapProp;
-    wrap?: boolean;
-    fluid?: boolean;
     role?: string;
-    children: ReactNode;
+    wrap?: boolean;
 }
 
 export function InnerGroup({
@@ -50,8 +50,8 @@ export function InnerGroup({
                 rest,
                 {
                     as,
-                    wrap: wrap ? "wrap" : undefined,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    wrap: wrap ? "wrap" : undefined
                 } as const,
                 alignProps
             )}

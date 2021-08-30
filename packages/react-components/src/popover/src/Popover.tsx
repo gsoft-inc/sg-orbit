@@ -6,6 +6,7 @@ import {
     InteractionStatesProps,
     InternalProps,
     OmitInternalProps,
+    OrbitComponentProps,
     isNil,
     isString,
     mergeProps,
@@ -74,25 +75,25 @@ export function InnerPopover({
         _: {
             required: ["heading", "content"]
         },
-        heading: {
-            id: `${popoverId}-heading`,
-            size: "sm",
-            as: "h3"
-        },
-        content: {
-            className: "o-ui-popover-content",
-            as: Text
-        },
-        footer: {
-            className: "o-ui-popover-footer",
-            as: "footer"
-        },
         button: {
             className: "o-ui-popover-button",
             size: "sm"
         },
         "button-group": {
             className: "o-ui-popover-button-group",
+            size: "sm"
+        },
+        content: {
+            as: Text,
+            className: "o-ui-popover-content"
+        },
+        footer: {
+            as: "footer",
+            className: "o-ui-popover-footer"
+        },
+        heading: {
+            as: "h3",
+            id: `${popoverId}-heading`,
             size: "sm"
         }
     }), [popoverId]));
@@ -122,14 +123,14 @@ export function InnerPopover({
             {...mergeProps(
                 rest,
                 {
-                    id,
-                    className: "o-ui-popover",
-                    tabIndex: -1,
-                    role: "dialog",
                     "aria-label": ariaLabel,
                     "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                     as,
-                    ref: popoverRef
+                    className: "o-ui-popover",
+                    id,
+                    ref: popoverRef,
+                    role: "dialog",
+                    tabIndex: -1
                 },
                 focusRingProps
             )}

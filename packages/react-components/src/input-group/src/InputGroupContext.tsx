@@ -4,8 +4,8 @@ import { UseToolbarPropsReturn } from "../../toolbar";
 import { isNil, mergeProps } from "../../shared";
 
 export type InputGroupContextType = {
-    fluid?: boolean;
     disabled?: boolean;
+    fluid?: boolean;
     readOnly?: boolean;
 } & UseFieldInputPropsReturn & UseToolbarPropsReturn;
 
@@ -26,7 +26,7 @@ export interface ClearInputGroupContextProps {
 export function ClearInputGroupContext({ children }: ClearInputGroupContextProps) {
     return (
         <InputGroupContext.Provider value={null}>
-            { children}
+            {children}
         </InputGroupContext.Provider>
     );
 }
@@ -34,10 +34,10 @@ export function ClearInputGroupContext({ children }: ClearInputGroupContextProps
 /* Inputs */
 
 export type UseInputGroupPropsReturn = {
-    fluid?: boolean;
-    disabled?: boolean;
-    readOnly?: boolean;
     className?: string;
+    disabled?: boolean;
+    fluid?: boolean;
+    readOnly?: boolean;
 } & UseFieldInputPropsReturn & UseToolbarPropsReturn;
 
 export function useInputGroupProps(): [UseInputGroupPropsReturn, boolean] {
@@ -63,75 +63,75 @@ export function useInputGroupTextInputProps(): [UseInputGroupPropsReturn, boolea
 /* Addons */
 
 export interface UseInputGroupAddonPropsReturn {
-    disabled?: boolean;
     className?: string;
+    disabled?: boolean;
 }
 
 export function useInputGroupAddonProps(): [UseInputGroupAddonPropsReturn, boolean] {
     const [{ disabled }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        disabled,
-        className: "o-ui-input-group-addon"
+        className: "o-ui-input-group-addon",
+        disabled
     };
 
     return [props || {}, isInInputGroup];
 }
 
 export interface UseInputGroupButtonAddonPropsReturn {
-    variant?: string;
-    shape?: string;
-    disabled?: boolean;
     className?: string;
+    disabled?: boolean;
+    shape?: string;
+    variant?: string;
 }
 
 export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsReturn, boolean] {
     const [{ disabled }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        variant: "outline",
+        className: "o-ui-input-group-addon",
         color: "secondary",
-        shape: "rounded",
         disabled,
-        className: "o-ui-input-group-addon"
+        shape: "rounded",
+        variant: "outline"
     };
 
     return [props || {}, isInInputGroup];
 }
 
 export interface UseInputGroupMenuAddonPropsReturn {
+    className?: string;
     disabled?: boolean;
     readOnly?: boolean;
-    className?: string;
 }
 
 export function useInputGroupMenuAddonProps(): [UseInputGroupMenuAddonPropsReturn, boolean] {
     const [{ disabled, readOnly }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
+        className: "o-ui-input-group-addon",
         disabled,
-        readOnly,
-        className: "o-ui-input-group-addon"
+        readOnly
     };
 
     return [props || {}, isInInputGroup];
 }
 
 export interface UseInputGroupSelectAddonPropsReturn {
-    disabled?: boolean;
-    readOnly?: boolean;
     allowResponsiveMenuWidth?: boolean;
     className?: string;
+    disabled?: boolean;
+    readOnly?: boolean;
 }
 
 export function useInputGroupSelectAddonProps(): [UseInputGroupSelectAddonPropsReturn, boolean] {
     const [{ disabled, readOnly }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        disabled,
-        readOnly,
         allowResponsiveMenuWidth: false,
-        className: "o-ui-input-group-addon o-ui-input-group-select-addon"
+        className: "o-ui-input-group-addon o-ui-input-group-select-addon",
+        disabled,
+        readOnly
     };
 
     return [props || {}, isInInputGroup];

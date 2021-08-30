@@ -5,13 +5,13 @@ import { useFormContext } from "./FormContext";
 
 export interface InnerRowProps extends InternalProps {
     /**
-     * Whether or not the fields take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Whether or not the fields take up the width of its container.
+     */
+    fluid?: boolean;
 }
 
 
@@ -33,9 +33,9 @@ export function InnerRow(props: InnerRowProps) {
             {...mergeProps(
                 rest,
                 {
+                    align: "start",
                     fluid,
                     gap: 4,
-                    align: "start",
                     ref: forwardedRef
                 } as const
             )}

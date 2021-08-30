@@ -44,48 +44,37 @@ const DefaultElement = "div";
 
 export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
-     * A controlled value.
+     * Whether or not the input should autofocus on render.
      */
-    value?: number | null;
+    autoFocus?: boolean | number;
     /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: number;
     /**
-     * Whether or not the input is readonly.
+     * Whether or not the input take up the width of its container.
      */
-    readOnly?: boolean;
+    fluid?: boolean;
     /**
-     * Whether or not a user input is required before form submission.
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
-    required?: boolean;
+    icon?: ReactElement;
     /**
-     * Temporary text that occupies the input when it is empty.
+     * Whether or not to render a loader.
      */
-    placeholder?: string;
-    /**
-     * The minimum value of the input.
-     */
-    min?: number;
+    loading?: boolean;
     /**
      * The maximum value of the input.
      */
     max?: number;
     /**
-     * The step used to increment or decrement the value.
+     * The minimum value of the input.
      */
-    step?: number;
+    min?: number;
     /**
-     * Whether or not the input should display as "valid" or "invalid".
+     * @ignore
      */
-    validationState?: "valid" | "invalid";
-    /**
-     * Called when the input value change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {number} value - The new value.
-     * @returns {void}
-     */
-    onValueChange?: (event: SyntheticEvent, value: number) => void;
+    onBlur?: FocusEventHandler;
     /**
      * @ignore
      */
@@ -95,25 +84,36 @@ export interface InnerNumberInputProps extends InternalProps, InteractionStatesP
      */
     onFocus?: FocusEventHandler;
     /**
-     * @ignore
+     * Called when the input value change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {number} value - The new value.
+     * @returns {void}
      */
-    onBlur?: FocusEventHandler;
+    onValueChange?: (event: SyntheticEvent, value: number) => void;
     /**
-     * Whether or not the input should autofocus on render.
+     * Temporary text that occupies the input when it is empty.
      */
-    autoFocus?: boolean | number;
+    placeholder?: string;
     /**
-     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
+     * Whether or not the input is readonly.
      */
-    icon?: ReactElement;
+    readOnly?: boolean;
     /**
-     * Whether or not the input take up the width of its container.
+     * Whether or not a user input is required before form submission.
      */
-    fluid?: boolean;
+    required?: boolean;
     /**
-     * Whether or not to render a loader.
+     * The step used to increment or decrement the value.
      */
-    loading?: boolean;
+    step?: number;
+    /**
+     * Whether or not the input should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * A controlled value.
+     */
+    value?: number | null;
     /**
      * Additional props to render on the wrapper element.
      */
@@ -121,11 +121,11 @@ export interface InnerNumberInputProps extends InternalProps, InteractionStatesP
 }
 
 interface SpinnerProps extends ComponentProps<"div"> {
-    onIncrement?: (event: MouseEvent) => void;
+    disableDecrement?: boolean;
+    disableIncrement?: boolean;
     onDecrement?: (event: MouseEvent) => void;
     onFocus?: (event: FocusEvent) => void;
-    disableIncrement?: boolean;
-    disableDecrement?: boolean;
+    onIncrement?: (event: MouseEvent) => void;
 }
 
 function Spinner({
@@ -149,8 +149,8 @@ function Spinner({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-number-input-spinner",
-                    "aria-hidden": true
+                    "aria-hidden": true,
+                    className: "o-ui-number-input-spinner"
                 }
             )}
         >
@@ -299,9 +299,9 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         }
 
         return {
-            isInRange: !isAboveMax && !isBelowMin,
             isAboveMax,
-            isBelowMin
+            isBelowMin,
+            isInRange: !isAboveMax && !isBelowMin
         };
     }, [min, max]);
 
@@ -351,38 +351,38 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     });
 
     const focusWithinProps = useFocusWithin({
-        onFocus: useEventCallback(event => {
-            if (!isNil(onFocus)) {
-                onFocus(event);
-            }
-        }),
         onBlur: useEventCallback(event => {
             clampOrSetValue(event, toNumber(inputValueRef.current));
 
             if (!isNil(onBlur)) {
                 onBlur(event);
             }
+        }),
+        onFocus: useEventCallback(event => {
+            if (!isNil(onFocus)) {
+                onFocus(event);
+            }
         })
     });
 
     const { wrapperProps, inputProps, inputRef } = useInput({
-        cssModule: "o-ui-number-input",
-        id,
-        value: inputValueRef.current,
-        placeholder,
-        required,
-        validationState,
-        onChange: handleChange,
-        type: "number",
-        autoFocus,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
         active,
+        autoFocus,
+        cssModule: "o-ui-number-input",
+        disabled,
+        fluid,
         focus,
+        forwardedRef,
         hover,
-        forwardedRef
+        id,
+        loading,
+        onChange: handleChange,
+        placeholder,
+        readOnly,
+        required,
+        type: "number",
+        validationState,
+        value: inputValueRef.current
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -397,11 +397,11 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 {...mergeProps(
                     rest,
                     {
-                        min,
-                        max,
-                        step,
                         "aria-label": ariaLabel,
-                        "aria-labelledby": ariaLabelledBy
+                        "aria-labelledby": ariaLabelledBy,
+                        max,
+                        min,
+                        step
                     },
                     inputProps
                 )}
@@ -423,6 +423,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 wrapperPropsProp,
                 wrapperProps,
                 {
+                    as,
                     className: mergeClasses(
                         cssModule(
                             "o-ui-input",
@@ -433,8 +434,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                             "o-ui-number-input",
                             isInGroup && "in-group"
                         )
-                    ),
-                    as
+                    )
                 },
                 focusWithinProps
             )}

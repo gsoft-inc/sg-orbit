@@ -13,8 +13,8 @@ export function useTriggerWidth({ isDisabled }: UseTriggerWidthOptions = {}): [R
     });
 
     const resizeRef = useResizeObserver(handleResize, {
-        isDisabled,
-        box: "border-box"
+        box: "border-box",
+        isDisabled
     });
 
     return [resizeRef, triggerWidth];

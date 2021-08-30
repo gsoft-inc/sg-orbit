@@ -2,7 +2,7 @@ import "./TextArea.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -12,46 +12,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerTextAreaProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"textarea">, "onChange" | "autoFocus"> {
-    /**
-     * A controlled value.
-     */
-    value?: string | null;
-    /**
-     * The default value of `value` when uncontrolled.
-     */
-    defaultValue?: string;
-    /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not an element is resizable, and if so, in which directions.
-     */
-    resize?: "vertical" | "none";
-    /**
-     * Whether a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * Called when the input value change.
-     * @param {ChangeEvent} event - React's original synthetic event.
-     * @param {string} value - The input value.
-     * @returns {void}
-     */
-    onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
-    /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
-     * The type of the input.
-     */
-    type?: "text" | "password" | "search" | "url" | "tel" | "email";
+export interface InnerTextAreaProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<"textarea">, "onChange" | "autoFocus"> {
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -61,6 +22,14 @@ export interface InnerTextAreaProps extends InternalProps, InteractionStatesProp
      */
     button?: ReactElement;
     /**
+     * The default value of `value` when uncontrolled.
+     */
+    defaultValue?: string;
+    /**
+     * @ignore
+     */
+    disabled?: boolean;
+    /**
      * Whether or not the input take up the width of its container.
      */
     fluid?: boolean;
@@ -69,25 +38,56 @@ export interface InnerTextAreaProps extends InternalProps, InteractionStatesProp
      */
     loading?: boolean;
     /**
-     * The number of visible text lines.
-     */
-    rows?: number;
-    /**
      * The maximum number of visible text lines before displaying a scrollbar.
      */
     maxRows?: number;
     /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Partial<BoxProps>;
-    /**
      * @ignore
      */
-    disabled?: boolean;
+    onChange?: ChangeEventHandler;
+    /**
+     * Called when the input value change.
+     * @param {ChangeEvent} event - React's original synthetic event.
+     * @param {string} value - The input value.
+     * @returns {void}
+     */
+    onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+    /**
+     * Temporary text that occupies the input when it is empty.
+     */
+    placeholder?: string;
     /**
      * @ignore
      */
     readOnly?: boolean;
+    /**
+     * Whether a user input is required before form submission.
+     */
+    required?: boolean;
+    /**
+     * Whether or not an element is resizable, and if so, in which directions.
+     */
+    resize?: "vertical" | "none";
+    /**
+     * The number of visible text lines.
+     */
+    rows?: number;
+    /**
+     * The type of the input.
+     */
+    type?: "text" | "password" | "search" | "url" | "tel" | "email";
+    /**
+     * Whether or not the input should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * A controlled value.
+     */
+    value?: string | null;
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
 }
 
 const pxToInt = (value?: string) => {
@@ -148,23 +148,23 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     });
 
     const { wrapperProps, inputProps, inputRef } = useInput({
-        cssModule: "o-ui-text-area",
-        id,
-        value: inputValue,
-        placeholder,
-        required,
-        validationState,
-        onChange: handleChange,
-        type,
-        autoFocus,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
         active,
+        autoFocus,
+        cssModule: "o-ui-text-area",
+        disabled,
+        fluid,
         focus,
+        forwardedRef,
         hover,
-        forwardedRef
+        id,
+        loading,
+        onChange: handleChange,
+        placeholder,
+        readOnly,
+        required,
+        type,
+        validationState,
+        value: inputValue
     });
 
     const adjustRows = useCallback(() => {
@@ -213,11 +213,11 @@ export function InnerTextArea(props: InnerTextAreaProps) {
             {...mergeProps(
                 userWrapperProps,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-input",
                         buttonMarkup && "has-button"
-                    ),
-                    as
+                    )
                 },
                 wrapperProps
             )}

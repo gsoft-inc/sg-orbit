@@ -40,6 +40,10 @@ export interface InnerStackProps extends
        */
     alignY?: Alignment;
     /**
+       * React children
+      */
+    children: ReactNode;
+    /**
       * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
       */
     columnGap?: ColumnGapProp;
@@ -48,13 +52,13 @@ export interface InnerStackProps extends
        */
     fluid?: boolean;
     /**
-      * Whether or not the element generate line breaks before or after himself.
-      */
-    inline?: boolean;
-    /**
       * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
       */
     gap?: GapProp;
+    /**
+      * Whether or not the element generate line breaks before or after himself.
+      */
+    inline?: boolean;
     /**
        * Whether or not to reverse the order of the elements.
        */
@@ -67,10 +71,6 @@ export interface InnerStackProps extends
        * Alias for flex-wrap.
        */
     wrap?: FlexWrapProp;
-    /**
-       * React children
-      */
-    children: ReactNode;
 }
 
 
@@ -90,8 +90,8 @@ export function InnerStack({
             {...mergeProps(
                 rest,
                 {
-                    gap,
                     as,
+                    gap,
                     ref: forwardedRef
                 } as const,
                 alignProps

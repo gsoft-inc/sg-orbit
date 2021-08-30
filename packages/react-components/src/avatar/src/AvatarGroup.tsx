@@ -9,13 +9,13 @@ const DefaultElement = "div";
 
 export interface InnerAvatarGroupProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The avatars of the group can vary in size.
-     */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * The avatars of the group can vary in size.
+     */
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
 interface RemainingAvatarsProps {
@@ -52,8 +52,8 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
                         return (
                             <li className="o-ui-avatar-group-remainings-list-item" key={name}>
                                 {augmentElement(x, {
-                                    size: "sm",
-                                    className: "o-ui-avatar-group-remainings-list-item-avatar"
+                                    className: "o-ui-avatar-group-remainings-list-item-avatar",
+                                    size: "sm"
                                 })}
                                 <span>{name}</span>
                             </li>
@@ -106,9 +106,9 @@ export function InnerAvatarGroup({
             {...mergeProps(
                 rest,
                 {
-                    gap: 1,
-                    className: "o-ui-avatar-group",
                     as,
+                    className: "o-ui-avatar-group",
+                    gap: 1,
                     ref: forwardedRef
                 } as const
             )}

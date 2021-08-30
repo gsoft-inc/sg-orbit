@@ -6,17 +6,17 @@ import { OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSi
 
 export interface InnerIconProps extends SlotProps, SVGProps<SVGSVGElement> {
     /**
-     * An icon as a React component.
-     */
-    src: ElementType;
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
     /**
      * An icon can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
     /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
+     * An icon as a React component.
+     */
+    src: ElementType;
 }
 
 export const InnerIcon = ((props: InnerIconProps) => {
@@ -39,6 +39,9 @@ export const InnerIcon = ((props: InnerIconProps) => {
             {...mergeProps(
                 rest,
                 {
+                    "aria-hidden": isNil(ariaLabel),
+                    "aria-label": ariaLabel,
+                    as: src,
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
@@ -46,9 +49,6 @@ export const InnerIcon = ((props: InnerIconProps) => {
                     ),
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
                     focusable: false,
-                    as: src,
-                    "aria-hidden": isNil(ariaLabel),
-                    "aria-label": ariaLabel,
                     ref: forwardedRef
                 }
             )}

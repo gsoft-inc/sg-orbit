@@ -1,10 +1,10 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
 export interface TabsContextType {
-    selectedKey?: string;
-    onSelect?: (event: SyntheticEvent, key: string) => void;
     isManual?: boolean;
+    onSelect?: (event: SyntheticEvent, key: string) => void;
     orientation?: "horizontal" | "vertical";
+    selectedKey?: string;
 }
 
 export const TabsContext = createContext<TabsContextType>({});

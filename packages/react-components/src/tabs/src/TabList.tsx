@@ -9,23 +9,23 @@ import { useTabsContext } from "./TabsContext";
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [Keys.arrowLeft],
-        next: [Keys.arrowRight],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowRight],
+        previous: [Keys.arrowLeft]
     },
     vertical: {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     }
 };
 
 export interface InnerTabListProps {
     autoFocus?: boolean | number;
-    tabs?: TabType[];
     forwardedRef: ForwardedRef<any>;
+    tabs?: TabType[];
 }
 
 export function InnerTabList({
@@ -44,9 +44,9 @@ export function InnerTabList({
     useKeyedRovingFocus(focusScope, selectedKey, { keyProp: TabKeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: selectedKey,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        target: selectedKey
     });
 
     const handleKeyboardSelect = useEventCallback((event, element) => {
@@ -62,10 +62,10 @@ export function InnerTabList({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-tab-list",
-                    role: "tablist",
                     "aria-orientation": orientation,
-                    ref: tabRef
+                    className: "o-ui-tab-list",
+                    ref: tabRef,
+                    role: "tablist"
                 },
                 navigationProps
             )}
@@ -82,8 +82,8 @@ export function InnerTabList({
                     {...props}
                     tab={{
                         key,
-                        tabId,
-                        panelId
+                        panelId,
+                        tabId
                     }}
                     key={key}
                     ref={ref}

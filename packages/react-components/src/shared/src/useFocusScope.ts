@@ -65,8 +65,8 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
             parseElements();
 
             mutationObserver.observe(rootElement, {
-                subtree: true,
-                childList: true
+                childList: true,
+                subtree: true
             });
         } else {
             mutationObserver.disconnect();

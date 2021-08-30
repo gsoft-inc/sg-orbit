@@ -17,7 +17,7 @@ function ensureControlledStateHaveNotChanged<T>(controlledValue: T, isControlled
 }
 
 function useComputeInitialState<T>(controlledValue: T | undefined, initialValue: T | undefined, defaultValue: T | undefined) {
-    const result = (state: T, isControlled: boolean, isInitialState = false) => ({ state, isControlled, isInitialState });
+    const result = (state: T, isControlled: boolean, isInitialState = false) => ({ isControlled, isInitialState, state });
 
     const hasComputedRef = useRef(false);
 
@@ -56,8 +56,8 @@ function computeSubsequentState<T>(controlledValue: T, currentState: T, isContro
     }
 
     return {
-        newState,
-        hasChanged
+        hasChanged,
+        newState
     };
 }
 

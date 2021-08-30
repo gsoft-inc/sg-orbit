@@ -37,39 +37,39 @@ import { wrappedInputPropsAdapter } from "../../input";
 interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface DatePreset {
-    text: string;
     date: Date;
+    text: string;
 }
 
 export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
-     * A controlled value.
+     * Whether or not the input should autofocus on render.
      */
-    value?: Date | null;
+    autoFocus?: boolean | number;
+    /**
+     * @ignore
+     */
+    className?: string;
     /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: Date;
     /**
-     * Temporary text that occupies the input when it is empty.
+     * @ignore
      */
-    placeholder?: string;
+    disabled?: boolean;
     /**
-     * The minimum (inclusive) date.
+     * Whether or not the input take up the width of its container.
      */
-    min?: Date;
+    fluid?: boolean;
     /**
      * The maximum (inclusive) date.
      */
     max?: Date;
     /**
-     * Whether or not a user input is required before form submission.
+     * The minimum (inclusive) date.
      */
-    required?: boolean;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
+    min?: Date;
     /**
      * @ignore
      */
@@ -82,6 +82,10 @@ export interface InnerDateInputProps extends InternalProps, InteractionStatesPro
      */
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
     /**
+     * Temporary text that occupies the input when it is empty.
+     */
+    placeholder?: string;
+    /**
      * Array of pre-determined dates.
      */
     presets?: DatePreset[];
@@ -90,29 +94,25 @@ export interface InnerDateInputProps extends InternalProps, InteractionStatesPro
      */
     presetsVariant?: "compact" | "expanded";
     /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not the input take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Partial<BoxProps>;
-    /**
-     * @ignore
-     */
-    disabled?: boolean;
-    /**
      * Whether or not the input is readonly.
      */
     readOnly?: boolean;
     /**
-     * @ignore
+     * Whether or not a user input is required before form submission.
      */
-    className?: string;
+    required?: boolean;
+    /**
+     * Whether or not the input should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * A controlled value.
+     */
+    value?: Date | null;
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
 }
 
 const Input = forwardRef<any, any>((props, ref) => {
@@ -134,12 +134,12 @@ const Input = forwardRef<any, any>((props, ref) => {
     );
 
     const dateProps = useDateInput({
-        value,
-        min,
+        forwardedRef: ref,
         max,
+        min,
         onChange,
         onDateChange,
-        forwardedRef: ref
+        value
     });
 
     return (
@@ -231,9 +231,9 @@ export function InnerDateInput({
             const selectedIndex = presets.findIndex(x => areEqualDates(toMidnightDate(x.date), toMidnightDate(value)));
 
             return {
-                values: presets.map(x => x.text),
+                onSelectionChange: handleSelectPreset,
                 selectedIndex: selectedIndex !== -1 ? selectedIndex : undefined,
-                onSelectionChange: handleSelectPreset
+                values: presets.map(x => x.text)
             };
         }
 
@@ -245,10 +245,10 @@ export function InnerDateInput({
             {...mergeProps(
                 rest,
                 {
-                    value,
-                    placeholder,
                     onDateChange: handleDateChange,
-                    ref: inputRef
+                    placeholder,
+                    ref: inputRef,
+                    value
                 }
             )}
         />
@@ -261,13 +261,13 @@ export function InnerDateInput({
                 <InputGroup
                     {...mergeProps(
                         {
-                            disabled,
-                            readOnly,
-                            fluid,
-                            className,
-                            style,
                             as,
-                            ref: containerRef
+                            className,
+                            disabled,
+                            fluid,
+                            readOnly,
+                            ref: containerRef,
+                            style
                         } as const,
                         wrapperProps ?? {}
                     )}
@@ -280,6 +280,7 @@ export function InnerDateInput({
                 <Box
                     {...mergeProps(
                         {
+                            as,
                             className: mergeClasses(
                                 className,
                                 cssModule(
@@ -287,9 +288,8 @@ export function InnerDateInput({
                                     fluid && "fluid"
                                 )
                             ),
-                            style,
-                            as,
-                            ref: containerRef
+                            ref: containerRef,
+                            style
                         },
                         wrapperProps ?? {}
                     )}
@@ -306,13 +306,13 @@ export function InnerDateInput({
     return (
         <>
             {augmentElement(inputMarkup, {
-                disabled,
-                readOnly,
-                wrapperProps,
-                fluid,
+                as,
                 className,
+                disabled,
+                fluid,
+                readOnly,
                 style,
-                as
+                wrapperProps
             })}
         </>
     );

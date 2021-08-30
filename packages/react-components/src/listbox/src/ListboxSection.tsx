@@ -1,18 +1,18 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
 export interface InnerListboxSectionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The section name.
-     */
-    title: string;
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * The section name.
+     */
+    title: string;
 }
 
 export function InnerListboxSection({
@@ -29,12 +29,12 @@ export function InnerListboxSection({
                 {...mergeProps(
                     rest,
                     {
-                        id,
-                        className: "o-ui-listbox-section",
                         "aria-hidden": true,
-                        role: "presentation",
                         as,
-                        ref: forwardedRef
+                        className: "o-ui-listbox-section",
+                        id,
+                        ref: forwardedRef,
+                        role: "presentation"
                     }
                 )}
             >

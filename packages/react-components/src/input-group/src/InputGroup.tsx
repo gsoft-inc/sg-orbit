@@ -5,28 +5,28 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
 
 export interface InnerInputGroupProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether or not the input group take up the width of its container.
+     * React children.
      */
-    fluid?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the input group is disabled.
      */
     disabled?: boolean;
     /**
+     * Whether or not the input group take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
      * Whether or not the input group is readonly.
      */
     readOnly?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 function toAddon(element: ReactElement, key?: number): ReactNode {
@@ -55,8 +55,8 @@ export function InnerInputGroup({
 
     const inputProps = mergeProps(
         {
-            fluid,
             disabled,
+            fluid,
             readOnly
         },
         omitProps(toolbarProps, ["orientation"]),
@@ -88,12 +88,12 @@ export function InnerInputGroup({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-input-group",
                         fluid && "fluid",
                         hasTextInput && "has-text-input"
                     ),
-                    as,
                     ref
                 }
             )}

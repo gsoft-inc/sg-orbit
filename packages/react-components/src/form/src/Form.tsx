@@ -3,23 +3,23 @@ import "./Form.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "form";
 
 export interface InnerFormProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether or not the form take up the width of its container.
+     * React children.
      */
-    fluid?: boolean;
+    children: ReactNode;
     /**
     * @ignore
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether or not the form take up the width of its container.
      */
-    children: ReactNode;
+    fluid?: boolean;
 }
 
 export function InnerForm(props: InnerFormProps) {
@@ -37,19 +37,19 @@ export function InnerForm(props: InnerFormProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-form",
                         fluid && "fluid"
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}
         >
             <FormContext.Provider
                 value={{
-                    fluid,
-                    disabled
+                    disabled,
+                    fluid
                 }}
             >
                 {children}

@@ -4,6 +4,10 @@ import { OmitInternalProps, isNil, useRefState } from "../../shared";
 
 export interface InnerAsyncImageProps extends InnerImageProps {
     /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
      * The number of milliseconds to delay the rendering of the fallback.
      */
     delay?: number;
@@ -11,10 +15,6 @@ export interface InnerAsyncImageProps extends InnerImageProps {
      * The allowed number of retry to load the async image.
      */
     retryCount?: number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 function InnerAsyncImage({

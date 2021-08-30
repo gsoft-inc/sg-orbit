@@ -1,7 +1,6 @@
 import { Alignment, useFlexAlignment } from "./adapters";
 import {
     ColumnGapProp,
-    FlexWrapProp,
     GapProp,
     InternalProps,
     OmitInternalProps,
@@ -40,6 +39,10 @@ export interface InnerInlineProps extends
       */
     alignY?: Alignment;
     /**
+      * React children
+     */
+    children: ReactNode;
+    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
      */
     columnGap?: ColumnGapProp;
@@ -48,13 +51,13 @@ export interface InnerInlineProps extends
       */
     fluid?: boolean;
     /**
-     * Whether or not the element generate line breaks before or after himself.
-     */
-    inline?: boolean;
-    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
     gap?: GapProp;
+    /**
+     * Whether or not the element generate line breaks before or after himself.
+     */
+    inline?: boolean;
     /**
       * Whether or not to reverse the order of the elements.
       */
@@ -67,10 +70,6 @@ export interface InnerInlineProps extends
       * Alias for flex-wrap.
       */
     wrap?: boolean;
-    /**
-      * React children
-     */
-    children: ReactNode;
 }
 
 export function InnerInline({
@@ -89,8 +88,8 @@ export function InnerInline({
             {...mergeProps(
                 rest,
                 {
-                    gap,
                     as,
+                    gap,
                     ref: forwardedRef
                 } as const,
                 alignProps

@@ -15,19 +15,19 @@ const Card = forwardRef(({ children, ...rest }, ref) => {
         _: {
             defaultWrapper: Content
         },
-        title: {
-            className: "bg-red",
-            style: {
-                color: "white"
-            }
-        },
         content: {
             style: {
                 backgroundColor: "blue",
                 color: "white"
             }
         },
-        optionnal: null
+        optionnal: null,
+        title: {
+            className: "bg-red",
+            style: {
+                color: "white"
+            }
+        }
     }), []));
 
     return (
@@ -129,12 +129,12 @@ stories()
     .add("support functional slots", () => {
         function FunctionalCard({ children, ...rest }) {
             const { content } = useSlots(children, {
-                title: null,
                 content: useCallback(slotElement => {
                     return {
                         className: !isNil(slotElement.props.blue) ? "bg-blue" : "bg-red"
                     };
-                }, [])
+                }, []),
+                title: null
             });
 
             return (
@@ -153,12 +153,12 @@ stories()
     .add("support conditional slots", () => {
         function ConditionalCard({ children, ...rest }) {
             const { content } = useSlots(children, {
-                title: null,
                 content: useCallback((slotElement, allSlotElements) => {
                     return {
                         className: !isNil(allSlotElements.title) ? "bg-blue" : "bg-red"
                     };
-                }, [])
+                }, []),
+                title: null
             });
 
             return (

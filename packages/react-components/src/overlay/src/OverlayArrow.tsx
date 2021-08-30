@@ -1,11 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerOverlayArrowProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
-}
+export interface InnerOverlayArrowProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> { }
 
 export function InnerOverlayArrow({
     as = DefaultElement,
@@ -17,8 +16,8 @@ export function InnerOverlayArrow({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-overlay-arrow",
                     as,
+                    className: "o-ui-overlay-arrow",
                     ref: forwardedRef
                 }
             )}

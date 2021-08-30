@@ -2,12 +2,20 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
 export interface InnerIllustrationProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The illustration background color, e.g "primary-200".
+     */
+    color?: string;
     /**
      * The orientation of the illustration.
      */
@@ -16,14 +24,6 @@ export interface InnerIllustrationProps extends SlotProps, InternalProps, OrbitC
      * The illustration shape.
      */
     shape?: "straight" | "rounded";
-    /**
-     * The illustration background color, e.g "primary-200".
-     */
-    color?: string;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 function useColor(color: string) {
@@ -55,17 +55,17 @@ export function InnerIllustration({
         _: {
             required: ["image"]
         },
-        image: {
-            className: "o-ui-illustration-image"
+        content: {
+            as: Text,
+            className: "o-ui-illustration-content"
         },
         heading: {
+            as: "h3",
             className: "o-ui-illustration-heading",
-            size: "sm",
-            as: "h3"
+            size: "sm"
         },
-        content: {
-            className: "o-ui-illustration-content",
-            as: Text
+        image: {
+            className: "o-ui-illustration-image"
         }
     }), []));
 
@@ -74,16 +74,16 @@ export function InnerIllustration({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-illustration",
                         orientation,
                         shape
                     ),
+                    ref: forwardedRef,
                     style: {
                         backgroundColor: useColor(color)
-                    },
-                    as,
-                    ref: forwardedRef
+                    }
                 }
             )}
         >

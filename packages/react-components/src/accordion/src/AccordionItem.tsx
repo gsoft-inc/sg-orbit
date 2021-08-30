@@ -10,9 +10,9 @@ import { useAccordionContext } from "./AccordionContext";
 
 export interface AccordionItemProps {
     item: {
+        header: AccordionBuilderHeader;
         id: string;
         key: string;
-        header: AccordionBuilderHeader;
         panel: AccordionBuilderPanel;
     };
 }
@@ -45,8 +45,8 @@ export function AccordionItem({
                 rest,
                 {
                     id,
-                    open: expandedKeys.includes(key),
-                    onOpenChange: handleOpenChange
+                    onOpenChange: handleOpenChange,
+                    open: expandedKeys.includes(key)
                 }
             )}
         >

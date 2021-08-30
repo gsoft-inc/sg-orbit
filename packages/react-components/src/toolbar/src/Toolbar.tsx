@@ -7,55 +7,55 @@ const DefaultElement = "div";
 
 export interface InnerToolbarProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether or not the toolbar should autoFocus the first tabbable element on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The orientation of the elements.
-     */
-    orientation?: "horizontal" | "vertical";
-    /**
      * The horizontal alignment of the elements.
      */
     align?: "start" | "end" | "center";
     /**
-     * The vertical alignment of the elements.
+     * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
-    verticalAlign?: "start" | "end" | "center";
+    autoFocus?: boolean | number;
     /**
-     * The space between the elements.
+     * React children.
      */
-    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
-    /**
-     * Whether or not the elements are forced onto one line or can wrap onto multiple lines
-     */
-    wrap?: boolean;
-    /**
-     * Whether the toolbar take up the width of its container.
-     */
-    fluid?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the toolbar elements are disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether the toolbar take up the width of its container.
      */
-    children: ReactNode;
+    fluid?: boolean;
+    /**
+     * The space between the elements.
+     */
+    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
+    /**
+     * The orientation of the elements.
+     */
+    orientation?: "horizontal" | "vertical";
+    /**
+     * The vertical alignment of the elements.
+     */
+    verticalAlign?: "start" | "end" | "center";
+    /**
+     * Whether or not the elements are forced onto one line or can wrap onto multiple lines
+     */
+    wrap?: boolean;
 }
 
 const NavigationKeyBinding = {
     horizontal: {
-        previous: [Keys.arrowLeft],
-        next: [Keys.arrowRight],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowRight],
+        previous: [Keys.arrowLeft]
     },
     vertical: {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     }
 };
 
@@ -81,8 +81,8 @@ export function InnerToolbar({
     useRovingFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
@@ -100,12 +100,12 @@ export function InnerToolbar({
             {...mergeProps(
                 rest,
                 {
-                    role: "toolbar",
-                    gap,
-                    wrap: !isNil(wrap) ? "wrap" : undefined,
+                    "aria-orientation": orientation,
                     as,
+                    gap,
                     ref: containerRef,
-                    "aria-orientation": orientation
+                    role: "toolbar",
+                    wrap: !isNil(wrap) ? "wrap" : undefined
                 } as const,
                 alignProps,
                 arrowNavigationProps
@@ -113,8 +113,8 @@ export function InnerToolbar({
         >
             <ToolbarContext.Provider
                 value={{
-                    orientation,
-                    disabled
+                    disabled,
+                    orientation
                 }}
             >
                 {children}

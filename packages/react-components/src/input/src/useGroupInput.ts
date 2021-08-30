@@ -3,6 +3,7 @@ import { Orientation } from "../../layout";
 import { Ref } from "react";
 import { useFieldContext } from "../../field";
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const Gap = {
     horizontal: {
         "sm": 4,
@@ -13,42 +14,43 @@ const Gap = {
         "md": 3
     }
 } as const;
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export interface UseGroupInputProps {
-    role?: "group" | "radiogroup";
     cssModule?: string;
-    required?: boolean;
-    validationState?: ValidationState;
-    orientation?: Orientation;
-    gap?: GapProp;
-    wrap?: boolean;
-    size?: "sm" | "md";
-    reverse?: boolean;
     disabled?: boolean;
+    gap?: GapProp;
     groupRef: Ref<any>;
     isInField?: boolean;
+    orientation?: Orientation;
+    required?: boolean;
+    reverse?: boolean;
+    role?: "group" | "radiogroup";
+    size?: "sm" | "md";
+    validationState?: ValidationState;
+    wrap?: boolean;
 }
 
 export interface UseGroupInputReturn {
     groupProps: {
-        inline?: boolean;
-        orientation?: Orientation;
         align?: "end" | "start";
-        gap?: GapProp;
-        wrap?: boolean;
-        className?: string;
-        role?: "group" | "radiogroup";
-        "aria-required"?: boolean;
+        "aria-disabled"?: boolean;
         "aria-invalid"?: boolean;
         "aria-orientation"?: Orientation;
-        "aria-disabled"?: boolean;
+        "aria-required"?: boolean;
+        className?: string;
+        gap?: GapProp;
+        inline?: boolean;
+        orientation?: Orientation;
         ref?: Ref<any>;
+        role?: "group" | "radiogroup";
+        wrap?: boolean;
     };
     itemProps: {
-        size?: "sm" | "md";
-        reverse?: boolean;
-        validationState?: ValidationState;
         disabled?: boolean;
+        reverse?: boolean;
+        size?: "sm" | "md";
+        validationState?: ValidationState;
     };
 }
 
@@ -70,31 +72,31 @@ export function useGroupInput({
 
     return {
         groupProps: {
-            inline: reverse,
-            orientation,
             align: orientation === "vertical"
                 ? reverse ? "end" : "start"
                 : undefined,
-            gap: gap ?? Gap[orientation][normalizeSize(size)],
-            wrap,
+            "aria-disabled": disabled ? true : undefined,
+            "aria-invalid": validationState === "invalid" ? true : undefined,
+            "aria-orientation": role !== "group" ? orientation : undefined,
+            "aria-required": required ? true : undefined,
             className: cssModule(
                 module,
                 hasLabel && "has-label",
                 hasMessage && "has-message"
 
             ),
+            gap: gap ?? Gap[orientation][normalizeSize(size)],
+            inline: reverse,
+            orientation,
+            ref: groupRef,
             role: !isInField ? role : undefined,
-            "aria-required": required ? true : undefined,
-            "aria-invalid": validationState === "invalid" ? true : undefined,
-            "aria-orientation": role !== "group" ? orientation : undefined,
-            "aria-disabled": disabled ? true : undefined,
-            ref: groupRef
+            wrap
         },
         itemProps: {
-            size,
+            disabled,
             reverse,
-            validationState,
-            disabled
+            size,
+            validationState
         }
     };
 }

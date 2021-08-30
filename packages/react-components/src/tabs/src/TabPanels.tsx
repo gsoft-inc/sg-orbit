@@ -25,8 +25,8 @@ export function TabPanels({ panels, ...rest }: TabPanelsProps) {
                     {...props}
                     panel={{
                         key,
-                        tabId,
-                        panelId
+                        panelId,
+                        tabId
                     }}
                     key={key}
                     ref={ref}

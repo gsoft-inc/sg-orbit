@@ -45,54 +45,50 @@ import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
 export interface DateRangePreset {
-    text: string;
-    startDate: Date;
     endDate: Date;
+    startDate: Date;
+    text: string;
 }
 
 const DefaultElement = "div";
 
 export interface InnerDateRangeInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
-     * @ignore
+     * Whether or not the input should autofocus on render.
      */
-    name?: string;
-    /**
-     * A controlled start date value.
-     */
-    startDate?: Date | null;
-    /**
-     * A controlled end date value.
-     */
-    endDate?: Date | null;
-    /**
-     * The initial value of start date.
-     */
-    defaultStartDate?: Date;
+    autoFocus?: boolean | number;
     /**
      * The initial value of end date.
      */
     defaultEndDate?: Date;
     /**
-     * Temporary text that occupies both date inputs when they are empty.
+     * The initial value of start date.
      */
-    placeholder?: string;
+    defaultStartDate?: Date;
     /**
-     * The minimum (inclusive) date.
+     * A controlled end date value.
      */
-    min?: Date;
+    endDate?: Date | null;
+    /**
+     * Whether or not the input take up the width of its container.
+     */
+    fluid?: boolean;
     /**
      * The maximum (inclusive) date.
      */
     max?: Date;
     /**
-     * Whether or not a user input is required before form submission.
+     * The minimum (inclusive) date.
      */
-    required?: boolean;
+    min?: Date;
     /**
-     * Whether or not the input should display as "valid" or "invalid".
+     * @ignore
      */
-    validationState?: "valid" | "invalid";
+    name?: string;
+    /**
+     * @ignore
+     */
+    onBlur?: FocusEventHandler;
     /**
      * Called when the date(s) are / is applied.
      * @param {SyntheticEvent} event - React's original event.
@@ -106,9 +102,9 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionStat
      */
     onFocus?: FocusEventHandler;
     /**
-     * @ignore
+     * Temporary text that occupies both date inputs when they are empty.
      */
-    onBlur?: FocusEventHandler;
+    placeholder?: string;
     /**
      * Array of pre-determined dates range.
      */
@@ -118,13 +114,17 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionStat
      */
     presetsVariant?: "compact" | "expanded";
     /**
-     * Whether or not the input should autofocus on render.
+     * Whether or not a user input is required before form submission.
      */
-    autoFocus?: boolean | number;
+    required?: boolean;
     /**
-     * Whether or not the input take up the width of its container.
+     * A controlled start date value.
      */
-    fluid?: boolean;
+    startDate?: Date | null;
+    /**
+     * Whether or not the input should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({
@@ -144,17 +144,17 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
     const inputRef = useMergedRefs(ref);
 
     useAutoFocus(inputRef, {
-        isDisabled: !autoFocus || disabled || readOnly,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus || disabled || readOnly
     });
 
     const dateProps = useDateInput({
-        value,
-        min,
+        forwardedRef: inputRef,
         max,
+        min,
         onChange,
         onDateChange,
-        forwardedRef: inputRef
+        value
     });
 
     return (
@@ -162,14 +162,14 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
             {...mergeProps(
                 rest,
                 {
-                    placeholder,
-                    className: "o-ui-date-range-input-date-input",
-                    type: "text",
-                    disabled,
-                    readOnly,
-                    "aria-required": required ? true : undefined,
                     "aria-invalid": validationState === "invalid" ? true : undefined,
-                    ref: inputRef
+                    "aria-required": required ? true : undefined,
+                    className: "o-ui-date-range-input-date-input",
+                    disabled,
+                    placeholder,
+                    readOnly,
+                    ref: inputRef,
+                    type: "text"
                 },
                 dateProps
             )}
@@ -294,18 +294,18 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
     });
 
     const focusWithinProps = useFocusWithin({
-        onFocus: useEventCallback((event: FocusEvent) => {
-            setHasFocus(true);
-
-            if (!isNil(onFocus)) {
-                onFocus(event);
-            }
-        }),
         onBlur: useEventCallback((event: FocusEvent) => {
             setHasFocus(false);
 
             if (!isNil(onBlur)) {
                 onBlur(event);
+            }
+        }),
+        onFocus: useEventCallback((event: FocusEvent) => {
+            setHasFocus(true);
+
+            if (!isNil(onFocus)) {
+                onFocus(event);
             }
         })
     });
@@ -317,7 +317,6 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
             {...mergeProps(
                 rest,
                 {
-                    onKeyDown: handleContainerKeyDown,
                     className: cssModule(
                         "o-ui-date-range-input",
                         validationState,
@@ -329,8 +328,9 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
                         hover && "hover",
                         isInGroup && "in-group"
                     ),
-                    role: !isInField ? "group" : undefined,
-                    ref: containerRef
+                    onKeyDown: handleContainerKeyDown,
+                    ref: containerRef,
+                    role: !isInField ? "group" : undefined
                 },
                 focusWithinProps
             )}
@@ -467,9 +467,9 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             );
 
             return {
-                values: presets.map(x => x.text),
+                onSelectionChange: handleSelectPreset,
                 selectedIndex: selectedIndex !== -1 ? selectedIndex : undefined,
-                onSelectionChange: handleSelectPreset
+                values: presets.map(x => x.text)
             };
         }
 
@@ -507,10 +507,10 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                     {...mergeProps(
                         rest,
                         {
-                            disabled,
-                            readOnly,
-                            fluid,
                             as,
+                            disabled,
+                            fluid,
+                            readOnly,
                             ref: containerRef
                         }
                     )}
@@ -524,11 +524,11 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                     {...mergeProps(
                         rest,
                         {
+                            as,
                             className: cssModule(
                                 "o-ui-date-range-input-button-presets",
                                 fluid && "fluid"
                             ),
-                            as,
                             ref: containerRef
                         }
                     )}
@@ -546,8 +546,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             {augmentElement(rangeMarkup, mergeProps(
                 rest,
                 {
-                    className: isInGroup ? "o-ui-date-range-input-in-group" : undefined,
                     as,
+                    className: isInGroup ? "o-ui-date-range-input-in-group" : undefined,
                     ref: containerRef
                 }
             ))}

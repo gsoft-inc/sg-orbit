@@ -32,21 +32,25 @@ const DefaultElement = "div";
 
 export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
-     * The value of the radio group.
-     */
-    value?: string | null;
+      * Whether or not the radio group should autoFocus on render.
+      */
+    autoFocus?: boolean | number;
+    /**
+      * React children.
+      */
+    children: ReactNode;
     /**
       * The initial value of `value`.
       */
     defaultValue?: string;
     /**
-      * Whether or not a user input is required before form submission.
+      * Whether or not the radio group is disabled.
       */
-    required?: boolean;
+    disabled?: boolean;
     /**
-      * Whether the group should display as "valid" or "invalid".
+      * The space between the group elements.
       */
-    validationState?: "valid" | "invalid";
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
       * Radio group name.
       */
@@ -59,45 +63,41 @@ export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<Orb
       */
     onChange?: (event: SyntheticEvent, value: string) => void;
     /**
-      * Whether or not the radio group should autoFocus on render.
-      */
-    autoFocus?: boolean | number;
-    /**
       * The orientation of the group elements.
       */
     orientation?: "horizontal" | "vertical";
     /**
-      * The space between the group elements.
+      * Whether or not a user input is required before form submission.
       */
-    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
-    /**
-      * Whether the group elements are forced onto one line or can wrap onto multiple lines
-      */
-    wrap?: boolean;
+    required?: boolean;
     /**
       * Invert the order of the radio button and his label.
       */
     reverse?: boolean;
     /**
-      * Whether or not the radio group is disabled.
+      * Whether the group should display as "valid" or "invalid".
       */
-    disabled?: boolean;
+    validationState?: "valid" | "invalid";
     /**
-      * React children.
+     * The value of the radio group.
+     */
+    value?: string | null;
+    /**
+      * Whether the group elements are forced onto one line or can wrap onto multiple lines
       */
-    children: ReactNode;
+    wrap?: boolean;
 }
 
 const NavigationKeyBinding = {
     default: {
-        previous: [Keys.arrowLeft, Keys.arrowUp],
-        next: [Keys.arrowRight, Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowRight, Keys.arrowDown],
+        previous: [Keys.arrowLeft, Keys.arrowUp]
     },
     toolbar: {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown]
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     }
 };
 
@@ -149,9 +149,9 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     useKeyedRovingFocus(focusScope, checkedValue, { keyProp: RadioKeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: value ?? defaultValue,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        target: value ?? defaultValue
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
@@ -159,16 +159,16 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
-        role: "radiogroup",
-        required,
-        validationState,
-        orientation,
-        gap,
-        wrap,
-        reverse,
         disabled,
+        gap,
+        groupRef,
         isInField,
-        groupRef
+        orientation,
+        required,
+        reverse,
+        role: "radiogroup",
+        validationState,
+        wrap
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
@@ -191,16 +191,16 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         >
             <CheckableContext.Provider
                 value={{
-                    onCheck: handleCheck,
-                    checkedValue
+                    checkedValue,
+                    onCheck: handleCheck
                 }}
             >
                 {Children.toArray(children).filter(x => x).map((x: ReactElement, index) => {
                     return augmentElement(x, {
                         ...itemProps,
-                        value: index.toString(),
+                        name: groupName,
                         role: "radio",
-                        name: groupName
+                        value: index.toString()
                     });
                 })}
             </CheckableContext.Provider>

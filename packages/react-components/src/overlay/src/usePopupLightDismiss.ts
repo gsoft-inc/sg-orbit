@@ -33,7 +33,9 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
     });
 
     const props = useOverlayLightDismiss(overlayRef, {
-        trigger,
+        hideOnEscape,
+        hideOnLeave,
+        hideOnOutsideClick,
         onHide: useEventCallback((event: SyntheticEvent) => {
             switch (event.type) {
                 case "click": {
@@ -67,9 +69,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
                 }
             }
         }),
-        hideOnEscape,
-        hideOnLeave,
-        hideOnOutsideClick
+        trigger
     });
 
     return mergeProps(

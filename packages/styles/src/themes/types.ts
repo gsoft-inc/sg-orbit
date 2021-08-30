@@ -1,6 +1,6 @@
 import { FixedLengthArray } from "type-fest";
 
-export type ColorSchemes<C, L, D> = {
+export interface ColorSchemes<C, L, D> {
     common?: Partial<C>;
     light: Partial<L>;
     dark: Partial<D>;
@@ -8,7 +8,7 @@ export type ColorSchemes<C, L, D> = {
 
 export type SpaceValues = FixedLengthArray<string, 13>;
 
-export type FontSizeValues = {
+export interface FontSizeValues {
     1: string;
     2: string;
     3: string;
@@ -30,7 +30,7 @@ export type BorderWidthValues = FixedLengthArray<string, 5>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
-export type BoxShadowRoles = {
+export interface BoxShadowRoles {
     "alias-skim": string;
     "alias-lifted": string;
     "alias-raised": string;
@@ -43,7 +43,7 @@ export type ZIndexValues = FixedLengthArray<number, 5>;
 
 export type ColorPalette = FixedLengthArray<string, 10>;
 
-export type ColorPalettes = {
+export interface ColorPalettes {
     "white": string;
     "black": string;
     "marine": ColorPalette;
@@ -57,7 +57,7 @@ export type ColorPalettes = {
     "primary": ColorPalette;
 }
 
-export type ColorRoles = {
+export interface ColorRoles {
     /* Background */
     "alias-bg-1": string;
     "alias-bg-1-hover": string;

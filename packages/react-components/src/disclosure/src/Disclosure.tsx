@@ -2,7 +2,7 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { InternalProps, Keys, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
@@ -10,9 +10,9 @@ const DefaultElement = "div";
 
 export interface InnerDisclosureProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
-     * A controlled open value.
+     * React children.
      */
-    open?: boolean | null;
+    children: ReactNode;
     /**
      * The initial value of `open` when uncontrolled.
      */
@@ -25,9 +25,9 @@ export interface InnerDisclosureProps extends InternalProps, Omit<OrbitComponent
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * React children.
+     * A controlled open value.
      */
-    children: ReactNode;
+    open?: boolean | null;
 }
 
 export function InnerDisclosure({
@@ -91,17 +91,17 @@ export function InnerDisclosure({
     const contentId = `${rootId}-content`;
 
     const triggerMarkup = augmentElement(trigger, {
+        "aria-controls": contentId,
+        "aria-expanded": isOpen,
         onClick: handleClick,
         onKeyDown: handleKeyDown,
-        onKeyUp: handleKeyUp,
-        "aria-expanded": isOpen,
-        "aria-controls": contentId
+        onKeyUp: handleKeyUp
     });
 
     const contentMarkup = augmentElement(content, {
-        id: contentId,
+        "aria-hidden": !isOpen,
         className: "o-ui-disclosure-content-inner",
-        "aria-hidden": !isOpen
+        id: contentId
     });
 
     const { transitionClasses, transitionProps } = useSlidingTransition(isOpen, contentRef);
@@ -109,8 +109,8 @@ export function InnerDisclosure({
     return (
         <DisclosureContext.Provider
             value={{
-                isOpen,
-                close
+                close,
+                isOpen
             }}
         >
             {triggerMarkup}
@@ -118,9 +118,9 @@ export function InnerDisclosure({
                 {...mergeProps(
                     rest,
                     {
-                        id: rootId,
-                        className: cssModule("o-ui-disclosure-content", transitionClasses),
                         as,
+                        className: cssModule("o-ui-disclosure-content", transitionClasses),
+                        id: rootId,
                         ref: contentRef
                     },
                     transitionProps
