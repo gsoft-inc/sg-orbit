@@ -1,12 +1,14 @@
 import "./Disclosure.css";
 
-import { Children, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { DomProps, Keys, augmentElement, cssModule, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-export interface InnerDisclosureProps extends DomProps {
+const DefaultElement = "div";
+
+export interface InnerDisclosureProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A controlled open value.
      */
@@ -23,17 +25,9 @@ export interface InnerDisclosureProps extends DomProps {
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerDisclosure({
@@ -41,7 +35,7 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onOpenChange,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -138,7 +132,7 @@ export function InnerDisclosure({
     );
 }
 
-export const Disclosure = forwardRef<InnerDisclosureProps>((props, ref) => (
+export const Disclosure = forwardRef<any, OmitInternalProps<InnerDisclosureProps>>((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
 ));
 

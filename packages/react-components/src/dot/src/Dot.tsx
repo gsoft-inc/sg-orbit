@@ -1,32 +1,22 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, mergeProps, slot } from "../../shared";
 import { useMemo } from "react";
 
-export interface InnerDotProps {
+const DefaultElement = "span";
+
+export interface InnerDotProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */
     color?: string;
     /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * @ignore
      */
     children?: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function useColor(color: string) {
@@ -48,7 +38,7 @@ function useColor(color: string) {
 export function InnerDot(props: InnerDotProps) {
     const {
         color,
-        as = "span",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -82,7 +72,7 @@ export function InnerDot(props: InnerDotProps) {
     );
 }
 
-export const Dot = slot("dot", forwardRef<InnerDotProps>((props, ref) => (
+export const Dot = slot("dot", forwardRef<any, OmitInternalProps<InnerDotProps>>((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));
 

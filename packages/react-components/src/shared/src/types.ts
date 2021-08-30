@@ -1,36 +1,25 @@
-// When a component's props interface extends these types, no documentation will be generated for them by Storybook.
-// This is an issue with react-docgen and storybook. So only put types here that you don't mind if it doesn't have any documentation.
+import { ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
 
-export interface DomProps {
+export interface SlotProps {
     /**
-     * The element's unique identifier.
-     * @ignore
+     * [Slot](?path=/docs/getting-started-slots--page) to render into.
      */
-    id?: string;
+    slot?: string;
 }
 
-export interface AriaLabelingProps {
+export interface InternalProps {
     /**
-     * Defines a string value that labels the current element.
      * @ignore
      */
-    "aria-label"?: string;
+    as?: ElementType;
     /**
-     * Identifies the element (or elements) that labels the current element.
      * @ignore
      */
-    "aria-labelledby"?: string;
-    /**
-     * Identifies the element (or elements) that describes the object.
-     * @ignore
-     */
-    "aria-describedby"?: string;
-    /**
-     * Identifies the element (or elements) that provide a detailed, extended description for the object.
-     * @ignore
-     */
-    "aria-details"?: string;
+    forwardedRef: ForwardedRef<any>;
 }
+
+// Omit forwardedRef by default, but allow extra props to be ignored
+export type OmitInternalProps<T extends { forwardedRef?: ForwardedRef<any> }, U extends string = never> = Omit<T, "forwardedRef" | U>;
 
 export interface InteractionStatesProps {
     /**
@@ -46,3 +35,5 @@ export interface InteractionStatesProps {
      */
     hover?: boolean;
 }
+
+export type OrbitComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<T>> = Omit<ComponentProps<T>, "color">;

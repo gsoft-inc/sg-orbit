@@ -1,10 +1,12 @@
 import "./Image.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef } from "react";
-import { HeightProp, StyleProps, WidthProp, cssModule, forwardRef, mergeProps, slot } from "../../shared";
+import { ComponentProps, forwardRef } from "react";
+import { HeightProp, InternalProps, OmitInternalProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
 
-export interface InnerImageProps extends StyleProps {
+const DefaultElement = "img";
+
+export interface InnerImageProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The path to the image.
      */
@@ -29,22 +31,10 @@ export interface InnerImageProps extends StyleProps {
      * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
     fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
-    // /**
-    //  * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
-    //  */
-    // position?: string;
     /**
-     * Default slot override.
+     * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
-    slot?: string;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
+    position?: string;
 }
 
 export function InnerImage({
@@ -54,7 +44,7 @@ export function InnerImage({
     height,
     fit,
     position,
-    as = "img",
+    as = DefaultElement,
     forwardedRef,
     ...rest
 }: InnerImageProps) {
@@ -81,7 +71,7 @@ export function InnerImage({
     );
 }
 
-export const Image = slot("image", forwardRef<InnerImageProps>((props, ref) => (
+export const Image = slot("image", forwardRef<any, OmitInternalProps<InnerImageProps>>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 )));
 

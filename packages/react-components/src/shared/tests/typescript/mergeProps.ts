@@ -1,10 +1,17 @@
+import { TupleTypes, mergeProps } from "../../src";
 import { expectAssignable } from "@typescript/tests";
-import { mergeProps } from "@react-components/shared";
 
 const a1: { a?: string; b?: string } = {};
+
 const a2: { c: string } = { c: "value" };
-const a3: { c: boolean; d: boolean } = { c: true, d: true };
+
+const a3: { d: boolean } = { d: true };
 
 const result = mergeProps(a1, a2, a3);
 
-expectAssignable<{ a?: string; b?: string; c?: boolean; d: boolean }>(result);
+expectAssignable<{ a?: string; b?: string; c?: string; d: boolean }>(result);
+
+const expectedType = "a" as number | boolean | string;
+
+expectAssignable<TupleTypes<[number, boolean, string]>>(expectedType);
+expectAssignable<TupleTypes<(number | boolean | string)[]>>(expectedType);

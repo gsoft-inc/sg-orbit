@@ -1,33 +1,27 @@
 import "./Tabs.css";
 
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
 import { useTabsContext } from "./TabsContext";
 
-export interface InnerTabPanelProps {
+const DefaultElement = "div";
+
+export interface InnerTabPanelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * Matching panel item.
      */
     panel: PanelType;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerTabPanel({
     panel: { key, tabId, panelId },
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -54,7 +48,7 @@ export function InnerTabPanel({
     );
 }
 
-export const TabPanel = forwardRef<InnerTabPanelProps>((props, ref) => (
+export const TabPanel = forwardRef<any, OmitInternalProps<InnerTabPanelProps>>((props, ref) => (
     <InnerTabPanel {...props} forwardedRef={ref} />
 ));
 

@@ -1,13 +1,15 @@
 import "./Link.css";
 
-import { AriaLabelingProps, InteractionStatesProps, augmentElement, forwardRef, isNil, mergeProps, useStyleProps } from "../../shared";
 import { Box } from "../../box";
-import { Children, ComponentProps, ElementType, ForwardedRef, ReactElement, ReactNode } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
-export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabelingProps {
+const DefaultElement = "a";
+
+export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
     /**
      * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
@@ -45,10 +47,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
      */
     disabled?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -56,10 +54,6 @@ export interface InnerIconLinkProps extends InteractionStatesProps, AriaLabeling
     * @ignore
     */
     visited?: boolean;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {
@@ -79,7 +73,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         visited,
         disabled,
         "aria-label": ariaLabel,
-        as = "a",
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -130,7 +124,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     );
 }
 
-export const IconLink = forwardRef<InnerIconLinkProps>((props, ref) => (
+export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));
 

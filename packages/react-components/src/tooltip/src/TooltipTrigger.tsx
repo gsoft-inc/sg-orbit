@@ -1,11 +1,13 @@
 import "./Tooltip.css";
 
-import { Children, ComponentProps, ElementType, FocusEvent, ForwardedRef, ReactElement, ReactNode, SyntheticEvent, useCallback } from "react";
+import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { augmentElement, forwardRef, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 
-export interface InnerTooltipTriggerProps {
+const DefaultElement = "div";
+
+export interface InnerTooltipTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
     /**
     * Whether or not to show the tooltip.
     */
@@ -57,10 +59,6 @@ export interface InnerTooltipTriggerProps {
      */
     zIndex?: number;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -68,10 +66,6 @@ export interface InnerTooltipTriggerProps {
      * @ignore
      */
     containerElement?: HTMLElement;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function parseTooltipTrigger(children: ReactNode) {
@@ -94,7 +88,7 @@ export function InnerTooltipTrigger({
     allowPreventOverflow = true,
     containerElement,
     zIndex = 10000,
-    as = "div",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -202,7 +196,7 @@ export function InnerTooltipTrigger({
     );
 }
 
-export const TooltipTrigger = forwardRef<InnerTooltipTriggerProps>((props, ref) => (
+export const TooltipTrigger = forwardRef<any, OmitInternalProps<InnerTooltipTriggerProps>>((props, ref) => (
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));
 

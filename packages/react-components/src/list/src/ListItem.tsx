@@ -1,29 +1,23 @@
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
-import { forwardRef, mergeProps } from "../../shared";
 
-export interface InnerListItemProps {
+const DefaultElement = "li";
+
+export interface InnerListItemProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
     /**
      * A list item can vary in size.
      */
     size?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerListItem({
     size,
-    as = "li",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -44,7 +38,7 @@ export function InnerListItem({
     );
 }
 
-export const ListItem = forwardRef<InnerListItemProps>((props, ref) => (
+export const ListItem = forwardRef<any, OmitInternalProps<InnerListItemProps>>((props, ref) => (
     <InnerListItem {...props} forwardedRef={ref} />
 ));
 

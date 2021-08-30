@@ -1,11 +1,13 @@
 import "./Card.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode, cloneElement, useMemo } from "react";
+import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
-import { cssModule, forwardRef, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 
-export interface InnerCardProps {
+const DefaultElement = "section";
+
+export interface InnerCardProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
     /**
      * The orientation of the card.
      */
@@ -19,28 +21,16 @@ export interface InnerCardProps {
      */
     fluid?: boolean;
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Default slot override.
-     */
-    slot?: string;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerCard({
     orientation = "vertical",
     size,
     fluid,
-    as = "section",
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest
@@ -125,7 +115,7 @@ export function InnerCard({
     );
 }
 
-export const Card = slot("card", forwardRef<InnerCardProps>((props, ref) => (
+export const Card = slot("card", forwardRef<any, OmitInternalProps<InnerCardProps>>((props, ref) => (
     <InnerCard {...props} forwardedRef={ref} />
 )));
 

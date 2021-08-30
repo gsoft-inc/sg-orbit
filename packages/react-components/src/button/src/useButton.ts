@@ -1,7 +1,7 @@
-import { AriaAttributes, ElementType, ForwardedRef } from "react";
-import { InteractionStatesProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { AriaAttributes } from "react";
+import { InteractionStatesProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
-export interface UseButtonProps extends InteractionStatesProps {
+export interface UseButtonProps extends Partial<InternalProps>, InteractionStatesProps {
     cssModule?: string;
     variant?: "solid" | "outline" | "ghost";
     color?: "primary" | "secondary" | "danger" | "inherit";
@@ -11,8 +11,6 @@ export interface UseButtonProps extends InteractionStatesProps {
     loading?: boolean;
     size?: Size;
     type?: "button" | "submit" | "reset";
-    as?: ElementType;
-    forwardedRef?: ForwardedRef<any>;
 }
 
 export interface UseButtonReturn {

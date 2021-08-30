@@ -1,9 +1,9 @@
 import "./SearchInput.css";
 
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ElementType, ForwardedRef, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, useCallback } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, Keys, forwardRef, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -13,7 +13,9 @@ import { wrappedInputPropsAdapter } from "../../input";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface BoxProps extends BoxPropsForDocumentation { }
 
-export interface InnerSearchInputProps extends InteractionStatesProps {
+const DefaultElement = "input";
+
+export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * A controlled value.
      */
@@ -69,14 +71,6 @@ export interface InnerSearchInputProps extends InteractionStatesProps {
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export function InnerSearchInput(props: InnerSearchInputProps) {
@@ -90,7 +84,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         onKeyDown,
         icon,
         wrapperProps,
-        as = "input",
+        as = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -174,7 +168,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     );
 }
 
-export const SearchInput = forwardRef<InnerSearchInputProps, "input">((props, ref) => (
+export const SearchInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerSearchInputProps>>((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));
 

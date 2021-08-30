@@ -5,12 +5,11 @@ import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
     ComponentProps,
-    ElementType,
     FocusEvent,
     FocusEventHandler,
-    ForwardedRef,
     KeyboardEvent,
     SyntheticEvent,
+    forwardRef,
     useCallback,
     useImperativeHandle,
     useMemo,
@@ -23,10 +22,11 @@ import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
 import {
     InteractionStatesProps,
+    InternalProps,
     Keys,
+    OmitInternalProps,
     augmentElement,
     cssModule,
-    forwardRef,
     isNil,
     isNilOrEmpty,
     isNumber,
@@ -50,7 +50,9 @@ export interface DateRangePreset {
     endDate: Date;
 }
 
-export interface InnerDateRangeInputProps extends InteractionStatesProps {
+const DefaultElement = "div";
+
+export interface InnerDateRangeInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
      * @ignore
      */
@@ -123,21 +125,9 @@ export interface InnerDateRangeInputProps extends InteractionStatesProps {
      * Whether or not the input take up the width of its container.
      */
     fluid?: boolean;
-    /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly?: boolean;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
-const DateInput = forwardRef<any, "input">(({
+const DateInput = forwardRef<HTMLInputElement, any>(({
     value,
     placeholder = "dd/mm/yyyy",
     required,
@@ -187,7 +177,7 @@ const DateInput = forwardRef<any, "input">(({
     );
 });
 
-const RangeInput = forwardRef<any>((props, ref) => {
+const RangeInput = forwardRef<any, any>((props, ref) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, isInField] = useFieldInputProps();
     const [inputGroupProps, isInGroup] = useInputGroupProps();
@@ -419,7 +409,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         focus = false,
         hover,
         name,
-        as = "div",
+        as = DefaultElement,
         forwardedRef,
         ...rest
     } = mergeProps(
@@ -565,7 +555,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     );
 }
 
-export const DateRangeInput = forwardRef<InnerDateRangeInputProps>((props, ref) => (
+export const DateRangeInput = forwardRef<any, OmitInternalProps<InnerDateRangeInputProps>>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));
 

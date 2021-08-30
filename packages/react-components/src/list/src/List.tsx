@@ -2,11 +2,11 @@ import "./List.css";
 
 import { Box } from "../../box";
 import { CollectionItem, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ElementType, ForwardedRef, ReactNode } from "react";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, cssModule, mergeProps, useStyleProps } from "../../shared";
 import { ListItem } from "./ListItem";
-import { cssModule, forwardRef, mergeProps, useStyleProps } from "../../shared";
 
-export interface InnerListProps {
+export interface InnerListProps extends InternalProps, ComponentProps<"ul"> {
     /**
      * A list can vary in size.
      */
@@ -16,17 +16,9 @@ export interface InnerListProps {
      */
     color?: "inherit";
     /**
-     * An HTML element type or a custom React element type to render as.
-     */
-    as?: ElementType;
-    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * @ignore
-     */
-    forwardedRef: ForwardedRef<any>;
 }
 
 function renderItem({
@@ -53,13 +45,13 @@ function renderItem({
     );
 }
 
-const List = forwardRef<InnerListProps>((props, ref) => {
+const List = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => {
     const [styleProps] = useStyleProps("list");
 
     const {
         size,
         color,
-        as = "ul",
+        as,
         children,
         ...rest
     } = mergeProps(
@@ -114,7 +106,7 @@ export function InnerOrderedList({
     );
 }
 
-export const OrderedList = forwardRef<InnerListProps>((props, ref) => (
+export const OrderedList = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => (
     <InnerOrderedList {...props} forwardedRef={ref} />
 ));
 
@@ -136,7 +128,7 @@ export function InnerUnorderedList({
     );
 }
 
-export const UnorderedList = forwardRef<InnerListProps>((props, ref) => (
+export const UnorderedList = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => (
     <InnerUnorderedList {...props} forwardedRef={ref} />
 ));
 
