@@ -26,7 +26,7 @@ export function MotionPreview() {
     };
 
     return (
-        <div className="o-ui-sb-motion-preview bt b--cloud-100">
+        <div className="o-ui-sb-motion-preview bt b--cloud-2">
             <H4>Motion Preview</H4>
             <Inline className="mb4" verticalAlign="end">
                 <Field>

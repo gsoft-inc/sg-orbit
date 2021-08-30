@@ -57,14 +57,14 @@ export function createTestSuite(element, stories) {
                         <Content>The National Aeronautics and Space Administration</Content>
                     </Card>
                     <Card size="sm" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
                         <Content>The National Aeronautics and Space Administration</Content>
                     </Card>
                     <Card element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -73,14 +73,14 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Card size="lg" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
                         <Content>The National Aeronautics and Space Administration</Content>
                     </Card>
                     <Card size="xl" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -92,14 +92,14 @@ export function createTestSuite(element, stories) {
         .add("illustration 2", () =>
             <Stack>
                 <Card fluid element={element}>
-                    <Illustration color="sunray-50" style={{ width: "200px" }}>
+                    <Illustration color="sunray-1" style={{ width: "200px" }}>
                         <Image src={Nasa} alt="Nasa" />
                     </Illustration>
                     <Heading>Nasa</Heading>
                     <Content>The National Aeronautics and Space Administration</Content>
                 </Card>
                 <Card style={{ height: "250px" }} element={element}>
-                    <Illustration color="sunray-50">
+                    <Illustration color="sunray-1">
                         <Image src={Nasa} alt="Nasa" />
                     </Illustration>
                     <Heading>Nasa</Heading>
@@ -384,7 +384,7 @@ export function createTestSuite(element, stories) {
                         </ButtonGroup>
                     </Card>
                     <Card size="sm" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -398,7 +398,7 @@ export function createTestSuite(element, stories) {
                         </ButtonGroup>
                     </Card>
                     <Card element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -414,7 +414,7 @@ export function createTestSuite(element, stories) {
                 </Inline>
                 <Inline>
                     <Card size="lg" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -428,7 +428,7 @@ export function createTestSuite(element, stories) {
                         </ButtonGroup>
                     </Card>
                     <Card size="xl" element={element}>
-                        <Illustration color="sunray-50">
+                        <Illustration color="sunray-1">
                             <Image src={Nasa} alt="Nasa" />
                         </Illustration>
                         <Heading>Nasa</Heading>
@@ -446,7 +446,7 @@ export function createTestSuite(element, stories) {
         )
         .add("all sections 2", () =>
             <Card fluid element={element}>
-                <Illustration color="sunray-50">
+                <Illustration color="sunray-1">
                     <Image src={Nasa} alt="Nasa" style={{ width: "200px" }} />
                 </Illustration>
                 <Heading>Nasa</Heading>

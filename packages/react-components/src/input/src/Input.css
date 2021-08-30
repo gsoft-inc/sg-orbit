@@ -170,8 +170,8 @@
     top: 50%;
     z-index: 1;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-marine-100);
-    border-top-color: var(--o-ui-marine-300);
+    border: 2px solid var(--o-ui-marine-2);
+    border-top-color: var(--o-ui-marine-4);
     transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;
 }

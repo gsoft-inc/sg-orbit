@@ -362,7 +362,7 @@ a.o-ui-button {
     top: 50%;
     left: 50%;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-marine-200);
+    border: 2px solid var(--o-ui-marine-3);
     border-top-color: var(--o-ui-white);
     animation: o-ui-button-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);
@@ -400,7 +400,7 @@ a.o-ui-button {
 }
 
 .o-ui-button-loading.o-ui-button-solid.o-ui-button-secondary:before {
-    border: 2px solid var(--o-ui-cloud-500);
+    border: 2px solid var(--o-ui-cloud-6);
     border-top-color: var(--o-ui-alias-text-1);
 }
 
@@ -411,8 +411,8 @@ a.o-ui-button {
 
 /* OUTLINE | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-outline:before {
-    border: 2px solid var(--o-ui-marine-100);
-    border-top-color: var(--o-ui-marine-300);
+    border: 2px solid var(--o-ui-marine-2);
+    border-top-color: var(--o-ui-marine-4);
 }
 
 /* OUTLINE | LOADING | PRIMARY */
@@ -424,19 +424,19 @@ a.o-ui-button {
 /* OUTLINE | LOADING | SECONDARY */
 .o-ui-button-loading.o-ui-button-outline.o-ui-button-secondary:before {
     border: 2px solid var(--o-ui-alias-b-1);
-    border-top-color: var(--o-ui-cloud-500);
+    border-top-color: var(--o-ui-cloud-6);
 }
 
 /* OUTLINE | LOADING | DANGER */
 .o-ui-button-loading.o-ui-button-outline.o-ui-button-danger:before {
-    border: 2px solid var(--o-ui-beetle-100);
+    border: 2px solid var(--o-ui-beetle-2);
     border-top-color: var(--o-ui-alias-b-negative-1);
 }
 
 /* GHOST | LOADING | PRIMARY */
 .o-ui-button-loading.o-ui-button-ghost:before {
-    border: 2px solid var(--o-ui-marine-100);
-    border-top-color: var(--o-ui-marine-300);
+    border: 2px solid var(--o-ui-marine-2);
+    border-top-color: var(--o-ui-marine-4);
 }
 
 /* GHOST | LOADING | PRIMARY */
@@ -448,12 +448,12 @@ a.o-ui-button {
 /* GHOST | LOADING | SECONDARY */
 .o-ui-button-loading.o-ui-button-ghost.o-ui-button-secondary:before {
     border: 2px solid var(--o-ui-alias-b-1);
-    border-top-color: var(--o-ui-cloud-500);
+    border-top-color: var(--o-ui-cloud-6);
 }
 
 /* GHOST | LOADING | DANGER */
 .o-ui-button-loading.o-ui-button-ghost.o-ui-button-danger:before {
-    border: 2px solid var(--o-ui-beetle-100);
+    border: 2px solid var(--o-ui-beetle-2);
     border-top-color: var(--o-ui-alias-b-negative-1);
 }
 

@@ -1,119 +1,119 @@
-.bg-sunray-50 {
-    background-color: var(--o-ui-sunray-50);
+.bg-sunray-1 {
+    background-color: var(--o-ui-sunray-1);
 }
 
-.bg-sunray-100 {
-    background-color: var(--o-ui-sunray-100);
+.bg-sunray-2 {
+    background-color: var(--o-ui-sunray-2);
 }
 
-.bg-sunray-200 {
-    background-color: var(--o-ui-sunray-200);
+.bg-sunray-3 {
+    background-color: var(--o-ui-sunray-3);
 }
 
-.bg-sunray-300 {
-    background-color: var(--o-ui-sunray-300);
+.bg-sunray-4 {
+    background-color: var(--o-ui-sunray-4);
 }
 
-.bg-sunray-400 {
-    background-color: var(--o-ui-sunray-400);
+.bg-sunray-5 {
+    background-color: var(--o-ui-sunray-5);
 }
 
-.bg-sunray-500 {
-    background-color: var(--o-ui-sunray-500);
+.bg-sunray-6 {
+    background-color: var(--o-ui-sunray-6);
 }
 
-.bg-sunray-600 {
-    background-color: var(--o-ui-sunray-600);
+.bg-sunray-7 {
+    background-color: var(--o-ui-sunray-7);
 }
 
-.bg-sunray-700 {
-    background-color: var(--o-ui-sunray-700);
+.bg-sunray-8 {
+    background-color: var(--o-ui-sunray-8);
 }
 
-.bg-sunray-800 {
-    background-color: var(--o-ui-sunray-800);
+.bg-sunray-9 {
+    background-color: var(--o-ui-sunray-9);
 }
 
-.bg-sunray-900 {
-    background-color: var(--o-ui-sunray-900);
+.bg-sunray-10 {
+    background-color: var(--o-ui-sunray-10);
 }
 
-.hover-bg-sunray-50:hover {
-    background-color: var(--o-ui-sunray-50);
+.hover-bg-sunray-1:hover {
+    background-color: var(--o-ui-sunray-1);
 }
 
-.hover-bg-sunray-100:hover {
-    background-color: var(--o-ui-sunray-100);
+.hover-bg-sunray-2:hover {
+    background-color: var(--o-ui-sunray-2);
 }
 
-.hover-bg-sunray-200:hover {
-    background-color: var(--o-ui-sunray-200);
+.hover-bg-sunray-3:hover {
+    background-color: var(--o-ui-sunray-3);
 }
 
-.hover-bg-sunray-300:hover {
-    background-color: var(--o-ui-sunray-300);
+.hover-bg-sunray-4:hover {
+    background-color: var(--o-ui-sunray-4);
 }
 
-.hover-bg-sunray-400:hover {
-    background-color: var(--o-ui-sunray-400);
+.hover-bg-sunray-5:hover {
+    background-color: var(--o-ui-sunray-5);
 }
 
-.hover-bg-sunray-500:hover {
-    background-color: var(--o-ui-sunray-500);
+.hover-bg-sunray-6:hover {
+    background-color: var(--o-ui-sunray-6);
 }
 
-.hover-bg-sunray-600:hover {
-    background-color: var(--o-ui-sunray-600);
+.hover-bg-sunray-7:hover {
+    background-color: var(--o-ui-sunray-7);
 }
 
-.hover-bg-sunray-700:hover {
-    background-color: var(--o-ui-sunray-700);
+.hover-bg-sunray-8:hover {
+    background-color: var(--o-ui-sunray-8);
 }
 
-.hover-bg-sunray-800:hover {
-    background-color: var(--o-ui-sunray-800);
+.hover-bg-sunray-9:hover {
+    background-color: var(--o-ui-sunray-9);
 }
 
-.hover-bg-sunray-900:hover {
-    background-color: var(--o-ui-sunray-900);
+.hover-bg-sunray-10:hover {
+    background-color: var(--o-ui-sunray-10);
 }
 
-.focus-bg-sunray-50:focus {
-    background-color: var(--o-ui-sunray-50);
+.focus-bg-sunray-1:focus {
+    background-color: var(--o-ui-sunray-1);
 }
 
-.focus-bg-sunray-100:focus {
-    background-color: var(--o-ui-sunray-100);
+.focus-bg-sunray-2:focus {
+    background-color: var(--o-ui-sunray-2);
 }
 
-.focus-bg-sunray-200:focus {
-    background-color: var(--o-ui-sunray-200);
+.focus-bg-sunray-3:focus {
+    background-color: var(--o-ui-sunray-3);
 }
 
-.focus-bg-sunray-300:focus {
-    background-color: var(--o-ui-sunray-300);
+.focus-bg-sunray-4:focus {
+    background-color: var(--o-ui-sunray-4);
 }
 
-.focus-bg-sunray-400:focus {
-    background-color: var(--o-ui-sunray-400);
+.focus-bg-sunray-5:focus {
+    background-color: var(--o-ui-sunray-5);
 }
 
-.focus-bg-sunray-500:focus {
-    background-color: var(--o-ui-sunray-500);
+.focus-bg-sunray-6:focus {
+    background-color: var(--o-ui-sunray-6);
 }
 
-.focus-bg-sunray-600:focus {
-    background-color: var(--o-ui-sunray-600);
+.focus-bg-sunray-7:focus {
+    background-color: var(--o-ui-sunray-7);
 }
 
-.focus-bg-sunray-700:focus {
-    background-color: var(--o-ui-sunray-700);
+.focus-bg-sunray-8:focus {
+    background-color: var(--o-ui-sunray-8);
 }
 
-.focus-bg-sunray-800:focus {
-    background-color: var(--o-ui-sunray-800);
+.focus-bg-sunray-9:focus {
+    background-color: var(--o-ui-sunray-9);
 }
 
-.focus-bg-sunray-900:focus {
-    background-color: var(--o-ui-sunray-900);
+.focus-bg-sunray-10:focus {
+    background-color: var(--o-ui-sunray-10);
 }

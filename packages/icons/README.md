@@ -26,7 +26,7 @@ In order to be included in Orbit UI an icon must satisfy the following guideline
 
 - If an icon represents a specific state add it to the file name (e.g. trash-_empty_-32x32.svg)
 
-- Although not ideal when an svg has to be coloured add the colour name (refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_cloud-300_-24x24.svg)
+- Although not ideal when an svg has to be coloured add the colour name (refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_cloud-4_-24x24.svg)
 
 ### Internal usage
 

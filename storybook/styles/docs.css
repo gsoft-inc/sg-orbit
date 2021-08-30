@@ -103,7 +103,7 @@
 
 /* EMPTY BLOCK */
 .docblock-emptyblock {
-    color: var(--o-ui-cloud-500) !important;
+    color: var(--o-ui-cloud-6) !important;
     border: 1px dashed var(--o-ui-alias-b-1) !important;
 }
 
@@ -167,7 +167,7 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    border-bottom: 1px solid var(--o-ui-marine-50);
+    border-bottom: 1px solid var(--o-ui-marine-1);
 }
 
 .sbdocs.sbdocs-h2,
@@ -287,7 +287,7 @@
 .sb-show-main details {
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--o-ui-moonstone-50);
+    background-color: var(--o-ui-moonstone-1);
 }
 
 .sb-show-main details + details {
@@ -303,7 +303,7 @@
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
     padding: var(--o-ui-space-3) var(--o-ui-space-4) var(--o-ui-space-3) var(--o-ui-space-3);
-    background-color: var(--o-ui-moonstone-50);
+    background-color: var(--o-ui-moonstone-1);
     font-size: 15px !important;
 }
 

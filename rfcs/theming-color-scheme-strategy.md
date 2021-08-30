@@ -6,7 +6,7 @@ Orbit has been, in it's infancy, a monolitich piece of CSS, the only theming opt
 
 ## Motivation
 
-Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-negative` has a semantic meaning while `border-beetle-500` has none and could be used in many situations. This make our intefaces more cohesive, our codebase easier to maintain and gives intention to our design choices. As Adobe Spectrum sums it up:
+Being able to quickly add design tokens, and semantic variables, without questionning where to do so, is a main goal of ours. This is why we came up with a strategy, and are moving many custom properties. In order to provide a consistent theme, we are introducing the concept of semantic colors. Semantic colors are a layer over design tokens representing a meaning, e.g. `border-negative` has a semantic meaning while `border-beetle-6` has none and could be used in many situations. This make our intefaces more cohesive, our codebase easier to maintain and gives intention to our design choices. As Adobe Spectrum sums it up:
 
 > Too much color can create cognitive overload, affecting users’ ability to efficiently interact with products.
 
@@ -14,11 +14,11 @@ Being able to quickly add design tokens, and semantic variables, without questio
 
 CSS Variables are the values needed to construct and maintain our design system, from spacing, color, typograghy, to shadows. Think of CSS Variables as Design Tokens or constants. These values are reflected in the form of CSS Custom Properties(variables). These are prefixed with `o-ui-global`. CSS Variables are not affected by a theme. or color scheme, they are what one could call a constant.
 
-On top of design tokens lives *semantic variables*, these have an assigned meaning and expedite design decisions. One example of a semantic variable would be a `border-negative` variable, this variable would use the `beetle-500` color behind the scene. When in need of a border that represent a negative state one designer wouldn't need to reinvent the wheel and should use this abstraction : `border-negative`.  These are prefixed with `o-ui-alias`.
+On top of design tokens lives *semantic variables*, these have an assigned meaning and expedite design decisions. One example of a semantic variable would be a `border-negative` variable, this variable would use the `beetle-6` color behind the scene. When in need of a border that represent a negative state one designer wouldn't need to reinvent the wheel and should use this abstraction : `border-negative`.  These are prefixed with `o-ui-alias`.
 
 Here is an example on how semantic variables work at a core level: 
 
-`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-beetle-500` when in a *light* theme and `--o-ui-beetle-700` when in a *dark* theme.
+`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-beetle-6` when in a *light* theme and `--o-ui-beetle-8` when in a *dark* theme.
 
 ### Supported Themes
 
@@ -34,7 +34,7 @@ Orbit supports themes as well as color schemes. Themes can ben defined with adje
 
 While developing or modifying an Orbit component, it is important to use alias variables whenever possible. Remember that aliases are theme sensitive, which is what we aim for in order to support a dark theme as well as keeping apps concise.
 
-Here instead of using `color: var(--o-ui-marine-900);` we refer to the defined primary text color.
+Here instead of using `color: var(--o-ui-marine-10);` we refer to the defined primary text color.
 
 ``` css
 // Label.css

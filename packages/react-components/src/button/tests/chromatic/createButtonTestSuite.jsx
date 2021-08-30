@@ -307,7 +307,7 @@ export function createButtonTestSuite(element, stories) {
             </Stack>
         )
         .add("inherit", () =>
-            <Stack className="bg-sunray-50 sunray-900">
+            <Stack className="bg-sunray-1 sunray-10">
                 <Inline verticalAlign="end">
                     <Button color="inherit" size="sm" element={element}>Button</Button>
                     <Button color="inherit" element={element}>Button</Button>

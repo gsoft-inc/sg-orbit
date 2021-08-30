@@ -139,7 +139,7 @@ stories()
     )
     .add("illustration", () =>
         <Dialog>
-            <Illustration color="sunray-50">
+            <Illustration color="sunray-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -152,7 +152,7 @@ stories()
     )
     .add("all sections", () =>
         <Dialog>
-            <Illustration color="sunray-50">
+            <Illustration color="sunray-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -293,7 +293,7 @@ stories()
     )
     .add("fullscreen", () =>
         <Dialog size="fullscreen">
-            <Illustration color="sunray-50">
+            <Illustration color="sunray-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>

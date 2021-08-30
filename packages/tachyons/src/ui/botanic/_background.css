@@ -1,119 +1,119 @@
-.bg-botanic-50 {
-    background-color: var(--o-ui-botanic-50);
+.bg-botanic-1 {
+    background-color: var(--o-ui-botanic-1);
 }
 
-.bg-botanic-100 {
-    background-color: var(--o-ui-botanic-100);
+.bg-botanic-2 {
+    background-color: var(--o-ui-botanic-2);
 }
 
-.bg-botanic-200 {
-    background-color: var(--o-ui-botanic-200);
+.bg-botanic-3 {
+    background-color: var(--o-ui-botanic-3);
 }
 
-.bg-botanic-300 {
-    background-color: var(--o-ui-botanic-300);
+.bg-botanic-4 {
+    background-color: var(--o-ui-botanic-4);
 }
 
-.bg-botanic-400 {
-    background-color: var(--o-ui-botanic-400);
+.bg-botanic-5 {
+    background-color: var(--o-ui-botanic-5);
 }
 
-.bg-botanic-500 {
-    background-color: var(--o-ui-botanic-500);
+.bg-botanic-6 {
+    background-color: var(--o-ui-botanic-6);
 }
 
-.bg-botanic-600 {
-    background-color: var(--o-ui-botanic-600);
+.bg-botanic-7 {
+    background-color: var(--o-ui-botanic-7);
 }
 
-.bg-botanic-700 {
-    background-color: var(--o-ui-botanic-700);
+.bg-botanic-8 {
+    background-color: var(--o-ui-botanic-8);
 }
 
-.bg-botanic-800 {
-    background-color: var(--o-ui-botanic-800);
+.bg-botanic-9 {
+    background-color: var(--o-ui-botanic-9);
 }
 
-.bg-botanic-900 {
-    background-color: var(--o-ui-botanic-900);
+.bg-botanic-10 {
+    background-color: var(--o-ui-botanic-10);
 }
 
-.hover-bg-botanic-50:hover {
-    background-color: var(--o-ui-botanic-50);
+.hover-bg-botanic-1:hover {
+    background-color: var(--o-ui-botanic-1);
 }
 
-.hover-bg-botanic-100:hover {
-    background-color: var(--o-ui-botanic-100);
+.hover-bg-botanic-2:hover {
+    background-color: var(--o-ui-botanic-2);
 }
 
-.hover-bg-botanic-200:hover {
-    background-color: var(--o-ui-botanic-200);
+.hover-bg-botanic-3:hover {
+    background-color: var(--o-ui-botanic-3);
 }
 
-.hover-bg-botanic-300:hover {
-    background-color: var(--o-ui-botanic-300);
+.hover-bg-botanic-4:hover {
+    background-color: var(--o-ui-botanic-4);
 }
 
-.hover-bg-botanic-400:hover {
-    background-color: var(--o-ui-botanic-400);
+.hover-bg-botanic-5:hover {
+    background-color: var(--o-ui-botanic-5);
 }
 
-.hover-bg-botanic-500:hover {
-    background-color: var(--o-ui-botanic-500);
+.hover-bg-botanic-6:hover {
+    background-color: var(--o-ui-botanic-6);
 }
 
-.hover-bg-botanic-600:hover {
-    background-color: var(--o-ui-botanic-600);
+.hover-bg-botanic-7:hover {
+    background-color: var(--o-ui-botanic-7);
 }
 
-.hover-bg-botanic-700:hover {
-    background-color: var(--o-ui-botanic-700);
+.hover-bg-botanic-8:hover {
+    background-color: var(--o-ui-botanic-8);
 }
 
-.hover-bg-botanic-800:hover {
-    background-color: var(--o-ui-botanic-800);
+.hover-bg-botanic-9:hover {
+    background-color: var(--o-ui-botanic-9);
 }
 
-.hover-bg-botanic-900:hover {
-    background-color: var(--o-ui-botanic-900);
+.hover-bg-botanic-10:hover {
+    background-color: var(--o-ui-botanic-10);
 }
 
-.focus-bg-botanic-50:focus {
-    background-color: var(--o-ui-botanic-50);
+.focus-bg-botanic-1:focus {
+    background-color: var(--o-ui-botanic-1);
 }
 
-.focus-bg-botanic-100:focus {
-    background-color: var(--o-ui-botanic-100);
+.focus-bg-botanic-2:focus {
+    background-color: var(--o-ui-botanic-2);
 }
 
-.focus-bg-botanic-200:focus {
-    background-color: var(--o-ui-botanic-200);
+.focus-bg-botanic-3:focus {
+    background-color: var(--o-ui-botanic-3);
 }
 
-.focus-bg-botanic-300:focus {
-    background-color: var(--o-ui-botanic-300);
+.focus-bg-botanic-4:focus {
+    background-color: var(--o-ui-botanic-4);
 }
 
-.focus-bg-botanic-400:focus {
-    background-color: var(--o-ui-botanic-400);
+.focus-bg-botanic-5:focus {
+    background-color: var(--o-ui-botanic-5);
 }
 
-.focus-bg-botanic-500:focus {
-    background-color: var(--o-ui-botanic-500);
+.focus-bg-botanic-6:focus {
+    background-color: var(--o-ui-botanic-6);
 }
 
-.focus-bg-botanic-600:focus {
-    background-color: var(--o-ui-botanic-600);
+.focus-bg-botanic-7:focus {
+    background-color: var(--o-ui-botanic-7);
 }
 
-.focus-bg-botanic-700:focus {
-    background-color: var(--o-ui-botanic-700);
+.focus-bg-botanic-8:focus {
+    background-color: var(--o-ui-botanic-8);
 }
 
-.focus-bg-botanic-800:focus {
-    background-color: var(--o-ui-botanic-800);
+.focus-bg-botanic-9:focus {
+    background-color: var(--o-ui-botanic-9);
 }
 
-.focus-bg-botanic-900:focus {
-    background-color: var(--o-ui-botanic-900);
+.focus-bg-botanic-10:focus {
+    background-color: var(--o-ui-botanic-10);
 }

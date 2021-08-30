@@ -336,7 +336,7 @@ export const OrbitColors = [
     "cloud-6",
     "cloud-7",
     "cloud-8",
-    "cloud-9",
+    "cloud-10",
     "cloud-10",
     // Neutral
     "neutral-1",

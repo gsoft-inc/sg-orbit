@@ -42,8 +42,8 @@
 
 /* SOURCE | ERROR */
 .o-ui-sb-preview-error {
-    background-color: var(--o-ui-beetle-50);
-    color: var(--o-ui-beetle-900);
+    background-color: var(--o-ui-beetle-1);
+    color: var(--o-ui-beetle-10);
     font-size: 15px;
     padding: var(--o-ui-space-3) var(--o-ui-space-5);
     margin: 0;

@@ -17,8 +17,8 @@ stories()
     )
     .add("color", () =>
         <Stack>
-            <Dot color="botanic-500"></Dot>
-            <Dot color="beetle-500"></Dot>
+            <Dot color="botanic-6"></Dot>
+            <Dot color="beetle-6"></Dot>
             <Dot color="hsl(25, 69%, 41%)"></Dot>
             <Dot color="hsla(25, 69%, 41%, 0.5)"></Dot>
             <Dot color="#a4b5dd"></Dot>
