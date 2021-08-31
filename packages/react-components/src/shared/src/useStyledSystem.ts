@@ -444,6 +444,13 @@ export const AlignSelfClasses = {
     "normal": "o-ui-as-n"
 } as const;
 
+export const AppearanceClasses = {
+    "auto": "o-ui-a-a",
+    "none": "o-ui-a-n",
+    "menu-list-button": "o-ui-a-mlb",
+    "textfield": "o-ui-a-t"
+} as const;
+
 export const BackgroundColorRoleClasses = {
     "alias-1": "o-ui-alias-bg-1",
     "alias-2": "o-ui-alias-bg-2",
@@ -724,6 +731,18 @@ export const LineHeightClasses = {
     "none": "o-ui-lh-none"
 } as const;
 
+export const ListStyleTypeClasses = {
+    "disc": "o-ui-lst-d",
+    "square": "o-ui-lst-s",
+    "circle": "o-ui-lst-c",
+    "none": "o-ui-lst-none"
+} as const;
+
+export const ListStylePositionClasses = {
+    "outside": "o-ui-lsp-o",
+    "inside": "o-ui-lsp-i"
+} as const;
+
 export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-auto" };
 
 export const MarginTopClasses = { ...createOrbitSpacingScaleClasses("mt", true), "auto": "o-ui-mt-auto" };
@@ -946,6 +965,8 @@ export type AlignItemsProp = Simplify<keyof typeof AlignItemsClasses | GlobalVal
 
 export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue>;
 
+export type AppearanceProp = Simplify<keyof typeof AppearanceClasses | GlobalValue>;
+
 export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
@@ -1016,6 +1037,10 @@ export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> |
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
+export type ListStyleTypeProp = Simplify<keyof typeof ListStyleTypeClasses | GlobalValue>;
+
+export type ListStylePositionProp = Simplify<keyof typeof ListStylePositionClasses | GlobalValue>;
+
 export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand | GlobalValue>;
 
 export type MarginTopProp = Simplify<keyof typeof MarginTopClasses | GlobalValue>;
@@ -1064,7 +1089,7 @@ export type PointerEventsProp = Simplify<keyof typeof PointerEventsClasses | Glo
 
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
-export type ResizeProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
+export type ResizeProp = Simplify<keyof typeof ResizeClasses | GlobalValue>;
 
 export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | SpaceValue | GlobalValue>;
 
@@ -1100,6 +1125,7 @@ export interface StyleProps {
     alignContent?: AlignContentProp;
     alignItems?: AlignItemsProp;
     alignSelf?: AlignSelfProp;
+    appearance?: AppearanceProp;
     backgroundColor?: BackgroundColorProp;
     backgroundPosition?: BackgroundPositionProp;
     backgroundSize?: BackgroundSizeProp;
@@ -1140,6 +1166,8 @@ export interface StyleProps {
     justifyContent?: JustifyContentProp;
     left?: LeftProp;
     lineHeight?: LineHeightProp;
+    listStyleType?: ListStyleTypeProp;
+    listStylePosition?: ListStylePositionProp;
     margin?: MarginProp;
     marginTop?: MarginTopProp;
     marginBottom?: MarginBottomProp;
@@ -1235,6 +1263,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createPropHandler(AlignContentClasses),
     alignItems: createPropHandler(AlignItemsClasses),
     alignSelf: createPropHandler(AlignSelfClasses),
+    appearance: createPropHandler(AppearanceClasses),
     backgroundColor: createPropHandler(BackgroundColorClasses),
     backgroundPosition: createPropHandler(BackgroundPositionClasses),
     backgroundSize: createPropHandler(BackgroundSizeClasses),
@@ -1269,6 +1298,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     justifyContent: createPropHandler(JustifyContentClasses),
     left: createPropHandler(LeftClasses),
     lineHeight: createPropHandler(LineHeightClasses),
+    listStyleType: createPropHandler(ListStyleTypeClasses),
+    listStylePosition: createPropHandler(ListStylePositionClasses),
     margin: createPropHandler(MarginClasses),
     marginTop: createPropHandler(MarginTopClasses),
     marginBottom: createPropHandler(MarginBottomClasses),

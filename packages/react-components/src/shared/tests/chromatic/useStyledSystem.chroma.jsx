@@ -18,6 +18,8 @@ import {
     FontWeightClasses,
     HeightClasses,
     LineHeightClasses,
+    ListStylePositionClasses,
+    ListStyleTypeClasses,
     MarginBottomClasses,
     MarginClasses,
     MarginHorizontalClasses,
@@ -259,6 +261,22 @@ stories()
                 <Box lineHeight="2.5" width="200px">That's one small step for man, one giant leap for mankind.</Box>
             </Inline>
         </Stack>
+    )
+    .add("list style type", () =>
+        <Inline wrap padding="12px">
+            {Object.keys(ListStyleTypeClasses).map(x => <Box as="ul" listStyleType={x} key={x}>
+                <li>Mars</li>
+                <li>Neptune</li>
+            </Box>)}
+        </Inline>
+    )
+    .add("list style position", () =>
+        <Inline padding="12px">
+            {Object.keys(ListStylePositionClasses).map(x => <Box as="ul" listStyleType="disc" listStylePosition={x} key={x}>
+                <li>Mars</li>
+                <li>Neptune</li>
+            </Box>)}
+        </Inline>
     )
     .add("margin", () =>
         <Inline gap={0} wrap>
