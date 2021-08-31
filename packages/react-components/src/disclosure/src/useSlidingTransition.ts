@@ -51,7 +51,7 @@ export interface SlidingTransition {
 // For a better understanding of the techniques behind this animation, read https://css-tricks.com/using-css-transitions-auto-dimensions/#technique-3-javascript
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
 export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): SlidingTransition {
-    const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
+    const [{ direction, transitionState }, dispatch] = useReducer(reducer, {
         direction: isOpen ? SlidingDirection.down : SlidingDirection.up,
         transitionState: TransitionState.completed
     });

@@ -108,20 +108,20 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
-        value,
+        autoFocus,
+        children,
         defaultValue,
-        required,
-        validationState,
+        disabled,
+        forwardedRef,
+        gap,
         name,
         onChange,
-        autoFocus,
         orientation = "vertical",
-        gap,
-        wrap,
+        required,
         reverse,
-        disabled,
-        children,
-        forwardedRef,
+        validationState,
+        value,
+        wrap,
         ...rest
     } = mergeProps(
         props,

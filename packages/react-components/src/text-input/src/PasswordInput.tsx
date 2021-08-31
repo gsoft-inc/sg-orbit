@@ -82,10 +82,10 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
     const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
-        value,
         defaultValue,
-        wrapperProps,
         forwardedRef,
+        value,
+        wrapperProps,
         ...rest
     } = mergeProps(
         props,
@@ -106,11 +106,11 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
     // Always show the button to play nice with password managers.
     const showButtonMarkup = (
         <IconButton
-            variant="ghost"
-            onClick={handleShowValue}
-            className="o-ui-password-input-show-button"
-            title="Toggle password visibility"
             aria-label="Toggle password visibility"
+            className="o-ui-password-input-show-button"
+            onClick={handleShowValue}
+            title="Toggle password visibility"
+            variant="ghost"
         >
             {isHidden ? <EyeIcon /> : <PrivacyIcon />}
         </IconButton>

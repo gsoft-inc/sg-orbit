@@ -21,8 +21,8 @@ export interface InnerDisclosureArrowProps extends OrbitComponentProps<typeof Ch
 }
 
 export function InnerDisclosureArrow({
-    open,
     forwardedRef,
+    open,
     ...rest
 }: InnerDisclosureArrowProps) {
     const disclosureContext = useDisclosureContext();

@@ -74,24 +74,24 @@ export interface InnerAlertProps extends InternalProps, OrbitComponentProps<"sec
 }
 
 export function InnerAlert({
-    variant = "confirmation",
-    primaryButtonLabel,
-    primaryButtonDisabled,
-    secondaryButtonLabel,
-    secondaryButtonDisabled,
-    cancelButtonLabel,
     autoFocusButton,
-    onPrimaryButtonClick,
-    onSecondaryButtonClick,
-    onCancelButtonClick,
-    zIndex = 1,
+    cancelButtonLabel,
     children,
     forwardedRef,
+    onCancelButtonClick,
+    onPrimaryButtonClick,
+    onSecondaryButtonClick,
+    primaryButtonDisabled,
+    primaryButtonLabel,
+    secondaryButtonDisabled,
+    secondaryButtonLabel,
+    variant = "confirmation",
+    zIndex = 1,
     ...rest
 }: InnerAlertProps) {
     const { close } = useDialogTriggerContext();
 
-    const { heading, content } = useSlots(children, useMemo(() => ({
+    const { content, heading } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
@@ -119,22 +119,22 @@ export function InnerAlert({
 
     const warningIconMarkup = variant === "warning" && (
         <Header>
-            <WarningIcon size="lg" className="o-ui-alert-warning-icon" />
+            <WarningIcon className="o-ui-alert-warning-icon" size="lg" />
         </Header>
     );
 
     const negativeIconMarkup = variant === "negative" && (
         <Header>
-            <InfoIcon size="lg" className="o-ui-alert-negative-icon" />
+            <InfoIcon className="o-ui-alert-negative-icon" size="lg" />
         </Header>
     );
 
     const primaryButtonMarkup = (
         <Button
+            autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
             color={variant === "destructive" ? "danger" : undefined}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
-            autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
         >
             {primaryButtonLabel}
         </Button>
@@ -142,10 +142,10 @@ export function InnerAlert({
 
     const secondaryButtonMarkup = !isNilOrEmpty(secondaryButtonLabel) && (
         <Button
-            variant="outline"
+            autoFocus={autoFocusButton === "secondary"}
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
-            autoFocus={autoFocusButton === "secondary"}
+            variant="outline"
         >
             {secondaryButtonLabel}
         </Button>
@@ -153,9 +153,9 @@ export function InnerAlert({
 
     const cancelButtonMarkup = !isNilOrEmpty(cancelButtonLabel) && (
         <Button
-            variant="outline"
-            onClick={handleCancelButtonClick}
             autoFocus={autoFocusButton === "cancel"}
+            onClick={handleCancelButtonClick}
+            variant="outline"
         >
             {cancelButtonLabel}
         </Button>

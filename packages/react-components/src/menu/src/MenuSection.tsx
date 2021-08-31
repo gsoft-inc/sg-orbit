@@ -36,18 +36,18 @@ export function InnerMenuSection({
             )}
         >
             <Box
-                id={id}
-                as="span"
                 aria-hidden="true"
+                as="span"
                 className="o-ui-menu-section-title"
+                id={id}
             >
                 {title}
             </Box>
             <Box
-                role="group"
                 aria-labelledby={id}
                 as="ul"
                 className="o-ui-menu-section-items"
+                role="group"
             >
                 {children}
             </Box>

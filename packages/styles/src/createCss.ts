@@ -81,7 +81,7 @@ function appendColorScheme(values: Array | JsonObject, prefix: string, bucket: V
 function appendColorSchemes<C, L, D>(
     values: C | L | D | ColorSchemes<C, L, D>,
     prefix: string,
-    { common, light, dark }: { common?: VarsBucket; dark: VarsBucket; light: VarsBucket }
+    { common, dark, light }: { common?: VarsBucket; dark: VarsBucket; light: VarsBucket }
 ) {
     const colorSchemes = values as ColorSchemes<C, L, D>;
 

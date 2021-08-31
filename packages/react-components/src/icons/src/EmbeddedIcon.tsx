@@ -28,7 +28,7 @@ export const embeddedIconSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
-export function EmbeddedIcon({ size, children, ...rest }: EmbeddedIconProps) {
+export function EmbeddedIcon({ children, size, ...rest }: EmbeddedIconProps) {
     const icon = Children.only(children) as ReactElement;
 
     return augmentElement(icon, {

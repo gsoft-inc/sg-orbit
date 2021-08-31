@@ -102,7 +102,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         console.error("A switch must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
     }
 
-    const { wrapperProps, inputProps } = useCheckbox({
+    const { inputProps, wrapperProps } = useCheckbox({
         active,
         ariaLabel,
         ariaLabelledBy,
@@ -127,7 +127,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
 
     const content = resolveChildren(children);
 
-    const { text, icon, counter } = useSlots(content, useMemo(() => ({
+    const { counter, icon, text } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

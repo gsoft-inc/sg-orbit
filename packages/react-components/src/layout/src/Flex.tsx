@@ -115,7 +115,7 @@ export function InnerFlex({
     gap,
     wrap,
     fluid,
-    style: { width, height, ...style } = {},
+    style: { height, width, ...style } = {},
     children,
     forwardedRef,
     ...rest

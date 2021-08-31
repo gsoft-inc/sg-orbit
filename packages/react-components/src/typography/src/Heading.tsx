@@ -62,9 +62,9 @@ function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
     return slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps, "size" | "as">>((props, ref) => (
         <InnerHeading
             {...props}
-            size={size}
             as={as}
             forwardedRef={ref}
+            size={size}
         />
     )));
 }

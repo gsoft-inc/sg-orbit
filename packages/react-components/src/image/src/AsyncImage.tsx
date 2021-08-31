@@ -18,11 +18,11 @@ export interface InnerAsyncImageProps extends InnerImageProps {
 }
 
 function InnerAsyncImage({
-    src,
-    delay = 250,
-    retryCount = 5,
     children,
+    delay = 250,
     forwardedRef,
+    retryCount = 5,
+    src,
     ...rest
 }: InnerAsyncImageProps) {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -97,8 +97,8 @@ function InnerAsyncImage({
         return (
             <OrbitImage
                 {...rest}
-                src={src}
                 ref={forwardedRef}
+                src={src}
             />
         );
     }

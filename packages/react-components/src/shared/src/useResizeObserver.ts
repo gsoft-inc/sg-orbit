@@ -25,7 +25,7 @@ interface UseResizeObserverOptions extends ResizeObserverOptions {
     isDisabled?: boolean;
 }
 
-export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void, { isDisabled, box }: UseResizeObserverOptions = {}): RefCallback<HTMLElement> => {
+export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void, { box, isDisabled }: UseResizeObserverOptions = {}): RefCallback<HTMLElement> => {
     const elementRef = useRef<HTMLElement>(null);
 
     const dispose = useCallback(() => {

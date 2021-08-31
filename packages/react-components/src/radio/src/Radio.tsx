@@ -145,7 +145,7 @@ export function InnerRadio(props: InnerRadioProps) {
 
     const content = resolveChildren(children);
 
-    const { text, icon, counter } = useSlots(content, useMemo(() => ({
+    const { counter, icon, text } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -187,17 +187,17 @@ export function InnerRadio(props: InnerRadioProps) {
             )}
         >
             <VisuallyHidden
+                aria-invalid={validationState === "invalid"}
                 as="input"
+                checked={isChecked}
+                data-type={typeof (value)}
+                disabled={disabled}
+                name={name}
+                onChange={!isNil(onCheck) ? handleCheck : handleStateChange}
+                ref={inputRef}
+                tabIndex={tabIndex}
                 type="radio"
                 value={value}
-                name={name}
-                checked={isChecked}
-                onChange={!isNil(onCheck) ? handleCheck : handleStateChange}
-                disabled={disabled}
-                tabIndex={tabIndex}
-                data-type={typeof (value)}
-                aria-invalid={validationState === "invalid"}
-                ref={inputRef}
             />
             <span className="o-ui-radio-button"></span>
             {text}

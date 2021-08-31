@@ -13,10 +13,10 @@ export interface UseOverlayTriggerOptions {
 
 export function useOverlayTrigger(isOpen: boolean, {
     hideOnLeave,
-    trigger = "click",
-    onShow,
+    isDisabled,
     onHide,
-    isDisabled
+    onShow,
+    trigger = "click"
 }: UseOverlayTriggerOptions = {}) {
     const toggle = (event: SyntheticEvent) => {
         if (isOpen) {

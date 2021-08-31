@@ -88,7 +88,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         console.error("A toggle icon button component must have an \"aria-label\" attribute.");
     }
 
-    const { isChecked, buttonProps } = useToggleButton({
+    const { buttonProps, isChecked } = useToggleButton({
         active,
         checked,
         defaultChecked,

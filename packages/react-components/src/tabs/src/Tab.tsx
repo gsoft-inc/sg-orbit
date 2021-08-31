@@ -31,7 +31,7 @@ export interface InnerTabProps extends InternalProps, InteractionStatesProps, Or
 }
 
 export function InnerTab({
-    tab: { key, tabId, panelId },
+    tab: { key, panelId, tabId },
     disabled,
     active,
     focus,
@@ -41,9 +41,9 @@ export function InnerTab({
     forwardedRef,
     ...rest
 }: InnerTabProps) {
-    const { selectedKey, onSelect, isManual } = useTabsContext();
+    const { isManual, onSelect, selectedKey } = useTabsContext();
 
-    const { icon, text, lozenge } = useSlots(children, useMemo(() => ({
+    const { icon, lozenge, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

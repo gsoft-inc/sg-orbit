@@ -134,12 +134,12 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
 
     const clearButtonMarkup = !isNilOrEmpty(inputValue) && (
         <CrossButton
+            aria-label="Clear value"
+            className="o-ui-search-input-clear-button"
+            condensed
             onClick={handleClear}
             size="xs"
-            condensed
-            className="o-ui-search-input-clear-button"
             title="Clear value"
-            aria-label="Clear value"
         />
     );
 

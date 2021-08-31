@@ -51,7 +51,7 @@ export function InnerIllustration({
     forwardedRef,
     ...rest
 }: InnerIllustrationProps) {
-    const { image, heading, content } = useSlots(children, useMemo(() => ({
+    const { content, heading, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["image"]
         },

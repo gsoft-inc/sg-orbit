@@ -95,18 +95,18 @@ export interface InnerFlex2Props extends
 }
 
 export function InnerFlex2({
-    direction = "row",
-    inline,
-    reverse,
     alignItems,
-    justifyContent,
-    wrap,
-    fluid,
-    width,
-    height,
     as,
     children,
+    direction = "row",
+    fluid,
     forwardedRef,
+    height,
+    inline,
+    justifyContent,
+    reverse,
+    width,
+    wrap,
     ...rest
 }: InnerFlex2Props) {
     return (

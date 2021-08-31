@@ -84,7 +84,7 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
         slotElements = findSlots(children, Object.keys(slots));
     }
 
-    const { required, defaultWrapper: Wrapper } = _;
+    const { defaultWrapper: Wrapper, required } = _;
 
     if (!isNil(required)) {
         let unfulfilledSlots: string[] = [];

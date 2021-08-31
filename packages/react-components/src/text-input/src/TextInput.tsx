@@ -139,7 +139,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         }
     });
 
-    const { wrapperProps, inputProps } = useInput({
+    const { inputProps, wrapperProps } = useInput({
         active,
         autoFocus,
         cssModule: "o-ui-text-input",

@@ -44,10 +44,10 @@ export function InnerOverlay({
     ...rest
 }: InnerOverlayProps) {
     // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
-    const { theme, colorScheme } = useThemeContext();
+    const { colorScheme, theme } = useThemeContext();
 
     const content = (
-        <ThemeProvider theme={theme} colorScheme={colorScheme}>
+        <ThemeProvider colorScheme={colorScheme} theme={theme}>
             <Transition
                 {...mergeProps(
                     rest,

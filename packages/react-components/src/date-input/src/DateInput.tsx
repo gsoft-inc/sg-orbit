@@ -119,14 +119,14 @@ const Input = forwardRef<any, any>((props, ref) => {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
-        value,
-        min,
+        className,
         max,
+        min,
         onChange,
         onDateChange,
-        wrapperProps,
-        className,
         style,
+        value,
+        wrapperProps,
         ...rest
     } = mergeProps(
         props,
@@ -168,20 +168,20 @@ const Input = forwardRef<any, any>((props, ref) => {
 });
 
 export function InnerDateInput({
-    value: valueProp,
+    as,
+    className,
     defaultValue,
-    placeholder = "dd/mm/yyyy",
+    disabled,
+    fluid,
+    forwardedRef,
     onDateChange,
+    placeholder = "dd/mm/yyyy",
     presets,
     presetsVariant = "compact",
-    fluid,
-    wrapperProps,
-    disabled,
     readOnly,
-    className,
     style,
-    as,
-    forwardedRef,
+    value: valueProp,
+    wrapperProps,
     ...rest
 }: InnerDateInputProps) {
     const [value, setValue] = useControllableState(valueProp, defaultValue, null);

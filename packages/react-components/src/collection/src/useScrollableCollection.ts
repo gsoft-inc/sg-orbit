@@ -31,13 +31,13 @@ function getOuterHeight(element: HTMLElement) {
 }
 
 export function useScrollableCollection(containerRef: RefObject<Element>, {
-    maxHeight = 500,
     borderHeight = 0,
-    paddingHeight = 0,
-    itemSelector,
-    sectionSelector,
+    disabled,
     dividerSelector,
-    disabled
+    itemSelector,
+    maxHeight = 500,
+    paddingHeight = 0,
+    sectionSelector
 }: UseScrollableCollectionOptions = {}) {
     const [collectionHeight, setCollectionHeight] = useState<string>();
 

@@ -109,7 +109,7 @@ export function InnerModal({
     as = DefaultElement,
     ...rest
 }: InnerModalProps) {
-    const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { button, "button-group": buttonGroup, content, footer, header, heading, illustration, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
@@ -125,7 +125,7 @@ export function InnerModal({
         image: null
     }), []));
 
-    const { hasCards, contentMarkup } = useModalContentMarkup(content);
+    const { contentMarkup, hasCards } = useModalContentMarkup(content);
 
     const size = useMemo(() => {
         if (!isNil(image) || !isNil(illustration)) {

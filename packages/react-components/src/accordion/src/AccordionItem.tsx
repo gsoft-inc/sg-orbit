@@ -18,7 +18,7 @@ export interface AccordionItemProps {
 }
 
 export function AccordionItem({
-    item: { id, key, header, panel },
+    item: { header, id, key, panel },
     ...rest
 }: AccordionItemProps) {
     const { expandedKeys, onToggle } = useAccordionContext();

@@ -24,13 +24,13 @@ export interface InnerAccordionHeaderProps extends InternalProps, InteractionSta
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     const {
-        disabled,
         active,
-        focus,
-        hover,
         as,
         children,
+        disabled,
+        focus,
         forwardedRef,
+        hover,
         ...rest
     } = omitProps(props, ["header"]);
 
@@ -38,7 +38,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }
 
-    const { icon, text, counter } = useSlots(children, useMemo(() => ({
+    const { counter, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -59,10 +59,10 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
 
     return (
         <Heading
-            size="2xs"
-            className="o-ui-accordion-header"
             as={as}
+            className="o-ui-accordion-header"
             ref={forwardedRef}
+            size="2xs"
         >
             <button
                 {...mergeProps(

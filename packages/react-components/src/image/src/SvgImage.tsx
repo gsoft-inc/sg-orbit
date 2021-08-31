@@ -66,14 +66,14 @@ function useColor(color: string) {
 }
 
 export function InnerSvgImage({
-    src,
-    size,
-    width,
-    height,
-    stroke,
-    fill,
     "aria-label": ariaLabel,
+    fill,
     forwardedRef,
+    height,
+    size,
+    src,
+    stroke,
+    width,
     ...rest
 }: InnerSvgImageProps) {
     const hideUseElement = useCallback((element: HTMLElement) => {

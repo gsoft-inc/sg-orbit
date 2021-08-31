@@ -221,7 +221,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [queryRef, setQuery] = useRefState("");
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
-        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+        onChange: useCallback((newValue, { isControlled, isInitial }) => {
             // Keep query in sync with the initial or controlled value.
             if (isInitial || isControlled) {
                 setQuery(newValue ?? "");
@@ -235,9 +235,9 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const {
         isOpen,
+        overlayProps: { ref: overlayRef, ...overlayProps },
         setIsOpen,
-        triggerProps: { ref: popupTriggerRef, ...triggerProps },
-        overlayProps: { ref: overlayRef, ...overlayProps }
+        triggerProps: { ref: popupTriggerRef, ...triggerProps }
     } = usePopup("listbox", {
         allowFlip,
         allowPreventOverflow,
@@ -440,20 +440,20 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
     const listboxMarkup = (
         <Listbox
-            nodes={results}
+            aria-describedby={ariaDescribedBy}
             // An autocomplete doesn't support any persisted selected keys.
-            selectedKeys={[]}
-            onSelectionChange={handleListboxSelectionChange}
-            onFocusChange={handleListboxFocusChange}
-            focusOnHover
-            useVirtualFocus
-            tabbable={false}
-            fluid
-            className="o-ui-autocomplete-listbox"
             aria-label={ariaLabel}
             aria-labelledby={isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined}
-            aria-describedby={ariaDescribedBy}
+            className="o-ui-autocomplete-listbox"
+            fluid
+            focusOnHover
+            nodes={results}
+            onFocusChange={handleListboxFocusChange}
+            onSelectionChange={handleListboxSelectionChange}
             ref={listboxRef}
+            selectedKeys={[]}
+            tabbable={false}
+            useVirtualFocus
         />
     );
 
@@ -464,11 +464,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     return (
         <>
             <HiddenAutocomplete
+                disabled={disabled}
                 name={name}
-                value={value}
                 required={required}
                 validationState={validationState}
-                disabled={disabled}
+                value={value}
             />
             <SearchInput
                 {...mergeProps(

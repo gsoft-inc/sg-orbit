@@ -21,7 +21,7 @@ export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGEl
     src32: ElementType;
 }
 
-export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {
+export const InnerMultiVariantIcon = (({ forwardedRef, size, src24: Component24, src32: Component32, ...rest }: InnerMultiVariantIconProps) => {
     let src = Component24;
 
     if (size === "lg" || size === "xl") {
@@ -31,9 +31,9 @@ export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32,
     return (
         <Icon
             {...rest}
-            src={src}
-            size={size}
             ref={forwardedRef}
+            size={size}
+            src={src}
         />
     );
 });
@@ -50,9 +50,9 @@ export function createMultiVariantIcon(src24: ElementType, src32: ElementType) {
     return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerMultiVariantIconProps, "src24" | "src32">>((props, ref) =>
         <InnerMultiVariantIcon
             {...props}
+            forwardedRef={ref}
             src24={src24}
             src32={src32}
-            forwardedRef={ref}
         />
     ));
 }

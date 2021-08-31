@@ -46,9 +46,9 @@ export interface TagItemProps extends Omit<TagProps, "children"> {
 
 function TagItem({
     item,
-    size,
     onRemove,
     readOnly,
+    size,
     ...rest
 }: TagItemProps) {
     const handleRemove = useEventCallback((event: SyntheticEvent) => {
@@ -88,10 +88,10 @@ export function InnerTagList({
 
     const clearButtonMarkup = !isNil(onClear) && !readOnly && nodes.length > 0 && (
         <Button
-            variant="ghost"
-            size={size}
-            onClick={onClear}
             className="o-ui-tag-list-clear-button"
+            onClick={onClear}
+            size={size}
+            variant="ghost"
         >
             Clear all
         </Button>
@@ -110,11 +110,11 @@ export function InnerTagList({
         >
             {nodes.map((x: CollectionItem) => (
                 <TagItem
-                    key={x.key}
                     item={x}
-                    size={size}
+                    key={x.key}
                     onRemove={onRemove}
                     readOnly={readOnly}
+                    size={size}
                 />
             ))}
             {clearButtonMarkup}

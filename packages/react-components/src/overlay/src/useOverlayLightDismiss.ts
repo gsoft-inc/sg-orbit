@@ -13,11 +13,11 @@ export interface UseOverlayLightDismissOptions {
 }
 
 export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
-    trigger = "click",
-    onHide,
     hideOnEscape,
     hideOnLeave,
-    hideOnOutsideClick
+    hideOnOutsideClick,
+    onHide,
+    trigger = "click"
 }: UseOverlayLightDismissOptions = {}) {
     const hide = (event: SyntheticEvent) => {
         if (!isNil(onHide)) {

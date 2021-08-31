@@ -136,7 +136,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         }
     });
 
-    const { wrapperProps, inputProps } = useCheckbox({
+    const { inputProps, wrapperProps } = useCheckbox({
         active,
         ariaLabel,
         ariaLabelledBy,
@@ -163,7 +163,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
 
     const content = resolveChildren(children);
 
-    const { text, icon, counter } = useSlots(content, useMemo(() => ({
+    const { counter, icon, text } = useSlots(content, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

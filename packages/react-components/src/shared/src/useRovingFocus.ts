@@ -57,7 +57,7 @@ export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}) {
 /*
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { keyProp = "value", isDisabled = false } = {}) {
+export function useKeyedRovingFocus(scope: DomScope, currentKey: string, { isDisabled = false, keyProp = "value" } = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
             const setTabIndexes = (elements: HTMLElement[]) => {

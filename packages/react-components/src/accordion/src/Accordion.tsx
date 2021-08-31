@@ -140,9 +140,9 @@ export function InnerAccordion({
                 }}
             >
                 {items.map(({
+                    header,
                     id: itemId,
                     key,
-                    header,
                     panel
                 }) => (
                     <AccordionItem

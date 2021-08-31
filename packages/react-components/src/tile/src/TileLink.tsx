@@ -39,16 +39,16 @@ export interface InnerTileLinkProps extends InternalProps, InteractionStatesProp
 }
 
 export function InnerTileLink({
-    orientation = "vertical",
-    disabled,
     active,
-    focus,
-    hover,
     children,
+    disabled,
+    focus,
     forwardedRef,
+    hover,
+    orientation = "vertical",
     ...rest
 }: InnerTileLinkProps) {
-    const { tileProps, markup } = useTile({
+    const { markup, tileProps } = useTile({
         active,
         children,
         focus,

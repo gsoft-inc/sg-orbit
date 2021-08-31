@@ -43,7 +43,7 @@ export function InnerMenuItem({
     forwardedRef,
     ...rest
 }: InnerMenuItemProps) {
-    const { selectedKeys, selectionMode, onSelect } = useMenuContext();
+    const { onSelect, selectedKeys, selectionMode } = useMenuContext();
 
     const handleClick = useEventCallback((event: MouseEvent) => {
         if (!disabled) {
@@ -55,7 +55,7 @@ export function InnerMenuItem({
         (event.target as HTMLElement).focus();
     });
 
-    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { avatar, description, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -130,7 +130,7 @@ export function InnerMenuItem({
     );
 
     if (!isNil(tooltip)) {
-        const { props: tooltipProps, content: tooltipContent } = tooltip;
+        const { content: tooltipContent, props: tooltipProps } = tooltip;
 
         return (
             <TooltipTrigger

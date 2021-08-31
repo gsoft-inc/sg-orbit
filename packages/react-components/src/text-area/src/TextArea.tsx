@@ -147,7 +147,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         }
     });
 
-    const { wrapperProps, inputProps, inputRef } = useInput({
+    const { inputProps, inputRef, wrapperProps } = useInput({
         active,
         autoFocus,
         cssModule: "o-ui-text-area",
@@ -170,7 +170,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const adjustRows = useCallback(() => {
         const input = inputRef.current;
 
-        const { paddingBottom, paddingTop, lineHeight } = window.getComputedStyle(input);
+        const { lineHeight, paddingBottom, paddingTop } = window.getComputedStyle(input);
 
         const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
         const currentRows = Math.floor((input.scrollHeight - padding) / pxToInt(lineHeight));

@@ -17,9 +17,9 @@ export interface ButtonPresetsProps {
 }
 
 export function ButtonPresets({
-    values,
+    onSelectionChange,
     selectedIndex,
-    onSelectionChange
+    values
 }: ButtonPresetsProps) {
     const handleSelectPreset = useEventCallback((event: SyntheticEvent, value: string) => {
         onSelectionChange(event, parseInt(value));
@@ -27,20 +27,20 @@ export function ButtonPresets({
 
     return (
         <RadioGroup
+            aria-label="Date presets"
             className="o-ui-date-input-button-presets"
-            value={!isNil(selectedIndex) ? selectedIndex.toString() : null}
+            gap={2}
             onChange={handleSelectPreset}
             orientation="horizontal"
-            gap={2}
-            aria-label="Date presets"
+            value={!isNil(selectedIndex) ? selectedIndex.toString() : null}
         >
             {values.map((x, index) => (
                 <ToggleButton
-                    value={index.toString()}
-                    variant="outline"
-                    size="sm"
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
+                    size="sm"
+                    value={index.toString()}
+                    variant="outline"
                 >
                     {x}
                 </ToggleButton>

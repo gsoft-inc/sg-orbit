@@ -107,7 +107,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         throw new Error("A menu trigger must have exactly 2 children.");
     }
 
-    const { isOpen, setIsOpen, triggerProps, overlayProps } = usePopup("menu", {
+    const { isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("menu", {
         allowFlip,
         allowPreventOverflow,
         defaultOpen,

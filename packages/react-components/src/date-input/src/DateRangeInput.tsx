@@ -57,18 +57,24 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionStat
      * Whether or not the input should autofocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * The initial value of end date.
-     */
-    defaultEndDate?: Date;
+    /* eslint-disable typescript-sort-keys/interface */
     /**
      * The initial value of start date.
      */
     defaultStartDate?: Date;
     /**
+     * The initial value of end date.
+     */
+    defaultEndDate?: Date;
+    /**
+     * A controlled start date value.
+     */
+    startDate?: Date | null;
+    /**
      * A controlled end date value.
      */
     endDate?: Date | null;
+    /* eslint-enable typescript-sort-keys/interface */
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -118,27 +124,23 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionStat
      */
     required?: boolean;
     /**
-     * A controlled start date value.
-     */
-    startDate?: Date | null;
-    /**
      * Whether or not the input should display as "valid" or "invalid".
      */
     validationState?: "valid" | "invalid";
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({
-    value,
-    placeholder = "dd/mm/yyyy",
-    required,
-    validationState,
-    min,
-    max,
-    onChange,
-    onDateChange,
     autoFocus,
     disabled,
+    max,
+    min,
+    onChange,
+    onDateChange,
+    placeholder = "dd/mm/yyyy",
     readOnly,
+    required,
+    validationState,
+    value,
     ...rest
 }, ref) => {
     const inputRef = useMergedRefs(ref);
@@ -183,24 +185,26 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
+        active,
+        autoFocus,
+        disabled,
+        /* eslint-disable sort-destructure-keys/sort-destructure-keys */
         startDate,
         endDate,
-        placeholder,
-        min,
-        max,
-        required,
-        validationState,
-        onDatesChange,
-        onFocus,
-        onBlur,
-        autoFocus,
+        /* eslint-enable sort-destructure-keys/sort-destructure-keys */
         fluid,
-        disabled,
-        readOnly,
-        active,
         focus = false,
         hover,
+        max,
+        min,
         name,
+        onBlur,
+        onDatesChange,
+        onFocus,
+        placeholder,
+        readOnly,
+        required,
+        validationState,
         ...rest
     } = mergeProps(
         props,
@@ -336,45 +340,45 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
             )}
         >
             <DateInput
-                value={startDate}
-                placeholder={placeholder}
-                required={required}
-                validationState={validationState}
-                min={min}
-                max={max}
-                onChange={handleStartDateInputValueChange}
-                onDateChange={handleStartDateChange}
                 autoFocus={autoFocus}
                 disabled={disabled}
-                readOnly={readOnly}
+                max={max}
+                min={min}
                 name={!isNil(name) ? `${name}-start-date` : undefined}
-                ref={startDateRef}
-            />
-            <Divider orientation="vertical" className="o-ui-date-range-input-divider" />
-            <DateInput
-                value={endDate}
+                onChange={handleStartDateInputValueChange}
+                onDateChange={handleStartDateChange}
                 placeholder={placeholder}
+                readOnly={readOnly}
+                ref={startDateRef}
                 required={required}
                 validationState={validationState}
-                min={min}
+                value={startDate}
+            />
+            <Divider className="o-ui-date-range-input-divider" orientation="vertical" />
+            <DateInput
+                disabled={disabled}
                 max={max}
+                min={min}
+                name={!isNil(name) ? `${name}-end-date` : undefined}
                 onChange={handleEndDateInputValueChange}
                 onDateChange={handleEndDateChange}
                 onKeyDown={handleEndDateKeyDown}
-                disabled={disabled}
+                placeholder={placeholder}
                 readOnly={readOnly}
-                name={!isNil(name) ? `${name}-end-date` : undefined}
-                tabIndex={hasFocus ? 0 : -1}
                 ref={endDateRef}
+                required={required}
+                tabIndex={hasFocus ? 0 : -1}
+                validationState={validationState}
+                value={endDate}
             />
             {hasValue && !disabled && !readOnly &&
                 <ClearInputGroupContext>
                     <CrossButton
+                        aria-label="Clear dates"
+                        className="o-ui-date-range-input-clear-button"
+                        condensed
                         onClick={handleClearDates}
                         size="xs"
-                        condensed
-                        className="o-ui-date-range-input-clear-button"
-                        aria-label="Clear dates"
                     />
                 </ClearInputGroupContext>}
         </Box>
@@ -478,25 +482,25 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const rangeMarkup = (
         <RangeInput
-            startDate={startDate}
-            endDate={endDate}
-            placeholder={placeholder}
-            min={min}
-            max={max}
-            required={required}
-            validationState={validationState}
-            onDatesChange={applyDates}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            autoFocus={autoFocus}
-            fluid={fluid}
-            disabled={disabled}
-            readOnly={readOnly}
             active={active}
+            autoFocus={autoFocus}
+            disabled={disabled}
+            endDate={endDate}
+            fluid={fluid}
             focus={focus}
             hover={hover}
+            max={max}
+            min={min}
             name={name}
+            onBlur={onBlur}
+            onDatesChange={applyDates}
+            onFocus={onFocus}
+            placeholder={placeholder}
+            readOnly={readOnly}
             ref={rangeRef}
+            required={required}
+            startDate={startDate}
+            validationState={validationState}
         />
     );
 

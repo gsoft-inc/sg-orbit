@@ -16,9 +16,9 @@ export interface MenuPresetsProps {
 }
 
 export function MenuPresets({
-    values,
+    onSelectionChange,
     selectedIndex,
-    onSelectionChange
+    values
 }: MenuPresetsProps) {
     const presetButtonRef = useRef<HTMLButtonElement>();
 
@@ -37,9 +37,9 @@ export function MenuPresets({
                 <DisclosureArrow />
             </IconButton>
             <Menu
-                selectionMode="single"
-                selectedKeys={[selectedIndex?.toString()]}
                 onSelectionChange={handleSelectPreset}
+                selectedKeys={[selectedIndex?.toString()]}
+                selectionMode="single"
             >
                 {values.map((x, index) => (
                     // eslint-disable-next-line react/no-array-index-key

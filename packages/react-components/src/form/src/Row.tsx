@@ -19,8 +19,8 @@ export function InnerRow(props: InnerRowProps) {
     const [formProps] = useFormContext();
 
     const {
-        fluid,
         children,
+        fluid,
         forwardedRef,
         ...rest
     } = mergeProps(

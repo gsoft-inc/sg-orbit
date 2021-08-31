@@ -125,40 +125,40 @@ export function InnerSelect(props: InnerSelectProps) {
     const [inputGroupProps] = useInputGroupSelectAddonProps();
 
     const {
-        id,
-        open,
-        defaultOpen,
-        selectedKey: selectedKeyProp,
-        defaultSelectedKey,
-        placeholder,
-        required,
-        validationState,
-        onSelectionChange,
-        onOpenChange,
-        variant = "outline",
-        icon,
-        direction = "bottom",
+        active,
         align = "start",
-        autoFocus,
-        name,
-        fluid,
-        disabled,
-        readOnly,
         allowFlip = true,
         allowPreventOverflow = true,
         allowResponsiveMenuWidth,
-        zIndex = 10000,
-        active,
-        focus,
-        hover,
-        "aria-label": ariaLabel,
-        // Usually provided by the field inputs.
-        "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
-        overlayProps: overlayPropsProp,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
         as: TriggerType = "button",
+        autoFocus,
         children,
+        defaultOpen,
+        defaultSelectedKey,
+        direction = "bottom",
+        disabled,
+        fluid,
+        focus,
         forwardedRef,
+        hover,
+        icon,
+        id,
+        name,
+        onOpenChange,
+        onSelectionChange,
+        open,
+        overlayProps: overlayPropsProp,
+        placeholder,
+        // Usually provided by the field inputs.
+        readOnly,
+        required,
+        selectedKey: selectedKeyProp,
+        validationState,
+        variant = "outline",
+        zIndex = 10000,
         ...rest
     } = mergeProps(
         props,
@@ -166,7 +166,7 @@ export function InnerSelect(props: InnerSelectProps) {
         inputGroupProps
     );
 
-    const { selectedKey, selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
+    const { isOpen, listboxProps, overlayProps, selectedItem, selectedKey, triggerProps } = useSelect(children, {
         align,
         allowFlip,
         allowPreventOverflow,
@@ -226,11 +226,11 @@ export function InnerSelect(props: InnerSelectProps) {
     return (
         <>
             <HiddenSelect
-                name={name}
-                selectedKey={selectedKey}
-                required={required}
-                validationState={validationState}
                 disabled={disabled}
+                name={name}
+                required={required}
+                selectedKey={selectedKey}
+                validationState={validationState}
             />
             <TriggerType
                 {...mergeProps(

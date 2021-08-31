@@ -10,14 +10,14 @@ export interface UseTileProps extends InteractionStatesProps {
 }
 
 export function useTile({
-    variant,
-    orientation,
     active,
+    children,
     focus,
     hover,
-    children
+    orientation,
+    variant
 }: UseTileProps) {
-    const { image, illustration, heading, content } = useSlots(children, useMemo(() => ({
+    const { content, heading, illustration, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
