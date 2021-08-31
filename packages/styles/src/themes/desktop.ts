@@ -315,8 +315,8 @@ export const DesktopTheme: OrbitTheme = {
             /* Background */
             "alias-bg-1": "#2B2F3C",
             "alias-bg-1-hover": "$cloud-10",
-            "alias-bg-1-active": "$cloud-9",
-            "alias-bg-2": "$cloud-9",
+            "alias-bg-1-active": "$cloud-10",
+            "alias-bg-2": "$cloud-10",
             "alias-bg-2-hover": "$cloud-10",
             "alias-bg-2-active": "$cloud-7",
             "alias-bg-3": "$cloud-10",

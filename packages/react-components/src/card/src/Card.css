@@ -1,8 +1,8 @@
 .o-ui-card {
     display: grid;
-    background-color: var(--o-ui-alias-background-1);
+    background-color: var(--o-ui-alias-bg-1);
     border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-alias-border-1);
+    border: 1px solid var(--o-ui-alias-b-1);
     height: max-content;
 }
 
@@ -53,7 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--o-ui-global-scale-delta);
+    margin-bottom: var(--o-ui-space-4);
 }
 
 .o-ui-card-footer-section {
@@ -65,7 +65,7 @@
 .o-ui-card-header {
     justify-self: end;
     flex-shrink: 0;
-    margin-left: var(--o-ui-global-scale-delta);
+    margin-left: var(--o-ui-space-4);
     max-width: 200px;
 }
 
@@ -74,13 +74,13 @@
 }
 
 .o-ui-card-illustration + .o-ui-card-header-section {
-    margin-top: var(--o-ui-global-scale-foxtrot);
+    margin-top: var(--o-ui-space-6);
 }
 
 /* BUTTONS */
 .o-ui-card-button,
 .o-ui-card-button-group {
-    margin-top: var(--o-ui-global-scale-foxtrot);
+    margin-top: var(--o-ui-space-6);
     flex-wrap: wrap;
 }
 
@@ -95,23 +95,23 @@
 .o-ui-card-horizontal .o-ui-card-aside {
     grid-area: aside;
     align-content: start;
-    padding: var(--o-ui-global-scale-foxtrot);
+    padding: var(--o-ui-space-6);
 }
 
 .o-ui-card-horizontal .o-ui-card-illustration + .o-ui-card-aside {
-    padding-left: var(--o-ui-global-scale-foxtrot);
+    padding-left: var(--o-ui-space-6);
 }
 
 /* ASIDE | VERTICAL */
 .o-ui-card-vertical .o-ui-card-aside {
     grid-column-start: 1;
     grid-column-end: 3;
-    padding: var(--o-ui-global-scale-echo);
+    padding: var(--o-ui-space-5);
 }
 
 .o-ui-card-vertical .o-ui-card-illustration + .o-ui-card-aside,
 .o-ui-card-vertical .o-ui-card-image + .o-ui-card-aside {
-    padding: var(--o-ui-global-scale-delta) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo) var(--o-ui-global-scale-echo);
+    padding: var(--o-ui-space-4) var(--o-ui-space-5) var(--o-ui-space-5) var(--o-ui-space-5);
 }
 
 /* IMAGE */
@@ -123,23 +123,23 @@
 
 /* IMAGE | PADDING */
 .o-ui-card-sm .o-ui-card-illustration {
-    padding: var(--o-ui-global-scale-delta);
+    padding: var(--o-ui-space-4);
 }
 
 .o-ui-card-md .o-ui-card-illustration {
-    padding: var(--o-ui-global-scale-delta);
+    padding: var(--o-ui-space-4);
 }
 
 .o-ui-card-lg .o-ui-card-illustration {
-    padding: var(--o-ui-global-scale-delta);
+    padding: var(--o-ui-space-4);
 }
 
 .o-ui-card-xl .o-ui-card-illustration {
-    padding: var(--o-ui-global-scale-delta);
+    padding: var(--o-ui-space-4);
 }
 
 .o-ui-card-fluid .o-ui-card-illustration {
-    padding: var(--o-ui-global-scale-delta);
+    padding: var(--o-ui-space-4);
 }
 
 /* IMAGE | HORIZONTAL */

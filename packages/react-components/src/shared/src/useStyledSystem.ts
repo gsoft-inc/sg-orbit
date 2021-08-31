@@ -185,7 +185,7 @@ export const OrbitColors = [
     "cloud-6",
     "cloud-7",
     "cloud-8",
-    "cloud-9",
+    "cloud-10",
     "cloud-10",
     // Neutral
     "neutral-1",
@@ -667,12 +667,25 @@ export const PaddingXClasses = createOrbitSpacingScaleClasses("ph", true);
 
 export const PaddingYClasses = createOrbitSpacingScaleClasses("pv", true);
 
+export const PointerEventsClasses = {
+    "auto": "o-ui-pe-a",
+    "none": "o-ui-pe-n"
+} as const;
+
+
 export const PositionClasses = {
     "absolute": "o-ui-a",
     "fixed": "o-ui-f",
     "relative": "o-ui-r",
     "static": "o-ui-stc",
     "sticky": "o-ui-stck"
+} as const;
+
+export const ResizeClasses = {
+    "both": "o-ui-rz-b",
+    "horizontal": "o-ui-rz-h",
+    "none": "o-ui-rz-n",
+    "vertical": "o-ui-rz-v"
 } as const;
 
 export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), "auto": "o-ui-right-auto" };
@@ -711,6 +724,14 @@ export const TextTransformClasses = {
 } as const;
 
 export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
+
+export const UserSelectClasses = {
+    "all": "o-ui-us-all",
+    "auto": "o-ui-us-a",
+    "contain": "o-ui-us-c",
+    "none": "o-ui-us-n",
+    "tenxt": "o-ui-us-t"
+} as const;
 
 export const VerticalAlignClasses = {
     "baseline": "o-ui-va-bs",
@@ -878,7 +899,11 @@ export type PaddingXProp = Simplify<SpaceValueIncludingZero>;
 
 export type PaddingYProp = Simplify<SpaceValueIncludingZero>;
 
+export type PointerEventsProp = Simplify<keyof typeof PointerEventsClasses | GlobalValue>;
+
 export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
+
+export type ResizeProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
 
 export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
 
@@ -895,6 +920,8 @@ export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | Globa
 export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | GlobalValue>;
 
 export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
+
+export type UserSelectProp = Simplify<keyof typeof UserSelectClasses | GlobalValue>;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
@@ -1168,7 +1195,15 @@ export interface StyleProps {
     /**
      * @ignore
      */
+    pointerEvents?: PointerEventsProp;
+    /**
+     * @ignore
+     */
     position?: PositionProp;
+    /**
+     * @ignore
+     */
+    resize?: ResizeProp;
     /**
      * @ignore
      */
@@ -1205,6 +1240,10 @@ export interface StyleProps {
      * @ignore
      */
     top?: TopProp;
+    /**
+     * @ignore
+     */
+    userSelect?: UserSelectProp;
     /**
      * @ignore
      */
@@ -1333,7 +1372,9 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingTop: createPropHandler(PaddingTopClasses),
     paddingX: createPropHandler(PaddingXClasses),
     paddingY: createPropHandler(PaddingYClasses),
+    pointerEvents: createPropHandler(PointerEventsClasses),
     position: createPropHandler(PositionClasses),
+    resize: createPropHandler(ResizeClasses),
     right: createPropHandler(RightClasses),
     rowGap: createPropHandler(RowGapClasses),
     stroke: createPropHandler(StrokeClasses),
@@ -1342,6 +1383,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     textOverflow: createPropHandler(TextOverflowClasses),
     textTransform: createPropHandler(TextTransformClasses),
     top: createPropHandler(TopClasses),
+    userSelect: createPropHandler(UserSelectClasses),
     verticalAlign: createPropHandler(VerticalAlignClasses),
     whiteSpace: createPropHandler(WhiteSpaceClasses),
     width: createPropHandler(WidthClasses),

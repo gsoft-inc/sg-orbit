@@ -1,119 +1,119 @@
 .fill-primary-50 {
-    fill: var(--o-ui-alias-primary-50);
+    fill: var(--o-ui-primary-50);
 }
 
 .fill-primary-100 {
-    fill: var(--o-ui-alias-primary-100);
+    fill: var(--o-ui-primary-100);
 }
 
 .fill-primary-200 {
-    fill: var(--o-ui-alias-primary-200);
+    fill: var(--o-ui-primary-200);
 }
 
 .fill-primary-300 {
-    fill: var(--o-ui-alias-primary-300);
+    fill: var(--o-ui-primary-300);
 }
 
 .fill-primary-400 {
-    fill: var(--o-ui-alias-primary-400);
+    fill: var(--o-ui-primary-400);
 }
 
 .fill-primary-500 {
-    fill: var(--o-ui-alias-primary-500);
+    fill: var(--o-ui-primary-500);
 }
 
 .fill-primary-600 {
-    fill: var(--o-ui-alias-primary-600);
+    fill: var(--o-ui-primary-600);
 }
 
 .fill-primary-700 {
-    fill: var(--o-ui-alias-primary-700);
+    fill: var(--o-ui-primary-700);
 }
 
 .fill-primary-800 {
-    fill: var(--o-ui-alias-primary-800);
+    fill: var(--o-ui-primary-800);
 }
 
 .fill-primary-900 {
-    fill: var(--o-ui-alias-primary-900);
+    fill: var(--o-ui-primary-900);
 }
 
 .hover-fill-primary-50:hover {
-    fill: var(--o-ui-alias-primary-50);
+    fill: var(--o-ui-primary-50);
 }
 
 .hover-fill-primary-100:hover {
-    fill: var(--o-ui-alias-primary-100);
+    fill: var(--o-ui-primary-100);
 }
 
 .hover-fill-primary-200:hover {
-    fill: var(--o-ui-alias-primary-200);
+    fill: var(--o-ui-primary-200);
 }
 
 .hover-fill-primary-300:hover {
-    fill: var(--o-ui-alias-primary-300);
+    fill: var(--o-ui-primary-300);
 }
 
 .hover-fill-primary-400:hover {
-    fill: var(--o-ui-alias-primary-400);
+    fill: var(--o-ui-primary-400);
 }
 
 .hover-fill-primary-500:hover {
-    fill: var(--o-ui-alias-primary-500);
+    fill: var(--o-ui-primary-500);
 }
 
 .hover-fill-primary-600:hover {
-    fill: var(--o-ui-alias-primary-600);
+    fill: var(--o-ui-primary-600);
 }
 
 .hover-fill-primary-700:hover {
-    fill: var(--o-ui-alias-primary-700);
+    fill: var(--o-ui-primary-700);
 }
 
 .hover-fill-primary-800:hover {
-    fill: var(--o-ui-alias-primary-800);
+    fill: var(--o-ui-primary-800);
 }
 
 .hover-fill-primary-900:hover {
-    fill: var(--o-ui-alias-primary-900);
+    fill: var(--o-ui-primary-900);
 }
 
 .focus-fill-primary-50:focus {
-    fill: var(--o-ui-alias-primary-50);
+    fill: var(--o-ui-primary-50);
 }
 
 .focus-fill-primary-100:focus {
-    fill: var(--o-ui-alias-primary-100);
+    fill: var(--o-ui-primary-100);
 }
 
 .focus-fill-primary-200:focus {
-    fill: var(--o-ui-alias-primary-200);
+    fill: var(--o-ui-primary-200);
 }
 
 .focus-fill-primary-300:focus {
-    fill: var(--o-ui-alias-primary-300);
+    fill: var(--o-ui-primary-300);
 }
 
 .focus-fill-primary-400:focus {
-    fill: var(--o-ui-alias-primary-400);
+    fill: var(--o-ui-primary-400);
 }
 
 .focus-fill-primary-500:focus {
-    fill: var(--o-ui-alias-primary-500);
+    fill: var(--o-ui-primary-500);
 }
 
 .focus-fill-primary-600:focus {
-    fill: var(--o-ui-alias-primary-600);
+    fill: var(--o-ui-primary-600);
 }
 
 .focus-fill-primary-700:focus {
-    fill: var(--o-ui-alias-primary-700);
+    fill: var(--o-ui-primary-700);
 }
 
 .focus-fill-primary-800:focus {
-    fill: var(--o-ui-alias-primary-800);
+    fill: var(--o-ui-primary-800);
 }
 
 .focus-fill-primary-900:focus {
-    fill: var(--o-ui-alias-primary-900);
+    fill: var(--o-ui-primary-900);
 }

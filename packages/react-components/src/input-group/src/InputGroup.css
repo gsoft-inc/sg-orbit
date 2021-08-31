@@ -72,12 +72,12 @@
 .o-ui-input-group-text-addon {
     display: flex;
     align-items: center;
-    padding: 0 var(--o-ui-global-scale-charlie);
-    min-height: var(--o-ui-global-scale-hotel);
+    padding: 0 var(--o-ui-space-3);
+    min-height: var(--o-ui-space-8);
     border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-alias-border-1);
+    border: 1px solid var(--o-ui-alias-b-1);
     color: var(--o-ui-alias-text-1);
-    background-color: var(--o-ui-alias-background-3);
+    background-color: var(--o-ui-alias-bg-3);
     flex-shrink: 0;
 }
 

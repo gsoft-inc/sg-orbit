@@ -1,119 +1,119 @@
-.bg-neutral-50 {
-    background-color: var(--o-ui-global-neutral-50);
+.bg-neutral-1 {
+    background-color: var(--o-ui-neutral-1);
 }
 
-.bg-neutral-100 {
-    background-color: var(--o-ui-global-neutral-100);
+.bg-neutral-2 {
+    background-color: var(--o-ui-neutral-2);
 }
 
-.bg-neutral-200 {
-    background-color: var(--o-ui-global-neutral-200);
+.bg-neutral-3 {
+    background-color: var(--o-ui-neutral-3);
 }
 
-.bg-neutral-300 {
-    background-color: var(--o-ui-global-neutral-300);
+.bg-neutral-4 {
+    background-color: var(--o-ui-neutral-4);
 }
 
-.bg-neutral-400 {
-    background-color: var(--o-ui-global-neutral-400);
+.bg-neutral-5 {
+    background-color: var(--o-ui-neutral-5);
 }
 
-.bg-neutral-500 {
-    background-color: var(--o-ui-global-neutral-500);
+.bg-neutral-6 {
+    background-color: var(--o-ui-neutral-6);
 }
 
-.bg-neutral-600 {
-    background-color: var(--o-ui-global-neutral-600);
+.bg-neutral-7 {
+    background-color: var(--o-ui-neutral-7);
 }
 
-.bg-neutral-700 {
-    background-color: var(--o-ui-global-neutral-700);
+.bg-neutral-8 {
+    background-color: var(--o-ui-neutral-8);
 }
 
-.bg-neutral-800 {
-    background-color: var(--o-ui-global-neutral-800);
+.bg-neutral-9 {
+    background-color: var(--o-ui-neutral-9);
 }
 
-.bg-neutral-900 {
-    background-color: var(--o-ui-global-neutral-900);
+.bg-neutral-10 {
+    background-color: var(--o-ui-neutral-10);
 }
 
-.hover-bg-neutral-50:hover {
-    background-color: var(--o-ui-global-neutral-50);
+.hover-bg-neutral-1:hover {
+    background-color: var(--o-ui-neutral-1);
 }
 
-.hover-bg-neutral-100:hover {
-    background-color: var(--o-ui-global-neutral-100);
+.hover-bg-neutral-2:hover {
+    background-color: var(--o-ui-neutral-2);
 }
 
-.hover-bg-neutral-200:hover {
-    background-color: var(--o-ui-global-neutral-200);
+.hover-bg-neutral-3:hover {
+    background-color: var(--o-ui-neutral-3);
 }
 
-.hover-bg-neutral-300:hover {
-    background-color: var(--o-ui-global-neutral-300);
+.hover-bg-neutral-4:hover {
+    background-color: var(--o-ui-neutral-4);
 }
 
-.hover-bg-neutral-400:hover {
-    background-color: var(--o-ui-global-neutral-400);
+.hover-bg-neutral-5:hover {
+    background-color: var(--o-ui-neutral-5);
 }
 
-.hover-bg-neutral-500:hover {
-    background-color: var(--o-ui-global-neutral-500);
+.hover-bg-neutral-6:hover {
+    background-color: var(--o-ui-neutral-6);
 }
 
-.hover-bg-neutral-600:hover {
-    background-color: var(--o-ui-global-neutral-600);
+.hover-bg-neutral-7:hover {
+    background-color: var(--o-ui-neutral-7);
 }
 
-.hover-bg-neutral-700:hover {
-    background-color: var(--o-ui-global-neutral-700);
+.hover-bg-neutral-8:hover {
+    background-color: var(--o-ui-neutral-8);
 }
 
-.hover-bg-neutral-800:hover {
-    background-color: var(--o-ui-global-neutral-800);
+.hover-bg-neutral-9:hover {
+    background-color: var(--o-ui-neutral-9);
 }
 
-.hover-bg-neutral-900:hover {
-    background-color: var(--o-ui-global-neutral-900);
+.hover-bg-neutral-10:hover {
+    background-color: var(--o-ui-neutral-10);
 }
 
-.focus-bg-neutral-50:focus {
-    background-color: var(--o-ui-global-neutral-50);
+.focus-bg-neutral-1:focus {
+    background-color: var(--o-ui-neutral-1);
 }
 
-.focus-bg-neutral-100:focus {
-    background-color: var(--o-ui-global-neutral-100);
+.focus-bg-neutral-2:focus {
+    background-color: var(--o-ui-neutral-2);
 }
 
-.focus-bg-neutral-200:focus {
-    background-color: var(--o-ui-global-neutral-200);
+.focus-bg-neutral-3:focus {
+    background-color: var(--o-ui-neutral-3);
 }
 
-.focus-bg-neutral-300:focus {
-    background-color: var(--o-ui-global-neutral-300);
+.focus-bg-neutral-4:focus {
+    background-color: var(--o-ui-neutral-4);
 }
 
-.focus-bg-neutral-400:focus {
-    background-color: var(--o-ui-global-neutral-400);
+.focus-bg-neutral-5:focus {
+    background-color: var(--o-ui-neutral-5);
 }
 
-.focus-bg-neutral-500:focus {
-    background-color: var(--o-ui-global-neutral-500);
+.focus-bg-neutral-6:focus {
+    background-color: var(--o-ui-neutral-6);
 }
 
-.focus-bg-neutral-600:focus {
-    background-color: var(--o-ui-global-neutral-600);
+.focus-bg-neutral-7:focus {
+    background-color: var(--o-ui-neutral-7);
 }
 
-.focus-bg-neutral-700:focus {
-    background-color: var(--o-ui-global-neutral-700);
+.focus-bg-neutral-8:focus {
+    background-color: var(--o-ui-neutral-8);
 }
 
-.focus-bg-neutral-800:focus {
-    background-color: var(--o-ui-global-neutral-800);
+.focus-bg-neutral-9:focus {
+    background-color: var(--o-ui-neutral-9);
 }
 
-.focus-bg-neutral-900:focus {
-    background-color: var(--o-ui-global-neutral-900);
+.focus-bg-neutral-10:focus {
+    background-color: var(--o-ui-neutral-10);
 }

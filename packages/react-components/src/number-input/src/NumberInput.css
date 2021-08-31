@@ -1,7 +1,7 @@
 @import "../../input/src/Input.css";
 
 .o-ui {
-    --o-ui-spinner-width: var(--o-ui-global-scale-foxtrot);
+    --o-ui-spinner-width: var(--o-ui-space-6);
 }
 
 .o-ui-number-input {
@@ -27,7 +27,7 @@
     visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
-    min-height: calc(var(--o-ui-global-scale-hotel) - 2px);
+    min-height: calc(var(--o-ui-space-8) - 2px);
     margin: 1px;
     position: absolute;
     right: 0;
@@ -51,7 +51,7 @@
     border-left: 1px solid var(--o-ui-input-border-color);
     outline: none;
     cursor: pointer;
-    background-color: var(--o-ui-alias-background-4);
+    background-color: var(--o-ui-alias-bg-4);
 }
 
 .o-ui-number-input-spinner-increment {
@@ -80,13 +80,13 @@
 .o-ui-number-input-spinner-decrement:active:not(:disabled),
 .o-ui-number-input-spinner-increment:hover:active:not(:disabled),
 .o-ui-number-input-spinner-decrement:hover:active:not(:disabled) {
-    background-color: var(--o-ui-alias-background-4-active);
+    background-color: var(--o-ui-alias-bg-4-active);
 }
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-alias-background-4-hover);
+    background-color: var(--o-ui-alias-bg-4-hover);
 }
 
 /* SPINNER | DISABLED */
@@ -110,13 +110,13 @@
 /* SPINNER | TRANSPARENT | HOVER */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-alias-background-4-hover);
+    background-color: var(--o-ui-alias-bg-4-hover);
 }
 
 /* SPINNER | TRANSPARENT | HOVER ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active:hover,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active:hover {
-    background-color: var(--o-ui-alias-background-4-active);
+    background-color: var(--o-ui-alias-bg-4-active);
 }
 
 .o-ui-input-transparent .o-ui-number-input-spinner-increment {
@@ -126,7 +126,7 @@
 /* SPINNER | TRANSPARENT | ACTIVE */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
-    background-color: var(--o-ui-alias-background-4-active);
+    background-color: var(--o-ui-alias-bg-4-active);
 }
 
 /* IN GROUP */

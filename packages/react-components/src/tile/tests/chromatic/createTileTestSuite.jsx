@@ -20,7 +20,7 @@ export function createTileTestSuite(element, stories) {
         )
         .add("illustration", () =>
             <Tile element={element}>
-                <Illustration color="marine-100">
+                <Illustration color="marine-2">
                     <Image src={Nasa} width="100px" alt="Nasa Logo" />
                 </Illustration>
                 <Heading>Fuel</Heading>
@@ -29,7 +29,7 @@ export function createTileTestSuite(element, stories) {
         )
         .add("all sections", () =>
             <Tile element={element}>
-                <Illustration color="marine-100">
+                <Illustration color="marine-2">
                     <Image src={Nasa} width="100px" alt="Nasa Logo" />
                 </Illustration>
                 <Heading>Fuel</Heading>

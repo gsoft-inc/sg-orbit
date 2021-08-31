@@ -11,7 +11,7 @@
 }
 
 .o-ui-date-input-button-presets .o-ui-date-input {
-    margin-right: var(--o-ui-global-scale-delta);
+    margin-right: var(--o-ui-space-4);
 }
 
 /* BUTTON PRESETS | FLUID */

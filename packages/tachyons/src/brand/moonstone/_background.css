@@ -1,119 +1,119 @@
-.bg-moonstone-50 {
-    background-color: var(--o-ui-global-moonstone-50);
+.bg-moonstone-1 {
+    background-color: var(--o-ui-moonstone-1);
 }
 
-.bg-moonstone-100 {
-    background-color: var(--o-ui-global-moonstone-100);
+.bg-moonstone-2 {
+    background-color: var(--o-ui-moonstone-2);
 }
 
-.bg-moonstone-200 {
-    background-color: var(--o-ui-global-moonstone-200);
+.bg-moonstone-3 {
+    background-color: var(--o-ui-moonstone-3);
 }
 
-.bg-moonstone-300 {
-    background-color: var(--o-ui-global-moonstone-300);
+.bg-moonstone-4 {
+    background-color: var(--o-ui-moonstone-4);
 }
 
-.bg-moonstone-400 {
-    background-color: var(--o-ui-global-moonstone-400);
+.bg-moonstone-5 {
+    background-color: var(--o-ui-moonstone-5);
 }
 
-.bg-moonstone-500 {
-    background-color: var(--o-ui-global-moonstone-500);
+.bg-moonstone-6 {
+    background-color: var(--o-ui-moonstone-6);
 }
 
-.bg-moonstone-600 {
-    background-color: var(--o-ui-global-moonstone-600);
+.bg-moonstone-7 {
+    background-color: var(--o-ui-moonstone-7);
 }
 
-.bg-moonstone-700 {
-    background-color: var(--o-ui-global-moonstone-700);
+.bg-moonstone-8 {
+    background-color: var(--o-ui-moonstone-8);
 }
 
-.bg-moonstone-800 {
-    background-color: var(--o-ui-global-moonstone-800);
+.bg-moonstone-9 {
+    background-color: var(--o-ui-moonstone-9);
 }
 
-.bg-moonstone-900 {
-    background-color: var(--o-ui-global-moonstone-900);
+.bg-moonstone-10 {
+    background-color: var(--o-ui-moonstone-10);
 }
 
-.hover-bg-moonstone-50:hover {
-    background-color: var(--o-ui-global-moonstone-50);
+.hover-bg-moonstone-1:hover {
+    background-color: var(--o-ui-moonstone-1);
 }
 
-.hover-bg-moonstone-100:hover {
-    background-color: var(--o-ui-global-moonstone-100);
+.hover-bg-moonstone-2:hover {
+    background-color: var(--o-ui-moonstone-2);
 }
 
-.hover-bg-moonstone-200:hover {
-    background-color: var(--o-ui-global-moonstone-200);
+.hover-bg-moonstone-3:hover {
+    background-color: var(--o-ui-moonstone-3);
 }
 
-.hover-bg-moonstone-300:hover {
-    background-color: var(--o-ui-global-moonstone-300);
+.hover-bg-moonstone-4:hover {
+    background-color: var(--o-ui-moonstone-4);
 }
 
-.hover-bg-moonstone-400:hover {
-    background-color: var(--o-ui-global-moonstone-400);
+.hover-bg-moonstone-5:hover {
+    background-color: var(--o-ui-moonstone-5);
 }
 
-.hover-bg-moonstone-500:hover {
-    background-color: var(--o-ui-global-moonstone-500);
+.hover-bg-moonstone-6:hover {
+    background-color: var(--o-ui-moonstone-6);
 }
 
-.hover-bg-moonstone-600:hover {
-    background-color: var(--o-ui-global-moonstone-600);
+.hover-bg-moonstone-7:hover {
+    background-color: var(--o-ui-moonstone-7);
 }
 
-.hover-bg-moonstone-700:hover {
-    background-color: var(--o-ui-global-moonstone-700);
+.hover-bg-moonstone-8:hover {
+    background-color: var(--o-ui-moonstone-8);
 }
 
-.hover-bg-moonstone-800:hover {
-    background-color: var(--o-ui-global-moonstone-800);
+.hover-bg-moonstone-9:hover {
+    background-color: var(--o-ui-moonstone-9);
 }
 
-.hover-bg-moonstone-900:hover {
-    background-color: var(--o-ui-global-moonstone-900);
+.hover-bg-moonstone-10:hover {
+    background-color: var(--o-ui-moonstone-10);
 }
 
-.focus-bg-moonstone-50:focus {
-    background-color: var(--o-ui-global-moonstone-50);
+.focus-bg-moonstone-1:focus {
+    background-color: var(--o-ui-moonstone-1);
 }
 
-.focus-bg-moonstone-100:focus {
-    background-color: var(--o-ui-global-moonstone-100);
+.focus-bg-moonstone-2:focus {
+    background-color: var(--o-ui-moonstone-2);
 }
 
-.focus-bg-moonstone-200:focus {
-    background-color: var(--o-ui-global-moonstone-200);
+.focus-bg-moonstone-3:focus {
+    background-color: var(--o-ui-moonstone-3);
 }
 
-.focus-bg-moonstone-300:focus {
-    background-color: var(--o-ui-global-moonstone-300);
+.focus-bg-moonstone-4:focus {
+    background-color: var(--o-ui-moonstone-4);
 }
 
-.focus-bg-moonstone-400:focus {
-    background-color: var(--o-ui-global-moonstone-400);
+.focus-bg-moonstone-5:focus {
+    background-color: var(--o-ui-moonstone-5);
 }
 
-.focus-bg-moonstone-500:focus {
-    background-color: var(--o-ui-global-moonstone-500);
+.focus-bg-moonstone-6:focus {
+    background-color: var(--o-ui-moonstone-6);
 }
 
-.focus-bg-moonstone-600:focus {
-    background-color: var(--o-ui-global-moonstone-600);
+.focus-bg-moonstone-7:focus {
+    background-color: var(--o-ui-moonstone-7);
 }
 
-.focus-bg-moonstone-700:focus {
-    background-color: var(--o-ui-global-moonstone-700);
+.focus-bg-moonstone-8:focus {
+    background-color: var(--o-ui-moonstone-8);
 }
 
-.focus-bg-moonstone-800:focus {
-    background-color: var(--o-ui-global-moonstone-800);
+.focus-bg-moonstone-9:focus {
+    background-color: var(--o-ui-moonstone-9);
 }
 
-.focus-bg-moonstone-900:focus {
-    background-color: var(--o-ui-global-moonstone-900);
+.focus-bg-moonstone-10:focus {
+    background-color: var(--o-ui-moonstone-10);
 }

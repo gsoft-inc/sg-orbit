@@ -1,7 +1,7 @@
 .o-ui {
-    --o-ui-alias-elevation-none: none;
-    --o-ui-alias-elevation-skim: var(--o-ui-global-shadow-100);
-    --o-ui-alias-elevation-lifted: var(--o-ui-global-shadow-200);
-    --o-ui-alias-elevation-raised: var(--o-ui-global-shadow-300);
-    --o-ui-alias-elevation-floating: var(--o-ui-global-shadow-400);
+    --o-ui-box-shadows-alias-none: none;
+    --o-ui-box-shadows-alias-skim: var(--o-ui-box-shadows-1);
+    --o-ui-box-shadows-alias-lifted: var(--o-ui-box-shadows-2);
+    --o-ui-box-shadows-alias-raised: var(--o-ui-box-shadows-3);
+    --o-ui-box-shadows-alias-floating: var(--o-ui-box-shadows-4);
 }

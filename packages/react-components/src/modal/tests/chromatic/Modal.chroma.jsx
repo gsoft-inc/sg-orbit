@@ -38,7 +38,7 @@ stories()
     )
     .add("illustration", () =>
         <Modal>
-            <Illustration color="sunray-50">
+            <Illustration color="sunray-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -121,7 +121,7 @@ stories()
     )
     .add("fullscreen with illustration (should not render as fullscreen)", () =>
         <Modal fullscreen>
-            <Illustration color="sunray-50">
+            <Illustration color="sunray-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>

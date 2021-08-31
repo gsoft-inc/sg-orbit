@@ -1,19 +1,19 @@
 .o-ui-message {
     display: flex;
     align-items: flex-start;
-    padding: var(--o-ui-global-scale-charlie);
+    padding: var(--o-ui-space-3);
     width: 100%;
     height: max-content;
     border-radius: var(--o-ui-shape-rounded);
-    padding-top: var(--o-ui-global-scale-bravo);
-    padding-bottom: var(--o-ui-global-scale-bravo);
+    padding-top: var(--o-ui-space-2);
+    padding-bottom: var(--o-ui-space-2);
 }
 
 /* ICON */
 .o-ui-message-icon {
-    margin-top: calc(var(--o-ui-global-scale-bravo) / 2);
-    margin-bottom: calc(var(--o-ui-global-scale-bravo) / 2);
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-top: calc(var(--o-ui-space-2) / 2);
+    margin-bottom: calc(var(--o-ui-space-2) / 2);
+    margin-right: var(--o-ui-space-2);
     flex-shrink: 0;
 }
 
@@ -21,25 +21,25 @@
     flex-grow: 1;
     white-space: pre-wrap;
     overflow-wrap: break-word;
-    padding-top: calc(var(--o-ui-global-scale-charlie) / 2);
-    padding-bottom: calc(var(--o-ui-global-scale-charlie) / 2);
+    padding-top: calc(var(--o-ui-space-3) / 2);
+    padding-bottom: calc(var(--o-ui-space-3) / 2);
 }
 
 /* ACTION */
 .o-ui-message-action {
-    margin-left: var(--o-ui-global-scale-charlie);
+    margin-left: var(--o-ui-space-3);
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
 }
 
 /* DISMISS */
 .o-ui-message-dismiss {
-    margin-left: var(--o-ui-global-scale-bravo);
+    margin-left: var(--o-ui-space-2);
 }
 
 /* TONE | INFORMATIVE */
 .o-ui-message-informative {
-    background-color: var(--o-ui-alias-background-info-1);
+    background-color: var(--o-ui-alias-bg-info-1);
     color: var(--o-ui-alias-text-info-1);
 }
 
@@ -49,7 +49,7 @@
 
 /* TONE | WARNING */
 .o-ui-message-warning {
-    background-color: var(--o-ui-alias-background-warning-2);
+    background-color: var(--o-ui-alias-bg-warning-2);
     color: var(--o-ui-alias-text-warning-2);
 }
 
@@ -59,7 +59,7 @@
 
 /* TONE | POSITIVE */
 .o-ui-message-positive {
-    background-color: var(--o-ui-alias-background-positive-2);
+    background-color: var(--o-ui-alias-bg-positive-2);
     color: var(--o-ui-alias-text-positive-2);
 }
 
@@ -69,7 +69,7 @@
 
 /* TONE | NEGATIVE */
 .o-ui-message-negative {
-    background-color: var(--o-ui-alias-background-negative-2);
+    background-color: var(--o-ui-alias-bg-negative-2);
     color: var(--o-ui-alias-text-negative-2);
 }
 

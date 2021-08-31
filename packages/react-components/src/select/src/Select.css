@@ -9,9 +9,9 @@
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    min-height: var(--o-ui-global-scale-hotel);
+    min-height: var(--o-ui-space-8);
     overflow: hidden;
-    padding: 0 var(--o-ui-global-scale-charlie) 0;
+    padding: 0 var(--o-ui-space-3) 0;
     border-radius: var(--o-ui-shape-rounded);
 }
 
@@ -48,70 +48,70 @@
 /* TRIGGER | GHOST | STATE | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus-visible {
-    background: var(--o-ui-alias-background-3);
+    background: var(--o-ui-alias-bg-3);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
-    background: var(--o-ui-alias-background-3);
+    background: var(--o-ui-alias-bg-3);
 }
 
 /* TRIGGER | GHOST | STATE | HOVER */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-hover,
 .o-ui-select-trigger-ghost:not([disabled]):hover {
-    background: var(--o-ui-alias-background-3);
+    background: var(--o-ui-alias-bg-3);
 }
 
 /* TRIGGER | GHOST | STATE | INVALID | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus-visible.o-ui-select-trigger-invalid {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-border-negative-1-translucent);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-alias-b-negative-1-translucent);
 }
 
 /* TRIGGER | GHOST | PLACEHOLDER / VALUE */
 .o-ui-select-trigger-ghost .o-ui-select-placeholder {
-    margin-right: var(--o-ui-global-scale-alpha);
+    margin-right: var(--o-ui-space-1);
 }
 
 /* TRIGGER | OUTLINE */
 .o-ui-select-trigger-outline {
     width: 325px;
-    background-color: var(--o-ui-alias-background-1);
-    border: 1px solid var(--o-ui-alias-border-1);
+    background-color: var(--o-ui-alias-bg-1);
+    border: 1px solid var(--o-ui-alias-b-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | OPENED */
 .o-ui-select-trigger-outline[aria-expanded="true"] {
-    border: 1px solid var(--o-ui-alias-border-1-active);
+    border: 1px solid var(--o-ui-alias-b-1-active);
 }
 
 /* TRIGGER | OUTLINE | STATE | HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover,
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-hover {
-    border: 1px solid var(--o-ui-alias-border-1-hover);
+    border: 1px solid var(--o-ui-alias-b-1-hover);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus-visible:not(:hover) {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
-    border: 1px solid var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-b-negative-1-translucent);
+    border: 1px solid var(--o-ui-alias-b-negative-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID */
 .o-ui-select-trigger-invalid.o-ui-select-trigger-outline {
-    border: 1px solid var(--o-ui-alias-border-negative-1);
+    border: 1px solid var(--o-ui-alias-b-negative-1);
 }
 
 /* TRIGGER | OUTLINE | STATE | OPENED | INVALID */
 .o-ui-select-trigger-outline[aria-expanded="true"].o-ui-select-trigger-invalid {
-    border: 1px solid var(--o-ui-alias-border-negative-1-active);
+    border: 1px solid var(--o-ui-alias-b-negative-1-active);
 }
 
 /* TRIGGER | OUTLINE | STATE | HOVER | INVALID */
 .o-ui-select-trigger-outline:not([disabled]):hover.o-ui-select-trigger-invalid,
 .o-ui-select-trigger-hover.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-invalid {
-    border: 1px solid var(--o-ui-alias-border-negative-1-hover);
+    border: 1px solid var(--o-ui-alias-b-negative-1-hover);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS */
@@ -127,8 +127,8 @@
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus-visible.o-ui-select-trigger-invalid {
-    --o-ui-focus-ring-color: var(--o-ui-alias-border-negative-1-translucent);
-    border: 1px solid var(--o-ui-alias-border-negative-1);
+    --o-ui-focus-ring-color: var(--o-ui-alias-b-negative-1-translucent);
+    border: 1px solid var(--o-ui-alias-b-negative-1);
 }
 
 /* SELECT VALUE */
@@ -152,25 +152,25 @@
 .o-ui-select-placeholder {
     flex-grow: 1;
     text-align: left;
-    margin-right: var(--o-ui-global-scale-bravo);
+    margin-right: var(--o-ui-space-2);
 }
 
 /* SELECT VALUE | START ICON */
 .o-ui-select-value-start-icon {
-    margin-right: var(--o-ui-global-scale-alpha);
+    margin-right: var(--o-ui-space-1);
     flex-shrink: 0;
 }
 
 /* SELECT VALUE | END ICON */
 .o-ui-select-value-end-icon {
     flex-shrink: 0;
-    margin-left: var(--o-ui-global-scale-alpha);
+    margin-left: var(--o-ui-space-1);
 }
 
 /* ICON */
 .o-ui-select-icon {
     flex-shrink: 0;
-    margin-right: var(--o-ui-global-scale-alpha);
+    margin-right: var(--o-ui-space-1);
 }
 
 /* MENU | FLUID */

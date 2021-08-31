@@ -61,7 +61,7 @@ stories()
     )
     .add("grid layout", () =>
         <Stack>
-            <Box style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
+            <Box style={{ "display": "grid", "gap": "var(--o-ui-space-7)", "gridTemplateColumns": "1fr 1fr" }}>
                 <Card>
                     <Image src={ApolloBanner} alt="Appolo 11 Banner" />
                     <Heading>Nasa</Heading>
@@ -72,7 +72,7 @@ stories()
                     <Content>The National Aeronautics and Space Administration</Content>
                 </Card>
             </Box>
-            <Box style={{ "display": "grid", "gap": "var(--o-ui-global-scale-golf)", "gridTemplateColumns": "1fr 1fr" }}>
+            <Box style={{ "display": "grid", "gap": "var(--o-ui-space-7)", "gridTemplateColumns": "1fr 1fr" }}>
                 <Card fluid>
                     <Image src={ApolloBanner} alt="Appolo 11 Banner" />
                     <Heading>Nasa</Heading>

@@ -130,7 +130,7 @@ export function InnerPopoverTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: "var(--o-ui-global-scale-charlie)",
+                        borderOffset: "var(--o-ui-space-3)",
                         className: "o-ui-popover-overlay",
                         ref: overlayRef,
                         zIndex

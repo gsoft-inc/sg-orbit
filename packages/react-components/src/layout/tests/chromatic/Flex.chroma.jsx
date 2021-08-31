@@ -68,9 +68,9 @@ stories()
             </div>
             <div className="h10">
                 <Flex direction="row" reverse fluid>
-                    <div className="bg-cloud-500">Alpha</div>
-                    <div className="bg-cloud-500">Bravo</div>
-                    <div className="bg-cloud-500">Charlie</div>
+                    <div className="bg-cloud-6">Alpha</div>
+                    <div className="bg-cloud-6">Bravo</div>
+                    <div className="bg-cloud-6">Charlie</div>
                 </Flex>
             </div>
         </div>
@@ -135,9 +135,9 @@ stories()
             </div>
             <div className="w12 mr8">
                 <Flex direction="column" reverse fluid>
-                    <div className="bg-cloud-500">Alpha</div>
-                    <div className="bg-cloud-500">Bravo</div>
-                    <div className="bg-cloud-500">Charlie</div>
+                    <div className="bg-cloud-6">Alpha</div>
+                    <div className="bg-cloud-6">Bravo</div>
+                    <div className="bg-cloud-6">Charlie</div>
                 </Flex>
             </div>
         </div>
@@ -176,8 +176,8 @@ stories()
         >
             {
                 [
-                    "sunray-50", "sunray-100", "sunray-200", "sunray-300", "sunray-400", "sunray-500", "sunray-600", "sunray-700", "sunray-800", "sunray-900",
-                    "moonstone-50", "moonstone-100", "moonstone-200", "moonstone-300", "moonstone-400", "moonstone-500", "moonstone-600", "moonstone-700", "moonstone-800", "moonstone-900"
+                    "sunray-1", "sunray-2", "sunray-3", "sunray-4", "sunray-5", "sunray-6", "sunray-7", "sunray-8", "sunray-9", "sunray-10",
+                    "moonstone-1", "moonstone-2", "moonstone-3", "moonstone-4", "moonstone-5", "moonstone-6", "moonstone-7", "moonstone-8", "moonstone-9", "moonstone-10"
                 ]
                     .map((x, index) =>
                         <div

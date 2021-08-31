@@ -1,8 +1,8 @@
 /* IN FIELD */
 .o-ui-radio-group-has-label {
-    margin-top: var(--o-ui-global-scale-alpha);
+    margin-top: var(--o-ui-space-1);
 }
 
 .o-ui-radio-group-has-message {
-    margin-bottom: var(--o-ui-global-scale-alpha);
+    margin-bottom: var(--o-ui-space-1);
 }

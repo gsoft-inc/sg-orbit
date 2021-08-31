@@ -80,7 +80,7 @@ stories()
         </Stack>
     )
     .add("color", () =>
-        <Inline className="bg-sunray-50 sunray-900" verticalAlign="center">
+        <Inline className="bg-sunray-1 sunray-10" verticalAlign="center">
             <Counter color="inherit">15</Counter>
             <Counter variant="divider" color="inherit">15</Counter>
         </Inline>

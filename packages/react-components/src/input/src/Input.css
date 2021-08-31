@@ -1,12 +1,12 @@
 .o-ui {
-    --o-ui-input-padding: var(--o-ui-global-scale-charlie);
-    --o-ui-input-padding-with-icon: var(--o-ui-global-scale-golf);
-    --o-ui-input-padding-with-button: var(--o-ui-global-scale-hotel);
-    --o-ui-input-padding-loading: var(--o-ui-global-scale-hotel);
-    --o-ui-input-border-color: var(--o-ui-alias-border-1);
+    --o-ui-input-padding: var(--o-ui-space-3);
+    --o-ui-input-padding-with-icon: var(--o-ui-space-7);
+    --o-ui-input-padding-with-button: var(--o-ui-space-8);
+    --o-ui-input-padding-loading: var(--o-ui-space-8);
+    --o-ui-input-border-color: var(--o-ui-alias-b-1);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
-    --o-ui-input-focus-color: var(--o-ui-alias-border-primary-1);
-    --o-ui-input-background-color: var(--o-ui-alias-background-2);
+    --o-ui-input-focus-color: var(--o-ui-alias-b-primary-1);
+    --o-ui-input-background-color: var(--o-ui-alias-bg-2);
 }
 
 .o-ui-input {
@@ -20,24 +20,24 @@
 .o-ui-input input {
     -webkit-appearance: none;
     outline: none;
-    min-height: var(--o-ui-global-scale-hotel);
+    min-height: var(--o-ui-space-8);
 }
 
 .o-ui-input input,
 .o-ui-input textarea {
-    font-size: var(--o-ui-global-type-scale-7);
+    font-size: var(--o-ui-font-sizes-3);
     padding: 0 var(--o-ui-input-padding);
     border-radius: var(--o-ui-input-border-radius);
     border: 1px solid var(--o-ui-input-border-color);
     color: var(--o-ui-alias-text-1);
-    background-color: var(--o-ui-alias-background-1);
+    background-color: var(--o-ui-alias-bg-1);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     width: 100%;
 }
 
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
-    background-color: var(--o-ui-alias-background-input-selection);
+    background-color: var(--o-ui-alias-bg-input-selection);
     color: var(--o-ui-alias-text-input-selection);
 }
 
@@ -46,7 +46,7 @@
 .o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]) {
-    border-color: var(--o-ui-alias-border-1-hover);
+    border-color: var(--o-ui-alias-b-1-hover);
 }
 
 /* PLACEHOLDER */
@@ -73,14 +73,14 @@
 /* INVALID */
 .o-ui-input-invalid input:not([disabled]),
 .o-ui-input-invalid textarea:not([disabled]) {
-    --o-ui-input-border-color: var(--o-ui-alias-border-negative-1);
+    --o-ui-input-border-color: var(--o-ui-alias-b-negative-1);
 }
 
 /* INVALID | DISABLED */
 .o-ui-input.o-ui-input-invalid input:disabled,
 .o-ui-input.o-ui-input-invalid textarea:disabled {
-    background-color: var(--o-ui-alias-background-negative-2);
-    --o-ui-input-border-color: var(--o-ui-alias-background-negative-2);
+    background-color: var(--o-ui-alias-bg-negative-2);
+    --o-ui-input-border-color: var(--o-ui-alias-bg-negative-2);
 }
 
 .o-ui-input.o-ui-input-invalid input:focus-visible,
@@ -94,7 +94,7 @@
 .o-ui-input.o-ui-input-invalid:hover textarea:not([disabled]),
 .o-ui-input-hover.o-ui-input-invalid input:not([disabled]),
 .o-ui-input-hover.o-ui-input-invalid textarea:not([disabled]) {
-    border-color: var(--o-ui-alias-border-negative-1-hover);
+    border-color: var(--o-ui-alias-b-negative-1-hover);
 }
 
 /* ICON */
@@ -107,7 +107,7 @@
     align-items: center;
     text-align: center;
     z-index: 3;
-    left: calc((var(--o-ui-input-padding-with-icon) - var(--o-ui-global-scale-echo) ) / 2);
+    left: calc((var(--o-ui-input-padding-with-icon) - var(--o-ui-space-5) ) / 2);
 }
 
 /* ICON | MEDIUM */
@@ -124,7 +124,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-global-scale-echo)) / 2 );
+    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-space-5)) / 2 );
 }
 
 .o-ui-input-has-button.o-ui-input input,
@@ -170,8 +170,8 @@
     top: 50%;
     z-index: 1;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-global-marine-100);
-    border-top-color: var(--o-ui-global-marine-300);
+    border: 2px solid var(--o-ui-marine-2);
+    border-top-color: var(--o-ui-marine-4);
     transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;
 }
@@ -183,7 +183,7 @@
 .o-ui-input-loading.o-ui-input::before {
     width: 1.25rem;
     height: 1.25rem;
-    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-global-scale-echo)) / 2 );
+    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-space-5)) / 2 );
 }
 
 .o-ui-input-loading.o-ui-input input {
