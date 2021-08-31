@@ -95,10 +95,10 @@ A flex component items can wrap on multiple rows.
 
 <Preview scope={{ ApricotTheme }}>
     <Story name="wrap">
-        <Flex wrap="wrap" width="800px">
-            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
-            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
-            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
+        <Flex wrap="wrap" gap={1} width="440px">
+            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={8} height={8} key={x} />)}
+            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} width={8} height={8} key={x} />)}
+            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} width={8} height={8} key={x} />)}
         </Flex>
     </Story>
 </Preview>
