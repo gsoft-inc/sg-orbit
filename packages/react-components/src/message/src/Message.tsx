@@ -91,7 +91,7 @@ export function InnerMessage({
 }: InnerMessageProps) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { content, button } = useSlots(children, useMemo(() => ({
+    const { button, content } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Content
         },
@@ -114,11 +114,11 @@ export function InnerMessage({
 
     const dismissMarkup = !isNil(onDismiss) && (
         <CrossButton
+            aria-label="Dismiss"
+            className="o-ui-message-dismiss"
             color="inherit"
             onClick={onDismiss}
             size="sm"
-            className="o-ui-message-dismiss"
-            aria-label="Dismiss"
         />
     );
 

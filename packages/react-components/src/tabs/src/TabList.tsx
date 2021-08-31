@@ -29,12 +29,12 @@ export interface InnerTabListProps {
 }
 
 export function InnerTabList({
-    tabs,
     autoFocus,
     forwardedRef,
+    tabs,
     ...rest
 }: InnerTabListProps) {
-    const { selectedKey, orientation, onSelect, isManual } = useTabsContext();
+    const { isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
     const tabRef = useMergedRefs(setFocusRef, forwardedRef);
@@ -80,13 +80,13 @@ export function InnerTabList({
             }) =>
                 <ElementType
                     {...props}
+                    key={key}
+                    ref={ref}
                     tab={{
                         key,
                         panelId,
                         tabId
                     }}
-                    key={key}
-                    ref={ref}
                 />
             )}
         </Box>

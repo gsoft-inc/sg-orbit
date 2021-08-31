@@ -20,7 +20,7 @@ export interface InnerLabelProps extends InternalProps, Omit<OrbitComponentProps
 
 function RequiredIndicator() {
     return (
-        <span className="o-ui-field-label-required" aria-hidden="true">*</span>
+        <span aria-hidden="true" className="o-ui-field-label-required">*</span>
     );
 }
 

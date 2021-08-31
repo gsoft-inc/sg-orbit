@@ -183,8 +183,8 @@ export function InnerBox(props: InnerBoxProps) {
         <As
             {...rest}
             className={className}
-            style={style}
             ref={forwardedRef}
+            style={style}
         >
             {children}
         </As>

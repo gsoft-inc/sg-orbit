@@ -35,7 +35,7 @@ export function InnerCard({
     forwardedRef,
     ...rest
 }: InnerCardProps) {
-    const { image, illustration, heading, header, content, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { button, "button-group": buttonGroup, content, header, heading, illustration, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },

@@ -23,12 +23,12 @@ export function TabPanels({ panels, ...rest }: TabPanelsProps) {
             }) =>
                 <ElementType
                     {...props}
+                    key={key}
                     panel={{
                         key,
                         panelId,
                         tabId
                     }}
-                    key={key}
                     ref={ref}
                 />
             )}

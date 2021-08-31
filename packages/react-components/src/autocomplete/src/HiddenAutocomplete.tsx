@@ -20,7 +20,7 @@ export interface HiddenAutocompleteProps extends ComponentProps<"input"> {
     validationState?: "valid" | "invalid";
 }
 
-export function HiddenAutocomplete({ name, value, required, validationState, ...rest }: HiddenAutocompleteProps) {
+export function HiddenAutocomplete({ name, required, validationState, value, ...rest }: HiddenAutocompleteProps) {
     if (isNil(name)) {
         return null;
     }

@@ -22,23 +22,23 @@ export interface UseInputProps {
 }
 
 export function useInput({
-    cssModule: module,
-    id,
-    value,
-    placeholder,
-    required,
-    validationState,
-    onChange,
-    type,
-    autoFocus,
-    disabled,
-    readOnly,
-    fluid,
-    loading,
     active,
+    autoFocus,
+    cssModule: module,
+    disabled,
+    fluid,
     focus,
+    forwardedRef,
     hover,
-    forwardedRef
+    id,
+    loading,
+    onChange,
+    placeholder,
+    readOnly,
+    required,
+    type,
+    validationState,
+    value
 }: UseInputProps) {
     const inputRef = useMergedRefs(forwardedRef);
 

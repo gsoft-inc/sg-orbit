@@ -84,7 +84,7 @@ export function InnerPopoverTrigger({
 }: InnerPopoverTriggerProps) {
     const overlayRef = useMergedRefs(forwardedRef);
 
-    const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
+    const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,

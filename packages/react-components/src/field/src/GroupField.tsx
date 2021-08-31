@@ -50,7 +50,7 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         toolbarProps
     );
 
-    const { fieldProps, fieldContext } = useGroupField({
+    const { fieldContext, fieldProps } = useGroupField({
         className,
         disabled,
         fluid,

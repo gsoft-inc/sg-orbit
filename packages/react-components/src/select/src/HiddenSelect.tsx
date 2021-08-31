@@ -19,7 +19,7 @@ export interface HiddenSelectProps extends OrbitComponentProps<"input"> {
     validationState?: "valid" | "invalid";
 }
 
-export function HiddenSelect({ name, selectedKey, required, validationState, ...rest }: HiddenSelectProps) {
+export function HiddenSelect({ name, required, selectedKey, validationState, ...rest }: HiddenSelectProps) {
     if (isNil(name)) {
         return null;
     }

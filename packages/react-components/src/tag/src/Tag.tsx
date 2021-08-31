@@ -54,7 +54,7 @@ export function InnerTag({
 }: InnerTagProps) {
     const ref = useMergedRefs(forwardedRef);
 
-    const { icon, dot, text, "end-icon": endIcon, counter } = useSlots(children, useMemo(() => ({
+    const { counter, dot, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

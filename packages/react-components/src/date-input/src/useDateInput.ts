@@ -63,18 +63,18 @@ export interface UseDateInputProps {
 }
 
 export function useDateInput({
-    value: valueProp,
     defaultValue,
-    min,
+    forwardedRef,
     max,
+    min,
     onChange,
     onDateChange,
-    forwardedRef
+    value: valueProp
 }: UseDateInputProps) {
     const [inputValueRef, setInputValue] = useRefState("");
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
-        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+        onChange: useCallback((newValue, { isControlled, isInitial }) => {
             // Keep input value "mostly" in sync with the initial or controlled value.
             if (isInitial || isControlled) {
                 const rawValue = newValue ? toNumericString(newValue) : "";

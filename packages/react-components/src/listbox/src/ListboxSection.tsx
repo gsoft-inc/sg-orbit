@@ -41,8 +41,8 @@ export function InnerListboxSection({
                 {title}
             </Box>
             <Box
-                role="group"
                 aria-labelledby={id}
+                role="group"
             >
                 {children}
             </Box>

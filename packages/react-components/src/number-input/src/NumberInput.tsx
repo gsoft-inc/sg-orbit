@@ -129,11 +129,11 @@ interface SpinnerProps extends ComponentProps<"div"> {
 }
 
 function Spinner({
-    onIncrement,
+    disableDecrement,
+    disableIncrement,
     onDecrement,
     onFocus,
-    disableIncrement,
-    disableDecrement,
+    onIncrement,
     ...rest
 }: SpinnerProps) {
     const handleIncrement = useEventCallback((event: MouseEvent) => {
@@ -155,28 +155,28 @@ function Spinner({
             )}
         >
             <button
-                onClick={handleIncrement}
-                className="o-ui-number-input-spinner-increment"
-                type="button"
-                tabIndex={-1}
-                disabled={disableIncrement}
-                onFocus={onFocus}
                 aria-label="Increment value"
+                className="o-ui-number-input-spinner-increment"
+                disabled={disableIncrement}
+                onClick={handleIncrement}
+                onFocus={onFocus}
+                tabIndex={-1}
+                type="button"
             >
                 <CaretIcon size="xs" />
             </button>
             <button
-                onClick={handleDecrement}
-                className="o-ui-number-input-spinner-decrement"
-                type="button"
-                tabIndex={-1}
-                disabled={disableDecrement}
-                onFocus={onFocus}
                 aria-label="Decrement value"
+                className="o-ui-number-input-spinner-decrement"
+                disabled={disableDecrement}
+                onClick={handleDecrement}
+                onFocus={onFocus}
+                tabIndex={-1}
+                type="button"
             >
                 <CaretIcon
-                    size="xs"
                     className="o-ui-rotate-180"
+                    size="xs"
                 />
             </button>
         </div>
@@ -258,7 +258,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const [inputValueRef, setInputValue] = useRefState("");
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
-        onChange: useCallback((newValue, { isInitial, isControlled }) => {
+        onChange: useCallback((newValue, { isControlled, isInitial }) => {
             // Keep input value "mostly" in sync with the initial or controlled value.
             if (isInitial || isControlled) {
                 const rawValue = isNil(newValue) ? "" : newValue.toString();
@@ -307,7 +307,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const clampOrSetValue = (event: SyntheticEvent, newValue: number) => {
         if (!isNil(newValue)) {
-            const { isInRange, isBelowMin, isAboveMax } = validateRange(newValue);
+            const { isAboveMax, isBelowMin, isInRange } = validateRange(newValue);
 
             if (isInRange) {
                 updateValue(event, newValue);
@@ -365,7 +365,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         })
     });
 
-    const { wrapperProps, inputProps, inputRef } = useInput({
+    const { inputProps, inputRef, wrapperProps } = useInput({
         active,
         autoFocus,
         cssModule: "o-ui-number-input",
@@ -407,12 +407,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 )}
             />
             <Spinner
-                onIncrement={handleIncrement}
+                aria-hidden={loading}
+                disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
+                disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
                 onDecrement={handleDecrement}
                 onFocus={handleStepperFocus}
-                disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
-                disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
-                aria-hidden={loading}
+                onIncrement={handleIncrement}
             />
         </>
     );

@@ -22,20 +22,20 @@ export interface UseButtonReturn {
 }
 
 export function useButton({
-    cssModule: module,
-    variant,
-    color,
-    shape,
-    autoFocus,
-    fluid,
-    loading,
-    size,
     active,
-    focus,
-    hover,
-    type,
     as,
-    forwardedRef
+    autoFocus,
+    color,
+    cssModule: module,
+    fluid,
+    focus,
+    forwardedRef,
+    hover,
+    loading,
+    shape,
+    size,
+    type,
+    variant
 }: UseButtonProps): UseButtonReturn {
     const buttonRef = useMergedRefs(forwardedRef);
 

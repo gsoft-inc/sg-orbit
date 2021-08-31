@@ -17,16 +17,16 @@ export interface UseToggleButtonProps<Shape> {
 // The shape is generic since ToggleButton and ToggleIconButton don't allow the same shapes. The output type of useToggleButton
 // must forward the exact shape type as the one received in the parameters.
 export function useToggleButton<Shape>({
-    variant,
-    shape,
+    active,
     checked,
     defaultChecked,
-    value,
+    forwardedRef,
+    isCheckable,
     onChange,
     onCheck,
-    active,
-    isCheckable,
-    forwardedRef
+    shape,
+    value,
+    variant
 }: UseToggleButtonProps<Shape>) {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 

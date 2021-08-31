@@ -77,7 +77,7 @@ export interface ControllableStateOptions<T> {
 export function useControllableState<T>(controlledValue: T | undefined, initialValue: T | undefined, defaultValue: T | undefined, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
     validatePrerequisites(controlledValue, initialValue);
 
-    let { state: initialState, isControlled: isControlledProp, isInitialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
+    let { isControlled: isControlledProp, isInitialState, state: initialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
 
     const [isControlledRef] = useRefState(isControlledProp);
 
@@ -100,7 +100,7 @@ export function useControllableState<T>(controlledValue: T | undefined, initialV
     const [stateRef, setState] = useRefState(initialState);
 
     if (!isInitialState) {
-        const { newState, hasChanged } = computeSubsequentState(controlledValue, stateRef.current, isControlledRef.current);
+        const { hasChanged, newState } = computeSubsequentState(controlledValue, stateRef.current, isControlledRef.current);
 
         if (hasChanged) {
             setState(transformState(newState, { isInitial: false }));

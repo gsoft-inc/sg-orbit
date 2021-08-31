@@ -16,20 +16,20 @@ export interface UseLinkProps extends InteractionStatesProps {
 }
 
 export function useLink({
-    cssModule: module,
-    color,
-    underline,
-    shape,
-    external,
-    autoFocus,
     active,
-    focus,
-    hover,
+    autoFocus,
+    color,
+    cssModule: module,
     disabled,
-    visited,
-    target,
+    external,
+    focus,
+    forwardedRef,
+    hover,
     rel,
-    forwardedRef
+    shape,
+    target,
+    underline,
+    visited
 }: UseLinkProps) {
     const linkRef = useMergedRefs(forwardedRef);
 

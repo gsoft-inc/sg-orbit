@@ -23,11 +23,11 @@ export const InnerIcon = ((props: InnerIconProps) => {
     const [styleProps] = useStyleProps("icon");
 
     const {
-        src,
-        size,
-        disabled,
         "aria-label": ariaLabel,
+        disabled,
         forwardedRef,
+        size,
+        src,
         ...rest
     } = mergeProps(
         props,
@@ -68,8 +68,8 @@ export function createIcon(src: ElementType) {
     return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerIconProps, "src">>((props, ref) =>
         <InnerIcon
             {...props}
-            src={src}
             forwardedRef={ref}
+            src={src}
         />
     ));
 }

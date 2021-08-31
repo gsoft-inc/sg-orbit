@@ -16,8 +16,8 @@ export function InnerErrorMessage(props: InnerErrorMessageProps) {
     const { isError } = getValidationProps(validationState);
 
     const {
-        forwardedRef,
         children,
+        forwardedRef,
         ...rest
     } = mergeProps(props, messageProps);
 
@@ -28,8 +28,8 @@ export function InnerErrorMessage(props: InnerErrorMessageProps) {
     return (
         <FieldMessage
             {...rest}
-            tone="error"
             ref={forwardedRef}
+            tone="error"
         >
             {children}
         </FieldMessage>

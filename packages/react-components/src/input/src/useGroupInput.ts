@@ -55,18 +55,18 @@ export interface UseGroupInputReturn {
 }
 
 export function useGroupInput({
-    role = "group",
     cssModule: module,
-    required,
-    validationState,
-    orientation,
-    gap,
-    wrap,
-    size,
-    reverse,
     disabled,
+    gap,
+    groupRef,
     isInField,
-    groupRef
+    orientation,
+    required,
+    reverse,
+    role = "group",
+    size,
+    validationState,
+    wrap
 }: UseGroupInputProps): UseGroupInputReturn {
     const [{ hasLabel, hasMessage }] = useFieldContext();
 

@@ -49,10 +49,10 @@ const List = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => 
     const [styleProps] = useStyleProps("list");
 
     const {
-        size,
-        color,
         as,
         children,
+        color,
+        size,
         ...rest
     } = mergeProps(
         props,

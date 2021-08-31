@@ -27,23 +27,23 @@ export interface UsePopupOptions {
 }
 
 export function usePopup(type: "menu" | "listbox" | "dialog", {
-    id,
-    open,
-    defaultOpen,
-    onOpenChange,
-    hideOnEscape = true,
-    hideOnLeave = true,
-    hideOnOutsideClick,
-    restoreFocus = true,
-    trigger = "click",
-    hasArrow,
-    position,
-    offset,
-    disabled,
     allowFlip = true,
     allowPreventOverflow = true,
     boundaryElement,
-    keyProp
+    defaultOpen,
+    disabled,
+    hasArrow,
+    hideOnEscape = true,
+    hideOnLeave = true,
+    hideOnOutsideClick,
+    id,
+    keyProp,
+    offset,
+    onOpenChange,
+    open,
+    position,
+    restoreFocus = true,
+    trigger = "click"
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
@@ -74,7 +74,7 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
         trigger
     });
 
-    const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
+    const { arrowRef, overlayRef: overlayPositionRef, triggerRef } = useOverlayPosition({
         allowFlip,
         allowPreventOverflow,
         boundaryElement,

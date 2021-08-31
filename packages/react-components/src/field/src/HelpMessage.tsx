@@ -16,8 +16,8 @@ export function InnerHelpMessage(props: InnerHelpMessageProps) {
     const { isHelp } = getValidationProps(validationState);
 
     const {
-        forwardedRef,
         children,
+        forwardedRef,
         ...rest
     } = mergeProps(props, messageProps);
 
@@ -28,8 +28,8 @@ export function InnerHelpMessage(props: InnerHelpMessageProps) {
     return (
         <FieldMessage
             {...rest}
-            tone="neutral"
             ref={forwardedRef}
+            tone="neutral"
         >
             {children}
         </FieldMessage>

@@ -50,7 +50,7 @@ export function isItem(node: CollectionNode): node is CollectionItem {
     return node.type === NodeType.item;
 }
 
-export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
+export function createCollectionItem({ content, elementType, index, key, props, ref }: CollectionItem) {
     return {
         content,
         elementType,

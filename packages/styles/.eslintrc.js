@@ -40,10 +40,19 @@ module.exports = {
         },
         {
             files: ["**/src/*.ts?(x)"],
-            plugins: ["typescript-sort-keys", "sort-keys-fix"],
+            plugins: ["sort-destructure-keys", "sort-keys-fix", "typescript-sort-keys"],
             rules: {
+                "react/jsx-sort-props": "error",
                 "sort-keys-fix/sort-keys-fix": "error",
+                "sort-destructure-keys/sort-destructure-keys": "error",
                 "typescript-sort-keys/interface": "error"
+            }
+        },
+        {
+            files: ["**/tests/**/*.ts?(x)"],
+            plugins: ["sort-destructure-keys", "sort-keys-fix", "typescript-sort-keys"],
+            rules: {
+                "react/jsx-sort-props": "off"
             }
         }
     ],

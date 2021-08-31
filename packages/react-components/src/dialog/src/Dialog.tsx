@@ -188,7 +188,7 @@ export function InnerDialog({
 
     const dialogId = useId(id, "o-ui-dialog");
 
-    const { image, illustration, header, heading, content, footer, button, "button-group": buttonGroup } = useSlots(children, useMemo(() => ({
+    const { button, "button-group": buttonGroup, content, footer, header, heading, illustration, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
         },
@@ -244,12 +244,12 @@ export function InnerDialog({
 
     const dismissButtonMarkup = dismissable && (
         <CrossButton
-            onClick={handleDismissButtonClick}
-            condensed
-            size="xs"
-            className="o-ui-dialog-dismiss-button"
             aria-label="Dismiss"
+            className="o-ui-dialog-dismiss-button"
+            condensed
+            onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
+            size="xs"
         />
     );
 

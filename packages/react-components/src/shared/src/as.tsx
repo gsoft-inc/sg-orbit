@@ -5,6 +5,6 @@ export function as<A extends JSXElementConstructor<any>, B extends keyof JSX.Int
     const Component = component as JSXElementConstructor<any>;
 
     return forwardRef<ElementRef<B>, Merge<ComponentProps<A>, ComponentProps<B>>>((props, ref) => (
-        <Component ref={ref} as={asProp} {...props} />
+        <Component as={asProp} ref={ref} {...props} />
     ));
 }

@@ -20,7 +20,7 @@ export interface InnerTabPanelProps extends InternalProps, Omit<OrbitComponentPr
 }
 
 export function InnerTabPanel({
-    panel: { key, tabId, panelId },
+    panel: { key, panelId, tabId },
     as = DefaultElement,
     children,
     forwardedRef,

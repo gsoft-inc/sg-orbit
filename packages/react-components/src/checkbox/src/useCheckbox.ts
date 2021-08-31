@@ -52,28 +52,28 @@ export interface UseCheckboxReturn {
 }
 
 export function useCheckbox({
-    cssModule: module,
-    isInField,
-    id,
-    checked,
-    defaultChecked,
-    indeterminate,
-    defaultIndeterminate,
-    autoFocus,
-    required,
-    validationState,
-    onChange,
-    size,
-    reverse,
-    name,
-    tabIndex,
     active,
-    focus,
-    hover,
-    disabled,
     ariaLabel,
     ariaLabelledBy,
-    forwardedRef
+    autoFocus,
+    checked,
+    cssModule: module,
+    defaultChecked,
+    defaultIndeterminate,
+    disabled,
+    focus,
+    forwardedRef,
+    hover,
+    id,
+    indeterminate,
+    isInField,
+    name,
+    onChange,
+    required,
+    reverse,
+    size,
+    tabIndex,
+    validationState
 }: UseCheckboxProps): UseCheckboxReturn {
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
     const [isIndeterminate, setIsIndeterminate] = useControllableState(indeterminate, defaultIndeterminate, false);

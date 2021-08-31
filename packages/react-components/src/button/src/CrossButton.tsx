@@ -34,9 +34,9 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
     return (
         <IconButton
             {...rest}
-            variant="ghost"
-            shape="circular"
             ref={forwardedRef}
+            shape="circular"
+            variant="ghost"
         >
             <CrossIcon />
         </IconButton>

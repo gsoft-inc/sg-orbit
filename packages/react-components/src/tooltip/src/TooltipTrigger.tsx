@@ -105,7 +105,7 @@ export function InnerTooltipTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
+    const { arrowRef, overlayRef: overlayPositionRef, triggerRef } = useOverlayPosition({
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,

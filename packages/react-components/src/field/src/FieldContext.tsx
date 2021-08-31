@@ -62,7 +62,7 @@ export interface UseFieldLabelPropsReturn {
 }
 
 export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFieldLabelPropsReturn, boolean] {
-    const [{ inputId, labelId, required, labelClassName, isGroup }, isInField] = useFieldContext();
+    const [{ inputId, isGroup, labelClassName, labelId, required }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
         ? isGroup ? "span" : "label"
@@ -92,16 +92,16 @@ export interface UseFieldInputPropsReturn {
 
 export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     const [{
+        disabled,
+        fluid,
         id,
+        inputClassName,
         inputId,
+        isGroup,
         labelId,
         messageId,
-        validationState,
         required,
-        fluid,
-        disabled,
-        inputClassName,
-        isGroup
+        validationState
     }, isInField] = useFieldContext();
 
     const props = isInField && {
@@ -129,10 +129,10 @@ export interface UseFieldMessagePropsReturn {
 
 export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
     const [{
-        messageId,
         fluid,
-        validationState,
-        messageClassName
+        messageClassName,
+        messageId,
+        validationState
     }, isInField] = useFieldContext();
 
     const props: UseFieldMessagePropsReturn = isInField && {

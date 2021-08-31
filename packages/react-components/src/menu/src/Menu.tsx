@@ -265,11 +265,11 @@ export function InnerMenu({
     };
 
     const renderDivider = ({
-        key,
-        elementType: As,
-        ref,
         content,
-        props
+        elementType: As,
+        key,
+        props,
+        ref
     }: CollectionDivider) => (
         <As
             {...mergeProps(

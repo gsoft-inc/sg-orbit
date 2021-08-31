@@ -115,7 +115,7 @@ export function InnerButton(props: InnerButtonProps) {
         forwardedRef
     });
 
-    const { icon, text, "end-icon": endIcon, counter } = useSlots(children, useMemo(() => ({
+    const { counter, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

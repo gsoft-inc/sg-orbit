@@ -50,7 +50,7 @@ export function InnerField(props: InnerFieldProps) {
         toolbarProps
     );
 
-    const { fieldProps, fieldContext } = useField({
+    const { fieldContext, fieldProps } = useField({
         className,
         disabled,
         fluid,

@@ -41,8 +41,8 @@ export function InnerFieldset({
             )}
         >
             <span
-                id={labelId}
                 className="o-ui-fieldset-label"
+                id={labelId}
             >
                 {label}
             </span>

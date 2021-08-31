@@ -16,8 +16,8 @@ export function InnerValidMessage(props: InnerValidMessageProps) {
     const { isValid } = getValidationProps(validationState);
 
     const {
-        forwardedRef,
         children,
+        forwardedRef,
         ...rest
     } = mergeProps(props, messageProps);
 
@@ -28,8 +28,8 @@ export function InnerValidMessage(props: InnerValidMessageProps) {
     return (
         <FieldMessage
             {...rest}
-            tone="success"
             ref={forwardedRef}
+            tone="success"
         >
             {children}
         </FieldMessage>

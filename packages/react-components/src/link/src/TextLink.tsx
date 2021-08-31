@@ -97,7 +97,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         visited
     });
 
-    const { "start-icon": startIcon, text, icon } = useSlots(children, useMemo(() => ({
+    const { icon, "start-icon": startIcon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },

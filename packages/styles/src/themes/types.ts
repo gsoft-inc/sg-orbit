@@ -1,14 +1,17 @@
 import { FixedLengthArray } from "type-fest";
 
-export interface ColorSchemes<C, L, D> {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export type ColorSchemes<C, L, D> = {
     common?: Partial<C>;
     light: Partial<L>;
     dark: Partial<D>;
-}
+};
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
 
 export type SpaceValues = FixedLengthArray<string, 13>;
 
-export interface FontSizeValues {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export type FontSizeValues = {
     1: string;
     2: string;
     3: string;
@@ -20,7 +23,8 @@ export interface FontSizeValues {
     9: string;
     "subheadline": string;
     "headline": string;
-}
+};
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
 
 export type FontWeightValues = FixedLengthArray<number, 9>;
 
@@ -30,12 +34,14 @@ export type BorderWidthValues = FixedLengthArray<string, 5>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
-export interface BoxShadowRoles {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export type BoxShadowRoles = {
     "alias-skim": string;
     "alias-lifted": string;
     "alias-raised": string;
     "alias-floating": string;
-}
+};
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
 
 export type BorderRadiusValues = FixedLengthArray<string, 4>;
 
@@ -43,7 +49,8 @@ export type ZIndexValues = FixedLengthArray<number, 5>;
 
 export type ColorPalette = FixedLengthArray<string, 10>;
 
-export interface ColorPalettes {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export type ColorPalettes = {
     "white": string;
     "black": string;
     "marine": ColorPalette;
@@ -55,9 +62,11 @@ export interface ColorPalettes {
     "beetle": ColorPalette;
     "botanic": ColorPalette;
     "primary": ColorPalette;
-}
+};
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
 
-export interface ColorRoles {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+export type ColorRoles = {
     /* Background */
     "alias-bg-1": string;
     "alias-bg-1-hover": string;
@@ -162,7 +171,8 @@ export interface ColorRoles {
     "alias-text-warning-2": string;
     "alias-text-input-selection": string;
     "alias-text-input-placeholder": string;
-}
+};
+/* eslint-enable @typescript-eslint/consistent-type-definitions */
 
 export interface OrbitTheme {
     name: string;

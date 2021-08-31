@@ -103,15 +103,15 @@ function denormalizeValue(value: string[] | null, selectionMode: "single" | "mul
 }
 
 export function InnerTileGroup({
-    value,
+    children,
     defaultValue,
-    selectionMode = "none",
-    rowSize = 1,
+    disabled,
+    forwardedRef,
     onChange,
     orientation,
-    disabled,
-    children,
-    forwardedRef,
+    rowSize = 1,
+    selectionMode = "none",
+    value,
     ...rest
 }: InnerTileGroupProps) {
     const as = GroupType[selectionMode];

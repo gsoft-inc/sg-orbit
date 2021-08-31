@@ -48,6 +48,10 @@ export interface InnerCheckboxGroupProps extends
       */
     defaultValue?: string[];
     /**
+     * Whether or not the group elements are disabled.
+     */
+    disabled?: boolean;
+    /**
       * Called when any of the children is checked or unchecked.
       * @param {SyntheticEvent} event - React's original event.
       * @param {string[]} value - The new value.

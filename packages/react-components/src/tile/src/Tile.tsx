@@ -84,7 +84,7 @@ export function InnerTile(props: InnerTileProps) {
         }
     });
 
-    const { tileProps, markup } = useTile({
+    const { markup, tileProps } = useTile({
         active,
         children,
         focus,

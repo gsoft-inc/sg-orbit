@@ -27,13 +27,13 @@ export interface UseGroupFieldReturn {
 }
 
 export function useGroupField({
-    id,
-    validationState,
-    required,
-    fluid,
-    disabled,
     className,
-    forwardedRef
+    disabled,
+    fluid,
+    forwardedRef,
+    id,
+    required,
+    validationState
 }: UseGroupFieldProps): UseGroupFieldReturn {
     const ref = useMergedRefs(forwardedRef);
 

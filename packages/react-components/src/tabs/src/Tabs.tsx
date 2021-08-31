@@ -59,17 +59,17 @@ export interface InnerTabsProps extends InternalProps, OrbitComponentProps<typeo
 }
 
 export function InnerTabs({
-    id,
-    selectedKey: selectedKeyProp,
-    defaultSelectedKey,
-    onSelectionChange,
-    manual,
-    autoFocus,
-    fluid,
-    orientation = "horizontal",
     "aria-label": ariaLabel,
+    autoFocus,
     children,
+    defaultSelectedKey,
+    fluid,
     forwardedRef,
+    id,
+    manual,
+    onSelectionChange,
+    orientation = "horizontal",
+    selectedKey: selectedKeyProp,
     ...rest
 }: InnerTabsProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
@@ -126,9 +126,9 @@ export function InnerTabs({
                 }}
             >
                 <TabList
-                    tabs={tabs}
-                    autoFocus={autoFocus}
                     aria-label={ariaLabel}
+                    autoFocus={autoFocus}
+                    tabs={tabs}
                 />
                 <TabPanels panels={panels} />
             </TabsContext.Provider>

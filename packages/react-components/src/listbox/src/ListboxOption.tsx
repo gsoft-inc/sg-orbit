@@ -43,11 +43,11 @@ export function InnerListboxOption({
     ...rest
 }: InnerListboxOptionProps) {
     const {
-        selectedKeys,
-        onSelect,
-        onFocus,
         focusManager,
-        focusOnHover
+        focusOnHover,
+        onFocus,
+        onSelect,
+        selectedKeys
     } = useListboxContext();
 
     // TODO: should we use debouncing instead?
@@ -91,7 +91,7 @@ export function InnerListboxOption({
         setHasMouseOver(false);
     });
 
-    const { icon, avatar, text, description, "end-icon": endIcon } = useSlots(children, useMemo(() => ({
+    const { avatar, description, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
@@ -165,7 +165,7 @@ export function InnerListboxOption({
     );
 
     if (!isNil(tooltip)) {
-        const { props: tooltipProps, content: tooltipContent } = tooltip;
+        const { content: tooltipContent, props: tooltipProps } = tooltip;
 
         return (
             <TooltipTrigger

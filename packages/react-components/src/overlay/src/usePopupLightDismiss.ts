@@ -5,11 +5,11 @@ import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { isTargetParent } from "./isTargetParent";
 
 export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlayRef: RefObject<HTMLElement>, {
-    trigger,
-    onHide,
     hideOnEscape,
     hideOnLeave,
-    hideOnOutsideClick
+    hideOnOutsideClick,
+    onHide,
+    trigger
 }: UseOverlayLightDismissOptions = {}) {
     const [isHandled, setIsHandled] = useRefState(false);
 

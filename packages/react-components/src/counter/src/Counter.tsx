@@ -75,7 +75,7 @@ export function InnerCounter(props: InnerCounterProps) {
                 }
             )}
         >
-            <Text size={size} color="inherit">{children}</Text>
+            <Text color="inherit" size={size}>{children}</Text>
         </Box>
     );
 }

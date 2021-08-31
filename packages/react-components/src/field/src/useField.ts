@@ -24,13 +24,13 @@ export interface UseFieldReturn {
 }
 
 export function useField({
-    id,
-    validationState,
-    required,
-    fluid,
-    disabled,
     className,
-    forwardedRef
+    disabled,
+    fluid,
+    forwardedRef,
+    id,
+    required,
+    validationState
 }: UseFieldProps): UseFieldReturn {
     const ref = useMergedRefs(forwardedRef);
 
