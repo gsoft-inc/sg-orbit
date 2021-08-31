@@ -3,7 +3,7 @@ import "./Autocomplete.css";
 import { Box, BoxProps } from "../../box";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     Keys,
     OmitInternalProps,
@@ -37,7 +37,7 @@ interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerAutocompleteProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */

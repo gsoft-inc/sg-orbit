@@ -1,15 +1,36 @@
+import { Alignment, Flex, Orientation, useFlexAlignment } from "../../layout";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex, useFlexAlignment } from "../../layout";
-import { InternalProps, Keys, OmitInternalProps, OrbitComponentProps, isNil, isNumber, mergeProps, useAutoFocusChild, useFocusManager, useFocusScope, useKeyboardNavigation, useMergedRefs, useRovingFocus } from "../../shared";
+import {
+    InternalProps,
+    Keys,
+    OmitInternalProps,
+    OrbitComponentProps,
+    StyleProps,
+    isNumber,
+    mergeProps,
+    useAutoFocusChild,
+    useFocusManager,
+    useFocusScope,
+    useKeyboardNavigation,
+    useMergedRefs,
+    useRovingFocus
+} from "../../shared";
 import { ToolbarContext } from "./ToolbarContext";
 
 const DefaultElement = "div";
 
-export interface InnerToolbarProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerToolbarProps extends
+    Omit<StyleProps, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent">,
+    InternalProps,
+    OrbitComponentProps<typeof DefaultElement> {
     /**
      * The horizontal alignment of the elements.
      */
-    align?: "start" | "end" | "center";
+    alignX?: Alignment;
+    /**
+     * The vertical alignment of the elements.
+     */
+    alignY?: Alignment;
     /**
      * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
@@ -27,17 +48,9 @@ export interface InnerToolbarProps extends InternalProps, OrbitComponentProps<ty
      */
     fluid?: boolean;
     /**
-     * The space between the elements.
-     */
-    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
-    /**
      * The orientation of the elements.
      */
-    orientation?: "horizontal" | "vertical";
-    /**
-     * The vertical alignment of the elements.
-     */
-    verticalAlign?: "start" | "end" | "center";
+    orientation?: Orientation;
     /**
      * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */
@@ -62,8 +75,8 @@ const NavigationKeyBinding = {
 export function InnerToolbar({
     autoFocus,
     orientation = "horizontal",
-    align,
-    verticalAlign,
+    alignX,
+    alignY,
     gap = 5,
     wrap,
     disabled,
@@ -87,13 +100,13 @@ export function InnerToolbar({
 
     const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
 
-    const alignProps = useFlexAlignment(
-        orientation,
-        align,
-        orientation === "horizontal"
-            ? verticalAlign ?? "center"
-            : verticalAlign
-    );
+    const alignProps = useFlexAlignment({
+        alignX,
+        alignY: orientation === "horizontal"
+            ? alignY ?? "center"
+            : alignY,
+        orientation
+    });
 
     return (
         <Flex
@@ -105,7 +118,7 @@ export function InnerToolbar({
                     gap,
                     ref: containerRef,
                     role: "toolbar",
-                    wrap: !isNil(wrap) ? "wrap" : undefined
+                    wrap: wrap ? "wrap" : undefined
                 } as const,
                 alignProps,
                 arrowNavigationProps

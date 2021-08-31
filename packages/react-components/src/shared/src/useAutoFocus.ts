@@ -11,8 +11,6 @@ export interface AbstractAutoFocusOptions {
     onFocus?: (element?: HTMLElement) => void;
 }
 
-export type AutoFocusProp = boolean | number;
-
 function useAbstractAutoFocus({ delay, isDisabled, onFocus }: AbstractAutoFocusOptions) {
     useLayoutEffect(() => {
         const disposables = createDisposables();

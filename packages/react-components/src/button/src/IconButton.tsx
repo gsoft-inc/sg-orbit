@@ -3,14 +3,14 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not the icon button should autoFocus on render.
      */

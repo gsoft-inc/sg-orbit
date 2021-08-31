@@ -4,7 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     MergedRef,
     OmitInternalProps,
@@ -30,7 +30,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

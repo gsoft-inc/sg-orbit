@@ -1,4 +1,4 @@
-import { ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
+import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
 
 export interface SlotProps {
     /**
@@ -21,7 +21,7 @@ export interface InternalProps {
 // Omit forwardedRef by default, but allow extra props to be ignored
 export type OmitInternalProps<T extends { forwardedRef?: ForwardedRef<any> }, U extends string = never> = Omit<T, "forwardedRef" | U>;
 
-export interface InteractionStatesProps {
+export interface InteractionProps {
     /**
      * @ignore
      */
@@ -36,6 +36,12 @@ export interface InteractionStatesProps {
     hover?: boolean;
 }
 
-export type OrbitComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<T>> = Omit<ComponentProps<T>, "color">;
+export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
+
+// TODO: rename without the "Orbit" prefix.
+export type OrbitComponentProps<T extends JsxElement<T>> = Omit<ComponentProps<T>, "as" | "color" | "height" | "width" | "wrap">;
+
+// TODO: rename without the "Orbit" prefix.
+export type OrbitHtmlAttributes = Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width" | "wrap">;
 
 export type ValidationState = "valid" | "invalid";

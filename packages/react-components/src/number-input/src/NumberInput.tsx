@@ -16,7 +16,7 @@ import {
     useMemo
 } from "react";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     OmitInternalProps,
     cssModule,
@@ -42,7 +42,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerNumberInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
+export interface InnerNumberInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
     /**
      * Whether or not the input should autofocus on render.
      */

@@ -3,9 +3,9 @@ import "./Accordion.css";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading, Text } from "../../typography";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
-export interface InnerAccordionHeaderProps extends InternalProps, InteractionStatesProps {
+export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps {
     /**
      * React children.
      */

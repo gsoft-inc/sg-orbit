@@ -2,21 +2,13 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
-    /**
-     * Whether or not the link should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+export interface AbstractLinkProps {
     /**
      * Whether or not the link is disabled.
      */
@@ -26,21 +18,33 @@ export interface InnerLinkProps extends InternalProps, OrbitComponentProps<typeo
      */
     external?: boolean;
     /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     href?: string;
     /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     rel?: string;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target?: string;
+}
+
+export interface InnerLinkProps extends
+    AbstractLinkProps,
+    StyleProps,
+    InternalProps,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The link shape.
      */
     shape?: "rounded" | "circular" | "box";
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
 }
 
 export function InnerLink(props: InnerLinkProps) {

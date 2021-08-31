@@ -1,5 +1,5 @@
+import { Alignment, Orientation } from "../../layout";
 import { GapProp, ValidationState, cssModule, normalizeSize } from "../../shared";
-import { Orientation } from "../../layout";
 import { Ref } from "react";
 import { useFieldContext } from "../../field";
 
@@ -33,7 +33,7 @@ export interface UseGroupInputProps {
 
 export interface UseGroupInputReturn {
     groupProps: {
-        align?: "end" | "start";
+        align?: Alignment;
         "aria-disabled"?: boolean;
         "aria-invalid"?: boolean;
         "aria-orientation"?: Orientation;

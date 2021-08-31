@@ -15,7 +15,7 @@ import {
 } from "react";
 import { InputGroup, useInputGroupProps } from "../../input-group";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     OmitInternalProps,
     augmentElement,
@@ -41,7 +41,7 @@ export interface DatePreset {
     text: string;
 }
 
-export interface InnerDateInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
+export interface InnerDateInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
     /**
      * Whether or not the input should autofocus on render.
      */

@@ -1,6 +1,7 @@
+import { ApricotTheme } from "@orbit-ui/styles";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Flex2, Inline, InnerFlex2, InnerInline, InnerStack, Stack } from "@react-components/layout";
+import { Div, Flex, Inline, InnerFlex, InnerInline, InnerStack, Stack } from "@react-components/layout";
 
 <Meta
     title="Components/Flex"
@@ -20,36 +21,152 @@ import { Flex2, Inline, InnerFlex2, InnerInline, InnerStack, Stack } from "@reac
 
 ### Horizontal alignment
 
+A flex component can horizontally align items.
+
+<Preview>
+    <Story name="horizontal">
+        <Flex direction="row">
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
+    </Story>
+</Preview>
+
 ### Vertical alignment
 
 A flex component can vertically align items.
 
 <Preview>
     <Story name="vertical">
-        <Flex2 direction="column">
-            <div>Allo</div>
-            <div>Toto</div>
-        </Flex2>
+        <Flex direction="column">
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
     </Story>
 </Preview>
 
 ### Gap
 
+A flex component can add a gap between the items.
+
+<Preview>
+    <Story name="gap">
+        <Flex direction="row" gap={2}>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
+    </Story>
+</Preview>
+
 ### Align items
 
-### Align content
+A flex component can align the items along the cross axis. When direction is "column", this refers to horizontal alignment, and when direction is "row" it refers to vertical alignment.
+
+<Preview>
+    <Story name="align items">
+        <Flex alignItems="center" direction="column" gap={2}>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
+    </Story>
+</Preview>
 
 ### Justify content
 
+A flex component can align the items along the main axis. When direction is "column", this refers to vertical alignment, and when direction is "row" it refers to horizontal alignment.
+
+<Preview>
+    <Story name="justify content">
+        <Flex justifyContent="center" gap={2}>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
+    </Story>
+</Preview>
+
 ### Wrap
+
+A flex component items can wrap on multiple rows.
+
+<Preview scope={{ ApricotTheme }}>
+    <Story name="wrap">
+        <Flex wrap="wrap" width="800px">
+            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
+            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
+            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} width={12} height={12} key={x} />)}
+        </Flex>
+    </Story>
+</Preview>
 
 ### Reverse
 
+A flex component can reverse the items order.
+
+<Preview>
+    <Story name="reverse">
+        <Flex reverse gap={2}>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Flex>
+    </Story>
+</Preview>
+
 ### Nesting
+
+Flex components can be nested.
+
+<Preview>
+    <Story name="nesting">
+        <Flex gap={6}>
+            <Flex gap={2}>
+                <Div backgroundColor="primary-5" width={12} height={12} />
+                <Div backgroundColor="primary-5" width={12} height={12} />
+            </Flex>
+            <Flex direction="column" gap={2}>
+                <Div backgroundColor="beetle-5" width={12} height={12} />
+                <Div backgroundColor="beetle-5" width={12} height={12} />
+            </Flex>
+            <Flex gap={2}>
+                <Div backgroundColor="botanic-5" width={12} height={12} />
+                <Div backgroundColor="botanic-5" width={12} height={12} />
+            </Flex>
+        </Flex>
+    </Story>
+</Preview>
 
 ### Inline
 
+An inline utility component is available to facilitate horizontal alignment.
+
+<Preview>
+    <Story name="inline">
+        <Inline>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Inline>
+    </Story>
+</Preview>
+
 ### Stack
+
+A stack utility component is available to facilitate vertical alignment.
+
+<Preview>
+    <Story name="stack">
+        <Stack>
+            <Div backgroundColor="primary-5" width={12} height={12} />
+            <Div backgroundColor="beetle-5" width={12} height={12} />
+            <Div backgroundColor="botanic-5" width={12} height={12} />
+        </Stack>
+    </Story>
+</Preview>
 
 ## API
 
@@ -60,7 +177,7 @@ A flex component can vertically align items.
     compact
 />
 
-<ArgsTable of={InnerFlex2} sort="alpha" />
+<ArgsTable of={InnerFlex} sort="alpha" />
 
 ### Inline
 

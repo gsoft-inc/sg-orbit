@@ -1,21 +1,17 @@
 import "./ButtonGroup.css";
 
-import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
-import { Group } from "../../group";
+import { AbstractGroupProps, Group } from "../../group";
+import { Children, ComponentProps, ReactElement, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
 
-export interface InnerButtonGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "size"> {
-    /**
-      * The horizontal alignment of the buttons.
-      */
-    align?: "start" | "end" | "center";
-    /**
-      * React children.
-      */
-    children: ReactNode;
+export interface InnerButtonGroupProps extends
+    AbstractGroupProps,
+    SlotProps,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "children"> {
     /**
       * Whether or not the buttons are disabled.
       */
@@ -24,10 +20,6 @@ export interface InnerButtonGroupProps extends SlotProps, InternalProps, Omit<Or
       * Whether or not the group take up the width of its container.
       */
     fluid?: boolean;
-    /**
-     * The orientation of the buttons.
-     */
-    orientation?: "horizontal" | "vertical";
     /**
       * The buttons size.
       */
@@ -51,14 +43,14 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
-        orientation = "horizontal",
         align,
         as = DefaultElement,
-        size,
-        fluid,
-        disabled,
         children,
+        disabled,
+        fluid,
         forwardedRef,
+        orientation = "horizontal",
+        size,
         ...rest
     } = mergeProps(
         props,

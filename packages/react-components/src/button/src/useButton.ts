@@ -1,7 +1,7 @@
 import { AriaAttributes } from "react";
-import { InteractionStatesProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
-export interface UseButtonProps extends Partial<InternalProps>, InteractionStatesProps {
+export interface UseButtonProps extends Partial<InternalProps>, InteractionProps {
     autoFocus?: boolean | number;
     color?: "primary" | "secondary" | "danger" | "inherit";
     cssModule?: string;

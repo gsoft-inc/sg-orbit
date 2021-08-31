@@ -2,12 +2,12 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { useTile } from "./useTile";
 
 const DefaultElement = "button";
 
-export interface InnerTileProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerTileProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * Whether or not the tile should autoFocus on render.
      */

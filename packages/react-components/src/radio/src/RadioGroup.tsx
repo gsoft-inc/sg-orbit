@@ -1,5 +1,6 @@
 import "./RadioGroup.css";
 
+import { AbstractGroupProps, Group } from "../../group";
 import {
     CheckableContext,
     InternalProps,
@@ -7,6 +8,7 @@ import {
     OmitInternalProps,
     OrbitComponentProps,
     SlotProps,
+    ValidationState,
     augmentElement,
     isNil,
     isNumber,
@@ -22,35 +24,30 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { Group } from "../../group";
+import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioGroupProps extends
+    AbstractGroupProps,
+    SlotProps,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "children" | "onChange"> {
     /**
-      * Whether or not the radio group should autoFocus on render.
-      */
+     * Whether or not the radio group should autoFocus on render.
+     */
     autoFocus?: boolean | number;
     /**
-      * React children.
-      */
-    children: ReactNode;
-    /**
-      * The initial value of `value`.
-      */
+     * The initial value of `value`.
+     */
     defaultValue?: string;
     /**
-      * Whether or not the radio group is disabled.
-      */
+     * Whether or not the radio group is disabled.
+     */
     disabled?: boolean;
-    /**
-      * The space between the group elements.
-      */
-    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
       * Radio group name.
       */
@@ -63,29 +60,17 @@ export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<Orb
       */
     onChange?: (event: SyntheticEvent, value: string) => void;
     /**
-      * The orientation of the group elements.
-      */
-    orientation?: "horizontal" | "vertical";
-    /**
-      * Whether or not a user input is required before form submission.
-      */
+     * Whether or not a user input is required before form submission.
+     */
     required?: boolean;
     /**
-      * Invert the order of the radio button and his label.
-      */
-    reverse?: boolean;
-    /**
-      * Whether the group should display as "valid" or "invalid".
-      */
-    validationState?: "valid" | "invalid";
+     * Whether the group should display as "valid" or "invalid".
+     */
+    validationState?: ValidationState;
     /**
      * The value of the radio group.
      */
     value?: string | null;
-    /**
-      * Whether the group elements are forced onto one line or can wrap onto multiple lines
-      */
-    wrap?: boolean;
 }
 
 const NavigationKeyBinding = {
@@ -108,6 +93,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
+        as = DefaultElement,
         autoFocus,
         children,
         defaultValue,
@@ -185,6 +171,9 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         <Group
             {...mergeProps(
                 rest,
+                {
+                    as
+                },
                 navigationProps,
                 groupProps
             )}

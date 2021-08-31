@@ -3,7 +3,7 @@ import "./Popover.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     OmitInternalProps,
     OrbitComponentProps,
@@ -23,7 +23,7 @@ import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
-export interface InnerPopoverProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerPopoverProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

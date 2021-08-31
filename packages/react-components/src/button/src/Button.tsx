@@ -2,7 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, as, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, as, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerButtonProps extends SlotProps, InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not the button should autoFocus on render.
      */

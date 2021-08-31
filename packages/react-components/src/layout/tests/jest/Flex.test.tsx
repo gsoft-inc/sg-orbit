@@ -1,17 +1,17 @@
-import { Flex2, Flex2Props } from "@react-components/layout";
+import { Flex, FlexProps } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
-const Flexed = forwardRef<HTMLDivElement, Omit<Flex2Props, "children">>((props, ref) => {
+const Flexed = forwardRef<HTMLDivElement, Omit<FlexProps, "children">>((props, ref) => {
     return (
-        <Flex2
+        <Flex
             {...props}
             ref={ref}
         >
             <div>Alpha</div>
             <div>Bravo</div>
             <div>Charlie</div>
-        </Flex2>
+        </Flex>
     );
 });
 

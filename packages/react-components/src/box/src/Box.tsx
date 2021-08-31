@@ -1,9 +1,9 @@
-import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyleProps, omitProps, useStyledSystem } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, OrbitHtmlAttributes, SlotProps, StyleProps, omitProps, useStyledSystem } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBoxProps extends StyleProps, SlotProps, InternalProps, Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width"> {
+export interface InnerBoxProps extends StyleProps, SlotProps, InternalProps, OrbitHtmlAttributes {
     /**
     * @ignore
     */
@@ -146,8 +146,8 @@ export function InnerBox(props: InnerBoxProps) {
         justifyContent,
         left,
         lineHeight,
-        listStyleType,
         listStylePosition,
+        listStyleType,
         margin,
         marginBottom,
         marginLeft,

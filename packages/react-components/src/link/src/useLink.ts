@@ -1,7 +1,7 @@
 import { ForwardedRef } from "react";
-import { InteractionStatesProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
-export interface UseLinkProps extends InteractionStatesProps {
+export interface UseLinkProps extends InteractionProps {
     autoFocus?: boolean | number;
     color?: string;
     cssModule?: string;

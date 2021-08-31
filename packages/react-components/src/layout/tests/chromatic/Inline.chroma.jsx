@@ -1,14 +1,5 @@
-import { Box } from "@react-components/box";
-import { Inline } from "@react-components/layout";
+import { Div, Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
-
-function Div({ children, ...rest }) {
-    return (
-        <Box {...rest}>
-            {children}
-        </Box>
-    );
-}
 
 ////////////
 

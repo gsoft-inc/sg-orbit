@@ -57,7 +57,6 @@ module.exports = {
         },
         {
             files: ["**/tests/**/*.ts?(x)"],
-            plugins: ["sort-destructure-keys", "sort-keys-fix", "typescript-sort-keys"],
             rules: {
                 "react/jsx-sort-props": "off"
             }
