@@ -574,18 +574,6 @@ export const LineHeightClasses = {
     "normal": "o-ui-lh-normal"
 } as const;
 
-export const ListStyleTypeClasses = {
-    "disc": "o-ui-lst-d",
-    "square": "o-ui-lst-s",
-    "circle": "o-ui-lst-c",
-    "none": "o-ui-lst-none"
-} as const;
-
-export const ListStylePositionClasses = {
-    "outside": "o-ui-lsp-o",
-    "inside": "o-ui-lsp-i"
-} as const;
-
 export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-auto" };
 
 export const MarginTopClasses = { ...createOrbitSpacingScaleClasses("mt", true), "auto": "o-ui-mt-auto" };
@@ -646,6 +634,10 @@ export const ObjectFitClasses = {
     "fill": "o-ui-of-f",
     "none": "o-ui-of-n",
     "scale-down": "o-ui-of-sd"
+} as const;
+
+export const OutlineClasses = {
+    "none": "o-ui-o-n"
 } as const;
 
 export const OverflowClasses = {
@@ -876,10 +868,6 @@ export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> |
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
-export type ListStyleTypeProp = Simplify<keyof typeof ListStyleTypeClasses | GlobalValue>;
-
-export type ListStylePositionProp = Simplify<keyof typeof ListStylePositionClasses | GlobalValue>;
-
 export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand | GlobalValue>;
 
 export type MarginTopProp = Simplify<keyof typeof MarginTopClasses | GlobalValue>;
@@ -903,6 +891,8 @@ export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | Omit<SpaceV
 export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | Omit<SpaceValue, OrbitSpace>>;
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
+
+export type OutlineProp = Simplify<keyof typeof OutlineClasses | GlobalValue>;
 
 export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
 
@@ -1136,14 +1126,6 @@ export interface StyleProps {
     /**
      * @ignore
      */
-    listStylePosition?: ListStylePositionProp;
-    /**
-     * @ignore
-     */
-    listStyleType?: ListStyleTypeProp;
-    /**
-     * @ignore
-     */
     margin?: MarginProp;
     /**
      * @ignore
@@ -1189,6 +1171,10 @@ export interface StyleProps {
      * @ignore
      */
     objectFit?: ObjectFitProp;
+    /**
+     * @ignore
+     */
+    outline?: OutlineProp;
     /**
      * @ignore
      */
@@ -1388,8 +1374,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     justifyContent: createPropHandler(JustifyContentClasses),
     left: createPropHandler(LeftClasses),
     lineHeight: createPropHandler(LineHeightClasses),
-    listStyleType: createPropHandler(ListStyleTypeClasses),
-    listStylePosition: createPropHandler(ListStylePositionClasses),
     margin: createPropHandler(MarginClasses),
     marginBottom: createPropHandler(MarginBottomClasses),
     marginLeft: createPropHandler(MarginLeftClasses),
@@ -1402,6 +1386,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     minHeight: createPropHandler(MinHeightClasses),
     minWidth: createPropHandler(MinWidthClasses),
     objectFit: createPropHandler(ObjectFitClasses),
+    outline: createPropHandler(OutlineClasses),
     overflow: createPropHandler(OverflowClasses),
     overflowX: createPropHandler(OverflowXClasses),
     overflowY: createPropHandler(OverflowYClasses),
