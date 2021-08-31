@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
@@ -11,20 +11,36 @@ import { useTabsItems } from "./useTabsItems";
 
 const DefaultElement = "div";
 
-export interface InnerTabsProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTabsProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * Tabs title for screen readers.
+     */
+    "aria-label": string;
+    /**
+     * Whether or not the first focusable tab should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The initial value of `selectedKey` when uncontrolled.
+     */
+    defaultSelectedKey?: string;
+    /**
+     * Whether or not the tabs take up the width of the container.
+     */
+    fluid?: boolean;
     /**
      * The element's unique identifier.
      * @ignore
      */
     id?: string;
     /**
-     * A controlled selected key.
+     * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
-    selectedKey?: string | null;
-    /**
-     * The initial value of `selectedKey` when uncontrolled.
-     */
-    defaultSelectedKey?: string;
+    manual?: boolean;
     /**
      * Called when the selected tab change.
      * @param {SyntheticEvent} event - React's original event.
@@ -33,29 +49,13 @@ export interface InnerTabsProps extends InternalProps, ComponentProps<typeof Def
      */
     onSelectionChange?: (event: SyntheticEvent, key: string) => void;
     /**
-     * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
-     */
-    manual?: boolean;
-    /**
-     * Whether or not the first focusable tab should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not the tabs take up the width of the container.
-     */
-    fluid?: boolean;
-    /**
      * The orientation of the tabs elements.
      */
     orientation?: "horizontal" | "vertical";
     /**
-     * Tabs title for screen readers.
+     * A controlled selected key.
      */
-    "aria-label": string;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+    selectedKey?: string | null;
 }
 
 export function InnerTabs({
@@ -107,22 +107,22 @@ export function InnerTabs({
             {...mergeProps(
                 rest,
                 {
-                    id,
                     className: cssModule(
                         "o-ui-tabs",
                         fluid && "fluid",
                         orientation
                     ),
+                    id,
                     ref: forwardedRef
                 }
             )}
         >
             <TabsContext.Provider
                 value={{
-                    selectedKey: adjustedKey,
-                    onSelect: handleSelect,
                     isManual: manual,
-                    orientation
+                    onSelect: handleSelect,
+                    orientation,
+                    selectedKey: adjustedKey
                 }}
             >
                 <TabList

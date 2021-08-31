@@ -1,45 +1,97 @@
-import { AlignItemsProp, FlexDirectionProp, InternalProps, JustifyContentProp, OmitInternalProps, OrbitComponentProps, StyleProps, isNil, mergeProps } from "../../shared";
+import {
+    AlignContentProp,
+    AlignItemsProp,
+    ColumnGapProp,
+    FlexBasisProp,
+    FlexDirectionProp,
+    FlexWrapProp,
+    GapProp,
+    InternalProps,
+    JustifyContentProp,
+    OmitInternalProps,
+    OrbitComponentProps,
+    RowGapProp,
+    StyleProps,
+    isNil,
+    mergeProps
+} from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { Direction } from "./adapters";
 
 const DefaultElement = "div";
 
+export type ShortAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+
+export type ShortJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+
 export interface InnerFlex2Props extends
-    Omit<StyleProps, "alignItems" | "display" | "flexDirection" | "flexWrap" | "justifyContent">,
+    Omit<StyleProps,
+    "alignContent"
+    | "alignItems"
+    | "columnGap"
+    | "display"
+    | "flex"
+    | "flexBasis"
+    | "flexDirection"
+    | "flexWrap"
+    | "gap"
+    | "justifyContent"
+    | "rowGap">,
     InternalProps,
     Omit<OrbitComponentProps<typeof DefaultElement>, "wrap"> {
     /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
      */
-    direction?: "row" | "column";
-    /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
-    /**
-     * Whether or not to reverse the order of the elements.
-     */
-    reverse?: boolean;
+    alignContent?: AlignContentProp;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?: Omit<AlignItemsProp, "flex-start" | "flex-end">;
+    alignItems?: ShortAlignItemsProp;
     /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     * Alias for [flex basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis);
      */
-    justifyContent?: Omit<JustifyContentProp, "flex-start" | "flex-end">;
+    basis?: FlexBasisProp;
     /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
+     * React children
      */
-    wrap?: "nowrap" | "wrap" | "wrap-reverse";
+    children: ReactNode;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
+     */
+    columnGap?: ColumnGapProp;
+    /**
+     * Alias for [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: Direction;
     /**
      * Whether the elements take up all the space of their container.
      */
     fluid?: boolean;
     /**
-     * React children
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
-    children: ReactNode;
+    gap?: GapProp;
+    /**
+     * Whether or not the element generate line breaks before or after himself.
+     */
+    inline?: boolean;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
+     */
+    justifyContent?: ShortJustifyContentProp;
+    /**
+     * Whether or not to reverse the order of the elements.
+     */
+    reverse?: boolean;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap).
+     */
+    rowGap?: RowGapProp;
+    /**
+     * Alias for [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
+     */
+    wrap?: FlexWrapProp;
 }
 
 export function InnerFlex2({
@@ -62,16 +114,16 @@ export function InnerFlex2({
             {...mergeProps(
                 rest,
                 {
-                    display: inline ? "inline-flex" : "flex",
-                    flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                     alignItems: (alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
-                    justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
-                    flexWrap: wrap,
-                    width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined),
-                    height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
                     as,
-                    ref: forwardedRef
+                    display: inline ? "inline-flex" : "flex",
+                    flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
+                    flexWrap: wrap,
+                    height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
+                    justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
+                    ref: forwardedRef,
+                    width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
                 } as const
             )}
         >

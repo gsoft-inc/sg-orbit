@@ -6,6 +6,7 @@ import { Dialog } from "../../dialog";
 import {
     InternalProps,
     OmitInternalProps,
+    OrbitComponentProps,
     StyleProvider,
     augmentElement,
     getSlotKey,
@@ -16,32 +17,32 @@ import {
 
 const DefaultElement = "section";
 
-export interface InnerModalProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "role"> {
+export interface InnerModalProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "role"> {
+    /**
+      * React children.
+      */
+    children: ReactNode;
+    /**
+     * Whether or not the modal should close on outside interactions.
+     */
+    dismissable?: boolean;
+    /**
+     * Whether or not the modal should take almost all the available space.
+     */
+    fullscreen?: boolean;
     /**
      * The element's unique identifier.
      * @ignore
      */
     id?: string;
     /**
-     * Whether or not the modal should take almost all the available space.
-     */
-    fullscreen?: boolean;
-    /**
-     * Whether or not the modal should close on outside interactions.
-     */
-    dismissable?: boolean;
-    /**
-     * The z-index of the modal.
-     */
-    zIndex?: number;
-    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Record<string, any>;
     /**
-      * React children.
-      */
-    children: ReactNode;
+     * The z-index of the modal.
+     */
+    zIndex?: number;
 }
 
 function useModalContentMarkup(content: ReactElement) {
@@ -55,9 +56,9 @@ function useModalContentMarkup(content: ReactElement) {
         Children.forEach(content.props.children, (x: ReactElement, index) => {
             if (getSlotKey(x) === "card") {
                 cards.push(augmentElement(x, {
-                    key: index,
+                    className: "o-ui-modal-choice",
                     fluid: true,
-                    className: "o-ui-modal-choice"
+                    key: index
                 }));
 
                 hasEncounteredCard = true;
@@ -77,7 +78,6 @@ function useModalContentMarkup(content: ReactElement) {
         }
 
         return {
-            hasCards,
             contentMarkup: (
                 <Content {...content.props}>
                     {before}
@@ -94,7 +94,8 @@ function useModalContentMarkup(content: ReactElement) {
                     )}
                     {after}
                 </Content>
-            )
+            ),
+            hasCards
         };
     }, [content]);
 }
@@ -112,16 +113,16 @@ export function InnerModal({
         _: {
             required: ["heading", "content"]
         },
-        image: null,
-        illustration: null,
-        heading: null,
-        header: null,
+        button: null,
+        "button-group": null,
         content: {
             className: "o-ui-modal-content"
         },
         footer: null,
-        button: null,
-        "button-group": null
+        header: null,
+        heading: null,
+        illustration: null,
+        image: null
     }), []));
 
     const { hasCards, contentMarkup } = useModalContentMarkup(content);
@@ -144,10 +145,10 @@ export function InnerModal({
                 rest,
                 {
                     as,
-                    size,
                     dismissable,
-                    zIndex,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    size,
+                    zIndex
                 } as const
             )}
         >

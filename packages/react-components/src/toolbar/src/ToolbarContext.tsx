@@ -3,8 +3,8 @@ import { ReactNode, createContext, useContext } from "react";
 import { isNil } from "../../shared";
 
 export interface ToolbarContextType {
-    orientation?: Orientation;
     disabled?: boolean;
+    orientation?: Orientation;
 }
 
 export const ToolbarContext = createContext<ToolbarContextType>(null);

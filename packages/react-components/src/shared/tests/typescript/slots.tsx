@@ -13,8 +13,8 @@ const result = getSlots(node, {
         className: "o-ui-accordion-icon"
     },
     text: {
-        size: "inherit",
-        className: "o-ui-accordion-title"
+        className: "o-ui-accordion-title",
+        size: "inherit"
     }
 });
 

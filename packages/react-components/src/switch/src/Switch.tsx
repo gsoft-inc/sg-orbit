@@ -2,7 +2,7 @@ import "./Switch.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,43 +12,31 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * @ignore
-     */
-    name?: string;
-    /**
-     * @ignore
-     */
-    tabIndex?: number;
-    /**
-     * A controlled checked state value.
-     */
-    checked?: boolean | null;
-    /**
-     * The initial value of `checked` when uncontrolled.
-     */
-    defaultChecked?: boolean;
+export interface InnerSwitchProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the checkbox should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
-     * Whether or not a user input is required before form submission.
+     * A controlled checked state value.
      */
-    required?: boolean;
+    checked?: boolean | null;
     /**
-     * Whether or not the checkbox should display as "valid" or "invalid".
+     * React children.
      */
-    validationState?: "valid" | "invalid";
+    children?: ReactNode;
     /**
-     * A checkbox can vary in size.
+     * The initial value of `checked` when uncontrolled.
      */
-    size?: "sm" | "md";
+    defaultChecked?: boolean;
     /**
-     * Invert the order the checkmark box and the label.
+     * Whether or not the switch is disabled.
      */
-    reverse?: boolean;
+    disabled?: boolean;
+    /**
+     * @ignore
+     */
+    name?: string;
     /**
      * Called when the switch checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
@@ -57,13 +45,25 @@ export interface InnerSwitchProps extends InternalProps, InteractionStatesProps,
      */
     onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
-     * Whether or not the switch is disabled.
+     * Whether or not a user input is required before form submission.
      */
-    disabled?: boolean;
+    required?: boolean;
     /**
-     * React children.
+     * Invert the order the checkmark box and the label.
      */
-    children?: ReactNode;
+    reverse?: boolean;
+    /**
+     * A checkbox can vary in size.
+     */
+    size?: "sm" | "md";
+    /**
+     * @ignore
+     */
+    tabIndex?: number;
+    /**
+     * Whether or not the checkbox should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
 }
 
 export function InnerSwitch(props: InnerSwitchProps) {
@@ -103,26 +103,26 @@ export function InnerSwitch(props: InnerSwitchProps) {
     }
 
     const { wrapperProps, inputProps } = useCheckbox({
-        cssModule: "o-ui-switch",
-        isInField,
-        id,
-        checked,
-        defaultChecked,
-        autoFocus,
-        required,
-        validationState,
-        onChange,
-        size,
-        reverse,
-        name,
-        tabIndex,
         active,
-        focus,
-        hover,
-        disabled,
         ariaLabel,
         ariaLabelledBy,
-        forwardedRef
+        autoFocus,
+        checked,
+        cssModule: "o-ui-switch",
+        defaultChecked,
+        disabled,
+        focus,
+        forwardedRef,
+        hover,
+        id,
+        isInField,
+        name,
+        onChange,
+        required,
+        reverse,
+        size,
+        tabIndex,
+        validationState
     });
 
     const content = resolveChildren(children);
@@ -131,22 +131,22 @@ export function InnerSwitch(props: InnerSwitchProps) {
         _: {
             defaultWrapper: Text
         },
-        text: {
+        counter: {
+            className: "o-ui-switch-counter",
             color: "inherit",
+            pushed: true,
+            reverse,
             size,
-            className: "o-ui-switch-label"
+            variant: "divider"
         },
         icon: {
-            size: embeddedIconSize(size),
-            className: "o-ui-switch-icon"
+            className: "o-ui-switch-icon",
+            size: embeddedIconSize(size)
         },
-        counter: {
-            variant: "divider",
+        text: {
+            className: "o-ui-switch-label",
             color: "inherit",
-            size,
-            reverse,
-            pushed: true,
-            className: "o-ui-switch-counter"
+            size
         }
     }), [size, reverse]));
 

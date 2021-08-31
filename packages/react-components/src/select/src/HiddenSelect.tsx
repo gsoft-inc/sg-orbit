@@ -1,19 +1,18 @@
-import { ComponentProps } from "react";
-import { isNil, mergeProps } from "../../shared";
+import { OrbitComponentProps, isNil, mergeProps } from "../../shared";
 
-export interface HiddenSelectProps extends ComponentProps<"input"> {
+export interface HiddenSelectProps extends OrbitComponentProps<"input"> {
     /**
-     * Name of the element. Used by the server to identify the fields in form submits. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes).
+     * Name of the element. Used by the server to identify the fields in form submits.
      */
     name?: string;
-    /**
-     * A controlled selected key.
-     */
-    selectedKey?: string;
     /**
      * Whether or not a user input is required before form submission.
      */
     required?: boolean;
+    /**
+     * A controlled selected key.
+     */
+    selectedKey?: string;
     /**
      * Whether or not the select should display as "valid" or "invalid".
      */
@@ -30,10 +29,10 @@ export function HiddenSelect({ name, selectedKey, required, validationState, ...
             {...mergeProps(
                 rest,
                 {
-                    type: "hidden",
-                    value: selectedKey ?? "",
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
                     "aria-required": required ? true : undefined,
-                    "aria-invalid": validationState === "invalid" ? true : undefined
+                    type: "hidden",
+                    value: selectedKey ?? ""
                 }
             )}
         />

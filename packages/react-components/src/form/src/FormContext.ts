@@ -2,8 +2,8 @@ import { createContext, useContext } from "react";
 import { isNil } from "../../shared";
 
 export interface FormContextType {
-    fluid?: boolean;
     disabled?: boolean;
+    fluid?: boolean;
 }
 
 export const FormContext = createContext<FormContextType>(null);
@@ -15,8 +15,8 @@ export function useFormContext(): [FormContextType, boolean] {
         const { fluid, disabled } = context;
 
         const props = {
-            fluid,
-            disabled
+            disabled,
+            fluid
         };
 
         return [props, true];

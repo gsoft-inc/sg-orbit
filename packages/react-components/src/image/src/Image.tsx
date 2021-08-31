@@ -2,39 +2,39 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HeightProp, InternalProps, OmitInternalProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
+import { HeightProp, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
-export interface InnerImageProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The path to the image.
-     */
-    src?: string;
-    /**
-     * One or more strings separated by commas, indicating possible image sources for the user agent to use. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset).
-     */
-    srcSet?: string;
+export interface InnerImageProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * A text description of the image.
      */
     alt: string;
     /**
-     * Width and height in a single value.
+     * How the image should be resized to fit its container.
      */
-    size?: string;
+    fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
+    /**
+     * The alignment of the image within it's box.
+     */
+    position?: string;
     /**
      * The image shape.
      */
     shape?: "straight" | "rounded" | "circular";
     /**
-     * How the image should be resized to fit its container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
+     * Width and height in a single value.
      */
-    fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
+    size?: string;
     /**
-     * The alignment of the image within it's box. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
+     * The path to the image.
      */
-    position?: string;
+    src?: string;
+    /**
+     * One or more strings separated by commas, indicating possible image sources for the user agent to use.
+     */
+    srcSet?: string;
 }
 
 export function InnerImage({
@@ -53,18 +53,18 @@ export function InnerImage({
             {...mergeProps(
                 rest,
                 {
-                    width: (width ?? size) as WidthProp,
-                    height: (height ?? size) as HeightProp,
+                    as,
                     className: cssModule(
                         "o-ui-image",
                         shape
                     ),
+                    height: (height ?? size) as HeightProp,
+                    ref: forwardedRef,
                     style: {
                         objectFit: fit,
                         objectPosition: position
                     },
-                    as,
-                    ref: forwardedRef
+                    width: (width ?? size) as WidthProp
                 }
             )}
         />

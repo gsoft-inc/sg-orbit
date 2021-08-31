@@ -2,20 +2,20 @@ import { ElementType, ReactNode, createContext, useContext } from "react";
 import { isNil } from "../../shared";
 
 export interface FieldContextType {
-    id?: string;
-    inputId?: string;
-    labelId?: string;
-    messageId?: string;
-    required?: boolean;
     disabled?: boolean;
     fluid?: boolean;
-    validationState?: "valid" | "invalid";
     hasLabel?: boolean;
     hasMessage?: boolean;
-    labelClassName?: string;
+    id?: string;
     inputClassName?: string;
-    messageClassName?: string;
+    inputId?: string;
     isGroup?: boolean;
+    labelClassName?: string;
+    labelId?: string;
+    messageClassName?: string;
+    messageId?: string;
+    required?: boolean;
+    validationState?: "valid" | "invalid";
 }
 
 export const FieldContext = createContext<FieldContextType>(null);
@@ -44,7 +44,7 @@ export interface ClearFieldContextProps {
 export function ClearFieldContext({ children }: ClearFieldContextProps) {
     return (
         <FieldContext.Provider value={null}>
-            { children}
+            {children}
         </FieldContext.Provider>
     );
 }
@@ -54,11 +54,11 @@ export interface UseFieldLabelProps {
 }
 
 export interface UseFieldLabelPropsReturn {
+    as?: ElementType;
+    className?: string;
+    htmlFor?: string;
     id?: string;
     required?: boolean;
-    htmlFor?: string;
-    className?: string;
-    as?: ElementType;
 }
 
 export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFieldLabelPropsReturn, boolean] {
@@ -69,25 +69,25 @@ export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFiel
         : asProp;
 
     const props = isInField && {
-        id: labelId,
-        required,
-        htmlFor: as === "label" ? inputId : undefined,
+        as,
         className: labelClassName,
-        as
+        htmlFor: as === "label" ? inputId : undefined,
+        id: labelId,
+        required
     };
 
     return [props || {}, isInField];
 }
 
 export interface UseFieldInputPropsReturn {
-    validationState?: "valid" | "invalid";
-    id?: string;
-    required?: boolean;
+    "aria-describedby"?: string;
+    "aria-labelledby"?: string;
+    className?: string;
     disabled?: boolean;
     fluid?: boolean;
-    className?: string;
-    "aria-labelledby"?: string;
-    "aria-describedby"?: string;
+    id?: string;
+    required?: boolean;
+    validationState?: "valid" | "invalid";
 }
 
 export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
@@ -105,26 +105,26 @@ export function useFieldInputProps(): [UseFieldInputPropsReturn, boolean] {
     }, isInField] = useFieldContext();
 
     const props = isInField && {
-        validationState,
+        "aria-describedby": !isGroup ? (!isNil(messageId) ? messageId : undefined) : undefined,
+        "aria-labelledby": !isGroup ? (!isNil(labelId) ? labelId : undefined) : undefined,
+        className: inputClassName,
+        disabled,
+        fluid,
         id: !isGroup ? inputId : undefined,
         name: id,
         required,
-        disabled,
-        fluid,
-        className: inputClassName,
-        "aria-labelledby": !isGroup ? (!isNil(labelId) ? labelId : undefined) : undefined,
-        "aria-describedby": !isGroup ? (!isNil(messageId) ? messageId : undefined) : undefined
+        validationState
     };
 
     return [props || {}, isInField];
 }
 
 export interface UseFieldMessagePropsReturn {
-    id?: string;
-    fluid?: boolean;
-    validationState?: "valid" | "invalid";
-    className?: string;
     "aria-live"?: "polite";
+    className?: string;
+    fluid?: boolean;
+    id?: string;
+    validationState?: "valid" | "invalid";
 }
 
 export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
@@ -136,11 +136,11 @@ export function useFieldMessageProps(): [UseFieldMessagePropsReturn, boolean] {
     }, isInField] = useFieldContext();
 
     const props: UseFieldMessagePropsReturn = isInField && {
-        id: messageId,
-        fluid,
-        validationState,
+        "aria-live": "polite",
         className: messageClassName,
-        "aria-live": "polite"
+        fluid,
+        id: messageId,
+        validationState
     };
 
     return [props || {}, isInField];

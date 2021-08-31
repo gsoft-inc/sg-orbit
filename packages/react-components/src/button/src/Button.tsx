@@ -2,7 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, as, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, as, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -12,27 +12,23 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
-     * The button style to use.
+     * Whether or not the button should autoFocus on render.
      */
-    variant?: "solid" | "outline" | "ghost";
+    autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The button color accent.
      */
     color?: "primary" | "secondary" | "danger" | "inherit";
     /**
-     * The button shape.
-     */
-    shape?: "pill" | "rounded" | "circular";
-    /**
      * Whether or not the button content should takes additional space.
      */
     condensed?: boolean;
-    /**
-     * Whether or not the button should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
     /**
      * Whether or not the button take up the width of its container.
      */
@@ -42,31 +38,33 @@ export interface InnerButtonProps extends SlotProps, InternalProps, InteractionS
      */
     loading?: boolean;
     /**
+    * @ignore
+    */
+    onClick?: MouseEventHandler;
+    /**
+     * The button shape.
+     */
+    shape?: "pill" | "rounded" | "circular";
+    /**
      * A button can vary in size.
      */
     size?: "sm" | "md";
-    /**
-     * Whether or not the button is disabled.
-     */
-    disabled?: boolean;
     /**
      * The button type.
      */
     type?: "button" | "submit" | "reset";
     /**
-    * @ignore
-    */
-    onClick?: MouseEventHandler;
-    /**
-     * React children.
+     * The button style to use.
      */
-    children: ReactNode;
+    variant?: "solid" | "outline" | "ghost";
 }
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const condensedTextSize = createSizeAdapter({
     "sm": "md",
     "md": "lg"
 });
+/* eslint-emable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();

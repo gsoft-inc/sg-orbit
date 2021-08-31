@@ -2,23 +2,23 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerTextProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTextProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A text can vary in size.
+     * @ignore
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
+    children?: ReactNode;
     /**
      * A text can inherit it's parent color.
      */
     color?: "inherit";
     /**
-     * @ignore
+     * A text can vary in size.
      */
-    children?: ReactNode;
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
 }
 
 export function InnerText(props: InnerTextProps) {
@@ -41,12 +41,12 @@ export function InnerText(props: InnerTextProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-text",
                         size && size === "inherit" ? "inherit-size" : normalizeSize(size),
                         color && "inherit-color"
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

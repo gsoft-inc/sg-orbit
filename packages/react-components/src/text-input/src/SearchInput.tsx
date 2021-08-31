@@ -3,7 +3,7 @@ import "./SearchInput.css";
 import { BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, OrbitComponentProps, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
 import { MagnifierIcon } from "../../icons";
 import { TextInput } from "../../text-input";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -15,15 +15,42 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "input";
 
-export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerSearchInputProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
-     * A controlled value.
+     * Whether or not the input should autofocus on render.
      */
-    value?: string | null;
+    autoFocus?: boolean | number;
     /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: string;
+    /**
+     * Whether or not the input take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
+     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
+     */
+    icon?: ReactElement;
+    /**
+     * Whether or not to render a loader.
+     */
+    loading?: boolean;
+    /**
+     * @ignore
+     */
+    onChange?: ChangeEventHandler;
+    /**
+     * @ignore
+     */
+    onKeyDown?: KeyboardEventHandler;
+    /**
+     * Called when the input value change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {string} value - The new input value.
+     * @returns {void}
+     */
+    onValueChange?: (event: SyntheticEvent, value: string) => void;
     /**
      * Temporary text that occupies the input when it is empty.
      */
@@ -37,36 +64,9 @@ export interface InnerSearchInputProps extends InternalProps, InteractionStatesP
      */
     validationState?: "valid" | "invalid";
     /**
-     * Called when the input value change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string} value - The new input value.
-     * @returns {void}
+     * A controlled value.
      */
-    onValueChange?: (event: SyntheticEvent, value: string) => void;
-    /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
-     * @ignore
-     */
-    onKeyDown?: KeyboardEventHandler;
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
-     */
-    icon?: ReactElement;
-    /**
-     * Whether or not the input take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * Whether or not to render a loader.
-     */
-    loading?: boolean;
+    value?: string | null;
     /**
      * Additional props to render on the wrapper element.
      */
@@ -148,20 +148,20 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
             {...mergeProps(
                 rest,
                 {
-                    value: inputValue,
+                    as,
+                    autoComplete: "off",
+                    autoCorrect: "off",
                     button: clearButtonMarkup || undefined,
+                    icon: isUndefined(icon) ? <MagnifierIcon /> : icon,
                     onChange: handleChange,
                     onKeyDown: handleKeyDown,
-                    icon: isUndefined(icon) ? <MagnifierIcon /> : icon,
+                    ref: inputRef,
+                    spellCheck: "false",
+                    type: "search",
+                    value: inputValue,
                     wrapperProps: mergeProps(wrapperProps ?? {}, {
                         className: "o-ui-search-input"
-                    }),
-                    type: "search",
-                    autoCorrect: "off",
-                    spellCheck: "false",
-                    autoComplete: "off",
-                    as,
-                    ref: inputRef
+                    })
                 } as const
             )}
         />

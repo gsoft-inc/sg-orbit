@@ -3,23 +3,17 @@ import "./Tag.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
-export interface InnerTagProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTagProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The tag style to use.
+     * React children.
      */
-    variant?: "solid" | "outline";
-    /**
-     * Called when the remove button is clicked.
-     * @param {SyntheticEvent} event - React's original event.
-     * @returns {void}
-     */
-    onRemove?: (event: SyntheticEvent) => void;
+    children: ReactNode;
     /**
      * Whether or not the tag is disabled.
      */
@@ -29,15 +23,20 @@ export interface InnerTagProps extends InternalProps, InteractionStatesProps, Co
      */
     fluid?: boolean;
     /**
+     * Called when the remove button is clicked.
+     * @param {SyntheticEvent} event - React's original event.
+     * @returns {void}
+     */
+    onRemove?: (event: SyntheticEvent) => void;
+    /**
      * A tag can vary in size.
      */
     size?: "sm" | "md";
     /**
-     * React children.
+     * The tag style to use.
      */
-    children: ReactNode;
+    variant?: "solid" | "outline";
 }
-
 
 export function InnerTag({
     variant = "solid",
@@ -59,37 +58,37 @@ export function InnerTag({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            size: embeddedIconSize(size),
-            className: "o-ui-tag-start-icon"
-        },
-        dot: {
-            disabled,
-            className: "o-ui-tag-dot"
-        },
-        text: {
-            color: "inherit",
-            size,
-            className: "o-ui-tag-text"
-        },
-        "end-icon": {
-            size: embeddedIconSize(size),
-            className: "o-ui-tag-end-icon"
-        },
         counter: {
             color: "inherit",
-            size,
+            disabled,
             pushed: true,
+            size
+        },
+        dot: {
+            className: "o-ui-tag-dot",
             disabled
+        },
+        "end-icon": {
+            className: "o-ui-tag-end-icon",
+            size: embeddedIconSize(size)
+        },
+        icon: {
+            className: "o-ui-tag-start-icon",
+            size: embeddedIconSize(size)
+        },
+        text: {
+            className: "o-ui-tag-text",
+            color: "inherit",
+            size
         }
     }), [size, disabled]));
 
     const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
+        "aria-label": "Remove",
+        className: "o-ui-tag-remove-button",
         condensed: true,
         onClick: onRemove,
-        size,
-        className: "o-ui-tag-remove-button",
-        "aria-label": "Remove"
+        size
     });
 
     return (
@@ -97,6 +96,7 @@ export function InnerTag({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-tag",
                         variant,
@@ -111,7 +111,6 @@ export function InnerTag({
                         normalizeSize(size)
                     ),
                     disabled,
-                    as,
                     ref
                 }
             )}

@@ -1,23 +1,43 @@
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+    /**
+     * Defines a string value that labels the current element..
+     */
+    "aria-label": string;
+    /**
+     * Whether or not the toggle icon button should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
     /**
      * A controlled checked value.
      */
     checked?: boolean | null;
     /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The toggle icon button color accent.
+     */
+    color?: "primary" | "secondary";
+    /**
+     * Whether or not the toggle icon button content should takes additional space.
+     */
+    condensed?: boolean;
+    /**
      * The initial value of `checked` when uncontrolled.
      */
     defaultChecked?: boolean;
     /**
-     * 	The value to associate with when in a group.
+     * Whether or not the toggle icon button is disabled.
      */
-    value?: string;
+    disabled?: boolean;
     /**
      * Called when the toggle icon button checked state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -26,41 +46,21 @@ export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, In
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
     /**
-     * The style to use.
-     */
-    variant?: "solid" | "outline";
-    /**
-     * The toggle icon button color accent.
-     */
-    color?: "primary" | "secondary";
-    /**
      * The toggle icon button shape.
      */
     shape?: "rounded" | "circular";
-    /**
-     * Whether or not the toggle icon button content should takes additional space.
-     */
-    condensed?: boolean;
-    /**
-     * Whether or not the toggle icon button should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
     /**
      * A toggle icon button can vary in size.
      */
     size?: "sm" | "md";
     /**
-     * Whether or not the toggle icon button is disabled.
+     * 	The value to associate with when in a group.
      */
-    disabled?: boolean;
+    value?: string;
     /**
-     * Defines a string value that labels the current element..
+     * The style to use.
      */
-    "aria-label": string;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+    variant?: "solid" | "outline";
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
@@ -89,15 +89,15 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     }
 
     const { isChecked, buttonProps } = useToggleButton({
-        variant,
-        shape,
+        active,
         checked,
         defaultChecked,
-        value,
-        onChange,
-        active,
+        forwardedRef,
         isCheckable,
-        forwardedRef
+        onChange,
+        shape,
+        value,
+        variant
     });
 
     const content = resolveChildren(children, { isChecked }) as ReactElement;
@@ -106,8 +106,8 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    as: as,
-                    "aria-label": ariaLabel
+                    "aria-label": ariaLabel,
+                    as: as
                 },
                 rest,
                 buttonProps

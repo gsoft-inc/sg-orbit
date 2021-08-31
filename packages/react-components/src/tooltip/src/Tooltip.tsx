@@ -1,12 +1,12 @@
 import "./Tooltip.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTooltipProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */
@@ -24,10 +24,10 @@ export function InnerTooltip({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-tooltip",
-                    role: "tooltip",
                     as,
-                    ref: forwardedRef
+                    className: "o-ui-tooltip",
+                    ref: forwardedRef,
+                    role: "tooltip"
                 }
             )}
         >

@@ -2,21 +2,21 @@ import "./Accordion.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps, omitProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionPanelProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerAccordionPanelProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * The panel item props
      */
     panel?: {
         key: string;
     };
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
@@ -32,8 +32,8 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-accordion-panel",
                     as,
+                    className: "o-ui-accordion-panel",
                     ref: forwardedRef
                 }
             )}

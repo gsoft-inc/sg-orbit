@@ -2,45 +2,45 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
-    /**
-     * The link shape.
-     */
-    shape?: "rounded" | "circular" | "box";
+export interface InnerLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the link should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
      * Whether or not the link is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether or not this is an external link.
      */
-    children: ReactNode;
+    external?: boolean;
+    /**
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    href?: string;
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel?: string;
+    /**
+     * The link shape.
+     */
+    shape?: "rounded" | "circular" | "box";
+    /**
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target?: string;
 }
 
 export function InnerLink(props: InnerLinkProps) {
@@ -66,16 +66,16 @@ export function InnerLink(props: InnerLinkProps) {
     );
 
     const { linkProps, showNewTabIndicator } = useLink({
-        external,
-        shape,
-        autoFocus,
         active,
-        focus,
-        hover,
-        target,
+        autoFocus,
         disabled,
+        external,
+        focus,
+        forwardedRef,
+        hover,
         rel,
-        forwardedRef
+        shape,
+        target
     });
 
     return (

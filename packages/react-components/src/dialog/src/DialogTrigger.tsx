@@ -1,19 +1,23 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
-import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 
 const DefaultElement = "div";
 
-export interface InnerDialogTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether or not to show the dialog.
+     * React children.
      */
-    open?: boolean | null;
+    children: ReactNode;
     /**
      * The initial value of open when in auto controlled mode.
      */
     defaultOpen?: boolean;
+    /**
+     * Whether or not the dialog should close on outside interactions.
+     */
+    dismissable?: boolean;
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -22,17 +26,13 @@ export interface InnerDialogTriggerProps extends InternalProps, ComponentProps<t
      */
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
-     * Whether or not the dialog should close on outside interactions.
+     * Whether or not to show the dialog.
      */
-    dismissable?: boolean;
+    open?: boolean | null;
     /**
      * The z-index of of the dialog.
      */
     zIndex?: number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerDialogTrigger({
@@ -73,37 +73,37 @@ export function InnerDialogTrigger({
     }
 
     const triggerProps = useOverlayTrigger(isOpen, {
-        onShow: useEventCallback((event: SyntheticEvent) => {
-            open(event);
-        }),
+        hideOnLeave: false,
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
         }),
-        hideOnLeave: false
+        onShow: useEventCallback((event: SyntheticEvent) => {
+            open(event);
+        })
     });
 
     const overlayDismissProps = useOverlayLightDismiss(dialogRef, {
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
-        }),
         hideOnEscape: isOpen,
         hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable
+        hideOnOutsideClick: isOpen && dismissable,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            updateIsOpen(event, false);
+        })
     });
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const dialogMarkup = augmentElement(modal, {
         dismissable,
-        zIndex: zIndex + 1,
-        ref: dialogRef
+        ref: dialogRef,
+        zIndex: zIndex + 1
     });
 
     return (
         <DialogTriggerContext.Provider
             value={{
-                isOpen,
-                close
+                close,
+                isOpen
             }}
         >
             {triggerMarkup}
@@ -111,10 +111,10 @@ export function InnerDialogTrigger({
                 {...mergeProps(
                     rest,
                     {
-                        show: isOpen,
-                        zIndex,
                         as,
-                        ref: forwardedRef
+                        ref: forwardedRef,
+                        show: isOpen,
+                        zIndex
                     },
                     overlayDismissProps
                 )}

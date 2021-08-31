@@ -16,9 +16,9 @@ export function useMaskedInput({
     useEffect(() => {
         if (!isNil(inputElement)) {
             maskRef.current = createTextMaskInputElement({
+                guide: false,
                 inputElement,
-                mask,
-                guide: false
+                mask
             });
         }
     }, [inputElement, mask]);

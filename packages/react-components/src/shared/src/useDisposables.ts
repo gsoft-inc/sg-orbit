@@ -11,28 +11,24 @@ export function createDisposables() {
     const _disposables: DisposableFunction[] = [];
 
     const api = {
+        add(callback: DisposableFunction) {
+            _disposables.push(callback);
+        },
+        dispose() {
+            _disposables.splice(0).forEach(dispose => dispose());
+        },
+        nextFrame(...args: Parameters<typeof requestAnimationFrame>) {
+            api.requestAnimationFrame(...args);
+        },
         requestAnimationFrame(...args: Parameters<typeof requestAnimationFrame>) {
             const id = requestAnimationFrame(...args);
             api.add(() => cancelAnimationFrame(id));
         },
-
-        nextFrame(...args: Parameters<typeof requestAnimationFrame>) {
-            api.requestAnimationFrame(...args);
-        },
-
         // setTimeout(...args: Parameters<typeof setTimeout>) {
         setTimeout(handler: TimerHandler, timeout?: number, ...args: any[]) {
             // const timer = setTimeout(...args);
             const timer = setTimeout(handler, timeout, ...args);
             api.add(() => clearTimeout(timer));
-        },
-
-        add(callback: DisposableFunction) {
-            _disposables.push(callback);
-        },
-
-        dispose() {
-            _disposables.splice(0).forEach(dispose => dispose());
         }
     };
 

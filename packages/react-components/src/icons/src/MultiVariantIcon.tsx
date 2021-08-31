@@ -2,7 +2,11 @@ import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from 
 import { Icon } from "./Icon";
 import { OmitInternalProps, SlotProps, slot } from "../../shared";
 
-export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGElement>{
+export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGElement> {
+    /**
+    * @ignore
+    */
+    forwardedRef: ForwardedRef<any>;
     /**
      * An icon can vary in size.
      */
@@ -15,10 +19,6 @@ export interface InnerMultiVariantIconProps extends SlotProps, SVGProps<SVGSVGEl
      * An icon as a React component for the 32px variant.
      */
     src32: ElementType;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
 }
 
 export const InnerMultiVariantIcon = (({ src24: Component24, src32: Component32, size, forwardedRef, ...rest }: InnerMultiVariantIconProps) => {

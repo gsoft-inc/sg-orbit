@@ -46,9 +46,9 @@ export interface FocusManagerOptions {
 }
 
 export interface FocusOptions {
+    canFocus?: (element: HTMLElement) => boolean;
     onFocus?: (activeElement: HTMLElement, options: Omit<FocusManagerOptions, "onFocus">) => void;
     onNotFound?: (options: Omit<FocusManagerOptions, "onFocus">) => void;
-    canFocus?: (element: HTMLElement) => boolean;
 }
 
 export class FocusManager {

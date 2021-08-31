@@ -1,4 +1,4 @@
-import { Box } from "../../../box";
+import { Box } from "@react-components/box";
 import { Flex2 } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -106,10 +106,20 @@ stories("/row")
         </Flex2>
     )
     .add("wrap", () =>
-        <Flex2 wrap width="100px" direction="row">
-            <Div backgroundColor="primary-5">Alpha Alpha</Div>
+        <Flex2 wrap="wrap" width="25px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex2>
+    )
+    .add("wrap reverse", () =>
+        <Flex2 wrap="wrap-reverse" width="25px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+            <Div backgroundColor="primary-5">Delta</Div>
+            <Div backgroundColor="primary-5">Echo</Div>
+            <Div backgroundColor="primary-5">Foxtrot</Div>
         </Flex2>
     )
     .add("reverse", () =>
@@ -178,10 +188,20 @@ stories("/column")
         </Flex2>
     )
     .add("wrap", () =>
-        <Flex2 wrap height="100px" direction="column">
-            <Div backgroundColor="primary-5">Alpha Alpha</Div>
+        <Flex2 wrap="wrap" height="25px" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex2>
+    )
+    .add("wrap reverse", () =>
+        <Flex2 wrap="wrap-reverse" height="25px" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+            <Div backgroundColor="primary-5">Delta</Div>
+            <Div backgroundColor="primary-5">Echo</Div>
+            <Div backgroundColor="primary-5">Foxtrot</Div>
         </Flex2>
     )
     .add("reverse", () =>

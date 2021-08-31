@@ -1,18 +1,18 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "li";
 
-export interface InnerMenuSectionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The section name.
-     */
-    title?: string;
+export interface InnerMenuSectionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * The section name.
+     */
+    title?: string;
 }
 
 export function InnerMenuSection({
@@ -28,10 +28,10 @@ export function InnerMenuSection({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-menu-section",
                     as,
-                    role: "presentation",
-                    ref: forwardedRef
+                    className: "o-ui-menu-section",
+                    ref: forwardedRef,
+                    role: "presentation"
                 }
             )}
         >

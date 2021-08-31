@@ -8,6 +8,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -25,30 +26,7 @@ import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * A controlled set of expanded item keys.
-     */
-    expandedKeys?: string[] | null;
-    /**
-     * The initial value of `expandedKeys` when uncontrolled.
-     */
-    defaultExpandedKeys?: string[];
-    /**
-     * Called when an accordion item is toggled.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {String[]} keys - The keys of the expanded items.
-     * @returns {void}
-     */
-    onExpansionChange?: (event: SyntheticEvent, keys: string[]) => void;
-    /**
-     * The type of expansion that is allowed.
-     */
-    expansionMode?: "single" | "multiple";
-    /**
-     * The accordion style to use.
-     */
-    variant?: "borderless" | "bordered";
+export interface InnerAccordionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */
@@ -57,6 +35,29 @@ export interface InnerAccordionProps extends InternalProps, ComponentProps<typeo
      * React children
      */
     children: ReactNode;
+    /**
+     * The initial value of `expandedKeys` when uncontrolled.
+     */
+    defaultExpandedKeys?: string[];
+    /**
+     * A controlled set of expanded item keys.
+     */
+    expandedKeys?: string[] | null;
+    /**
+     * The type of expansion that is allowed.
+     */
+    expansionMode?: "single" | "multiple";
+    /**
+     * Called when an accordion item is toggled.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {String[]} keys - The keys of the expanded items.
+     * @returns {void}
+     */
+    onExpansionChange?: (event: SyntheticEvent, keys: string[]) => void;
+    /**
+     * The accordion style to use.
+     */
+    variant?: "borderless" | "bordered";
 }
 
 export function InnerAccordion({
@@ -85,15 +86,15 @@ export function InnerAccordion({
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     });
 
     const handleToggle = useEventCallback((event: SyntheticEvent, toggledKey: string) => {
@@ -121,12 +122,12 @@ export function InnerAccordion({
             {...mergeProps(
                 rest,
                 {
-                    id: accordionId,
+                    as,
                     className: cssModule(
                         "o-ui-accordion",
                         variant
                     ),
-                    as,
+                    id: accordionId,
                     ref: containerRef
                 },
                 navigationProps
@@ -146,9 +147,9 @@ export function InnerAccordion({
                 }) => (
                     <AccordionItem
                         item={{
+                            header,
                             id: itemId,
                             key,
-                            header,
                             panel
                         }}
                         key={key}

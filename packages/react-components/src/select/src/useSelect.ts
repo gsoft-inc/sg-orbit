@@ -20,27 +20,27 @@ import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
-    id?: string;
-    open?: boolean | null;
-    defaultOpen?: boolean;
-    selectedKey?: string | null;
-    defaultSelectedKey?: string;
-    validationState?: "valid" | "invalid";
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
-    direction: "bottom" | "top";
     align?: "start" | "end";
-    autoFocus?: boolean | number;
-    disabled?: boolean;
-    readOnly?: boolean;
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
     allowResponsiveMenuWidth?: boolean;
+    ariaDescribedBy?: string;
     ariaLabel?: string;
     ariaLabelledBy?: string;
-    ariaDescribedBy?: string;
+    autoFocus?: boolean | number;
+    defaultOpen?: boolean;
+    defaultSelectedKey?: string;
+    direction: "bottom" | "top";
+    disabled?: boolean;
+    id?: string;
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    onSelectionChange?: (event: SyntheticEvent, selectedKey: string) => void;
+    open?: boolean | null;
     overlayProps?: Partial<OverlayProps>;
+    readOnly?: boolean;
     ref: Ref<HTMLElement>;
+    selectedKey?: string | null;
+    validationState?: "valid" | "invalid";
 }
 
 export function useSelect(children: ReactNode, {
@@ -83,20 +83,20 @@ export function useSelect(children: ReactNode, {
         triggerProps: { ref: popupTriggerRef, ...triggerProps },
         overlayProps
     } = usePopup("listbox", {
-        id: menuId,
-        open: openProp,
-        defaultOpen,
-        onOpenChange: handleOpenChange,
-        hideOnEscape: true,
-        hideOnLeave: true,
-        restoreFocus: true,
-        trigger: "click",
-        position: `${direction}-${align}` as const,
-        offset: [0, 4],
-        disabled: disabled || readOnly,
         allowFlip,
         allowPreventOverflow,
-        keyProp: OptionKeyProp
+        defaultOpen,
+        disabled: disabled || readOnly,
+        hideOnEscape: true,
+        hideOnLeave: true,
+        id: menuId,
+        keyProp: OptionKeyProp,
+        offset: [0, 4],
+        onOpenChange: handleOpenChange,
+        open: openProp,
+        position: `${direction}-${align}` as const,
+        restoreFocus: true,
+        trigger: "click"
     });
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth({ isDisabled: !allowResponsiveMenuWidth || !isNil(menuWidth) });
@@ -145,8 +145,8 @@ export function useSelect(children: ReactNode, {
     });
 
     useAutoFocus(triggerRef, {
-        isDisabled: !autoFocus || isOpen,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus || isOpen
     });
 
     const nodes = useCollection(children);
@@ -159,30 +159,25 @@ export function useSelect(children: ReactNode, {
     const triggerId = useId(id, "o-ui-select-trigger");
 
     return {
-        selectedKey,
-        setSelectedKey: updateSelectedKey,
-        selectedItem: isNil(selectedItem) ? undefined : {
-            text: text?.props?.children ?? stringValue ?? "",
-            icon,
-            endIcon,
-            avatar
-        },
-        isOpen,
-        open,
         close,
         focusScope,
-        triggerProps: mergeProps(
-            {
-                id: triggerId,
-                onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
-                disabled,
-                "aria-label": ariaLabel,
-                "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
-                "aria-describedby": ariaDescribedBy,
-                ref: triggerRef
-            },
-            triggerProps
-        ),
+        isOpen,
+        listboxProps: {
+            "aria-describedby": ariaDescribedBy,
+            "aria-label": ariaLabel,
+            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined,
+            // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
+            // a value because the listbox re-render before the exit animation is done.
+            autoFocus: isOpen,
+            defaultFocusTarget: focusTargetRef.current,
+            fluid: true,
+            focusOnHover: true,
+            nodes,
+            onSelectionChange: handleListboxSelectionChange,
+            selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
+            validationState
+        },
+        open,
         overlayProps: mergeProps(
             {
                 className: "o-ui-select-menu",
@@ -194,20 +189,25 @@ export function useSelect(children: ReactNode, {
             menuProps,
             overlayProps
         ),
-        listboxProps: {
-            nodes,
-            selectedKeys: useMemo(() => arrayify(selectedKey), [selectedKey]),
-            validationState,
-            onSelectionChange: handleListboxSelectionChange,
-            // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
-            // a value because the listbox re-render before the exit animation is done.
-            autoFocus: isOpen,
-            defaultFocusTarget: focusTargetRef.current,
-            focusOnHover: true,
-            fluid: true,
-            "aria-label": ariaLabel,
-            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? triggerId : undefined,
-            "aria-describedby": ariaDescribedBy
-        }
+        selectedItem: isNil(selectedItem) ? undefined : {
+            avatar,
+            endIcon,
+            icon,
+            text: text?.props?.children ?? stringValue ?? ""
+        },
+        selectedKey,
+        setSelectedKey: updateSelectedKey,
+        triggerProps: mergeProps(
+            {
+                "aria-describedby": ariaDescribedBy,
+                "aria-label": ariaLabel,
+                "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                disabled,
+                id: triggerId,
+                onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
+                ref: triggerRef
+            },
+            triggerProps
+        )
     };
 }

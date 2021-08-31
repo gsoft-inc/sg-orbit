@@ -4,7 +4,7 @@ import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { InternalProps, OmitInternalProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
@@ -25,12 +25,12 @@ const MessageContent = forwardRef<any, InnerMessageContentProps>(({
         >
             <StyleProvider
                 value={{
+                    heading: {
+                        className: "o-ui-message-title",
+                        size: "2xs"
+                    },
                     link: {
                         color: "inherit"
-                    },
-                    heading: {
-                        size: "2xs",
-                        className: "o-ui-message-title"
                     }
                 }}
             >
@@ -40,7 +40,21 @@ const MessageContent = forwardRef<any, InnerMessageContentProps>(({
     );
 });
 
-export interface InnerMessageProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMessageProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * Called when the dismiss button is clicked.
+     * @param {MouseEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onDismiss?: (event: MouseEvent) => void;
+    /**
+     * @ignore
+     */
+    role?: string;
     /**
      * A controlled show value.
      */
@@ -49,34 +63,20 @@ export interface InnerMessageProps extends InternalProps, ComponentProps<typeof 
      * The style to use.
      */
     variant?: "informative" | "warning" | "positive" | "negative";
-    /**
-     * Called when the dismiss button is clicked.
-     * @param {MouseEvent} event - React's original synthetic event.
-     * @returns {void}
-     */
-    onDismiss?: (event: MouseEvent) => void;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * @ignore
-     */
-    role?: string;
 }
 
 const Role = {
     informative: "status",
-    warning: "alert",
+    negative: "alert",
     positive: "status",
-    negative: "alert"
+    warning: "alert"
 };
 
 const Icon = {
     informative: <InfoIcon />,
-    warning: <WarningIcon />,
+    negative: <InfoIcon />,
     positive: <CheckIcon />,
-    negative: <InfoIcon />
+    warning: <WarningIcon />
 };
 
 export function InnerMessage({
@@ -95,16 +95,16 @@ export function InnerMessage({
         _: {
             defaultWrapper: Content
         },
-        content: {
-            className: "o-ui-message-content",
-            as: MessageContent
-        },
         button: {
-            variant: "ghost",
+            className: "o-ui-message-action",
             color: "inherit",
             condensed: true,
             size: "sm",
-            className: "o-ui-message-action"
+            variant: "ghost"
+        },
+        content: {
+            as: MessageContent,
+            className: "o-ui-message-content"
         }
     }), []));
 
@@ -127,16 +127,16 @@ export function InnerMessage({
             {...mergeProps(
                 rest,
                 {
-                    show,
-                    enter: "o-ui-fade-in",
-                    leave: "o-ui-fade-out",
+                    as,
                     className: cssModule(
                         "o-ui-message",
                         variant
                     ),
+                    enter: "o-ui-fade-in",
+                    leave: "o-ui-fade-out",
+                    ref,
                     role: (roleProp ?? Role[variant]) ?? "alert",
-                    as,
-                    ref
+                    show
                 }
             )}
         >

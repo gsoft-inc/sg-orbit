@@ -5,31 +5,31 @@ import { TooltipTrigger, parseTooltipTrigger } from "../../tooltip";
 import { isNil, resolveChildren } from "../../shared";
 
 export interface CollectionNode {
-    key: string;
-    index: number;
-    type: NodeType;
     elementType?: ElementType | string;
-    ref: Ref<any>;
+    index: number;
+    key: string;
     props: Record<string, any>;
+    ref: Ref<any>;
+    type: NodeType;
 }
 
 export interface CollectionItem extends CollectionNode {
-    type: NodeType.item;
     content: ElementType | ReactElement[];
     tooltip?: {
-        props: Record<string, any>;
         content: ReactElement;
+        props: Record<string, any>;
     };
+    type: NodeType.item;
 }
 
 export interface CollectionSection extends CollectionNode {
-    type: NodeType.section;
     items?: CollectionItem[];
+    type: NodeType.section;
 }
 
 export interface CollectionDivider extends CollectionNode {
-    type: NodeType.divider;
     content: ElementType | ReactElement[];
+    type: NodeType.divider;
 }
 
 export enum NodeType {
@@ -52,13 +52,13 @@ export function isItem(node: CollectionNode): node is CollectionItem {
 
 export function createCollectionItem({ key, index, elementType, ref, content, props }: CollectionItem) {
     return {
-        key,
-        index,
-        type: NodeType.item,
-        elementType,
-        ref,
         content,
-        props
+        elementType,
+        index,
+        key,
+        props,
+        ref,
+        type: NodeType.item
     };
 }
 
@@ -69,14 +69,14 @@ export class CollectionBuilder {
         const index = incrementIndex();
 
         return {
-            key: !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString(),
-            index,
-            type: NodeType.item,
+            content: children,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Item ? element.type : undefined,
+            index,
+            key: !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString(),
+            props,
             ref: (element as RefAttributes<any>).ref,
-            content: children,
-            props
+            type: NodeType.item
         };
     }
 
@@ -91,14 +91,14 @@ export class CollectionBuilder {
         const items = Children.toArray(resolveChildren(children)).filter(x => x).map((x: ReactElement) => that.parseItem(x, incrementIndex));
 
         return {
-            key: index.toString(),
-            index,
-            type: NodeType.section,
             // Use a custom type if available otherwise let the final component choose his type.
             elementType: element.type !== Section ? element.type : undefined,
-            ref: (element as RefAttributes<any>).ref,
+            index,
+            items,
+            key: index.toString(),
             props,
-            items
+            ref: (element as RefAttributes<any>).ref,
+            type: NodeType.section
         };
     }
 
@@ -108,13 +108,13 @@ export class CollectionBuilder {
         const index = incrementIndex();
 
         return {
-            key: index.toString(),
-            index,
-            type: NodeType.divider,
-            elementType: Divider,
-            ref: (element as RefAttributes<any>).ref,
             content: children,
-            props
+            elementType: Divider,
+            index,
+            key: index.toString(),
+            props,
+            ref: (element as RefAttributes<any>).ref,
+            type: NodeType.divider
         };
     }
 
@@ -126,8 +126,8 @@ export class CollectionBuilder {
         const parsedItem = this.parseItem(item, incrementIndex);
 
         parsedItem.tooltip = {
-            props,
-            content: tooltip
+            content: tooltip,
+            props
         };
 
         return parsedItem;

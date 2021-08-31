@@ -7,6 +7,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -38,19 +39,35 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A controlled set of the selected item keys.
+     * Whether or not the menu should autofocus on render.
      */
-    selectedKeys?: string[] | null;
+    autoFocus?: boolean | number;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * Default focus target when enabling autofocus.
+     */
+    defaultFocusTarget?: string;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
     defaultSelectedKeys?: string[];
     /**
-     * Whether or not the menu should display as "valid" or "invalid".
+     * @ignore
      */
-    validationState?: "valid" | "invalid";
+    disabled?: boolean;
+    /**
+     * Whether or not the listbox take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
+     * A collection of nodes to render instead of children. It should only be used if you embed a Menu inside another component.
+     */
+    nodes?: CollectionNode[];
     /**
      * Called when the selected keys change.
      * @param {SyntheticEvent} event - React's original event.
@@ -59,33 +76,17 @@ export interface InnerMenuProps extends InternalProps, ComponentProps<typeof Def
      */
     onSelectionChange?: (event: SyntheticEvent, keys: string[]) => void;
     /**
+     * A controlled set of the selected item keys.
+     */
+    selectedKeys?: string[] | null;
+    /**
      * The type of selection that is allowed.
      */
     selectionMode?: SelectionMode;
     /**
-     * A collection of nodes to render instead of children. It should only be used if you embed a Menu inside another component.
+     * Whether or not the menu should display as "valid" or "invalid".
      */
-    nodes?: CollectionNode[];
-    /**
-     * Whether or not the menu should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Default focus target when enabling autofocus.
-     */
-    defaultFocusTarget?: string;
-    /**
-     * Whether or not the listbox take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * @ignore
-     */
-    disabled?: boolean;
+    validationState?: "valid" | "invalid";
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -191,18 +192,20 @@ export function InnerMenu({
     });
 
     useAutoFocusChild(focusManager, {
-        target: selectedKeys[0] ?? defaultFocusTarget,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        target: selectedKeys[0] ?? defaultFocusTarget
     });
 
     const scrollableProps = useScrollableCollection(containerRef, {
-        maxHeight: 12 * 32, // 32px is the default menu item height.
-        paddingHeight: 2 * 1, // A menu have a border-size of 1px
-        itemSelector: ".o-ui-menu-item",
-        sectionSelector: ".o-ui-menu-section-title",
+        disabled: selectionMode === "none",
         dividerSelector: ".o-ui-menu-divider",
-        disabled: selectionMode === "none"
+        // A menu have a border-size of 1px
+        itemSelector: ".o-ui-menu-item",
+        maxHeight: 12 * 32,
+        // 32px is the default menu item height.
+        paddingHeight: 2 * 1,
+        sectionSelector: ".o-ui-menu-section-title"
     });
 
     const nodes = useCollectionNodes(children, nodesProp);
@@ -223,9 +226,9 @@ export function InnerMenu({
                 props,
                 {
                     id: `${rootId}-item-${index + 1}`,
+                    item: { key, tooltip },
                     key,
-                    ref,
-                    item: { key, tooltip }
+                    ref
                 }
             )}
         >
@@ -272,8 +275,8 @@ export function InnerMenu({
             {...mergeProps(
                 props,
                 {
-                    className: "o-ui-menu-divider",
                     as: "li",
+                    className: "o-ui-menu-divider",
                     key,
                     ref
                 }
@@ -288,30 +291,30 @@ export function InnerMenu({
             {...mergeProps(
                 rest,
                 {
-                    id: rootId,
+                    "aria-invalid": validationState === "invalid" ? true : undefined,
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                    "aria-orientation": "vertical",
+                    as,
                     className: cssModule(
                         "o-ui-menu",
                         fluid && "fluid",
                         selectionMode !== "none" && "with-selection",
                         validationState
                     ),
+                    id: rootId,
                     onKeyDown: handleKeyDown,
-                    role: "menu",
-                    "aria-orientation": "vertical",
-                    "aria-label": ariaLabel,
-                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
-                    "aria-invalid": validationState === "invalid" ? true : undefined,
-                    as,
-                    ref: containerRef
+                    ref: containerRef,
+                    role: "menu"
                 } as const,
                 scrollableProps
             )}
         >
             <MenuContext.Provider
                 value={{
+                    onSelect: handleSelectItem,
                     selectedKeys,
-                    selectionMode,
-                    onSelect: handleSelectItem
+                    selectionMode
                 }}
             >
                 {nodes.map(node => {

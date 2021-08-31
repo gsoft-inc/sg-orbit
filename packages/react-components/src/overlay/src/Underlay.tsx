@@ -2,11 +2,11 @@ import "./Underlay.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerUnderlayProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerUnderlayProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The z-index of the underlay.
      */
@@ -24,13 +24,13 @@ export function InnerUnderlay({
             {...mergeProps(
                 rest,
                 {
+                    "aria-hidden": true,
+                    as,
                     className: "o-ui-underlay",
+                    ref: forwardedRef,
                     style: {
                         zIndex
-                    },
-                    as,
-                    "aria-hidden": true,
-                    ref: forwardedRef
+                    }
                 }
             )}
         />

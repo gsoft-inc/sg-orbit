@@ -1,18 +1,18 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps, useId } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, useId } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFieldsetProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * A label identifying the group.
-     */
-    label: string;
+export interface InnerFieldsetProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * A label identifying the group.
+     */
+    label: string;
 }
 
 export function InnerFieldset({
@@ -31,12 +31,12 @@ export function InnerFieldset({
             {...mergeProps(
                 rest,
                 {
-                    id: rootId,
-                    className: "o-ui-fieldset",
-                    role: "group",
                     "aria-labelledby": labelId,
                     as,
-                    ref: forwardedRef
+                    className: "o-ui-fieldset",
+                    id: rootId,
+                    ref: forwardedRef,
+                    role: "group"
                 }
             )}
         >

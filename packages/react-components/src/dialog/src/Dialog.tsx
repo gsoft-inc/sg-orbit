@@ -8,6 +8,7 @@ import {
     InternalProps,
     MergedRef,
     OmitInternalProps,
+    OrbitComponentProps,
     cssModule,
     isNil,
     isString,
@@ -29,7 +30,15 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * Whether or not the dialog should close on outside interactions.
+     */
+    dismissable?: boolean;
     /**
      * The dialog role.
      */
@@ -39,21 +48,13 @@ export interface InnerDialogProps extends InternalProps, InteractionStatesProps,
      */
     size?: "sm" | "md" | "lg" | "fullscreen";
     /**
-     * Whether or not the dialog should close on outside interactions.
-     */
-    dismissable?: boolean;
-    /**
-     * The z-index of the dialog.
-     */
-    zIndex?: number;
-    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Record<string, any>;
     /**
-     * React children.
+     * The z-index of the dialog.
      */
-    children: ReactNode;
+    zIndex?: number;
 }
 
 function useHideBodyScrollbar() {
@@ -191,36 +192,36 @@ export function InnerDialog({
         _: {
             required: ["heading", "content"]
         },
-        image: null,
-        illustration: {
-            orientation: "vertical",
-            className: "o-ui-dialog-illustration"
-        },
-        heading: {
-            id: `${dialogId}-heading`,
-            className: "o-ui-dialog-heading",
-            size: "sm",
-            as: "h3"
-        },
-        header: {
-            className: "o-ui-dialog-header",
-            as: "header"
-        },
-        content: {
-            id: `${dialogId}-content`,
-            className: "o-ui-dialog-content",
-            as: Text
-        },
-        footer: {
-            className: "o-ui-dialog-footer",
-            as: "footer"
-        },
         button: {
             className: "o-ui-dialog-button"
         },
         "button-group": {
             className: "o-ui-dialog-button-group"
-        }
+        },
+        content: {
+            as: Text,
+            className: "o-ui-dialog-content",
+            id: `${dialogId}-content`
+        },
+        footer: {
+            as: "footer",
+            className: "o-ui-dialog-footer"
+        },
+        header: {
+            as: "header",
+            className: "o-ui-dialog-header"
+        },
+        heading: {
+            as: "h3",
+            className: "o-ui-dialog-heading",
+            id: `${dialogId}-heading`,
+            size: "sm"
+        },
+        illustration: {
+            className: "o-ui-dialog-illustration",
+            orientation: "vertical"
+        },
+        image: null
     }), [dialogId]));
 
     const headingId = heading?.props?.id;
@@ -278,10 +279,10 @@ export function InnerDialog({
                             "o-ui-dialog-wrapper",
                             wrapperHasVerticalScrollbar && "scrolling"
                         ),
+                        ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef),
                         style: {
                             zIndex: zIndex + 1
-                        },
-                        ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef)
+                        }
                     }
                 )}
             >
@@ -289,20 +290,20 @@ export function InnerDialog({
                     {...mergeProps(
                         rest,
                         {
-                            id: dialogId,
+                            "aria-describedby": !isNil(ariaDescribedBy) ? ariaDescribedBy : contentId ?? undefined,
+                            "aria-label": ariaLabel,
+                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
+                            "aria-modal": true,
+                            as,
                             className: cssModule(
                                 "o-ui-dialog",
                                 size === "fullscreen" ? size : normalizeSize(size),
                                 focus && "focus"
                             ),
-                            tabIndex: -1,
+                            id: dialogId,
+                            ref: dialogRef,
                             role,
-                            "aria-modal": true,
-                            "aria-label": ariaLabel,
-                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
-                            "aria-describedby": !isNil(ariaDescribedBy) ? ariaDescribedBy : contentId ?? undefined,
-                            as,
-                            ref: dialogRef
+                            tabIndex: -1
                         },
                         focusRingProps,
                         restoreFocusProps

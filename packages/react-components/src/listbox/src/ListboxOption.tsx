@@ -3,7 +3,7 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, OrbitComponentProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -15,19 +15,19 @@ interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerListboxOptionProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-    * Matching collection item.
-    */
-    item: CollectionItem;
+     * React children.
+     */
+    children: ReactNode;
     /**
      * Whether or not the option is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
-     */
-    children: ReactNode;
+    * Matching collection item.
+    */
+    item: CollectionItem;
 }
 
 export function InnerListboxOption({
@@ -95,30 +95,30 @@ export function InnerListboxOption({
         _: {
             defaultWrapper: Text
         },
-        icon: (iconElement: ReactElement, slotElements: SlotElements) => {
-            return {
-                className: "o-ui-listbox-option-start-icon",
-                size: isNil(slotElements.description) ? "sm" : "lg"
-            };
-        },
         avatar: (avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
                 size: isNil(slotElements.description) ? "2xs" : "md"
             };
         },
-        text: {
-            id: `${id}-label`,
-            className: "o-ui-listbox-option-label"
-        },
         description: {
-            id: `${id}-description`,
             className: "o-ui-listbox-option-description",
+            id: `${id}-description`,
             size: "md"
         },
         "end-icon": {
-            size: "sm",
-            className: "o-ui-listbox-option-end-icon"
+            className: "o-ui-listbox-option-end-icon",
+            size: "sm"
+        },
+        icon: (iconElement: ReactElement, slotElements: SlotElements) => {
+            return {
+                className: "o-ui-listbox-option-start-icon",
+                size: isNil(slotElements.description) ? "sm" : "lg"
+            };
+        },
+        text: {
+            className: "o-ui-listbox-option-label",
+            id: `${id}-label`
         }
     }), [id]));
 
@@ -130,12 +130,11 @@ export function InnerListboxOption({
             {...mergeProps(
                 rest,
                 {
-                    id,
-                    onClick: !disabled ? handleClick : undefined,
-                    onKeyUp: !disabled ? handleKeyUp : undefined,
-                    onFocus: !disabled ? handleFocus : undefined,
-                    onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
-                    onMouseLeave: !disabled ? handleMouseLeave : undefined,
+                    "aria-describedby": description && descriptionId,
+                    "aria-disabled": disabled,
+                    "aria-labelledby": labelId,
+                    "aria-selected": !disabled && selectedKeys.includes(key),
+                    as,
                     className: cssModule(
                         "o-ui-listbox-option",
                         description && "has-description",
@@ -144,15 +143,16 @@ export function InnerListboxOption({
                         focus && "focus",
                         hover && "hover"
                     ),
-                    role: "option",
+                    id,
+                    onClick: !disabled ? handleClick : undefined,
                     [OptionKeyProp as string]: key,
-                    tabIndex: !disabled ? -1 : undefined,
-                    "aria-selected": !disabled && selectedKeys.includes(key),
-                    "aria-disabled": disabled,
-                    "aria-labelledby": labelId,
-                    "aria-describedby": description && descriptionId,
-                    as,
-                    ref: forwardedRef
+                    onFocus: !disabled ? handleFocus : undefined,
+                    onKeyUp: !disabled ? handleKeyUp : undefined,
+                    onMouseEnter: !disabled && focusOnHover ? handleMouseEnter : undefined,
+                    onMouseLeave: !disabled ? handleMouseLeave : undefined,
+                    ref: forwardedRef,
+                    role: "option",
+                    tabIndex: !disabled ? -1 : undefined
                 }
             )}
         >

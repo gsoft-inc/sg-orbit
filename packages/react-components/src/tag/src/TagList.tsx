@@ -4,16 +4,22 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, isNil, mergeProps, useEventCallback } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
 
 const DefaultElement = "div";
 
-export interface InnerTagListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTagListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A tag list can vary in size.
+     * React children.
      */
-    size?: "sm" | "md";
+    children: ReactNode;
+    /**
+     * Called when all items are cleared from the list.
+     * @param {SyntheticEvent} event - React's original event.
+     * @returns {void}
+     */
+    onClear?: (event: SyntheticEvent) => void;
     /**
      * Called when an item is removed from the list.
      * @param {SyntheticEvent} event - React's original event.
@@ -22,26 +28,20 @@ export interface InnerTagListProps extends InternalProps, ComponentProps<typeof 
      */
     onRemove?: (event: SyntheticEvent, key: string) => void;
     /**
-     * Called when all items are cleared from the list.
-     * @param {SyntheticEvent} event - React's original event.
-     * @returns {void}
-     */
-    onClear?: (event: SyntheticEvent) => void;
-    /**
      * Whether or not tag items should be render as readonly.
      */
     readOnly?: boolean;
     /**
-     * React children.
+     * A tag list can vary in size.
      */
-    children: ReactNode;
+    size?: "sm" | "md";
 }
 
 export interface TagItemProps extends Omit<TagProps, "children"> {
     item?: CollectionItem;
-    size: "sm" | "md";
     onRemove: any;
     readOnly: boolean;
+    size: "sm" | "md";
 }
 
 function TagItem({
@@ -62,10 +62,10 @@ function TagItem({
             {...mergeProps(
                 rest,
                 {
-                    variant: "outline",
-                    size,
                     className: "o-ui-tag-list-item",
-                    onRemove: !readOnly ? handleRemove : undefined
+                    onRemove: !readOnly ? handleRemove : undefined,
+                    size,
+                    variant: "outline"
                 }
             )}
         >
@@ -102,8 +102,8 @@ export function InnerTagList({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-tag-list",
                     as,
+                    className: "o-ui-tag-list",
                     ref: forwardedRef
                 }
             )}

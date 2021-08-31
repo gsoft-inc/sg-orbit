@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, Keys, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
@@ -11,23 +11,23 @@ export const TabKeyProp = "data-o-ui-key";
 
 const DefaultElement = "button";
 
-export interface InnerTabProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTabProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Matching tab item.
+     * React children.
      */
-    tab: TabType;
-    /**
-     * Whether or not the tab is selected.
-     */
-    selected?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the tab is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether or not the tab is selected.
      */
-    children: ReactNode;
+    selected?: boolean;
+    /**
+     * Matching tab item.
+     */
+    tab: TabType;
 }
 
 export function InnerTab({
@@ -48,16 +48,16 @@ export function InnerTab({
             defaultWrapper: Text
         },
         icon: {
-            size: "sm",
-            className: "o-ui-tab-icon"
+            className: "o-ui-tab-icon",
+            size: "sm"
+        },
+        lozenge: {
+            className: "o-ui-tab-lozenge",
+            color: "primary",
+            size: "sm"
         },
         text: {
             className: "o-ui-tab-text"
-        },
-        lozenge: {
-            color: "primary",
-            size: "sm",
-            className: "o-ui-tab-lozenge"
         }
     }), []));
 
@@ -88,10 +88,10 @@ export function InnerTab({
             {...mergeProps(
                 rest,
                 {
-                    id: tabId,
-                    onClick: handleClick,
-                    onKeyDown: isManual ? handleKeyDown : undefined,
-                    onKeyUp: isManual ? handleKeyUp : undefined,
+                    [TabKeyProp]: key,
+                    "aria-controls": panelId,
+                    "aria-selected": key === selectedKey,
+                    as,
                     className: cssModule(
                         "o-ui-tab",
                         icon && "has-icon",
@@ -100,12 +100,12 @@ export function InnerTab({
                         hover && "hover"
                     ),
                     disabled,
-                    role: "tab",
-                    [TabKeyProp]: key,
-                    "aria-selected": key === selectedKey,
-                    "aria-controls": panelId,
-                    as,
-                    ref: forwardedRef
+                    id: tabId,
+                    onClick: handleClick,
+                    onKeyDown: isManual ? handleKeyDown : undefined,
+                    onKeyUp: isManual ? handleKeyUp : undefined,
+                    ref: forwardedRef,
+                    role: "tab"
                 }
             )}
         >

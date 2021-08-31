@@ -1,6 +1,16 @@
+import { Box } from "@react-components/box";
 import { Stack } from "@react-components/layout";
-import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
+
+function Div({ children, ...rest }) {
+    return (
+        <Box {...rest}>
+            {children}
+        </Box>
+    );
+}
+
+////////////
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Stack")
@@ -11,57 +21,99 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <div className="bg-primary-500"><Text>Alpha</Text></div>
-            <div className="bg-primary-500"><Text>Bravo</Text></div>
-            <div className="bg-primary-500"><Text>Charlie</Text></div>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("align start", () =>
-        <Stack align="start">
-            <div><Text>Alpha</Text></div>
-            <div>Bravo</div>
-            <div>Charlie</div>
+    .add("reverse", () =>
+        <Stack reverse>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("align end", () =>
-        <Stack align="end">
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align X start", () =>
+        <Stack alignX="start">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("align center", () =>
-        <Stack align="center">
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align X center", () =>
+        <Stack alignX="center">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("vertical align start", () =>
-        <Stack verticalAlign="start" style={{ height: "200px" }}>
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align X end", () =>
+        <Stack alignX="end">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("vertical align end", () =>
-        <Stack verticalAlign="end" style={{ height: "200px" }}>
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align Y start", () =>
+        <Stack alignY="start" height="200px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("vertical align center", () =>
-        <Stack verticalAlign="center" style={{ height: "200px" }}>
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align Y center", () =>
+        <Stack alignY="center" height="200px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("gap", () =>
-        <Stack gap={10}>
-            <div><Text>Alpha</Text></div>
-            <div><Text>Bravo</Text></div>
-            <div><Text>Charlie</Text></div>
+    .add("align Y end", () =>
+        <Stack alignY="end" height="200px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Stack>
+    )
+    .add("wrap", () =>
+        <Stack wrap="wrap" height="25px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Stack>
+    )
+    .add("wrap reverse", () =>
+        <Stack wrap="wrap-reverse" height="25px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Stack>
+    )
+    .add("inline", () =>
+        <>
+            <Stack inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Stack>
+            <Stack inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Stack>
+        </>
+    )
+    .add("nested", () =>
+        <Stack gap={8}>
+            <Stack gap={1}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Stack>
+            <Stack gap={12}>
+                <Div backgroundColor="beetle-5">Delta</Div>
+                <Div backgroundColor="beetle-5">Echo</Div>
+                <Div backgroundColor="beetle-5">Foxtrot</Div>
+            </Stack>
         </Stack>
     );

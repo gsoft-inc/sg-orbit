@@ -2,20 +2,20 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerDividerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The orientation of the divider.
-     */
-    orientation?: "horizontal" | "vertical";
+export interface InnerDividerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * @ignore
      */
     children?: ReactNode;
+    /**
+     * The orientation of the divider.
+     */
+    orientation?: "horizontal" | "vertical";
 }
 
 export function InnerDivider({
@@ -36,14 +36,14 @@ export function InnerDivider({
             {...mergeProps(
                 rest,
                 {
+                    "aria-orientation": orientation,
+                    as,
                     className: cssModule(
                         "o-ui-divider",
                         labelMarkup && "has-label"
                     ),
-                    as,
-                    role: "separator",
-                    "aria-orientation": orientation,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    role: "separator"
                 }
             )}
         >

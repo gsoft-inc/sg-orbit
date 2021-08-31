@@ -5,12 +5,12 @@ import { useCallback } from "react";
 export type OverlayPosition = Placement;
 
 export interface UseOverlayPositionOptions {
-    position?: OverlayPosition;
-    offset?: number[];
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
     boundaryElement?: HTMLElement;
     hasArrow?: boolean;
+    offset?: number[];
+    position?: OverlayPosition;
 }
 
 export function useOverlayPosition({
@@ -39,16 +39,16 @@ export function useOverlayPosition({
         }
 
         modifiers.push({
-            name: "flip",
             enabled: allowFlip,
+            name: "flip",
             options: {
                 boundary: boundaryElement
             }
         });
 
         modifiers.push({
-            name: "preventOverflow",
             enabled: allowPreventOverflow,
+            name: "preventOverflow",
             options: {
                 boundary: boundaryElement
             }
@@ -72,9 +72,9 @@ export function useOverlayPosition({
                 popperInstanceRef.current?.destroy();
 
                 const instance = createPopper(triggerRef.current, overlayRef.current, {
-                    strategy: "absolute",
+                    modifiers: createModifiers(),
                     placement: position,
-                    modifiers: createModifiers()
+                    strategy: "absolute"
                 });
 
                 setPopperInstance(instance);
@@ -83,17 +83,17 @@ export function useOverlayPosition({
     }, [position, hasArrow, triggerRef, overlayRef, arrowRef, popperInstanceRef, setPopperInstance, createModifiers]);
 
     return {
-        triggerRef: useMergedRefs(useCallback((element: HTMLElement) => {
-            setTriggerElement(element);
+        arrowRef: useMergedRefs(useCallback((element: HTMLElement) => {
+            setArrowElement(element);
             createPopperInstance();
-        }, [setTriggerElement, createPopperInstance])),
+        }, [setArrowElement, createPopperInstance])),
         overlayRef: useMergedRefs(useCallback((element: HTMLElement) => {
             setOverlayElement(element);
             createPopperInstance();
         }, [setOverlayElement, createPopperInstance])),
-        arrowRef: useMergedRefs(useCallback((element: HTMLElement) => {
-            setArrowElement(element);
+        triggerRef: useMergedRefs(useCallback((element: HTMLElement) => {
+            setTriggerElement(element);
             createPopperInstance();
-        }, [setArrowElement, createPopperInstance]))
+        }, [setTriggerElement, createPopperInstance]))
     };
 }

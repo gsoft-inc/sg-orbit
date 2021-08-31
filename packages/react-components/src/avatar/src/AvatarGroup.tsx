@@ -2,20 +2,20 @@ import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Group } from "../../group";
-import { InternalProps, OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
 
-export interface InnerAvatarGroupProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The avatars of the group can vary in size.
-     */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+export interface InnerAvatarGroupProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * The avatars of the group can vary in size.
+     */
+    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
 }
 
 interface RemainingAvatarsProps {
@@ -52,8 +52,8 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
                         return (
                             <li className="o-ui-avatar-group-remainings-list-item" key={name}>
                                 {augmentElement(x, {
-                                    size: "sm",
-                                    className: "o-ui-avatar-group-remainings-list-item-avatar"
+                                    className: "o-ui-avatar-group-remainings-list-item-avatar",
+                                    size: "sm"
                                 })}
                                 <span>{name}</span>
                             </li>
@@ -106,9 +106,9 @@ export function InnerAvatarGroup({
             {...mergeProps(
                 rest,
                 {
-                    gap: 1,
-                    className: "o-ui-avatar-group",
                     as,
+                    className: "o-ui-avatar-group",
+                    gap: 1,
                     ref: forwardedRef
                 } as const
             )}

@@ -24,8 +24,8 @@ export function InnerVisuallyHidden({
             {...mergeProps(
                 rest,
                 {
-                    className: "o-ui-visually-hidden",
                     as,
+                    className: "o-ui-visually-hidden",
                     ref: forwardedRef
                 }
             )}

@@ -2,13 +2,13 @@ import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "../../shared";
 
 interface UseScrollableCollectionOptions {
-    maxHeight?: number;
     borderHeight?: number;
-    paddingHeight?: number;
-    itemSelector?: string;
-    sectionSelector?: string;
-    dividerSelector?: string;
     disabled?: boolean;
+    dividerSelector?: string;
+    itemSelector?: string;
+    maxHeight?: number;
+    paddingHeight?: number;
+    sectionSelector?: string;
 }
 
 function toPixels(value: string) {

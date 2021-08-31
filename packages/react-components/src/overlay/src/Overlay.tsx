@@ -1,7 +1,7 @@
 import "./Overlay.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider } from "../../theme-provider/src/ThemeProvider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
@@ -9,28 +9,28 @@ import { useThemeContext } from "../../theme-provider";
 
 const DefaultElement = "div";
 
-export interface InnerOverlayProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * Whether or not to show the overlay element.
-     */
-    show: boolean;
+export interface InnerOverlayProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Hacky offset utility to apply a transparent CSS border to the overlay.
      * It's useful to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
      */
     borderOffset?: string | number;
     /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
      * A DOM element in which the overlay element will be appended via a React portal.
      */
     containerElement?: HTMLElement;
     /**
+     * Whether or not to show the overlay element.
+     */
+    show: boolean;
+    /**
      * The z-index of the overlay.
      */
     zIndex?: number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerOverlay({
@@ -52,19 +52,19 @@ export function InnerOverlay({
                 {...mergeProps(
                     rest,
                     {
-                        show,
-                        enter: "o-ui-fade-in",
-                        leave: "o-ui-fade-out",
+                        as,
                         className: cssModule(
                             "o-ui-overlay",
                             borderOffset && "has-border-offset"
                         ),
+                        enter: "o-ui-fade-in",
+                        leave: "o-ui-fade-out",
+                        ref: forwardedRef,
+                        show,
                         style: {
                             "--o-ui-overlay-border-offset": borderOffset,
                             zIndex
-                        },
-                        as,
-                        ref: forwardedRef
+                        }
                     }
                 )}
             >

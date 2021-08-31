@@ -5,6 +5,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     augmentElement,
     isNil,
     mergeProps,
@@ -20,30 +21,7 @@ import { useInputGroupMenuAddonProps } from "../../input-group";
 
 const DefaultElement = "div";
 
-export interface InnerMenuTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * Whether or not to show the menu.
-     */
-    open?: boolean;
-    /**
-     * The initial value of open when in auto controlled mode.
-     */
-    defaultOpen?: boolean;
-    /**
-     * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the menu is visible.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * Whether or not the menu should close when an item is selected.
-     */
-    closeOnSelect?: boolean;
-    /**
-     * The direction the menu will open relative to the trigger.
-     */
-    direction?: "bottom" | "top";
+export interface InnerMenuTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The horizontal alignment of the menu relative to the trigger.
      */
@@ -57,13 +35,36 @@ export interface InnerMenuTriggerProps extends InternalProps, ComponentProps<typ
      */
     allowPreventOverflow?: boolean;
     /**
-     * The z-index of the menu.
-     */
-    zIndex?: number;
-    /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Whether or not the menu should close when an item is selected.
+     */
+    closeOnSelect?: boolean;
+    /**
+     * The initial value of open when in auto controlled mode.
+     */
+    defaultOpen?: boolean;
+    /**
+     * The direction the menu will open relative to the trigger.
+     */
+    direction?: "bottom" | "top";
+    /**
+     * Called when the open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the menu is visible.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    /**
+     * Whether or not to show the menu.
+     */
+    open?: boolean;
+    /**
+     * The z-index of the menu.
+     */
+    zIndex?: number;
 }
 
 export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
@@ -107,20 +108,20 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     }
 
     const { isOpen, setIsOpen, triggerProps, overlayProps } = usePopup("menu", {
-        id,
-        open: openProp,
+        allowFlip,
+        allowPreventOverflow,
         defaultOpen,
-        onOpenChange: handleOpenChange,
+        disabled: disabled || readOnly || trigger.props.disabled,
         hideOnEscape: true,
         hideOnLeave: true,
         hideOnOutsideClick: true,
-        restoreFocus: true,
-        trigger: "click",
-        position: `${direction}-${align}` as const,
+        id,
         offset: [0, 4],
-        disabled: disabled || readOnly || trigger.props.disabled,
-        allowFlip,
-        allowPreventOverflow
+        onOpenChange: handleOpenChange,
+        open: openProp,
+        position: `${direction}-${align}` as const,
+        restoreFocus: true,
+        trigger: "click"
     });
 
     const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
@@ -164,21 +165,21 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     ));
 
     const menuMarkup = augmentElement(menu, {
-        onSelectionChange: handleSelectionChange,
+        "aria-describedby": trigger.props["aria-describedby"],
+        "aria-labelledby": trigger.props["aria-labelledby"] ?? triggerId,
         // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,
         defaultFocusTarget: focusTargetRef.current,
-        "aria-labelledby": trigger.props["aria-labelledby"] ?? triggerId,
-        "aria-describedby": trigger.props["aria-describedby"]
+        onSelectionChange: handleSelectionChange
     });
 
     return (
         <MenuTriggerContext.Provider
             value={{
+                close,
                 isOpen,
-                open,
-                close
+                open
             }}
         >
             <DisclosureContext.Provider
@@ -192,9 +193,9 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
                 {...mergeProps(
                     rest,
                     {
-                        zIndex,
                         as,
-                        ref: forwardedRef
+                        ref: forwardedRef,
+                        zIndex
                     },
                     overlayProps
                 )}

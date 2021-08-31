@@ -2,7 +2,7 @@ import "./Checkbox.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,7 +12,35 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerCheckboxProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerCheckboxProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
+    /**
+     * Whether or not the checkbox should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
+    /**
+    * A controlled checked state value.
+    */
+    checked?: boolean | null;
+    /**
+     * @ignore
+     */
+    children?: ReactNode;
+    /**
+     * The initial value of `checked` when uncontrolled.
+     */
+    defaultChecked?: boolean;
+    /**
+     * The initial value of `indeterminate`.
+     */
+    defaultIndeterminate?: boolean;
+    /**
+     * Whether or not the checkbox is disabled.
+     */
+    disabled?: boolean;
+    /**
+     * A controlled indeterminate state value.
+     */
+    indeterminate?: boolean | null;
     /**
      * @ignore
      */
@@ -20,51 +48,7 @@ export interface InnerCheckboxProps extends InternalProps, InteractionStatesProp
     /**
      * @ignore
      */
-    tabIndex?: number;
-    /**
-    * A controlled checked state value.
-    */
-    checked?: boolean | null;
-    /**
-     * The initial value of `checked` when uncontrolled.
-     */
-    defaultChecked?: boolean;
-    /**
-     * A controlled indeterminate state value.
-     */
-    indeterminate?: boolean | null;
-    /**
-     * The initial value of `indeterminate`.
-     */
-    defaultIndeterminate?: boolean;
-    /**
-     * The value to associate with when in a group.
-     */
-    value?: string;
-    /**
-     * Whether or not the checkbox should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the checkbox should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * A checkbox can vary in size.
-     */
-    size?: "sm" | "md";
-    /**
-     * Whether or not the checkbox is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Invert the order the checkmark box and the label.
-     */
-    reverse?: boolean;
+    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     /**
      * Called when the checkbox checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
@@ -73,13 +57,29 @@ export interface InnerCheckboxProps extends InternalProps, InteractionStatesProp
      */
     onValueChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
-     * @ignore
+     * Whether or not a user input is required before form submission.
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    required?: boolean;
+    /**
+     * Invert the order the checkmark box and the label.
+     */
+    reverse?: boolean;
+    /**
+     * A checkbox can vary in size.
+     */
+    size?: "sm" | "md";
     /**
      * @ignore
      */
-    children?: ReactNode;
+    tabIndex?: number;
+    /**
+     * Whether or not the checkbox should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * The value to associate with when in a group.
+     */
+    value?: string;
 }
 
 export function InnerCheckbox(props: InnerCheckboxProps) {
@@ -137,28 +137,28 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
     });
 
     const { wrapperProps, inputProps } = useCheckbox({
-        cssModule: "o-ui-checkbox",
-        isInField,
-        id,
-        checked,
-        defaultChecked,
-        indeterminate,
-        defaultIndeterminate,
-        autoFocus,
-        required,
-        validationState,
-        onChange: handleChange,
-        size,
-        reverse,
-        name,
-        tabIndex,
         active,
-        focus,
-        hover,
-        disabled,
         ariaLabel,
         ariaLabelledBy,
-        forwardedRef
+        autoFocus,
+        checked,
+        cssModule: "o-ui-checkbox",
+        defaultChecked,
+        defaultIndeterminate,
+        disabled,
+        focus,
+        forwardedRef,
+        hover,
+        id,
+        indeterminate,
+        isInField,
+        name,
+        onChange: handleChange,
+        required,
+        reverse,
+        size,
+        tabIndex,
+        validationState
     });
 
     const content = resolveChildren(children);
@@ -167,22 +167,22 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         _: {
             defaultWrapper: Text
         },
-        text: {
+        counter: {
+            className: "o-ui-checkbox-counter",
             color: "inherit",
+            pushed: true,
+            reverse,
             size,
-            className: "o-ui-checkbox-label"
+            variant: "divider"
         },
         icon: {
-            size: embeddedIconSize(size),
-            className: "o-ui-checkbox-icon"
+            className: "o-ui-checkbox-icon",
+            size: embeddedIconSize(size)
         },
-        counter: {
-            variant: "divider",
+        text: {
+            className: "o-ui-checkbox-label",
             color: "inherit",
-            size,
-            reverse,
-            pushed: true,
-            className: "o-ui-checkbox-counter"
+            size
         }
     }), [size, reverse]));
 

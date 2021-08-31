@@ -5,42 +5,32 @@ import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "reac
 import { Dialog, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
-import { InternalProps, OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends InternalProps, ComponentProps<"section"> {
+export interface InnerAlertProps extends InternalProps, OrbitComponentProps<"section"> {
+    /**
+     * The button to focus by default when the alert open.
+     */
+    autoFocusButton?: "primary" | "secondary" | "cancel";
+    /**
+     * The cancel button label.
+     */
+    cancelButtonLabel?: string;
+    /**
+      * React children.
+      */
+    children: ReactNode;
     /**
      * The element's unique identifier.
      * @ignore
      */
     id?: string;
     /**
-     * The style to use.
+     * Called when the cancel button is clicked.
+     * @param {MouseEvent} event - React's original event.
+     * @returns {void}
      */
-    variant?: "confirmation" | "destructive" | "warning" | "negative";
-    /**
-     * The primary button label.
-     */
-    primaryButtonLabel: string;
-    /**
-     * Whether or not the primary button is disabled.
-     */
-    primaryButtonDisabled?: boolean;
-    /**
-     * The secondary button label.
-     */
-    secondaryButtonLabel?: string;
-    /**
-     * Whether or not the secondary button is disabled.
-     */
-    secondaryButtonDisabled?: boolean;
-    /**
-     * The cancel button label.
-     */
-    cancelButtonLabel?: string;
-    /**
-     * The button to focus by default when the alert open.
-     */
-    autoFocusButton?: "primary" | "secondary" | "cancel";
+    onCancelButtonClick?: (event: MouseEvent) => void;
     /**
      * Called when the primary button is clicked.
      * @param {MouseEvent} event - React's original event.
@@ -54,23 +44,33 @@ export interface InnerAlertProps extends InternalProps, ComponentProps<"section"
      */
     onSecondaryButtonClick?: (event: MouseEvent) => void;
     /**
-     * Called when the cancel button is clicked.
-     * @param {MouseEvent} event - React's original event.
-     * @returns {void}
+     * Whether or not the primary button is disabled.
      */
-    onCancelButtonClick?: (event: MouseEvent) => void;
+    primaryButtonDisabled?: boolean;
     /**
-      * The z-index of the alert.
-      */
-    zIndex?: number;
+     * The primary button label.
+     */
+    primaryButtonLabel: string;
+    /**
+     * Whether or not the secondary button is disabled.
+     */
+    secondaryButtonDisabled?: boolean;
+    /**
+     * The secondary button label.
+     */
+    secondaryButtonLabel?: string;
+    /**
+     * The style to use.
+     */
+    variant?: "confirmation" | "destructive" | "warning" | "negative";
     /**
       * Additional props to render on the wrapper element.
       */
     wrapperProps?: Record<string, any>;
     /**
-      * React children.
+      * The z-index of the alert.
       */
-    children: ReactNode;
+    zIndex?: number;
 }
 
 export function InnerAlert({
@@ -95,8 +95,8 @@ export function InnerAlert({
         _: {
             required: ["heading", "content"]
         },
-        heading: null,
-        content: null
+        content: null,
+        heading: null
     }), []));
 
     const handlePrimaryButtonClick = useChainedEventCallback(onPrimaryButtonClick, event => {
@@ -176,11 +176,11 @@ export function InnerAlert({
             {...mergeProps(
                 rest,
                 {
+                    dismissable: false,
+                    ref: forwardedRef,
                     role: "alertdialog",
                     size: "sm",
-                    dismissable: false,
-                    zIndex,
-                    ref: forwardedRef
+                    zIndex
                 } as const
             )}
         >

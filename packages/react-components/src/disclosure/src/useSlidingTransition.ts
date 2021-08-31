@@ -20,23 +20,23 @@ enum SlidingDirection {
 }
 
 export interface SlidingTransitionState {
-    transitionState: TransitionState;
     direction: SlidingDirection;
+    transitionState: TransitionState;
 }
 
 function reducer(state: SlidingTransitionState, action: ActionType) {
     return match<ActionType, SlidingTransitionState>(action, {
         [ActionType.slideDown]: () => ({
-            transitionState: TransitionState.transitioning,
-            direction: SlidingDirection.down
+            direction: SlidingDirection.down,
+            transitionState: TransitionState.transitioning
         }),
         [ActionType.slideUp]: () => ({
-            transitionState: TransitionState.transitioning,
-            direction: SlidingDirection.up
+            direction: SlidingDirection.up,
+            transitionState: TransitionState.transitioning
         }),
         [ActionType.completeTransition]: () => ({
-            transitionState: TransitionState.completed,
-            direction: state.direction
+            direction: state.direction,
+            transitionState: TransitionState.completed
         })
     });
 }
@@ -52,8 +52,8 @@ export interface SlidingTransition {
 // and have a look at https://github.com/react-bootstrap/react-bootstrap/blob/master/src/Collapse.tsx
 export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): SlidingTransition {
     const [{ transitionState, direction }, dispatch] = useReducer(reducer, {
-        transitionState: TransitionState.completed,
-        direction: isOpen ? SlidingDirection.down : SlidingDirection.up
+        direction: isOpen ? SlidingDirection.down : SlidingDirection.up,
+        transitionState: TransitionState.completed
     });
 
     const disposables = useDisposables();

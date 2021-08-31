@@ -5,10 +5,10 @@ export type OverlayTrigger = "none" | "click" | "hover";
 
 export interface UseOverlayTriggerOptions {
     hideOnLeave?: boolean;
-    trigger?: OverlayTrigger;
-    onShow?: (event: SyntheticEvent) => void;
-    onHide?: (event: SyntheticEvent) => void;
     isDisabled?: boolean;
+    onHide?: (event: SyntheticEvent) => void;
+    onShow?: (event: SyntheticEvent) => void;
+    trigger?: OverlayTrigger;
 }
 
 export function useOverlayTrigger(isOpen: boolean, {
@@ -109,9 +109,9 @@ export function useOverlayTrigger(isOpen: boolean, {
         case "hover":
             // The overlay will show when the trigger is hovered with mouse or focus with keyboard.
             return {
-                onMouseEnter: handleMouseEnter,
+                onBlur: hideOnLeave ? handleBlur : undefined,
                 onFocus: handleFocus,
-                onBlur: hideOnLeave ? handleBlur : undefined
+                onMouseEnter: handleMouseEnter
             };
         default:
             return {};

@@ -1,24 +1,24 @@
 import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "p";
 
-export interface InnerParagraphProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerParagraphProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * A paragraph can vary in size.
+     * React children
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit";
+    children: ReactNode;
     /**
      * A paragraph can inherit it's parent color.
      */
     color?: "inherit";
     /**
-     * React children
+     * A paragraph can vary in size.
      */
-    children: ReactNode;
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit";
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {
@@ -40,13 +40,13 @@ export function InnerParagraph(props: InnerParagraphProps) {
             {...mergeProps(
                 rest,
                 {
-                    size,
+                    as,
                     className: cssModule(
                         "o-ui-p",
                         size && size === "inherit" ? "inherit-size" : normalizeSize(size)
                     ),
-                    as,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    size
                 }
 
             )}

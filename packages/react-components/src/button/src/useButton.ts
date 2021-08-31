@@ -2,23 +2,23 @@ import { AriaAttributes } from "react";
 import { InteractionStatesProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseButtonProps extends Partial<InternalProps>, InteractionStatesProps {
-    cssModule?: string;
-    variant?: "solid" | "outline" | "ghost";
-    color?: "primary" | "secondary" | "danger" | "inherit";
-    shape?: "pill" | "rounded" | "circular";
     autoFocus?: boolean | number;
+    color?: "primary" | "secondary" | "danger" | "inherit";
+    cssModule?: string;
     fluid?: boolean;
     loading?: boolean;
+    shape?: "pill" | "rounded" | "circular";
     size?: Size;
     type?: "button" | "submit" | "reset";
+    variant?: "solid" | "outline" | "ghost";
 }
 
 export interface UseButtonReturn {
-    className: string;
-    type: UseButtonProps["type"];
-    "aria-live": AriaAttributes["aria-live"];
     "aria-busy": boolean;
+    "aria-live": AriaAttributes["aria-live"];
+    className: string;
     ref: MergedRef<any>;
+    type: UseButtonProps["type"];
 }
 
 export function useButton({
@@ -40,11 +40,13 @@ export function useButton({
     const buttonRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(buttonRef, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     return {
+        "aria-busy": loading,
+        "aria-live": "polite",
         className: mergeClasses(
             module,
             cssModule(
@@ -60,9 +62,7 @@ export function useButton({
                 normalizeSize(size)
             )
         ),
-        type: type ?? (as === "button" ? "button" : undefined),
-        "aria-live": "polite",
-        "aria-busy": loading,
-        ref: buttonRef
+        ref: buttonRef,
+        type: type ?? (as === "button" ? "button" : undefined)
     };
 }

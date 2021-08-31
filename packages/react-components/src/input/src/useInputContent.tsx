@@ -18,9 +18,9 @@ export function useInputIcon(icon: ReactNode, props: UseInputIconProps = {}) {
 export function useInputButton(button: ReactElement, isActive: boolean, props: Record<string, any> = {}) {
     return button && isActive && embedIconButton(button, {
         ...props,
-        variant: "ghost",
-        shape: "circular",
+        className: "o-ui-input-button",
         condensed: true,
-        className: "o-ui-input-button"
+        shape: "circular",
+        variant: "ghost"
     });
 }

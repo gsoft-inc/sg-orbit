@@ -62,37 +62,3 @@
         border-right-width: var(--o-ui-border-widths-#{$i});
     }
 }
-
-/* BORDER WIDTH | VERTICAL */
-.o-ui-bv-0 {
-    // border-top-style: solid;
-    // border-bottom-style: solid;
-    border-top-width: 0;
-    border-bottom-width: 0;
-}
-
-@for $i from 1 through 5 {
-    .o-ui-bv-#{$i} {
-        // border-top-style: solid;
-        // border-bottom-style: solid;
-        border-top-width: var(--o-ui-border-widths-#{$i});
-        border-bottom-width: var(--o-ui-border-widths-#{$i});
-    }
-}
-
-/* BORDER WIDTH | HORIZONTAL */
-.o-ui-bh-0 {
-    // border-left-style: solid;
-    // border-right-style: solid;
-    border-left-width: 0;
-    border-right-width: 0;
-}
-
-@for $i from 1 through 5 {
-    .o-ui-bh-#{$i} {
-        // border-left-style: solid;
-        // border-right-style: solid;
-        border-left-width: var(--o-ui-border-widths-#{$i});
-        border-right-width: var(--o-ui-border-widths-#{$i});
-    }
-}

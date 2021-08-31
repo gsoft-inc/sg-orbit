@@ -2,17 +2,17 @@ import { ForwardedRef } from "react";
 import { InteractionStatesProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
 export interface UseLinkProps extends InteractionStatesProps {
-    cssModule?: string;
-    color?: string;
-    underline?: string;
-    shape?: string;
-    external?: boolean;
     autoFocus?: boolean | number;
+    color?: string;
+    cssModule?: string;
     disabled?: boolean;
-    visited?: boolean;
-    target?: string;
-    rel?: string;
+    external?: boolean;
     forwardedRef?: ForwardedRef<HTMLElement>;
+    rel?: string;
+    shape?: string;
+    target?: string;
+    underline?: string;
+    visited?: boolean;
 }
 
 export function useLink({
@@ -34,14 +34,12 @@ export function useLink({
     const linkRef = useMergedRefs(forwardedRef);
 
     useAutoFocus(linkRef, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     return {
         linkProps: {
-            target: target ?? (external ? "_blank" : undefined),
-            rel: rel ?? (external ? "noopener noreferrer" : undefined),
             className: mergeClasses(
                 module,
                 cssModule(
@@ -56,8 +54,10 @@ export function useLink({
                     disabled && "disabled"
                 )
             ),
+            ref: linkRef,
+            rel: rel ?? (external ? "noopener noreferrer" : undefined),
             tabIndex: disabled ? -1 : undefined,
-            ref: linkRef
+            target: target ?? (external ? "_blank" : undefined)
         },
         showNewTabIndicator: target === "_blank"
     };

@@ -1,10 +1,14 @@
 import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { InternalProps, OmitInternalProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, slot } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerIconListProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * Whether or not the IconList is disabled.
      */
@@ -13,10 +17,6 @@ export interface InnerIconListProps extends InternalProps, ComponentProps<typeof
      * Size of the icons.
      */
     size?: string;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerIconList({
@@ -37,8 +37,8 @@ export function InnerIconList({
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return cloneElement(x, {
-                    size,
-                    disabled
+                    disabled,
+                    size
                 });
             })}
         </Inline>

@@ -5,8 +5,8 @@ import { mergeClasses } from "./mergeClasses";
 import { mergeRefs } from "./useMergedRefs";
 
 export interface CompositeKeyWeakMapNode<T> {
-    value?: T;
     map: WeakMap<any, any>;
+    value?: T;
 }
 
 // Useful to compose a weak map key with multiple objects.
@@ -22,8 +22,8 @@ export class CompositeKeyWeakMap<T> {
 
             if (!map.has(key)) {
                 const child: CompositeKeyWeakMapNode<T> = {
-                    value: undefined,
-                    map: new WeakMap()
+                    map: new WeakMap(),
+                    value: undefined
                 };
 
                 map.set(key, child);
@@ -114,26 +114,31 @@ function merge(props: Record<string, any>, newProps: Record<string, any>) {
     return props;
 }
 
-// Taken from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379.
-// Convert an array of obj to a union of all the possibility
-// before
-// [{
-//     a?: string;
-//     b?: string;
-// }, {
-//     c: string;
-// }, {
-//     d: boolean;
-// }]
-// after
-// {
-//     a?: string;
-//     b?: string;
-// } | {
-//     c: string;
-// } | {
-//     d: boolean;
-// }
+/*
+Took from: https://stackoverflow.com/questions/51603250/typescript-3-parameter-list-intersection-type/51604379#51604379.
+
+Convert an array of obj to a union of all the possibility.
+
+Before:
+[{
+    a?: string;
+    b?: string;
+}, {
+    c: string;
+}, {
+    d: boolean;
+}]
+
+After:
+{
+    a?: string;
+    b?: string;
+} | {
+    c: string;
+} | {
+    d: boolean;
+}
+*/
 export type TupleTypes<T> = { [P in keyof T]: T[P] } extends { [key: number]: infer V } ? V : never;
 
 interface Props {

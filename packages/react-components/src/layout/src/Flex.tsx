@@ -1,22 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, isNil, isNilOrEmpty, isString, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
-     */
-    direction?: "row" | "column";
-    /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
-    /**
-     * Whether or not to reverse the order of the elements.
-     */
-    reverse?: boolean;
+export interface InnerFlexProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
      */
@@ -49,6 +37,26 @@ export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps
         "safe center" |
         "unsafe center");
     /**
+     * React children
+     */
+    children: ReactNode;
+    /**
+     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
+     */
+    direction?: "row" | "column";
+    /**
+     * Whether the elements take up all the space of their container.
+     */
+    fluid?: boolean;
+    /**
+     * The space between both rows and columns. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
+     */
+    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
+    /**
+     * Whether or not to inline the elements.
+     */
+    inline?: boolean;
+    /**
      * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
     justifyContent?: (
@@ -67,25 +75,17 @@ export interface InnerFlexProps extends SlotProps, InternalProps, ComponentProps
         "safe center" |
         "unsafe center");
     /**
-     * The space between both rows and columns. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
+     * Whether or not to reverse the order of the elements.
      */
-    gap?: (0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13) | string;
+    reverse?: boolean;
     /**
      * Whether flex items are forced onto one line or can wrap onto multiple lines. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
     wrap?: "nowrap" | "wrap" | "wrap-reverse";
     /**
-     * Whether the elements take up all the space of their container.
-     */
-    fluid?: boolean;
-    /**
      * Whether to wrap children in a `div` element.
      */
     wrapChildren?: boolean;
-    /**
-     * React children
-     */
-    children: ReactNode;
 }
 
 const Spacing = [
@@ -128,20 +128,20 @@ export function InnerFlex({
                 rest,
                 {
                     as,
+                    ref: forwardedRef,
                     style: {
                         ...style,
-                        display: inline ? "inline-flex" : "flex",
-                        flexDirection: direction ? (`${direction}${reverse ? "-reverse" : ""}` as const) : undefined,
                         // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                         alignContent: alignContent && alignContent.replace("start", "flex-start").replace("end", "flex-end"),
                         alignItems: alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end"),
-                        justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
+                        display: inline ? "inline-flex" : "flex",
+                        flexDirection: direction ? (`${direction}${reverse ? "-reverse" : ""}` as const) : undefined,
                         flexWrap: !isNil(wrap) ? "wrap" : undefined,
                         gap: !noGap && (isString(gap) ? gap : `var(${Spacing[(gap) - 1]})`),
-                        width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined),
-                        height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined)
-                    } as const,
-                    ref: forwardedRef
+                        height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
+                        justifyContent: justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end"),
+                        width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
+                    } as const
                 }
             )}
         >

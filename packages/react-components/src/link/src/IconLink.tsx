@@ -3,25 +3,21 @@ import "./Link.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerIconLinkProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * Whether or not the link should autoFocus on render.
      */
-    href?: string;
+    autoFocus?: boolean | number;
     /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     * React children.
      */
-    target?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
+    children: ReactNode;
     /**
      * The link color accent.
      */
@@ -31,25 +27,29 @@ export interface InnerIconLinkProps extends InternalProps, InteractionStatesProp
      */
     condensed?: boolean;
     /**
+     * Whether or not the link is disabled.
+     */
+    disabled?: boolean;
+    /**
      * Whether or not this is an external link.
      */
     external?: boolean;
     /**
-     * Whether or not the link should autoFocus on render.
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    autoFocus?: boolean | number;
+    href?: string;
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel?: string;
     /**
      * A link can vary in size.
      */
     size?: "sm" | "md";
     /**
-     * Whether or not the link is disabled.
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
-    disabled?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+    target?: string;
     /**
     * @ignore
     */
@@ -87,18 +87,18 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     }
 
     const { linkProps, showNewTabIndicator } = useLink({
-        cssModule: "o-ui-icon-link",
-        color,
-        external,
-        autoFocus,
         active,
-        focus,
-        hover,
-        visited,
+        autoFocus,
+        color,
+        cssModule: "o-ui-icon-link",
         disabled,
-        target,
+        external,
+        focus,
+        forwardedRef,
+        hover,
         rel,
-        forwardedRef
+        target,
+        visited
     });
 
     const icon = Children.only(children) as ReactElement;

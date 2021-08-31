@@ -37,3 +37,5 @@ export interface InteractionStatesProps {
 }
 
 export type OrbitComponentProps<T extends keyof JSX.IntrinsicElements | JSXElementConstructor<T>> = Omit<ComponentProps<T>, "color">;
+
+export type ValidationState = "valid" | "invalid";

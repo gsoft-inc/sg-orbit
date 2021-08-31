@@ -7,23 +7,23 @@ import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export interface UsePopupOptions {
-    id?: string;
-    open?: boolean | null;
-    defaultOpen?: boolean;
-    onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
-    hideOnEscape?: boolean;
-    hideOnLeave?: boolean;
-    hideOnOutsideClick?: boolean;
-    restoreFocus?: boolean;
-    trigger?: "none" | "click";
-    hasArrow?: boolean;
-    position?: OverlayPosition;
-    offset?: number[];
-    disabled?: boolean;
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
     boundaryElement?: HTMLElement;
+    defaultOpen?: boolean;
+    disabled?: boolean;
+    hasArrow?: boolean;
+    hideOnEscape?: boolean;
+    hideOnLeave?: boolean;
+    hideOnOutsideClick?: boolean;
+    id?: string;
     keyProp?: string;
+    offset?: number[];
+    onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
+    open?: boolean | null;
+    position?: OverlayPosition;
+    restoreFocus?: boolean;
+    trigger?: "none" | "click";
 }
 
 export function usePopup(type: "menu" | "listbox" | "dialog", {
@@ -60,39 +60,39 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     }, [onOpenChange, isOpen, setIsOpen]);
 
     const triggerProps = useOverlayTrigger(isOpen, {
-        trigger,
-        onShow: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, true);
-        }),
+        hideOnLeave,
+        isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnLeave,
-        isDisabled: disabled
+        onShow: useEventCallback((event: SyntheticEvent) => {
+            updateIsOpen(event, true);
+        }),
+        trigger
     });
 
     const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
-        position,
-        offset,
         allowFlip,
         allowPreventOverflow,
         boundaryElement,
-        hasArrow
+        hasArrow,
+        offset,
+        position
     });
 
     const overlayRef = useMergedRefs(overlayPositionRef, setFocusRef);
 
     const overlayDismissProps = usePopupLightDismiss(triggerRef, overlayRef, {
-        trigger,
+        hideOnEscape,
+        hideOnLeave,
+        hideOnOutsideClick,
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
-        hideOnEscape,
-        hideOnLeave,
-        hideOnOutsideClick
+        trigger
     });
 
     const focusManager = useFocusManager(focusScope, { keyProp });
@@ -101,31 +101,31 @@ export function usePopup(type: "menu" | "listbox" | "dialog", {
     const overlayId = useId(id, "o-ui-overlay");
 
     return {
-        isOpen,
-        setIsOpen: updateIsOpen,
-        focusScope,
+        arrowProps: !hasArrow ? {} : {
+            ref: arrowRef
+        },
         focusManager,
-        triggerProps: mergeProps(
-            {
-                tabIndex: !restoreFocus && isOpen ? -1 : undefined,
-                "aria-haspopup": type,
-                "aria-expanded": isOpen,
-                "aria-controls": isOpen ? overlayId : undefined,
-                ref: triggerRef
-            },
-            triggerProps
-        ),
+        focusScope,
+        isOpen,
         overlayProps: mergeProps(
             {
                 id: overlayId,
-                show: isOpen,
-                ref: overlayRef
+                ref: overlayRef,
+                show: isOpen
             },
             overlayDismissProps,
             restoreFocusProps
         ),
-        arrowProps: !hasArrow ? {} : {
-            ref: arrowRef
-        }
+        setIsOpen: updateIsOpen,
+        triggerProps: mergeProps(
+            {
+                "aria-controls": isOpen ? overlayId : undefined,
+                "aria-expanded": isOpen,
+                "aria-haspopup": type,
+                ref: triggerRef,
+                tabIndex: !restoreFocus && isOpen ? -1 : undefined
+            },
+            triggerProps
+        )
     };
 }

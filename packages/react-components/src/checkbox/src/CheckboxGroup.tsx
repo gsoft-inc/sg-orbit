@@ -1,10 +1,14 @@
 import "./CheckboxGroup.css";
 
 import {
+    AutoFocusProp,
     CheckableContext,
     InternalProps,
     OmitInternalProps,
+    OrbitComponentProps,
     SlotProps,
+    StyleProps,
+    ValidationState,
     augmentElement,
     isNil,
     isNumber,
@@ -21,144 +25,63 @@ import {
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { Group } from "../../group";
+import { Flex2, Orientation } from "../../layout";
 import { useGroupInput } from "../../input";
 
 const DefaultElement = "div";
 
-export interface InnerCheckboxGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
+export interface InnerCheckboxGroupProps extends
+    StyleProps,
+    SlotProps,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
     /**
-     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
-     */
-    direction?: "row" | "column";
+      * Whether or not the first checkbox of the group should autoFocus on render.
+      */
+    autoFocus?: AutoFocusProp;
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
-     */
-    alignContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * React children.
+      */
+    children: ReactNode;
     /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
-     */
-    alignItems?: (
-        "start" |
-        "end" |
-        "center" |
-        "stretch" |
-        "self-start" |
-        "self-end" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * The initial value of `value`.
+      */
+    defaultValue?: string[];
     /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "left" |
-        "right" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * Called when any of the children is checked or unchecked.
+      * @param {SyntheticEvent} event - React's original event.
+      * @param {string[]} value - The new value.
+      * @returns {void}
+      */
+    onChange?: (event: SyntheticEvent, value: string[]) => void;
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren?: boolean;
+      * The orientation of the group elements.
+      */
+    orientation?: Orientation;
     /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
+      * Whether a user input is required before form submission.
+      */
+    required?: boolean;
     /**
-     * The horizontal alignment of the elements.
-     */
-    align?: "start" | "end" | "center";
+      * Invert the order of the checkbox and his label.
+      */
+    reverse?: boolean;
     /**
-     * The vertical alignment of the elements.
-     */
-    verticalAlign?: "start" | "end" | "center";
+      * The group elements size.
+      */
+    size?: "sm" | "md";
     /**
-     * Whether the elements take up the width & height of their container.
-     */
-    fluid?: boolean;
-    /**
-     * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
-     */
-    role?: string;
+      * Whether the group should display as "valid" or "invalid".
+      */
+    validationState?: ValidationState;
     /**
    * The value of the checkbox group.
    */
     value?: string[] | null;
     /**
-     * The initial value of `value`.
-     */
-    defaultValue?: string[];
-    /**
-     * Whether a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether the group should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * Called when any of the children is checked or unchecked..
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string[]} value - The new value.
-     * @returns {void}
-     */
-    onChange?: (event: SyntheticEvent, value: string[]) => void;
-    /**
-     * Whether or not the first checkbox of the group should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The orientation of the group elements.
-     */
-    orientation?: "horizontal" | "vertical";
-    /**
-     * The space between the group elements.
-     */
-    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
-    /**
-     * Whether the group elements are forced onto one line or can wrap onto multiple lines
-     */
+      * Whether the group elements are forced onto one line or can wrap onto multiple lines
+      */
     wrap?: boolean;
-    /**
-     * The group elements size.
-     */
-    size?: "sm" | "md";
-    /**
-     * Whether or not the group elements are disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Invert the order of the checkbox and his label.
-     */
-    reverse?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {
@@ -214,22 +137,22 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const focusManager = useFocusManager(focusScope);
 
     useAutoFocusChild(focusManager, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-checkbox-group",
-        required,
-        validationState,
-        orientation,
-        gap,
-        wrap,
-        size,
-        reverse,
         disabled,
+        gap,
+        groupRef,
         isInField,
-        groupRef
+        orientation,
+        required,
+        reverse,
+        size,
+        validationState,
+        wrap
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
@@ -245,7 +168,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const items = resolveChildren(children, { checkedValue });
 
     return (
-        <Group
+        <Flex2
             {...mergeProps(
                 {
                     as
@@ -258,21 +181,21 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                 <ClearFieldContext>
                     <CheckableContext.Provider
                         value={{
-                            onCheck: handleCheck,
-                            checkedValue
+                            checkedValue,
+                            onCheck: handleCheck
                         }}
                     >
                         {Children.toArray(items).filter(x => x).map((x: ReactElement, index) => {
                             return augmentElement(x, {
                                 ...itemProps,
-                                value: index.toString(),
-                                role: "checkbox"
+                                role: "checkbox",
+                                value: index.toString()
                             });
                         })}
                     </CheckableContext.Provider>
                 </ClearFieldContext>
             </ClearToolbar>
-        </Group>
+        </Flex2>
     );
 }
 

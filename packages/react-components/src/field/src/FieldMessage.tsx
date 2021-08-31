@@ -1,28 +1,28 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { StyleProvider, cssModule, mergeProps } from "../../shared";
+import { OrbitComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerFieldMessageProps extends Omit<ComponentProps<typeof DefaultElement>, "color">{
-    /**
-     * The style to use.
-     */
-    tone: "neutral" | "success" | "error";
+export interface InnerFieldMessageProps extends Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * @ignore
      */
     as?: ElementType;
     /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
      * Whether or not the field take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * React children.
+     * The style to use.
      */
-    children: ReactNode;
+    tone: "neutral" | "success" | "error";
 }
 
 export function getValidationProps(validationState: string) {
@@ -30,9 +30,9 @@ export function getValidationProps(validationState: string) {
     const isError = validationState === "invalid";
 
     return {
+        isError,
         isHelp: !isValid && !isError,
-        isValid,
-        isError
+        isValid
     };
 }
 
@@ -48,37 +48,37 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
             {...mergeProps(
                 rest,
                 {
-                    size: "md",
+                    as,
                     className: cssModule(
                         "o-ui-field-message",
                         tone,
                         fluid && "fluid"
                     ),
-                    as,
-                    ref
+                    ref,
+                    size: "md"
                 } as const
             )}
         >
             <StyleProvider
                 value={{
-                    text: {
-                        size: "inherit",
-                        color: "inherit"
-                    },
-                    p: {
-                        size: "inherit",
-                        color: "inherit"
-                    },
-                    link: {
-                        size: "inherit",
-                        color: "inherit"
-                    },
-                    list: {
-                        size: "inherit",
-                        color: "inherit"
-                    },
                     icon: {
                         size: "sm"
+                    },
+                    link: {
+                        color: "inherit",
+                        size: "inherit"
+                    },
+                    list: {
+                        color: "inherit",
+                        size: "inherit"
+                    },
+                    p: {
+                        color: "inherit",
+                        size: "inherit"
+                    },
+                    text: {
+                        color: "inherit",
+                        size: "inherit"
                     }
                 }}
             >

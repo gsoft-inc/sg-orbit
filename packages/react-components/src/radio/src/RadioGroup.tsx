@@ -5,6 +5,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     SlotProps,
     augmentElement,
     isNil,
@@ -21,7 +22,7 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent,forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
@@ -29,155 +30,74 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
-     * How the elements are placed in the container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
-     */
-    direction?: "row" | "column";
+      * Whether or not the radio group should autoFocus on render.
+      */
+    autoFocus?: boolean | number;
     /**
-     * The distribution of space around child items along the cross axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
-     */
-    alignContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * React children.
+      */
+    children: ReactNode;
     /**
-     * The alignment of children within their container. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
-     */
-    alignItems?: (
-        "start" |
-        "end" |
-        "center" |
-        "stretch" |
-        "self-start" |
-        "self-end" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * The initial value of `value`.
+      */
+    defaultValue?: string;
     /**
-     * The distribution of space around items along the main axis. See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
-     */
-    justifyContent?: (
-        "start" |
-        "end" |
-        "center" |
-        "left" |
-        "right" |
-        "space-between" |
-        "space-around" |
-        "space-evenly" |
-        "stretch" |
-        "baseline" |
-        "first baseline" |
-        "last baseline" |
-        "safe center" |
-        "unsafe center");
+      * Whether or not the radio group is disabled.
+      */
+    disabled?: boolean;
     /**
-     * Whether to wrap children in a `div` element.
-     */
-    wrapChildren?: boolean;
+      * The space between the group elements.
+      */
+    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
     /**
-     * Whether or not to inline the elements.
-     */
-    inline?: boolean;
+      * Radio group name.
+      */
+    name?: string;
     /**
-     * The horizontal alignment of the elements.
-     */
-    align?: "start" | "end" | "center";
+      * Called when any of the group elements is checked or unchecked.
+      * @param {SyntheticEvent} event - React's original event.
+      * @param {string} value - The new value.
+      * @returns {void}
+      */
+    onChange?: (event: SyntheticEvent, value: string) => void;
     /**
-     * The vertical alignment of the elements.
-     */
-    verticalAlign?: "start" | "end" | "center";
+      * The orientation of the group elements.
+      */
+    orientation?: "horizontal" | "vertical";
     /**
-     * Whether the elements take up the width & height of their container.
-     */
-    fluid?: boolean;
+      * Whether or not a user input is required before form submission.
+      */
+    required?: boolean;
     /**
-     * A WAI-ARIA accessibility role. See [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles).
-     */
-    role?: string;
+      * Invert the order of the radio button and his label.
+      */
+    reverse?: boolean;
+    /**
+      * Whether the group should display as "valid" or "invalid".
+      */
+    validationState?: "valid" | "invalid";
     /**
      * The value of the radio group.
      */
     value?: string | null;
     /**
-     * The initial value of `value`.
-     */
-    defaultValue?: string;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether the group should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * Radio group name.
-     */
-    name?: string;
-    /**
-     * Called when any of the group elements is checked or unchecked.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string} value - The new value.
-     * @returns {void}
-     */
-    onChange?: (event: SyntheticEvent, value: string) => void;
-    /**
-     * Whether or not the radio group should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The orientation of the group elements.
-     */
-    orientation?: "horizontal" | "vertical";
-    /**
-     * The space between the group elements.
-     */
-    gap?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | string;
-    /**
-     * Whether the group elements are forced onto one line or can wrap onto multiple lines
-     */
+      * Whether the group elements are forced onto one line or can wrap onto multiple lines
+      */
     wrap?: boolean;
-    /**
-     * Invert the order of the radio button and his label.
-     */
-    reverse?: boolean;
-    /**
-     * Whether or not the radio group is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * @ignore
-     */
-    className?: string;
 }
 
 const NavigationKeyBinding = {
     default: {
-        previous: [Keys.arrowLeft, Keys.arrowUp],
-        next: [Keys.arrowRight, Keys.arrowDown],
         first: [Keys.home],
-        last: [Keys.end]
+        last: [Keys.end],
+        next: [Keys.arrowRight, Keys.arrowDown],
+        previous: [Keys.arrowLeft, Keys.arrowUp]
     },
     toolbar: {
-        previous: [Keys.arrowUp],
-        next: [Keys.arrowDown]
+        next: [Keys.arrowDown],
+        previous: [Keys.arrowUp]
     }
 };
 
@@ -229,9 +149,9 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     useKeyedRovingFocus(focusScope, checkedValue, { keyProp: RadioKeyProp });
 
     useAutoFocusChild(focusManager, {
-        target: value ?? defaultValue,
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        target: value ?? defaultValue
     });
 
     const navigationMode = isInToolbar ? "toolbar" : "default";
@@ -239,16 +159,16 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
-        role: "radiogroup",
-        required,
-        validationState,
-        orientation,
-        gap,
-        wrap,
-        reverse,
         disabled,
+        gap,
+        groupRef,
         isInField,
-        groupRef
+        orientation,
+        required,
+        reverse,
+        role: "radiogroup",
+        validationState,
+        wrap
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
@@ -271,16 +191,16 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         >
             <CheckableContext.Provider
                 value={{
-                    onCheck: handleCheck,
-                    checkedValue
+                    checkedValue,
+                    onCheck: handleCheck
                 }}
             >
                 {Children.toArray(children).filter(x => x).map((x: ReactElement, index) => {
                     return augmentElement(x, {
                         ...itemProps,
-                        value: index.toString(),
+                        name: groupName,
                         role: "radio",
-                        name: groupName
+                        value: index.toString()
                     });
                 })}
             </CheckableContext.Provider>

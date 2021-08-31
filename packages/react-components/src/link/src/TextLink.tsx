@@ -2,7 +2,7 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -11,47 +11,47 @@ import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerTextLinkProps extends InternalProps, ComponentProps<typeof DefaultElement> {
-    /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
-     * The color accent.
-     */
-    color?: "primary" | "secondary" | "danger" | "inherit";
-    /**
-     * The underline style.
-     */
-    underline?: "solid" | "dotted" | "none";
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
+export interface InnerTextLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the link should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
-     * A link can vary in size.
+     * React children.
      */
-    size?: "sm" | "md" | "inherit";
+    children: ReactNode;
+    /**
+     * The color accent.
+     */
+    color?: "primary" | "secondary" | "danger" | "inherit";
     /**
      * @ignore
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Whether or not this is an external link.
      */
-    children: ReactNode;
+    external?: boolean;
+    /**
+     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    href?: string;
+    /**
+     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    rel?: string;
+    /**
+     * A link can vary in size.
+     */
+    size?: "sm" | "md" | "inherit";
+    /**
+     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+     */
+    target?: string;
+    /**
+     * The underline style.
+     */
+    underline?: "solid" | "dotted" | "none";
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {
@@ -82,39 +82,39 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     );
 
     const { linkProps, showNewTabIndicator } = useLink({
-        cssModule: "o-ui-text-link",
-        color,
-        underline,
-        external,
-        autoFocus,
         active,
-        focus,
-        hover,
-        visited,
+        autoFocus,
+        color,
+        cssModule: "o-ui-text-link",
         disabled,
-        target,
+        external,
+        focus,
+        forwardedRef,
+        hover,
         rel,
-        forwardedRef
+        target,
+        underline,
+        visited
     });
 
     const { "start-icon": startIcon, text, icon } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
+        icon: null,
         "start-icon": {
-            size: embeddedIconSize(size),
-            className: "o-ui-link-start-icon"
+            className: "o-ui-link-start-icon",
+            size: embeddedIconSize(size)
         },
         text: {
-            size,
-            className: "o-ui-link-text"
-        },
-        icon: null
+            className: "o-ui-link-text",
+            size
+        }
     }), [size]));
 
     const iconMarkup = icon && augmentElement(icon, {
-        size: embeddedIconSize(size),
-        className: "o-ui-link-end-icon"
+        className: "o-ui-link-end-icon",
+        size: embeddedIconSize(size)
     });
 
     return (

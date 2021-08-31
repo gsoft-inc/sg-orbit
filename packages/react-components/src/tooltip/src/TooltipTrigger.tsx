@@ -1,21 +1,48 @@
 import "./Tooltip.css";
 
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerTooltipTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-    * Whether or not to show the tooltip.
-    */
-    open?: boolean | null;
+     * Whether or not the tooltip element can flip when it will overflow it's boundary area.
+     */
+    allowFlip?: boolean;
+    /**
+     * Whether or not the tooltip element position can change to prevent it from being cut off so that it stays visible within its boundary area.
+     */
+    allowPreventOverflow?: boolean;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * @ignore
+     */
+    containerElement?: HTMLElement;
     /**
      * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen?: boolean;
+    /**
+     * Whether or not the tooltip should be disabled, independent from the trigger.
+     */
+    disabled?: boolean;
+    /**
+     * Called when the open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the tooltip is visible.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    /**
+    * Whether or not to show the tooltip.
+    */
+    open?: boolean | null;
     /**
      * Position of the tooltip element related to the trigger.
      */
@@ -36,36 +63,9 @@ export interface InnerTooltipTriggerProps extends InternalProps, ComponentProps<
     | "left-start"
     | "left-end";
     /**
-     * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the tooltip is visible.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * Whether or not the tooltip should be disabled, independent from the trigger.
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not the tooltip element can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the tooltip element position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
-    /**
      * The z-index of the popover element.
      */
     zIndex?: number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * @ignore
-     */
-    containerElement?: HTMLElement;
 }
 
 export function parseTooltipTrigger(children: ReactNode) {
@@ -106,41 +106,41 @@ export function InnerTooltipTrigger({
     }, [onOpenChange, isOpen, setIsOpen]);
 
     const { triggerRef, overlayRef: overlayPositionRef, arrowRef } = useOverlayPosition({
-        hasArrow: true,
-        position: positionProp,
         allowFlip,
         allowPreventOverflow,
-        boundaryElement: containerElement
+        boundaryElement: containerElement,
+        hasArrow: true,
+        position: positionProp
     });
 
     const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef);
 
     const triggerProps = useOverlayTrigger(isOpen, {
-        trigger: "hover",
-        onShow: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, true);
-        }),
+        hideOnLeave: true,
+        isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
             if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnLeave: true,
-        isDisabled: disabled
+        onShow: useEventCallback((event: SyntheticEvent) => {
+            updateIsOpen(event, true);
+        }),
+        trigger: "hover"
     });
 
     const overlayDismissProps = useOverlayLightDismiss(overlayRef, {
-        trigger: "hover",
+        hideOnEscape: true,
+        hideOnLeave: true,
+        hideOnOutsideClick: false,
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Ignore events related to the trigger.
             if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerRef.current) {
                 updateIsOpen(event, false);
             }
         }),
-        hideOnEscape: true,
-        hideOnLeave: true,
-        hideOnOutsideClick: false
+        trigger: "hover"
     });
 
     const [trigger, tooltip] = parseTooltipTrigger(children);
@@ -180,11 +180,11 @@ export function InnerTooltipTrigger({
                 {...mergeProps(
                     rest,
                     {
-                        show: isOpen,
-                        borderOffset: "var(--o-ui-space-3)",
-                        zIndex,
                         as,
-                        ref: overlayRef
+                        borderOffset: "var(--o-ui-space-3)",
+                        ref: overlayRef,
+                        show: isOpen,
+                        zIndex
                     },
                     overlayDismissProps
                 )}

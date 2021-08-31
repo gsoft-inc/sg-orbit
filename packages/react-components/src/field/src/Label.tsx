@@ -1,21 +1,21 @@
 import "./Label.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 import { useFieldLabelProps } from "./FieldContext";
 
 const DefaultElement = "label";
 
-export interface InnerLabelProps extends InternalProps, Omit<ComponentProps<typeof DefaultElement>, "color">{
-    /**
-     * Whether or not the label show a required state.
-     */
-    required?: boolean;
+export interface InnerLabelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Whether or not the label show a required state.
+     */
+    required?: boolean;
 }
 
 function RequiredIndicator() {
@@ -43,10 +43,10 @@ export function InnerLabel(props: InnerLabelProps) {
             {...mergeProps(
                 rest,
                 {
-                    size: "md",
-                    className: "o-ui-field-label",
                     as,
-                    ref: forwardedRef
+                    className: "o-ui-field-label",
+                    ref: forwardedRef,
+                    size: "md"
                 } as const
             )}
         >

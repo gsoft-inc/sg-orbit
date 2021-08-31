@@ -4,9 +4,9 @@ import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
 
 export interface UseTileProps extends InteractionStatesProps {
-    variant: "checkable" | "link";
-    orientation: "horizontal" | "vertical";
     children: ReactNode;
+    orientation: "horizontal" | "vertical";
+    variant: "checkable" | "link";
 }
 
 export function useTile({
@@ -21,21 +21,21 @@ export function useTile({
         _: {
             required: ["heading", "content"]
         },
-        image: {
-            className: "o-ui-tile-image"
-        },
-        illustration: {
-            orientation: orientation === "horizontal" ? "vertical" : "horizontal",
-            className: "o-ui-tile-illustration"
+        content: {
+            as: Text,
+            className: "o-ui-tile-content"
         },
         heading: {
+            as: "span",
             className: "o-ui-tile-heading",
-            size: "xs",
-            as: "span"
+            size: "xs"
         },
-        content: {
-            className: "o-ui-tile-content",
-            as: Text
+        illustration: {
+            className: "o-ui-tile-illustration",
+            orientation: orientation === "horizontal" ? "vertical" : "horizontal"
+        },
+        image: {
+            className: "o-ui-tile-image"
         }
     }), [orientation]));
 
@@ -46,16 +46,6 @@ export function useTile({
     );
 
     return {
-        tileProps: {
-            className: cssModule(
-                "o-ui-tile",
-                variant,
-                orientation,
-                active && "active",
-                focus && "focus",
-                hover && "hover"
-            )
-        },
         markup: (
             <>
                 {imageMarkup}
@@ -65,6 +55,16 @@ export function useTile({
                     {content}
                 </div>
             </>
-        )
+        ),
+        tileProps: {
+            className: cssModule(
+                "o-ui-tile",
+                variant,
+                orientation,
+                active && "active",
+                focus && "focus",
+                hover && "hover"
+            )
+        }
     };
 }

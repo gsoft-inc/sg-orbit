@@ -53,28 +53,28 @@
     }
 }
 
-// PADDING | VERTICAL
-.o-ui-pv-0 {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-@for $i from 1 through $spacing-scale-size {
-    .o-ui-pv-#{$i} {
-        padding-top: var(--o-ui-space-#{$i});
-        padding-bottom: var(--o-ui-space-#{$i});
-    }
-}
-
-// PADDING | HORIZONTAL
-.o-ui-ph-0 {
+// PADDING | X
+.o-ui-px-0 {
     padding-left: 0;
     padding-right: 0;
 }
 
 @for $i from 1 through $spacing-scale-size {
-    .o-ui-ph-#{$i} {
+    .o-ui-px-#{$i} {
         padding-left: var(--o-ui-space-#{$i});
         padding-right: var(--o-ui-space-#{$i});
+    }
+}
+
+// PADDING | Y
+.o-ui-py-0 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+@for $i from 1 through $spacing-scale-size {
+    .o-ui-py-#{$i} {
+        padding-top: var(--o-ui-space-#{$i});
+        padding-bottom: var(--o-ui-space-#{$i});
     }
 }

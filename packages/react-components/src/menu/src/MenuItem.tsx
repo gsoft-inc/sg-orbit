@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotElements, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
@@ -10,25 +10,25 @@ import type { SelectionMode } from "./Menu";
 
 const DefaultElement = "li";
 
-export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, ComponentProps<typeof DefaultElement> {
+export interface InnerMenuItemProps extends InternalProps, InteractionStatesProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Matching collection item.
+     * React children.
      */
-    item: CollectionItem;
+    children: ReactNode;
     /**
      * Whether or not the item is disabled.
      */
     disabled?: boolean;
     /**
-     * React children.
+     * Matching collection item.
      */
-    children: ReactNode;
+    item: CollectionItem;
 }
 
 const RoleBySelectionMode: Record<SelectionMode, string> = {
+    multiple: "menuitemcheckbox",
     none: "menuitem",
-    single: "menuitemradio",
-    multiple: "menuitemcheckbox"
+    single: "menuitemradio"
 };
 
 export function InnerMenuItem({
@@ -59,30 +59,30 @@ export function InnerMenuItem({
         _: {
             defaultWrapper: Text
         },
-        icon: (iconElement: ReactElement, slotElements: SlotElements) => {
-            return {
-                className: "o-ui-menu-item-start-icon",
-                size: isNil(slotElements.description) ? "sm" : "lg"
-            };
-        },
         avatar: (avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-menu-item-option-avatar",
                 size: isNil(slotElements.description) ? "2xs" : "md"
             };
         },
-        text: {
-            id: `${id}-label`,
-            className: "o-ui-menu-item-label"
-        },
         description: {
-            id: `${id}-description`,
             className: "o-ui-menu-item-description",
+            id: `${id}-description`,
             size: "md"
         },
         "end-icon": {
-            size: "sm",
-            className: "o-ui-menu-item-end-icon"
+            className: "o-ui-menu-item-end-icon",
+            size: "sm"
+        },
+        icon: (iconElement: ReactElement, slotElements: SlotElements) => {
+            return {
+                className: "o-ui-menu-item-start-icon",
+                size: isNil(slotElements.description) ? "sm" : "lg"
+            };
+        },
+        text: {
+            className: "o-ui-menu-item-label",
+            id: `${id}-label`
         }
     }), [id]));
 
@@ -96,9 +96,14 @@ export function InnerMenuItem({
             {...mergeProps(
                 rest,
                 {
-                    id,
-                    onClick: !disabled ? handleClick : undefined,
-                    onMouseEnter: handleMouseEnter,
+                    [ItemKeyProp]: key,
+                    "aria-checked": role !== RoleBySelectionMode.none ? (!disabled && selectedKeys.includes(key)) : undefined,
+                    "aria-describedby": description && descriptionId,
+                    "aria-disabled": disabled,
+                    "aria-labelledby": labelId,
+
+                    as,
+
                     className: cssModule(
                         "o-ui-menu-item",
                         description && "has-description",
@@ -106,16 +111,13 @@ export function InnerMenuItem({
                         focus && "focus",
                         hover && "hover"
                     ),
+                    id,
+                    onClick: !disabled ? handleClick : undefined,
+                    onMouseEnter: handleMouseEnter,
+                    ref: forwardedRef,
                     role,
                     // Disabled menu item are still focusable.
-                    tabIndex: -1,
-                    [ItemKeyProp]: key,
-                    "aria-checked": role !== RoleBySelectionMode.none ? (!disabled && selectedKeys.includes(key)) : undefined,
-                    "aria-disabled": disabled,
-                    "aria-labelledby": labelId,
-                    "aria-describedby": description && descriptionId,
-                    as,
-                    ref: forwardedRef
+                    tabIndex: -1
                 }
             )}
         >

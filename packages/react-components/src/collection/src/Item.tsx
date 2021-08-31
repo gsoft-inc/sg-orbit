@@ -3,10 +3,6 @@ import { OmitInternalProps } from "../../shared";
 
 export interface InnerItemProps extends AllHTMLAttributes<any> {
     /**
-     * A unique key to identify the item.
-     */
-    key?: string;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -14,6 +10,10 @@ export interface InnerItemProps extends AllHTMLAttributes<any> {
     * @ignore
     */
     forwardedRef: ForwardedRef<any>;
+    /**
+     * A unique key to identify the item.
+     */
+    key?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

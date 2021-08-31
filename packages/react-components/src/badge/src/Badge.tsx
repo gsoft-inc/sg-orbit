@@ -2,23 +2,23 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBadgeProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerBadgeProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The style to use.
+     * React children.
      */
-    variant?: "count" | "dot" | "icon";
+    children: ReactNode;
     /**
      * The shape of the element being overlap by the badge.
      */
     overlap?: "circle" | "icon";
     /**
-     * React children.
+     * The style to use.
      */
-    children: ReactNode;
+    variant?: "count" | "dot" | "icon";
 }
 
 export function InnerBadge({
@@ -42,12 +42,12 @@ export function InnerBadge({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-badge",
                         variant,
                         overlap && `over-${overlap}`
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

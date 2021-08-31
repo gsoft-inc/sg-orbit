@@ -4,29 +4,29 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
 
 const DefaultElement = "div";
 
-export interface InnerGroupFieldProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerGroupFieldProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether the field should display as "valid" or "invalid".
+     * React children.
      */
-    validationState?: "valid" | "invalid";
-    /**
-     * Whether or not the field show a required state.
-     */
-    required?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the field take up the width of its container.
      */
     fluid?: boolean;
     /**
-     * React children.
+     * Whether or not the field show a required state.
      */
-    children: ReactNode;
+    required?: boolean;
+    /**
+     * Whether the field should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
 }
 
 export function InnerGroupField(props: InnerGroupFieldProps) {
@@ -51,13 +51,13 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
     );
 
     const { fieldProps, fieldContext } = useGroupField({
-        id,
-        validationState,
-        required,
-        fluid,
-        disabled,
         className,
-        forwardedRef
+        disabled,
+        fluid,
+        forwardedRef,
+        id,
+        required,
+        validationState
     });
 
     return (

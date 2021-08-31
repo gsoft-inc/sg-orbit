@@ -2,24 +2,32 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "span";
 
-export interface InnerCounterProps extends SlotProps, InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerCounterProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * The style to use.
+     * React children.
      */
-    variant?: "basic" | "divider";
+    children: ReactNode;
     /**
      * The color accent.
      */
     color?: "inherit";
     /**
+     * Whether or not the counter is disabled.
+     */
+    disabled?: boolean;
+    /**
      * Whether or not to add emphasis to the counter.
      */
     highlight?: boolean;
+    /**
+     * Whether or not the counter push itself away from the leading sibling element.
+     */
+    pushed?: boolean;
     /**
      * Whether or not to reverse counter elements order.
      */
@@ -29,17 +37,9 @@ export interface InnerCounterProps extends SlotProps, InternalProps, ComponentPr
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
     /**
-     * Whether or not the counter is disabled.
+     * The style to use.
      */
-    disabled?: boolean;
-    /**
-     * Whether or not the counter push itself away from the leading sibling element.
-     */
-    pushed?: boolean;
-    /**
-     * React children.
-     */
-    children: ReactNode;
+    variant?: "basic" | "divider";
 }
 
 export function InnerCounter(props: InnerCounterProps) {
@@ -61,6 +61,7 @@ export function InnerCounter(props: InnerCounterProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-counter",
                         variant,
@@ -70,7 +71,6 @@ export function InnerCounter(props: InnerCounterProps) {
                         pushed && "pushed",
                         normalizeSize(size)
                     ),
-                    as,
                     ref: forwardedRef
                 }
             )}

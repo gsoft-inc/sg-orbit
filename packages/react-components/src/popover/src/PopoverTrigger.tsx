@@ -1,19 +1,46 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends InternalProps, ComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
-     * Whether or not to show the popover.
+     * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
-    open?: boolean | null;
+    allowFlip?: boolean;
+    /**
+     * Whether or not the popover element position can change to prevent it from being cut off so that it stays visible within its boundary area.
+     */
+    allowPreventOverflow?: boolean;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * A DOM element in which the overlay element will be appended via a React portal.
+     */
+    containerElement?: HTMLElement;
     /**
      * The initial value of `open` when in auto controlled mode.
      */
     defaultOpen?: boolean;
+    /**
+     * Whether or not the popover should close on outside interactions.
+     */
+    dismissable?: boolean;
+    /**
+     * Called when the open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the popover is visible.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    /**
+     * Whether or not to show the popover.
+     */
+    open?: boolean | null;
     /**
      * Position of the popover element related to the trigger.
      */
@@ -34,36 +61,9 @@ export interface InnerPopoverTriggerProps extends InternalProps, ComponentProps<
         | "left-start"
         | "left-end");
     /**
-     * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the popover is visible.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * Whether or not the popover should close on outside interactions.
-     */
-    dismissable?: boolean;
-    /**
-     * Whether or not the popover element can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the popover element position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
-    /**
      * The z-index of the popover element.
      */
     zIndex?: number;
-    /**
-     * A DOM element in which the overlay element will be appended via a React portal.
-     */
-    containerElement?: HTMLElement;
-    /**
-     * React children.
-     */
-    children: ReactNode;
 }
 
 export function InnerPopoverTrigger({
@@ -85,20 +85,20 @@ export function InnerPopoverTrigger({
     const overlayRef = useMergedRefs(forwardedRef);
 
     const { isOpen, setIsOpen, triggerProps, overlayProps, arrowProps } = usePopup("dialog", {
-        id,
-        open,
+        allowFlip,
+        allowPreventOverflow,
+        boundaryElement: containerElement,
         defaultOpen,
-        onOpenChange,
+        hasArrow: true,
         hideOnEscape: true,
         hideOnLeave: false,
         hideOnOutsideClick: dismissable,
-        restoreFocus: true,
-        trigger: "click",
-        hasArrow: true,
+        id,
+        onOpenChange,
+        open,
         position: positionProp,
-        allowFlip,
-        allowPreventOverflow,
-        boundaryElement: containerElement
+        restoreFocus: true,
+        trigger: "click"
     });
 
     const close = useCallback((event: SyntheticEvent) => {
@@ -120,8 +120,8 @@ export function InnerPopoverTrigger({
     return (
         <PopoverTriggerContext.Provider
             value={{
-                isOpen,
-                close
+                close,
+                isOpen
             }}
         >
             {triggerMarkup}
@@ -129,11 +129,11 @@ export function InnerPopoverTrigger({
                 {...mergeProps(
                     rest,
                     {
-                        borderOffset: "var(--o-ui-space-3)",
-                        zIndex,
-                        className: "o-ui-popover-overlay",
                         as,
-                        ref: overlayRef
+                        borderOffset: "var(--o-ui-space-3)",
+                        className: "o-ui-popover-overlay",
+                        ref: overlayRef,
+                        zIndex
                     },
                     overlayProps
                 )}

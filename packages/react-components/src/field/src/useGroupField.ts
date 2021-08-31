@@ -3,27 +3,27 @@ import { MergedRef, cssModule, isNil, mergeClasses, useHasChildren, useId, useIs
 import type { FieldContextType } from "./FieldContext";
 
 export interface UseGroupFieldProps {
-    id?: string;
-    validationState?: "valid" | "invalid";
-    required?: boolean;
-    fluid?: boolean;
-    disabled?: boolean;
     className?: string;
+    disabled?: boolean;
+    fluid?: boolean;
     forwardedRef?: ForwardedRef<any>;
+    id?: string;
+    required?: boolean;
+    validationState?: "valid" | "invalid";
 }
 
 export interface UseGroupFieldReturn {
+    fieldContext: Partial<FieldContextType>;
     fieldId: string;
     fieldProps: {
-        id: string;
-        className: string;
-        role: string;
-        ref: MergedRef<any>;
-        "aria-labelledby": string;
         "aria-describedby": string;
+        "aria-labelledby": string;
+        className: string;
+        id: string;
+        ref: MergedRef<any>;
+        role: string;
 
     };
-    fieldContext: Partial<FieldContextType>;
 }
 
 export function useGroupField({
@@ -54,9 +54,25 @@ export function useGroupField({
     const messageId = hasMessage || isInitialRender ? `${fieldId}-message` : undefined;
 
     return {
+        fieldContext: {
+            disabled,
+            fluid,
+            hasLabel,
+            hasMessage,
+            id: fieldId,
+            inputClassName: "o-ui-field-input",
+            inputId,
+            labelClassName: "o-ui-field-label",
+            labelId,
+            messageClassName: "o-ui-field-message",
+            messageId,
+            required,
+            validationState
+        },
         fieldId,
         fieldProps: {
-            id: fieldId,
+            "aria-describedby": !isNil(messageId) ? messageId : undefined,
+            "aria-labelledby": !isNil(labelId) ? labelId : undefined,
             className: mergeClasses(
                 cssModule(
                     "o-ui-field",
@@ -64,25 +80,9 @@ export function useGroupField({
                 ),
                 className
             ),
-            role: hasRadio ? "radiogroup" : "group",
-            "aria-labelledby": !isNil(labelId) ? labelId : undefined,
-            "aria-describedby": !isNil(messageId) ? messageId : undefined,
-            ref
-        },
-        fieldContext: {
             id: fieldId,
-            inputId,
-            labelId,
-            messageId,
-            required,
-            disabled,
-            fluid,
-            validationState,
-            hasLabel,
-            hasMessage,
-            labelClassName: "o-ui-field-label",
-            inputClassName: "o-ui-field-input",
-            messageClassName: "o-ui-field-message"
+            ref,
+            role: hasRadio ? "radiogroup" : "group"
         }
     };
 }

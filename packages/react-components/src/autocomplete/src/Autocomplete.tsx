@@ -7,6 +7,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
+    OrbitComponentProps,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -36,55 +37,78 @@ interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerAutocompleteProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
-     * Whether or not to open the autocomplete element.
+     * The horizontal alignment of the autocomplete menu relative to the input.
      */
-    open?: boolean | null;
+    align?: "start" | "end";
     /**
-     * The initial value of open when in auto controlled mode.
+     * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
-    defaultOpen?: boolean;
+    allowFlip?: boolean;
     /**
-     * A controlled autocomplete value.
+     * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
-    value?: string | null;
+    allowPreventOverflow?: boolean;
     /**
-     * The default value of `value` when uncontrolled.
+     * Whether or not the autocomplete should autofocus on render.
      */
-    defaultValue?: string;
+    autoFocus?: boolean | number;
     /**
-     * Temporary text that occupies the autocomplete trigger when no value is selected.
+     * React children.
      */
-    placeholder?: string;
-    /**
-    * @ignore
-    */
-    name?: string;
-    /**
-     * Whether or not the autocomplete should display a loading state.
-     */
-    loading?: boolean;
+    children: ReactNode;
     /**
      * Whether or not the query should be cleared when a result is selected.
      */
     clearOnSelect?: boolean;
     /**
-     * Message to display when there are no results matching the query.
+     * The initial value of open when in auto controlled mode.
      */
-    noResultsMessage?: string;
+    defaultOpen?: boolean;
+    /**
+     * The default value of `value` when uncontrolled.
+     */
+    defaultValue?: string;
+    /**
+     * The direction the autocomplete menu will open relative to the input.
+     */
+    direction?: "bottom" | "top";
+    /**
+     * Whether or not the autocomplete is disabled.
+     */
+    disabled?: boolean;
+    /**
+     * Whether or not the autocomplete take up the width of its container.
+     */
+    fluid?: boolean;
+    /**
+     * A trigger icon.
+     */
+    icon?: ReactElement;
+    /**
+     * Whether or not the autocomplete should display a loading state.
+     */
+    loading?: boolean;
     /**
      * Minimum characters to query for results.
      */
     minCharacters?: number;
     /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
+    * @ignore
+    */
+    name?: string;
     /**
-     * Whether or not the autocomplete should display as "valid" or "invalid".
+     * Message to display when there are no results matching the query.
      */
-    validationState?: "valid" | "invalid";
+    noResultsMessage?: string;
+    /**
+     * Called when the autocomplete open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the menu is open.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
     /**
      * Called when the input query change and new search results are expected.
      * @param {SyntheticEvent} event - React's original event.
@@ -102,64 +126,41 @@ export interface InnerAutocompleteProps extends InternalProps, InteractionStates
      */
     onSelectionChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
     /**
-     * Called when the autocomplete open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the menu is open.
-     * @returns {void}
+     * Whether or not to open the autocomplete element.
      */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * A trigger icon.
-     */
-    icon?: ReactElement;
-    /**
-     * The direction the autocomplete menu will open relative to the input.
-     */
-    direction?: "bottom" | "top";
-    /**
-     * The horizontal alignment of the autocomplete menu relative to the input.
-     */
-    align?: "start" | "end";
-    /**
-     * Whether or not the autocomplete should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * Whether or not the autocomplete take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * Whether or not the autocomplete is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not the autocomplete is readonly.
-     */
-    readOnly?: boolean;
-    /**
-     * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
-    /**
-     * The z-index of the overlay element.
-     */
-    zIndex?: number;
-    /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Partial<BoxProps>;
+    open?: boolean | null;
     /**
      * Additional props to render on the menu of options.
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * React children.
+     * Temporary text that occupies the autocomplete trigger when no value is selected.
      */
-    children: ReactNode;
+    placeholder?: string;
+    /**
+     * Whether or not the autocomplete is readonly.
+     */
+    readOnly?: boolean;
+    /**
+     * Whether or not a user input is required before form submission.
+     */
+    required?: boolean;
+    /**
+     * Whether or not the autocomplete should display as "valid" or "invalid".
+     */
+    validationState?: "valid" | "invalid";
+    /**
+     * A controlled autocomplete value.
+     */
+    value?: string | null;
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
+    /**
+     * The z-index of the overlay element.
+     */
+    zIndex?: number;
 }
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
@@ -238,20 +239,25 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         triggerProps: { ref: popupTriggerRef, ...triggerProps },
         overlayProps: { ref: overlayRef, ...overlayProps }
     } = usePopup("listbox", {
-        id: menuId,
-        open: openProp,
+        allowFlip,
+        allowPreventOverflow,
         defaultOpen,
-        onOpenChange,
+        disabled: disabled || readOnly,
         hideOnEscape: true,
         hideOnLeave: true,
+        id: menuId,
+
+        offset: [0, 4],
+
+        onOpenChange,
+
+        open: openProp,
+
+        position: `${direction}-${align}` as const,
+
         restoreFocus: true,
         // An autocomplete take care of his own trigger logic.
-        trigger: "none",
-        position: `${direction}-${align}` as const,
-        offset: [0, 4],
-        disabled: disabled || readOnly,
-        allowFlip,
-        allowPreventOverflow
+        trigger: "none"
     });
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth();
@@ -468,38 +474,38 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 {...mergeProps(
                     rest,
                     {
-                        id: triggerId,
-                        value: queryRef.current,
-                        placeholder,
-                        icon: iconMarkup ?? null,
-                        onValueChange: handleTriggerChange,
-                        onKeyDown: handleTriggerKeyDown,
-                        autoFocus,
-                        loading: useDeferredValue(loading, 100, false),
-                        disabled,
-                        readOnly,
-                        validationState,
-                        fluid,
                         active,
+                        "aria-activedescendant": focusedItem?.id,
+                        "aria-autocomplete": "list",
+                        "aria-describedby": ariaDescribedBy,
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                        as,
+                        autoFocus,
+                        className: "o-ui-autocomplete-trigger",
+                        disabled,
+                        fluid,
                         focus,
                         hover,
-                        className: "o-ui-autocomplete-trigger",
+                        icon: iconMarkup ?? null,
+                        id: triggerId,
+                        loading: useDeferredValue(loading, 100, false),
+                        onKeyDown: handleTriggerKeyDown,
+                        onValueChange: handleTriggerChange,
+                        placeholder,
+                        readOnly,
+                        ref: triggerRef,
+                        role: "combobox",
                         type: "text",
+                        validationState,
+                        value: queryRef.current,
                         wrapperProps: mergeProps(
                             wrapperProps ?? {},
                             {
                                 ref: triggerWrapperRef
                             },
                             triggerFocusWithinProps
-                        ),
-                        role: "combobox",
-                        "aria-activedescendant": focusedItem?.id,
-                        "aria-autocomplete": "list",
-                        "aria-label": ariaLabel,
-                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
-                        "aria-describedby": ariaDescribedBy,
-                        as,
-                        ref: triggerRef
+                        )
                     } as const,
                     triggerProps
                 )}
@@ -508,14 +514,14 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                 {...mergeProps(
                     menuProps,
                     {
-                        show: isOpen && (!loading || results.length > 0),
-                        zIndex,
                         className: `o-ui-autocomplete-menu ${results.length > 0 ? "" : "o-ui-autocomplete-menu-no-results"}`,
+                        ref: overlayRef,
+                        show: isOpen && (!loading || results.length > 0),
                         style: {
                             ...menuStyle,
                             width: menuWidth ?? triggerWidth ?? undefined
                         },
-                        ref: overlayRef
+                        zIndex
                     },
                     overlayProps
                 )}

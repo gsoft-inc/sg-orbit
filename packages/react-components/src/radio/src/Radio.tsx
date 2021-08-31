@@ -6,6 +6,7 @@ import {
     InteractionStatesProps,
     InternalProps,
     OmitInternalProps,
+    OrbitComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -24,31 +25,35 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * A controlled checked state value.
-     */
-    checked?: boolean | null;
-    /**
-     * The initial value of `checked` when uncontrolled.
-     */
-    defaultChecked?: boolean;
-    /**
-     * The value to associate with when in a group.
-     */
-    value?: string;
+export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the radio should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
-     * Whether or not the radio should display as "valid" or "invalid".
+     * A controlled checked state value.
      */
-    validationState?: "valid" | "invalid";
+    checked?: boolean | null;
+    /**
+     * React children.
+     */
+    children: ReactNode;
+    /**
+     * The initial value of `checked` when uncontrolled.
+     */
+    defaultChecked?: boolean;
     /**
      * Whether or not the radio is disabled.
      */
     disabled?: boolean;
+    /**
+     * Radio name.
+     */
+    name?: string;
+    /**
+     * @ignore
+     */
+    onChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * Called when the radio checked state change.
      * @param {FormEvent} event - React's original synthetic event.
@@ -56,10 +61,6 @@ export interface InnerRadioProps extends InternalProps, InteractionStatesProps, 
      * @returns {void}
      */
     onValueChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
-    /**
-     * @ignore
-     */
-    onChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * Invert the order of the checkmark box and the label.
      */
@@ -69,13 +70,13 @@ export interface InnerRadioProps extends InternalProps, InteractionStatesProps, 
      */
     tabIndex?: number;
     /**
-     * Radio name.
+     * Whether or not the radio should display as "valid" or "invalid".
      */
-    name?: string;
+    validationState?: "valid" | "invalid";
     /**
-     * React children.
+     * The value to associate with when in a group.
      */
-    children: ReactNode;
+    value?: string;
 }
 
 export function InnerRadio(props: InnerRadioProps) {
@@ -112,8 +113,8 @@ export function InnerRadio(props: InnerRadioProps) {
     const inputRef = useRef();
 
     useAutoFocus(inputRef, {
-        isDisabled: !autoFocus,
-        delay: isNumber(autoFocus) ? autoFocus : undefined
+        delay: isNumber(autoFocus) ? autoFocus : undefined,
+        isDisabled: !autoFocus
     });
 
     const forwardInputApi = useForwardInputApi(inputRef);
@@ -148,20 +149,20 @@ export function InnerRadio(props: InnerRadioProps) {
         _: {
             defaultWrapper: Text
         },
-        text: {
+        counter: {
+            className: "o-ui-radio-counter",
             color: "inherit",
-            className: "o-ui-radio-label"
+            pushed: true,
+            reverse,
+            variant: "divider"
         },
         icon: {
-            size: "sm",
-            className: "o-ui-radio-icon"
+            className: "o-ui-radio-icon",
+            size: "sm"
         },
-        counter: {
-            variant: "divider",
-            color: "inherit",
-            reverse,
-            pushed: true,
-            className: "o-ui-radio-counter"
+        text: {
+            className: "o-ui-radio-label",
+            color: "inherit"
         }
     }), [reverse]));
 
@@ -170,6 +171,7 @@ export function InnerRadio(props: InnerRadioProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-radio",
                         isChecked && "checked",
@@ -180,7 +182,6 @@ export function InnerRadio(props: InnerRadioProps) {
                         focus && "focus",
                         hover && "hover"
                     ),
-                    as,
                     ref: labelRef
                 }
             )}
