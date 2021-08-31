@@ -1,5 +1,4 @@
 import { AbstractGroupProps, Group } from "../../group";
-import { Box } from "../../box";
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
