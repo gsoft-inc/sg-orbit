@@ -1,6 +1,6 @@
 :root {
     /* Use this var only when the element is not affected by the font-family specified in Storybook docs theme */
-    --orbit-font-family: "TT Interphases Variable, Arial, Helvetica, sans-serif";
+    --orbit-font-family: "TT Interphases Variable", Arial, Helvetica, sans-serif;
 }
 
 /* LAYOUT */

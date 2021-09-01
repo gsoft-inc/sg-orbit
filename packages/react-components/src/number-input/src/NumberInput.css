@@ -103,7 +103,7 @@
 /* SPINNER | TRANSPARENT */
 .o-ui-input-transparent .o-ui-number-input-spinner-increment,
 .o-ui-input-transparent .o-ui-number-input-spinner-decrement {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     border: 0;
 }
 

@@ -1,0 +1,17 @@
+/* BACKGROUND-CLIP */
+.o-ui-bgc-bb {
+    background-clip: border-box;
+}
+
+.o-ui-bgc-cb {
+    background-clip: content-box;
+}
+
+.o-ui-bgc-pb {
+    background-clip: padding-box;
+}
+
+.o-ui-bgc-tb {
+    background-clip: text-box;
+    -webkit-background-clip: text;
+}

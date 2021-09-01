@@ -4,13 +4,13 @@
     border: 1px solid var(--o-ui-alias-b-1);
     background-color: var(--o-ui-alias-bg-1);
     padding: 0;
-    color: var(--o-ui-alias-text-primary);
+    color: var(--o-ui-alias-text-1);
     border-radius: var(--o-ui-shape-rounded);
     display: grid;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
     cursor: pointer;
-    box-shadow: var(--o-ui-global-shadow-200);
+    box-shadow: var(--o-ui-box-shadows-2);
 }
 
 /* HEADING */

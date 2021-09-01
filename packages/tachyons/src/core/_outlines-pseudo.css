@@ -3,7 +3,7 @@
 }
 
 .hover-outline-transparent:hover {
-    box-shadow: 0px 0px 0px 2px var(--o-ui-global-transparent);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-transparent);
 }
 
 .hover-outline-0:hover {
@@ -15,7 +15,7 @@
 }
 
 .focus-outline-transparent:focus {
-    box-shadow: 0px 0px 0px 2px var(--o-ui-global-transparent);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-transparent);
 }
 
 .focus-outline-0:focus {
