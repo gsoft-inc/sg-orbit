@@ -300,42 +300,64 @@ export const AppearanceClasses = {
     "textfield": "o-ui-a-t"
 } as const;
 
-export const BackgroundColorRoleClasses = {
-    "alias-1": "o-ui-alias-bg-1",
-    "alias-2": "o-ui-alias-bg-2",
-    "alias-3": "o-ui-alias-bg-3",
-    "alias-4": "o-ui-alias-bg-4",
-    "alias-5": "o-ui-alias-bg-5",
-    "alias-6": "o-ui-alias-bg-6",
-    "alias-info-1": "o-ui-alias-bg-info-1",
-    "alias-negative-1": "o-ui-alias-bg-negative-1",
-    "alias-negative-2": "o-ui-alias-bg-negative-2",
-    "alias-positive-1": "o-ui-alias-bg-positive-1",
-    "alias-positive-2": "o-ui-alias-bg-positive-2",
-    "alias-primary-1": "o-ui-alias-bg-primary-1",
-    "alias-primary-2": "o-ui-alias-bg-primary-2",
-    "alias-warning-1": "o-ui-alias-bg-warning-1",
-    "alias-warning-2": "o-ui-alias-bg-warning-2"
+export const BackgroundAttachmentClasses = {
+    "scroll": "o-ui-bga-s",
+    "fixed": "o-ui-bga-f",
+    "local": "o-ui-bga-l"
 } as const;
 
-export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
+export const BackgroundClipClasses = {
+    "border-box": "o-ui-bgc-bb",
+    "content-box": "o-ui-bgc-cb",
+    "text-box": "o-ui-bgc-tb",
+    "padding-box": "o-ui-bgc-pb",
+} as const;
+
+export const BackgroundColorRoleClasses = {
+    "alias-1": "o-ui-alias-bgc-1",
+    "alias-2": "o-ui-alias-bgc-2",
+    "alias-3": "o-ui-alias-bgc-3",
+    "alias-4": "o-ui-alias-bgc-4",
+    "alias-5": "o-ui-alias-bgc-5",
+    "alias-6": "o-ui-alias-bgc-6",
+    "alias-info-1": "o-ui-alias-bgc-info-1",
+    "alias-negative-1": "o-ui-alias-bgc-negative-1",
+    "alias-negative-2": "o-ui-alias-bgc-negative-2",
+    "alias-positive-1": "o-ui-alias-bgc-positive-1",
+    "alias-positive-2": "o-ui-alias-bgc-positive-2",
+    "alias-primary-1": "o-ui-alias-bgc-primary-1",
+    "alias-primary-2": "o-ui-alias-bgc-primary-2",
+    "alias-warning-1": "o-ui-alias-bgc-warning-1",
+    "alias-warning-2": "o-ui-alias-bgc-warning-2"
+} as const;
+
+export const BackgroundColorClasses = { ...createOrbitColorClasses("bgc"), ...BackgroundColorRoleClasses };
 
 export const BackgroundPositionClasses = {
-    "bottom": "o-ui-bg-b",
+    "bottom": "o-ui-bgp-b",
     "center": "o-ui-bgp-c",
-    "left": "o-ui-bg-l",
-    "left-bottom": "o-ui-bg-lb",
-    "left-top": "o-ui-bg-lt",
-    "right": "o-ui-bg-r",
-    "right-bottom": "o-ui-bg-rb",
-    "right-top": "o-ui-bg-rt",
-    "top": "o-ui-bg-t"
+    "left": "o-ui-bgp-l",
+    "left-bottom": "o-ui-bgp-lb",
+    "left-top": "o-ui-bgp-lt",
+    "right": "o-ui-bgp-r",
+    "right-bottom": "o-ui-bgp-rb",
+    "right-top": "o-ui-bgp-rt",
+    "top": "o-ui-bgp-t"
+} as const;
+
+export const BackgroundRepeatClasses = {
+    "repeat-x": "o-ui-bgr-rx",
+    "repeat-y": "o-ui-bgr-ry",
+    "repeat": "o-ui-bgr-rpt",
+    "no-repeat": "o-ui-bgr-nr",
+    "space": "o-ui-bgr-s",
+    "round": "o-ui-bgr-rnd"
 } as const;
 
 export const BackgroundSizeClasses = {
-    "auto": "o-ui-bg-a",
-    "contain": "o-ui-bg-cnt",
-    "cover": "o-ui-bg-cvr"
+    "auto": "o-ui-bgs-a",
+    "contain": "o-ui-bgs-cnt",
+    "cover": "o-ui-bgs-cvr"
 } as const;
 
 export const BorderColorRoleClasses = {
@@ -636,6 +658,12 @@ export const ObjectFitClasses = {
     "scale-down": "o-ui-of-sd"
 } as const;
 
+export const OpacityClasses = {
+    "visible": "o-ui-of-v",
+    "not-visible": "o-ui-opc-nv",
+    "disabled": "o-ui-opc-d"
+} as const;
+
 export const OutlineClasses = {
     "none": "o-ui-o-n"
 } as const;
@@ -802,9 +830,15 @@ export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue
 
 export type AppearanceProp = Simplify<keyof typeof AppearanceClasses | GlobalValue>;
 
+export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string> | GlobalValue>;
+
+export type BackgroundClipProp = Simplify<keyof typeof BackgroundClipClasses | GlobalValue>;
+
 export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
+
+export type BackgroundRepeatProp = Simplify<LiteralUnion<keyof typeof BackgroundRepeatClasses, string> | GlobalValue>;
 
 export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue>;
 
@@ -892,6 +926,8 @@ export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | Omit<SpaceVal
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
+export type OpacityProp = Simplify<keyof typeof OpacityClasses | GlobalValue>;
+
 export type OutlineProp = Simplify<keyof typeof OutlineClasses | GlobalValue>;
 
 export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
@@ -970,11 +1006,23 @@ export interface StyleProps {
     /**
      * @ignore
      */
+    backgroundAttachment?: BackgroundAttachmentProp;
+    /**
+     * @ignore
+     */
+    backgroundClip?: BackgroundClipProp;
+    /**
+     * @ignore
+     */
     backgroundColor?: BackgroundColorProp;
     /**
      * @ignore
      */
     backgroundPosition?: BackgroundPositionProp;
+    /**
+     * @ignore
+     */
+    backgroundRepeat?: BackgroundRepeatProp;
     /**
      * @ignore
      */
@@ -1174,6 +1222,10 @@ export interface StyleProps {
     /**
      * @ignore
      */
+    opacity?: OpacityProp;
+    /**
+     * @ignore
+     */
     outline?: OutlineProp;
     /**
      * @ignore
@@ -1342,6 +1394,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignItems: createPropHandler(AlignItemsClasses),
     alignSelf: createPropHandler(AlignSelfClasses),
     appearance: createPropHandler(AppearanceClasses),
+    backgroundClip: createPropHandler(BackgroundClipClasses),
     backgroundColor: createPropHandler(BackgroundColorClasses),
     backgroundPosition: createPropHandler(BackgroundPositionClasses),
     backgroundSize: createPropHandler(BackgroundSizeClasses),
@@ -1386,6 +1439,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     minHeight: createPropHandler(MinHeightClasses),
     minWidth: createPropHandler(MinWidthClasses),
     objectFit: createPropHandler(ObjectFitClasses),
+    opacity: createPropHandler(OpacityClasses),
     outline: createPropHandler(OutlineClasses),
     overflow: createPropHandler(OverflowClasses),
     overflowX: createPropHandler(OverflowXClasses),

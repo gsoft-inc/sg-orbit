@@ -158,7 +158,7 @@ a.o-ui-button {
 /* OUTLINE */
 .o-ui-button-outline {
     border: none;
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     color: var(--o-ui-alias-text-2);
     box-shadow: 0 0 0 1px var(--o-ui-alias-b-4) inset;
 }
@@ -267,7 +267,7 @@ a.o-ui-button {
 
 /* GHOST */
 .o-ui-button-ghost {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     border: none;
     color: var(--o-ui-alias-text-2);
 }

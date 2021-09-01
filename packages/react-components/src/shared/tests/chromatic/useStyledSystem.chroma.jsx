@@ -1,5 +1,8 @@
 import {
+    BackgroundAttachmentClasses,
+    BackgroundClipClasses,
     BackgroundColorClasses,
+    BackgroundRepeatClasses,
     BorderBottomWidthClasses,
     BorderColorClasses,
     BorderLeftWidthClasses,
@@ -24,6 +27,7 @@ import {
     MarginXClasses,
     MarginYClasses,
     ObjectFitClasses,
+    OpacityClasses,
     OverflowClasses,
     OverflowXClasses,
     OverflowYClasses,
@@ -48,7 +52,7 @@ import {
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { Launch } from "./assets";
+import { Launch, Moon } from "./assets";
 import { Paragraph, Text } from "@react-components/typography";
 import { ThemeProvider } from "@react-components/theme-provider";
 import { storiesOfBuilder } from "@stories/utils";
@@ -79,6 +83,16 @@ function LargeSquare(props) {
     );
 }
 
+function ExtraLargeSquare(props) {
+    return (
+        <Box
+            {...props}
+            width="140px"
+            height="140px"
+        />
+    );
+}
+
 function Image(props) {
     return (
         <Box
@@ -91,6 +105,24 @@ function Image(props) {
 }
 
 stories()
+    .add("background attachment", () =>
+        <Stack>
+            <Inline gap={0} wrap>
+                {Object.keys(BackgroundAttachmentClasses).map(x => <ExtraLargeSquare backgroundAttachment={x} key={x} style={{ "background-image": `url(${Launch})`, "overflow": "auto" }}><p>
+London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
+London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
+                </p></ExtraLargeSquare>)}
+            </Inline>
+        </Stack>
+    )
+    .add("background attachment", () =>
+        <Stack>
+            <Inline gap={0} wrap>
+                {Object.keys(BackgroundClipClasses).map(x => <ExtraLargeSquare backgroundClip={x} key={x} style={{ "background-image": `url(${Launch})`, "padding": "12px", "border": "4px dashed black" }}>
+London. Michaelmas term lately over</ExtraLargeSquare>)}
+            </Inline>
+        </Stack>
+    )
     .add("background color", () =>
         <Stack>
             <Inline gap={0} wrap>
@@ -104,6 +136,13 @@ stories()
             <Inline gap={0}>
                 <SmallSquare backgroundColor="black" />
                 <SmallSquare backgroundColor="#000" />
+            </Inline>
+        </Stack>
+    )
+    .add("background repeat", () =>
+        <Stack>
+            <Inline gap={0} wrap>
+                {Object.keys(BackgroundRepeatClasses).map(x => <ExtraLargeSquare backgroundRepeat={x} key={x} style={{ "background-image": `url(${Moon})` }} />)}
             </Inline>
         </Stack>
     )
@@ -301,6 +340,11 @@ stories()
     .add("object fit", () =>
         <Inline gap={0} wrap>
             {Object.keys(ObjectFitClasses).map(x => <Image objectFit={x} key={x} src={Launch} width="160px" height="160px" alt="Space X" />)}
+        </Inline>
+    )
+    .add("opacity", () =>
+        <Inline gap={0} wrap>
+            {Object.keys(OpacityClasses).map(x => <Image opacity={x} key={x} src={Launch} width="160px" height="160px" alt="Space X" />)}
         </Inline>
     )
     .add("overflow", () =>

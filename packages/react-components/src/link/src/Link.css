@@ -2,7 +2,7 @@
     outline: none;
     display: inline-block;
     border: none;
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     padding: 0;
     position: relative;
     color: inherit;
@@ -52,7 +52,7 @@
 .o-ui-link-active.o-ui-link-focus,
 .o-ui-link-active.o-ui-link:focus-visible,
 .o-ui-link:active.o-ui-link-focus {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     box-shadow: none;
 }
 
@@ -70,7 +70,7 @@
 /* STATE | DISABLED | FOCUS */
 .o-ui-link-disabled:focus-visible,
 .o-ui-link-disabled.o-ui-link-focus {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
     box-shadow: none;
 }
 

@@ -7,7 +7,7 @@
 }
 
 .bg-transparent {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
 }
 
 .bg-inherit {
@@ -16,7 +16,7 @@
 
 .fill-transparent:hover,
 .fill:focus {
-    fill: var(--o-ui-global-transparent);
+    fill: var(--o-ui-transparent);
 }
 
 .fill-inherit {

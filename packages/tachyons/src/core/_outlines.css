@@ -4,7 +4,7 @@
 } */
 
 .outline-transparent {
-    box-shadow: 0px 0px 0px 2px var(--o-ui-global-transparent);
+    box-shadow: 0px 0px 0px 2px var(--o-ui-transparent);
 }
 
 .outline-0 {

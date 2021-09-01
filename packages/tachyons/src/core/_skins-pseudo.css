@@ -1,5 +1,5 @@
 .hover-color-transparent:hover {
-    color: var(--o-ui-global-transparent);
+    color: var(--o-ui-transparent);
 }
 
 .hover-color-inherit:hover {
@@ -7,7 +7,7 @@
 }
 
 .hover-bg-transparent:hover {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
 }
 
 .hover-bg-inherit:hover {
@@ -23,7 +23,7 @@
 }
 
 .focus-color-transparent:focus {
-    color: var(--o-ui-global-transparent);
+    color: var(--o-ui-transparent);
 }
 
 .focus-color-inherit:focus {
@@ -31,7 +31,7 @@
 }
 
 .focus-bg-transparent:focus {
-    background-color: var(--o-ui-global-transparent);
+    background-color: var(--o-ui-transparent);
 }
 
 .focus-bg-inherit:focus {

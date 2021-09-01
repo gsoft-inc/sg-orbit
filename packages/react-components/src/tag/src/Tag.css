@@ -141,7 +141,7 @@ a.o-ui-tag-solid[disabled]:hover,
 a.o-ui-tag-solid.o-ui-tag-disabled:hover,
 a.o-ui-tag-solid[disabled].o-ui-tag-hover,
 a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
-    background-color: var(--o-ui-global-background-3);
+    background-color: var(--o-ui-alias-bg-3);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
