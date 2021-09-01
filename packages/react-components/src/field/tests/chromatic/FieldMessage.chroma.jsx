@@ -14,7 +14,7 @@ function stories(segment) {
 
 function Align({ children }) {
     return (
-        <Inline verticalAlign="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
+        <Inline alignY="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
             {children}
         </Inline>
     );

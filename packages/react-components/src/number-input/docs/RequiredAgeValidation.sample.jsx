@@ -13,7 +13,7 @@
     const isValid = useMemo(() => !isNil(value), [value]);
 
     return (
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <NumberInput
                 validationState={isValid ? "valid" : "invalid"}
                 value={value}

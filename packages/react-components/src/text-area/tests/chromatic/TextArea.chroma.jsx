@@ -85,27 +85,27 @@ stories()
     )
     .add("states", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <TextArea loading placeholder="Where to?" />
                 <TextArea disabled placeholder="Where to?" />
                 <TextArea readOnly placeholder="Where to?" />
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <TextArea active placeholder="Where to?" />
                 <TextArea loading active placeholder="Where to?" />
                 <TextArea disabled active placeholder="Where to?" />
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <TextArea focus placeholder="Where to?" />
                 <TextArea loading focus placeholder="Where to?" />
                 <TextArea disabled focus placeholder="Where to?" />
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <TextArea hover placeholder="Where to?" />
                 <TextArea loading hover placeholder="Where to?" />
                 <TextArea disabled hover placeholder="Where to?" />
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <TextArea focus hover placeholder="Where to?" />
                 <TextArea loading focus hover placeholder="Where to?" />
                 <TextArea disabled focus hover placeholder="Where to?" />
@@ -113,7 +113,7 @@ stories()
         </Stack>
     )
     .add("autosize", () =>
-        <Inline align="start">
+        <Inline alignX="start">
             <TextArea defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
             <TextArea maxRows={5} defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
         </Inline>

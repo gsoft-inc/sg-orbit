@@ -91,9 +91,6 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
 
-
-    console.log("Checkbox group props: ", props);
-
     const {
         as = DefaultElement,
         autoFocus,
@@ -143,8 +140,6 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         validationState,
         wrap
     });
-
-    console.log(groupProps);
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);

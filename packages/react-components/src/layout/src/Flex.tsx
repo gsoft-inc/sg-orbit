@@ -22,9 +22,9 @@ import { Direction } from "./adapters";
 
 const DefaultElement = "div";
 
-export type ShortAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+export type FutureAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
 
-export type ShortJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+export type FutureJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
     Omit<StyleProps,
@@ -48,7 +48,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?: ShortAlignItemsProp;
+    alignItems?: FutureAlignItemsProp;
     /**
      * Alias for [flex basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis);
      */
@@ -80,7 +80,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    justifyContent?: ShortJustifyContentProp;
+    justifyContent?: FutureJustifyContentProp;
     /**
      * Whether or not to reverse the order of the elements.
      */

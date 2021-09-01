@@ -12,11 +12,11 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton size="sm" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton active aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -24,7 +24,7 @@ stories()
                 <ToggleIconButton focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton color="primary" checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="primary" active aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="primary" focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -32,7 +32,7 @@ stories()
                 <ToggleIconButton color="primary" focus hover aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="primary" disabled aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton color="secondary" checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="secondary" active aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton color="secondary" focus aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -44,11 +44,11 @@ stories()
     )
     .add("circular outline", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton size="sm" variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton checked variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton active variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton focus variant="outline" shape="circular" aria-label="Activate"><CheckIcon /></ToggleIconButton>
@@ -60,11 +60,11 @@ stories()
     )
     .add("rounded outline", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton size="sm" variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleIconButton checked variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton active variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton focus variant="outline" shape="rounded" aria-label="Activate"><CheckIcon /></ToggleIconButton>

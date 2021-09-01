@@ -12,14 +12,14 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <Lozenge size="sm">New</Lozenge>
             <Lozenge>New</Lozenge>
         </Inline>
     )
     .add("icon", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <Lozenge size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
@@ -41,11 +41,11 @@ stories()
     )
     .add("primary", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <Lozenge color="primary" size="sm">New</Lozenge>
                 <Lozenge color="primary">New</Lozenge>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <Lozenge color="primary" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>

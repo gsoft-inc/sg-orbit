@@ -11,7 +11,7 @@ export function createTextLinkTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <TextLink size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink href="#" element={element}>Flight details</TextLink>
                 </Inline>
@@ -27,7 +27,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <TextLink size="sm" href="#" element={element}>
                         <Text>Flight details</Text>
                         <ArrowIcon />
@@ -47,7 +47,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("start icon", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <TextLink size="sm" href="#" element={element}>
                         <InfoIcon slot="start-icon" />
                         <Text>Flight details</Text>
@@ -67,7 +67,7 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("external", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink external href="#" element={element}>Flight details</TextLink>
                 </Inline>

@@ -16,7 +16,7 @@ export function createRadioTestSuite(element, stories) {
                 <div>
                     <Radio value="any" element={element}>Milky Way</Radio>
                 </div>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -34,7 +34,7 @@ export function createRadioTestSuite(element, stories) {
                         </IconList>
                     </Radio>
                 </div>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>

@@ -139,6 +139,7 @@ export type ColorExpression = `${ColorExpressionType}${string}`;
 export type CssColor = ColorExpression;
 
 export const OrbitColors = [
+    "inherit",
     "current",
     "transparent",
     "white",
@@ -247,6 +248,7 @@ export const OrbitColors = [
 export type OrbitColor = typeof OrbitColors[number];
 
 function createOrbitColorClasses(section?: string) {
+    // TODO: Should we scope the color classes with a "-c-" ?
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
@@ -295,8 +297,8 @@ export const AlignSelfClasses = {
 
 export const AppearanceClasses = {
     "auto": "o-ui-a-a",
-    "none": "o-ui-a-n",
     "menu-list-button": "o-ui-a-mlb",
+    "none": "o-ui-a-n",
     "textfield": "o-ui-a-t"
 } as const;
 
@@ -946,7 +948,7 @@ export type WidthProp = Simplify<keyof typeof WidthClasses | WidthValue>;
 
 export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
-export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, string> | GlobalValue>;
+export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, number> | GlobalValue>;
 
 // TODO: Add docs to all props.
 // TODO: I think it should extends from CSSProperties

@@ -28,7 +28,7 @@ export function MotionPreview() {
     return (
         <div className="o-ui-sb-motion-preview bt b--cloud-2">
             <H4>Motion Preview</H4>
-            <Inline className="mb4" verticalAlign="end">
+            <Inline className="mb4" alignY="end">
                 <Field>
                     <Label data-testid="label">Easing</Label>
                     <Select placeholder="Easing" aria-label="Easing" defaultSelectedKey={easing} onSelectionChange={handleSelectEasing}>

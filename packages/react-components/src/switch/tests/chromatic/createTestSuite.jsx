@@ -13,11 +13,11 @@ export function createTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" element={element}>Engines</Switch>
                     <Switch element={element}>Engines</Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
@@ -31,7 +31,7 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
@@ -41,7 +41,7 @@ export function createTestSuite(element, stories) {
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <Counter>60</Counter>
@@ -51,7 +51,7 @@ export function createTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" element={element}>
                         <Text>Engines</Text>
                         <EmailIcon />
@@ -67,11 +67,11 @@ export function createTestSuite(element, stories) {
         )
         .add("no label", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" aria-label="Engines" element={element} />
                     <Switch aria-label="Engines" element={element} />
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                     </Switch>
@@ -79,7 +79,7 @@ export function createTestSuite(element, stories) {
                         <EmailIcon />
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" aria-label="Email" element={element}>
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
@@ -87,7 +87,7 @@ export function createTestSuite(element, stories) {
                         <IconList><EmailIcon /><EmailIcon /><EmailIcon /></IconList>
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" aria-label="Engines" element={element}>
                         <Counter>60</Counter>
                     </Switch>
@@ -95,7 +95,7 @@ export function createTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Switch>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Switch size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
@@ -172,41 +172,41 @@ export function createTestSuite(element, stories) {
         .add("states", () =>
             <Inline>
                 <Stack>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch active size="sm" element={element}>Engines</Switch>
                         <Switch active element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch focus size="sm" element={element}>Engines</Switch>
                         <Switch focus element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch hover size="sm" element={element}>Engines</Switch>
                         <Switch hover element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch focus hover size="sm" element={element}>Engines</Switch>
                         <Switch focus hover element={element}>Engines</Switch>
                     </Inline>
                 </Stack>
                 <Stack>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch disabled size="sm" element={element}>Engines</Switch>
                         <Switch disabled element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch disabled active size="sm" element={element}>Engines</Switch>
                         <Switch disabled active element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch disabled focus size="sm" element={element}>Engines</Switch>
                         <Switch disabled focus element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch disabled hover size="sm" element={element}>Engines</Switch>
                         <Switch disabled hover element={element}>Engines</Switch>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Switch disabled focus hover size="sm" element={element}>Engines</Switch>
                         <Switch disabled focus hover element={element}>Engines</Switch>
                     </Inline>

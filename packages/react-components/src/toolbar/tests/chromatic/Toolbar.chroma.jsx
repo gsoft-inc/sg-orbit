@@ -103,7 +103,7 @@ stories()
     )
     .add("align", () =>
         <Stack>
-            <Toolbar align="start">
+            <Toolbar alignX="start">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -113,7 +113,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar align="end">
+            <Toolbar alignX="end">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -123,7 +123,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar align="center">
+            <Toolbar alignX="center">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -137,7 +137,7 @@ stories()
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar verticalAlign="start" style={{ height: "100px" }}>
+            <Toolbar alignY="start" style={{ height: "100px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -147,7 +147,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar verticalAlign="end" style={{ height: "100px" }}>
+            <Toolbar alignY="end" style={{ height: "100px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -157,7 +157,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar verticalAlign="center" style={{ height: "100px" }}>
+            <Toolbar alignY="center" style={{ height: "100px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -214,7 +214,7 @@ stories()
         </Toolbar>
     )
     .add("fields + label", () =>
-        <Toolbar verticalAlign="end">
+        <Toolbar alignY="end">
             <Field>
                 <Label>Package</Label>
                 <CheckboxGroup>
@@ -250,7 +250,7 @@ stories("/vertical")
     )
     .add("align", () =>
         <Inline gap={13}>
-            <Toolbar align="start" orientation="vertical">
+            <Toolbar alignX="start" orientation="vertical">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -264,7 +264,7 @@ stories("/vertical")
                     <ToggleButton value="3">3</ToggleButton>
                 </RadioGroup>
             </Toolbar>
-            <Toolbar align="end" orientation="vertical">
+            <Toolbar alignX="end" orientation="vertical">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -278,7 +278,7 @@ stories("/vertical")
                     <ToggleButton value="3">3</ToggleButton>
                 </RadioGroup>
             </Toolbar>
-            <Toolbar align="center" orientation="vertical">
+            <Toolbar alignX="center" orientation="vertical">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -296,7 +296,7 @@ stories("/vertical")
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar verticalAlign="start" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="start" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -305,7 +305,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar verticalAlign="end" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="end" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -314,7 +314,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar verticalAlign="center" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="center" orientation="vertical" style={{ height: "500px" }}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

@@ -19,19 +19,19 @@ function stories(segment) {
 
 stories()
     .add("text only", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <Message>Scheduled launch today at 1PM.</Message>
             <Message>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
         </Inline>
     )
     .add("text + dismiss", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <Message onDismiss={() => {}}>Scheduled launch today at 1PM.</Message>
             <Message onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
         </Inline>
     )
     .add("text + action", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <Message>
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>
@@ -43,7 +43,7 @@ stories()
         </Inline>
     )
     .add("text + action + dismiss", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <Message onDismiss={() => {}}>
                 <Content>Scheduled launch today at 1PM.</Content>
                 <Button>Undo</Button>

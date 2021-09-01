@@ -28,9 +28,9 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-const DefaultElement = "section";
+export const DialogDefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DialogDefaultElement> {
     /**
      * React children.
      */
@@ -127,7 +127,7 @@ export function InnerDialog({
     "aria-labelledby": ariaLabelledBy,
     "aria-describedby": ariaDescribedBy,
     wrapperProps,
-    as = DefaultElement,
+    as = DialogDefaultElement,
     children,
     forwardedRef,
     ...rest

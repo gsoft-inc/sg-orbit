@@ -1,5 +1,5 @@
 import { AddIcon, WarningIcon } from "@react-components/icons";
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs";;
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { IconLink, InnerIconLink, InnerLink, InnerTextLink, Link, TextLink, TextLinkAsButton } from "@react-components/link";
 import { Image } from "@react-components/image";
@@ -101,7 +101,7 @@ A link can vary in size.
 
 <Preview>
     <Story name="size">
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <TextLink size="sm" href="#">Flight details</TextLink>
             <TextLink href="#">Flight details</TextLink>
         </Inline>
@@ -136,7 +136,7 @@ A link content can be a single icon.
 
 <Preview>
     <Story name="icon link">
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
             <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
         </Inline>

@@ -12,11 +12,11 @@ export function createCheckboxTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" element={element}>Milky Way</Checkbox>
                     <Checkbox element={element}>Milky Way</Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -26,7 +26,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <IconList>
@@ -40,7 +40,7 @@ export function createCheckboxTestSuite(element, stories) {
                         </IconList>
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <Counter>60</Counter>
@@ -50,7 +50,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" element={element}>
                         <Text>Milky Way</Text>
                         <EmailIcon />
@@ -66,11 +66,11 @@ export function createCheckboxTestSuite(element, stories) {
         )
         .add("no label", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" aria-label="Milky Way" element={element} />
                     <Checkbox aria-label="Milky Way"element={element} />
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                     </Checkbox>
@@ -81,7 +81,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <EmailIcon />
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" aria-label="Email" element={element}>
                         <IconList>
                             <EmailIcon /><EmailIcon /><EmailIcon />
@@ -93,7 +93,7 @@ export function createCheckboxTestSuite(element, stories) {
                         </IconList>
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" aria-label="Milky Way" element={element}>
                         <Counter>60</Counter>
                     </Checkbox>
@@ -101,7 +101,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Checkbox size="sm" aria-label="Email" element={element}>
                         <EmailIcon />
                         <Counter>60</Counter>
@@ -176,41 +176,41 @@ export function createCheckboxTestSuite(element, stories) {
         .add("states", () =>
             <Inline>
                 <Stack>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox active size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox active element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox focus size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox focus element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox hover size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox hover element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox focus hover size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox focus hover element={element}>Milky Way</Checkbox>
                     </Inline>
                 </Stack>
                 <Stack>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox disabled size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox disabled element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox disabled active size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox disabled active element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox disabled focus size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox disabled focus element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox disabled hover size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox disabled hover element={element}>Milky Way</Checkbox>
                     </Inline>
-                    <Inline verticalAlign="end">
+                    <Inline alignY="end">
                         <Checkbox disabled focus hover size="sm" element={element}>Milky Way</Checkbox>
                         <Checkbox disabled focus hover element={element}>Milky Way</Checkbox>
                     </Inline>
