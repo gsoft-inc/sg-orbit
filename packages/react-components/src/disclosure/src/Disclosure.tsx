@@ -2,13 +2,13 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { InternalProps, Keys, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, Keys, OmitInternalProps, OrbitComponentProps, StyleProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-const DefaultElement = "div";
+export const DisclosureDefaultElement = "div";
 
-export interface InnerDisclosureProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerDisclosureProps extends StyleProps, InternalProps, OrbitComponentProps<typeof DisclosureDefaultElement> {
     /**
      * React children.
      */
@@ -35,7 +35,7 @@ export function InnerDisclosure({
     open,
     defaultOpen,
     onOpenChange,
-    as = DefaultElement,
+    as = DisclosureDefaultElement,
     children,
     forwardedRef,
     ...rest

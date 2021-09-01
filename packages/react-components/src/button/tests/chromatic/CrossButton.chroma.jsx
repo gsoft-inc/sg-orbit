@@ -10,7 +10,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <CrossButton size="2xs" aria-label="Clear" />
             <CrossButton size="xs" aria-label="Clear" />
             <CrossButton size="sm" aria-label="Clear" />
@@ -18,7 +18,7 @@ stories()
         </Inline>
     )
     .add("condensed", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <CrossButton condensed size="2xs" aria-label="Clear" />
             <CrossButton condensed size="xs" aria-label="Clear" />
             <CrossButton condensed size="sm" aria-label="Clear" />

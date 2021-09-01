@@ -20,12 +20,12 @@ stories()
     )
     .add("as header element", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <Heading as="h1">I see Earth!<br /> It is so beautiful!</Heading>
                 <Heading as="h2">I see Earth!<br /> It is so beautiful!</Heading>
                 <Heading as="h3">I see Earth!<br /> It is so beautiful!</Heading>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <Heading as="h4">I see Earth!<br /> It is so beautiful!</Heading>
                 <Heading as="h5">I see Earth!<br /> It is so beautiful!</Heading>
                 <Heading as="h6">I see Earth!<br /> It is so beautiful!</Heading>

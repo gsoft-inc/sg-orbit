@@ -18,7 +18,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Inline verticalAlign="end" gap={13}>
+        <Inline alignY="end" gap={13}>
             <Form>
                 <Field>
                     <Label>FullName</Label>

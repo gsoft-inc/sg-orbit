@@ -92,7 +92,7 @@ stories("/vertical")
         </ButtonGroup>
     )
     .add("size", () =>
-        <Inline verticalAlign="end">
+        <Inline alignY="end">
             <ButtonGroup orientation="vertical" size="sm">
                 <Button>Cutoff</Button>
                 <Button>Cutoff</Button>

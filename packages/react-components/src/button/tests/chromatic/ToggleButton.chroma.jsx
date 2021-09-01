@@ -13,11 +13,11 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton size="sm">Cutoff</ToggleButton>
                 <ToggleButton>Cutoff</ToggleButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton checked>Cutoff</ToggleButton>
                 <ToggleButton active>Cutoff</ToggleButton>
                 <ToggleButton focus>Cutoff</ToggleButton>
@@ -31,7 +31,7 @@ stories()
                     <LightbulbIcon />
                 </ToggleButton>
             </div>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton color="primary" checked>Cutoff</ToggleButton>
                 <ToggleButton color="primary" active>Cutoff</ToggleButton>
                 <ToggleButton color="primary" focus>Cutoff</ToggleButton>
@@ -45,7 +45,7 @@ stories()
                     <LightbulbIcon />
                 </ToggleButton>
             </div>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton color="secondary" checked>Cutoff</ToggleButton>
                 <ToggleButton color="secondary" active>Cutoff</ToggleButton>
                 <ToggleButton color="secondary" focus>Cutoff</ToggleButton>
@@ -63,11 +63,11 @@ stories()
     )
     .add("circular outline", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton size="sm" variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="circular">Aa</ToggleButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton checked variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton active variant="outline" shape="circular">Aa</ToggleButton>
                 <ToggleButton focus variant="outline" shape="circular">Aa</ToggleButton>
@@ -79,11 +79,11 @@ stories()
     )
     .add("rounded outline", () =>
         <Stack>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton size="sm" variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton variant="outline" shape="rounded">Aa</ToggleButton>
             </Inline>
-            <Inline verticalAlign="end">
+            <Inline alignY="end">
                 <ToggleButton checked variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton active variant="outline" shape="rounded">Aa</ToggleButton>
                 <ToggleButton focus variant="outline" shape="rounded">Aa</ToggleButton>

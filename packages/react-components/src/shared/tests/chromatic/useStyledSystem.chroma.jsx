@@ -442,7 +442,7 @@ London. Michaelmas term lately over</ExtraLargeSquare>)}
     )
     .add("vertical align", () =>
         <Stack>
-            {Object.keys(VerticalAlignClasses).map(x => <Box key={x}>Space exploration<Text verticalAlign={x}>*</Text></Box>)}
+            {Object.keys(VerticalAlignClasses).map(x => <Box key={x}>Space exploration<Text alignY={x}>*</Text></Box>)}
         </Stack>
     )
     .add("white space", () =>

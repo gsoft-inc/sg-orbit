@@ -2,12 +2,12 @@ import "./Alert.css";
 
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
-import { Dialog, useDialogTriggerContext } from "../../dialog";
+import { Dialog, DialogDefaultElement, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends InternalProps, OrbitComponentProps<"section"> {
+export interface InnerAlertProps extends Omit<StyleProps, "zIndex">, InternalProps, OrbitComponentProps<typeof DialogDefaultElement> {
     /**
      * The button to focus by default when the alert open.
      */
@@ -20,11 +20,6 @@ export interface InnerAlertProps extends InternalProps, OrbitComponentProps<"sec
       * React children.
       */
     children: ReactNode;
-    /**
-     * The element's unique identifier.
-     * @ignore
-     */
-    id?: string;
     /**
      * Called when the cancel button is clicked.
      * @param {MouseEvent} event - React's original event.

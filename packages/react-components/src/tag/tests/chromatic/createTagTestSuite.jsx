@@ -13,7 +13,7 @@ export function createTagTestSuite(element, stories) {
     return stories
         .add("default", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>Falcon 9</Tag>
                     <Tag element={element}>Falcon 9</Tag>
                 </Inline>
@@ -25,7 +25,7 @@ export function createTagTestSuite(element, stories) {
         )
         .add("icon", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
@@ -35,7 +35,7 @@ export function createTagTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <IconList>
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
@@ -59,7 +59,7 @@ export function createTagTestSuite(element, stories) {
                         <Text>Falcon 9</Text>
                     </Tag>
                 </div>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <IconList slot="end-icon">
@@ -105,7 +105,7 @@ export function createTagTestSuite(element, stories) {
         )
         .add("dot", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
@@ -188,7 +188,7 @@ export function createTagTestSuite(element, stories) {
         )
         .add("counter", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <Counter variant="divider">60</Counter>
@@ -212,7 +212,7 @@ export function createTagTestSuite(element, stories) {
         )
         .add("remove button", () =>
             <Stack>
-                <Inline verticalAlign="end">
+                <Inline alignY="end">
                     <Tag size="sm" onRemove={() => {}} element={element}>
                         Falcon 9
                     </Tag>

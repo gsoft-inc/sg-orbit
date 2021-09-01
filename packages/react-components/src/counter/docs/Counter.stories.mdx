@@ -39,7 +39,7 @@ A counter can be rendered as a divider.
 
 <Preview>
     <Story name="divider">
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Counter variant="divider">100+</Counter>
         </Inline>
     </Story>
@@ -51,7 +51,7 @@ A counter value can be highlighted.
 
 <Preview>
     <Story name="highlight">
-        <Inline gap={10} verticalAlign="center">
+        <Inline gap={10} alignY="center">
             <Counter highlight>15</Counter>
             <Counter highlight variant="divider">100+</Counter>
         </Inline>
@@ -64,7 +64,7 @@ A counter can pushed itself away from content.
 
 <Preview>
     <Story name="pushed">
-        <Inline gap={10} verticalAlign="center">
+        <Inline gap={10} alignY="center">
             <Box>
                 <Text>Satellites</Text> <Counter pushed>15</Counter>
             </Box>

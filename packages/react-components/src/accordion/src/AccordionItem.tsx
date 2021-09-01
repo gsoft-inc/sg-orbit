@@ -3,18 +3,19 @@ import "./Accordion.css";
 import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionItems";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
-import { Disclosure } from "../../disclosure";
-import { SyntheticEvent } from "react";
-import { mergeProps, useEventCallback } from "../../shared";
+import { Disclosure, DisclosureDefaultElement } from "../../disclosure";
+import { InternalProps, OrbitComponentProps, StyleProps, mergeProps, useEventCallback } from "../../shared";
+import { Ref, SyntheticEvent } from "react";
 import { useAccordionContext } from "./AccordionContext";
 
-export interface AccordionItemProps {
+export interface AccordionItemProps extends StyleProps, InternalProps, Omit<OrbitComponentProps<typeof DisclosureDefaultElement>, "ref"> {
     item: {
         header: AccordionBuilderHeader;
         id: string;
         key: string;
         panel: AccordionBuilderPanel;
     };
+    ref: Ref<any> | undefined;
 }
 
 export function AccordionItem({

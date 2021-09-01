@@ -13,11 +13,11 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Stack>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Counter size="sm">15</Counter>
                 <Counter>15</Counter>
             </Inline>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Text size="sm">
                     <Counter size="inherit">15</Counter>
                 </Text>
@@ -35,11 +35,11 @@ stories()
     )
     .add("divider", () =>
         <Stack>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Counter size="sm" variant="divider">15</Counter>
                 <Counter variant="divider">15</Counter>
             </Inline>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Text size="sm">
                     <Counter size="inherit" variant="divider">15</Counter>
                 </Text>
@@ -80,30 +80,30 @@ stories()
         </Stack>
     )
     .add("color", () =>
-        <Inline className="bg-sunray-1 sunray-10" verticalAlign="center">
+        <Inline className="bg-sunray-1 sunray-10" alignY="center">
             <Counter color="inherit">15</Counter>
             <Counter variant="divider" color="inherit">15</Counter>
         </Inline>
     )
     .add("highlight", () =>
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Counter highlight>15</Counter>
             <Counter variant="divider" highlight>15</Counter>
         </Inline>
     )
     .add("disabled", () =>
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Counter disabled>15</Counter>
             <Counter variant="divider" disabled>15</Counter>
         </Inline>
     )
     .add("styling", () =>
         <Stack>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Counter className="bg-red">15</Counter>
                 <Counter style={{ backgroundColor: "red" }}>15</Counter>
             </Inline>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Counter className="bg-red" variant="divider">15</Counter>
                 <Counter style={{ backgroundColor: "red" }} variant="divider">15</Counter>
             </Inline>

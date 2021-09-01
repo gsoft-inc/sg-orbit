@@ -3,9 +3,9 @@ import "./Accordion.css";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Heading, Text } from "../../typography";
-import { InteractionProps, InternalProps, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
-export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps {
+export interface InnerAccordionHeaderProps extends StyleProps, InternalProps, InteractionProps, OrbitComponentProps<"button"> {
     /**
      * React children.
      */
@@ -34,6 +34,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         ...rest
     } = omitProps(props, ["header"]);
 
+    // TODO: Update this once it's change to an heading instead of an header.
     if (isNil(as)) {
         throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
     }

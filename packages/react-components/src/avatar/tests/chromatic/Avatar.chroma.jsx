@@ -20,7 +20,7 @@ function stories(segment) {
 
 stories()
     .add("local image", () =>
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Avatar src={Person} size="2xs" name="Neil Armstrong" />
             <Avatar src={Person} size="xs" name="Neil Armstrong" />
             <Avatar src={Person} size="sm" name="Neil Armstrong" />
@@ -39,7 +39,7 @@ stories()
          }
     )
     .add("failing remote src", () =>
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Avatar size="2xs" src="https://www.google.com" name="Neil Armstrong" />
             <Avatar size="xs" src="https://www.google.com" name="Neil Armstrong" />
             <Avatar size="sm" src="https://www.google.com" name="Neil Armstrong" />
@@ -51,7 +51,7 @@ stories()
     )
     .add("initials", () =>
         <Stack>
-            <Inline verticalAlign="center">
+            <Inline alignY="center">
                 <Avatar size="2xs" name="Neil Armstrong" />
                 <Avatar size="xs" name="Neil Armstrong" />
                 <Avatar size="sm" name="Neil Armstrong" />
@@ -69,7 +69,7 @@ stories()
         </Stack>
     )
     .add("empty src", () =>
-        <Inline verticalAlign="center">
+        <Inline alignY="center">
             <Avatar src="" size="2xs" name="Neil Armstrong" />
             <Avatar src="" size="xs" name="Neil Armstrong" />
             <Avatar src="" size="sm" name="Neil Armstrong" />

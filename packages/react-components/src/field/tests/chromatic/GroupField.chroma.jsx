@@ -36,7 +36,7 @@ stories()
         </Stack>
     )
     .add("radio group", () =>
-        <Inline gap={13} verticalAlign="end">
+        <Inline gap={13} alignY="end">
             <GroupField>
                 <Label>Select your packages</Label>
                 <RadioGroup>
