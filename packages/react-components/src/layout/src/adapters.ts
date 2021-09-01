@@ -2,16 +2,22 @@ export type Orientation = "horizontal" | "vertical";
 export type Direction = "row" | "column";
 export type Alignment = "start" | "end" | "center";
 
-export function useFlexAlignment(orientation: Orientation, align: Alignment, verticalAlign: Alignment) {
+export interface UseFlexAlignmentProps {
+    alignX?: Alignment;
+    alignY?: Alignment;
+    orientation: Orientation;
+}
+
+export function useFlexAlignment({ alignX, alignY, orientation }: UseFlexAlignmentProps) {
     return orientation === "horizontal"
         ? {
-            alignItems: verticalAlign,
+            alignItems: alignY,
             direction: "row" as Direction,
-            justifyContent: align
+            justifyContent: alignX
         }
         : {
-            alignItems: align,
+            alignItems: alignX,
             direction: "column" as Direction,
-            justifyContent: verticalAlign
+            justifyContent: alignY
         };
 }

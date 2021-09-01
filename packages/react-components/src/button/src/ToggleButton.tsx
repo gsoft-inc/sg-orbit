@@ -1,11 +1,11 @@
 import { Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleButtonProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleButtonProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * Whether or not the toggle button should autoFocus on render.
      */

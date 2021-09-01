@@ -1,11 +1,12 @@
 import { Box } from "../../box";
-import { InteractionStatesProps, cssModule, useSlots } from "../../shared";
+import { InteractionProps, cssModule, useSlots } from "../../shared";
+import { Orientation } from "../../layout";
 import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
 
-export interface UseTileProps extends InteractionStatesProps {
+export interface UseTileProps extends InteractionProps {
     children: ReactNode;
-    orientation: "horizontal" | "vertical";
+    orientation: Orientation;
     variant: "checkable" | "link";
 }
 

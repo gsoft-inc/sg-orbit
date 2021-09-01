@@ -11,7 +11,7 @@ import {
     mergeProps
 } from "../../shared";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex2 } from "./Flex2";
+import { Flex } from "./Flex";
 
 const DefaultElement = "div";
 
@@ -59,16 +59,16 @@ export interface InnerInlineProps extends
      */
     inline?: boolean;
     /**
-      * Whether or not to reverse the order of the elements.
-      */
+     * Whether or not to reverse the order of the elements.
+     */
     reverse?: boolean;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap).
      */
     rowGap?: RowGapProp;
     /**
-      * Alias for flex-wrap.
-      */
+     * Whether or not to wrap the elements on multiple lines.
+     */
     wrap?: boolean;
 }
 
@@ -78,25 +78,27 @@ export function InnerInline({
     children,
     gap = 5,
     as = DefaultElement,
+    wrap,
     forwardedRef,
     ...rest
 }: InnerInlineProps) {
-    const alignProps = useFlexAlignment("horizontal", alignX, alignY);
+    const alignProps = useFlexAlignment({ alignX, alignY, orientation: "horizontal" });
 
     return (
-        <Flex2
+        <Flex
             {...mergeProps(
                 rest,
                 {
                     as,
                     gap,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    wrap: wrap ? "wrap" : undefined
                 } as const,
                 alignProps
             )}
         >
             {children}
-        </Flex2>
+        </Flex>
     );
 }
 

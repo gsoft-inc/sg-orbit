@@ -1,5 +1,7 @@
-import { Flex } from "@react-components/layout";
+import { Div, Flex } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
+
+////////////
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Flex")
@@ -8,204 +10,195 @@ function stories(segment) {
 }
 
 stories()
-    .add("row", () =>
-        <div className="flex flex-column">
-            <div className="h10">
-                <Flex fluid>
-                    <div className="bg-primary-500">Alpha</div>
-                    <div className="bg-primary-500">Bravo</div>
-                    <div className="bg-primary-500">Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex alignContent="end" justifyContent="end" wrap="wrap" fluid>
-                    <div>Alpha<br /> Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex alignContent="center" justifyContent="center" wrap="wrap" fluid>
-                    <div>Alpha<br /> Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex alignItems="end" justifyContent="end" wrap="wrap" fluid>
-                    <div>Alpha<br /> Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex alignItems="center" justifyContent="center" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex gap={10} fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex gap="200px" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12">
-                <Flex gap={0} fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="h10">
-                <Flex direction="row" reverse fluid>
-                    <div className="bg-cloud-6">Alpha</div>
-                    <div className="bg-cloud-6">Bravo</div>
-                    <div className="bg-cloud-6">Charlie</div>
-                </Flex>
-            </div>
-        </div>
-    )
-    .add("column", () =>
-        <div className="flex" style={{ height: "300px" }}>
-            <div className="w12 mr8">
-                <Flex direction="column" fluid>
-                    <div className="bg-primary-500">Alpha</div>
-                    <div className="bg-primary-500">Bravo</div>
-                    <div className="bg-primary-500">Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12 mr8">
-                <Flex direction="column" alignContent="end" justifyContent="end" wrap="wrap" fluid>
-                    <div>Alpha<br />Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12 mr8">
-                <Flex direction="column" alignContent="center" justifyContent="center" wrap="wrap" fluid>
-                    <div>Alpha<br />Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12 mr8">
-                <Flex direction="column" alignItems="end" justifyContent="end" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12 mr8">
-                <Flex direction="column" alignItems="center" justifyContent="center" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12">
-                <Flex direction="column" gap={10} fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12">
-                <Flex direction="column" gap="200px" fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12">
-                <Flex direction="column" gap={0} fluid>
-                    <div>Alpha</div>
-                    <div>Bravo</div>
-                    <div>Charlie</div>
-                </Flex>
-            </div>
-            <div className="w12 mr8">
-                <Flex direction="column" reverse fluid>
-                    <div className="bg-cloud-6">Alpha</div>
-                    <div className="bg-cloud-6">Bravo</div>
-                    <div className="bg-cloud-6">Charlie</div>
-                </Flex>
-            </div>
-        </div>
+    .add("inline", () =>
+        <>
+            <Flex inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+            <Flex inline>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+        </>
     )
     .add("nested", () =>
-        <Flex direction="column" gap={12}>
-            <Flex gap={5}>
-                {[1, 2, 3].map((x, index) =>
-                    <div
-                        className="pa8 tc bg-primary-500"
-                        key={index}
-                    >
-                        {x}
-                    </div>
-                )}
+        <Flex direction="row" gap={8}>
+            <Flex direction="row" gap={1}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
             </Flex>
-            <Flex gap={1}>
-                {[1, 2, 3].map((x, index) =>
-                    <div
-                        className="pa8 tc bg-primary-500"
-                        key={index}
-                    >
-                        {x}
-                    </div>
-                )}
+            <Flex direction="column" gap={12}>
+                <Div backgroundColor="beetle-5">Delta</Div>
+                <Div backgroundColor="beetle-5">Echo</Div>
+                <Div backgroundColor="beetle-5">Foxtrot</Div>
             </Flex>
         </Flex>
-    )
-    .add("wrap", () =>
-        <Flex
-            wrap="wrap"
-            gap="10px"
-            style={{
-                width: "300px"
-            }}
-        >
-            {
-                [
-                    "sunray-1", "sunray-2", "sunray-3", "sunray-4", "sunray-5", "sunray-6", "sunray-7", "sunray-8", "sunray-9", "sunray-10",
-                    "moonstone-1", "moonstone-2", "moonstone-3", "moonstone-4", "moonstone-5", "moonstone-6", "moonstone-7", "moonstone-8", "moonstone-9", "moonstone-10"
-                ]
-                    .map((x, index) =>
-                        <div
-                            style={{
-                                width: "50px",
-                                height: "50px",
-                                backgroundColor: `var(--o-ui-${x})`
-                            }}
-                            key={index}
-                        />
-                    )
-            }
+    );
+
+stories("/row")
+    .add("default", () =>
+        <Flex direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("fluid", () =>
-        <Flex direction="column" gap={5}>
-            <Flex fluid>
-                <div className="bg-primary-500 w-100">Alpha</div>
-            </Flex>
-            <Flex direction="column" fluid>
-                <div className="bg-primary-500 h12">Alpha</div>
-            </Flex>
+        <Flex fluid direction="row">
+            <Div backgroundColor="primary-5" width="100%">Alpha</Div>
+            <Div backgroundColor="primary-5" width="100%">Bravo</Div>
+            <Div backgroundColor="primary-5" width="100%">Charlie</Div>
         </Flex>
     )
-    .add("inline", () =>
-        <Flex inline direction="column" alignItems="end">
-            <div>Alpha</div>
-            <div>Bravo</div>
-            <div>Charlie</div>
+    .add("items start", () =>
+        <Flex alignItems="start" height="200px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("items center", () =>
+        <Flex alignItems="center" height="200px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("items end", () =>
+        <Flex alignItems="end" height="200px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify start", () =>
+        <Flex justifyContent="start" fluid direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify center", () =>
+        <Flex justifyContent="center" fluid direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify end", () =>
+        <Flex justifyContent="end" fluid direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("wrap", () =>
+        <Flex wrap="wrap" width="25px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("wrap reverse", () =>
+        <Flex wrap="wrap-reverse" width="25px" direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+            <Div backgroundColor="primary-5">Delta</Div>
+            <Div backgroundColor="primary-5">Echo</Div>
+            <Div backgroundColor="primary-5">Foxtrot</Div>
+        </Flex>
+    )
+    .add("reverse", () =>
+        <Flex reverse direction="row">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    );
+
+stories("/column")
+    .add("default", () =>
+        <Flex direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("fluid", () =>
+        <Flex fluid direction="column">
+            <Div backgroundColor="primary-5" height="100%">Alpha</Div>
+            <Div backgroundColor="primary-5" height="100%">Bravo</Div>
+            <Div backgroundColor="primary-5" height="100%">Charlie</Div>
+        </Flex>
+    )
+    .add("items start", () =>
+        <Flex alignItems="start" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("items center", () =>
+        <Flex alignItems="center" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("items end", () =>
+        <Flex alignItems="end" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify start", () =>
+        <Flex justifyContent="start" direction="column" fluid>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify center", () =>
+        <Flex justifyContent="center" direction="column" fluid>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("justify end", () =>
+        <Flex justifyContent="end" direction="column" fluid>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("wrap", () =>
+        <Flex wrap="wrap" height="25px" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("wrap reverse", () =>
+        <Flex wrap="wrap-reverse" height="25px" direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+            <Div backgroundColor="primary-5">Delta</Div>
+            <Div backgroundColor="primary-5">Echo</Div>
+            <Div backgroundColor="primary-5">Foxtrot</Div>
+        </Flex>
+    )
+    .add("reverse", () =>
+        <Flex reverse direction="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     );

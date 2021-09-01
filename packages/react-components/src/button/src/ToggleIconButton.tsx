@@ -1,11 +1,11 @@
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { IconButton } from "./IconButton";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, isNil, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerToggleIconButtonProps extends SlotProps, InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
      * Defines a string value that labels the current element..
      */

@@ -3,7 +3,7 @@ import "./Radio.css";
 import { Box } from "../../box";
 import { ComponentProps, FormEvent, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     OmitInternalProps,
     OrbitComponentProps,
@@ -25,7 +25,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the radio should autoFocus on render.
      */

@@ -1,9 +1,17 @@
+import { AbstractLinkProps, Link } from "../../link";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, cssModule, mergeProps } from "../../shared";
-import { Link, LinkProps } from "../../link";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, cssModule, mergeProps } from "../../shared";
+import { Orientation } from "../../layout";
 import { useTile } from "./useTile";
 
-export interface InnerTileLinkProps extends InternalProps, InteractionStatesProps, LinkProps {
+const DefaultElement = "a";
+
+export interface InnerTileLinkProps extends
+    AbstractLinkProps,
+    StyleProps,
+    InternalProps,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
     /**
      * Whether or not the tile should autoFocus on render.
      */
@@ -13,33 +21,14 @@ export interface InnerTileLinkProps extends InternalProps, InteractionStatesProp
      */
     children: ReactNode;
     /**
-     * Whether or not the tile is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
-    /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
      * The orientation of the tile.
      */
-    orientation?: "horizontal" | "vertical";
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
+    orientation?: Orientation;
 }
 
 export function InnerTileLink({
     active,
+    as = DefaultElement,
     children,
     disabled,
     focus,
@@ -63,6 +52,7 @@ export function InnerTileLink({
                 rest,
                 {
                     active,
+                    as,
                     className: cssModule(
                         "o-ui-tile-link",
                         disabled && "disabled"

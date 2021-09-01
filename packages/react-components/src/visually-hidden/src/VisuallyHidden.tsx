@@ -1,12 +1,12 @@
 import "./VisuallyHidden.css";
 
-import { AllHTMLAttributes, ComponentProps, ReactNode, forwardRef } from "react";
 import { Box } from "../../box";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, OrbitHtmlAttributes, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerVisuallyHiddenProps extends InternalProps, Omit<AllHTMLAttributes<any>, "as"> {
+export interface InnerVisuallyHiddenProps extends InternalProps, OrbitHtmlAttributes {
     /**
      * @ignore
      */

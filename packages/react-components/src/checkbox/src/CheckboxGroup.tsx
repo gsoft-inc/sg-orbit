@@ -1,13 +1,12 @@
 import "./CheckboxGroup.css";
 
+import { AbstractGroupProps, Group } from "../../group";
 import {
-    AutoFocusProp,
     CheckableContext,
     InternalProps,
     OmitInternalProps,
     OrbitComponentProps,
     SlotProps,
-    StyleProps,
     ValidationState,
     augmentElement,
     isNil,
@@ -22,70 +21,53 @@ import {
     useFocusScope,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { Flex2, Orientation } from "../../layout";
 import { useGroupInput } from "../../input";
 
 const DefaultElement = "div";
 
 export interface InnerCheckboxGroupProps extends
-    StyleProps,
+    AbstractGroupProps,
     SlotProps,
     InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "size" | "autoFocus" | "onChange"> {
+    Omit<OrbitComponentProps<typeof DefaultElement>, "children" | "onChange"> {
     /**
-      * Whether or not the first checkbox of the group should autoFocus on render.
-      */
-    autoFocus?: AutoFocusProp;
+     * Whether or not the first checkbox of the group should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
     /**
-      * React children.
-      */
-    children: ReactNode;
-    /**
-      * The initial value of `value`.
-      */
+     * The initial value of `value`.
+     */
     defaultValue?: string[];
     /**
      * Whether or not the group elements are disabled.
      */
     disabled?: boolean;
     /**
-      * Called when any of the children is checked or unchecked.
-      * @param {SyntheticEvent} event - React's original event.
-      * @param {string[]} value - The new value.
-      * @returns {void}
-      */
+     * Called when any of the children is checked or unchecked.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {string[]} value - The new value.
+     * @returns {void}
+     */
     onChange?: (event: SyntheticEvent, value: string[]) => void;
     /**
-      * The orientation of the group elements.
-      */
-    orientation?: Orientation;
-    /**
-      * Whether a user input is required before form submission.
-      */
+     * Whether a user input is required before form submission.
+     */
     required?: boolean;
     /**
-      * Invert the order of the checkbox and his label.
-      */
-    reverse?: boolean;
-    /**
-      * The group elements size.
-      */
+     * The group elements size.
+     */
     size?: "sm" | "md";
     /**
-      * Whether the group should display as "valid" or "invalid".
-      */
+     * Whether the group should display as "valid" or "invalid".
+     */
     validationState?: ValidationState;
     /**
-   * The value of the checkbox group.
-   */
+     * The value of the checkbox group.
+     */
     value?: string[] | null;
-    /**
-      * Whether the group elements are forced onto one line or can wrap onto multiple lines
-      */
-    wrap?: boolean;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {
@@ -109,22 +91,25 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps, isInField] = useFieldInputProps();
 
+
+    console.log("Checkbox group props: ", props);
+
     const {
-        value,
-        defaultValue,
-        required,
-        validationState,
-        onChange,
-        autoFocus,
-        orientation = "horizontal",
         as = DefaultElement,
-        gap,
-        wrap,
-        size,
-        reverse,
-        disabled,
+        autoFocus,
         children,
+        defaultValue,
+        disabled,
         forwardedRef,
+        gap,
+        onChange,
+        orientation = "horizontal",
+        required,
+        reverse,
+        size,
+        validationState,
+        value,
+        wrap,
         ...rest
     } = mergeProps(
         props,
@@ -159,6 +144,8 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         wrap
     });
 
+    console.log(groupProps);
+
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
         const newCheckedValue = arrayToggleValue(checkedValue, newValue);
 
@@ -172,12 +159,12 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const items = resolveChildren(children, { checkedValue });
 
     return (
-        <Flex2
+        <Group
             {...mergeProps(
+                rest,
                 {
                     as
                 },
-                rest,
                 groupProps
             )}
         >
@@ -199,7 +186,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
                     </CheckableContext.Provider>
                 </ClearFieldContext>
             </ClearToolbar>
-        </Flex2>
+        </Group>
     );
 }
 

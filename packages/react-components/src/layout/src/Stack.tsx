@@ -1,7 +1,6 @@
 import { Alignment, useFlexAlignment } from "./adapters";
 import {
     ColumnGapProp,
-    FlexWrapProp,
     GapProp,
     InternalProps,
     OmitInternalProps,
@@ -12,7 +11,7 @@ import {
     mergeProps
 } from "../../shared";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex2 } from "./Flex2";
+import { Flex } from "./Flex";
 
 const DefaultElement = "div";
 
@@ -36,20 +35,20 @@ export interface InnerStackProps extends
       */
     alignX?: Alignment;
     /**
-       * The vertical alignment of the elements.
-       */
+     * The vertical alignment of the elements.
+     */
     alignY?: Alignment;
     /**
-       * React children
-      */
+     * React children
+     */
     children: ReactNode;
     /**
       * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap).
       */
     columnGap?: ColumnGapProp;
     /**
-       * Whether the elements take up all the space of their container.
-       */
+     * Whether the elements take up all the space of their container.
+     */
     fluid?: boolean;
     /**
       * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
@@ -60,45 +59,46 @@ export interface InnerStackProps extends
       */
     inline?: boolean;
     /**
-       * Whether or not to reverse the order of the elements.
-       */
+     * Whether or not to reverse the order of the elements.
+     */
     reverse?: boolean;
     /**
-      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap).
-      */
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap).
+     */
     rowGap?: RowGapProp;
     /**
-       * Alias for flex-wrap.
-       */
-    wrap?: FlexWrapProp;
+     * Whether or not to wrap the elements on multiple lines.
+     */
+    wrap?: boolean;
 }
-
 
 export function InnerStack({
     alignX,
     alignY,
-    gap = 5,
-    children,
     as = DefaultElement,
+    children,
     forwardedRef,
+    gap = 5,
+    wrap,
     ...rest
 }: InnerStackProps) {
-    const alignProps = useFlexAlignment("vertical", alignX, alignY);
+    const alignProps = useFlexAlignment({ alignX, alignY, orientation: "vertical" });
 
     return (
-        <Flex2
+        <Flex
             {...mergeProps(
                 rest,
                 {
                     as,
                     gap,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    wrap: wrap ? "wrap" : undefined
                 } as const,
                 alignProps
             )}
         >
             {children}
-        </Flex2>
+        </Flex>
     );
 }
 

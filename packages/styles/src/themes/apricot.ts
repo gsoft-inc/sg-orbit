@@ -2,7 +2,6 @@ import { OrbitTheme } from "./types";
 
 /*
 POTENTIALLY MISSING:
-- letterSpacings -> YES
 - breakpoints
 */
 

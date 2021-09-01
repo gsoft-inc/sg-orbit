@@ -3,7 +3,7 @@ import "./Select.css";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionStatesProps, InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../typography";
@@ -15,7 +15,7 @@ import { useSelect } from "./useSelect";
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
-export interface InnerSelectProps extends InternalProps, InteractionStatesProps, Omit<OrbitComponentProps<"button">, "autoFocus"> {
+export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<"button">, "autoFocus"> {
     /**
      * The horizontal alignment of the select menu relative to the input.
      */

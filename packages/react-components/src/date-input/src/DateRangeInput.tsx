@@ -21,7 +21,7 @@ import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
 import {
-    InteractionStatesProps,
+    InteractionProps,
     InternalProps,
     Keys,
     OmitInternalProps,
@@ -52,7 +52,7 @@ export interface DateRangePreset {
 
 const DefaultElement = "div";
 
-export interface InnerDateRangeInputProps extends InternalProps, InteractionStatesProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
+export interface InnerDateRangeInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
     /**
      * Whether or not the input should autofocus on render.
      */

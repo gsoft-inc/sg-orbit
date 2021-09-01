@@ -1,17 +1,16 @@
+import { AbstractGroupProps, Group } from "../../group";
 import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
-import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
-import { Group } from "../../group";
+import { Children, ComponentProps, ReactElement, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
 
-export interface InnerAvatarGroupProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
-    /**
-     * React children.
-     */
-    children: ReactNode;
+export interface InnerAvatarGroupProps extends
+    Omit<AbstractGroupProps, "align" | "fluid" | "orientation" | "reverse" | "wrap">,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "children"> {
     /**
      * The avatars of the group can vary in size.
      */
@@ -109,6 +108,7 @@ export function InnerAvatarGroup({
                     as,
                     className: "o-ui-avatar-group",
                     gap: 1,
+                    orientation: "horizontal",
                     ref: forwardedRef
                 } as const
             )}

@@ -1,8 +1,9 @@
 import "./Link.css";
 
+import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -11,7 +12,13 @@ import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface InnerTextLinkProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTextLinkProps extends
+    AbstractLinkProps,
+    // TODO: put back "color" once it's the actual color have been moved to a variant.
+    Omit<StyleProps, "color">,
+    InternalProps,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
     /**
      * Whether or not the link should autoFocus on render.
      */
@@ -25,29 +32,9 @@ export interface InnerTextLinkProps extends InternalProps, OrbitComponentProps<t
      */
     color?: "primary" | "secondary" | "danger" | "inherit";
     /**
-     * @ignore
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
-    /**
-     * The URL that the link points to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
-     * The relationship of the linked URL as space-separated link types. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
      * A link can vary in size.
      */
     size?: "sm" | "md" | "inherit";
-    /**
-     * Where to display the linked URL, as the name for a browsing context (a tab, window, or iframe). See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
     /**
      * The underline style.
      */

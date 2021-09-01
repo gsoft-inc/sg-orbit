@@ -1,12 +1,10 @@
-import { Box } from "../../box";
+import { AbstractGroupProps, Group } from "../../group";
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { Group, GroupProps } from "../../group";
 import {
     InternalProps,
     OmitInternalProps,
     OrbitComponentProps,
-    SlotProps,
     arrayify,
     augmentElement,
     isNil,
@@ -20,41 +18,42 @@ import {
 } from "../../shared";
 import { RadioGroup } from "../../radio";
 
-export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<OrbitComponentProps<"div">, "autoFocus" | "onChange"> {
+const DefaultElement = "div";
+
+export interface InnerTileGroupProps extends
+    Omit<AbstractGroupProps, "fluid" | "gap" | "orientation" | "wrap">,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
     /**
-      * Whether or not the first tile of the group should autoFocus on render.
-      */
+     * Whether or not the first tile of the group should autoFocus on render.
+     */
     autoFocus?: boolean | number;
     /**
-      * React children.
-      */
+     * React children.
+     */
     children: ReactNode;
     /**
-      * The initial value of `value`.
-      */
+     * The initial value of `value`.
+     */
     defaultValue?: string[];
     /**
-      * Whether or not the tiles are disabled.
-      */
+     * Whether or not the tiles are disabled.
+     */
     disabled?: boolean;
     /**
-      * Called when any of the children is checked or unchecked..
-      * @param {SyntheticEvent} event - React's original event.
-      * @param {string[]} value - The new value.
-      * @returns {void}
-      */
+     * Called when any of the children is checked or unchecked..
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {string[]} value - The new value.
+     * @returns {void}
+     */
     onChange?: (event: SyntheticEvent, value: string[]) => void;
     /**
-      * The orientation of the group tiles.
-      */
-    orientation?: "horizontal" | "vertical";
-    /**
-      * The number of tiles per row.
-      */
+     * The number of tiles per row.
+     */
     rowSize?: number;
     /**
-      * The type of selection that is allowed.
-      */
+     * The type of selection that is allowed.
+     */
     selectionMode?: "none" | "single" | "multiple";
     /**
      * The value of the tile group.
@@ -62,7 +61,10 @@ export interface InnerTileGroupProps extends SlotProps, InternalProps, Omit<Orbi
     value?: string[] | null;
 }
 
-export interface UnselectableGroupProps extends GroupProps {
+export interface UnselectableGroupProps extends
+    AbstractGroupProps,
+    InternalProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "children"> {
     autoFocus?: boolean | number;
 }
 
@@ -108,13 +110,12 @@ export function InnerTileGroup({
     disabled,
     forwardedRef,
     onChange,
-    orientation,
     rowSize = 1,
     selectionMode = "none",
     value,
     ...rest
 }: InnerTileGroupProps) {
-    const as = GroupType[selectionMode];
+    const As = GroupType[selectionMode];
 
     const handleChange = useEventCallback((event, newValue) => {
         if (!isNil(onChange)) {
@@ -123,14 +124,10 @@ export function InnerTileGroup({
     });
 
     return (
-        <Box
-            {...mergeProps<any>(
+        <As
+            {...mergeProps(
                 rest,
                 {
-
-                    as,
-
-
                     fluid: true,
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
@@ -149,13 +146,13 @@ export function InnerTileGroup({
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {
                 return augmentElement(x, {
                     disabled: selectionMode === "none" ? disabled : undefined,
-                    orientation,
+                    orientation: "horizontal",
                     style: {
                         width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
                     }
                 });
             })}
-        </Box>
+        </As>
     );
 }
 

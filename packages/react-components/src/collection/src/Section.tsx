@@ -1,6 +1,7 @@
-import { AllHTMLAttributes, ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { OrbitHtmlAttributes } from "../../shared";
 
-export interface InnerSectionProps extends Omit<AllHTMLAttributes<any>, "as"> {
+export interface InnerSectionProps extends OrbitHtmlAttributes {
     /**
      * @ignore
      */
