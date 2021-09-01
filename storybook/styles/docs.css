@@ -48,7 +48,7 @@
 }
 
 .docblock-argstable-head button:hover {
-    background-color: var(--o-ui-primary-700) !important;
+    background-color: var(--o-ui-primary-8) !important;
 }
 
 .docblock-argstable-head button svg path {
@@ -210,7 +210,7 @@
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
     font-size: var(--o-ui-font-sizes-4);
-    color: var(--o-ui-primary-700) !important;
+    color: var(--o-ui-primary-8) !important;
     text-decoration: underline;
 }
 
