@@ -8,7 +8,6 @@ import {
     OmitInternalProps,
     OrbitComponentProps,
     SlotProps,
-    ValidationState,
     augmentElement,
     isNil,
     isNumber,
@@ -25,6 +24,7 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
+import { ValidationState } from "../../input";
 import { useFieldInputProps } from "../../field";
 import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";

@@ -1,8 +1,23 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
-import { ComponentProps, MouseEventHandler, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, as, createSizeAdapter, cssModule, mergeProps, omitProps, slot, useSlots, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import {
+    InteractionProps,
+    InternalProps,
+    OmitInternalProps,
+    OrbitComponentProps,
+    SlotProps,
+    StyleProps,
+    as,
+    createSizeAdapter,
+    cssModule,
+    mergeProps,
+    omitProps,
+    slot,
+    useSlots,
+    useStyleProps
+} from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useButton } from "./useButton";
@@ -12,15 +27,15 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerButtonProps extends SlotProps, InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface AbstractButtonProps extends
+    // TODO: remove Omit once the Button color prop have been removed.
+    Omit<StyleProps, "color">,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
     /**
      * The button color accent.
      */
@@ -37,10 +52,6 @@ export interface InnerButtonProps extends SlotProps, InternalProps, InteractionP
      * A button can show a loading indicator.
      */
     loading?: boolean;
-    /**
-    * @ignore
-    */
-    onClick?: MouseEventHandler;
     /**
      * The button shape.
      */
@@ -59,6 +70,13 @@ export interface InnerButtonProps extends SlotProps, InternalProps, InteractionP
     variant?: "solid" | "outline" | "ghost";
 }
 
+export interface InnerButtonProps extends AbstractButtonProps, SlotProps, InternalProps {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+}
+
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const condensedTextSize = createSizeAdapter({
     "sm": "md",
@@ -73,22 +91,22 @@ export function InnerButton(props: InnerButtonProps) {
     const [styleProps] = useStyleProps("button");
 
     const {
-        variant = "solid",
-        color,
-        shape = "pill",
-        condensed,
+        active,
+        as: asProp = DefaultElement,
         autoFocus,
+        children,
+        color,
+        condensed,
         disabled,
         fluid,
-        loading,
-        size,
-        active,
         focus,
-        hover,
-        type,
-        as: asProp = DefaultElement,
-        children,
         forwardedRef,
+        hover,
+        loading,
+        shape = "pill",
+        size,
+        type,
+        variant = "solid",
         ...rest
     } = mergeProps(
         props,

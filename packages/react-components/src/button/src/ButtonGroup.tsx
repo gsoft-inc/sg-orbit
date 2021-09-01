@@ -2,7 +2,18 @@ import "./ButtonGroup.css";
 
 import { AbstractGroupProps, Group } from "../../group";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import {
+    InternalProps,
+    OmitInternalProps,
+    OrbitComponentProps,
+    SlotProps,
+    augmentElement,
+    cssModule,
+    mergeProps,
+    normalizeSize,
+    omitProps,
+    slot
+} from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
@@ -72,9 +83,8 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     gap: Gap[orientation][normalizeSize(size)],
                     orientation,
                     ref: forwardedRef,
-                    role: !isInField ? "group" : undefined,
-                    verticalAlign: orientation === "horizontal" ? "center" : undefined
-                } as const
+                    role: !isInField ? "group" : undefined
+                }
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {

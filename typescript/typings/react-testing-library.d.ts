@@ -1,6 +1,6 @@
-import 'react';
+import "react";
 
-declare module 'react' {
+declare module "react" {
     // with ts 4.4 accept all data
     // `data-${string}`;
     interface HTMLAttributes<T> {

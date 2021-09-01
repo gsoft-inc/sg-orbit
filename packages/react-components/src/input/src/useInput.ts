@@ -1,6 +1,8 @@
 import { ChangeEvent, ChangeEventHandler, ForwardedRef } from "react";
 import { cssModule, isNil, isNumber, mergeClasses, useAutoFocus, useEventCallback, useMergedRefs } from "../../shared";
 
+export type ValidationState = "valid" | "invalid";
+
 export interface UseInputProps {
     active?: boolean;
     autoFocus?: boolean | number;
@@ -17,7 +19,7 @@ export interface UseInputProps {
     readOnly?: boolean;
     required?: boolean;
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
     value?: string | number;
 }
 

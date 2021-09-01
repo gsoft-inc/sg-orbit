@@ -303,16 +303,16 @@ export const AppearanceClasses = {
 } as const;
 
 export const BackgroundAttachmentClasses = {
-    "scroll": "o-ui-bga-s",
     "fixed": "o-ui-bga-f",
-    "local": "o-ui-bga-l"
+    "local": "o-ui-bga-l",
+    "scroll": "o-ui-bga-s"
 } as const;
 
 export const BackgroundClipClasses = {
     "border-box": "o-ui-bgc-bb",
     "content-box": "o-ui-bgc-cb",
-    "text-box": "o-ui-bgc-tb",
     "padding-box": "o-ui-bgc-pb",
+    "text-box": "o-ui-bgc-tb"
 } as const;
 
 export const BackgroundColorRoleClasses = {
@@ -348,12 +348,12 @@ export const BackgroundPositionClasses = {
 } as const;
 
 export const BackgroundRepeatClasses = {
+    "no-repeat": "o-ui-bgr-nr",
+    "repeat": "o-ui-bgr-rpt",
     "repeat-x": "o-ui-bgr-rx",
     "repeat-y": "o-ui-bgr-ry",
-    "repeat": "o-ui-bgr-rpt",
-    "no-repeat": "o-ui-bgr-nr",
-    "space": "o-ui-bgr-s",
-    "round": "o-ui-bgr-rnd"
+    "round": "o-ui-bgr-rnd",
+    "space": "o-ui-bgr-s"
 } as const;
 
 export const BackgroundSizeClasses = {
@@ -661,9 +661,9 @@ export const ObjectFitClasses = {
 } as const;
 
 export const OpacityClasses = {
-    "visible": "o-ui-of-v",
+    "disabled": "o-ui-opc-d",
     "not-visible": "o-ui-opc-nv",
-    "disabled": "o-ui-opc-d"
+    "visible": "o-ui-of-v"
 } as const;
 
 export const OutlineClasses = {

@@ -1,12 +1,12 @@
 import { Box } from "../../box";
+import { FlexOrientation } from "../../layout";
 import { InteractionProps, cssModule, useSlots } from "../../shared";
-import { Orientation } from "../../layout";
 import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
 
 export interface UseTileProps extends InteractionProps {
     children: ReactNode;
-    orientation: Orientation;
+    orientation: FlexOrientation;
     variant: "checkable" | "link";
 }
 

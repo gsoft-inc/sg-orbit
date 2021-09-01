@@ -1,23 +1,23 @@
-export type Orientation = "horizontal" | "vertical";
-export type Direction = "row" | "column";
-export type Alignment = "start" | "end" | "center";
+export type FlexOrientation = "horizontal" | "vertical";
+export type FlexDirection = "row" | "column";
+export type FlexAlignment = "start" | "end" | "center";
 
 export interface UseFlexAlignmentProps {
-    alignX?: Alignment;
-    alignY?: Alignment;
-    orientation: Orientation;
+    alignX?: FlexAlignment;
+    alignY?: FlexAlignment;
+    orientation: FlexOrientation;
 }
 
 export function useFlexAlignment({ alignX, alignY, orientation }: UseFlexAlignmentProps) {
     return orientation === "horizontal"
         ? {
             alignItems: alignY,
-            direction: "row" as Direction,
+            direction: "row" as FlexDirection,
             justifyContent: alignX
         }
         : {
             alignItems: alignX,
-            direction: "column" as Direction,
+            direction: "column" as FlexDirection,
             justifyContent: alignY
         };
 }

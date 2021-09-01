@@ -1,5 +1,5 @@
-import { Alignment, Flex, Orientation, useFlexAlignment } from "../../layout";
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
 import { InternalProps, OmitInternalProps, OrbitHtmlAttributes, StyleProps, mergeProps } from "../../shared";
 
 export interface AbstractGroupProps extends
@@ -7,7 +7,7 @@ export interface AbstractGroupProps extends
     /**
      * The alignment of the elements.
      */
-    align?: Alignment;
+    align?: FlexAlignment;
     /**
      * React children.
      */
@@ -23,7 +23,7 @@ export interface AbstractGroupProps extends
     /**
      * The orientation of the elements.
      */
-    orientation?: Orientation;
+    orientation?: FlexOrientation;
     /**
      * Whether or not to reverse the order of the elements.
      */
@@ -38,7 +38,7 @@ export interface InnerGroupProps extends AbstractGroupProps, InternalProps, Orbi
     /**
      * The alignment of the elements.
      */
-    align?: Alignment;
+    align?: FlexAlignment;
     /**
      * React children
      */
@@ -54,7 +54,7 @@ export interface InnerGroupProps extends AbstractGroupProps, InternalProps, Orbi
     /**
      * The orientation of the elements.
      */
-    orientation?: Orientation;
+    orientation?: FlexOrientation;
     /**
      * Whether or not to reverse the order of the elements.
      */

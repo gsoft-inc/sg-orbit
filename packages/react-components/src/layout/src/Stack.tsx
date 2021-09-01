@@ -1,4 +1,3 @@
-import { Alignment, useFlexAlignment } from "./adapters";
 import {
     ColumnGapProp,
     GapProp,
@@ -12,6 +11,7 @@ import {
 } from "../../shared";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
+import { FlexAlignment, useFlexAlignment } from "./adapters";
 
 const DefaultElement = "div";
 
@@ -33,11 +33,11 @@ export interface InnerStackProps extends
     /**
       * The horizontal alignment of the elements.
       */
-    alignX?: Alignment;
+    alignX?: FlexAlignment;
     /**
      * The vertical alignment of the elements.
      */
-    alignY?: Alignment;
+    alignY?: FlexAlignment;
     /**
      * React children
      */

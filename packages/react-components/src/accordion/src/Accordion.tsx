@@ -62,16 +62,16 @@ export interface InnerAccordionProps extends StyleProps, InternalProps, OrbitCom
 }
 
 export function InnerAccordion({
-    id,
-    expandedKeys: expandedKeysProp,
-    defaultExpandedKeys,
-    onExpansionChange,
-    expansionMode = "single",
-    autoFocus,
-    variant = "borderless",
     as = DefaultElement,
+    autoFocus,
     children,
+    defaultExpandedKeys,
+    expandedKeys: expandedKeysProp,
+    expansionMode = "single",
     forwardedRef,
+    id,
+    onExpansionChange,
+    variant = "borderless",
     ...rest
 }: InnerAccordionProps) {
     const [expandedKeys, setExpandedKeys] = useControllableState(expandedKeysProp, defaultExpandedKeys, []);

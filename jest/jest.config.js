@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
     rootDir: path.resolve(__dirname, ".."),
     roots: ["<rootDir>/packages/react-components"],
+    testMatch: ["**/tests/jest/*.test.ts?(x)"],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": path.resolve("jest/babel-transform.js")
     },

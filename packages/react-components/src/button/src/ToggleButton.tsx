@@ -1,15 +1,9 @@
-import { Button } from "./Button";
+import { AbstractButtonProps, Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps, resolveChildren, slot, useCheckableProps } from "../../shared";
+import { InternalProps, OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-const DefaultElement = "button";
-
-export interface InnerToggleButtonProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
-    /**
-     * Whether or not the toggle button should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface InnerToggleButtonProps extends Omit<AbstractButtonProps, "color" | "onChange" | "variant">, InternalProps {
     /**
      * A controlled checked value.
      */
@@ -19,7 +13,7 @@ export interface InnerToggleButtonProps extends InternalProps, InteractionProps,
      */
     children: ReactNode;
     /**
-     * The toggle button color accent.
+     * The button color accent.
      */
     color?: "primary" | "secondary";
     /**
@@ -27,24 +21,12 @@ export interface InnerToggleButtonProps extends InternalProps, InteractionProps,
      */
     defaultChecked?: boolean;
     /**
-     * Whether or not the toggle button is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Called when the toggle button checked state change.
+     * Called when the button checked state change.
      * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isChecked - Whether the button is checked or not.
      * @returns {void}
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
-    /**
-     * The toggle button shape.
-     */
-    shape?: "pill" | "rounded" | "circular";
-    /**
-     * A toggle button can vary in size.
-     */
-    size?: "sm" | "md";
     /**
      * The value to associate with when in a group.
      */
@@ -59,17 +41,16 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
-        variant = "solid",
-        shape = "pill",
+        active,
         checked,
+        children,
         defaultChecked,
-        value,
+        forwardedRef,
         onChange,
         onCheck,
-        active,
-        as = DefaultElement,
-        children,
-        forwardedRef,
+        shape = "pill",
+        value,
+        variant = "solid",
         ...rest
     } = mergeProps(
         props,
@@ -95,9 +76,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         <Button
             {...mergeProps(
                 rest,
-                {
-                    as
-                },
                 buttonProps
             )}
         >
@@ -106,9 +84,9 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     );
 }
 
-export const ToggleButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
+export const ToggleButton = forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />
-)));
+));
 
 export type ToggleButtonProps = ComponentProps<typeof ToggleButton>;
 

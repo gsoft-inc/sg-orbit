@@ -18,13 +18,13 @@ import {
 } from "../../shared";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Direction } from "./adapters";
+import { FlexDirection } from "./adapters";
 
 const DefaultElement = "div";
 
-export type FutureAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
 
-export type FutureJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
     Omit<StyleProps,
@@ -48,7 +48,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?: FutureAlignItemsProp;
+    alignItems?: NextIterationAlignItemsProp;
     /**
      * Alias for [flex basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis);
      */
@@ -64,7 +64,7 @@ export interface InnerFlexProps extends
     /**
      * Alias for [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
-    direction?: Direction;
+    direction?: FlexDirection;
     /**
      * Whether the elements take up all the space of their container.
      */
@@ -80,7 +80,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    justifyContent?: FutureJustifyContentProp;
+    justifyContent?: NextIterationJustifyContentProp;
     /**
      * Whether or not to reverse the order of the elements.
      */

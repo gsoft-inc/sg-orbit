@@ -39,9 +39,8 @@ export interface InteractionProps {
 export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 
 // TODO: rename without the "Orbit" prefix.
+// OR might want to merge with InternalProps?!?!
 export type OrbitComponentProps<T extends JsxElement<T>> = Omit<ComponentProps<T>, "as" | "color" | "height" | "width" | "wrap">;
 
 // TODO: rename without the "Orbit" prefix.
 export type OrbitHtmlAttributes = Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width" | "wrap">;
-
-export type ValidationState = "valid" | "invalid";

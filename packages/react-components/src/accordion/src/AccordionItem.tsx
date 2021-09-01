@@ -3,25 +3,25 @@ import "./Accordion.css";
 import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionItems";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
+import { ComponentProps, SyntheticEvent, forwardRef } from "react";
 import { Disclosure, DisclosureDefaultElement } from "../../disclosure";
-import { InternalProps, OrbitComponentProps, StyleProps, mergeProps, useEventCallback } from "../../shared";
-import { Ref, SyntheticEvent } from "react";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
-export interface AccordionItemProps extends StyleProps, InternalProps, Omit<OrbitComponentProps<typeof DisclosureDefaultElement>, "ref"> {
+export interface InnerAccordionItemProps extends StyleProps, InternalProps, Omit<OrbitComponentProps<typeof DisclosureDefaultElement>, "ref"> {
     item: {
         header: AccordionBuilderHeader;
         id: string;
         key: string;
         panel: AccordionBuilderPanel;
     };
-    ref: Ref<any> | undefined;
 }
 
-export function AccordionItem({
+export function InnerAccordionItem({
+    forwardedRef,
     item: { header, id, key, panel },
     ...rest
-}: AccordionItemProps) {
+}: InnerAccordionItemProps) {
     const { expandedKeys, onToggle } = useAccordionContext();
 
     const handleOpenChange = useEventCallback((event: SyntheticEvent) => {
@@ -47,7 +47,8 @@ export function AccordionItem({
                 {
                     id,
                     onOpenChange: handleOpenChange,
-                    open: expandedKeys.includes(key)
+                    open: expandedKeys.includes(key),
+                    ref: forwardedRef
                 }
             )}
         >
@@ -68,3 +69,9 @@ export function AccordionItem({
         </Disclosure>
     );
 }
+
+export const AccordionItem = forwardRef<any, OmitInternalProps<InnerAccordionItemProps>>((props, ref) => (
+    <InnerAccordionItem {...props} forwardedRef={ref} />
+));
+
+export type AccordionItemProps = ComponentProps<typeof AccordionItem>;

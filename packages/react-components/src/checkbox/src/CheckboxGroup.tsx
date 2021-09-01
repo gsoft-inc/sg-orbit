@@ -7,7 +7,6 @@ import {
     OmitInternalProps,
     OrbitComponentProps,
     SlotProps,
-    ValidationState,
     augmentElement,
     isNil,
     isNumber,
@@ -24,7 +23,7 @@ import {
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { useGroupInput } from "../../input";
+import { ValidationState, useGroupInput } from "../../input";
 
 const DefaultElement = "div";
 

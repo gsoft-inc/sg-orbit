@@ -3,22 +3,38 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, augmentElement, createEmbeddableAdapter, isNil, mergeProps, omitProps, slot } from "../../shared";
+import {
+    InteractionProps,
+    InternalProps,
+    OmitInternalProps,
+    OrbitComponentProps,
+    SlotProps,
+    StyleProps,
+    augmentElement,
+    createEmbeddableAdapter,
+    mergeProps,
+    omitProps,
+    slot
+} from "../../shared";
 import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface InnerIconButtonProps extends SlotProps, InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface AbstractIconButtonProps extends
+    // TODO: Remove Omit once Button color prop is removed.
+    Omit<StyleProps, "color">,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+    /**
+     * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string;
     /**
      * Whether or not the icon button should autoFocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
     /**
      * The icon button color accent.
      */
@@ -53,6 +69,13 @@ export interface InnerIconButtonProps extends SlotProps, InternalProps, Interact
     variant?: "solid" | "outline" | "ghost";
 }
 
+export interface InnerIconButtonProps extends AbstractIconButtonProps, SlotProps, InternalProps {
+    /**
+     * React children.
+     */
+    children: ReactNode;
+}
+
 export function InnerIconButton(props: InnerIconButtonProps) {
     const [toolbarProps] = useToolbarProps();
     const [inputGroupProps] = useInputGroupButtonAddonProps();
@@ -80,10 +103,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         omitProps(toolbarProps, ["orientation"]),
         inputGroupProps
     );
-
-    if (isNil(ariaLabel)) {
-        console.error("An icon button component must have an \"aria-label\" attribute.");
-    }
 
     const buttonProps = useButton({
         active,

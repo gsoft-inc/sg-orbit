@@ -1,6 +1,7 @@
 import "./Autocomplete.css";
 
 import { Box, BoxProps } from "../../box";
+import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
     InteractionProps,
@@ -8,6 +9,8 @@ import {
     Keys,
     OmitInternalProps,
     OrbitComponentProps,
+    StyleProps,
+    WidthProp,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -20,28 +23,28 @@ import {
     useRefState
 } from "../../shared";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
-import { Overlay, OverlayProps as OverlayPropsForDocumentation, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, OverlayProps, PopupAlignment, PopupDirection, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
+import { ValidationState } from "../../input";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
-import type { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
-
-// Used to generate OverlayProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerAutocompleteProps extends
+    StyleProps,
+    InternalProps,
+    InteractionProps,
+    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */
-    align?: "start" | "end";
+    align?: PopupAlignment;
     /**
      * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
      */
@@ -73,7 +76,7 @@ export interface InnerAutocompleteProps extends InternalProps, InteractionProps,
     /**
      * The direction the autocomplete menu will open relative to the input.
      */
-    direction?: "bottom" | "top";
+    direction?: PopupDirection;
     /**
      * Whether or not the autocomplete is disabled.
      */
@@ -94,10 +97,6 @@ export interface InnerAutocompleteProps extends InternalProps, InteractionProps,
      * Minimum characters to query for results.
      */
     minCharacters?: number;
-    /**
-    * @ignore
-    */
-    name?: string;
     /**
      * Message to display when there are no results matching the query.
      */
@@ -134,21 +133,13 @@ export interface InnerAutocompleteProps extends InternalProps, InteractionProps,
      */
     overlayProps?: Partial<OverlayProps>;
     /**
-     * Temporary text that occupies the autocomplete trigger when no value is selected.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not the autocomplete is readonly.
-     */
-    readOnly?: boolean;
-    /**
      * Whether or not a user input is required before form submission.
      */
     required?: boolean;
     /**
      * Whether or not the autocomplete should display as "valid" or "invalid".
      */
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
     /**
      * A controlled autocomplete value.
      */
@@ -207,7 +198,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         "aria-labelledby": ariaLabelledBy,
         "aria-describedby": ariaDescribedBy,
         wrapperProps,
-        overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
+        overlayProps: { id: menuId, width: menuWidth, ...menuProps } = {},
         as = DefaultElement,
         children,
         forwardedRef,
@@ -246,15 +237,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         hideOnEscape: true,
         hideOnLeave: true,
         id: menuId,
-
         offset: [0, 4],
-
         onOpenChange,
-
         open: openProp,
-
-        position: `${direction}-${align}` as const,
-
+        position: `${direction}-${align}`,
         restoreFocus: true,
         // An autocomplete take care of his own trigger logic.
         trigger: "none"
@@ -517,10 +503,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         className: `o-ui-autocomplete-menu ${results.length > 0 ? "" : "o-ui-autocomplete-menu-no-results"}`,
                         ref: overlayRef,
                         show: isOpen && (!loading || results.length > 0),
-                        style: {
-                            ...menuStyle,
-                            width: menuWidth ?? triggerWidth ?? undefined
-                        },
+                        width: menuWidth ?? triggerWidth as WidthProp ?? undefined,
                         zIndex
                     },
                     overlayProps

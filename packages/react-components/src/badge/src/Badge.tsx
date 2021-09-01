@@ -2,11 +2,11 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBadgeProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerBadgeProps extends StyleProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -22,11 +22,11 @@ export interface InnerBadgeProps extends InternalProps, OrbitComponentProps<type
 }
 
 export function InnerBadge({
-    variant = "count",
-    overlap,
     as = DefaultElement,
     children,
     forwardedRef,
+    overlap,
+    variant = "count",
     ...rest
 }: InnerBadgeProps) {
     // Not using slots because the overlapped content could also be an icon and thinks get complicated.

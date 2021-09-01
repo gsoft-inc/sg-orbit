@@ -2,13 +2,25 @@ import "./Avatar.css";
 
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, createSizeAdapter, cssModule, isNil, isNilOrEmpty, isString, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { ComponentProps, forwardRef, useMemo } from "react";
+import {
+    InternalProps,
+    OmitInternalProps,
+    OrbitComponentProps,
+    SlotProps,
+    createSizeAdapter,
+    cssModule,
+    isNil,
+    isNilOrEmpty,
+    isString,
+    mergeProps,
+    normalizeSize,
+    omitProps,
+    slot
+} from "../../shared";
 import { Text } from "../../typography";
 
-const DefaultElement = "div";
-
-export interface InnerAvatarProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerAvatarProps extends SlotProps, InternalProps, OrbitComponentProps<"div" | "image"> {
     /**
      * The name of the person in the avatar.
      */
@@ -24,7 +36,7 @@ export interface InnerAvatarProps extends SlotProps, InternalProps, OrbitCompone
     /**
      * The url of a remote image or an image object.
      */
-    src?: string | ReactNode;
+    src?: string;
 }
 
 function AvatarImage({
@@ -33,10 +45,9 @@ function AvatarImage({
     retryCount,
     size,
     src
-}: Partial<AvatarProps>) {
+}: any) {
     if (!isString(src)) {
         return (
-            // @ts-ignore
             <img alt={name} className="o-ui-avatar-image" src={src} />
         );
     }
@@ -74,7 +85,7 @@ const O365InitialsColorsForName = [
     "#B91D47"
 ];
 
-function AvatarInitials({ "aria-label": ariaLabel, name, size }: Partial<AvatarProps>) {
+function AvatarInitials({ "aria-label": ariaLabel, name, size }: Partial<InnerAvatarProps>) {
     const initials = useMemo(() => {
         const cleanName = name.replace(/\s+/g, " ").trim();
 
@@ -112,10 +123,6 @@ function AvatarInitials({ "aria-label": ariaLabel, name, size }: Partial<AvatarP
     );
 }
 
-export type AvatarTextProps = Partial<AvatarProps> & {
-    children: ReactNode;
-};
-
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const textSize = createSizeAdapter({
     "2xs": "xs",
@@ -128,13 +135,13 @@ const textSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
-export function AvatarText(props: AvatarTextProps) {
+export function AvatarText(props: any) {
     const {
         as = "span",
         children,
         size,
         ...rest
-    } = omitProps(props, ["src", "color"]);
+    } = omitProps(props, ["src"]);
 
     return (
         <Text
@@ -153,13 +160,13 @@ export function AvatarText(props: AvatarTextProps) {
 }
 
 export function InnerAvatar({
+    "aria-label": ariaLabel,
+    as = "div",
+    forwardedRef,
     name,
-    src,
     retryCount,
     size,
-    "aria-label": ariaLabel,
-    as = DefaultElement,
-    forwardedRef,
+    src,
     ...rest
 }: InnerAvatarProps) {
     const content = !isNilOrEmpty(src)

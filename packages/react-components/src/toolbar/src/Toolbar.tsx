@@ -1,5 +1,5 @@
-import { Alignment, Flex, Orientation, useFlexAlignment } from "../../layout";
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
 import {
     InternalProps,
     Keys,
@@ -26,11 +26,11 @@ export interface InnerToolbarProps extends
     /**
      * The horizontal alignment of the elements.
      */
-    alignX?: Alignment;
+    alignX?: FlexAlignment;
     /**
      * The vertical alignment of the elements.
      */
-    alignY?: Alignment;
+    alignY?: FlexAlignment;
     /**
      * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
@@ -50,7 +50,7 @@ export interface InnerToolbarProps extends
     /**
      * The orientation of the elements.
      */
-    orientation?: Orientation;
+    orientation?: FlexOrientation;
     /**
      * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */

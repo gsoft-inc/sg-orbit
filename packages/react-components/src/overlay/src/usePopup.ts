@@ -1,10 +1,14 @@
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
-import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
 import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { isTargetParent } from "./isTargetParent";
+import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
+
+export type PopupAlignment = "start" | "end";
+
+export type PopupDirection = "bottom" | "top";
 
 export interface UsePopupOptions {
     allowFlip?: boolean;
@@ -21,7 +25,7 @@ export interface UsePopupOptions {
     offset?: number[];
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     open?: boolean | null;
-    position?: OverlayPosition;
+    position?: `${PopupDirection}-${PopupAlignment}`;
     restoreFocus?: boolean;
     trigger?: "none" | "click";
 }

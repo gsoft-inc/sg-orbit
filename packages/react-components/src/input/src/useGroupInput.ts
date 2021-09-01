@@ -1,6 +1,7 @@
-import { Alignment, Orientation } from "../../layout";
-import { GapProp, ValidationState, cssModule, normalizeSize } from "../../shared";
+import { FlexAlignment, FlexOrientation } from "../../layout";
+import { GapProp, cssModule, normalizeSize } from "../../shared";
 import { Ref } from "react";
+import { ValidationState } from "../../input";
 import { useFieldContext } from "../../field";
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -22,7 +23,7 @@ export interface UseGroupInputProps {
     gap?: GapProp;
     groupRef: Ref<any>;
     isInField?: boolean;
-    orientation?: Orientation;
+    orientation?: FlexOrientation;
     required?: boolean;
     reverse?: boolean;
     role?: "group" | "radiogroup";
@@ -33,15 +34,15 @@ export interface UseGroupInputProps {
 
 export interface UseGroupInputReturn {
     groupProps: {
-        align?: Alignment;
+        align?: FlexAlignment;
         "aria-disabled"?: boolean;
         "aria-invalid"?: boolean;
-        "aria-orientation"?: Orientation;
+        "aria-orientation"?: FlexOrientation;
         "aria-required"?: boolean;
         className?: string;
         gap?: GapProp;
         inline?: boolean;
-        orientation?: Orientation;
+        orientation?: FlexOrientation;
         ref?: Ref<any>;
         role?: "group" | "radiogroup";
         wrap?: boolean;
