@@ -149,8 +149,10 @@ London. Michaelmas term lately over</ExtraLargeSquare>)}
     )
     .add("border", () =>
         <Stack>
-            <LargeSquare border="1px solid #000" />
-            {Object.keys(BorderClasses).map(x => <SmallSquare border={x} key={x} />)}
+            <Inline gap={1} wrap>
+                {Object.keys(BorderClasses).map(x => <SmallSquare border={x} key={x} />)}
+            </Inline>
+            <SmallSquare border="1px solid #000" />
         </Stack>
     )
     .add("border color", () =>

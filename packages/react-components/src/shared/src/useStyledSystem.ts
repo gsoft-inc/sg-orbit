@@ -341,9 +341,25 @@ export const BackgroundSizeClasses = {
     "cover": "o-ui-bgs-cvr"
 } as const;
 
-export const BorderClasses = {
+export const BorderPreClasses = {
     "none": "o-ui-ba-0"
 } as const;
+
+export const BorderRoleClasses = {
+    "alias-1": "o-ui-alias-b-1 o-ui-ba",
+    "alias-2": "o-ui-alias-b-2 o-ui-ba",
+    "alias-3": "o-ui-alias-b-3 o-ui-ba",
+    "alias-4": "o-ui-alias-b-4 o-ui-ba",
+    "alias-negative-1": "o-ui-alias-b-negative-1 o-ui-ba",
+    "alias-negative-1-translucent": "o-ui-alias-b-negative-1-translucent o-ui-ba",
+    "alias-negative-2": "o-ui-alias-b-negative-2 o-ui-ba",
+    "alias-positive-1": "o-ui-alias-b-positive-1 o-ui-ba",
+    "alias-primary-1": "o-ui-alias-b-primary-1 o-ui-ba",
+    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent o-ui-ba",
+    "alias-warning-1": "o-ui-alias-b-warning-1 o-ui-ba"
+} as const;
+
+export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...BorderPreClasses, ...BorderRoleClasses };
 
 export const BorderColorRoleClasses = {
     "alias-1": "o-ui-alias-b-1",
@@ -842,7 +858,7 @@ export type BackgroundRepeatProp = Simplify<LiteralUnion<keyof typeof Background
 
 export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue>;
 
-export type BorderProp = Simplify<keyof typeof BorderClasses | GlobalValue>;
+export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, string> | GlobalValue>;
 
 export type BorderColorProp = Simplify<keyof typeof BorderColorRoleClasses | ColorValue>;
 
