@@ -2,18 +2,25 @@ import {
     AlignContentProp,
     AlignItemsProp,
     AlignSelfProp,
+    AppearanceProp,
+    BackgroundAttachmentProp,
+    BackgroundClipProp,
     BackgroundColorProp,
     BackgroundPositionProp,
+    BackgroundRepeatProp,
     BackgroundSizeProp,
     BorderColorProp,
     BorderRadiusProp,
     BorderStyleProp,
     BottomProp,
     BoxShadowProp,
+    BoxSizingProp,
     ColorExpression,
     ColorProp,
     ColorValue,
+    ColumnGapProp,
     CssColor,
+    CursorProp,
     DisplayProp,
     FillProp,
     FlexBasisProp,
@@ -25,6 +32,7 @@ import {
     FlexWrapProp,
     FontSizeProp,
     FontWeightProp,
+    GapProp,
     GlobalValue,
     HeightProp,
     HeightValue,
@@ -43,6 +51,9 @@ import {
     MaxWidthProp,
     MinHeightProp,
     MinWidthProp,
+    OpacityProp,
+    OutlineProp,
+    OverflowProp,
     PercentageUnit,
     PositionProp,
     RightProp,
@@ -150,6 +161,20 @@ expectAssignable<AlignSelfProp>("baseline");
 expectAssignable<AlignSelfProp>("stretch");
 expectAssignable<AlignSelfProp>("normal");
 
+expectAssignable<AppearanceProp>("auto");
+expectAssignable<AppearanceProp>("none");
+expectAssignable<AppearanceProp>("menu-list-button");
+expectAssignable<AppearanceProp>("textfield");
+
+expectAssignable<BackgroundAttachmentProp>("scroll");
+expectAssignable<BackgroundAttachmentProp>("fixed");
+expectAssignable<BackgroundAttachmentProp>("local");
+
+expectAssignable<BackgroundClipProp>("border-box");
+expectAssignable<BackgroundClipProp>("content-box");
+expectAssignable<BackgroundClipProp>("text-box");
+expectAssignable<BackgroundClipProp>("padding-box");
+
 expectAssignable<BackgroundColorProp>("#fff");
 expectAssignable<BackgroundColorProp>("white");
 expectAssignable<BackgroundColorProp>("sunray-1");
@@ -164,6 +189,13 @@ expectAssignable<BackgroundPositionProp>("left-top");
 expectAssignable<BackgroundPositionProp>("left-bottom");
 expectAssignable<BackgroundPositionProp>("right-top");
 expectAssignable<BackgroundPositionProp>("right-bottom");
+
+expectAssignable<BackgroundRepeatProp>("no-repeat");
+expectAssignable<BackgroundRepeatProp>("repeat");
+expectAssignable<BackgroundRepeatProp>("repeat-x");
+expectAssignable<BackgroundRepeatProp>("repeat-y");
+expectAssignable<BackgroundRepeatProp>("round");
+expectAssignable<BackgroundRepeatProp>("space");
 
 expectAssignable<BackgroundSizeProp>("top");
 expectAssignable<BackgroundSizeProp>("cover");
@@ -200,10 +232,24 @@ expectAssignable<BoxShadowProp>("alias-lifted");
 expectAssignable<BoxShadowProp>("alias-raised");
 expectAssignable<BoxShadowProp>("alias-floating");
 
+expectAssignable<BoxSizingProp>("border-box");
+expectAssignable<BoxSizingProp>("content-box");
+
 expectAssignable<ColorProp>("#fff");
 expectAssignable<ColorProp>("white");
 expectAssignable<ColorProp>("sunray-1");
 expectAssignable<ColorProp>("alias-1");
+
+expectAssignable<ColumnGapProp>(0);
+expectAssignable<ColumnGapProp>(1);
+
+expectAssignable<CursorProp>("auto");
+expectAssignable<CursorProp>("crosshair");
+expectAssignable<CursorProp>("grab");
+expectAssignable<CursorProp>("help");
+expectAssignable<CursorProp>("not-allowed");
+expectAssignable<CursorProp>("wait");
+expectAssignable<CursorProp>("zoom-in");
 
 expectAssignable<DisplayProp>("block");
 expectAssignable<DisplayProp>("inline-block");
@@ -292,6 +338,9 @@ expectAssignable<FontWeightProp>(7);
 expectAssignable<FontWeightProp>(8);
 expectAssignable<FontWeightProp>(9);
 
+expectAssignable<GapProp>(0);
+expectAssignable<GapProp>(1);
+
 expectAssignable<HeightProp>(1);
 expectAssignable<HeightProp>("100%");
 expectAssignable<HeightProp>("screen");
@@ -364,6 +413,18 @@ expectAssignable<MinWidthProp>("auto");
 expectAssignable<MinWidthProp>("max-content");
 expectAssignable<MinWidthProp>("min-content");
 
+expectAssignable<OpacityProp>("disabled");
+expectAssignable<OpacityProp>("not-visible");
+expectAssignable<OpacityProp>("visible");
+
+expectAssignable<OutlineProp>("none");
+
+expectAssignable<OverflowProp>("auto");
+expectAssignable<OverflowProp>("clip");
+expectAssignable<OverflowProp>("hidden");
+expectAssignable<OverflowProp>("scroll");
+expectAssignable<OverflowProp>("visible");
+
 expectAssignable<PositionProp>("static");
 expectAssignable<PositionProp>("fixed");
 expectAssignable<PositionProp>("absolute");
@@ -397,8 +458,12 @@ expectAssignable<StyledSystemProps>({
     alignContent: "center",
     alignItems: "center",
     alignSelf: "center",
+    appearance: "scroll",
+    backgroundAttachment: "scroll",
+    backgroundClip: "border-box",
     backgroundColor: "sunray-1",
     backgroundPosition: "bottom",
+    backgroundNoRepeat: "no-repeat",
     backgroundSize: "auto",
     border: "1px solid red",
     borderBottom: "1px solid red",
@@ -415,8 +480,11 @@ expectAssignable<StyledSystemProps>({
     borderWidth: 1,
     bottom: 1,
     boxShadow: 1,
+    boxSizing: "border-box",
     className: "red-border",
     color: "sunray-1",
+    columnGap: 1,
+    cursor: "crosshair",
     display: "block",
     fill: "sunray-1",
     flex: "2 2 10%",
@@ -428,6 +496,7 @@ expectAssignable<StyledSystemProps>({
     flexWrap: "wrap",
     fontSize: 1,
     fontWeight: 1,
+    gap: 1,
     height: 1,
     justifyContent: "center",
     left: 1,
@@ -443,8 +512,11 @@ expectAssignable<StyledSystemProps>({
     maxWidth: 1,
     minHeight: 1,
     minWidth: 1,
+    opacity: "visible",
     // Put back once style props inherits CSSProperties
     // order: 1,
+    outline: "none",
+    overflow: "clip",
     padding: 1,
     paddingBottom: 1,
     paddingLeft: 1,
