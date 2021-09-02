@@ -1,4 +1,5 @@
 import { Checkbox, CheckboxGroup } from "@react-components/checkbox";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Tag } from "@react-components/tag";
 import { ToggleButton } from "@react-components/button";
@@ -32,7 +33,8 @@ function CustomComponent({
             {...checkableProps}
             as="button"
             onClick={handleCheck}
-            className={isChecked ? "white o-ui-bgc-primary-6" : "o-ui-bgc-secondary-6"}
+            color={isChecked ? "white" : undefined}
+            backgroundColor={isChecked ? "primary-6" : "secondary-6"}
             aria-checked={isChecked}
         >
             {children}
@@ -96,15 +98,15 @@ stories()
         </CheckboxGroup>
     )
     .add("wrapped", () =>
-        <div style={{ width: "130px" }}>
+        <Div width="130px">
             <CheckboxGroup wrap>
                 {
                     ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                        <Checkbox style={{ width: "35px" }} value={x} key={x}>{x}</Checkbox>
+                        <Checkbox width="35px" value={x} key={x}>{x}</Checkbox>
                     )
                 }
             </CheckboxGroup>
-        </div>
+        </Div>
     )
     .add("toggle buttons", () =>
         <CheckboxGroup gap={2} defaultValue={["2"]}>

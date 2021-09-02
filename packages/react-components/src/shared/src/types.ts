@@ -1,5 +1,5 @@
 import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
-import { StyleProps } from "./useStyledSystem";
+import { StyledSystemProps } from "./useStyledSystem";
 
 export interface SlotProps {
     /**
@@ -37,10 +37,10 @@ export interface InteractionProps {
     hover?: boolean;
 }
 
-// export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 
-export type StyledComponentProps<T extends JsxElement<T>> = StyleProps & Omit<ComponentProps<T>, "as" | "color" | "height" | "width" | "wrap">;
+type OverlappingHtmlAttributes = "as" | "color" | "height" | "width" | "wrap";
 
-// TODO: rename without the "Orbit" prefix.
-export type OrbitHtmlAttributes = Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width" | "wrap">;
+export type StyledComponentProps<T extends JsxElement<T>> = StyledSystemProps & Omit<ComponentProps<T>, OverlappingHtmlAttributes>;
+
+export type StyledHtmlAttributes = StyledSystemProps & Omit<AllHTMLAttributes<any>, OverlappingHtmlAttributes>;

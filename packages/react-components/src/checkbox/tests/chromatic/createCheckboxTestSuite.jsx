@@ -1,6 +1,6 @@
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
-import { Inline, Stack } from "@react-components/layout";
+import { Flex, Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
 
@@ -219,23 +219,23 @@ export function createCheckboxTestSuite(element, stories) {
         )
         .add("overflow", () =>
             <Stack>
-                <div className="flex items-end mw5">
+                <Flex alignItems="end" maxWidth={5}>
                     <Checkbox element={element}>PA-99-N2 event and possible exoplanet in galaxy</Checkbox>
-                </div>
-                <div className="flex items-end mw5">
+                </Flex>
+                <Flex alignItems="end" maxWidth={5}>
                     <Checkbox element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconList>
                             <EmailIcon /><EmailIcon />
                         </IconList>
                     </Checkbox>
-                </div>
-                <div className="flex items-end mw5">
+                </Flex>
+                <Flex alignItems="end" maxWidth={5}>
                     <Checkbox element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Checkbox>
-                </div>
+                </Flex>
             </Stack>
         );
 }

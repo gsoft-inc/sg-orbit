@@ -1,5 +1,6 @@
 import "./DateRangeInput.css";
 
+import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
@@ -21,8 +22,6 @@ import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
 import {
-    InteractionProps,
-    InternalProps,
     Keys,
     OmitInternalProps,
     augmentElement,
@@ -40,7 +39,7 @@ import {
     useMergedRefs
 } from "../../shared";
 import { MenuPresets } from "./MenuPresets";
-import { areEqualDates, toMidnightDate } from "./date-utils";
+import { areEqualDates, toMidnightDate } from "./dateUtils";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -52,11 +51,7 @@ export interface DateRangePreset {
 
 const DefaultElement = "div";
 
-export interface InnerDateRangeInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "autoFocus" | "max" | "min"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof DefaultElement>, "max" | "min"> {
     /* eslint-disable typescript-sort-keys/interface */
     /**
      * The initial value of start date.
@@ -119,14 +114,6 @@ export interface InnerDateRangeInputProps extends InternalProps, InteractionProp
      * The presets style to use.
      */
     presetsVariant?: "compact" | "expanded";
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({
@@ -391,30 +378,30 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     const [inputGroupProps, isInGroup] = useInputGroupProps();
 
     const {
-        startDate: startDateProp,
-        endDate: endDateProp,
-        defaultStartDate,
+        active,
+        as = DefaultElement,
+        autoFocus,
         defaultEndDate,
-        placeholder,
-        min,
+        defaultStartDate,
+        disabled,
+        endDate: endDateProp,
+        fluid,
+        focus = false,
+        forwardedRef,
+        hover,
         max,
-        required,
-        validationState,
+        min,
+        name,
+        onBlur,
         onDatesChange,
         onFocus,
-        onBlur,
+        placeholder,
         presets,
         presetsVariant = "compact",
-        autoFocus,
-        fluid,
-        disabled,
         readOnly,
-        active,
-        focus = false,
-        hover,
-        name,
-        as = DefaultElement,
-        forwardedRef,
+        required,
+        startDate: startDateProp,
+        validationState,
         ...rest
     } = mergeProps(
         props,

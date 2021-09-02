@@ -247,12 +247,12 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
-function createOrbitColorClasses(section?: string) {
+function createOrbitColorClasses(section?: string, additionalClasses?: string) {
     // TODO: Should we scope the color classes with a "-c-" ?
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
-        acc[x] = template(x);
+        acc[x] = `${template(x)} ${additionalClasses}`;
 
         return acc;
     }, {} as Record<OrbitColor, string>);
@@ -381,10 +381,10 @@ export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderCo
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
     1: "o-ui-b-radius-1",
-    "100": "o-ui-b-radius-100",
     2: "o-ui-b-radius-2",
     3: "o-ui-b-radius-3",
     4: "o-ui-b-radius-4",
+    "100%": "o-ui-b-radius-100",
     "pill": "o-ui-pill"
 } as const;
 
@@ -988,7 +988,7 @@ export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, numbe
 
 // TODO: Add docs to all props.
 // TODO: I think it should extends from CSSProperties
-export interface StyleProps {
+export interface StyledSystemProps {
     /**
      * @ignore
      */
@@ -1482,7 +1482,7 @@ EXAMPLE:
         borderTopColor="sunray-3"
     />
 */
-export function useStyledSystem(props: Partial<StyleProps>) {
+export function useStyledSystem(props: Partial<StyledSystemProps>) {
     return useMemo(() => {
         const { className, style, ...rest } = props;
 
@@ -1491,7 +1491,7 @@ export function useStyledSystem(props: Partial<StyleProps>) {
             style: style ?? {}
         };
 
-        Object.entries(rest).forEach(([key, value]: Entry<StyleProps>) => {
+        Object.entries(rest).forEach(([key, value]: Entry<StyledSystemProps>) => {
             if (!isNil(value)) {
                 const handler = PropsHandlers[key];
 

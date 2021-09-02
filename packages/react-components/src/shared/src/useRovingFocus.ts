@@ -1,6 +1,6 @@
 import { isNil } from "./assertions";
 import { useLayoutEffect } from "react";
-import type { ChangeEventHandler, DomScope } from "./useFocusScope";
+import type { DomScope, ScopeChangeEventHandler } from "./useFocusScope";
 
 export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}) {
     useLayoutEffect(() => {
@@ -33,7 +33,7 @@ export function useRovingFocus(scope: DomScope, { isDisabled = false } = {}) {
 
             initializeElements();
 
-            const onChange: ChangeEventHandler = (newElements, oldElements) => {
+            const onChange: ScopeChangeEventHandler = (newElements, oldElements) => {
                 oldElements.forEach(disposeElement);
 
                 const tabbableIndex = newElements.findIndex(x => x.tabIndex === 0);

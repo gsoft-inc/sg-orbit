@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
@@ -11,9 +12,9 @@ export function createDateRangeInputTestSuite(element, stories) {
             <Stack>
                 <DateRangeInput element={element} />
                 <DateRangeInput fluid element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateRangeInput fluid element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("placeholder", () =>
@@ -22,9 +23,9 @@ export function createDateRangeInputTestSuite(element, stories) {
                 <DateRangeInput disabled placeholder="custom" element={element} />
                 <DateRangeInput readOnly placeholder="custom" element={element} />
                 <DateRangeInput fluid placeholder="custom" element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateRangeInput fluid placeholder="custom" element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("value", () =>
@@ -35,9 +36,9 @@ export function createDateRangeInputTestSuite(element, stories) {
                 <DateRangeInput defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} element={element} />
                 <DateRangeInput startDate={new Date(1970, 0, 5)} endDate={new Date(1971, 3, 10)} element={element} />
                 <DateRangeInput fluid defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateRangeInput fluid defaultStartDate={new Date(1970, 0, 5)} defaultEndDate={new Date(1971, 3, 10)} element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("validation", () =>

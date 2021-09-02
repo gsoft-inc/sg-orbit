@@ -2,13 +2,13 @@ import { RefObject, useCallback, useMemo } from "react";
 import { useRefState } from "./useRefState";
 import { walkFocusableElements } from "./focusableTreeWalker";
 
-export type ChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
+export type ScopeChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
 
 export class DomScope {
     private scopeRef: RefObject<HTMLElement[]>;
-    private handlersRef: RefObject<ChangeEventHandler[]>;
+    private handlersRef: RefObject<ScopeChangeEventHandler[]>;
 
-    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ChangeEventHandler[]>) {
+    constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ScopeChangeEventHandler[]>) {
         this.scopeRef = scopeRef;
         this.handlersRef = handlersRef;
     }
@@ -17,11 +17,11 @@ export class DomScope {
         return this.scopeRef.current;
     }
 
-    registerChangeHandler(handler: ChangeEventHandler) {
+    registerChangeHandler(handler: ScopeChangeEventHandler) {
         this.handlersRef.current.push(handler);
     }
 
-    removeChangeHandler(handler: ChangeEventHandler) {
+    removeChangeHandler(handler: ScopeChangeEventHandler) {
         const handlers = this.handlersRef.current;
 
         handlers.splice(handlers.indexOf(handler), 1);
@@ -34,7 +34,7 @@ export class DomScope {
 
 export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] {
     const [scopeRef, setScope] = useRefState<HTMLElement[]>([]);
-    const [handlersRef] = useRefState<ChangeEventHandler[]>([]);
+    const [handlersRef] = useRefState<ScopeChangeEventHandler[]>([]);
 
     const setRef = useCallback((rootElement: HTMLElement) => {
         const setElements = (elements: HTMLElement[]) => {

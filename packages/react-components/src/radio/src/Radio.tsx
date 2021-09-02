@@ -1,7 +1,7 @@
 import "./Radio.css";
 
 import { Box } from "../../box";
-import { ComponentProps, FormEvent, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
     InteractionProps,
     InternalProps,
@@ -43,7 +43,7 @@ export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<S
      */
     defaultChecked?: boolean;
     /**
-     * Whether or not the radio is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
@@ -51,24 +51,22 @@ export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<S
      */
     name?: string;
     /**
-     * @ignore
+     * Called when the radio checked state change.
+     * @param {ChangeEvent} event - React's original synthetic event.
+     * @returns {void}
      */
-    onChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
+    onChange?: ChangeEventHandler;
     /**
      * Called when the radio checked state change.
-     * @param {FormEvent} event - React's original synthetic event.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @param {boolean} isChecked - Whether or not the radio is checked.
      * @returns {void}
      */
-    onValueChange?: (event: FormEvent<HTMLInputElement>, isChecked: boolean) => void;
+    onValueChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * Invert the order of the checkmark box and the label.
      */
     reverse?: boolean;
-    /**
-     * @ignore
-     */
-    tabIndex?: number;
     /**
      * Whether or not the radio should display as "valid" or "invalid".
      */
@@ -83,24 +81,24 @@ export function InnerRadio(props: InnerRadioProps) {
     const [checkableProps] = useCheckableProps(props);
 
     const {
-        value,
-        name,
-        checked,
-        defaultChecked,
+        active,
+        as = DefaultElement,
         autoFocus,
-        validationState,
-        onValueChange,
+        checked,
+        children,
+        defaultChecked,
+        disabled,
+        focus,
+        forwardedRef,
+        hover,
+        name,
         onChange,
         onCheck,
+        onValueChange,
         reverse,
         tabIndex,
-        active,
-        focus,
-        hover,
-        disabled,
-        as = DefaultElement,
-        children,
-        forwardedRef,
+        validationState,
+        value,
         ...rest
     } = mergeProps(
         omitProps(props, ["role"]),
@@ -123,7 +121,7 @@ export function InnerRadio(props: InnerRadioProps) {
         return forwardInputApi(labelRef);
     });
 
-    const handleStateChange = useChainedEventCallback(onChange, event => {
+    const handleStateChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         const newValue = !isChecked;
 
         setIsChecked(newValue);
@@ -133,7 +131,7 @@ export function InnerRadio(props: InnerRadioProps) {
         }
     });
 
-    const handleCheck = useChainedEventCallback(onChange, event => {
+    const handleCheck = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
         if (!isNil(onValueChange)) {
             onValueChange(event, true);
         }

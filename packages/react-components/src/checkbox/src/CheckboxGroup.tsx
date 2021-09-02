@@ -1,6 +1,6 @@
 import "./CheckboxGroup.css";
 
-import { AbstractGroupProps, Group } from "../../group";
+import { AbstractGroupInputProps, useGroupInput } from "../../input";
 import {
     CheckableContext,
     OmitInternalProps,
@@ -20,46 +20,15 @@ import {
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
-import { ValidationState, useGroupInput } from "../../input";
+import { Group } from "../../group";
 
 const DefaultElement = "div";
 
-export interface InnerCheckboxGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "onChange"> {
+export interface InnerCheckboxGroupProps extends AbstractGroupInputProps<typeof DefaultElement, string[]> {
     /**
-     * Whether or not the first checkbox of the group should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The initial value of `value`.
-     */
-    defaultValue?: string[];
-    /**
-     * Whether or not the group elements are disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Called when any of the children is checked or unchecked.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {string[]} value - The new value.
-     * @returns {void}
-     */
-    onChange?: (event: SyntheticEvent, value: string[]) => void;
-    /**
-     * Whether a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * The group elements size.
+     * The checkbox of a group can vary in size.
      */
     size?: "sm" | "md";
-    /**
-     * Whether the group should display as "valid" or "invalid".
-     */
-    validationState?: ValidationState;
-    /**
-     * The value of the checkbox group.
-     */
-    value?: string[] | null;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {

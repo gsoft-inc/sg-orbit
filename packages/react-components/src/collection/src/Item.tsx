@@ -1,15 +1,11 @@
-import { ComponentProps, ForwardedRef, ReactNode, forwardRef } from "react";
-import { OmitInternalProps, OrbitHtmlAttributes } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyledHtmlAttributes } from "../../shared";
 
-export interface InnerItemProps extends OrbitHtmlAttributes {
+export interface InnerItemProps extends InternalProps, StyledHtmlAttributes {
     /**
      * React children.
      */
     children: ReactNode;
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
     /**
      * A unique key to identify the item.
      */

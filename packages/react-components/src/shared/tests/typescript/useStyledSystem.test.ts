@@ -47,7 +47,7 @@ import {
     PositionProp,
     RightProp,
     SpaceValue,
-    StyleProps,
+    StyledSystemProps,
     TopProp,
     WidthProp,
     WidthValue,
@@ -393,7 +393,7 @@ expectAssignable<ZindexProp>("999");
 expectAssignable<ZindexProp>("9999");
 expectAssignable<ZindexProp>("max");
 
-expectAssignable<StyleProps>({
+expectAssignable<StyledSystemProps>({
     alignContent: "center",
     alignItems: "center",
     alignSelf: "center",

@@ -1,11 +1,7 @@
-import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { OrbitHtmlAttributes } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyledHtmlAttributes } from "../../shared";
 
-export interface InnerSectionProps extends OrbitHtmlAttributes {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface InnerSectionProps extends InternalProps, StyledHtmlAttributes {
     /**
      * React children.
      */
@@ -17,8 +13,7 @@ export function InnerSection(props: InnerSectionProps): JSX.Element {
     return null;
 }
 
-export const Section = forwardRef<any, InnerSectionProps>((props, ref) => (
-    // @ts-ignore Not sure what is going on with the InnerSection.
+export const Section = forwardRef<any, OmitInternalProps<InnerSectionProps>>((props, ref) => (
     <InnerSection {...props} forwardedRef={ref} />
 ));
 

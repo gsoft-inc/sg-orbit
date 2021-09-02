@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
@@ -11,9 +12,9 @@ export function createDateInputTestSuite(element, stories) {
             <Stack>
                 <DateInput element={element} />
                 <DateInput fluid element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateInput fluid element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("placeholder", () =>
@@ -22,9 +23,9 @@ export function createDateInputTestSuite(element, stories) {
                 <DateInput disabled placeholder="custom" element={element} />
                 <DateInput readOnly placeholder="custom" element={element} />
                 <DateInput fluid placeholder="custom" element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateInput fluid placeholder="custom" element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("value", () =>
@@ -35,9 +36,9 @@ export function createDateInputTestSuite(element, stories) {
                 <DateInput defaultValue={new Date(1970, 0, 5)} element={element} />
                 <DateInput value={new Date(1970, 0, 5)} element={element} />
                 <DateInput fluid defaultValue={new Date(1970, 0, 5)} element={element} />
-                <div className="w-10">
+                <Div width="10%">
                     <DateInput fluid defaultValue={new Date(1970, 0, 5)} element={element} />
-                </div>
+                </Div>
             </Stack>
         )
         .add("validation", () =>
