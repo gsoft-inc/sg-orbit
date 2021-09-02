@@ -4,7 +4,7 @@ import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
@@ -40,7 +40,7 @@ const MessageContent = forwardRef<any, InnerMessageContentProps>(({
     );
 });
 
-export interface InnerMessageProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerMessageProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

@@ -2,11 +2,11 @@ import "./Heading.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerHeadingProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerHeadingProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

@@ -2,10 +2,10 @@ import "./DisclosureArrow.css";
 
 import { ChevronIcon } from "../../icons";
 import { ComponentProps, ForwardedRef, forwardRef } from "react";
-import { OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { useDisclosureContext } from "./DisclosureContext";
 
-export interface InnerDisclosureArrowProps extends OrbitComponentProps<typeof ChevronIcon> {
+export interface InnerDisclosureArrowProps extends StyledComponentProps<typeof ChevronIcon> {
     /**
     * @ignore
     */

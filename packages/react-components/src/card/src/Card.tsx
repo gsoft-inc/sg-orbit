@@ -2,12 +2,12 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "section";
 
-export interface InnerCardProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerCardProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

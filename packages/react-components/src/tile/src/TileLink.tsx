@@ -1,17 +1,10 @@
-import { AbstractLinkProps, Link } from "../../link";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FlexOrientation } from "../../layout";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, cssModule, mergeProps } from "../../shared";
+import { Link, SharedLinkProps } from "../../link";
+import { OmitInternalProps, cssModule, mergeProps } from "../../shared";
 import { useTile } from "./useTile";
 
-const DefaultElement = "a";
-
-export interface InnerTileLinkProps extends
-    AbstractLinkProps,
-    StyleProps,
-    InternalProps,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
+export interface InnerTileLinkProps extends SharedLinkProps {
     /**
      * Whether or not the tile should autoFocus on render.
      */
@@ -28,7 +21,6 @@ export interface InnerTileLinkProps extends
 
 export function InnerTileLink({
     active,
-    as = DefaultElement,
     children,
     disabled,
     focus,
@@ -52,7 +44,6 @@ export function InnerTileLink({
                 rest,
                 {
                     active,
-                    as,
                     className: cssModule(
                         "o-ui-tile-link",
                         disabled && "disabled"

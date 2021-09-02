@@ -2,13 +2,13 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerLozengeProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

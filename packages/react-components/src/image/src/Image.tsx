@@ -2,11 +2,11 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HeightProp, InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
+import { HeightProp, InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
-export interface InnerImageProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerImageProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * A text description of the image.
      */

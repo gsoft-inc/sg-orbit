@@ -5,12 +5,12 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
 
-export interface InnerInputGroupProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerInputGroupProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

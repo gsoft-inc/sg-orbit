@@ -1,14 +1,4 @@
-import {
-    ColumnGapProp,
-    GapProp,
-    InternalProps,
-    OmitInternalProps,
-    OrbitComponentProps,
-    RowGapProp,
-    SlotProps,
-    StyleProps,
-    mergeProps
-} from "../../shared";
+import { ColumnGapProp, GapProp, InternalProps, OmitInternalProps, RowGapProp, SlotProps, StyledComponentProps, mergeProps } from "../../shared";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
 import { FlexAlignment, useFlexAlignment } from "./adapters";
@@ -16,7 +6,9 @@ import { FlexAlignment, useFlexAlignment } from "./adapters";
 const DefaultElement = "div";
 
 export interface InnerInlineProps extends
-    Omit<StyleProps,
+    SlotProps,
+    InternalProps,
+    Omit<StyledComponentProps<typeof DefaultElement>,
     "alignContent"
     | "alignItems"
     | "columnGap"
@@ -26,10 +18,8 @@ export interface InnerInlineProps extends
     | "flexWrap"
     | "gap"
     | "justifyContent"
-    | "row-gap">,
-    SlotProps,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "wrap"> {
+    | "row-gap"
+    | "wrap"> {
     /**
       * The horizontal alignment of the elements.
       */

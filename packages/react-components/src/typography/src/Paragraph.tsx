@@ -1,12 +1,12 @@
 import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProvider, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "p";
 
-export interface InnerParagraphProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerParagraphProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children
      */

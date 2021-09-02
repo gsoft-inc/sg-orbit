@@ -6,7 +6,7 @@ import {
     InteractionProps,
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -25,7 +25,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the radio should autoFocus on render.
      */

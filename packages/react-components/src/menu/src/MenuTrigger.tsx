@@ -5,7 +5,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     augmentElement,
     isNil,
     mergeProps,
@@ -21,7 +21,7 @@ import { useInputGroupMenuAddonProps } from "../../input-group";
 
 const DefaultElement = "div";
 
-export interface InnerMenuTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerMenuTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * The horizontal alignment of the menu relative to the trigger.
      */

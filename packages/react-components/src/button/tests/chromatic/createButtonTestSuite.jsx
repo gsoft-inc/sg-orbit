@@ -433,8 +433,5 @@ export function createButtonTestSuite(element, stories) {
                     </Inline>
                 </Stack>
             </Inline>
-        )
-        .add("as anchor", () =>
-            <ButtonAsLink href="https://www.sharegate.com" target="_blank" element={element}>Button</ButtonAsLink>
         );
 }

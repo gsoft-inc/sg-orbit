@@ -9,9 +9,8 @@ import {
     InternalProps,
     JustifyContentProp,
     OmitInternalProps,
-    OrbitComponentProps,
     RowGapProp,
-    StyleProps,
+    StyledComponentProps,
     isNil,
     mergeProps
 } from "../../shared";
@@ -26,7 +25,8 @@ export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "f
 export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
-    Omit<StyleProps,
+    InternalProps,
+    Omit<StyledComponentProps<typeof DefaultElement>,
     "alignContent"
     | "alignItems"
     | "columnGap"
@@ -37,9 +37,8 @@ export interface InnerFlexProps extends
     | "flexWrap"
     | "gap"
     | "justifyContent"
-    | "rowGap">,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "wrap"> {
+    | "rowGap"
+    | "wrap"> {
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content).
      */

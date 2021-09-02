@@ -1,13 +1,13 @@
 import "./Label.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 import { useFieldLabelProps } from "./FieldContext";
 
 const DefaultElement = "label";
 
-export interface InnerLabelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerLabelProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */

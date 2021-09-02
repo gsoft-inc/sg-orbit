@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, slot } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerFooterProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerFooterProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

@@ -2,7 +2,7 @@ import "./Checkbox.css";
 
 import { Box } from "../../box";
 import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,7 +12,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
+export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the checkbox should autoFocus on render.
      */

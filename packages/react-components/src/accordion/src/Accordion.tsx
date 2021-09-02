@@ -8,8 +8,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
-    StyleProps,
+    StyledComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -27,7 +26,7 @@ import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionProps extends StyleProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerAccordionProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the first focusable accordion item should autoFocus on render.
      */

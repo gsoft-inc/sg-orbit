@@ -7,9 +7,9 @@ import {
     InteractionProps,
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
     SlotProps,
-    StyleProps,
+    StyledComponentProps,
+    as,
     augmentElement,
     createEmbeddableAdapter,
     mergeProps,
@@ -22,11 +22,8 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface AbstractIconButtonProps extends
-    // TODO: Remove Omit once Button color prop is removed.
-    Omit<StyleProps, "color">,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+// TODO: Remove Omit once Button color prop is removed.
+export interface SharedIconButtonProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "color"> {
     /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
@@ -69,7 +66,7 @@ export interface AbstractIconButtonProps extends
     variant?: "solid" | "outline" | "ghost";
 }
 
-export interface InnerIconButtonProps extends AbstractIconButtonProps, SlotProps, InternalProps {
+export interface InnerIconButtonProps extends SharedIconButtonProps, SlotProps {
     /**
      * React children.
      */
@@ -94,7 +91,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         type,
         "aria-label": ariaLabel,
-        as = DefaultElement,
+        as: asProp = DefaultElement,
         children,
         forwardedRef,
         ...rest
@@ -106,7 +103,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
     const buttonProps = useButton({
         active,
-        as,
+        as: asProp,
         autoFocus,
         color,
         cssModule: "o-ui-icon-button",
@@ -134,7 +131,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
                 rest,
                 {
                     "aria-label": ariaLabel,
-                    as
+                    as: asProp
                 },
                 buttonProps
             )}
@@ -156,3 +153,7 @@ export const embedIconButton = createEmbeddableAdapter({
     "md": "xs"
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
+///////////
+
+export const IconButtonAsLink = as(IconButton, "a");

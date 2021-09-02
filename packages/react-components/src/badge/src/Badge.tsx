@@ -2,11 +2,11 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBadgeProps extends StyleProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerBadgeProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

@@ -4,12 +4,12 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, useEventCallback } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
 
 const DefaultElement = "div";
 
-export interface InnerTagListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTagListProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

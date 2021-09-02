@@ -1,11 +1,11 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerPopoverTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */

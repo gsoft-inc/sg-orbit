@@ -6,7 +6,7 @@ import { Dialog } from "../../dialog";
 import {
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     StyleProvider,
     augmentElement,
     getSlotKey,
@@ -17,7 +17,7 @@ import {
 
 const DefaultElement = "section";
 
-export interface InnerModalProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "role"> {
+export interface InnerModalProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "role"> {
     /**
       * React children.
       */

@@ -1,24 +1,17 @@
 import "./Link.css";
 
-import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
+import { OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { SharedLinkProps } from "./Link";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
-const DefaultElement = "a";
-
-export interface InnerTextLinkProps extends
-    AbstractLinkProps,
-    // TODO: put back "color" once it's the actual color have been moved to a variant.
-    Omit<StyleProps, "color">,
-    InternalProps,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
+// TODO: put back "color" once it's the actual color have been moved to a variant.
+export interface InnerTextLinkProps extends Omit<SharedLinkProps, "color"> {
     /**
      * Whether or not the link should autoFocus on render.
      */
@@ -46,21 +39,20 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     const [formProps] = useFormButton();
 
     const {
-        target,
-        rel,
-        color,
-        underline = "solid",
-        external,
-        autoFocus,
-        size,
         active,
-        focus,
-        hover,
-        visited,
-        disabled,
-        as: asProp = DefaultElement,
+        autoFocus,
         children,
+        color,
+        disabled,
+        external,
+        focus,
         forwardedRef,
+        hover,
+        rel,
+        size,
+        target,
+        underline = "solid",
+        visited,
         ...rest
     } = mergeProps(
         props,
@@ -108,9 +100,6 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         <Box
             {...mergeProps(
                 rest,
-                {
-                    as: asProp
-                },
                 linkProps
             )}
         >

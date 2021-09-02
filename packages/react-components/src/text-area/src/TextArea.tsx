@@ -2,7 +2,7 @@ import "./TextArea.css";
 
 import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 
@@ -12,7 +12,7 @@ interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<"textarea">, "onChange" | "autoFocus"> {
+export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<"textarea">, "onChange" | "autoFocus"> {
     /**
      * Whether or not the input should autofocus on render.
      */

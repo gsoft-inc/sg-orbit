@@ -3,10 +3,7 @@ import "./CheckboxGroup.css";
 import { AbstractGroupProps, Group } from "../../group";
 import {
     CheckableContext,
-    InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
-    SlotProps,
     augmentElement,
     isNil,
     isNumber,
@@ -27,11 +24,7 @@ import { ValidationState, useGroupInput } from "../../input";
 
 const DefaultElement = "div";
 
-export interface InnerCheckboxGroupProps extends
-    AbstractGroupProps,
-    SlotProps,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "children" | "onChange"> {
+export interface InnerCheckboxGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the first checkbox of the group should autoFocus on render.
      */

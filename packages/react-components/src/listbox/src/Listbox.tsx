@@ -16,7 +16,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -48,7 +48,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerListboxProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerListboxProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the listbox should autofocus on render.
      */

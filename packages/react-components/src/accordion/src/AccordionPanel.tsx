@@ -2,11 +2,11 @@ import "./Accordion.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, mergeProps, omitProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerAccordionPanelProps extends StyleProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerAccordionPanelProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

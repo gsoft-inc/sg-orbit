@@ -3,13 +3,13 @@ import "./Tag.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
-export interface InnerTagProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTagProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

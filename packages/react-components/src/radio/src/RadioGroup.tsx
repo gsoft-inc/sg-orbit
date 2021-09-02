@@ -3,11 +3,8 @@ import "./RadioGroup.css";
 import { AbstractGroupProps, Group } from "../../group";
 import {
     CheckableContext,
-    InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
-    SlotProps,
     augmentElement,
     isNil,
     isNumber,
@@ -31,11 +28,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends
-    AbstractGroupProps,
-    SlotProps,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "children" | "onChange"> {
+export interface InnerRadioGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "onChange"> {
     /**
      * Whether or not the radio group should autoFocus on render.
      */

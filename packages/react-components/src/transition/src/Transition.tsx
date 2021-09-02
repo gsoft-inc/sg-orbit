@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerTransitionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTransitionProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * 	Whether the transition should run on initial mount.
      */

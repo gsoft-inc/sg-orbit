@@ -1,4 +1,4 @@
-import { CheckIcon, CrossIcon } from "@react-components/icons";
+import { CheckIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { ToggleIconButton } from "@react-components/button";
 import { storiesOfBuilder } from "@stories/utils";
@@ -78,20 +78,6 @@ stories()
         <Inline>
             <ToggleIconButton checked aria-label="Activate"><CheckIcon /></ToggleIconButton>
             <ToggleIconButton defaultChecked aria-label="Activate"><CheckIcon /></ToggleIconButton>
-        </Inline>
-    )
-    .add("render props", () =>
-        <Inline>
-            <ToggleIconButton aria-label="Activate">
-                {
-                    () => <CheckIcon />
-                }
-            </ToggleIconButton>
-            <ToggleIconButton defaultChecked aria-label="Activate">
-                {
-                    ({ isChecked }) => isChecked ? <CheckIcon /> : <CrossIcon />
-                }
-            </ToggleIconButton>
         </Inline>
     )
     .add("styling", () =>

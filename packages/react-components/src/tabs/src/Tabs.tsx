@@ -2,7 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext } from "./TabsContext";
@@ -11,7 +11,7 @@ import { useTabsItems } from "./useTabsItems";
 
 const DefaultElement = "div";
 
-export interface InnerTabsProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTabsProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Tabs title for screen readers.
      */

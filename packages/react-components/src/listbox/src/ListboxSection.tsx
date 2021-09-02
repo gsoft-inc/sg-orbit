@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerListboxSectionProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerListboxSectionProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

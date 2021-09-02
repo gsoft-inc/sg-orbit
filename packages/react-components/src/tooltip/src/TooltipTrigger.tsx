@@ -1,13 +1,13 @@
 import "./Tooltip.css";
 
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerTooltipTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the tooltip element can flip when it will overflow it's boundary area.
      */
