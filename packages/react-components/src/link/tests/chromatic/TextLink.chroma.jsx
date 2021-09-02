@@ -1,5 +1,5 @@
 import { Inline } from "@react-components/layout";
-import { TextLink } from "@react-components/link";
+import { TextLink, TextLinkAsButton } from "@react-components/link";
 import { createTextLinkTestSuite } from "./createTextLinkTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -14,7 +14,7 @@ function stories(segment) {
 
 createTextLinkTestSuite(<TextLink />, stories());
 
-createTextLinkTestSuite(<TextLink as="button" type="button" />, stories("/button"));
+createTextLinkTestSuite(<TextLinkAsButton type="button" />, stories("/button"));
 
 stories()
     .add("styling", () =>

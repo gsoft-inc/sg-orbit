@@ -30,7 +30,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export const DialogDefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DialogDefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DialogDefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -117,19 +117,19 @@ function isElementInViewport(element: HTMLElement) {
 }
 
 export function InnerDialog({
+    "aria-describedby": ariaDescribedBy,
+    "aria-label": ariaLabel,
+    "aria-labelledby": ariaLabelledBy,
+    as = DialogDefaultElement,
+    children,
+    dismissable = true,
+    focus,
+    forwardedRef,
     id,
     role = "dialog",
     size,
-    dismissable = true,
-    focus,
-    zIndex = 1,
-    "aria-label": ariaLabel,
-    "aria-labelledby": ariaLabelledBy,
-    "aria-describedby": ariaDescribedBy,
     wrapperProps,
-    as = DialogDefaultElement,
-    children,
-    forwardedRef,
+    zIndex = 1,
     ...rest
 }: InnerDialogProps) {
     const [focusScope, setFocusRef] = useFocusScope();
@@ -280,9 +280,7 @@ export function InnerDialog({
                             wrapperHasVerticalScrollbar && "scrolling"
                         ),
                         ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef),
-                        style: {
-                            zIndex: zIndex + 1
-                        }
+                        zIndex: zIndex + 1
                     }
                 )}
             >

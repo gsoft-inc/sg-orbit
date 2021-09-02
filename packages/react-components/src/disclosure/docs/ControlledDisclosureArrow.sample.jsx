@@ -7,9 +7,9 @@
     }, [isOpen, setIsOpen]);
 
     return (
-        <TextLink as="button" onClick={handleClick}>
+        <TextLinkAsButton onClick={handleClick}>
             <Text>EVE Online</Text>
             <DisclosureArrow open={isOpen} />
-        </TextLink>
+        </TextLinkAsButton>
     );
 };
