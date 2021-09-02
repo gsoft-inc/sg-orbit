@@ -1,4 +1,5 @@
-import { Div, Stack } from "@react-components/layout";
+import { Div } from "@react-components/html";
+import { Stack } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
 ////////////

@@ -1,4 +1,5 @@
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
@@ -24,15 +25,15 @@ export function createButtonTestSuite(element, stories) {
                     <Button condensed size="sm" element={element}>Button</Button>
                     <Button condensed element={element}>Button</Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button fluid element={element}>Button</Button>
-                </div>
-                <div className="w-10">
+                </Div>
+                <Div width="10%">
                     <Button fluid element={element}>Button</Button>
-                </div>
-                <div>
+                </Div>
+                <Div>
                     <Button loading fluid element={element}>Button</Button>
-                </div>
+                </Div>
             </Stack>
         )
         .add("icon", () =>
@@ -81,18 +82,18 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button disabled element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                </div>
-                <div>
+                </Div>
+                <Div>
                     <Button fluid element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                </div>
+                </Div>
             </Stack>
         )
         .add("end icon", () =>
@@ -141,18 +142,18 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
-                </div>
-                <div>
+                </Div>
+                <Div>
                     <Button fluid element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
-                </div>
+                </Div>
             </Stack>
         )
         .add("counter", () =>
@@ -199,18 +200,18 @@ export function createButtonTestSuite(element, stories) {
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
-                <div>
+                </Div>
+                <Div>
                     <Button fluid element={element}>
                         <Text>Button</Text>
                         <Counter>15</Counter>
                     </Button>
-                </div>
+                </Div>
             </Stack>
         )
         .add("primary", () =>
@@ -229,12 +230,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button color="primary" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
+                </Div>
                 <Inline>
                     <Button active color="primary" element={element}>Button</Button>
                     <Button focus color="primary" element={element}>Button</Button>
@@ -260,12 +261,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button color="secondary" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
+                </Div>
                 <Inline>
                     <Button active color="secondary" element={element}>Button</Button>
                     <Button focus color="secondary" element={element}>Button</Button>
@@ -291,12 +292,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button color="danger" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
+                </Div>
                 <Inline>
                     <Button active color="danger" element={element}>Button</Button>
                     <Button focus color="danger" element={element}>Button</Button>
@@ -307,7 +308,7 @@ export function createButtonTestSuite(element, stories) {
             </Stack>
         )
         .add("inherit", () =>
-            <Stack className="bg-sunray-1 sunray-10">
+            <Stack backgroundColor="sunray-1" color="sunray-10">
                 <Inline alignY="end">
                     <Button color="inherit" size="sm" element={element}>Button</Button>
                     <Button color="inherit" element={element}>Button</Button>
@@ -322,12 +323,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button color="inherit" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
+                </Div>
                 <Inline>
                     <Button active color="inherit" element={element}>Button</Button>
                     <Button focus color="inherit" element={element}>Button</Button>
@@ -373,12 +374,12 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <div>
+                <Div>
                     <Button shape="rounded" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
-                </div>
+                </Div>
                 <Inline alignY="end">
                     <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="rounded" element={element}>Aa</Button>
@@ -434,6 +435,6 @@ export function createButtonTestSuite(element, stories) {
             </Inline>
         )
         .add("as anchor", () =>
-            <Button as="a" href="https://www.sharegate.com" target="_blank" element={element}>Button</Button>
+            <ButtonAsLink href="https://www.sharegate.com" target="_blank" element={element}>Button</ButtonAsLink>
         );
 }

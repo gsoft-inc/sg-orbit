@@ -1,4 +1,5 @@
 import { Autocomplete } from "@react-components/autocomplete";
+import { Div } from "@react-components/html";
 import { GroupIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
@@ -44,7 +45,7 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Autocomplete>
-            <div>
+            <Div>
                 <Autocomplete fluid aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -54,8 +55,8 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <Autocomplete fluid aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -65,8 +66,8 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
-            <div>
+            </Div>
+            <Div>
                 <Autocomplete loading fluid aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -76,7 +77,7 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
+            </Div>
         </Stack>
     )
     .add("placeholder", () =>
@@ -108,7 +109,7 @@ stories()
                 <Item key="neptune">Neptune</Item>
                 <Item key="uranus">Uranus</Item>
             </Autocomplete>
-            <div>
+            <Div>
                 <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -118,8 +119,8 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <Autocomplete fluid placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -129,8 +130,8 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
-            <div>
+            </Div>
+            <Div>
                 <Autocomplete loading fluid placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -140,7 +141,7 @@ stories()
                     <Item key="neptune">Neptune</Item>
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
-            </div>
+            </Div>
         </Stack>
     )
     .add("default value", () =>
@@ -172,27 +173,27 @@ stories()
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
             </Inline>
-            <div>
+            <Div>
                 <Autocomplete fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <Autocomplete fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
-            <div>
+            </Div>
+            <Div>
                 <Autocomplete loading fluid defaultValue="Mars" placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
+            </Div>
         </Stack>
     )
     .add("default value not matching any item", () =>
@@ -219,20 +220,20 @@ stories()
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Autocomplete>
-            <div>
+            <Div>
                 <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <Autocomplete fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
+            </Div>
         </Stack>
     )
     .add("can clear value", () =>
@@ -339,20 +340,20 @@ stories()
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
             </Inline>
-            <div>
+            <Div>
                 <Autocomplete fluid defaultOpen placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <Autocomplete fluid defaultOpen placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Autocomplete>
-            </div>
+            </Div>
         </Stack>
     )
     .add("custom trigger width", () =>

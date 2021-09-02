@@ -12,7 +12,6 @@ import {
     OrbitComponentProps,
     RowGapProp,
     StyleProps,
-    as,
     isNil,
     mergeProps
 } from "../../shared";
@@ -138,7 +137,3 @@ export const Flex = forwardRef<any, OmitInternalProps<InnerFlexProps>>((props, r
 ));
 
 export type FlexProps = ComponentProps<typeof Flex>;
-
-////////
-
-export const Div = as(Box, "div");

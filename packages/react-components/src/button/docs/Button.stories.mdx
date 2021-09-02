@@ -1,6 +1,5 @@
 import { AddIcon, CheckIcon, LightbulbIcon } from "@react-components/icons";
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs";;
-import { Box } from "@react-components/box";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import {
     Button,
     ButtonAsLink,
@@ -17,6 +16,7 @@ import {
 import { CheckboxGroup } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { RadioGroup } from "@react-components/radio";
 import { Text } from "@react-components/typography";
@@ -294,7 +294,7 @@ A group of toggle buttons can be wrap on multiple lines:
 
 <Preview>
     <Story name="wrapped group">
-        <Box style={{ width: "200px" }}>
+        <Div width="200px">
             <CheckboxGroup wrap gap={2}>
                 <ToggleButton value="1" variant="outline" shape="circular">1</ToggleButton>
                 <ToggleButton value="2" variant="outline" shape="circular">2</ToggleButton>
@@ -305,7 +305,7 @@ A group of toggle buttons can be wrap on multiple lines:
                 <ToggleButton value="7" variant="outline" shape="circular">7</ToggleButton>
                 <ToggleButton value="8" variant="outline" shape="circular">8</ToggleButton>
             </CheckboxGroup>
-        </Box>
+        </Div>
     </Story>
 </Preview>
 
