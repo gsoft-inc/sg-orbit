@@ -102,30 +102,9 @@ const OrbitBorderWidthScale = [
 
 export type OrbitBorderWidth = typeof OrbitBorderWidthScale[number];
 
-function createOrbitBorderWidthScaleClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
-    const classes: Record<number, string> = {};
-
-    if (includeZero) {
-        classes[0] = `o-ui-${section}-0`;
-    }
-
-    OrbitBorderWidthScale.reduce((acc, x) => {
-        acc[x] = `o-ui-${section}-${x}`;
-
-        return acc;
-    }, classes);
-
-    return classes as Record<IncludeZero extends true ? 0 | OrbitBorderWidth : OrbitBorderWidth, string>;
-}
-
 export type BorderWidthValue =
     0 |
-    OrbitBorderWidth |
-    LengthUnit |
-    "thin" |
-    "medium" |
-    "thick" |
-    GlobalValue;
+    "1px";
 
 export type ColorExpressionType =
     "#" |
@@ -316,24 +295,24 @@ export const BackgroundClipClasses = {
 } as const;
 
 export const BackgroundColorRoleClasses = {
-    "alias-1": "o-ui-alias-bgc-1",
-    "alias-2": "o-ui-alias-bgc-2",
-    "alias-3": "o-ui-alias-bgc-3",
-    "alias-4": "o-ui-alias-bgc-4",
-    "alias-5": "o-ui-alias-bgc-5",
-    "alias-6": "o-ui-alias-bgc-6",
-    "alias-info-1": "o-ui-alias-bgc-info-1",
-    "alias-negative-1": "o-ui-alias-bgc-negative-1",
-    "alias-negative-2": "o-ui-alias-bgc-negative-2",
-    "alias-positive-1": "o-ui-alias-bgc-positive-1",
-    "alias-positive-2": "o-ui-alias-bgc-positive-2",
-    "alias-primary-1": "o-ui-alias-bgc-primary-1",
-    "alias-primary-2": "o-ui-alias-bgc-primary-2",
-    "alias-warning-1": "o-ui-alias-bgc-warning-1",
-    "alias-warning-2": "o-ui-alias-bgc-warning-2"
+    "alias-1": "o-ui-alias-bg-1",
+    "alias-2": "o-ui-alias-bg-2",
+    "alias-3": "o-ui-alias-bg-3",
+    "alias-4": "o-ui-alias-bg-4",
+    "alias-5": "o-ui-alias-bg-5",
+    "alias-6": "o-ui-alias-bg-6",
+    "alias-info-1": "o-ui-alias-bg-info-1",
+    "alias-negative-1": "o-ui-alias-bg-negative-1",
+    "alias-negative-2": "o-ui-alias-bg-negative-2",
+    "alias-positive-1": "o-ui-alias-bg-positive-1",
+    "alias-positive-2": "o-ui-alias-bg-positive-2",
+    "alias-primary-1": "o-ui-alias-bg-primary-1",
+    "alias-primary-2": "o-ui-alias-bg-primary-2",
+    "alias-warning-1": "o-ui-alias-bg-warning-1",
+    "alias-warning-2": "o-ui-alias-bg-warning-2"
 } as const;
 
-export const BackgroundColorClasses = { ...createOrbitColorClasses("bgc"), ...BackgroundColorRoleClasses };
+export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
 
 export const BackgroundPositionClasses = {
     "bottom": "o-ui-bgp-b",
@@ -360,6 +339,10 @@ export const BackgroundSizeClasses = {
     "auto": "o-ui-bgs-a",
     "contain": "o-ui-bgs-cnt",
     "cover": "o-ui-bgs-cvr"
+} as const;
+
+export const BorderClasses = {
+    "none": "o-ui-ba-0"
 } as const;
 
 export const BorderColorRoleClasses = {
@@ -396,15 +379,30 @@ export const BorderStyleClasses = {
     "solid": "o-ui-b-s"
 } as const;
 
-export const BorderWidthClasses = createOrbitBorderWidthScaleClasses("ba", true);
+export const BorderWidthClasses = {
+    0: "o-ui-ba-0",
+    "1px": "o-ui-ba"
+} as const;
 
-export const BorderTopWidthClasses = createOrbitBorderWidthScaleClasses("bt", true);
+export const BorderTopWidthClasses = {
+    0: "o-ui-bt-0",
+    "1px": "o-ui-bt"
+} as const;
 
-export const BorderBottomWidthClasses = createOrbitBorderWidthScaleClasses("bb", true);
+export const BorderBottomWidthClasses = {
+    0: "o-ui-bb-0",
+    "1px": "o-ui-bb"
+} as const;
 
-export const BorderLeftWidthClasses = createOrbitBorderWidthScaleClasses("bl", true);
+export const BorderLeftWidthClasses = {
+    0: "o-ui-bl-0",
+    "1px": "o-ui-bl"
+} as const;
 
-export const BorderRightWidthClasses = createOrbitBorderWidthScaleClasses("br", true);
+export const BorderRightWidthClasses = {
+    0: "o-ui-br-0",
+    "1px": "o-ui-br"
+} as const;
 
 export const BottomClasses = { ...createOrbitSpacingScaleClasses("bottom", true), "auto": "o-ui-bottom-auto" };
 
@@ -844,21 +842,23 @@ export type BackgroundRepeatProp = Simplify<LiteralUnion<keyof typeof Background
 
 export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue>;
 
+export type BorderProp = Simplify<keyof typeof BorderClasses | GlobalValue>;
+
 export type BorderColorProp = Simplify<keyof typeof BorderColorRoleClasses | ColorValue>;
 
 export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | GlobalValue>;
 
 export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
-export type BorderWidthProp = Simplify<BorderWidthValue>;
+export type BorderWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BorderTopWidthProp = Simplify<BorderWidthValue>;
+export type BorderTopWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BorderBottomWidthProp = Simplify<BorderWidthValue>;
+export type BorderBottomWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BorderLeftWidthProp = Simplify<BorderWidthValue>;
+export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BorderRightWidthProp = Simplify<BorderWidthValue>;
+export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
 export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
 
@@ -1032,7 +1032,7 @@ export interface StyleProps {
     /**
      * @ignore
      */
-    border?: string;
+    border?: BorderProp;
     /**
      * @ignore
      */
@@ -1400,6 +1400,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundColor: createPropHandler(BackgroundColorClasses),
     backgroundPosition: createPropHandler(BackgroundPositionClasses),
     backgroundSize: createPropHandler(BackgroundSizeClasses),
+    border: createPropHandler(BorderClasses),
     borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
     borderColor: createPropHandler(BorderColorClasses),
     borderLeftWidth: createPropHandler(BorderLeftWidthClasses),

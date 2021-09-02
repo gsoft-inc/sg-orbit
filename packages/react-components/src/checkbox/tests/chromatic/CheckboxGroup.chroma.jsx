@@ -32,7 +32,7 @@ function CustomComponent({
             {...checkableProps}
             as="button"
             onClick={handleCheck}
-            className={isChecked ? "white o-ui-bgc-primary-6" : "o-ui-bgc-secondary-6"}
+            className={isChecked ? "white o-ui-bg-primary-6" : "o-ui-bg-secondary-6"}
             aria-checked={isChecked}
         >
             {children}

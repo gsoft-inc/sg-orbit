@@ -1,3 +1,3 @@
 export function Square() {
-    return <div className="o-ui-bgc-primary-6" style={{ height: "45px", width: "45px" }} />;
+    return <div className="o-ui-bg-primary-6" style={{ height: "45px", width: "45px" }} />;
 }

@@ -4,6 +4,7 @@ import {
     BackgroundColorClasses,
     BackgroundRepeatClasses,
     BorderBottomWidthClasses,
+    BorderClasses,
     BorderColorClasses,
     BorderLeftWidthClasses,
     BorderRadiusClasses,
@@ -115,7 +116,7 @@ London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln'
             </Inline>
         </Stack>
     )
-    .add("background attachment", () =>
+    .add("background clip", () =>
         <Stack>
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundClipClasses).map(x => <ExtraLargeSquare backgroundClip={x} key={x} style={{ "background-image": `url(${Launch})`, "padding": "12px", "border": "4px dashed black" }}>
@@ -147,7 +148,10 @@ London. Michaelmas term lately over</ExtraLargeSquare>)}
         </Stack>
     )
     .add("border", () =>
-        <LargeSquare border="1px solid #000" />
+        <Stack>
+            <LargeSquare border="1px solid #000" />
+            {Object.keys(BorderClasses).map(x => <SmallSquare border={x} key={x} />)}
+        </Stack>
     )
     .add("border color", () =>
         <Stack>
