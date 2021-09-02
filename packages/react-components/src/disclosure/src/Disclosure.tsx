@@ -31,13 +31,13 @@ export interface InnerDisclosureProps extends InternalProps, StyledComponentProp
 }
 
 export function InnerDisclosure({
-    id,
-    open,
-    defaultOpen,
-    onOpenChange,
     as = DisclosureDefaultElement,
     children,
+    defaultOpen,
     forwardedRef,
+    id,
+    onOpenChange,
+    open,
     ...rest
 }: InnerDisclosureProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);

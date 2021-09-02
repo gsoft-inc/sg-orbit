@@ -36,14 +36,14 @@ export interface InnerDialogTriggerProps extends InternalProps, StyledComponentP
 }
 
 export function InnerDialogTrigger({
-    open: openProp,
-    defaultOpen,
-    onOpenChange,
-    dismissable = true,
-    zIndex = 1,
     as = DefaultElement,
     children,
+    defaultOpen,
+    dismissable = true,
     forwardedRef,
+    onOpenChange,
+    open: openProp,
+    zIndex = 1,
     ...rest
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);

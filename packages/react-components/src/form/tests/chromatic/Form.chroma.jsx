@@ -7,7 +7,7 @@ import { Inline } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea } from "@react-components/text-area";
 import { TextInput } from "@react-components/text-input";
-import { TextLink } from "@react-components/link";
+import { TextLinkAsButton } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -41,7 +41,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <TextLink as="button">Submit</TextLink>
+                <TextLinkAsButton>Submit</TextLinkAsButton>
             </Form>
         </Inline>
     )
@@ -69,7 +69,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <TextLink as="button">Submit</TextLink>
+                <TextLinkAsButton>Submit</TextLinkAsButton>
             </Form>
         </Inline>
     )
@@ -97,7 +97,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <TextLink as="button">Submit</TextLink>
+                <TextLinkAsButton>Submit</TextLinkAsButton>
             </Form>
         </Inline>
     )
@@ -233,7 +233,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <ButtonGroup>
-                <TextLink as="button" type="reset">Reset</TextLink>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
                 <Button type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
@@ -272,7 +272,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <ButtonGroup>
-                <TextLink as="button" type="reset">Reset</TextLink>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
                 <Button type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
@@ -312,7 +312,7 @@ stories("/inline")
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
                 <ButtonGroup>
-                    <TextLink as="button" type="reset">Reset</TextLink>
+                    <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
                     <Button type="submit">Submit</Button>
                 </ButtonGroup>
             </Form>
@@ -354,7 +354,7 @@ stories("/inline")
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
             <ButtonGroup>
-                <TextLink as="button" type="reset">Reset</TextLink>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
                 <Button type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
