@@ -1,7 +1,7 @@
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs";;
-import { Box } from "@react-components/box";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter, InnerCounter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 
@@ -65,12 +65,12 @@ A counter can pushed itself away from content.
 <Preview>
     <Story name="pushed">
         <Inline gap={10} alignY="center">
-            <Box>
+            <Div>
                 <Text>Satellites</Text> <Counter pushed>15</Counter>
-            </Box>
-            <Box>
+            </Div>
+            <Div>
                 <Text>Satellites</Text> <Counter pushed variant="divider">100+</Counter>
-            </Box>
+            </Div>
         </Inline>
     </Story>
 </Preview>

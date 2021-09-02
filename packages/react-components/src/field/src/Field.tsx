@@ -4,13 +4,13 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
 const DefaultElement = "div";
 
-export interface InnerFieldProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerFieldProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

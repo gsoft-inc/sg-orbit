@@ -4,8 +4,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
-    StyleProps,
+    StyledComponentProps,
     isNumber,
     mergeProps,
     useAutoFocusChild,
@@ -20,9 +19,8 @@ import { ToolbarContext } from "./ToolbarContext";
 const DefaultElement = "div";
 
 export interface InnerToolbarProps extends
-    Omit<StyleProps, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent">,
     InternalProps,
-    OrbitComponentProps<typeof DefaultElement> {
+    Omit<StyledComponentProps<typeof DefaultElement>, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> {
     /**
      * The horizontal alignment of the elements.
      */

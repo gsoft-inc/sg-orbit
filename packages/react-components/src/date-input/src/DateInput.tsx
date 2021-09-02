@@ -1,10 +1,10 @@
 import "./DateInput.css";
 
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
+import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
+import { Box, BoxProps } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
-    ChangeEventHandler,
     ComponentProps,
     SyntheticEvent,
     forwardRef,
@@ -28,36 +28,19 @@ import {
 } from "../../shared";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
-import { areEqualDates, toMidnightDate } from "./date-utils";
+import { areEqualDates, toMidnightDate } from "./dateUtils";
 import { useDateInput } from "./useDateInput";
-import { wrappedInputPropsAdapter } from "../../input";
-
-// Used to generate BoxProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BoxProps extends BoxPropsForDocumentation { }
 
 export interface DatePreset {
     date: Date;
     text: string;
 }
 
-export interface InnerDateInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "autoFocus" | "defaultValue" | "max" | "min" | "value"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * @ignore
-     */
-    className?: string;
+export interface InnerDateInputProps extends Omit<AbstractInputProps<"input">, "defaultValue" | "max" | "min" | "value"> {
     /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: Date;
-    /**
-     * @ignore
-     */
-    disabled?: boolean;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -71,20 +54,12 @@ export interface InnerDateInputProps extends InternalProps, InteractionProps, Om
      */
     min?: Date;
     /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
      * Called when the date change.
      * @param {ChangeEvent} event - React's original synthetic event.
      * @param {object} date - The new date value.
      * @returns {void}
      */
     onDateChange?: (event: ChangeEvent<HTMLInputElement>, date: Date) => void;
-    /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
     /**
      * Array of pre-determined dates.
      */
@@ -93,18 +68,6 @@ export interface InnerDateInputProps extends InternalProps, InteractionProps, Om
      * The presets style to use.
      */
     presetsVariant?: "compact" | "expanded";
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly?: boolean;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * A controlled value.
      */
@@ -303,19 +266,15 @@ export function InnerDateInput({
     }
 
     // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
-    return (
-        <>
-            {augmentElement(inputMarkup, {
-                as,
-                className,
-                disabled,
-                fluid,
-                readOnly,
-                style,
-                wrapperProps
-            })}
-        </>
-    );
+    return augmentElement(inputMarkup, {
+        as,
+        className,
+        disabled,
+        fluid,
+        readOnly,
+        style,
+        wrapperProps
+    });
 }
 
 export const DateInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerDateInputProps>>((props, ref) => (

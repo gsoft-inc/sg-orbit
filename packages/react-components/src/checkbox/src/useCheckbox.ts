@@ -1,4 +1,5 @@
 import { ChangeEvent, ElementType, ForwardedRef, Ref, useImperativeHandle, useLayoutEffect, useRef } from "react";
+import { InputSize, ValidationState } from "../../input";
 import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi } from "../../shared";
 
 export interface UseCheckboxProps {
@@ -21,9 +22,9 @@ export interface UseCheckboxProps {
     onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     required?: boolean;
     reverse?: boolean;
-    size?: "sm" | "md";
+    size?: InputSize;
     tabIndex?: number;
-    validationState?: "invalid" | "valid";
+    validationState?: ValidationState;
 }
 
 export interface UseCheckboxReturn {

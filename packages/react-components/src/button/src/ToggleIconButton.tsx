@@ -1,9 +1,10 @@
-import { AbstractIconButtonProps, IconButton } from "./IconButton";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
+import { IconButton, SharedIconButtonProps } from "./IconButton";
+import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps, "color" | "onChange" | "variant">, InternalProps {
+// TODO: remove Omit once the Button color prop have been removed.
+export interface InnerToggleIconButtonProps extends Omit<SharedIconButtonProps, "color" | "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */

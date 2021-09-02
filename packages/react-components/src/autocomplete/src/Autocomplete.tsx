@@ -8,8 +8,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
-    StyleProps,
+    StyledComponentProps,
     WidthProp,
     augmentElement,
     isNil,
@@ -37,10 +36,9 @@ import { wrappedInputPropsAdapter } from "../../input";
 const DefaultElement = "input";
 
 export interface InnerAutocompleteProps extends
-    StyleProps,
     InternalProps,
     InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */

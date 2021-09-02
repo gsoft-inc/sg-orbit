@@ -1,4 +1,5 @@
 import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
+import { StyledSystemProps } from "./useStyledSystem";
 
 export interface SlotProps {
     /**
@@ -38,9 +39,8 @@ export interface InteractionProps {
 
 export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 
-// TODO: rename without the "Orbit" prefix.
-// OR might want to merge with InternalProps?!?!
-export type OrbitComponentProps<T extends JsxElement<T>> = Omit<ComponentProps<T>, "as" | "color" | "height" | "width" | "wrap">;
+type OverlappingHtmlAttributes = "as" | "color" | "height" | "width" | "wrap";
 
-// TODO: rename without the "Orbit" prefix.
-export type OrbitHtmlAttributes = Omit<AllHTMLAttributes<any>, "as" | "color" | "height" | "width" | "wrap">;
+export type StyledComponentProps<T extends JsxElement<T>> = StyledSystemProps & Omit<ComponentProps<T>, OverlappingHtmlAttributes>;
+
+export type StyledHtmlAttributes = StyledSystemProps & Omit<AllHTMLAttributes<any>, OverlappingHtmlAttributes>;

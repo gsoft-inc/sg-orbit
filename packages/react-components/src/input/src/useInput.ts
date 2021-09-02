@@ -1,7 +1,6 @@
 import { ChangeEvent, ChangeEventHandler, ForwardedRef } from "react";
+import { ValidationState } from "./types";
 import { cssModule, isNil, isNumber, mergeClasses, useAutoFocus, useEventCallback, useMergedRefs } from "../../shared";
-
-export type ValidationState = "valid" | "invalid";
 
 export interface UseInputProps {
     active?: boolean;

@@ -1,12 +1,12 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { OrbitComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { StyledComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerFieldMessageProps extends Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerFieldMessageProps extends Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * @ignore
      */

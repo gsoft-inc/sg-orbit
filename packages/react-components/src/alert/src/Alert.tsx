@@ -5,9 +5,9 @@ import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "reac
 import { Dialog, DialogDefaultElement, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends Omit<StyleProps, "zIndex">, InternalProps, OrbitComponentProps<typeof DialogDefaultElement> {
+export interface InnerAlertProps extends InternalProps, Omit<StyledComponentProps<typeof DialogDefaultElement>, "zIndex"> {
     /**
      * The button to focus by default when the alert open.
      */

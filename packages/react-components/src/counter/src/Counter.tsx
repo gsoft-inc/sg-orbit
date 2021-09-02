@@ -2,12 +2,13 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "span";
 
-export interface InnerCounterProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+// TODO: Remove the Omit once the counter color have been removed.
+export interface InnerCounterProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */
@@ -44,15 +45,15 @@ export interface InnerCounterProps extends SlotProps, InternalProps, OrbitCompon
 
 export function InnerCounter(props: InnerCounterProps) {
     const {
-        variant = "basic",
-        color,
-        highlight,
-        reverse,
-        size,
-        pushed,
         as = DefaultElement,
         children,
+        color,
         forwardedRef,
+        highlight,
+        pushed,
+        reverse,
+        size,
+        variant = "basic",
         ...rest
     } = props;
 

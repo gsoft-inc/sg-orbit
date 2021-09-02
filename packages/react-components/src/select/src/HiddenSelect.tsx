@@ -1,6 +1,6 @@
-import { OrbitComponentProps, isNil, mergeProps } from "../../shared";
+import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 
-export interface HiddenSelectProps extends OrbitComponentProps<"input"> {
+export interface HiddenSelectProps extends StyledComponentProps<"input"> {
     /**
      * Name of the element. Used by the server to identify the fields in form submits.
      */

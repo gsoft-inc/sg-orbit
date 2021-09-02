@@ -1,4 +1,4 @@
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs";;
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Button, ButtonGroup } from "@react-components/button";
 import { Card, InnerCard } from "@react-components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
@@ -51,7 +51,7 @@ A card can have an [image](?path=/story/chromatic-image--default):
 <Preview scope={{ SpaceLandscape }}>
     <Story name="image">
         <Card>
-            <Image src={ SpaceLandscape } alt="Planet over another one" />
+            <Image src={SpaceLandscape} alt="Planet over another one" />
             <Heading>NASA Headquarters</Heading>
             <Content>
                 <Paragraph>NASA Headquarters, officially known as Mary W. Jackson NASA Headquarters or NASA HQ and formerly named Two Independence Square, is a low-rise office building in the two-building Independence Square complex at 300 E Street SW in Washington, D.C.</Paragraph>
@@ -227,7 +227,7 @@ A card can take the width of its container.
 <Preview scope={{ Planet }}>
     <Story name="fluid">
         <Card fluid orientation="horizontal">
-            <Illustration color="marine-2" style={{ width: "150px" }}>
+            <Illustration color="marine-2" width="150px">
                 <Image src={Planet} alt="Planet over another one" />
             </Illustration>
             <Heading>NASA</Heading>

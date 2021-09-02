@@ -3,11 +3,11 @@ import "./Form.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "form";
 
-export interface InnerFormProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerFormProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

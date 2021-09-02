@@ -1,4 +1,5 @@
-import { Div, Flex } from "@react-components/layout";
+import { Div } from "@react-components/html";
+import { Flex } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
 ////////////

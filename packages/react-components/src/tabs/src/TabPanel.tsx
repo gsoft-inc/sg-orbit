@@ -1,14 +1,14 @@
 import "./Tabs.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
 
 const DefaultElement = "div";
 
-export interface InnerTabPanelProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTabPanelProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */

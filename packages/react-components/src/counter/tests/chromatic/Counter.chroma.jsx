@@ -1,5 +1,5 @@
-import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
@@ -57,30 +57,30 @@ stories()
     )
     .add("pushed", () =>
         <Stack>
-            <Box>
+            <Div>
                 <Text>Planets Visited</Text>
                 <Counter pushed>15</Counter>
-            </Box>
-            <Box>
+            </Div>
+            <Div>
                 <Text>Planets Visited</Text>
                 <Counter pushed variant="divider">15</Counter>
-            </Box>
+            </Div>
         </Stack>
     )
     .add("reverse", () =>
         <Stack>
-            <Box>
+            <Div>
                 <Counter reverse pushed>15</Counter>
                 <Text>Planets Visited</Text>
-            </Box>
-            <Box>
+            </Div>
+            <Div>
                 <Counter reverse pushed variant="divider">15</Counter>
                 <Text>Planets Visited</Text>
-            </Box>
+            </Div>
         </Stack>
     )
     .add("color", () =>
-        <Inline className="bg-sunray-1 sunray-10" alignY="center">
+        <Inline color="sunray-10" backgroundColor="sunray-1" alignY="center">
             <Counter color="inherit">15</Counter>
             <Counter variant="divider" color="inherit">15</Counter>
         </Inline>

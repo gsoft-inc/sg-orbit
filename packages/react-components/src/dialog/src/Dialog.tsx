@@ -8,7 +8,7 @@ import {
     InternalProps,
     MergedRef,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     cssModule,
     isNil,
     isString,
@@ -30,7 +30,7 @@ import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export const DialogDefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DialogDefaultElement> {
+export interface InnerDialogProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DialogDefaultElement> {
     /**
      * React children.
      */

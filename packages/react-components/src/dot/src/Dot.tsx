@@ -2,13 +2,13 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * @ignore
      */

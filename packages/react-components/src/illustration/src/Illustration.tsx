@@ -2,12 +2,12 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerIllustrationProps extends SlotProps, InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerIllustrationProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

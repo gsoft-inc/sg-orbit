@@ -6,7 +6,7 @@ import {
     InteractionProps,
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     isNil,
     isString,
     mergeProps,
@@ -23,7 +23,7 @@ import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
-export interface InnerPopoverProps extends InternalProps, InteractionProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerPopoverProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

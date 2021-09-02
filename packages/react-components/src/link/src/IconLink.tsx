@@ -1,22 +1,15 @@
 import "./Link.css";
 
-import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
+import { OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { SharedLinkProps } from "./Link";
 import { useLink } from "./useLink";
 
-const DefaultElement = "a";
-
-export interface InnerIconLinkProps extends
-    AbstractLinkProps,
-    // TODO: put back "color" once it's the actual color have been moved to a variant.
-    Omit<StyleProps, "color">,
-    InternalProps,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
+// TODO: put back "color" once it's the actual color have been moved to a variant.
+export interface InnerIconLinkProps extends Omit<SharedLinkProps, "color"> {
     /**
      * Whether or not the link should autoFocus on render.
      */
@@ -37,32 +30,27 @@ export interface InnerIconLinkProps extends
      * A link can vary in size.
      */
     size?: "sm" | "md";
-    /**
-    * @ignore
-    */
-    visited?: boolean;
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {
     const [styleProps] = useStyleProps("link");
 
     const {
-        target,
-        rel,
+        active,
+        "aria-label": ariaLabel,
+        autoFocus,
+        children,
         color,
         condensed,
-        external,
-        autoFocus,
-        size,
-        active,
-        focus,
-        hover,
-        visited,
         disabled,
-        "aria-label": ariaLabel,
-        as = DefaultElement,
-        children,
+        external,
+        focus,
         forwardedRef,
+        hover,
+        rel,
+        size,
+        target,
+        visited,
         ...rest
     } = mergeProps(
         props,
@@ -99,8 +87,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
             {...mergeProps(
                 rest,
                 {
-                    "aria-label": ariaLabel,
-                    as
+                    "aria-label": ariaLabel
                 },
                 linkProps
             )}

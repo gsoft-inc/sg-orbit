@@ -1,10 +1,10 @@
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerOverlayArrowProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> { }
+export interface InnerOverlayArrowProps extends InternalProps, StyledComponentProps<typeof DefaultElement> { }
 
 export function InnerOverlayArrow({
     as = DefaultElement,

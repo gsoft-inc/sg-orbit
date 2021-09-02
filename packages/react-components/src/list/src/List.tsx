@@ -3,10 +3,10 @@ import "./List.css";
 import { Box } from "../../box";
 import { CollectionItem, NodeType, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useStyleProps } from "../../shared";
 import { ListItem } from "./ListItem";
 
-export interface InnerListProps extends InternalProps, OrbitComponentProps<"ul"> {
+export interface InnerListProps extends InternalProps, StyledComponentProps<"ul"> {
     /**
      * React children.
      */

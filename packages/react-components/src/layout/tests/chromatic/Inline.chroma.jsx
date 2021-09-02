@@ -1,4 +1,5 @@
-import { Div, Inline } from "@react-components/layout";
+import { Div } from "@react-components/html";
+import { Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
 ////////////

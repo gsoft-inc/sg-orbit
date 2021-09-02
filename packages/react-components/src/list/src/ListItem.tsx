@@ -1,10 +1,10 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "li";
 
-export interface InnerListItemProps extends InternalProps, Omit<OrbitComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerListItemProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */

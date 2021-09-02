@@ -6,7 +6,7 @@ import { ComponentProps, forwardRef, useMemo } from "react";
 import {
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     SlotProps,
     createSizeAdapter,
     cssModule,
@@ -20,7 +20,7 @@ import {
 } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerAvatarProps extends SlotProps, InternalProps, OrbitComponentProps<"div" | "image"> {
+export interface InnerAvatarProps extends SlotProps, InternalProps, StyledComponentProps<"div" | "image"> {
     /**
      * The name of the person in the avatar.
      */

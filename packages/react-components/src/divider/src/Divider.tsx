@@ -2,12 +2,12 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerDividerProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerDividerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * @ignore
      */

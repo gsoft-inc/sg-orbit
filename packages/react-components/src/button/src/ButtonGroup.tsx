@@ -2,27 +2,12 @@ import "./ButtonGroup.css";
 
 import { AbstractGroupProps, Group } from "../../group";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
-import {
-    InternalProps,
-    OmitInternalProps,
-    OrbitComponentProps,
-    SlotProps,
-    augmentElement,
-    cssModule,
-    mergeProps,
-    normalizeSize,
-    omitProps,
-    slot
-} from "../../shared";
+import { OmitInternalProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
 
-export interface InnerButtonGroupProps extends
-    AbstractGroupProps,
-    SlotProps,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "children"> {
+export interface InnerButtonGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "gap">, SlotProps {
     /**
       * Whether or not the buttons are disabled.
       */

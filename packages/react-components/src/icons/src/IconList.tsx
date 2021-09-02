@@ -1,10 +1,10 @@
 import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { InternalProps, OmitInternalProps, OrbitComponentProps, slot } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, slot } from "../../shared";
 
 const DefaultElement = "span";
 
-export interface InnerIconListProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerIconListProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

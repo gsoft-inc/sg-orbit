@@ -1,9 +1,9 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, OrbitHtmlAttributes, SlotProps, StyleProps, omitProps, useStyledSystem } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledHtmlAttributes, omitProps, useStyledSystem } from "../../shared";
 
 const DefaultElement = "div";
 
-export interface InnerBoxProps extends StyleProps, SlotProps, InternalProps, OrbitHtmlAttributes {
+export interface InnerBoxProps extends SlotProps, InternalProps, StyledHtmlAttributes {
     /**
     * @ignore
     */

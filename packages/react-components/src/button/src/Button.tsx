@@ -6,9 +6,8 @@ import {
     InteractionProps,
     InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
     SlotProps,
-    StyleProps,
+    StyledComponentProps,
     as,
     createSizeAdapter,
     cssModule,
@@ -27,11 +26,8 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "button";
 
-export interface AbstractButtonProps extends
-    // TODO: remove Omit once the Button color prop have been removed.
-    Omit<StyleProps, "color">,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+// TODO: remove Omit once the Button color prop have been removed.
+export interface SharedButtonProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "color"> {
     /**
      * Whether or not the button should autoFocus on render.
      */
@@ -70,7 +66,7 @@ export interface AbstractButtonProps extends
     variant?: "solid" | "outline" | "ghost";
 }
 
-export interface InnerButtonProps extends AbstractButtonProps, SlotProps, InternalProps {
+export interface InnerButtonProps extends SharedButtonProps, SlotProps {
     /**
      * React children.
      */

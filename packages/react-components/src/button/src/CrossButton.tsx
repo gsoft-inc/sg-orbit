@@ -1,11 +1,10 @@
-import { AbstractIconButtonProps, IconButton } from "./IconButton";
 import { ComponentProps, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
-import { InternalProps, OmitInternalProps, slot } from "../../shared";
+import { IconButton, SharedIconButtonProps } from "./IconButton";
+import { OmitInternalProps, slot } from "../../shared";
 
-export interface InnerCrossButtonProps extends
-    Omit<AbstractIconButtonProps, "color" | "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">,
-    InternalProps { }
+// TODO: remove Omit once the Button color prop have been removed.
+export type InnerCrossButtonProps = Omit<SharedIconButtonProps, "color" | "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">;
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
     return (

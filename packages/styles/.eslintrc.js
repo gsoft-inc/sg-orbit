@@ -13,9 +13,9 @@ module.exports = {
             files: ["**/src/*.ts?(x)"],
             plugins: ["sort-destructure-keys", "sort-keys-fix", "typescript-sort-keys"],
             rules: {
-                "sort-keys-fix/sort-keys-fix": "error",
+                "sort-keys-fix/sort-keys-fix": ["error", "asc", { natural: true }],
                 "sort-destructure-keys/sort-destructure-keys": "error",
-                "typescript-sort-keys/interface": "error"
+                "typescript-sort-keys/interface": ["error", "asc", { natural: true }]
             }
         }
     ],

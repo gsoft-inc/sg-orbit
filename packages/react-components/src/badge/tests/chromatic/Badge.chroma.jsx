@@ -1,5 +1,6 @@
 import { Badge } from "@react-components/badge";
 import { CheckCircleIcon, EmailIcon } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
@@ -14,7 +15,7 @@ function SquareBadge({ children, ...rest }) {
     return (
         <Badge {...rest}>
             {children}
-            <div className="o-ui-alias-bg-primary-1" style={{ width: "45px", height: "45px" }} />
+            <Div backgroundColor="alias-primary-1" width="45px" height="45px" />
         </Badge>
     );
 }
@@ -26,7 +27,7 @@ function CircleBadge({ children, ...rest }) {
             overlap="circle"
         >
             {children}
-            <div className="o-ui-alias-bg-primary-6 o-ui-b-radius-100" style={{ width: "45px", height: "45px" }} />
+            <Div backgroundColor="alias-primary-6" borderRadius="100" width="45px" height="45px" />
         </Badge>
     );
 }

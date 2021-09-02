@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/typography";
@@ -25,12 +26,12 @@ stories()
                 <ToggleButton focus hover>Cutoff</ToggleButton>
                 <ToggleButton disabled>Cutoff</ToggleButton>
             </Inline>
-            <div>
+            <Div>
                 <ToggleButton>
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
-            </div>
+            </Div>
             <Inline alignY="end">
                 <ToggleButton color="primary" checked>Cutoff</ToggleButton>
                 <ToggleButton color="primary" active>Cutoff</ToggleButton>
@@ -39,12 +40,12 @@ stories()
                 <ToggleButton color="primary" focus hover>Cutoff</ToggleButton>
                 <ToggleButton color="primary" disabled>Cutoff</ToggleButton>
             </Inline>
-            <div>
+            <Div>
                 <ToggleButton color="primary">
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
-            </div>
+            </Div>
             <Inline alignY="end">
                 <ToggleButton color="secondary" checked>Cutoff</ToggleButton>
                 <ToggleButton color="secondary" active>Cutoff</ToggleButton>
@@ -53,12 +54,12 @@ stories()
                 <ToggleButton color="secondary" focus hover>Cutoff</ToggleButton>
                 <ToggleButton color="secondary" disabled>Cutoff</ToggleButton>
             </Inline>
-            <div>
+            <Div>
                 <ToggleButton color="secondary">
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
-            </div>
+            </Div>
         </Stack>
     )
     .add("circular outline", () =>

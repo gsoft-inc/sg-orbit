@@ -1,20 +1,16 @@
 import "./TextInput.css";
 
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef } from "react";
+import { Box, BoxProps } from "../../box";
+import { ChangeEvent, ComponentProps, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-// Used to generate BoxProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BoxProps extends BoxPropsForDocumentation { }
-
 const DefaultElement = "input";
 
-export interface InnerTextInputProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus"> {
+export interface InnerTextInputProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> {
     /**
      * Whether or not the input should autofocus on render.
      */
@@ -40,10 +36,6 @@ export interface InnerTextInputProps extends InternalProps, InteractionProps, Om
      */
     loading?: boolean;
     /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original event.
      * @param {string} value - The new input value.
@@ -54,10 +46,6 @@ export interface InnerTextInputProps extends InternalProps, InteractionProps, Om
      * Temporary text that occupies the input when it is empty.
      */
     placeholder?: string;
-    /**
-     * @ignore
-     */
-    readOnly?: boolean;
     /**
      * Whether or not a user input is required before form submission.
      */

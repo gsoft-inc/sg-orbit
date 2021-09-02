@@ -1,8 +1,9 @@
 import "./Checkbox.css";
 
+import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
+import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,19 +13,11 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omit<OrbitComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * Whether or not the checkbox should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface InnerCheckboxProps extends Omit<AbstractInputProps<typeof DefaultElement>, "onChange"> {
     /**
     * A controlled checked state value.
     */
     checked?: boolean | null;
-    /**
-     * @ignore
-     */
-    children?: ReactNode;
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -34,7 +27,7 @@ export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omi
      */
     defaultIndeterminate?: boolean;
     /**
-     * Whether or not the checkbox is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
@@ -46,9 +39,11 @@ export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omi
      */
     name?: string;
     /**
-     * @ignore
+     * Called when the checkbox checked state change.
+     * @param {ChangeEvent} event - React's original synthetic event.
+     * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+    onChange?: ChangeEventHandler;
     /**
      * Called when the checkbox checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
@@ -57,10 +52,6 @@ export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omi
      */
     onValueChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
      * Invert the order the checkmark box and the label.
      */
     reverse?: boolean;
@@ -68,14 +59,6 @@ export interface InnerCheckboxProps extends InternalProps, InteractionProps, Omi
      * A checkbox can vary in size.
      */
     size?: "sm" | "md";
-    /**
-     * @ignore
-     */
-    tabIndex?: number;
-    /**
-     * Whether or not the checkbox should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * The value to associate with when in a group.
      */

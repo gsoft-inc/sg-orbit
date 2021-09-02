@@ -2,9 +2,7 @@ import { AbstractGroupProps, Group } from "../../group";
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
-    InternalProps,
     OmitInternalProps,
-    OrbitComponentProps,
     arrayify,
     augmentElement,
     isNil,
@@ -20,10 +18,7 @@ import { RadioGroup } from "../../radio";
 
 const DefaultElement = "div";
 
-export interface InnerTileGroupProps extends
-    Omit<AbstractGroupProps, "fluid" | "gap" | "orientation" | "wrap">,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "autoFocus" | "onChange"> {
+export interface InnerTileGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "autoFocus" | "fluid" | "gap" | "onChange" | "orientation" | "wrap"> {
     /**
      * Whether or not the first tile of the group should autoFocus on render.
      */
@@ -61,14 +56,16 @@ export interface InnerTileGroupProps extends
     value?: string[] | null;
 }
 
-export interface UnselectableGroupProps extends
-    AbstractGroupProps,
-    InternalProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "children"> {
+export interface UnselectableGroupProps extends AbstractGroupProps<typeof DefaultElement> {
     autoFocus?: boolean | number;
 }
 
-const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({ autoFocus, children, ...rest }, ref) => {
+const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({
+    as = DefaultElement,
+    autoFocus,
+    children,
+    ...rest
+}, ref) => {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const groupRef = useMergedRefs(setFocusRef, ref);
@@ -82,8 +79,13 @@ const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({ aut
 
     return (
         <Group
-            {...rest}
-            ref={groupRef}
+            {...mergeProps(
+                rest,
+                {
+                    as,
+                    ref: groupRef
+                }
+            )}
         >
             {children}
         </Group>

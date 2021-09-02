@@ -2,13 +2,17 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, OrbitComponentProps, StyleProps, mergeProps, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface AbstractLinkProps {
+export interface SharedLinkProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "target"> {
+    /**
+     * React children.
+     */
+    children: ReactNode;
     /**
      * Whether or not the link is disabled.
      */
@@ -31,16 +35,7 @@ export interface AbstractLinkProps {
     target?: string;
 }
 
-export interface InnerLinkProps extends
-    AbstractLinkProps,
-    StyleProps,
-    InternalProps,
-    InteractionProps,
-    Omit<OrbitComponentProps<typeof DefaultElement>, "target"> {
-    /**
-     * React children.
-     */
-    children: ReactNode;
+export interface InnerLinkProps extends SharedLinkProps {
     /**
      * The link shape.
      */

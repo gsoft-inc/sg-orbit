@@ -16,7 +16,8 @@ function CustomComponent({
             as="button"
             value={value}
             onClick={handleCheck}
-            className={isChecked ? "o-ui-white o-ui-bg-primary-6" : "o-ui-bg-secondary-6"}
+            color={isChecked ? "white" : undefined}
+            backgroundColor={isChecked ? "primary-6" : "secondary-6"}
             aria-checked={isChecked}
         >
             {children}

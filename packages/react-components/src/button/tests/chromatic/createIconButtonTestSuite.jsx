@@ -165,8 +165,5 @@ export function createIconButtonTestSuite(element, stories) {
                     </Inline>
                 </Stack>
             </Inline>
-        )
-        .add("as anchor", () =>
-            <IconButton as="a" href="#" aria-label="Add" element={element}><AddIcon /></IconButton>
         );
 }

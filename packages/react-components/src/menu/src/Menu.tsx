@@ -7,7 +7,7 @@ import {
     InternalProps,
     Keys,
     OmitInternalProps,
-    OrbitComponentProps,
+    StyledComponentProps,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -39,7 +39,7 @@ interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
-export interface InnerMenuProps extends InternalProps, OrbitComponentProps<typeof DefaultElement> {
+export interface InnerMenuProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not the menu should autofocus on render.
      */

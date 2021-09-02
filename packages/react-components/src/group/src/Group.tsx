@@ -1,68 +1,45 @@
-import { ComponentProps, ReactNode, forwardRef } from "react";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
-import { InternalProps, OmitInternalProps, OrbitHtmlAttributes, StyleProps, mergeProps } from "../../shared";
+import { InternalProps, JsxElement, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
-export interface AbstractGroupProps extends
-    Omit<StyleProps, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> {
-    /**
-     * The alignment of the elements.
-     */
-    align?: FlexAlignment;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * Whether the elements take up the width & height of their container.
-     */
-    fluid?: boolean;
-    /**
-     * Whether or not the element generate line breaks before or after himself.
-     */
-    inline?: boolean;
-    /**
-     * The orientation of the elements.
-     */
-    orientation?: FlexOrientation;
-    /**
-     * Whether or not to reverse the order of the elements.
-     */
-    reverse?: boolean;
-    /**
-     * Whether elements are forced onto one line or can wrap onto multiple rows.
-     */
-    wrap?: boolean;
-}
+export type AbstractGroupProps<T extends JsxElement<T>> =
+    InternalProps &
+    Omit<StyledComponentProps<T>, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> & {
+        /**
+         * The alignment of the elements.
+         */
+        align?: FlexAlignment;
+        /**
+         * React children.
+         */
+        children: ReactNode;
+        /**
+         * Whether the elements take up the width & height of their container.
+         */
+        fluid?: boolean;
+        /**
+         * Whether or not the element generate line breaks before or after himself.
+         */
+        inline?: boolean;
+        /**
+         * The orientation of the elements.
+         */
+        orientation?: FlexOrientation;
+        /**
+         * Whether or not to reverse the order of the elements.
+         */
+        reverse?: boolean;
+        /**
+         * Whether elements are forced onto one line or can wrap onto multiple rows.
+         */
+        wrap?: boolean;
+    };
 
-export interface InnerGroupProps extends AbstractGroupProps, InternalProps, OrbitHtmlAttributes {
+export interface InnerGroupProps extends Omit<AbstractGroupProps<"div">, "as"> {
     /**
-     * The alignment of the elements.
+     * @ignore
      */
-    align?: FlexAlignment;
-    /**
-     * React children
-     */
-    children: ReactNode;
-    /**
-     * Whether the elements take up the width & height of their container.
-     */
-    fluid?: boolean;
-    /**
-     * Whether or not the element generate line breaks before or after himself.
-     */
-    inline?: boolean;
-    /**
-     * The orientation of the elements.
-     */
-    orientation?: FlexOrientation;
-    /**
-     * Whether or not to reverse the order of the elements.
-     */
-    reverse?: boolean;
-    /**
-     * Whether elements are forced onto one line or can wrap onto multiple lines
-     */
-    wrap?: boolean;
+    as: ElementType;
 }
 
 export function InnerGroup({
