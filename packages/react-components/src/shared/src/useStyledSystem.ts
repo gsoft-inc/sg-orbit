@@ -1,6 +1,6 @@
-import { CSSProperties, useMemo } from "react";
 import { Entry, LiteralUnion, Simplify } from "type-fest";
 import { isNil } from "./assertions";
+import { useMemo } from "react";
 
 /*
 TODO:
@@ -231,7 +231,7 @@ function createOrbitColorClasses(section?: string, additionalClasses?: string) {
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
-        acc[x] = `${template(x)} ${additionalClasses}`;
+        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
 
         return acc;
     }, {} as Record<OrbitColor, string>);
@@ -420,8 +420,6 @@ export const BorderRightWidthClasses = {
     "1px": "o-ui-br"
 } as const;
 
-export const BottomClasses = { ...createOrbitSpacingScaleClasses("bottom", true), "auto": "o-ui-bottom-auto" };
-
 export const BoxShadowClasses = {
     1: "o-ui-bs-1",
     2: "o-ui-bs-2",
@@ -599,8 +597,6 @@ export const JustifyContentClasses = {
     "stretch": "o-ui-jc-str"
 } as const;
 
-export const LeftClasses = { ...createOrbitSpacingScaleClasses("left", true), "auto": "o-ui-left-auto" };
-
 export const LineHeightClasses = {
     1: "o-ui-lh-1",
     2: "o-ui-lh-2",
@@ -743,8 +739,6 @@ export const ResizeClasses = {
     "vertical": "o-ui-rz-v"
 } as const;
 
-export const RightClasses = { ...createOrbitSpacingScaleClasses("right", true), "auto": "o-ui-right-auto" };
-
 export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
 
 export const StrokeClasses = createOrbitColorClasses("stroke");
@@ -777,8 +771,6 @@ export const TextTransformClasses = {
     "none": "o-ui-tt-n",
     "uppercase": "o-ui-tt-u"
 } as const;
-
-export const TopClasses = { ...createOrbitSpacingScaleClasses("top", true), "auto": "o-ui-top-auto" };
 
 export const UserSelectClasses = {
     "all": "o-ui-us-all",
@@ -876,7 +868,7 @@ export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses
 
 export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BottomProp = Simplify<LiteralUnion<keyof typeof BottomClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
+export type BottomProp = Simplify<SpaceValue>;
 
 export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
@@ -916,7 +908,7 @@ export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
-export type LeftProp = Simplify<LiteralUnion<keyof typeof LeftClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
+export type LeftProp = Simplify<SpaceValue>;
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
@@ -974,7 +966,7 @@ export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
 export type ResizeProp = Simplify<keyof typeof ResizeClasses | GlobalValue>;
 
-export type RightProp = Simplify<LiteralUnion<keyof typeof RightClasses, string> | Omit<SpaceValue, OrbitSpace> | GlobalValue>;
+export type RightProp = Simplify<SpaceValue>;
 
 export type RowGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
 
@@ -988,7 +980,7 @@ export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | Globa
 
 export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | GlobalValue>;
 
-export type TopProp = Simplify<LiteralUnion<keyof typeof TopClasses, string> | GlobalValue>;
+export type TopProp = Simplify<SpaceValue>;
 
 export type UserSelectProp = Simplify<keyof typeof UserSelectClasses | GlobalValue>;
 
@@ -1002,8 +994,6 @@ export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue
 
 export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, number> | GlobalValue>;
 
-// TODO: Add docs to all props.
-// TODO: I think it should extends from CSSProperties
 export interface StyledSystemProps {
     /**
      * @ignore
@@ -1109,10 +1099,6 @@ export interface StyledSystemProps {
      * @ignore
      */
     boxSizing?: BoxSizingProp;
-    /**
-     * @ignore
-     */
-    className?: string;
     /**
      * @ignore
      */
@@ -1312,10 +1298,6 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    style?: CSSProperties;
-    /**
-     * @ignore
-     */
     textAlign?: TextAlignProp;
     /**
      * @ignore
@@ -1364,9 +1346,9 @@ interface Context {
     style: Record<string, any>;
 }
 
-type PropHandler<T> = (name: string, value: T, context: Context) => void;
+type PropHandler<TValue> = (name: string, value: TValue, context: Context) => void;
 
-function createPropHandler<V extends string>(classes: Record<V, string>): PropHandler<V> {
+function createClassesHandler<TValue extends string>(classes: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
         const className = classes[value as keyof typeof classes];
 
@@ -1375,6 +1357,12 @@ function createPropHandler<V extends string>(classes: Record<V, string>): PropHa
         } else {
             context.style[name] = value;
         }
+    };
+}
+
+function createStyleHandler<TValue>(): PropHandler<TValue> {
+    return (name, value, context) => {
+        context.style[name] = value;
     };
 }
 
@@ -1408,98 +1396,95 @@ function flexFlowHandler(name: string, value: string, context: Context) {
 }
 
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    alignContent: createPropHandler(AlignContentClasses),
-    alignItems: createPropHandler(AlignItemsClasses),
-    alignSelf: createPropHandler(AlignSelfClasses),
-    appearance: createPropHandler(AppearanceClasses),
-    backgroundClip: createPropHandler(BackgroundClipClasses),
-    backgroundColor: createPropHandler(BackgroundColorClasses),
-    backgroundPosition: createPropHandler(BackgroundPositionClasses),
-    backgroundSize: createPropHandler(BackgroundSizeClasses),
-    border: createPropHandler(BorderClasses),
-    borderBottomWidth: createPropHandler(BorderBottomWidthClasses),
-    borderColor: createPropHandler(BorderColorClasses),
-    borderLeftWidth: createPropHandler(BorderLeftWidthClasses),
-    borderRadius: createPropHandler(BorderRadiusClasses),
-    borderRightWidth: createPropHandler(BorderRightWidthClasses),
-    borderTopWidth: createPropHandler(BorderTopWidthClasses),
-    borderWidth: createPropHandler(BorderWidthClasses),
-    bottom: createPropHandler(BottomClasses),
-    boxShadow: createPropHandler(BoxShadowClasses),
-    boxSizing: createPropHandler(BoxSizingClasses),
-    color: createPropHandler(ColorClasses),
-    columnGap: createPropHandler(ColumnGapClasses),
-    cursor: createPropHandler(CursorClasses),
-    display: createPropHandler(DisplayClasses),
-    fill: createPropHandler(FillClasses),
-    flex: createPropHandler(FlexClasses),
-    flexBasis: createPropHandler(FlexBasisClasses),
-    flexDirection: createPropHandler(FlexDirectionClasses),
+    alignContent: createClassesHandler(AlignContentClasses),
+    alignItems: createClassesHandler(AlignItemsClasses),
+    alignSelf: createClassesHandler(AlignSelfClasses),
+    animation: createStyleHandler<string>(),
+    appearance: createClassesHandler(AppearanceClasses),
+    backgroundClip: createClassesHandler(BackgroundClipClasses),
+    backgroundColor: createClassesHandler(BackgroundColorClasses),
+    backgroundPosition: createClassesHandler(BackgroundPositionClasses),
+    backgroundSize: createClassesHandler(BackgroundSizeClasses),
+    border: createClassesHandler(BorderClasses),
+    borderBottomWidth: createClassesHandler(BorderBottomWidthClasses),
+    borderColor: createClassesHandler(BorderColorClasses),
+    borderLeftWidth: createClassesHandler(BorderLeftWidthClasses),
+    borderRadius: createClassesHandler(BorderRadiusClasses),
+    borderRightWidth: createClassesHandler(BorderRightWidthClasses),
+    borderTopWidth: createClassesHandler(BorderTopWidthClasses),
+    borderWidth: createClassesHandler(BorderWidthClasses),
+    bottom: createStyleHandler<string>(),
+    boxShadow: createClassesHandler(BoxShadowClasses),
+    boxSizing: createClassesHandler(BoxSizingClasses),
+    clear: createStyleHandler<string>(),
+    color: createClassesHandler(ColorClasses),
+    columnGap: createClassesHandler(ColumnGapClasses),
+    cursor: createClassesHandler(CursorClasses),
+    display: createClassesHandler(DisplayClasses),
+    fill: createClassesHandler(FillClasses),
+    flex: createClassesHandler(FlexClasses),
+    flexBasis: createClassesHandler(FlexBasisClasses),
+    flexDirection: createClassesHandler(FlexDirectionClasses),
     flexFlow: flexFlowHandler,
-    flexGrow: createPropHandler(FlexGrowClasses),
-    flexShrink: createPropHandler(FlexShrinkClasses),
-    flexWrap: createPropHandler(FlexWrapClasses),
-    fontSize: createPropHandler(FontSizeClasses),
-    fontWeight: createPropHandler(FontWeightClasses),
-    gap: createPropHandler(GapClasses),
-    height: createPropHandler(HeightClasses),
-    justifyContent: createPropHandler(JustifyContentClasses),
-    left: createPropHandler(LeftClasses),
-    lineHeight: createPropHandler(LineHeightClasses),
-    margin: createPropHandler(MarginClasses),
-    marginBottom: createPropHandler(MarginBottomClasses),
-    marginLeft: createPropHandler(MarginLeftClasses),
-    marginRight: createPropHandler(MarginRightClasses),
-    marginTop: createPropHandler(MarginTopClasses),
-    marginX: createPropHandler(MarginXClasses),
-    marginY: createPropHandler(MarginYClasses),
-    maxHeight: createPropHandler(MaxHeightClasses),
-    maxWidth: createPropHandler(MaxWidthClasses),
-    minHeight: createPropHandler(MinHeightClasses),
-    minWidth: createPropHandler(MinWidthClasses),
-    objectFit: createPropHandler(ObjectFitClasses),
-    opacity: createPropHandler(OpacityClasses),
-    outline: createPropHandler(OutlineClasses),
-    overflow: createPropHandler(OverflowClasses),
-    overflowX: createPropHandler(OverflowXClasses),
-    overflowY: createPropHandler(OverflowYClasses),
-    padding: createPropHandler(PaddingClasses),
-    paddingBottom: createPropHandler(PaddingBottomClasses),
-    paddingLeft: createPropHandler(PaddingLeftClasses),
-    paddingRight: createPropHandler(PaddingRightClasses),
-    paddingTop: createPropHandler(PaddingTopClasses),
-    paddingX: createPropHandler(PaddingXClasses),
-    paddingY: createPropHandler(PaddingYClasses),
-    pointerEvents: createPropHandler(PointerEventsClasses),
-    position: createPropHandler(PositionClasses),
-    resize: createPropHandler(ResizeClasses),
-    right: createPropHandler(RightClasses),
-    rowGap: createPropHandler(RowGapClasses),
-    stroke: createPropHandler(StrokeClasses),
-    textAlign: createPropHandler(TextAlignClasses),
-    textDecoration: createPropHandler(TextDecorationClasses),
-    textOverflow: createPropHandler(TextOverflowClasses),
-    textTransform: createPropHandler(TextTransformClasses),
-    top: createPropHandler(TopClasses),
-    userSelect: createPropHandler(UserSelectClasses),
-    verticalAlign: createPropHandler(VerticalAlignClasses),
-    whiteSpace: createPropHandler(WhiteSpaceClasses),
-    width: createPropHandler(WidthClasses),
-    wordBreak: createPropHandler(WordBreakClasses),
-    zIndex: createPropHandler(ZindexClasses)
+    flexGrow: createClassesHandler(FlexGrowClasses),
+    flexShrink: createClassesHandler(FlexShrinkClasses),
+    flexWrap: createClassesHandler(FlexWrapClasses),
+    float: createStyleHandler<string>(),
+    fontSize: createClassesHandler(FontSizeClasses),
+    fontStyle: createStyleHandler<string>(),
+    fontWeight: createClassesHandler(FontWeightClasses),
+    gap: createClassesHandler(GapClasses),
+    height: createClassesHandler(HeightClasses),
+    justifyContent: createClassesHandler(JustifyContentClasses),
+    left: createStyleHandler<string>(),
+    lineHeight: createClassesHandler(LineHeightClasses),
+    margin: createClassesHandler(MarginClasses),
+    marginBottom: createClassesHandler(MarginBottomClasses),
+    marginLeft: createClassesHandler(MarginLeftClasses),
+    marginRight: createClassesHandler(MarginRightClasses),
+    marginTop: createClassesHandler(MarginTopClasses),
+    marginX: createClassesHandler(MarginXClasses),
+    marginY: createClassesHandler(MarginYClasses),
+    maxHeight: createClassesHandler(MaxHeightClasses),
+    maxWidth: createClassesHandler(MaxWidthClasses),
+    minHeight: createClassesHandler(MinHeightClasses),
+    minWidth: createClassesHandler(MinWidthClasses),
+    objectFit: createClassesHandler(ObjectFitClasses),
+    opacity: createClassesHandler(OpacityClasses),
+    outline: createClassesHandler(OutlineClasses),
+    overflow: createClassesHandler(OverflowClasses),
+    overflowX: createClassesHandler(OverflowXClasses),
+    overflowY: createClassesHandler(OverflowYClasses),
+    padding: createClassesHandler(PaddingClasses),
+    paddingBottom: createClassesHandler(PaddingBottomClasses),
+    paddingLeft: createClassesHandler(PaddingLeftClasses),
+    paddingRight: createClassesHandler(PaddingRightClasses),
+    paddingTop: createClassesHandler(PaddingTopClasses),
+    paddingX: createClassesHandler(PaddingXClasses),
+    paddingY: createClassesHandler(PaddingYClasses),
+    pointerEvents: createClassesHandler(PointerEventsClasses),
+    position: createClassesHandler(PositionClasses),
+    resize: createClassesHandler(ResizeClasses),
+    right: createStyleHandler<string>(),
+    rowGap: createClassesHandler(RowGapClasses),
+    stroke: createClassesHandler(StrokeClasses),
+    table: createStyleHandler<string>(),
+    textAlign: createClassesHandler(TextAlignClasses),
+    textDecoration: createClassesHandler(TextDecorationClasses),
+    textOverflow: createClassesHandler(TextOverflowClasses),
+    textTransform: createClassesHandler(TextTransformClasses),
+    top: createStyleHandler<string>(),
+    transform: createStyleHandler<string>(),
+    transition: createStyleHandler<string>(),
+    userSelect: createClassesHandler(UserSelectClasses),
+    verticalAlign: createClassesHandler(VerticalAlignClasses),
+    whiteSpace: createClassesHandler(WhiteSpaceClasses),
+    width: createClassesHandler(WidthClasses),
+    wordBreak: createClassesHandler(WordBreakClasses),
+    zIndex: createClassesHandler(ZindexClasses)
 };
 
-/*
-EXAMPLE:
-    <Box
-        backgroundColor="background-1"
-        borderTopWidth={2}
-        borderTopWidth={[2, 4, 8]}
-        borderTopWidth={[2, "10px", 8]}
-        borderTopColor="sunray-3"
-    />
-*/
-export function useStyledSystem(props: Partial<StyledSystemProps>) {
+export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
     return useMemo(() => {
         const { className, style, ...rest } = props;
 
@@ -1508,21 +1493,24 @@ export function useStyledSystem(props: Partial<StyledSystemProps>) {
             style: style ?? {}
         };
 
-        Object.entries(rest).forEach(([key, value]: Entry<StyledSystemProps>) => {
+        const otherProps: Partial<TProps> = {};
+
+        Object.entries(rest).forEach(([key, value]: Entry<TProps>) => {
             if (!isNil(value)) {
                 const handler = PropsHandlers[key];
 
                 if (!isNil(handler)) {
                     handler(key, value, context);
                 } else {
-                    context.style[key] = value;
+                    otherProps[key as keyof Partial<TProps>] = value;
                 }
             }
         });
 
         return {
             className: context.classes.join(" "),
-            style: context.style
-        };
+            style: context.style,
+            ...otherProps
+        } as Omit<TProps, keyof StyledSystemProps>;
     }, [props]);
 }

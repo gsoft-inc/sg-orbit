@@ -110,8 +110,8 @@ stories()
         <Stack>
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundAttachmentClasses).map(x => <ExtraLargeSquare backgroundAttachment={x} key={x} style={{ "background-image": `url(${Launch})`, "overflow": "auto" }}><p>
-London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
-London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
+                London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
+                London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's Inn Hall. Implacable November weather. As much mud in the streets as if the waters had but newly retired from the face of the earth, and it would not be wonderful to meet a Megalosaurus, forty feet long or so, waddling like an elephantine lizard up Holborn Hill.
                 </p></ExtraLargeSquare>)}
             </Inline>
         </Stack>
@@ -120,7 +120,7 @@ London. Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln'
         <Stack>
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundClipClasses).map(x => <ExtraLargeSquare backgroundClip={x} key={x} style={{ "background-image": `url(${Launch})`, "padding": "12px", "border": "4px dashed black" }}>
-London. Michaelmas term lately over</ExtraLargeSquare>)}
+                London. Michaelmas term lately over</ExtraLargeSquare>)}
             </Inline>
         </Stack>
     )

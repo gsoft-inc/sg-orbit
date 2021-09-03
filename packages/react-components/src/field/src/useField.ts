@@ -1,5 +1,6 @@
 import { ForwardedRef } from "react";
 import { MergedRef, cssModule, mergeClasses, useHasChildren, useId, useIsInitialRender, useMergedRefs } from "../../shared";
+import { ValidationState } from "../../input";
 import type { FieldContextType } from "./FieldContext";
 
 export interface UseFieldProps {
@@ -9,7 +10,7 @@ export interface UseFieldProps {
     forwardedRef?: ForwardedRef<any>;
     id?: string;
     required?: boolean;
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 export interface UseFieldReturn {

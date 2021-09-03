@@ -14,19 +14,8 @@ import {
     useRef
 } from "react";
 import { InputGroup, useInputGroupProps } from "../../input-group";
-import {
-    InteractionProps,
-    InternalProps,
-    OmitInternalProps,
-    augmentElement,
-    cssModule,
-    isNil,
-    mergeClasses,
-    mergeProps,
-    useControllableState,
-    useEventCallback
-} from "../../shared";
 import { MenuPresets } from "./MenuPresets";
+import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./dateUtils";
 import { useDateInput } from "./useDateInput";

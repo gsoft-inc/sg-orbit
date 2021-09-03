@@ -1,16 +1,12 @@
 import "./FieldMessage.css";
 
-import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { StyledComponentProps, StyleProvider, cssModule, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerFieldMessageProps extends Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
+export interface SharedFieldMessageProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -19,6 +15,9 @@ export interface InnerFieldMessageProps extends Omit<StyledComponentProps<typeof
      * Whether or not the field take up the width of its container.
      */
     fluid?: boolean;
+}
+
+export interface InnerFieldMessageProps extends Omit<SharedFieldMessageProps, "forwardedRef"> {
     /**
      * The style to use.
      */

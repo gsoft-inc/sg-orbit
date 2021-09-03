@@ -1,16 +1,9 @@
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { FieldMessage, getValidationProps } from "./FieldMessage";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { ComponentProps, forwardRef } from "react";
+import { FieldMessage, SharedFieldMessageProps, getValidationProps } from "./FieldMessage";
+import { OmitInternalProps, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
-export interface InnerHelpMessageProps extends InternalProps {
-    /**
-     * React children.
-     */
-    children: ReactNode;
-}
-
-export function InnerHelpMessage(props: InnerHelpMessageProps) {
+export function InnerHelpMessage(props: SharedFieldMessageProps) {
     const [{ validationState, ...messageProps }, isInField] = useFieldMessageProps();
 
     const { isHelp } = getValidationProps(validationState);
@@ -36,7 +29,7 @@ export function InnerHelpMessage(props: InnerHelpMessageProps) {
     );
 }
 
-export const HelpMessage = forwardRef<any, OmitInternalProps<InnerHelpMessageProps>>((props, ref) => (
+export const HelpMessage = forwardRef<any, OmitInternalProps<SharedFieldMessageProps>>((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />
 ));
 

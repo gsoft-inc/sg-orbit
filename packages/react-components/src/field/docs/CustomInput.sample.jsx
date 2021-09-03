@@ -1,15 +1,17 @@
 function CustomInput(props) {
     const [{ validationState, ...fieldProps }] = useFieldInputProps();
 
+    const Input = as(Box, "input");
+
     return (
-        <input
+        <Input
             {...props}
             {...fieldProps}
             type="text"
-            className={mergeClasses(
-                "o-ui-ba o-ui-w-13",
-                validationState === "invalid" && "o-ui-alias-b-negative-1"
-            )}
+            // width="20%"
+            // borderWidth="1px"
+            // borderStyle="solid"
+            // borderColor={validationState === "invalid" ? "alias-negative-1" : undefined}
         />
     );
 }

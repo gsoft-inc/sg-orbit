@@ -7,7 +7,7 @@ import { useFieldLabelProps } from "./FieldContext";
 
 const DefaultElement = "label";
 
-export interface InnerLabelProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerLabelProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -28,10 +28,10 @@ export function InnerLabel(props: InnerLabelProps) {
     const [fieldProps] = useFieldLabelProps(props);
 
     const {
-        required,
         as = DefaultElement,
         children,
         forwardedRef,
+        required,
         ...rest
     } = mergeProps(
         props,
@@ -46,8 +46,8 @@ export function InnerLabel(props: InnerLabelProps) {
                     as,
                     className: "o-ui-field-label",
                     ref: forwardedRef,
-                    size: "md"
-                } as const
+                    size: "md" as const
+                }
             )}
         >
             {children}

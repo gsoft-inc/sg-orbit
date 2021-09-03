@@ -5,6 +5,7 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ValidationState } from "../../input";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
 
@@ -26,7 +27,7 @@ export interface InnerFieldProps extends InternalProps, StyledComponentProps<typ
     /**
      * Whether the field should display as "valid" or "invalid".
      */
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 export function InnerField(props: InnerFieldProps) {
@@ -34,15 +35,15 @@ export function InnerField(props: InnerFieldProps) {
     const [toolbarProps] = useToolbarProps();
 
     const {
-        id,
-        validationState,
-        required,
-        fluid,
-        disabled,
         as = DefaultElement,
-        className,
         children,
+        className,
+        disabled,
+        fluid,
         forwardedRef,
+        id,
+        required,
+        validationState,
         ...rest
     } = mergeProps(
         props,
