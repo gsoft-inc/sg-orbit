@@ -220,7 +220,7 @@ expectAssignable<BorderStyleProp>("dotted");
 expectAssignable<BorderStyleProp>("double");
 expectAssignable<BorderStyleProp>("none");
 
-expectAssignable<BottomProp>(1);
+expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("auto");
 
 expectAssignable<BoxShadowProp>(1);
@@ -359,7 +359,7 @@ expectAssignable<JustifyContentProp>("space-evenly");
 expectAssignable<JustifyContentProp>("stretch");
 expectAssignable<JustifyContentProp>("normal");
 
-expectAssignable<LeftProp>(1);
+expectAssignable<LeftProp>("1px");
 expectAssignable<LeftProp>("auto");
 
 expectAssignable<LineHeightProp>(1);
@@ -431,10 +431,10 @@ expectAssignable<PositionProp>("absolute");
 expectAssignable<PositionProp>("relative");
 expectAssignable<PositionProp>("sticky");
 
-expectAssignable<RightProp>(1);
+expectAssignable<RightProp>("1px");
 expectAssignable<RightProp>("auto");
 
-expectAssignable<TopProp>(1);
+expectAssignable<TopProp>("1px");
 expectAssignable<TopProp>("auto");
 
 expectAssignable<WidthProp>(1);
@@ -478,7 +478,7 @@ expectAssignable<StyledSystemProps>({
     borderTop: "1px solid red",
     borderTopWidth: 1,
     borderWidth: 1,
-    bottom: 1,
+    bottom: "1px",
     boxShadow: 1,
     boxSizing: "border-box",
     className: "red-border",
@@ -499,7 +499,7 @@ expectAssignable<StyledSystemProps>({
     gap: 1,
     height: 1,
     justifyContent: "center",
-    left: 1,
+    left: "1px",
     lineHeight: 1,
     margin: 1,
     marginBottom: 1,
@@ -525,12 +525,12 @@ expectAssignable<StyledSystemProps>({
     paddingX: 1,
     paddingY: 1,
     position: "absolute",
-    right: 1,
+    right: "1px",
     stroke: "sunray-1",
     style: {
         border: "1px solid red"
     },
-    top: 1,
+    top: "1px",
     width: 1,
     zIndex: 1
 });
