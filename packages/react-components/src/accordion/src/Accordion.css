@@ -7,7 +7,7 @@
 
 /* BORDERED */
 .o-ui-accordion-bordered {
-    box-shadow: var(--o-ui-alias-box-shadows-skim);
+    box-shadow: var(--o-ui-box-shadows-alias-skim);
     border-radius: var(--o-ui-space-2);
     background-color: var(--o-ui-bg-alias-1);
 }
@@ -55,7 +55,7 @@
 /* TRIGGER | BORDERED | HOVER */
 .o-ui-accordion .o-ui-accordion-trigger:not([disabled]):hover,
 .o-ui-accordion .o-ui-accordion-trigger-hover:not([disabled]) {
-    background-color: var(--o-ui-alias-bg-accordion-hover);
+    background-color: var(--o-ui-bg-alias-accordion-hover);
 }
 
 /* TRIGGER | CONTENT */
@@ -82,8 +82,8 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--o-ui-alias-text-1);
-    background-color: var(--o-ui-alias-bg-1);
+    color: var(--o-ui-text-alias-1);
+    background-color: var(--o-ui-bg-alias-1);
 }
 
 /* PANEL | BORDERLESS */
@@ -112,13 +112,13 @@
 /* HOVER */
 .o-ui-accordion-trigger:not([disabled]):hover ,
 .o-ui-accordion-trigger-hover:not([disabled]) {
-    color: var(--o-ui-alias-text-2-hover);
+    color: var(--o-ui-text-alias-2-hover);
 }
 
 /* ACTIVE */
 .o-ui-accordion-trigger:not([disabled]):active,
 .o-ui-accordion-trigger-active:not([disabled]) {
-    color: var(--o-ui-alias-text-2-active);
+    color: var(--o-ui-text-alias-2-active);
 }
 
 /* FOCUS */

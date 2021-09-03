@@ -1,7 +1,7 @@
 .o-ui {
-    --o-ui-alias-box-shadows-none: none;
-    --o-ui-alias-box-shadows-skim: var(--o-ui-box-shadows-1);
-    --o-ui-alias-box-shadows-lifted: var(--o-ui-box-shadows-2);
-    --o-ui-alias-box-shadows-raised: var(--o-ui-box-shadows-3);
-    --o-ui-alias-box-shadows-floating: var(--o-ui-box-shadows-4);
+    --o-ui-box-shadows-alias-none: none;
+    --o-ui-box-shadows-alias-skim: var(--o-ui-box-shadows-1);
+    --o-ui-box-shadows-alias-lifted: var(--o-ui-box-shadows-2);
+    --o-ui-box-shadows-alias-raised: var(--o-ui-box-shadows-3);
+    --o-ui-box-shadows-alias-floating: var(--o-ui-box-shadows-4);
 }

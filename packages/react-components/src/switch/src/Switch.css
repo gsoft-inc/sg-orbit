@@ -6,14 +6,14 @@
     max-width: 100%;
     width: max-content;
     height: max-content;
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* SWITCH */
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
     /* was cloud 200 now 300 because too much similar colors */
-    background-color: var(--o-ui-alias-bg-2);
+    background-color: var(--o-ui-bg-alias-2);
     border-radius: var(--o-ui-shape-pill);
     position: relative;
     flex-shrink: 0;
@@ -23,7 +23,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
     border-radius: var(--o-ui-shape-circular);
     position: absolute;
     transform: translate(2px, 2px);
@@ -64,21 +64,21 @@
 
 /* INVALID */
 .o-ui-switch-invalid {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-alias-bg-negative-2);
+    background-color: var(--o-ui-bg-alias-negative-2);
 }
 
 .o-ui-switch-checked.o-ui-switch-invalid .o-ui-switch-control {
-    background-color: var(--o-ui-alias-bg-negative-1);
+    background-color: var(--o-ui-bg-alias-negative-1);
 }
 
 /* STATE */
 /* STATE | CHECKED */
 .o-ui-switch-checked .o-ui-switch-control {
-    background-color: var(--o-ui-alias-bg-primary-1);
+    background-color: var(--o-ui-bg-alias-primary-1);
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
@@ -107,7 +107,7 @@
 
 /* STATE | FOCUS | INVALID */
 .o-ui-switch-invalid .o-ui-switch-control:after {
-    --o-ui-focus-ring-color: var(--o-ui-alias-b-negative-1-translucent);
+    --o-ui-focus-ring-color: var(--o-ui-b-alias-negative-1-translucent);
 }
 
 /* STATE | DISABLED */

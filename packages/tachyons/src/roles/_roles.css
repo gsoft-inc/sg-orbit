@@ -1,377 +1,377 @@
 .background {
-    background-color: var(--o-ui-alias-background);
+    background-color: var(--o-ui-background-alias);
 }
 
 .background-1 {
-    background-color: var(--o-ui-alias-background-1);
+    background-color: var(--o-ui-background-alias-1);
 }
 
 .background-2 {
-    background-color: var(--o-ui-alias-background-2);
+    background-color: var(--o-ui-background-alias-2);
 }
 
 .background-2-hover:hover {
-    background-color: var(--o-ui-alias-background-2-hover);
+    background-color: var(--o-ui-background-alias-2-hover);
 }
 
 .background-2-active:active {
-    background-color: var(--o-ui-alias-background-2-active);
+    background-color: var(--o-ui-background-alias-2-active);
 }
 
 .background-3 {
-    background-color: var(--o-ui-alias-background-3);
+    background-color: var(--o-ui-background-alias-3);
 }
 
 .background-4 {
-    background-color: var(--o-ui-alias-background-4);
+    background-color: var(--o-ui-background-alias-4);
 }
 
 .background-4-hover:hover {
-    background-color: var(--o-ui-alias-background-4-hover);
+    background-color: var(--o-ui-background-alias-4-hover);
 }
 
 .background-4-active:active {
-    background-color: var(--o-ui-alias-background-4-active);
+    background-color: var(--o-ui-background-alias-4-active);
 }
 
 .background-5 {
-    background-color: var(--o-ui-alias-background-5);
+    background-color: var(--o-ui-background-alias-5);
 }
 
 .background-5-hover:hover {
-    background-color: var(--o-ui-alias-background-5-hover);
+    background-color: var(--o-ui-background-alias-5-hover);
 }
 
 .background-5-active:active {
-    background-color: var(--o-ui-alias-background-5-hover);
+    background-color: var(--o-ui-background-alias-5-hover);
 }
 
 .background-primary-1 {
-    background-color: var(--o-ui-alias-background-primary-1);
+    background-color: var(--o-ui-background-alias-primary-1);
 }
 
 .background-primary-1-hover:hover {
-    background-color: var(--o-ui-alias-background-primary-1-hover);
+    background-color: var(--o-ui-background-alias-primary-1-hover);
 }
 
 .background-primary-1-active:active {
-    background-color: var(--o-ui-alias-background-primary-1-active);
+    background-color: var(--o-ui-background-alias-primary-1-active);
 }
 
 .background-primary-1-light {
-    background-color: var(--o-ui-alias-background-primary-1-light);
+    background-color: var(--o-ui-background-alias-primary-1-light);
 }
 
 .background-primary-2 {
-    background-color: var(--o-ui-alias-background-primary-2);
+    background-color: var(--o-ui-background-alias-primary-2);
 }
 
 .background-negative-1 {
-    background-color: var(--o-ui-alias-background-negative-1);
+    background-color: var(--o-ui-background-alias-negative-1);
 }
 
 .background-negative-1-hover:hover {
-    background-color: var(--o-ui-alias-background-negative-1-hover);
+    background-color: var(--o-ui-background-alias-negative-1-hover);
 }
 
 .background-negative-1-active:active {
-    background-color: var(--o-ui-alias-background-negative-1-active);
+    background-color: var(--o-ui-background-alias-negative-1-active);
 }
 
 .background-negative-2 {
-    background-color: var(--o-ui-alias-background-negative-2);
+    background-color: var(--o-ui-background-alias-negative-2);
 }
 
 .background-warning-1 {
-    background-color: var(--o-ui-alias-background-warning-1);
+    background-color: var(--o-ui-background-alias-warning-1);
 }
 
 .background-warning-1-hover:hover {
-    background-color: var(--o-ui-alias-background-warning-1-hover);
+    background-color: var(--o-ui-background-alias-warning-1-hover);
 }
 
 .background-warning-1-active:active {
-    background-color: var(--o-ui-alias-background-warning-1-active);
+    background-color: var(--o-ui-background-alias-warning-1-active);
 }
 
 .background-warning-2 {
-    background-color: var(--o-ui-alias-background-warning-2);
+    background-color: var(--o-ui-background-alias-warning-2);
 }
 
 .background-positive-1 {
-    background-color: var(--o-ui-alias-background-warning-1-positive);
+    background-color: var(--o-ui-background-alias-warning-1-positive);
 }
 
 .background-positive-1-hover:hover {
-    background-color: var(--o-ui-alias-background-warning-1-hover);
+    background-color: var(--o-ui-background-alias-warning-1-hover);
 }
 
 .background-positive-1-active:active {
-    background-color: var(--o-ui-alias-background-warning-1-active);
+    background-color: var(--o-ui-background-alias-warning-1-active);
 }
 
 .background-positive-2 {
-    background-color: var(--o-ui-alias-background-positive-2);
+    background-color: var(--o-ui-background-alias-positive-2);
 }
 
 .background-info-1 {
-    background-color: var(--o-ui-alias-background-info-1);
+    background-color: var(--o-ui-background-alias-info-1);
 }
 
 .background-info-hover:hover {
-    background-color: var(--o-ui-alias-background-info-1-hover);
+    background-color: var(--o-ui-background-alias-info-1-hover);
 }
 
 .background-info-1-active:active {
-    background-color: var(--o-ui-alias-background-info-1-active);
+    background-color: var(--o-ui-background-alias-info-1-active);
 }
 
 .background-input-selection {
-    background-color: var(--o-ui-alias-background-input-selection);
+    background-color: var(--o-ui-background-alias-input-selection);
 }
 .background-accordion-hover:hover {
-    background-color: var(--o-ui-alias-background-accordion-hover);
+    background-color: var(--o-ui-background-alias-accordion-hover);
 }
 
     /* TEXT */
 .text-1 {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 .text-1-hover:hover {
-    color: var(--o-ui-alias-text-1-hover);
+    color: var(--o-ui-text-alias-1-hover);
 }
 
 .text-1-active:active {
-    color: var(--o-ui-alias-text-1-active);
+    color: var(--o-ui-text-alias-1-active);
 }
 
 .text-2 {
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
 }
 
 .text-2-hover:hover {
-    color: var(--o-ui-alias-text-2-hover);
+    color: var(--o-ui-text-alias-2-hover);
 }
 
 .text-2-active:active {
-    color: var(--o-ui-alias-text-2-active);
+    color: var(--o-ui-text-alias-2-active);
 }
 
 .text-3 {
-    color: var(--o-ui-alias-text-3);
+    color: var(--o-ui-text-alias-3);
 }
 
 .text-3-hover:hover {
-    color: var(--o-ui-alias-text-3-hover);
+    color: var(--o-ui-text-alias-3-hover);
 }
 
 .text-3-active:active {
-    color: var(--o-ui-alias-text-3-active);
+    color: var(--o-ui-text-alias-3-active);
 }
 
 .text-4 {
-    color: var(--o-ui-alias-text-4);
+    color: var(--o-ui-text-alias-4);
 }
 
 .text-primary-1 {
-    color: var(--o-ui-alias-text-primary-1);
+    color: var(--o-ui-text-alias-primary-1);
 }
 
 .text-primary-1-hover:hover {
-    color: var(--o-ui-alias-text-primary-1-hover);
+    color: var(--o-ui-text-alias-primary-1-hover);
 }
 
 .text-primary-1-active:active {
-    color: var(--o-ui-alias-text-primary-1-active);
+    color: var(--o-ui-text-alias-primary-1-active);
 }
 
 .text-negative-1 {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }
 
 .text-negative-1-hover:hover {
-    color: var(--o-ui-alias-text-negative-1-hover);
+    color: var(--o-ui-text-alias-negative-1-hover);
 }
 
 .text-negative-1-active:active {
-    color: var(--o-ui-alias-text-negative-1-active);
+    color: var(--o-ui-text-alias-negative-1-active);
 }
 
 .text-negative-2 {
-    color: var(--o-ui-alias-text-negative-2);
+    color: var(--o-ui-text-alias-negative-2);
 }
 
 .text-warning-1 {
-    color: var(--o-ui-alias-text-warning-1);
+    color: var(--o-ui-text-alias-warning-1);
 }
 
 .text-warning-1-hover:hover {
-    color: var(--o-ui-alias-text-warning-1-hover);
+    color: var(--o-ui-text-alias-warning-1-hover);
 }
 
 .text-warning-1-active:active {
-    color: var(--o-ui-alias-text-warning-1-active);
+    color: var(--o-ui-text-alias-warning-1-active);
 }
 
 .text-warning-2 {
-    color: var(--o-ui-alias-text-warning-2);
+    color: var(--o-ui-text-alias-warning-2);
 }
 
 .text-positive-1 {
-    color: var(--o-ui-alias-text-positive-1);
+    color: var(--o-ui-text-alias-positive-1);
 }
 
 .text-positive-1-hover:hover {
-    color: var(--o-ui-alias-text-positive-1-hover);
+    color: var(--o-ui-text-alias-positive-1-hover);
 
 }
 
 .text-positive-1-active:active {
-    color: var(--o-ui-alias-text-positive-1-active);
+    color: var(--o-ui-text-alias-positive-1-active);
 }
 
 .text-positive-2 {
-    color: var(--o-ui-alias-text-positive-2);
+    color: var(--o-ui-text-alias-positive-2);
 }
 
 .text-info-1 {
-    color: var(--o-ui-alias-text-info-1);
+    color: var(--o-ui-text-alias-info-1);
 }
 
 .text-info-1-hover:hover {
-    color: var(--o-ui-alias-text-info-1-hover);
+    color: var(--o-ui-text-alias-info-1-hover);
 }
 
 .text-info-1-active:active {
-    color: var(--o-ui-alias-text-info-1-active);
+    color: var(--o-ui-text-alias-info-1-active);
 }
 
 .text-input-selection {
-    color: var(--o-ui-alias-text-input-selection);
+    color: var(--o-ui-text-alias-input-selection);
 }
 
     /* ICON */
 .icon-1 {
-    fill: var(--o-ui-alias-icon-1);
+    fill: var(--o-ui-icon-alias-1);
 }
 
 .icon-2 {
-    fill: var(--o-ui-alias-icon-2);
+    fill: var(--o-ui-icon-alias-2);
 }
 
 .icon-primary-1 {
-    fill: var(--o-ui-alias-icon-primary-1);
+    fill: var(--o-ui-icon-alias-primary-1);
 }
 
 .icon-negative-1 {
-    fill: var(--o-ui-alias-icon-1-negative-1);
+    fill: var(--o-ui-icon-alias-1-negative-1);
 }
 
 .icon-positive-1 {
-    fill: var(--o-ui-alias-ico-1-positive-1);
+    fill: var(--o-ui-icon-alias-positive-1);
 }
 
 .icon-warning-1 {
-    fill: var(--o-ui-alias-icon-warning-1);
+    fill: var(--o-ui-icon-alias-warning-1);
 }
 
 .icon-info-1 {
-    fill: var(--o-ui-alias-icon-info-1);
+    fill: var(--o-ui-icon-alias-info-1);
 }
 
     /* BORDER */
 .border-1 {
-    border-color: var(--o-ui-alias-b-1);
+    border-color: var(--o-ui-b-alias-1);
 }
 
 .border-1-hover:hover {
-    border-color: var(--o-ui-alias-b-1-hover);
+    border-color: var(--o-ui-b-alias-1-hover);
 }
 
 .border-1-active:active {
-    border-color: var(--o-ui-alias-b-1-active);
+    border-color: var(--o-ui-b-alias-1-active);
 }
 
 .border-2 {
-    border-color: var(--o-ui-alias-b-2);
+    border-color: var(--o-ui-b-alias-2);
 
 }
 
 .border-3 {
-    border-color: var(--o-ui-alias-b-3);
+    border-color: var(--o-ui-b-alias-3);
 }
 
 .border-4 {
-    border-color: var(--o-ui-alias-b-4);
+    border-color: var(--o-ui-b-alias-4);
 }
 
 .border-4-hover:hover {
-    border-color: var(--o-ui-alias-b-4-hover);
+    border-color: var(--o-ui-b-alias-4-hover);
 }
 
 .border-primary-1 {
-    border-color: var(--o-ui-alias-b-primary-1);
+    border-color: var(--o-ui-b-alias-primary-1);
 }
 
 .border-primary-1-hover:hover {
-    border-color: var(--o-ui-alias-b-primary-1-hover);
+    border-color: var(--o-ui-b-alias-primary-1-hover);
 }
 
 .border-primary-1-active:active {
-    border-color: var(--o-ui-alias-b-primary-1-active);
+    border-color: var(--o-ui-b-alias-primary-1-active);
 }
 
 .border-negative-1 {
-    border-color: var(--o-ui-alias-b-negative-1);
+    border-color: var(--o-ui-b-alias-negative-1);
 }
 
 .border-negative-1-hover:hover {
-    border-color: var(--o-ui-alias-b-negative-1-hover);
+    border-color: var(--o-ui-b-alias-negative-1-hover);
 }
 
 .border-negative-1-active:active {
-    border-color: var(--o-ui-alias-b-negative-1-active);
+    border-color: var(--o-ui-b-alias-negative-1-active);
 }
 
 .border-negative-2 {
-    border-color: var(--o-ui-alias-b-negative-2);
+    border-color: var(--o-ui-b-alias-negative-2);
 }
 
 .border-warning-1 {
-    border-color: var(--o-ui-alias-b-warning-1);
+    border-color: var(--o-ui-b-alias-warning-1);
 }
 
 .border-warning-1-hover:hover {
-    border-color: var(--o-ui-alias-b-warning-1-hover);
+    border-color: var(--o-ui-b-alias-warning-1-hover);
 }
 
 .border-warning-1-active:active {
-    border-color: var(--o-ui-alias-b-warning-1-active);
+    border-color: var(--o-ui-b-alias-warning-1-active);
 }
 
 .border-positive-1 {
-    border-color: var(--o-ui-alias-b-positive-1);
+    border-color: var(--o-ui-b-alias-positive-1);
 }
 
 .border-positive-1-hover:hover {
-    border-color: var(--o-ui-alias-b-positive-1-hover);
+    border-color: var(--o-ui-b-alias-positive-1-hover);
 }
 
 .border-positive-1-active:active {
-    border-color: var(--o-ui-alias-b-positive-1-active);
+    border-color: var(--o-ui-b-alias-positive-1-active);
 }
 
 .border-info-1 {
-    border-color: var(--o-ui-alias-b-info-1);
+    border-color: var(--o-ui-b-alias-info-1);
 }
 
 .border-info-1-hover:hover {
-    border-color: var(--o-ui-alias-b-info-1-hover);
+    border-color: var(--o-ui-b-alias-info-1-hover);
 }
 
 .border-info-1-active:active {
-    border-color: var(--o-ui-alias-b-info-1-active);
+    border-color: var(--o-ui-b-alias-info-1-active);
 }
 
 /* STATIC */

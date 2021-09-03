@@ -20,7 +20,7 @@
 /* DIALOG */
 .o-ui-dialog {
     position: relative;
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
     border-radius: var(--o-ui-shape-rounded);
     display: grid;
     grid-template-areas: "image aside";

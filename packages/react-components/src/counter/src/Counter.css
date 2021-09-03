@@ -3,7 +3,7 @@
 }
 
 .o-ui-counter {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* HIGHLIGHT */
@@ -53,7 +53,7 @@
     left: 0;
     bottom: 0;
     height: 80%;
-    border-left: 1px solid var(--o-ui-alias-b-1);
+    border-left: 1px solid var(--o-ui-b-alias-1);
 }
 
 /* DIVIDER | REVERSE */
@@ -64,7 +64,7 @@
 
 .o-ui-counter-divider.o-ui-counter-reverse::before {
     border-left: 0;
-    border-right: 1px solid var(--o-ui-alias-b-1);
+    border-right: 1px solid var(--o-ui-b-alias-1);
 }
 
 /* DIVIDER | COLOR | INHERIT */

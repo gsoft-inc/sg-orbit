@@ -28,7 +28,7 @@
     font-size: var(--o-ui-font-sizes-4);
     font-weight: 400;
     font-variation-settings: "wght" 600;
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
     margin-bottom: var(--o-ui-space-3);
 }
 

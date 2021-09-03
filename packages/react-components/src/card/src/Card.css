@@ -1,8 +1,8 @@
 .o-ui-card {
     display: grid;
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
     border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-alias-b-1);
+    border: 1px solid var(--o-ui-b-alias-1);
     height: max-content;
 }
 

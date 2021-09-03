@@ -15,13 +15,13 @@
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--o-ui-alias-b-2);
+    border-bottom: 2px solid var(--o-ui-b-alias-2);
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--o-ui-alias-b-2);
+    border-left: 2px solid var(--o-ui-b-alias-2);
 }
 
 /* TAB */
@@ -39,7 +39,7 @@
     height: max-content;
     min-height: var(--o-ui-space-9);
     cursor: pointer;
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
     position: relative;
     overflow: hidden;
 }
@@ -112,19 +112,19 @@
 /* TAB | STATE | HOVER */
 .o-ui-tab:not([disabled]):hover,
 .o-ui-tab-hover:not([disabled]) {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--o-ui-alias-b-4);
-    color: var(--o-ui-alias-text-1);
+    border-bottom: 2px solid var(--o-ui-b-alias-4);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--o-ui-alias-b-4);
+    border-left: 2px solid var(--o-ui-b-alias-4);
 }
 
 /* TAB | FLUID */
@@ -170,7 +170,7 @@
 
 /* PANEL */
 .o-ui-tab-panel {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
     text-align: left;
 }
 

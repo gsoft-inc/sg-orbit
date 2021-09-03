@@ -7,7 +7,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
     line-height: var(--o-ui-line-heights-1);
     max-width: 100%;
     width: max-content;
@@ -22,7 +22,7 @@
     display: inline-block;
     width: var(--o-ui-space-5);
     height: var(--o-ui-space-5);
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1) inset;
     border-radius: var(--o-ui-shape-rounded);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;
@@ -74,7 +74,7 @@
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
     mask: none;
-    background-color: var(--o-ui-alias-bg-primary-1);
+    background-color: var(--o-ui-bg-alias-primary-1);
 }
 
 /* not working since intedermenate class is removed as soon as it's clicked */
@@ -84,7 +84,7 @@
 
 /* BOX | INDETERMINATE | STATE | INVALID */
 .o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box::after {
-    background-color: var(--o-ui-alias-bg-negative-1);
+    background-color: var(--o-ui-bg-alias-negative-1);
 }
 
 /* CONTENT | LABEL */
@@ -120,35 +120,35 @@
 
 /* INVALID */
 .o-ui-checkbox-invalid {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-checkbox-invalid .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-negative-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-negative-1) inset;
 }
 
 .o-ui-checkbox-checked.o-ui-checkbox-invalid .o-ui-checkbox-box {
-    background-color: var(--o-ui-alias-bg-negative-1);
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-negative-1) inset;
+    background-color: var(--o-ui-bg-alias-negative-1);
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-negative-1) inset;
 }
 
 .o-ui-checkbox.o-ui-checkbox-invalid:hover .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-negative-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-negative-1) inset;
 }
 
 .o-ui-checkbox-invalid .o-ui-checkbox-box::before {
-    --o-ui-focus-ring-color: var(--o-ui-alias-b-negative-1-translucent);
+    --o-ui-focus-ring-color: var(--o-ui-b-alias-negative-1-translucent);
 }
 
 /* STATE | CHECKED */
 .o-ui-checkbox-checked .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-primary-1) inset;
-    background-color: var(--o-ui-alias-bg-primary-1);
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-primary-1) inset;
+    background-color: var(--o-ui-bg-alias-primary-1);
 }
 
 /* STATE | CHECKED | INDETERMINATE */
 .o-ui-checkbox-checked.o-ui-checkbox-indeterminate .o-ui-checkbox-box {
-    background-color: var(o-ui-alias-foreground-1);
+    background-color: var(o-ui-foreground-alias-1);
 }
 
 /* STATE | CHECKED | CHECKMARK */
@@ -172,25 +172,25 @@
 /* STATE | ACTIVE */
 .o-ui-checkbox:not(.o-ui-checkbox-checked) input[type="checkbox"]:active:not([disabled]) + .o-ui-checkbox-box,
 .o-ui-checkbox:not(.o-ui-checkbox-checked).o-ui-checkbox-active input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-1-active) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-active) inset;
 }
 
 /* STATE | HOVER */
 .o-ui-checkbox:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box,
 .o-ui-checkbox-hover:not(.o-ui-checkbox-disabled) .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-1-hover) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-hover) inset;
 }
 
 /* STATE | HOVER | CHECKED */
 .o-ui-checkbox-checked:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box,
 .o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-hover .o-ui-checkbox-box {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-primary-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-primary-1) inset;
 }
 
 /* STATE | HOVER | CHECKED | BOX */
 .o-ui-checkbox-checked:hover > input[type="checkbox"]:not([disabled]) + .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-hover .o-ui-checkbox-box:before {
-    box-shadow: 0 0 0 1px var(--o-ui-alias-b-primary-1) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-primary-1) inset;
 }
 
 /* STATE | HOVER | CHECKED | FOCUS | BOX */

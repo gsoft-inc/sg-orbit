@@ -10,8 +10,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 .o-ui-menu {
-    background-color: var(--o-ui-alias-bg-1);
-    border: var(--o-ui-menu-border-size) solid var(--o-ui-alias-b-2);
+    background-color: var(--o-ui-bg-alias-1);
+    border: var(--o-ui-menu-border-size) solid var(--o-ui-b-alias-2);
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -76,7 +76,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     height: var(--o-ui-menu-item-checkmark-size);
     mask: url("~@orbit-ui/icons/dist/icon-check-32.svg") center center no-repeat;
     mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
-    background-color: var(--o-ui-alias-bg-primary-1);
+    background-color: var(--o-ui-bg-alias-primary-1);
     position: absolute;
     right: 1rem;
 }
@@ -85,7 +85,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item:focus,
 .o-ui-menu-item-focus {
     outline: none;
-    background-color: var(--o-ui-alias-bg-4-hover);
+    background-color: var(--o-ui-bg-alias-4-hover);
 }
 
 /* OPTION | STATE | FOCUS | WITH SELECTION */
@@ -97,13 +97,13 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     left: 0;
     height: var(--o-ui-menu-item-height);
     width: 2px;
-    background-color: var(--o-ui-alias-b-primary-1);
+    background-color: var(--o-ui-b-alias-primary-1);
 }
 
 /* ITEM | STATE | ACTIVE */
 .o-ui-menu-item:active:not([aria-disabled="true"]),
 .o-ui-menu-item-active:not([aria-disabled="true"]) {
-    background-color: var(--o-ui-alias-bg-4-active);
+    background-color: var(--o-ui-bg-alias-4-active);
 }
 
 /* ITEM | STATE | DISABLED */
@@ -115,28 +115,28 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 /* ITEM | STATE | INVALID */
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-label,
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-description {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-start-icon,
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-end-icon {
-    fill: var(--o-ui-alias-text-negative-1);
+    fill: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
-    background-color: var(--o-ui-alias-text-negative-1);
+    background-color: var(--o-ui-text-alias-negative-1);
 }
 
 /* ITEM | STATE | INVALID | FOCUS | WITH SELECTION */
 .o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item:focus:after,
 .o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item-focus:after {
-    background-color: var(--o-ui-alias-text-negative-1);
+    background-color: var(--o-ui-text-alias-negative-1);
 }
 
 /* ITEM | DESCRIPTION */
 .o-ui-menu-item-description {
     grid-area: description;
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
     justify-self: start;
     width: 100%;
 }
@@ -160,7 +160,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     padding-left: var(--o-ui-space-3);
     height: var(--o-ui-menu-item-height);
     line-height: var(--o-ui-line-heights-1);
-    color: var(--o-ui-alias-text-3);
+    color: var(--o-ui-text-alias-3);
     text-transform: uppercase;
     font-size: var(--o-ui-font-sizes-2);
     align-items: center;

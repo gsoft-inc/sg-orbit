@@ -11,7 +11,7 @@
 
 /* NEUTRAL */
 .o-ui-field-message-neutral {
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
 }
 
 /* VALID */
@@ -21,5 +21,5 @@
 
 /* INVALID */
 .o-ui-field-message-error {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }

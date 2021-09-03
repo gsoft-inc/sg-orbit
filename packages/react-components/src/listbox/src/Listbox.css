@@ -13,11 +13,11 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     width: max-content;
     max-width: 325px;
     overflow-y: auto;
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-box-shadows-alias-lifted);
-    border: var(--o-ui-listbox-border-size) solid var(--o-ui-alias-b-2);
+    border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-2);
 }
 
 /* FLUID */
@@ -53,7 +53,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* OPTION | DESCRIPTION */
 .o-ui-listbox-option-description {
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
     cursor: default;
     white-space: nowrap;
     overflow: hidden;
@@ -70,7 +70,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     height: var(--o-ui-listbox-option-checkmark-size);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
     mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
-    background-color: var(--o-ui-alias-bg-primary-1);
+    background-color: var(--o-ui-bg-alias-primary-1);
     position: absolute;
     right: 1rem;
 }
@@ -84,7 +84,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 .o-ui-listbox-option:focus,
 .o-ui-listbox-option-focus,
 .o-ui-listbox-option.o-ui-focus {
-    background-color: var(--o-ui-alias-bg-4);
+    background-color: var(--o-ui-bg-alias-4);
     outline: none;
 }
 
@@ -98,35 +98,35 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     left: 0;
     height: var(--o-ui-listbox-option-height);
     width: 2px;
-    background-color: var(--o-ui-alias-b-primary-1);
+    background-color: var(--o-ui-b-alias-primary-1);
 }
 
 /* OPTION | STATE | HOVER */
 .o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
 .o-ui-listbox-option-hover:not([aria-disabled="true"]) {
-    background-color: var(--o-ui-alias-bg-4);
+    background-color: var(--o-ui-bg-alias-4);
 }
 
 /* OPTION | STATE | INVALID */
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-label,
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-description {
-    color: var(--o-ui-alias-text-negative-1);
+    color: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-start-icon,
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-end-icon {
-    fill: var(--o-ui-alias-text-negative-1);
+    fill: var(--o-ui-text-alias-negative-1);
 }
 
 .o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"]::before {
-    background-color: var(--o-ui-alias-text-negative-1);
+    background-color: var(--o-ui-text-alias-negative-1);
 }
 
 /* OPTION | STATE | INVALID | FOCUS | SELECTOR BAR */
 .o-ui-listbox-invalid .o-ui-listbox-option:focus:after,
 .o-ui-listbox-invalid .o-ui-listbox-option-focus:after,
 .o-ui-listbox-invalid .o-ui-listbox-option.o-ui-focus:after {
-    background-color: var(--o-ui-alias-text-negative-1);
+    background-color: var(--o-ui-text-alias-negative-1);
 }
 
 /* OPTION | ICONS */
@@ -155,7 +155,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     cursor: default;
     line-height: var(--o-ui-line-heights-1);
     height: var(--o-ui-listbox-option-height);
-    color: var(--o-ui-alias-text-3);
+    color: var(--o-ui-text-alias-3);
     text-transform: uppercase;
     font-size: var(--o-ui-font-sizes-2);
     align-items: center;

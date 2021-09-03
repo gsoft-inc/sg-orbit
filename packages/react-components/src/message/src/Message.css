@@ -39,40 +39,40 @@
 
 /* TONE | INFORMATIVE */
 .o-ui-message-informative {
-    background-color: var(--o-ui-alias-bg-info-1);
-    color: var(--o-ui-alias-text-info-1);
+    background-color: var(--o-ui-bg-alias-info-1);
+    color: var(--o-ui-text-alias-info-1);
 }
 
 .o-ui-message-informative .o-ui-message-icon {
-    fill: var(--o-ui-alias-icon-info-1);
+    fill: var(--o-ui-icon-alias-info-1);
 }
 
 /* TONE | WARNING */
 .o-ui-message-warning {
-    background-color: var(--o-ui-alias-bg-warning-2);
-    color: var(--o-ui-alias-text-warning-2);
+    background-color: var(--o-ui-bg-alias-warning-2);
+    color: var(--o-ui-text-alias-warning-2);
 }
 
 .o-ui-message-warning .o-ui-message-icon {
-    fill: var(--o-ui-alias-icon-warning-2);
+    fill: var(--o-ui-icon-alias-warning-2);
 }
 
 /* TONE | POSITIVE */
 .o-ui-message-positive {
-    background-color: var(--o-ui-alias-bg-positive-2);
-    color: var(--o-ui-alias-text-positive-2);
+    background-color: var(--o-ui-bg-alias-positive-2);
+    color: var(--o-ui-text-alias-positive-2);
 }
 
 .o-ui-message-positive .o-ui-message-icon {
-    fill: var(--o-ui-alias-icon-positive-2);
+    fill: var(--o-ui-icon-alias-positive-2);
 }
 
 /* TONE | NEGATIVE */
 .o-ui-message-negative {
-    background-color: var(--o-ui-alias-bg-negative-2);
-    color: var(--o-ui-alias-text-negative-2);
+    background-color: var(--o-ui-bg-alias-negative-2);
+    color: var(--o-ui-text-alias-negative-2);
 }
 
 .o-ui-message-negative .o-ui-message-icon {
-    fill: var(--o-ui-alias-icon-negative-2);
+    fill: var(--o-ui-icon-alias-negative-2);
 }

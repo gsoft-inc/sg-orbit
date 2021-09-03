@@ -34,7 +34,7 @@
 .docblock-argstable-head tr th {
     font-variation-settings: "wght" 500 !important;
     font-weight: 400;
-    color: var(--o-ui-alias-text-1) !important;
+    color: var(--o-ui-text-alias-1) !important;
 }
 
 /* ARGS TABLE | HEADER | RESET */
@@ -104,7 +104,7 @@
 /* EMPTY BLOCK */
 .docblock-emptyblock {
     color: var(--o-ui-cloud-6) !important;
-    border: 1px dashed var(--o-ui-alias-b-1) !important;
+    border: 1px dashed var(--o-ui-b-alias-1) !important;
 }
 
 .docblock-emptyblock a {
@@ -140,7 +140,7 @@
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6,
 .sbdocs.sbdocs-p  {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* ELEMENTS | HEADER */
@@ -245,11 +245,11 @@
 
 /* ELEMENTS | TABLE */
 .sbdocs.sbdocs-table tr {
-    border-top: 1px solid var(--o-ui-alias-b-1);
+    border-top: 1px solid var(--o-ui-b-alias-1);
 }
 
 .sbdocs.sbdocs-table thead tr {
-    border-top: 1px solid var(--o-ui-alias-b-1);
+    border-top: 1px solid var(--o-ui-b-alias-1);
 }
 
 .sbdocs.sbdocs-table tr th {
@@ -264,7 +264,7 @@
 
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
-    border: 1px solid var(--o-ui-alias-b-1);
+    border: 1px solid var(--o-ui-b-alias-1);
 }
 
 .sbdocs.sbdocs-table b,

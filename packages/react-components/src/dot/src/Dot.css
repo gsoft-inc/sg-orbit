@@ -1,11 +1,11 @@
 .o-ui {
-    --o-ui-dot-color: var(--o-ui-alias-bg-2);
+    --o-ui-dot-color: var(--o-ui-bg-alias-2);
 }
 
 .o-ui-dot {
     display: inline-flex;
     align-items: center;
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 .o-ui-dot:before {
