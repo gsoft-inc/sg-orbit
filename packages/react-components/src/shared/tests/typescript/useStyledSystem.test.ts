@@ -204,14 +204,14 @@ expectAssignable<BackgroundSizeProp>("contain");
 expectAssignable<BorderColorProp>("#fff");
 expectAssignable<BorderColorProp>("white");
 expectAssignable<BorderColorProp>("sunray-1");
-expectAssignable<BorderColorProp>("alias-1");
+expectAssignable<BorderColorProp>("1");
 
 expectAssignable<BorderRadiusProp>(0);
 expectAssignable<BorderRadiusProp>(1);
 expectAssignable<BorderRadiusProp>(2);
 expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
-expectAssignable<BorderRadiusProp>("100");
+expectAssignable<BorderRadiusProp>("100%");
 expectAssignable<BorderRadiusProp>("pill");
 
 expectAssignable<BorderStyleProp>("solid");
@@ -221,7 +221,6 @@ expectAssignable<BorderStyleProp>("double");
 expectAssignable<BorderStyleProp>("none");
 
 expectAssignable<BottomProp>(1);
-expectAssignable<BottomProp>("auto");
 
 expectAssignable<BoxShadowProp>(1);
 expectAssignable<BoxShadowProp>(2);
@@ -360,7 +359,6 @@ expectAssignable<JustifyContentProp>("stretch");
 expectAssignable<JustifyContentProp>("normal");
 
 expectAssignable<LeftProp>(1);
-expectAssignable<LeftProp>("auto");
 
 expectAssignable<LineHeightProp>(1);
 expectAssignable<LineHeightProp>(2);
@@ -432,10 +430,8 @@ expectAssignable<PositionProp>("relative");
 expectAssignable<PositionProp>("sticky");
 
 expectAssignable<RightProp>(1);
-expectAssignable<RightProp>("auto");
 
 expectAssignable<TopProp>(1);
-expectAssignable<TopProp>("auto");
 
 expectAssignable<WidthProp>(1);
 expectAssignable<WidthProp>("100%");
@@ -458,26 +454,26 @@ expectAssignable<StyledSystemProps>({
     alignContent: "center",
     alignItems: "center",
     alignSelf: "center",
-    appearance: "scroll",
+    appearance: "textfield",
     backgroundAttachment: "scroll",
     backgroundClip: "border-box",
     backgroundColor: "sunray-1",
     backgroundPosition: "bottom",
-    backgroundNoRepeat: "no-repeat",
+    backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
     border: "1px solid red",
     borderBottom: "1px solid red",
-    borderBottomWidth: 1,
+    borderBottomWidth: "1px",
     borderColor: "sunray-1",
     borderLeft: "1px solid red",
-    borderLeftWidth: 1,
+    borderLeftWidth: "1px",
     borderRadius: 1,
     borderRight: "1px solid red",
-    borderRightWidth: 1,
+    borderRightWidth: "1px",
     borderStyle: "solid",
     borderTop: "1px solid red",
-    borderTopWidth: 1,
-    borderWidth: 1,
+    borderTopWidth: "1px",
+    borderWidth: "1px",
     bottom: 1,
     boxShadow: 1,
     boxSizing: "border-box",
