@@ -7,41 +7,11 @@ TODO:
 - Breakpoints -> Breakpoint | BreakpointValue | Responsive | ResponsiveValue
 */
 
-/*
-TODO FRANK:
-- Would love to introduce something like border="red" and the resulting atomic css class would also set by default border-width: "1px" & border-style" solid
-    -> Could it introduce some specifity bug if someone also a different border width or style?
-    -> Could also introduce a concept of "shorthands" at the useStyledSystem layer
-    -> Maybe it's easier to finally introduce interpolation and let the user do border="$border-widths-1 solid $sunray-1" <- not as cool as border="sunray-1"
-*/
-
 export type GlobalValue =
     "inherit" |
     "initial" |
     "revert" |
     "unset";
-
-export type LengthType =
-    "px" |
-    "em" |
-    "rem" |
-    "ch" |
-    "vw" |
-    "vh" |
-    "vmin" |
-    "vmax";
-
-export type LengthUnit = `${number}${LengthType}`;
-
-export type LengthShorthand =
-    `${LengthUnit}` |
-    `${LengthUnit} ${LengthUnit}` |
-    `${LengthUnit} ${LengthUnit} ${LengthUnit}` |
-    `${LengthUnit} ${LengthUnit} ${LengthUnit} ${LengthUnit}`;
-
-export type PercentageUnit = `${number}%`;
-
-export type CalcExpression = `calc(${any})`;
 
 const OrbitSpacingScale = [
     1,
@@ -61,6 +31,8 @@ const OrbitSpacingScale = [
 
 export type OrbitSpace = typeof OrbitSpacingScale[number];
 
+export type OrbitSpaceIncludingZero = 0 | OrbitSpace;
+
 function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(section: string, includeZero?: IncludeZero) {
     const classes: Record<number | string, string> = {};
 
@@ -74,48 +46,8 @@ function createOrbitSpacingScaleClasses<IncludeZero extends boolean = false>(sec
         return acc;
     }, classes);
 
-    return classes as Record<IncludeZero extends true ? 0 | OrbitSpace : OrbitSpace, string>;
+    return classes as Record<IncludeZero extends true ? OrbitSpaceIncludingZero : OrbitSpace, string>;
 }
-
-export type SpaceValue = OrbitSpace | LengthUnit | PercentageUnit | CalcExpression | GlobalValue;
-
-export type SpaceValueIncludingZero = 0 | SpaceValue;
-
-export type WidthValue =
-    SpaceValueIncludingZero |
-    "max-content" |
-    "min-content" |
-    "fit-content" |
-    `fit-content(${LengthUnit})` |
-    `fit-content(${PercentageUnit})` |
-    "auto";
-
-export type HeightValue = WidthValue;
-
-const OrbitBorderWidthScale = [
-    1,
-    2,
-    3,
-    4,
-    5
-] as const;
-
-export type OrbitBorderWidth = typeof OrbitBorderWidthScale[number];
-
-export type BorderWidthValue =
-    0 |
-    "1px";
-
-export type ColorExpressionType =
-    "#" |
-    "rgb" |
-    "rgba" |
-    "hsl" |
-    "hsla";
-
-export type ColorExpression = `${ColorExpressionType}${string}`;
-
-export type CssColor = ColorExpression;
 
 export const OrbitColors = [
     "inherit",
@@ -226,10 +158,7 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
-export type OrbitColorAlias = typeof OrbitBorderColorsAliases[number];
-
 function createOrbitColorClasses(section?: string, additionalClasses?: string) {
-    // TODO: Should we scope the color classes with a "-c-" ?
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
@@ -239,7 +168,7 @@ function createOrbitColorClasses(section?: string, additionalClasses?: string) {
     }, {} as Record<OrbitColor, string>);
 }
 
-export type ColorValue = OrbitColor | CssColor | GlobalValue;
+// export type ColorValue = LiteralUnion<OrbitColor, string>;
 
 export const OrbitBorderColorsAliases = [
     "alias-1",
@@ -268,7 +197,7 @@ function createOrbitBorderColorAliasesClasses(section?: string, additionalClasse
         acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
 
         return acc;
-    }, {} as Record<OrbitColorAlias, string>);
+    }, {} as Record<typeof OrbitBorderColorsAliases[number], string>);
 }
 
 export const AlignContentClasses = {
@@ -848,101 +777,101 @@ export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue
 
 export type AppearanceProp = Simplify<keyof typeof AppearanceClasses | GlobalValue>;
 
-export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string> | GlobalValue>;
+export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string>>;
 
 export type BackgroundClipProp = Simplify<keyof typeof BackgroundClipClasses | GlobalValue>;
 
-export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorClasses | ColorValue>;
+export type BackgroundColorProp = Simplify<LiteralUnion<keyof typeof BackgroundColorClasses, string>>;
 
-export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
+export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string>>;
 
-export type BackgroundRepeatProp = Simplify<LiteralUnion<keyof typeof BackgroundRepeatClasses, string> | GlobalValue>;
+export type BackgroundRepeatProp = Simplify<LiteralUnion<keyof typeof BackgroundRepeatClasses, string>>;
 
-export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string> | GlobalValue>;
+export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSizeClasses, string>>;
 
-export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, string> | GlobalValue>;
+export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, string>>;
 
-export type BorderColorProp = Simplify<keyof typeof BorderColorClasses | ColorValue>;
+export type BorderColorProp = Simplify<LiteralUnion<keyof typeof BorderColorClasses, string>>;
 
-export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | GlobalValue>;
+export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
 
 export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
-export type BorderWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type BorderWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
-export type BorderTopWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type BorderTopWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
-export type BorderBottomWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type BorderBottomWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
-export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
-export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
 export type BottomProp = string;
 
-export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
+export type BoxShadowProp = Simplify<LiteralUnion<keyof typeof BoxShadowClasses, string>>;
 
 export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue>;
 
-export type ColorProp = Simplify<keyof typeof ColorRoleClasses | ColorValue>;
+export type ColorProp = Simplify<LiteralUnion<keyof typeof ColorRoleClasses, string>>;
 
-export type ColumnGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
+export type ColumnGapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type CursorProp = Simplify<keyof typeof CursorClasses | ColorValue>;
+export type CursorProp = Simplify<keyof typeof CursorClasses> | GlobalValue;
 
 export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
 
-export type FillProp = Simplify<keyof typeof FillRoleClasses | ColorValue>;
+export type FillProp = Simplify<LiteralUnion<keyof typeof FillRoleClasses, string>>;
 
-export type FlexProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
+export type FlexProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
-export type FlexBasisProp = Simplify<keyof typeof FlexBasisClasses | LengthUnit | PercentageUnit | GlobalValue>;
+export type FlexBasisProp = Simplify<LiteralUnion<keyof typeof FlexBasisClasses, string>>;
 
 export type FlexDirectionProp = Simplify<keyof typeof FlexDirectionClasses | GlobalValue>;
 
-export type FlexGrowProp = Simplify<LiteralUnion<keyof typeof FlexGrowClasses, number> | GlobalValue>;
+export type FlexGrowProp = Simplify<LiteralUnion<keyof typeof FlexGrowClasses, number>>;
 
-export type FlexShrinkProp = Simplify<LiteralUnion<keyof typeof FlexShrinkClasses, number> | GlobalValue>;
+export type FlexShrinkProp = Simplify<LiteralUnion<keyof typeof FlexShrinkClasses, number>>;
 
 export type FlexWrapProp = Simplify<keyof typeof FlexWrapClasses | GlobalValue>;
 
-export type FlexFlowProp = FlexDirectionProp | FlexWrapProp | `${FlexDirectionProp} ${FlexWrapProp}`;
+export type FlexFlowProp = Simplify<FlexDirectionProp | FlexWrapProp | `${FlexDirectionProp} ${FlexWrapProp}`>;
 
-export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string> | GlobalValue>;
+export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string>>;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
-export type GapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
+export type GapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
+export type HeightProp = Simplify<LiteralUnion<keyof typeof HeightClasses, string>>;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
 export type LeftProp = string;
 
-export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
+export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string>>;
 
-export type MarginProp = Simplify<keyof typeof MarginClasses | LengthShorthand | GlobalValue>;
+export type MarginProp = Simplify<LiteralUnion<keyof typeof MarginClasses, string>>;
 
-export type MarginTopProp = Simplify<keyof typeof MarginTopClasses | GlobalValue>;
+export type MarginTopProp = Simplify<LiteralUnion<keyof typeof MarginTopClasses, string>>;
 
-export type MarginBottomProp = Simplify<keyof typeof MarginBottomClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MarginBottomProp = Simplify<LiteralUnion<keyof typeof MarginBottomClasses, string>>;
 
-export type MarginLeftProp = Simplify<keyof typeof MarginLeftClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MarginLeftProp = Simplify<LiteralUnion<keyof typeof MarginLeftClasses, string>>;
 
-export type MarginRightProp = Simplify<keyof typeof MarginRightClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MarginRightProp = Simplify<LiteralUnion<keyof typeof MarginRightClasses, string>>;
 
-export type MarginXProp = Simplify<keyof typeof MarginXClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MarginXProp = Simplify<LiteralUnion<keyof typeof MarginXClasses, string>>;
 
-export type MarginYProp = Simplify<keyof typeof MarginYClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MarginYProp = Simplify<LiteralUnion<keyof typeof MarginYClasses, string>>;
 
-export type MaxHeightProp = Simplify<keyof typeof MaxHeightClasses | HeightValue>;
+export type MaxHeightProp = Simplify<LiteralUnion<keyof typeof MaxHeightClasses, string>>;
 
-export type MaxWidthProp = Simplify<keyof typeof MaxWidthClasses | WidthValue>;
+export type MaxWidthProp = Simplify<LiteralUnion<keyof typeof MaxWidthClasses, string>>;
 
-export type MinHeightProp = Simplify<keyof typeof MinHeightClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MinHeightProp = Simplify<LiteralUnion<keyof typeof MinHeightClasses, string>>;
 
-export type MinWidthProp = Simplify<keyof typeof MinWidthClasses | Omit<SpaceValue, OrbitSpace>>;
+export type MinWidthProp = Simplify<LiteralUnion<keyof typeof MinWidthClasses, string>>;
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
@@ -956,19 +885,19 @@ export type OverflowXProp = Simplify<keyof typeof OverflowXClasses | GlobalValue
 
 export type OverflowYProp = Simplify<keyof typeof OverflowYClasses | GlobalValue>;
 
-export type PaddingProp = Simplify<keyof typeof PaddingClasses | LengthShorthand | GlobalValue>;
+export type PaddingProp = Simplify<LiteralUnion<keyof typeof PaddingClasses, string>>;
 
-export type PaddingTopProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingTopProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type PaddingBottomProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingBottomProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type PaddingLeftProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingLeftProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type PaddingRightProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingRightProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type PaddingXProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingXProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type PaddingYProp = Simplify<SpaceValueIncludingZero>;
+export type PaddingYProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
 export type PointerEventsProp = Simplify<keyof typeof PointerEventsClasses | GlobalValue>;
 
@@ -978,9 +907,9 @@ export type ResizeProp = Simplify<keyof typeof ResizeClasses | GlobalValue>;
 
 export type RightProp = string;
 
-export type RowGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
+export type RowGapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
-export type StrokeProp = Simplify<ColorValue>;
+export type StrokeProp = Simplify<LiteralUnion<OrbitColor, string>>;
 
 export type TextAlignProp = Simplify<keyof typeof TextAlignClasses | GlobalValue>;
 
@@ -998,11 +927,11 @@ export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | Glo
 
 export type WhiteSpaceProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
-export type WidthProp = Simplify<keyof typeof WidthClasses | WidthValue>;
+export type WidthProp = Simplify<LiteralUnion<keyof typeof WidthClasses, string>>;
 
 export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
-export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, number> | GlobalValue>;
+export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, number>>;
 
 export interface StyledSystemProps {
     /**

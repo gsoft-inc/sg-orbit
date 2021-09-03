@@ -1,15 +1,13 @@
-import { TextLink } from "../../../link";
-import { as } from "../../src";
+import { TextLink } from "@react-components/link";
+import { as } from "@react-components/shared";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const RouterLink = forwardRef<HTMLDivElement, { to: string }>((props, ref) => {
-    console.log(props);
-
     return <div ref={ref}></div>;
 });
 
-test("resulting component support ref", async () => {
+test("support ref", async () => {
     const ref = createRef<any>();
     const ButtonLink = as(TextLink, RouterLink);
 

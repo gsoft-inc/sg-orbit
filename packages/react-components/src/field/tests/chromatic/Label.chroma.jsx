@@ -1,5 +1,6 @@
 import { Inline } from "@react-components/layout";
 import { Label } from "@react-components/field";
+import { Span } from "@react-components/html";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -15,7 +16,7 @@ stories()
     )
     .add("complex", () =>
         <Label>
-            <span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</span>
+            <Span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</Span>
         </Label>
     )
     .add("as span", () =>

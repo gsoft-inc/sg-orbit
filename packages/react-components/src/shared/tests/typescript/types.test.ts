@@ -1,5 +1,5 @@
 import { ForwardedRef } from "react";
-import { OmitInternalProps } from "../../src";
+import { OmitInternalProps } from "@react-components/shared";
 import { expectAssignable } from "@typescript/tests";
 
 interface FirstType {

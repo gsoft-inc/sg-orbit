@@ -1,4 +1,4 @@
-import { TupleTypes, mergeProps } from "../../src";
+import { TupleTypes, mergeProps } from "@react-components/shared";
 import { expectAssignable } from "@typescript/tests";
 
 const a1: { a?: string; b?: string } = {};

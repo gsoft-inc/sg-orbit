@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field";
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
@@ -14,7 +15,7 @@ function stories(segment) {
 
 function Align({ children }) {
     return (
-        <Inline alignY="center" gap={0} style={{ whiteSpace: "pre-wrap" }}>
+        <Inline alignY="center" gap={0} whiteSpace="pre-wrap">
             {children}
         </Inline>
     );
@@ -23,7 +24,7 @@ function Align({ children }) {
 stories()
     .add("default", () =>
         <HelpMessage>
-                Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
         </HelpMessage>
     )
     .add("icon", () =>
@@ -36,7 +37,7 @@ stories()
     .add("paragraph", () =>
         <HelpMessage>
             <Paragraph>
-                    If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
+                If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
             </Paragraph>
         </HelpMessage>
     )
@@ -51,11 +52,11 @@ stories()
     )
     .add("wrappers", () =>
         <HelpMessage>
-            <div>
-                <div>
+            <Div>
+                <Div>
                     Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-                </div>
-            </div>
+                </Div>
+            </Div>
         </HelpMessage>
     )
     .add("complex", () =>

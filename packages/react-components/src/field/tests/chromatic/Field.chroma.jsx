@@ -1,6 +1,7 @@
 import { Autocomplete } from "@react-components/autocomplete";
 import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
+import { Div } from "@react-components/html";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { InputGroup } from "@react-components/input-group";
@@ -81,20 +82,20 @@ stories()
     )
     .add("fluid", () =>
         <Stack>
-            <div>
+            <Div>
                 <Field fluid>
                     <Label>Where to?</Label>
                     <TextInput />
                     <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
                 </Field>
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div className="w-10">
                 <Field fluid>
                     <Label>Where to?</Label>
                     <TextInput />
                     <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
                 </Field>
-            </div>
+            </Div>
         </Stack>
     )
     .add("required", () =>
