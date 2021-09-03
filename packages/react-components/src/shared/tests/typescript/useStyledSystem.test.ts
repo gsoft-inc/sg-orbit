@@ -274,7 +274,7 @@ expectAssignable<DisplayProp>("none");
 expectAssignable<FillProp>("#fff");
 expectAssignable<FillProp>("white");
 expectAssignable<FillProp>("sunray-1");
-expectAssignable<FillProp>("alias-icon-1");
+expectAssignable<FillProp>("icon-alias-1");
 
 expectAssignable<FlexProp>("1px");
 expectAssignable<FlexProp>("2 2 10%");

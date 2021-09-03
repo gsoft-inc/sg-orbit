@@ -242,27 +242,27 @@ function createOrbitColorClasses(section?: string, additionalClasses?: string) {
 export type ColorValue = OrbitColor | CssColor | GlobalValue;
 
 export const OrbitBorderColorsAliases = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "info-1",
-    "negative-1",
-    "negative-1-translucent",
-    "negative-2",
-    "positive-1",
-    "positive-2",
-    "primary-1",
-    "primary-1-translucent",
-    "primary-2",
-    "warning-1",
-    "warning-2"
+    "alias-1",
+    "alias-2",
+    "alias-3",
+    "alias-4",
+    "alias-5",
+    "alias-6",
+    "alias-info-1",
+    "alias-negative-1",
+    "alias-negative-1-translucent",
+    "alias-negative-2",
+    "alias-positive-1",
+    "alias-positive-2",
+    "alias-primary-1",
+    "alias-primary-1-translucent",
+    "alias-primary-2",
+    "alias-warning-1",
+    "alias-warning-2"
 ] as const;
 
 function createOrbitBorderColorAliasesClasses(section?: string, additionalClasses?: string) {
-    const template = isNil(section) ? (x: string) => `o-ui-alias-${x}` : (x: string) => `o-ui-alias-${section}-${x}`;
+    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitBorderColorsAliases.reduce((acc, x) => {
         acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
@@ -327,21 +327,21 @@ export const BackgroundClipClasses = {
 } as const;
 
 export const BackgroundColorRoleClasses = {
-    "alias-1": "o-ui-alias-bg-1",
-    "alias-2": "o-ui-alias-bg-2",
-    "alias-3": "o-ui-alias-bg-3",
-    "alias-4": "o-ui-alias-bg-4",
-    "alias-5": "o-ui-alias-bg-5",
-    "alias-6": "o-ui-alias-bg-6",
-    "alias-info-1": "o-ui-alias-bg-info-1",
-    "alias-negative-1": "o-ui-alias-bg-negative-1",
-    "alias-negative-2": "o-ui-alias-bg-negative-2",
-    "alias-positive-1": "o-ui-alias-bg-positive-1",
-    "alias-positive-2": "o-ui-alias-bg-positive-2",
-    "alias-primary-1": "o-ui-alias-bg-primary-1",
-    "alias-primary-2": "o-ui-alias-bg-primary-2",
-    "alias-warning-1": "o-ui-alias-bg-warning-1",
-    "alias-warning-2": "o-ui-alias-bg-warning-2"
+    "alias-1": "o-ui-bg-alias-1",
+    "alias-2": "o-ui-bg-alias-2",
+    "alias-3": "o-ui-bg-alias-3",
+    "alias-4": "o-ui-bg-alias-4",
+    "alias-5": "o-ui-bg-alias-5",
+    "alias-6": "o-ui-bg-alias-6",
+    "alias-info-1": "o-ui-bg-alias-info-1",
+    "alias-negative-1": "o-ui-bg-alias-negative-1",
+    "alias-negative-2": "o-ui-bg-alias-negative-2",
+    "alias-positive-1": "o-ui-bg-alias-positive-1",
+    "alias-positive-2": "o-ui-bg-alias-positive-2",
+    "alias-primary-1": "o-ui-bg-alias-primary-1",
+    "alias-primary-2": "o-ui-bg-alias-primary-2",
+    "alias-warning-1": "o-ui-bg-alias-warning-1",
+    "alias-warning-2": "o-ui-bg-alias-warning-2"
 } as const;
 
 export const BackgroundColorClasses = { ...createOrbitColorClasses("bg"), ...BackgroundColorRoleClasses };
@@ -435,10 +435,10 @@ export const BoxShadowClasses = {
     2: "o-ui-bs-2",
     3: "o-ui-bs-3",
     4: "o-ui-bs-4",
-    "alias-floating": "o-ui-alias-bs-floating",
-    "alias-lifted": "o-ui-alias-bs-lifted",
-    "alias-raised": "o-ui-alias-bs-raised",
-    "alias-skim": "o-ui-alias-bs-skim"
+    "alias-floating": "o-ui-bs-alias-floating",
+    "alias-lifted": "o-ui-bs-alias-lifted",
+    "alias-raised": "o-ui-bs-alias-raised",
+    "alias-skim": "o-ui-bs-alias-skim"
 } as const;
 
 export const BoxSizingClasses = {
@@ -447,20 +447,20 @@ export const BoxSizingClasses = {
 } as const;
 
 export const ColorRoleClasses = {
-    "alias-1": "o-ui-alias-text-1",
-    "alias-2": "o-ui-alias-text-2",
-    "alias-3": "o-ui-alias-text-3",
-    "alias-4": "o-ui-alias-text-4",
-    "alias-info-1": "o-ui-alias-text-info-1",
-    "alias-input-placeholder": "o-ui-alias-text-input-placeholder",
-    "alias-input-selection": "o-ui-alias-text-input-selection",
-    "alias-negative-1": "o-ui-alias-text-negative-1",
-    "alias-negative-2": "o-ui-alias-text-negative-2",
-    "alias-positive-1": "o-ui-alias-text-positive-1",
-    "alias-positive-2": "o-ui-alias-text-positive-2",
-    "alias-primary-1": "o-ui-alias-text-primary-1",
-    "alias-warning-1": "o-ui-alias-text-warning-1",
-    "alias-warning-2": "o-ui-alias-text-warning-2"
+    "alias-1": "o-ui-text-alias-1",
+    "alias-2": "o-ui-text-alias-2",
+    "alias-3": "o-ui-text-alias-3",
+    "alias-4": "o-ui-text-alias-4",
+    "alias-info-1": "o-ui-text-alias-info-1",
+    "alias-input-placeholder": "o-ui-text-alias-input-placeholder",
+    "alias-input-selection": "o-ui-text-alias-input-selection",
+    "alias-negative-1": "o-ui-text-alias-negative-1",
+    "alias-negative-2": "o-ui-text-alias-negative-2",
+    "alias-positive-1": "o-ui-text-alias-positive-1",
+    "alias-positive-2": "o-ui-text-alias-positive-2",
+    "alias-primary-1": "o-ui-text-alias-primary-1",
+    "alias-warning-1": "o-ui-text-alias-warning-1",
+    "alias-warning-2": "o-ui-text-alias-warning-2"
 } as const;
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
@@ -500,16 +500,16 @@ export const DisplayClasses = {
 } as const;
 
 export const FillRoleClasses = {
-    "alias-icon-1": "o-ui-alias-icon-1",
-    "alias-icon-2": "o-ui-alias-icon-2",
-    "alias-icon-info-1": "o-ui-alias-icon-info-1",
-    "alias-icon-negative-1": "o-ui-alias-icon-negative-1",
-    "alias-icon-negative-2": "o-ui-alias-icon-negative-2",
-    "alias-icon-positive-1": "o-ui-alias-icon-positive-1",
-    "alias-icon-positive-2": "o-ui-alias-icon-positive-2",
-    "alias-icon-primary-1": "o-ui-alias-icon-primary-1",
-    "alias-icon-warning-1": "o-ui-alias-icon-warning-1",
-    "alias-icon-warning-2": "o-ui-alias-icon-warning-2"
+    "icon-alias-1": "o-ui-icon-alias-1",
+    "icon-alias-2": "o-ui-icon-alias-2",
+    "icon-alias-info-1": "o-ui-icon-alias-info-1",
+    "icon-alias-negative-1": "o-ui-icon-alias-negative-1",
+    "icon-alias-negative-2": "o-ui-icon-alias-negative-2",
+    "icon-alias-positive-1": "o-ui-icon-alias-positive-1",
+    "icon-alias-positive-2": "o-ui-icon-alias-positive-2",
+    "icon-alias-primary-1": "o-ui-icon-alias-primary-1",
+    "icon-alias-warning-1": "o-ui-icon-alias-warning-1",
+    "icon-alias-warning-2": "o-ui-icon-alias-warning-2"
 } as const;
 
 export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };

@@ -24,7 +24,7 @@ stories()
             <Dot color="#a4b5dd"></Dot>
             <Dot color="rgb(128,0,0)"></Dot>
             <Dot color="rgb(128,0,0,0.5)"></Dot>
-            <Dot color="var(--o-ui-alias-bg-1)"></Dot>
+            <Dot color="var(--o-ui-bg-alias-1)"></Dot>
         </Stack>
     )
     .add("disabled", () =>

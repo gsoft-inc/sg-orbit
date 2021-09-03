@@ -18,7 +18,7 @@ On top of design tokens lives *semantic variables*, these have an assigned meani
 
 Here is an example on how semantic variables work at a core level: 
 
-`--o-ui-alias-text-negative-1` is a semantic variable who uses `--o-ui-beetle-6` when in a *light* theme and `--o-ui-beetle-8` when in a *dark* theme.
+`--o-ui-text-alias-negative-1` is a semantic variable who uses `--o-ui-beetle-6` when in a *light* theme and `--o-ui-beetle-8` when in a *dark* theme.
 
 ### Supported Themes
 
@@ -39,7 +39,7 @@ Here instead of using `color: var(--o-ui-marine-10);` we refer to the defined pr
 ``` css
 // Label.css
 .o-ui-field-label {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
     white-space: nowrap;
 }
 ```
@@ -64,7 +64,7 @@ Sometimes a component needs reusable values through it's UI while not explicitly
 ```css
 // Input.css
 .o-ui {
-    --o-ui-input-border-color: var(--o-ui-alias-b-1);
+    --o-ui-input-border-color: var(--o-ui-b-alias-1);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
 }
 
@@ -145,7 +145,7 @@ Using a semantic token in your CSS
 
 ```css
 .tile {
-   background-color: var(--o-ui-alias-background-negative-1);
+   background-color: var(--o-ui-background-alias-negative-1);
 }
 ```
 
@@ -158,7 +158,7 @@ Using a semantic token as a CSS class
 Directly on a dom element
 
 ```html
-<div style="background-color: var(--o-ui-alias-background-negative-1)">...</div>
+<div style="background-color: var(--o-ui-background-alias-negative-1)">...</div>
 ```
 
 It is not recommended to override these variables, except to circuvment a bug. 

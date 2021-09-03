@@ -28,7 +28,7 @@
     --o-ui-easing-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
     --o-ui-easing-expressive: cubic-bezier(0.58, 0.01, 0.15, 1.5);
     /* DEFAULTS */
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 @media not (prefers-reduced-motion) {

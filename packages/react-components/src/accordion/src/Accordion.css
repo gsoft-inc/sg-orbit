@@ -7,9 +7,9 @@
 
 /* BORDERED */
 .o-ui-accordion-bordered {
-    box-shadow: var(--o-ui-box-shadows-alias-skim);
+    box-shadow: var(--o-ui-alias-box-shadows-skim);
     border-radius: var(--o-ui-space-2);
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
 }
 
 /* HEADER */
@@ -38,7 +38,7 @@
     border: 0;
     transition: background-color var(--o-ui-easing-duration-3) var(--o-ui-easing-focus), border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
     width: 100%;
-    color: var(--o-ui-alias-text-2);
+    color: var(--o-ui-text-alias-2);
     line-height: inherit;
     font-weight: inherit;
     position: relative;
@@ -47,9 +47,9 @@
 
 /* TRIGGER | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-trigger {
-    background-color: var(--o-ui-alias-bg-1);
+    background-color: var(--o-ui-bg-alias-1);
     padding: calc(var(--o-ui-space-4) - 1px) var(--o-ui-space-5) var(--o-ui-space-4) var(--o-ui-space-6);
-    border-top: 1px solid var(--o-ui-alias-b-2);
+    border-top: 1px solid var(--o-ui-b-alias-2);
 }
 
 /* TRIGGER | BORDERED | HOVER */
