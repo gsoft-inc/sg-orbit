@@ -226,6 +226,28 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
+export type OrbitColorAlias = typeof OrbitColorsAliases[number];
+
+export const OrbitColorsAliases = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "info-1",
+    "negative-1",
+    "negative-1-translucent",
+    "negative-2",
+    "positive-1",
+    "positive-2",
+    "primary-1",
+    "primary-1-translucent",
+    "primary-2",
+    "warning-1",
+    "warning-2"
+] as const;
+
 function createOrbitColorClasses(section?: string, additionalClasses?: string) {
     // TODO: Should we scope the color classes with a "-c-" ?
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
@@ -238,6 +260,16 @@ function createOrbitColorClasses(section?: string, additionalClasses?: string) {
 }
 
 export type ColorValue = OrbitColor | CssColor | GlobalValue;
+
+function createOrbitColorAliasesClasses(section?: string, additionalClasses?: string) {
+    const template = isNil(section) ? (x: string) => `o-ui-alias-${x}` : (x: string) => `o-ui-alias-${section}-${x}`;
+
+    return OrbitColorsAliases.reduce((acc, x) => {
+        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
+
+        return acc;
+    }, {} as Record<OrbitColorAlias, string>);
+}
 
 export const AlignContentClasses = {
     "center": "o-ui-ac",
@@ -341,41 +373,14 @@ export const BackgroundSizeClasses = {
     "cover": "o-ui-bgs-cvr"
 } as const;
 
-export const BorderPreClasses = {
-    "none": "o-ui-ba-0"
+export const BorderAdditionalClasses = {
+    "0": "o-ui-ba-n",
+    "none": "o-ui-ba-n"
 } as const;
 
-export const BorderRoleClasses = {
-    "alias-1": "o-ui-alias-b-1 o-ui-ba",
-    "alias-2": "o-ui-alias-b-2 o-ui-ba",
-    "alias-3": "o-ui-alias-b-3 o-ui-ba",
-    "alias-4": "o-ui-alias-b-4 o-ui-ba",
-    "alias-negative-1": "o-ui-alias-b-negative-1 o-ui-ba",
-    "alias-negative-1-translucent": "o-ui-alias-b-negative-1-translucent o-ui-ba",
-    "alias-negative-2": "o-ui-alias-b-negative-2 o-ui-ba",
-    "alias-positive-1": "o-ui-alias-b-positive-1 o-ui-ba",
-    "alias-primary-1": "o-ui-alias-b-primary-1 o-ui-ba",
-    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent o-ui-ba",
-    "alias-warning-1": "o-ui-alias-b-warning-1 o-ui-ba"
-} as const;
+export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
 
-export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...BorderPreClasses, ...BorderRoleClasses };
-
-export const BorderColorRoleClasses = {
-    "alias-1": "o-ui-alias-b-1",
-    "alias-2": "o-ui-alias-b-2",
-    "alias-3": "o-ui-alias-b-3",
-    "alias-4": "o-ui-alias-b-4",
-    "alias-negative-1": "o-ui-alias-b-negative-1",
-    "alias-negative-1-translucent": "o-ui-alias-b-negative-1-translucent",
-    "alias-negative-2": "o-ui-alias-b-negative-2",
-    "alias-positive-1": "o-ui-alias-b-positive-1",
-    "alias-primary-1": "o-ui-alias-b-primary-1",
-    "alias-primary-1-translucent": "o-ui-alias-b-primary-1-translucent",
-    "alias-warning-1": "o-ui-alias-b-warning-1"
-} as const;
-
-export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...BorderColorRoleClasses };
+export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitColorAliasesClasses("b") };
 
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
@@ -396,28 +401,33 @@ export const BorderStyleClasses = {
 } as const;
 
 export const BorderWidthClasses = {
-    0: "o-ui-ba-0",
-    "1px": "o-ui-ba"
+    0: "o-ui-ba-n",
+    "1px": "o-ui-ba",
+    "none": "o-ui-ba-n"
 } as const;
 
 export const BorderTopWidthClasses = {
-    0: "o-ui-bt-0",
-    "1px": "o-ui-bt"
+    0: "o-ui-bt-n",
+    "1px": "o-ui-bt",
+    "none": "o-ui-bt-n"
 } as const;
 
 export const BorderBottomWidthClasses = {
-    0: "o-ui-bb-0",
-    "1px": "o-ui-bb"
+    0: "o-ui-bb-n",
+    "1px": "o-ui-bb",
+    "none": "o-ui-bb-n"
 } as const;
 
 export const BorderLeftWidthClasses = {
-    0: "o-ui-bl-0",
-    "1px": "o-ui-bl"
+    0: "o-ui-bl-n",
+    "1px": "o-ui-bl",
+    "none": "o-ui-bl-n"
 } as const;
 
 export const BorderRightWidthClasses = {
-    0: "o-ui-br-0",
-    "1px": "o-ui-br"
+    0: "o-ui-br-n",
+    "1px": "o-ui-br",
+    "none": "o-ui-br-n"
 } as const;
 
 export const BoxShadowClasses = {
@@ -842,7 +852,7 @@ export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof Backgr
 
 export type BackgroundClipProp = Simplify<keyof typeof BackgroundClipClasses | GlobalValue>;
 
-export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorRoleClasses | ColorValue>;
+export type BackgroundColorProp = Simplify<keyof typeof BackgroundColorClasses | ColorValue>;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string> | GlobalValue>;
 
@@ -852,7 +862,7 @@ export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSi
 
 export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, string> | GlobalValue>;
 
-export type BorderColorProp = Simplify<keyof typeof BorderColorRoleClasses | ColorValue>;
+export type BorderColorProp = Simplify<keyof typeof BorderColorClasses | ColorValue>;
 
 export type BorderRadiusProp = Simplify<keyof typeof BorderRadiusClasses | GlobalValue>;
 

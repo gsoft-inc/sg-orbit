@@ -1,7 +1,6 @@
-import { Div } from "@react-components/html";
+import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
-import { Flex } from "../../../layout";
 import { Text } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
@@ -17,14 +16,14 @@ stories()
         <Divider />
     )
     .add("surrounded", () =>
-        <Div>
+        <Box>
             <Text>Apollo 8 - 1968</Text>
             <Divider />
             <Text>Apollo 11 - 1969</Text>
-        </Div>
+        </Box>
     )
     .add("multiple separators", () =>
-        <Div>
+        <Box>
             <Text>Apollo 8 - 1968</Text>
             <Divider />
             <Text>Apollo 11 - 1969</Text>
@@ -32,65 +31,65 @@ stories()
             <Text>Luna 16 - 1970</Text>
             <Divider />
             <Text>Salyut 1 - 1971</Text>
-        </Div>
+        </Box>
     )
     .add("labelled", () =>
         <Divider>Since 1978</Divider>
     )
     .add("long label", () =>
-        <Divider height="500px">Since 1978 there have been more than 10 space exploration missions.</Divider>
+        <Divider style={{ height: "500px" }}>Since 1978 there have been more than 10 space exploration missions.</Divider>
     )
     .add("labelled + surrounded", () =>
-        <Div>
+        <Box>
             <Text>Apollo 11 - 1969</Text>
             <Divider>Since 1978</Divider>
             <Text>Voyager 1 - 1990</Text>
-        </Div>
+        </Box>
     );
 
 stories("/vertical")
     .add("default", () =>
-        <Div height="500px">
+        <Box style={{ height: "500px" }}>
             <Divider orientation="vertical" />
-        </Div>
+        </Box>
     )
     .add("dot", () =>
-        <Flex>
+        <Box className="flex">
             <Dot>Engines ready</Dot>
             <Divider orientation="vertical" />
             <Text>Falcon 9</Text>
-        </Flex>
+        </Box>
     )
     .add("multiple separators", () =>
-        <Flex>
+        <Box className="flex">
             <Dot>Starlink</Dot>
             <Divider orientation="vertical" />
             <Text>Delivery #9</Text>
             <Divider orientation="vertical" />
             <TextLink href="#">View details</TextLink>
-        </Flex>
+        </Box>
     )
     .add("labelled", () =>
-        <Div height="500px">
+        <Box style={{ height: "500px" }}>
             <Divider orientation="vertical">Since 1978</Divider>
-        </Div>
+        </Box>
     )
     .add("long label", () =>
-        <Div height="500px">
+        <Box style={{ height: "500px" }}>
             <Divider orientation="vertical">Since 1978 there have been more than 10 space exploration missions.</Divider>
-        </Div>
+        </Box>
     )
     .add("labelled + surrounded", () =>
-        <Flex height="500px">
+        <Box className="flex" style={{ height: "500px" }}>
             <Text>Mission goals</Text>
             <Divider orientation="vertical">Since 1978</Divider>
             <Text>Mission post mortem</Text>
-        </Flex>
+        </Box>
     )
     .add("align items", () =>
-        <Flex alignItems="center">
+        <Box className="flex items-center">
             <Text>Mission goals</Text>
             <Divider orientation="vertical" />
             <Text size="sm">Mission post mortem</Text>
-        </Flex>
+        </Box>
     );
