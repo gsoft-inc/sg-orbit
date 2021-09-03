@@ -226,9 +226,22 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
-export type OrbitColorAlias = typeof OrbitColorsAliases[number];
+export type OrbitColorAlias = typeof OrbitBorderColorsAliases[number];
 
-export const OrbitColorsAliases = [
+function createOrbitColorClasses(section?: string, additionalClasses?: string) {
+    // TODO: Should we scope the color classes with a "-c-" ?
+    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
+
+    return OrbitColors.reduce((acc, x) => {
+        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
+
+        return acc;
+    }, {} as Record<OrbitColor, string>);
+}
+
+export type ColorValue = OrbitColor | CssColor | GlobalValue;
+
+export const OrbitBorderColorsAliases = [
     "1",
     "2",
     "3",
@@ -248,23 +261,10 @@ export const OrbitColorsAliases = [
     "warning-2"
 ] as const;
 
-function createOrbitColorClasses(section?: string, additionalClasses?: string) {
-    // TODO: Should we scope the color classes with a "-c-" ?
-    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
-
-    return OrbitColors.reduce((acc, x) => {
-        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
-
-        return acc;
-    }, {} as Record<OrbitColor, string>);
-}
-
-export type ColorValue = OrbitColor | CssColor | GlobalValue;
-
-function createOrbitColorAliasesClasses(section?: string, additionalClasses?: string) {
+function createOrbitBorderColorAliasesClasses(section?: string, additionalClasses?: string) {
     const template = isNil(section) ? (x: string) => `o-ui-alias-${x}` : (x: string) => `o-ui-alias-${section}-${x}`;
 
-    return OrbitColorsAliases.reduce((acc, x) => {
+    return OrbitBorderColorsAliases.reduce((acc, x) => {
         acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
 
         return acc;
@@ -378,9 +378,9 @@ export const BorderAdditionalClasses = {
     "none": "o-ui-ba-n"
 } as const;
 
-export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
+export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
 
-export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitColorAliasesClasses("b") };
+export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b") };
 
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
@@ -878,7 +878,7 @@ export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses
 
 export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string> | GlobalValue>;
 
-export type BottomProp = Simplify<SpaceValue>;
+export type BottomProp = string;
 
 export type BoxShadowProp = Simplify<keyof typeof BoxShadowClasses | GlobalValue>;
 
@@ -918,7 +918,7 @@ export type HeightProp = Simplify<keyof typeof HeightClasses | HeightValue>;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
-export type LeftProp = Simplify<SpaceValue>;
+export type LeftProp = string;
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string> | GlobalValue>;
 
@@ -976,7 +976,7 @@ export type PositionProp = Simplify<keyof typeof PositionClasses | GlobalValue>;
 
 export type ResizeProp = Simplify<keyof typeof ResizeClasses | GlobalValue>;
 
-export type RightProp = Simplify<SpaceValue>;
+export type RightProp = string;
 
 export type RowGapProp = Simplify<LiteralUnion<SpaceValueIncludingZero, string>>;
 
@@ -990,7 +990,7 @@ export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | Globa
 
 export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | GlobalValue>;
 
-export type TopProp = Simplify<SpaceValue>;
+export type TopProp = string;
 
 export type UserSelectProp = Simplify<keyof typeof UserSelectClasses | GlobalValue>;
 
@@ -1370,12 +1370,6 @@ function createClassesHandler<TValue extends string>(classes: Record<TValue, str
     };
 }
 
-function createStyleHandler<TValue>(): PropHandler<TValue> {
-    return (name, value, context) => {
-        context.style[name] = value;
-    };
-}
-
 // TODO: should we introduce some kind of generic shorthandHandler?
 function flexFlowHandler(name: string, value: string, context: Context) {
     const parts = value.split(" ");
@@ -1405,11 +1399,11 @@ function flexFlowHandler(name: string, value: string, context: Context) {
     }
 }
 
+// TODO: extend from CSSProperties?
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createClassesHandler(AlignContentClasses),
     alignItems: createClassesHandler(AlignItemsClasses),
     alignSelf: createClassesHandler(AlignSelfClasses),
-    animation: createStyleHandler<string>(),
     appearance: createClassesHandler(AppearanceClasses),
     backgroundClip: createClassesHandler(BackgroundClipClasses),
     backgroundColor: createClassesHandler(BackgroundColorClasses),
@@ -1423,10 +1417,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     borderRightWidth: createClassesHandler(BorderRightWidthClasses),
     borderTopWidth: createClassesHandler(BorderTopWidthClasses),
     borderWidth: createClassesHandler(BorderWidthClasses),
-    bottom: createStyleHandler<string>(),
     boxShadow: createClassesHandler(BoxShadowClasses),
     boxSizing: createClassesHandler(BoxSizingClasses),
-    clear: createStyleHandler<string>(),
     color: createClassesHandler(ColorClasses),
     columnGap: createClassesHandler(ColumnGapClasses),
     cursor: createClassesHandler(CursorClasses),
@@ -1439,14 +1431,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     flexGrow: createClassesHandler(FlexGrowClasses),
     flexShrink: createClassesHandler(FlexShrinkClasses),
     flexWrap: createClassesHandler(FlexWrapClasses),
-    float: createStyleHandler<string>(),
     fontSize: createClassesHandler(FontSizeClasses),
-    fontStyle: createStyleHandler<string>(),
     fontWeight: createClassesHandler(FontWeightClasses),
     gap: createClassesHandler(GapClasses),
     height: createClassesHandler(HeightClasses),
     justifyContent: createClassesHandler(JustifyContentClasses),
-    left: createStyleHandler<string>(),
     lineHeight: createClassesHandler(LineHeightClasses),
     margin: createClassesHandler(MarginClasses),
     marginBottom: createClassesHandler(MarginBottomClasses),
@@ -1475,17 +1464,12 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     pointerEvents: createClassesHandler(PointerEventsClasses),
     position: createClassesHandler(PositionClasses),
     resize: createClassesHandler(ResizeClasses),
-    right: createStyleHandler<string>(),
     rowGap: createClassesHandler(RowGapClasses),
     stroke: createClassesHandler(StrokeClasses),
-    table: createStyleHandler<string>(),
     textAlign: createClassesHandler(TextAlignClasses),
     textDecoration: createClassesHandler(TextDecorationClasses),
     textOverflow: createClassesHandler(TextOverflowClasses),
     textTransform: createClassesHandler(TextTransformClasses),
-    top: createStyleHandler<string>(),
-    transform: createStyleHandler<string>(),
-    transition: createStyleHandler<string>(),
     userSelect: createClassesHandler(UserSelectClasses),
     verticalAlign: createClassesHandler(VerticalAlignClasses),
     whiteSpace: createClassesHandler(WhiteSpaceClasses),
@@ -1494,33 +1478,296 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     zIndex: createClassesHandler(ZindexClasses)
 };
 
-export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
-    return useMemo(() => {
-        const { className, style, ...rest } = props;
+export function useStyledSystem<TProps extends Record<string, any>>({
+    alignContent,
+    alignItems,
+    alignSelf,
+    appearance,
+    backgroundAttachment,
+    backgroundClip,
+    backgroundColor,
+    backgroundPosition,
+    backgroundRepeat,
+    backgroundSize,
+    border,
+    borderBottom,
+    borderBottomWidth,
+    borderColor,
+    borderLeft,
+    borderLeftWidth,
+    borderRadius,
+    borderRight,
+    borderRightWidth,
+    borderStyle,
+    borderTop,
+    borderTopWidth,
+    borderWidth,
+    bottom,
+    boxShadow,
+    boxSizing,
+    className,
+    color,
+    columnGap,
+    cursor,
+    display,
+    fill,
+    flex,
+    flexBasis,
+    flexDirection,
+    flexFlow,
+    flexGrow,
+    flexShrink,
+    flexWrap,
+    fontSize,
+    fontWeight,
+    gap,
+    height,
+    justifyContent,
+    left,
+    lineHeight,
+    margin,
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+    marginX,
+    marginY,
+    maxHeight,
+    maxWidth,
+    minHeight,
+    minWidth,
+    objectFit,
+    opacity,
+    outline,
+    overflow,
+    overflowX,
+    overflowY,
+    padding,
+    paddingBottom,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    paddingX,
+    paddingY,
+    position,
+    resize,
+    right,
+    rowGap,
+    stroke,
+    style,
+    textAlign,
+    textDecoration,
+    textOverflow,
+    textTransform,
+    top,
+    userSelect,
+    verticalAlign,
+    whiteSpace,
+    width,
+    wordBreak,
+    zIndex,
+    ...rest
+}: TProps) {
+    const styling = useMemo(() => {
+        const styleProps = {
+            alignContent,
+            alignItems,
+            alignSelf,
+            appearance,
+            backgroundAttachment,
+            backgroundClip,
+            backgroundColor,
+            backgroundPosition,
+            backgroundRepeat,
+            backgroundSize,
+            border,
+            borderBottom,
+            borderBottomWidth,
+            borderColor,
+            borderLeft,
+            borderLeftWidth,
+            borderRadius,
+            borderRight,
+            borderRightWidth,
+            borderStyle,
+            borderTop,
+            borderTopWidth,
+            borderWidth,
+            bottom,
+            boxShadow,
+            boxSizing,
+            color,
+            columnGap,
+            cursor,
+            display,
+            fill,
+            flex,
+            flexBasis,
+            flexDirection,
+            flexFlow,
+            flexGrow,
+            flexShrink,
+            flexWrap,
+            fontSize,
+            fontWeight,
+            gap,
+            height,
+            justifyContent,
+            left,
+            lineHeight,
+            margin,
+            marginBottom,
+            marginLeft,
+            marginRight,
+            marginTop,
+            marginX,
+            marginY,
+            maxHeight,
+            maxWidth,
+            minHeight,
+            minWidth,
+            objectFit,
+            opacity,
+            outline,
+            overflow,
+            overflowX,
+            overflowY,
+            padding,
+            paddingBottom,
+            paddingLeft,
+            paddingRight,
+            paddingTop,
+            paddingX,
+            paddingY,
+            position,
+            resize,
+            right,
+            rowGap,
+            stroke,
+            textAlign,
+            textDecoration,
+            textOverflow,
+            textTransform,
+            top,
+            userSelect,
+            verticalAlign,
+            whiteSpace,
+            width,
+            wordBreak,
+            zIndex
+        };
 
         const context: Context = {
             classes: !isNil(className) ? [className] : [],
             style: style ?? {}
         };
 
-        const otherProps: Partial<TProps> = {};
-
-        Object.entries(rest).forEach(([key, value]: Entry<TProps>) => {
+        Object.entries(styleProps).forEach(([key, value]: Entry<TProps>) => {
             if (!isNil(value)) {
                 const handler = PropsHandlers[key];
 
                 if (!isNil(handler)) {
                     handler(key, value, context);
                 } else {
-                    otherProps[key as keyof Partial<TProps>] = value;
+                    context.style[key] = value;
                 }
             }
         });
 
-        return {
-            className: context.classes.join(" "),
-            style: context.style,
-            ...otherProps
-        } as Omit<TProps, keyof StyledSystemProps>;
-    }, [props]);
+        return [context.classes.join(" "), context.style];
+    }, [
+        alignContent,
+        alignItems,
+        alignSelf,
+        appearance,
+        backgroundAttachment,
+        backgroundClip,
+        backgroundColor,
+        backgroundPosition,
+        backgroundRepeat,
+        backgroundSize,
+        border,
+        borderBottom,
+        borderBottomWidth,
+        borderColor,
+        borderLeft,
+        borderLeftWidth,
+        borderRadius,
+        borderRight,
+        borderRightWidth,
+        borderStyle,
+        borderTop,
+        borderTopWidth,
+        borderWidth,
+        bottom,
+        boxShadow,
+        boxSizing,
+        className,
+        color,
+        columnGap,
+        cursor,
+        display,
+        fill,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
+        fontSize,
+        fontWeight,
+        gap,
+        height,
+        justifyContent,
+        left,
+        lineHeight,
+        margin,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+        marginX,
+        marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        opacity,
+        outline,
+        overflow,
+        overflowX,
+        overflowY,
+        padding,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingTop,
+        paddingX,
+        paddingY,
+        position,
+        resize,
+        right,
+        rowGap,
+        stroke,
+        style,
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        userSelect,
+        verticalAlign,
+        whiteSpace,
+        width,
+        wordBreak,
+        zIndex
+    ]);
+
+    return {
+        ...rest,
+        className: styling[0],
+        style: styling[1]
+    } as Omit<TProps, keyof StyledSystemProps>;
 }
