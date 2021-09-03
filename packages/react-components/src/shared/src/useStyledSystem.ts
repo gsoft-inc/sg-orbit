@@ -374,10 +374,11 @@ export const BackgroundSizeClasses = {
 } as const;
 
 export const BorderAdditionalClasses = {
-    "none": "o-ui-ba-0"
+    "0": "o-ui-ba-n",
+    "none": "o-ui-ba-n"
 } as const;
 
-export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba-1"), ...createOrbitColorAliasesClasses("b", "o-ui-ba-1"), ...BorderAdditionalClasses };
+export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
 
 export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitColorAliasesClasses("b") };
 
@@ -400,28 +401,33 @@ export const BorderStyleClasses = {
 } as const;
 
 export const BorderWidthClasses = {
-    0: "o-ui-ba-0",
-    "1px": "o-ui-ba"
+    0: "o-ui-ba-n",
+    "1px": "o-ui-ba",
+    "none": "o-ui-ba-n"
 } as const;
 
 export const BorderTopWidthClasses = {
-    0: "o-ui-bt-0",
-    "1px": "o-ui-bt"
+    0: "o-ui-bt-n",
+    "1px": "o-ui-bt",
+    "none": "o-ui-bt-n"
 } as const;
 
 export const BorderBottomWidthClasses = {
-    0: "o-ui-bb-0",
-    "1px": "o-ui-bb"
+    0: "o-ui-bb-n",
+    "1px": "o-ui-bb",
+    "none": "o-ui-bb-n"
 } as const;
 
 export const BorderLeftWidthClasses = {
-    0: "o-ui-bl-0",
-    "1px": "o-ui-bl"
+    0: "o-ui-bl-n",
+    "1px": "o-ui-bl",
+    "none": "o-ui-bl-n"
 } as const;
 
 export const BorderRightWidthClasses = {
-    0: "o-ui-br-0",
-    "1px": "o-ui-br"
+    0: "o-ui-br-n",
+    "1px": "o-ui-br",
+    "none": "o-ui-br-n"
 } as const;
 
 export const BottomClasses = { ...createOrbitSpacingScaleClasses("bottom", true), "auto": "o-ui-bottom-auto" };

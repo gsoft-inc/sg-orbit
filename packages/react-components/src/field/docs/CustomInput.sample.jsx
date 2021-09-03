@@ -7,7 +7,7 @@ function CustomInput(props) {
             {...fieldProps}
             type="text"
             className={mergeClasses(
-                "o-ui-ba-1 o-ui-w-13",
+                "o-ui-ba o-ui-w-13",
                 validationState === "invalid" && "o-ui-alias-b-negative-1"
             )}
         />
