@@ -226,9 +226,22 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
-export type OrbitColorAlias = typeof OrbitColorsAliases[number];
+export type OrbitColorAlias = typeof OrbitBorderColorsAliases[number];
 
-export const OrbitColorsAliases = [
+function createOrbitColorClasses(section?: string, additionalClasses?: string) {
+    // TODO: Should we scope the color classes with a "-c-" ?
+    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
+
+    return OrbitColors.reduce((acc, x) => {
+        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
+
+        return acc;
+    }, {} as Record<OrbitColor, string>);
+}
+
+export type ColorValue = OrbitColor | CssColor | GlobalValue;
+
+export const OrbitBorderColorsAliases = [
     "1",
     "2",
     "3",
@@ -248,23 +261,10 @@ export const OrbitColorsAliases = [
     "warning-2"
 ] as const;
 
-function createOrbitColorClasses(section?: string, additionalClasses?: string) {
-    // TODO: Should we scope the color classes with a "-c-" ?
-    const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
-
-    return OrbitColors.reduce((acc, x) => {
-        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
-
-        return acc;
-    }, {} as Record<OrbitColor, string>);
-}
-
-export type ColorValue = OrbitColor | CssColor | GlobalValue;
-
-function createOrbitColorAliasesClasses(section?: string, additionalClasses?: string) {
+function createOrbitBorderColorAliasesClasses(section?: string, additionalClasses?: string) {
     const template = isNil(section) ? (x: string) => `o-ui-alias-${x}` : (x: string) => `o-ui-alias-${section}-${x}`;
 
-    return OrbitColorsAliases.reduce((acc, x) => {
+    return OrbitBorderColorsAliases.reduce((acc, x) => {
         acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
 
         return acc;
@@ -378,9 +378,9 @@ export const BorderAdditionalClasses = {
     "none": "o-ui-ba-n"
 } as const;
 
-export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
+export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
 
-export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitColorAliasesClasses("b") };
+export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b") };
 
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
@@ -1399,6 +1399,7 @@ function flexFlowHandler(name: string, value: string, context: Context) {
     }
 }
 
+// TODO: extend from CSSProperties?
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createClassesHandler(AlignContentClasses),
     alignItems: createClassesHandler(AlignItemsClasses),
@@ -1476,37 +1477,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     wordBreak: createClassesHandler(WordBreakClasses),
     zIndex: createClassesHandler(ZindexClasses)
 };
-
-// export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
-//     return useMemo(() => {
-//         const { className, style, ...rest } = props;
-
-//         const context: Context = {
-//             classes: !isNil(className) ? [className] : [],
-//             style: style ?? {}
-//         };
-
-//         const otherProps: Partial<TProps> = {};
-
-//         Object.entries(rest).forEach(([key, value]: Entry<TProps>) => {
-//             if (!isNil(value)) {
-//                 const handler = PropsHandlers[key];
-
-//                 if (!isNil(handler)) {
-//                     handler(key, value, context);
-//                 } else {
-//                     otherProps[key as keyof Partial<TProps>] = value;
-//                 }
-//             }
-//         });
-
-//         return {
-//             className: context.classes.join(" "),
-//             style: context.style,
-//             ...otherProps
-//         } as Omit<TProps, keyof StyledSystemProps>;
-//     }, [props]);
-// }
 
 export function useStyledSystem<TProps extends Record<string, any>>({
     alignContent,
