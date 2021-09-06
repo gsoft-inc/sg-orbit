@@ -4,11 +4,6 @@ import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
-/* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
-// import "@orbit-ui/css-normalize";
-// import "@orbit-ui/foundation";
-/* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
-
 import "@orbit-ui/react-components/dist/index.css";
 import "@orbit-ui/styles/dist/index.css";
 

@@ -1,10 +1,5 @@
 import { OrbitTheme } from "./types";
 
-/*
-POTENTIALLY MISSING:
-- breakpoints
-*/
-
 export const ApricotTheme: OrbitTheme = {
     name: "apricot",
     space: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
@@ -22,10 +17,9 @@ export const ApricotTheme: OrbitTheme = {
         "subheadline": "3.75rem",
         "headline": "5rem"
     },
+    // TODO FRANK: I think it should be hardcoded, what's the point anyway, we have all the values.
     fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
-    // TODO FRANK: How many border widths we realistically need. I do think only need one.
-    borderWidths: [".125rem", ".25rem", ".5rem", "1rem", "2rem"],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
         common: {

@@ -116,7 +116,6 @@ export function createCss(themes: OrbitTheme[]) {
         appendJsonObject(theme.fontSizes, "font-sizes", common);
         appendArray(theme.fontWeights, "font-weights", common);
         appendArray(theme.lineHeights, "line-heights", common);
-        appendArray(theme.borderWidths, "border-widths", common);
         appendArray(theme.borderRadii, "border-radii", common);
         appendColorSchemes(theme.boxShadows, "box-shadows", { common, dark, light });
         appendArray(theme.zIndices, "z-indices", common);

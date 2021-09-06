@@ -1,3 +1,4 @@
+import { CSSProperties } from "markdown-to-jsx/node_modules/@types/react";
 import { Entry, LiteralUnion, Simplify } from "type-fest";
 import { isNil } from "./assertions";
 import { useMemo } from "react";
@@ -13,7 +14,7 @@ export type GlobalValue =
     "revert" |
     "unset";
 
-const OrbitSpacingScale = [
+export const OrbitSpacingScale = [
     1,
     2,
     3,
@@ -168,8 +169,6 @@ function createOrbitColorClasses(section?: string, additionalClasses?: string) {
     }, {} as Record<OrbitColor, string>);
 }
 
-// export type ColorValue = LiteralUnion<OrbitColor, string>;
-
 export const OrbitBorderColorsAliases = [
     "alias-1",
     "alias-2",
@@ -233,13 +232,6 @@ export const AlignSelfClasses = {
     "normal": "o-ui-as-n",
     "start": "o-ui-as-strt",
     "stretch": "o-ui-as-str"
-} as const;
-
-export const AppearanceClasses = {
-    "auto": "o-ui-a-a",
-    "menu-list-button": "o-ui-a-mlb",
-    "none": "o-ui-a-n",
-    "textfield": "o-ui-a-t"
 } as const;
 
 export const BackgroundAttachmentClasses = {
@@ -693,12 +685,6 @@ export const TextAlignClasses = {
     "start": "o-ui-ta-s"
 } as const;
 
-export const TextDecorationClasses = {
-    "no-underline": "o-ui-td-nu",
-    "strike": "o-ui-td-s",
-    "underline": "o-ui-td-u"
-} as const;
-
 export const TextOverflowClasses = {
     "clip": "o-ui-to-clip",
     "ellipsis": "o-ui-to-ellipsis"
@@ -709,14 +695,6 @@ export const TextTransformClasses = {
     "lowercase": "o-ui-tt-l",
     "none": "o-ui-tt-n",
     "uppercase": "o-ui-tt-u"
-} as const;
-
-export const UserSelectClasses = {
-    "all": "o-ui-us-all",
-    "auto": "o-ui-us-a",
-    "contain": "o-ui-us-c",
-    "none": "o-ui-us-n",
-    "tenxt": "o-ui-us-t"
 } as const;
 
 export const VerticalAlignClasses = {
@@ -775,7 +753,7 @@ export type AlignItemsProp = Simplify<keyof typeof AlignItemsClasses | GlobalVal
 
 export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue>;
 
-export type AppearanceProp = Simplify<keyof typeof AppearanceClasses | GlobalValue>;
+export type AppearanceProp = string;
 
 export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string>>;
 
@@ -877,6 +855,8 @@ export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue
 
 export type OpacityProp = Simplify<keyof typeof OpacityClasses | GlobalValue>;
 
+export type OrderProp = Simplify<number | GlobalValue>;
+
 export type OutlineProp = Simplify<keyof typeof OutlineClasses | GlobalValue>;
 
 export type OverflowProp = Simplify<keyof typeof OverflowClasses | GlobalValue>;
@@ -913,7 +893,7 @@ export type StrokeProp = Simplify<LiteralUnion<OrbitColor, string>>;
 
 export type TextAlignProp = Simplify<keyof typeof TextAlignClasses | GlobalValue>;
 
-export type TextDecorationProp = Simplify<keyof typeof TextDecorationClasses | GlobalValue>;
+export type TextDecorationProp = string;
 
 export type TextOverflowProp = Simplify<keyof typeof TextOverflowClasses | GlobalValue>;
 
@@ -921,7 +901,7 @@ export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | Glo
 
 export type TopProp = string;
 
-export type UserSelectProp = Simplify<keyof typeof UserSelectClasses | GlobalValue>;
+export type UserSelectProp = string;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
@@ -1169,6 +1149,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    order?: OrderProp;
+    /**
+     * @ignore
+     */
     outline?: OutlineProp;
     /**
      * @ignore
@@ -1280,27 +1264,51 @@ export interface StyledSystemProps {
     zIndex?: ZindexProp;
 }
 
-interface Context {
-    classes: string[];
-    style: Record<string, any>;
+class StylingContext {
+    private classes: string[];
+    private style: Record<string, any>;
+
+    constructor(className?: string, style?: CSSProperties) {
+        this.classes = !isNil(className) ? [className] : [];
+        this.style = style ?? {};
+    }
+
+    addClass(className: string) {
+        if (!this.classes.includes(className)) {
+            this.classes.push(className);
+        }
+    }
+
+    addStyleValue(name: string, value: any) {
+        if (isNil(this.style[name])) {
+            this.style[name] = value;
+        }
+    }
+
+    computeStyling() {
+        const className = this.classes.length !== 0 ? this.classes.join(" ") : undefined;
+        const style = Object.keys(this.style).length !== 0 ? this.style : undefined;
+
+        return { className, style };
+    }
 }
 
-type PropHandler<TValue> = (name: string, value: TValue, context: Context) => void;
+type PropHandler<TValue> = (name: string, value: TValue, context: StylingContext) => void;
 
 function createClassesHandler<TValue extends string>(classes: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
         const className = classes[value as keyof typeof classes];
 
         if (!isNil(className)) {
-            context.classes.push(className);
+            context.addClass(className);
         } else {
-            context.style[name] = value;
+            context.addStyleValue(name, value);
         }
     };
 }
 
 // TODO: should we introduce some kind of generic shorthandHandler?
-function flexFlowHandler(name: string, value: string, context: Context) {
+function flexFlowHandler(name: string, value: string, context: StylingContext) {
     const parts = value.split(" ");
 
     if (parts.length === 2) {
@@ -1308,10 +1316,10 @@ function flexFlowHandler(name: string, value: string, context: Context) {
         const wrap = FlexWrapClasses[parts[1] as keyof typeof FlexWrapClasses];
 
         if (!isNil(direction) && !isNil(wrap)) {
-            context.classes.push(direction);
-            context.classes.push(wrap);
+            context.addClass(direction);
+            context.addClass(wrap);
         } else {
-            context.style[name] = value;
+            context.addStyleValue(name, value);
         }
     } else {
         let className: any = FlexDirectionClasses[value as keyof typeof FlexDirectionClasses];
@@ -1321,19 +1329,18 @@ function flexFlowHandler(name: string, value: string, context: Context) {
         }
 
         if (!isNil(className)) {
-            context.classes.push(className);
+            context.addClass(className);
         } else {
-            context.style[name] = value;
+            context.addStyleValue(name, value);
         }
     }
 }
 
-// TODO: extend from CSSProperties?
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createClassesHandler(AlignContentClasses),
     alignItems: createClassesHandler(AlignItemsClasses),
     alignSelf: createClassesHandler(AlignSelfClasses),
-    appearance: createClassesHandler(AppearanceClasses),
+    backgroundAttachment: createClassesHandler(BackgroundAttachmentClasses),
     backgroundClip: createClassesHandler(BackgroundClipClasses),
     backgroundColor: createClassesHandler(BackgroundColorClasses),
     backgroundPosition: createClassesHandler(BackgroundPositionClasses),
@@ -1396,10 +1403,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     rowGap: createClassesHandler(RowGapClasses),
     stroke: createClassesHandler(StrokeClasses),
     textAlign: createClassesHandler(TextAlignClasses),
-    textDecoration: createClassesHandler(TextDecorationClasses),
     textOverflow: createClassesHandler(TextOverflowClasses),
     textTransform: createClassesHandler(TextTransformClasses),
-    userSelect: createClassesHandler(UserSelectClasses),
     verticalAlign: createClassesHandler(VerticalAlignClasses),
     whiteSpace: createClassesHandler(WhiteSpaceClasses),
     width: createClassesHandler(WidthClasses),
@@ -1467,6 +1472,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     minWidth,
     objectFit,
     opacity,
+    order,
     outline,
     overflow,
     overflowX,
@@ -1498,7 +1504,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     ...rest
 }: TProps) {
     const styling = useMemo(() => {
-        const styleProps = {
+        const styleProps: StyledSystemProps = {
             alignContent,
             alignItems,
             alignSelf,
@@ -1557,6 +1563,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             minWidth,
             objectFit,
             opacity,
+            order,
             outline,
             overflow,
             overflowX,
@@ -1586,10 +1593,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             zIndex
         };
 
-        const context: Context = {
-            classes: !isNil(className) ? [className] : [],
-            style: style ?? {}
-        };
+        const context = new StylingContext(className, style);
 
         Object.entries(styleProps).forEach(([key, value]: Entry<TProps>) => {
             if (!isNil(value)) {
@@ -1598,17 +1602,17 @@ export function useStyledSystem<TProps extends Record<string, any>>({
                 if (!isNil(handler)) {
                     handler(key, value, context);
                 } else {
-                    context.style[key] = value;
+                    context.addStyleValue(key, value);
                 }
             }
         });
 
-        return [context.classes.join(" "), context.style];
+        return context.computeStyling();
     }, [
+        appearance,
         alignContent,
         alignItems,
         alignSelf,
-        appearance,
         backgroundAttachment,
         backgroundClip,
         backgroundColor,
@@ -1664,6 +1668,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         minWidth,
         objectFit,
         opacity,
+        order,
         outline,
         overflow,
         overflowX,
@@ -1696,7 +1701,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
 
     return {
         ...rest,
-        className: styling[0],
-        style: styling[1]
+        className: styling.className,
+        style: styling.style
     } as Omit<TProps, keyof StyledSystemProps>;
 }

@@ -46,12 +46,15 @@ import {
     MinHeightProp,
     MinWidthProp,
     OpacityProp,
+    OrderProp,
     OutlineProp,
     OverflowProp,
     PositionProp,
     RightProp,
     StyledSystemProps,
+    TextDecorationProp,
     TopProp,
+    UserSelectProp,
     WidthProp,
     ZindexProp
 } from "@react-components/shared";
@@ -91,10 +94,10 @@ expectAssignable<AlignSelfProp>("baseline");
 expectAssignable<AlignSelfProp>("stretch");
 expectAssignable<AlignSelfProp>("normal");
 
-expectAssignable<AppearanceProp>("auto");
 expectAssignable<AppearanceProp>("none");
-expectAssignable<AppearanceProp>("menu-list-button");
+expectAssignable<AppearanceProp>("auto");
 expectAssignable<AppearanceProp>("textfield");
+expectAssignable<AppearanceProp>("checkbox");
 
 expectAssignable<BackgroundAttachmentProp>("scroll");
 expectAssignable<BackgroundAttachmentProp>("fixed");
@@ -360,6 +363,9 @@ expectAssignable<OpacityProp>("disabled");
 expectAssignable<OpacityProp>("not-visible");
 expectAssignable<OpacityProp>("visible");
 
+expectAssignable<OrderProp>(1);
+expectAssignable<OrderProp>("inherit");
+
 expectAssignable<OutlineProp>("none");
 
 expectAssignable<OverflowProp>("auto");
@@ -377,8 +383,18 @@ expectAssignable<PositionProp>("sticky");
 expectAssignable<RightProp>("1px");
 expectAssignable<RightProp>("auto");
 
+expectAssignable<TextDecorationProp>("underline");
+expectAssignable<TextDecorationProp>("underline dotted");
+expectAssignable<TextDecorationProp>("underline overline #FF3028");
+
 expectAssignable<TopProp>("1px");
 expectAssignable<TopProp>("auto");
+
+expectAssignable<UserSelectProp>("none");
+expectAssignable<UserSelectProp>("auto");
+expectAssignable<UserSelectProp>("text");
+expectAssignable<UserSelectProp>("contain");
+expectAssignable<UserSelectProp>("all");
 
 expectAssignable<WidthProp>(1);
 expectAssignable<WidthProp>("1px");
@@ -456,8 +472,7 @@ expectAssignable<StyledSystemProps>({
     minHeight: 1,
     minWidth: 1,
     opacity: "visible",
-    // Put back once style props inherits CSSProperties
-    // order: 1,
+    order: 1,
     outline: "none",
     overflow: "clip",
     padding: 1,
@@ -470,7 +485,9 @@ expectAssignable<StyledSystemProps>({
     position: "absolute",
     right: "1px",
     stroke: "sunray-1",
+    textDecoration: "underline",
     top: "1px",
+    userSelect: "none",
     width: 1,
     zIndex: 1
 });
