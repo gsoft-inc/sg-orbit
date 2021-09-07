@@ -116,8 +116,8 @@ export function InnerToolbar({
                     gap,
                     ref: containerRef,
                     role: "toolbar",
-                    wrap: wrap ? "wrap" : undefined
-                } as const,
+                    wrap: wrap ? "wrap" as const : undefined
+                },
                 alignProps,
                 arrowNavigationProps
             )}

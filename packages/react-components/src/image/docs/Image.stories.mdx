@@ -39,11 +39,11 @@ An image can use a different shape.
 
 ### Size
 
-An image can adjust it's size by using the `size` prop or the native `width` and `height` props.
+An image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ GalaxyImageLg }}>
     <Story name="size">
-        <Image size="200px" src={GalaxyImageLg} alt="Galaxy" />
+        <Image width="200px" height="200px" src={GalaxyImageLg} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -57,7 +57,7 @@ _Avoid serving images that are unecessary big, images should be resized to the i
 
 <Preview scope={{ GalaxyImage, GalaxyImage2x }}>
     <Story name="retina">
-        <Image size="100px" srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
+        <Image width="100px" height="100px" srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -73,7 +73,7 @@ For some use cases, like dark mode support, an SVG image is a better fit than a 
 
 ### Size
 
-An SVG image can adjust it's size by using the `size` prop or the native `width` and `height` props.
+An SVG image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ NoResults }}>
     <Story name="svg image size">

@@ -6,8 +6,8 @@ import { Dialog } from "../../dialog";
 import {
     InternalProps,
     OmitInternalProps,
-    StyledComponentProps,
     StyleProvider,
+    StyledComponentProps,
     augmentElement,
     getSlotKey,
     isNil,
@@ -129,14 +129,14 @@ export function InnerModal({
 
     const size = useMemo(() => {
         if (!isNil(image) || !isNil(illustration)) {
-            return "md";
+            return "md" as const;
         }
 
         if (hasCards) {
-            return "lg";
+            return "lg" as const;
         }
 
-        return fullscreen ? "fullscreen" : "sm" as const;
+        return fullscreen ? "fullscreen" as const : "sm" as const;
     }, [fullscreen, image, illustration, hasCards]);
 
     return (
@@ -149,7 +149,7 @@ export function InnerModal({
                     ref: forwardedRef,
                     size,
                     zIndex
-                } as const
+                }
             )}
         >
             {image}

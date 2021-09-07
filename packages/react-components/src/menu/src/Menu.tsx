@@ -306,7 +306,7 @@ export function InnerMenu({
                     onKeyDown: handleKeyDown,
                     ref: containerRef,
                     role: "menu"
-                } as const,
+                },
                 scrollableProps
             )}
         >

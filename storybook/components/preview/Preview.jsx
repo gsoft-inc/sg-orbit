@@ -1,11 +1,13 @@
 import "./Preview.css";
 
+import { Box } from "@react-components/box";
 import { CodeTheme, useFormattedCode } from "@stories/components";
+import { Div, Span } from "@react-components/html";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
 import { applyHooks, defaultDecorateStory } from "@storybook/client-api";
-import { isNil } from "@react-components/shared";
+import { as, isNil } from "@react-components/shared";
 import { object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
 import { useContext, useState } from "react";
@@ -15,6 +17,8 @@ const propTypes = {
     language: string,
     scope: object
 };
+
+const StyledJarlePreview = as(Box, JarlePreview);
 
 function CodeEditor({
     code,
@@ -26,7 +30,7 @@ function CodeEditor({
     const formattedCoded = useFormattedCode(code, language);
 
     return (
-        <div className="o-ui-sb-preview sbdocs sbdocs-preview">
+        <Div className="o-ui-sb-preview sbdocs sbdocs-preview">
             <JarleProvider
                 code={formattedCoded}
                 language={language}
@@ -38,16 +42,16 @@ function CodeEditor({
                 showImports={false}
                 {...rest}
             >
-                <div className="o-ui-sb-preview-story docs-story">
+                <Div className="o-ui-sb-preview-story docs-story">
                     {children}
-                </div>
-                <div className="o-ui-sb-preview-source">
-                    <span className="o-ui-sb-preview-editable-label">Editable example</span>
+                </Div>
+                <Div className="o-ui-sb-preview-source">
+                    <Span className="o-ui-sb-preview-editable-label">Editable example</Span>
                     <JarleEditor className="o-ui-sb-preview-editor" />
                     <JarleError className="o-ui-sb-preview-error" />
-                </div>
+                </Div>
             </JarleProvider>
-        </div>
+        </Div>
     );
 }
 
@@ -62,8 +66,8 @@ function DecoratedLivePreview({ ...rest }) {
     const decorateStory = applyHooks(defaultDecorateStory);
 
     return decorators
-        ? decorateStory(() => <JarlePreview {...rest} />, decorators)(docsContext)
-        : <JarlePreview {...rest} />;
+        ? decorateStory(() => <StyledJarlePreview {...rest} />, decorators)(docsContext)
+        : <StyledJarlePreview {...rest} />;
 }
 
 function FilePreview({ filePath, language, scope, noInline, ...rest }) {
@@ -130,9 +134,9 @@ function StoryPreview({ language, scope, noInline, children, ...rest }) {
             scope={scope}
             noInline={noInline}
         >
-            <div id={storyBlockIdFromId(storyId)}>
+            <Div id={storyBlockIdFromId(storyId)}>
                 <DecoratedLivePreview {...rest} />
-            </div>
+            </Div>
         </CodeEditor>
     );
 }

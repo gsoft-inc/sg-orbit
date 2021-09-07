@@ -13,7 +13,7 @@ const DefaultElement = "div";
 
 export interface InnerTabsProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
-     * Tabs title for screen readers.
+     * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
     /**

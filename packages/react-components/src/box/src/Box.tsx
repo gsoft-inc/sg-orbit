@@ -12,11 +12,11 @@ export interface InnerBoxProps extends SlotProps, InternalProps, StyledHtmlAttri
 
 export function InnerBox(props: InnerBoxProps) {
     const {
-        className,
-        style,
         as: As = DefaultElement,
         children,
+        className,
         forwardedRef,
+        style,
         ...rest
     } = omitProps(useStyledSystem(props), ["slot"]);
 

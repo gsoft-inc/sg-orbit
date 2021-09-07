@@ -30,6 +30,5 @@ stories()
             <Icons />
             <Icons size="lg" />
         </Stack>
-
     );
 

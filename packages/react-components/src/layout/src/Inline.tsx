@@ -6,6 +6,7 @@ import { FlexAlignment, useFlexAlignment } from "./adapters";
 const DefaultElement = "div";
 
 export interface InnerInlineProps extends
+    // So it could be used with dynamic slots.
     SlotProps,
     InternalProps,
     Omit<StyledComponentProps<typeof DefaultElement>,
@@ -72,8 +73,6 @@ export function InnerInline({
     forwardedRef,
     ...rest
 }: InnerInlineProps) {
-
-
     const alignProps = useFlexAlignment({ alignX, alignY, orientation: "horizontal" });
 
     return (

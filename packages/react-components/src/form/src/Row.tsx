@@ -1,9 +1,11 @@
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Inline } from "../../layout";
-import { InternalProps, OmitInternalProps, augmentElement, mergeProps, omitProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
 
-export interface InnerRowProps extends InternalProps {
+const DefaultElement = "div";
+
+export interface InnerRowProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -18,6 +20,7 @@ export function InnerRow(props: InnerRowProps) {
     const [formProps] = useFormContext();
 
     const {
+        as = DefaultElement,
         children,
         fluid,
         forwardedRef,
@@ -33,10 +36,11 @@ export function InnerRow(props: InnerRowProps) {
                 rest,
                 {
                     align: "start",
+                    as,
                     fluid,
-                    gap: 4,
+                    gap: 4 as const,
                     ref: forwardedRef
-                } as const
+                }
             )}
         >
             {Children.toArray(children).filter(x => x).map((x: ReactElement) => {

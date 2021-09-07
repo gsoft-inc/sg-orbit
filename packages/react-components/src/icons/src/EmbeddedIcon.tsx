@@ -1,11 +1,12 @@
 import { Children, ReactElement, ReactNode, SVGProps } from "react";
-import { augmentElement, createSizeAdapter } from "../../shared";
+import { IconSize } from "./Icon";
+import { InternalProps, SlotProps, StyledSystemProps, augmentElement, createSizeAdapter } from "../../shared";
 
-export interface EmbeddedIconProps extends SVGProps<SVGSVGElement> {
-    /**
-     * Allow any extra props
-     */
-    [key: string]: any;
+export interface EmbeddedIconProps extends
+    StyledSystemProps,
+    SlotProps,
+    InternalProps,
+    Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
     /**
      * React children.
      */
@@ -13,7 +14,7 @@ export interface EmbeddedIconProps extends SVGProps<SVGSVGElement> {
     /**
      * An icon can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    size?: IconSize;
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */

@@ -800,6 +800,10 @@ export type GapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
 export type HeightProp = Simplify<LiteralUnion<keyof typeof HeightClasses, string>>;
 
+export type ImageOrientationProp = string;
+
+export type ImageRenderingProp = string;
+
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
 export type LeftProp = string;
@@ -1034,6 +1038,14 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    imageOrientation?: ImageOrientationProp;
+    /**
+     * @ignore
+     */
+    imageRendering?: ImageRenderingProp;
+    /**
+     * @ignore
+     */
     justifyContent?: JustifyContentProp;
     /**
      * @ignore
@@ -1236,9 +1248,9 @@ class StylingContext {
 
     computeStyling() {
         const className = this.classes.length !== 0 ? this.classes.join(" ") : undefined;
-        const style = Object.keys(this.style).length !== 0 ? this.style : undefined;
+        const styleValue = Object.keys(this.style).length !== 0 ? this.style : undefined;
 
-        return { className, style };
+        return { className, style: styleValue };
     }
 }
 
@@ -1396,6 +1408,8 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     fontWeight,
     gap,
     height,
+    imageOrientation,
+    imageRendering,
     justifyContent,
     left,
     lineHeight,
@@ -1480,6 +1494,8 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             fontWeight,
             gap,
             height,
+            imageOrientation,
+            imageRendering,
             justifyContent,
             left,
             lineHeight,
@@ -1578,6 +1594,8 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         fontWeight,
         gap,
         height,
+        imageOrientation,
+        imageRendering,
         justifyContent,
         left,
         lineHeight,

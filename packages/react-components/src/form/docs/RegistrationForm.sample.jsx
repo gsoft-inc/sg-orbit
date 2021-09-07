@@ -18,6 +18,7 @@
         onSubmit: (values, actions) => {
             setTimeout(() => {
                 console.log(JSON.stringify(values, null, 2));
+
                 actions.setSubmitting(false);
                 actions.resetForm();
             }, 10000);

@@ -41,9 +41,9 @@ An illustration can render horizontally.
 
 An illustration can render vertically.
 
-<Preview scope={{ Planet }} style={{ height: "500px" }}>
+<Preview scope={{ Planet }} height="500px">
     <Story name="vertical">
-        <Illustration orientation="vertical" color="#998BAF" style={{ width: "225px", padding: "24px" }}>
+        <Illustration orientation="vertical" color="#998BAF" width="225px" padding="24px">
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
@@ -55,7 +55,7 @@ An illustration can have a `rounded` shape.
 
 <Preview scope={{ Planet }}>
     <Story name="shape">
-        <Illustration shape="rounded" color="#998BAF" style={{ height: "225px", padding: "24px" }}>
+        <Illustration shape="rounded" color="#998BAF" width="225px" padding="24px">
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
@@ -67,7 +67,7 @@ An illustration backgroud color can be a name from our foundations (e.g. `sunray
 
 <Preview scope={{ NoResults }}>
     <Story name="color">
-        <Illustration color="background-alias-info-1" style={{ height: "300px" }}>
+        <Illustration color="background-alias-info-1" height="300px">
             <SvgImage src={NoResults} stroke="icon-alias-1" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>

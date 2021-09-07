@@ -1,6 +1,7 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
+import { Div } from "@react-components/html";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Form, Row } from "@react-components/form";
 import { Inline } from "@react-components/layout";
@@ -107,19 +108,19 @@ stories()
                 <Label>FullName</Label>
                 <TextInput />
             </Field>
-            <div>
+            <Div>
                 <Field>
                     <Label>Departure date</Label>
                     <DateInput placeholder="dd/mm/yyyy" />
                 </Field>
-                <div>
+                <Div>
                     <Field>
                         <Label>Where to?</Label>
                         <TextArea />
                         <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                     </Field>
-                </div>
-            </div>
+                </Div>
+            </Div>
             <Button>Submit</Button>
         </Form>
     )
@@ -255,15 +256,15 @@ stories("/inline")
                 </Field>
             </Row>
             <Row>
-                <Field className="w-50">
+                <Field width="50%">
                     <Label>City</Label>
                     <TextInput />
                 </Field>
-                <Field className="w-25">
+                <Field width="25%">
                     <Label>State</Label>
                     <TextInput />
                 </Field>
-                <Field className="w-25">
+                <Field width="25%">
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
@@ -278,7 +279,7 @@ stories("/inline")
         </Form>
     )
     .add("fluid with fix width container", () =>
-        <div style={{ width: "700px" }}>
+        <Div width="700px">
             <Form fluid>
                 <Row>
                     <Field>
@@ -295,15 +296,15 @@ stories("/inline")
                     </Field>
                 </Row>
                 <Row>
-                    <Field className="w-50">
+                    <Field width="50%">
                         <Label>City</Label>
                         <TextInput />
                     </Field>
-                    <Field className="w-25">
+                    <Field width="25%">
                         <Label>State</Label>
                         <TextInput />
                     </Field>
-                    <Field className="w-25">
+                    <Field width="25%">
                         <Label>Zip</Label>
                         <TextInput />
                     </Field>
@@ -316,7 +317,7 @@ stories("/inline")
                     <Button type="submit">Submit</Button>
                 </ButtonGroup>
             </Form>
-        </div>
+        </Div>
     )
     .add("messages", () =>
         <Form>

@@ -157,12 +157,12 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     onKeyDown: handleKeyDown,
                     ref: inputRef,
                     spellCheck: "false",
-                    type: "search",
+                    type: "search" as const,
                     value: inputValue,
                     wrapperProps: mergeProps(wrapperProps ?? {}, {
                         className: "o-ui-search-input"
                     })
-                } as const
+                }
             )}
         />
     );

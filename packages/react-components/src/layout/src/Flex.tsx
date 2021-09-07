@@ -10,6 +10,7 @@ import {
     JustifyContentProp,
     OmitInternalProps,
     RowGapProp,
+    SlotProps,
     StyledComponentProps,
     isNil,
     mergeProps
@@ -25,6 +26,8 @@ export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "f
 export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
+    // So it could be used with dynamic slots.
+    SlotProps,
     InternalProps,
     Omit<StyledComponentProps<typeof DefaultElement>,
     "alignContent"
@@ -116,14 +119,14 @@ export function InnerFlex({
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                     alignItems: (alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
                     as: asProp,
-                    display: inline ? "inline-flex" : "flex",
+                    display: inline ? "inline-flex" as const : "flex" as const,
                     flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     flexWrap: wrap,
                     height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
                     justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
                     ref: forwardedRef,
                     width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
-                } as const
+                }
             )}
         >
             {children}

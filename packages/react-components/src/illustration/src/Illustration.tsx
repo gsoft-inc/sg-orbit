@@ -2,7 +2,7 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -43,12 +43,12 @@ function useColor(color: string) {
 }
 
 export function InnerIllustration({
-    orientation = "horizontal",
-    shape = "straight",
-    color,
     as = DefaultElement,
     children,
+    color,
     forwardedRef,
+    orientation = "horizontal",
+    shape = "straight",
     ...rest
 }: InnerIllustrationProps) {
     const { content, heading, image } = useSlots(children, useMemo(() => ({

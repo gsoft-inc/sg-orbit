@@ -1,79 +1,54 @@
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, forwardRef, useCallback, useMemo } from "react";
-import { HeightProp, OmitInternalProps, SlotProps, WidthProp, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
+import { ComponentProps, ElementType, SVGProps, forwardRef, useCallback } from "react";
+import {
+    FillProp,
+    HeightProp,
+    InternalProps,
+    OmitInternalProps,
+    SlotProps,
+    StrokeProp,
+    StyledSystemProps,
+    WidthProp,
+    isNil,
+    mergeProps,
+    slot,
+    useMergedRefs
+} from "../../shared";
 
-export interface InnerSvgImageProps extends SlotProps {
+export interface InnerSvgImageProps extends
+    StyledSystemProps,
+    SlotProps,
+    Omit<InternalProps, "as">,
+    Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
     /**
-     * @ignore
-     */
-    "aria-describedby"?: string;
-    /**
-     * @ignore
-     */
-    "aria-details"?: string;
-    /**
-     * Defines a string value that labels the current element.
+     * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
     /**
-     * @ignore
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill).
      */
-    "aria-labelledby"?: string;
+    fill?: FillProp;
     /**
-     * The SVG fill attribute.
-     */
-    fill?: string;
-    /**
-    * @ignore
+    * The image height.
     */
-    forwardedRef: ForwardedRef<any>;
-    /**
-    * @ignore
-    */
-    height?: number;
-    /**
-     * Width and height in a single value.
-     */
-    size?: string;
+    height?: HeightProp;
     /**
      * An SVG as a React component.
      */
     src: ElementType;
     /**
-     * The SVG stroke attribute.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
      */
-    stroke?: string;
+    stroke?: StrokeProp;
     /**
-    * @ignore
+    * The image width.
     */
-    width?: number;
-}
-
-function useColor(color: string) {
-    return useMemo(() => {
-        if (!isNil(color)) {
-            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
-                return color;
-            } else if (color.startsWith("--")) {
-                return `var(${color})`;
-            } else if (color.startsWith("alias") || color.startsWith("global")) {
-                return `var(--o-ui-${color})`;
-            }
-
-            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
-        }
-    }, [color]);
+    width?: WidthProp;
 }
 
 export function InnerSvgImage({
-    "aria-label": ariaLabel,
-    fill,
     forwardedRef,
-    height,
-    size,
     src,
-    stroke,
-    width,
     ...rest
 }: InnerSvgImageProps) {
     const hideUseElement = useCallback((element: HTMLElement) => {
@@ -101,18 +76,11 @@ export function InnerSvgImage({
             {...mergeProps(
                 rest,
                 {
-                    "aria-label": ariaLabel,
                     as: src,
                     focusable: false,
-                    height: (height ?? size) as HeightProp,
                     ref,
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-convey-information
-                    role: "img",
-                    style: {
-                        fill: useColor(fill),
-                        stroke: useColor(stroke)
-                    },
-                    width: (width ?? size) as WidthProp
+                    role: "img"
                 }
             )}
         />

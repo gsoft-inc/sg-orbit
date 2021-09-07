@@ -2,31 +2,31 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HeightProp, InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
+import { HeightProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
 
 const DefaultElement = "img";
 
-export interface InnerImageProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface SharedImageProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * A text description of the image.
      */
     alt: string;
     /**
-     * How the image should be resized to fit its container.
+     * The image height.
      */
-    fit?: "contain" | "cover" | "fill" | "scale-down" | "none";
+    height: HeightProp;
     /**
-     * The alignment of the image within it's box.
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
-    position?: string;
+    objectFit?: "contain" | "cover" | "fill" | "scale-down" | "none";
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
+     */
+    objectPosition?: string;
     /**
      * The image shape.
      */
     shape?: "straight" | "rounded" | "circular";
-    /**
-     * Width and height in a single value.
-     */
-    size?: string;
     /**
      * The path to the image.
      */
@@ -35,15 +35,16 @@ export interface InnerImageProps extends SlotProps, InternalProps, StyledCompone
      * One or more strings separated by commas, indicating possible image sources for the user agent to use.
      */
     srcSet?: string;
+    /**
+     * The image width.
+     */
+    width?: WidthProp;
 }
+
+export type InnerImageProps = SharedImageProps;
 
 export function InnerImage({
     shape = "straight",
-    size,
-    width,
-    height,
-    fit,
-    position,
     as = DefaultElement,
     forwardedRef,
     ...rest
@@ -58,13 +59,7 @@ export function InnerImage({
                         "o-ui-image",
                         shape
                     ),
-                    height: (height ?? size) as HeightProp,
-                    ref: forwardedRef,
-                    style: {
-                        objectFit: fit,
-                        objectPosition: position
-                    },
-                    width: (width ?? size) as WidthProp
+                    ref: forwardedRef
                 }
             )}
         />

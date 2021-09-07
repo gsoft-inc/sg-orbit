@@ -176,6 +176,17 @@ Props.forEach(x => {
     });
 });
 
+test("do not add class when a prop value is undefined", async () => {
+    const { getByTestId } = render(
+        <Box
+            width={undefined}
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("class"));
+});
+
 test("when className is provided, append new classes", async () => {
     const { getByTestId } = render(
         <Box
@@ -198,6 +209,17 @@ test("when className is provided with a class matching a provided styled prop, d
     );
 
     await waitFor(() => expect(getByTestId("box")).toHaveAttribute("class", "o-ui-w-1"));
+});
+
+test("do not add style when a prop value is undefined", async () => {
+    const { getByTestId } = render(
+        <Box
+            bottom={undefined}
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("style"));
 });
 
 test("when style is provided, append new style values", async () => {
@@ -234,4 +256,15 @@ test("when style is provided and the provided value match a provided style prop 
     );
 
     await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+});
+
+test("when an unknown value is specified for a prop with predefined values, add the value to style", async () => {
+    const { getByTestId } = render(
+        <Box
+            fill="primary-100"
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).toHaveStyle("fill: primary-100;"));
 });

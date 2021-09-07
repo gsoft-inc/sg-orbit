@@ -6,6 +6,7 @@ import { FlexAlignment, useFlexAlignment } from "./adapters";
 const DefaultElement = "div";
 
 export interface InnerStackProps extends
+    // So it could be used with dynamic slots.
     SlotProps,
     InternalProps,
     Omit<StyledComponentProps<typeof DefaultElement>,
@@ -82,8 +83,8 @@ export function InnerStack({
                     as,
                     gap,
                     ref: forwardedRef,
-                    wrap: wrap ? "wrap" : undefined
-                } as const,
+                    wrap: wrap ? "wrap" as const : undefined
+                },
                 alignProps
             )}
         >

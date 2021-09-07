@@ -1,18 +1,20 @@
 import "./Icon.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ForwardedRef, SVGProps, forwardRef } from "react";
-import { OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, StyledSystemProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export interface InnerIconProps extends SlotProps, SVGProps<SVGSVGElement> {
-    /**
-    * @ignore
-    */
-    forwardedRef: ForwardedRef<any>;
+export type IconSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+
+export interface InnerIconProps extends
+    StyledSystemProps,
+    SlotProps,
+    Omit<InternalProps, "as">,
+    Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
     /**
      * An icon can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    size?: IconSize;
     /**
      * An icon as a React component.
      */
@@ -33,6 +35,8 @@ export const InnerIcon = ((props: InnerIconProps) => {
         props,
         styleProps
     );
+
+    console.log(rest);
 
     return (
         <Box

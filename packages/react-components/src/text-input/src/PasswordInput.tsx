@@ -129,7 +129,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
                     wrapperProps: mergeProps(wrapperProps ?? {}, {
                         className: "o-ui-password-input"
                     })
-                } as const
+                }
             )}
         />
     );
