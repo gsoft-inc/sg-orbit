@@ -882,7 +882,7 @@ export type UserSelectProp = string;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
-export type WhiteSpaceProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
+export type WhiteSpaceProp = Simplify<keyof typeof WhiteSpaceClasses | GlobalValue>;
 
 export type WidthProp = Simplify<LiteralUnion<keyof typeof WidthClasses, string>>;
 
