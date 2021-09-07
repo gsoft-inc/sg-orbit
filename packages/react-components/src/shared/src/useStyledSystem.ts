@@ -174,19 +174,13 @@ export const OrbitBorderColorsAliases = [
     "alias-2",
     "alias-3",
     "alias-4",
-    "alias-5",
-    "alias-6",
-    "alias-info-1",
     "alias-negative-1",
     "alias-negative-1-translucent",
     "alias-negative-2",
     "alias-positive-1",
-    "alias-positive-2",
     "alias-primary-1",
     "alias-primary-1-translucent",
-    "alias-primary-2",
-    "alias-warning-1",
-    "alias-warning-2"
+    "alias-warning-1"
 ] as const;
 
 function createOrbitBorderColorAliasesClasses(section?: string, additionalClasses?: string) {
@@ -944,11 +938,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    borderBottom?: string;
+    borderBottom?: BorderBottomProp;
     /**
      * @ignore
      */
-    borderLeft?: string;
+    borderLeft?: BorderLeftProp;
     /**
      * @ignore
      */
@@ -956,11 +950,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    borderRight?: string;
+    borderRight?: BorderRightProp;
     /**
      * @ignore
      */
-    borderTop?: string;
+    borderTop?: BorderTopProp;
     /**
      * @ignore
      */
