@@ -6,8 +6,8 @@ import { ComponentProps, forwardRef, useMemo } from "react";
 import {
     InternalProps,
     OmitInternalProps,
-    StyledComponentProps,
     SlotProps,
+    StyledComponentProps,
     createSizeAdapter,
     cssModule,
     isNil,
@@ -151,7 +151,7 @@ export function AvatarText(props: any) {
                     as,
                     className: "o-ui-avatar-text",
                     size: textSize(size)
-                } as const
+                }
             )}
         >
             {children}

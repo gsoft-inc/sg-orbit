@@ -1,8 +1,3 @@
-/*
-TODO:
-- add tests for edge cases like existing className & style
-*/
-
 import {
     AlignContentClasses,
     AlignItemsClasses,
@@ -71,6 +66,7 @@ import {
     ZindexClasses
 } from "@react-components/shared";
 import { Box } from "@react-components/box";
+import { Fragment } from "react";
 import { render, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
@@ -167,7 +163,13 @@ const Props: PropDefinition[] = [
 Props.forEach(x => {
     test(`${x.name}`, () => {
         const tree = renderer
-            .create(<>{x.values.map(y => <Box {...{ [x.key]: y }} />)};</>)
+            .create(
+                <Fragment key={x.key}>
+                    {x.values.map(y =>
+                        <Box key={y} {...{ [x.key]: y }} />
+                    )}
+                </Fragment>
+            )
             .toJSON();
 
         expect(tree).toMatchSnapshot();

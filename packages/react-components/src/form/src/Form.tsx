@@ -24,10 +24,10 @@ export interface InnerFormProps extends InternalProps, StyledComponentProps<type
 
 export function InnerForm(props: InnerFormProps) {
     const {
-        fluid,
-        disabled,
         as = DefaultElement,
         children,
+        disabled,
+        fluid,
         forwardedRef,
         ...rest
     } = props;

@@ -33,7 +33,7 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
                                 normalizeSize(size)
                             )
                         )
-                    } as const
+                    }
                 )}
             >
                 <AvatarText size={size}>
@@ -104,10 +104,10 @@ export function InnerAvatarGroup({
                 {
                     as,
                     className: "o-ui-avatar-group",
-                    gap: 1,
-                    orientation: "horizontal",
+                    gap: 1 as const,
+                    orientation: "horizontal" as const,
                     ref: forwardedRef
-                } as const
+                }
             )}
         >
             {avatarsMarkup}

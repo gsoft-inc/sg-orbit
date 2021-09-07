@@ -133,11 +133,6 @@ expectAssignable<BackgroundSizeProp>("top");
 expectAssignable<BackgroundSizeProp>("cover");
 expectAssignable<BackgroundSizeProp>("contain");
 
-expectAssignable<BorderColorProp>("#fff");
-expectAssignable<BorderColorProp>("white");
-expectAssignable<BorderColorProp>("sunray-1");
-expectAssignable<BorderColorProp>("1");
-
 expectAssignable<BorderRadiusProp>(0);
 expectAssignable<BorderRadiusProp>(1);
 expectAssignable<BorderRadiusProp>(2);
@@ -424,19 +419,12 @@ expectAssignable<StyledSystemProps>({
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
-    border: "1px solid red",
-    borderBottom: "1px solid red",
-    borderBottomWidth: "1px",
-    borderColor: "sunray-1",
-    borderLeft: "1px solid red",
-    borderLeftWidth: "1px",
+    border: "sunray-10",
+    borderBottom: "sunray-10",
+    borderLeft: "sunray-10",
     borderRadius: 1,
-    borderRight: "1px solid red",
-    borderRightWidth: "1px",
-    borderStyle: "solid",
-    borderTop: "1px solid red",
-    borderTopWidth: "1px",
-    borderWidth: "1px",
+    borderRight: "sunray-10",
+    borderTop: "sunray-10",
     bottom: "1px",
     boxShadow: 1,
     boxSizing: "border-box",

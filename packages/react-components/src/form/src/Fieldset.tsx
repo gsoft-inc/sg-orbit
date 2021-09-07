@@ -16,11 +16,11 @@ export interface InnerFieldsetProps extends InternalProps, StyledComponentProps<
 }
 
 export function InnerFieldset({
-    id,
-    label,
     as = DefaultElement,
     children,
     forwardedRef,
+    id,
+    label,
     ...rest
 }: InnerFieldsetProps) {
     const rootId = useId(id, "o-ui-fieldset");

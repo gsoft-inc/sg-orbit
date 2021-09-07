@@ -72,6 +72,8 @@ export function InnerInline({
     forwardedRef,
     ...rest
 }: InnerInlineProps) {
+
+
     const alignProps = useFlexAlignment({ alignX, alignY, orientation: "horizontal" });
 
     return (
@@ -82,8 +84,8 @@ export function InnerInline({
                     as,
                     gap,
                     ref: forwardedRef,
-                    wrap: wrap ? "wrap" : undefined
-                } as const,
+                    wrap: wrap ? "wrap" as const : undefined
+                },
                 alignProps
             )}
         >

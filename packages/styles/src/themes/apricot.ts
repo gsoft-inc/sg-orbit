@@ -89,7 +89,7 @@ export const ApricotTheme: OrbitTheme = {
             `
         ]
     },
-    // TODO FRANK: What do we need here? How manu values and which values?
+    // TODO FRANK: What do we need here? How many values and which values?
     zIndices: [1, 2, 3, 4, 5],
     colors: {
         common: {

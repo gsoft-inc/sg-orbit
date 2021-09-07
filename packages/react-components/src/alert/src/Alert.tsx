@@ -173,10 +173,10 @@ export function InnerAlert({
                 {
                     dismissable: false,
                     ref: forwardedRef,
-                    role: "alertdialog",
-                    size: "sm",
+                    role: "alertdialog" as const,
+                    size: "sm" as const,
                     zIndex
-                } as const
+                }
             )}
         >
             {heading}
