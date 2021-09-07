@@ -36,7 +36,7 @@
     --o-ui-background-alias-info-1: var(--o-ui-marine-1);
     --o-ui-background-alias-info-1-hover: var(--o-ui-marine-2);
     --o-ui-background-alias-info-active: var(--o-ui-marine-4);
-    --o-ui-background-alias-input-selection: var(--o-ui-primary-100);
+    --o-ui-background-alias-input-selection: var(--o-ui-primary-2);
     --o-ui-background-alias-accordion-hover: rgba(0, 0, 0, 0.04);
 }
 
@@ -78,6 +78,6 @@
     --o-ui-background-alias-info-1: var(--o-ui-marine-7);
     --o-ui-background-alias-info-1-hover: var(--o-ui-marine-5);
     --o-ui-background-alias-info-1-active: var(--o-ui-marine-4);
-    --o-ui-background-alias-input-selection: var(--o-ui-primary-900);
+    --o-ui-background-alias-input-selection: var(--o-ui-primary-10);
     --o-ui-background-alias-accordion-hover: rgba(256, 256, 256, 0.04);
 }

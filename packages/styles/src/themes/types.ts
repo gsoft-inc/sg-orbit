@@ -102,6 +102,7 @@ export type ColorRoles = {
     "bg-alias-info-1": string;
     "bg-alias-info-1-hover": string;
     "bg-alias-info-active": string;
+    "bg-alias-input-selection": string;
     /* Border */
     "b-alias-1": string;
     "b-alias-1-hover": string;

@@ -849,15 +849,6 @@ Array [
     className="o-ui-b-alias-4 o-ui-ba"
   />,
   <div
-    className="o-ui-b-alias-5 o-ui-ba"
-  />,
-  <div
-    className="o-ui-b-alias-6 o-ui-ba"
-  />,
-  <div
-    className="o-ui-b-alias-info-1 o-ui-ba"
-  />,
-  <div
     className="o-ui-b-alias-negative-1 o-ui-ba"
   />,
   <div
@@ -870,22 +861,13 @@ Array [
     className="o-ui-b-alias-positive-1 o-ui-ba"
   />,
   <div
-    className="o-ui-b-alias-positive-2 o-ui-ba"
-  />,
-  <div
     className="o-ui-b-alias-primary-1 o-ui-ba"
   />,
   <div
     className="o-ui-b-alias-primary-1-translucent o-ui-ba"
   />,
   <div
-    className="o-ui-b-alias-primary-2 o-ui-ba"
-  />,
-  <div
     className="o-ui-b-alias-warning-1 o-ui-ba"
-  />,
-  <div
-    className="o-ui-b-alias-warning-2 o-ui-ba"
   />,
   <div
     className="o-ui-ba-n"

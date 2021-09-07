@@ -242,6 +242,7 @@ export const ApricotTheme: OrbitTheme = {
             "bg-alias-info-1": "$marine-1",
             "bg-alias-info-1-hover": "$marine-2",
             "bg-alias-info-active": "$marine-4",
+            "bg-alias-input-selection": "$primary-2",
             /* Border */
             "b-alias-1": "$cloud-2",
             "b-alias-1-hover": "$cloud-4",
@@ -348,6 +349,7 @@ export const ApricotTheme: OrbitTheme = {
             "bg-alias-info-1": "$marine-7",
             "bg-alias-info-1-hover": "$marine-5",
             "bg-alias-info-active": "$marine-4",
+            "bg-alias-input-selection": "$primary-10",
             /* Border */
             "b-alias-1": "$neutral-dark-7",
             "b-alias-1-hover": "$neutral-dark-5",
