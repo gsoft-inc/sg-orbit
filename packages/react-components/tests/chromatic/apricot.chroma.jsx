@@ -1,6 +1,6 @@
 import {
     BackgroundColorClasses,
-    BorderColorClasses,
+    BorderClasses,
     BoxShadowClasses,
     ColorClasses,
     FillClasses,
@@ -62,11 +62,11 @@ stories()
     .add("border", () =>
         <Stack>
             <Inline gap={1} wrap>
-                {Object.keys(BorderColorClasses).map(x => <SmallSquare border={x} key={x} />)}
+                {Object.keys(BorderClasses).map(x => <SmallSquare border={x} key={x} />)}
             </Inline>
             <ThemeProvider colorScheme="dark">
                 <Inline gap={1} wrap>
-                    {Object.keys(BorderColorClasses).map(x => <SmallSquare border={x} key={x} />)}
+                    {Object.keys(BorderClasses).map(x => <SmallSquare border={x} key={x} />)}
                 </Inline>
             </ThemeProvider>
         </Stack>

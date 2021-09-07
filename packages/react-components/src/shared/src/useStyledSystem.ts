@@ -971,10 +971,6 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    borderStyle?: BorderStyleProp;
-    /**
-     * @ignore
-     */
     borderTop?: string;
     /**
      * @ignore
@@ -1396,7 +1392,6 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     borderLeft,
     borderRadius,
     borderRight,
-    borderStyle,
     borderTop,
     bottom,
     boxShadow,
@@ -1482,7 +1477,6 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             borderLeft,
             borderRadius,
             borderRight,
-            borderStyle,
             borderTop,
             bottom,
             boxShadow,
@@ -1580,7 +1574,6 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         borderLeft,
         borderRadius,
         borderRight,
-        borderStyle,
         borderTop,
         bottom,
         boxShadow,
