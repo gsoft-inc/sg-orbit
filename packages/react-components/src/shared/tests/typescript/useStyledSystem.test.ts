@@ -9,7 +9,12 @@ import {
     BackgroundPositionProp,
     BackgroundRepeatProp,
     BackgroundSizeProp,
+    BorderBottomProp,
+    BorderLeftProp,
+    BorderProp,
     BorderRadiusProp,
+    BorderRightProp,
+    BorderTopProp,
     BottomProp,
     BoxShadowProp,
     BoxSizingProp,
@@ -47,13 +52,23 @@ import {
     OrderProp,
     OutlineProp,
     OverflowProp,
+    OverflowXProp,
+    OverflowYProp,
+    PointerEventsProp,
     PositionProp,
+    ResizeProp,
     RightProp,
+    RowGapProp,
     StyledSystemProps,
+    TextAlignProp,
     TextDecorationProp,
+    TextOverflowProp,
     TopProp,
     UserSelectProp,
+    VerticalAlignProp,
+    WhiteSpaceProp,
     WidthProp,
+    WordBreakProp,
     ZindexProp
 } from "@react-components/shared";
 import { expectAssignable } from "@typescript/tests";
@@ -132,6 +147,18 @@ expectAssignable<BackgroundSizeProp>("top");
 expectAssignable<BackgroundSizeProp>("cover");
 expectAssignable<BackgroundSizeProp>("contain");
 
+expectAssignable<BorderBottomProp>("none");
+expectAssignable<BorderBottomProp>("0");
+expectAssignable<BorderBottomProp>("sunray-1");
+
+expectAssignable<BorderLeftProp>("none");
+expectAssignable<BorderLeftProp>("0");
+expectAssignable<BorderLeftProp>("sunray-1");
+
+expectAssignable<BorderProp>("none");
+expectAssignable<BorderProp>("0");
+expectAssignable<BorderProp>("sunray-1");
+
 expectAssignable<BorderRadiusProp>(0);
 expectAssignable<BorderRadiusProp>(1);
 expectAssignable<BorderRadiusProp>(2);
@@ -139,6 +166,14 @@ expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("100%");
 expectAssignable<BorderRadiusProp>("pill");
+
+expectAssignable<BorderRightProp>("none");
+expectAssignable<BorderRightProp>("0");
+expectAssignable<BorderRightProp>("sunray-1");
+
+expectAssignable<BorderTopProp>("none");
+expectAssignable<BorderTopProp>("0");
+expectAssignable<BorderTopProp>("sunray-1");
 
 expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("auto");
@@ -361,18 +396,54 @@ expectAssignable<OverflowProp>("hidden");
 expectAssignable<OverflowProp>("scroll");
 expectAssignable<OverflowProp>("visible");
 
+expectAssignable<OverflowXProp>("auto");
+expectAssignable<OverflowXProp>("clip");
+expectAssignable<OverflowXProp>("hidden");
+expectAssignable<OverflowXProp>("scroll");
+expectAssignable<OverflowXProp>("visible");
+
+expectAssignable<OverflowYProp>("auto");
+expectAssignable<OverflowYProp>("clip");
+expectAssignable<OverflowYProp>("hidden");
+expectAssignable<OverflowYProp>("scroll");
+expectAssignable<OverflowYProp>("visible");
+
+expectAssignable<PointerEventsProp>("auto");
+expectAssignable<PointerEventsProp>("none");
+
 expectAssignable<PositionProp>("static");
 expectAssignable<PositionProp>("fixed");
 expectAssignable<PositionProp>("absolute");
 expectAssignable<PositionProp>("relative");
 expectAssignable<PositionProp>("sticky");
 
+expectAssignable<ResizeProp>("none");
+expectAssignable<ResizeProp>("vertical");
+expectAssignable<ResizeProp>("horizontal");
+expectAssignable<ResizeProp>("both");
+
 expectAssignable<RightProp>("1px");
 expectAssignable<RightProp>("auto");
+
+expectAssignable<RowGapProp>(0);
+expectAssignable<RowGapProp>(1);
+expectAssignable<RowGapProp>("1px");
+
+expectAssignable<TextAlignProp>("start");
+expectAssignable<TextAlignProp>("end");
+expectAssignable<TextAlignProp>("left");
+expectAssignable<TextAlignProp>("right");
+expectAssignable<TextAlignProp>("center");
+expectAssignable<TextAlignProp>("justify");
+expectAssignable<TextAlignProp>("justify-all");
+expectAssignable<TextAlignProp>("match-parent");
 
 expectAssignable<TextDecorationProp>("underline");
 expectAssignable<TextDecorationProp>("underline dotted");
 expectAssignable<TextDecorationProp>("underline overline #FF3028");
+
+expectAssignable<TextOverflowProp>("clip");
+expectAssignable<TextOverflowProp>("ellipsis");
 
 expectAssignable<TopProp>("1px");
 expectAssignable<TopProp>("auto");
@@ -383,6 +454,22 @@ expectAssignable<UserSelectProp>("text");
 expectAssignable<UserSelectProp>("contain");
 expectAssignable<UserSelectProp>("all");
 
+expectAssignable<VerticalAlignProp>("baseline");
+expectAssignable<VerticalAlignProp>("bottom");
+expectAssignable<VerticalAlignProp>("middle");
+expectAssignable<VerticalAlignProp>("sub");
+expectAssignable<VerticalAlignProp>("super");
+expectAssignable<VerticalAlignProp>("text-bottom");
+expectAssignable<VerticalAlignProp>("text-top");
+expectAssignable<VerticalAlignProp>("top");
+
+expectAssignable<WhiteSpaceProp>("nowrap");
+expectAssignable<WhiteSpaceProp>("break-spaces");
+expectAssignable<WhiteSpaceProp>("normal");
+expectAssignable<WhiteSpaceProp>("pre");
+expectAssignable<WhiteSpaceProp>("pre-line");
+expectAssignable<WhiteSpaceProp>("pre-wrap");
+
 expectAssignable<WidthProp>(1);
 expectAssignable<WidthProp>("1px");
 expectAssignable<WidthProp>("100%");
@@ -390,6 +477,11 @@ expectAssignable<WidthProp>("screen");
 expectAssignable<WidthProp>("auto");
 expectAssignable<WidthProp>("max-content");
 expectAssignable<WidthProp>("min-content");
+
+expectAssignable<WordBreakProp>("break-all");
+expectAssignable<WordBreakProp>("break-word");
+expectAssignable<WordBreakProp>("keep-all");
+expectAssignable<WordBreakProp>("normal");
 
 expectAssignable<ZindexProp>(0);
 expectAssignable<ZindexProp>(1);
@@ -455,6 +547,8 @@ expectAssignable<StyledSystemProps>({
     order: 1,
     outline: "none",
     overflow: "clip",
+    overflowX: "clip",
+    overflowY: "clip",
     padding: 1,
     paddingBottom: 1,
     paddingLeft: 1,
@@ -462,13 +556,21 @@ expectAssignable<StyledSystemProps>({
     paddingTop: 1,
     paddingX: 1,
     paddingY: 1,
+    pointerEvents: "none",
     position: "absolute",
+    resize: "both",
     right: "1px",
+    rowGap: 1,
     stroke: "sunray-1",
+    textAlign: "center",
     textDecoration: "underline",
+    textOverflow: "clip",
     top: "1px",
     userSelect: "none",
+    verticalAlign: "middle",
+    whiteSpace: "nowrap",
     width: 1,
+    wordBreak: "break-all",
     zIndex: 1
 });
 
