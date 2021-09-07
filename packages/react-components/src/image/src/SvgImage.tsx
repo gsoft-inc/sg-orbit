@@ -15,11 +15,13 @@ import {
     useMergedRefs
 } from "../../shared";
 
+type OverlappingStyleProps = "fill" | "height" | "stroke" | "width";
+
 export interface InnerSvgImageProps extends
-    StyledSystemProps,
+    Omit<StyledSystemProps, OverlappingStyleProps>,
     SlotProps,
     Omit<InternalProps, "as">,
-    Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
+    Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps | OverlappingStyleProps> {
     /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

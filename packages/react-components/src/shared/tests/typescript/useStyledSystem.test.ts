@@ -35,6 +35,8 @@ import {
     GapProp,
     GlobalValue,
     HeightProp,
+    ImageOrientationProp,
+    ImageRenderingProp,
     JustifyContentProp,
     LeftProp,
     LineHeightProp,
@@ -48,6 +50,8 @@ import {
     MaxWidthProp,
     MinHeightProp,
     MinWidthProp,
+    ObjectFitProp,
+    ObjectPositionProp,
     OpacityProp,
     OrderProp,
     OutlineProp,
@@ -306,6 +310,14 @@ expectAssignable<HeightProp>("auto");
 expectAssignable<HeightProp>("max-content");
 expectAssignable<HeightProp>("min-content");
 
+expectAssignable<ImageOrientationProp>("none");
+expectAssignable<ImageOrientationProp>("from-image");
+expectAssignable<ImageOrientationProp>("90deg flip");
+
+expectAssignable<ImageRenderingProp>("auto");
+expectAssignable<ImageRenderingProp>("crisp-edges");
+expectAssignable<ImageRenderingProp>("pixelated");
+
 expectAssignable<JustifyContentProp>("center");
 expectAssignable<JustifyContentProp>("start");
 expectAssignable<JustifyContentProp>("end");
@@ -380,6 +392,17 @@ expectAssignable<MinWidthProp>("100%");
 expectAssignable<MinWidthProp>("auto");
 expectAssignable<MinWidthProp>("max-content");
 expectAssignable<MinWidthProp>("min-content");
+
+expectAssignable<ObjectFitProp>("fill");
+expectAssignable<ObjectFitProp>("contain");
+expectAssignable<ObjectFitProp>("cover");
+expectAssignable<ObjectFitProp>("none");
+expectAssignable<ObjectFitProp>("scale-down");
+
+expectAssignable<ObjectPositionProp>("50% 50%");
+expectAssignable<ObjectPositionProp>("right top");
+expectAssignable<ObjectPositionProp>("left bottom");
+expectAssignable<ObjectPositionProp>("250px 125px");
 
 expectAssignable<OpacityProp>("disabled");
 expectAssignable<OpacityProp>("not-visible");

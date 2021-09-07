@@ -655,7 +655,20 @@ export const ResizeClasses = {
 
 export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
 
-export const StrokeClasses = createOrbitColorClasses("stroke");
+export const StrokeRoleClasses = {
+    "icon-alias-1": "o-ui-icon-alias-1",
+    "icon-alias-2": "o-ui-icon-alias-2",
+    "icon-alias-info-1": "o-ui-icon-alias-info-1",
+    "icon-alias-negative-1": "o-ui-icon-alias-negative-1",
+    "icon-alias-negative-2": "o-ui-icon-alias-negative-2",
+    "icon-alias-positive-1": "o-ui-icon-alias-positive-1",
+    "icon-alias-positive-2": "o-ui-icon-alias-positive-2",
+    "icon-alias-primary-1": "o-ui-icon-alias-primary-1",
+    "icon-alias-warning-1": "o-ui-icon-alias-warning-1",
+    "icon-alias-warning-2": "o-ui-icon-alias-warning-2"
+} as const;
+
+export const StrokeClasses = { ...createOrbitColorClasses("stroke"), ...StrokeRoleClasses };
 
 export const TextAlignClasses = {
     "center": "o-ui-ta-c",
@@ -833,6 +846,8 @@ export type MinHeightProp = Simplify<LiteralUnion<keyof typeof MinHeightClasses,
 export type MinWidthProp = Simplify<LiteralUnion<keyof typeof MinWidthClasses, string>>;
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
+
+export type ObjectPositionProp = string;
 
 export type OpacityProp = Simplify<keyof typeof OpacityClasses | GlobalValue>;
 
@@ -1103,6 +1118,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     objectFit?: ObjectFitProp;
+    /**
+     * @ignore
+     */
+    objectPosition?: ObjectPositionProp;
     /**
      * @ignore
      */
@@ -1425,6 +1444,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     minHeight,
     minWidth,
     objectFit,
+    objectPosition,
     opacity,
     order,
     outline,
@@ -1511,6 +1531,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             minHeight,
             minWidth,
             objectFit,
+            objectPosition,
             opacity,
             order,
             outline,
@@ -1611,6 +1632,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         minHeight,
         minWidth,
         objectFit,
+        objectPosition,
         opacity,
         order,
         outline,

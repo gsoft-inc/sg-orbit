@@ -2,11 +2,26 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HeightProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, WidthProp, cssModule, mergeProps, slot } from "../../shared";
+import {
+    HeightProp,
+    InternalProps,
+    ObjectFitProp,
+    ObjectPositionProp,
+    OmitInternalProps,
+    SlotProps,
+    StyledComponentProps,
+    WidthProp,
+    cssModule,
+    mergeProps,
+    slot
+} from "../../shared";
 
 const DefaultElement = "img";
 
-export interface SharedImageProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface SharedImageProps extends
+    SlotProps,
+    InternalProps,
+    Omit<StyledComponentProps<typeof DefaultElement>, "height" | "objectFit" | "objectPosition" | "width"> {
     /**
      * A text description of the image.
      */
@@ -14,15 +29,15 @@ export interface SharedImageProps extends SlotProps, InternalProps, StyledCompon
     /**
      * The image height.
      */
-    height: HeightProp;
+    height?: HeightProp;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit).
      */
-    objectFit?: "contain" | "cover" | "fill" | "scale-down" | "none";
+    objectFit?: ObjectFitProp;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position).
      */
-    objectPosition?: string;
+    objectPosition?: ObjectPositionProp;
     /**
      * The image shape.
      */
@@ -44,9 +59,9 @@ export interface SharedImageProps extends SlotProps, InternalProps, StyledCompon
 export type InnerImageProps = SharedImageProps;
 
 export function InnerImage({
-    shape = "straight",
     as = DefaultElement,
     forwardedRef,
+    shape = "straight",
     ...rest
 }: InnerImageProps) {
     return (
