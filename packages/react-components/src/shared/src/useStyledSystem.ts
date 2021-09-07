@@ -301,7 +301,26 @@ export const BorderAdditionalClasses = {
 
 export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
 
-export const BorderColorClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b") };
+export const BorderBottomAdditionalClasses = {
+    "0": "o-ui-bb-n",
+    "none": "o-ui-bb-n"
+} as const;
+
+export const BorderBottomClasses = { ...createOrbitColorClasses("b", "o-ui-bb"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bb"), ...BorderBottomAdditionalClasses };
+
+export const BorderLeftAdditionalClasses = {
+    "0": "o-ui-bl-n",
+    "none": "o-ui-bl-n"
+} as const;
+
+export const BorderLeftClasses = { ...createOrbitColorClasses("b", "o-ui-bl"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bl"), ...BorderLeftAdditionalClasses };
+
+export const BorderRightAdditionalClasses = {
+    "0": "o-ui-br-n",
+    "none": "o-ui-br-n"
+} as const;
+
+export const BorderRightClasses = { ...createOrbitColorClasses("b", "o-ui-br"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-br"), ...BorderRightAdditionalClasses };
 
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
@@ -321,35 +340,13 @@ export const BorderStyleClasses = {
     "solid": "o-ui-b-s"
 } as const;
 
-export const BorderWidthClasses = {
-    0: "o-ui-ba-n",
-    "1px": "o-ui-ba",
-    "none": "o-ui-ba-n"
-} as const;
 
-export const BorderTopWidthClasses = {
-    0: "o-ui-bt-n",
-    "1px": "o-ui-bt",
+export const BorderTopAdditionalClasses = {
+    "0": "o-ui-bt-n",
     "none": "o-ui-bt-n"
 } as const;
 
-export const BorderBottomWidthClasses = {
-    0: "o-ui-bb-n",
-    "1px": "o-ui-bb",
-    "none": "o-ui-bb-n"
-} as const;
-
-export const BorderLeftWidthClasses = {
-    0: "o-ui-bl-n",
-    "1px": "o-ui-bl",
-    "none": "o-ui-bl-n"
-} as const;
-
-export const BorderRightWidthClasses = {
-    0: "o-ui-br-n",
-    "1px": "o-ui-br",
-    "none": "o-ui-br-n"
-} as const;
+export const BorderTopClasses = { ...createOrbitColorClasses("b", "o-ui-bt"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bt"), ...BorderTopAdditionalClasses };
 
 export const BoxShadowClasses = {
     1: "o-ui-bs-1",
@@ -366,6 +363,7 @@ export const BoxSizingClasses = {
     "border-box": "o-ui-bs-bb",
     "content-box": "o-ui-bs-cb"
 } as const;
+
 
 export const ColorRoleClasses = {
     "alias-1": "o-ui-text-alias-1",
@@ -769,21 +767,17 @@ export type BackgroundSizeProp = Simplify<LiteralUnion<keyof typeof BackgroundSi
 
 export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, string>>;
 
-export type BorderColorProp = Simplify<LiteralUnion<keyof typeof BorderColorClasses, string>>;
+export type BorderBottomProp = Simplify<LiteralUnion<keyof typeof BorderBottomClasses, string>>;
+
+export type BorderLeftProp = Simplify<LiteralUnion<keyof typeof BorderLeftClasses, string>>;
 
 export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
 
+export type BorderRightProp = Simplify<LiteralUnion<keyof typeof BorderRightClasses, string>>;
+
 export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
-export type BorderWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
-
-export type BorderTopWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
-
-export type BorderBottomWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
-
-export type BorderLeftWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
-
-export type BorderRightWidthProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
+export type BorderTopProp = Simplify<LiteralUnion<keyof typeof BorderTopClasses, string>>;
 
 export type BottomProp = string;
 
@@ -965,19 +959,7 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    borderBottomWidth?: BorderBottomWidthProp;
-    /**
-     * @ignore
-     */
-    borderColor?: BorderColorProp;
-    /**
-     * @ignore
-     */
     borderLeft?: string;
-    /**
-     * @ignore
-     */
-    borderLeftWidth?: BorderLeftWidthProp;
     /**
      * @ignore
      */
@@ -989,23 +971,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    borderRightWidth?: BorderRightWidthProp;
-    /**
-     * @ignore
-     */
     borderStyle?: BorderStyleProp;
     /**
      * @ignore
      */
     borderTop?: string;
-    /**
-     * @ignore
-     */
-    borderTopWidth?: BorderTopWidthProp;
-    /**
-     * @ignore
-     */
-    borderWidth?: BorderWidthProp;
     /**
      * @ignore
      */
@@ -1346,13 +1316,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundPosition: createClassesHandler(BackgroundPositionClasses),
     backgroundSize: createClassesHandler(BackgroundSizeClasses),
     border: createClassesHandler(BorderClasses),
-    borderBottomWidth: createClassesHandler(BorderBottomWidthClasses),
-    borderColor: createClassesHandler(BorderColorClasses),
-    borderLeftWidth: createClassesHandler(BorderLeftWidthClasses),
+    borderBottom: createClassesHandler(BorderBottomClasses),
+    borderLeft: createClassesHandler(BorderLeftClasses),
     borderRadius: createClassesHandler(BorderRadiusClasses),
-    borderRightWidth: createClassesHandler(BorderRightWidthClasses),
-    borderTopWidth: createClassesHandler(BorderTopWidthClasses),
-    borderWidth: createClassesHandler(BorderWidthClasses),
+    borderRight: createClassesHandler(BorderRightClasses),
+    borderTop: createClassesHandler(BorderTopClasses),
     boxShadow: createClassesHandler(BoxShadowClasses),
     boxSizing: createClassesHandler(BoxSizingClasses),
     color: createClassesHandler(ColorClasses),
@@ -1425,17 +1393,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     backgroundSize,
     border,
     borderBottom,
-    borderBottomWidth,
-    borderColor,
     borderLeft,
-    borderLeftWidth,
     borderRadius,
     borderRight,
-    borderRightWidth,
     borderStyle,
     borderTop,
-    borderTopWidth,
-    borderWidth,
     bottom,
     boxShadow,
     boxSizing,
@@ -1517,17 +1479,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             backgroundSize,
             border,
             borderBottom,
-            borderBottomWidth,
-            borderColor,
             borderLeft,
-            borderLeftWidth,
             borderRadius,
             borderRight,
-            borderRightWidth,
             borderStyle,
             borderTop,
-            borderTopWidth,
-            borderWidth,
             bottom,
             boxShadow,
             boxSizing,
@@ -1621,17 +1577,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         backgroundSize,
         border,
         borderBottom,
-        borderBottomWidth,
-        borderColor,
         borderLeft,
-        borderLeftWidth,
         borderRadius,
         borderRight,
-        borderRightWidth,
         borderStyle,
         borderTop,
-        borderTopWidth,
-        borderWidth,
         bottom,
         boxShadow,
         boxSizing,

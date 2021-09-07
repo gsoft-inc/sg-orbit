@@ -9,7 +9,6 @@ import {
     BackgroundPositionProp,
     BackgroundRepeatProp,
     BackgroundSizeProp,
-    BorderColorProp,
     BorderRadiusProp,
     BorderStyleProp,
     BottomProp,
