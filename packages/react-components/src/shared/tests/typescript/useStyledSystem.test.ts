@@ -10,7 +10,6 @@ import {
     BackgroundRepeatProp,
     BackgroundSizeProp,
     BorderRadiusProp,
-    BorderStyleProp,
     BottomProp,
     BoxShadowProp,
     BoxSizingProp,
@@ -140,12 +139,6 @@ expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("100%");
 expectAssignable<BorderRadiusProp>("pill");
-
-expectAssignable<BorderStyleProp>("solid");
-expectAssignable<BorderStyleProp>("dashed");
-expectAssignable<BorderStyleProp>("dotted");
-expectAssignable<BorderStyleProp>("double");
-expectAssignable<BorderStyleProp>("none");
 
 expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("auto");
@@ -419,13 +412,12 @@ expectAssignable<StyledSystemProps>({
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
-    border: "1px solid red",
-    borderBottom: "1px solid red",
-    borderLeft: "1px solid red",
+    border: "sunray-10",
+    borderBottom: "sunray-10",
+    borderLeft: "sunray-10",
     borderRadius: 1,
-    borderRight: "1px solid red",
-    borderStyle: "solid",
-    borderTop: "1px solid red",
+    borderRight: "sunray-10",
+    borderTop: "sunray-10",
     bottom: "1px",
     boxShadow: 1,
     boxSizing: "border-box",

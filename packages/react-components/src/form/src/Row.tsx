@@ -14,7 +14,6 @@ export interface InnerRowProps extends InternalProps {
     fluid?: boolean;
 }
 
-
 export function InnerRow(props: InnerRowProps) {
     const [formProps] = useFormContext();
 

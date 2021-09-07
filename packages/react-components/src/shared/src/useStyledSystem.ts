@@ -332,15 +332,6 @@ export const BorderRadiusClasses = {
     "pill": "o-ui-pill"
 } as const;
 
-export const BorderStyleClasses = {
-    "dashed": "o-ui-b-da",
-    "dotted": "o-ui-b-dt",
-    "double": "o-ui-b-db",
-    "none": "o-ui-b-n",
-    "solid": "o-ui-b-s"
-} as const;
-
-
 export const BorderTopAdditionalClasses = {
     "0": "o-ui-bt-n",
     "none": "o-ui-bt-n"
@@ -774,8 +765,6 @@ export type BorderLeftProp = Simplify<LiteralUnion<keyof typeof BorderLeftClasse
 export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
 
 export type BorderRightProp = Simplify<LiteralUnion<keyof typeof BorderRightClasses, string>>;
-
-export type BorderStyleProp = Simplify<keyof typeof BorderStyleClasses | GlobalValue>;
 
 export type BorderTopProp = Simplify<LiteralUnion<keyof typeof BorderTopClasses, string>>;
 

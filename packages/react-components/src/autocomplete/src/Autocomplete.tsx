@@ -490,7 +490,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                             },
                             triggerFocusWithinProps
                         )
-                    } as const,
+                    },
                     triggerProps
                 )}
             />

@@ -32,7 +32,6 @@ Array [
   <div
     className="o-ui-ac-s"
   />,
-  ";",
 ]
 `;
 
@@ -62,7 +61,6 @@ Array [
   <div
     className="o-ui-ai-str"
   />,
-  ";",
 ]
 `;
 
@@ -92,7 +90,6 @@ Array [
   <div
     className="o-ui-as-str"
   />,
-  ";",
 ]
 `;
 
@@ -107,7 +104,6 @@ Array [
   <div
     className="o-ui-bga-s"
   />,
-  ";",
 ]
 `;
 
@@ -125,7 +121,6 @@ Array [
   <div
     className="o-ui-bgc-tb"
   />,
-  ";",
 ]
 `;
 
@@ -458,7 +453,6 @@ Array [
   <div
     className="o-ui-bg-alias-warning-2"
   />,
-  ";",
 ]
 `;
 
@@ -491,7 +485,6 @@ Array [
   <div
     className="o-ui-bgp-t"
   />,
-  ";",
 ]
 `;
 
@@ -539,7 +532,6 @@ Array [
       }
     }
   />,
-  ";",
 ]
 `;
 
@@ -554,7 +546,6 @@ Array [
   <div
     className="o-ui-bgs-cvr"
   />,
-  ";",
 ]
 `;
 
@@ -899,34 +890,27 @@ Array [
   <div
     className="o-ui-ba-n"
   />,
-  ";",
 ]
 `;
 
 exports[`border bottom 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "borderBottom": "1px solid black",
-      }
+<div
+  style={
+    Object {
+      "borderBottom": "1px solid black",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`border left 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "borderLeft": "1px solid black",
-      }
+<div
+  style={
+    Object {
+      "borderLeft": "1px solid black",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`border radius 1`] = `
@@ -952,7 +936,6 @@ Array [
   <div
     className="o-ui-pill"
   />,
-  ";",
 ]
 `;
 
@@ -979,47 +962,37 @@ Array [
   <div
     className="o-ui-pill"
   />,
-  ";",
 ]
 `;
 
 exports[`border right 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "borderRight": "1px solid black",
-      }
+<div
+  style={
+    Object {
+      "borderRight": "1px solid black",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`border top 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "borderTop": "1px solid black",
-      }
+<div
+  style={
+    Object {
+      "borderTop": "1px solid black",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`bottom 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "borderRadius": "1px",
-      }
+<div
+  style={
+    Object {
+      "borderRadius": "1px",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`box shadow 1`] = `
@@ -1048,7 +1021,6 @@ Array [
   <div
     className="o-ui-bs-alias-skim"
   />,
-  ";",
 ]
 `;
 
@@ -1060,7 +1032,6 @@ Array [
   <div
     className="o-ui-bs-cb"
   />,
-  ";",
 ]
 `;
 
@@ -1390,7 +1361,6 @@ Array [
   <div
     className="o-ui-text-alias-warning-2"
   />,
-  ";",
 ]
 `;
 
@@ -1438,7 +1408,6 @@ Array [
   <div
     className="o-ui-c-gap-13"
   />,
-  ";",
 ]
 `;
 
@@ -1465,7 +1434,6 @@ Array [
   <div
     className="o-ui-c-zi"
   />,
-  ";",
 ]
 `;
 
@@ -1528,7 +1496,6 @@ Array [
   <div
     className="o-ui-dt-rg"
   />,
-  ";",
 ]
 `;
 
@@ -1846,7 +1813,6 @@ Array [
   <div
     className="o-ui-icon-alias-warning-2"
   />,
-  ";",
 ]
 `;
 
@@ -1864,7 +1830,6 @@ Array [
   <div
     className="o-ui-f-n"
   />,
-  ";",
 ]
 `;
 
@@ -1888,7 +1853,6 @@ Array [
   <div
     className="o-ui-b-mnc"
   />,
-  ";",
 ]
 `;
 
@@ -1906,7 +1870,6 @@ Array [
   <div
     className="o-ui-fd-c o-ui-fw-w"
   />,
-  ";",
 ]
 `;
 
@@ -1921,7 +1884,6 @@ Array [
   <div
     className="o-ui-fg-2"
   />,
-  ";",
 ]
 `;
 
@@ -1936,7 +1898,6 @@ Array [
   <div
     className="o-ui-fg-2"
   />,
-  ";",
 ]
 `;
 
@@ -1951,7 +1912,6 @@ Array [
   <div
     className="o-ui-fw-wr"
   />,
-  ";",
 ]
 `;
 
@@ -1990,7 +1950,6 @@ Array [
   <div
     className="o-ui-subheadline"
   />,
-  ";",
 ]
 `;
 
@@ -2023,7 +1982,6 @@ Array [
   <div
     className="o-ui-fw-9"
   />,
-  ";",
 ]
 `;
 
@@ -2071,7 +2029,6 @@ Array [
   <div
     className="o-ui-gap-13"
   />,
-  ";",
 ]
 `;
 
@@ -2137,7 +2094,6 @@ Array [
   <div
     className="o-ui-h-screen"
   />,
-  ";",
 ]
 `;
 
@@ -2173,21 +2129,17 @@ Array [
   <div
     className="o-ui-jc-str"
   />,
-  ";",
 ]
 `;
 
 exports[`left 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "left": "1px",
-      }
+<div
+  style={
+    Object {
+      "left": "1px",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`line height 1`] = `
@@ -2216,7 +2168,6 @@ Array [
   <div
     className="o-ui-lh-normal"
   />,
-  ";",
 ]
 `;
 
@@ -2267,7 +2218,6 @@ Array [
   <div
     className="o-ui-ma-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2318,7 +2268,6 @@ Array [
   <div
     className="o-ui-mb-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2369,7 +2318,6 @@ Array [
   <div
     className="o-ui-ml-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2420,7 +2368,6 @@ Array [
   <div
     className="o-ui-mr-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2471,7 +2418,6 @@ Array [
   <div
     className="o-ui-mt-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2522,7 +2468,6 @@ Array [
   <div
     className="o-ui-mh-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2573,7 +2518,6 @@ Array [
   <div
     className="o-ui-mv-auto"
   />,
-  ";",
 ]
 `;
 
@@ -2633,7 +2577,6 @@ Array [
   <div
     className="o-ui-mh-mn"
   />,
-  ";",
 ]
 `;
 
@@ -2693,7 +2636,6 @@ Array [
   <div
     className="o-ui-max-w-mnc"
   />,
-  ";",
 ]
 `;
 
@@ -2753,7 +2695,6 @@ Array [
   <div
     className="o-ui-min-h-mnc"
   />,
-  ";",
 ]
 `;
 
@@ -2813,7 +2754,6 @@ Array [
   <div
     className="o-ui-min-w-mnc"
   />,
-  ";",
 ]
 `;
 
@@ -2834,7 +2774,6 @@ Array [
   <div
     className="o-ui-of-sd"
   />,
-  ";",
 ]
 `;
 
@@ -2849,7 +2788,6 @@ Array [
   <div
     className="o-ui-of-v"
   />,
-  ";",
 ]
 `;
 
@@ -2869,17 +2807,13 @@ Array [
       }
     }
   />,
-  ";",
 ]
 `;
 
 exports[`outline 1`] = `
-Array [
-  <div
-    className="o-ui-o-n"
-  />,
-  ";",
-]
+<div
+  className="o-ui-o-n"
+/>
 `;
 
 exports[`overflow 1`] = `
@@ -2899,7 +2833,6 @@ Array [
   <div
     className="o-ui-ovf-v"
   />,
-  ";",
 ]
 `;
 
@@ -2920,7 +2853,6 @@ Array [
   <div
     className="o-ui-ovf-x-v"
   />,
-  ";",
 ]
 `;
 
@@ -2941,7 +2873,6 @@ Array [
   <div
     className="o-ui-ovf-y-v"
   />,
-  ";",
 ]
 `;
 
@@ -2989,7 +2920,6 @@ Array [
   <div
     className="o-ui-pa-13"
   />,
-  ";",
 ]
 `;
 
@@ -3037,7 +2967,6 @@ Array [
   <div
     className="o-ui-pb-13"
   />,
-  ";",
 ]
 `;
 
@@ -3085,7 +3014,6 @@ Array [
   <div
     className="o-ui-pl-13"
   />,
-  ";",
 ]
 `;
 
@@ -3133,7 +3061,6 @@ Array [
   <div
     className="o-ui-pr-13"
   />,
-  ";",
 ]
 `;
 
@@ -3181,7 +3108,6 @@ Array [
   <div
     className="o-ui-pt-13"
   />,
-  ";",
 ]
 `;
 
@@ -3229,7 +3155,6 @@ Array [
   <div
     className="o-ui-ph-13"
   />,
-  ";",
 ]
 `;
 
@@ -3277,7 +3202,6 @@ Array [
   <div
     className="o-ui-pv-13"
   />,
-  ";",
 ]
 `;
 
@@ -3289,7 +3213,6 @@ Array [
   <div
     pointerEvents="none"
   />,
-  ";",
 ]
 `;
 
@@ -3310,7 +3233,6 @@ Array [
   <div
     className="o-ui-stck"
   />,
-  ";",
 ]
 `;
 
@@ -3328,21 +3250,17 @@ Array [
   <div
     className="o-ui-rz-v"
   />,
-  ";",
 ]
 `;
 
 exports[`right 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "right": "1px",
-      }
+<div
+  style={
+    Object {
+      "right": "1px",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`row gap 1`] = `
@@ -3389,7 +3307,6 @@ Array [
   <div
     className="o-ui-r-gap-13"
   />,
-  ";",
 ]
 `;
 
@@ -3677,7 +3594,6 @@ Array [
   <div
     className="o-ui-stroke-primary-10"
   />,
-  ";",
 ]
 `;
 
@@ -3707,7 +3623,6 @@ Array [
   <div
     className="o-ui-ta-s"
   />,
-  ";",
 ]
 `;
 
@@ -3727,7 +3642,6 @@ Array [
       }
     }
   />,
-  ";",
 ]
 `;
 
@@ -3739,7 +3653,6 @@ Array [
   <div
     className="o-ui-to-ellipsis"
   />,
-  ";",
 ]
 `;
 
@@ -3757,21 +3670,17 @@ Array [
   <div
     className="o-ui-tt-u"
   />,
-  ";",
 ]
 `;
 
 exports[`top 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "top": "1px",
-      }
+<div
+  style={
+    Object {
+      "top": "1px",
     }
-  />,
-  ";",
-]
+  }
+/>
 `;
 
 exports[`user select 1`] = `
@@ -3811,7 +3720,6 @@ Array [
       }
     }
   />,
-  ";",
 ]
 `;
 
@@ -3841,7 +3749,6 @@ Array [
   <div
     verticalALign="top"
   />,
-  ";",
 ]
 `;
 
@@ -3865,7 +3772,6 @@ Array [
   <div
     className="o-ui-ws-pw"
   />,
-  ";",
 ]
 `;
 
@@ -3931,7 +3837,6 @@ Array [
   <div
     className="o-ui-w-s"
   />,
-  ";",
 ]
 `;
 
@@ -3949,7 +3854,6 @@ Array [
   <div
     className="o-ui-wb-n"
   />,
-  ";",
 ]
 `;
 
@@ -3982,6 +3886,5 @@ Array [
   <div
     className="o-ui-z-9999"
   />,
-  ";",
 ]
 `;

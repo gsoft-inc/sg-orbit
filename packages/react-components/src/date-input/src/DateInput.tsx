@@ -220,7 +220,7 @@ export function InnerDateInput({
                             readOnly,
                             ref: containerRef,
                             style
-                        } as const,
+                        },
                         wrapperProps ?? {}
                     )}
                 >
