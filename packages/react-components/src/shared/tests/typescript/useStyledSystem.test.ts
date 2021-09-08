@@ -288,15 +288,7 @@ expectAssignable<FontSizeProp>(9);
 expectAssignable<FontSizeProp>("subheadline");
 expectAssignable<FontSizeProp>("headline");
 
-expectAssignable<FontWeightProp>(1);
-expectAssignable<FontWeightProp>(2);
 expectAssignable<FontWeightProp>(3);
-expectAssignable<FontWeightProp>(4);
-expectAssignable<FontWeightProp>(5);
-expectAssignable<FontWeightProp>(6);
-expectAssignable<FontWeightProp>(7);
-expectAssignable<FontWeightProp>(8);
-expectAssignable<FontWeightProp>(9);
 
 expectAssignable<GapProp>(0);
 expectAssignable<GapProp>(1);
@@ -549,7 +541,7 @@ expectAssignable<StyledSystemProps>({
     flexShrink: 1,
     flexWrap: "wrap",
     fontSize: 1,
-    fontWeight: 1,
+    fontWeight: "300",
     gap: 1,
     height: 1,
     justifyContent: "center",

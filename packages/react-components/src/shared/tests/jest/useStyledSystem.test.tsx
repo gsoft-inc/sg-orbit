@@ -94,8 +94,7 @@ const Props: PropDefinition[] = [
     { name: "border top", key: "borderTop", values: ["1px solid black"] },
     // TODO: end
     { name: "border radius", key: "borderRadius", values: Object.keys(BorderRadiusClasses) },
-    { name: "border radius", key: "borderRadius", values: Object.keys(BorderRadiusClasses) },
-    { name: "bottom", key: "borderRadius", values: ["1px"] },
+    { name: "bottom", key: "bottom", values: ["1px"] },
     { name: "box shadow", key: "boxShadow", values: Object.keys(BoxShadowClasses) },
     { name: "box sizing", key: "boxSizing", values: Object.keys(BoxSizingClasses) },
     { name: "color", key: "color", values: Object.keys(ColorClasses) },

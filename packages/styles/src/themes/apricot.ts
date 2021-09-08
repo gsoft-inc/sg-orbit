@@ -18,7 +18,6 @@ export const ApricotTheme: OrbitTheme = {
         "headline": "5rem"
     },
     // TODO FRANK: I think it should be hardcoded, what's the point anyway, we have all the values.
-    fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
