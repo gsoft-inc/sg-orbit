@@ -3870,7 +3870,7 @@ Array [
     className="o-ui-z-9999"
   />,
   <div
-    className="o-ui-z-9999"
+    className="o-ui-z-max"
   />,
 ]
 `;

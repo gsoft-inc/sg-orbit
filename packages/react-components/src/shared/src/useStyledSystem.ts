@@ -740,7 +740,7 @@ export const ZindexClasses = {
     5: "o-ui-z-5",
     "999": "o-ui-z-999",
     "9999": "o-ui-z-9999",
-    "max": "o-ui-z-9999"
+    "max": "o-ui-z-max"
 } as const;
 
 export type AlignContentProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
