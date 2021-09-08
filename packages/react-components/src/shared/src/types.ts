@@ -16,7 +16,7 @@ export interface InternalProps {
     /**
      * @ignore
      */
-    forwardedRef: ForwardedRef<any>;
+    forwardedRef?: ForwardedRef<any>;
 }
 
 // Omit forwardedRef by default, but allow extra props to be ignored
