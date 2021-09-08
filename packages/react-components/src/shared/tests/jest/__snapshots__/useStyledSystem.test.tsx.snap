@@ -921,32 +921,6 @@ Array [
 ]
 `;
 
-exports[`border radius 2`] = `
-Array [
-  <div
-    className="o-ui-b-radius-0"
-  />,
-  <div
-    className="o-ui-b-radius-1"
-  />,
-  <div
-    className="o-ui-b-radius-2"
-  />,
-  <div
-    className="o-ui-b-radius-3"
-  />,
-  <div
-    className="o-ui-b-radius-4"
-  />,
-  <div
-    className="o-ui-b-radius-100"
-  />,
-  <div
-    className="o-ui-pill"
-  />,
-]
-`;
-
 exports[`border right 1`] = `
 <div
   style={
@@ -971,7 +945,7 @@ exports[`bottom 1`] = `
 <div
   style={
     Object {
-      "borderRadius": "1px",
+      "bottom": "1px",
     }
   }
 />
@@ -3575,6 +3549,36 @@ Array [
   />,
   <div
     className="o-ui-stroke-primary-10"
+  />,
+  <div
+    className="o-ui-icon-alias-1"
+  />,
+  <div
+    className="o-ui-icon-alias-2"
+  />,
+  <div
+    className="o-ui-icon-alias-info-1"
+  />,
+  <div
+    className="o-ui-icon-alias-negative-1"
+  />,
+  <div
+    className="o-ui-icon-alias-negative-2"
+  />,
+  <div
+    className="o-ui-icon-alias-positive-1"
+  />,
+  <div
+    className="o-ui-icon-alias-positive-2"
+  />,
+  <div
+    className="o-ui-icon-alias-primary-1"
+  />,
+  <div
+    className="o-ui-icon-alias-warning-1"
+  />,
+  <div
+    className="o-ui-icon-alias-warning-2"
   />,
 ]
 `;
