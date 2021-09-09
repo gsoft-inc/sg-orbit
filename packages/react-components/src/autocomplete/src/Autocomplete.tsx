@@ -76,10 +76,6 @@ export interface InnerAutocompleteProps extends
      */
     direction?: PopupDirection;
     /**
-     * Whether or not the autocomplete is disabled.
-     */
-    disabled?: boolean;
-    /**
      * Whether or not the autocomplete take up the width of its container.
      */
     fluid?: boolean;

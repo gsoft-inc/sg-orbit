@@ -9,16 +9,16 @@ const DefaultElement = "div";
 
 export interface InnerButtonGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "gap">, SlotProps {
     /**
-      * Whether or not the buttons are disabled.
-      */
+     * Whether or not the buttons are disabled.
+     */
     disabled?: boolean;
     /**
-      * Whether or not the group take up the width of its container.
-      */
+     * Whether or not the group take up the width of its container.
+     */
     fluid?: boolean;
     /**
-      * The buttons size.
-      */
+     * The buttons size.
+     */
     size?: "sm" | "md";
 }
 

@@ -1,6 +1,7 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { Span, UL } from "../../html";
 
 const DefaultElement = "li";
 
@@ -16,11 +17,11 @@ export interface InnerMenuSectionProps extends InternalProps, StyledComponentPro
 }
 
 export function InnerMenuSection({
-    id,
-    title,
     as = DefaultElement,
     children,
     forwardedRef,
+    id,
+    title,
     ...rest
 }: InnerMenuSectionProps) {
     return (
@@ -35,22 +36,20 @@ export function InnerMenuSection({
                 }
             )}
         >
-            <Box
+            <Span
                 aria-hidden="true"
-                as="span"
                 className="o-ui-menu-section-title"
                 id={id}
             >
                 {title}
-            </Box>
-            <Box
+            </Span>
+            <UL
                 aria-labelledby={id}
-                as="ul"
                 className="o-ui-menu-section-items"
                 role="group"
             >
                 {children}
-            </Box>
+            </UL>
         </Box>
     );
 }

@@ -1,4 +1,5 @@
 import { ArrowIcon, InfoIcon } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
@@ -15,14 +16,14 @@ export function createTextLinkTestSuite(element, stories) {
                     <TextLink size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink href="#" element={element}>Flight details</TextLink>
                 </Inline>
-                <div className="f5">
+                <Div fontSize={5}>
                     <TextLink size="inherit" href="#" element={element}>Flight details</TextLink>
-                </div>
-                <div style={{ width: "400px" }}>
+                </Div>
+                <Div width="400px">
                     <TextLink href="#" element={element}>
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
                     </TextLink>
-                </div>
+                </Div>
             </Stack>
         )
         .add("icon", () =>
@@ -37,12 +38,12 @@ export function createTextLinkTestSuite(element, stories) {
                         <ArrowIcon />
                     </TextLink>
                 </Inline>
-                <div style={{ width: "400px" }}>
+                <Div width="400px">
                     <TextLink href="#" element={element}>
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
                         <ArrowIcon />
                     </TextLink>
-                </div>
+                </Div>
             </Stack>
         )
         .add("start icon", () =>
@@ -57,12 +58,12 @@ export function createTextLinkTestSuite(element, stories) {
                         <Text>Flight details</Text>
                     </TextLink>
                 </Inline>
-                <div style={{ width: "400px" }}>
+                <Div width="400px">
                     <TextLink href="#" element={element}>
                         <InfoIcon slot="start-icon" />
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
                     </TextLink>
-                </div>
+                </Div>
             </Stack>
         )
         .add("external", () =>
@@ -71,11 +72,11 @@ export function createTextLinkTestSuite(element, stories) {
                     <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink external href="#" element={element}>Flight details</TextLink>
                 </Inline>
-                <div style={{ width: "400px" }}>
+                <Div width="400px">
                     <TextLink external href="#" element={element}>
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
                     </TextLink>
-                </div>
+                </Div>
             </Stack>
         )
         .add("new tab", () =>

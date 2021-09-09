@@ -36,8 +36,6 @@ export const InnerIcon = ((props: InnerIconProps) => {
         styleProps
     );
 
-    console.log(rest);
-
     return (
         <Box
             {...mergeProps(

@@ -1,7 +1,10 @@
 import { VisuallyHidden } from "../../visually-hidden";
+import { as } from "../../shared";
+
+const HiddenSpan = as(VisuallyHidden, "span");
 
 export function NewTabIndicator() {
     return (
-        <VisuallyHidden as="span">(opens in a new tab)</VisuallyHidden>
+        <HiddenSpan>(opens in a new tab)</HiddenSpan>
     );
 }

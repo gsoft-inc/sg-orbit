@@ -2,13 +2,22 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
-export interface SharedLinkProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "target"> {
+export interface SharedLinkProps extends
+    // So it could be used with dynamic slots.
+    SlotProps,
+    InternalProps,
+    InteractionProps,
+    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "external" | "href" | "rel" | "target"> {
+    /**
+     * Whether or not the link should autoFocus on render.
+     */
+    autoFocus?: boolean | number;
     /**
      * React children.
      */

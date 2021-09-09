@@ -16,16 +16,14 @@ import {
     useRefState
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
-import { Overlay, usePopup } from "../../overlay";
+import { Overlay, OverlayDefaultElement, PopupAlignment, PopupDirection, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-const DefaultElement = "div";
-
-export interface InnerMenuTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerMenuTriggerProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
     /**
      * The horizontal alignment of the menu relative to the trigger.
      */
-    align?: "start" | "end";
+    align?: PopupAlignment;
     /**
      * Whether or not the menu can flip when it will overflow it's boundary area.
      */
@@ -49,7 +47,7 @@ export interface InnerMenuTriggerProps extends InternalProps, StyledComponentPro
     /**
      * The direction the menu will open relative to the trigger.
      */
-    direction?: "bottom" | "top";
+    direction?: PopupDirection;
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -71,21 +69,21 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     const [inputGroupProps] = useInputGroupMenuAddonProps();
 
     const {
-        id,
-        open: openProp,
-        defaultOpen,
-        onOpenChange,
-        closeOnSelect = true,
-        direction = "bottom",
         align = "start",
-        disabled,
-        readOnly,
         allowFlip,
         allowPreventOverflow,
-        zIndex = 10000,
-        as = DefaultElement,
+        as = OverlayDefaultElement,
         children,
+        closeOnSelect = true,
+        defaultOpen,
+        direction = "bottom",
+        disabled,
         forwardedRef,
+        id,
+        onOpenChange,
+        open: openProp,
+        readOnly,
+        zIndex = 10000,
         ...rest
     } = mergeProps(
         props,

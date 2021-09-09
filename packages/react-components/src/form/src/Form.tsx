@@ -13,7 +13,7 @@ export interface InnerFormProps extends InternalProps, StyledComponentProps<type
      */
     children: ReactNode;
     /**
-    * @ignore
+    * Whether or not the form elements are disabled.
      */
     disabled?: boolean;
     /**

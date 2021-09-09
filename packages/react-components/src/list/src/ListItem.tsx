@@ -4,7 +4,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "li";
 
-export interface InnerListItemProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerListItemProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -16,10 +16,10 @@ export interface InnerListItemProps extends InternalProps, Omit<StyledComponentP
 }
 
 export function InnerListItem({
-    size,
     as = DefaultElement,
     children,
     forwardedRef,
+    size,
     ...rest
 }: InnerListItemProps) {
     return (

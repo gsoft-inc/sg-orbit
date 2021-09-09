@@ -1,7 +1,7 @@
 import "./Menu.css";
 
 import { Box } from "../../box";
-import { CollectionDivider, CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
+import { CollectionDivider, CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InternalProps,
@@ -28,14 +28,11 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
+import { ValidationState } from "../../input";
 
 export type SelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
-
-// Used to generate CollectionNode[] instead of any[] in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "ul";
 
@@ -57,7 +54,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
      */
     defaultSelectedKeys?: string[];
     /**
-     * @ignore
+     * Whether or not the menu items are disabled.
      */
     disabled?: boolean;
     /**
@@ -86,7 +83,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     /**
      * Whether or not the menu should display as "valid" or "invalid".
      */
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -96,21 +93,21 @@ function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
 }
 
 export function InnerMenu({
-    id,
-    selectedKeys: selectedKeysProp,
-    defaultSelectedKeys,
-    validationState,
-    onSelectionChange,
-    selectionMode = "none",
-    nodes: nodesProp,
-    autoFocus,
-    defaultFocusTarget,
-    fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
+    autoFocus,
     children,
+    defaultFocusTarget,
+    defaultSelectedKeys,
+    fluid,
     forwardedRef,
+    id,
+    nodes: nodesProp,
+    onSelectionChange,
+    selectedKeys: selectedKeysProp,
+    selectionMode = "none",
+    validationState,
     ...rest
 }: InnerMenuProps) {
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
@@ -213,12 +210,12 @@ export function InnerMenu({
     const rootId = useId(id, "o-ui-menu");
 
     const renderItem = ({
-        key,
-        index,
-        elementType: As = MenuItem,
-        ref,
         content,
+        elementType: As = MenuItem,
+        index,
+        key,
         props,
+        ref,
         tooltip
     }: CollectionItem) => (
         <As

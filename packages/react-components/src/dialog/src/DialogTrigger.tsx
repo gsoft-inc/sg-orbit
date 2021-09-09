@@ -1,11 +1,9 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
 import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
-import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayDefaultElement, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 
-const DefaultElement = "div";
-
-export interface InnerDialogTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerDialogTriggerProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
     /**
      * React children.
      */
@@ -36,7 +34,7 @@ export interface InnerDialogTriggerProps extends InternalProps, StyledComponentP
 }
 
 export function InnerDialogTrigger({
-    as = DefaultElement,
+    as = OverlayDefaultElement,
     children,
     defaultOpen,
     dismissable = true,

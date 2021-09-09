@@ -1,17 +1,26 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { CollectionItem as CollectionItemAliasForDocumentation } from "../../collection";
+import { CollectionItem } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, Keys, OmitInternalProps, SlotElements, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useRefState, useSlots } from "../../shared";
+import {
+    InteractionProps,
+    InternalProps,
+    Keys,
+    OmitInternalProps,
+    SlotElements,
+    StyledComponentProps,
+    cssModule,
+    isNil,
+    mergeProps,
+    useEventCallback,
+    useRefState,
+    useSlots
+} from "../../shared";
 import { OptionKeyProp } from "./Listbox";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useListboxContext } from "./ListboxContext";
-
-// Used to generate CollectionItem instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CollectionItem extends CollectionItemAliasForDocumentation { }
 
 const DefaultElement = "div";
 
@@ -31,15 +40,15 @@ export interface InnerListboxOptionProps extends InternalProps, InteractionProps
 }
 
 export function InnerListboxOption({
-    item: { key, tooltip },
-    id,
-    disabled,
     active,
-    focus,
-    hover,
     as = DefaultElement,
     children,
+    disabled,
+    focus,
     forwardedRef,
+    hover,
+    id,
+    item: { key, tooltip },
     ...rest
 }: InnerListboxOptionProps) {
     const {

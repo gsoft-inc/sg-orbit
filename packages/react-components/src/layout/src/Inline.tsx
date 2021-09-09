@@ -66,11 +66,11 @@ export interface InnerInlineProps extends
 export function InnerInline({
     alignX,
     alignY,
-    children,
-    gap = 5,
     as = DefaultElement,
-    wrap,
+    children,
     forwardedRef,
+    gap = 5,
+    wrap,
     ...rest
 }: InnerInlineProps) {
     const alignProps = useFlexAlignment({ alignX, alignY, orientation: "horizontal" });

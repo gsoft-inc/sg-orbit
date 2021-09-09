@@ -6,7 +6,7 @@ function CustomOption({ item, children, ...rest }) {
         <ListboxOption
             {...rest}
             item={item}
-            className={cx({ "primary-600": selectedKeys.includes(key) })}
+            color={selectedKeys.includes(key) ? "primary-7" : undefined}
         >
             {children}
         </ListboxOption>
