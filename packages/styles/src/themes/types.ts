@@ -26,8 +26,6 @@ export type FontSizeValues = {
 };
 /* eslint-enable @typescript-eslint/consistent-type-definitions */
 
-export type FontWeightValues = FixedLengthArray<number, 9>;
-
 export type LineHeightValues = FixedLengthArray<number, 6>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
@@ -177,7 +175,6 @@ export interface OrbitTheme {
     name: string;
     space: SpaceValues;
     fontSizes: FontSizeValues;
-    fontWeights: FontWeightValues;
     lineHeights: LineHeightValues;
     borderRadii: BorderRadiusValues;
     boxShadows: BoxShadowValues & BoxShadowRoles | ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
