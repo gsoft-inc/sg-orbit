@@ -1,4 +1,4 @@
-.o-ui {
+#o-ui {
     --o-ui-box-shadows-alias-none: none;
     --o-ui-box-shadows-alias-skim: var(--o-ui-box-shadows-1);
     --o-ui-box-shadows-alias-lifted: var(--o-ui-box-shadows-2);

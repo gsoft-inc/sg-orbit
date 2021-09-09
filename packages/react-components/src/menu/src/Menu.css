@@ -3,7 +3,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     - Classes: "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider"
 */
 
-.o-ui {
+#o-ui {
     --o-ui-menu-border-size: 1px;
     --o-ui-menu-item-height: var(--o-ui-space-7);
     --o-ui-menu-item-checkmark-size: var(--o-ui-space-3);

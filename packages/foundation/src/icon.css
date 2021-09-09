@@ -1,4 +1,4 @@
-.o-ui-light {
+#o-ui.light {
     --o-ui-icon-alias-1: var(--o-ui-marine-10);
     --o-ui-icon-alias-2: var(--o-ui-marine-6);
     --o-ui-icon-alias-primary-1: var(--o-ui-primary-500);
@@ -11,7 +11,7 @@
     --o-ui-icon-alias-info-1: var(--o-ui-marine-6);
 }
 
-.o-ui-dark {
+#o-ui.dark {
     --o-ui-icon-alias-1: var(--o-ui-white);
     --o-ui-icon-alias-2: var(--o-ui-cloud-6);
     --o-ui-icon-alias-primary-1: var(--o-ui-primary-700);

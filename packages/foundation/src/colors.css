@@ -1,4 +1,4 @@
-.o-ui {
+#o-ui {
     /* BRAND */
     /* Marine */
     --o-ui-marine-1: hsla(222, 100%, 96%, 1);
@@ -117,7 +117,7 @@
 }
 
 /* APRICOT */
-.o-ui-apricot {
+#o-ui.apricot {
     --o-ui-primary-50: var(--o-ui-global-apricot-1);
     --o-ui-primary-100: var(--o-ui-global-apricot-2);
     --o-ui-primary-200: var(--o-ui-global-apricot-3);
@@ -131,7 +131,7 @@
 }
 
 /* DESKTOP */
-.o-ui-desktop {
+#o-ui.desktop {
     --o-ui-primary-50: var(--o-ui-global-desktop-1);
     --o-ui-primary-100: var(--o-ui-global-desktop-2);
     --o-ui-primary-200: var(--o-ui-global-desktop-3);

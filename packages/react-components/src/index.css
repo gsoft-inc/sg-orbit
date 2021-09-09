@@ -1,4 +1,4 @@
-.o-ui {
+#o-ui {
     /* SHAPES */
     --o-ui-shape-pill: 999px;
     --o-ui-shape-circular: 100%;
@@ -32,7 +32,7 @@
 }
 
 @media not (prefers-reduced-motion) {
-    .o-ui {
+    #o-ui {
         scroll-behavior: smooth;
     }
 }

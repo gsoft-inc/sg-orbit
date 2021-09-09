@@ -1,4 +1,4 @@
-.o-ui-light {
+#o-ui.light {
     --o-ui-text-alias-1: var(--o-ui-marine-10);
     --o-ui-text-alias-1-hover: var(--o-ui-marine-10);
     --o-ui-text-alias-1-active: var(--o-ui-marine-10);
@@ -31,7 +31,7 @@
     --o-ui-text-alias-input-placeholder: var(--o-ui-marine-3);
 }
 
-.o-ui-dark {
+#o-ui.dark {
     --o-ui-text-alias-1: var(--o-ui-white);
     --o-ui-text-alias-1-hover: var(--o-ui-white);
     --o-ui-text-alias-1-active: var(--o-ui-white);

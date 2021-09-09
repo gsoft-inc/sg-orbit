@@ -1,4 +1,4 @@
-.o-ui-light {
+#o-ui.light {
     --o-ui-shadow-100:
         0 0.1px 0.3px rgba(0, 0, 0, 0.022),
         0 0.1px 0.7px rgba(0, 0, 0, 0.032),
@@ -29,7 +29,7 @@
         0 40px 80px -5px rgba(0, 0, 0, 0.08);
 }
 
-.o-ui-dark {
+#o-ui.dark {
     --o-ui-shadow-100:
         0 0.3px 1.1px rgba(0, 0, 0, 0.056),
         0 0.7px 2.7px rgba(0, 0, 0, 0.081),

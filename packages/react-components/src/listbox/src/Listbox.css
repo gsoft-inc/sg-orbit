@@ -3,7 +3,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     - Classes: "o-ui-listbox-option" and "o-ui-listbox-section"
 */
 
-.o-ui {
+#o-ui {
     --o-ui-listbox-border-size: 1px;
     --o-ui-listbox-option-height: var(--o-ui-space-7);
     --o-ui-listbox-option-checkmark-size: var(--o-ui-space-3);
