@@ -1,6 +1,6 @@
 @import "../../input/src/Input.css";
 
-.o-ui {
+#o-ui {
     --o-ui-spinner-width: var(--o-ui-space-6);
 }
 

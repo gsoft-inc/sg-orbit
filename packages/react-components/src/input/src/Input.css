@@ -1,4 +1,4 @@
-.o-ui {
+#o-ui {
     --o-ui-input-padding: var(--o-ui-space-3);
     --o-ui-input-padding-with-icon: var(--o-ui-space-7);
     --o-ui-input-padding-with-button: var(--o-ui-space-8);

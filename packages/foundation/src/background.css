@@ -1,4 +1,4 @@
-.o-ui-light {
+#o-ui.light {
     --o-ui-background-alias: var(--o-ui-white);
     --o-ui-background-alias-1: var(--o-ui-white);
     --o-ui-background-alias-1-hover: var(--o-ui-cloud-1);
@@ -40,7 +40,7 @@
     --o-ui-background-alias-accordion-hover: rgba(0, 0, 0, 0.04);
 }
 
-.o-ui-dark {
+#o-ui.dark {
     --o-ui-background-alias: hsl(226deg, 20%, 15%);
     --o-ui-background-alias-1: #2B2F3C;
     --o-ui-background-alias-1-hover: var(--o-ui-cloud-10);

@@ -1,4 +1,4 @@
-.o-ui-light {
+#o-ui.light {
     --o-ui-b-alias-1: var(--o-ui-cloud-2);
     --o-ui-b-alias-1-hover: var(--o-ui-cloud-4);
     --o-ui-b-alias-1-active: var(--o-ui-cloud-6);
@@ -25,7 +25,7 @@
     --o-ui-b-alias-positive-1-active: var(--o-ui-botanic-10);
 }
 
-.o-ui-dark {
+#o-ui.dark {
     --o-ui-b-alias-1: var(--o-ui-neutral-dark-7);
     --o-ui-b-alias-1-hover: var(--o-ui-neutral-dark-5);
     --o-ui-b-alias-1-active: var(--o-ui-neutral-dark-4);
