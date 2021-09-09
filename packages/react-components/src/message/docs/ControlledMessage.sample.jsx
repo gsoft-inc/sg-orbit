@@ -7,7 +7,7 @@
     }, [show, setShow]);
 
     return (
-        <Stack style={{ minHeight: "110px" }}>
+        <Stack minHeight="110px">
             <Button
                 color="secondary"
                 onClick={toggleVisibility}

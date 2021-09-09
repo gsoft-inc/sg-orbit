@@ -10,7 +10,7 @@ export interface InnerTransitionProps extends InternalProps, StyledComponentProp
      */
     animateFirstRender?: boolean;
     /**
-     * @ignore
+     * React children.
      */
     children: ReactNode;
     /**
@@ -28,13 +28,13 @@ export interface InnerTransitionProps extends InternalProps, StyledComponentProp
 }
 
 export function InnerTransition({
-    show,
     animateFirstRender = false,
-    enter,
-    leave,
     as = DefaultElement,
     children,
+    enter,
     forwardedRef,
+    leave,
+    show,
     ...rest
 }: InnerTransitionProps) {
     const [isVisible, setIsVisible] = useState(show);

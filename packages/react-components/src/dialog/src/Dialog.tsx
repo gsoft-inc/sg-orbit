@@ -1,6 +1,6 @@
 import "./Dialog.css";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import {
@@ -28,17 +28,31 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export const DialogDefaultElement = "section";
+const DefaultElement = "section";
 
-export interface InnerDialogProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DialogDefaultElement>, "zIndex"> {
+export interface SharedDialogProps extends
+    InternalProps,
+    InteractionProps,
+    Omit<StyledComponentProps<typeof DefaultElement>, "zIndex" | "role"> {
     /**
      * React children.
      */
     children: ReactNode;
     /**
-     * Whether or not the dialog should close on outside interactions.
-     */
+      * Whether or not the dialog should close on outside interactions.
+      */
     dismissable?: boolean;
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
+    /**
+     * The z-index of the dialog.
+     */
+    zIndex?: number;
+}
+
+export interface InnerDialogProps extends SharedDialogProps {
     /**
      * The dialog role.
      */
@@ -47,14 +61,6 @@ export interface InnerDialogProps extends InternalProps, InteractionProps, Omit<
      * A dialog can vary in size.
      */
     size?: "sm" | "md" | "lg" | "fullscreen";
-    /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Record<string, any>;
-    /**
-     * The z-index of the dialog.
-     */
-    zIndex?: number;
 }
 
 function useHideBodyScrollbar() {
@@ -120,7 +126,7 @@ export function InnerDialog({
     "aria-describedby": ariaDescribedBy,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = DialogDefaultElement,
+    as = DefaultElement,
     children,
     dismissable = true,
     focus,

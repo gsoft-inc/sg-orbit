@@ -101,7 +101,7 @@ function renderBucket(scope: string, bucket: VarsBucket) {
     const element = document.createElement("style");
 
     element.setAttribute("id", scope);
-    element.innerText = `.${scope} { ${bucket.join(" ")} }`;
+    element.innerText = `#o-ui.${scope} { ${bucket.join(" ")} }`;
 
     document.head.appendChild(element);
 }

@@ -4,15 +4,13 @@ import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { InternalProps, OmitInternalProps, StyledComponentProps, StyleProvider, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 
-type InnerMessageContentProps = TextProps;
-
 const DefaultElement = "div";
 
-const MessageContent = forwardRef<any, InnerMessageContentProps>(({
+const MessageContent = forwardRef<any, TextProps>(({
     as = DefaultElement,
     children,
     ...rest
@@ -52,10 +50,6 @@ export interface InnerMessageProps extends InternalProps, StyledComponentProps<t
      */
     onDismiss?: (event: MouseEvent) => void;
     /**
-     * @ignore
-     */
-    role?: string;
-    /**
      * A controlled show value.
      */
     show?: boolean;
@@ -80,13 +74,13 @@ const Icon = {
 };
 
 export function InnerMessage({
-    show = true,
-    variant = "informative",
-    onDismiss,
-    role: roleProp,
     as = DefaultElement,
     children,
     forwardedRef,
+    onDismiss,
+    role: roleProp,
+    show = true,
+    variant = "informative",
     ...rest
 }: InnerMessageProps) {
     const ref = useMergedRefs(forwardedRef);
