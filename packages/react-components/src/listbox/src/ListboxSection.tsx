@@ -16,11 +16,11 @@ export interface InnerListboxSectionProps extends InternalProps, StyledComponent
 }
 
 export function InnerListboxSection({
-    id,
-    title,
     as = DefaultElement,
     children,
     forwardedRef,
+    id,
+    title,
     ...rest
 }: InnerListboxSectionProps) {
     return (

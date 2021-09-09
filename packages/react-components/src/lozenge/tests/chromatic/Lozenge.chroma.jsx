@@ -1,4 +1,5 @@
 import { CheckCircleIcon, IconList } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/typography";
@@ -29,14 +30,14 @@ stories()
                     <Text>New</Text>
                 </Lozenge>
             </Inline>
-            <div>
+            <Div>
                 <Lozenge>
                     <IconList>
                         <CheckCircleIcon /><CheckCircleIcon />
                     </IconList>
                     <Text>New</Text>
                 </Lozenge>
-            </div>
+            </Div>
         </Stack>
     )
     .add("primary", () =>

@@ -13,9 +13,6 @@
     return (
         <AlertTrigger
             open={isOpen}
-            onPrimaryButtonClick={handleClose}
-            onSecondaryButtonClick={handleClose}
-            onCancelButtonClick={handleClose}
             onOpenChange={handleOpenChange}
         >
             <Button>Open</Button>
@@ -23,6 +20,9 @@
                 primaryButtonLabel="Yes"
                 secondaryButtonLabel="Postpone"
                 cancelButtonLabel="No"
+                onPrimaryButtonClick={handleClose}
+                onSecondaryButtonClick={handleClose}
+                onCancelButtonClick={handleClose}
             >
                 <Heading>Autopilot</Heading>
                 <Content>Are you use sure you want to engage autopilot?</Content>

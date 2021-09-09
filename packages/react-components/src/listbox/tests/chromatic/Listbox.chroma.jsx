@@ -284,7 +284,7 @@ stories()
     )
     .add("item with description overflow when fluid", () =>
         <Inline>
-            <Listbox fluid style={{ width: "400px" }} aria-label="Planets">
+            <Listbox fluid width="400px" aria-label="Planets">
                 <Item key="earth">
                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                     <Text slot="description">Home sweet home!</Text>
@@ -299,7 +299,7 @@ stories()
                 <Item key="saturn">Saturn</Item>
                 <Item key="uranus">Uranus</Item>
             </Listbox>
-            <Listbox defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid style={{ width: "400px" }} aria-label="Planets">
+            <Listbox defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid width="400px" aria-label="Planets">
                 <Item key="earth">
                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                     <Text slot="description">Home sweet home!</Text>
@@ -445,7 +445,7 @@ stories()
             return (
                 <Box
                     {...rest}
-                    style={{ color: "red" }}
+                    color="red"
                 >
                     {children}
                 </Box>
@@ -580,7 +580,7 @@ stories()
         </Listbox>
     )
     .add("scrolling with custom style height", () =>
-        <Listbox style={{ height: "200px" }} aria-label="Planets">
+        <Listbox height="200px" aria-label="Planets">
             <Item key="ceres">Ceres</Item>
             <Item key="charon">Charon</Item>
             <Item key="earth">Earth</Item>
@@ -598,7 +598,7 @@ stories()
         </Listbox>
     )
     .add("custom menu width", () =>
-        <Listbox style={{ width: "500px" }} aria-label="Planets">
+        <Listbox width="500px" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>

@@ -6,9 +6,9 @@ import { ThemeProvider, useThemeContext } from "../../theme-provider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
 
-const DefaultElement = "div";
+export const OverlayDefaultElement = "div";
 
-export interface InnerOverlayProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerOverlayProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
     /**
      * Hacky offset utility to apply a transparent CSS border to the overlay.
      * It's useful to prevent the overlay from closing when the mouse goes from the trigger to the overlay.

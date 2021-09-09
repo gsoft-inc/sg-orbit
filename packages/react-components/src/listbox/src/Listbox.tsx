@@ -1,7 +1,15 @@
 import "./Listbox.css";
 
 import { Box } from "../../box";
-import { CollectionItem, CollectionNode as CollectionNodeAliasForDocumentation, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
+import {
+    CollectionItem,
+    CollectionNode,
+    CollectionSection,
+    NodeType,
+    useCollection,
+    useOnlyCollectionItems,
+    useScrollableCollection
+} from "../../collection";
 import {
     ComponentProps,
     KeyboardEvent,
@@ -37,14 +45,11 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
+import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
 
 type SelectionMode = "none" | "single" | "multiple";
-
-// Used to generate CollectionNode[] instead of any[] in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface CollectionNode extends CollectionNodeAliasForDocumentation { }
 
 const DefaultElement = "div";
 
@@ -54,10 +59,6 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
      */
     autoFocus?: boolean | number;
     /**
-     * @ignore
-     */
-    children?: ReactNode;
-    /**
      * Default focus target when enabling autofocus.
      */
     defaultFocusTarget?: string;
@@ -66,7 +67,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
      */
     defaultSelectedKeys?: string[];
     /**
-     * @ignore
+     * Whether or not the listbox options are disabled.
      */
     disabled?: boolean;
     /**
@@ -114,7 +115,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     /**
      * Whether or not the listbox should display as "valid" or "invalid".
      */
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
@@ -167,26 +168,26 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
 }
 
 export function InnerListbox({
-    id,
-    selectedKeys: selectedKeysProp,
-    defaultSelectedKeys,
-    validationState,
-    onSelectionChange,
-    onFocusChange,
-    selectionMode = "single",
-    nodes: nodesProp,
-    autoFocus,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
-    defaultFocusTarget,
-    focusOnHover,
-    useVirtualFocus,
-    tabbable = true,
-    fluid,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
+    autoFocus,
     children,
+    defaultFocusTarget,
+    defaultSelectedKeys,
+    fluid,
+    focusOnHover,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     forwardedRef,
+    id,
+    nodes: nodesProp,
+    onFocusChange,
+    onSelectionChange,
+    selectedKeys: selectedKeysProp,
+    selectionMode = "single",
+    tabbable = true,
+    useVirtualFocus,
+    validationState,
     ...rest
 }: InnerListboxProps) {
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
@@ -373,7 +374,6 @@ export function InnerListbox({
     const scrollableProps = useScrollableCollection(containerRef, {
         // A listbox have a border-size of 1px
         itemSelector: ".o-ui-listbox-option",
-
         maxHeight: 12 * 32 + 2 * 1,
         // 32px is the default listbox option height.
         paddingHeight: 2 * 1,

@@ -159,11 +159,11 @@ export const OrbitColors = [
 
 export type OrbitColor = typeof OrbitColors[number];
 
-function createOrbitColorClasses(section?: string, additionalClasses?: string) {
+function createOrbitColorClasses(section?: string) {
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitColors.reduce((acc, x) => {
-        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
+        acc[x] = template(x);
 
         return acc;
     }, {} as Record<OrbitColor, string>);
@@ -183,11 +183,11 @@ export const OrbitBorderColorsAliases = [
     "alias-warning-1"
 ] as const;
 
-function createOrbitBorderColorAliasesClasses(section?: string, additionalClasses?: string) {
+function createOrbitBorderColorAliasesClasses(section?: string) {
     const template = isNil(section) ? (x: string) => `o-ui-${x}` : (x: string) => `o-ui-${section}-${x}`;
 
     return OrbitBorderColorsAliases.reduce((acc, x) => {
-        acc[x] = !isNil(additionalClasses) ? `${template(x)} ${additionalClasses}` : template(x);
+        acc[x] = template(x);
 
         return acc;
     }, {} as Record<typeof OrbitBorderColorsAliases[number], string>);
@@ -293,28 +293,35 @@ export const BorderAdditionalClasses = {
     "none": "o-ui-ba-n"
 } as const;
 
-export const BorderClasses = { ...createOrbitColorClasses("b", "o-ui-ba"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-ba"), ...BorderAdditionalClasses };
+export const BorderClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderAdditionalClasses };
 
 export const BorderBottomAdditionalClasses = {
     "0": "o-ui-bb-n",
     "none": "o-ui-bb-n"
 } as const;
 
-export const BorderBottomClasses = { ...createOrbitColorClasses("b", "o-ui-bb"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bb"), ...BorderBottomAdditionalClasses };
+export const BorderBottomClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderBottomAdditionalClasses };
 
 export const BorderLeftAdditionalClasses = {
     "0": "o-ui-bl-n",
     "none": "o-ui-bl-n"
 } as const;
 
-export const BorderLeftClasses = { ...createOrbitColorClasses("b", "o-ui-bl"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bl"), ...BorderLeftAdditionalClasses };
+export const BorderLeftClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderLeftAdditionalClasses };
 
 export const BorderRightAdditionalClasses = {
     "0": "o-ui-br-n",
     "none": "o-ui-br-n"
 } as const;
 
-export const BorderRightClasses = { ...createOrbitColorClasses("b", "o-ui-br"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-br"), ...BorderRightAdditionalClasses };
+export const BorderRightClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderRightAdditionalClasses };
+
+export const BorderTopAdditionalClasses = {
+    "0": "o-ui-bt-n",
+    "none": "o-ui-bt-n"
+} as const;
+
+export const BorderTopClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderTopAdditionalClasses };
 
 export const BorderRadiusClasses = {
     0: "o-ui-b-radius-0",
@@ -325,13 +332,6 @@ export const BorderRadiusClasses = {
     "100%": "o-ui-b-radius-100",
     "pill": "o-ui-pill"
 } as const;
-
-export const BorderTopAdditionalClasses = {
-    "0": "o-ui-bt-n",
-    "none": "o-ui-bt-n"
-} as const;
-
-export const BorderTopClasses = { ...createOrbitColorClasses("b", "o-ui-bt"), ...createOrbitBorderColorAliasesClasses("b", "o-ui-bt"), ...BorderTopAdditionalClasses };
 
 export const BoxShadowClasses = {
     1: "o-ui-bs-1",
@@ -1287,7 +1287,33 @@ function createClassesHandler<TValue extends string>(classes: Record<TValue, str
     };
 }
 
-// TODO: should we introduce some kind of generic shorthandHandler?
+const BorderWidthClasses = {
+    "border": "o-ui-ba",
+    "borderBottom": "o-ui-bb",
+    "borderLeft": "o-ui-bl",
+    "borderRight": "o-ui-br",
+    "borderTop": "o-ui-bt"
+} as const;
+
+// Custom handler for borders to allow the following syntax:
+// - border="sunray-10" -> className="o-ui-ba o-ui-b-sunray-10"
+// - border="hsla(223, 12%, 87%, 1)" -> className="o-ui-ba" & style={{ borderColor: hsla(223, 12%, 87%, 1) }}
+function borderHandler<TValue extends string>(classes: Record<TValue, string>): PropHandler<TValue> {
+    return (name: keyof typeof BorderWidthClasses, value, context) => {
+        const className = classes[value as keyof typeof classes];
+
+        if (!isNil(className)) {
+            context.addClass(BorderWidthClasses[name]);
+            context.addClass(className);
+        } else if (value.startsWith("#") || value.startsWith("rgb") || value.startsWith("rgba") || value.startsWith("hsl") || value.startsWith("hsla")) {
+            context.addClass(BorderWidthClasses[name]);
+            context.addStyleValue("borderColor", value);
+        } else {
+            context.addStyleValue(name, value);
+        }
+    };
+}
+
 function flexFlowHandler(name: string, value: string, context: StylingContext) {
     const parts = value.split(" ");
 
@@ -1325,12 +1351,12 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundColor: createClassesHandler(BackgroundColorClasses),
     backgroundPosition: createClassesHandler(BackgroundPositionClasses),
     backgroundSize: createClassesHandler(BackgroundSizeClasses),
-    border: createClassesHandler(BorderClasses),
-    borderBottom: createClassesHandler(BorderBottomClasses),
-    borderLeft: createClassesHandler(BorderLeftClasses),
+    border: borderHandler(BorderClasses),
+    borderBottom: borderHandler(BorderBottomClasses),
+    borderLeft: borderHandler(BorderLeftClasses),
     borderRadius: createClassesHandler(BorderRadiusClasses),
-    borderRight: createClassesHandler(BorderRightClasses),
-    borderTop: createClassesHandler(BorderTopClasses),
+    borderRight: borderHandler(BorderRightClasses),
+    borderTop: borderHandler(BorderTopClasses),
     boxShadow: createClassesHandler(BoxShadowClasses),
     boxSizing: createClassesHandler(BoxSizingClasses),
     color: createClassesHandler(ColorClasses),

@@ -2,13 +2,26 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, mergeProps, normalizeSize, slot, useMergedRefs, useSlots } from "../../shared";
+import {
+    InternalProps,
+    OmitInternalProps,
+    SlotProps,
+    StyledComponentProps,
+    createSizeAdapter,
+    cssModule,
+    mergeProps,
+    normalizeSize,
+    slot,
+    useMergedRefs,
+    useSlots
+} from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+// Remove Omit once the actual color prop have been removed.
+export interface InnerLozengeProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * React children.
      */
@@ -31,11 +44,11 @@ const textSize = createSizeAdapter({
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerLozenge({
-    color,
-    size,
     as = DefaultElement,
     children,
+    color,
     forwardedRef,
+    size,
     ...rest
 }: InnerLozengeProps) {
     const ref = useMergedRefs(forwardedRef);

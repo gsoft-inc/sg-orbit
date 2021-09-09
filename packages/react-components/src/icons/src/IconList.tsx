@@ -11,7 +11,7 @@ export interface InnerIconListProps extends SlotProps, InternalProps, StyledComp
      */
     children: ReactNode;
     /**
-     * Whether or not the IconList is disabled.
+     * Whether or not the icons of the list are disabled.
      */
     disabled?: boolean;
     /**

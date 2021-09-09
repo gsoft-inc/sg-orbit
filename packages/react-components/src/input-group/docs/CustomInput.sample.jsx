@@ -1,16 +1,18 @@
+const Input = as(Box, "input");
+
 function CustomInput(props) {
     const [inputGroupProps] = useInputGroupProps();
 
     return (
-        <input
+        <Input
             {...mergeProps(
                 props,
                 {
                     type: "text",
+                    width: "225px",
+                    height: 8,
+                    border: "hsla(223, 12%, 87%, 1)",
                     style: {
-                        width: "225px",
-                        height: "var(--o-ui-space-8)",
-                        border: "1px solid hsla(223, 12%, 87%, 1)",
                         borderTopLeftRadius: "var(--o-ui-input-border-radius)",
                         borderBottomLeftRadius: "var(--o-ui-input-border-radius)"
                     }

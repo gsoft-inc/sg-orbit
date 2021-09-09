@@ -4,12 +4,16 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, augmentElement, isNil, mergeProps, useStyleProps } from "../../shared";
+import { OmitInternalProps, augmentElement, mergeProps, useStyleProps } from "../../shared";
 import { SharedLinkProps } from "./Link";
 import { useLink } from "./useLink";
 
 // TODO: put back "color" once it's the actual color have been moved to a variant.
 export interface InnerIconLinkProps extends Omit<SharedLinkProps, "color"> {
+    /**
+     * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+     */
+    "aria-label": string;
     /**
      * Whether or not the link should autoFocus on render.
      */
@@ -56,10 +60,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         props,
         styleProps
     );
-
-    if (isNil(ariaLabel)) {
-        console.error("An icon link component must have an \"aria-label\" attribute.");
-    }
 
     const { linkProps, showNewTabIndicator } = useLink({
         active,

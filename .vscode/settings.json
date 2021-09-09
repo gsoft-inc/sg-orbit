@@ -20,8 +20,7 @@
     "eslint.validate": ["javascript", "javascriptreact", "mdx"],
     "stylelint.autoFixOnSave": true,
     "files.associations": {
-        ".overrides": "css",
-        ".variables": "css"
+        "*.snap": "javascriptreact"
     },
     "breadcrumbs.enabled": true,
     "search.exclude": {

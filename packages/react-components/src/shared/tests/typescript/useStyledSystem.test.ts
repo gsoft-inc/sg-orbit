@@ -151,17 +151,30 @@ expectAssignable<BackgroundSizeProp>("top");
 expectAssignable<BackgroundSizeProp>("cover");
 expectAssignable<BackgroundSizeProp>("contain");
 
-expectAssignable<BorderBottomProp>("none");
-expectAssignable<BorderBottomProp>("0");
-expectAssignable<BorderBottomProp>("sunray-1");
-
-expectAssignable<BorderLeftProp>("none");
-expectAssignable<BorderLeftProp>("0");
-expectAssignable<BorderLeftProp>("sunray-1");
-
 expectAssignable<BorderProp>("none");
 expectAssignable<BorderProp>("0");
 expectAssignable<BorderProp>("sunray-1");
+expectAssignable<BorderProp>("hsla(223, 12%, 87%, 1)");
+
+expectAssignable<BorderBottomProp>("none");
+expectAssignable<BorderBottomProp>("0");
+expectAssignable<BorderProp>("sunray-1");
+expectAssignable<BorderBottomProp>("hsla(223, 12%, 87%, 1)");
+
+expectAssignable<BorderLeftProp>("none");
+expectAssignable<BorderLeftProp>("0");
+expectAssignable<BorderProp>("sunray-1");
+expectAssignable<BorderLeftProp>("hsla(223, 12%, 87%, 1)");
+
+expectAssignable<BorderRightProp>("none");
+expectAssignable<BorderRightProp>("0");
+expectAssignable<BorderProp>("sunray-1");
+expectAssignable<BorderRightProp>("hsla(223, 12%, 87%, 1)");
+
+expectAssignable<BorderTopProp>("none");
+expectAssignable<BorderTopProp>("0");
+expectAssignable<BorderProp>("sunray-1");
+expectAssignable<BorderTopProp>("hsla(223, 12%, 87%, 1)");
 
 expectAssignable<BorderRadiusProp>(0);
 expectAssignable<BorderRadiusProp>(1);
@@ -170,14 +183,6 @@ expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("100%");
 expectAssignable<BorderRadiusProp>("pill");
-
-expectAssignable<BorderRightProp>("none");
-expectAssignable<BorderRightProp>("0");
-expectAssignable<BorderRightProp>("sunray-1");
-
-expectAssignable<BorderTopProp>("none");
-expectAssignable<BorderTopProp>("0");
-expectAssignable<BorderTopProp>("sunray-1");
 
 expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("auto");

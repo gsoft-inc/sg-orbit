@@ -1,26 +1,27 @@
+const FlexText = as(Flex, Text);
+
 function CustomAddon({ children, ...props }) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     return (
-        <Text
+        <FlexText
             {...mergeProps(
                 props,
                 {
+                    alignItems: "center",
+                    height: 8,
+                    border: "hsla(223, 12%, 87%, 1)",
+                    padding: "0px 10px",
                     style: {
-                        display: "flex",
-                        alignItems: "center",
-                        height: "var(--o-ui-space-8)",
-                        border: "1px solid hsla(223, 12%, 87%, 1)",
                         borderTopRightRadius: "var(--o-ui-input-border-radius)",
-                        borderBottomRightRadius: "var(--o-ui-input-border-radius)",
-                        padding: "0px 10px"
+                        borderBottomRightRadius: "var(--o-ui-input-border-radius)"
                     }
                 },
                 inputGroupAddonProps
             )}
         >
             {children}
-        </Text>
+        </FlexText>
     );
 }
 

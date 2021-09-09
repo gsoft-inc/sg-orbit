@@ -32,15 +32,15 @@ const RoleBySelectionMode: Record<SelectionMode, string> = {
 };
 
 export function InnerMenuItem({
-    item: { key, tooltip },
-    id,
-    disabled,
     active,
-    focus,
-    hover,
     as = DefaultElement,
     children,
+    disabled,
+    focus,
     forwardedRef,
+    hover,
+    id,
+    item: { key, tooltip },
     ...rest
 }: InnerMenuItemProps) {
     const { onSelect, selectedKeys, selectionMode } = useMenuContext();

@@ -5,12 +5,24 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo 
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { InputGroupContext } from "./InputGroupContext";
-import { InternalProps, OmitInternalProps, StyledComponentProps, SlotProps, cssModule, getSlotKey, isNil, mergeProps, omitProps, resolveChildren, useHasChild, useMergedRefs } from "../../shared";
+import {
+    InternalProps,
+    OmitInternalProps,
+    StyledComponentProps,
+    cssModule,
+    getSlotKey,
+    isNil,
+    mergeProps,
+    omitProps,
+    resolveChildren,
+    useHasChild,
+    useMergedRefs
+} from "../../shared";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
 
-export interface InnerInputGroupProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerInputGroupProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -42,12 +54,12 @@ function toAddon(element: ReactElement, key?: number): ReactNode {
 }
 
 export function InnerInputGroup({
-    fluid,
-    disabled,
-    readOnly,
     as = DefaultElement,
     children,
+    disabled,
+    fluid,
     forwardedRef,
+    readOnly,
     ...rest
 }: InnerInputGroupProps) {
     const [toolbarProps] = useToolbarProps();
@@ -100,9 +112,7 @@ export function InnerInputGroup({
         >
             <ClearToolbar>
                 <ClearFieldContext>
-                    <InputGroupContext.Provider
-                        value={inputProps}
-                    >
+                    <InputGroupContext.Provider value={inputProps}>
                         {transformedChildren}
                     </InputGroupContext.Provider>
                 </ClearFieldContext>
