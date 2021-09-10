@@ -538,7 +538,7 @@ expectAssignable<StyledSystemProps>({
     flexShrink: 1,
     flexWrap: "wrap",
     fontSize: 1,
-    fontWeight: "300",
+    fontWeight: 1,
     gap: 1,
     height: 1,
     justifyContent: "center",
@@ -583,7 +583,7 @@ expectAssignable<StyledSystemProps>({
     whiteSpace: "nowrap",
     width: 1,
     wordBreak: "break-all",
-    zIndex: 1
+    zIndex: "1"
 });
 
 

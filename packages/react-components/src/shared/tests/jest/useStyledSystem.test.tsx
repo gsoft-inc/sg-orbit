@@ -66,8 +66,7 @@ import {
     VerticalAlignClasses,
     WhiteSpaceClasses,
     WidthClasses,
-    WordBreakClasses,
-    ZindexClasses
+    WordBreakClasses
 } from "@react-components/shared";
 import { Box } from "@react-components/box";
 import { Fragment } from "react";

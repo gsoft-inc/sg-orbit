@@ -41,8 +41,6 @@ export type BoxShadowRoles = {
 
 export type BorderRadiusValues = FixedLengthArray<string, 4>;
 
-export type ZIndexValues = FixedLengthArray<number, 5>;
-
 export type ColorPalette = FixedLengthArray<string, 10>;
 
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
@@ -178,6 +176,5 @@ export interface OrbitTheme {
     lineHeights: LineHeightValues;
     borderRadii: BorderRadiusValues;
     boxShadows: BoxShadowValues & BoxShadowRoles | ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
-    zIndices: ZIndexValues;
     colors: ColorPalettes & ColorRoles | ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
 }
