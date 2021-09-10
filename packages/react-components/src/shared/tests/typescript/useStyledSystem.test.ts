@@ -503,15 +503,7 @@ expectAssignable<WordBreakProp>("break-word");
 expectAssignable<WordBreakProp>("keep-all");
 expectAssignable<WordBreakProp>("normal");
 
-expectAssignable<ZindexProp>(0);
-expectAssignable<ZindexProp>(1);
-expectAssignable<ZindexProp>(2);
-expectAssignable<ZindexProp>(3);
-expectAssignable<ZindexProp>(4);
-expectAssignable<ZindexProp>(5);
-expectAssignable<ZindexProp>("999");
-expectAssignable<ZindexProp>("9999");
-expectAssignable<ZindexProp>("max");
+expectAssignable<ZindexProp>("1");
 
 expectAssignable<StyledSystemProps>({
     alignContent: "center",

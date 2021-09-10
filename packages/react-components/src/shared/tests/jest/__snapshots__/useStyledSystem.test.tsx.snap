@@ -5148,33 +5148,11 @@ Array [
 `;
 
 exports[`z-index 1`] = `
-Array [
-  <div
-    className="o-ui-z-0"
-  />,
-  <div
-    className="o-ui-z-1"
-  />,
-  <div
-    className="o-ui-z-2"
-  />,
-  <div
-    className="o-ui-z-3"
-  />,
-  <div
-    className="o-ui-z-4"
-  />,
-  <div
-    className="o-ui-z-5"
-  />,
-  <div
-    className="o-ui-z-999"
-  />,
-  <div
-    className="o-ui-z-9999"
-  />,
-  <div
-    className="o-ui-z-max"
-  />,
-]
+<div
+  style={
+    Object {
+      "zIndex": "1",
+    }
+  }
+/>
 `;

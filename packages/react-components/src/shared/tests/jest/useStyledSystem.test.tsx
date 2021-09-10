@@ -158,7 +158,7 @@ const Props: PropDefinition[] = [
     { name: "white-space", key: "whiteSpace", values: Object.keys(WhiteSpaceClasses) },
     { name: "width", key: "width", values: Object.keys(WidthClasses) },
     { name: "work-break", key: "wordBreak", values: Object.keys(WordBreakClasses) },
-    { name: "z-index", key: "zIndex", values: Object.keys(ZindexClasses) }
+    { name: "z-index", key: "zIndex", values: ["1"] }
 ];
 
 Props.forEach(x => {

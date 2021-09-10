@@ -731,18 +731,6 @@ export const WordBreakClasses = {
     "normal": "o-ui-wb-n"
 } as const;
 
-export const ZindexClasses = {
-    0: "o-ui-z-0",
-    1: "o-ui-z-1",
-    2: "o-ui-z-2",
-    3: "o-ui-z-3",
-    4: "o-ui-z-4",
-    5: "o-ui-z-5",
-    "999": "o-ui-z-999",
-    "9999": "o-ui-z-9999",
-    "max": "o-ui-z-max"
-} as const;
-
 export type AlignContentProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;
 
 export type AlignItemsProp = Simplify<keyof typeof AlignItemsClasses | GlobalValue>;
@@ -907,7 +895,7 @@ export type WidthProp = Simplify<LiteralUnion<keyof typeof WidthClasses, string>
 
 export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
-export type ZindexProp = Simplify<LiteralUnion<keyof typeof ZindexClasses, number>>;
+export type ZindexProp = string;
 
 export interface StyledSystemProps {
     /**
@@ -1412,8 +1400,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     verticalAlign: createClassesHandler(VerticalAlignClasses),
     whiteSpace: createClassesHandler(WhiteSpaceClasses),
     width: createClassesHandler(WidthClasses),
-    wordBreak: createClassesHandler(WordBreakClasses),
-    zIndex: createClassesHandler(ZindexClasses)
+    wordBreak: createClassesHandler(WordBreakClasses)
 };
 
 export function useStyledSystem<TProps extends Record<string, any>>({
