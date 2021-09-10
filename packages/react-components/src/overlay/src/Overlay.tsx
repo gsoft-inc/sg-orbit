@@ -37,7 +37,7 @@ export function InnerOverlay({
     borderOffset,
     containerElement,
     zIndex,
-    as = DefaultElement,
+    as = OverlayDefaultElement,
     children,
     forwardedRef,
     ...rest
