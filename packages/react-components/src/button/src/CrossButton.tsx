@@ -4,7 +4,7 @@ import { IconButton, SharedIconButtonProps } from "./IconButton";
 import { OmitInternalProps, slot } from "../../shared";
 
 // TODO: remove Omit once the Button color prop have been removed.
-export type InnerCrossButtonProps = Omit<SharedIconButtonProps, "color" | "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">;
+export type InnerCrossButtonProps = Omit<SharedIconButtonProps, "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">;
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
     return (

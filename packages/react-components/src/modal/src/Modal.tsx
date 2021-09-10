@@ -2,47 +2,14 @@ import "./Modal.css";
 
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { Dialog } from "../../dialog";
-import {
-    InternalProps,
-    OmitInternalProps,
-    StyleProvider,
-    StyledComponentProps,
-    augmentElement,
-    getSlotKey,
-    isNil,
-    mergeProps,
-    useSlots
-} from "../../shared";
+import { Dialog, SharedDialogProps } from "../../dialog";
+import { OmitInternalProps, StyleProvider, augmentElement, getSlotKey, isNil, mergeProps, useSlots } from "../../shared";
 
-const DefaultElement = "section";
-
-export interface InnerModalProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "role"> {
+export interface InnerModalProps extends SharedDialogProps {
     /**
-      * React children.
-      */
-    children: ReactNode;
-    /**
-     * Whether or not the modal should close on outside interactions.
-     */
-    dismissable?: boolean;
-    /**
-     * Whether or not the modal should take almost all the available space.
+     * Whether or not the dialog should take almost all the available space.
      */
     fullscreen?: boolean;
-    /**
-     * The element's unique identifier.
-     * @ignore
-     */
-    id?: string;
-    /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Record<string, any>;
-    /**
-     * The z-index of the modal.
-     */
-    zIndex?: number;
 }
 
 function useModalContentMarkup(content: ReactElement) {
@@ -101,12 +68,11 @@ function useModalContentMarkup(content: ReactElement) {
 }
 
 export function InnerModal({
-    fullscreen,
-    dismissable = true,
-    zIndex = 1,
     children,
+    dismissable = true,
     forwardedRef,
-    as = DefaultElement,
+    fullscreen,
+    zIndex = 1,
     ...rest
 }: InnerModalProps) {
     const { button, "button-group": buttonGroup, content, footer, header, heading, illustration, image } = useSlots(children, useMemo(() => ({
@@ -144,7 +110,6 @@ export function InnerModal({
             {...mergeProps(
                 rest,
                 {
-                    as,
                     dismissable,
                     ref: forwardedRef,
                     size,

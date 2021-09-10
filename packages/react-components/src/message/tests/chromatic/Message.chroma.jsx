@@ -1,6 +1,7 @@
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Inline, Stack } from "@react-components/layout";
 import { ListItem, UnorderedList } from "@react-components/list";
@@ -68,9 +69,9 @@ stories()
         </Message>
     )
     .add("contained", () =>
-        <div style={{ width: "500px" }}>
+        <Div width="500px">
             <Message>Scheduled launch today at 1PM.</Message>
-        </div>
+        </Div>
     )
     .add("box as content", () =>
         <Message>

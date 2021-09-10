@@ -2,7 +2,10 @@ const ApolloModal = forwardRef(({ children, ...rest }, ref) => {
     const { close } = useModalTriggerContext();
 
     return (
-        <Modal>
+        <Modal
+            {...rest}
+            ref={ref}
+        >
             <Heading>Apollo 11 movie</Heading>
             <Content>
                 <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>

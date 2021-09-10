@@ -1,13 +1,13 @@
 import "./Alert.css";
 
 import { Button, ButtonGroup } from "../../button";
-import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
-import { Dialog, DialogDefaultElement, useDialogTriggerContext } from "../../dialog";
+import { ComponentProps, MouseEvent, forwardRef, useMemo } from "react";
+import { Dialog, SharedDialogProps, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
-import { InternalProps, OmitInternalProps, StyledComponentProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
+import { OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends InternalProps, Omit<StyledComponentProps<typeof DialogDefaultElement>, "zIndex"> {
+export interface InnerAlertProps extends Omit<SharedDialogProps, "dismissable"> {
     /**
      * The button to focus by default when the alert open.
      */
@@ -16,10 +16,6 @@ export interface InnerAlertProps extends InternalProps, Omit<StyledComponentProp
      * The cancel button label.
      */
     cancelButtonLabel?: string;
-    /**
-      * React children.
-      */
-    children: ReactNode;
     /**
      * Called when the cancel button is clicked.
      * @param {MouseEvent} event - React's original event.
@@ -58,14 +54,6 @@ export interface InnerAlertProps extends InternalProps, Omit<StyledComponentProp
      * The style to use.
      */
     variant?: "confirmation" | "destructive" | "warning" | "negative";
-    /**
-      * Additional props to render on the wrapper element.
-      */
-    wrapperProps?: Record<string, any>;
-    /**
-      * The z-index of the alert.
-      */
-    zIndex?: number;
 }
 
 export function InnerAlert({
