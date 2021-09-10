@@ -1,6 +1,6 @@
 export function IconGallery({ children }) {
     return (
-        <div className="flex flex-wrap">
+        <div className="o-ui-df o-ui-fw-w">
             {children}
         </div>
     );

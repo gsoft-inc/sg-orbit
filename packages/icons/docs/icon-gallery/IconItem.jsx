@@ -36,10 +36,10 @@ export function IconItem({ name, multiVariant, variants }) {
             onOpenChange={handleModalOpenChange}
             dismissable
         >
-            <div className="o-ui-sb-gallery-item flex flex-column">
-                <div className="pa3 tc f7">{displayName.toLowerCase()}</div>
-                <div className="flex justify-center">
-                    <div className="w7 h7">
+            <div className="o-ui-sb-gallery-item o-ui-df o-ui-fd-c">
+                <div className="o-ui-pa-3 o-ui-ta-c o-ui-fs-3">{displayName.toLowerCase()}</div>
+                <div className="o-ui-df o-ui-jc-c">
+                    <div className="o-ui-w-7 o-ui-h-7">
                         <PreviewIcon icon={multiVariant.icon} onShowDetail={handleShowDetail} />
                     </div>
                 </div>
