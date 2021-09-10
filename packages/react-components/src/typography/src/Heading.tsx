@@ -18,7 +18,7 @@ export interface InnerHeadingProps extends InternalProps, StyledComponentProps<t
 }
 
 export function InnerHeading(props: InnerHeadingProps) {
-    const [styleProps] = useStyleProps("heading");
+    const [styleProps] = useStyleProps<InnerHeadingProps>("heading");
 
     const {
         size,

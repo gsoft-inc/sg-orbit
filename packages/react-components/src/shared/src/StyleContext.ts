@@ -7,11 +7,12 @@ export const StyleContext = createContext<StyleContextType>(undefined);
 
 export const StyleProvider = StyleContext.Provider;
 
-export function useStyleContext(): StyleContextType {
+export function useStyleContext() {
     return useContext(StyleContext);
 }
 
-export function useStyleProps(key: string): [StyleContextType, boolean] {
+// Do not remove the TS return type otherwise it will infer to any[] and do not emit any warnings.
+export function useStyleProps<TReturn>(key: string): [TReturn, boolean] {
     const context = useStyleContext();
 
     if (!isNil(context)) {
@@ -22,5 +23,5 @@ export function useStyleProps(key: string): [StyleContextType, boolean] {
         return [props, true];
     }
 
-    return [{}, false];
+    return [{} as TReturn, false];
 }

@@ -42,6 +42,10 @@ export interface SharedLinkProps extends
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
      */
     target?: string;
+    /**
+     * @ignore
+     */
+    visited?: boolean;
 }
 
 export interface InnerLinkProps extends SharedLinkProps {
@@ -52,7 +56,7 @@ export interface InnerLinkProps extends SharedLinkProps {
 }
 
 export function InnerLink(props: InnerLinkProps) {
-    const [styleProps] = useStyleProps("link");
+    const [styleProps] = useStyleProps<InnerLinkProps>("link");
 
     const {
         target,

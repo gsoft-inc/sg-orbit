@@ -12,6 +12,10 @@ export interface InnerIconProps extends
     Omit<InternalProps, "as">,
     Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
     /**
+     * Whether or not the icon should look disabled.
+     */
+    disabled?: boolean;
+    /**
      * An icon can vary in size.
      */
     size?: IconSize;
@@ -22,7 +26,7 @@ export interface InnerIconProps extends
 }
 
 export const InnerIcon = ((props: InnerIconProps) => {
-    const [styleProps] = useStyleProps("icon");
+    const [styleProps] = useStyleProps<InnerIconProps>("icon");
 
     const {
         "aria-label": ariaLabel,

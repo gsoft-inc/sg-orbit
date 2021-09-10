@@ -1,23 +1,11 @@
 import "./NumberInput.css";
 
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
+import { AbstractInputProps, useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { Box, BoxProps } from "../../box";
 import { CaretIcon } from "../../icons";
+import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
+import { Div, HtmlButton, Input } from "../../html";
 import {
-    ChangeEvent,
-    ChangeEventHandler,
-    ComponentProps,
-    FocusEvent,
-    FocusEventHandler,
-    MouseEvent,
-    ReactElement,
-    SyntheticEvent,
-    forwardRef,
-    useCallback,
-    useMemo
-} from "react";
-import {
-    InteractionProps,
-    InternalProps,
     OmitInternalProps,
     cssModule,
     isNil,
@@ -32,21 +20,12 @@ import {
     useRefState
 } from "../../shared";
 import { useFieldInputProps } from "../../field";
-import { useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-// Used to generate BoxProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BoxProps extends BoxPropsForDocumentation { }
-
 const DefaultElement = "div";
 
-export interface InnerNumberInputProps extends InternalProps, InteractionProps, Omit<ComponentProps<"input">, "onChange" | "autoFocus"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
+interface InnerNumberInputProps extends Omit<AbstractInputProps<"input">, "max" | "min" | "step" | "value"> {
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -72,18 +51,6 @@ export interface InnerNumberInputProps extends InternalProps, InteractionProps, 
      */
     min?: number;
     /**
-     * @ignore
-     */
-    onBlur?: FocusEventHandler;
-    /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
-     * @ignore
-     */
-    onFocus?: FocusEventHandler;
-    /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original event.
      * @param {number} value - The new value.
@@ -91,25 +58,9 @@ export interface InnerNumberInputProps extends InternalProps, InteractionProps, 
      */
     onValueChange?: (event: SyntheticEvent, value: number) => void;
     /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not the input is readonly.
-     */
-    readOnly?: boolean;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
      * The step used to increment or decrement the value.
      */
     step?: number;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * A controlled value.
      */
@@ -120,12 +71,13 @@ export interface InnerNumberInputProps extends InternalProps, InteractionProps, 
     wrapperProps?: Partial<BoxProps>;
 }
 
-interface SpinnerProps extends ComponentProps<"div"> {
+interface SpinnerProps extends Omit<ComponentProps<"div">, "ref"> {
     disableDecrement?: boolean;
     disableIncrement?: boolean;
     onDecrement?: (event: MouseEvent) => void;
-    onFocus?: (event: FocusEvent) => void;
+    onFocus?: FocusEventHandler;
     onIncrement?: (event: MouseEvent) => void;
+    ref?: Ref<HTMLDivElement>;
 }
 
 function Spinner({
@@ -145,7 +97,7 @@ function Spinner({
     });
 
     return (
-        <div
+        <Div
             {...mergeProps(
                 rest,
                 {
@@ -154,7 +106,7 @@ function Spinner({
                 }
             )}
         >
-            <button
+            <HtmlButton
                 aria-label="Increment value"
                 className="o-ui-number-input-spinner-increment"
                 disabled={disableIncrement}
@@ -164,8 +116,8 @@ function Spinner({
                 type="button"
             >
                 <CaretIcon size="xs" />
-            </button>
-            <button
+            </HtmlButton>
+            <HtmlButton
                 aria-label="Decrement value"
                 className="o-ui-number-input-spinner-decrement"
                 disabled={disableDecrement}
@@ -178,8 +130,8 @@ function Spinner({
                     className="o-ui-rotate-180"
                     size="xs"
                 />
-            </button>
-        </div>
+            </HtmlButton>
+        </Div>
     );
 }
 
@@ -218,33 +170,33 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     );
 
     const {
-        id,
-        value: valueProp,
-        defaultValue,
-        placeholder,
-        min,
-        max,
-        step = 1,
-        required,
-        validationState,
-        onValueChange,
-        onChange,
-        onFocus,
-        onBlur,
-        autoFocus,
-        icon,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
         active,
-        focus,
-        hover,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        wrapperProps: wrapperPropsProp,
         as = DefaultElement,
+        autoFocus,
+        defaultValue,
+        disabled,
+        fluid,
+        focus,
         forwardedRef,
+        hover,
+        icon,
+        id,
+        loading,
+        max,
+        min,
+        onBlur,
+        onChange,
+        onFocus,
+        onValueChange,
+        placeholder,
+        readOnly,
+        required,
+        step = 1,
+        validationState,
+        value: valueProp,
+        wrapperProps: wrapperPropsProp,
         ...rest
     } = mergeProps(
         props,
@@ -351,14 +303,14 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     });
 
     const focusWithinProps = useFocusWithin({
-        onBlur: useEventCallback(event => {
+        onBlur: useEventCallback((event: FocusEvent<HTMLInputElement>) => {
             clampOrSetValue(event, toNumber(inputValueRef.current));
 
             if (!isNil(onBlur)) {
                 onBlur(event);
             }
         }),
-        onFocus: useEventCallback(event => {
+        onFocus: useEventCallback((event: FocusEvent<HTMLInputElement>) => {
             if (!isNil(onFocus)) {
                 onFocus(event);
             }
@@ -393,7 +345,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const content = (
         <>
             {iconMarkup}
-            <input
+            <Input
                 {...mergeProps(
                     rest,
                     {

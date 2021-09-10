@@ -37,7 +37,7 @@ export interface InnerIconLinkProps extends Omit<SharedLinkProps, "color"> {
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {
-    const [styleProps] = useStyleProps("link");
+    const [styleProps] = useStyleProps<InnerIconLinkProps>("link");
 
     const {
         active,

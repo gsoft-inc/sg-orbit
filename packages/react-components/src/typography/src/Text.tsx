@@ -14,7 +14,7 @@ export interface InnerTextProps extends SlotProps, InternalProps, StyledComponen
 }
 
 export function InnerText(props: InnerTextProps) {
-    const [styleProps] = useStyleProps("text");
+    const [styleProps] = useStyleProps<InnerTextProps>("text");
 
     const {
         size,

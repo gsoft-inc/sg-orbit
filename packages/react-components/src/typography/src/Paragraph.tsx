@@ -22,7 +22,7 @@ export interface InnerParagraphProps extends InternalProps, StyledComponentProps
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {
-    const [styleProps] = useStyleProps("p");
+    const [styleProps] = useStyleProps<InnerParagraphProps>("p");
 
     const {
         size,

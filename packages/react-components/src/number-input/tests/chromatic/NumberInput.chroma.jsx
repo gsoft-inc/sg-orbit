@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { EditIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { NumberInput } from "@react-components/number-input";
@@ -19,15 +20,15 @@ stories()
             <NumberInput loading placeholder="Age" />
             <NumberInput disabled placeholder="Age" />
             <NumberInput readOnly placeholder="Age" />
-            <div>
+            <Div>
                 <NumberInput fluid placeholder="Age" />
-            </div>
-            <div className="w-10">
+            </Div>
+            <Div width="10%">
                 <NumberInput fluid placeholder="Age" />
-            </div>
-            <div>
+            </Div>
+            <Div>
                 <NumberInput loading fluid placeholder="Age" />
-            </div>
+            </Div>
         </Stack>
     )
     .add("integer value", () =>
@@ -42,15 +43,11 @@ stories()
             <NumberInput loading icon={<EditIcon />} placeholder="Age" />
             <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
             <NumberInput readOnly icon={<EditIcon />} placeholder="Age" />
-            <div>
+            <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
+            <Div width="10%">
                 <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
-            </div>
-            <div className="w-10">
-                <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
-            </div>
-            <div>
-                <NumberInput loading fluid icon={<EditIcon />} placeholder="Age" />
-            </div>
+            </Div>
+            <NumberInput loading fluid icon={<EditIcon />} placeholder="Age" />
         </Stack>
     )
     .add("validation", () =>

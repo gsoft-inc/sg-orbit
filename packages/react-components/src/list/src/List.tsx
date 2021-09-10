@@ -55,7 +55,7 @@ function renderItem({
 }
 
 const List = forwardRef<any, OmitInternalProps<InnerListProps>>((props, ref) => {
-    const [styleProps] = useStyleProps("list");
+    const [styleProps] = useStyleProps<InnerListProps>("list");
 
     const {
         as,
