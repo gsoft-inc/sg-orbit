@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { GroupIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
@@ -23,20 +24,20 @@ export function createTestSuite(element, stories) {
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <div>
+                <Div>
                     <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
-                <div className="w-10">
+                </Div>
+                <Div width="10%">
                     <Select fluid placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
+                </Div>
             </Stack>
         )
         .add("open with items only", () =>
@@ -87,20 +88,20 @@ export function createTestSuite(element, stories) {
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <div>
+                <Div>
                     <Select fluid defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
-                <div className="w-10">
+                </Div>
+                <Div width="10%">
                     <Select fluid defaultSelectedKey="mars" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
+                </Div>
             </Stack>
         )
         .add("selected item with start icon", () =>
@@ -121,7 +122,15 @@ export function createTestSuite(element, stories) {
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <div>
+                <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <NotificationIcon />
+                        <Text>Earth</Text>
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Div width="10%">
                     <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">
                             <NotificationIcon />
@@ -130,17 +139,7 @@ export function createTestSuite(element, stories) {
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
-                <div className="w-10">
-                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
-                        <Item key="earth">
-                            <NotificationIcon />
-                            <Text>Earth</Text>
-                        </Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Select>
-                </div>
+                </Div>
             </Stack>
         )
         .add("selected item with end icon", () =>
@@ -161,7 +160,15 @@ export function createTestSuite(element, stories) {
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <div>
+                <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">
+                        <Text>Earth</Text>
+                        <NotificationIcon slot="end-icon" />
+                    </Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Div width="10%">
                     <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">
                             <Text>Earth</Text>
@@ -170,17 +177,7 @@ export function createTestSuite(element, stories) {
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
-                <div className="w-10">
-                    <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
-                        <Item key="earth">
-                            <Text>Earth</Text>
-                            <NotificationIcon slot="end-icon" />
-                        </Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Select>
-                </div>
+                </Div>
             </Stack>
         )
         .add("selected item with description", () =>
@@ -212,20 +209,18 @@ export function createTestSuite(element, stories) {
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <div>
+                <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+                <Div width="10%">
                     <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
                     </Select>
-                </div>
-                <div className="w-10">
-                    <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
-                        <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Select>
-                </div>
+                </Div>
             </Stack>
         )
         .add("validation", () =>
@@ -378,14 +373,14 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("custom trigger width", () =>
-            <Select style={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select width="500px" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
         .add("custom menu width", () =>
-            <Select overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -411,7 +406,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align start", () =>
-            <Select align="start" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="start" overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -423,7 +418,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align end", () =>
-            <Select align="end" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="end" overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

@@ -1,12 +1,10 @@
 import "./Radio.css";
 
+import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
-    InteractionProps,
-    InternalProps,
     OmitInternalProps,
-    StyledComponentProps,
     cssModule,
     isNil,
     isNumber,
@@ -25,11 +23,7 @@ import { VisuallyHidden } from "../../visually-hidden";
 
 const DefaultElement = "label";
 
-export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * Whether or not the radio should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface InnerRadioProps extends Omit<AbstractInputProps<typeof DefaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */
@@ -47,7 +41,7 @@ export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<S
      */
     disabled?: boolean;
     /**
-     * Radio name.
+     * @ignore
      */
     name?: string;
     /**
@@ -67,10 +61,6 @@ export interface InnerRadioProps extends InternalProps, InteractionProps, Omit<S
      * Invert the order of the checkmark box and the label.
      */
     reverse?: boolean;
-    /**
-     * Whether or not the radio should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * The value to associate with when in a group.
      */

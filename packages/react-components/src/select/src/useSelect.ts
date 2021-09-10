@@ -16,11 +16,12 @@ import {
 } from "../../shared";
 import { KeyboardEvent, ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
 import { OptionKeyProp } from "../../listbox";
-import { OverlayProps, usePopup, useTriggerWidth } from "../../overlay";
+import { OverlayProps, PopupAlignment, PopupDirection, PopupPosition, usePopup, useTriggerWidth } from "../../overlay";
+import { ValidationState } from "../../input";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
 
 export interface UseSelectProps {
-    align?: "start" | "end";
+    align?: PopupAlignment;
     allowFlip?: boolean;
     allowPreventOverflow?: boolean;
     allowResponsiveMenuWidth?: boolean;
@@ -30,7 +31,7 @@ export interface UseSelectProps {
     autoFocus?: boolean | number;
     defaultOpen?: boolean;
     defaultSelectedKey?: string;
-    direction: "bottom" | "top";
+    direction: PopupDirection;
     disabled?: boolean;
     id?: string;
     onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
@@ -40,31 +41,31 @@ export interface UseSelectProps {
     readOnly?: boolean;
     ref: Ref<HTMLElement>;
     selectedKey?: string | null;
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 export function useSelect(children: ReactNode, {
-    id,
-    open: openProp,
-    defaultOpen,
-    selectedKey: selectedKeyProp,
-    defaultSelectedKey,
-    validationState,
-    onSelectionChange,
-    onOpenChange,
-    direction = "bottom",
     align = "start",
-    autoFocus,
-    disabled,
-    readOnly,
     allowFlip,
     allowPreventOverflow,
     allowResponsiveMenuWidth = true,
+    ariaDescribedBy,
     ariaLabel,
     ariaLabelledBy,
-    ariaDescribedBy,
-    overlayProps: { id: menuId, style: { width: menuWidth, ...menuStyle } = {}, ...menuProps } = {},
-    ref
+    autoFocus,
+    defaultOpen,
+    defaultSelectedKey,
+    direction = "bottom",
+    disabled,
+    id,
+    onOpenChange,
+    onSelectionChange,
+    open: openProp,
+    overlayProps: { id: menuId, width: menuWidth, ...menuProps } = {},
+    readOnly,
+    ref,
+    selectedKey: selectedKeyProp,
+    validationState
 }: UseSelectProps) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
     const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
@@ -94,7 +95,7 @@ export function useSelect(children: ReactNode, {
         offset: [0, 4],
         onOpenChange: handleOpenChange,
         open: openProp,
-        position: `${direction}-${align}` as const,
+        position: `${direction}-${align}` as PopupPosition,
         restoreFocus: true,
         trigger: "click"
     });
@@ -181,10 +182,7 @@ export function useSelect(children: ReactNode, {
         overlayProps: mergeProps(
             {
                 className: "o-ui-select-menu",
-                style: {
-                    ...menuStyle,
-                    width: menuWidth ?? triggerWidth ?? undefined
-                }
+                width: menuWidth ?? triggerWidth ?? undefined
             },
             menuProps,
             overlayProps

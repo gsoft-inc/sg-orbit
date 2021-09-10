@@ -1,4 +1,5 @@
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Field, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
@@ -94,15 +95,13 @@ stories()
         </RadioGroup>
     )
     .add("wrapped", () =>
-        <div style={{ width: "130px" }}>
+        <Div width="130px">
             <RadioGroup wrap orientation="horizontal">
-                {
-                    ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                        <Radio style={{ width: "35px" }} value={x} key={x}>{x}</Radio>
-                    )
-                }
+                {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
+                    <Radio width="35px" value={x} key={x}>{x}</Radio>
+                )}
             </RadioGroup>
-        </div>
+        </Div>
     )
     .add("toggle buttons", () =>
         <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
@@ -174,7 +173,7 @@ stories()
                         <Counter>60</Counter>
                     </Radio>
                 </RadioGroup>
-                <div style={{ border: "1px solid #000", width: "100%", height: "50px" }}></div>
+                <Div border="1px solid #000" width="100%" height="50px"></Div>
             </Inline>
         </Stack>
     );

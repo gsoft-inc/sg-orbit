@@ -1,6 +1,6 @@
 import "./RadioGroup.css";
 
-import { AbstractGroupProps, Group } from "../../group";
+import { AbstractGroupInputProps, useGroupInput } from "../../input";
 import {
     CheckableContext,
     Keys,
@@ -21,49 +21,17 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
-import { ValidationState } from "../../input";
+import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
-import { useGroupInput } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
 
-export interface InnerRadioGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * Whether or not the radio group should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The initial value of `value`.
-     */
-    defaultValue?: string;
-    /**
-     * Whether or not the radio group is disabled.
-     */
-    disabled?: boolean;
+export interface InnerRadioGroupProps extends AbstractGroupInputProps<typeof DefaultElement, string> {
     /**
       * Radio group name.
       */
     name?: string;
-    /**
-      * Called when any of the group elements is checked or unchecked.
-      * @param {SyntheticEvent} event - React's original event.
-      * @param {string} value - The new value.
-      * @returns {void}
-      */
-    onChange?: (event: SyntheticEvent, value: string) => void;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether the group should display as "valid" or "invalid".
-     */
-    validationState?: ValidationState;
-    /**
-     * The value of the radio group.
-     */
-    value?: string | null;
 }
 
 const NavigationKeyBinding = {

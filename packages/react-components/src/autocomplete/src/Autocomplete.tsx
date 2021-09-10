@@ -1,14 +1,12 @@
 import "./Autocomplete.css";
 
+import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
-    InteractionProps,
-    InternalProps,
     Keys,
     OmitInternalProps,
-    StyledComponentProps,
     WidthProp,
     ZindexProp,
     augmentElement,
@@ -26,20 +24,15 @@ import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps, PopupAlignment, PopupDirection, PopupPosition, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
-import { ValidationState } from "../../input";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { wrappedInputPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends
-    InternalProps,
-    InteractionProps,
-    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "zIndex"> {
+export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof DefaultElement>, "zIndex"> {
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */
@@ -52,10 +45,6 @@ export interface InnerAutocompleteProps extends
      * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
      */
     allowPreventOverflow?: boolean;
-    /**
-     * Whether or not the autocomplete should autofocus on render.
-     */
-    autoFocus?: boolean | number;
     /**
      * React children.
      */
@@ -127,14 +116,6 @@ export interface InnerAutocompleteProps extends
      * Additional props to render on the menu of options.
      */
     overlayProps?: Partial<OverlayProps>;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the autocomplete should display as "valid" or "invalid".
-     */
-    validationState?: ValidationState;
     /**
      * A controlled autocomplete value.
      */

@@ -1,6 +1,6 @@
-import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
+import { Flex } from "@react-components/layout";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
@@ -13,9 +13,7 @@ export function createRadioTestSuite(element, stories) {
     return stories
         .add("labeled", () =>
             <Stack>
-                <div>
-                    <Radio value="any" element={element}>Milky Way</Radio>
-                </div>
+                <Radio value="any" element={element}>Milky Way</Radio>
                 <Inline alignY="end">
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
@@ -26,14 +24,12 @@ export function createRadioTestSuite(element, stories) {
                         <EmailIcon />
                     </Radio>
                 </Inline>
-                <div>
-                    <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><EmailIcon /><EmailIcon />
-                        </IconList>
-                    </Radio>
-                </div>
+                <Radio value="any" element={element}>
+                    <Text>Milky Way</Text>
+                    <IconList>
+                        <EmailIcon /><EmailIcon /><EmailIcon />
+                    </IconList>
+                </Radio>
                 <Inline alignY="end">
                     <Radio value="any" element={element}>
                         <Text>Milky Way</Text>
@@ -44,43 +40,33 @@ export function createRadioTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Radio>
                 </Inline>
-                <div>
-                    <Radio value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <EmailIcon />
-                        <Counter>60</Counter>
-                    </Radio>
-                </div>
+                <Radio value="any" element={element}>
+                    <Text>Milky Way</Text>
+                    <EmailIcon />
+                    <Counter>60</Counter>
+                </Radio>
             </Stack>
         )
         .add("reverse", () =>
             <Stack>
-                <div>
-                    <Radio reverse value="any" element={element}>Milky Way</Radio>
-                </div>
-                <div>
-                    <Radio reverse value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconList>
-                    </Radio>
-                </div>
-                <div>
-                    <Radio reverse value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <Counter>60</Counter>
-                    </Radio>
-                </div>
-                <div>
-                    <Radio reverse value="any" element={element}>
-                        <Text>Milky Way</Text>
-                        <IconList>
-                            <EmailIcon /><InfoIcon /><WarningIcon />
-                        </IconList>
-                        <Counter>60</Counter>
-                    </Radio>
-                </div>
+                <Radio reverse value="any" element={element}>Milky Way</Radio>
+                <Radio reverse value="any" element={element}>
+                    <Text>Milky Way</Text>
+                    <IconList>
+                        <EmailIcon /><InfoIcon /><WarningIcon />
+                    </IconList>
+                </Radio>
+                <Radio reverse value="any" element={element}>
+                    <Text>Milky Way</Text>
+                    <Counter>60</Counter>
+                </Radio>
+                <Radio reverse value="any" element={element}>
+                    <Text>Milky Way</Text>
+                    <IconList>
+                        <EmailIcon /><InfoIcon /><WarningIcon />
+                    </IconList>
+                    <Counter>60</Counter>
+                </Radio>
             </Stack>
         )
         .add("validation", () =>
@@ -104,57 +90,39 @@ export function createRadioTestSuite(element, stories) {
         .add("states", () =>
             <Inline>
                 <Stack>
-                    <Box>
-                        <Radio active value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio focus value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio hover value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio focus hover value="any" element={element}>Milky Way</Radio>
-                    </Box>
+                    <Radio active value="any" element={element}>Milky Way</Radio>
+                    <Radio focus value="any" element={element}>Milky Way</Radio>
+                    <Radio hover value="any" element={element}>Milky Way</Radio>
+                    <Radio focus hover value="any" element={element}>Milky Way</Radio>
                 </Stack>
                 <Stack>
-                    <Box>
-                        <Radio disabled value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio disabled active value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio disabled focus value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio disabled hover value="any" element={element}>Milky Way</Radio>
-                    </Box>
-                    <Box>
-                        <Radio disabled focus hover value="any" element={element}>Milky Way</Radio>
-                    </Box>
+                    <Radio disabled value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled active value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled focus value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled hover value="any" element={element}>Milky Way</Radio>
+                    <Radio disabled focus hover value="any" element={element}>Milky Way</Radio>
                 </Stack>
             </Inline>
         )
         .add("overflow", () =>
             <Stack>
-                <div className="flex items-end mw5">
+                <Flex alignItems="end" maxWidth={5}>
                     <Radio value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
-                </div>
-                <div className="flex items-end mw5">
+                </Flex>
+                <Flex alignItems="end" maxWidth={5}>
                     <Radio value="any" element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconList>
                             <EmailIcon /><EmailIcon />
                         </IconList>
                     </Radio>
-                </div>
-                <div className="flex items-end mw5">
+                </Flex>
+                <Flex alignItems="end" maxWidth={5}>
                     <Radio value="any" element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Radio>
-                </div>
+                </Flex>
             </Stack>
         );
 }

@@ -1,3 +1,5 @@
+const TagButton = as(Box, "button");
+
 function CustomComponent({
     value,
     children,
@@ -10,17 +12,17 @@ function CustomComponent({
     }, [value, onCheck]);
 
     return (
-        <Tag
+        <TagButton
             {...rest}
             {...checkableProps}
-            as="button"
             value={value}
             onClick={handleCheck}
-            className={isChecked ? "white o-ui-bg-primary-6" : "o-ui-bg-secondary-500"}
+            color={isChecked ? "white" : undefined}
+            backgroundColor={isChecked ? "primary-6" : "secondary-6"}
             aria-checked={isChecked}
         >
             {children}
-        </Tag>
+        </TagButton>
     );
 }
 

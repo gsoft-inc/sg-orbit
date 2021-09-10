@@ -1,10 +1,12 @@
+import { Input } from "@react-components/html";
 import { StyledComponentProps, isNil, mergeProps } from "../../shared";
+import { ValidationState } from "../../input";
 
-export interface HiddenSelectProps extends StyledComponentProps<"input"> {
+export interface HiddenSelectProps extends Omit<StyledComponentProps<"input">, "ref"> {
     /**
-     * Name of the element. Used by the server to identify the fields in form submits.
+     * @ignore
      */
-    name?: string;
+    ref?: Ref<HTMLInputElement>;
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -16,7 +18,7 @@ export interface HiddenSelectProps extends StyledComponentProps<"input"> {
     /**
      * Whether or not the select should display as "valid" or "invalid".
      */
-    validationState?: "valid" | "invalid";
+    validationState?: ValidationState;
 }
 
 export function HiddenSelect({ name, required, selectedKey, validationState, ...rest }: HiddenSelectProps) {
@@ -25,7 +27,7 @@ export function HiddenSelect({ name, required, selectedKey, validationState, ...
     }
 
     return (
-        <input
+        <Input
             {...mergeProps(
                 rest,
                 {

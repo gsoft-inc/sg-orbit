@@ -14,7 +14,7 @@ function CustomSelect({
                 {...rest}
                 {...triggerProps}
                 color="secondary"
-                className="w-20"
+                width="20%"
             >
                 <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>
                 <DisclosureArrow

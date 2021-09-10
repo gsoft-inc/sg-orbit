@@ -1,25 +1,25 @@
 import "./Select.css";
 
+import { AbstractInputProps } from "../../input";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
-import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
+import { OmitInternalProps, ZindexProp, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { Overlay, OverlayProps, PopupAlignment, PopupDirection } from "../../overlay";
+import { Span } from "../../html";
 import { Text } from "../../typography";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
 
-// Used to generate OverlayProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface OverlayProps extends Partial<OverlayPropsForDocumentation> { }
+const DefaultElement = "button";
 
-export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<"button">, "autoFocus"> {
+export interface InnerSelectProps extends Omit<AbstractInputProps<typeof DefaultElement>, "zIndex"> {
     /**
      * The horizontal alignment of the select menu relative to the input.
      */
-    align?: "start" | "end";
+    align?: PopupAlignment;
     /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
@@ -32,10 +32,6 @@ export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<
      * Whether or not the selection menu should match the trigger width.
      */
     allowResponsiveMenuWidth?: boolean;
-    /**
-     * Whether or not the select should autofocus on render.
-     */
-    autoFocus?: boolean | number;
     /**
      * React children.
      */
@@ -51,7 +47,7 @@ export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<
     /**
      * The direction the select menu will open relative to the input.
      */
-    direction?: "bottom" | "top";
+    direction?: PopupDirection;
     /**
      * Whether or not the select is disabled.
      */
@@ -99,17 +95,9 @@ export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<
      */
     readOnly?: boolean;
     /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
      * A controlled selected key.
      */
     selectedKey?: string | null;
-    /**
-     * Whether or not the select should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * The style to use.
      */
@@ -133,7 +121,7 @@ export function InnerSelect(props: InnerSelectProps) {
         "aria-describedby": ariaDescribedBy,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as: TriggerType = "button",
+        as: TriggerType = DefaultElement,
         autoFocus,
         children,
         defaultOpen,
@@ -216,11 +204,11 @@ export function InnerSelect(props: InnerSelectProps) {
             <Text className="o-ui-select-placeholder">{placeholder}</Text>
         )
         : (
-            <span className="o-ui-select-value">
+            <Span className="o-ui-select-value">
                 {selectedIconMarkup}
                 {selectedTextMarkup}
                 {selectedEndIconMarkup}
-            </span>
+            </Span>
         );
 
     return (

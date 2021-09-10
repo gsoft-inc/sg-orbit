@@ -1,4 +1,5 @@
 import { ComponentProps } from "react";
+import { Input } from "../../html";
 import { ValidationState } from "../../input";
 import { isNil, mergeProps } from "../../shared";
 
@@ -23,7 +24,7 @@ export function HiddenAutocomplete({ name, required, validationState, value, ...
     }
 
     return (
-        <input
+        <Input
             {...mergeProps(
                 rest,
                 {
