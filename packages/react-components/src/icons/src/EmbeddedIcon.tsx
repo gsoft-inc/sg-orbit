@@ -12,6 +12,10 @@ export interface EmbeddedIconProps extends
      */
     children: ReactNode;
     /**
+     * Whether or not the icon should look disabled.
+     */
+    disabled?: boolean;
+    /**
      * An icon can vary in size.
      */
     size?: IconSize;

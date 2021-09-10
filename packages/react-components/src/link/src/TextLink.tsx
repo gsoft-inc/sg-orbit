@@ -35,7 +35,7 @@ export interface InnerTextLinkProps extends Omit<SharedLinkProps, "color"> {
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {
-    const [styleProps] = useStyleProps("link");
+    const [styleProps] = useStyleProps<InnerTextLinkProps>("link");
     const [formProps] = useFormButton();
 
     const {

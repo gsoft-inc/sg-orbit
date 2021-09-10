@@ -8,6 +8,10 @@ export interface InnerMultiVariantIconProps extends
     Omit<InternalProps, "as">,
     Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps> {
     /**
+     * Whether or not the icon should look disabled.
+     */
+    disabled?: boolean;
+    /**
      * An icon can vary in size.
      */
     size?: IconSize;

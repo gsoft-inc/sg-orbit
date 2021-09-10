@@ -84,7 +84,7 @@ export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
     const [inputGroupProps] = useInputGroupButtonAddonProps();
-    const [styleProps] = useStyleProps("button");
+    const [styleProps] = useStyleProps<InnerButtonProps>("button");
 
     const {
         active,

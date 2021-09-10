@@ -4,7 +4,7 @@ import { SyntheticEvent } from "react";
 
 export type ValidationState = "valid" | "invalid";
 
-export type AbstractInputProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
+export type AbstractInputProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "type"> & {
     /**
     * Whether or not the input should autoFocus on render.
     */
