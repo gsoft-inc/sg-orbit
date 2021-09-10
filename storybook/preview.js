@@ -63,7 +63,7 @@ export const globalTypes = {
     theme: {
         name: "Theme",
         description: "Orbit UI theme for components",
-        defaultValue: "apricot",
+        defaultValue: ApricotTheme.name,
         toolbar: {
             icon: "photo",
             items: [ApricotTheme.name, DesktopTheme.name]

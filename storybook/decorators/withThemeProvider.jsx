@@ -1,3 +1,4 @@
+import { ApricotTheme, DesktopTheme } from "@orbit-ui/styles";
 import { ThemeProvider } from "@react-components/theme-provider";
 import { isChromatic } from "../env";
 
@@ -6,10 +7,10 @@ export function withThemeProvider(Story, context) {
 
     return (
         <ThemeProvider
-            theme={globals.theme}
+            theme={globals.theme === "desktop" ? DesktopTheme : ApricotTheme}
             colorScheme={globals.colorScheme}
             // min-height ensure popup components renders correctly in chromatic tests.
-            style={viewMode === "story" || isChromatic ? { height: "600px" } : undefined}
+            height={viewMode === "story" || isChromatic ? "600px" : undefined}
         >
             <Story />
         </ThemeProvider>

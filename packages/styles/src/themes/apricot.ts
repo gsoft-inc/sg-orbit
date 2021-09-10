@@ -17,7 +17,6 @@ export const ApricotTheme: OrbitTheme = {
         "subheadline": "3.75rem",
         "headline": "5rem"
     },
-    // TODO FRANK: I think it should be hardcoded, what's the point anyway, we have all the values.
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
@@ -88,8 +87,6 @@ export const ApricotTheme: OrbitTheme = {
             `
         ]
     },
-    // TODO FRANK: What do we need here? How many values and which values?
-    zIndices: [1, 2, 3, 4, 5],
     colors: {
         common: {
             white: "#FFF",

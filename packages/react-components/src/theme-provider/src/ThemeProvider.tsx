@@ -1,8 +1,8 @@
-import { ApricotTheme } from "@orbit-ui/styles";
+import { ApricotTheme, OrbitTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
-import { ElementType, ReactNode, useCallback, useState } from "react";
-import { StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
-import { ThemeContext, useThemeContext } from "./ThemeContext";
+import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
+import { ThemeContext } from "./ThemeContext";
+import { useCallback, useState } from "react";
 import { useColorScheme } from "./useColorScheme";
 
 export type ColorScheme = "light" | "dark";
@@ -11,15 +11,7 @@ export type ColorSchemeOrSystem = ColorScheme | "system";
 
 const DefaultElement = "div";
 
-export interface ThemeProviderProps extends Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
-    /**
-     * @ignore
-     */
-    as?: ElementType;
-    /**
-    * @ignore
-    */
-    children?: ReactNode;
+export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * The color scheme to use.
      */
@@ -31,28 +23,26 @@ export interface ThemeProviderProps extends Omit<StyledComponentProps<typeof Def
     /**
      * The theme to use.
      */
-    theme?: string;
+    theme?: OrbitTheme;
 }
 
 export function ThemeProvider({
-    theme: userTheme,
+    as = DefaultElement,
+    children,
     colorScheme,
     defaultColorScheme,
-    children,
-    as = DefaultElement,
+    theme: userTheme,
     ...rest
 }: ThemeProviderProps) {
-    const parentTheme = useThemeContext();
-
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
-    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme ?? parentTheme.colorScheme, defaultColorScheme);
+    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
     const setColorScheme = useCallback(newColorScheme => {
         setRemoteColorScheme(newColorScheme);
     }, [setRemoteColorScheme]);
 
-    const theme = userTheme ?? parentTheme.theme ?? ApricotTheme.name;
+    const theme = userTheme ?? ApricotTheme;
 
     return (
         <ThemeContext.Provider
@@ -68,8 +58,8 @@ export function ThemeProvider({
                     {
                         as,
                         className: mergeClasses(
-                            `${theme}`,
-                            `${theme}-${colorScheme}`
+                            `${theme.name}`,
+                            `${theme.name}-${colorScheme}`
                         ),
                         id: "o-ui"
                     }

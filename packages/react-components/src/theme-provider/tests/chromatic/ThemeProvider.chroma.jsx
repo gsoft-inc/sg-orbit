@@ -1,3 +1,4 @@
+import { ApricotTheme, DesktopTheme } from "@orbit-ui/styles";
 import { Box } from "@react-components/box";
 import { Inline } from "@react-components/layout";
 import { ThemeProvider, useThemeContext } from "@react-components/theme-provider";
@@ -30,44 +31,14 @@ function PrimaryColors() {
     );
 }
 
-function PrimaryAliasColors() {
-    return (
-        <Inline gap={0}>
-            <Box padding={4} backgroundColor="alias-primary-1" />
-            <Box padding={4} backgroundColor="alias-primary-2" />
-        </Inline>
-    );
-}
-
 stories()
-    .add("nesting", () =>
-        <ThemeProvider theme="apricot">
-            <ThemeProvider theme="desktop">
-                <PrimaryColors />
-            </ThemeProvider>
-        </ThemeProvider>
-    )
-    .add("theme inheritance", () =>
-        <ThemeProvider theme="apricot">
-            <ThemeProvider colorScheme="dark">
-                <PrimaryAliasColors />
-            </ThemeProvider>
-        </ThemeProvider>
-    )
-    .add("color scheme inheritance", () =>
-        <ThemeProvider colorScheme="dark">
-            <ThemeProvider theme="desktop">
-                <PrimaryAliasColors />
-            </ThemeProvider>
-        </ThemeProvider>
-    )
     .add("apricot", () =>
-        <ThemeProvider theme="apricot">
+        <ThemeProvider theme={ApricotTheme}>
             <PrimaryColors />
         </ThemeProvider>
     )
     .add("desktop", () =>
-        <ThemeProvider theme="desktop">
+        <ThemeProvider theme={DesktopTheme}>
             <PrimaryColors />
         </ThemeProvider>
     )
@@ -94,9 +65,9 @@ stories()
         };
 
         return (
-            <ThemeProvider theme="apricot" colorScheme="light">
+            <ThemeProvider colorScheme="light">
                 <SwitchColorScheme />
-                <PrimaryColors />
+                <Box padding={4} backgroundColor="alias-2" />
             </ThemeProvider>
         );
     });

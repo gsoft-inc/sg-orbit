@@ -31,13 +31,13 @@ export interface InnerPopoverProps extends InternalProps, InteractionProps, Styl
 }
 
 export function InnerPopover({
-    id,
-    focus,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     children,
+    focus,
     forwardedRef,
+    id,
     ...rest
 }: InnerPopoverProps) {
     const [focusScope, setFocusRef] = useFocusScope();

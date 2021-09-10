@@ -1,14 +1,14 @@
 import "./Overlay.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider, useThemeContext } from "../../theme-provider";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
 
 export const OverlayDefaultElement = "div";
 
-export interface InnerOverlayProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
+export interface InnerOverlayProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
     /**
      * Hacky offset utility to apply a transparent CSS border to the overlay.
      * It's useful to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
@@ -29,17 +29,17 @@ export interface InnerOverlayProps extends InternalProps, StyledComponentProps<t
     /**
      * The z-index of the overlay.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerOverlay({
-    show,
-    borderOffset,
-    containerElement,
-    zIndex,
     as = OverlayDefaultElement,
+    borderOffset,
     children,
+    containerElement,
     forwardedRef,
+    show,
+    zIndex,
     ...rest
 }: InnerOverlayProps) {
     // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
@@ -61,9 +61,9 @@ export function InnerOverlay({
                         ref: forwardedRef,
                         show,
                         style: {
-                            "--o-ui-overlay-border-offset": borderOffset,
-                            zIndex
-                        }
+                            "--o-ui-overlay-border-offset": borderOffset
+                        },
+                        zIndex
                     }
                 )}
             >
@@ -72,12 +72,7 @@ export function InnerOverlay({
         </ThemeProvider>
     );
 
-    // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
-    return (
-        <>
-            {createPortal(content, containerElement || document.body)}
-        </>
-    );
+    return createPortal(content, containerElement || document.body);
 }
 
 export const Overlay = forwardRef<any, OmitInternalProps<InnerOverlayProps>>((props, ref) => (

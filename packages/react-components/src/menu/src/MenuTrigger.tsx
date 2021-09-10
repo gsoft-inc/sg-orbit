@@ -6,6 +6,7 @@ import {
     Keys,
     OmitInternalProps,
     StyledComponentProps,
+    ZindexProp,
     augmentElement,
     isNil,
     mergeProps,
@@ -16,10 +17,10 @@ import {
     useRefState
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
-import { Overlay, OverlayDefaultElement, PopupAlignment, PopupDirection, usePopup } from "../../overlay";
+import { Overlay, OverlayDefaultElement, PopupAlignment, PopupDirection, PopupPosition, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-export interface InnerMenuTriggerProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
+export interface InnerMenuTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
     /**
      * The horizontal alignment of the menu relative to the trigger.
      */
@@ -47,7 +48,7 @@ export interface InnerMenuTriggerProps extends InternalProps, StyledComponentPro
     /**
      * The direction the menu will open relative to the trigger.
      */
-    direction?: PopupDirection;
+    direction?: Omit<PopupDirection, "left" | "right">;
     /**
      * Called when the open state change.
      * @param {SyntheticEvent} event - React's original event.
@@ -62,7 +63,7 @@ export interface InnerMenuTriggerProps extends InternalProps, StyledComponentPro
     /**
      * The z-index of the menu.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
@@ -117,7 +118,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         offset: [0, 4],
         onOpenChange: handleOpenChange,
         open: openProp,
-        position: `${direction}-${align}` as const,
+        position: `${direction}-${align}` as PopupPosition,
         restoreFocus: true,
         trigger: "click"
     });

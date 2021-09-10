@@ -9,6 +9,7 @@ import {
     MergedRef,
     OmitInternalProps,
     StyledComponentProps,
+    ZindexProp,
     cssModule,
     isNil,
     isString,
@@ -33,7 +34,7 @@ const DefaultElement = "section";
 export interface SharedDialogProps extends
     InternalProps,
     InteractionProps,
-    Omit<StyledComponentProps<typeof DefaultElement>, "zIndex" | "role"> {
+    Omit<StyledComponentProps<typeof DefaultElement>, "role" | "zIndex"> {
     /**
      * React children.
      */
@@ -49,7 +50,7 @@ export interface SharedDialogProps extends
     /**
      * The z-index of the dialog.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export interface InnerDialogProps extends SharedDialogProps {

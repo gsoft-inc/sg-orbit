@@ -1,4 +1,5 @@
 import { Box } from "@react-components/box";
+import { DesktopTheme } from "@orbit-ui/styles";
 import { Overlay } from "@react-components/overlay";
 import { ThemeProvider } from "@react-components/theme-provider";
 import { augmentElement, mergeProps, useMergedRefs } from "../../../shared";
@@ -19,11 +20,9 @@ function PrimaryBox({ children, ...rest }) {
     return (
         <Box
             {...rest}
-            className="bg-primary-500"
-            style={{
-                width: "75px",
-                height: "75px"
-            }}
+            backgroundColor="primary-6"
+            height="75px"
+            width="75px"
         >
             {children}
         </Box>
@@ -59,7 +58,7 @@ ref) => {
 
 stories()
     .add("inherit theme", () =>
-        <ThemeProvider theme="desktop" colorScheme="light">
+        <ThemeProvider theme={DesktopTheme} colorScheme="light">
             <Boundary>
                 <Overlay show>
                     <PrimaryBox />

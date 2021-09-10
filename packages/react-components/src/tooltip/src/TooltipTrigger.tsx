@@ -1,7 +1,20 @@
 import "./Tooltip.css";
 
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import {
+    InternalProps,
+    OmitInternalProps,
+    StyledComponentProps,
+    ZindexProp,
+    augmentElement,
+    isNil,
+    mergeProps,
+    resolveChildren,
+    useControllableState,
+    useEventCallback,
+    useId,
+    useMergedRefs
+} from "../../shared";
 import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
@@ -65,7 +78,7 @@ export interface InnerTooltipTriggerProps extends InternalProps, StyledComponent
     /**
      * The z-index of the popover element.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function parseTooltipTrigger(children: ReactNode) {

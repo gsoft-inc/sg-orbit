@@ -10,14 +10,13 @@ export interface InnerUnderlayProps extends InternalProps, StyledComponentProps<
     /**
      * The z-index of the underlay.
      */
-    // TEMP UNTIL WE UPDAYE THIS COMP
     zIndex?: ZindexProp;
 }
 
 export function InnerUnderlay({
-    zIndex,
     as = DefaultElement,
     forwardedRef,
+    zIndex,
     ...rest
 }: InnerUnderlayProps) {
     return (
@@ -29,9 +28,7 @@ export function InnerUnderlay({
                     as,
                     className: "o-ui-underlay",
                     ref: forwardedRef,
-                    style: {
-                        zIndex
-                    }
+                    zIndex
                 }
             )}
         />

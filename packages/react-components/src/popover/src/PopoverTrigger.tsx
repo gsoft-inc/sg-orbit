@@ -1,11 +1,20 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useMergedRefs } from "../../shared";
-import { Overlay, OverlayArrow, usePopup } from "../../overlay";
+import {
+    InternalProps,
+    OmitInternalProps,
+    StyledComponentProps,
+    ZindexProp,
+    augmentElement,
+    isNil,
+    mergeProps,
+    resolveChildren,
+    useMergedRefs
+} from "../../shared";
+import { Overlay, OverlayArrow, OverlayDefaultElement, PopupPosition, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
+import { useThemeContext } from "../../theme-provider";
 
-const DefaultElement = "div";
-
-export interface InnerPopoverTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerPopoverTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "position" | "zIndex"> {
     /**
      * Whether or not the popover element can flip when it will overflow it's boundary area.
      */
@@ -44,44 +53,31 @@ export interface InnerPopoverTriggerProps extends InternalProps, StyledComponent
     /**
      * Position of the popover element related to the trigger.
      */
-    position?: (
-        "auto"
-        | "auto-start"
-        | "auto-end"
-        | "top"
-        | "top-start"
-        | "top-end"
-        | "bottom"
-        | "bottom-start"
-        | "bottom-end"
-        | "right"
-        | "right-start"
-        | "right-end"
-        | "left"
-        | "left-start"
-        | "left-end");
+    position?: PopupPosition;
     /**
      * The z-index of the popover element.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerPopoverTrigger({
-    id,
-    open,
-    defaultOpen,
-    position: positionProp = "bottom",
-    onOpenChange,
-    dismissable = true,
     allowFlip = true,
     allowPreventOverflow = true,
-    containerElement,
-    zIndex = 10000,
-    as = DefaultElement,
+    as = OverlayDefaultElement,
     children,
+    containerElement,
+    defaultOpen,
+    dismissable = true,
     forwardedRef,
+    id,
+    onOpenChange,
+    open,
+    position: positionProp = "bottom",
+    zIndex = 10000,
     ...rest
 }: InnerPopoverTriggerProps) {
+    const { theme } = useThemeContext();
+
     const overlayRef = useMergedRefs(forwardedRef);
 
     const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
@@ -130,7 +126,8 @@ export function InnerPopoverTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: "var(--o-ui-space-3)",
+                        // TODO: Maybe we should provide some kind of wrapping on top a theme to have access to 1 based indicees to match the vars.
+                        borderOffset: theme.space[2],
                         className: "o-ui-popover-overlay",
                         ref: overlayRef,
                         zIndex

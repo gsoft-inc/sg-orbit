@@ -10,6 +10,7 @@ import {
     OmitInternalProps,
     StyledComponentProps,
     WidthProp,
+    ZindexProp,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -22,7 +23,7 @@ import {
     useRefState
 } from "../../shared";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
-import { Overlay, OverlayProps, PopupAlignment, PopupDirection, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, OverlayProps, PopupAlignment, PopupDirection, PopupPosition, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { ValidationState } from "../../input";
@@ -38,7 +39,7 @@ const DefaultElement = "input";
 export interface InnerAutocompleteProps extends
     InternalProps,
     InteractionProps,
-    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> {
+    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "zIndex"> {
     /**
      * The horizontal alignment of the autocomplete menu relative to the input.
      */
@@ -74,7 +75,7 @@ export interface InnerAutocompleteProps extends
     /**
      * The direction the autocomplete menu will open relative to the input.
      */
-    direction?: PopupDirection;
+    direction?: Omit<PopupDirection, "left" | "right">;
     /**
      * Whether or not the autocomplete take up the width of its container.
      */
@@ -145,7 +146,7 @@ export interface InnerAutocompleteProps extends
     /**
      * The z-index of the overlay element.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {
@@ -234,7 +235,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         offset: [0, 4],
         onOpenChange,
         open: openProp,
-        position: `${direction}-${align}`,
+        position: `${direction}-${align}` as PopupPosition,
         restoreFocus: true,
         // An autocomplete take care of his own trigger logic.
         trigger: "none"

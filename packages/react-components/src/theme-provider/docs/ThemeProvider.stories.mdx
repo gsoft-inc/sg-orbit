@@ -1,3 +1,4 @@
+import { ApricotTheme } from "@orbit-ui/styles"
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Button } from "@react-components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
@@ -33,36 +34,10 @@ const { colorScheme, setColorScheme } = useThemeContext();
 
 A default theme provider.
 
-<Preview>
+<Preview scope={{ ApricotTheme }}>
     <Story name="default">
-        <ThemeProvider colorScheme="light">
+        <ThemeProvider theme={ApricotTheme} colorScheme="light">
             <Button color="primary">Cutoff</Button>
-        </ThemeProvider>
-    </Story>
-</Preview>
-
-### Nesting
-
-Theme providers can be nested.
-
-<Preview>
-    <Story name="nesting">
-        <ThemeProvider colorScheme="light">
-            <ThemeProvider theme="desktop" colorScheme="light">
-                <Button color="primary">Cutoff</Button>
-            </ThemeProvider>
-        </ThemeProvider>
-    </Story>
-</Preview>
-
-A nested theme inherits his parent `theme` and `colorScheme`. Therefore, in the previous example, the nested theme `colorScheme` could be omitted.
-
-<Preview>
-    <Story name="inheritance">
-        <ThemeProvider colorScheme="light">
-            <ThemeProvider theme="desktop">
-                <Button color="primary">Cutoff</Button>
-            </ThemeProvider>
         </ThemeProvider>
     </Story>
 </Preview>

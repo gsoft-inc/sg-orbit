@@ -1,9 +1,20 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
-import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback } from "../../shared";
+import {
+    InternalProps,
+    OmitInternalProps,
+    StyledComponentProps,
+    ZindexProp,
+    augmentElement,
+    isNil,
+    mergeProps,
+    resolveChildren,
+    useControllableState,
+    useEventCallback
+} from "../../shared";
 import { Overlay, OverlayDefaultElement, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 
-export interface InnerDialogTriggerProps extends InternalProps, StyledComponentProps<typeof OverlayDefaultElement> {
+export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -30,7 +41,7 @@ export interface InnerDialogTriggerProps extends InternalProps, StyledComponentP
     /**
      * The z-index of of the dialog.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerDialogTrigger({

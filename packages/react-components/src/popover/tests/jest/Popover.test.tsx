@@ -1,3 +1,4 @@
+import { A, Input } from "@react-components/html";
 import { Button } from "@react-components/button";
 import { Content, Footer } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
@@ -14,7 +15,7 @@ test("when an element is manually autofocus, keep the focus on this element", as
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
-                <input type="text" />
+                <Input type="text" />
             </Content>
             <Button autoFocus data-testid="submit-button">Submit</Button>
         </Popover>
@@ -29,7 +30,7 @@ test("when no element is focused, autofocus the first focusable element", async 
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
-                <input type="text" data-testid="focusable-element" />
+                <Input type="text" data-testid="focusable-element" />
             </Content>
         </Popover>
     );
@@ -53,10 +54,10 @@ test("do not autofocus an anchor element", async () => {
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
-                <a href="https://www.google.com">This year, the National Science Foundation (NSF)</a> said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
+                <A href="https://www.google.com">This year, the National Science Foundation (NSF)</A> said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
             </Content>
             <Footer>
-                <a href="https://www.google.com">This year, the National Science Foundation (NSF)</a>
+                <A href="https://www.google.com">This year, the National Science Foundation (NSF)</A>
             </Footer>
         </Popover>
     );
@@ -70,7 +71,7 @@ test("tabbing the last focusable element of the popover will move the focus to t
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
-                <input type="text" data-testid="focusable-element" />
+                <Input type="text" data-testid="focusable-element" />
             </Content>
         </Popover>
     );

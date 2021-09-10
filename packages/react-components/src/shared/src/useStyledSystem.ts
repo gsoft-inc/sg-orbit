@@ -895,7 +895,7 @@ export type WidthProp = Simplify<LiteralUnion<keyof typeof WidthClasses, string>
 
 export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
-export type ZindexProp = string;
+export type ZindexProp = number;
 
 export interface StyledSystemProps {
     /**

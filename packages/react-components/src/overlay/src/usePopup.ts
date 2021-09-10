@@ -8,7 +8,11 @@ import { useRestoreFocus } from "./useRestoreFocus";
 
 export type PopupAlignment = "start" | "end";
 
-export type PopupDirection = "bottom" | "top";
+export type PopupDirection = "top" | "bottom" | "left" | "right";
+
+export type PopupPosition = PopupDirection | `${PopupDirection}-${PopupAlignment}`;
+
+export type PopupTrigger = "none" | "click";
 
 export interface UsePopupOptions {
     allowFlip?: boolean;
@@ -25,9 +29,9 @@ export interface UsePopupOptions {
     offset?: number[];
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     open?: boolean | null;
-    position?: `${PopupDirection}-${PopupAlignment}`;
+    position?: PopupPosition;
     restoreFocus?: boolean;
-    trigger?: "none" | "click";
+    trigger?: PopupTrigger;
 }
 
 export function usePopup(type: "menu" | "listbox" | "dialog", {

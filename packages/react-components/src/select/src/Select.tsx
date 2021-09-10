@@ -3,7 +3,7 @@ import "./Select.css";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Listbox } from "../../listbox";
 import { Overlay, OverlayProps as OverlayPropsForDocumentation } from "../../overlay";
 import { Text } from "../../typography";
@@ -117,7 +117,7 @@ export interface InnerSelectProps extends InternalProps, InteractionProps, Omit<
     /**
      * The z-index of the overlay element.
      */
-    zIndex?: number;
+    zIndex?: ZindexProp;
 }
 
 export function InnerSelect(props: InnerSelectProps) {
