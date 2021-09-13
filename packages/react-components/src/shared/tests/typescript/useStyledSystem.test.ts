@@ -362,28 +362,24 @@ expectAssignable<MarginXProp>(1);
 expectAssignable<MarginXProp>("1px");
 expectAssignable<MarginXProp>("auto");
 
-expectAssignable<MaxHeightProp>(1);
 expectAssignable<MaxHeightProp>("1px");
 expectAssignable<MaxHeightProp>("100%");
 expectAssignable<MaxHeightProp>("auto");
 expectAssignable<MaxHeightProp>("max-content");
 expectAssignable<MaxHeightProp>("min-content");
 
-expectAssignable<MaxWidthProp>(1);
 expectAssignable<MaxWidthProp>("1px");
 expectAssignable<MaxWidthProp>("100%");
 expectAssignable<MaxWidthProp>("auto");
 expectAssignable<MaxWidthProp>("max-content");
 expectAssignable<MaxWidthProp>("min-content");
 
-expectAssignable<MinHeightProp>(1);
 expectAssignable<MinHeightProp>("1px");
 expectAssignable<MinHeightProp>("100%");
 expectAssignable<MinHeightProp>("auto");
 expectAssignable<MinHeightProp>("max-content");
 expectAssignable<MinHeightProp>("min-content");
 
-expectAssignable<MinWidthProp>(1);
 expectAssignable<MinWidthProp>("1px");
 expectAssignable<MinWidthProp>("100%");
 expectAssignable<MinWidthProp>("auto");
@@ -503,7 +499,7 @@ expectAssignable<WordBreakProp>("break-word");
 expectAssignable<WordBreakProp>("keep-all");
 expectAssignable<WordBreakProp>("normal");
 
-expectAssignable<ZindexProp>("1");
+expectAssignable<ZindexProp>(1);
 
 expectAssignable<StyledSystemProps>({
     alignContent: "center",
@@ -551,10 +547,10 @@ expectAssignable<StyledSystemProps>({
     marginTop: 1,
     marginX: 1,
     marginY: 1,
-    maxHeight: 1,
-    maxWidth: 1,
-    minHeight: 1,
-    minWidth: 1,
+    maxHeight: "1px",
+    maxWidth: "1px",
+    minHeight: "1px",
+    minWidth: "1px",
     opacity: "visible",
     order: 1,
     outline: "none",

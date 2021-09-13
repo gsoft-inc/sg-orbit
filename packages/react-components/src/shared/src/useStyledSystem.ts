@@ -324,12 +324,12 @@ export const BorderTopAdditionalClasses = {
 export const BorderTopClasses = { ...createOrbitColorClasses("b"), ...createOrbitBorderColorAliasesClasses("b"), ...BorderTopAdditionalClasses };
 
 export const BorderRadiusClasses = {
-    0: "o-ui-b-radius-0",
-    1: "o-ui-b-radius-1",
-    2: "o-ui-b-radius-2",
-    3: "o-ui-b-radius-3",
-    4: "o-ui-b-radius-4",
-    "100%": "o-ui-b-radius-100",
+    0: "o-ui-bdrs-0",
+    1: "o-ui-bdrs-1",
+    2: "o-ui-bdrs-2",
+    3: "o-ui-bdrs-3",
+    4: "o-ui-bdrs-4",
+    "100%": "o-ui-bdrs-100",
     "pill": "o-ui-pill"
 } as const;
 
@@ -535,46 +535,6 @@ export const MarginRightClasses = { ...createOrbitSpacingScaleClasses("mr", true
 export const MarginXClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-auto" };
 
 export const MarginYClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-auto" };
-
-export const MaxHeightAdditionalClasses = {
-    "100%": "o-ui-mh-100",
-    "auto": "o-ui-mh-a",
-    "fit-content": "o-ui-mh-f",
-    "max-content": "o-ui-mh-mx",
-    "min-content": "o-ui-mh-mn"
-} as const;
-
-export const MaxHeightClasses = { ...createOrbitSpacingScaleClasses("mh-"), ...MaxHeightAdditionalClasses };
-
-export const MaxWidthAdditionalClasses = {
-    "100%": "o-ui-max-w-100",
-    "auto": "o-ui-max-w-a",
-    "fit-content": "o-ui-max-w-fc",
-    "max-content": "o-ui-max-w-mxc",
-    "min-content": "o-ui-max-w-mnc"
-} as const;
-
-export const MaxWidthClasses = { ...createOrbitSpacingScaleClasses("max-w"), ...MaxWidthAdditionalClasses };
-
-export const MinHeightAdditionalClasses = {
-    "100%": "o-ui-min-h-100",
-    "auto": "o-ui-min-h-a",
-    "fit-content": "o-ui-min-h-f",
-    "max-content": "o-ui-min-h-mxc",
-    "min-content": "o-ui-min-h-mnc"
-} as const;
-
-export const MinHeightClasses = { ...createOrbitSpacingScaleClasses("min-h"), ...MinHeightAdditionalClasses };
-
-export const MinWidthAdditionalClasses = {
-    "100%": "o-ui-min-w-100",
-    "auto": "o-ui-min-w-a",
-    "fit-content": "o-ui-min-w-f",
-    "max-content": "o-ui-min-w-mxc",
-    "min-content": "o-ui-min-w-mnc"
-} as const;
-
-export const MinWidthClasses = { ...createOrbitSpacingScaleClasses("min-w"), ...MinWidthAdditionalClasses };
 
 export const ObjectFitClasses = {
     "contain": "o-ui-of-cnt",
@@ -825,13 +785,13 @@ export type MarginXProp = Simplify<LiteralUnion<keyof typeof MarginXClasses, str
 
 export type MarginYProp = Simplify<LiteralUnion<keyof typeof MarginYClasses, string>>;
 
-export type MaxHeightProp = Simplify<LiteralUnion<keyof typeof MaxHeightClasses, string>>;
+export type MaxHeightProp = string;
 
-export type MaxWidthProp = Simplify<LiteralUnion<keyof typeof MaxWidthClasses, string>>;
+export type MaxWidthProp = string;
 
-export type MinHeightProp = Simplify<LiteralUnion<keyof typeof MinHeightClasses, string>>;
+export type MinHeightProp = string;
 
-export type MinWidthProp = Simplify<LiteralUnion<keyof typeof MinWidthClasses, string>>;
+export type MinWidthProp = string;
 
 export type ObjectFitProp = Simplify<keyof typeof ObjectFitClasses | GlobalValue>;
 
@@ -1372,10 +1332,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginTop: createClassesHandler(MarginTopClasses),
     marginX: createClassesHandler(MarginXClasses),
     marginY: createClassesHandler(MarginYClasses),
-    maxHeight: createClassesHandler(MaxHeightClasses),
-    maxWidth: createClassesHandler(MaxWidthClasses),
-    minHeight: createClassesHandler(MinHeightClasses),
-    minWidth: createClassesHandler(MinWidthClasses),
     objectFit: createClassesHandler(ObjectFitClasses),
     opacity: createClassesHandler(OpacityClasses),
     outline: createClassesHandler(OutlineClasses),

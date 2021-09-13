@@ -1,4 +1,3 @@
-/* STROKE */
 .o-ui-stroke-current {
     stroke: currentColor;
 }
@@ -15,70 +14,60 @@
     stroke: var(--o-ui-black);
 }
 
-/* STROKE | MARINE */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-marine-#{$i} {
         stroke: var(--o-ui-marine-#{$i});
     }
 }
 
-/* STROKE | SUNRAY */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-sunray-#{$i} {
         stroke: var(--o-ui-sunray-#{$i});
     }
 }
 
-/* STROKE | MOONSTONE */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-moonstone-#{$i} {
         stroke: var(--o-ui-moonstone-#{$i});
     }
 }
 
-/* STROKE | CLOUD */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-cloud-#{$i} {
         stroke: var(--o-ui-cloud-#{$i});
     }
 }
 
-/* STROKE | NEUTRAL */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-neutral-#{$i} {
         stroke: var(--o-ui-neutral-#{$i});
     }
 }
 
-/* STROKE | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-neutral-dark-#{$i} {
         stroke: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
-/* STROKE | BEETLE */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-beetle-#{$i} {
         stroke: var(--o-ui-beetle-#{$i});
     }
 }
 
-/* STROKE | BOTANIC */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-botanic-#{$i} {
         stroke: var(--o-ui-botanic-#{$i});
     }
 }
 
-/* STROKE | APRICOT */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-apricot-#{$i} {
         stroke: var(--o-ui-apricot-#{$i});
     }
 }
 
-/* STROKE | PRIMARY */
 @for $i from 1 through $color-palette-size {
     .o-ui-stroke-primary-#{$i} {
         stroke: var(--o-ui-primary-#{$i});
