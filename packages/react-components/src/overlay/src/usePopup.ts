@@ -1,5 +1,5 @@
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
-import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
+import { ZindexProp, isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayPosition } from "./useOverlayPosition";
 import { useOverlayTrigger } from "./useOverlayTrigger";
@@ -8,11 +8,64 @@ import { useRestoreFocus } from "./useRestoreFocus";
 
 export type PopupAlignment = "start" | "end";
 
-export type PopupDirection = "top" | "bottom" | "left" | "right";
+export type PopupDirection = "top" | "bottom";
 
-export type PopupPosition = PopupDirection | `${PopupDirection}-${PopupAlignment}`;
+export type PopupPosition =
+    "auto"
+    | "auto-start"
+    | "auto-end"
+    | "top"
+    | "top-start"
+    | "top-end"
+    | "bottom"
+    | "bottom-start"
+    | "bottom-end"
+    | "right"
+    | "right-start"
+    | "right-end"
+    | "left"
+    | "left-start"
+    | "left-end";
 
 export type PopupTrigger = "none" | "click";
+
+export interface PopupProps {
+    /**
+     * The horizontal alignment of the popup relative to the trigger.
+     */
+    align?: PopupAlignment;
+    /**
+     * Whether or not the popup can flip when it will overflow it's boundary area.
+     */
+    allowFlip?: boolean;
+    /**
+     * Whether or not the popup position can change to prevent it from being cut off so that it stays visible within its boundary area.
+     */
+    allowPreventOverflow?: boolean;
+    /**
+     * The initial value of open when in auto controlled mode.
+     */
+    defaultOpen?: boolean;
+    /**
+     * The direction the open will open relative to the trigger.
+     */
+    direction?: PopupDirection;
+    /**
+     * Called when the open state change.
+     * @param {SyntheticEvent} event - React's original event.
+     * @param {boolean} isOpen - Indicate if the popup is visible.
+     * @returns {void}
+     */
+    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
+    /**
+     * Whether or not to show the popup.
+     */
+    open?: boolean;
+    /**
+     * The z-index of the menu.
+     */
+    zIndex?: ZindexProp;
+}
 
 export interface UsePopupOptions {
     allowFlip?: boolean;

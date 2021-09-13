@@ -3,26 +3,20 @@ import {
     InternalProps,
     OmitInternalProps,
     StyledComponentProps,
-    ZindexProp,
     augmentElement,
     isNil,
     mergeProps,
     resolveChildren,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayDefaultElement, PopupPosition, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, OverlayDefaultElement, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { useThemeContext } from "../../theme-provider";
 
-export interface InnerPopoverTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "position" | "zIndex"> {
-    /**
-     * Whether or not the popover element can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the popover element position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
+export interface InnerPopoverTriggerProps extends
+    InternalProps,
+    Omit<PopupProps, "align" | "direction">,
+    Omit<StyledComponentProps<typeof OverlayDefaultElement>, "position" | "zIndex"> {
     /**
      * React children.
      */
@@ -32,32 +26,13 @@ export interface InnerPopoverTriggerProps extends InternalProps, Omit<StyledComp
      */
     containerElement?: HTMLElement;
     /**
-     * The initial value of `open` when in auto controlled mode.
-     */
-    defaultOpen?: boolean;
-    /**
      * Whether or not the popover should close on outside interactions.
      */
     dismissable?: boolean;
     /**
-     * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the popover is visible.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * Whether or not to show the popover.
-     */
-    open?: boolean | null;
-    /**
      * Position of the popover element related to the trigger.
      */
     position?: PopupPosition;
-    /**
-     * The z-index of the popover element.
-     */
-    zIndex?: ZindexProp;
 }
 
 export function InnerPopoverTrigger({
@@ -126,8 +101,7 @@ export function InnerPopoverTrigger({
                     rest,
                     {
                         as,
-                        // TODO: Maybe we should provide some kind of wrapping on top a theme to have access to 1 based indicees to match the vars.
-                        borderOffset: theme.space[2],
+                        borderOffset: theme.getSpace(3),
                         className: "o-ui-popover-overlay",
                         ref: overlayRef,
                         zIndex

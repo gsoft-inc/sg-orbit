@@ -1,5 +1,5 @@
 import { ColorScheme } from "./ThemeProvider";
-import { OrbitTheme } from "@orbit-ui/styles";
+import { OrbitTheme, ThemeAccessor } from "@orbit-ui/styles";
 import { createContext, useContext } from "react";
 
 export interface ThemeContextType {
@@ -10,6 +10,12 @@ export interface ThemeContextType {
 
 export const ThemeContext = createContext<ThemeContextType>({});
 
-export function useThemeContext() {
-    return useContext(ThemeContext);
+export function useThemeContext(): ThemeContextType & { themeAccessor: ThemeAccessor } {
+    const { theme, ...rest } = useContext(ThemeContext);
+
+    return {
+        ...rest,
+        theme,
+        themeAccessor: new ThemeAccessor(theme)
+    };
 }

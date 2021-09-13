@@ -1,9 +1,13 @@
-import { ComponentProps } from "react";
 import { Input } from "../../html";
+import { Ref } from "react";
+import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";
-import { isNil, mergeProps } from "../../shared";
 
-export interface HiddenAutocompleteProps extends ComponentProps<"input"> {
+export interface HiddenAutocompleteProps extends Omit<StyledComponentProps<"input">, "ref"> {
+    /**
+     * @ignore
+     */
+    ref?: Ref<HTMLInputElement>;
     /**
      * Whether or not a user input is required before form submission.
      */
