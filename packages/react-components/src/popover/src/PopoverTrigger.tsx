@@ -51,7 +51,7 @@ export function InnerPopoverTrigger({
     zIndex = 10000,
     ...rest
 }: InnerPopoverTriggerProps) {
-    const { theme } = useThemeContext();
+    const { themeAccessor } = useThemeContext();
 
     const overlayRef = useMergedRefs(forwardedRef);
 
@@ -101,7 +101,7 @@ export function InnerPopoverTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: theme.getSpace(3),
+                        borderOffset: themeAccessor.getSpace(3),
                         className: "o-ui-popover-overlay",
                         ref: overlayRef,
                         zIndex
