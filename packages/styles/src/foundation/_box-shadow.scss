@@ -1,11 +1,9 @@
-/* BOX SHADOW */
 @for $i from 1 through 4 {
     .o-ui-bs-#{$i} {
         box-shadow: var(--o-ui-box-shadows-#{$i});
     }
 }
 
-/* BOX SHADOW | ROLE */
 .o-ui-bs-skim {
     box-shadow: var(--o-ui-box-shadows-skim);
 }

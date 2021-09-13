@@ -1,4 +1,3 @@
-/* BACKGROUND COLOR */
 .o-ui-bg-current {
     background-color: currentcolor;
 }
@@ -15,77 +14,66 @@
     background-color: var(--o-ui-black);
 }
 
-/* BACKGROUND COLOR | MARINE */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-marine-#{$i} {
         background-color: var(--o-ui-marine-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | SUNRAY */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-sunray-#{$i} {
         background-color: var(--o-ui-sunray-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | MOONSTONE */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-moonstone-#{$i} {
         background-color: var(--o-ui-moonstone-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | CLOUD */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-cloud-#{$i} {
         background-color: var(--o-ui-cloud-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | NEUTRAL */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-neutral-#{$i} {
         background-color: var(--o-ui-neutral-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-neutral-dark-#{$i} {
         background-color: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | BEETLE */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-beetle-#{$i} {
         background-color: var(--o-ui-beetle-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | BOTANIC */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-botanic-#{$i} {
         background-color: var(--o-ui-botanic-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | APRICOT */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-apricot-#{$i} {
         background-color: var(--o-ui-apricot-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | PRIMARY */
 @for $i from 1 through $color-palette-size {
     .o-ui-bg-primary-#{$i} {
         background-color: var(--o-ui-primary-#{$i});
     }
 }
 
-/* BACKGROUND COLOR | ROLE */
 .o-ui-bg-alias-1 {
     background-color: var(--o-ui-bg-alias-1);
 }

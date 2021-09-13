@@ -1,4 +1,3 @@
-/* FONT-SIZE */
 @for $i from 1 through 9 {
     .o-ui-fs-#{$i} {
         font-size: var(--o-ui-font-sizes-#{$i});

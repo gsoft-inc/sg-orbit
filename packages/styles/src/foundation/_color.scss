@@ -1,4 +1,3 @@
-/* COLOR */
 .o-ui-inherit {
     color: inherit;
 }
@@ -19,77 +18,66 @@
     color: var(--o-ui-black);
 }
 
-/* COLOR | MARINE */
 @for $i from 1 through $color-palette-size {
     .o-ui-marine-#{$i} {
         color: var(--o-ui-marine-#{$i});
     }
 }
 
-/* COLOR | SUNRAY */
 @for $i from 1 through $color-palette-size {
     .o-ui-sunray-#{$i} {
         color: var(--o-ui-sunray-#{$i});
     }
 }
 
-/* COLOR | MOONSTONE */
 @for $i from 1 through $color-palette-size {
     .o-ui-moonstone-#{$i} {
         color: var(--o-ui-moonstone-#{$i});
     }
 }
 
-/* COLOR | CLOUD */
 @for $i from 1 through $color-palette-size {
     .o-ui-cloud-#{$i} {
         color: var(--o-ui-cloud-#{$i});
     }
 }
 
-/* COLOR | NEUTRAL */
 @for $i from 1 through $color-palette-size {
     .o-ui-neutral-#{$i} {
         color: var(--o-ui-neutral-#{$i});
     }
 }
 
-/* COLOR | NEUTRAL DARK */
 @for $i from 1 through $color-palette-size {
     .o-ui-neutral-dark-#{$i} {
         color: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
-/* COLOR | BEETLE */
 @for $i from 1 through $color-palette-size {
     .o-ui-beetle-#{$i} {
         color: var(--o-ui-beetle-#{$i});
     }
 }
 
-/* COLOR | BOTANIC */
 @for $i from 1 through $color-palette-size {
     .o-ui-botani#{$i} {
         color: var(--o-ui-botani#{$i});
     }
 }
 
-/* COLOR | APRICOT */
 @for $i from 1 through $color-palette-size {
     .o-ui-apricot-#{$i} {
         color: var(--o-ui-apricot-#{$i});
     }
 }
 
-/* COLOR | PRIMARY */
 @for $i from 1 through $color-palette-size {
     .o-ui-primary-#{$i} {
         color: var(--o-ui-primary-#{$i});
     }
 }
 
-/* COLOR | ROLE */
 .o-ui-text-alias-1 {
     color: var(--o-ui-text-alias-1);
 }
