@@ -1,17 +1,32 @@
 import "./Tabs.css";
 
+import { Box } from "../../box";
+import { InternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
+import { Ref } from "react";
 import { TabPanel } from "./TabPanel";
 
-export interface TabPanelsProps {
+const DefaultElement = "div";
+
+export interface TabPanelsProps extends Omit<InternalProps, "forwardedRef">, StyledComponentProps<typeof DefaultElement> {
     panels: PanelType[];
+    ref?: Ref<HTMLDivElement>;
 }
 
-export function TabPanels({ panels, ...rest }: TabPanelsProps) {
+export function TabPanels({
+    as = DefaultElement,
+    panels,
+    ...rest
+}: TabPanelsProps) {
     return (
-        <div
-            {...rest}
-            className="o-ui-tab-panels"
+        <Box
+            {...mergeProps(
+                rest,
+                {
+                    as,
+                    className: "o-ui-tab-panels"
+                }
+            )}
         >
             {panels.map(({
                 key,
@@ -32,6 +47,6 @@ export function TabPanels({ panels, ...rest }: TabPanelsProps) {
                     ref={ref}
                 />
             )}
-        </div>
+        </Box>
     );
 }

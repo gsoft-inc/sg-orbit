@@ -1,5 +1,6 @@
 import { CheckCircleIcon, IconList } from "@react-components/icons";
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Dot } from "@react-components/dot";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
@@ -18,9 +19,9 @@ export function createTagTestSuite(element, stories) {
                     <Tag element={element}>Falcon 9</Tag>
                 </Inline>
                 <Tag fluid element={element}>Falcon 9</Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid element={element}>Falcon 9</Tag>
-                </div>
+                </Div>
             </Stack>
         )
         .add("icon", () =>
@@ -53,12 +54,12 @@ export function createTagTestSuite(element, stories) {
                     <CheckCircleIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid element={element}>
                         <CheckCircleIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
-                </div>
+                </Div>
                 <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
@@ -79,14 +80,14 @@ export function createTagTestSuite(element, stories) {
                         <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
                     </IconList>
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
                         <IconList slot="end-icon">
                             <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
                         </IconList>
                     </Tag>
-                </div>
+                </Div>
                 <Tag element={element}>
                     <CheckCircleIcon />
                     <Text>Falcon 9</Text>
@@ -119,12 +120,12 @@ export function createTagTestSuite(element, stories) {
                     <Dot />
                     <Text>Falcon 9</Text>
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid element={element}>
                         <Dot />
                         <Text>Falcon 9</Text>
                     </Tag>
-                </div>
+                </Div>
             </Stack>
         )
         .add("alignment", () =>
@@ -151,7 +152,7 @@ export function createTagTestSuite(element, stories) {
                     <CheckCircleIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Stack>
                         <Inline>
                             <Tag fluid size="sm" element={element}>
@@ -183,7 +184,7 @@ export function createTagTestSuite(element, stories) {
                         </Inline>
 
                     </Stack>
-                </div>
+                </Div>
             </Stack>
         )
         .add("counter", () =>
@@ -202,12 +203,12 @@ export function createTagTestSuite(element, stories) {
                     <Text>Falcon 9</Text>
                     <Counter>60</Counter>
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
                         <Counter variant="divider">60</Counter>
                     </Tag>
-                </div>
+                </Div>
             </Stack>
         )
         .add("remove button", () =>
@@ -223,11 +224,11 @@ export function createTagTestSuite(element, stories) {
                 <Tag fluid onRemove={() => {}} element={element}>
                         Falcon 9
                 </Tag>
-                <div className="w-10">
+                <Div width="10%">
                     <Tag fluid onRemove={() => {}} element={element}>
                         Falcon 9
                     </Tag>
-                </div>
+                </Div>
             </Stack>
         )
         .add("as link", () =>

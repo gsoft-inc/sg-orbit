@@ -66,7 +66,7 @@ test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
+        <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
     act(() => {

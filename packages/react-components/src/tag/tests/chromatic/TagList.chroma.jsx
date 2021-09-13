@@ -1,4 +1,5 @@
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { Dot } from "@react-components/dot";
 import { HelpIcon, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
@@ -110,7 +111,7 @@ stories()
     )
     .add("multiple rows", () =>
         <Stack>
-            <div style={{ width: "600px" }}>
+            <Div width="600px">
                 <TagList>
                     <Item key="mercury">Mercury Program</Item>
                     <Item key="gemini">Gemini Program</Item>
@@ -125,8 +126,8 @@ stories()
                     <Item key="soyuz-5">Apollo–Soyuz Test Project</Item>
                     <Item key="artemis-6">Artemis Program</Item>
                 </TagList>
-            </div>
-            <div style={{ width: "600px" }}>
+            </Div>
+            <Div width="600px">
                 <TagList onClear={() => {}}>
                     <Item key="mercury">Mercury Program</Item>
                     <Item key="gemini">Gemini Program</Item>
@@ -141,7 +142,7 @@ stories()
                     <Item key="soyuz-2">Apollo–Soyuz Test Project</Item>
                     <Item key="artemis-2">Artemis Program</Item>
                 </TagList>
-            </div>
+            </Div>
         </Stack>
     )
     .add("styling", () =>

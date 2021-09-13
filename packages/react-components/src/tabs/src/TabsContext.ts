@@ -1,9 +1,11 @@
 import { SyntheticEvent, createContext, useContext } from "react";
 
+export type TabsOrientation = "horizontal" | "vertical";
+
 export interface TabsContextType {
     isManual?: boolean;
     onSelect?: (event: SyntheticEvent, key: string) => void;
-    orientation?: "horizontal" | "vertical";
+    orientation?: TabsOrientation;
     selectedKey?: string;
 }
 

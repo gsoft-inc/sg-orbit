@@ -1,22 +1,15 @@
 import "./TextArea.css";
 
-import { Box, BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
+import { Box, BoxProps } from "../../box";
+import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
+import { HtmlTextArea } from "../../html";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
-import { useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
-
-// Used to generate BoxProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BoxProps extends BoxPropsForDocumentation { }
 
 const DefaultElement = "div";
 
-export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<"textarea">, "onChange" | "autoFocus"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: number | boolean;
+export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -25,10 +18,6 @@ export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omi
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: string;
-    /**
-     * @ignore
-     */
-    disabled?: boolean;
     /**
      * Whether or not the input take up the width of its container.
      */
@@ -42,10 +31,6 @@ export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omi
      */
     maxRows?: number;
     /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
      * Called when the input value change.
      * @param {ChangeEvent} event - React's original synthetic event.
      * @param {string} value - The input value.
@@ -53,33 +38,9 @@ export interface InnerTextAreaProps extends InternalProps, InteractionProps, Omi
      */
     onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
     /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
-    /**
-     * @ignore
-     */
-    readOnly?: boolean;
-    /**
-     * Whether a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not an element is resizable, and if so, in which directions.
-     */
-    resize?: "vertical" | "none";
-    /**
-     * The number of visible text lines.
-     */
-    rows?: number;
-    /**
      * The type of the input.
      */
     type?: "text" | "password" | "search" | "url" | "tel" | "email";
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
     /**
      * A controlled value.
      */
@@ -102,7 +63,6 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         value,
         defaultValue,
         placeholder,
-        resize,
         required,
         validationState,
         onValueChange,
@@ -190,16 +150,13 @@ export function InnerTextArea(props: InnerTextAreaProps) {
 
     const content = (
         <>
-            <textarea
+            <HtmlTextArea
                 {...mergeProps(
                     rest,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
-                        rows,
-                        style: {
-                            ["--o-ui-resize" as any]: resize
-                        }
+                        rows
                     },
                     inputProps
                 )}

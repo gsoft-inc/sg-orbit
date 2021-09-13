@@ -6,6 +6,7 @@ export const A = as(Box, "a");
 export const Div = as(Box, "div");
 
 export const HtmlButton = as(Box, "button");
+export const HtmlTextArea = as(Box, "textarea");
 
 export const Input = as(Box, "input");
 

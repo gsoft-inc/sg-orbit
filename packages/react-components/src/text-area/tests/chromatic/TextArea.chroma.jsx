@@ -1,4 +1,5 @@
 import { CrossButton } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { TextArea } from "@react-components/text-area";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -19,15 +20,11 @@ stories()
             <TextArea loading aria-label="Label" />
             <TextArea disabled aria-label="Label" />
             <TextArea readOnly aria-label="Label" />
-            <div>
+            <TextArea fluid aria-label="Label"></TextArea>
+            <Div width="10%">
                 <TextArea fluid aria-label="Label"></TextArea>
-            </div>
-            <div className="w-10">
-                <TextArea fluid aria-label="Label"></TextArea>
-            </div>
-            <div>
-                <TextArea loading fluid aria-label="Label"></TextArea>
-            </div>
+            </Div>
+            <TextArea loading fluid aria-label="Label"></TextArea>
         </Stack>
     )
     .add("placeholder", () =>
@@ -36,15 +33,11 @@ stories()
             <TextArea loading placeholder="Where to?" />
             <TextArea disabled placeholder="Where to?" />
             <TextArea readOnly placeholder="Where to?" />
-            <div>
+            <TextArea fluid placeholder="Where to?"></TextArea>
+            <Div width="10%">
                 <TextArea fluid placeholder="Where to?"></TextArea>
-            </div>
-            <div className="w-10">
-                <TextArea fluid placeholder="Where to?"></TextArea>
-            </div>
-            <div>
-                <TextArea loading fluid placeholder="Where to?"></TextArea>
-            </div>
+            </Div>
+            <TextArea loading fluid placeholder="Where to?"></TextArea>
         </Stack>
     )
     .add("value", () =>
@@ -57,15 +50,11 @@ stories()
                 <TextArea defaultValue="SpaceX will win the race!" aria-label="Label" />
                 <TextArea value="SpaceX will win the race!" aria-label="Label" />
             </Inline>
-            <div>
+            <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
+            <div width="10%">
                 <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
             </div>
-            <div className="w-10">
-                <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
-            </div>
-            <div>
-                <TextArea loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
-            </div>
+            <TextArea loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
         </Stack>
     )
     .add("button", () =>
