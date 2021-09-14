@@ -1,9 +1,9 @@
-.o-ui-gap-0 {
+.o-ui-g-0 {
     gap: 0;
 }
 
 @for $i from 1 through $spacing-scale-size {
-    .o-ui-gap-#{$i} {
+    .o-ui-g-#{$i} {
         gap: var(--o-ui-space-#{$i});
     }
 }
@@ -13,17 +13,17 @@
 }
 
 @for $i from 1 through $spacing-scale-size {
-    .o-ui-c-gap-#{$i} {
+    .o-ui-c-g-#{$i} {
         column-gap: var(--o-ui-space-#{$i});
     }
 }
 
-.o-ui-r-gap-0 {
-    column-gap: 0;
+.o-ui-r-g-0 {
+    row-gap: 0;
 }
 
 @for $i from 1 through $spacing-scale-size {
-    .o-ui-r-gap-#{$i} {
-        column-gap: var(--o-ui-space-#{$i});
+    .o-ui-r-g-#{$i} {
+        row-gap: var(--o-ui-space-#{$i});
     }
 }

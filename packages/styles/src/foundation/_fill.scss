@@ -1,75 +1,75 @@
-.o-ui-fill-current {
+.o-ui-f-current {
     fill: currentColor;
 }
 
-.o-ui-fill-transparent {
+.o-ui-f-transparent {
     fill: transparent;
 }
 
-.o-ui-fill-white {
+.o-ui-f-white {
     fill: var(--o-ui-white);
 }
 
-.o-ui-fill-black {
+.o-ui-f-black {
     fill: var(--o-ui-black);
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-marine-#{$i} {
+    .o-ui-f-marine-#{$i} {
         fill: var(--o-ui-marine-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-sunray-#{$i} {
+    .o-ui-f-sunray-#{$i} {
         fill: var(--o-ui-sunray-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-moonstone-#{$i} {
+    .o-ui-f-moonstone-#{$i} {
         fill: var(--o-ui-moonstone-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-cloud-#{$i} {
+    .o-ui-f-cloud-#{$i} {
         fill: var(--o-ui-cloud-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-neutral-#{$i} {
+    .o-ui-f-neutral-#{$i} {
         fill: var(--o-ui-neutral-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-neutral-dark-#{$i} {
+    .o-ui-f-neutral-dark-#{$i} {
         fill: var(--o-ui-neutral-dark-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-beetle-#{$i} {
+    .o-ui-f-beetle-#{$i} {
         fill: var(--o-ui-beetle-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-botanic-#{$i} {
+    .o-ui-f-botanic-#{$i} {
         fill: var(--o-ui-botanic-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-apricot-#{$i} {
+    .o-ui-f-apricot-#{$i} {
         fill: var(--o-ui-apricot-#{$i});
     }
 }
 
 @for $i from 1 through $color-palette-size {
-    .o-ui-fill-primary-#{$i} {
+    .o-ui-f-primary-#{$i} {
         fill: var(--o-ui-primary-#{$i});
     }
 }
