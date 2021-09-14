@@ -334,21 +334,20 @@ export const BorderRadiusClasses = {
 } as const;
 
 export const BoxShadowClasses = {
-    1: "o-ui-bs-1",
-    2: "o-ui-bs-2",
-    3: "o-ui-bs-3",
-    4: "o-ui-bs-4",
-    "alias-floating": "o-ui-bs-alias-floating",
-    "alias-lifted": "o-ui-bs-alias-lifted",
-    "alias-raised": "o-ui-bs-alias-raised",
-    "alias-skim": "o-ui-bs-alias-skim"
+    1: "o-ui-bxsh-1",
+    2: "o-ui-bxsh-2",
+    3: "o-ui-bxsh-3",
+    4: "o-ui-bxsh-4",
+    "alias-floating": "o-ui-bxsh-alias-floating",
+    "alias-lifted": "o-ui-bxsh-alias-lifted",
+    "alias-raised": "o-ui-bxsh-alias-raised",
+    "alias-skim": "o-ui-bxsh-alias-skim"
 } as const;
 
 export const BoxSizingClasses = {
     "border-box": "o-ui-bs-bb",
     "content-box": "o-ui-bs-cb"
 } as const;
-
 
 export const ColorRoleClasses = {
     "alias-1": "o-ui-text-alias-1",
@@ -369,7 +368,7 @@ export const ColorRoleClasses = {
 
 export const ColorClasses = { ...createOrbitColorClasses(), ...ColorRoleClasses };
 
-export const ColumnGapClasses = createOrbitSpacingScaleClasses("c-gap", true);
+export const ColumnGapClasses = createOrbitSpacingScaleClasses("c-g", true);
 
 export const CursorClasses = {
     "auto": "o-ui-c-a",
@@ -382,25 +381,25 @@ export const CursorClasses = {
 } as const;
 
 export const DisplayClasses = {
-    "block": "o-ui-db",
-    "flex": "o-ui-df",
-    "grid": "o-ui-dg",
-    "inline": "o-ui-di",
-    "inline-block": "o-ui-dib",
-    "inline-flex": "o-ui-dif",
-    "inline-grid": "o-ui-dig",
-    "inline-table": "o-ui-dit",
-    "list-item": "o-ui-dli",
-    "none": "o-ui-dn",
-    "table": "o-ui-dt",
-    "table-caption": "o-ui-dt-caption",
-    "table-cell": "o-ui-dt-cell",
-    "table-column": "o-ui-dt-column",
-    "table-column-group": "o-ui-dt-cg",
-    "table-footer-group": "o-ui-dt-fg",
-    "table-header-group": "o-ui-dt-hg",
-    "table-row": "o-ui-dt-row",
-    "table-row-group": "o-ui-dt-rg"
+    "block": "o-ui-d-b",
+    "flex": "o-ui-d-f",
+    "grid": "o-ui-d-g",
+    "inline": "o-ui-d-i",
+    "inline-block": "o-ui-d-ib",
+    "inline-flex": "o-ui-d-if",
+    "inline-grid": "o-ui-d-ig",
+    "inline-table": "o-ui-d-it",
+    "list-item": "o-ui-d-li",
+    "none": "o-ui-d-n",
+    "table": "o-ui-d-t",
+    "table-caption": "o-ui-d-t-cpn",
+    "table-cell": "o-ui-d-tcl",
+    "table-column": "o-ui-d-tc",
+    "table-column-group": "o-ui-d-tcg",
+    "table-footer-group": "o-ui-d-tfg",
+    "table-header-group": "o-ui-d-thg",
+    "table-row": "o-ui-d-tr",
+    "table-row-group": "o-ui-d-trg"
 } as const;
 
 export const FillRoleClasses = {
@@ -416,15 +415,15 @@ export const FillRoleClasses = {
     "icon-alias-warning-2": "o-ui-icon-alias-warning-2"
 } as const;
 
-export const FillClasses = { ...createOrbitColorClasses("fill"), ...FillRoleClasses };
+export const FillClasses = { ...createOrbitColorClasses("f"), ...FillRoleClasses };
 
 export const FlexBasisClasses = {
-    "auto": "o-ui-b-a",
-    "content": "o-ui-b-c",
-    "fill": "o-ui-b-f",
-    "fit-content": "o-ui-b-f",
-    "max-content": "o-ui-b-mxc",
-    "min-content": "o-ui-b-mnc"
+    "auto": "o-ui-fb-a",
+    "content": "o-ui-fb-c",
+    "fill": "o-ui-fb-f",
+    "fit-content": "o-ui-fb-f",
+    "max-content": "o-ui-fb-mxc",
+    "min-content": "o-ui-fb-mnc"
 } as const;
 
 export const FlexClasses = {
@@ -485,29 +484,29 @@ export const FontWeightClasses = {
     9: "o-ui-fw-9"
 } as const;
 
-export const GapClasses = createOrbitSpacingScaleClasses("gap", true);
+export const GapClasses = createOrbitSpacingScaleClasses("g", true);
 
 export const HeightAdditionalClasses = {
     "100%": "o-ui-h-100",
-    "auto": "o-ui-h-auto",
-    "fit-content": "o-ui-h-fit",
-    "max-content": "o-ui-h-max",
-    "min-content": "o-ui-h-min",
-    "screen": "o-ui-h-screen"
+    "auto": "o-ui-h-a",
+    "fit-content": "o-ui-h-fc",
+    "max-content": "o-ui-h-mxc",
+    "min-content": "o-ui-h-mnc",
+    "screen": "o-ui-h-s"
 } as const;
 
 export const HeightClasses = { ...createOrbitSpacingScaleClasses("h", true), ...HeightAdditionalClasses };
 
 export const JustifyContentClasses = {
     "center": "o-ui-jc-c",
-    "end": "o-ui-jc-e",
+    "end": "o-ui-jc-fe",
     "left": "o-ui-jc-l",
     "normal": "o-ui-jc-n",
     "right": "o-ui-jc-r",
-    "space-around": "o-ui-jc-a",
-    "space-between": "o-ui-jc-b",
-    "space-evenly": "o-ui-jc-evn",
-    "start": "o-ui-jc-strt",
+    "space-around": "o-ui-jc-sa",
+    "space-between": "o-ui-jc-sb",
+    "space-evenly": "o-ui-jc-sevn",
+    "start": "o-ui-jc-fs",
     "stretch": "o-ui-jc-str"
 } as const;
 
@@ -518,23 +517,22 @@ export const LineHeightClasses = {
     4: "o-ui-lh-4",
     5: "o-ui-lh-5",
     6: "o-ui-lh-6",
-    "none": "o-ui-lh-none",
-    "normal": "o-ui-lh-normal"
+    "normal": "o-ui-lh-n"
 } as const;
 
-export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-auto" };
+export const MarginClasses = { ...createOrbitSpacingScaleClasses("ma", true), "auto": "o-ui-ma-a" };
 
-export const MarginTopClasses = { ...createOrbitSpacingScaleClasses("mt", true), "auto": "o-ui-mt-auto" };
+export const MarginTopClasses = { ...createOrbitSpacingScaleClasses("mt", true), "auto": "o-ui-mt-a" };
 
-export const MarginBottomClasses = { ...createOrbitSpacingScaleClasses("mb", true), "auto": "o-ui-mb-auto" };
+export const MarginBottomClasses = { ...createOrbitSpacingScaleClasses("mb", true), "auto": "o-ui-mb-a" };
 
-export const MarginLeftClasses = { ...createOrbitSpacingScaleClasses("ml", true), "auto": "o-ui-ml-auto" };
+export const MarginLeftClasses = { ...createOrbitSpacingScaleClasses("ml", true), "auto": "o-ui-ml-a" };
 
-export const MarginRightClasses = { ...createOrbitSpacingScaleClasses("mr", true), "auto": "o-ui-mr-auto" };
+export const MarginRightClasses = { ...createOrbitSpacingScaleClasses("mr", true), "auto": "o-ui-mr-a" };
 
-export const MarginXClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-auto" };
+export const MarginXClasses = { ...createOrbitSpacingScaleClasses("mh", true), "auto": "o-ui-mh-a" };
 
-export const MarginYClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-auto" };
+export const MarginYClasses = { ...createOrbitSpacingScaleClasses("mv", true), "auto": "o-ui-mv-a" };
 
 export const ObjectFitClasses = {
     "contain": "o-ui-of-cnt",
@@ -545,9 +543,9 @@ export const ObjectFitClasses = {
 } as const;
 
 export const OpacityClasses = {
-    "disabled": "o-ui-opc-d",
-    "not-visible": "o-ui-opc-nv",
-    "visible": "o-ui-of-v"
+    "disabled": "o-ui-op-d",
+    "not-visible": "o-ui-op-nv",
+    "visible": "o-ui-op-v"
 } as const;
 
 export const OutlineClasses = {
@@ -555,27 +553,27 @@ export const OutlineClasses = {
 } as const;
 
 export const OverflowClasses = {
-    "auto": "o-ui-ovf-a",
-    "clip": "o-ui-ovf-c",
-    "hidden": "o-ui-ovf-h",
-    "scroll": "o-ui-ovf-s",
-    "visible": "o-ui-ovf-v"
+    "auto": "o-ui-ov-a",
+    "clip": "o-ui-ov-c",
+    "hidden": "o-ui-ov-h",
+    "scroll": "o-ui-ov-s",
+    "visible": "o-ui-ov-v"
 } as const;
 
 export const OverflowXClasses = {
-    "auto": "o-ui-ovf-x-a",
-    "clip": "o-ui-ovf-x-c",
-    "hidden": "o-ui-ovf-x-h",
-    "scroll": "o-ui-ovf-x-s",
-    "visible": "o-ui-ovf-x-v"
+    "auto": "o-ui-ov-x-a",
+    "clip": "o-ui-ov-x-c",
+    "hidden": "o-ui-ov-x-h",
+    "scroll": "o-ui-ov-x-s",
+    "visible": "o-ui-ov-x-v"
 } as const;
 
 export const OverflowYClasses = {
-    "auto": "o-ui-ovf-y-a",
-    "clip": "o-ui-ovf-y-c",
-    "hidden": "o-ui-ovf-y-h",
-    "scroll": "o-ui-ovf-y-s",
-    "visible": "o-ui-ovf-y-v"
+    "auto": "o-ui-ov-y-a",
+    "clip": "o-ui-ov-y-c",
+    "hidden": "o-ui-ov-y-h",
+    "scroll": "o-ui-ov-y-s",
+    "visible": "o-ui-ov-y-v"
 } as const;
 
 export const PaddingClasses = createOrbitSpacingScaleClasses("pa", true);
@@ -599,21 +597,21 @@ export const PointerEventsClasses = {
 
 
 export const PositionClasses = {
-    "absolute": "o-ui-a",
-    "fixed": "o-ui-f",
-    "relative": "o-ui-r",
-    "static": "o-ui-stc",
-    "sticky": "o-ui-stck"
+    "absolute": "o-ui-p-a",
+    "fixed": "o-ui-p-f",
+    "relative": "o-ui-p-r",
+    "static": "o-ui-p-stc",
+    "sticky": "o-ui-p-stck"
 } as const;
 
 export const ResizeClasses = {
-    "both": "o-ui-rz-b",
-    "horizontal": "o-ui-rz-h",
-    "none": "o-ui-rz-n",
-    "vertical": "o-ui-rz-v"
+    "both": "o-ui-rsz-b",
+    "horizontal": "o-ui-rsz-h",
+    "none": "o-ui-rsz-n",
+    "vertical": "o-ui-rsz-v"
 } as const;
 
-export const RowGapClasses = createOrbitSpacingScaleClasses("r-gap", true);
+export const RowGapClasses = createOrbitSpacingScaleClasses("r-g", true);
 
 export const StrokeRoleClasses = {
     "icon-alias-1": "o-ui-icon-alias-1",
@@ -642,8 +640,8 @@ export const TextAlignClasses = {
 } as const;
 
 export const TextOverflowClasses = {
-    "clip": "o-ui-to-clip",
-    "ellipsis": "o-ui-to-ellipsis"
+    "clip": "o-ui-tov-c",
+    "ellipsis": "o-ui-tov-e"
 } as const;
 
 export const TextTransformClasses = {
@@ -685,10 +683,10 @@ export const WhiteSpaceClasses = {
 export const WidthClasses = { ...createOrbitSpacingScaleClasses("w", true), ...WidthAdditionalClasses };
 
 export const WordBreakClasses = {
-    "break-all": "o-ui-wb-b",
-    "break-word": "o-ui-wb-bw",
-    "keep-all": "o-ui-wb-ka",
-    "normal": "o-ui-wb-n"
+    "break-all": "o-ui-wob-b",
+    "break-word": "o-ui-wob-bw",
+    "keep-all": "o-ui-wob-ka",
+    "normal": "o-ui-wob-n"
 } as const;
 
 export type AlignContentProp = Simplify<keyof typeof AlignContentClasses | GlobalValue>;

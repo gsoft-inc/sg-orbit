@@ -2,12 +2,12 @@
     justify-content: center;
 }
 
-.o-ui-jc-strt {
+.o-ui-jc-fs {
     /* "start" is not yet widely supported so we default to flex-start until it is. For items that are not children of a flex container, this value is treated like start. */
     justify-content: flex-start;
 }
 
-.o-ui-jc-e {
+.o-ui-jc-fe {
     /* "end" is not yet widely supported so we default to flex-start until it is. For items that are not children of a flex container, this value is treated like end. */
     justify-content: flex-end;
 }
@@ -20,15 +20,15 @@
     justify-content: right;
 }
 
-.o-ui-jc-b {
+.o-ui-jc-sb {
     justify-content: space-between;
 }
 
-.o-ui-jc-a {
+.o-ui-jc-sa {
     justify-content: space-around;
 }
 
-.o-ui-jc-evn {
+.o-ui-jc-sevn {
     justify-content: space-evenly;
 }
 
