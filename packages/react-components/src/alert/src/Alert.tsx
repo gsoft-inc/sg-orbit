@@ -1,13 +1,15 @@
 import "./Alert.css";
 
+import { AbstractDialogProps, Dialog, useDialogTriggerContext } from "../../dialog";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, forwardRef, useMemo } from "react";
-import { Dialog, SharedDialogProps, useDialogTriggerContext } from "../../dialog";
 import { Header } from "../../placeholders";
 import { InfoIcon, WarningIcon } from "../../icons";
 import { OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
-export interface InnerAlertProps extends Omit<SharedDialogProps, "dismissable"> {
+const DefaultElement = "section";
+
+export interface InnerAlertProps extends Omit<AbstractDialogProps<typeof DefaultElement>, "dismissable"> {
     /**
      * The button to focus by default when the alert open.
      */
@@ -57,6 +59,7 @@ export interface InnerAlertProps extends Omit<SharedDialogProps, "dismissable"> 
 }
 
 export function InnerAlert({
+    as = DefaultElement,
     autoFocusButton,
     cancelButtonLabel,
     children,
@@ -159,6 +162,7 @@ export function InnerAlert({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     dismissable: false,
                     ref: forwardedRef,
                     role: "alertdialog" as const,

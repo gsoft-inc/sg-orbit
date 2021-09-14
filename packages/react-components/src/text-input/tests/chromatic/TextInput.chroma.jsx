@@ -1,4 +1,5 @@
 import { CrossButton } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { MagnifierIcon } from "@react-components/icons";
 import { TextInput } from "@react-components/text-input";
@@ -17,15 +18,11 @@ stories()
             <TextInput loading aria-label="Label" />
             <TextInput disabled aria-label="Label"></TextInput>
             <TextInput readOnly aria-label="Label"></TextInput>
-            <div>
+            <TextInput fluid aria-label="Label"></TextInput>
+            <Div width="10%">
                 <TextInput fluid aria-label="Label"></TextInput>
-            </div>
-            <div className="w-10">
-                <TextInput fluid aria-label="Label"></TextInput>
-            </div>
-            <div>
-                <TextInput loading fluid aria-label="Label"></TextInput>
-            </div>
+            </Div>
+            <TextInput loading fluid aria-label="Label"></TextInput>
         </Stack>
     )
     .add("placeholder", () =>
@@ -34,15 +31,11 @@ stories()
             <TextInput loading placeholder="Where to?" />
             <TextInput disabled placeholder="Where to?"></TextInput>
             <TextInput readOnly placeholder="Where to?"></TextInput>
-            <div>
+            <TextInput fluid placeholder="Where to?"></TextInput>
+            <Div width="10%">
                 <TextInput fluid placeholder="Where to?"></TextInput>
-            </div>
-            <div className="w-10">
-                <TextInput fluid placeholder="Where to?"></TextInput>
-            </div>
-            <div>
-                <TextInput loading fluid placeholder="Where to?"></TextInput>
-            </div>
+            </Div>
+            <TextInput loading fluid placeholder="Where to?"></TextInput>
         </Stack>
     )
     .add("value", () =>
@@ -55,15 +48,11 @@ stories()
                 <TextInput defaultValue="SpaceX will win the race!" aria-label="Label" />
                 <TextInput value="SpaceX will win the race!" aria-label="Label" />
             </Inline>
-            <div>
+            <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
+            <Div width="10%">
                 <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
-            </div>
-            <div className="w-10">
-                <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
-            </div>
-            <div>
-                <TextInput loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
-            </div>
+            </Div>
+            <TextInput loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
         </Stack>
     )
     .add("icon", () =>
@@ -73,12 +62,10 @@ stories()
             <TextInput loading icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" />
             <TextInput readOnly icon={<MagnifierIcon />} placeholder="Where to?" />
-            <div>
+            <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
+            <Div width="10%">
                 <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
-            </div>
-            <div className="w-10">
-                <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
-            </div>
+            </Div>
         </Stack>
     )
     .add("button", () =>
@@ -89,9 +76,7 @@ stories()
                 <TextInput disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
                 <TextInput readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
             </Inline>
-            <div>
-                <TextInput loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-            </div>
+            <TextInput loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         </Stack>
     )
     .add("validation", () =>

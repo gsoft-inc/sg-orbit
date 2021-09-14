@@ -6,6 +6,7 @@ import { CrossButton } from "../../button";
 import {
     InteractionProps,
     InternalProps,
+    JsxElement,
     MergedRef,
     OmitInternalProps,
     StyledComponentProps,
@@ -29,19 +30,14 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-const DefaultElement = "section";
-
-export interface SharedDialogProps extends
-    InternalProps,
-    InteractionProps,
-    Omit<StyledComponentProps<typeof DefaultElement>, "role" | "zIndex"> {
+export type AbstractDialogProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<typeof DefaultElement>, "role" | "zIndex"> & {
     /**
      * React children.
      */
     children: ReactNode;
     /**
-      * Whether or not the dialog should close on outside interactions.
-      */
+     * Whether or not the dialog should close on outside interactions.
+     */
     dismissable?: boolean;
     /**
      * Additional props to render on the wrapper element.
@@ -51,9 +47,11 @@ export interface SharedDialogProps extends
      * The z-index of the dialog.
      */
     zIndex?: ZindexProp;
-}
+};
 
-export interface InnerDialogProps extends SharedDialogProps {
+const DefaultElement = "section";
+
+export interface InnerDialogProps extends AbstractDialogProps<typeof DefaultElement> {
     /**
      * The dialog role.
      */

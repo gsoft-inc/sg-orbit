@@ -1,10 +1,11 @@
-import { Button, SharedButtonProps } from "./Button";
+import { AbstractButtonProps, Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-// TODO: remove Omit once the Button color prop have been removed.
-export interface InnerToggleButtonProps extends Omit<SharedButtonProps, "color" | "onChange" | "variant"> {
+const DefaultElement = "button";
+
+export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */
@@ -42,6 +43,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
+        as = DefaultElement,
         active,
         checked,
         children,
@@ -77,6 +79,9 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         <Button
             {...mergeProps(
                 rest,
+                {
+                    as
+                },
                 buttonProps
             )}
         >

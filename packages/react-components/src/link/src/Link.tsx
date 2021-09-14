@@ -2,53 +2,53 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
+import { InteractionProps, InternalProps, JsxElement, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
+export type AbstractLinkProps<T extends JsxElement<T>> =
+    // Keep it so it could be used with dynamic slots.
+    SlotProps &
+    InternalProps &
+    InteractionProps &
+    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "external" | "href" | "rel" | "target"> & {
+        /**
+         * Whether or not the link should autoFocus on render.
+         */
+        autoFocus?: boolean | number;
+        /**
+         * React children.
+         */
+        children: ReactNode;
+        /**
+         * Whether or not the link is disabled.
+         */
+        disabled?: boolean;
+        /**
+         * Whether or not this is an external link.
+         */
+        external?: boolean;
+        /**
+         * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+         */
+        href?: string;
+        /**
+         * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+         */
+        rel?: string;
+        /**
+         * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
+         */
+        target?: string;
+        /**
+         * @ignore
+         */
+        visited?: boolean;
+    };
+
 const DefaultElement = "a";
 
-export interface SharedLinkProps extends
-    // So it could be used with dynamic slots.
-    SlotProps,
-    InternalProps,
-    InteractionProps,
-    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "external" | "href" | "rel" | "target"> {
-    /**
-     * Whether or not the link should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * React children.
-     */
-    children: ReactNode;
-    /**
-     * Whether or not the link is disabled.
-     */
-    disabled?: boolean;
-    /**
-     * Whether or not this is an external link.
-     */
-    external?: boolean;
-    /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    href?: string;
-    /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    rel?: string;
-    /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a).
-     */
-    target?: string;
-    /**
-     * @ignore
-     */
-    visited?: boolean;
-}
-
-export interface InnerLinkProps extends SharedLinkProps {
+export interface InnerLinkProps extends AbstractLinkProps<typeof DefaultElement> {
     /**
      * The link shape.
      */

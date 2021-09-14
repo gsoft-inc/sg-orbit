@@ -15,6 +15,10 @@ export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
      */
     button?: ReactElement;
     /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-cols).
+     */
+    cols: number;
+    /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: string;
@@ -37,6 +41,10 @@ export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
      * @returns {void}
      */
     onValueChange?: (event: ChangeEvent<HTMLTextAreaElement>, value: string) => void;
+    /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-rows).
+     */
+    rows: number;
     /**
      * The type of the input.
      */

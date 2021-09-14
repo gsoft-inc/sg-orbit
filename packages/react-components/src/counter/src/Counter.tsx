@@ -7,8 +7,7 @@ import { Text } from "../../typography";
 
 const DefaultElement = "span";
 
-// TODO: Remove the Omit once the counter color have been removed.
-export interface InnerCounterProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerCounterProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

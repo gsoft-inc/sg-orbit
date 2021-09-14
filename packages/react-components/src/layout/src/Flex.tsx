@@ -26,7 +26,7 @@ export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "f
 export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
-    // So it could be used with dynamic slots.
+    // Keep it so it could be used with dynamic slots.
     SlotProps,
     InternalProps,
     Omit<StyledComponentProps<typeof DefaultElement>,

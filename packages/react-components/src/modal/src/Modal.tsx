@@ -1,11 +1,13 @@
 import "./Modal.css";
 
+import { AbstractDialogProps, Dialog } from "../../dialog";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
-import { Dialog, SharedDialogProps } from "../../dialog";
 import { OmitInternalProps, StyleProvider, augmentElement, getSlotKey, isNil, mergeProps, useSlots } from "../../shared";
 
-export interface InnerModalProps extends SharedDialogProps {
+const DefaultElement = "section";
+
+export interface InnerModalProps extends AbstractDialogProps<DefaultElement> {
     /**
      * Whether or not the dialog should take almost all the available space.
      */
@@ -68,6 +70,7 @@ function useModalContentMarkup(content: ReactElement) {
 }
 
 export function InnerModal({
+    as = DefaultElement,
     children,
     dismissable = true,
     forwardedRef,
@@ -110,6 +113,7 @@ export function InnerModal({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     dismissable,
                     ref: forwardedRef,
                     size,

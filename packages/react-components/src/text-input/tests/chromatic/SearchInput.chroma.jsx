@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { EmailIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { SearchInput } from "@react-components/text-input";
@@ -16,15 +17,11 @@ stories()
             <SearchInput loading aria-label="Label"></SearchInput>
             <SearchInput disabled aria-label="Label"></SearchInput>
             <SearchInput readOnly aria-label="Label"></SearchInput>
-            <div>
+            <SearchInput fluid aria-label="Label"></SearchInput>
+            <Div width="10%">
                 <SearchInput fluid aria-label="Label"></SearchInput>
-            </div>
-            <div className="w-10">
-                <SearchInput fluid aria-label="Label"></SearchInput>
-            </div>
-            <div>
-                <SearchInput loading fluid aria-label="Label"></SearchInput>
-            </div>
+            </Div>
+            <SearchInput loading fluid aria-label="Label"></SearchInput>
         </Stack>
     )
     .add("placeholder", () =>
@@ -33,15 +30,11 @@ stories()
             <SearchInput loading placeholder="Where to?" />
             <SearchInput disabled placeholder="Where to?"></SearchInput>
             <SearchInput readOnly placeholder="Where to?"></SearchInput>
-            <div>
+            <SearchInput fluid placeholder="Where to?"></SearchInput>
+            <Div width="10%">
                 <SearchInput fluid placeholder="Where to?"></SearchInput>
-            </div>
-            <div className="w-10">
-                <SearchInput fluid placeholder="Where to?"></SearchInput>
-            </div>
-            <div>
-                <SearchInput loading fluid placeholder="Where to?"></SearchInput>
-            </div>
+            </Div>
+            <SearchInput loading fluid placeholder="Where to?"></SearchInput>
         </Stack>
     )
     .add("value", () =>
@@ -54,15 +47,11 @@ stories()
                 <SearchInput placeholder="Where to?" defaultValue="Mars" />
                 <SearchInput value="Mars" />
             </Inline>
-            <div>
+            <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
+            <Div width="10%">
                 <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
-            </div>
-            <div className="w-10">
-                <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
-            </div>
-            <div>
-                <SearchInput loading fluid defaultValue="Mars" aria-label="Label"></SearchInput>
-            </div>
+            </Div>
+            <SearchInput loading fluid defaultValue="Mars" aria-label="Label"></SearchInput>
         </Stack>
     )
     .add("custom icon", () =>
@@ -72,12 +61,10 @@ stories()
             <SearchInput loading icon={<EmailIcon />} placeholder="Where to?" />
             <SearchInput disabled icon={<EmailIcon />} placeholder="Where to?" />
             <SearchInput readOnly icon={<EmailIcon />} placeholder="Where to?" />
-            <div>
+            <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+            <Div width="10%">
                 <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
-            </div>
-            <div className="w-10">
-                <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
-            </div>
+            </Div>
         </Stack>
     )
     .add("no icon", () =>
@@ -87,12 +74,10 @@ stories()
             <SearchInput loading icon={null} placeholder="Where to?" />
             <SearchInput disabled icon={null} placeholder="Where to?" />
             <SearchInput readOnly icon={null} placeholder="Where to?" />
-            <div>
+            <SearchInput fluid icon={null} placeholder="Where to?" />
+            <Div width="10%">
                 <SearchInput fluid icon={null} placeholder="Where to?" />
-            </div>
-            <div className="w-10">
-                <SearchInput fluid icon={null} placeholder="Where to?" />
-            </div>
+            </Div>
         </Stack>
     )
     .add("states", () =>

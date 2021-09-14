@@ -1,15 +1,16 @@
 import "./Link.css";
 
+import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, augmentElement, mergeProps, useStyleProps } from "../../shared";
-import { SharedLinkProps } from "./Link";
 import { useLink } from "./useLink";
 
-// TODO: put back "color" once it's the actual color have been moved to a variant.
-export interface InnerIconLinkProps extends Omit<SharedLinkProps, "color"> {
+const DefaultElement = "a";
+
+export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElement> {
     /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
@@ -42,6 +43,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const {
         active,
         "aria-label": ariaLabel,
+        as = DefaultElement,
         autoFocus,
         children,
         color,
@@ -87,7 +89,8 @@ export function InnerIconLink(props: InnerIconLinkProps) {
             {...mergeProps(
                 rest,
                 {
-                    "aria-label": ariaLabel
+                    "aria-label": ariaLabel,
+                    as
                 },
                 linkProps
             )}

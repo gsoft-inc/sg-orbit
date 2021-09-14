@@ -20,8 +20,7 @@ import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-// Remove Omit once the actual color prop have been removed.
-export interface InnerLozengeProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerLozengeProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
