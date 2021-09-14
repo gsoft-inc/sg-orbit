@@ -1,17 +1,18 @@
 import "./Link.css";
 
+import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
-import { SharedLinkProps } from "./Link";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useLink } from "./useLink";
 
-// TODO: put back "color" once it's the actual color have been moved to a variant.
-export interface InnerTextLinkProps extends Omit<SharedLinkProps, "color"> {
+const DefaultElement = "a";
+
+export interface InnerTextLinkProps extends AbstractLinkProps<typeof DefaultElement> {
     /**
      * Whether or not the link should autoFocus on render.
      */
@@ -40,6 +41,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
 
     const {
         active,
+        as = DefaultElement,
         autoFocus,
         children,
         color,
@@ -100,6 +102,9 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         <Box
             {...mergeProps(
                 rest,
+                {
+                    as
+                },
                 linkProps
             )}
         >

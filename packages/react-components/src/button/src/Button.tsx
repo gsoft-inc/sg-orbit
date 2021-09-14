@@ -5,6 +5,7 @@ import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
     InternalProps,
+    JsxElement,
     OmitInternalProps,
     SlotProps,
     StyledComponentProps,
@@ -24,10 +25,7 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-const DefaultElement = "button";
-
-// TODO: remove Omit once the Button color prop have been removed.
-export interface SharedButtonProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "color"> {
+export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
      * Whether or not the button should autoFocus on render.
      */
@@ -64,9 +62,11 @@ export interface SharedButtonProps extends InternalProps, InteractionProps, Omit
      * The button style to use.
      */
     variant?: "solid" | "outline" | "ghost";
-}
+};
 
-export interface InnerButtonProps extends SharedButtonProps, SlotProps {
+const DefaultElement = "button";
+
+export interface InnerButtonProps extends AbstractButtonProps<typeof DefaultElement>, SlotProps {
     /**
      * React children.
      */

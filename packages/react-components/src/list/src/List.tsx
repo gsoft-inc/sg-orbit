@@ -7,8 +7,7 @@ import { ElementType } from "markdown-to-jsx/node_modules/@types/react";
 import { InternalProps, JsxElement, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useStyleProps } from "../../shared";
 import { ListItem } from "./ListItem";
 
-// TODO: put back "color" once the actual color prop have been moved to a variant.
-export type AbstractListProps<T extends JsxElement<T>> = InternalProps & Omit<StyledComponentProps<T>, "color"> & {
+export type AbstractListProps<T extends JsxElement<T>> = InternalProps & StyledComponentProps<T> & {
     /**
      * React children.
      */

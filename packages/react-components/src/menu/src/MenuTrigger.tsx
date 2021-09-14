@@ -16,10 +16,12 @@ import {
     useRefState
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
-import { Overlay, OverlayDefaultElement, PopupPosition, PopupProps, usePopup } from "../../overlay";
+import { Overlay, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-export interface InnerMenuTriggerProps extends InternalProps, PopupProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
+const DefaultElement = "div";
+
+export interface InnerMenuTriggerProps extends InternalProps, PopupProps, Omit<StyledComponentProps<typeof DefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -37,7 +39,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         align = "start",
         allowFlip,
         allowPreventOverflow,
-        as = OverlayDefaultElement,
+        as = DefaultElement,
         children,
         closeOnSelect = true,
         defaultOpen,

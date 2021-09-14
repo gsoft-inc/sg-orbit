@@ -12,9 +12,11 @@ import {
     useControllableState,
     useEventCallback
 } from "../../shared";
-import { Overlay, OverlayDefaultElement, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
+import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
 
-export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
+const DefaultElement = "div";
+
+export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -45,7 +47,7 @@ export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledCompo
 }
 
 export function InnerDialogTrigger({
-    as = OverlayDefaultElement,
+    as = DefaultElement,
     children,
     defaultOpen,
     dismissable = true,

@@ -8,8 +8,7 @@ import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-// TODO: Remove Omit once the Dot color prop have been removed.
-export interface InnerDotProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * The dot color, e.g "primary-200".
      */

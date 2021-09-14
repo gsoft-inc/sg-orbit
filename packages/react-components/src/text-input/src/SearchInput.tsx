@@ -1,49 +1,27 @@
 import "./SearchInput.css";
 
-import { BoxProps as BoxPropsForDocumentation } from "../../box";
-import { ChangeEvent, ChangeEventHandler, ComponentProps, KeyboardEvent, KeyboardEventHandler, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
+import { AbstractTextInputProps, TextInput } from "../../text-input";
+import { ChangeEvent, ComponentProps, KeyboardEvent, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
-import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, isNil, isNilOrEmpty, isUndefined, mergeProps, useChainedEventCallback, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import {
+    Keys,
+    OmitInternalProps,
+    isNil,
+    isNilOrEmpty,
+    isUndefined,
+    mergeProps,
+    useChainedEventCallback,
+    useControllableState,
+    useEventCallback,
+    useMergedRefs
+} from "../../shared";
 import { MagnifierIcon } from "../../icons";
-import { TextInput } from "../../text-input";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { wrappedInputPropsAdapter } from "../../input";
 
-// Used to generate BoxProps instead of any in the auto-generated documentation
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-interface BoxProps extends BoxPropsForDocumentation { }
-
 const DefaultElement = "input";
 
-export interface InnerSearchInputProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
-    /**
-     * The default value of `value` when uncontrolled.
-     */
-    defaultValue?: string;
-    /**
-     * Whether or not the input take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
-     * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
-     */
-    icon?: ReactElement;
-    /**
-     * Whether or not to render a loader.
-     */
-    loading?: boolean;
-    /**
-     * @ignore
-     */
-    onChange?: ChangeEventHandler;
-    /**
-     * @ignore
-     */
-    onKeyDown?: KeyboardEventHandler;
+export interface InnerSearchInputProps extends Omit<AbstractTextInputProps<typeof DefaultElement>, "onValueChange"> {
     /**
      * Called when the input value change.
      * @param {SyntheticEvent} event - React's original event.
@@ -51,41 +29,21 @@ export interface InnerSearchInputProps extends InternalProps, InteractionProps, 
      * @returns {void}
      */
     onValueChange?: (event: SyntheticEvent, value: string) => void;
-    /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
-     * A controlled value.
-     */
-    value?: string | null;
-    /**
-     * Additional props to render on the wrapper element.
-     */
-    wrapperProps?: Partial<BoxProps>;
 }
 
 export function InnerSearchInput(props: InnerSearchInputProps) {
     const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
-        value,
-        defaultValue,
-        onChange,
-        onValueChange,
-        onKeyDown,
-        icon,
-        wrapperProps,
         as = DefaultElement,
+        defaultValue,
         forwardedRef,
+        icon,
+        onChange,
+        onKeyDown,
+        onValueChange,
+        value,
+        wrapperProps,
         ...rest
     } = mergeProps(
         props,

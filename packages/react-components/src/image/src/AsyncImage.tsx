@@ -1,8 +1,10 @@
+import { AbstractImageProps, Image as OrbitImage } from "./Image";
 import { ComponentProps, ReactElement, ReactNode, forwardRef, useCallback, useEffect, useState } from "react";
-import { OmitInternalProps, isNil, slot, useRefState } from "../../shared";
-import { Image as OrbitImage, SharedImageProps } from "./Image";
+import { OmitInternalProps, isNil, mergeProps, slot, useRefState } from "../../shared";
 
-export interface InnerAsyncImageProps extends Omit<SharedImageProps, "as"> {
+const DefaultElement = "img";
+
+export interface InnerAsyncImageProps extends Omit<AbstractImageProps<typeof DefaultElement>, "as"> {
     /**
      * React children.
      */
@@ -18,6 +20,7 @@ export interface InnerAsyncImageProps extends Omit<SharedImageProps, "as"> {
 }
 
 function InnerAsyncImage({
+    as = DefaultElement,
     children,
     delay = 250,
     forwardedRef,
@@ -96,9 +99,14 @@ function InnerAsyncImage({
     if (isLoaded) {
         return (
             <OrbitImage
-                {...rest}
-                ref={forwardedRef}
-                src={src}
+                {...mergeProps(
+                    rest,
+                    {
+                        as,
+                        ref: forwardedRef,
+                        src
+                    }
+                )}
             />
         );
     }

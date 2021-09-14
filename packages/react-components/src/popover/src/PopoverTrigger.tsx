@@ -9,14 +9,16 @@ import {
     resolveChildren,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayDefaultElement, PopupPosition, PopupProps, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { useThemeContext } from "../../theme-provider";
+
+const DefaultElement = "div";
 
 export interface InnerPopoverTriggerProps extends
     InternalProps,
     Omit<PopupProps, "align" | "direction">,
-    Omit<StyledComponentProps<typeof OverlayDefaultElement>, "position" | "zIndex"> {
+    Omit<StyledComponentProps<typeof DefaultElement>, "position" | "zIndex"> {
     /**
      * React children.
      */
@@ -38,7 +40,7 @@ export interface InnerPopoverTriggerProps extends
 export function InnerPopoverTrigger({
     allowFlip = true,
     allowPreventOverflow = true,
-    as = OverlayDefaultElement,
+    as = DefaultElement,
     children,
     containerElement,
     defaultOpen,

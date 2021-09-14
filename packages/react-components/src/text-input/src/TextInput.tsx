@@ -1,20 +1,14 @@
 import "./TextInput.css";
 
+import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { JsxElement, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
-import { useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { useToolbarProps } from "../../toolbar";
 
-const DefaultElement = "input";
-
-export interface InnerTextInputProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> {
-    /**
-     * Whether or not the input should autofocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface AbstractTextInputProps<T extends JsxElement<T>> extends AbstractInputProps<typeof DefaultElement> {
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -43,22 +37,6 @@ export interface InnerTextInputProps extends InternalProps, InteractionProps, Om
      */
     onValueChange?: (event: ChangeEvent<HTMLInputElement>, value: string) => void;
     /**
-     * Temporary text that occupies the input when it is empty.
-     */
-    placeholder?: string;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
-    /**
-     * The type of the input.
-     */
-    type?: "text" | "password" | "search" | "url" | "tel" | "email";
-    /**
-     * Whether or not the input should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
-    /**
      * A controlled value.
      */
     value?: string | null;
@@ -66,6 +44,15 @@ export interface InnerTextInputProps extends InternalProps, InteractionProps, Om
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
+}
+
+const DefaultElement = "input";
+
+export interface InnerTextInputProps extends AbstractTextInputProps<typeof DefaultElement> {
+    /**
+     * The type of the input.
+     */
+    type?: "text" | "password" | "search" | "url" | "tel" | "email";
 }
 
 export function InnerTextInput(props: InnerTextInputProps) {
@@ -81,30 +68,30 @@ export function InnerTextInput(props: InnerTextInputProps) {
     );
 
     const {
-        id,
-        value,
-        defaultValue,
-        placeholder,
-        required,
-        validationState,
-        onValueChange,
-        onChange,
-        type = "text",
-        autoFocus,
-        icon,
-        button,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
         active,
-        focus,
-        hover,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        wrapperProps: userWrapperProps,
         as = DefaultElement,
+        autoFocus,
+        button,
+        defaultValue,
+        disabled,
+        fluid,
+        focus,
         forwardedRef,
+        hover,
+        icon,
+        id,
+        loading,
+        onChange,
+        onValueChange,
+        placeholder,
+        readOnly,
+        required,
+        type = "text",
+        validationState,
+        value,
+        wrapperProps: userWrapperProps,
         ...rest
     } = mergeProps(
         props,

@@ -1,10 +1,11 @@
+import { AbstractIconButtonProps, IconButton } from "./IconButton";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { IconButton, SharedIconButtonProps } from "./IconButton";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-// TODO: remove Omit once the Button color prop have been removed.
-export interface InnerToggleIconButtonProps extends Omit<SharedIconButtonProps, "color" | "onChange" | "variant"> {
+const DefaultElement = "button";
+
+export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */
@@ -44,6 +45,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     const {
         active,
         "aria-label": ariaLabel,
+        as = DefaultElement,
         checked,
         children,
         defaultChecked,
@@ -76,7 +78,8 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    "aria-label": ariaLabel
+                    "aria-label": ariaLabel,
+                    as
                 },
                 rest,
                 buttonProps

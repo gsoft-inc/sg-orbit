@@ -1,8 +1,8 @@
 import { ApricotTheme, OrbitTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
+import { Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
-import { useCallback, useState } from "react";
 import { useColorScheme } from "./useColorScheme";
 
 export type ColorScheme = "light" | "dark";
@@ -20,6 +20,10 @@ export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">,
      * Default color scheme to use when a user prefered color scheme (system) is not available.
      */
     defaultColorScheme?: ColorScheme;
+    /**
+     * @ignore
+     */
+    ref?: Ref<typeof DefaultElement>;
     /**
      * The theme to use.
      */
