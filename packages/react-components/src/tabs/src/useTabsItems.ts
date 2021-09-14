@@ -9,7 +9,7 @@ export interface PanelType {
     key: string;
     panelId: string;
     props?: Record<string, any>;
-    ref?: Ref<HTMLElement>;
+    ref?: Ref<any>;
     tabId: string;
 }
 
@@ -20,7 +20,7 @@ export interface TabType {
     key: string;
     panelId: string;
     props?: Record<string, any>;
-    ref?: Ref<HTMLElement>;
+    ref?: Ref<any>;
     tabId: string;
 }
 

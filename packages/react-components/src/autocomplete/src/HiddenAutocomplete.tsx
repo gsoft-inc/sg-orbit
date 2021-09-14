@@ -7,7 +7,7 @@ export interface HiddenAutocompleteProps extends Omit<StyledComponentProps<"inpu
     /**
      * @ignore
      */
-    ref?: Ref<HTMLElement>;
+    ref?: Ref<any>;
     /**
      * Whether or not a user input is required before form submission.
      */

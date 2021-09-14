@@ -40,7 +40,7 @@ export interface UseCheckboxReturn {
         id?: string;
         name?: string;
         onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-        ref: Ref<HTMLElement>;
+        ref: Ref<any>;
         tabIndex?: number;
         type?: "checkbox";
     };
@@ -48,7 +48,7 @@ export interface UseCheckboxReturn {
     isIndeterminate?: boolean;
     wrapperProps: {
         className?: string;
-        ref?: Ref<HTMLElement>;
+        ref?: Ref<any>;
     };
 }
 

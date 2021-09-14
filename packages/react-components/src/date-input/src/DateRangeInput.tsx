@@ -7,7 +7,6 @@ import {
     ChangeEvent,
     ComponentProps,
     FocusEvent,
-    FocusEventHandler,
     KeyboardEvent,
     SyntheticEvent,
     forwardRef,
@@ -86,10 +85,6 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * @ignore
      */
     name?: string;
-    // /**
-    //  * @ignore
-    //  */
-    // onBlur?: FocusEventHandler;
     /**
      * Called when the date(s) are / is applied.
      * @param {SyntheticEvent} event - React's original event.
@@ -98,10 +93,6 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * @returns {void}
      */
     onDatesChange?: (event: SyntheticEvent, startDate: Date, endDate: Date) => void;
-    // /**
-    //  * @ignore
-    //  */
-    // onFocus?: FocusEventHandler;
     /**
      * Temporary text that occupies both date inputs when they are empty.
      */

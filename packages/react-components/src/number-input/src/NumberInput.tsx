@@ -77,7 +77,7 @@ interface SpinnerProps extends Omit<ComponentProps<"div">, "ref"> {
     onDecrement?: (event: MouseEvent) => void;
     onFocus?: FocusEventHandler;
     onIncrement?: (event: MouseEvent) => void;
-    ref?: Ref<HTMLElement>;
+    ref?: Ref<any>;
 }
 
 function Spinner({
