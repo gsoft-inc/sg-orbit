@@ -2258,28 +2258,28 @@ exports[`bottom 1`] = `
 exports[`box shadow 1`] = `
 Array [
   <div
-    className="o-ui-bs-1"
+    className="o-ui-bxsh-1"
   />,
   <div
-    className="o-ui-bs-2"
+    className="o-ui-bxsh-2"
   />,
   <div
-    className="o-ui-bs-3"
+    className="o-ui-bxsh-3"
   />,
   <div
-    className="o-ui-bs-4"
+    className="o-ui-bxsh-4"
   />,
   <div
-    className="o-ui-bs-alias-floating"
+    className="o-ui-bxsh-alias-floating"
   />,
   <div
-    className="o-ui-bs-alias-lifted"
+    className="o-ui-bxsh-alias-lifted"
   />,
   <div
-    className="o-ui-bs-alias-raised"
+    className="o-ui-bxsh-alias-raised"
   />,
   <div
-    className="o-ui-bs-alias-skim"
+    className="o-ui-bxsh-alias-skim"
   />,
 ]
 `;
@@ -2627,46 +2627,46 @@ Array [
 exports[`column gap 1`] = `
 Array [
   <div
-    className="o-ui-c-gap-0"
+    className="o-ui-c-g-0"
   />,
   <div
-    className="o-ui-c-gap-1"
+    className="o-ui-c-g-1"
   />,
   <div
-    className="o-ui-c-gap-2"
+    className="o-ui-c-g-2"
   />,
   <div
-    className="o-ui-c-gap-3"
+    className="o-ui-c-g-3"
   />,
   <div
-    className="o-ui-c-gap-4"
+    className="o-ui-c-g-4"
   />,
   <div
-    className="o-ui-c-gap-5"
+    className="o-ui-c-g-5"
   />,
   <div
-    className="o-ui-c-gap-6"
+    className="o-ui-c-g-6"
   />,
   <div
-    className="o-ui-c-gap-7"
+    className="o-ui-c-g-7"
   />,
   <div
-    className="o-ui-c-gap-8"
+    className="o-ui-c-g-8"
   />,
   <div
-    className="o-ui-c-gap-9"
+    className="o-ui-c-g-9"
   />,
   <div
-    className="o-ui-c-gap-10"
+    className="o-ui-c-g-10"
   />,
   <div
-    className="o-ui-c-gap-11"
+    className="o-ui-c-g-11"
   />,
   <div
-    className="o-ui-c-gap-12"
+    className="o-ui-c-g-12"
   />,
   <div
-    className="o-ui-c-gap-13"
+    className="o-ui-c-g-13"
   />,
 ]
 `;
@@ -2700,61 +2700,61 @@ Array [
 exports[`display 1`] = `
 Array [
   <div
-    className="o-ui-db"
+    className="o-ui-d-b"
   />,
   <div
-    className="o-ui-df"
+    className="o-ui-d-f"
   />,
   <div
-    className="o-ui-dg"
+    className="o-ui-d-g"
   />,
   <div
-    className="o-ui-di"
+    className="o-ui-d-i"
   />,
   <div
-    className="o-ui-dib"
+    className="o-ui-d-ib"
   />,
   <div
-    className="o-ui-dif"
+    className="o-ui-d-if"
   />,
   <div
-    className="o-ui-dig"
+    className="o-ui-d-ig"
   />,
   <div
-    className="o-ui-dit"
+    className="o-ui-d-it"
   />,
   <div
-    className="o-ui-dli"
+    className="o-ui-d-li"
   />,
   <div
-    className="o-ui-dn"
+    className="o-ui-d-n"
   />,
   <div
-    className="o-ui-dt"
+    className="o-ui-d-t"
   />,
   <div
-    className="o-ui-dt-caption"
+    className="o-ui-d-t-cpn"
   />,
   <div
-    className="o-ui-dt-cell"
+    className="o-ui-d-tcl"
   />,
   <div
-    className="o-ui-dt-column"
+    className="o-ui-d-tc"
   />,
   <div
-    className="o-ui-dt-cg"
+    className="o-ui-d-tcg"
   />,
   <div
-    className="o-ui-dt-fg"
+    className="o-ui-d-tfg"
   />,
   <div
-    className="o-ui-dt-hg"
+    className="o-ui-d-thg"
   />,
   <div
-    className="o-ui-dt-row"
+    className="o-ui-d-tr"
   />,
   <div
-    className="o-ui-dt-rg"
+    className="o-ui-d-trg"
   />,
 ]
 `;
@@ -2762,286 +2762,286 @@ Array [
 exports[`fill 1`] = `
 Array [
   <div
-    className="o-ui-fill-inherit"
+    className="o-ui-f-inherit"
   />,
   <div
-    className="o-ui-fill-current"
+    className="o-ui-f-current"
   />,
   <div
-    className="o-ui-fill-transparent"
+    className="o-ui-f-transparent"
   />,
   <div
-    className="o-ui-fill-white"
+    className="o-ui-f-white"
   />,
   <div
-    className="o-ui-fill-black"
+    className="o-ui-f-black"
   />,
   <div
-    className="o-ui-fill-marine-1"
+    className="o-ui-f-marine-1"
   />,
   <div
-    className="o-ui-fill-marine-2"
+    className="o-ui-f-marine-2"
   />,
   <div
-    className="o-ui-fill-marine-3"
+    className="o-ui-f-marine-3"
   />,
   <div
-    className="o-ui-fill-marine-4"
+    className="o-ui-f-marine-4"
   />,
   <div
-    className="o-ui-fill-marine-5"
+    className="o-ui-f-marine-5"
   />,
   <div
-    className="o-ui-fill-marine-6"
+    className="o-ui-f-marine-6"
   />,
   <div
-    className="o-ui-fill-marine-7"
+    className="o-ui-f-marine-7"
   />,
   <div
-    className="o-ui-fill-marine-8"
+    className="o-ui-f-marine-8"
   />,
   <div
-    className="o-ui-fill-marine-9"
+    className="o-ui-f-marine-9"
   />,
   <div
-    className="o-ui-fill-marine-10"
+    className="o-ui-f-marine-10"
   />,
   <div
-    className="o-ui-fill-sunray-1"
+    className="o-ui-f-sunray-1"
   />,
   <div
-    className="o-ui-fill-sunray-2"
+    className="o-ui-f-sunray-2"
   />,
   <div
-    className="o-ui-fill-sunray-3"
+    className="o-ui-f-sunray-3"
   />,
   <div
-    className="o-ui-fill-sunray-4"
+    className="o-ui-f-sunray-4"
   />,
   <div
-    className="o-ui-fill-sunray-5"
+    className="o-ui-f-sunray-5"
   />,
   <div
-    className="o-ui-fill-sunray-6"
+    className="o-ui-f-sunray-6"
   />,
   <div
-    className="o-ui-fill-sunray-7"
+    className="o-ui-f-sunray-7"
   />,
   <div
-    className="o-ui-fill-sunray-8"
+    className="o-ui-f-sunray-8"
   />,
   <div
-    className="o-ui-fill-sunray-9"
+    className="o-ui-f-sunray-9"
   />,
   <div
-    className="o-ui-fill-sunray-10"
+    className="o-ui-f-sunray-10"
   />,
   <div
-    className="o-ui-fill-moonstone-1"
+    className="o-ui-f-moonstone-1"
   />,
   <div
-    className="o-ui-fill-moonstone-2"
+    className="o-ui-f-moonstone-2"
   />,
   <div
-    className="o-ui-fill-moonstone-3"
+    className="o-ui-f-moonstone-3"
   />,
   <div
-    className="o-ui-fill-moonstone-4"
+    className="o-ui-f-moonstone-4"
   />,
   <div
-    className="o-ui-fill-moonstone-5"
+    className="o-ui-f-moonstone-5"
   />,
   <div
-    className="o-ui-fill-moonstone-6"
+    className="o-ui-f-moonstone-6"
   />,
   <div
-    className="o-ui-fill-moonstone-7"
+    className="o-ui-f-moonstone-7"
   />,
   <div
-    className="o-ui-fill-moonstone-8"
+    className="o-ui-f-moonstone-8"
   />,
   <div
-    className="o-ui-fill-moonstone-9"
+    className="o-ui-f-moonstone-9"
   />,
   <div
-    className="o-ui-fill-moonstone-10"
+    className="o-ui-f-moonstone-10"
   />,
   <div
-    className="o-ui-fill-cloud-1"
+    className="o-ui-f-cloud-1"
   />,
   <div
-    className="o-ui-fill-cloud-2"
+    className="o-ui-f-cloud-2"
   />,
   <div
-    className="o-ui-fill-cloud-3"
+    className="o-ui-f-cloud-3"
   />,
   <div
-    className="o-ui-fill-cloud-4"
+    className="o-ui-f-cloud-4"
   />,
   <div
-    className="o-ui-fill-cloud-5"
+    className="o-ui-f-cloud-5"
   />,
   <div
-    className="o-ui-fill-cloud-6"
+    className="o-ui-f-cloud-6"
   />,
   <div
-    className="o-ui-fill-cloud-7"
+    className="o-ui-f-cloud-7"
   />,
   <div
-    className="o-ui-fill-cloud-8"
+    className="o-ui-f-cloud-8"
   />,
   <div
-    className="o-ui-fill-cloud-10"
+    className="o-ui-f-cloud-10"
   />,
   <div
-    className="o-ui-fill-neutral-1"
+    className="o-ui-f-neutral-1"
   />,
   <div
-    className="o-ui-fill-neutral-2"
+    className="o-ui-f-neutral-2"
   />,
   <div
-    className="o-ui-fill-neutral-3"
+    className="o-ui-f-neutral-3"
   />,
   <div
-    className="o-ui-fill-neutral-4"
+    className="o-ui-f-neutral-4"
   />,
   <div
-    className="o-ui-fill-neutral-5"
+    className="o-ui-f-neutral-5"
   />,
   <div
-    className="o-ui-fill-neutral-6"
+    className="o-ui-f-neutral-6"
   />,
   <div
-    className="o-ui-fill-neutral-7"
+    className="o-ui-f-neutral-7"
   />,
   <div
-    className="o-ui-fill-neutral-8"
+    className="o-ui-f-neutral-8"
   />,
   <div
-    className="o-ui-fill-neutral-9"
+    className="o-ui-f-neutral-9"
   />,
   <div
-    className="o-ui-fill-neutral-10"
+    className="o-ui-f-neutral-10"
   />,
   <div
-    className="o-ui-fill-neutral-dark-1"
+    className="o-ui-f-neutral-dark-1"
   />,
   <div
-    className="o-ui-fill-neutral-dark-2"
+    className="o-ui-f-neutral-dark-2"
   />,
   <div
-    className="o-ui-fill-neutral-dark-3"
+    className="o-ui-f-neutral-dark-3"
   />,
   <div
-    className="o-ui-fill-neutral-dark-4"
+    className="o-ui-f-neutral-dark-4"
   />,
   <div
-    className="o-ui-fill-neutral-dark-5"
+    className="o-ui-f-neutral-dark-5"
   />,
   <div
-    className="o-ui-fill-neutral-dark-6"
+    className="o-ui-f-neutral-dark-6"
   />,
   <div
-    className="o-ui-fill-neutral-dark-7"
+    className="o-ui-f-neutral-dark-7"
   />,
   <div
-    className="o-ui-fill-neutral-dark-8"
+    className="o-ui-f-neutral-dark-8"
   />,
   <div
-    className="o-ui-fill-neutral-dark-9"
+    className="o-ui-f-neutral-dark-9"
   />,
   <div
-    className="o-ui-fill-neutral-dark-10"
+    className="o-ui-f-neutral-dark-10"
   />,
   <div
-    className="o-ui-fill-beetle-1"
+    className="o-ui-f-beetle-1"
   />,
   <div
-    className="o-ui-fill-beetle-2"
+    className="o-ui-f-beetle-2"
   />,
   <div
-    className="o-ui-fill-beetle-3"
+    className="o-ui-f-beetle-3"
   />,
   <div
-    className="o-ui-fill-beetle-4"
+    className="o-ui-f-beetle-4"
   />,
   <div
-    className="o-ui-fill-beetle-5"
+    className="o-ui-f-beetle-5"
   />,
   <div
-    className="o-ui-fill-beetle-6"
+    className="o-ui-f-beetle-6"
   />,
   <div
-    className="o-ui-fill-beetle-7"
+    className="o-ui-f-beetle-7"
   />,
   <div
-    className="o-ui-fill-beetle-8"
+    className="o-ui-f-beetle-8"
   />,
   <div
-    className="o-ui-fill-beetle-9"
+    className="o-ui-f-beetle-9"
   />,
   <div
-    className="o-ui-fill-beetle-10"
+    className="o-ui-f-beetle-10"
   />,
   <div
-    className="o-ui-fill-botanic-1"
+    className="o-ui-f-botanic-1"
   />,
   <div
-    className="o-ui-fill-botanic-2"
+    className="o-ui-f-botanic-2"
   />,
   <div
-    className="o-ui-fill-botanic-3"
+    className="o-ui-f-botanic-3"
   />,
   <div
-    className="o-ui-fill-botanic-4"
+    className="o-ui-f-botanic-4"
   />,
   <div
-    className="o-ui-fill-botanic-5"
+    className="o-ui-f-botanic-5"
   />,
   <div
-    className="o-ui-fill-botanic-6"
+    className="o-ui-f-botanic-6"
   />,
   <div
-    className="o-ui-fill-botanic-7"
+    className="o-ui-f-botanic-7"
   />,
   <div
-    className="o-ui-fill-botanic-8"
+    className="o-ui-f-botanic-8"
   />,
   <div
-    className="o-ui-fill-botanic-9"
+    className="o-ui-f-botanic-9"
   />,
   <div
-    className="o-ui-fill-botanic-10"
+    className="o-ui-f-botanic-10"
   />,
   <div
-    className="o-ui-fill-primary-1"
+    className="o-ui-f-primary-1"
   />,
   <div
-    className="o-ui-fill-primary-2"
+    className="o-ui-f-primary-2"
   />,
   <div
-    className="o-ui-fill-primary-3"
+    className="o-ui-f-primary-3"
   />,
   <div
-    className="o-ui-fill-primary-4"
+    className="o-ui-f-primary-4"
   />,
   <div
-    className="o-ui-fill-primary-5"
+    className="o-ui-f-primary-5"
   />,
   <div
-    className="o-ui-fill-primary-6"
+    className="o-ui-f-primary-6"
   />,
   <div
-    className="o-ui-fill-primary-7"
+    className="o-ui-f-primary-7"
   />,
   <div
-    className="o-ui-fill-primary-8"
+    className="o-ui-f-primary-8"
   />,
   <div
-    className="o-ui-fill-primary-9"
+    className="o-ui-f-primary-9"
   />,
   <div
-    className="o-ui-fill-primary-10"
+    className="o-ui-f-primary-10"
   />,
   <div
     className="o-ui-icon-alias-1"
@@ -3096,22 +3096,22 @@ Array [
 exports[`flex basis 1`] = `
 Array [
   <div
-    className="o-ui-b-a"
+    className="o-ui-fb-a"
   />,
   <div
-    className="o-ui-b-c"
+    className="o-ui-fb-c"
   />,
   <div
-    className="o-ui-b-f"
+    className="o-ui-fb-f"
   />,
   <div
-    className="o-ui-b-f"
+    className="o-ui-fb-f"
   />,
   <div
-    className="o-ui-b-mxc"
+    className="o-ui-fb-mxc"
   />,
   <div
-    className="o-ui-b-mnc"
+    className="o-ui-fb-mnc"
   />,
 ]
 `;
@@ -3248,46 +3248,46 @@ Array [
 exports[`gap 1`] = `
 Array [
   <div
-    className="o-ui-gap-0"
+    className="o-ui-g-0"
   />,
   <div
-    className="o-ui-gap-1"
+    className="o-ui-g-1"
   />,
   <div
-    className="o-ui-gap-2"
+    className="o-ui-g-2"
   />,
   <div
-    className="o-ui-gap-3"
+    className="o-ui-g-3"
   />,
   <div
-    className="o-ui-gap-4"
+    className="o-ui-g-4"
   />,
   <div
-    className="o-ui-gap-5"
+    className="o-ui-g-5"
   />,
   <div
-    className="o-ui-gap-6"
+    className="o-ui-g-6"
   />,
   <div
-    className="o-ui-gap-7"
+    className="o-ui-g-7"
   />,
   <div
-    className="o-ui-gap-8"
+    className="o-ui-g-8"
   />,
   <div
-    className="o-ui-gap-9"
+    className="o-ui-g-9"
   />,
   <div
-    className="o-ui-gap-10"
+    className="o-ui-g-10"
   />,
   <div
-    className="o-ui-gap-11"
+    className="o-ui-g-11"
   />,
   <div
-    className="o-ui-gap-12"
+    className="o-ui-g-12"
   />,
   <div
-    className="o-ui-gap-13"
+    className="o-ui-g-13"
   />,
 ]
 `;
@@ -3340,19 +3340,19 @@ Array [
     className="o-ui-h-100"
   />,
   <div
-    className="o-ui-h-auto"
+    className="o-ui-h-a"
   />,
   <div
-    className="o-ui-h-fit"
+    className="o-ui-h-fc"
   />,
   <div
-    className="o-ui-h-max"
+    className="o-ui-h-mxc"
   />,
   <div
-    className="o-ui-h-min"
+    className="o-ui-h-mnc"
   />,
   <div
-    className="o-ui-h-screen"
+    className="o-ui-h-s"
   />,
 ]
 `;
@@ -3363,7 +3363,7 @@ Array [
     className="o-ui-jc-c"
   />,
   <div
-    className="o-ui-jc-e"
+    className="o-ui-jc-fe"
   />,
   <div
     className="o-ui-jc-l"
@@ -3375,16 +3375,16 @@ Array [
     className="o-ui-jc-r"
   />,
   <div
-    className="o-ui-jc-a"
+    className="o-ui-jc-sa"
   />,
   <div
-    className="o-ui-jc-b"
+    className="o-ui-jc-sb"
   />,
   <div
-    className="o-ui-jc-evn"
+    className="o-ui-jc-sevn"
   />,
   <div
-    className="o-ui-jc-strt"
+    className="o-ui-jc-fs"
   />,
   <div
     className="o-ui-jc-str"
@@ -3423,10 +3423,7 @@ Array [
     className="o-ui-lh-6"
   />,
   <div
-    className="o-ui-lh-none"
-  />,
-  <div
-    className="o-ui-lh-normal"
+    className="o-ui-lh-n"
   />,
 ]
 `;
@@ -3476,7 +3473,7 @@ Array [
     className="o-ui-ma-13"
   />,
   <div
-    className="o-ui-ma-auto"
+    className="o-ui-ma-a"
   />,
 ]
 `;
@@ -3526,7 +3523,7 @@ Array [
     className="o-ui-mb-13"
   />,
   <div
-    className="o-ui-mb-auto"
+    className="o-ui-mb-a"
   />,
 ]
 `;
@@ -3576,7 +3573,7 @@ Array [
     className="o-ui-ml-13"
   />,
   <div
-    className="o-ui-ml-auto"
+    className="o-ui-ml-a"
   />,
 ]
 `;
@@ -3626,7 +3623,7 @@ Array [
     className="o-ui-mr-13"
   />,
   <div
-    className="o-ui-mr-auto"
+    className="o-ui-mr-a"
   />,
 ]
 `;
@@ -3676,7 +3673,7 @@ Array [
     className="o-ui-mt-13"
   />,
   <div
-    className="o-ui-mt-auto"
+    className="o-ui-mt-a"
   />,
 ]
 `;
@@ -3726,7 +3723,7 @@ Array [
     className="o-ui-mh-13"
   />,
   <div
-    className="o-ui-mh-auto"
+    className="o-ui-mh-a"
   />,
 ]
 `;
@@ -3776,7 +3773,7 @@ Array [
     className="o-ui-mv-13"
   />,
   <div
-    className="o-ui-mv-auto"
+    className="o-ui-mv-a"
   />,
 ]
 `;
@@ -3844,13 +3841,13 @@ Array [
 exports[`opacity 1`] = `
 Array [
   <div
-    className="o-ui-opc-d"
+    className="o-ui-op-d"
   />,
   <div
-    className="o-ui-opc-nv"
+    className="o-ui-op-nv"
   />,
   <div
-    className="o-ui-of-v"
+    className="o-ui-op-v"
   />,
 ]
 `;
@@ -3883,19 +3880,19 @@ exports[`outline 1`] = `
 exports[`overflow 1`] = `
 Array [
   <div
-    className="o-ui-ovf-a"
+    className="o-ui-ov-a"
   />,
   <div
-    className="o-ui-ovf-c"
+    className="o-ui-ov-c"
   />,
   <div
-    className="o-ui-ovf-h"
+    className="o-ui-ov-h"
   />,
   <div
-    className="o-ui-ovf-s"
+    className="o-ui-ov-s"
   />,
   <div
-    className="o-ui-ovf-v"
+    className="o-ui-ov-v"
   />,
 ]
 `;
@@ -3903,19 +3900,19 @@ Array [
 exports[`overflow x 1`] = `
 Array [
   <div
-    className="o-ui-ovf-x-a"
+    className="o-ui-ov-x-a"
   />,
   <div
-    className="o-ui-ovf-x-c"
+    className="o-ui-ov-x-c"
   />,
   <div
-    className="o-ui-ovf-x-h"
+    className="o-ui-ov-x-h"
   />,
   <div
-    className="o-ui-ovf-x-s"
+    className="o-ui-ov-x-s"
   />,
   <div
-    className="o-ui-ovf-x-v"
+    className="o-ui-ov-x-v"
   />,
 ]
 `;
@@ -3923,19 +3920,19 @@ Array [
 exports[`overflow y 1`] = `
 Array [
   <div
-    className="o-ui-ovf-y-a"
+    className="o-ui-ov-y-a"
   />,
   <div
-    className="o-ui-ovf-y-c"
+    className="o-ui-ov-y-c"
   />,
   <div
-    className="o-ui-ovf-y-h"
+    className="o-ui-ov-y-h"
   />,
   <div
-    className="o-ui-ovf-y-s"
+    className="o-ui-ov-y-s"
   />,
   <div
-    className="o-ui-ovf-y-v"
+    className="o-ui-ov-y-v"
   />,
 ]
 `;
@@ -4283,19 +4280,19 @@ Array [
 exports[`position 1`] = `
 Array [
   <div
-    className="o-ui-a"
+    className="o-ui-p-a"
   />,
   <div
-    className="o-ui-f"
+    className="o-ui-p-f"
   />,
   <div
-    className="o-ui-r"
+    className="o-ui-p-r"
   />,
   <div
-    className="o-ui-stc"
+    className="o-ui-p-stc"
   />,
   <div
-    className="o-ui-stck"
+    className="o-ui-p-stck"
   />,
 ]
 `;
@@ -4303,16 +4300,16 @@ Array [
 exports[`resize 1`] = `
 Array [
   <div
-    className="o-ui-rz-b"
+    className="o-ui-rsz-b"
   />,
   <div
-    className="o-ui-rz-h"
+    className="o-ui-rsz-h"
   />,
   <div
-    className="o-ui-rz-n"
+    className="o-ui-rsz-n"
   />,
   <div
-    className="o-ui-rz-v"
+    className="o-ui-rsz-v"
   />,
 ]
 `;
@@ -4330,46 +4327,46 @@ exports[`right 1`] = `
 exports[`row gap 1`] = `
 Array [
   <div
-    className="o-ui-r-gap-0"
+    className="o-ui-r-g-0"
   />,
   <div
-    className="o-ui-r-gap-1"
+    className="o-ui-r-g-1"
   />,
   <div
-    className="o-ui-r-gap-2"
+    className="o-ui-r-g-2"
   />,
   <div
-    className="o-ui-r-gap-3"
+    className="o-ui-r-g-3"
   />,
   <div
-    className="o-ui-r-gap-4"
+    className="o-ui-r-g-4"
   />,
   <div
-    className="o-ui-r-gap-5"
+    className="o-ui-r-g-5"
   />,
   <div
-    className="o-ui-r-gap-6"
+    className="o-ui-r-g-6"
   />,
   <div
-    className="o-ui-r-gap-7"
+    className="o-ui-r-g-7"
   />,
   <div
-    className="o-ui-r-gap-8"
+    className="o-ui-r-g-8"
   />,
   <div
-    className="o-ui-r-gap-9"
+    className="o-ui-r-g-9"
   />,
   <div
-    className="o-ui-r-gap-10"
+    className="o-ui-r-g-10"
   />,
   <div
-    className="o-ui-r-gap-11"
+    className="o-ui-r-g-11"
   />,
   <div
-    className="o-ui-r-gap-12"
+    className="o-ui-r-g-12"
   />,
   <div
-    className="o-ui-r-gap-13"
+    className="o-ui-r-g-13"
   />,
 ]
 `;
@@ -4742,10 +4739,10 @@ Array [
 exports[`text overflow 1`] = `
 Array [
   <div
-    className="o-ui-to-clip"
+    className="o-ui-tov-c"
   />,
   <div
-    className="o-ui-to-ellipsis"
+    className="o-ui-tov-e"
   />,
 ]
 `;
@@ -4937,16 +4934,16 @@ Array [
 exports[`work-break 1`] = `
 Array [
   <div
-    className="o-ui-wb-b"
+    className="o-ui-wob-b"
   />,
   <div
-    className="o-ui-wb-bw"
+    className="o-ui-wob-bw"
   />,
   <div
-    className="o-ui-wb-ka"
+    className="o-ui-wob-ka"
   />,
   <div
-    className="o-ui-wb-n"
+    className="o-ui-wob-n"
   />,
 ]
 `;
