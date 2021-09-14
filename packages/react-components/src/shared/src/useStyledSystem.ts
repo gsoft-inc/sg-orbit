@@ -1,7 +1,6 @@
-import { CSSProperties } from "markdown-to-jsx/node_modules/@types/react";
+import { CSSProperties, useMemo } from "react";
 import { Entry, LiteralUnion, Simplify } from "type-fest";
 import { isNil } from "./assertions";
-import { useMemo } from "react";
 
 /*
 TODO:

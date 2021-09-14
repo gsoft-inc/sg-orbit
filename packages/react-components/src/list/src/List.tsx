@@ -2,8 +2,7 @@ import "./List.css";
 
 import { Box } from "../../box";
 import { CollectionItem, NodeType, useCollection } from "../../collection";
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { ElementType } from "markdown-to-jsx/node_modules/@types/react";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { InternalProps, JsxElement, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useStyleProps } from "../../shared";
 import { ListItem } from "./ListItem";
 
@@ -26,7 +25,7 @@ export interface InnerListProps extends Omit<AbstractListProps<"ul">, "as"> {
     /**
      * @ignore
      */
-    as: ElementType;
+    as: ElementType | string;
 }
 
 function renderItem({
@@ -38,7 +37,7 @@ function renderItem({
 }: CollectionItem, size?: string) {
     return (
         <Box
-            {...mergeProps<any>(
+            {...mergeProps(
                 props,
                 {
                     as: elementType,

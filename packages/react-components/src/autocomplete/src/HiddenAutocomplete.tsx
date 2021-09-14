@@ -1,4 +1,4 @@
-import { Input } from "../../html";
+import { HtmlInput } from "../../html";
 import { Ref } from "react";
 import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";
@@ -28,7 +28,7 @@ export function HiddenAutocomplete({ name, required, validationState, value, ...
     }
 
     return (
-        <Input
+        <HtmlInput
             {...mergeProps(
                 rest,
                 {

@@ -1,10 +1,8 @@
-const Input = as(Box, "input");
-
 function CustomInput(props) {
     const [inputGroupProps] = useInputGroupProps();
 
     return (
-        <Input
+        <HtmlInput
             {...mergeProps(
                 props,
                 {
