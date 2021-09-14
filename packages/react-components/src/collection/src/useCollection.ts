@@ -9,7 +9,7 @@ export interface CollectionNode {
     index: number;
     key: string;
     props: Record<string, any>;
-    ref: Ref<any>;
+    ref: Ref<HTMLElement>;
     type: NodeType;
 }
 

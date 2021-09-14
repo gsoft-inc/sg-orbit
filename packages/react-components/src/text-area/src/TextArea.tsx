@@ -17,7 +17,7 @@ export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-cols).
      */
-    cols: number;
+    cols?: number;
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -44,7 +44,7 @@ export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#attr-rows).
      */
-    rows: number;
+    rows?: number;
     /**
      * The type of the input.
      */

@@ -21,7 +21,7 @@ export interface UseGroupInputProps {
     cssModule?: string;
     disabled?: boolean;
     gap?: GapProp;
-    groupRef: Ref<any>;
+    groupRef: Ref<HTMLElement>;
     isInField?: boolean;
     orientation?: FlexOrientation;
     required?: boolean;
@@ -43,7 +43,7 @@ export interface UseGroupInputReturn {
         gap?: GapProp;
         inline?: boolean;
         orientation?: FlexOrientation;
-        ref?: Ref<any>;
+        ref?: Ref<HTMLElement>;
         role?: "group" | "radiogroup";
         wrap?: boolean;
     };

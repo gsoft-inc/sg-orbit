@@ -4,7 +4,7 @@ import { OmitInternalProps, isNil, mergeProps, slot, useRefState } from "../../s
 
 const DefaultElement = "img";
 
-export interface InnerAsyncImageProps extends Omit<AbstractImageProps<typeof DefaultElement>, "as"> {
+export interface InnerAsyncImageProps extends AbstractImageProps<typeof DefaultElement> {
     /**
      * React children.
      */

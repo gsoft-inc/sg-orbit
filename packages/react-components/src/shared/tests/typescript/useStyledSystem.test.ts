@@ -579,7 +579,7 @@ expectAssignable<StyledSystemProps>({
     whiteSpace: "nowrap",
     width: 1,
     wordBreak: "break-all",
-    zIndex: "1"
+    zIndex: 1
 });
 
 

@@ -13,13 +13,13 @@ export interface AccordionBuilderItem {
 export interface AccordionBuilderHeader {
     elementType: ReactElement["type"];
     props: Record<string, any>;
-    ref: Ref<any>;
+    ref: Ref<HTMLElement>;
 }
 
 export interface AccordionBuilderPanel {
     elementType: ReactElement["type"];
     props: Record<string, any>;
-    ref: Ref<any>;
+    ref: Ref<HTMLElement>;
 }
 
 export class AccordionBuilder {

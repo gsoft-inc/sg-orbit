@@ -62,9 +62,9 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      */
     defaultEndDate?: Date;
     /**
-     * A controlled start date value.
+     * Whether or not the input is disabled.
      */
-    startDate?: Date | null;
+    disabled?: boolean;
     /**
      * A controlled end date value.
      */
@@ -86,10 +86,10 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * @ignore
      */
     name?: string;
-    /**
-     * @ignore
-     */
-    onBlur?: FocusEventHandler;
+    // /**
+    //  * @ignore
+    //  */
+    // onBlur?: FocusEventHandler;
     /**
      * Called when the date(s) are / is applied.
      * @param {SyntheticEvent} event - React's original event.
@@ -98,10 +98,10 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * @returns {void}
      */
     onDatesChange?: (event: SyntheticEvent, startDate: Date, endDate: Date) => void;
-    /**
-     * @ignore
-     */
-    onFocus?: FocusEventHandler;
+    // /**
+    //  * @ignore
+    //  */
+    // onFocus?: FocusEventHandler;
     /**
      * Temporary text that occupies both date inputs when they are empty.
      */
@@ -114,6 +114,14 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * The presets style to use.
      */
     presetsVariant?: "compact" | "expanded";
+    /**
+     * Whether or not the input is readonly.
+     */
+    readOnly?: boolean;
+    /**
+     * A controlled start date value.
+     */
+    startDate?: Date | null;
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({

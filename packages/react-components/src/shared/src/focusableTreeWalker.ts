@@ -38,8 +38,7 @@ export function createFocusableTreeWalker(root: HTMLElement, { tabbable }: Focus
 
                 return NodeFilter.FILTER_SKIP;
             }
-        },
-        false
+        }
     );
 
     return walker;

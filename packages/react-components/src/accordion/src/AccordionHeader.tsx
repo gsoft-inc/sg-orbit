@@ -2,7 +2,8 @@ import "./Accordion.css";
 
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
-import { Heading, Text } from "../../typography";
+import { Heading, HeadingProps, Text } from "../../typography";
+import { HtmlButton } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
 export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps, StyledComponentProps<"button"> {
@@ -15,11 +16,15 @@ export interface InnerAccordionHeaderProps extends InternalProps, InteractionPro
      */
     disabled?: boolean;
     /**
-    * The header item props
-    */
+     * The header item props
+     */
     header?: {
         key: string;
     };
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    headingProps: Partial<HeadingProps>;
 }
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
@@ -30,6 +35,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         disabled,
         focus,
         forwardedRef,
+        headingProps,
         hover,
         ...rest
     } = omitProps(props, ["header"]);
@@ -60,12 +66,16 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
 
     return (
         <Heading
-            as={as}
-            className="o-ui-accordion-header"
-            ref={forwardedRef}
-            size="2xs"
+            {...mergeProps(
+                headingProps ?? {},
+                {
+                    as,
+                    className: "o-ui-accordion-header",
+                    size: "2xs"
+                }
+            )}
         >
-            <button
+            <HtmlButton
                 {...mergeProps(
                     rest,
                     {
@@ -76,7 +86,8 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                             hover && "hover",
                             icon && "has-icon"
                         ),
-                        disabled
+                        disabled,
+                        ref: forwardedRef
                     }
                 )}
                 type="button"
@@ -87,7 +98,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                     {counter}
                 </div>
                 <DisclosureArrow className="o-ui-accordion-arrow" />
-            </button>
+            </HtmlButton>
         </Heading>
     );
 }

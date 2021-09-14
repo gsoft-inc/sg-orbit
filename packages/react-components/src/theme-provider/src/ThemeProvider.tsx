@@ -23,7 +23,7 @@ export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">,
     /**
      * @ignore
      */
-    ref?: Ref<typeof DefaultElement>;
+    ref?: Ref<HTMLElement>;
     /**
      * The theme to use.
      */

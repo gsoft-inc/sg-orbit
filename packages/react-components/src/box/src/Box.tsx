@@ -20,6 +20,15 @@ export function InnerBox(props: InnerBoxProps) {
         ...rest
     } = omitProps(useStyledSystem(props), ["slot"]);
 
+    // const {
+    //     as: As = DefaultElement,
+    //     children,
+    //     className,
+    //     forwardedRef,
+    //     style,
+    //     ...rest
+    // } = omitProps(props, ["slot"]);
+
     return (
         <As
             {...rest}

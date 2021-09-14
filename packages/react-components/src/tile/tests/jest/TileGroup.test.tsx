@@ -183,15 +183,6 @@ test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async 
 
 // ***** Api *****
 
-/*
-Api
--
--
--
--
-- when selectionMode is \"multiple\", call the tile onChange handler when a tile is selected
-*/
-
 test("when selectionMode is \"single\", call onChange when a tile is selected", async () => {
     const handler = jest.fn();
 

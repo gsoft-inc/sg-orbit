@@ -1,12 +1,11 @@
-import { ElementRef, JSXElementConstructor, forwardRef, useMemo } from "react";
-import { JsxElement } from "./types";
+import { ComponentProps, ElementRef, JSXElementConstructor, forwardRef, useMemo } from "react";
+import { JsxElement, StyledComponentOverlappingHtmlAttributes } from "./types";
 import { Merge } from "type-fest";
-import { StyledComponentProps } from "./types";
 
 export function as<A extends JSXElementConstructor<any>, B extends JsxElement<any>>(component: A, asProp: B) {
     const Component = component as JSXElementConstructor<any>;
 
-    return forwardRef<ElementRef<B>, Merge<StyledComponentProps<A>, StyledComponentProps<B>>>((props, ref) => (
+    return forwardRef<ElementRef<B>, Omit<Merge<ComponentProps<A>, ComponentProps<B>>, StyledComponentOverlappingHtmlAttributes>>((props, ref) => (
         <Component as={asProp} ref={ref} {...props} />
     ));
 }

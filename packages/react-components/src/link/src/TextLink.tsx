@@ -41,7 +41,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
 
     const {
         active,
-        as = DefaultElement,
+        as: asProp = DefaultElement,
         autoFocus,
         children,
         color,
@@ -103,7 +103,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
             {...mergeProps(
                 rest,
                 {
-                    as
+                    as: asProp
                 },
                 linkProps
             )}

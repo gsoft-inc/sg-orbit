@@ -149,9 +149,7 @@ export function InnerTileGroup({
                 return augmentElement(x, {
                     disabled: selectionMode === "none" ? disabled : undefined,
                     orientation: "horizontal",
-                    style: {
-                        width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
-                    }
+                    width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
                 });
             })}
         </As>
