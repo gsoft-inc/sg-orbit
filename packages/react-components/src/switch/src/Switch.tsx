@@ -1,8 +1,9 @@
 import "./Switch.css";
 
+import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
-import { ChangeEvent, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, isNil, mergeProps, omitProps, resolveChildren, useSlots } from "../../shared";
+import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -12,11 +13,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "label";
 
-export interface InnerSwitchProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onChange"> {
-    /**
-     * Whether or not the checkbox should autoFocus on render.
-     */
-    autoFocus?: boolean | number;
+export interface InnerSwitchProps extends Omit<AbstractInputProps<typeof DefaultElement>, "onChange"> {
     /**
      * A controlled checked state value.
      */
@@ -30,7 +27,7 @@ export interface InnerSwitchProps extends InternalProps, InteractionProps, Omit<
      */
     defaultChecked?: boolean;
     /**
-     * Whether or not the switch is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
@@ -40,14 +37,16 @@ export interface InnerSwitchProps extends InternalProps, InteractionProps, Omit<
     /**
      * Called when the switch checked state change.
      * @param {ChangeEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onChange?: ChangeEventHandler;
+    /**
+     * Called when the switch checked state change.
+     * @param {ChangeEvent} event - React's original synthetic event.
      * @param {boolean} isChecked - Whether or not the input is checked.
      * @returns {void}
      */
-    onChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
-    /**
-     * Whether or not a user input is required before form submission.
-     */
-    required?: boolean;
+    onValueChange?: (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => void;
     /**
      * Invert the order the checkmark box and the label.
      */
@@ -56,14 +55,6 @@ export interface InnerSwitchProps extends InternalProps, InteractionProps, Omit<
      * A checkbox can vary in size.
      */
     size?: "sm" | "md";
-    /**
-     * @ignore
-     */
-    tabIndex?: number;
-    /**
-     * Whether or not the checkbox should display as "valid" or "invalid".
-     */
-    validationState?: "valid" | "invalid";
 }
 
 export function InnerSwitch(props: InnerSwitchProps) {
@@ -71,26 +62,27 @@ export function InnerSwitch(props: InnerSwitchProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
-        id,
-        checked,
-        defaultChecked,
-        autoFocus,
-        required,
-        validationState,
-        onChange,
-        size,
-        reverse,
-        name,
-        tabIndex,
         active,
-        focus,
-        hover,
-        disabled,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
         as = DefaultElement,
+        autoFocus,
+        checked,
         children,
+        defaultChecked,
+        disabled,
+        focus,
         forwardedRef,
+        hover,
+        id,
+        name,
+        onChange,
+        onValueChange,
+        required,
+        reverse,
+        size,
+        tabIndex,
+        validationState,
         ...rest
     } = mergeProps(
         props,
@@ -101,6 +93,12 @@ export function InnerSwitch(props: InnerSwitchProps) {
     if (isNil(children) && isNil(ariaLabel) && isNil(ariaLabelledBy)) {
         console.error("A switch must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
     }
+
+    const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
+        if (!isNil(onValueChange)) {
+            onValueChange(event, isChecked);
+        }
+    });
 
     const { inputProps, wrapperProps } = useCheckbox({
         active,
@@ -117,7 +115,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         id,
         isInField,
         name,
-        onChange,
+        onChange: handleChange,
         required,
         reverse,
         size,
@@ -171,7 +169,6 @@ export function InnerSwitch(props: InnerSwitchProps) {
         </Box>
     );
 }
-
 
 export const Switch = forwardRef<any, OmitInternalProps<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />

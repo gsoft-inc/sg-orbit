@@ -17,10 +17,6 @@ export interface InnerTabProps extends InternalProps, InteractionProps, StyledCo
      */
     children: ReactNode;
     /**
-     * Whether or not the tab is disabled.
-     */
-    disabled?: boolean;
-    /**
      * Whether or not the tab is selected.
      */
     selected?: boolean;
@@ -31,14 +27,14 @@ export interface InnerTabProps extends InternalProps, InteractionProps, StyledCo
 }
 
 export function InnerTab({
-    tab: { key, panelId, tabId },
-    disabled,
     active,
-    focus,
-    hover,
     as = DefaultElement,
     children,
+    disabled,
+    focus,
     forwardedRef,
+    hover,
+    tab: { key, panelId, tabId },
     ...rest
 }: InnerTabProps) {
     const { isManual, onSelect, selectedKey } = useTabsContext();

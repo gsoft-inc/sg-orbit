@@ -22,13 +22,13 @@ function AsyncText({ id, children, ...rest }) {
     }, [id, selectedKey, children]);
 
     return (
-        <Box {...rest}>
+        <Div {...rest}>
             {isNil(text) ? (
-                <div className="pa10 relative">
-                    <div className="o-ui-sb-loading"></div>
-                </div>
+                <Div padding={10} position="relative">
+                    <Div className="o-ui-sb-loading"></Div>
+                </Div>
             ) : text}
-        </Box>
+        </Div>
     );
 }
 

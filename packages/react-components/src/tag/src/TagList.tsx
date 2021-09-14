@@ -75,13 +75,13 @@ function TagItem({
 }
 
 export function InnerTagList({
-    size,
-    onRemove,
-    onClear,
-    readOnly,
     as = DefaultElement,
-    forwardedRef,
     children,
+    forwardedRef,
+    onClear,
+    onRemove,
+    readOnly,
+    size,
     ...rest
 }: InnerTagListProps) {
     const nodes = useCollection(children);

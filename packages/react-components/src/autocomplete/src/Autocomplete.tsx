@@ -8,7 +8,6 @@ import {
     Keys,
     OmitInternalProps,
     WidthProp,
-    ZindexProp,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -21,7 +20,7 @@ import {
     useRefState
 } from "../../shared";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
-import { Overlay, OverlayProps, PopupAlignment, PopupDirection, PopupPosition, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
+import { Overlay, OverlayProps, PopupPosition, PopupProps, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { forwardRef, useCallback, useRef, useState } from "react";
@@ -32,19 +31,7 @@ import { useInputGroupTextInputProps } from "../../input-group";
 
 const DefaultElement = "input";
 
-export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof DefaultElement>, "zIndex"> {
-    /**
-     * The horizontal alignment of the autocomplete menu relative to the input.
-     */
-    align?: PopupAlignment;
-    /**
-     * Whether or not the autocomplete menu can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the selection menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
+export interface InnerAutocompleteProps extends PopupProps, Omit<AbstractInputProps<typeof DefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -54,17 +41,9 @@ export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof D
      */
     clearOnSelect?: boolean;
     /**
-     * The initial value of open when in auto controlled mode.
-     */
-    defaultOpen?: boolean;
-    /**
      * The default value of `value` when uncontrolled.
      */
     defaultValue?: string;
-    /**
-     * The direction the autocomplete menu will open relative to the input.
-     */
-    direction?: Omit<PopupDirection, "left" | "right">;
     /**
      * Whether or not the autocomplete take up the width of its container.
      */
@@ -86,13 +65,6 @@ export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof D
      */
     noResultsMessage?: string;
     /**
-     * Called when the autocomplete open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the menu is open.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
      * Called when the input query change and new search results are expected.
      * @param {SyntheticEvent} event - React's original event.
      * @param {string} query - The search query.
@@ -109,10 +81,6 @@ export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof D
      */
     onSelectionChange?: (event: SyntheticEvent, selection: { key: string; value: string }) => void;
     /**
-     * Whether or not to open the autocomplete element.
-     */
-    open?: boolean | null;
-    /**
      * Additional props to render on the menu of options.
      */
     overlayProps?: Partial<OverlayProps>;
@@ -124,10 +92,6 @@ export interface InnerAutocompleteProps extends Omit<AbstractInputProps<typeof D
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-    /**
-     * The z-index of the overlay element.
-     */
-    zIndex?: ZindexProp;
 }
 
 export function InnerAutocomplete(props: InnerAutocompleteProps) {

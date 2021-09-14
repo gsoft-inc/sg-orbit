@@ -8,7 +8,7 @@ import { useTabsContext } from "./TabsContext";
 
 const DefaultElement = "div";
 
-export interface InnerTabPanelProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
+export interface InnerTabPanelProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -20,10 +20,10 @@ export interface InnerTabPanelProps extends InternalProps, Omit<StyledComponentP
 }
 
 export function InnerTabPanel({
-    panel: { key, panelId, tabId },
     as = DefaultElement,
     children,
     forwardedRef,
+    panel: { key, panelId, tabId },
     ...rest
 }: InnerTabPanelProps) {
     const { selectedKey } = useTabsContext();

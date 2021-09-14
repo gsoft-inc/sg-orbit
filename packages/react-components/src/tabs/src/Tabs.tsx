@@ -5,7 +5,7 @@ import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
-import { TabsContext } from "./TabsContext";
+import { TabsContext, TabsOrientation } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
@@ -33,11 +33,6 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
      */
     fluid?: boolean;
     /**
-     * The element's unique identifier.
-     * @ignore
-     */
-    id?: string;
-    /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
     manual?: boolean;
@@ -51,7 +46,7 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
     /**
      * The orientation of the tabs elements.
      */
-    orientation?: "horizontal" | "vertical";
+    orientation?: TabsOrientation;
     /**
      * A controlled selected key.
      */
@@ -59,6 +54,7 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
 }
 
 export function InnerTabs({
+    as = DefaultElement,
     "aria-label": ariaLabel,
     autoFocus,
     children,
@@ -107,6 +103,7 @@ export function InnerTabs({
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-tabs",
                         fluid && "fluid",

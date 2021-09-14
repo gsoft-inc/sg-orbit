@@ -175,6 +175,6 @@ export interface OrbitTheme {
     fontSizes: FontSizeValues;
     lineHeights: LineHeightValues;
     borderRadii: BorderRadiusValues;
-    boxShadows: BoxShadowValues & BoxShadowRoles | ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
-    colors: ColorPalettes & ColorRoles | ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
+    boxShadows: ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
+    colors: ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
 }

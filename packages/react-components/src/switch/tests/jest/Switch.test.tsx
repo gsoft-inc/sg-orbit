@@ -50,11 +50,11 @@ test("a switch role is \"switch\"", async () => {
 
 // ***** Api *****
 
-test("call onChange when the switch is turned on", async () => {
+test("call onChange, when the switch is checked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} data-testid="switch">Engines</Switch>
+        <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
     act(() => {
@@ -65,11 +65,11 @@ test("call onChange when the switch is turned on", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("call onChange when the switch is turned off", async () => {
+test("call onChange when the switch is unchecked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch onChange={handler} data-testid="switch">Engines</Switch>
+        <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
     act(() => {
@@ -84,11 +84,45 @@ test("call onChange when the switch is turned off", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
 });
 
-test("dont call onChange when the switch is disabled", async () => {
+test("call onValueChange when the switch is turned on", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <Switch disabled onChange={handler} data-testid="switch">Engines</Switch>
+        <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
+    );
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("switch")));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("call onValueChange when the switch is turned off", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
+    );
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("switch")));
+    });
+
+    act(() => {
+        userEvent.click(getInput(getByTestId("switch")));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
+});
+
+test("dont call onValueChange when the switch is disabled", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = render(
+        <Switch disabled onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
     act(() => {

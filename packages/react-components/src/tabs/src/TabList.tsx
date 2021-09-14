@@ -2,7 +2,21 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ForwardedRef, forwardRef } from "react";
-import { Keys, OmitInternalProps, isNumber, mergeProps, useAutoFocusChild, useEventCallback, useFocusManager, useFocusScope, useKeyboardNavigation, useKeyedRovingFocus, useMergedRefs } from "../../shared";
+import {
+    InternalProps,
+    Keys,
+    OmitInternalProps,
+    StyledComponentProps,
+    isNumber,
+    mergeProps,
+    useAutoFocusChild,
+    useEventCallback,
+    useFocusManager,
+    useFocusScope,
+    useKeyboardNavigation,
+    useKeyedRovingFocus,
+    useMergedRefs
+} from "../../shared";
 import { Tab, TabKeyProp } from "./Tab";
 import { TabType } from "./useTabsItems";
 import { useTabsContext } from "./TabsContext";
@@ -22,13 +36,16 @@ const NavigationKeyBinding = {
     }
 };
 
-export interface InnerTabListProps {
+const DefaultElement = "div";
+
+export interface InnerTabListProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     autoFocus?: boolean | number;
     forwardedRef: ForwardedRef<any>;
     tabs?: TabType[];
 }
 
 export function InnerTabList({
+    as = DefaultElement,
     autoFocus,
     forwardedRef,
     tabs,
@@ -63,6 +80,7 @@ export function InnerTabList({
                 rest,
                 {
                     "aria-orientation": orientation,
+                    as,
                     className: "o-ui-tab-list",
                     ref: tabRef,
                     role: "tablist"
@@ -71,12 +89,12 @@ export function InnerTabList({
             )}
         >
             {tabs.map(({
-                key,
                 elementType: ElementType = Tab,
-                ref,
-                tabId,
+                key,
                 panelId,
-                props
+                props,
+                ref,
+                tabId
             }) =>
                 <ElementType
                     {...props}

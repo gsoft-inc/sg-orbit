@@ -106,10 +106,10 @@ export function createRadioTestSuite(element, stories) {
         )
         .add("overflow", () =>
             <Stack>
-                <Flex alignItems="end" maxWidth={5}>
+                <Flex alignItems="end" maxWidth="16rem">
                     <Radio value="any" element={element}>PA-99-N2 event and possible exoplanet in galaxy</Radio>
                 </Flex>
-                <Flex alignItems="end" maxWidth={5}>
+                <Flex alignItems="end" maxWidth="16rem">
                     <Radio value="any" element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconList>
@@ -117,7 +117,7 @@ export function createRadioTestSuite(element, stories) {
                         </IconList>
                     </Radio>
                 </Flex>
-                <Flex alignItems="end" maxWidth={5}>
+                <Flex alignItems="end" maxWidth="16rem">
                     <Radio value="any" element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>

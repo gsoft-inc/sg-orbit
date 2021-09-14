@@ -1,5 +1,5 @@
-import { Box } from "@react-components/box";
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
@@ -109,9 +109,7 @@ export function createTestSuite(element, stories) {
         )
         .add("reverse", () =>
             <Stack>
-                <Box>
-                    <Switch reverse element={element}>Engines</Switch>
-                </Box>
+                <Switch reverse element={element}>Engines</Switch>
                 <Inline>
                     <Switch reverse element={element}>
                         <Text>Engines</Text>
@@ -215,23 +213,23 @@ export function createTestSuite(element, stories) {
         )
         .add("overflow", () =>
             <Stack>
-                <div className="mw5">
+                <Div maxWidth="16rem">
                     <Switch element={element}>PA-99-N2 event and possible exoplanet in galaxy</Switch>
-                </div>
-                <div className="mw5">
+                </Div>
+                <Div maxWidth="16rem">
                     <Switch element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <IconList>
                             <EmailIcon /><EmailIcon />
                         </IconList>
                     </Switch>
-                </div>
-                <div className="mw5">
+                </Div>
+                <Div maxWidth="16rem">
                     <Switch element={element}>
                         <Text>PA-99-N2 event and possible exoplanet in galaxy</Text>
                         <Counter>60</Counter>
                     </Switch>
-                </div>
+                </Div>
             </Stack>
         );
 }

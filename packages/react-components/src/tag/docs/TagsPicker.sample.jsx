@@ -53,7 +53,7 @@ function TagsPicker() {
     , []);
 
     return (
-        <div className="flex">
+        <Flex>
             <MenuTrigger closeOnSelect={false}>
                 <Button color="secondary" className="mr2">
                     <Text>{selectedKeys.length > 0 ? "Programs" : "All programs"}</Text>
@@ -92,7 +92,7 @@ function TagsPicker() {
                     );
                 })}
             </TagList>
-        </div>
+        </Flex>
     );
 }
 

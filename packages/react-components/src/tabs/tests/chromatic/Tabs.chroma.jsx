@@ -174,7 +174,7 @@ stories()
     )
     .add("tab overflow", () =>
         <Stack>
-            <Tabs style={{ width: "300px" }} aria-label="Planets">
+            <Tabs width="300px" aria-label="Planets">
                 <Item>
                     <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -184,7 +184,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
             </Tabs>
-            <Tabs style={{ width: "300px" }} aria-label="Planets">
+            <Tabs width="300px" aria-label="Planets">
                 <Item>
                     <Header>
                         <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
@@ -197,7 +197,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
             </Tabs>
-            <Tabs style={{ width: "300px" }} aria-label="Planets">
+            <Tabs width="300px" aria-label="Planets">
                 <Item>
                     <Header>
                         <NotificationIcon />
@@ -349,7 +349,7 @@ stories()
         const ColoredHeader = ({ children, ...rest }) => {
             return (
                 <Tab {...rest} >
-                    <Text style={{ color: "red" }}>{children}</Text>
+                    <Text color="red">{children}</Text>
                 </Tab>
             );
         };
@@ -362,7 +362,7 @@ stories()
                 <TabPanel
                     {...rest}
                     panel={panel}
-                    style={key === selectedKey ? { backgroundColor: "red" } : undefined}
+                    backgroundColor={key === selectedKey ? "red" : undefined}
                 >
                     {children}
                 </TabPanel>
@@ -407,7 +407,7 @@ stories()
             return (
                 <Box
                     {...rest}
-                    style={{ color: "red" }}
+                    color="red"
                 >
                     {children}
                 </Box>
@@ -418,7 +418,7 @@ stories()
             return (
                 <Box
                     {...rest}
-                    style={{ backgroundColor: "blue" }}
+                    backgroundColor="blue"
                 >
                     {children}
                 </Box>
@@ -519,7 +519,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs orientation="vertical" fluid style={{ height: "300px" }} aria-label="Planets">
+        <Tabs orientation="vertical" fluid height="300px" aria-label="Planets">
             <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>

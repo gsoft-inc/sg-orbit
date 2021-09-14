@@ -15,7 +15,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
      */
     children: ReactNode;
     /**
-     * Whether or not the tag is disabled.
+     * @ignore
      */
     disabled?: boolean;
     /**
@@ -39,17 +39,17 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
 }
 
 export function InnerTag({
-    variant = "solid",
-    onRemove,
-    disabled,
-    fluid,
-    size,
     active,
-    focus,
-    hover,
     as = DefaultElement,
     children,
+    disabled,
+    fluid,
+    focus,
     forwardedRef,
+    hover,
+    onRemove,
+    size,
+    variant = "solid",
     ...rest
 }: InnerTagProps) {
     const ref = useMergedRefs(forwardedRef);

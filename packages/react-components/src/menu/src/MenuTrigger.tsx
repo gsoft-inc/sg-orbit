@@ -6,7 +6,6 @@ import {
     Keys,
     OmitInternalProps,
     StyledComponentProps,
-    ZindexProp,
     augmentElement,
     isNil,
     mergeProps,
@@ -17,22 +16,10 @@ import {
     useRefState
 } from "../../shared";
 import { MenuTriggerContext } from "./MenuTriggerContext";
-import { Overlay, OverlayDefaultElement, PopupAlignment, PopupDirection, PopupPosition, usePopup } from "../../overlay";
+import { Overlay, OverlayDefaultElement, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
-export interface InnerMenuTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
-    /**
-     * The horizontal alignment of the menu relative to the trigger.
-     */
-    align?: PopupAlignment;
-    /**
-     * Whether or not the menu can flip when it will overflow it's boundary area.
-     */
-    allowFlip?: boolean;
-    /**
-     * Whether or not the menu position can change to prevent it from being cut off so that it stays visible within its boundary area.
-     */
-    allowPreventOverflow?: boolean;
+export interface InnerMenuTriggerProps extends InternalProps, PopupProps, Omit<StyledComponentProps<typeof OverlayDefaultElement>, "zIndex"> {
     /**
      * React children.
      */
@@ -41,29 +28,6 @@ export interface InnerMenuTriggerProps extends InternalProps, Omit<StyledCompone
      * Whether or not the menu should close when an item is selected.
      */
     closeOnSelect?: boolean;
-    /**
-     * The initial value of open when in auto controlled mode.
-     */
-    defaultOpen?: boolean;
-    /**
-     * The direction the menu will open relative to the trigger.
-     */
-    direction?: Omit<PopupDirection, "left" | "right">;
-    /**
-     * Called when the open state change.
-     * @param {SyntheticEvent} event - React's original event.
-     * @param {boolean} isOpen - Indicate if the menu is visible.
-     * @returns {void}
-     */
-    onOpenChange?: (event: SyntheticEvent, isOpen: boolean) => void;
-    /**
-     * Whether or not to show the menu.
-     */
-    open?: boolean;
-    /**
-     * The z-index of the menu.
-     */
-    zIndex?: ZindexProp;
 }
 
 export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
