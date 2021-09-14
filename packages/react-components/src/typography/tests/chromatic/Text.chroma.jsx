@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { storiesOfBuilder } from "@stories/utils";
@@ -23,9 +24,9 @@ stories()
         </Stack>
     )
     .add("inherit", () =>
-        <div className="f1">
+        <Div fontSize={1}>
             <Text size="inherit">There are no passengers on spaceship earth.</Text>
-        </div>
+        </Div>
     )
     .add("styling", () =>
         <Stack>

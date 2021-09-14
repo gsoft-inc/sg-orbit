@@ -25,10 +25,10 @@ export function InnerParagraph(props: InnerParagraphProps) {
     const [styleProps] = useStyleProps<InnerParagraphProps>("p");
 
     const {
-        size,
         as = DefaultElement,
         children,
         forwardedRef,
+        size,
         ...rest
     } = mergeProps(
         props,

@@ -71,16 +71,16 @@ const NavigationKeyBinding = {
 };
 
 export function InnerToolbar({
-    autoFocus,
-    orientation = "horizontal",
     alignX,
     alignY,
-    gap = 5,
-    wrap,
-    disabled,
     as = DefaultElement,
+    autoFocus,
     children,
+    disabled,
     forwardedRef,
+    gap = 5,
+    orientation = "horizontal",
+    wrap,
     ...rest
 }: InnerToolbarProps) {
     const [focusScope, setFocusRef] = useFocusScope();
