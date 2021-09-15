@@ -1267,6 +1267,360 @@ Array [
 ]
 `;
 
+exports[`border bottom 2`] = `
+Array [
+  <div
+    className="o-ui-bb o-ui-bb-n"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-inherit"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-current"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-transparent"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-white"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-black"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-marine-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-sunray-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-moonstone-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-cloud-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-neutral-dark-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-beetle-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-botanic-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-5"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-6"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-7"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-8"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-9"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-primary-10"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-3"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-4"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-negative-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-negative-1-translucent"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-negative-2"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-positive-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-primary-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-primary-1-translucent"
+  />,
+  <div
+    className="o-ui-bb o-ui-b-alias-warning-1"
+  />,
+  <div
+    className="o-ui-bb o-ui-bb-n"
+  />,
+  <div
+    className="o-ui-bb"
+    style={
+      Object {
+        "borderColor": "hsla(223, 12%, 87%, 1)",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border bottom left radius 1`] = `
+<div
+  style={
+    Object {
+      "borderBottomLeftRadius": "1px",
+    }
+  }
+/>
+`;
+
+exports[`border bottom right radius 1`] = `
+<div
+  style={
+    Object {
+      "borderBottomRightRadius": "1px",
+    }
+  }
+/>
+`;
+
 exports[`border left 1`] = `
 Array [
   <div
@@ -2295,6 +2649,26 @@ Array [
 ]
 `;
 
+exports[`border top left radius 1`] = `
+<div
+  style={
+    Object {
+      "borderTopLeftRadius": "1px",
+    }
+  }
+/>
+`;
+
+exports[`border top right radius 1`] = `
+<div
+  style={
+    Object {
+      "borderTopRightRadius": "1px",
+    }
+  }
+/>
+`;
+
 exports[`bottom 1`] = `
 <div
   style={
@@ -3305,6 +3679,16 @@ exports[`font feature settings 1`] = `
 />
 `;
 
+exports[`font kerning 1`] = `
+<div
+  style={
+    Object {
+      "fontKerning": "normal",
+    }
+  }
+/>
+`;
+
 exports[`font size 1`] = `
 Array [
   <div
@@ -3341,6 +3725,22 @@ Array [
     className="o-ui-subheadline"
   />,
 ]
+`;
+
+exports[`font variant 1`] = `
+<div
+  style={
+    Object {
+      "fontVariant": "small-caps",
+    }
+  }
+/>
+`;
+
+exports[`font variations settings 1`] = `
+<div
+  fontVariationsSettings="'XHGT' 0.7"
+/>
 `;
 
 exports[`font weight 1`] = `
