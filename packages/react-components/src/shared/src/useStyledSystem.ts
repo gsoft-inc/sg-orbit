@@ -720,6 +720,10 @@ export type BorderProp = Simplify<LiteralUnion<keyof typeof BorderClasses, strin
 
 export type BorderBottomProp = Simplify<LiteralUnion<keyof typeof BorderBottomClasses, string>>;
 
+export type BorderBottomLeftRadiusProp = string;
+
+export type BorderBottomRightRadiusProp = string;
+
 export type BorderLeftProp = Simplify<LiteralUnion<keyof typeof BorderLeftClasses, string>>;
 
 export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
@@ -727,6 +731,10 @@ export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusCl
 export type BorderRightProp = Simplify<LiteralUnion<keyof typeof BorderRightClasses, string>>;
 
 export type BorderTopProp = Simplify<LiteralUnion<keyof typeof BorderTopClasses, string>>;
+
+export type BorderTopLeftRadiusProp = string;
+
+export type BorderTopRightRadiusProp = string;
 
 export type BottomProp = string;
 
@@ -774,9 +782,15 @@ export type FlexFlowProp = Simplify<FlexDirectionProp | FlexWrapProp | `${FlexDi
 
 export type FontFeatureSettingsProp = string;
 
+export type FontKerningProp = string;
+
 export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string>>;
 
 export type FontStyleProp = Simplify<LiteralUnion<"normal" | "italic" | "oblique", string>>;
+
+export type FontVariantProp = string;
+
+export type FontVariationSettingsProp = string;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
@@ -964,6 +978,14 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    borderBottomLeftRadius?: BorderBottomLeftRadiusProp;
+    /**
+     * @ignore
+     */
+    borderBottomRightRadius?: BorderBottomRightRadiusProp;
+    /**
+     * @ignore
+     */
     borderLeft?: BorderLeftProp;
     /**
      * @ignore
@@ -977,6 +999,14 @@ export interface StyledSystemProps {
      * @ignore
      */
     borderTop?: BorderTopProp;
+    /**
+     * @ignore
+     */
+    borderTopLeftRadius?: BorderTopLeftRadiusProp;
+    /**
+     * @ignore
+     */
+    borderTopRightRadius?: BorderTopRightRadiusProp;
     /**
      * @ignore
      */
@@ -1072,11 +1102,23 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    fontKerning?: FontKerningProp;
+    /**
+     * @ignore
+     */
     fontSize?: FontSizeProp;
     /**
      * @ignore
      */
     fontStyle?: FontStyleProp;
+    /**
+     * @ignore
+     */
+    fontVariant?: FontVariantProp;
+    /**
+     * @ignore
+     */
+    fontVariationSettings?: FontVariationSettingsProp;
     /**
      * @ignore
      */
@@ -1499,10 +1541,14 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     backgroundSize,
     border,
     borderBottom,
+    borderBottomLeftRadius,
+    borderBottomRightRadius,
     borderLeft,
     borderRadius,
     borderRight,
     borderTop,
+    borderTopLeftRadius,
+    borderTopRightRadius,
     bottom,
     boxShadow,
     boxSizing,
@@ -1527,8 +1573,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     flexShrink,
     flexWrap,
     fontFeatureSettings,
+    fontKerning,
     fontSize,
     fontStyle,
+    fontVariant,
+    fontVariationSettings,
     fontWeight,
     gap,
     height,
@@ -1608,10 +1657,14 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             backgroundSize,
             border,
             borderBottom,
+            borderBottomLeftRadius,
+            borderBottomRightRadius,
             borderLeft,
             borderRadius,
             borderRight,
             borderTop,
+            borderTopLeftRadius,
+            borderTopRightRadius,
             bottom,
             boxShadow,
             boxSizing,
@@ -1635,8 +1688,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             flexShrink,
             flexWrap,
             fontFeatureSettings,
+            fontKerning,
             fontSize,
             fontStyle,
+            fontVariant,
+            fontVariationSettings,
             fontWeight,
             gap,
             height,
@@ -1729,10 +1785,14 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         backgroundSize,
         border,
         borderBottom,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
         borderLeft,
         borderRadius,
         borderRight,
         borderTop,
+        borderTopLeftRadius,
+        borderTopRightRadius,
         bottom,
         boxShadow,
         boxSizing,
@@ -1757,9 +1817,12 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         flexShrink,
         flexWrap,
         fontFeatureSettings,
+        fontKerning,
         fontSize,
         fontStyle,
         fontWeight,
+        fontVariant,
+        fontVariationSettings,
         gap,
         height,
         imageOrientation,
