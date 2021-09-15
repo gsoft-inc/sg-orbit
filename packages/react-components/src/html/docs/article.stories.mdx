@@ -1,0 +1,32 @@
+import { ComponentInfo, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Article"
+    id="html-article"
+/>
+
+# Article
+
+<Tagline>A basic HTML article element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Article } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An article component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article) and Orbit styled system props.
+
+```jsx
+<Article color="cloud-10">
+    <H1>Weather forecast for Boca Chica</H1>
+    <Article>
+        <H2>03 March 2021</H2>
+        <Paragraph>Perfectly sunny for a space launch.</Paragraph>
+    </Article>
+</Article>
+```

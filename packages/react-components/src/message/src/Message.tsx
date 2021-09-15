@@ -23,6 +23,9 @@ const MessageContent = forwardRef<any, TextProps>(({
         >
             <StyleProvider
                 value={{
+                    a: {
+                        color: "inherit"
+                    },
                     heading: {
                         className: "o-ui-message-title",
                         size: "2xs"

@@ -1,8 +1,7 @@
-import { Div } from "@react-components/html";
+import { Div, LI, OL, UL } from "@react-components/html";
 import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field";
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
-import { ListItem, UnorderedList } from "@react-components/list";
 import { Paragraph } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
@@ -28,27 +27,36 @@ stories()
         </HelpMessage>
     )
     .add("icon", () =>
-        <HelpMessage>
+        <ValidMessage>
             <Align>
                 <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </Align>
-        </HelpMessage>
+        </ValidMessage>
     )
     .add("paragraph", () =>
-        <HelpMessage>
+        <ValidMessage>
             <Paragraph>
                 If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
             </Paragraph>
-        </HelpMessage>
+        </ValidMessage>
     )
     .add("list", () =>
-        <HelpMessage>
-            <UnorderedList>
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </UnorderedList>
-        </HelpMessage>
+        <Inline>
+            <ValidMessage>
+                <UL>
+                    <LI>Celestial</LI>
+                    <LI>Dark matter</LI>
+                    <LI>Eclipse</LI>
+                </UL>
+            </ValidMessage>
+            <ValidMessage>
+                <OL>
+                    <LI>Celestial</LI>
+                    <LI>Dark matter</LI>
+                    <LI>Eclipse</LI>
+                </OL>
+            </ValidMessage>
+        </Inline>
     )
     .add("wrappers", () =>
         <HelpMessage>
@@ -60,19 +68,19 @@ stories()
         </HelpMessage>
     )
     .add("complex", () =>
-        <HelpMessage>
+        <ValidMessage>
             <Align>
                 <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </Align>
             <Paragraph>
                 If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
             </Paragraph>
-            <UnorderedList>
-                <ListItem>Celestial</ListItem>
-                <ListItem>Dark matter</ListItem>
-                <ListItem>Eclipse</ListItem>
-            </UnorderedList>
-        </HelpMessage>
+            <UL>
+                <LI>Celestial</LI>
+                <LI>Dark matter</LI>
+                <LI>Eclipse</LI>
+            </UL>
+        </ValidMessage>
     )
     .add("fluid", () =>
         <HelpMessage fluid>

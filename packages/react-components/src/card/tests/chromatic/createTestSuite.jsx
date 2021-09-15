@@ -5,7 +5,7 @@ import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
-import { ListItem, UnorderedList } from "@react-components/list";
+import { LI, UL } from "@react-components/html";
 import { Nasa } from "./assets";
 import { Tabs } from "@react-components/tabs";
 import { TextLink } from "@react-components/link";
@@ -204,10 +204,10 @@ export function createTestSuite(element, stories) {
                             <Paragraph>
                                 <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                             </Paragraph>
-                            <UnorderedList>
-                                <ListItem>Space Shuttle program</ListItem>
-                                <ListItem>International Space Station</ListItem>
-                            </UnorderedList>
+                            <UL>
+                                <LI>Space Shuttle program</LI>
+                                <LI>International Space Station</LI>
+                            </UL>
                         </Content>
                     </Card>
                     <Card size="sm" element={element}>
@@ -216,10 +216,10 @@ export function createTestSuite(element, stories) {
                             <Paragraph>
                                 <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                             </Paragraph>
-                            <UnorderedList>
-                                <ListItem>Space Shuttle program</ListItem>
-                                <ListItem>International Space Station</ListItem>
-                            </UnorderedList>
+                            <UL>
+                                <LI>Space Shuttle program</LI>
+                                <LI>International Space Station</LI>
+                            </UL>
                         </Content>
                     </Card>
                     <Card element={element}>
@@ -228,10 +228,10 @@ export function createTestSuite(element, stories) {
                             <Paragraph>
                                 <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                             </Paragraph>
-                            <UnorderedList>
-                                <ListItem>Space Shuttle program</ListItem>
-                                <ListItem>International Space Station</ListItem>
-                            </UnorderedList>
+                            <UL>
+                                <LI>Space Shuttle program</LI>
+                                <LI>International Space Station</LI>
+                            </UL>
                         </Content>
                     </Card>
                 </Inline>
@@ -242,10 +242,10 @@ export function createTestSuite(element, stories) {
                             <Paragraph>
                                 <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                             </Paragraph>
-                            <UnorderedList>
-                                <ListItem>Space Shuttle program</ListItem>
-                                <ListItem>International Space Station</ListItem>
-                            </UnorderedList>
+                            <UL>
+                                <LI>Space Shuttle program</LI>
+                                <LI>International Space Station</LI>
+                            </UL>
                         </Content>
                     </Card>
                     <Card size="xl" element={element}>
@@ -254,10 +254,10 @@ export function createTestSuite(element, stories) {
                             <Paragraph>
                                 <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                             </Paragraph>
-                            <UnorderedList>
-                                <ListItem>Space Shuttle program</ListItem>
-                                <ListItem>International Space Station</ListItem>
-                            </UnorderedList>
+                            <UL>
+                                <LI>Space Shuttle program</LI>
+                                <LI>International Space Station</LI>
+                            </UL>
                         </Content>
                     </Card>
                 </Inline>
@@ -267,10 +267,10 @@ export function createTestSuite(element, stories) {
                         <Paragraph>
                             <TextLink href="https://www.nasa.gov" external>The National Aeronautics and Space Administration</TextLink>
                         </Paragraph>
-                        <UnorderedList>
-                            <ListItem>Space Shuttle program</ListItem>
-                            <ListItem>International Space Station</ListItem>
-                        </UnorderedList>
+                        <UL>
+                            <LI>Space Shuttle program</LI>
+                            <LI>International Space Station</LI>
+                        </UL>
                     </Content>
                 </Card>
             </Stack>

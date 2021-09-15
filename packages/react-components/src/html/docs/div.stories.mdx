@@ -1,0 +1,29 @@
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Div } from "@react-components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Div"
+    id="html-div"
+/>
+
+# Div
+
+<Tagline>A basic HTML div element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Div } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A div component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <Div color="cloud-10">Apple co-founder Steve Wozniak tweeted on Sunday about a "private space company" he's launching that's "unlike the others." Called Privateer Space, its mission is to "keep space safe and accessible to all humankind".</Div>
+    </Story>
+</Preview>

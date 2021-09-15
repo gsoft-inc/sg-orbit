@@ -1,0 +1,33 @@
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { LI, UL } from "@react-components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/List"
+    id="html-list"
+/>
+
+# List
+
+<Tagline>Basic HTML ul/ol/li elements with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { UL, OL, LI } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+Accepts all the HTML attributes of [ul](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), [ol](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) and [li](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) elements with the addition of Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <UL color="cloud-10">
+            <LI>Explore</LI>
+            <LI>Discover</LI>
+            <LI color="primary-10">Colonize</LI>
+        </UL>
+    </Story>
+</Preview>

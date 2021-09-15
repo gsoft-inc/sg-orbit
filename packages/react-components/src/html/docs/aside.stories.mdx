@@ -1,0 +1,28 @@
+import { ComponentInfo, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Aside"
+    id="html-aside"
+/>
+
+# Aside
+
+<Tagline>A basic HTML aside element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Aside } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An aside component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) and Orbit styled system props.
+
+```jsx
+<Aside color="cloud-10">
+    <Paragraph>The Universe is under no obligation to make sense to you. The Earth is the cradle of humanity, but mankind cannot stay in the cradle forever.</Paragraph>
+</Aside>
+```

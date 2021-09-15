@@ -25,7 +25,6 @@ export * from "./input";
 export * from "./input-group";
 export * from "./layout";
 export * from "./link";
-export * from "./list";
 export * from "./listbox";
 export * from "./lozenge";
 export * from "./menu";
