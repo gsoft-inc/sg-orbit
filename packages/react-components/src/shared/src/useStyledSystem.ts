@@ -697,11 +697,19 @@ export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue
 
 export type AppearanceProp = string;
 
+export type AspectRatioProp = string;
+
+export type BackfaceVisibilityProp = string;
+
 export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string>>;
 
 export type BackgroundClipProp = Simplify<keyof typeof BackgroundClipClasses | GlobalValue>;
 
 export type BackgroundColorProp = Simplify<LiteralUnion<keyof typeof BackgroundColorClasses, string>>;
+
+export type BackgroundImageProp = string;
+
+export type BackgroundOriginProp = string;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string>>;
 
@@ -729,13 +737,27 @@ export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue
 
 export type ColorProp = Simplify<LiteralUnion<keyof typeof ColorRoleClasses, string>>;
 
+export type ColorSchemeProp = string;
+
+export type ColumnCountProp = number;
+
 export type ColumnGapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
+
+export type ColumnWidthProp = string;
+
+export type ContainProp = string;
+
+export type ContentProp = string;
+
+export type ContentVisibilityProp = string;
 
 export type CursorProp = Simplify<keyof typeof CursorClasses> | GlobalValue;
 
 export type DisplayProp = Simplify<keyof typeof DisplayClasses | GlobalValue>;
 
 export type FillProp = Simplify<LiteralUnion<keyof typeof FillRoleClasses, string>>;
+
+export type FilterProp = string;
 
 export type FlexProp = Simplify<LiteralUnion<keyof typeof FlexClasses, string>>;
 
@@ -751,7 +773,11 @@ export type FlexWrapProp = Simplify<keyof typeof FlexWrapClasses | GlobalValue>;
 
 export type FlexFlowProp = Simplify<FlexDirectionProp | FlexWrapProp | `${FlexDirectionProp} ${FlexWrapProp}`>;
 
+export type FontFeatureSettingsProp = string;
+
 export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string>>;
+
+export type FontStyleProp = string;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
@@ -765,7 +791,13 @@ export type ImageRenderingProp = string;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
+export type JustifyItemsProp = string;
+
+export type JustifySelfProp = string;
+
 export type LeftProp = string;
+
+export type LetterSpacingProp = string;
 
 export type LineHeightProp = Simplify<LiteralUnion<keyof typeof LineHeightClasses, string>>;
 
@@ -843,13 +875,23 @@ export type TextTransformProp = Simplify<keyof typeof TextTransformClasses | Glo
 
 export type TopProp = string;
 
+export type TransformProp = string;
+
+export type TransformOriginProp = string;
+
+export type TransformStyleProp = string;
+
 export type UserSelectProp = string;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
+export type VisibilityProp = string;
+
 export type WhiteSpaceProp = Simplify<keyof typeof WhiteSpaceClasses | GlobalValue>;
 
 export type WidthProp = Simplify<LiteralUnion<keyof typeof WidthClasses, string>>;
+
+export type WillChangeProp = string;
 
 export type WordBreakProp = Simplify<keyof typeof WordBreakClasses | GlobalValue>;
 
@@ -875,6 +917,14 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    aspectRatio?: AspectRatioProp;
+    /**
+     * @ignore
+     */
+    backfaceVisibility?: BackfaceVisibilityProp;
+    /**
+     * @ignore
+     */
     backgroundAttachment?: BackgroundAttachmentProp;
     /**
      * @ignore
@@ -884,6 +934,14 @@ export interface StyledSystemProps {
      * @ignore
      */
     backgroundColor?: BackgroundColorProp;
+    /**
+     * @ignore
+     */
+    backgroundImage?: BackgroundImageProp;
+    /**
+     * @ignore
+     */
+    backgroundOrigin?: BackgroundOriginProp;
     /**
      * @ignore
      */
@@ -939,7 +997,31 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    colorScheme?: ColorSchemeProp;
+    /**
+     * @ignore
+     */
+    columnCount?: ColumnCountProp;
+    /**
+     * @ignore
+     */
     columnGap?: ColumnGapProp;
+    /**
+     * @ignore
+     */
+    columnWidth?: ColumnWidthProp;
+    /**
+     * @ignore
+     */
+    contain?: ContainProp;
+    /**
+     * @ignore
+     */
+    content?: ContentProp;
+    /**
+     * @ignore
+     */
+    contentVisibility?: ContentVisibilityProp;
     /**
      * @ignore
      */
@@ -952,6 +1034,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     fill?: FillProp;
+    /**
+     * @ignore
+     */
+    filter?: FilterProp;
     /**
      * @ignore
      */
@@ -983,7 +1069,15 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    fontFeatureSettings?: FontFeatureSettingsProp;
+    /**
+     * @ignore
+     */
     fontSize?: FontSizeProp;
+    /**
+     * @ignore
+     */
+    fontStyle?: FontStyleProp;
     /**
      * @ignore
      */
@@ -1011,7 +1105,19 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    justifyItems?: JustifyItemsProp;
+    /**
+     * @ignore
+     */
+    justifySelf?: JustifySelfProp;
+    /**
+     * @ignore
+     */
     left?: LeftProp;
+    /**
+     * @ignore
+     */
+    letterSpacing?: LetterSpacingProp;
     /**
      * @ignore
      */
@@ -1167,6 +1273,18 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    transform?: TransformProp;
+    /**
+     * @ignore
+     */
+    transformOrigin?: TransformOriginProp;
+    /**
+     * @ignore
+     */
+    transformStyle?: TransformStyleProp;
+    /**
+     * @ignore
+     */
     userSelect?: UserSelectProp;
     /**
      * @ignore
@@ -1175,11 +1293,19 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    visibility?: VisibilityProp;
+    /**
+     * @ignore
+     */
     whiteSpace?: WhiteSpaceProp;
     /**
      * @ignore
      */
     width?: WidthProp;
+    /**
+     * @ignore
+     */
+    willChange?: WillChangeProp;
     /**
      * @ignore
      */
@@ -1362,9 +1488,13 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     alignItems,
     alignSelf,
     appearance,
+    aspectRatio,
+    backfaceVisibility,
     backgroundAttachment,
     backgroundClip,
     backgroundColor,
+    backgroundImage,
+    backgroundOrigin,
     backgroundPosition,
     backgroundRepeat,
     backgroundSize,
@@ -1379,10 +1509,17 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     boxSizing,
     className,
     color,
+    colorScheme,
+    columnCount,
     columnGap,
+    columnWidth,
+    contain,
+    content,
+    contentVisibility,
     cursor,
     display,
     fill,
+    filter,
     flex,
     flexBasis,
     flexDirection,
@@ -1390,14 +1527,19 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     flexGrow,
     flexShrink,
     flexWrap,
+    fontFeatureSettings,
     fontSize,
+    fontStyle,
     fontWeight,
     gap,
     height,
     imageOrientation,
     imageRendering,
     justifyContent,
+    justifyItems,
+    justifySelf,
     left,
+    letterSpacing,
     lineHeight,
     margin,
     marginBottom,
@@ -1436,10 +1578,15 @@ export function useStyledSystem<TProps extends Record<string, any>>({
     textOverflow,
     textTransform,
     top,
+    transform,
+    transformOrigin,
+    transformStyle,
     userSelect,
     verticalAlign,
+    visibility,
     whiteSpace,
     width,
+    willChange,
     wordBreak,
     zIndex,
     ...rest
@@ -1450,9 +1597,13 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             alignItems,
             alignSelf,
             appearance,
+            aspectRatio,
+            backfaceVisibility,
             backgroundAttachment,
             backgroundClip,
             backgroundColor,
+            backgroundImage,
+            backgroundOrigin,
             backgroundPosition,
             backgroundRepeat,
             backgroundSize,
@@ -1466,10 +1617,17 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             boxShadow,
             boxSizing,
             color,
+            colorScheme,
+            columnCount,
             columnGap,
+            columnWidth,
+            contain,
+            content,
+            contentVisibility,
             cursor,
             display,
             fill,
+            filter,
             flex,
             flexBasis,
             flexDirection,
@@ -1477,14 +1635,19 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             flexGrow,
             flexShrink,
             flexWrap,
+            fontFeatureSettings,
             fontSize,
+            fontStyle,
             fontWeight,
             gap,
             height,
             imageOrientation,
             imageRendering,
             justifyContent,
+            justifyItems,
+            justifySelf,
             left,
+            letterSpacing,
             lineHeight,
             margin,
             marginBottom,
@@ -1522,10 +1685,15 @@ export function useStyledSystem<TProps extends Record<string, any>>({
             textOverflow,
             textTransform,
             top,
+            transform,
+            transformOrigin,
+            transformStyle,
             userSelect,
             verticalAlign,
+            visibility,
             whiteSpace,
             width,
+            willChange,
             wordBreak,
             zIndex
         };
@@ -1547,12 +1715,16 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         return context.computeStyling();
     }, [
         appearance,
+        aspectRatio,
         alignContent,
         alignItems,
         alignSelf,
+        backfaceVisibility,
         backgroundAttachment,
         backgroundClip,
         backgroundColor,
+        backgroundImage,
+        backgroundOrigin,
         backgroundPosition,
         backgroundRepeat,
         backgroundSize,
@@ -1567,10 +1739,17 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         boxSizing,
         className,
         color,
+        colorScheme,
+        columnCount,
         columnGap,
+        columnWidth,
+        contain,
+        content,
+        contentVisibility,
         cursor,
         display,
         fill,
+        filter,
         flex,
         flexBasis,
         flexDirection,
@@ -1578,14 +1757,19 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         flexGrow,
         flexShrink,
         flexWrap,
+        fontFeatureSettings,
         fontSize,
+        fontStyle,
         fontWeight,
         gap,
         height,
         imageOrientation,
         imageRendering,
         justifyContent,
+        justifyItems,
+        justifySelf,
         left,
+        letterSpacing,
         lineHeight,
         margin,
         marginBottom,
@@ -1624,10 +1808,15 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         textOverflow,
         textTransform,
         top,
+        transform,
+        transformOrigin,
+        transformStyle,
         userSelect,
         verticalAlign,
+        visibility,
         whiteSpace,
         width,
+        willChange,
         wordBreak,
         zIndex
     ]);
