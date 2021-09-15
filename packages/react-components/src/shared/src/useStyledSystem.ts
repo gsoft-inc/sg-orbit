@@ -698,7 +698,7 @@ export type AppearanceProp = string;
 
 export type AspectRatioProp = string;
 
-export type BackfaceVisibilityProp = string;
+export type BackfaceVisibilityProp = Simplify<LiteralUnion<"visible" | "hidden", string>>;
 
 export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string>>;
 
@@ -776,7 +776,7 @@ export type FontFeatureSettingsProp = string;
 
 export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string>>;
 
-export type FontStyleProp = string;
+export type FontStyleProp = Simplify<LiteralUnion<"normal" | "italic" | "oblique", string>>;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
@@ -790,9 +790,9 @@ export type ImageRenderingProp = string;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
-export type JustifyItemsProp = string;
+export type JustifyItemsProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "auto" | "normal" | "stretch", string>>;
 
-export type JustifySelfProp = string;
+export type JustifySelfProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "auto" | "normal" | "stretch", string>>;
 
 export type LeftProp = string;
 
@@ -884,7 +884,7 @@ export type UserSelectProp = string;
 
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
-export type VisibilityProp = string;
+export type VisibilityProp = Simplify<LiteralUnion<"visible" | "hidden" | "collapse", string>>;
 
 export type WhiteSpaceProp = Simplify<keyof typeof WhiteSpaceClasses | GlobalValue>;
 
