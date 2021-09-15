@@ -6,8 +6,8 @@
     }, [setIsVisible]);
 
     return (
-        <Box style={{ minHeight: "80px" }}>
-            <Button onClick={handleToggle} className="mb4">Toggle animation</Button>
+        <Div minHeight="80px">
+            <Button onClick={handleToggle} marginBottom={4}>Toggle animation</Button>
             <Transition
                 show={isVisible}
                 enter="o-ui-fade-in"
@@ -15,6 +15,6 @@
             >
                 <Text>Earth is a small town with many neighborhoods in a very big universe.</Text>
             </Transition>
-        </Box>
+        </Div>
     );
 };

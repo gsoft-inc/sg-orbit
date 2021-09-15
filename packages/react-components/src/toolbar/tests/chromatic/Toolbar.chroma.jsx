@@ -1,7 +1,8 @@
 import { CheckboxGroup } from "@react-components/checkbox";
+import { Div } from "@react-components/html";
 import { Field, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
-import { InputGroup } from "../../../input-group";
+import { InputGroup } from "@react-components/input-group";
 import { NotificationIcon } from "@react-components/icons";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { Text } from "@react-components/typography";
@@ -137,7 +138,7 @@ stories()
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar alignY="start" style={{ height: "100px" }}>
+            <Toolbar alignY="start" height="100px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -147,7 +148,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar alignY="end" style={{ height: "100px" }}>
+            <Toolbar alignY="end" height="100px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -157,7 +158,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar alignY="center" style={{ height: "100px" }}>
+            <Toolbar alignY="center" height="100px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -170,7 +171,7 @@ stories()
         </Inline>
     )
     .add("wrap", () =>
-        <div style={{ width: "170px" }}>
+        <Div width="170px">
             <Toolbar wrap>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
@@ -186,7 +187,7 @@ stories()
                     <Radio value="3">3</Radio>
                 </RadioGroup>
             </Toolbar>
-        </div>
+        </Div>
     )
     .add("complex", () =>
         <Toolbar>
@@ -296,7 +297,7 @@ stories("/vertical")
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar alignY="start" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="start" orientation="vertical" height="500px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -305,7 +306,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar alignY="end" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="end" orientation="vertical" height="500px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -314,7 +315,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar alignY="center" orientation="vertical" style={{ height: "500px" }}>
+            <Toolbar alignY="center" orientation="vertical" height="500px">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

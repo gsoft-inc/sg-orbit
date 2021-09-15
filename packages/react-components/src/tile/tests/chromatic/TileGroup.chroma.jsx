@@ -94,10 +94,10 @@ stories()
     .add("wrap", () =>
         <TileGroup rowSize={6}>
             {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(x => (
-                <Tile href="https://www.google.com" key={x}>
+                <TileLink href="https://www.google.com" key={x}>
                     <Heading>{x}</Heading>
                     <Content>{x}</Content>
-                </Tile>
+                </TileLink>
             ))}
         </TileGroup>
     )

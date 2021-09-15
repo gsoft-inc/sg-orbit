@@ -17,10 +17,10 @@ export function InnerText(props: InnerTextProps) {
     const [styleProps] = useStyleProps<InnerTextProps>("text");
 
     const {
-        size,
         as = DefaultElement,
         children,
         forwardedRef,
+        size,
         ...rest
     } = mergeProps(
         props,

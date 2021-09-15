@@ -10,7 +10,7 @@ const DefaultElement = "div";
 
 export interface TabPanelsProps extends Omit<InternalProps, "forwardedRef">, StyledComponentProps<typeof DefaultElement> {
     panels: PanelType[];
-    ref?: Ref<HTMLDivElement>;
+    ref?: Ref<any>;
 }
 
 export function TabPanels({

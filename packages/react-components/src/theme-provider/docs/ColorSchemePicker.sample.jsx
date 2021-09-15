@@ -4,18 +4,18 @@ function ColorSchemePicker() {
     return (
         <Inline
             gap={1}
-            className="background-1"
+            backgroundColor="alias-1"
         >
             <TextLink
                 onClick={() => setColorScheme("light")}
-                className={cx({ "b": colorScheme === "light" })}
+                fontWeight={colorScheme === "light" ? 600 : undefined}
             >
                 Light
             </TextLink>
             <Divider orientation="vertical" />
             <TextLink
                 onClick={() => setColorScheme("dark")}
-                className={cx({ "b": colorScheme === "dark" })}
+                fontWeight={colorScheme === "dark" ? 600 : undefined}
             >
                 Dark
             </TextLink>

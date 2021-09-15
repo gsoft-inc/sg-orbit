@@ -21,10 +21,10 @@ export function InnerHeading(props: InnerHeadingProps) {
     const [styleProps] = useStyleProps<InnerHeadingProps>("heading");
 
     const {
-        size,
         as = DefaultElement,
         children,
         forwardedRef,
+        size,
         ...rest
     } = mergeProps(
         props,

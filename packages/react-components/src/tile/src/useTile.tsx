@@ -1,4 +1,4 @@
-import { Box } from "../../box";
+import { Div } from "../../html";
 import { FlexOrientation } from "../../layout";
 import { InteractionProps, cssModule, useSlots } from "../../shared";
 import { ReactNode, useMemo } from "react";
@@ -41,9 +41,9 @@ export function useTile({
     }), [orientation]));
 
     const imageMarkup = image && (
-        <Box className="o-ui-tile-thumbnail">
+        <Div className="o-ui-tile-thumbnail">
             {image}
-        </Box>
+        </Div>
     );
 
     return {
@@ -51,10 +51,10 @@ export function useTile({
             <>
                 {imageMarkup}
                 {illustration}
-                <div className="o-ui-tile-main">
+                <Div className="o-ui-tile-main">
                     {heading}
                     {content}
-                </div>
+                </Div>
             </>
         ),
         tileProps: {

@@ -8,7 +8,7 @@ export function useColorScheme(colorScheme: ColorSchemeOrSystem, defaultColorSch
 
     useEffect(() => {
         if (colorScheme === "system" && isNil(defaultColorScheme)) {
-            throw new Error("When using a \"system\" \"colorScheme\" with the ThemeProvider you must also provide a \"defaultColorScheme\" prop in case user preference is not available.");
+            throw new Error("When using a \"system\" \"colorScheme\" with a ThemeProvider you must also provide a \"defaultColorScheme\" prop in case user preference is not available.");
         }
     }, [colorScheme, defaultColorScheme]);
 

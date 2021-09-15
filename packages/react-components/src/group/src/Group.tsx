@@ -39,7 +39,7 @@ export interface InnerGroupProps extends Omit<AbstractGroupProps<"div">, "as"> {
     /**
      * @ignore
      */
-    as: ElementType;
+    as: ElementType | string;
 }
 
 export function InnerGroup({

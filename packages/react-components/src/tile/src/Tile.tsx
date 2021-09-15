@@ -2,7 +2,22 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, isNumber, mergeProps, useAutoFocus, useCheckableProps, useControllableState, useEventCallback, useMergedRefs } from "../../shared";
+import { FlexOrientation } from "../../layout";
+import {
+    InteractionProps,
+    InternalProps,
+    OmitInternalProps,
+    StyledComponentProps,
+    cssModule,
+    isNil,
+    isNumber,
+    mergeProps,
+    useAutoFocus,
+    useCheckableProps,
+    useControllableState,
+    useEventCallback,
+    useMergedRefs
+} from "../../shared";
 import { useTile } from "./useTile";
 
 const DefaultElement = "button";
@@ -25,10 +40,6 @@ export interface InnerTileProps extends InternalProps, InteractionProps, Omit<St
      */
     defaultChecked?: boolean;
     /**
-     * Whether or not the tile is disabled.
-     */
-    disabled?: boolean;
-    /**
      * Called when the tile checked state change.
      * @param {SyntheticEvent} event - React's original event.
      * @param {bool} isChecked - Whether the tile is checked or not.
@@ -38,7 +49,7 @@ export interface InnerTileProps extends InternalProps, InteractionProps, Omit<St
     /**
      * The orientation of the tile.
      */
-    orientation?: "horizontal" | "vertical";
+    orientation?: FlexOrientation;
     /**
      * The value to associate with when in a group.
      */
@@ -49,19 +60,19 @@ export function InnerTile(props: InnerTileProps) {
     const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
+        active,
+        as = DefaultElement,
+        autoFocus,
         checked,
+        children,
         defaultChecked,
-        value,
+        focus,
+        forwardedRef,
+        hover,
         onChange,
         onCheck,
-        autoFocus,
-        active,
         orientation = "vertical",
-        focus,
-        hover,
-        as = DefaultElement,
-        children,
-        forwardedRef,
+        value,
         ...rest
     } = mergeProps(
         props,

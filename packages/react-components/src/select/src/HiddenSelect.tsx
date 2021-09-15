@@ -1,4 +1,4 @@
-import { Input } from "@react-components/html";
+import { HtmlInput } from "@react-components/html";
 import { Ref } from "react";
 import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";
@@ -28,7 +28,7 @@ export function HiddenSelect({ name, required, selectedKey, validationState, ...
     }
 
     return (
-        <Input
+        <HtmlInput
             {...mergeProps(
                 rest,
                 {

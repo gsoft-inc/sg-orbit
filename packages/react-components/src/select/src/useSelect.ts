@@ -39,7 +39,7 @@ export interface UseSelectProps {
     open?: boolean | null;
     overlayProps?: Partial<OverlayProps>;
     readOnly?: boolean;
-    ref: Ref<HTMLElement>;
+    ref: Ref<any>;
     selectedKey?: string | null;
     validationState?: ValidationState;
 }

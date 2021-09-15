@@ -7,7 +7,7 @@ import { OmitInternalProps, StyleProvider, augmentElement, getSlotKey, isNil, me
 
 const DefaultElement = "section";
 
-export interface InnerModalProps extends AbstractDialogProps<DefaultElement> {
+export interface InnerModalProps extends AbstractDialogProps<typeof DefaultElement> {
     /**
      * Whether or not the dialog should take almost all the available space.
      */

@@ -1,6 +1,7 @@
 import "./Tooltip.css";
 
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { Div } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -15,12 +16,12 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, OverlayPosition, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
-export interface InnerTooltipTriggerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerTooltipTriggerProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "position"> {
     /**
      * Whether or not the tooltip element can flip when it will overflow it's boundary area.
      */
@@ -59,22 +60,7 @@ export interface InnerTooltipTriggerProps extends InternalProps, StyledComponent
     /**
      * Position of the tooltip element related to the trigger.
      */
-    position?:
-    "auto"
-    | "auto-start"
-    | "auto-end"
-    | "top"
-    | "top-start"
-    | "top-end"
-    | "bottom"
-    | "bottom-start"
-    | "bottom-end"
-    | "right"
-    | "right-start"
-    | "right-end"
-    | "left"
-    | "left-start"
-    | "left-end";
+    position?: OverlayPosition;
     /**
      * The z-index of the popover element.
      */
@@ -92,18 +78,18 @@ export function parseTooltipTrigger(children: ReactNode) {
 }
 
 export function InnerTooltipTrigger({
-    open,
-    defaultOpen,
-    position: positionProp = "top",
-    onOpenChange,
-    disabled,
     allowFlip = true,
     allowPreventOverflow = true,
-    containerElement,
-    zIndex = 10000,
     as = DefaultElement,
     children,
+    containerElement,
+    defaultOpen,
+    disabled,
     forwardedRef,
+    onOpenChange,
+    open,
+    position: positionProp = "top",
+    zIndex = 10000,
     ...rest
 }: InnerTooltipTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -166,9 +152,9 @@ export function InnerTooltipTrigger({
 
     // HACK: a disabled element doesn't fire event, therefore the element is wrapped in a div.
     const triggerElement = !triggerWithDescribedBy.props.disabled ? triggerWithDescribedBy : (
-        <div className="o-ui-tooltip-disabled-wrapper">
+        <Div className="o-ui-tooltip-disabled-wrapper">
             {triggerWithDescribedBy}
-        </div>
+        </Div>
     );
 
     const triggerMarkup = augmentElement(triggerElement, mergeProps(

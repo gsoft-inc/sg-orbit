@@ -1,10 +1,8 @@
-const Input = as(Box, "input");
-
 function CustomInput(props) {
     const [{ validationState, ...fieldProps }] = useFieldInputProps();
 
     return (
-        <Input
+        <HtmlInput
             {...props}
             {...fieldProps}
             type="text"

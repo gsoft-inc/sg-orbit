@@ -2,9 +2,10 @@ function CustomComponent(props) {
     const [toolbarProps] = useToolbarProps();
 
     return (
-        <input
+        <Input
             {...props}
             {...omitProps(toolbarProps, ["orientation"])}
+            border="alias-1"
             type="text"
         />
     );
