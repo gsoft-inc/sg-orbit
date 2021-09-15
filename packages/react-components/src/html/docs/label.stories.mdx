@@ -1,0 +1,29 @@
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { HtmlLabel } from "@react-components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Label"
+    id="html-label"
+/>
+
+# Input
+
+<Tagline>A basic HTML label element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlLabel } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A label component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <HtmlLabel>Mission codename</HtmlLabel>
+    </Story>
+</Preview>

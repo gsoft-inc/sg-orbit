@@ -1,0 +1,33 @@
+import { A, Address } from "@react-components/html";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Address"
+    id="html-address"
+/>
+
+# Address
+
+<Tagline>A basic HTML address element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Address } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An address component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <Address color="cloud-10">
+            <A href="mailto:media@spacex.com">media@spacex.com</A>
+            <br />
+            <A href="tel:+13103636000">(310) 363-6000</A>
+        </Address>
+    </Story>
+</Preview>

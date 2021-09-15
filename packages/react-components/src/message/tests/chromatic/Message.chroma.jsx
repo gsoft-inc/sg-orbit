@@ -1,10 +1,9 @@
 import { Box } from "@react-components/box";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
-import { Div } from "@react-components/html";
+import { Div, LI, UL } from "@react-components/html";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Inline, Stack } from "@react-components/layout";
-import { ListItem, UnorderedList } from "@react-components/list";
 import { Message } from "@react-components/message";
 import { TextLink } from "@react-components/link";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -60,10 +59,10 @@ stories()
             <Content>
                 <Heading>Scheduled launch</Heading>
                 <Paragraph>A launch is scheduled today at 1PM.</Paragraph>
-                <UnorderedList>
-                    <ListItem>Be cautious</ListItem>
-                    <ListItem>Close your windows</ListItem>
-                </UnorderedList>
+                <UL>
+                    <LI>Be cautious</LI>
+                    <LI>Close your windows</LI>
+                </UL>
             </Content>
             <Button>Undo</Button>
         </Message>

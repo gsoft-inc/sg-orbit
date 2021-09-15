@@ -1,0 +1,52 @@
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Meta, Story } from "@storybook/addon-docs";
+import { TBody, TD, TFoot, TH, THead, TR, Table } from "@react-components/html";
+
+<Meta
+    title="Html elements/Table"
+    id="html-table"
+/>
+
+# Table
+
+<Tagline>A basic HTML table element with styled component props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Table, THead, TBody, TFoot, TH, TR, TD } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A table component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <Table color="cloud-10" cellPadding={5}>
+            <THead fontWeight="800">
+                <TR>
+                    <TH textAlign="left">Company</TH>
+                    <TH textAlign="left">Employees</TH>
+                </TR>
+            </THead>
+            <TBody>
+                <TR>
+                    <TD>Space X</TD>
+                    <TD>More than 10 000</TD>
+                </TR>
+                <TR>
+                    <TD>Blue Origin</TD>
+                    <TD>3 500</TD>
+                </TR>
+                <TR color="primary-10">
+                    <TD>Virgin Galactic</TD>
+                    <TD>823</TD>
+                </TR>
+            </TBody>
+            <TFoot>
+            </TFoot>
+        </Table>
+    </Story>
+</Preview>

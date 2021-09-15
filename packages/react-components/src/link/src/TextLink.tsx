@@ -24,7 +24,7 @@ export interface InnerTextLinkProps extends AbstractLinkProps<typeof DefaultElem
     /**
      * The color accent.
      */
-    color?: "primary" | "secondary" | "danger" | "inherit";
+    // color?: "primary" | "secondary" | "danger" | "inherit";
     /**
      * A link can vary in size.
      */
@@ -44,7 +44,6 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        color,
         disabled,
         external,
         focus,
@@ -65,7 +64,6 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     const { linkProps, showNewTabIndicator } = useLink({
         active,
         autoFocus,
-        color,
         cssModule: "o-ui-text-link",
         disabled,
         external,

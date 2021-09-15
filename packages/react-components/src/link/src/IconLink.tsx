@@ -23,10 +23,10 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
      * React children.
      */
     children: ReactNode;
-    /**
-     * The link color accent.
-     */
-    color?: "primary" | "secondary" | "danger";
+    // /**
+    //  * The link color accent.
+    //  */
+    // color?: "primary" | "secondary" | "danger";
     /**
      * Whether or not the link content should takes additional space.
      */
@@ -46,7 +46,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         as = DefaultElement,
         autoFocus,
         children,
-        color,
         condensed,
         disabled,
         external,
@@ -66,7 +65,6 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const { linkProps, showNewTabIndicator } = useLink({
         active,
         autoFocus,
-        color,
         cssModule: "o-ui-icon-link",
         disabled,
         external,

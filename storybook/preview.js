@@ -30,6 +30,7 @@ export const parameters = {
                 "Content",
                 "Placeholders",
                 "Collection",
+                "Html elements",
                 "Chromatic"
             ]
         }

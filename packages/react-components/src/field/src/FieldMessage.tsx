@@ -53,31 +53,32 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
                         tone,
                         fluid && "fluid"
                     ),
-                    ref,
-                    size: "md" as const
+                    ref
                 }
             )}
         >
             <StyleProvider
                 value={{
+                    a: {
+                        color: "inherit"
+                    },
                     icon: {
                         size: "sm"
                     },
                     link: {
-                        color: "inherit",
-                        size: "inherit"
+                        color: "inherit"
                     },
-                    list: {
-                        color: "inherit",
-                        size: "inherit"
+                    ol: {
+                        color: "inherit"
                     },
                     p: {
-                        color: "inherit",
-                        size: "inherit"
+                        color: "inherit"
                     },
                     text: {
-                        color: "inherit",
-                        size: "inherit"
+                        color: "inherit"
+                    },
+                    ul: {
+                        color: "inherit"
                     }
                 }}
             >

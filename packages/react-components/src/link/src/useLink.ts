@@ -3,7 +3,6 @@ import { InteractionProps, cssModule, isNumber, mergeClasses, useAutoFocus, useM
 
 export interface UseLinkProps extends InteractionProps {
     autoFocus?: boolean | number;
-    color?: string;
     cssModule?: string;
     disabled?: boolean;
     external?: boolean;
@@ -18,7 +17,6 @@ export interface UseLinkProps extends InteractionProps {
 export function useLink({
     active,
     autoFocus,
-    color,
     cssModule: module,
     disabled,
     external,
@@ -44,7 +42,8 @@ export function useLink({
                 module,
                 cssModule(
                     "o-ui-link",
-                    color === "inherit" ? "inherit-color" : color,
+                    // TODO: CSS classes like o-ui-link-variant must be available through a variant or something else.
+                    // color === "inherit" ? "inherit-color" : color,
                     underline === "none" ? "no-underline" : underline,
                     shape,
                     active && "active",

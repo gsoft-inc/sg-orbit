@@ -2,8 +2,13 @@ import { A } from "@react-components/html";
 import { ComponentProps, createRef } from "react";
 import { expectAssignable } from "@typescript/tests";
 
-expectAssignable<ComponentProps<typeof A>>({ href: "https://www.google.com", rel: "external", target: "_blank" });
+type AProps = ComponentProps<typeof A>;
 
-expectAssignable<ComponentProps<typeof A>>({ width: "100px", display: "block", color: "red" });
+expectAssignable<AProps>({ href: "https://www.google.com", rel: "external", target: "_blank" });
 
-expectAssignable<ComponentProps<typeof A>>({ ref: createRef() });
+expectAssignable<AProps>({ width: "100px", display: "block", color: "red" });
+
+expectAssignable<AProps>({ ref: createRef() });
+
+// @ts-expect-error
+expectAssignable<AProps>({ type="text" });
