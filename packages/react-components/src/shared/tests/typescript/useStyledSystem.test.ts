@@ -3,9 +3,13 @@ import {
     AlignItemsProp,
     AlignSelfProp,
     AppearanceProp,
+    AspectRatioProp,
+    BackfaceVisibilityProp,
     BackgroundAttachmentProp,
     BackgroundClipProp,
     BackgroundColorProp,
+    BackgroundImageProp,
+    BackgroundOriginProp,
     BackgroundPositionProp,
     BackgroundRepeatProp,
     BackgroundSizeProp,
@@ -19,10 +23,17 @@ import {
     BoxShadowProp,
     BoxSizingProp,
     ColorProp,
+    ColorSchemeProp,
+    ColumnCountProp,
     ColumnGapProp,
+    ColumnWidthProp,
+    ContainProp,
+    ContentProp,
+    ContentVisibilityProp,
     CursorProp,
     DisplayProp,
     FillProp,
+    FilterProp,
     FlexBasisProp,
     FlexDirectionProp,
     FlexFlowProp,
@@ -30,7 +41,9 @@ import {
     FlexProp,
     FlexShrinkProp,
     FlexWrapProp,
+    FontFeatureSettingsProp,
     FontSizeProp,
+    FontStyleProp,
     FontWeightProp,
     GapProp,
     GlobalValue,
@@ -38,7 +51,10 @@ import {
     ImageOrientationProp,
     ImageRenderingProp,
     JustifyContentProp,
+    JustifyItemsProp,
+    JustifySelfProp,
     LeftProp,
+    LetterSpacingProp,
     LineHeightProp,
     MarginBottomProp,
     MarginLeftProp,
@@ -68,10 +84,15 @@ import {
     TextDecorationProp,
     TextOverflowProp,
     TopProp,
+    TransformOriginProp,
+    TransformProp,
+    TransformStyleProp,
     UserSelectProp,
     VerticalAlignProp,
+    VisibilityProp,
     WhiteSpaceProp,
     WidthProp,
+    WillChangeProp,
     WordBreakProp,
     ZindexProp
 } from "@react-components/shared";
@@ -116,6 +137,10 @@ expectAssignable<AppearanceProp>("auto");
 expectAssignable<AppearanceProp>("textfield");
 expectAssignable<AppearanceProp>("checkbox");
 
+expectAssignable<AspectRatioProp>("1");
+
+expectAssignable<BackfaceVisibilityProp>("visible");
+
 expectAssignable<BackgroundAttachmentProp>("scroll");
 expectAssignable<BackgroundAttachmentProp>("fixed");
 expectAssignable<BackgroundAttachmentProp>("local");
@@ -129,6 +154,10 @@ expectAssignable<BackgroundColorProp>("#fff");
 expectAssignable<BackgroundColorProp>("white");
 expectAssignable<BackgroundColorProp>("sunray-1");
 expectAssignable<BackgroundColorProp>("alias-1");
+
+expectAssignable<BackgroundImageProp>("url(dog.gif)");
+
+expectAssignable<BackgroundOriginProp>("content-box");
 
 expectAssignable<BackgroundPositionProp>("top");
 expectAssignable<BackgroundPositionProp>("bottom");
@@ -204,9 +233,22 @@ expectAssignable<ColorProp>("white");
 expectAssignable<ColorProp>("sunray-1");
 expectAssignable<ColorProp>("alias-1");
 
+expectAssignable<ColorSchemeProp>("dark");
+
+expectAssignable<ColumnCountProp>(12);
+
 expectAssignable<ColumnGapProp>(0);
 expectAssignable<ColumnGapProp>(1);
 expectAssignable<ColumnGapProp>("1px");
+
+expectAssignable<ColumnWidthProp>("100px");
+
+expectAssignable<ContainProp>("strict");
+expectAssignable<ContainProp>("size layout paint");
+
+expectAssignable<ContentProp>("open-quote");
+
+expectAssignable<ContentVisibilityProp>("hidden");
 
 expectAssignable<CursorProp>("auto");
 expectAssignable<CursorProp>("crosshair");
@@ -240,6 +282,8 @@ expectAssignable<FillProp>("#fff");
 expectAssignable<FillProp>("white");
 expectAssignable<FillProp>("sunray-1");
 expectAssignable<FillProp>("icon-alias-1");
+
+expectAssignable<FilterProp>("blur(5px)");
 
 expectAssignable<FlexProp>("1px");
 expectAssignable<FlexProp>("2 2 10%");
@@ -281,6 +325,8 @@ expectAssignable<FlexWrapProp>("wrap");
 expectAssignable<FlexWrapProp>("nowrap");
 expectAssignable<FlexWrapProp>("wrap-reverse");
 
+expectAssignable<FontFeatureSettingsProp>("smcp");
+
 expectAssignable<FontSizeProp>(1);
 expectAssignable<FontSizeProp>(2);
 expectAssignable<FontSizeProp>(3);
@@ -292,6 +338,9 @@ expectAssignable<FontSizeProp>(8);
 expectAssignable<FontSizeProp>(9);
 expectAssignable<FontSizeProp>("subheadline");
 expectAssignable<FontSizeProp>("headline");
+
+expectAssignable<FontStyleProp>("oblique 10deg");
+expectAssignable<FontStyleProp>("italic");
 
 expectAssignable<FontWeightProp>(3);
 
@@ -326,8 +375,14 @@ expectAssignable<JustifyContentProp>("space-evenly");
 expectAssignable<JustifyContentProp>("stretch");
 expectAssignable<JustifyContentProp>("normal");
 
+expectAssignable<JustifyItemsProp>("center");
+
+expectAssignable<JustifySelfProp>("center");
+
 expectAssignable<LeftProp>("1px");
 expectAssignable<LeftProp>("auto");
+
+expectAssignable<LetterSpacingProp>("3px");
 
 expectAssignable<LineHeightProp>(1);
 expectAssignable<LineHeightProp>(2);
@@ -464,6 +519,12 @@ expectAssignable<TextOverflowProp>("ellipsis");
 expectAssignable<TopProp>("1px");
 expectAssignable<TopProp>("auto");
 
+expectAssignable<TransformProp>("rotate(20deg) rotate(2deg)");
+
+expectAssignable<TransformOriginProp>("top center");
+
+expectAssignable<TransformStyleProp>("preserve-3d");
+
 expectAssignable<UserSelectProp>("none");
 expectAssignable<UserSelectProp>("auto");
 expectAssignable<UserSelectProp>("text");
@@ -478,6 +539,8 @@ expectAssignable<VerticalAlignProp>("super");
 expectAssignable<VerticalAlignProp>("text-bottom");
 expectAssignable<VerticalAlignProp>("text-top");
 expectAssignable<VerticalAlignProp>("top");
+
+expectAssignable<VisibilityProp>("hidden");
 
 expectAssignable<WhiteSpaceProp>("nowrap");
 expectAssignable<WhiteSpaceProp>("break-spaces");
@@ -494,6 +557,8 @@ expectAssignable<WidthProp>("auto");
 expectAssignable<WidthProp>("max-content");
 expectAssignable<WidthProp>("min-content");
 
+expectAssignable<WillChangeProp>("contents");
+
 expectAssignable<WordBreakProp>("break-all");
 expectAssignable<WordBreakProp>("break-word");
 expectAssignable<WordBreakProp>("keep-all");
@@ -506,9 +571,13 @@ expectAssignable<StyledSystemProps>({
     alignItems: "center",
     alignSelf: "center",
     appearance: "textfield",
+    aspectRatio: "1",
+    backfaceVisibility: "visible",
     backgroundAttachment: "scroll",
     backgroundClip: "border-box",
     backgroundColor: "sunray-1",
+    backgroundImage: "url(cat.png)",
+    backgroundOrigin: "content-box",
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
@@ -522,10 +591,17 @@ expectAssignable<StyledSystemProps>({
     boxShadow: 1,
     boxSizing: "border-box",
     color: "sunray-1",
+    colorScheme: "dark",
+    columnCount: 2,
     columnGap: 1,
+    columnWidth: "100px",
+    contain: "style",
+    content: "open-quote",
+    contentVisibility: "hidden",
     cursor: "crosshair",
     display: "block",
     fill: "sunray-1",
+    filter: "blur(5px)",
     flex: "2 2 10%",
     flexBasis: "1px",
     flexDirection: "row",
@@ -533,12 +609,17 @@ expectAssignable<StyledSystemProps>({
     flexGrow: 1,
     flexShrink: 1,
     flexWrap: "wrap",
+    fontFeatureSettings: "swsh",
     fontSize: 1,
+    fontStyle: "oblique 23deg",
     fontWeight: 1,
     gap: 1,
     height: 1,
     justifyContent: "center",
+    justifyItems: "center",
+    justifySelf: "center",
     left: "1px",
+    letterSpacing: "-1px",
     lineHeight: 1,
     margin: 1,
     marginBottom: 1,
@@ -574,12 +655,15 @@ expectAssignable<StyledSystemProps>({
     textDecoration: "underline",
     textOverflow: "clip",
     top: "1px",
+    transform: "rotate(3deg) scale(1.3)",
+    transformOrigin: "top left",
+    transformStyle: "preserve-3d",
     userSelect: "none",
     verticalAlign: "middle",
+    visibility: "hidden",
     whiteSpace: "nowrap",
     width: 1,
+    willChange: "contents",
     wordBreak: "break-all",
     zIndex: 1
 });
-
-
