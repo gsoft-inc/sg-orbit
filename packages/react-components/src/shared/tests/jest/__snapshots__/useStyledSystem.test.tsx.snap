@@ -93,6 +93,36 @@ Array [
 ]
 `;
 
+exports[`appearance 1`] = `
+<div
+  style={
+    Object {
+      "appearance": "none",
+    }
+  }
+/>
+`;
+
+exports[`aspect ratio 1`] = `
+<div
+  style={
+    Object {
+      "aspectRatio": "1/1",
+    }
+  }
+/>
+`;
+
+exports[`backface visibility 1`] = `
+<div
+  style={
+    Object {
+      "backfaceVisibility": "visible",
+    }
+  }
+/>
+`;
+
 exports[`background attachment 1`] = `
 Array [
   <div
@@ -454,6 +484,26 @@ Array [
     className="o-ui-bg-alias-warning-2"
   />,
 ]
+`;
+
+exports[`background image 1`] = `
+<div
+  style={
+    Object {
+      "backgroundImage": "url(cat.png)",
+    }
+  }
+/>
+`;
+
+exports[`background origin 1`] = `
+<div
+  style={
+    Object {
+      "backgroundOrigin": "content-box",
+    }
+  }
+/>
 `;
 
 exports[`background position 1`] = `
@@ -2624,6 +2674,26 @@ Array [
 ]
 `;
 
+exports[`color scheme 1`] = `
+<div
+  style={
+    Object {
+      "colorScheme": "dark",
+    }
+  }
+/>
+`;
+
+exports[`column count 1`] = `
+<div
+  style={
+    Object {
+      "columnCount": 1,
+    }
+  }
+/>
+`;
+
 exports[`column gap 1`] = `
 Array [
   <div
@@ -2669,6 +2739,46 @@ Array [
     className="o-ui-c-g-13"
   />,
 ]
+`;
+
+exports[`column width 1`] = `
+<div
+  style={
+    Object {
+      "columnWidth": "100px",
+    }
+  }
+/>
+`;
+
+exports[`contain 1`] = `
+<div
+  style={
+    Object {
+      "contain": "strict",
+    }
+  }
+/>
+`;
+
+exports[`content 1`] = `
+<div
+  style={
+    Object {
+      "content": "linear-gradient(#e66465, #9198e5)",
+    }
+  }
+/>
+`;
+
+exports[`content visibility 1`] = `
+<div
+  style={
+    Object {
+      "contentVisibility": "hidden",
+    }
+  }
+/>
 `;
 
 exports[`cursor 1`] = `
@@ -3076,6 +3186,16 @@ Array [
 ]
 `;
 
+exports[`filter 1`] = `
+<div
+  style={
+    Object {
+      "filter": "blur(5px)",
+    }
+  }
+/>
+`;
+
 exports[`flex 1`] = `
 Array [
   <div
@@ -3173,6 +3293,16 @@ Array [
     className="o-ui-fw-wr"
   />,
 ]
+`;
+
+exports[`font feature settings 1`] = `
+<div
+  style={
+    Object {
+      "fontFeatureSettings": "smcp",
+    }
+  }
+/>
 `;
 
 exports[`font size 1`] = `
@@ -3392,11 +3522,41 @@ Array [
 ]
 `;
 
+exports[`justify items 1`] = `
+<div
+  style={
+    Object {
+      "justifyItems": "center",
+    }
+  }
+/>
+`;
+
+exports[`justify self 1`] = `
+<div
+  style={
+    Object {
+      "justifySelf": "center",
+    }
+  }
+/>
+`;
+
 exports[`left 1`] = `
 <div
   style={
     Object {
       "left": "1px",
+    }
+  }
+/>
+`;
+
+exports[`letter spacing 1`] = `
+<div
+  style={
+    Object {
+      "letterSpacing": "1px",
     }
   }
 />
@@ -4774,6 +4934,36 @@ exports[`top 1`] = `
 />
 `;
 
+exports[`transform 1`] = `
+<div
+  style={
+    Object {
+      "transform": "rotate(2deg) scale(2)",
+    }
+  }
+/>
+`;
+
+exports[`transform origin 1`] = `
+<div
+  style={
+    Object {
+      "transformOrigin": "top center",
+    }
+  }
+/>
+`;
+
+exports[`transform style 1`] = `
+<div
+  style={
+    Object {
+      "transformStyle": "preserve-3d",
+    }
+  }
+/>
+`;
+
 exports[`user select 1`] = `
 Array [
   <div
@@ -4841,6 +5031,16 @@ Array [
     verticalALign="top"
   />,
 ]
+`;
+
+exports[`visibility 1`] = `
+<div
+  style={
+    Object {
+      "visibility": "hidden",
+    }
+  }
+/>
 `;
 
 exports[`white-space 1`] = `
@@ -4929,6 +5129,16 @@ Array [
     className="o-ui-w-s"
   />,
 ]
+`;
+
+exports[`will-change 1`] = `
+<div
+  style={
+    Object {
+      "willChange": "contents",
+    }
+  }
+/>
 `;
 
 exports[`work-break 1`] = `
