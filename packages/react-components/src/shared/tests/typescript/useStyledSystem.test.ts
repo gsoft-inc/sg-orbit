@@ -13,12 +13,16 @@ import {
     BackgroundPositionProp,
     BackgroundRepeatProp,
     BackgroundSizeProp,
+    BorderBottomLeftRadiusProp,
     BorderBottomProp,
+    BorderBottomRightRadiusProp,
     BorderLeftProp,
     BorderProp,
     BorderRadiusProp,
     BorderRightProp,
+    BorderTopLeftRadiusProp,
     BorderTopProp,
+    BorderTopRightRadiusProp,
     BottomProp,
     BoxShadowProp,
     BoxSizingProp,
@@ -42,8 +46,11 @@ import {
     FlexShrinkProp,
     FlexWrapProp,
     FontFeatureSettingsProp,
+    FontKerningProp,
     FontSizeProp,
     FontStyleProp,
+    FontVariantProp,
+    FontVariationSettingsProp,
     FontWeightProp,
     GapProp,
     GlobalValue,
@@ -190,6 +197,10 @@ expectAssignable<BorderBottomProp>("0");
 expectAssignable<BorderProp>("sunray-1");
 expectAssignable<BorderBottomProp>("hsla(223, 12%, 87%, 1)");
 
+expectAssignable<BorderBottomLeftRadiusProp>("1px");
+
+expectAssignable<BorderBottomRightRadiusProp>("1px");
+
 expectAssignable<BorderLeftProp>("none");
 expectAssignable<BorderLeftProp>("0");
 expectAssignable<BorderProp>("sunray-1");
@@ -204,6 +215,10 @@ expectAssignable<BorderTopProp>("none");
 expectAssignable<BorderTopProp>("0");
 expectAssignable<BorderProp>("sunray-1");
 expectAssignable<BorderTopProp>("hsla(223, 12%, 87%, 1)");
+
+expectAssignable<BorderTopLeftRadiusProp>("1px");
+
+expectAssignable<BorderTopRightRadiusProp>("1px");
 
 expectAssignable<BorderRadiusProp>(0);
 expectAssignable<BorderRadiusProp>(1);
@@ -327,6 +342,8 @@ expectAssignable<FlexWrapProp>("wrap-reverse");
 
 expectAssignable<FontFeatureSettingsProp>("smcp");
 
+expectAssignable<FontKerningProp>("normal");
+
 expectAssignable<FontSizeProp>(1);
 expectAssignable<FontSizeProp>(2);
 expectAssignable<FontSizeProp>(3);
@@ -341,6 +358,10 @@ expectAssignable<FontSizeProp>("headline");
 
 expectAssignable<FontStyleProp>("oblique 10deg");
 expectAssignable<FontStyleProp>("italic");
+
+expectAssignable<FontVariantProp>("small-caps slashed-zero");
+
+expectAssignable<FontVariationSettingsProp>("'XHGT' 0.7");
 
 expectAssignable<FontWeightProp>(3);
 
@@ -583,10 +604,14 @@ expectAssignable<StyledSystemProps>({
     backgroundSize: "auto",
     border: "sunray-10",
     borderBottom: "sunray-10",
+    borderBottomLeftRadius: "2rem",
+    borderBottomRightRadius: "2rem",
     borderLeft: "sunray-10",
     borderRadius: 1,
     borderRight: "sunray-10",
     borderTop: "sunray-10",
+    borderTopLeftRadius: "2rem",
+    borderTopRightRadius: "2rem",
     bottom: "1px",
     boxShadow: 1,
     boxSizing: "border-box",
@@ -610,8 +635,11 @@ expectAssignable<StyledSystemProps>({
     flexShrink: 1,
     flexWrap: "wrap",
     fontFeatureSettings: "swsh",
+    fontKerning: "normal",
     fontSize: 1,
     fontStyle: "oblique 23deg",
+    fontVariant: "small-caps slashed-zero",
+    fontVariationSettings: "'XHGT' 0.7",
     fontWeight: 1,
     gap: 1,
     height: 1,
