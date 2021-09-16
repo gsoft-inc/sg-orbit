@@ -17,14 +17,14 @@ stories()
     )
     .add("color", () =>
         <Stack>
-            <Dot color="botanic-6"></Dot>
-            <Dot color="beetle-6"></Dot>
             <Dot color="hsl(25, 69%, 41%)"></Dot>
             <Dot color="hsla(25, 69%, 41%, 0.5)"></Dot>
             <Dot color="#a4b5dd"></Dot>
             <Dot color="rgb(128,0,0)"></Dot>
             <Dot color="rgb(128,0,0,0.5)"></Dot>
-            <Dot color="var(--o-ui-bg-alias-1)"></Dot>
+            <Dot color="alias-primary-1"></Dot>
+            <Dot color="red"></Dot>
+            <Dot color="--o-ui-cloud-6"></Dot>
         </Stack>
     )
     .add("disabled", () =>

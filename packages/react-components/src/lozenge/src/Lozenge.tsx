@@ -27,13 +27,13 @@ export interface InnerLozengeProps extends SlotProps, InternalProps, StyledCompo
      */
     children: ReactNode;
     /**
-     * The badge color accent.
-     */
-    color?: "primary";
-    /**
      * A lozenge can vary in size.
      */
     size?: "sm" | "md";
+    /**
+     * The lozenze style to use.
+     */
+    variant?: "primary";
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -46,7 +46,7 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     as = HtmlElements[DefaultElement],
     children,
-    color,
+    variant,
     forwardedRef,
     size,
     ...rest
@@ -75,7 +75,7 @@ export function InnerLozenge({
                     as,
                     className: cssModule(
                         "o-ui-lozenge",
-                        color,
+                        variant,
                         icon && "has-icon",
                         normalizeSize(size)
                     ),

@@ -22,20 +22,26 @@ export function createIconLinkTestSuite(element, stories) {
         )
         .add("primary", () =>
             <Inline alignY="end">
-                <IconLink color="primary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink color="primary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="primary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="primary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("secondary", () =>
             <Inline alignY="end">
-                <IconLink color="secondary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink color="secondary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="secondary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="secondary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("danger", () =>
             <Inline alignY="end">
-                <IconLink color="danger" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink color="danger" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="danger" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="danger" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+            </Inline>
+        )
+        .add("inherit color", () =>
+            <Inline alignY="end" color="alias-primary-1">
+                <IconLink color="inherit" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink color="inherit" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("states", () =>

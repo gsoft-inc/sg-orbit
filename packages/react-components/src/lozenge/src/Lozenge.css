@@ -35,6 +35,7 @@
 /* PRIMARY */
 .o-ui-lozenge.o-ui-lozenge-primary {
     background-color: var(--o-ui-bg-alias-primary-1);
+    /* For the icon */
     color: var(--o-ui-white);
 }
 

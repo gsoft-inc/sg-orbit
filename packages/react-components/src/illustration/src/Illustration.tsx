@@ -3,7 +3,7 @@ import "./Illustration.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { HtmlElements } from "../../html";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -14,10 +14,6 @@ export interface InnerIllustrationProps extends SlotProps, InternalProps, Styled
      */
     children: ReactNode;
     /**
-     * The illustration background color, e.g "primary-200".
-     */
-    color?: string;
-    /**
      * The orientation of the illustration.
      */
     orientation?: "horizontal" | "vertical";
@@ -27,26 +23,9 @@ export interface InnerIllustrationProps extends SlotProps, InternalProps, Styled
     shape?: "straight" | "rounded";
 }
 
-function useColor(color: string) {
-    return useMemo(() => {
-        if (!isNil(color)) {
-            if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
-                return color;
-            } else if (color.startsWith("--")) {
-                return `var(${color})`;
-            } else if (color.startsWith("alias") || color.startsWith("global")) {
-                return `var(--o-ui-${color})`;
-            }
-
-            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
-        }
-    }, [color]);
-}
-
 export function InnerIllustration({
     as = HtmlElements[DefaultElement],
     children,
-    color,
     forwardedRef,
     orientation = "horizontal",
     shape = "straight",
@@ -81,10 +60,7 @@ export function InnerIllustration({
                         orientation,
                         shape
                     ),
-                    ref: forwardedRef,
-                    style: {
-                        backgroundColor: useColor(color)
-                    }
+                    ref: forwardedRef
                 }
             )}
         >

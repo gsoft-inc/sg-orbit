@@ -3,13 +3,13 @@ import "./Link.css";
 import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElement } from "../../html";
+import { HtmlElements } from "../../html";
+import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
-import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
@@ -23,10 +23,6 @@ export interface InnerTextLinkProps extends AbstractLinkProps<typeof DefaultElem
      */
     children: ReactNode;
     /**
-     * The color accent.
-     */
-    // color?: "primary" | "secondary" | "danger" | "inherit";
-    /**
      * A link can vary in size.
      */
     size?: "sm" | "md" | "inherit";
@@ -34,6 +30,10 @@ export interface InnerTextLinkProps extends AbstractLinkProps<typeof DefaultElem
      * The underline style.
      */
     underline?: "solid" | "dotted" | "none";
+    /**
+     * The link style to use.
+     */
+    variant?: LinkVariant;
 }
 
 export function InnerTextLink(props: InnerTextLinkProps) {
@@ -42,7 +42,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
 
     const {
         active,
-        as: asProp = HtmlElement[DefaultElement],
+        as: asProp = HtmlElements[DefaultElement],
         autoFocus,
         children,
         disabled,
@@ -55,6 +55,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         target,
         underline = "solid",
         visited,
+        variant,
         ...rest
     } = mergeProps(
         props,
@@ -74,6 +75,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         rel,
         target,
         underline,
+        variant,
         visited
     });
 

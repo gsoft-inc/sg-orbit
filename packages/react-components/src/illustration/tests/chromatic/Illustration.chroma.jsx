@@ -19,11 +19,11 @@ stories()
     )
     .add("horizontal", () =>
         <Stack>
-            <Illustration orientation="horizontal" width="700px" height="200px" color="primary-200">
+            <Illustration orientation="horizontal" width="700px" height="200px" backgroundColor="primary-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Box width="700px" height="200px">
-                <Illustration orientation="horizontal" color="primary-200">
+                <Illustration orientation="horizontal" backgroundColor="primary-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Box>
@@ -31,41 +31,41 @@ stories()
     )
     .add("vertical", () =>
         <Inline>
-            <Illustration orientation="vertical" width="200px" height="500px" color="primary-200">
+            <Illustration orientation="vertical" width="200px" height="500px" backgroundColor="primary-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Box width="200px" height="500px">
-                <Illustration orientation="vertical" color="primary-200">
+                <Illustration orientation="vertical" backgroundColor="primary-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Box>
         </Inline>
     )
     .add("straight", () =>
-        <Illustration shape="straight" width="700px" height="200px" color="primary-200">
+        <Illustration shape="straight" width="700px" height="200px" backgroundColor="primary-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("rounded", () =>
-        <Illustration shape="rounded" width="700px" height="200px" color="primary-200">
+        <Illustration shape="rounded" width="700px" height="200px" backgroundColor="primary-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("color", () =>
         <Stack>
             <Inline>
-                <Illustration color="primary-200" width="700px" height="200px">
+                <Illustration backgroundColor="primary-2" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
-                <Illustration color="rgb(151, 231, 222)" width="700px" height="200px">
+                <Illustration backgroundColor="rgb(151, 231, 222)" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Inline>
             <Inline>
-                <Illustration color="hsla(173, 63%, 75%, 1)" width="700px" height="200px">
+                <Illustration backgroundColor="hsla(173, 63%, 75%, 1)" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
-                <Illustration color="#97e7de" width="700px" height="200px">
+                <Illustration backgroundColor="#97e7de" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Inline>

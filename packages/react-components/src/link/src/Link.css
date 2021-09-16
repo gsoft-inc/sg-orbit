@@ -16,10 +16,10 @@
 }
 
 /* INHERIT | STATE | HOVER */
-.o-ui-link-inherit-color:hover,
+/* .o-ui-link-inherit-color:hover,
 .o-ui-link-inherit-color-hover {
     color: inherit;
-}
+} */
 
 /* STATE | FOCUS */
 .o-ui-link:focus-visible,
@@ -237,9 +237,9 @@ button.o-ui-link-hover {
 }
 
 /* INHERIT */
-.o-ui-link-inherit {
+/* .o-ui-link-inherit {
     color: inherit;
-}
+} */
 
 /* SHAPE | ROUNDED */
 .o-ui-link-rounded {

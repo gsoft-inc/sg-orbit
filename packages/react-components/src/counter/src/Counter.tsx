@@ -14,10 +14,6 @@ export interface InnerCounterProps extends SlotProps, InternalProps, StyledCompo
      */
     children: ReactNode;
     /**
-     * The color accent.
-     */
-    color?: "inherit";
-    /**
      * Whether or not the counter is disabled.
      */
     disabled?: boolean;
@@ -66,12 +62,13 @@ export function InnerCounter(props: InnerCounterProps) {
                     className: cssModule(
                         "o-ui-counter",
                         variant,
-                        color === "inherit" ? "inherit-color" : color,
+                        color === "inherit" && "inherit-color",
                         highlight && "highlight",
                         reverse && "reverse",
                         pushed && "pushed",
                         normalizeSize(size)
                     ),
+                    color,
                     ref: forwardedRef
                 }
             )}

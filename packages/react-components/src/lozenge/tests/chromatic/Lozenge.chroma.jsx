@@ -43,15 +43,15 @@ stories()
     .add("primary", () =>
         <Stack>
             <Inline alignY="end">
-                <Lozenge color="primary" size="sm">New</Lozenge>
-                <Lozenge color="primary">New</Lozenge>
+                <Lozenge variant="primary" size="sm">New</Lozenge>
+                <Lozenge variant="primary">New</Lozenge>
             </Inline>
             <Inline alignY="end">
-                <Lozenge color="primary" size="sm">
+                <Lozenge variant="primary" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge color="primary">
+                <Lozenge variant="primary">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>

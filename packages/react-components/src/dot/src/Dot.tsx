@@ -1,33 +1,28 @@
 import "./Dot.css";
 
 import { Box } from "../../box";
+import { ColorProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { ComponentProps, forwardRef } from "react";
 import { HtmlElements } from "../../html";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
-    /**
-     * The dot color, e.g "primary-200".
-     */
-    color?: string;
-}
+export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> { }
 
-function useColor(color: string) {
+function useColor(color: ColorProp) {
     return useMemo(() => {
         if (!isNil(color)) {
             if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
                 return color;
             } else if (color.startsWith("--")) {
                 return `var(${color})`;
-            } else if (color.startsWith("alias") || color.startsWith("global")) {
-                return `var(--o-ui-${color})`;
+            } else if (color.startsWith("alias")) {
+                return `var(--o-ui-bg-${color})`;
             }
 
-            return `var(--o-ui-${color.startsWith("primary") ? "alias" : "global"}-${color})`;
+            return color;
         }
     }, [color]);
 }

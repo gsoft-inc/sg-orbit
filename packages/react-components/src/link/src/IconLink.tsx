@@ -5,9 +5,9 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { HtmlElements } from "../../html";
+import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, augmentElement, mergeProps, useStyleProps } from "../../shared";
-import { useLink } from "./useLink";
 
 const DefaultElement = "a";
 
@@ -24,10 +24,6 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
      * React children.
      */
     children: ReactNode;
-    // /**
-    //  * The link color accent.
-    //  */
-    // color?: "primary" | "secondary" | "danger";
     /**
      * Whether or not the link content should takes additional space.
      */
@@ -36,6 +32,10 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
      * A link can vary in size.
      */
     size?: "sm" | "md";
+    /**
+     * The link style to use.
+     */
+    variant?: LinkVariant;
 }
 
 export function InnerIconLink(props: InnerIconLinkProps) {
@@ -57,6 +57,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         size,
         target,
         visited,
+        variant,
         ...rest
     } = mergeProps(
         props,
@@ -74,6 +75,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
         hover,
         rel,
         target,
+        variant,
         visited
     });
 

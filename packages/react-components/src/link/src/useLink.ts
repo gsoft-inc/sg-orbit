@@ -1,6 +1,8 @@
 import { ForwardedRef } from "react";
 import { InteractionProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
+export type LinkVariant = "primary" | "secondary" | "danger";
+
 export interface UseLinkProps extends InteractionProps {
     autoFocus?: boolean | number;
     cssModule?: string;
@@ -11,6 +13,7 @@ export interface UseLinkProps extends InteractionProps {
     shape?: string;
     target?: string;
     underline?: string;
+    variant?: LinkVariant;
     visited?: boolean;
 }
 
@@ -27,6 +30,7 @@ export function useLink({
     shape,
     target,
     underline,
+    variant,
     visited
 }: UseLinkProps) {
     const linkRef = useMergedRefs(forwardedRef);
@@ -42,8 +46,7 @@ export function useLink({
                 module,
                 cssModule(
                     "o-ui-link",
-                    // TODO: CSS classes like o-ui-link-variant must be available through a variant or something else.
-                    // color === "inherit" ? "inherit-color" : color,
+                    variant,
                     underline === "none" ? "no-underline" : underline,
                     shape,
                     active && "active",

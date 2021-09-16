@@ -1,7 +1,3 @@
-#o-ui {
-    --o-ui-counter-divider-inherit-opacity: 0.3;
-}
-
 .o-ui-counter {
     color: var(--o-ui-text-alias-1);
 }
@@ -25,11 +21,6 @@
 /* DISABLED */
 .o-ui-counter[disabled] {
     opacity: var(--o-ui-disabled-opacity);
-}
-
-/* COLOR | INHERIT */
-.o-ui-counter-inherit-color {
-    color: inherit;
 }
 
 /* BASIC */
@@ -70,5 +61,5 @@
 /* DIVIDER | COLOR | INHERIT */
 .o-ui-counter-divider.o-ui-counter-inherit-color::before {
     border-color: inherit;
-    opacity: var(--o-ui-counter-divider-inherit-opacity);
+    opacity: 0.3;
 }
