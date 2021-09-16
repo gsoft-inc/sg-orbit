@@ -3,6 +3,7 @@ import "./Tile.css";
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { FlexOrientation } from "../../layout";
+import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -61,7 +62,7 @@ export function InnerTile(props: InnerTileProps) {
 
     const {
         active,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         autoFocus,
         checked,
         children,

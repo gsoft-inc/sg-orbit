@@ -4,6 +4,7 @@ import { AbstractDialogProps, Dialog, useDialogTriggerContext } from "../../dial
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, forwardRef, useMemo } from "react";
 import { Header } from "../../placeholders";
+import { HtmlElements } from "../../html";
 import { InfoIcon, WarningIcon } from "../../icons";
 import { OmitInternalProps, isNil, isNilOrEmpty, mergeProps, useChainedEventCallback, useSlots } from "../../shared";
 
@@ -59,7 +60,7 @@ export interface InnerAlertProps extends Omit<AbstractDialogProps<typeof Default
 }
 
 export function InnerAlert({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocusButton,
     cancelButtonLabel,
     children,

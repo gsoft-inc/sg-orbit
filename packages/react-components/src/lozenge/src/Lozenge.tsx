@@ -2,6 +2,7 @@ import "./Lozenge.css";
 
 import { Box } from "../../box/src/Box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -43,7 +44,7 @@ const textSize = createSizeAdapter({
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerLozenge({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     color,
     forwardedRef,

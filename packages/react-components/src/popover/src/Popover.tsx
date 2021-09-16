@@ -2,6 +2,7 @@ import "./Popover.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -33,7 +34,7 @@ export interface InnerPopoverProps extends InternalProps, InteractionProps, Styl
 export function InnerPopover({
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     focus,
     forwardedRef,

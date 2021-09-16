@@ -20,6 +20,7 @@ import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../in
 import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
 import { Divider } from "../../divider";
+import { HtmlElements } from "../../html";
 import {
     Keys,
     OmitInternalProps,
@@ -378,7 +379,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const {
         active,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         autoFocus,
         defaultEndDate,
         defaultStartDate,

@@ -3,6 +3,7 @@ import "./SearchInput.css";
 import { AbstractTextInputProps, TextInput } from "../../text-input";
 import { ChangeEvent, ComponentProps, KeyboardEvent, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";
+import { HtmlElements } from "../../html";
 import {
     Keys,
     OmitInternalProps,
@@ -35,7 +36,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         defaultValue,
         forwardedRef,
         icon,

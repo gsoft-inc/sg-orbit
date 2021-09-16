@@ -4,6 +4,7 @@ import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     Keys,
@@ -61,7 +62,7 @@ export interface InnerAccordionProps extends InternalProps, StyledComponentProps
 }
 
 export function InnerAccordion({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     children,
     defaultExpandedKeys,

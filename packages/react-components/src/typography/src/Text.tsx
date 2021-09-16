@@ -2,6 +2,7 @@ import "./Text.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "span";
@@ -17,7 +18,7 @@ export function InnerText(props: InnerTextProps) {
     const [styleProps] = useStyleProps<InnerTextProps>("text");
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         size,

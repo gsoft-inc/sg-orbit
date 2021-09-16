@@ -1,5 +1,6 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     Keys,
@@ -73,7 +74,7 @@ const NavigationKeyBinding = {
 export function InnerToolbar({
     alignX,
     alignY,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     children,
     disabled,

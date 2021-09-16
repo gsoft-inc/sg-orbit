@@ -2,6 +2,7 @@ import "./Heading.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -21,7 +22,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     const [styleProps] = useStyleProps<InnerHeadingProps>("heading");
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         size,

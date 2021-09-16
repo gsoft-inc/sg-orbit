@@ -5,6 +5,7 @@ import { Box, BoxProps } from "../../box";
 import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton, HtmlInput } from "../../html";
+import { HtmlElements } from "../../html";
 import {
     OmitInternalProps,
     cssModule,
@@ -173,7 +174,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         active,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         autoFocus,
         defaultValue,
         disabled,

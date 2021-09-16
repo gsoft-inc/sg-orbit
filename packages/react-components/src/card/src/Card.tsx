@@ -2,6 +2,7 @@ import "./Card.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
@@ -27,12 +28,12 @@ export interface InnerCardProps extends SlotProps, InternalProps, StyledComponen
 }
 
 export function InnerCard({
+    as = HtmlElements[DefaultElement],
+    children,
+    fluid,
+    forwardedRef,
     orientation = "vertical",
     size,
-    fluid,
-    as = DefaultElement,
-    children,
-    forwardedRef,
     ...rest
 }: InnerCardProps) {
     const { button, "button-group": buttonGroup, content, header, heading, illustration, image } = useSlots(children, useMemo(() => ({

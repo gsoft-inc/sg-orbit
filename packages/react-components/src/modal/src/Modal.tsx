@@ -3,6 +3,7 @@ import "./Modal.css";
 import { AbstractDialogProps, Dialog } from "../../dialog";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
+import { HtmlElements } from "../../html";
 import { OmitInternalProps, StyleProvider, augmentElement, getSlotKey, isNil, mergeProps, useSlots } from "../../shared";
 
 const DefaultElement = "section";
@@ -70,7 +71,7 @@ function useModalContentMarkup(content: ReactElement) {
 }
 
 export function InnerModal({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     dismissable = true,
     forwardedRef,

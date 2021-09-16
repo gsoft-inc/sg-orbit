@@ -3,15 +3,12 @@ import { ComponentProps, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
 import { OmitInternalProps, slot } from "../../shared";
 
-const DefaultElement = "button";
-
-export type InnerCrossButtonProps = Omit<AbstractIconButtonProps<typeof DefaultElement>, "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">;
+export type InnerCrossButtonProps = Omit<AbstractIconButtonProps<"button">, "fluid" | "loading" | "onChange" | "shape" | "type" | "variant">;
 
 export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProps) {
     return (
         <IconButton
             {...rest}
-            as={DefaultElement}
             ref={forwardedRef}
             shape="circular"
             variant="ghost"

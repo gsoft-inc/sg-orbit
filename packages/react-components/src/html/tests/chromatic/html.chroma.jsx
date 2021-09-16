@@ -19,7 +19,7 @@ stories()
             return (
                 <StyleProvider
                     value={{
-                        "a": {
+                        "html-a": {
                             color: "red"
                         }
                     }}

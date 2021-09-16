@@ -2,6 +2,7 @@ import { AbstractGroupProps, Group } from "../../group";
 import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
@@ -65,7 +66,7 @@ const AvailableSlots = 4;
 
 export function InnerAvatarGroup({
     size,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     forwardedRef,
     ...rest

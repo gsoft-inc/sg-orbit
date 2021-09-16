@@ -3,6 +3,7 @@ import "./Menu.css";
 import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     Keys,
@@ -95,7 +96,7 @@ function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
 export function InnerMenu({
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     children,
     defaultFocusTarget,

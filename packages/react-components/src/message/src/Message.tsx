@@ -4,6 +4,7 @@ import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
@@ -11,7 +12,7 @@ import { Transition } from "../../transition";
 const DefaultElement = "div";
 
 const MessageContent = forwardRef<any, TextProps>(({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     ...rest
 }, ref) => {
@@ -23,12 +24,12 @@ const MessageContent = forwardRef<any, TextProps>(({
         >
             <StyleProvider
                 value={{
-                    a: {
-                        color: "inherit"
-                    },
                     heading: {
                         className: "o-ui-message-title",
                         size: "2xs"
+                    },
+                    "html-a": {
+                        color: "inherit"
                     },
                     link: {
                         color: "inherit"

@@ -3,6 +3,7 @@ import "./IconButton.css";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -21,7 +22,7 @@ import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus"> & {
+export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
@@ -91,7 +92,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         type,
         "aria-label": ariaLabel,
-        as: asProp = DefaultElement,
+        as: asProp = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         ...rest

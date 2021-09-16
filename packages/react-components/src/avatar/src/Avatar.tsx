@@ -3,6 +3,7 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -20,7 +21,9 @@ import {
 } from "../../shared";
 import { Text } from "../../typography";
 
-export interface InnerAvatarProps extends SlotProps, InternalProps, StyledComponentProps<"div" | "image"> {
+const DefaultElement = "div";
+
+export interface InnerAvatarProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement | "image"> {
     /**
      * The name of the person in the avatar.
      */
@@ -137,7 +140,6 @@ const textSize = createSizeAdapter({
 
 export function AvatarText(props: any) {
     const {
-        as = "span",
         children,
         size,
         ...rest
@@ -148,7 +150,6 @@ export function AvatarText(props: any) {
             {...mergeProps(
                 rest,
                 {
-                    as,
                     className: "o-ui-avatar-text",
                     size: textSize(size)
                 }
@@ -161,7 +162,7 @@ export function AvatarText(props: any) {
 
 export function InnerAvatar({
     "aria-label": ariaLabel,
-    as = "div",
+    as = HtmlElements[DefaultElement],
     forwardedRef,
     name,
     retryCount,

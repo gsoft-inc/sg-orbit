@@ -18,6 +18,7 @@ import {
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FlexDirection } from "./adapters";
+import { HtmlElements } from "../../html";
 
 const DefaultElement = "div";
 
@@ -98,7 +99,7 @@ export interface InnerFlexProps extends
 
 export function InnerFlex({
     alignItems,
-    as: asProp,
+    as: asProp = HtmlElements[DefaultElement],
     children,
     direction = "row",
     fluid,

@@ -4,11 +4,11 @@ import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionIte
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";
 import { ComponentProps, SyntheticEvent, forwardRef } from "react";
-import { Disclosure, DisclosureDefaultElement } from "../../disclosure";
+import { Disclosure } from "../../disclosure";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
-export interface InnerAccordionItemProps extends InternalProps, Omit<StyledComponentProps<typeof DisclosureDefaultElement>, "ref"> {
+export interface InnerAccordionItemProps extends InternalProps, Omit<StyledComponentProps<"div">, "ref"> {
     item: {
         header: AccordionBuilderHeader;
         id: string;

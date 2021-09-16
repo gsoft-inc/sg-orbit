@@ -4,6 +4,7 @@ import { AbstractInputProps } from "../../input";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
+import { HtmlElements } from "../../html";
 import { Listbox } from "../../listbox";
 import { OmitInternalProps, ZindexProp, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Overlay, OverlayProps, PopupAlignment, PopupDirection } from "../../overlay";
@@ -121,7 +122,7 @@ export function InnerSelect(props: InnerSelectProps) {
         "aria-describedby": ariaDescribedBy,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as: TriggerType = DefaultElement,
+        as: TriggerType = HtmlElements[DefaultElement],
         autoFocus,
         children,
         defaultOpen,

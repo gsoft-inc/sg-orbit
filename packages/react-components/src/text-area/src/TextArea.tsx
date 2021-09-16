@@ -3,7 +3,7 @@ import "./TextArea.css";
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { HtmlTextArea } from "../../html";
+import { HtmlElements, HtmlTextArea } from "../../html";
 import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
@@ -67,31 +67,31 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const [fieldProps] = useFieldInputProps();
 
     const {
-        id,
-        value,
-        defaultValue,
-        placeholder,
-        required,
-        validationState,
-        onValueChange,
-        onChange,
-        type = "text",
-        autoFocus,
-        button,
-        disabled,
-        readOnly,
-        fluid,
-        loading,
-        rows: rowsProp,
-        maxRows,
         active,
-        focus,
-        hover,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        wrapperProps: userWrapperProps,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
+        autoFocus,
+        button,
+        defaultValue,
+        disabled,
+        fluid,
+        focus,
         forwardedRef,
+        hover,
+        id,
+        loading,
+        maxRows,
+        onChange,
+        onValueChange,
+        placeholder,
+        readOnly,
+        required,
+        rows: rowsProp,
+        type = "text",
+        validationState,
+        value,
+        wrapperProps: userWrapperProps,
         ...rest
     } = mergeProps(
         props,

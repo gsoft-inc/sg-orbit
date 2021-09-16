@@ -1,6 +1,7 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
@@ -36,10 +37,10 @@ export function getValidationProps(validationState: string) {
 }
 
 export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
-    tone,
-    fluid,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
+    fluid,
+    tone,
     ...rest
 }, ref) => {
     return (
@@ -59,7 +60,16 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
         >
             <StyleProvider
                 value={{
-                    a: {
+                    "html-a": {
+                        color: "inherit"
+                    },
+                    "html-ol": {
+                        color: "inherit"
+                    },
+                    "html-p": {
+                        color: "inherit"
+                    },
+                    "html-ul": {
                         color: "inherit"
                     },
                     icon: {
@@ -68,16 +78,10 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
                     link: {
                         color: "inherit"
                     },
-                    ol: {
-                        color: "inherit"
-                    },
                     p: {
                         color: "inherit"
                     },
                     text: {
-                        color: "inherit"
-                    },
-                    ul: {
                         color: "inherit"
                     }
                 }}

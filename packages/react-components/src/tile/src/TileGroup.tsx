@@ -1,6 +1,7 @@
 import { AbstractGroupProps, Group } from "../../group";
 import { CheckboxGroup } from "../../checkbox";
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import {
     OmitInternalProps,
     arrayify,
@@ -61,7 +62,7 @@ export interface UnselectableGroupProps extends AbstractGroupProps<typeof Defaul
 }
 
 const UnselectableGroup = forwardRef<HTMLElement, UnselectableGroupProps>(({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     children,
     ...rest

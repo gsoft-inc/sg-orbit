@@ -2,6 +2,7 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
@@ -43,7 +44,7 @@ function useColor(color: string) {
 }
 
 export function InnerIllustration({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     color,
     forwardedRef,

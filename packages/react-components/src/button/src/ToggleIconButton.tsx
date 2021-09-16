@@ -3,10 +3,8 @@ import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } f
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-const DefaultElement = "button";
-
-export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
-    /**
+export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps<"button">, "onChange" | "variant"> {
+    /**"
      * A controlled checked value.
      */
     checked?: boolean | null;
@@ -45,7 +43,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     const {
         active,
         "aria-label": ariaLabel,
-        as = DefaultElement,
         checked,
         children,
         defaultChecked,
@@ -78,8 +75,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         <IconButton
             {...mergeProps(
                 {
-                    "aria-label": ariaLabel,
-                    as
+                    "aria-label": ariaLabel
                 },
                 rest,
                 buttonProps

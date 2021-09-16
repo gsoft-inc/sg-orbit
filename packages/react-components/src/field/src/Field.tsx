@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";
 import { useField } from "./useField";
@@ -35,7 +36,7 @@ export function InnerField(props: InnerFieldProps) {
     const [toolbarProps] = useToolbarProps();
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         className,
         disabled,

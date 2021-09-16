@@ -42,6 +42,7 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { HtmlElements } from "../../html";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
@@ -170,7 +171,7 @@ function useSelectionManager(items: CollectionItem[], { selectedKeys }: { select
 export function InnerListbox({
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     children,
     defaultFocusTarget,

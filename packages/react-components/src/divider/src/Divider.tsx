@@ -2,6 +2,7 @@ import "./Divider.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
@@ -19,10 +20,10 @@ export interface InnerDividerProps extends InternalProps, StyledComponentProps<t
 }
 
 export function InnerDivider({
-    orientation = "horizontal",
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     forwardedRef,
+    orientation = "horizontal",
     ...rest
 }: InnerDividerProps) {
     const labelMarkup = children && (

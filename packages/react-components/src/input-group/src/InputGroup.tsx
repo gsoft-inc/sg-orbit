@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
+import { HtmlElements } from "../../html";
 import { InputGroupContext } from "./InputGroupContext";
 import {
     InternalProps,
@@ -54,7 +55,7 @@ function toAddon(element: ReactElement, key?: number): ReactNode {
 }
 
 export function InnerInputGroup({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     disabled,
     fluid,

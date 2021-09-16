@@ -2,6 +2,7 @@ import "./Dot.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
@@ -33,7 +34,7 @@ function useColor(color: string) {
 
 export function InnerDot(props: InnerDotProps) {
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         color,
         forwardedRef,
