@@ -3,6 +3,7 @@ import "./Tag.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
+import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -15,7 +16,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
      */
     children: ReactNode;
     /**
-     * @ignore
+     * Whether or not the tag have a disable look.
      */
     disabled?: boolean;
     /**
@@ -40,7 +41,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
 
 export function InnerTag({
     active,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     disabled,
     fluid,

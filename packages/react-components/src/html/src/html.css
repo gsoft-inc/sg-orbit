@@ -72,7 +72,31 @@
 .o-ui-html-label::before,
 .o-ui-html-textarea,
 .o-ui-html-textarea::after,
-.o-ui-html-textarea::before {
+.o-ui-html-textarea::before,
+.o-ui-html-p,
+.o-ui-html-p::after,
+.o-ui-html-p::before,
+.o-ui-img-p,
+.o-ui-img-p::after,
+.o-ui-img-p::before,
+.o-ui-img-h1,
+.o-ui-img-h1::after,
+.o-ui-img-h1::before,
+.o-ui-img-h2,
+.o-ui-img-h2::after,
+.o-ui-img-h2::before,
+.o-ui-img-h3,
+.o-ui-img-h3::after,
+.o-ui-img-h3::before,
+.o-ui-img-h4,
+.o-ui-img-h4::after,
+.o-ui-img-h4::before,
+.o-ui-img-h5,
+.o-ui-img-h5::after,
+.o-ui-img-h5::before,
+.o-ui-img-h6,
+.o-ui-img-h6::after,
+.o-ui-img-h6::before {
     box-sizing: border-box;
 }
 
@@ -106,7 +130,6 @@
 .o-ui-html-button,
 .o-ui-html-input,
 .o-ui-html-textarea {
-    /* optgroup / select */
     padding: 0;
     line-height: inherit;
     color: inherit;
@@ -130,4 +153,32 @@
     display: none;
     width: 0;
     height: 0;
+}
+
+.o-ui-html-img {
+    display: block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+.o-ui-html-p,
+.o-ui-html-h1,
+.o-ui-html-h2,
+.o-ui-html-h3,
+.o-ui-html-h4,
+.o-ui-html-h5,
+.o-ui-html-h6 {
+    margin: 0;
+}
+
+.o-ui-html-h1,
+.o-ui-html-h2,
+.o-ui-html-h3,
+.o-ui-html-h4,
+.o-ui-html-h5,
+.o-ui-html-h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
 }

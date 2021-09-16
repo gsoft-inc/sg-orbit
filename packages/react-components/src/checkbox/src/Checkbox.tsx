@@ -3,6 +3,7 @@ import "./Checkbox.css";
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -71,32 +72,32 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
     const [toolbarProps] = useToolbarProps();
 
     const {
-        id,
-        checked,
-        defaultChecked,
-        indeterminate,
-        defaultIndeterminate,
-        value,
+        active,
+        "aria-label": ariaLabel,
+        "aria-labelledby": ariaLabelledBy,
+        as = HtmlElements[DefaultElement],
         autoFocus,
-        required,
-        validationState,
-        onValueChange,
+        checked,
+        children,
+        defaultChecked,
+        defaultIndeterminate,
+        disabled,
+        focus,
+        forwardedRef,
+        hover,
+        id,
+        indeterminate,
+        name,
         onChange,
         onCheck,
-        size,
+        onValueChange,
+        required,
         reverse,
-        name,
-        tabIndex,
-        active,
-        focus,
-        hover,
-        disabled,
-        "aria-label": ariaLabel,
         // Usually provided by the field inputs.
-        "aria-labelledby": ariaLabelledBy,
-        as = DefaultElement,
-        children,
-        forwardedRef,
+        size,
+        tabIndex,
+        validationState,
+        value,
         ...rest
     } = mergeProps(
         omitProps(props, ["role"]),

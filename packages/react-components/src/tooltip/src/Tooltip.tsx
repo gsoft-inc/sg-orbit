@@ -1,6 +1,7 @@
 import "./Tooltip.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 
@@ -14,7 +15,7 @@ export interface InnerTooltipProps extends InternalProps, StyledComponentProps<t
 }
 
 export function InnerTooltip({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     forwardedRef,
     ...rest

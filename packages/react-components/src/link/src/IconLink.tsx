@@ -4,6 +4,7 @@ import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
+import { HtmlElements } from "../../html";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, augmentElement, mergeProps, useStyleProps } from "../../shared";
 import { useLink } from "./useLink";
@@ -43,7 +44,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const {
         active,
         "aria-label": ariaLabel,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         autoFocus,
         children,
         condensed,

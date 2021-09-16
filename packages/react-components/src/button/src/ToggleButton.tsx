@@ -3,9 +3,7 @@ import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { useToggleButton } from "./useToggleButton";
 
-const DefaultElement = "button";
-
-export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
+export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<"button">, "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */
@@ -43,7 +41,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     const [checkableProps, isCheckable] = useCheckableProps(props);
 
     const {
-        as = DefaultElement,
         active,
         checked,
         children,
@@ -79,9 +76,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         <Button
             {...mergeProps(
                 rest,
-                {
-                    as
-                },
                 buttonProps
             )}
         >

@@ -3,6 +3,7 @@ import "./Form.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "form";
@@ -24,7 +25,7 @@ export interface InnerFormProps extends InternalProps, StyledComponentProps<type
 
 export function InnerForm(props: InnerFormProps) {
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         disabled,
         fluid,

@@ -1,12 +1,13 @@
 import { Box } from "../../box";
+import { CollectionItem } from "../../collection";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, SlotElements, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
+import { SelectionMode } from "./Menu";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
-import type { CollectionItem } from "../../collection";
-import type { SelectionMode } from "./Menu";
 
 const DefaultElement = "li";
 
@@ -33,7 +34,7 @@ const RoleBySelectionMode: Record<SelectionMode, string> = {
 
 export function InnerMenuItem({
     active,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     disabled,
     focus,

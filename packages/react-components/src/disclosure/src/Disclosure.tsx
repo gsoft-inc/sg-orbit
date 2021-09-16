@@ -2,13 +2,28 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { InternalProps, Keys, OmitInternalProps, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps, resolveChildren, useControllableState, useEventCallback, useId, useMergedRefs } from "../../shared";
+import { HtmlElements } from "../../html";
+import {
+    InternalProps,
+    Keys,
+    OmitInternalProps,
+    StyledComponentProps,
+    augmentElement,
+    cssModule,
+    isNil,
+    mergeProps,
+    resolveChildren,
+    useControllableState,
+    useEventCallback,
+    useId,
+    useMergedRefs
+} from "../../shared";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 
-export const DisclosureDefaultElement = "div";
+const DefaultElement = "div";
 
-export interface InnerDisclosureProps extends InternalProps, StyledComponentProps<typeof DisclosureDefaultElement> {
+export interface InnerDisclosureProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -31,7 +46,7 @@ export interface InnerDisclosureProps extends InternalProps, StyledComponentProp
 }
 
 export function InnerDisclosure({
-    as = DisclosureDefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     defaultOpen,
     forwardedRef,

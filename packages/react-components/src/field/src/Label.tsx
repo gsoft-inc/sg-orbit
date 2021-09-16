@@ -1,6 +1,7 @@
 import "./Label.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";
 import { useFieldLabelProps } from "./FieldContext";
@@ -28,7 +29,7 @@ export function InnerLabel(props: InnerLabelProps) {
     const [fieldProps] = useFieldLabelProps(props);
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         required,

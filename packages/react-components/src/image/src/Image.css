@@ -1,10 +1,3 @@
-.o-ui-image {
-    display: block;
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
-}
-
 /* SHAPE | ROUNDED */
 .o-ui-image-rounded {
     border-radius: var(--o-ui-shape-rounded);

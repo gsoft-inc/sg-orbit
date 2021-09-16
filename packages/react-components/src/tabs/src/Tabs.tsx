@@ -2,6 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
@@ -54,7 +55,7 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
 }
 
 export function InnerTabs({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     "aria-label": ariaLabel,
     autoFocus,
     children,

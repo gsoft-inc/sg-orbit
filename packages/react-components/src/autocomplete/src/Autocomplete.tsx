@@ -4,6 +4,7 @@ import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
+import { HtmlElements } from "../../html";
 import {
     Keys,
     OmitInternalProps,
@@ -139,7 +140,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         "aria-describedby": ariaDescribedBy,
         wrapperProps,
         overlayProps: { id: menuId, width: menuWidth, ...menuProps } = {},
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         ...rest

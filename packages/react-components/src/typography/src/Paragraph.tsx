@@ -1,6 +1,7 @@
 import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
@@ -25,7 +26,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
     const [styleProps] = useStyleProps<InnerParagraphProps>("p");
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         size,
@@ -69,8 +70,5 @@ export const Paragraph = forwardRef<any, OmitInternalProps<InnerParagraphProps>>
 ));
 
 export type ParagraphProps = ComponentProps<typeof Paragraph>;
-
-// Alias
-export const P = Paragraph;
 
 

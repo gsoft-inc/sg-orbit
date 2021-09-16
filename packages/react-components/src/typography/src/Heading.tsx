@@ -2,6 +2,7 @@ import "./Heading.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -12,7 +13,7 @@ export interface InnerHeadingProps extends InternalProps, StyledComponentProps<t
      */
     children: ReactNode;
     /**
-     * A heading can vary in size.
+     * An heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
 }
@@ -21,7 +22,7 @@ export function InnerHeading(props: InnerHeadingProps) {
     const [styleProps] = useStyleProps<InnerHeadingProps>("heading");
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         size,

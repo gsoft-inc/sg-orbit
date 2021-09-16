@@ -14,7 +14,6 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     const {
-        as,
         children,
         forwardedRef,
         ...rest
@@ -28,7 +27,6 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
             {...mergeProps(
                 rest,
                 {
-                    as,
                     className: "o-ui-input-group-text-addon",
                     ref: forwardedRef
                 }

@@ -3,6 +3,7 @@ import "./Switch.css";
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -65,7 +66,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         active,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         autoFocus,
         checked,
         children,

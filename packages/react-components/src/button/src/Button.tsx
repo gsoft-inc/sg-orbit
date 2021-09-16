@@ -2,6 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -88,7 +89,7 @@ export function InnerButton(props: InnerButtonProps) {
 
     const {
         active,
-        as: asProp = DefaultElement,
+        as: asProp = HtmlElements[DefaultElement],
         autoFocus,
         children,
         color,

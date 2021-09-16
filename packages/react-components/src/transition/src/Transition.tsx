@@ -1,5 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
@@ -29,7 +30,7 @@ export interface InnerTransitionProps extends InternalProps, StyledComponentProp
 
 export function InnerTransition({
     animateFirstRender = false,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     enter,
     forwardedRef,

@@ -1,4 +1,5 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -40,7 +41,7 @@ export interface InnerPopoverTriggerProps extends
 export function InnerPopoverTrigger({
     allowFlip = true,
     allowPreventOverflow = true,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     containerElement,
     defaultOpen,

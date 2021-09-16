@@ -14,18 +14,14 @@ export function InnerBox(props: InnerBoxProps) {
     const {
         as: As = DefaultElement,
         children,
-        className,
         forwardedRef,
-        style,
         ...rest
     } = omitProps(useStyledSystem(props), ["slot"]);
 
     return (
         <As
             {...rest}
-            className={className}
             ref={forwardedRef}
-            style={style}
         >
             {children}
         </As>

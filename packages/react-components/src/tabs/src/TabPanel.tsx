@@ -1,6 +1,7 @@
 import "./Tabs.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Text } from "../../typography";
@@ -20,7 +21,7 @@ export interface InnerTabPanelProps extends InternalProps, StyledComponentProps<
 }
 
 export function InnerTabPanel({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     forwardedRef,
     panel: { key, panelId, tabId },

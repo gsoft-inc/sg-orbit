@@ -1,6 +1,7 @@
 import "./Tabs.css";
 
 import { Box } from "../../box";
+import { HtmlElements } from "../../html";
 import { InternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";
 import { Ref } from "react";
@@ -14,7 +15,7 @@ export interface TabPanelsProps extends Omit<InternalProps, "forwardedRef">, Sty
 }
 
 export function TabPanels({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     panels,
     ...rest
 }: TabPanelsProps) {

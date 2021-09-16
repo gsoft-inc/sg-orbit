@@ -1,4 +1,5 @@
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { Inline } from "../../layout";
 import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, mergeProps, omitProps } from "../../shared";
 import { useFormContext } from "./FormContext";
@@ -20,7 +21,7 @@ export function InnerRow(props: InnerRowProps) {
     const [formProps] = useFormContext();
 
     const {
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
         children,
         fluid,
         forwardedRef,

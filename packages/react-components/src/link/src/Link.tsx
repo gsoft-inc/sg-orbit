@@ -2,6 +2,7 @@ import "./Link.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, JsxElement, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
@@ -59,18 +60,18 @@ export function InnerLink(props: InnerLinkProps) {
     const [styleProps] = useStyleProps<InnerLinkProps>("link");
 
     const {
-        target,
-        rel,
-        external,
-        shape = "rounded",
-        autoFocus,
         active,
-        focus,
-        hover,
-        disabled,
-        as = DefaultElement,
+        as = HtmlElements[DefaultElement],
+        autoFocus,
         children,
+        disabled,
+        external,
+        focus,
         forwardedRef,
+        hover,
+        rel,
+        shape = "rounded",
+        target,
         ...rest
     } = mergeProps(
         props,

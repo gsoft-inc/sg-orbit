@@ -1,5 +1,6 @@
 import { ApricotTheme, OrbitTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
+import { HtmlElements } from "../../html";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
 import { Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
@@ -31,7 +32,7 @@ export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">,
 }
 
 export function ThemeProvider({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     colorScheme,
     defaultColorScheme,

@@ -2,6 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ForwardedRef, forwardRef } from "react";
+import { HtmlElements } from "../../html";
 import {
     InternalProps,
     Keys,
@@ -45,7 +46,7 @@ export interface InnerTabListProps extends InternalProps, StyledComponentProps<t
 }
 
 export function InnerTabList({
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     autoFocus,
     forwardedRef,
     tabs,

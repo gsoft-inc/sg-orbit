@@ -2,6 +2,7 @@ import "./Tabs.css";
 
 import { Box } from "../../box";
 import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
@@ -28,7 +29,7 @@ export interface InnerTabProps extends InternalProps, InteractionProps, StyledCo
 
 export function InnerTab({
     active,
-    as = DefaultElement,
+    as = HtmlElements[DefaultElement],
     children,
     disabled,
     focus,
