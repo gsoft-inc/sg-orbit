@@ -7,7 +7,7 @@ import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
 
-export interface InnerButtonGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "gap">, SlotProps {
+export interface InnerButtonGroupProps extends Omit<AbstractGroupProps<"div">, "gap">, SlotProps {
     /**
      * Whether or not the buttons are disabled.
      */

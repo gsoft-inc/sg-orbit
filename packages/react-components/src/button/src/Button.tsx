@@ -2,6 +2,7 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { HtmlButton } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -64,9 +65,7 @@ export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & Inter
     variant?: "solid" | "outline" | "ghost";
 };
 
-const DefaultElement = "button";
-
-export interface InnerButtonProps extends AbstractButtonProps<typeof DefaultElement>, SlotProps {
+export interface InnerButtonProps extends AbstractButtonProps<"div">, SlotProps {
     /**
      * React children.
      */
@@ -88,7 +87,7 @@ export function InnerButton(props: InnerButtonProps) {
 
     const {
         active,
-        as: asProp = DefaultElement,
+        as: asProp = HtmlButton,
         autoFocus,
         children,
         color,

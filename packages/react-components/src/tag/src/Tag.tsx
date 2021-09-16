@@ -15,7 +15,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
      */
     children: ReactNode;
     /**
-     * @ignore
+     * Whether or not the tag have a disable look.
      */
     disabled?: boolean;
     /**

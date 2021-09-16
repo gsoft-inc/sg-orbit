@@ -1,26 +1,4 @@
-import { Box } from "../../box";
-import { ElementRef, forwardRef } from "react";
-import { JsxElement, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
-
-function htmlElement<T extends JsxElement<any>>(name: string, elementType: T, className?: string) {
-    return forwardRef<ElementRef<T>, StyledComponentProps<T>>((props, ref) => {
-        const [styleProps] = useStyleProps<StyledComponentProps<T>>(name);
-
-        return (
-            <Box
-                {...mergeProps(
-                    props,
-                    {
-                        as: elementType,
-                        className,
-                        ref
-                    },
-                    styleProps
-                )}
-            />
-        );
-    });
-}
+import { htmlElement } from "./htmlElement";
 
 // Sectioning & Content sectioning
 
@@ -30,8 +8,6 @@ export const Article = htmlElement("article", "article");
 
 export const Aside = htmlElement("aside", "aside");
 
-export const Body = htmlElement("body", "body");
-
 export const HtmlFooter = htmlElement("html-footer", "footer");
 
 export const HtmlHeader = htmlElement("html-header", "header");
@@ -40,7 +16,7 @@ export const Main = htmlElement("main", "main");
 
 export const Nav = htmlElement("nav", "nav");
 
-export const Section = htmlElement("section", "section");
+export const HtmlSection = htmlElement("html-section", "section");
 
 // Text content
 

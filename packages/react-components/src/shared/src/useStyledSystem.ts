@@ -790,9 +790,9 @@ export type ImageRenderingProp = string;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
-export type JustifyItemsProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "auto" | "normal" | "stretch", string>>;
+export type JustifyItemsProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "normal" | "stretch", string>>;
 
-export type JustifySelfProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "auto" | "normal" | "stretch", string>>;
+export type JustifySelfProp = Simplify<LiteralUnion<"stretch" | "center" | "start" | "end" | "flex-start" | "flex-end" | "self-start" | "self-end" | "left" | "right" | "normal" | "stretch", string>>;
 
 export type LeftProp = string;
 

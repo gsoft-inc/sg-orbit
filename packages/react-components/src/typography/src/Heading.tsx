@@ -12,7 +12,7 @@ export interface InnerHeadingProps extends InternalProps, StyledComponentProps<t
      */
     children: ReactNode;
     /**
-     * A heading can vary in size.
+     * An heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
 }
