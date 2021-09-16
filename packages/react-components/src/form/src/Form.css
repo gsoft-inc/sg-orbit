@@ -15,6 +15,7 @@
 /* FIELDSET */
 .o-ui-fieldset {
     padding: 0;
+    margin: 0;
     border: none;
     margin-bottom: var(--o-ui-space-6);
 }

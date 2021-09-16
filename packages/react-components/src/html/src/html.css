@@ -1,0 +1,133 @@
+.o-ui-html-address,
+.o-ui-html-address::after,
+.o-ui-html-address::before,
+.o-ui-html-article,
+.o-ui-html-article::after,
+.o-ui-html-article::before,
+.o-ui-html-aside,
+.o-ui-html-aside::after,
+.o-ui-html-aside::before,
+.o-ui-html-footer,
+.o-ui-html-footer::after,
+.o-ui-html-footer::before,
+.o-ui-html-header,
+.o-ui-html-header::after,
+.o-ui-html-header::before,
+.o-ui-html-main,
+.o-ui-html-main::after,
+.o-ui-html-main::before,
+.o-ui-html-nav,
+.o-ui-html-nav::after,
+.o-ui-html-nav::before,
+.o-ui-html-section,
+.o-ui-html-section::after,
+.o-ui-html-section::before,
+.o-ui-html-div,
+.o-ui-html-div::after,
+.o-ui-html-div::before,
+.o-ui-html-ul,
+.o-ui-html-ul::after,
+.o-ui-html-ul::before,
+.o-ui-html-ol,
+.o-ui-html-ol::after,
+.o-ui-html-ol::before,
+.o-ui-html-li,
+.o-ui-html-li::after,
+.o-ui-html-li::before,
+.o-ui-html-a,
+.o-ui-html-a::after,
+.o-ui-html-a::before,
+.o-ui-html-span,
+.o-ui-html-span::after,
+.o-ui-html-span::before,
+.o-ui-html-table,
+.o-ui-html-table::after,
+.o-ui-html-table::before,
+.o-ui-html-thead,
+.o-ui-html-thead::after,
+.o-ui-html-thead::before,
+.o-ui-html-tbody,
+.o-ui-html-tbody::after,
+.o-ui-html-tbody::before,
+.o-ui-html-tfoot,
+.o-ui-html-tfoot::after,
+.o-ui-html-tfoot::before,
+.o-ui-html-th,
+.o-ui-html-th::after,
+.o-ui-html-th::before,
+.o-ui-html-tr,
+.o-ui-html-tr::after,
+.o-ui-html-tr::before,
+.o-ui-html-td,
+.o-ui-html-td::after,
+.o-ui-html-td::before,
+.o-ui-html-button,
+.o-ui-html-button::after,
+.o-ui-html-button::before,
+.o-ui-html-input,
+.o-ui-html-input::after,
+.o-ui-html-input::before,
+.o-ui-html-label,
+.o-ui-html-label::after,
+.o-ui-html-label::before,
+.o-ui-html-textarea,
+.o-ui-html-textarea::after,
+.o-ui-html-textarea::before {
+    box-sizing: border-box;
+}
+
+.o-ui-html-ul {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.o-ui-html-ol {
+    margin: 0;
+    list-style: none;
+    padding: 0;
+}
+
+.o-ui-html-button {
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
+}
+
+.o-ui-html-table {
+    border-collapse: collapse;
+}
+
+.o-ui-html-a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.o-ui-html-button,
+.o-ui-html-input,
+.o-ui-html-textarea {
+    /* optgroup / select */
+    padding: 0;
+    line-height: inherit;
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+.o-ui-html-textarea {
+    resize: vertical;
+}
+
+.o-ui-html-input::placeholder,
+.o-ui-html-textarea::placeholder {
+    opacity: 1;
+    color: #A1A1AA;
+}
+
+/* Removing Edge input field decoration. */
+.o-ui-html-input[type="text"]::-ms-clear,
+.o-ui-html-input[type="text"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
