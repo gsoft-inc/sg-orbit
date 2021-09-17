@@ -35,7 +35,7 @@ A modal must have an heading and a content.
 <Preview>
     <Story name="default">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -54,7 +54,7 @@ A modal can have a side banner [image](?path=/story/chromatic-image--default):
 <Preview scope={{ SpacePortrait }}>
     <Story name="image">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Image src={SpacePortrait} alt="Planet with a flag" />
                 <Heading>Apollo 11 movie</Heading>
@@ -72,7 +72,7 @@ Or an [illustration](?path=/docs/illustration--horizontal):
 <Preview scope={{ Planet }}>
     <Story name="illustration centered">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Illustration color="#7a49a5">
                     <Image src={Planet} alt="Planet Logo" />
@@ -94,7 +94,7 @@ A modal can offer a choice between 2 options.
 <Preview scope={{ ET, TheMartian }}>
     <Story name="choice">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Which of the following movie is the greatest space movie?</Heading>
                 <Content>
@@ -123,7 +123,7 @@ A modal can have an header.
 <Preview>
     <Story name="header">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Header>
@@ -145,7 +145,7 @@ A modal can have a footer.
 <Preview>
     <Story name="footer">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -165,7 +165,7 @@ A modal can have a single [button](?path=/docs/button--default-story):
 <Preview>
     <Story name="button">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -183,7 +183,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group)
 <Preview>
     <Story name="button group">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -191,7 +191,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group)
                     <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
                 </Content>
                 <ButtonGroup>
-                    <Button color="secondary">Select</Button>
+                    <Button variant="secondary">Select</Button>
                     <Button>Next</Button>
                 </ButtonGroup>
             </Modal>
@@ -206,7 +206,7 @@ A modal can take almost all the available space.
 <Preview>
     <Story name="fullscreen">
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal fullscreen>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -214,7 +214,7 @@ A modal can take almost all the available space.
                     <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
                 </Content>
                 <ButtonGroup>
-                    <Button color="secondary">Select</Button>
+                    <Button variant="secondary">Select</Button>
                     <Button>Next</Button>
                 </ButtonGroup>
             </Modal>
@@ -240,7 +240,7 @@ A call to action can dismiss the modal by calling a `close` function which can b
             {({ close }) => {
                 return (
                     <>
-                        <Button>Open</Button>
+                        <Button variant="secondary">Open</Button>
                         <Modal>
                             <Heading>Apollo 11</Heading>
                             <Content>

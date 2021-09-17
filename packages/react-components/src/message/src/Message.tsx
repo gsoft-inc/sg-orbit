@@ -95,10 +95,10 @@ export function InnerMessage({
         },
         button: {
             className: "o-ui-message-action",
-            color: "inherit",
             condensed: true,
+            inherit: true,
             size: "sm",
-            variant: "ghost"
+            variant: "tertiary"
         },
         content: {
             as: MessageContent,

@@ -13,7 +13,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <ModalTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -21,13 +21,12 @@ stories()
                     <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
                     <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
                 </Content>
-                <Button>Close</Button>
             </Modal>
         </ModalTrigger>
     )
     .add("default open", () =>
         <ModalTrigger defaultOpen>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -35,13 +34,13 @@ stories()
                     <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
                     <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
                 </Content>
-                <Button>Close</Button>
+                <Button variant="secondary">Close</Button>
             </Modal>
         </ModalTrigger>
     )
     .add("not dismissable", () =>
         <ModalTrigger dismissable={false} defaultOpen>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Modal>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>

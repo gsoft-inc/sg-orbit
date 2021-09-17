@@ -214,146 +214,6 @@ export function createButtonTestSuite(element, stories) {
                 </Div>
             </Stack>
         )
-        .add("primary", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button color="primary" size="sm" element={element}>Button</Button>
-                    <Button color="primary" element={element}>Button</Button>
-                </Inline>
-                <Inline>
-                    <Button color="primary" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button color="primary" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button color="primary" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline>
-                    <Button active color="primary" element={element}>Button</Button>
-                    <Button focus color="primary" element={element}>Button</Button>
-                    <Button hover color="primary" element={element}>Button</Button>
-                    <Button focus hover color="primary" element={element}>Button</Button>
-                    <Button loading color="primary" element={element}>Button</Button>
-                </Inline>
-            </Stack>
-        )
-        .add("secondary", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button color="secondary" size="sm" element={element}>Button</Button>
-                    <Button color="secondary" element={element}>Button</Button>
-                </Inline>
-                <Inline>
-                    <Button color="secondary" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button color="secondary" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button color="secondary" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline>
-                    <Button active color="secondary" element={element}>Button</Button>
-                    <Button focus color="secondary" element={element}>Button</Button>
-                    <Button hover color="secondary" element={element}>Button</Button>
-                    <Button focus hover color="secondary" element={element}>Button</Button>
-                    <Button loading color="secondary" element={element}>Button</Button>
-                </Inline>
-            </Stack>
-        )
-        .add("danger", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button color="danger" size="sm" element={element}>Button</Button>
-                    <Button color="danger" element={element}>Button</Button>
-                </Inline>
-                <Inline>
-                    <Button color="danger" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button color="danger" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button color="danger" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline>
-                    <Button active color="danger" element={element}>Button</Button>
-                    <Button focus color="danger" element={element}>Button</Button>
-                    <Button hover color="danger" element={element}>Button</Button>
-                    <Button focus hover color="danger" element={element}>Button</Button>
-                    <Button loading color="danger" element={element}>Button</Button>
-                </Inline>
-            </Stack>
-        )
-        .add("inherit", () =>
-            <Stack backgroundColor="sunray-1" color="sunray-10">
-                <Inline alignY="end">
-                    <Button color="inherit" size="sm" element={element}>Button</Button>
-                    <Button color="inherit" element={element}>Button</Button>
-                </Inline>
-                <Inline>
-                    <Button color="inherit" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button color="inherit" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button color="inherit" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline>
-                    <Button active color="inherit" element={element}>Button</Button>
-                    <Button focus color="inherit" element={element}>Button</Button>
-                    <Button hover color="inherit" element={element}>Button</Button>
-                    <Button focus hover color="inherit" element={element}>Button</Button>
-                    <Button loading color="inherit" element={element}>Button</Button>
-                </Inline>
-            </Stack>
-        )
-        .add("circular", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button loading shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button loading shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button condensed shape="circular" element={element}>Aa</Button>
-                </Inline>
-            </Stack>
-        )
         .add("rounded", () =>
             <Stack>
                 <Inline alignY="end">
@@ -383,6 +243,22 @@ export function createButtonTestSuite(element, stories) {
                 <Inline alignY="end">
                     <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
                     <Button condensed shape="rounded" element={element}>Aa</Button>
+                </Inline>
+            </Stack>
+        )
+        .add("circular", () =>
+            <Stack>
+                <Inline alignY="end">
+                    <Button shape="circular" size="sm" element={element}>Aa</Button>
+                    <Button shape="circular" element={element}>Aa</Button>
+                </Inline>
+                <Inline alignY="end">
+                    <Button loading shape="circular" size="sm" element={element}>Aa</Button>
+                    <Button loading shape="circular" element={element}>Aa</Button>
+                </Inline>
+                <Inline alignY="end">
+                    <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
+                    <Button condensed shape="circular" element={element}>Aa</Button>
                 </Inline>
             </Stack>
         )

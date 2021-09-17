@@ -10,7 +10,13 @@ test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any" aria-label="Add" data-testid="toggle-icon-button">
+        <ToggleIconButton
+            onChange={handler}
+            value="any"
+            variant="secondary"
+            aria-label="Add"
+            data-testid="toggle-icon-button"
+        >
             <AddIcon />
         </ToggleIconButton>
     );
@@ -27,7 +33,13 @@ test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleIconButton onChange={handler} value="any" aria-label="Add" data-testid="toggle-icon-button">
+        <ToggleIconButton
+            onChange={handler}
+            value="any"
+            variant="secondary"
+            aria-label="Add"
+            data-testid="toggle-icon-button"
+        >
             <AddIcon />
         </ToggleIconButton>
     );
@@ -50,7 +62,12 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(
-        <ToggleIconButton ref={ref} value="any" aria-label="Add">
+        <ToggleIconButton
+            variant="secondary"
+            ref={ref}
+            value="any"
+            aria-label="Add"
+        >
             <AddIcon />
         </ToggleIconButton>
     );
@@ -66,6 +83,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     render(
         <ToggleIconButton
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -86,7 +104,12 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <ToggleIconButton ref={handler} value="any" aria-label="Add">
+        <ToggleIconButton
+            variant="secondary"
+            ref={handler}
+            value="any"
+            aria-label="Add"
+        >
             <AddIcon />
         </ToggleIconButton>
     );

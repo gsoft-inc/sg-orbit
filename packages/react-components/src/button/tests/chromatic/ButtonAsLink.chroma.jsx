@@ -9,16 +9,18 @@ function stories(segment) {
         .build();
 }
 
-createButtonTestSuite(<ButtonAsLink variant="solid" />, stories("/solid"));
+createButtonTestSuite(<ButtonAsLink variant="primary" />, stories("/primary"));
 
-createButtonTestSuite(<ButtonAsLink variant="outline" />, stories("/outline"));
+createButtonTestSuite(<ButtonAsLink variant="secondary" />, stories("/secondary"));
 
-createButtonTestSuite(<ButtonAsLink variant="ghost" />, stories("/ghost"));
+createButtonTestSuite(<ButtonAsLink variant="tertiary" />, stories("/tertiary"));
+
+createButtonTestSuite(<ButtonAsLink variant="danger" />, stories("/danger"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <ButtonAsLink className="bg-red">Button</ButtonAsLink>
-            <ButtonAsLink style={{ backgroundColor: "red" }}>Button</ButtonAsLink>
+            <ButtonAsLink className="bg-red" variant="secondary">Button</ButtonAsLink>
+            <ButtonAsLink style={{ backgroundColor: "red" }} variant="secondary">Button</ButtonAsLink>
         </Inline>
     );

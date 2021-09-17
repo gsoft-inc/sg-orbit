@@ -110,9 +110,9 @@ stories()
     )
     .add("toggle buttons", () =>
         <CheckboxGroup gap={2} defaultValue={["2"]}>
-            <ToggleButton variant="outline" shape="circular" value="1">1</ToggleButton>
-            <ToggleButton variant="outline" shape="circular" value="2">2</ToggleButton>
-            <ToggleButton variant="outline" shape="circular" value="3">3</ToggleButton>
+            <ToggleButton variant="secondary" shape="circular" value="1">1</ToggleButton>
+            <ToggleButton variant="secondary" shape="circular" value="2">2</ToggleButton>
+            <ToggleButton variant="secondary" shape="circular" value="3">3</ToggleButton>
         </CheckboxGroup>
     )
     .add("custom components", () =>

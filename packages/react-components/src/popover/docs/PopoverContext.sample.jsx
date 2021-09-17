@@ -4,7 +4,7 @@ const HighlightedTrigger = forwardRef(({ children, ...rest }, ref) => {
     return (
         <Button
             {...rest}
-            color={isOpen ? "primary" : undefined}
+            variant={isOpen ? "primary" : "secondary"}
             ref={ref}
         >
             Trigger

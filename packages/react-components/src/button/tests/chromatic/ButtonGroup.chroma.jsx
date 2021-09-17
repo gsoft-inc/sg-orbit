@@ -13,14 +13,14 @@ stories()
     .add("default", () =>
         <Stack>
             <ButtonGroup size="sm">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
             </ButtonGroup>
             <ButtonGroup>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
             </ButtonGroup>
         </Stack>
     )
@@ -28,57 +28,57 @@ stories()
         <Inline gap={13}>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="outline" shape="rounded" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
         </Inline>
     )
     .add("fluid", () =>
         <ButtonGroup fluid>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("disabled", () =>
         <ButtonGroup disabled>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("align", () =>
         <Stack>
             <ButtonGroup align="start">
-                <Button variant="ghost">Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="tertiary">Reset</Button>
+                <Button variant="primary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end">
-                <Button variant="ghost">Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="tertiary">Reset</Button>
+                <Button variant="primary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center">
-                <Button variant="ghost">Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="tertiary">Reset</Button>
+                <Button variant="primary">Submit form</Button>
             </ButtonGroup>
         </Stack>
     );
@@ -86,38 +86,38 @@ stories()
 stories("/vertical")
     .add("default", () =>
         <ButtonGroup orientation="vertical">
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
-            <Button>Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("size", () =>
         <Inline alignY="end">
             <ButtonGroup orientation="vertical" size="sm">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
             </ButtonGroup>
             <ButtonGroup orientation="vertical">
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
-                <Button>Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
+                <Button variant="secondary">Cutoff</Button>
             </ButtonGroup>
         </Inline>
     )
     .add("align", () =>
         <Inline>
             <ButtonGroup align="start" orientation="vertical">
-                <Button>Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="secondary">Reset</Button>
+                <Button variant="secondary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end" orientation="vertical">
-                <Button>Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="secondary">Reset</Button>
+                <Button variant="secondary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center" orientation="vertical">
-                <Button>Reset</Button>
-                <Button>Submit form</Button>
+                <Button variant="secondary">Reset</Button>
+                <Button variant="secondary">Submit form</Button>
             </ButtonGroup>
         </Inline>
     );

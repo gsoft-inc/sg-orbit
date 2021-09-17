@@ -10,6 +10,7 @@ test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = render(
         <IconButton
             autoFocus
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -25,6 +26,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <IconButton
             disabled
             autoFocus
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -39,6 +41,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = render(
         <IconButton
             autoFocus={10}
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -60,6 +63,7 @@ test("can focus the button with the focus api", async () => {
 
     render(
         <IconButton
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -82,7 +86,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(
-        <IconButton ref={ref} aria-label="Add">
+        <IconButton variant="secondary" ref={ref} aria-label="Add">
             <AddIcon />
         </IconButton>
     );
@@ -98,6 +102,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     render(
         <IconButton
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -117,7 +122,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <IconButton ref={handler} aria-label="Add">
+        <IconButton variant="secondary" ref={handler} aria-label="Add">
             <AddIcon />
         </IconButton>
     );

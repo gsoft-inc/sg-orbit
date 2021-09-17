@@ -1,6 +1,7 @@
 import { Button, IconButton } from "@react-components/button";
 import { DisclosureArrow } from "@react-components/disclosure";
 import { Divider } from "@react-components/divider";
+import { HtmlButton } from "@react-components/html";
 import { Item, Section } from "@react-components/collection";
 import { Menu, MenuTrigger } from "@react-components/menu";
 import { Text } from "@react-components/typography";
@@ -21,7 +22,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <MenuTrigger>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -31,7 +32,7 @@ stories()
     )
     .add("open with items only", () =>
         <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -41,7 +42,7 @@ stories()
     )
     .add("open with sections", () =>
         <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Section title="Visited">
                     <Item key="earth">Earth</Item>
@@ -59,7 +60,7 @@ stories()
     )
     .add("open with dividers", () =>
         <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -74,7 +75,7 @@ stories()
     )
     .add("open with a selected item", () =>
         <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -84,7 +85,7 @@ stories()
     )
     .add("open with multiple selected items", () =>
         <MenuTrigger defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu defaultSelectedKeys={["mars", "saturn"]} selectionMode="multiple">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -94,7 +95,7 @@ stories()
     )
     .add("direction bottom", () =>
         <MenuTrigger direction="bottom" defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -104,7 +105,7 @@ stories()
     )
     .add("direction top", () =>
         <MenuTrigger direction="top" defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -119,7 +120,7 @@ stories()
     )
     .add("align start", () =>
         <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu style={{ width: "300px" }}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -134,7 +135,7 @@ stories()
     )
     .add("align end", () =>
         <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu width="300px">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -149,7 +150,7 @@ stories()
     )
     .add("icon button trigger", () =>
         <MenuTrigger defaultOpen>
-            <IconButton aria-label="Open menu">
+            <IconButton variant="secondary" aria-label="Open menu">
                 <VerticalDotsIcon />
             </IconButton>
             <Menu>
@@ -162,18 +163,16 @@ stories()
     .add("custom trigger with disclosure arrow", () => {
         const CustomTrigger = forwardRef((props, ref) => {
             return (
-                <button
+                <HtmlButton
                     {...props}
                     type="button"
-                    style={{
-                        display: "flex",
-                        alignItems: "center"
-                    }}
+                    display="flex"
+                    alignItems="center"
                     ref={ref}
                 >
                     <Text>Trigger</Text>
                     <DisclosureArrow />
-                </button>
+                </HtmlButton>
             );
         });
 
@@ -203,7 +202,7 @@ stories()
 
         return (
             <MenuTrigger defaultOpen>
-                <Button>Trigger</Button>
+                <Button variant="secondary">Trigger</Button>
                 <CustomMenu>
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -214,7 +213,7 @@ stories()
     })
     .add("className", () =>
         <MenuTrigger className="border-red" defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
@@ -224,7 +223,7 @@ stories()
     )
     .add("style", () =>
         <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>

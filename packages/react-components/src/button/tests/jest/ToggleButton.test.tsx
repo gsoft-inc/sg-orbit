@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 
 test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = render(
-        <ToggleButton autoFocus data-testid="button">Cutoff</ToggleButton>
+        <ToggleButton autoFocus variant="secondary" data-testid="button">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
@@ -19,6 +19,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <ToggleButton
             disabled
             autoFocus
+            variant="secondary"
             data-testid="button"
         >Cutoff</ToggleButton>
     );
@@ -30,6 +31,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = render(
         <ToggleButton
             autoFocus={10}
+            variant="secondary"
             data-testid="button"
         >Cutoff</ToggleButton>
     );
@@ -47,7 +49,14 @@ test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleButton onChange={handler} value="any" data-testid="toggle-button">Cutoff</ToggleButton>
+        <ToggleButton
+            onChange={handler}
+            value="any"
+            variant="secondary"
+            data-testid="toggle-button"
+        >
+            Cutoff
+        </ToggleButton>
     );
 
     act(() => {
@@ -62,7 +71,14 @@ test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = render(
-        <ToggleButton onChange={handler} value="any" data-testid="toggle-button">Cutoff</ToggleButton>
+        <ToggleButton
+            onChange={handler}
+            value="any"
+            variant="secondary"
+            data-testid="toggle-button"
+        >
+            Cutoff
+        </ToggleButton>
     );
 
     act(() => {
@@ -83,7 +99,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(
-        <ToggleButton ref={ref} value="any">Cutoff</ToggleButton>
+        <ToggleButton variant="secondary" ref={ref} value="any">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -97,6 +113,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     render(
         <ToggleButton
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -114,7 +131,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <ToggleButton ref={handler} value="any">Cutoff</ToggleButton>
+        <ToggleButton variant="secondary" ref={handler} value="any">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

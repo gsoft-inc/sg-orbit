@@ -16,7 +16,7 @@ stories()
     )
     .add("complex", () =>
         <Label>
-            <Span>Where to? (<TextLink color="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</Span>
+            <Span>Where to? (<TextLink variant="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</Span>
         </Label>
     )
     .add("as span", () =>

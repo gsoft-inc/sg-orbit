@@ -7,7 +7,7 @@
 
     return (
         <Div minHeight="80px">
-            <Button onClick={handleToggle} marginBottom={4}>Toggle animation</Button>
+            <Button onClick={handleToggle} variant="secondary" marginBottom={4}>Toggle animation</Button>
             <Transition
                 show={isVisible}
                 enter="o-ui-fade-in"

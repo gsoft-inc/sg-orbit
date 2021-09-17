@@ -20,7 +20,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <PopoverTrigger>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -29,7 +29,7 @@ stories()
     )
     .add("default open", () =>
         <PopoverTrigger defaultOpen>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -38,7 +38,7 @@ stories()
     )
     .add("position auto", () =>
         <PopoverTrigger position="auto" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -47,7 +47,7 @@ stories()
     )
     .add("position auto-start", () =>
         <PopoverTrigger position="auto-start" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -56,7 +56,7 @@ stories()
     )
     .add("position auto-end", () =>
         <PopoverTrigger position="auto-end" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -65,7 +65,7 @@ stories()
     )
     .add("position top", () =>
         <PopoverTrigger position="top" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -74,7 +74,7 @@ stories()
     )
     .add("position top-start", () =>
         <PopoverTrigger position="top-start" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -83,7 +83,7 @@ stories()
     )
     .add("position top-end", () =>
         <PopoverTrigger position="top-end" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -92,7 +92,7 @@ stories()
     )
     .add("position bottom", () =>
         <PopoverTrigger position="bottom" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -101,7 +101,7 @@ stories()
     )
     .add("position bottom-start", () =>
         <PopoverTrigger position="bottom-start" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -110,7 +110,7 @@ stories()
     )
     .add("position bottom-end", () =>
         <PopoverTrigger position="bottom-end" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -119,7 +119,7 @@ stories()
     )
     .add("position right", () =>
         <PopoverTrigger position="right" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -128,7 +128,7 @@ stories()
     )
     .add("position right-start", () =>
         <PopoverTrigger position="right-start" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -137,7 +137,7 @@ stories()
     )
     .add("position right-end", () =>
         <PopoverTrigger position="right-end" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -146,7 +146,7 @@ stories()
     )
     .add("position left", () =>
         <PopoverTrigger position="left" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -155,7 +155,7 @@ stories()
     )
     .add("position left-start", () =>
         <PopoverTrigger position="left-start" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -164,7 +164,7 @@ stories()
     )
     .add("position left-end", () =>
         <PopoverTrigger position="left-end" open>
-            <Button>Toggle</Button>
+            <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>

@@ -1,6 +1,7 @@
 import "./IconButton.css";
 
 import { Box } from "../../box";
+import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import { HtmlElements } from "../../html";
@@ -18,7 +19,6 @@ import {
     omitProps,
     slot
 } from "../../shared";
-import { useButton } from "./useButton";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
@@ -28,15 +28,11 @@ export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & I
      */
     "aria-label": string;
     /**
-     * Whether or not the icon button should autoFocus on render.
+     * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
     /**
-     * The icon button color accent.
-     */
-    color?: "primary" | "secondary" | "danger" | "inherit";
-    /**
-     * Whether or not the icon button content should takes additional space.
+     * Whether or not the button content should takes additional space.
      */
     condensed?: boolean;
     /**
@@ -44,15 +40,19 @@ export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & I
      */
     fluid?: boolean;
     /**
-     * An icon button can show a loading indicator.
+     * Whether or not the button should inherit it's parent style.
+     */
+    inherit?: boolean;
+    /**
+     * A button can show a loading indicator.
      */
     loading?: boolean;
     /**
-     * The icon button shape.
+     * The button shape.
      */
-    shape?: "rounded" | "circular";
+    shape?: ButtonShape;
     /**
-     * An icon button can vary in size.
+     * A button can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md";
     /**
@@ -60,9 +60,9 @@ export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & I
      */
     type?: "button" | "submit" | "reset";
     /**
-     * The icon button style to use.
+     * The button style to use.
      */
-    variant?: "solid" | "outline" | "ghost";
+    variant?: ButtonVariant;
 };
 
 const DefaultElement = "button";
@@ -79,22 +79,22 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     const [inputGroupProps] = useInputGroupButtonAddonProps();
 
     const {
-        variant = "solid",
-        color,
-        shape = "circular",
-        condensed,
-        autoFocus,
-        fluid,
-        loading,
-        size,
         active,
-        focus,
-        hover,
-        type,
         "aria-label": ariaLabel,
         as: asProp = HtmlElements[DefaultElement],
+        autoFocus,
         children,
+        condensed,
+        fluid,
+        focus,
         forwardedRef,
+        hover,
+        inherit,
+        loading,
+        shape = "circular",
+        size,
+        type,
+        variant,
         ...rest
     } = mergeProps(
         props,
@@ -106,12 +106,12 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         active,
         as: asProp,
         autoFocus,
-        color,
         cssModule: "o-ui-icon-button",
         fluid,
         focus,
         forwardedRef,
         hover,
+        inherit,
         loading,
         shape,
         size,

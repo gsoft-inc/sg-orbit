@@ -11,7 +11,7 @@
             open={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button>Trigger</Button>
+            <Button variant="secondary">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>

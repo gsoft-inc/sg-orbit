@@ -1,6 +1,7 @@
 import "./TextButton.css";
 
 import { Box } from "../../box";
+import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { HtmlElements } from "../../html";
 import {
@@ -21,7 +22,6 @@ import {
 } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
-import { useButton } from "./useButton";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -32,10 +32,6 @@ export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & Inter
      */
     autoFocus?: boolean | number;
     /**
-     * The button color accent.
-     */
-    color?: "primary" | "secondary" | "danger" | "inherit";
-    /**
      * Whether or not the button content should takes additional space.
      */
     condensed?: boolean;
@@ -44,13 +40,17 @@ export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & Inter
      */
     fluid?: boolean;
     /**
+     * Whether or not the button should inherit it's parent style.
+     */
+    inherit?: boolean;
+    /**
      * A button can show a loading indicator.
      */
     loading?: boolean;
     /**
      * The button shape.
      */
-    shape?: "pill" | "rounded" | "circular";
+    shape?: ButtonShape;
     /**
      * A button can vary in size.
      */
@@ -62,7 +62,7 @@ export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & Inter
     /**
      * The button style to use.
      */
-    variant?: "solid" | "outline" | "ghost";
+    variant?: ButtonVariant;
 };
 
 const DefaultElement = "button";
@@ -79,7 +79,7 @@ const condensedTextSize = createSizeAdapter({
     "sm": "md",
     "md": "lg"
 });
-/* eslint-emable sort-keys, sort-keys-fix/sort-keys-fix */
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
@@ -92,7 +92,6 @@ export function InnerButton(props: InnerButtonProps) {
         as: asProp = HtmlElements[DefaultElement],
         autoFocus,
         children,
-        color,
         condensed,
         disabled,
         fluid,
@@ -100,10 +99,11 @@ export function InnerButton(props: InnerButtonProps) {
         forwardedRef,
         hover,
         loading,
-        shape = "pill",
+        shape,
         size,
         type,
-        variant = "solid",
+        variant,
+        inherit,
         ...rest
     } = mergeProps(
         props,
@@ -114,45 +114,45 @@ export function InnerButton(props: InnerButtonProps) {
     );
 
     const { ref: buttonRef, ...buttonProps } = useButton({
-        cssModule: "o-ui-text-button",
-        variant,
-        color,
-        shape,
-        autoFocus,
-        fluid,
-        loading,
-        size,
         active,
-        focus,
-        hover,
-        type,
         as: asProp,
-        forwardedRef
+        autoFocus,
+        cssModule: "o-ui-text-button",
+        fluid,
+        focus,
+        forwardedRef,
+        hover,
+        inherit,
+        loading,
+        shape,
+        size,
+        type,
+        variant
     });
 
     const { counter, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
         _: {
             defaultWrapper: Text
         },
-        icon: {
-            size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-icon o-ui-button-start-icon"
-        },
-        text: {
-            size: condensed ? condensedTextSize(size) : size,
-            className: "o-ui-button-text",
-            "aria-hidden": loading
+        counter: {
+            className: "o-ui-button-counter",
+            color: "inherit",
+            disabled,
+            pushed: true,
+            size: condensed ? condensedTextSize(size) : size
         },
         "end-icon": {
-            size: condensed ? size : embeddedIconSize(size),
-            className: "o-ui-button-end-icon"
+            className: "o-ui-button-end-icon",
+            size: condensed ? size : embeddedIconSize(size)
         },
-        counter: {
-            size: condensed ? condensedTextSize(size) : size,
-            color: "inherit",
-            pushed: true,
-            disabled,
-            className: "o-ui-button-counter"
+        icon: {
+            className: "o-ui-button-icon o-ui-button-start-icon",
+            size: condensed ? size : embeddedIconSize(size)
+        },
+        text: {
+            "aria-hidden": loading,
+            className: "o-ui-button-text",
+            size: condensed ? condensedTextSize(size) : size
         }
     }), [size, disabled, condensed, loading]));
 
@@ -161,13 +161,13 @@ export function InnerButton(props: InnerButtonProps) {
             {...mergeProps(
                 rest,
                 {
-                    disabled,
+                    as: asProp,
                     className: cssModule(
                         "o-ui-button",
                         icon && "has-start-icon",
                         endIcon && "has-end-icon"
                     ),
-                    as: asProp,
+                    disabled,
                     ref: buttonRef
                 },
                 buttonProps

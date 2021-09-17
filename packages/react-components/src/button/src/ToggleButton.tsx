@@ -1,7 +1,7 @@
 import { AbstractButtonProps, Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
-import { useToggleButton } from "./useToggleButton";
+import { ToggleButtonVariant, useToggleButton } from "./useToggleButton";
 
 export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<"button">, "onChange" | "variant"> {
     /**
@@ -12,10 +12,6 @@ export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<"button
      * React children.
      */
     children: ReactNode;
-    /**
-     * The button color accent.
-     */
-    color?: "primary" | "secondary";
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -32,9 +28,9 @@ export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<"button
      */
     value?: string;
     /**
-     * The style to use.
+     * The button style to use.
      */
-    variant?: "solid" | "outline";
+    variant?: ToggleButtonVariant;
 }
 
 export function InnerToggleButton(props: InnerToggleButtonProps) {
@@ -48,9 +44,9 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         forwardedRef,
         onChange,
         onCheck,
-        shape = "pill",
+        shape,
         value,
-        variant = "solid",
+        variant,
         ...rest
     } = mergeProps(
         props,

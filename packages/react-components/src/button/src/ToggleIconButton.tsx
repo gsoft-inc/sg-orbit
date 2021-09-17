@@ -1,10 +1,10 @@
 import { AbstractIconButtonProps, IconButton } from "./IconButton";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
-import { useToggleButton } from "./useToggleButton";
+import { ToggleButtonVariant, useToggleButton } from "./useToggleButton";
 
 export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps<"button">, "onChange" | "variant"> {
-    /**"
+    /**
      * A controlled checked value.
      */
     checked?: boolean | null;
@@ -12,10 +12,6 @@ export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps
      * React children.
      */
     children: ReactNode;
-    /**
-     * The button color accent.
-     */
-    color?: "primary" | "secondary";
     /**
      * The initial value of `checked` when uncontrolled.
      */
@@ -34,7 +30,7 @@ export interface InnerToggleIconButtonProps extends Omit<AbstractIconButtonProps
     /**
      * The style to use.
      */
-    variant?: "solid" | "outline";
+    variant?: ToggleButtonVariant;
 }
 
 export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
@@ -50,7 +46,7 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         onChange,
         shape = "circular",
         value,
-        variant = "solid",
+        variant,
         ...rest
     } = mergeProps(
         props,

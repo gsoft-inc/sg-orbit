@@ -1,7 +1,7 @@
 import "./Dot.css";
 
+import { BackgroundColorProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Box } from "../../box";
-import { ColorProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { ComponentProps, forwardRef } from "react";
 import { HtmlElements } from "../../html";
 import { Text } from "../../typography";
@@ -9,9 +9,14 @@ import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> { }
+export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+    /**
+     * The dot color.
+     */
+    color: BackgroundColorProp;
+}
 
-function useColor(color: ColorProp) {
+function useColor(color: BackgroundColorProp) {
     return useMemo(() => {
         if (!isNil(color)) {
             if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {

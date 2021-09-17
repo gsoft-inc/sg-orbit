@@ -45,7 +45,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
             className="o-ui-password-input-show-button"
             onClick={handleShowValue}
             title="Toggle password visibility"
-            variant="ghost"
+            variant="tertiary"
         >
             {isHidden ? <EyeIcon /> : <PrivacyIcon />}
         </IconButton>

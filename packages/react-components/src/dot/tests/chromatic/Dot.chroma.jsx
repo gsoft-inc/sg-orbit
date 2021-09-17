@@ -10,10 +10,10 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Dot></Dot>
+        <Dot color="alias-2" />
     )
     .add("label", () =>
-        <Dot>Habitable</Dot>
+        <Dot color="alias-2">Habitable</Dot>
     )
     .add("color", () =>
         <Stack>
@@ -29,20 +29,20 @@ stories()
     )
     .add("disabled", () =>
         <Stack>
-            <Dot disabled></Dot>
+            <Dot disabled color="alias-2"></Dot>
             <Dot color="hsl(25, 69%, 41%)" disabled>Habitable</Dot>
         </Stack>
     )
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Dot className="bg-red"></Dot>
-                <Dot style={{ backgroundColor: "red" }}></Dot>
+                <Dot className="bg-red" color="alias-2"></Dot>
+                <Dot style={{ backgroundColor: "red" }} color="alias-2"></Dot>
             </Inline>
             <Inline>
-                <Dot className="bg-red">Habitable</Dot>
-                <Dot style={{ backgroundColor: "red" }}>Habitable</Dot>
-                <Dot className="i">Habitable</Dot>
+                <Dot className="bg-red" color="alias-2">Habitable</Dot>
+                <Dot style={{ backgroundColor: "red" }} color="alias-2">Habitable</Dot>
+                <Dot className="i" color="alias-2">Habitable</Dot>
             </Inline>
         </Stack>
     );

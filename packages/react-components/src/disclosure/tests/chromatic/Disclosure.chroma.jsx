@@ -15,7 +15,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Disclosure>
-            <Button>Mars</Button>
+            <Button variant="secondary">Mars</Button>
             <Div>
                 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet),
                 being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet".[17][18] The latter refers
@@ -28,13 +28,13 @@ stories()
         <Stack>
             <div>
                 <Disclosure open>
-                    <Button>Mars</Button>
+                    <Button variant="secondary">Mars</Button>
                     <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
                 </Disclosure>
             </div>
             <div>
                 <Disclosure defaultOpen>
-                    <Button>Mars</Button>
+                    <Button variant="secondary">Mars</Button>
                     <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
                 </Disclosure>
             </div>

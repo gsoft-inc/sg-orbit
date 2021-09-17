@@ -30,54 +30,6 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("primary", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <IconButton color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline alignY="end">
-                    <IconButton loading color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
-        .add("secondary", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <IconButton color="secondary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="secondary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="secondary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="secondary" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline alignY="end">
-                    <IconButton loading color="secondary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="secondary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="secondary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="secondary" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
-        .add("danger", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <IconButton color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline alignY="end">
-                    <IconButton loading color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
         .add("rounded", () =>
             <Stack>
                 <Inline alignY="end">

@@ -17,7 +17,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <DialogTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -25,13 +25,12 @@ stories()
                     <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
                     <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
                 </Content>
-                <Button>Close</Button>
             </Dialog>
         </DialogTrigger>
     )
     .add("default open", () =>
         <DialogTrigger defaultOpen>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -44,7 +43,7 @@ stories()
     )
     .add("not dismissable", () =>
         <DialogTrigger dismissable={false} defaultOpen>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -60,7 +59,7 @@ stories()
             {() => {
                 return (
                     <>
-                        <Button>Open</Button>
+                        <Button variant="secondary">Open</Button>
                         <Dialog>
                             <Heading>Iconic Arecibo Observatory collapses</Heading>
                             <Content>

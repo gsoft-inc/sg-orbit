@@ -2,27 +2,26 @@ import { AddIcon } from "@react-components/icons";
 import { IconButton } from "@react-components/button";
 import { Inline } from "@react-components/layout";
 import { createIconButtonTestSuite } from "./createIconButtonTestSuite";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/IconButton")
         .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .build())
         .build();
 }
 
-createIconButtonTestSuite(<IconButton variant="solid" />, stories("/solid"));
+createIconButtonTestSuite(<IconButton variant="primary" />, stories("/primary"));
 
-createIconButtonTestSuite(<IconButton variant="outline" />, stories("/outline"));
+createIconButtonTestSuite(<IconButton variant="secondary" />, stories("/secondary"));
 
-createIconButtonTestSuite(<IconButton variant="ghost" />, stories("/ghost"));
+createIconButtonTestSuite(<IconButton variant="tertiary" />, stories("/tertiary"));
+
+createIconButtonTestSuite(<IconButton variant="danger" />, stories("/danger"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButton className="bg-red" aria-label="Add"><AddIcon /></IconButton>
-            <IconButton style={{ backgroundColor: "red" }} aria-label="Add"><AddIcon /></IconButton>
+            <IconButton className="bg-red" variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton style={{ backgroundColor: "red" }} variant="secondary" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
     );

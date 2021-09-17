@@ -49,7 +49,6 @@ export function InnerParagraph(props: InnerParagraphProps) {
                     ref: forwardedRef,
                     size
                 }
-
             )}
         >
             <StyleProvider

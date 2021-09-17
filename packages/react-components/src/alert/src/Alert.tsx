@@ -119,9 +119,9 @@ export function InnerAlert({
     const primaryButtonMarkup = (
         <Button
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
-            color={variant === "destructive" ? "danger" : undefined}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
+            variant={variant === "destructive" ? "danger" : "primary"}
         >
             {primaryButtonLabel}
         </Button>
@@ -132,7 +132,7 @@ export function InnerAlert({
             autoFocus={autoFocusButton === "secondary"}
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
-            variant="outline"
+            variant="secondary"
         >
             {secondaryButtonLabel}
         </Button>
@@ -142,7 +142,7 @@ export function InnerAlert({
         <Button
             autoFocus={autoFocusButton === "cancel"}
             onClick={handleCancelButtonClick}
-            variant="outline"
+            variant="secondary"
         >
             {cancelButtonLabel}
         </Button>

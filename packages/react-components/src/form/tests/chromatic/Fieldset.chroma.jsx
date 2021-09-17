@@ -93,6 +93,6 @@ stories()
                     <TextInput />
                 </Field>
             </Fieldset>
-            <Button>Submit</Button>
+            <Button variant="secondary">Submit</Button>
         </Form>
     );

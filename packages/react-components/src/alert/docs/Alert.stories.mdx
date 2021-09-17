@@ -48,7 +48,7 @@ An alert must have an heading, some content and a primary button label.
 <Preview>
     <Story name="default">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert primaryButtonLabel="Yes">
                 <Heading>Autopilot</Heading>
                 <Content>Are you use sure you want to engage autopilot?</Content>
@@ -64,7 +64,7 @@ An alert can have a secondary button.
 <Preview>
     <Story name="secondary button">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 primaryButtonLabel="Yes"
                 secondaryButtonLabel="Postpone"
@@ -83,7 +83,7 @@ An alert can have a cancel button.
 <Preview>
     <Story name="cancel button">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 primaryButtonLabel="Yes"
                 cancelButtonLabel="No"
@@ -102,7 +102,7 @@ An alert primary and secondary buttons can be disabled.
 <Preview>
     <Story name="disabled buttons">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 primaryButtonLabel="Yes"
                 primaryButtonDisabled
@@ -123,7 +123,7 @@ Use a confirmation alert when a non destructive action is required from a user.
 <Preview>
     <Story name="confirmation">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 variant="confirmation"
                 primaryButtonLabel="Yes"
@@ -143,7 +143,7 @@ Use a destructive alert to confirm a permanent change, like deleting data.
 <Preview>
     <Story name="destructive">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 variant="destructive"
                 primaryButtonLabel="Yes"
@@ -163,7 +163,7 @@ Use a warning alert to inform of a significant change.
 <Preview>
     <Story name="warning">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 variant="warning"
                 primaryButtonLabel="Ok"
@@ -183,7 +183,7 @@ Use a negative alert to inform that something went wrong, like a server error.
 <Preview>
     <Story name="negative">
         <AlertTrigger>
-            <Button>Open</Button>
+            <Button variant="secondary">Open</Button>
             <Alert
                 variant="negative"
                 primaryButtonLabel="Retry"

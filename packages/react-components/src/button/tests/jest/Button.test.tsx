@@ -7,7 +7,7 @@ import { waitDelay } from "@utils/waitDelay";
 
 test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = render(
-        <Button autoFocus data-testid="button">Cutoff</Button>
+        <Button autoFocus variant="secondary" data-testid="button">Cutoff</Button>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
@@ -18,6 +18,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <Button
             disabled
             autoFocus
+            variant="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -29,6 +30,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = render(
         <Button
             autoFocus={10}
+            variant="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -45,6 +47,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
 test("when no type is specified, the type is default to \"button\"", async () => {
     const { getByTestId } = render(
         <Button
+            variant="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -56,6 +59,7 @@ test("when type is specified, the type is forwarded", async () => {
     const { getByTestId } = render(
         <Button
             type="submit"
+            variant="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -70,6 +74,7 @@ test("can focus the button with the focus api", async () => {
 
     render(
         <Button
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -89,7 +94,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(
-        <Button ref={ref}>Cutoff</Button>
+        <Button variant="secondary" ref={ref}>Cutoff</Button>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -103,6 +108,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     render(
         <Button
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -119,7 +125,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     render(
-        <Button ref={handler}>Cutoff</Button>
+        <Button variant="secondary" ref={handler}>Cutoff</Button>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
