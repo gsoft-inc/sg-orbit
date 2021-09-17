@@ -1,3 +1,4 @@
+import "./html.css";
 import { htmlElement } from "./htmlElement";
 
 // Sectioning & Content sectioning
