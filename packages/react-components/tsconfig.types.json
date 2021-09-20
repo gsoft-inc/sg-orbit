@@ -2,15 +2,18 @@
     "extends": "../../typescript/tsconfig",
     "compilerOptions": {
         "outDir": "./dist",
-        "declaration": true,
-        "isolatedModules": false,
+        //"isolatedModules": false,
+        //"allowJs": false,
+        // Generate typing files.
         "noEmit": false,
-        "allowJs": false,
+        "declaration": true,
         "emitDeclarationOnly": true
     },
     "include": [
         "src/**/*",
         "../../typescript/typings/*",
     ],
-    "exclude": ["**/tests/*"]
+    "exclude": [
+        "**/tests/*"
+    ]
 }

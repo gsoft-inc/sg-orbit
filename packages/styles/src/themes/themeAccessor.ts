@@ -1,4 +1,4 @@
-import { ColorSchemes, FontSizeValues, OrbitTheme } from "./types";
+import { BoxShadowColorSchemes, ColorColorSchemes, ColorSchemes, FontSizeValues, OrbitTheme } from "./types";
 import { isNil } from "../assertions";
 
 export class ThemeAccessor {
@@ -9,10 +9,16 @@ export class ThemeAccessor {
     }
 
     private getColorSchemeValue<C, L, D>(values: ColorSchemes<C, L, D>, key: string, colorScheme: keyof ColorSchemes<C, L, D>) {
-        const section = values[colorScheme];
+        let section = values[colorScheme];
 
         if (!isNil(section)) {
-            // @ts-ignore
+            return section[key];
+        }
+
+        // Look in "common" if available.
+        section = values.common;
+
+        if (!isNil(section)) {
             return section[key];
         }
     }
@@ -37,11 +43,11 @@ export class ThemeAccessor {
         return this.theme.borderRadii[index - 1];
     }
 
-    getBoxShadow(key: string, colorScheme = "common") {
-        return this.getColorSchemeValue(this.theme.boxShadows, key, colorScheme as keyof typeof this.theme.boxShadows);
+    getBoxShadow(key: string, colorScheme: keyof BoxShadowColorSchemes = "light") {
+        return this.getColorSchemeValue(this.theme.boxShadows, key, colorScheme);
     }
 
-    getColor(key: string, colorScheme = "common") {
-        return this.getColorSchemeValue(this.theme.colors, key, colorScheme as keyof typeof this.theme.colors);
+    getColor(key: string, colorScheme: keyof ColorColorSchemes = "light") {
+        return this.getColorSchemeValue(this.theme.colors, key, colorScheme);
     }
 }

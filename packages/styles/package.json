@@ -33,8 +33,5 @@
         "create-dist": "node scripts/create-dist",
         "copy-fonts-to-dist": "node scripts/copy-fonts-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
-    },
-    "dependencies": {
-        "type-fest": "2.0.0"
     }
 }

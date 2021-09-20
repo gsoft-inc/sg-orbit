@@ -92,8 +92,6 @@ function appendColorSchemes<C, L, D>(
 
         appendColorScheme(colorSchemes.light, prefix, light);
         appendColorScheme(colorSchemes.dark, prefix, dark);
-    } else {
-        appendColorScheme(values, prefix, common);
     }
 }
 
@@ -113,7 +111,7 @@ export function createCss(themes: OrbitTheme[]) {
         const dark: VarsBucket = [];
 
         appendArray(theme.space, "space", common);
-        appendJsonObject(theme.fontSizes, "font-sizes", common);
+        appendJsonObject((theme.fontSizes as unknown) as JsonObject, "font-sizes", common);
         appendArray(theme.lineHeights, "line-heights", common);
         appendArray(theme.borderRadii, "border-radii", common);
         appendColorSchemes(theme.boxShadows, "box-shadows", { common, dark, light });

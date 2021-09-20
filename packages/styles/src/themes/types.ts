@@ -1,17 +1,14 @@
 import { FixedLengthArray } from "type-fest";
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type ColorSchemes<C, L, D> = {
+export interface ColorSchemes<C, L, D> {
     common?: Partial<C>;
     light: Partial<L>;
     dark: Partial<D>;
-};
-/* eslint-enable @typescript-eslint/consistent-type-definitions */
+}
 
 export type SpaceValues = FixedLengthArray<string, 13>;
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type FontSizeValues = {
+export interface FontSizeValues {
     1: string;
     2: string;
     3: string;
@@ -23,28 +20,26 @@ export type FontSizeValues = {
     9: string;
     "subheadline": string;
     "headline": string;
-};
-/* eslint-enable @typescript-eslint/consistent-type-definitions */
+}
 
 export type LineHeightValues = FixedLengthArray<number, 6>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type BoxShadowRoles = {
+export interface BoxShadowRoles {
     "alias-skim": string;
     "alias-lifted": string;
     "alias-raised": string;
     "alias-floating": string;
-};
-/* eslint-enable @typescript-eslint/consistent-type-definitions */
+}
 
 export type BorderRadiusValues = FixedLengthArray<string, 4>;
 
+export type BoxShadowColorSchemes = ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
+
 export type ColorPalette = FixedLengthArray<string, 10>;
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type ColorPalettes = {
+export interface ColorPalettes {
     "white": string;
     "black": string;
     "marine": ColorPalette;
@@ -56,11 +51,9 @@ export type ColorPalettes = {
     "beetle": ColorPalette;
     "botanic": ColorPalette;
     "primary": ColorPalette;
-};
-/* eslint-enable @typescript-eslint/consistent-type-definitions */
+}
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-export type ColorRoles = {
+export interface ColorRoles {
     /* Background */
     "bg-alias-1": string;
     "bg-alias-1-hover": string;
@@ -166,8 +159,9 @@ export type ColorRoles = {
     "text-alias-warning-2": string;
     "text-alias-input-selection": string;
     "text-alias-input-placeholder": string;
-};
-/* eslint-enable @typescript-eslint/consistent-type-definitions */
+}
+
+export type ColorColorSchemes = ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
 
 export interface OrbitTheme {
     name: string;
@@ -175,6 +169,6 @@ export interface OrbitTheme {
     fontSizes: FontSizeValues;
     lineHeights: LineHeightValues;
     borderRadii: BorderRadiusValues;
-    boxShadows: ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
-    colors: ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
+    boxShadows: BoxShadowColorSchemes;
+    colors: ColorColorSchemes;
 }
