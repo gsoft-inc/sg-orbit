@@ -24,9 +24,9 @@ import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-const DefaultElement = "div";
+const DefaultElement = "input";
 
-interface InnerNumberInputProps extends Omit<AbstractInputProps<"input">, "max" | "min" | "step" | "value"> {
+interface InnerNumberInputProps extends Omit<AbstractInputProps<typeof DefaultElement>, "max" | "min" | "step" | "value"> {
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -197,7 +197,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         step = 1,
         validationState,
         value: valueProp,
-        wrapperProps: wrapperPropsProp,
+        wrapperProps: { as: wrapperAs = HtmlElements["div"], ...userWrapperProps } = {},
         ...rest
     } = mergeProps(
         props,
@@ -346,12 +346,13 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     const content = (
         <>
             {iconMarkup}
-            <HtmlInput
+            <Box
                 {...mergeProps(
                     rest,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
+                        as,
                         max,
                         min,
                         step
@@ -373,10 +374,10 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     return (
         <Box
             {...mergeProps(
-                wrapperPropsProp,
+                userWrapperProps,
                 wrapperProps,
                 {
-                    as,
+                    as: wrapperAs,
                     className: mergeClasses(
                         cssModule(
                             "o-ui-input",

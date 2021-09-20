@@ -2,7 +2,7 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
+import { Div, HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -60,9 +60,9 @@ export function InnerBadge({
                     }
                 }}
             >
-                <div className="o-ui-badge-anchor">
+                <Div className="o-ui-badge-anchor">
                     {badgeContent}
-                </div>
+                </Div>
             </StyleProvider>
             {overlappedElement}
         </Box>

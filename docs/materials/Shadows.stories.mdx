@@ -1,5 +1,6 @@
 import { Meta } from "@storybook/addon-docs";
 import { Table, Tagline } from "@stories/components";
+import { Div } from "@react-components/html";
 
 <Meta
     title="Materials/Shadows"
@@ -17,10 +18,10 @@ import { Table, Tagline } from "@stories/components";
         { title: "Value", headerStyle: { width: "200px" } },
         { title: "Sample", headerStyle: { width: "350px" } } ]}
     rows={[
-        ["1", <div className="o-ui-bxsh-1 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></div>],
-        ["2", <div className="o-ui-bxsh-2 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></div>],
-        ["3", <div className="o-ui-bxsh-3 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></div>],
-        ["4", <div className="o-ui-bxsh-4 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></div>]
+        ["1", <Div className="o-ui-bxsh-1 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></Div>],
+        ["2", <Div className="o-ui-bxsh-2 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></Div>],
+        ["3", <Div className="o-ui-bxsh-3 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></Div>],
+        ["4", <Div className="o-ui-bxsh-4 o-ui-bdrs-2 o-ui-bg-white o-ui-h-9 o-ui-ma-3"></Div>]
     ]}
     rowClassName="background-1"
 />

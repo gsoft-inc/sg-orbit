@@ -3,13 +3,13 @@ import "./TextArea.css";
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { HtmlElements, HtmlTextArea } from "../../html";
+import { HtmlElements } from "../../html";
 import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
-const DefaultElement = "div";
+const DefaultElement = "textarea";
 
-export interface InnerTextAreaProps extends AbstractInputProps<"textarea"> {
+export interface InnerTextAreaProps extends AbstractInputProps<typeof DefaultElement> {
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -91,7 +91,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         type = "text",
         validationState,
         value,
-        wrapperProps: userWrapperProps,
+        wrapperProps: { as: wrapperAs = HtmlElements["div"], ...userWrapperProps } = {},
         ...rest
     } = mergeProps(
         props,
@@ -158,12 +158,13 @@ export function InnerTextArea(props: InnerTextAreaProps) {
 
     const content = (
         <>
-            <HtmlTextArea
+            <Box
                 {...mergeProps(
                     rest,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
+                        as,
                         rows
                     },
                     inputProps
@@ -178,7 +179,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
             {...mergeProps(
                 userWrapperProps,
                 {
-                    as,
+                    as: wrapperAs,
                     className: cssModule(
                         "o-ui-input",
                         buttonMarkup && "has-button"

@@ -19,8 +19,8 @@ import {
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
+import { Div, HtmlElements } from "../../html";
 import { Divider } from "../../divider";
-import { HtmlElements } from "../../html";
 import {
     Keys,
     OmitInternalProps,
@@ -506,7 +506,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         }
                     )}
                 >
-                    {rangeMarkup}
+                    {augmentElement(rangeMarkup, { as: Div })}
                     <MenuPresets {...presetsProps} />
                 </InputGroup>
             )
@@ -524,7 +524,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         }
                     )}
                 >
-                    {rangeMarkup}
+                    {augmentElement(rangeMarkup, { as: Div })}
                     {!disabled && !readOnly && (
                         <ButtonPresets {...presetsProps} />
                     )}

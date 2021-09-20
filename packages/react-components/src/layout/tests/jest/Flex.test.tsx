@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Flex, FlexProps } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -8,9 +9,9 @@ const Flexed = forwardRef<HTMLDivElement, Omit<FlexProps, "children">>((props, r
             {...props}
             ref={ref}
         >
-            <div>Alpha</div>
-            <div>Bravo</div>
-            <div>Charlie</div>
+            <Div>Alpha</Div>
+            <Div>Bravo</Div>
+            <Div>Charlie</Div>
         </Flex>
     );
 });

@@ -2,8 +2,6 @@
     "extends": "../../typescript/tsconfig",
     "compilerOptions": {
         "outDir": "./dist",
-        //"isolatedModules": false,
-        //"allowJs": false,
         // Generate typing files.
         "noEmit": false,
         "declaration": true,

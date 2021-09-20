@@ -7,6 +7,7 @@ import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Select } from "@react-components/select";
 import { useState } from "react";
+import { Div } from "@react-components/html";
 
 export function MotionPreview() {
     const [isAnimated, setAnimated] = useState(false);
@@ -26,9 +27,9 @@ export function MotionPreview() {
     };
 
     return (
-        <div className="o-ui-sb-motion-preview bt b--cloud-2">
+        <Div borderTop="cloud-2" className="o-ui-sb-motion-preview">
             <H4>Motion Preview</H4>
-            <Inline className="mb4" alignY="end">
+            <Inline marginBottom={4} alignY="end">
                 <Field>
                     <Label data-testid="label">Easing</Label>
                     <Select placeholder="Easing" aria-label="Easing" defaultSelectedKey={easing} onSelectionChange={handleSelectEasing}>
@@ -49,7 +50,7 @@ export function MotionPreview() {
                 </Field>
                 <Button variant="primary" onClick={handleClick}>Play this motion</Button>
             </Inline>
-            <div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></div>
-        </div>
+            <Div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></Div>
+        </Div>
     );
 }

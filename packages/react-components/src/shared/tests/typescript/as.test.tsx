@@ -1,5 +1,6 @@
 import { Button } from "@react-components/button";
 import { ComponentProps } from "react";
+import { Div } from "@react-components/html";
 import { as } from "@react-components/shared";
 import { expectAssignable } from "@typescript/tests";
 
@@ -9,7 +10,7 @@ interface RouterLinkProps {
 }
 
 const RouterLink = (props: RouterLinkProps) => {
-    return <div>{props.b && props.a}</div>;
+    return <Div>{props.b && props.a}</Div>;
 };
 
 const RouterButton = as(Button, RouterLink);

@@ -137,7 +137,7 @@ import {
     ZipIcon24,
     ZipIcon32
 } from "@react-components/icons";
-import { CheckeredBackground, ExternalLink, Preview, Tagline } from "@stories/components";
+import { CheckeredBackground, Preview, Tagline } from "@stories/components";
 import { IconGallery, createMultiVariant, createVariant, renderItem } from "./icon-gallery";
 import { Inline } from "@react-components/layout";
 import { Meta } from "@storybook/addon-docs";
@@ -269,7 +269,7 @@ Icons SVG files are available from the root of `@orbit-ui/icons` package. These 
 
 Orbit Design provide icons with default dimensions, e.g. a `24px` variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with either [Tachyons dimensions classes](?path=/docs/spacing--page#tachyons) (e.g. `w6 h6` for a `24px` variant icon or `w7 h7` for a `32px` variant icon) or CSS and Orbit UI [CSS spacing variables](?path=/docs/materials-spacing--page#values).
+You can customize an icon dimensions with the `width` and `height` props of Orbit [styled-system](?path=/docs/styled-system).
 
 #### Image source
 
@@ -277,7 +277,7 @@ You can customize an icon dimensions with either [Tachyons dimensions classes](?
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
-    return <img src={CalendarIcon24} alt="Calendar" className="w6 h6" />;
+    return <Img src={CalendarIcon24} alt="Calendar" width={6} height={6} />;
 }
 ```
 
@@ -295,41 +295,29 @@ function render() {
 
 An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
 
-This means that you can alter the color of an icon by specifying a new `fill` value with either [Tachyons fill classes](?path=/docs/colors--page#tachyons) or with CSS and [Orbit UI color variables](?path=/docs/foundation--page#colors).
-
-<code>fill</code> attribute. If the SVG contains a <code>fill</code> attribute, please <ExternalLink href="https://github.com/gsoft-inc/sg-orbit/issues">fill an issue</ExternalLink>.
+This means that you can alter the color of an icon by specifying a new `fill` value. If the SVG already contains a `fill` attribute, please [fill an issue](https://github.com/gsoft-inc/sg-orbit/issues).
 
 ### React components
 
-To set the color of an icon component, you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop:
+To set the color of an icon component, you can set the `fill` prop of Orbit [styled-system](?path=/docs/styled-system).
 
 ```jsx
 import { CalendarIcon } from "@orbit-ui/react-components";
 
 function render() {
-    return <CalendarIcon className="fill-marine-10" aria-label="Calendar" />
-}
-```
-
-If your color is dynamic, you can use the `style` prop and [Orbit UI color variables](?path=/docs/foundation--page#colors):
-
-```jsx
-import { CalendarIcon } from "@orbit-ui/react-components";
-
-function render() {
-    return <CalendarIcon style={{ fill: "var(--o-ui-marine-10)" }} aria-label="Calendar" />;
+    return <CalendarIcon aria-label="Calendar" fill="marine-10" />
 }
 ```
 
 ### Image source
 
-To set the color of an image icon you can add [Tachyons fill classes](?path=/docs/colors--page#tachyons) directly on the component with the `className` prop or use the `style` prop and [Orbit UI color variables](?path=/docs/colors--page#colors) to set a dynamic color:
+To set the color of an image, you can set the `fill` prop of Orbit [styled-system](?path=/docs/styled-system).
 
 ```jsx
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
 
 function render() {
-    return <img src={CalendarIcon24} alt="calendar" className="fill-marine-10" />;
+    return <Img src={CalendarIcon24} alt="calendar" fill="marine-10" />;
 }
 ```
 

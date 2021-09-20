@@ -1,4 +1,5 @@
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Flex, Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
@@ -115,9 +116,9 @@ export function createCheckboxTestSuite(element, stories) {
         )
         .add("reverse", () =>
             <Stack>
-                <div>
+                <Div>
                     <Checkbox reverse element={element}>Milky Way</Checkbox>
-                </div>
+                </Div>
                 <Inline>
                     <Checkbox reverse element={element}>
                         <Text>Milky Way</Text>

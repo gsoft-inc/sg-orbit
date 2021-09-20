@@ -3,7 +3,7 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
+import { HtmlElements, Img } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -51,7 +51,7 @@ function AvatarImage({
 }: any) {
     if (!isString(src)) {
         return (
-            <img alt={name} className="o-ui-avatar-image" src={src} />
+            <Img alt={name} className="o-ui-avatar-image" src={src} />
         );
     }
 

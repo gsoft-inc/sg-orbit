@@ -1,3 +1,5 @@
+import { Div } from "@react-components/html";
+
 export function Square() {
-    return <div className="o-ui-bg-primary-6" style={{ height: "45px", width: "45px" }} />;
+    return <Div backgroundColor="primary-6" width="45px" height="45px" />;
 }

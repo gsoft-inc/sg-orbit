@@ -1,8 +1,8 @@
 import { ComponentProps, useRef } from "react";
-import { Keys } from "@react-components/shared";
+import { Div } from "@react-components/html";
+import { Keys, mergeProps } from "@react-components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@react-components/overlay";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import { mergeProps } from "@react-components/shared";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;
@@ -26,7 +26,7 @@ function Overlay({
     });
 
     return (
-        <div
+        <Div
             {...mergeProps(
                 rest,
                 lightDismissProps
@@ -35,7 +35,7 @@ function Overlay({
             ref={overlayRef}
         >
             Overlay
-        </div>
+        </Div>
     );
 }
 

@@ -1,19 +1,21 @@
 import "./CheckeredBackground.css";
 
-import { mergeClasses } from "@react-components/shared";
+import { Div } from "@react-components/html";
+import { mergeProps } from "@react-components/shared";
 
-export function CheckeredBackground({ className, children, ...rest }) {
+export function CheckeredBackground({ children, ...rest }) {
     return (
-        <div
-            {...rest}
-            className={mergeClasses(
-                "o-ui-sb-checkered-background-preview",
-                "pl2",
-                "text-1",
-                className
+        <Div
+            {...mergeProps(
+                rest,
+                {
+                    color: "alias-1",
+                    paddingLeft: 2,
+                    className: "o-ui-sb-checkered-background-preview"
+                }
             )}
         >
             {children}
-        </div>
+        </Div>
     );
 }

@@ -1,4 +1,6 @@
 import "./html.css";
+
+import { ComponentProps } from "react";
 import { htmlElement } from "./htmlElement";
 
 // Sectioning & Content sectioning
@@ -94,3 +96,31 @@ export const HtmlElements = {
     "tr": TR,
     "ul": UL
 };
+
+export type AnchorProps = ComponentProps<typeof A>;
+export type AddressProps = ComponentProps<typeof Address>;
+export type ArticleProps = ComponentProps<typeof Article>;
+export type HtmlButtonProps = ComponentProps<typeof HtmlButton>;
+export type DivProps = ComponentProps<typeof Div>;
+export type HtmlFooterProps = ComponentProps<typeof HtmlFooter>;
+export type HtmlFormProps = ComponentProps<typeof HtmlForm>;
+export type HtmlHeaderProps = ComponentProps<typeof HtmlHeader>;
+export type ImgProps = ComponentProps<typeof Img>;
+export type HtmlInputProps = ComponentProps<typeof HtmlInput>;
+export type HtmlLabelProps = ComponentProps<typeof HtmlLabel>;
+export type ListItemProps = ComponentProps<typeof LI>;
+export type MainProps = ComponentProps<typeof Main>;
+export type NavProps = ComponentProps<typeof Nav>;
+export type OrderedListProps = ComponentProps<typeof OL>;
+export type HtmlParagraphProps = ComponentProps<typeof P>;
+export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
+export type SpanProps = ComponentProps<typeof Span>;
+export type TableProps = ComponentProps<typeof Table>;
+export type TBodyProps = ComponentProps<typeof TBody>;
+export type TableDataProps = ComponentProps<typeof TD>;
+export type TextAreaProps = ComponentProps<typeof HtmlTextArea>;
+export type TFootProps = ComponentProps<typeof TFoot>;
+export type TableHeaderProps = ComponentProps<typeof TH>;
+export type THeadProps = ComponentProps<typeof THead>;
+export type TableRowProps = ComponentProps<typeof TR>;
+export type UnorderedListProps = ComponentProps<typeof UL>;

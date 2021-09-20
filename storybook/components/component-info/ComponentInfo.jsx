@@ -1,5 +1,6 @@
 import "./ComponentInfo.css";
 
+import { Div } from "@react-components/html";
 import { ExternalLink, GithubLink, useThemedSnippet } from "@stories/components";
 import { arrayOf, bool, oneOfType, shape, string } from "prop-types";
 import { cssModule, mergeClasses } from "@react-components/shared";
@@ -41,32 +42,32 @@ export function ComponentInfo({
             )}
         >
             {usage && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">usage</dt>
                     <dd className="o-ui-sb-component-info-value"><code>{usage}</code></dd>
-                </div>
+                </Div>
             )}
             {slots && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">slots</dt>
                     <dd className="o-ui-sb-component-info-value"><code>{slots.map(x => `"${x}"`).join(", ")}</code></dd>
-                </div>
+                </Div>
             )}
             {ariaPath && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">wai-aria</dt>
                     <dd className="o-ui-sb-component-info-value">
                         <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}>{`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}</ExternalLink>
                     </dd>
-                </div>
+                </Div>
             )}
             {githubPath && (
-                <div className="o-ui-sb-component-info-item">
+                <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">sources</dt>
                     <dd className="o-ui-sb-component-info-value">
                         <GithubLink path={githubPath}>Github</GithubLink>
                     </dd>
-                </div>
+                </Div>
             )}
         </dl>
     );

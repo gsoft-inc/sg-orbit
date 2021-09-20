@@ -1,5 +1,6 @@
 import "./PreviewIcon.css";
 
+import { Div, HtmlButton } from "@react-components/html";
 import { cloneElement } from "react";
 import { element, func } from "prop-types";
 
@@ -24,19 +25,19 @@ export function PreviewIcon({ icon, onShowDetail }) {
     };
 
     return (
-        <div className="o-ui-sb-gallery-preview-icon" onKeyDown={onIconEnterKeyDown} tabIndex={0}>
+        <Div className="o-ui-sb-gallery-preview-icon" onKeyDown={onIconEnterKeyDown} tabIndex={0}>
             {renderIcon(icon)}
-            <div className="o-ui-sb-gallery-preview-container" tabIndex={-1}>
-                <button
+            <Div className="o-ui-sb-gallery-preview-container" tabIndex={-1}>
+                <HtmlButton
                     onClick={onIconClick}
                     className="o-ui-sb-gallery-view-button"
                     type="button"
                     tabIndex={-1}
                 >
                     View
-                </button>
-            </div>
-        </div>
+                </HtmlButton>
+            </Div>
+        </Div>
     );
 }
 

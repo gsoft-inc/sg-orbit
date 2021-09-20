@@ -92,7 +92,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         type = "text",
         validationState,
         value,
-        wrapperProps: userWrapperProps,
+        wrapperProps: { as: wrapperAs = HtmlElements["div"], ...userWrapperProps } = {},
         ...rest
     } = mergeProps(
         props,
@@ -165,6 +165,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
             {...mergeProps(
                 userWrapperProps,
                 {
+                    as: wrapperAs,
                     className: cssModule(
                         "o-ui-input",
                         iconMarkup && "has-icon",

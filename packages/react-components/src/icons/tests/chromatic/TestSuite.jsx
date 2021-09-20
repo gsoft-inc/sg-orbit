@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { isNil } from "@react-components/shared";
 
@@ -35,9 +36,9 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon size="xl" />
                 <MultiIcon size="xl" fill="sunray-10" />
             </Inline>
-            <div className="f1">
+            <Div fontSize={1}>
                 <MultiIcon size="inherit" />
-            </div>
+            </Div>
         </Stack>
     );
 }
