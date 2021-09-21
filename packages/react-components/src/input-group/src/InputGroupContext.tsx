@@ -88,7 +88,7 @@ export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsR
     const [{ disabled }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        className: "o-ui-input-group-addon",
+        className: "o-ui-input-group-addon  o-ui-input-group-button-addon",
         disabled,
         shape: "rounded"
     };
@@ -106,7 +106,7 @@ export function useInputGroupMenuAddonProps(): [UseInputGroupMenuAddonPropsRetur
     const [{ disabled, readOnly }, isInInputGroup] = useInputGroupContext();
 
     const props = isInInputGroup && {
-        className: "o-ui-input-group-addon",
+        className: "o-ui-input-group-addon o-ui-input-group-menu-addon",
         disabled,
         readOnly
     };
