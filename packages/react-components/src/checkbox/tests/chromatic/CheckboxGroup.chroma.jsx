@@ -138,6 +138,11 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <CheckboxGroup border="sunray-10">
+                <Checkbox value="1">1</Checkbox>
+                <Checkbox value="2">2</Checkbox>
+                <Checkbox value="3">3</Checkbox>
+            </CheckboxGroup>
             <CheckboxGroup className="bg-red">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>

@@ -1,6 +1,5 @@
 import { ExternalLink } from "@stories/components";
 import { Flex } from "@react-components/layout";
-import { Img } from "@react-components/html";
 import { bool, string } from "prop-types";
 import { getGithubUrl } from "./getGithubUrl";
 import GithubLogo from "./assets/logo-github-32.png";

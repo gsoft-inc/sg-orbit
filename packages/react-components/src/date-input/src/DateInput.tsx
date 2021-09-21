@@ -121,7 +121,6 @@ const Input = forwardRef<any, any>((props, ref) => {
 
 export function InnerDateInput({
     as,
-    className,
     defaultValue,
     disabled,
     fluid,
@@ -131,7 +130,6 @@ export function InnerDateInput({
     presets,
     presetsVariant = "compact",
     readOnly,
-    style,
     value: valueProp,
     wrapperProps,
     ...rest
@@ -214,12 +212,10 @@ export function InnerDateInput({
                     {...mergeProps(
                         {
                             as,
-                            className,
                             disabled,
                             fluid,
                             readOnly,
-                            ref: containerRef,
-                            style
+                            ref: containerRef
                         },
                         wrapperProps ?? {}
                     )}
@@ -233,15 +229,11 @@ export function InnerDateInput({
                     {...mergeProps(
                         {
                             as,
-                            className: mergeClasses(
-                                className,
-                                cssModule(
-                                    "o-ui-date-input-button-presets",
-                                    fluid && "fluid"
-                                )
+                            className: cssModule(
+                                "o-ui-date-input-button-presets",
+                                fluid && "fluid"
                             ),
-                            ref: containerRef,
-                            style
+                            ref: containerRef
                         },
                         wrapperProps ?? {}
                     )}
@@ -254,14 +246,11 @@ export function InnerDateInput({
             );
     }
 
-    // A fragment is wrapping the result to make this component work with react-docgen: https://github.com/reactjs/react-docgen/issues/336
     return augmentElement(inputMarkup, {
         as,
-        className,
         disabled,
         fluid,
         readOnly,
-        style,
         wrapperProps
     });
 }

@@ -69,8 +69,10 @@ export function createDateInputTestSuite(element, stories) {
         )
         .add("styling", () =>
             <Stack>
+                <DateInput border="sunray-10" element={element} />
                 <DateInput className="border-red" element={element} />
                 <DateInput style={{ border: "1px solid red" }} element={element} />
+                <DateInput wrapperProps={{ border: "sunray-10" }} element={element} />
                 <DateInput wrapperProps={{ className: "border-red" }} element={element} />
                 <DateInput wrapperProps={{ style: { border: "1px solid red" } }} element={element} />
             </Stack>

@@ -21,6 +21,7 @@ createIconButtonTestSuite(<IconButtonAsLink variant="danger" />, stories("/dange
 stories()
     .add("styling", () =>
         <Inline>
+            <IconButtonAsLink border="sunray-10" variant="secondary"><AddIcon /></IconButtonAsLink>
             <IconButtonAsLink className="bg-red" variant="secondary"><AddIcon /></IconButtonAsLink>
             <IconButtonAsLink style={{ backgroundColor: "red" }} variant="secondary"><AddIcon /></IconButtonAsLink>
         </Inline>

@@ -100,10 +100,12 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline alignY="center">
+                <Counter border="sunray-10">15</Counter>
                 <Counter className="bg-red">15</Counter>
                 <Counter style={{ backgroundColor: "red" }}>15</Counter>
             </Inline>
             <Inline alignY="center">
+                <Counter border="sunray-10" variant="divider">15</Counter>
                 <Counter className="bg-red" variant="divider">15</Counter>
                 <Counter style={{ backgroundColor: "red" }} variant="divider">15</Counter>
             </Inline>

@@ -17,6 +17,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <Box border="sunray-10">The Universe is under no obligation to make sense to you.</Box>
             <Box className="bg-red">The Universe is under no obligation to make sense to you.</Box>
             <Box style={{ backgroundColor: "red" }}>The Universe is under no obligation to make sense to you.</Box>
         </Inline>
