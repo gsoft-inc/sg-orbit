@@ -93,16 +93,6 @@ Array [
 ]
 `;
 
-exports[`appearance 1`] = `
-<div
-  style={
-    Object {
-      "appearance": "none",
-    }
-  }
-/>
-`;
-
 exports[`aspect ratio 1`] = `
 <div
   style={
@@ -111,47 +101,6 @@ exports[`aspect ratio 1`] = `
     }
   }
 />
-`;
-
-exports[`backface visibility 1`] = `
-<div
-  style={
-    Object {
-      "backfaceVisibility": "visible",
-    }
-  }
-/>
-`;
-
-exports[`background attachment 1`] = `
-Array [
-  <div
-    className="o-ui-bga-f"
-  />,
-  <div
-    className="o-ui-bga-l"
-  />,
-  <div
-    className="o-ui-bga-s"
-  />,
-]
-`;
-
-exports[`background clip 1`] = `
-Array [
-  <div
-    className="o-ui-bgc-bb"
-  />,
-  <div
-    className="o-ui-bgc-cb"
-  />,
-  <div
-    className="o-ui-bgc-pb"
-  />,
-  <div
-    className="o-ui-bgc-tb"
-  />,
-]
 `;
 
 exports[`background color 1`] = `
@@ -491,16 +440,6 @@ exports[`background image 1`] = `
   style={
     Object {
       "backgroundImage": "url(cat.png)",
-    }
-  }
-/>
-`;
-
-exports[`background origin 1`] = `
-<div
-  style={
-    Object {
-      "backgroundOrigin": "content-box",
     }
   }
 />
@@ -2682,39 +2621,36 @@ exports[`bottom 1`] = `
 exports[`box shadow 1`] = `
 Array [
   <div
+    boxShadow="1"
     className="o-ui-bxsh-1"
   />,
   <div
+    boxShadow="2"
     className="o-ui-bxsh-2"
   />,
   <div
+    boxShadow="3"
     className="o-ui-bxsh-3"
   />,
   <div
+    boxShadow="4"
     className="o-ui-bxsh-4"
   />,
   <div
+    boxShadow="alias-floating"
     className="o-ui-bxsh-alias-floating"
   />,
   <div
+    boxShadow="alias-lifted"
     className="o-ui-bxsh-alias-lifted"
   />,
   <div
+    boxShadow="alias-raised"
     className="o-ui-bxsh-alias-raised"
   />,
   <div
+    boxShadow="alias-skim"
     className="o-ui-bxsh-alias-skim"
-  />,
-]
-`;
-
-exports[`box sizing 1`] = `
-Array [
-  <div
-    className="o-ui-bs-bb"
-  />,
-  <div
-    className="o-ui-bs-cb"
   />,
 ]
 `;
@@ -3048,26 +2984,6 @@ Array [
 ]
 `;
 
-exports[`color scheme 1`] = `
-<div
-  style={
-    Object {
-      "colorScheme": "dark",
-    }
-  }
-/>
-`;
-
-exports[`column count 1`] = `
-<div
-  style={
-    Object {
-      "columnCount": 1,
-    }
-  }
-/>
-`;
-
 exports[`column gap 1`] = `
 Array [
   <div
@@ -3113,26 +3029,6 @@ Array [
     className="o-ui-c-g-13"
   />,
 ]
-`;
-
-exports[`column width 1`] = `
-<div
-  style={
-    Object {
-      "columnWidth": "100px",
-    }
-  }
-/>
-`;
-
-exports[`contain 1`] = `
-<div
-  style={
-    Object {
-      "contain": "strict",
-    }
-  }
-/>
 `;
 
 exports[`content 1`] = `
@@ -3669,26 +3565,6 @@ Array [
 ]
 `;
 
-exports[`font feature settings 1`] = `
-<div
-  style={
-    Object {
-      "fontFeatureSettings": "smcp",
-    }
-  }
-/>
-`;
-
-exports[`font kerning 1`] = `
-<div
-  style={
-    Object {
-      "fontKerning": "normal",
-    }
-  }
-/>
-`;
-
 exports[`font size 1`] = `
 Array [
   <div
@@ -3725,22 +3601,6 @@ Array [
     className="o-ui-subheadline"
   />,
 ]
-`;
-
-exports[`font variant 1`] = `
-<div
-  style={
-    Object {
-      "fontVariant": "small-caps",
-    }
-  }
-/>
-`;
-
-exports[`font variations settings 1`] = `
-<div
-  fontVariationsSettings="'XHGT' 0.7"
-/>
 `;
 
 exports[`font weight 1`] = `
@@ -4829,9 +4689,11 @@ Array [
 exports[`pointer events 1`] = `
 Array [
   <div
+    className="o-ui-pe-a"
     pointerEvents="auto"
   />,
   <div
+    className="o-ui-pe-n"
     pointerEvents="none"
   />,
 ]
@@ -5362,46 +5224,6 @@ exports[`transform style 1`] = `
     }
   }
 />
-`;
-
-exports[`user select 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "userSelect": "none",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "userSelect": "auto",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "userSelect": "text",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "userSelect": "contain",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "userSelect": "all",
-      }
-    }
-  />,
-]
 `;
 
 exports[`vertical align 1`] = `
