@@ -1,9 +1,12 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, mergeProps } from "../../shared";
+import { HtmlElements } from "../../html";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { useInputGroupAddonProps } from "../../input-group";
 
-export interface InnerTextAddonProps extends InternalProps {
+const DefaultElement = "div";
+
+export interface InnerTextAddonProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -14,6 +17,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     const {
+        as = HtmlElements[DefaultElement],
         children,
         forwardedRef,
         ...rest
@@ -27,6 +31,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: "o-ui-input-group-text-addon",
                     ref: forwardedRef
                 }

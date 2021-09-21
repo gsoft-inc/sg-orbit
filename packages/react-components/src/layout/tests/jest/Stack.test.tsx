@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Stack, StackProps } from "@react-components/layout";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -8,9 +9,9 @@ const Stacked = forwardRef<HTMLElement, Omit<StackProps, "children">>((props, re
             {...props}
             ref={ref}
         >
-            <div>Alpha</div>
-            <div>Bravo</div>
-            <div>Charlie</div>
+            <Div>Alpha</Div>
+            <Div>Bravo</Div>
+            <Div>Charlie</Div>
         </Stack>
     );
 });

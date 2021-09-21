@@ -1,4 +1,5 @@
 import { Badge, BadgeProps } from "@react-components/badge";
+import { Div } from "@react-components/html";
 import { Text } from "@react-components/typography";
 import { createRef } from "react";
 import { forwardRef } from "react";
@@ -11,7 +12,7 @@ const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, 
             ref={ref}
         >
             {children}
-            <div style={{ width: "45px", height: "45px" }} />
+            <Div width="45px" height="45px" />
         </Badge>
     );
 });

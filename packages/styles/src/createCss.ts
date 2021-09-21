@@ -117,8 +117,8 @@ export function createCss(themes: OrbitTheme[]) {
         appendColorSchemes(theme.boxShadows, "box-shadows", { common, dark, light });
         appendColorSchemes(theme.colors, null, { common, dark, light });
 
-        renderBucket(theme.name, common);
-        renderBucket(`${theme.name}-light`, light);
-        renderBucket(`${theme.name}-dark`, dark);
+        renderBucket(`o-ui-${theme.name}`, common);
+        renderBucket(`o-ui-${theme.name}-light`, light);
+        renderBucket(`o-ui-${theme.name}-dark`, dark);
     });
 }

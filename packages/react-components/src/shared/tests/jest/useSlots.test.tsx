@@ -1,4 +1,4 @@
-import { Box, BoxProps } from "@react-components/box";
+import { Div, DivProps } from "@react-components/html";
 import { ErrorBoundary, muteConsoleErrors } from "@utils/errorHandling";
 import { ReactNode, createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -15,7 +15,7 @@ function muteReactTestRendererConsoleErrors() {
     return muteConsoleErrors(["The above error occurred in the <ForwardRef> component:", "Required slot \"content\" must receive a component."]);
 }
 
-const RequiredCard = forwardRef<HTMLElement, BoxProps>(({ children, ...rest }, ref) => {
+const RequiredCard = forwardRef<HTMLDivElement, DivProps>(({ children, ...rest }, ref) => {
     const { title, content } = useSlots(children, {
         _: {
             required: ["content"]
@@ -30,17 +30,17 @@ const RequiredCard = forwardRef<HTMLElement, BoxProps>(({ children, ...rest }, r
     });
 
     return (
-        <Box
+        <Div
             {...rest}
             ref={ref}
         >
             {title}
             {content}
-        </Box>
+        </Div>
     );
 });
 
-const FunctionalRequiredCard = forwardRef<HTMLElement, BoxProps>(({ children, ...rest }, ref) => {
+const FunctionalRequiredCard = forwardRef<HTMLDivElement, DivProps>(({ children, ...rest }, ref) => {
     const { title, content } = useSlots(children, {
         _: {
             required: slotElements => {
@@ -54,25 +54,25 @@ const FunctionalRequiredCard = forwardRef<HTMLElement, BoxProps>(({ children, ..
     });
 
     return (
-        <Box
+        <Div
             {...rest}
             ref={ref}
         >
             {title}
             {content}
-        </Box>
+        </Div>
     );
 });
 
 const Wrapper = slot("content", ({ children }: { children?: ReactNode }) => {
     return (
-        <div data-testid="wrapper">
+        <Div data-testid="wrapper">
             {children}
-        </div>
+        </Div>
     );
 });
 
-function DefaultedCard({ children, ...rest }: BoxProps) {
+function DefaultedCard({ children, ...rest }: DivProps) {
     const { content } = useSlots(children, {
         _: {
             defaultWrapper: Wrapper
@@ -81,9 +81,9 @@ function DefaultedCard({ children, ...rest }: BoxProps) {
     });
 
     return (
-        <Box {...rest}>
+        <Div {...rest}>
             {content}
-        </Box>
+        </Div>
     );
 }
 
@@ -94,7 +94,7 @@ test("throw an exception when a required slot is not fulfilled", () => {
 
     render(
         <RequiredCard>
-            <Box>Content</Box>
+            <Div>Content</Div>
         </RequiredCard>,
         withErrorBoundary(() => {
             hasError = true;
@@ -111,7 +111,7 @@ test("do not throw an exception when a required slot is fulfilled", () => {
 
     render(
         <RequiredCard>
-            <Box slot="content">Content</Box>
+            <Div slot="content">Content</Div>
         </RequiredCard>,
         withErrorBoundary(() => {
             hasError = true;
@@ -128,7 +128,7 @@ test("throw an exception when required is a function and unfilled slots are retu
 
     render(
         <FunctionalRequiredCard>
-            <Box>Content</Box>
+            <Div>Content</Div>
         </FunctionalRequiredCard>,
         withErrorBoundary(() => {
             hasError = true;
@@ -145,7 +145,7 @@ test("do not throw an exception when required is a function and no unfilled slot
 
     render(
         <FunctionalRequiredCard>
-            <Box slot="content">Content</Box>
+            <Div slot="content">Content</Div>
         </FunctionalRequiredCard>,
         withErrorBoundary(() => {
             hasError = true;
@@ -164,11 +164,11 @@ test("do not wrap when there are no children", () => {
 });
 
 test("support ref", async () => {
-    const ref = createRef<HTMLElement>();
+    const ref = createRef<HTMLDivElement>();
 
     render(
         <RequiredCard>
-            <Box ref={ref} slot="content">Content</Box>
+            <Div ref={ref} slot="content">Content</Div>
         </RequiredCard>
     );
 

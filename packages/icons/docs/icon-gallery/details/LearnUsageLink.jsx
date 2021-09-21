@@ -1,14 +1,14 @@
+import { Flex } from "@react-components/layout";
 import { ModalContext } from "./ModalContext";
 import { NAVIGATE_URL } from "@storybook/core-events";
 import { components } from "@storybook/components";
-import { mergeClasses } from "@react-components/shared";
 import { useContext } from "react";
 import addons from "@storybook/addons";
 
 // Would be better to use Storybook AnchorMdx component but the component doesn't currently forward the onClick handler.
 const A = components.a;
 
-export function LearnUsageLink({ className, ...rest }) {
+export function LearnUsageLink(props) {
     const modalContext = useContext(ModalContext);
 
     const handleClick = () => {
@@ -17,14 +17,11 @@ export function LearnUsageLink({ className, ...rest }) {
     };
 
     return (
-        <div
-            {...rest}
-            className={mergeClasses(
-                "flex justify-end",
-                className
-            )}
+        <Flex
+            {...props}
+            justifyContent="end"
         >
-            <A href="#dimensions" target="_self" className="f7 text-primary" onClick={handleClick}>Learn more about usage</A>
-        </div>
+            <A href="#dimensions" target="_self" className="o-ui-fs-3 o-ui-text-alias-primary-1" onClick={handleClick}>Learn more about usage</A>
+        </Flex>
     );
 }

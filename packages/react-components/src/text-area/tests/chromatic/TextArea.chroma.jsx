@@ -51,9 +51,9 @@ stories()
                 <TextArea value="SpaceX will win the race!" aria-label="Label" />
             </Inline>
             <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
-            <div width="10%">
+            <Div width="10%">
                 <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
-            </div>
+            </Div>
             <TextArea loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
         </Stack>
     )

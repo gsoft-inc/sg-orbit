@@ -215,9 +215,9 @@ Unhandled props should always be spread on the root element of the component. If
 ```jsx
 function MyComponent({ className, children ...rest }) {
     return (
-        <div className={className} {...rest}>
+        <Div className={className} {...rest}>
             {children}
-        </div>
+        </Div>
     );
 }
 ```

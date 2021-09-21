@@ -1,5 +1,6 @@
 import "./Snippet.css";
 
+import { Div } from "@react-components/html";
 import { isNil, mergeClasses } from "@react-components/shared";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
@@ -19,7 +20,7 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
     const formattedCode = useFormattedCode(code, language);
 
     return (
-        <div
+        <Div
             className={mergeClasses(
                 "o-ui-sb-snippet",
                 "docblock-source",
@@ -36,16 +37,16 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={style}>
                         {tokens.map((line, i) => (
-                            <div {...getLineProps({ line, key: i })}>
+                            <Div {...getLineProps({ line, key: i })}>
                                 {line.map((token, key) => (
                                     <span {...getTokenProps({ token, key })} />
                                 ))}
-                            </div>
+                            </Div>
                         ))}
                     </pre>
                 )}
             </Highlight>
-        </div>
+        </Div>
     );
 }
 

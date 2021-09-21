@@ -1,4 +1,6 @@
 import { ExternalLink } from "@stories/components";
+import { Flex } from "@react-components/layout";
+import { Img } from "@react-components/html";
 import { bool, string } from "prop-types";
 import { getGithubUrl } from "./getGithubUrl";
 import GithubLogo from "./assets/logo-github-32.png";
@@ -15,10 +17,10 @@ const defaultProps = {
 export function GithubLink({ path, logo, children, ...rest }) {
     if (logo) {
         return (
-            <div className="inline-flex items-center">
-                <img src={GithubLogo} alt="Github" className="w5 h5 mr2" />
+            <Flex inline alignItems="center">
+                <Img src={GithubLogo} alt="Github" width={5} height={5} marginRight={2} />
                 <ExternalLink href={getGithubUrl(path)} {...rest}>{children}</ExternalLink>
-            </div>
+            </Flex>
         );
     }
 

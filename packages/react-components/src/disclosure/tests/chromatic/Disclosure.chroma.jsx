@@ -26,18 +26,14 @@ stories()
     )
     .add("opened", () =>
         <Stack>
-            <div>
-                <Disclosure open>
-                    <Button variant="secondary">Mars</Button>
-                    <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
-                </Disclosure>
-            </div>
-            <div>
-                <Disclosure defaultOpen>
-                    <Button variant="secondary">Mars</Button>
-                    <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
-                </Disclosure>
-            </div>
+            <Disclosure open>
+                <Button variant="secondary">Mars</Button>
+                <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+            </Disclosure>
+            <Disclosure defaultOpen>
+                <Button variant="secondary">Mars</Button>
+                <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+            </Disclosure>
         </Stack>
     )
     .add("custom trigger", () => {
@@ -57,18 +53,14 @@ stories()
 
         return (
             <Stack>
-                <div>
-                    <Disclosure>
-                        <Trigger>Mars</Trigger>
-                        <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
-                    </Disclosure>
-                </div>
-                <div>
-                    <Disclosure defaultOpen>
-                        <Trigger>Mars</Trigger>
-                        <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
-                    </Disclosure>
-                </div>
+                <Disclosure>
+                    <Trigger>Mars</Trigger>
+                    <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+                </Disclosure>
+                <Disclosure defaultOpen>
+                    <Trigger>Mars</Trigger>
+                    <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+                </Disclosure>
             </Stack>
         );
     })

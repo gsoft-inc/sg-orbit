@@ -1,10 +1,11 @@
+import { Div } from "@react-components/html";
 import { TextLink } from "@react-components/link";
 import { as } from "@react-components/shared";
 import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const RouterLink = forwardRef<HTMLDivElement, { to: string }>((props, ref) => {
-    return <div ref={ref}></div>;
+    return <Div ref={ref}></Div>;
 });
 
 test("support ref", async () => {

@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Toolbar } from "@react-components/toolbar";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -92,7 +93,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
     render(
-        <Toolbar ref={ref}><div>Hey!</div></Toolbar>
+        <Toolbar ref={ref}><Div>Hey!</Div></Toolbar>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -110,7 +111,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
         >
-            <div>Hey!</div>
+            <Div>Hey!</Div>
         </Toolbar>
     );
 
@@ -125,7 +126,7 @@ test("set ref once", async () => {
 
     render(
         <Toolbar ref={handler}>
-            <div>Hey!</div>
+            <Div>Hey!</Div>
         </Toolbar>
     );
 

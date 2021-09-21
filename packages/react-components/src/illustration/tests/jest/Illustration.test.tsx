@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Illustration } from "@react-components/illustration";
 import { createRef } from "react";
 import { render, waitFor } from "@testing-library/react";
@@ -9,7 +10,7 @@ test("ref is a DOM element", async () => {
 
     render(
         <Illustration ref={ref}>
-            <div slot="image">Image</div>
+            <Div slot="image">Image</Div>
         </Illustration>
     );
 
@@ -28,7 +29,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
                 refNode = node;
             }}
         >
-            <div slot="image">Image</div>
+            <Div slot="image">Image</Div>
         </Illustration>
     );
 
@@ -43,7 +44,7 @@ test("set ref once", async () => {
 
     render(
         <Illustration ref={handler}>
-            <div slot="image">Image</div>
+            <Div slot="image">Image</Div>
         </Illustration>
     );
 

@@ -2,8 +2,8 @@ import "./Accordion.css";
 
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
+import { Div, HtmlButton } from "../../html";
 import { Heading, HeadingProps, Text } from "../../typography";
-import { HtmlButton } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
 
 export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps, StyledComponentProps<"button"> {
@@ -92,11 +92,11 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                 )}
                 type="button"
             >
-                <div className="o-ui-accordion-trigger-content">
+                <Div className="o-ui-accordion-trigger-content">
                     {icon}
                     {text}
                     {counter}
-                </div>
+                </Div>
                 <DisclosureArrow className="o-ui-accordion-arrow" />
             </HtmlButton>
         </Heading>

@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { ReactNode } from "react";
 import { render, waitFor } from "@testing-library/react";
 import { useFocusScope, useKeyedRovingFocus } from "@react-components/shared";
@@ -14,9 +15,9 @@ function RovingFocus({ currentValue, children }: RovingFocusProps) {
     useKeyedRovingFocus(focusScope, currentValue);
 
     return (
-        <div ref={setFocusRef}>
+        <Div ref={setFocusRef}>
             {children}
-        </div>
+        </Div>
     );
 }
 

@@ -78,9 +78,9 @@ export function InnerDialogTrigger({
         updateIsOpen(event, false);
     }, [updateIsOpen]);
 
-    const [trigger, modal] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
+    const [trigger, dialog] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
-    if (isNil(trigger) || isNil(modal)) {
+    if (isNil(trigger) || isNil(dialog)) {
         throw new Error("A dialog trigger must have exactly 2 children.");
     }
 
@@ -105,7 +105,7 @@ export function InnerDialogTrigger({
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
-    const dialogMarkup = augmentElement(modal, {
+    const dialogMarkup = augmentElement(dialog, {
         dismissable,
         ref: dialogRef,
         zIndex: zIndex + 1

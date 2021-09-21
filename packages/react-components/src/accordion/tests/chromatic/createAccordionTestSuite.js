@@ -2,6 +2,7 @@ import { AccordionHeader, useAccordionContext } from "@react-components/accordio
 import { Box } from "@react-components/box";
 import { Content, Header } from "@react-components/placeholders";
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { InfoIcon } from "@react-components/icons";
 import { Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
@@ -168,7 +169,7 @@ export function createAccordionTestSuite(element, stories) {
             </Stack>
         )
         .add("narrow container", () =>
-            <div style={{ width: "200px" }}>
+            <Div width="200px">
                 <Accordion element={element}>
                     <Item>
                         <Header as="h3">Mars</Header>
@@ -183,7 +184,7 @@ export function createAccordionTestSuite(element, stories) {
                         <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                     </Item>
                 </Accordion>
-            </div>
+            </Div>
         )
         .add("states", () =>
             <Stack>
