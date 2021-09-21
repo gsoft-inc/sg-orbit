@@ -112,19 +112,6 @@ export function InnerFlex({
     wrap,
     ...rest
 }: InnerFlexProps) {
-    // console.log("***wrap: ", {
-    //     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
-    //     alignItems: (alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
-    //     as: asProp,
-    //     display: inline ? "inline-flex" as const : "flex" as const,
-    //     flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
-    //     flexWrap: wrap,
-    //     height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
-    //     justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
-    //     ref: forwardedRef,
-    //     width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
-    // });
-
     return (
         <Box
             {...mergeProps(

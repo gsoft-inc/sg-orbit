@@ -4,7 +4,7 @@ import { AbstractInputProps, useInput, useInputIcon, wrappedInputPropsAdapter } 
 import { Box, BoxProps } from "../../box";
 import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
-import { Div, HtmlButton, HtmlInput } from "../../html";
+import { Div, HtmlButton } from "../../html";
 import { HtmlElements } from "../../html";
 import {
     OmitInternalProps,

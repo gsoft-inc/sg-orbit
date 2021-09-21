@@ -88,6 +88,9 @@ stories("/count")
     )
     .add("styling", () =>
         <Inline gap={8}>
+            <SquareBadge border="sunray-10">
+                <Text>100</Text>
+            </SquareBadge>
             <SquareBadge className="border-red">
                 <Text>100</Text>
             </SquareBadge>
@@ -111,6 +114,7 @@ stories("/dot")
     )
     .add("styling", () =>
         <Inline>
+            <SquareBadge variant="dot" border="sunray-10" />
             <SquareBadge variant="dot" className="border-red" />
             <SquareBadge variant="dot" style={{ border: "1px solid red" }} />
         </Inline>
@@ -140,6 +144,9 @@ stories("/icon")
     )
     .add("styling", () =>
         <Inline>
+            <SquareBadge border="sunray-10" variant="icon">
+                <CheckCircleIcon />
+            </SquareBadge>
             <SquareBadge className="border-red" variant="icon">
                 <CheckCircleIcon />
             </SquareBadge>

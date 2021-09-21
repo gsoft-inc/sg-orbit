@@ -67,6 +67,7 @@ export function createDateRangeInputTestSuite(element, stories) {
         )
         .add("styling", () =>
             <Stack>
+                <DateRangeInput border="sunray-10" element={element} />
                 <DateRangeInput className="border-red" element={element} />
                 <DateRangeInput style={{ border: "1px solid red" }} element={element} />
             </Stack>

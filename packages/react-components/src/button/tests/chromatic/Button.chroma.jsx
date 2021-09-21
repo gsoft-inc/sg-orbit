@@ -36,6 +36,7 @@ createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
 stories()
     .add("styling", () =>
         <Inline>
+            <Button border="sunray-10" variant="secondary">Button</Button>
             <Button className="bg-red" variant="secondary">Button</Button>
             <Button style={{ backgroundColor: "red" }} variant="secondary">Button</Button>
         </Inline>

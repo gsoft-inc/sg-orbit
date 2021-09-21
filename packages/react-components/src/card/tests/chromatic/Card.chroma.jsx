@@ -21,6 +21,10 @@ createTestSuite(<Card orientation="vertical" />, stories("/vertical"));
 stories()
     .add("styling", () =>
         <Inline>
+            <Card border="sunray-10">
+                <Heading>Nasa</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
             <Card className="border-red">
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>

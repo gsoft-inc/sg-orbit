@@ -19,13 +19,22 @@ createTestSuite(<Alert variant="warning" />, stories("/warning"));
 createTestSuite(<Alert variant="negative" />, stories("/negative"));
 
 stories()
+    .add("styled system", () =>
+        <Alert
+            primaryButtonLabel="Yes"
+            border="sunray-10"
+        >
+            <Heading border="sunray-10">Launch</Heading>
+            <Content border="sunray-10">Are you use you want to launch the space shuttle?</Content>
+        </Alert>
+    )
     .add("className", () =>
         <Alert
             primaryButtonLabel="Yes"
             className="border-red"
         >
-            <Heading>Launch</Heading>
-            <Content>Are you use you want to launch the space shuttle?</Content>
+            <Heading className="border-red">Launch</Heading>
+            <Content className="border-red">Are you use you want to launch the space shuttle?</Content>
         </Alert>
     )
     .add("styles", () =>
@@ -33,7 +42,7 @@ stories()
             primaryButtonLabel="Yes"
             style={{ border: "1px solid red" }}
         >
-            <Heading>Launch</Heading>
-            <Content>Are you use you want to launch the space shuttle?</Content>
+            <Heading style={{ border: "1px solid red" }}>Launch</Heading>
+            <Content style={{ border: "1px solid red" }}>Are you use you want to launch the space shuttle?</Content>
         </Alert>
     );

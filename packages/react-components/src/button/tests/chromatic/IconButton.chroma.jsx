@@ -21,6 +21,7 @@ createIconButtonTestSuite(<IconButton variant="danger" />, stories("/danger"));
 stories()
     .add("styling", () =>
         <Inline>
+            <IconButton border="sunray-10" variant="secondary" aria-label="Add"><AddIcon /></IconButton>
             <IconButton className="bg-red" variant="secondary" aria-label="Add"><AddIcon /></IconButton>
             <IconButton style={{ backgroundColor: "red" }} variant="secondary" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
