@@ -87,8 +87,12 @@
 }
 
 /* BUTTON ADDON */
-button.o-ui-input-group-addon {
+.o-ui-input-group-button-addon {
     box-shadow: 0 0 0 1px var(--o-ui-input-border-color) inset;
+}
+
+.o-ui-input-group-button-addon:not([disabled]):hover {
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-hover) inset;
 }
 
 /* SELECT ADDON */
