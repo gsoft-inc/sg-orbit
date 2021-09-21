@@ -227,19 +227,6 @@ export const AlignSelfClasses = {
     "stretch": "o-ui-as-str"
 } as const;
 
-export const BackgroundAttachmentClasses = {
-    "fixed": "o-ui-bga-f",
-    "local": "o-ui-bga-l",
-    "scroll": "o-ui-bga-s"
-} as const;
-
-export const BackgroundClipClasses = {
-    "border-box": "o-ui-bgc-bb",
-    "content-box": "o-ui-bgc-cb",
-    "padding-box": "o-ui-bgc-pb",
-    "text-box": "o-ui-bgc-tb"
-} as const;
-
 export const BackgroundColorRoleClasses = {
     "alias-1": "o-ui-bg-alias-1",
     "alias-2": "o-ui-bg-alias-2",
@@ -341,11 +328,6 @@ export const BoxShadowClasses = {
     "alias-lifted": "o-ui-bxsh-alias-lifted",
     "alias-raised": "o-ui-bxsh-alias-raised",
     "alias-skim": "o-ui-bxsh-alias-skim"
-} as const;
-
-export const BoxSizingClasses = {
-    "border-box": "o-ui-bs-bb",
-    "content-box": "o-ui-bs-cb"
 } as const;
 
 export const ColorRoleClasses = {
@@ -694,21 +676,11 @@ export type AlignItemsProp = Simplify<keyof typeof AlignItemsClasses | GlobalVal
 
 export type AlignSelfProp = Simplify<keyof typeof AlignSelfClasses | GlobalValue>;
 
-export type AppearanceProp = string;
-
 export type AspectRatioProp = string;
-
-export type BackfaceVisibilityProp = Simplify<LiteralUnion<"visible" | "hidden", string>>;
-
-export type BackgroundAttachmentProp = Simplify<LiteralUnion<keyof typeof BackgroundAttachmentClasses, string>>;
-
-export type BackgroundClipProp = Simplify<keyof typeof BackgroundClipClasses | GlobalValue>;
 
 export type BackgroundColorProp = Simplify<LiteralUnion<keyof typeof BackgroundColorClasses, string>>;
 
 export type BackgroundImageProp = string;
-
-export type BackgroundOriginProp = string;
 
 export type BackgroundPositionProp = Simplify<LiteralUnion<keyof typeof BackgroundPositionClasses, string>>;
 
@@ -740,19 +712,9 @@ export type BottomProp = string;
 
 export type BoxShadowProp = Simplify<LiteralUnion<keyof typeof BoxShadowClasses, string>>;
 
-export type BoxSizingProp = Simplify<keyof typeof BoxSizingClasses | GlobalValue>;
-
 export type ColorProp = Simplify<LiteralUnion<keyof typeof ColorRoleClasses, string>>;
 
-export type ColorSchemeProp = string;
-
-export type ColumnCountProp = number;
-
 export type ColumnGapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
-
-export type ColumnWidthProp = string;
-
-export type ContainProp = string;
 
 export type ContentProp = string;
 
@@ -780,27 +742,15 @@ export type FlexWrapProp = Simplify<keyof typeof FlexWrapClasses | GlobalValue>;
 
 export type FlexFlowProp = Simplify<FlexDirectionProp | FlexWrapProp | `${FlexDirectionProp} ${FlexWrapProp}`>;
 
-export type FontFeatureSettingsProp = string;
-
-export type FontKerningProp = string;
-
 export type FontSizeProp = Simplify<LiteralUnion<keyof typeof FontSizeClasses, string>>;
 
 export type FontStyleProp = Simplify<LiteralUnion<"normal" | "italic" | "oblique", string>>;
-
-export type FontVariantProp = string;
-
-export type FontVariationSettingsProp = string;
 
 export type FontWeightProp = Simplify<keyof typeof FontWeightClasses | GlobalValue>;
 
 export type GapProp = Simplify<LiteralUnion<OrbitSpaceIncludingZero, string>>;
 
 export type HeightProp = Simplify<LiteralUnion<keyof typeof HeightClasses, string>>;
-
-export type ImageOrientationProp = string;
-
-export type ImageRenderingProp = string;
 
 export type JustifyContentProp = Simplify<keyof typeof JustifyContentClasses | GlobalValue>;
 
@@ -894,8 +844,6 @@ export type TransformOriginProp = string;
 
 export type TransformStyleProp = string;
 
-export type UserSelectProp = string;
-
 export type VerticalAlignProp = Simplify<keyof typeof VerticalAlignClasses | GlobalValue>;
 
 export type VisibilityProp = Simplify<LiteralUnion<"visible" | "hidden" | "collapse", string>>;
@@ -926,10 +874,6 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    appearance?: AppearanceProp;
-    /**
-     * @ignore
-     */
     aspectRatio?: AspectRatioProp;
     /**
      * @ignore
@@ -938,23 +882,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    backgroundAttachment?: BackgroundAttachmentProp;
-    /**
-     * @ignore
-     */
-    backgroundClip?: BackgroundClipProp;
-    /**
-     * @ignore
-     */
     backgroundColor?: BackgroundColorProp;
     /**
      * @ignore
      */
     backgroundImage?: BackgroundImageProp;
-    /**
-     * @ignore
-     */
-    backgroundOrigin?: BackgroundOriginProp;
     /**
      * @ignore
      */
@@ -1018,31 +950,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    boxSizing?: BoxSizingProp;
-    /**
-     * @ignore
-     */
     color?: ColorProp;
     /**
      * @ignore
      */
-    colorScheme?: ColorSchemeProp;
-    /**
-     * @ignore
-     */
-    columnCount?: ColumnCountProp;
-    /**
-     * @ignore
-     */
     columnGap?: ColumnGapProp;
-    /**
-     * @ignore
-     */
-    columnWidth?: ColumnWidthProp;
-    /**
-     * @ignore
-     */
-    contain?: ContainProp;
     /**
      * @ignore
      */
@@ -1098,27 +1010,11 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    fontFeatureSettings?: FontFeatureSettingsProp;
-    /**
-     * @ignore
-     */
-    fontKerning?: FontKerningProp;
-    /**
-     * @ignore
-     */
     fontSize?: FontSizeProp;
     /**
      * @ignore
      */
     fontStyle?: FontStyleProp;
-    /**
-     * @ignore
-     */
-    fontVariant?: FontVariantProp;
-    /**
-     * @ignore
-     */
-    fontVariationSettings?: FontVariationSettingsProp;
     /**
      * @ignore
      */
@@ -1131,14 +1027,6 @@ export interface StyledSystemProps {
      * @ignore
      */
     height?: HeightProp;
-    /**
-     * @ignore
-     */
-    imageOrientation?: ImageOrientationProp;
-    /**
-     * @ignore
-     */
-    imageRendering?: ImageRenderingProp;
     /**
      * @ignore
      */
@@ -1326,10 +1214,6 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
-    userSelect?: UserSelectProp;
-    /**
-     * @ignore
-     */
     verticalAlign?: VerticalAlignProp;
     /**
      * @ignore
@@ -1400,6 +1284,10 @@ function createClassesHandler<TValue extends string>(classes: Record<TValue, str
     };
 }
 
+function styleHandler(name: string, value: string, context: StylingContext) {
+    context.addStyleValue(name, value);
+}
+
 const BorderWidthClasses = {
     "border": "o-ui-ba",
     "borderBottom": "o-ui-bb",
@@ -1459,24 +1347,32 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignContent: createClassesHandler(AlignContentClasses),
     alignItems: createClassesHandler(AlignItemsClasses),
     alignSelf: createClassesHandler(AlignSelfClasses),
-    backgroundAttachment: createClassesHandler(BackgroundAttachmentClasses),
-    backgroundClip: createClassesHandler(BackgroundClipClasses),
+    aspectRatio: styleHandler,
     backgroundColor: createClassesHandler(BackgroundColorClasses),
+    backgroundImage: styleHandler,
     backgroundPosition: createClassesHandler(BackgroundPositionClasses),
+    backgroundRepeat: styleHandler,
     backgroundSize: createClassesHandler(BackgroundSizeClasses),
     border: borderHandler(BorderClasses),
     borderBottom: borderHandler(BorderBottomClasses),
+    borderBottomLeftRadius: styleHandler,
+    borderBottomRightRadius: styleHandler,
     borderLeft: borderHandler(BorderLeftClasses),
     borderRadius: createClassesHandler(BorderRadiusClasses),
     borderRight: borderHandler(BorderRightClasses),
     borderTop: borderHandler(BorderTopClasses),
+    borderTopLeftRadius: styleHandler,
+    borderTopRightRadius: styleHandler,
+    bottom: styleHandler,
     boxShadow: createClassesHandler(BoxShadowClasses),
-    boxSizing: createClassesHandler(BoxSizingClasses),
     color: createClassesHandler(ColorClasses),
     columnGap: createClassesHandler(ColumnGapClasses),
+    content: styleHandler,
+    contentVisibility: styleHandler,
     cursor: createClassesHandler(CursorClasses),
     display: createClassesHandler(DisplayClasses),
     fill: createClassesHandler(FillClasses),
+    filter: styleHandler,
     flex: createClassesHandler(FlexClasses),
     flexBasis: createClassesHandler(FlexBasisClasses),
     flexDirection: createClassesHandler(FlexDirectionClasses),
@@ -1485,10 +1381,15 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     flexShrink: createClassesHandler(FlexShrinkClasses),
     flexWrap: createClassesHandler(FlexWrapClasses),
     fontSize: createClassesHandler(FontSizeClasses),
+    fontStyle: styleHandler,
     fontWeight: createClassesHandler(FontWeightClasses),
     gap: createClassesHandler(GapClasses),
     height: createClassesHandler(HeightClasses),
     justifyContent: createClassesHandler(JustifyContentClasses),
+    justifyItems: styleHandler,
+    justifySelf: styleHandler,
+    left: styleHandler,
+    letterSpacing: styleHandler,
     lineHeight: createClassesHandler(LineHeightClasses),
     margin: createClassesHandler(MarginClasses),
     marginBottom: createClassesHandler(MarginBottomClasses),
@@ -1497,8 +1398,14 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginTop: createClassesHandler(MarginTopClasses),
     marginX: createClassesHandler(MarginXClasses),
     marginY: createClassesHandler(MarginYClasses),
+    maxHeight: styleHandler,
+    maxWidth: styleHandler,
+    minHeight: styleHandler,
+    minWidth: styleHandler,
     objectFit: createClassesHandler(ObjectFitClasses),
+    objectPosition: styleHandler,
     opacity: createClassesHandler(OpacityClasses),
+    order: styleHandler,
     outline: createClassesHandler(OutlineClasses),
     overflow: createClassesHandler(OverflowClasses),
     overflowX: createClassesHandler(OverflowXClasses),
@@ -1513,273 +1420,34 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     pointerEvents: createClassesHandler(PointerEventsClasses),
     position: createClassesHandler(PositionClasses),
     resize: createClassesHandler(ResizeClasses),
+    right: styleHandler,
     rowGap: createClassesHandler(RowGapClasses),
     stroke: createClassesHandler(StrokeClasses),
     textAlign: createClassesHandler(TextAlignClasses),
+    textDecoration: styleHandler,
     textOverflow: createClassesHandler(TextOverflowClasses),
     textTransform: createClassesHandler(TextTransformClasses),
+    top: styleHandler,
+    transform: styleHandler,
+    transformOrigin: styleHandler,
+    transformStyle: styleHandler,
     verticalAlign: createClassesHandler(VerticalAlignClasses),
+    visibility: styleHandler,
     whiteSpace: createClassesHandler(WhiteSpaceClasses),
     width: createClassesHandler(WidthClasses),
-    wordBreak: createClassesHandler(WordBreakClasses)
+    willChange: styleHandler,
+    wordBreak: createClassesHandler(WordBreakClasses),
+    zIndex: styleHandler
 };
 
-export function useStyledSystem<TProps extends Record<string, any>>({
-    alignContent,
-    alignItems,
-    alignSelf,
-    appearance,
-    aspectRatio,
-    backfaceVisibility,
-    backgroundAttachment,
-    backgroundClip,
-    backgroundColor,
-    backgroundImage,
-    backgroundOrigin,
-    backgroundPosition,
-    backgroundRepeat,
-    backgroundSize,
-    border,
-    borderBottom,
-    borderBottomLeftRadius,
-    borderBottomRightRadius,
-    borderLeft,
-    borderRadius,
-    borderRight,
-    borderTop,
-    borderTopLeftRadius,
-    borderTopRightRadius,
-    bottom,
-    boxShadow,
-    boxSizing,
-    className,
-    color,
-    colorScheme,
-    columnCount,
-    columnGap,
-    columnWidth,
-    contain,
-    content,
-    contentVisibility,
-    cursor,
-    display,
-    fill,
-    filter,
-    flex,
-    flexBasis,
-    flexDirection,
-    flexFlow,
-    flexGrow,
-    flexShrink,
-    flexWrap,
-    fontFeatureSettings,
-    fontKerning,
-    fontSize,
-    fontStyle,
-    fontVariant,
-    fontVariationSettings,
-    fontWeight,
-    gap,
-    height,
-    imageOrientation,
-    imageRendering,
-    justifyContent,
-    justifyItems,
-    justifySelf,
-    left,
-    letterSpacing,
-    lineHeight,
-    margin,
-    marginBottom,
-    marginLeft,
-    marginRight,
-    marginTop,
-    marginX,
-    marginY,
-    maxHeight,
-    maxWidth,
-    minHeight,
-    minWidth,
-    objectFit,
-    objectPosition,
-    opacity,
-    order,
-    outline,
-    overflow,
-    overflowX,
-    overflowY,
-    padding,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingX,
-    paddingY,
-    position,
-    resize,
-    right,
-    rowGap,
-    stroke,
-    style,
-    textAlign,
-    textDecoration,
-    textOverflow,
-    textTransform,
-    top,
-    transform,
-    transformOrigin,
-    transformStyle,
-    userSelect,
-    verticalAlign,
-    visibility,
-    whiteSpace,
-    width,
-    willChange,
-    wordBreak,
-    zIndex,
-    ...rest
-}: TProps) {
-    const styling = useMemo(() => {
-        const styleProps: StyledSystemProps = {
-            alignContent,
-            alignItems,
-            alignSelf,
-            appearance,
-            aspectRatio,
-            backfaceVisibility,
-            backgroundAttachment,
-            backgroundClip,
-            backgroundColor,
-            backgroundImage,
-            backgroundOrigin,
-            backgroundPosition,
-            backgroundRepeat,
-            backgroundSize,
-            border,
-            borderBottom,
-            borderBottomLeftRadius,
-            borderBottomRightRadius,
-            borderLeft,
-            borderRadius,
-            borderRight,
-            borderTop,
-            borderTopLeftRadius,
-            borderTopRightRadius,
-            bottom,
-            boxShadow,
-            boxSizing,
-            color,
-            colorScheme,
-            columnCount,
-            columnGap,
-            columnWidth,
-            contain,
-            content,
-            contentVisibility,
-            cursor,
-            display,
-            fill,
-            filter,
-            flex,
-            flexBasis,
-            flexDirection,
-            flexFlow,
-            flexGrow,
-            flexShrink,
-            flexWrap,
-            fontFeatureSettings,
-            fontKerning,
-            fontSize,
-            fontStyle,
-            fontVariant,
-            fontVariationSettings,
-            fontWeight,
-            gap,
-            height,
-            imageOrientation,
-            imageRendering,
-            justifyContent,
-            justifyItems,
-            justifySelf,
-            left,
-            letterSpacing,
-            lineHeight,
-            margin,
-            marginBottom,
-            marginLeft,
-            marginRight,
-            marginTop,
-            marginX,
-            marginY,
-            maxHeight,
-            maxWidth,
-            minHeight,
-            minWidth,
-            objectFit,
-            objectPosition,
-            opacity,
-            order,
-            outline,
-            overflow,
-            overflowX,
-            overflowY,
-            padding,
-            paddingBottom,
-            paddingLeft,
-            paddingRight,
-            paddingTop,
-            paddingX,
-            paddingY,
-            position,
-            resize,
-            right,
-            rowGap,
-            stroke,
-            textAlign,
-            textDecoration,
-            textOverflow,
-            textTransform,
-            top,
-            transform,
-            transformOrigin,
-            transformStyle,
-            userSelect,
-            verticalAlign,
-            visibility,
-            whiteSpace,
-            width,
-            willChange,
-            wordBreak,
-            zIndex
-        };
-
-        const context = new StylingContext(className, style);
-
-        Object.entries(styleProps).forEach(([key, value]: Entry<TProps>) => {
-            if (!isNil(value)) {
-                const handler = PropsHandlers[key];
-
-                if (!isNil(handler)) {
-                    handler(key, value, context);
-                } else {
-                    context.addStyleValue(key, value);
-                }
-            }
-        });
-
-        return context.computeStyling();
-    }, [
-        appearance,
-        aspectRatio,
+export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
+    const {
         alignContent,
         alignItems,
         alignSelf,
-        backfaceVisibility,
-        backgroundAttachment,
-        backgroundClip,
+        aspectRatio,
         backgroundColor,
         backgroundImage,
-        backgroundOrigin,
         backgroundPosition,
         backgroundRepeat,
         backgroundSize,
@@ -1794,15 +1462,9 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         borderTopLeftRadius,
         borderTopRightRadius,
         bottom,
-        boxShadow,
-        boxSizing,
         className,
         color,
-        colorScheme,
-        columnCount,
         columnGap,
-        columnWidth,
-        contain,
         content,
         contentVisibility,
         cursor,
@@ -1816,17 +1478,11 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         flexGrow,
         flexShrink,
         flexWrap,
-        fontFeatureSettings,
-        fontKerning,
         fontSize,
         fontStyle,
         fontWeight,
-        fontVariant,
-        fontVariationSettings,
         gap,
         height,
-        imageOrientation,
-        imageRendering,
         justifyContent,
         justifyItems,
         justifySelf,
@@ -1873,7 +1529,123 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         transform,
         transformOrigin,
         transformStyle,
-        userSelect,
+        verticalAlign,
+        visibility,
+        whiteSpace,
+        width,
+        willChange,
+        wordBreak,
+        zIndex,
+        ...rest
+    } = props;
+
+    // We don't have to add "props" as a dependency because useStyledSystem return the "rest" which is all the props that are not already a dependency
+    // of this memoization. If we do add props, the memoization will refresh on every render, which is bad, so don't do it.
+    /* eslint-disable react-hooks/exhaustive-deps */
+    const styling = useMemo(() => {
+        const context = new StylingContext(className, style);
+
+        Object.keys(props).forEach(key => {
+            const value = props[key];
+
+            if (!isNil(value)) {
+                const handler = PropsHandlers[key];
+
+                if (!isNil(handler)) {
+                    handler(key, value, context);
+                }
+            }
+        });
+
+        return context.computeStyling();
+    }, [
+        aspectRatio,
+        alignContent,
+        alignItems,
+        alignSelf,
+        backgroundColor,
+        backgroundImage,
+        backgroundPosition,
+        backgroundRepeat,
+        backgroundSize,
+        border,
+        borderBottom,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
+        borderLeft,
+        borderRadius,
+        borderRight,
+        borderTop,
+        borderTopLeftRadius,
+        borderTopRightRadius,
+        bottom,
+        className,
+        color,
+        columnGap,
+        content,
+        contentVisibility,
+        cursor,
+        display,
+        fill,
+        filter,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
+        fontSize,
+        fontStyle,
+        fontWeight,
+        gap,
+        height,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        left,
+        letterSpacing,
+        lineHeight,
+        margin,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+        marginX,
+        marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        objectPosition,
+        opacity,
+        order,
+        outline,
+        overflow,
+        overflowX,
+        overflowY,
+        padding,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingTop,
+        paddingX,
+        paddingY,
+        position,
+        resize,
+        right,
+        rowGap,
+        stroke,
+        style,
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        transform,
+        transformOrigin,
+        transformStyle,
         verticalAlign,
         visibility,
         whiteSpace,
@@ -1882,6 +1654,7 @@ export function useStyledSystem<TProps extends Record<string, any>>({
         wordBreak,
         zIndex
     ]);
+    /* eslint-enable react-hooks/exhaustive-deps */
 
     return {
         ...rest,
