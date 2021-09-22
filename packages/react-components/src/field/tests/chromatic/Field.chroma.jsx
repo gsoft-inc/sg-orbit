@@ -203,6 +203,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <Field border="sunray-10">
+                <Label>Launch date</Label>
+                <TextInput />
+            </Field>
             <Field className="border-red">
                 <Label>Launch date</Label>
                 <TextInput />

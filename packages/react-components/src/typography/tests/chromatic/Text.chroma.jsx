@@ -30,6 +30,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
+            <Text border="sunray-10">There are no passengers on spaceship earth.</Text>
             <Text className="bg-red">There are no passengers on spaceship earth.</Text>
             <Text style={{ backgroundColor: "red" }}>There are no passengers on spaceship earth.</Text>
         </Stack>

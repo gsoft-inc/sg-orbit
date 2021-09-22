@@ -24,6 +24,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <Label border="sunray-10">Where to?</Label>
             <Label className="bg-red">Where to?</Label>
             <Label style={{ background: "red" }}>Where to?</Label>
         </Inline>

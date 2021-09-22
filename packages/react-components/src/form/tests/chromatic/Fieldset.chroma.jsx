@@ -1,6 +1,7 @@
 import { Button } from "@react-components/button";
 import { Field, Label } from "@react-components/field";
 import { Fieldset, Form, Row } from "@react-components/form";
+import { Stack } from "@react-components/layout";
 import { TextInput } from "@react-components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -95,4 +96,44 @@ stories()
             </Fieldset>
             <Button variant="secondary">Submit</Button>
         </Form>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Fieldset border="sunray-10" label="Shipping Address">
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Fieldset>
+            <Fieldset className="border-red" label="Shipping Address">
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Fieldset>
+            <Fieldset style={{ border: "1px solid red" }} label="Shipping Address">
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Fieldset>
+        </Stack>
     );

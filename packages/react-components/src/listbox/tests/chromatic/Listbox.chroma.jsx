@@ -605,25 +605,21 @@ stories()
         </Listbox>
     )
     .add("styling", () =>
-        <Stack>
-            <Inline>
-                <Listbox className="border-red" aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">Mars</Item>
-                </Listbox>
-                <Listbox style={{ border: "1px solid red" }} aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">Mars</Item>
-                </Listbox>
-            </Inline>
-            <Inline>
-                <Listbox aria-label="Planets">
-                    <Item className="border-red" key="earth">Earth</Item>
-                    <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
-                    <Item key="mars">Mars</Item>
-                </Listbox>
-            </Inline>
-        </Stack>
+        <Inline>
+            <Listbox border="sunray-10" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Listbox>
+            <Listbox className="border-red" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item className="border-red" key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Listbox>
+            <Listbox style={{ border: "1px solid red" }} aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Listbox>
+        </Inline>
     );

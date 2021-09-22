@@ -167,6 +167,12 @@ stories()
             <Tooltip>Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>
     )
+    .add("tooltip trigger styled system", () =>
+        <TooltipTrigger border="sunray-10" open>
+            <Button variant="secondary">Trigger</Button>
+            <Tooltip>Man must rise above the Earth.</Tooltip>
+        </TooltipTrigger>
+    )
     .add("tooltip trigger className", () =>
         <TooltipTrigger className="border-red" open>
             <Button variant="secondary">Trigger</Button>
@@ -177,6 +183,12 @@ stories()
         <TooltipTrigger style={{ border: "1px solid red" }} open>
             <Button variant="secondary">Trigger</Button>
             <Tooltip>Man must rise above the Earth.</Tooltip>
+        </TooltipTrigger>
+    )
+    .add("tooltip styled system", () =>
+        <TooltipTrigger border="sunray-10" open>
+            <Button variant="secondary">Trigger</Button>
+            <Tooltip className="border-red">Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>
     )
     .add("tooltip className", () =>

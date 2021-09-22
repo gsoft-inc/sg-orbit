@@ -4,7 +4,7 @@ import { DateInput } from "@react-components/date-input";
 import { Div } from "@react-components/html";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
 import { Form, Row } from "@react-components/form";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea } from "@react-components/text-area";
 import { TextInput } from "@react-components/text-input";
@@ -186,6 +186,11 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <Form border="sunray-10">
+                <Field>
+                    <TextInput placeholder="Where to?" />
+                </Field>
+            </Form>
             <Form className="border-red">
                 <Field>
                     <TextInput placeholder="Where to?" />
@@ -359,4 +364,56 @@ stories("/inline")
                 <Button type="submit" variant="secondary">Submit</Button>
             </ButtonGroup>
         </Form>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Form border="sunray-10">
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Username</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Form>
+            <Form className="border-red">
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Username</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Form>
+            <Form style={{ border: "1px solid red" }}>
+                <Row>
+                    <Field>
+                        <Label>First name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Last name</Label>
+                        <TextInput />
+                    </Field>
+                    <Field>
+                        <Label>Username</Label>
+                        <TextInput />
+                    </Field>
+                </Row>
+            </Form>
+        </Stack>
     );

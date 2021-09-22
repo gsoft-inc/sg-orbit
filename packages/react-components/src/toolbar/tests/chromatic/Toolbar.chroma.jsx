@@ -230,6 +230,31 @@ stories()
             </Field>
             <ToggleButton>Activate</ToggleButton>
         </Toolbar>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Toolbar border="sunray-10">
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+            </Toolbar>
+            <Toolbar className="border-red">
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+            </Toolbar>
+            <Toolbar style={{ border: "1px solid red" }}>
+                <CheckboxGroup>
+                    <ToggleButton value="1">1</ToggleButton>
+                    <ToggleButton value="2">2</ToggleButton>
+                    <ToggleButton value="3">3</ToggleButton>
+                </CheckboxGroup>
+            </Toolbar>
+        </Stack>
     );
 
 stories("/vertical")

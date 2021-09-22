@@ -41,6 +41,7 @@ stories()
     )
     .add("styling", () =>
         <>
+            <Paragraph border="sunray-10">If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
             <Paragraph className="bg-red">If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
             <Paragraph style={{ backgroundColor: "red" }}>If two pieces of the same type of metal touch<br />in space they will permanently bond.</Paragraph>
         </>

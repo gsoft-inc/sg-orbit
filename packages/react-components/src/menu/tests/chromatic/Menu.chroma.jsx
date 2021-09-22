@@ -642,14 +642,19 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <Menu border="sunray-10" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
             <Menu className="border-red" aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item key="jupiter">Jupiter</Item>
+                <Item className="border-red" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
             <Menu style={{ border: "1px solid red" }} aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item key="jupiter">Jupiter</Item>
+                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
         </Inline>

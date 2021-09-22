@@ -1,4 +1,5 @@
 import { A } from "@react-components/html";
+import { Inline } from "@react-components/layout";
 import { StyleProvider } from "@react-components/shared";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -32,4 +33,11 @@ stories()
         return (
             <StyledAnchor>Google</StyledAnchor>
         );
-    });
+    })
+    .add("styling", () =>
+        <Inline>
+            <A border="sunray-10" href="#">Google</A>
+            <A className="border-red" href="#">Google</A>
+            <A style={{ border: "1px solid red" }} href="#">Google</A>
+        </Inline>
+    );

@@ -12,7 +12,7 @@ export interface InnerDotProps extends SlotProps, InternalProps, StyledComponent
     /**
      * The dot color.
      */
-    color: BackgroundColorProp;
+    color?: BackgroundColorProp;
 }
 
 function useColor(color: BackgroundColorProp) {

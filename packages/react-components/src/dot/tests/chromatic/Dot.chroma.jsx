@@ -36,13 +36,14 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Dot className="bg-red" color="alias-2"></Dot>
-                <Dot style={{ backgroundColor: "red" }} color="alias-2"></Dot>
+                <Dot border="sunray-10" color="alias-2"></Dot>
+                <Dot className="border-red" color="alias-2"></Dot>
+                <Dot style={{ border: "1px solid red" }} color="alias-2"></Dot>
             </Inline>
             <Inline>
-                <Dot className="bg-red" color="alias-2">Habitable</Dot>
-                <Dot style={{ backgroundColor: "red" }} color="alias-2">Habitable</Dot>
-                <Dot className="i" color="alias-2">Habitable</Dot>
+                <Dot border="sunray-10" color="alias-2">Habitable</Dot>
+                <Dot className="border-red" color="alias-2">Habitable</Dot>
+                <Dot style={{ border: "1px solid red" }} color="alias-2">Habitable</Dot>
             </Inline>
         </Stack>
     );

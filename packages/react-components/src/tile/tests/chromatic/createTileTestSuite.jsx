@@ -118,6 +118,10 @@ export function createTileTestSuite(element, stories) {
         )
         .add("styling", () =>
             <Stack>
+                <Tile element={element} border="sunray-10">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </Tile>
                 <Tile element={element} className="border-red">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>

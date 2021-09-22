@@ -211,6 +211,16 @@ stories()
             </MenuTrigger>
         );
     })
+    .add("styled system", () =>
+        <MenuTrigger border="sunray-10" defaultOpen>
+            <Button variant="secondary">Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
+    )
     .add("className", () =>
         <MenuTrigger className="border-red" defaultOpen>
             <Button variant="secondary">Trigger</Button>

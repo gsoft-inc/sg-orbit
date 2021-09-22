@@ -101,4 +101,11 @@ stories()
             <SearchInput disabled placeholder="Where to?" />
             <SearchInput readOnly placeholder="Where to?" />
         </Stack>
+    )
+    .add("styling", () =>
+        <Inline>
+            <SearchInput border="sunray-10" aria-label="Label" />
+            <SearchInput className="border-red" aria-label="Label" />
+            <SearchInput style={{ border: "1px solid red" }} aria-label="Label" />
+        </Inline>
     );

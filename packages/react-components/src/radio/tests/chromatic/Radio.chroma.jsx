@@ -19,6 +19,7 @@ createRadioTestSuite(<Radio defaultChecked />, stories("/checked"));
 stories()
     .add("styling", () =>
         <Inline>
+            <Radio border="sunray-10" value="any">Milky Way</Radio>
             <Radio className="bg-red" value="any">Milky Way</Radio>
             <Radio style={{ backgroundColor: "red" }} value="any">Milky Way</Radio>
         </Inline>

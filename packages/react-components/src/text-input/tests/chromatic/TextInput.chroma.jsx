@@ -116,8 +116,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <TextInput border="sunray-10" aria-label="Label" />
             <TextInput className="bg-red" aria-label="Label" />
             <TextInput style={{ backgroundColor: "red" }} aria-label="Label" />
+            <TextInput wrapperProps={{ border: "sunray-10" }} aria-label="Label" />
             <TextInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
             <TextInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>

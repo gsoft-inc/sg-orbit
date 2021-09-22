@@ -14,4 +14,13 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Underlay />
+    )
+    .add("styled system", () =>
+        <Underlay border="sunray-10" />
+    )
+    .add("className", () =>
+        <Underlay className="border-red" />
+    )
+    .add("style", () =>
+        <Underlay style={{ border: "1px solid red" }} />
     );

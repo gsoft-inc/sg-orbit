@@ -110,6 +110,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <ValidMessage border="sunray-10">Thank you!</ValidMessage>
             <ValidMessage className="bg-red">Thank you!</ValidMessage>
             <ValidMessage style={{ background: "red" }}>Thank you!</ValidMessage>
         </Inline>

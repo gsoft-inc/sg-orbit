@@ -55,4 +55,11 @@ stories()
             <NumberInput validationState="invalid" placeholder="Age" />
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <NumberInput border="sunray-10" placeholder="Age" />
+            <NumberInput className="border-red" placeholder="Age" />
+            <NumberInput style={{ border: "1px solid red" }} placeholder="Age" />
+        </Inline>
     );

@@ -457,27 +457,19 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Tabs className="border-red" aria-label="Planets">
-                    <Item>
-                        <Header>Mars</Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </Item>
-                </Tabs>
-                <Tabs style={{ border: "1px solid red" }} aria-label="Planets">
-                    <Item>
-                        <Header>Mars</Header>
-                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                    </Item>
-                </Tabs>
-            </Inline>
-            <Inline>
-                <Tabs aria-label="Planets">
+                <Tabs border="sunray-10" aria-label="Planets">
                     <Item>
                         <Header className="border-red">Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
-                <Tabs aria-label="Planets">
+                <Tabs className="border-red" aria-label="Planets">
+                    <Item>
+                        <Header className="border-red">Mars</Header>
+                        <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Item>
+                </Tabs>
+                <Tabs style={{ border: "1px solid red" }} aria-label="Planets">
                     <Item>
                         <Header style={{ border: "1px solid red" }}>Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -485,6 +477,12 @@ stories()
                 </Tabs>
             </Inline>
             <Inline>
+                <Tabs aria-label="Planets">
+                    <Item>
+                        <Header>Mars</Header>
+                        <Content border="sunray-10">Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                    </Item>
+                </Tabs>
                 <Tabs aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>

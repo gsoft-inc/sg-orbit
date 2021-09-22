@@ -30,5 +30,12 @@ stories()
             <Icons />
             <Icons size="lg" />
         </Stack>
+    )
+    .add("styling", () =>
+        <Stack>
+            <Icons border="sunray-10" />
+            <Icons className="border-red" />
+            <Icons style={{ border: "1px solid red" }} />
+        </Stack>
     );
 

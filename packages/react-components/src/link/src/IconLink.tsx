@@ -6,7 +6,7 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "r
 import { EmbeddedIcon } from "../../icons";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, augmentElement, mergeProps, useStyleProps } from "../../shared";
+import { OmitInternalProps, as, augmentElement, mergeProps, useStyleProps } from "../../shared";
 
 const DefaultElement = "a";
 
@@ -106,3 +106,7 @@ export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((
 ));
 
 export type IconLinkProps = ComponentProps<typeof IconLink>;
+
+/////////
+
+export const IconLinkAsButton = as(IconLink, "button");

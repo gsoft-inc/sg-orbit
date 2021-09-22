@@ -1,8 +1,9 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { Box } from "@react-components/box";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Div } from "@react-components/html";
 import { Divider, InnerDivider } from "@react-components/divider";
 import { Dot } from "@react-components/dot";
+import { Flex } from "@react-components/layout";
 import { TextLink } from "@react-components/link";
 
 <Meta
@@ -37,13 +38,13 @@ A divider can change his orientation to vertical.
 
 <Preview>
     <Story name="vertical">
-        <Box display="flex">
+        <Flex>
             <Dot color="success-500">Starlink operational</Dot>
             <Divider orientation="vertical" />
             <TextLink href="#">Manage</TextLink>
             <Divider orientation="vertical" />
             <TextLink href="#">View logs</TextLink>
-        </Box>
+        </Flex>
     </Story>
 </Preview>
 
@@ -61,9 +62,9 @@ Or vertically:
 
 <Preview>
     <Story name="labelled vertically">
-        <Box style={{ height: "150px" }}>
+        <Div height="150px">
             <Divider orientation="vertical">Last 30 days</Divider>
-        </Box>
+        </Div>
     </Story>
 </Preview>
 

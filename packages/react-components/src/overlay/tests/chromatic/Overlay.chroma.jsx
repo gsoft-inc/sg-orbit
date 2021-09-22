@@ -66,6 +66,13 @@ stories()
             </Boundary>
         </ThemeProvider>
     )
+    .add("styled system", () =>
+        <Boundary>
+            <Overlay border="sunray-10" show>
+                <PrimaryBox />
+            </Overlay>
+        </Boundary>
+    )
     .add("className", () =>
         <Boundary>
             <Overlay className="border-red" show>

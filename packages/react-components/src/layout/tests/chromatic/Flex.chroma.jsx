@@ -1,5 +1,5 @@
 import { Div } from "@react-components/html";
-import { Flex } from "@react-components/layout";
+import { Flex, Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
 ////////////
@@ -120,6 +120,25 @@ stories("/row")
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Flex border="sunray-10" direction="row">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+            <Flex className="border-red" direction="row">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+            <Flex style={{ border: "1px solid red" }} direction="row">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+        </Inline>
     );
 
 stories("/column")
@@ -202,4 +221,23 @@ stories("/column")
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Flex border="sunray-10" direction="column">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+            <Flex className="border-red" direction="row">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+            <Flex style={{ border: "1px solid red" }} direction="row">
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+            </Flex>
+        </Inline>
     );

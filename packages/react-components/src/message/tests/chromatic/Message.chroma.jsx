@@ -80,6 +80,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
+            <Message border="sunray-10"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
             <Message className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
             <Message style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
         </Stack>

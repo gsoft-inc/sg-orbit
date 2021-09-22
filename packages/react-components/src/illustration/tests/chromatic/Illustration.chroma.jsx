@@ -73,6 +73,9 @@ stories()
     )
     .add("styling", () =>
         <Stack>
+            <Illustration border="sunray-10" width="700px" height="200px">
+                <Image src={Nasa} alt="Nasa" />
+            </Illustration>
             <Illustration className="border-red" width="700px" height="200px">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>

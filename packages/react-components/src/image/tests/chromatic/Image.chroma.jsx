@@ -73,9 +73,16 @@ stories()
     )
     .add("object position", () =>
         <Inline>
-            <Image objectPosition="50% 50%" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="right top" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="left bottom" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
-            <Image objectPosition="250px 150px" fit="none" width="200px" height="200px" className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image objectPosition="50% 50%" fit="none" width="200px" height="200px" src={Mars} alt="SpaceX launch" />
+            <Image objectPosition="right top" fit="none" width="200px" height="200px" src={Mars} alt="SpaceX launch" />
+            <Image objectPosition="left bottom" fit="none" width="200px" height="200px" src={Mars} alt="SpaceX launch" />
+            <Image objectPosition="250px 150px" fit="none" width="200px" height="200px" src={Mars} alt="SpaceX launch" />
+        </Inline>
+    )
+    .add("styling", () =>
+        <Inline>
+            <Image border="sunray-10" src={Mars} alt="SpaceX launch" />
+            <Image className="border-red" src={Mars} alt="SpaceX launch" />
+            <Image style={{ border: "1px solid red" }} src={Mars} alt="SpaceX launch" />
         </Inline>
     );

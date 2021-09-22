@@ -149,6 +149,20 @@ stories()
     )
     .add("styling", () =>
         <Stack>
+            <TileGroup border="sunray-10" rowSize={3}>
+                <TileLink href="https://www.google.com">
+                    <Heading>Map</Heading>
+                    <Content>View space map</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Fuel</Heading>
+                    <Content>Fuel configuration and level</Content>
+                </TileLink>
+                <TileLink href="https://www.google.com">
+                    <Heading>Setting</Heading>
+                    <Content>Cockpit settings</Content>
+                </TileLink>
+            </TileGroup>
             <TileGroup className="border-red" rowSize={3}>
                 <TileLink href="https://www.google.com">
                     <Heading>Map</Heading>

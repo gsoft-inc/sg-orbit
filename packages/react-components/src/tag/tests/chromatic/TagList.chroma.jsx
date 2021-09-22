@@ -147,14 +147,19 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <TagList border="sunray-10">
+                <Item key="earth">Earth</Item>
+                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </TagList>
             <TagList className="border-red">
                 <Item key="earth">Earth</Item>
-                <Item key="jupiter">Jupiter</Item>
+                <Item className="border-red" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </TagList>
             <TagList style={{ border: "1px solid red" }}>
                 <Item key="earth">Earth</Item>
-                <Item key="jupiter">Jupiter</Item>
+                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </TagList>
         </Inline>

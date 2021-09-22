@@ -115,8 +115,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <TextArea border="sunray-10" aria-label="Label" />
             <TextArea className="bg-red" aria-label="Label" />
             <TextArea style={{ backgroundColor: "red" }} aria-label="Label" />
+            <TextArea wrapperProps={{ border: "sunray-10" }} aria-label="Label" />
             <TextArea wrapperProps={{ className: "border-red" }} aria-label="Label" />
             <TextArea wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>

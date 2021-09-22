@@ -16,6 +16,7 @@ createTagTestSuite(<Tag variant="outline" />, stories("/outline"));
 stories()
     .add("styling", () =>
         <Inline>
+            <Tag border="sunray-10">Falcon 9</Tag>
             <Tag className="bg-red">Falcon 9</Tag>
             <Tag style={{ backgroundColor: "red" }}>Falcon 9</Tag>
         </Inline>

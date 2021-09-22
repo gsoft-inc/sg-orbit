@@ -65,4 +65,11 @@ stories()
             <PasswordInput disabled placeholder="What's your secret?" />
             <PasswordInput readOnly placeholder="What's your secret?" />
         </Stack>
+    )
+    .add("styling", () =>
+        <Inline>
+            <PasswordInput border="sunray-10" aria-label="Label" />
+            <PasswordInput className="border-red" aria-label="Label" />
+            <PasswordInput style={{ border: "1px solid red" }} aria-label="Label" />
+        </Inline>
     );

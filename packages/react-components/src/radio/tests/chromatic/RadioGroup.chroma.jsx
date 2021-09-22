@@ -133,6 +133,11 @@ stories()
     )
     .add("styling", () =>
         <Inline>
+            <RadioGroup border="sunray-10">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
             <RadioGroup className="bg-red">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
