@@ -1,4 +1,5 @@
 import { AriaAttributes } from "react";
+import { HtmlButton } from "../../html";
 import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, mergeProps, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "danger" | "inherit";
@@ -83,6 +84,6 @@ export function useButton({
             )
         ),
         ref: buttonRef,
-        type: type ?? (as === "button" ? "button" : undefined)
+        type: type ?? (as === HtmlButton ? "button" : undefined)
     };
 }

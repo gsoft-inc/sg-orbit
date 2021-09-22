@@ -242,7 +242,7 @@ test("header ref is a DOM element", async () => {
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
-    expect(ref.current.tagName).toBe("H3");
+    expect(ref.current.tagName).toBe("BUTTON");
 });
 
 test("content ref is a DOM element", async () => {

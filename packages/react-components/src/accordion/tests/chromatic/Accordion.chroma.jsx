@@ -1,6 +1,6 @@
 import { Accordion } from "@react-components/accordion";
 import { Content, Header } from "@react-components/placeholders";
-import { Inline, Stack } from "@react-components/layout";
+import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { createAccordionTestSuite } from "./createAccordionTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";

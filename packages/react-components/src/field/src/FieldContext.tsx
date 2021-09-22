@@ -1,4 +1,5 @@
 import { ElementType, ReactNode, createContext, useContext } from "react";
+import { HtmlLabel, Span } from "../../html";
 import { isNil } from "../../shared";
 
 export interface FieldContextType {
@@ -65,13 +66,13 @@ export function useFieldLabelProps({ as: asProp }: UseFieldLabelProps): [UseFiel
     const [{ inputId, isGroup, labelClassName, labelId, required }, isInField] = useFieldContext();
 
     const as = isNil(asProp)
-        ? isGroup ? "span" : "label"
+        ? isGroup ? Span : HtmlLabel
         : asProp;
 
     const props = isInField && {
         as,
         className: labelClassName,
-        htmlFor: as === "label" ? inputId : undefined,
+        htmlFor: as === HtmlLabel ? inputId : undefined,
         id: labelId,
         required
     };

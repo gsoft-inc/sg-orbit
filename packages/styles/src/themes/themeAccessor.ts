@@ -24,30 +24,30 @@ export class ThemeAccessor {
     }
 
     getName() {
-        return this.theme.name;
+        return !isNil(this.theme) ? this.theme.name : "";
     }
 
-    getSpace(index: number) {
-        return this.theme.space[index - 1];
+    getSpace(index: number): string {
+        return !isNil(this.theme) ? this.theme.space[index - 1] : "";
     }
 
-    getFontSize(key: keyof FontSizeValues) {
-        return this.theme.fontSizes[key];
+    getFontSize(key: keyof FontSizeValues): string {
+        return !isNil(this.theme) ? this.theme.fontSizes[key] : "";
     }
 
-    getLineHeight(index: number) {
-        return this.theme.lineHeights[index - 1];
+    getLineHeight(index: number): number {
+        return !isNil(this.theme) ? this.theme.lineHeights[index - 1] : 0;
     }
 
-    getBorderRadius(index: number) {
-        return this.theme.borderRadii[index - 1];
+    getBorderRadius(index: number): string {
+        return !isNil(this.theme) ? this.theme.borderRadii[index - 1] : "";
     }
 
-    getBoxShadow(key: string, colorScheme: keyof BoxShadowColorSchemes = "light") {
-        return this.getColorSchemeValue(this.theme.boxShadows, key, colorScheme);
+    getBoxShadow(key: string, colorScheme: keyof BoxShadowColorSchemes = "light"): string {
+        return !isNil(this.theme) ? this.getColorSchemeValue(this.theme.boxShadows, key, colorScheme) : "";
     }
 
-    getColor(key: string, colorScheme: keyof ColorColorSchemes = "light") {
-        return this.getColorSchemeValue(this.theme.colors, key, colorScheme);
+    getColor(key: string, colorScheme: keyof ColorColorSchemes = "light"): string {
+        return !isNil(this.theme) ? this.getColorSchemeValue(this.theme.colors, key, colorScheme) : "";
     }
 }
