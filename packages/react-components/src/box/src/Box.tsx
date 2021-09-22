@@ -1,5 +1,6 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledHtmlAttributes, omitProps, useStyledSystem } from "../../shared";
+import { getHtmlElementType } from "../../html";
 
 const DefaultElement = "div";
 
@@ -12,11 +13,13 @@ export interface InnerBoxProps extends SlotProps, InternalProps, StyledHtmlAttri
 
 export function InnerBox(props: InnerBoxProps) {
     const {
-        as: As = DefaultElement,
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest
     } = omitProps(useStyledSystem(props), ["slot"]);
+
+    const As = getHtmlElementType(as);
 
     return (
         <As

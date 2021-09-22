@@ -1,9 +1,8 @@
-import { isNil, isNumber } from "@react-components/shared";
+import { isNil } from "@react-components/shared";
 
 class ParamsBuilder {
     _canvasLayout = {}
     _chromatic = {}
-    _sortPriority = null;
     _excludeFromDocs = false;
     _component = null;
     _a11y = null;
@@ -46,14 +45,6 @@ class ParamsBuilder {
 
     chromaticIgnore() {
         this._chromatic.disable = true;
-
-        return this;
-    }
-
-    sortPriority(priority) {
-        if (isNumber(priority)) {
-            this._sortPriority = priority;
-        }
 
         return this;
     }

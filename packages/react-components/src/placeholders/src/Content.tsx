@@ -1,6 +1,5 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, slot } from "../../shared";
 
 const DefaultElement = "div";
@@ -13,7 +12,7 @@ export interface InnerContentProps extends SlotProps, InternalProps, StyledCompo
 }
 
 export function InnerContent({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

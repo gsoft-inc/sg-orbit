@@ -4,7 +4,6 @@ import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, isNil, mergeProps, useEventCallback } from "../../shared";
 import { Tag, TagProps } from "./Tag";
 
@@ -76,7 +75,7 @@ function TagItem({
 }
 
 export function InnerTagList({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     onClear,

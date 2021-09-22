@@ -16,7 +16,6 @@ import {
     mergeProps,
     slot
 } from "../../shared";
-import { HtmlElements } from "../../html";
 
 export type AbstractImageProps<T extends JsxElement<T>> = SlotProps & InternalProps & Omit<StyledComponentProps<typeof DefaultElement>, "height" | "objectFit" | "objectPosition" | "width"> & {
     /**
@@ -58,7 +57,7 @@ const DefaultElement = "img";
 export type InnerImageProps = AbstractImageProps<typeof DefaultElement>;
 
 export function InnerImage({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     forwardedRef,
     shape = "straight",
     ...rest

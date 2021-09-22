@@ -1,8 +1,9 @@
-import { A, HtmlInput } from "@react-components/html";
 import { Button } from "@react-components/button";
 import { Content, Footer } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
+import { HtmlInput } from "@react-components/html";
 import { Popover } from "@react-components/popover";
+import { TextLink } from "@react-components/link";
 import { act, render, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import userEvent from "@testing-library/user-event";
@@ -54,10 +55,10 @@ test("do not autofocus an anchor element", async () => {
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
-                <A href="https://www.google.com">This year, the National Science Foundation (NSF)</A> said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
+                <TextLink href="https://www.google.com">This year, the National Science Foundation (NSF)</TextLink> said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
             </Content>
             <Footer>
-                <A href="https://www.google.com">This year, the National Science Foundation (NSF)</A>
+                <TextLink href="https://www.google.com">This year, the National Science Foundation (NSF)</TextLink>
             </Footer>
         </Popover>
     );

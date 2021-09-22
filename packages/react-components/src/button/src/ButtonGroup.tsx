@@ -2,7 +2,6 @@ import "./ButtonGroup.css";
 
 import { AbstractGroupProps, Group } from "../../group";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { OmitInternalProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
@@ -41,7 +40,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
 
     const {
         align,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         disabled,
         fluid,

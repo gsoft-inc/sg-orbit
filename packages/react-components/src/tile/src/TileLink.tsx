@@ -1,7 +1,6 @@
 import { AbstractLinkProps, Link } from "../../link";
 import { ComponentProps, forwardRef } from "react";
 import { FlexOrientation } from "../../layout";
-import { HtmlElements } from "../../html";
 import { OmitInternalProps, cssModule, mergeProps } from "../../shared";
 import { useTile } from "./useTile";
 
@@ -16,7 +15,7 @@ export interface InnerTileLinkProps extends AbstractLinkProps<typeof DefaultElem
 
 export function InnerTileLink({
     active,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     disabled,
     focus,

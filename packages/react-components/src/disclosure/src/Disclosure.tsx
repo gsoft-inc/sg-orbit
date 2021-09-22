@@ -2,7 +2,6 @@ import "./Disclosure.css";
 
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
-import { HtmlElements } from "../../html";
 import {
     InternalProps,
     Keys,
@@ -46,7 +45,7 @@ export interface InnerDisclosureProps extends InternalProps, StyledComponentProp
 }
 
 export function InnerDisclosure({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     defaultOpen,
     forwardedRef,

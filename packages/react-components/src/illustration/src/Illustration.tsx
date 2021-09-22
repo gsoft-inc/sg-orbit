@@ -2,7 +2,6 @@ import "./Illustration.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";
 import { Text } from "../../typography";
 
@@ -24,7 +23,7 @@ export interface InnerIllustrationProps extends SlotProps, InternalProps, Styled
 }
 
 export function InnerIllustration({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     orientation = "horizontal",

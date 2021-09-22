@@ -1,6 +1,5 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -17,7 +16,7 @@ export interface InnerListboxSectionProps extends InternalProps, StyledComponent
 }
 
 export function InnerListboxSection({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     id,

@@ -1,6 +1,5 @@
 import { AbstractImageProps, Image as OrbitImage } from "./Image";
 import { ComponentProps, ReactElement, ReactNode, forwardRef, useCallback, useEffect, useState } from "react";
-import { HtmlElements } from "../../html";
 import { OmitInternalProps, isNil, mergeProps, slot, useRefState } from "../../shared";
 
 const DefaultElement = "img";
@@ -21,7 +20,7 @@ export interface InnerAsyncImageProps extends AbstractImageProps<typeof DefaultE
 }
 
 function InnerAsyncImage({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     delay = 250,
     forwardedRef,

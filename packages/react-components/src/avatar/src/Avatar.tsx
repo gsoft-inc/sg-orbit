@@ -3,7 +3,7 @@ import "./Avatar.css";
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef, useMemo } from "react";
-import { HtmlElements, Img } from "../../html";
+import { Img } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -162,7 +162,7 @@ export function AvatarText(props: any) {
 
 export function InnerAvatar({
     "aria-label": ariaLabel,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     forwardedRef,
     name,
     retryCount,

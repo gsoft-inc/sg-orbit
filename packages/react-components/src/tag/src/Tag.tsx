@@ -3,7 +3,6 @@ import "./Tag.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -41,7 +40,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
 
 export function InnerTag({
     active,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     disabled,
     fluid,

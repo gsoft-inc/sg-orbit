@@ -3,7 +3,6 @@ import "./Link.css";
 import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
@@ -42,7 +41,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
 
     const {
         active,
-        as: asProp = HtmlElements[DefaultElement],
+        as: asProp = DefaultElement,
         autoFocus,
         children,
         disabled,

@@ -1,5 +1,5 @@
 import { Div } from "@react-components/html";
-import { Heading, Paragraph } from "@react-components/typography";
+import { H2, Paragraph } from "@react-components/typography";
 import { Image } from "@react-components/image";
 import { Inline } from "@react-components/layout";
 import { Launch } from "./assets";
@@ -25,9 +25,9 @@ function LaunchImage() {
 function Card() {
     return (
         <Div>
-            <Heading as="h2" size="lg">
+            <H2 size="lg">
                 SpaceX delays launch of South Korean military satellite
-            </Heading>
+            </H2>
             <Paragraph>
                 SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.
             </Paragraph>

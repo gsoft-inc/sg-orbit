@@ -1,7 +1,6 @@
 import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
 import { Text } from "../../typography";
 
@@ -13,10 +12,6 @@ export interface InnerParagraphProps extends InternalProps, StyledComponentProps
      */
     children: ReactNode;
     /**
-     * A paragraph can inherit it's parent color.
-     */
-    color?: "inherit";
-    /**
      * A paragraph can vary in size.
      */
     size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit";
@@ -26,7 +21,7 @@ export function InnerParagraph(props: InnerParagraphProps) {
     const [styleProps] = useStyleProps<InnerParagraphProps>("p");
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         forwardedRef,
         size,

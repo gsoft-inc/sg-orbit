@@ -2,7 +2,6 @@ import "./Accordion.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, omitProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -22,7 +21,7 @@ export interface InnerAccordionPanelProps extends InternalProps, StyledComponent
 
 export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

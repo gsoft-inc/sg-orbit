@@ -15,7 +15,6 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { HtmlElements } from "../../html";
 import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { useInputGroupMenuAddonProps } from "../../input-group";
@@ -40,7 +39,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         align = "start",
         allowFlip,
         allowPreventOverflow,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         closeOnSelect = true,
         defaultOpen,

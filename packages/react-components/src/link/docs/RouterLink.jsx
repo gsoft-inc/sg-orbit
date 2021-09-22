@@ -2,7 +2,7 @@ import { Box } from "@react-components/box";
 import { as } from "@react-components/shared";
 import { forwardRef } from "react";
 
-const A = as(Box, "as");
+const A = as(Box, "a");
 
 // Dummy component to demonstrate how to use with React Router.
 export const RouterLink = forwardRef(({

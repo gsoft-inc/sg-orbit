@@ -1,7 +1,6 @@
 import "./Overlay.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider, useThemeContext } from "../../theme-provider";
 import { Transition } from "../../transition";
@@ -34,7 +33,7 @@ export interface InnerOverlayProps extends InternalProps, Omit<StyledComponentPr
 }
 
 export function InnerOverlay({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     borderOffset,
     children,
     containerElement,

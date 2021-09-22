@@ -1,6 +1,5 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useId } from "../../shared";
 
 const DefaultElement = "div";
@@ -17,7 +16,7 @@ export interface InnerFieldsetProps extends InternalProps, StyledComponentProps<
 }
 
 export function InnerFieldset({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     id,

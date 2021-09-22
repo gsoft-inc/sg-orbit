@@ -1,7 +1,6 @@
 import { Box } from "../../box";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
 import { InteractionProps, InternalProps, OmitInternalProps, SlotElements, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { ItemKeyProp } from "./Menu";
 import { SelectionMode } from "./Menu";
@@ -34,7 +33,7 @@ const RoleBySelectionMode: Record<SelectionMode, string> = {
 
 export function InnerMenuItem({
     active,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     disabled,
     focus,
@@ -102,9 +101,7 @@ export function InnerMenuItem({
                     "aria-describedby": description && descriptionId,
                     "aria-disabled": disabled,
                     "aria-labelledby": labelId,
-
                     as,
-
                     className: cssModule(
                         "o-ui-menu-item",
                         description && "has-description",

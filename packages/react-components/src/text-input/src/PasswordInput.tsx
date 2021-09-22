@@ -1,7 +1,6 @@
 import { AbstractTextInputProps, TextInput } from "./TextInput";
 import { ChangeEvent, ComponentProps, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
-import { HtmlElements } from "../../html";
 import { IconButton } from "../../button";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { useInputGroupTextInputProps } from "../../input-group";
@@ -16,7 +15,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
     const [inputGroupProps] = useInputGroupTextInputProps();
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         defaultValue,
         forwardedRef,
         value,

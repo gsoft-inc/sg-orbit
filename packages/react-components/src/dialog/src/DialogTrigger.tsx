@@ -1,6 +1,5 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
 import { DialogTriggerContext } from "./DialogTriggerContext";
-import { HtmlElements } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -48,7 +47,7 @@ export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledCompo
 }
 
 export function InnerDialogTrigger({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     defaultOpen,
     dismissable = true,

@@ -19,14 +19,14 @@ import { Meta } from "@storybook/addon-docs";
 
 ### Example
 
-A nav component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) and Orbit styled system props.
+A nav component accepts all the [nav HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav) and Orbit styled system props.
 
 ```jsx
 <Nav color="cloud-8">
     <UL>
-        <LI><A href="#">Missions</A></LI>
-        <LI><A href="#">Launches</A></LI>
-        <LI><A href="#">Careers</A></LI>
+        <LI><TextLink href="#">Missions</TextLink></LI>
+        <LI><TextLink href="#">Launches</TextLink></LI>
+        <LI><TextLink href="#">Careers</TextLink></LI>
     </UL>
 </Nav>
 ```

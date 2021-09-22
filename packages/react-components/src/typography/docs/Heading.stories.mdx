@@ -18,35 +18,22 @@ import { H1, H2, H3, H4, H5, H6, Heading, InnerHeading } from "@react-components
 
 ## Usage
 
-### Element type
+### Default
 
-When using an header, you should specify the element type to render it as. We do recommended using native header elements `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`.
+A default heading will render as a `<div>` element.
 
 <Preview>
-    <Story name="element type">
-        <Heading as="h1">Houston, Tranquillity Base here. The Eagle has landed.</Heading>
+    <Story name="default">
+        <Heading>Houston, Tranquillity Base here. The Eagle has landed.</Heading>
     </Story>
 </Preview>
 
-### Size
+### Heading elements
 
-You can alter the size of the heading by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/typography--page#headlines).
-
-<Preview>
-    <Story name="size">
-        <>
-            <Heading as="h3">Houston, Tranquillity Base here. The Eagle has landed.</Heading>
-            <Heading as="h4" size="sm">Houston, Tranquillity Base here. The Eagle has landed.</Heading>
-        </>
-    </Story>
-</Preview>
-
-### Aliases
-
-Convenience aliases are available for standard HTML headers.
+For most cases, we do recommend using HTML content sectionning heading elements instead of a `<div>`. Orbit help by offering specialized heading components `<H1>`, `<H2>`, `<H3>`, `<H4>`, `<H5>`, `<H6>`.
 
 <Preview>
-    <Story name="aliases">
+    <Story name="heading elements">
         <>
             <H1>Houston, Tranquillity Base here. The Eagle has landed.</H1>
             <H2>Houston, Tranquillity Base here. The Eagle has landed.</H2>
@@ -58,9 +45,22 @@ Convenience aliases are available for standard HTML headers.
     </Story>
 </Preview>
 
+### Size
+
+You can alter the size of an heading component by specifying a `size` prop. The available size match Orbit UI [typographic headlines](?path=/docs/typography--page#headlines).
+
+<Preview>
+    <Story name="size">
+        <>
+            <Heading>Houston, Tranquillity Base here. The Eagle has landed.</Heading>
+            <H2 size="sm">Houston, Tranquillity Base here. The Eagle has landed.</H2>
+        </>
+    </Story>
+</Preview>
+
 ## API
 
-### Heading
+### Heading, H1, H2, H3, H4, H5, H6
 
 <ComponentInfo
     usage={"import { Heading, H1, H2, H3, H4, H5, H6 } from \"@orbit-ui/react-components\";"}

@@ -3,7 +3,7 @@ import "./Dialog.css";
 import { Box, BoxProps } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
-import { HtmlElements } from "../../html";
+import { Div } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -126,7 +126,7 @@ export function InnerDialog({
     "aria-describedby": ariaDescribedBy,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     dismissable = true,
     focus,
@@ -235,9 +235,9 @@ export function InnerDialog({
     const contentId = content?.props?.id;
 
     const imageMarkup = image && (
-        <Box className="o-ui-dialog-image">
+        <Div className="o-ui-dialog-image">
             {image}
-        </Box>
+        </Div>
     );
 
     const headerMarkup = isString(header?.props?.children)
@@ -260,24 +260,24 @@ export function InnerDialog({
     );
 
     const headerSectionMarkup = (!isNil(heading) || !isNil(headerMarkup)) && (
-        <Box className="o-ui-dialog-header-section">
+        <Div className="o-ui-dialog-header-section">
             {heading}
             {headerMarkup}
-        </Box>
+        </Div>
     );
 
     const footerSectionMarkup = (!isNil(footerMarkup) || !isNil(button) || !isNil(buttonGroup)) && (
-        <Box className="o-ui-dialog-footer-section">
+        <Div className="o-ui-dialog-footer-section">
             {footerMarkup}
             {button}
             {buttonGroup}
-        </Box>
+        </Div>
     );
 
     return (
         <>
             <Underlay zIndex={zIndex} />
-            <Box
+            <Div
                 {...mergeProps(
                     wrapperProps ?? {},
                     {
@@ -316,13 +316,13 @@ export function InnerDialog({
                     {dismissButtonMarkup}
                     {imageMarkup}
                     {illustration}
-                    <Box className="o-ui-dialog-aside">
+                    <Div className="o-ui-dialog-aside">
                         {headerSectionMarkup}
                         {content}
                         {footerSectionMarkup}
-                    </Box>
+                    </Div>
                 </Box>
-            </Box>
+            </Div>
         </>
     );
 }

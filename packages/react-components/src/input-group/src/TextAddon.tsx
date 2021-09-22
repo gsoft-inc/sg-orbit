@@ -1,6 +1,5 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { useInputGroupAddonProps } from "../../input-group";
 
@@ -17,7 +16,7 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     const [inputGroupAddonProps] = useInputGroupAddonProps();
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         forwardedRef,
         ...rest

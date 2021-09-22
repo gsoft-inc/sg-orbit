@@ -23,7 +23,7 @@ export const parameters = {
             method: "alphabetical",
             order: [
                 "Getting Started",
-                ["Packages", "Installation", "Slots", "Supported Platforms", "Contributing"],
+                ["Packages", "Installation", "Styling", "Slots", "As", "Supported Platforms", "Contributing"],
                 "Materials",
                 ["Colors", "Icons", "Shadows", "Spacing", "Typography", "Motion"],
                 "Components",

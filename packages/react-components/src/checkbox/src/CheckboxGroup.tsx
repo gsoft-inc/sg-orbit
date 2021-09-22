@@ -21,7 +21,6 @@ import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } fr
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
-import { HtmlElements } from "../../html";
 
 const DefaultElement = "div";
 
@@ -54,7 +53,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         children,
         defaultValue,

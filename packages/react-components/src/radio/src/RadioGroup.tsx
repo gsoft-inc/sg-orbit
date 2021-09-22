@@ -22,7 +22,6 @@ import {
 } from "../../shared";
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { Group } from "../../group";
-import { HtmlElements } from "../../html";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -55,7 +54,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const [fieldProps, isInField] = useFieldInputProps();
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         children,
         defaultValue,

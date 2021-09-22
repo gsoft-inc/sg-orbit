@@ -2,7 +2,6 @@ import { ColumnGapProp, GapProp, InternalProps, OmitInternalProps, RowGapProp, S
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex } from "./Flex";
 import { FlexAlignment, useFlexAlignment } from "./adapters";
-import { HtmlElements } from "../../html";
 
 const DefaultElement = "div";
 
@@ -67,7 +66,7 @@ export interface InnerStackProps extends
 export function InnerStack({
     alignX,
     alignY,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     gap = 5,

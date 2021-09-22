@@ -3,7 +3,6 @@ import "./TextButton.css";
 import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -89,7 +88,7 @@ export function InnerButton(props: InnerButtonProps) {
 
     const {
         active,
-        as: asProp = HtmlElements[DefaultElement],
+        as: asProp = DefaultElement,
         autoFocus,
         children,
         condensed,

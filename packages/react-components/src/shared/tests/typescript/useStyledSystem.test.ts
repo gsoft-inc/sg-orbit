@@ -523,7 +523,6 @@ expectAssignable<StyledSystemProps>({
     alignItems: "center",
     alignSelf: "center",
     aspectRatio: "1",
-    backfaceVisibility: "visible",
     backgroundColor: "sunray-1",
     backgroundImage: "url(cat.png)",
     backgroundPosition: "bottom",

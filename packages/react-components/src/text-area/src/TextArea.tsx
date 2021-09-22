@@ -3,7 +3,6 @@ import "./TextArea.css";
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { HtmlElements } from "../../html";
 import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 
@@ -70,7 +69,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         active,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         button,
         defaultValue,
@@ -91,7 +90,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         type = "text",
         validationState,
         value,
-        wrapperProps: { as: wrapperAs = HtmlElements["div"], ...userWrapperProps } = {},
+        wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
     } = mergeProps(
         props,
@@ -138,10 +137,10 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     const adjustRows = useCallback(() => {
         const input = inputRef.current;
 
-        const { lineHeight, paddingBottom, paddingTop } = window.getComputedStyle(input);
+        const { fontSize, lineHeight, paddingBottom, paddingTop } = window.getComputedStyle(input);
 
         const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
-        const currentRows = Math.floor((input.scrollHeight - padding) / pxToInt(lineHeight));
+        const currentRows = Math.floor((input.scrollHeight - padding) / pxToInt(lineHeight !== "normal" ? lineHeight : fontSize));
 
         const newRows = !isNil(maxRows) && currentRows > maxRows
             ? maxRows

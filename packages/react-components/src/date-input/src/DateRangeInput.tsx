@@ -19,8 +19,8 @@ import {
 import { ClearInputGroupContext, InputGroup, useInputGroupProps } from "../../input-group";
 import { CrossButton } from "../../button";
 import { DateInputMask, useDateInput } from "./useDateInput";
-import { Div, HtmlElements } from "../../html";
 import { Divider } from "../../divider";
+import { HtmlInput } from "../../html";
 import {
     Keys,
     OmitInternalProps,
@@ -147,7 +147,7 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
     });
 
     return (
-        <input
+        <HtmlInput
             {...mergeProps(
                 rest,
                 {
@@ -173,13 +173,13 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
 
     const {
         active,
+        as = "div",
         autoFocus,
         disabled,
         /* eslint-disable sort-destructure-keys/sort-destructure-keys */
-        startDate,
         endDate,
-        /* eslint-enable sort-destructure-keys/sort-destructure-keys */
         fluid,
+        /* eslint-enable sort-destructure-keys/sort-destructure-keys */
         focus = false,
         hover,
         max,
@@ -191,6 +191,7 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
         placeholder,
         readOnly,
         required,
+        startDate,
         validationState,
         ...rest
     } = mergeProps(
@@ -308,6 +309,7 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
             {...mergeProps(
                 rest,
                 {
+                    as,
                     className: cssModule(
                         "o-ui-date-range-input",
                         validationState,
@@ -379,7 +381,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
 
     const {
         active,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         defaultEndDate,
         defaultStartDate,
@@ -506,7 +508,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         }
                     )}
                 >
-                    {augmentElement(rangeMarkup, { as: Div })}
+                    {rangeMarkup}
                     <MenuPresets {...presetsProps} />
                 </InputGroup>
             )
@@ -524,7 +526,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         }
                     )}
                 >
-                    {augmentElement(rangeMarkup, { as: Div })}
+                    {rangeMarkup}
                     {!disabled && !readOnly && (
                         <ButtonPresets {...presetsProps} />
                     )}

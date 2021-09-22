@@ -1,13 +1,10 @@
 import "./Heading.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
-import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, JsxElement, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-const DefaultElement = "div";
-
-export interface InnerHeadingProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export type AbstractHeadingProps<T extends JsxElement<T>> = SlotProps & InternalProps & StyledComponentProps<T> & {
     /**
      * React children.
      */
@@ -16,13 +13,17 @@ export interface InnerHeadingProps extends InternalProps, StyledComponentProps<t
      * An heading can vary in size.
      */
     size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
-}
+};
+
+const DefaultElement = "div";
+
+export type InnerHeadingProps = AbstractHeadingProps<typeof DefaultElement>;
 
 export function InnerHeading(props: InnerHeadingProps) {
     const [styleProps] = useStyleProps<InnerHeadingProps>("heading");
 
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         forwardedRef,
         size,
@@ -57,22 +58,21 @@ export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHe
 
 export type HeadingProps = ComponentProps<typeof Heading>;
 
-// Aliases
+/////////////
 
-function createAlias(as: ElementType, size: InnerHeadingProps["size"]) {
-    return slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps, "size" | "as">>((props, ref) => (
+function createHeading(as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6") {
+    return slot("heading", forwardRef<any, OmitInternalProps<AbstractHeadingProps<typeof as>>>((props, ref) => (
         <InnerHeading
             {...props}
             as={as}
             forwardedRef={ref}
-            size={size}
         />
     )));
 }
 
-export const H1 = createAlias("h1", "xl");
-export const H2 = createAlias("h2", "lg");
-export const H3 = createAlias("h3", "md");
-export const H4 = createAlias("h4", "sm");
-export const H5 = createAlias("h5", "xs");
-export const H6 = createAlias("h6", "2xs");
+export const H1 = createHeading("h1");
+export const H2 = createHeading("h2");
+export const H3 = createHeading("h3");
+export const H4 = createHeading("h4");
+export const H5 = createHeading("h5");
+export const H6 = createHeading("h6");

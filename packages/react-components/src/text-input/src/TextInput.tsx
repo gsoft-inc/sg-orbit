@@ -4,7 +4,6 @@ import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInpu
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { HtmlElements } from "../../html";
 import { JsxElement, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -72,7 +71,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         active,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         button,
         defaultValue,
@@ -92,7 +91,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         type = "text",
         validationState,
         value,
-        wrapperProps: { as: wrapperAs = HtmlElements["div"], ...userWrapperProps } = {},
+        wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
     } = mergeProps(
         props,

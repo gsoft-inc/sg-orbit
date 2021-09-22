@@ -2,7 +2,7 @@ import "./Badge.css";
 
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { Div, HtmlElements } from "../../html";
+import { Div } from "../../html";
 import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -23,7 +23,7 @@ export interface InnerBadgeProps extends InternalProps, StyledComponentProps<typ
 }
 
 export function InnerBadge({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     overlap,

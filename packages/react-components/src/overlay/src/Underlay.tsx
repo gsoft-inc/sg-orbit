@@ -2,7 +2,6 @@ import "./Underlay.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -15,7 +14,7 @@ export interface InnerUnderlayProps extends InternalProps, StyledComponentProps<
 }
 
 export function InnerUnderlay({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     forwardedRef,
     zIndex,
     ...rest

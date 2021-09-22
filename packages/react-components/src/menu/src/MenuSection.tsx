@@ -1,6 +1,5 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Span, UL } from "../../html";
 
@@ -18,7 +17,7 @@ export interface InnerMenuSectionProps extends InternalProps, StyledComponentPro
 }
 
 export function InnerMenuSection({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     id,

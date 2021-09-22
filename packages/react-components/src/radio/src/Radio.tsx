@@ -3,7 +3,6 @@ import "./Radio.css";
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
-import { HtmlElements } from "../../html";
 import {
     OmitInternalProps,
     cssModule,
@@ -73,7 +72,7 @@ export function InnerRadio(props: InnerRadioProps) {
 
     const {
         active,
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         autoFocus,
         checked,
         children,

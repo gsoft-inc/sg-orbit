@@ -3,7 +3,6 @@ import "./Listbox.css";
 import { Box } from "../../box";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
-import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -42,7 +41,7 @@ export interface InnerListboxOptionProps extends InternalProps, InteractionProps
 
 export function InnerListboxOption({
     active,
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     disabled,
     focus,

@@ -4,7 +4,6 @@ import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
-import { HtmlElements } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -81,7 +80,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     const {
         active,
         "aria-label": ariaLabel,
-        as: asProp = HtmlElements[DefaultElement],
+        as: asProp = DefaultElement,
         autoFocus,
         children,
         condensed,

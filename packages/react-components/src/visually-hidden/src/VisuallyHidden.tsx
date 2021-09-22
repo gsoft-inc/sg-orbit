@@ -2,7 +2,6 @@ import "./VisuallyHidden.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, StyledHtmlAttributes, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -15,7 +14,7 @@ export interface InnerVisuallyHiddenProps extends InternalProps, StyledHtmlAttri
 }
 
 export function InnerVisuallyHidden({
-    as = HtmlElements[DefaultElement],
+    as = DefaultElement,
     children,
     forwardedRef,
     ...rest

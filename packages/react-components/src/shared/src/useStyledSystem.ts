@@ -1,5 +1,5 @@
 import { CSSProperties, useMemo } from "react";
-import { Entry, LiteralUnion, Simplify } from "type-fest";
+import { LiteralUnion, Simplify } from "type-fest";
 import { isNil } from "./assertions";
 
 /*
@@ -875,10 +875,6 @@ export interface StyledSystemProps {
      * @ignore
      */
     aspectRatio?: AspectRatioProp;
-    /**
-     * @ignore
-     */
-    backfaceVisibility?: BackfaceVisibilityProp;
     /**
      * @ignore
      */

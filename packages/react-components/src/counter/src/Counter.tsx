@@ -2,7 +2,6 @@ import "./Counter.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { HtmlElements } from "../../html";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
 import { Text } from "../../typography";
 
@@ -41,7 +40,7 @@ export interface InnerCounterProps extends SlotProps, InternalProps, StyledCompo
 
 export function InnerCounter(props: InnerCounterProps) {
     const {
-        as = HtmlElements[DefaultElement],
+        as = DefaultElement,
         children,
         color,
         forwardedRef,
