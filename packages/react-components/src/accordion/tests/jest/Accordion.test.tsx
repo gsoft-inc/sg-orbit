@@ -1,5 +1,6 @@
 import { Accordion } from "@react-components/accordion";
-import { Content, Header } from "@react-components/placeholders";
+import { Content } from "@react-components/placeholders";
+import { H3 } from "@react-components/typography";
 import { Item } from "@react-components/collection";
 import { Keys } from "@react-components/shared";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
@@ -12,15 +13,15 @@ test("down arrow keypress select the next item", async () => {
     const { getByTestId } = render(
         <Accordion>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -41,15 +42,15 @@ test("up arrow keypress select the next item", async () => {
     const { getByTestId } = render(
         <Accordion>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -70,15 +71,15 @@ test("when autofocus is true, accordion header is focused on render", async () =
     const { getByTestId } = render(
         <Accordion autoFocus>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -91,15 +92,15 @@ test("when autofocus is specified with a delay, accordion header is focused afte
     const { getByTestId } = render(
         <Accordion autoFocus={10}>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -118,11 +119,11 @@ test("when an id is provided, the accordion id attribute match the provided valu
     const { getByTestId } = render(
         <Accordion id="foo" data-testid="accordion">
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -139,15 +140,15 @@ test("when single, call onExpansionChange when the expanded tab change", async (
     const { getByTestId } = render(
         <Accordion expansionMode="single" onExpansionChange={handler}>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -173,15 +174,15 @@ test("when multiple, call onExpansionChange when the expanded tabs change", asyn
     const { getByTestId } = render(
         <Accordion expansionMode="multiple" onExpansionChange={handler}>
             <Item data-testid="item-1">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item data-testid="item-2">
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -215,7 +216,7 @@ test("accordion ref is a DOM element", async () => {
     render(
         <Accordion ref={ref}>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -233,7 +234,7 @@ test("header ref is a DOM element", async () => {
     render(
         <Accordion>
             <Item>
-                <Header as="h3" ref={ref}>Header</Header>
+                <H3 ref={ref}>Header</H3>
                 <Content>Content</Content>
             </Item>
         </Accordion>
@@ -251,7 +252,7 @@ test("content ref is a DOM element", async () => {
     render(
         <Accordion>
             <Item>
-                <Header as="h3">Header</Header>
+                <H3>Header</H3>
                 <Content ref={ref}>Content</Content>
             </Item>
         </Accordion>

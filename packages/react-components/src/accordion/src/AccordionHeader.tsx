@@ -1,10 +1,10 @@
 import "./Accordion.css";
 
-import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Div, HtmlButton } from "../../html";
-import { Heading, HeadingProps, Text } from "../../typography";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, omitProps, useSlots } from "../../shared";
+import { H3, HeadingProps, Text } from "../../typography";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, omitProps, useSlots } from "../../shared";
 
 export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps, StyledComponentProps<"button"> {
     /**
@@ -18,32 +18,31 @@ export interface InnerAccordionHeaderProps extends InternalProps, InteractionPro
     /**
      * The header item props
      */
-    header?: {
+    header: {
         key: string;
     };
     /**
-     * Additional props to render on the wrapper element.
+     * Additional props to render on the heading wrapper element.
      */
-    headingProps: Partial<HeadingProps>;
+    headingProps?: Partial<HeadingProps>;
+    /**
+     * The heading component type.
+     */
+    headingType: ElementType | string;
 }
 
 export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     const {
         active,
-        as,
         children,
         disabled,
         focus,
         forwardedRef,
-        headingProps,
         hover,
+        headingType: HeadingType = H3,
+        headingProps,
         ...rest
     } = omitProps(props, ["header"]);
-
-    // TODO: Update this once it's change to an heading instead of an header.
-    if (isNil(as)) {
-        throw new Error("An accordion header must receive an \"as\" prop matching a valid heading type.");
-    }
 
     const { counter, icon, text } = useSlots(children, useMemo(() => ({
         _: {
@@ -65,11 +64,10 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
     }), []));
 
     return (
-        <Heading
+        <HeadingType
             {...mergeProps(
                 headingProps ?? {},
                 {
-                    as,
                     className: "o-ui-accordion-header",
                     size: "2xs"
                 }
@@ -87,10 +85,10 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                             icon && "has-icon"
                         ),
                         disabled,
-                        ref: forwardedRef
+                        ref: forwardedRef,
+                        type: "button"
                     }
                 )}
-                type="button"
             >
                 <Div className="o-ui-accordion-trigger-content">
                     {icon}
@@ -99,7 +97,7 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
                 </Div>
                 <DisclosureArrow className="o-ui-accordion-arrow" />
             </HtmlButton>
-        </Heading>
+        </HeadingType>
     );
 }
 

@@ -30,22 +30,22 @@ export class AccordionBuilder {
     }
 
     build(children: ReactNode): AccordionBuilderItem[] {
-        if (isNil(children)) {
-            throw new Error("An accordion must have children.");
-        }
-
         return Children.toArray(children).filter(x => x).map((element: ReactElement, index) => {
             const [header, content] = Children.toArray(element.props.children) as ReactElement[];
 
             if (isNil(header) || isNil(content)) {
-                throw new Error("An accordion item must have an <Header> and a <Content>.");
+                throw new Error("An accordion item must have an heading (<H1>, <H2>, <H3>, <H4>, <H5>, <H6> or a custom component) and a <Content>.");
+            }
+
+            if (header.type === Header) {
+                throw new Error("An accordion item doesn't accept an <Header> placeholder anymore. Did you forgot to replace your <Header> by an heading?");
             }
 
             const key = !isNil(element.key) ? element.key.toString().replace(".", "").replace("$", "") : index.toString();
 
             const headerProps = {
-                // Use a custom type if available otherwise let the AccordionHeader component choose his default type.
-                elementType: header.type !== Header ? header.type : undefined,
+                // elementType: isHeading(header.type) ? undefined : header.type,
+                elementType: header.type,
                 props: mergeProps(header.props, element.props),
                 ref: (header as RefAttributes<any>).ref
             };

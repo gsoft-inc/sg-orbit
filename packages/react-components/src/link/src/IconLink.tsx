@@ -43,7 +43,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     const {
         active,
         "aria-label": ariaLabel,
-        as = DefaultElement,
+        as: asProp = DefaultElement,
         autoFocus,
         children,
         condensed,
@@ -90,7 +90,7 @@ export function InnerIconLink(props: InnerIconLinkProps) {
                 rest,
                 {
                     "aria-label": ariaLabel,
-                    as
+                    as: asProp
                 },
                 linkProps
             )}

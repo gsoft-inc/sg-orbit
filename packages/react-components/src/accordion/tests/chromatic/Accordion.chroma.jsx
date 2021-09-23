@@ -1,5 +1,6 @@
 import { Accordion } from "@react-components/accordion";
-import { Content, Header } from "@react-components/placeholders";
+import { Content } from "@react-components/placeholders";
+import { H3 } from "@react-components/typography";
 import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { createAccordionTestSuite } from "./createAccordionTestSuite";
@@ -22,11 +23,11 @@ stories()
     .add("conditional rendering", () =>
         <Accordion>
             <Item>
-                <Header as="h3">Mars</Header>
+                <H3>Mars</H3>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
             </Item>
             {false && <Item>
-                <Header as="h3">Jupiter</Header>
+                <H3>Jupiter</H3>
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>}
         </Accordion>
@@ -35,19 +36,19 @@ stories()
         <Inline>
             <Accordion border="sunray-10" expandedKeys={["0"]}>
                 <Item>
-                    <Header border="sunray-10" as="h3">Mars</Header>
+                    <H3 border="sunray-10">Mars</H3>
                     <Content border="sunray-10">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
             </Accordion>
             <Accordion className="border-red" expandedKeys={["0"]}>
                 <Item>
-                    <Header className="border-red" as="h3">Mars</Header>
+                    <H3 className="border-red">Mars</H3>
                     <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
             </Accordion>
             <Accordion style={{ border: "1px solid red" }} expandedKeys={["0"]}>
                 <Item>
-                    <Header style={{ border: "1px solid red" }} as="h3">Mars</Header>
+                    <H3 style={{ border: "1px solid red" }}>Mars</H3>
                     <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
             </Accordion>

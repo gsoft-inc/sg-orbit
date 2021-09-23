@@ -32,10 +32,6 @@ export class TabsBuilder {
     }
 
     build(children: ReactNode): [TabType[], PanelType[]] {
-        if (isNil(children)) {
-            throw new Error("A tabs component must have children.");
-        }
-
         const tabs: TabType[] = [];
         const panels: PanelType[] = [];
 

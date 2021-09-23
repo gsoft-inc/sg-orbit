@@ -1,5 +1,4 @@
 import { Avatar } from "@react-components/avatar";
-import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
@@ -437,26 +436,6 @@ stories()
                 <ActiveOption key="earth">Earth</ActiveOption>
                 <ActiveOption key="jupiter">Jupiter</ActiveOption>
                 <ActiveOption key="mars">Mars</ActiveOption>
-            </Listbox>
-        );
-    })
-    .add("custom as", () => {
-        const RedOption = ({ children, ...rest }) => {
-            return (
-                <Box
-                    {...rest}
-                    color="red"
-                >
-                    {children}
-                </Box>
-            );
-        };
-
-        return (
-            <Listbox aria-label="Planets">
-                <Item as={RedOption} key="earth">Earth</Item>
-                <Item as={RedOption} key="jupiter">Jupiter</Item>
-                <Item as={RedOption} key="mars">Mars</Item>
             </Listbox>
         );
     })

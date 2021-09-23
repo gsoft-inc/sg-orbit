@@ -1,5 +1,4 @@
 import { Avatar } from "@react-components/avatar";
-import { Box } from "@react-components/box";
 import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
@@ -437,26 +436,6 @@ stories()
                 <RedItem key="earth">Earth</RedItem>
                 <RedItem key="jupiter">Jupiter</RedItem>
                 <RedItem key="mars">Mars</RedItem>
-            </Menu>
-        );
-    })
-    .add("custom as", () => {
-        const RedItem = ({ children, ...rest }) => {
-            return (
-                <Box
-                    {...rest}
-                    color="red"
-                >
-                    {children}
-                </Box>
-            );
-        };
-
-        return (
-            <Menu aria-label="Planets">
-                <Item as={RedItem} key="earth">Earth</Item>
-                <Item as={RedItem} key="jupiter">Jupiter</Item>
-                <Item as={RedItem} key="mars">Mars</Item>
             </Menu>
         );
     })

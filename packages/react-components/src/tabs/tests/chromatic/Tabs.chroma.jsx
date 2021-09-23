@@ -1,4 +1,3 @@
-import { Box } from "@react-components/box";
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@react-components/icons";
 import { Content, Header } from "@react-components/placeholders";
 import { Inline, Stack } from "@react-components/layout";
@@ -400,46 +399,6 @@ stories()
                     </Item>
                 </Tabs>
             </Stack>
-        );
-    })
-    .add("custom as", () => {
-        const RedHeader = ({ children, ...rest }) => {
-            return (
-                <Box
-                    {...rest}
-                    color="red"
-                >
-                    {children}
-                </Box>
-            );
-        };
-
-        const BlueContent = ({ children, ...rest }) => {
-            return (
-                <Box
-                    {...rest}
-                    backgroundColor="blue"
-                >
-                    {children}
-                </Box>
-            );
-        };
-
-        return (
-            <Tabs aria-label="Planets">
-                <Item>
-                    <Header as={RedHeader}>Mars</Header>
-                    <Content as={BlueContent}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                </Item>
-                <Item>
-                    <Header as={RedHeader}>Jupiter</Header>
-                    <Content as={BlueContent}>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-                <Item>
-                    <Header as={RedHeader}>Venus</Header>
-                    <Content as={BlueContent}>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
-                </Item>
-            </Tabs>
         );
     })
     .add("conditional rendering", () =>

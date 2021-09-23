@@ -60,6 +60,7 @@ function TagItem({
     return (
         <Tag
             {...mergeProps(
+                item.props,
                 rest,
                 {
                     className: "o-ui-tag-list-item",
