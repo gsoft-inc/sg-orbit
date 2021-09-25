@@ -9,7 +9,9 @@
     "types": "dist/index.d.ts",
     "style": "dist/index.css",
     "files": [
-        "/dist"
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
     ],
     "publishConfig": {
         "access": "public"
@@ -33,5 +35,9 @@
         "create-dist": "node scripts/create-dist",
         "copy-fonts-to-dist": "node scripts/copy-fonts-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
+    },
+    "peerDependencies": {
+        "react": "*",
+        "react-dom": "*"
     }
 }

@@ -12,7 +12,7 @@ type NumberArray = readonly number[];
 
 type Array = StringArray | NumberArray;
 
-function normalizeName(name: string, prefix?: string) {
+export function normalizeVariable(name: string, prefix?: string) {
     return isNil(prefix) ? `--o-ui-${name}` : `--o-ui-${prefix}-${name}`;
 }
 
@@ -25,11 +25,11 @@ function interpolateValue(value: string) {
 }
 
 function appendString(name: string, value: string, prefix: string, bucket: VarsBucket) {
-    bucket.push(`${normalizeName(`${name}`, prefix)}: ${interpolateValue(value.replace(/\s+/gm, " ").trim())};`);
+    bucket.push(`${normalizeVariable(`${name}`, prefix)}: ${interpolateValue(value.replace(/\s+/gm, " ").trim())};`);
 }
 
 function appendNumber(name: string, value: number, prefix: string, bucket: VarsBucket) {
-    bucket.push(`${normalizeName(`${name}`, prefix)}: ${value};`);
+    bucket.push(`${normalizeVariable(`${name}`, prefix)}: ${value};`);
 }
 
 function appendStringArray(values: StringArray, prefix: string, bucket: VarsBucket) {
@@ -104,18 +104,31 @@ function renderBucket(scope: string, bucket: VarsBucket) {
     document.head.appendChild(element);
 }
 
+// TODO: shorten name:
+// space- > space
+// font-sizes -> fs
+// line-heights -> lh
+// border-radii -> br
+// box-shadows -> bs
+export const SpacePrefix = "space";
+export const FontSizePrefix = "font-sizes";
+export const LineHeightPrefix = "line-heights";
+export const BorderRadiusPrefix = "border-radii";
+export const BoxShadowPrefix = "box-shadows";
+export const ColorPrefix = null;
+
 export function createCss(themes: OrbitTheme[]) {
     themes.forEach(theme => {
         const common: VarsBucket = [];
         const light: VarsBucket = [];
         const dark: VarsBucket = [];
 
-        appendArray(theme.space, "space", common);
-        appendJsonObject((theme.fontSizes as unknown) as JsonObject, "font-sizes", common);
-        appendArray(theme.lineHeights, "line-heights", common);
-        appendArray(theme.borderRadii, "border-radii", common);
-        appendColorSchemes(theme.boxShadows, "box-shadows", { common, dark, light });
-        appendColorSchemes(theme.colors, null, { common, dark, light });
+        appendArray(theme.space, SpacePrefix, common);
+        appendJsonObject((theme.fontSizes as unknown) as JsonObject, FontSizePrefix, common);
+        appendArray(theme.lineHeights, LineHeightPrefix, common);
+        appendArray(theme.borderRadii, BorderRadiusPrefix, common);
+        appendColorSchemes(theme.boxShadows, BoxShadowPrefix, { common, dark, light });
+        appendColorSchemes(theme.colors, ColorPrefix, { common, dark, light });
 
         renderBucket(`o-ui-${theme.name}`, common);
         renderBucket(`o-ui-${theme.name}-light`, light);

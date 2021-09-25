@@ -27,6 +27,10 @@ export function isFunction(value: any): value is Function {
     return typeof value === "function";
 }
 
+export function isObject(value: any): value is Record<string, unknown> {
+    return typeof value === "object" && !Array.isArray(value) && value != null;
+}
+
 export function isPlainObject(value: any): value is Record<string, any> {
     if (Object.prototype.toString.call(value) !== "[object Object]") {
         return false;

@@ -4,6 +4,7 @@ import { Inline } from "@react-components/layout";
 import { cloneElement } from "react";
 import { createButtonTestSuite } from "./createButtonTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
+import { useBreakpoint, useStyledSystem2 } from "@orbit-ui/styles";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Button")
@@ -33,6 +34,12 @@ createButtonTestSuite(<SunrayBackground button={<Button variant="tertiary" inher
 
 createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
 
+function Test(props) {
+    const newProps = useStyledSystem2(props);
+
+    return <div {...newProps}></div>;
+}
+
 stories()
     .add("styling", () =>
         <Inline>
@@ -40,4 +47,23 @@ stories()
             <Button className="bg-red" variant="secondary">Button</Button>
             <Button style={{ backgroundColor: "red" }} variant="secondary">Button</Button>
         </Inline>
-    );
+    )
+    .add("test", () => {
+        console.log("*** test is refreshed");
+
+        const breakpoint = useBreakpoint();
+
+        return (
+            <>
+                <Test backgroundColor="red">Toto</Test>
+                <Test backgroundColor="sunray-10">Tata</Test>
+                <Test backgroundColor={{ base: "black", s: "blue", m: "sunray-10", l: "primary-10" }}>Tata</Test>
+                <Test backgroundColor="green" backgroundColorHover="sunray-10">Tata</Test>
+                <Test backgroundColor="green" backgroundColorHover={{ s: "blue", m: "sunray-10", l: "primary-10" }}>Tata</Test>
+                <Test backgroundColorHover="red">
+                    <Test backgroundColor="green" backgroundColorHover="black">Tata</Test>
+                </Test>
+                <div>{breakpoint}</div>
+            </>
+        );
+    });

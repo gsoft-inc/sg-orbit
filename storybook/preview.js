@@ -26,6 +26,7 @@ export const parameters = {
                 ["Packages", "Installation", "Styling", "Slots", "As", "Supported Platforms", "Contributing"],
                 "Materials",
                 ["Colors", "Icons", "Shadows", "Spacing", "Typography", "Motion"],
+                "Layout",
                 "Components",
                 "Content",
                 "Placeholders",

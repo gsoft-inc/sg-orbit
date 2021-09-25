@@ -39,7 +39,6 @@ function findSlots(children: ReactNode, slots: string[]) {
         }, {}) as SlotElements;
 }
 
-// TODO: Fix TS return
 export function getRawSlots(children: ReactNode, slots: string[]): Record<string, any> {
     if (isNil(children)) {
         return {};

@@ -65,6 +65,6 @@ module.exports = {
     rules: {
         "no-param-reassign": "off",
         "react/destructuring-assignment": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx",".ts", ".tsx", ".mdx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".jsx",".ts", ".tsx", ".mdx"] }]
     }
 };

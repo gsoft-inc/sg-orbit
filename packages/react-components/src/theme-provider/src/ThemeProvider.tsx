@@ -1,7 +1,7 @@
-import { ApricotTheme, OrbitTheme } from "@orbit-ui/styles";
+import { ApricotTheme, BreakpointProvider, OrbitTheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
-import { Ref, useCallback, useState } from "react";
+import { ReactNode, Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { useColorScheme } from "./useColorScheme";
 
@@ -12,6 +12,10 @@ export type ColorSchemeOrSystem = ColorScheme | "system";
 const DefaultElement = "div";
 
 export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
+    /**
+     * React children
+     */
+    children: ReactNode;
     /**
      * The color scheme to use.
      */
@@ -56,21 +60,23 @@ export function ThemeProvider({
                 theme
             }}
         >
-            <Box
-                {...mergeProps(
-                    rest,
-                    {
-                        as,
-                        className: mergeClasses(
-                            `o-ui-${theme.name}`,
-                            `o-ui-${theme.name}-${colorScheme}`
-                        ),
-                        id: "o-ui"
-                    }
-                )}
-            >
-                {children}
-            </Box>
+            <BreakpointProvider>
+                <Box
+                    {...mergeProps(
+                        rest,
+                        {
+                            as,
+                            className: mergeClasses(
+                                `o-ui-${theme.name}`,
+                                `o-ui-${theme.name}-${colorScheme}`
+                            ),
+                            id: "o-ui"
+                        }
+                    )}
+                >
+                    {children}
+                </Box>
+            </BreakpointProvider>
         </ThemeContext.Provider>
     );
 }
