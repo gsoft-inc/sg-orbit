@@ -14102,6 +14102,382 @@ Array [
 ]
 `;
 
+exports[`column gap 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "columnGap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`content 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "content": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "linear-gradient(#e66465, #9198e5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "open-quote",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`content visibility 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "contentVisibility": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "hidden",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`cursor 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "cursor": "pointer",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "hand",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "url(cursor1.png) 4 12, auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`cursor/hover 1`] = `
+Array [
+  <div
+    cursor/hover="pointer"
+  />,
+  <div
+    cursor/hover="hand"
+  />,
+  <div
+    cursor/hover="url(cursor1.png) 4 12, auto"
+  />,
+  <div
+    cursor/hover="inherit"
+  />,
+  <div
+    cursor/hover="initial"
+  />,
+  <div
+    cursor/hover="revert"
+  />,
+  <div
+    cursor/hover="unset"
+  />,
+]
+`;
+
 exports[`fill 1`] = `
 Array [
   <div
