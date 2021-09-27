@@ -17,11 +17,7 @@ export const DesktopTheme: OrbitTheme = {
         "subheadline": "3.75rem",
         "headline": "5rem"
     },
-    fontWeights: {
-        1: "400",
-        2: "500",
-        3: "600"
-    },
+    fontWeights: ["400", "500", "600"],
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {

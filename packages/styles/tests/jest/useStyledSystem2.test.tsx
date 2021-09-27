@@ -5,15 +5,37 @@ import {
     BoxShadowMapping,
     FontSizeMapping,
     FontWeightMapping,
-    IconMapping,
+    IconColorMapping,
+    LineHeightMapping,
     SpacingMapping,
     StyledSystemProps2,
+    TextColorMapping,
     useStyledSystem2
 } from "@styles/useStyledSystem2";
 import { ComponentProps, Fragment } from "react";
 import { SpacePrefix, normalizeVariable } from "@styles/createCss";
 import { render, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
+
+const AlignmentSampling = [
+    "start",
+    "end",
+    "center",
+    "normal",
+    "baseline",
+    "first baseline",
+    "last baseline",
+    "space-between",
+    "space-around",
+    "space-evenly",
+    "stretch"
+];
+
+const FlexAlignmentSampling = [
+    ...AlignmentSampling,
+    "flex-start",
+    "flex-end"
+];
 
 const ColorSampling = [
     "#fff",
@@ -45,7 +67,7 @@ const GlobalSampling = [
     "unset"
 ];
 
-const SpacingSampling = [
+const DimensionSampling = [
     ...LengthSampling,
     "max-content",
     "min-content",
@@ -61,17 +83,17 @@ interface PropDefinition {
 }
 
 const Props: PropDefinition[] = [
-    // { name: "align content", key: "alignContent", values: Object.keys(AlignContentClasses) },
-    // { name: "align items", key: "alignItems", values: Object.keys(AlignItemsClasses) },
-    // { name: "align self", key: "alignSelf", values: Object.keys(AlignSelfClasses) },
-    // { name: "aspect ratio", key: "aspectRatio", values: ["1/1"] },
+    { name: "align content", key: "alignContent", values: [...FlexAlignmentSampling, ...GlobalSampling] },
+    { name: "align items", key: "alignItems", values: [...FlexAlignmentSampling, "self-start", "self-end", ...GlobalSampling] },
+    { name: "align self", key: "alignSelf", values: [...FlexAlignmentSampling, "auto", "self-start", "self-end", ...GlobalSampling] },
+    { name: "aspect ratio", key: "aspectRatio", values: ["1 / 1", "1", "16 / 9", ...GlobalSampling] },
     { name: "background color", key: "backgroundColor", values: [...Object.keys(BackgroundColorMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "background color/hover", key: "backgroundColorHover", values: [...Object.keys(BackgroundColorMapping), ...ColorSampling, ...GlobalSampling] },
-    // { name: "background image", key: "backgroundImage", values: ["url(cat.png)"] },
-    // { name: "background position", key: "backgroundPosition", values: Object.keys(BackgroundPositionClasses) },
-    // { name: "background repeat", key: "backgroundRepeat", values: Object.keys(BackgroundRepeatClasses) },
-    // { name: "background size", key: "backgroundSize", values: Object.keys(BackgroundSizeClasses) },
-    { name: "border", key: "border", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
+    { name: "background image", key: "backgroundImage", values: ["url(cat.png)", ...GlobalSampling] },
+    { name: "background position", key: "backgroundPosition", values: ["top", "bottom", "left", "right", "center", "25% 75%", "0 0", "bottom 10px right 20px", ...GlobalSampling] },
+    { name: "background repeat", key: "backgroundRepeat", values: ["repeat-x", "repeat-y", "repeat", "no-repeat", "space", "round", ...GlobalSampling] },
+    { name: "background size", key: "backgroundSize", values: ["cover", "contain", "50%", "3.2em", "auto", "50% auto", "50%, 25%, 25%", ...GlobalSampling] },
+    { name: "border", key: "border", values: [...Object.keys(BorderMapping), "1px solid red", ...ColorSampling, ...GlobalSampling] },
     { name: "border/hover", key: "borderHover", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "border bottom", key: "borderBottom", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "border bottom/hover", key: "borderBottomHover", values: [...Object.keys(BorderMapping), ...ColorSampling, ...GlobalSampling] },
@@ -86,17 +108,18 @@ const Props: PropDefinition[] = [
     { name: "border bottom right radius", key: "borderBottomRightRadius", values: [...Object.keys(BorderRadiusMapping), ...LengthSampling, ...GlobalSampling] },
     { name: "border top left radius", key: "borderTopLeftRadius", values: [...Object.keys(BorderRadiusMapping), ...LengthSampling, ...GlobalSampling] },
     { name: "border top right radius", key: "borderTopRightRadius", values: [...Object.keys(BorderRadiusMapping), ...LengthSampling, ...GlobalSampling] },
-    // { name: "bottom", key: "bottom", values: ["1px"] },
+    { name: "bottom", key: "bottom", values: [...LengthSampling, ...GlobalSampling] },
     { name: "box shadow", key: "boxShadow", values: [...Object.keys(BoxShadowMapping), "none", "10px 5px 5px black", ...GlobalSampling] },
     { name: "box shadow/hover", key: "boxShadowHover", values: [...Object.keys(BoxShadowMapping), "none", "10px 5px 5px black", ...GlobalSampling] },
-    // { name: "color", key: "color", values: Object.keys(ColorClasses) },
+    { name: "color", key: "color", values: [...Object.keys(TextColorMapping), ...ColorSampling, ...GlobalSampling] },
+    { name: "color/hover", key: "colorHover", values: [...Object.keys(TextColorMapping), ...ColorSampling, ...GlobalSampling] },
     // { name: "column gap", key: "columnGap", values: [0, ...OrbitSpacingScale] },
     // { name: "content", key: "content", values: ["linear-gradient(#e66465, #9198e5)"] },
     // { name: "content visibility", key: "contentVisibility", values: ["hidden"] },
     // { name: "cursor", key: "cursor", values: Object.keys(CursorClasses) },
     // { name: "display", key: "display", values: Object.keys(DisplayClasses) },
-    { name: "fill", key: "fill", values: [...Object.keys(IconMapping), ...ColorSampling, ...GlobalSampling] },
-    { name: "fill/hover", key: "fillHover", values: [...Object.keys(IconMapping), ...ColorSampling, ...GlobalSampling] },
+    { name: "fill", key: "fill", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
+    { name: "fill/hover", key: "fillHover", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
     // { name: "filter", key: "filter", values: ["blur(5px)"] },
     // { name: "flex", key: "flex", values: Object.keys(FlexClasses) },
     // { name: "flex basis", key: "flexBasis", values: Object.keys(FlexBasisClasses) },
@@ -113,14 +136,14 @@ const Props: PropDefinition[] = [
     // { name: "justify self", key: "justifySelf", values: ["center"] },
     // { name: "left", key: "left", values: ["1px"] },
     // { name: "letter spacing", key: "letterSpacing", values: ["1px"] },
-    // { name: "line height", key: "lineHeight", values: Object.keys(LineHeightClasses) },
-    // { name: "margin", key: "margin", values: Object.keys(MarginClasses) },
-    // { name: "margin bottom", key: "marginBottom", values: Object.keys(MarginBottomClasses) },
-    // { name: "margin left", key: "marginLeft", values: Object.keys(MarginLeftClasses) },
-    // { name: "margin right", key: "marginRight", values: Object.keys(MarginRightClasses) },
-    // { name: "margin top", key: "marginTop", values: Object.keys(MarginTopClasses) },
-    // { name: "margin x", key: "marginX", values: Object.keys(MarginXClasses) },
-    // { name: "margin y", key: "marginY", values: Object.keys(MarginYClasses) },
+    { name: "line height", key: "lineHeight", values: [...Object.keys(LineHeightMapping), "normal", ...LengthSampling, ...GlobalSampling] },
+    { name: "margin", key: "margin", values: [...Object.keys(SpacingMapping), "2px 1em 0 auto", ...LengthSampling, ...GlobalSampling] },
+    { name: "margin bottom", key: "marginBottom", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "margin left", key: "marginLeft", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "margin right", key: "marginRight", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "margin top", key: "marginTop", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "margin x", key: "marginX", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "margin y", key: "marginY", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
     // { name: "max height", key: "maxHeight", values: ["1px"] },
     // { name: "max width", key: "maxWidth", values: ["1px"] },
     // { name: "min height", key: "minHeight", values: ["1px"] },
@@ -132,19 +155,19 @@ const Props: PropDefinition[] = [
     // { name: "overflow", key: "overflow", values: Object.keys(OverflowClasses) },
     // { name: "overflow x", key: "overflowX", values: Object.keys(OverflowXClasses) },
     // { name: "overflow y", key: "overflowY", values: Object.keys(OverflowYClasses) },
-    // { name: "padding", key: "padding", values: Object.keys(PaddingClasses) },
-    // { name: "padding bottom", key: "paddingBottom", values: Object.keys(PaddingBottomClasses) },
-    // { name: "padding left", key: "paddingLeft", values: Object.keys(PaddingLeftClasses) },
-    // { name: "padding right", key: "paddingRight", values: Object.keys(PaddingRightClasses) },
-    // { name: "padding top", key: "paddingTop", values: Object.keys(PaddingTopClasses) },
-    // { name: "padding x", key: "paddingX", values: Object.keys(PaddingXClasses) },
-    // { name: "padding y", key: "paddingY", values: Object.keys(PaddingYClasses) },
+    { name: "padding", key: "padding", values: [...Object.keys(SpacingMapping), "2px 1em 0 auto", ...LengthSampling, ...GlobalSampling] },
+    { name: "padding bottom", key: "paddingBottom", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "padding left", key: "paddingLeft", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "padding right", key: "paddingRight", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "padding top", key: "paddingTop", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "padding x", key: "paddingX", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
+    { name: "padding y", key: "paddingY", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
     // { name: "pointer events", key: "pointerEvents", values: Object.keys(PointerEventsClasses) },
     // { name: "position", key: "position", values: Object.keys(PositionClasses) },
     // { name: "resize", key: "resize", values: Object.keys(ResizeClasses) },
     // { name: "right", key: "right", values: ["1px"] },
     // { name: "row gap", key: "rowGap", values: [0, ...OrbitSpacingScale] },
-    { name: "stroke", key: "stroke", values: [...Object.keys(IconMapping), ...ColorSampling, ...GlobalSampling] },
+    { name: "stroke", key: "stroke", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
     // { name: "text align", key: "textAlign", values: Object.keys(TextAlignClasses) },
     // { name: "text decoration", key: "textDecoration", values: ["underline", "underline overline #FF3028"] },
     // { name: "text overflow", key: "textOverflow", values: Object.keys(TextOverflowClasses) },
@@ -157,7 +180,7 @@ const Props: PropDefinition[] = [
     // { name: "visibility", key: "visibility", values: ["hidden"] },
     // { name: "white-space", key: "whiteSpace", values: Object.keys(WhiteSpaceClasses) },
     // { name: "will-change", key: "willChange", values: ["contents"] },
-    { name: "width", key: "width", values: [...Object.keys(SpacingMapping), ...SpacingSampling, ...GlobalSampling] }
+    { name: "width", key: "width", values: [...Object.keys(SpacingMapping), ...DimensionSampling, ...GlobalSampling] }
     // { name: "work-break", key: "wordBreak", values: Object.keys(WordBreakClasses) },
     // { name: "z-index", key: "zIndex", values: ["1"] }
 ];
