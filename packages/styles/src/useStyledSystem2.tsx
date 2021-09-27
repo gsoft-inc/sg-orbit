@@ -40,47 +40,6 @@ export interface ResponsiveValue<T> {
     s?: T;
 }
 
-// export type GlobalKeyword =
-//     "inherit" |
-//     "initial" |
-//     "revert" |
-//     "unset";
-
-// export type NoneKeyword = "none";
-
-// export type NormalKeyword = "normal";
-
-// export type AutoKeyword = "auto";
-
-// export type AlignmentKeyword =
-//     "center" |
-//     "end" |
-//     "start" |
-//     "normal" |
-//     "baseline" |
-//     "first baseline" |
-//     "last baseline" |
-//     "space-between" |
-//     "space-around" |
-//     "space-evenly" |
-//     "stretch";
-
-// export type FlexAlignmentKeyword =
-//     AlignmentKeyword |
-//     "flex-start" |
-//     "flex-end";
-
-// export type ColorKeyword =
-//     "currentColor" |
-//     "transparent";
-
-// export type SpacingKeyword =
-//     "max-content" |
-//     "min-content" |
-//     "fit-content" |
-//     `fit-content(${string})` |
-//     AutoKeyword;
-
 const ColorExpressionTypes = [
     "#",
     "rgb",

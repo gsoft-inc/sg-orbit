@@ -5,6 +5,11 @@ import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 import "@orbit-ui/react-components/dist/index.css";
+
+// TEMP START
+import "@orbit-ui/styles/dist/index.css";
+// TEMP END
+
 import "@orbit-ui/styles/dist/pseudos.css";
 
 import "./styles";
