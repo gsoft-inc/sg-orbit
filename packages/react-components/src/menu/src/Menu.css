@@ -5,8 +5,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 #o-ui {
     --o-ui-menu-border-size: 1px;
-    --o-ui-menu-item-height: var(--o-ui-space-7);
-    --o-ui-menu-item-checkmark-size: var(--o-ui-space-3);
+    --o-ui-menu-item-height: var(--o-ui-sp-7);
+    --o-ui-menu-item-checkmark-size: var(--o-ui-sp-3);
 }
 
 .o-ui-menu {
@@ -20,7 +20,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     min-width: 200px;
     max-width: 325px;
     height: max-content;
-    box-shadow: var(--o-ui-box-shadows-alias-lifted);
+    box-shadow: var(--o-ui-bs-alias-lifted);
     overflow-y: auto;
 }
 
@@ -28,20 +28,20 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item {
     min-height: var(--o-ui-menu-item-height);
     list-style: none;
-    padding-right: var(--o-ui-space-8);
-    padding-left: var(--o-ui-space-3);
-    padding-top: var(--o-ui-space-2);
-    padding-bottom: var(--o-ui-space-2);
+    padding-right: var(--o-ui-sp-8);
+    padding-left: var(--o-ui-sp-3);
+    padding-top: var(--o-ui-sp-2);
+    padding-bottom: var(--o-ui-sp-2);
     margin: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: var(--o-ui-font-sizes-3);
+    font-size: var(--o-ui-fs-3);
     position: relative;
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description {
-    --o-ui-menu-item-height: var(--o-ui-space-9);
+    --o-ui-menu-item-height: var(--o-ui-sp-9);
     display: grid;
     overflow-x: hidden;
     grid-template-columns: max-content 1fr;
@@ -54,19 +54,19 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* ITEM | ICON | START  */
 .o-ui-menu-item-start-icon {
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
     grid-row-start: 1;
     grid-row-end: 3;
 }
 
 .o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
     align-self: start;
 }
 
 /* ITEM | ICON | END  */
 .o-ui-menu-item-end-icon {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* ITEM | STATE | SELECTED */
@@ -145,7 +145,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item-label {
     display: inline-block;
     white-space: nowrap;
-    line-height: var(--o-ui-line-heights-2);
+    line-height: var(--o-ui-lh-2);
     overflow: hidden;
     text-overflow: ellipsis;
     grid-area: label;
@@ -157,12 +157,12 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     display: flex;
     font-weight: 400;
     font-variation-settings: "wght" 500;
-    padding-left: var(--o-ui-space-3);
+    padding-left: var(--o-ui-sp-3);
     height: var(--o-ui-menu-item-height);
-    line-height: var(--o-ui-line-heights-1);
+    line-height: var(--o-ui-lh-1);
     color: var(--o-ui-text-alias-3);
     text-transform: uppercase;
-    font-size: var(--o-ui-font-sizes-2);
+    font-size: var(--o-ui-fs-2);
     align-items: center;
 }
 
@@ -172,7 +172,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* DIVIDER  */
 .o-ui-menu-divider {
-    margin: var(--o-ui-space-1) 0 !important;
+    margin: var(--o-ui-sp-1) 0 !important;
 }
 
 /* FLUID */
@@ -182,7 +182,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* AVATAR */
 .o-ui-menu-item-option-avatar {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
     grid-area: aside;
     align-self: start;
 }

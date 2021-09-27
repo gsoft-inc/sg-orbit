@@ -3432,13 +3432,6 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-100%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderBottomLeftRadius": "var(--o-ui-br-pill)",
       }
     }
@@ -3468,20 +3461,6 @@ Array [
     style={
       Object {
         "borderBottomLeftRadius": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomLeftRadius": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomLeftRadius": "1vw",
       }
     }
   />,
@@ -3578,13 +3557,6 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-100%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderBottomRightRadius": "var(--o-ui-br-pill)",
       }
     }
@@ -3614,20 +3586,6 @@ Array [
     style={
       Object {
         "borderBottomRightRadius": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomRightRadius": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomRightRadius": "1vw",
       }
     }
   />,
@@ -6368,13 +6326,6 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-100%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderRadius": "var(--o-ui-br-pill)",
       }
     }
@@ -6404,20 +6355,6 @@ Array [
     style={
       Object {
         "borderRadius": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderRadius": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderRadius": "1vw",
       }
     }
   />,
@@ -9049,13 +8986,6 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-100%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderTopLeftRadius": "var(--o-ui-br-pill)",
       }
     }
@@ -9085,20 +9015,6 @@ Array [
     style={
       Object {
         "borderTopLeftRadius": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopLeftRadius": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopLeftRadius": "1vw",
       }
     }
   />,
@@ -9195,13 +9111,6 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-100%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderTopRightRadius": "var(--o-ui-br-pill)",
       }
     }
@@ -9231,20 +9140,6 @@ Array [
     style={
       Object {
         "borderTopRightRadius": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopRightRadius": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopRightRadius": "1vw",
       }
     }
   />,
@@ -13070,6 +12965,299 @@ Array [
 ]
 `;
 
+exports[`font size 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-headline)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-subheadline)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "fontSize": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`font weight 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 1",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 2",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 3",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 100",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 200",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 300",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 400",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 500",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 600",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 700",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 800",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' 900",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' inherit",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' initial",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' revert",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' unset",
+        "fontWeight": "400",
+      }
+    }
+  />,
+]
+`;
+
 exports[`stroke 1`] = `
 Array [
   <div
@@ -13985,20 +14173,6 @@ Array [
     style={
       Object {
         "width": "1%",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "width": "1vh",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "width": "1vw",
       }
     }
   />,

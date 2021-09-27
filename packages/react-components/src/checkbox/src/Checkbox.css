@@ -8,7 +8,7 @@
     align-items: center;
     cursor: pointer;
     color: var(--o-ui-text-alias-1);
-    line-height: var(--o-ui-line-heights-1);
+    line-height: var(--o-ui-lh-1);
     max-width: 100%;
     width: max-content;
     height: max-content;
@@ -20,8 +20,8 @@
 .o-ui-checkbox-box {
     position: relative;
     display: inline-block;
-    width: var(--o-ui-space-5);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-5);
+    height: var(--o-ui-sp-5);
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-1) inset;
     border-radius: var(--o-ui-shape-rounded);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
@@ -49,10 +49,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: var(--o-ui-space-5);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-5);
+    height: var(--o-ui-sp-5);
     mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-space-5) var(--o-ui-space-5);
+    mask-size: var(--o-ui-sp-5) var(--o-ui-sp-5);
     background-color: var(--o-ui-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
@@ -89,7 +89,7 @@
 
 /* CONTENT | LABEL */
 .o-ui-checkbox-label {
-    margin-left: var(--o-ui-space-2);
+    margin-left: var(--o-ui-sp-2);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -98,19 +98,19 @@
 
 /* CONTENT | LABEL | REVERSE */
 .o-ui-checkbox-reverse .o-ui-checkbox-label {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
     margin-left: 0;
 }
 
 /* CONTENT | ICON */
 .o-ui-checkbox-icon {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* CONTENT | ICON | REVERSE */
 .o-ui-checkbox-reverse .o-ui-checkbox-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
 }
 
 /* REVERSE */
@@ -205,35 +205,35 @@
 /* SIZING | SMALL */
 /* SIZING | SMALL | LABEL */
 .o-ui-checkbox-sm .o-ui-checkbox-box {
-    width: var(--o-ui-space-4);
-    height: var(--o-ui-space-4);
+    width: var(--o-ui-sp-4);
+    height: var(--o-ui-sp-4);
 }
 
 .o-ui-checkbox-sm input {
-    width: calc(var(--o-ui-space-4) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
-    height: calc(var(--o-ui-space-4) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
+    width: calc(var(--o-ui-sp-4) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
+    height: calc(var(--o-ui-sp-4) + (var(--o-ui-focus-ring-thickness-md) * 2) * 2);
 }
 
 .o-ui-checkbox-sm .o-ui-checkbox-box:before {
-    width: var(--o-ui-space-4);
-    height: var(--o-ui-space-4);
+    width: var(--o-ui-sp-4);
+    height: var(--o-ui-sp-4);
 }
 
 /* SIZING | SMALL | BOX | CHECKED */
 .o-ui-checkbox-checked.o-ui-checkbox-sm .o-ui-checkbox-box:after {
-    width: var(--o-ui-space-4);
-    height: var(--o-ui-space-4);
-    mask-size: var(--o-ui-space-4) var(--o-ui-space-4);
+    width: var(--o-ui-sp-4);
+    height: var(--o-ui-sp-4);
+    mask-size: var(--o-ui-sp-4) var(--o-ui-sp-4);
 }
 
 /* SIZING | MEDIUM */
 .o-ui-checkbox-md .o-ui-checkbox-box:before {
-    width: var(--o-ui-space-5);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-5);
+    height: var(--o-ui-sp-5);
 }
 
 /* IN FIELD */
 .o-ui-checkbox-in-field {
-    margin-top: var(--o-ui-space-1);
-    margin-bottom: var(--o-ui-space-1);
+    margin-top: var(--o-ui-sp-1);
+    margin-bottom: var(--o-ui-sp-1);
 }

@@ -60,8 +60,8 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
 function CssBackground({ iconFileName, iconDisplayName }) {
     const code = `.${iconDisplayName.replace(/\s+/g, "-").toLowerCase()} {
     background: url("~@orbit-ui/icons/${iconFileName}");
-    width: var(--o-ui-space-6);
-    height: var(--o-ui-space-6);
+    width: var(--o-ui-sp-6);
+    height: var(--o-ui-sp-6);
 }`;
 
     return (

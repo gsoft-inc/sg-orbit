@@ -12,7 +12,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-gtc-#{$i} {
-        grid-template-columns: var(--o-ui-space-#{$i});
+        grid-template-columns: var(--o-ui-sp-#{$i});
     }
 }
 

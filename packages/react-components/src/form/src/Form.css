@@ -4,7 +4,7 @@
 
 /* FIELD */
 .o-ui-form .o-ui-field {
-    margin-bottom: var(--o-ui-space-5);
+    margin-bottom: var(--o-ui-sp-5);
 }
 
 /* FLUID */
@@ -17,20 +17,20 @@
     padding: 0;
     margin: 0;
     border: none;
-    margin-bottom: var(--o-ui-space-6);
+    margin-bottom: var(--o-ui-sp-6);
 }
 
 .o-ui-fieldset:last-of-type {
-    margin-bottom: var(--o-ui-space-5);
+    margin-bottom: var(--o-ui-sp-5);
 }
 
 .o-ui-fieldset-label {
     display: inline-block;
-    font-size: var(--o-ui-font-sizes-4);
+    font-size: var(--o-ui-fs-4);
     font-weight: 400;
     font-variation-settings: "wght" 600;
     color: var(--o-ui-text-alias-1);
-    margin-bottom: var(--o-ui-space-3);
+    margin-bottom: var(--o-ui-sp-3);
 }
 
 .o-ui-fieldset .o-ui-form-field:last-child {

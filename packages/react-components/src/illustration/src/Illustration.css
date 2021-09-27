@@ -32,10 +32,10 @@
 
 /* CONTENT */
 .o-ui-illustration-heading {
-    margin-top: var(--o-ui-space-6);
+    margin-top: var(--o-ui-sp-6);
     margin-bottom: 0;
 }
 
 .o-ui-illustration-content {
-    margin-top: var(--o-ui-space-2);
+    margin-top: var(--o-ui-sp-2);
 }

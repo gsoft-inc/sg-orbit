@@ -5,33 +5,33 @@
 
 /* SIZES */
 .o-ui-icon-2xs {
-    width: var(--o-ui-space-3);
-    height: var(--o-ui-space-3);
+    width: var(--o-ui-sp-3);
+    height: var(--o-ui-sp-3);
 }
 
 .o-ui-icon-xs {
-    width: var(--o-ui-space-4);
-    height: var(--o-ui-space-4);
+    width: var(--o-ui-sp-4);
+    height: var(--o-ui-sp-4);
 }
 
 .o-ui-icon-sm {
-    width: var(--o-ui-space-5);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-5);
+    height: var(--o-ui-sp-5);
 }
 
 .o-ui-icon-md {
-    width: var(--o-ui-space-6);
-    height: var(--o-ui-space-6);
+    width: var(--o-ui-sp-6);
+    height: var(--o-ui-sp-6);
 }
 
 .o-ui-icon-lg {
-    width: var(--o-ui-space-7);
-    height: var(--o-ui-space-7);
+    width: var(--o-ui-sp-7);
+    height: var(--o-ui-sp-7);
 }
 
 .o-ui-icon-xl {
-    width: var(--o-ui-space-8);
-    height: var(--o-ui-space-8);
+    width: var(--o-ui-sp-8);
+    height: var(--o-ui-sp-8);
 }
 
 .o-ui-icon-inherit-size {

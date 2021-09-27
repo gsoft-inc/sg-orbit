@@ -1,24 +1,24 @@
 #o-ui {
     /* 80px */
-    --o-ui-font-sizes-headline: 5rem;
+    --o-ui-fs-headline: 5rem;
     /* 60px */
-    --o-ui-font-sizes-subheadline: 3.75rem;
+    --o-ui-fs-subheadline: 3.75rem;
     /* 40px */
-    --o-ui-font-sizes-9: 2.5rem;
+    --o-ui-fs-9: 2.5rem;
     /* 32px */
-    --o-ui-font-sizes-8: 2rem;
+    --o-ui-fs-8: 2rem;
     /* 28px */
-    --o-ui-font-sizes-7: 1.75rem;
+    --o-ui-fs-7: 1.75rem;
     /* 22px */
-    --o-ui-font-sizes-6: 1.375rem;
+    --o-ui-fs-6: 1.375rem;
     /* 18px */
-    --o-ui-font-sizes-5: 1.125rem;
+    --o-ui-fs-5: 1.125rem;
     /* 16px */
-    --o-ui-font-sizes-4: 1rem;
+    --o-ui-fs-4: 1rem;
     /* 14px */
-    --o-ui-font-sizes-3: .875rem;
+    --o-ui-fs-3: .875rem;
     /* 12px */
-    --o-ui-font-sizes-2: .75rem;
+    --o-ui-fs-2: .75rem;
     /* 10px */
-    --o-ui-font-sizes-1: .625rem;
+    --o-ui-fs-1: .625rem;
 }

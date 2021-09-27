@@ -4,7 +4,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pt-#{$i} {
-        padding-top: var(--o-ui-space-#{$i});
+        padding-top: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -14,7 +14,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pb-#{$i} {
-        padding-bottom: var(--o-ui-space-#{$i});
+        padding-bottom: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -24,7 +24,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pl-#{$i} {
-        padding-left: var(--o-ui-space-#{$i});
+        padding-left: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -34,7 +34,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pr-#{$i} {
-        padding-right: var(--o-ui-space-#{$i});
+        padding-right: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -44,7 +44,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-pa-#{$i} {
-        padding: var(--o-ui-space-#{$i});
+        padding: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -55,8 +55,8 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-px-#{$i} {
-        padding-left: var(--o-ui-space-#{$i});
-        padding-right: var(--o-ui-space-#{$i});
+        padding-left: var(--o-ui-sp-#{$i});
+        padding-right: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -67,7 +67,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-py-#{$i} {
-        padding-top: var(--o-ui-space-#{$i});
-        padding-bottom: var(--o-ui-space-#{$i});
+        padding-top: var(--o-ui-sp-#{$i});
+        padding-bottom: var(--o-ui-sp-#{$i});
     }
 }

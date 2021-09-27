@@ -1,7 +1,7 @@
 @import "../../input/src/Input.css";
 
 #o-ui {
-    --o-ui-spinner-width: var(--o-ui-space-6);
+    --o-ui-spinner-width: var(--o-ui-sp-6);
 }
 
 .o-ui-number-input {
@@ -27,7 +27,7 @@
     visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
-    min-height: calc(var(--o-ui-space-8) - 2px);
+    min-height: calc(var(--o-ui-sp-8) - 2px);
     margin: 1px;
     position: absolute;
     right: 0;

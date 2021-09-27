@@ -1,13 +1,13 @@
 /* PREVIEW */
 .o-ui-sb-preview {
-    margin: var(--o-ui-space-7) 0 var(--o-ui-space-8);
+    margin: var(--o-ui-sp-7) 0 var(--o-ui-sp-8);
     border-radius: 4px;
-    box-shadow: var(--o-ui-box-shadows-alias-raised);
+    box-shadow: var(--o-ui-bs-alias-raised);
 }
 
 /* STORY */
 .o-ui-sb-preview-story {
-    padding: var(--o-ui-space-7) var(--o-ui-space-5);
+    padding: var(--o-ui-sp-7) var(--o-ui-sp-5);
 }
 
 /* SOURCE */
@@ -37,7 +37,7 @@
 
 .o-ui-sb-preview-editor .npm__react-simple-code-editor__textarea,
 .o-ui-sb-preview-editor pre {
-    padding: var(--o-ui-space-5) !important;
+    padding: var(--o-ui-sp-5) !important;
 }
 
 /* SOURCE | ERROR */
@@ -45,6 +45,6 @@
     background-color: var(--o-ui-beetle-1);
     color: var(--o-ui-beetle-10);
     font-size: 15px;
-    padding: var(--o-ui-space-3) var(--o-ui-space-5);
+    padding: var(--o-ui-sp-3) var(--o-ui-sp-5);
     margin: 0;
 }

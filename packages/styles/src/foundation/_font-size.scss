@@ -1,13 +1,13 @@
 @for $i from 1 through 9 {
     .o-ui-fs-#{$i} {
-        font-size: var(--o-ui-font-sizes-#{$i});
+        font-size: var(--o-ui-fs-#{$i});
     }
 }
 
 .o-ui-subheadline {
-    font-size: var(--o-ui-font-sizes-subheadline);
+    font-size: var(--o-ui-fs-subheadline);
 }
 
 .o-ui-headline {
-    font-size: var(--o-ui-font-sizes-headline);
+    font-size: var(--o-ui-fs-headline);
 }

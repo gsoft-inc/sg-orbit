@@ -5,8 +5,8 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 #o-ui {
     --o-ui-listbox-border-size: 1px;
-    --o-ui-listbox-option-height: var(--o-ui-space-7);
-    --o-ui-listbox-option-checkmark-size: var(--o-ui-space-3);
+    --o-ui-listbox-option-height: var(--o-ui-sp-7);
+    --o-ui-listbox-option-checkmark-size: var(--o-ui-sp-3);
 }
 
 .o-ui-listbox {
@@ -16,7 +16,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     background-color: var(--o-ui-bg-alias-1);
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
-    box-shadow: var(--o-ui-box-shadows-alias-lifted);
+    box-shadow: var(--o-ui-bs-alias-lifted);
     border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-2);
 }
 
@@ -29,8 +29,8 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 /* OPTION */
 .o-ui-listbox-option {
     height: var(--o-ui-listbox-option-height);
-    padding-right: var(--o-ui-space-8);
-    padding-left: var(--o-ui-space-3);
+    padding-right: var(--o-ui-sp-8);
+    padding-left: var(--o-ui-sp-3);
     display: flex;
     align-items: center;
     justify-items: center;
@@ -39,7 +39,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* OPTION | DESCRIPTION */
 .o-ui-listbox-option.o-ui-listbox-option-has-description {
-    --o-ui-listbox-option-height: var(--o-ui-space-9);
+    --o-ui-listbox-option-height: var(--o-ui-sp-9);
     display: grid;
     overflow-x: hidden;
     grid-template-columns: max-content 1fr;
@@ -132,32 +132,32 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 /* OPTION | ICONS */
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
     grid-area: aside;
 }
 
 /* OPTION | WITH DESCRIPTION | ICONS | START ICON */
 .o-ui-listbox-option-has-description .o-ui-listbox-option-start-icon {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
     align-self: start;
 }
 
 /* OPTION | ICONS | END ICON */
 .o-ui-listbox-option-end-icon {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* SECTION */
 .o-ui-listbox-section {
     display: flex;
     font-variation-settings: "wght" 500;
-    padding-left: var(--o-ui-space-3);
+    padding-left: var(--o-ui-sp-3);
     cursor: default;
-    line-height: var(--o-ui-line-heights-1);
+    line-height: var(--o-ui-lh-1);
     height: var(--o-ui-listbox-option-height);
     color: var(--o-ui-text-alias-3);
     text-transform: uppercase;
-    font-size: var(--o-ui-font-sizes-2);
+    font-size: var(--o-ui-fs-2);
     align-items: center;
 }
 
@@ -167,7 +167,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: var(--o-ui-line-heights-2);
+    line-height: var(--o-ui-lh-2);
     justify-self: start;
 }
 
@@ -178,6 +178,6 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* AVATAR */
 .o-ui-listbox-option-avatar {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
     grid-area: aside;
 }

@@ -1,21 +1,21 @@
 @for $i from 1 through 4 {
     .o-ui-bxsh-#{$i} {
-        box-shadow: var(--o-ui-box-shadows-#{$i});
+        box-shadow: var(--o-ui-bs-#{$i});
     }
 }
 
 .o-ui-bxsh-skim {
-    box-shadow: var(--o-ui-box-shadows-skim);
+    box-shadow: var(--o-ui-bs-skim);
 }
 
 .o-ui-bxsh-lifted {
-    box-shadow: var(--o-ui-box-shadows-lifted);
+    box-shadow: var(--o-ui-bs-lifted);
 }
 
 .o-ui-bxsh-raised {
-    box-shadow: var(--o-ui-box-shadows-raised);
+    box-shadow: var(--o-ui-bs-raised);
 }
 
 .o-ui-bxsh-floating {
-    box-shadow: var(--o-ui-box-shadows-floating);
+    box-shadow: var(--o-ui-bs-floating);
 }

@@ -4,7 +4,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-g-#{$i} {
-        gap: var(--o-ui-space-#{$i});
+        gap: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -14,7 +14,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-c-g-#{$i} {
-        column-gap: var(--o-ui-space-#{$i});
+        column-gap: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -24,6 +24,6 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-r-g-#{$i} {
-        row-gap: var(--o-ui-space-#{$i});
+        row-gap: var(--o-ui-sp-#{$i});
     }
 }

@@ -2,7 +2,7 @@
     /* SHAPES */
     --o-ui-shape-pill: 999px;
     --o-ui-shape-circular: 100%;
-    --o-ui-shape-rounded: var(--o-ui-space-1);
+    --o-ui-shape-rounded: var(--o-ui-sp-1);
 
     /* STATES | DISABLED */
     --o-ui-disabled-opacity: 0.4;

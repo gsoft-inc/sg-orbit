@@ -11,12 +11,12 @@
     background-color: var(--o-ui-dot-color);
     min-width: 0.5em;
     min-height: 0.5em;
-    font-size: var(--o-ui-font-sizes-3);
+    font-size: var(--o-ui-fs-3);
 }
 
 /* CONTENT | LABEL */
 .o-ui-dot-has-label.o-ui-dot:before {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }
 
 /* DISABLED */

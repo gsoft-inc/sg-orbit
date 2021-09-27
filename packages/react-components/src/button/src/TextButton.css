@@ -1,10 +1,10 @@
 @import "./Button.css";
 
 .o-ui-text-button {
-    --o-ui-text-button-rounded-padding-sm: var(--o-ui-space-4);
-    --o-ui-text-button-rounded-padding-md: var(--o-ui-space-5);
-    --o-ui-text-button-pill-padding-sm: var(--o-ui-space-4);
-    --o-ui-text-button-pill-padding-md: var(--o-ui-space-5);
+    --o-ui-text-button-rounded-padding-sm: var(--o-ui-sp-4);
+    --o-ui-text-button-rounded-padding-md: var(--o-ui-sp-5);
+    --o-ui-text-button-pill-padding-sm: var(--o-ui-sp-4);
+    --o-ui-text-button-pill-padding-md: var(--o-ui-sp-5);
     --o-ui-text-button-pill-padding-ratio-factor: 1.5;
     --o-ui-text-button-rounded-padding-ratio-factor: 2;
     display: flex;
@@ -15,12 +15,12 @@
 
 /* CONTENT | ICON | START */
 .o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-start-icon + .o-ui-button-text {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* CONTENT | ICON | END */
 .o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-end-icon {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* SIZES */

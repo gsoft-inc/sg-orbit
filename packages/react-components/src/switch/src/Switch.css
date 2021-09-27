@@ -2,7 +2,7 @@
     display: inline-flex;
     align-items: center;
     cursor: pointer;
-    line-height: var(--o-ui-line-heights-1);
+    line-height: var(--o-ui-lh-1);
     max-width: 100%;
     width: max-content;
     height: max-content;
@@ -33,7 +33,7 @@
 /* LABEL */
 .o-ui-switch .o-ui-switch-label {
     grid-area: label;
-    margin-left: var(--o-ui-space-2);
+    margin-left: var(--o-ui-sp-2);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -43,18 +43,18 @@
 /* LABEL | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-label {
     margin-left: 0;
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* ICON | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
 }
 
 /* REVERSE */
@@ -82,7 +82,7 @@
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-space-8) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sp-8) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
@@ -120,30 +120,30 @@
 /* SIZING */
 /* SMALL */
 .o-ui-switch-sm .o-ui-switch-control {
-    width: var(--o-ui-space-7);
-    height: var(--o-ui-space-4);
+    width: var(--o-ui-sp-7);
+    height: var(--o-ui-sp-4);
 }
 
 .o-ui-switch-sm .o-ui-switch-control::before {
-    width: var(--o-ui-space-3);
-    height: var(--o-ui-space-3);
+    width: var(--o-ui-sp-3);
+    height: var(--o-ui-sp-3);
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-space-7) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sp-7) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
 .o-ui-switch-md .o-ui-switch-control {
-    width: var(--o-ui-space-8);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-8);
+    height: var(--o-ui-sp-5);
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
-    width: var(--o-ui-space-4);
-    height: var(--o-ui-space-4);
+    width: var(--o-ui-sp-4);
+    height: var(--o-ui-sp-4);
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-space-8) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sp-8) / 2 + 2px), 2px);
 }

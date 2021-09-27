@@ -4,7 +4,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-w-#{$i} {
-        width: var(--o-ui-space-#{$i});
+        width: var(--o-ui-sp-#{$i});
     }
 }
 

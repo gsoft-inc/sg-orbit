@@ -1,11 +1,11 @@
 #o-ui {
-    --o-ui-avatar-2xs: var(--o-ui-space-5);
-    --o-ui-avatar-xs: var(--o-ui-space-6);
-    --o-ui-avatar-sm: var(--o-ui-space-7);
-    --o-ui-avatar-md: var(--o-ui-space-8);
-    --o-ui-avatar-lg: var(--o-ui-space-9);
-    --o-ui-avatar-xl: var(--o-ui-space-10);
-    --o-ui-avatar-2xl: var(--o-ui-space-11);
+    --o-ui-avatar-2xs: var(--o-ui-sp-5);
+    --o-ui-avatar-xs: var(--o-ui-sp-6);
+    --o-ui-avatar-sm: var(--o-ui-sp-7);
+    --o-ui-avatar-md: var(--o-ui-sp-8);
+    --o-ui-avatar-lg: var(--o-ui-sp-9);
+    --o-ui-avatar-xl: var(--o-ui-sp-10);
+    --o-ui-avatar-2xl: var(--o-ui-sp-11);
 }
 
 .o-ui-avatar {
@@ -17,38 +17,38 @@
 
 /* SIZES */
 .o-ui-avatar-2xs {
-    width: var(--o-ui-space-5);
-    height: var(--o-ui-space-5);
+    width: var(--o-ui-sp-5);
+    height: var(--o-ui-sp-5);
 }
 
 .o-ui-avatar-xs {
-    width: var(--o-ui-space-6);
-    height: var(--o-ui-space-6);
+    width: var(--o-ui-sp-6);
+    height: var(--o-ui-sp-6);
 }
 
 .o-ui-avatar-sm {
-    width: var(--o-ui-space-7);
-    height: var(--o-ui-space-7);
+    width: var(--o-ui-sp-7);
+    height: var(--o-ui-sp-7);
 }
 
 .o-ui-avatar-md {
-    width: var(--o-ui-space-8);
-    height: var(--o-ui-space-8);
+    width: var(--o-ui-sp-8);
+    height: var(--o-ui-sp-8);
 }
 
 .o-ui-avatar-lg {
-    width: var(--o-ui-space-9);
-    height: var(--o-ui-space-9);
+    width: var(--o-ui-sp-9);
+    height: var(--o-ui-sp-9);
 }
 
 .o-ui-avatar-xl {
-    width: var(--o-ui-space-10);
-    height: var(--o-ui-space-10);
+    width: var(--o-ui-sp-10);
+    height: var(--o-ui-sp-10);
 }
 
 .o-ui-avatar-2xl {
-    width: var(--o-ui-space-11);
-    height: var(--o-ui-space-11);
+    width: var(--o-ui-sp-11);
+    height: var(--o-ui-sp-11);
 }
 
 /* IMAGE */
@@ -93,9 +93,9 @@
 }
 
 .o-ui-avatar-group-remainings-list-item:not(:last-child) {
-    margin-bottom: var(--o-ui-space-2);
+    margin-bottom: var(--o-ui-sp-2);
 }
 
 .o-ui-avatar-group-remainings-list-item-avatar {
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }

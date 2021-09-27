@@ -11,7 +11,7 @@
 
 /* HORIZONTAL */
 .o-ui-divider[aria-orientation="horizontal"] {
-    margin: var(--o-ui-space-4) 0;
+    margin: var(--o-ui-sp-4) 0;
     height: 0;
 }
 
@@ -33,16 +33,16 @@
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::before {
-    margin-right: var(--o-ui-space-3);
+    margin-right: var(--o-ui-sp-3);
 }
 
 .o-ui-divider-has-label[aria-orientation="horizontal"]::after {
-    margin-left: var(--o-ui-space-3);
+    margin-left: var(--o-ui-sp-3);
 }
 
 /* VERTICAL */
 .o-ui-divider[aria-orientation="vertical"] {
-    margin: 0 var(--o-ui-space-2);
+    margin: 0 var(--o-ui-sp-2);
     width: max-content;
     height: auto;
     min-height: 100%;
@@ -65,9 +65,9 @@
 }
 
 .o-ui-divider-has-label[aria-orientation="vertical"]::before {
-    margin-bottom: var(--o-ui-space-2);
+    margin-bottom: var(--o-ui-sp-2);
 }
 
 .o-ui-divider-has-label[aria-orientation="vertical"]::after {
-    margin-top: var(--o-ui-space-2);
+    margin-top: var(--o-ui-sp-2);
 }
