@@ -104,17 +104,11 @@ function renderBucket(scope: string, bucket: VarsBucket) {
     document.head.appendChild(element);
 }
 
-// TODO: shorten name:
-// space- > space
-// font-sizes -> fs
-// line-heights -> lh
-// border-radii -> br
-// box-shadows -> bs
-export const SpacePrefix = "space";
-export const FontSizePrefix = "font-sizes";
-export const LineHeightPrefix = "line-heights";
-export const BorderRadiusPrefix = "border-radii";
-export const BoxShadowPrefix = "box-shadows";
+export const SpacePrefix = "sp";
+export const FontSizePrefix = "fs";
+export const LineHeightPrefix = "lh";
+export const BorderRadiusPrefix = "br";
+export const BoxShadowPrefix = "bs";
 export const ColorPrefix = null;
 
 export function createCss(themes: OrbitTheme[]) {

@@ -123,7 +123,7 @@ The second terminal will start the Storybook app. Executing the following comman
 yarn start-sb
 ```
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
+Any updates to the packages (components, SUI theme, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
 ## Update docs
 
@@ -146,7 +146,7 @@ The second terminal will start the website. Execute the following command at the
 yarn start-docs
 ```
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the docs accordingly.
+Any updates to the packages (components, SUI theme, ...) or the website's pages  will automatically re-compile the packages and refresh the docs accordingly.
 
 ## Release the packages
 
