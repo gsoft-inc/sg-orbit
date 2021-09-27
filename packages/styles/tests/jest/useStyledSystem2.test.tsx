@@ -1,23 +1,18 @@
-import { BackgroundColorKnownValues, BorderKnownValues, SpacingKnownValues, StyledSystemProps2, useStyledSystem2 } from "@styles/useStyledSystem2";
+import {
+    BackgroundColorValues,
+    BorderRadiusValues,
+    BorderValues,
+    IconValues,
+    SpacingValues,
+    StyledSystemProps2,
+    useStyledSystem2
+} from "@styles/useStyledSystem2";
 import { ComponentProps, Fragment } from "react";
 import { SpacePrefix, normalizeVariable } from "@styles/createCss";
 import { render, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
-interface PropDefinition {
-    name: string;
-    key: string;
-    values: Readonly<any[]>;
-}
-
-const GlobalValues = [
-    "inherit",
-    "initial",
-    "revert",
-    "unset"
-];
-
-const ColorValues = [
+const ColorSampling = [
     "#fff",
     "white",
     "rgb(255, 255, 128)",
@@ -29,42 +24,67 @@ const ColorValues = [
     { base: "sunray-1", s: "sunray-2", m: "sunray-3", l: "sunray-4" }
 ];
 
-const DimensionValues = [
+const LengthSampling = [
     "1px",
     "1em",
+    "1rem",
     "1%",
-    "max-content",
-    "min-content",
-    "fit-content(1em)",
-    "auto",
+    "1vh",
+    "1vw",
+    "calc(1px + 1px)",
     { base: "1px" },
     { s: "2px", m: "3px", l: "4px" },
     { base: "1px", s: "2px", m: "3px", l: "4px" }
 ];
+
+const GlobalSampling = [
+    "inherit",
+    "initial",
+    "revert",
+    "unset"
+];
+
+const SpacingSampling = [
+    ...LengthSampling,
+    "max-content",
+    "min-content",
+    "fit-content",
+    "fit-content(1em)",
+    "auto"
+];
+
+interface PropDefinition {
+    name: string;
+    key: string;
+    values: Readonly<any[]>;
+}
 
 const Props: PropDefinition[] = [
     // { name: "align content", key: "alignContent", values: Object.keys(AlignContentClasses) },
     // { name: "align items", key: "alignItems", values: Object.keys(AlignItemsClasses) },
     // { name: "align self", key: "alignSelf", values: Object.keys(AlignSelfClasses) },
     // { name: "aspect ratio", key: "aspectRatio", values: ["1/1"] },
-    { name: "background color", key: "backgroundColor", values: [...Object.keys(BackgroundColorKnownValues), ...ColorValues, ...GlobalValues] },
-    { name: "background color/hover", key: "backgroundColorHover", values: [...Object.keys(BackgroundColorKnownValues), ...ColorValues, ...GlobalValues] },
+    { name: "background color", key: "backgroundColor", values: [...Object.keys(BackgroundColorValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "background color/hover", key: "backgroundColorHover", values: [...Object.keys(BackgroundColorValues), ...ColorSampling, ...GlobalSampling] },
     // { name: "background image", key: "backgroundImage", values: ["url(cat.png)"] },
     // { name: "background position", key: "backgroundPosition", values: Object.keys(BackgroundPositionClasses) },
     // { name: "background repeat", key: "backgroundRepeat", values: Object.keys(BackgroundRepeatClasses) },
     // { name: "background size", key: "backgroundSize", values: Object.keys(BackgroundSizeClasses) },
-    { name: "border", key: "border", values: [...Object.keys(BorderKnownValues), ...ColorValues, ...GlobalValues] },
-    { name: "border/hover", key: "borderHover", values: [...Object.keys(BorderKnownValues), ...ColorValues, ...GlobalValues] },
-    // { name: "border bottom", key: "borderBottom", values: [...Object.keys(BorderBottomClasses), "hsla(223, 12%, 87%, 1)"] },
-    // { name: "border bottom left radius", key: "borderBottomLeftRadius", values: ["1px"] },
-    // { name: "border bottom right radius", key: "borderBottomRightRadius", values: ["1px"] },
-    // { name: "border bottom", key: "borderBottom", values: [...Object.keys(BorderBottomClasses), "hsla(223, 12%, 87%, 1)"] },
-    // { name: "border left", key: "borderLeft", values: [...Object.keys(BorderLeftClasses), "hsla(223, 12%, 87%, 1)"] },
-    // { name: "border right", key: "borderRight", values: [...Object.keys(BorderRightClasses), "hsla(223, 12%, 87%, 1)"] },
-    // { name: "border top", key: "borderTop", values: [...Object.keys(BorderTopClasses), "hsla(223, 12%, 87%, 1)"] },
-    // { name: "border top left radius", key: "borderTopLeftRadius", values: ["1px"] },
-    // { name: "border top right radius", key: "borderTopRightRadius", values: ["1px"] },
-    // { name: "border radius", key: "borderRadius", values: Object.keys(BorderRadiusClasses) },
+    { name: "border", key: "border", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border/hover", key: "borderHover", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border bottom", key: "borderBottom", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border bottom/hover", key: "borderBottomHover", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border left", key: "borderLeft", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border left/hover", key: "borderLeftHover", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border right", key: "borderRight", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border right/hover", key: "borderRightHover", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border top", key: "borderTop", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border top/hover", key: "borderTopHover", values: [...Object.keys(BorderValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "border radius", key: "borderRadius", values: [...Object.keys(BorderRadiusValues), ...LengthSampling, ...GlobalSampling, "1px 0 3px 4px"] },
+    { name: "border bottom left radius", key: "borderBottomLeftRadius", values: [...Object.keys(BorderRadiusValues), ...LengthSampling, ...GlobalSampling] },
+    { name: "border bottom right radius", key: "borderBottomRightRadius", values: [...Object.keys(BorderRadiusValues), ...LengthSampling, ...GlobalSampling] },
+    { name: "border top left radius", key: "borderTopLeftRadius", values: [...Object.keys(BorderRadiusValues), ...LengthSampling, ...GlobalSampling] },
+    { name: "border top right radius", key: "borderTopRightRadius", values: [...Object.keys(BorderRadiusValues), ...LengthSampling, ...GlobalSampling] },
     // { name: "bottom", key: "bottom", values: ["1px"] },
     // { name: "box shadow", key: "boxShadow", values: Object.keys(BoxShadowClasses) },
     // { name: "color", key: "color", values: Object.keys(ColorClasses) },
@@ -73,7 +93,8 @@ const Props: PropDefinition[] = [
     // { name: "content visibility", key: "contentVisibility", values: ["hidden"] },
     // { name: "cursor", key: "cursor", values: Object.keys(CursorClasses) },
     // { name: "display", key: "display", values: Object.keys(DisplayClasses) },
-    // { name: "fill", key: "fill", values: Object.keys(FillClasses) },
+    { name: "fill", key: "fill", values: [...Object.keys(IconValues), ...ColorSampling, ...GlobalSampling] },
+    { name: "fill/hover", key: "fillHover", values: [...Object.keys(IconValues), ...ColorSampling, ...GlobalSampling] },
     // { name: "filter", key: "filter", values: ["blur(5px)"] },
     // { name: "flex", key: "flex", values: Object.keys(FlexClasses) },
     // { name: "flex basis", key: "flexBasis", values: Object.keys(FlexBasisClasses) },
@@ -121,7 +142,7 @@ const Props: PropDefinition[] = [
     // { name: "resize", key: "resize", values: Object.keys(ResizeClasses) },
     // { name: "right", key: "right", values: ["1px"] },
     // { name: "row gap", key: "rowGap", values: [0, ...OrbitSpacingScale] },
-    // { name: "stroke", key: "stroke", values: Object.keys(StrokeClasses) },
+    { name: "stroke", key: "stroke", values: [...Object.keys(IconValues), ...ColorSampling, ...GlobalSampling] },
     // { name: "text align", key: "textAlign", values: Object.keys(TextAlignClasses) },
     // { name: "text decoration", key: "textDecoration", values: ["underline", "underline overline #FF3028"] },
     // { name: "text overflow", key: "textOverflow", values: Object.keys(TextOverflowClasses) },
@@ -134,7 +155,7 @@ const Props: PropDefinition[] = [
     // { name: "visibility", key: "visibility", values: ["hidden"] },
     // { name: "white-space", key: "whiteSpace", values: Object.keys(WhiteSpaceClasses) },
     // { name: "will-change", key: "willChange", values: ["contents"] },
-    { name: "width", key: "width", values: [...Object.keys(SpacingKnownValues), ...DimensionValues, ...GlobalValues] }
+    { name: "width", key: "width", values: [...Object.keys(SpacingValues), ...SpacingSampling, ...GlobalSampling] }
     // { name: "work-break", key: "wordBreak", values: Object.keys(WordBreakClasses) },
     // { name: "z-index", key: "zIndex", values: ["1"] }
 ];

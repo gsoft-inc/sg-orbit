@@ -1,12 +1,3 @@
 @import "./font";
+@import "./pseudos";
 @import "./foundation";
-
-.o-ui-bg-hover:hover {
-    --o-ui-bg-hover: initial;
-    background-color: var(--o-ui-bg-hover) !important;
-}
-
-.o-ui-b-hover:hover {
-    --o-ui-b-hover: initial;
-    border: var(--o-ui-b-hover) !important;
-}

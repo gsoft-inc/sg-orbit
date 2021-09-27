@@ -5,17 +5,16 @@ import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 import "@orbit-ui/react-components/dist/index.css";
-import "@orbit-ui/styles/dist/index.css";
+import "@orbit-ui/styles/dist/pseudos.css";
 
 import "./styles";
 
 createCss([ApricotTheme, DesktopTheme]);
 
-// TODO: Need to do something for this
-// if (!isChromatic) {
-//     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
-//     import("@orbit-ui/fonts");
-// }
+if (!isChromatic) {
+    // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
+    import("@orbit-ui/styles/dist/font.css");
+}
 
 export const parameters = {
     options: {

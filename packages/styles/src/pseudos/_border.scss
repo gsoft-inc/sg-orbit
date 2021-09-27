@@ -1,0 +1,24 @@
+.o-ui-b-hover:hover {
+    --o-ui-b-hover: initial;
+    border: var(--o-ui-b-hover) !important;
+}
+
+.o-ui-bb-hover:hover {
+    --o-ui-bb-hover: initial;
+    border-bottom: var(--o-ui-bb-hover) !important;
+}
+
+.o-ui-bl-hover:hover {
+    --o-ui-bl-hover: initial;
+    border-left: var(--o-ui-bl-hover) !important;
+}
+
+.o-ui-br-hover:hover {
+    --o-ui-br-hover: initial;
+    border-right: var(--o-ui-br-hover) !important;
+}
+
+.o-ui-bt-hover:hover {
+    --o-ui-bt-hover: initial;
+    border-top: var(--o-ui-bt-hover) !important;
+}
