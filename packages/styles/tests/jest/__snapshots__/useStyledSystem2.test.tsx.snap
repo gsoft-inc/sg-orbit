@@ -1,0 +1,3697 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`background color 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-positive-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-primary-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-alias-warning-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "#fff",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`background color/hover 1`] = `
+Array [
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-positive-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-alias-warning-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border/hover 1`] = `
+Array [
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`width 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-space-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "width": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "unset",
+      }
+    }
+  />,
+]
+`;

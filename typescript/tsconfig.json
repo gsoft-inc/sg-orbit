@@ -18,6 +18,7 @@
         "paths": {
             "@typescript/*": ["./*"],
             "@utils/*": ["../jest/utils/*"],
+            "@styles/*": ["../packages/styles/src/*"],
             "@react-components/*": ["../packages/react-components/src/*"]
         }
     },

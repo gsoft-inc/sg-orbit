@@ -4,6 +4,8 @@ import { LiteralUnion, Simplify } from "type-fest";
 import { isNil, isObject } from "./assertions";
 import { useBreakpoint } from "./BreakpointProvider";
 
+// TODO: "known values" -> "system values" ?
+
 /*
 CASES:
 
@@ -44,6 +46,16 @@ export type GlobalValue2 =
     "initial" |
     "revert" |
     "unset";
+
+export type ColorKeywordValue =
+    "currentColor" |
+    "transparent";
+
+export type DimensionKeywordValue =
+    "max-content" |
+    "min-content" |
+    `fit-content(${string})` |
+    "auto";
 
 export const SpacingScale2 = [
     1,
@@ -183,6 +195,8 @@ export const BackgroundColorAliases = [
     "alias-warning-2"
 ] as const;
 
+const BorderWidthAndStyle = "1px solid";
+
 export const BorderColorAliases = [
     "alias-1",
     "alias-2",
@@ -196,7 +210,6 @@ export const BorderColorAliases = [
     "alias-primary-1-translucent",
     "alias-warning-1"
 ] as const;
-
 
 export const IconColorAliases = [
     "alias-1",
@@ -272,11 +285,12 @@ export const LineHeightScale = [
 ] as const;
 
 // TODO: add TS typing to generate intellisense.
-function createValuesMapping(values, prefix) {
+// Would be nice if the string | number would be infered from keys of the values.
+function createValuesMapping(values: Record<string | number, any>, template: (value: string) => string) {
     const mapping: Record<string | number, string> = {};
 
     values.reduce((acc, x) => {
-        acc[x] = `var(${normalizeVariable(x, prefix)})`;
+        acc[x] = template(x);
 
         return acc;
     }, mapping);
@@ -284,20 +298,70 @@ function createValuesMapping(values, prefix) {
     return mapping;
 }
 
-export const BackgroundColorValues = createValuesMapping([...Colors, ...BackgroundColorAliases], ColorPrefix);
+function createPrefixedValueTemplate(prefix: string) {
+    return (value: string) => `var(${normalizeVariable(value, prefix)})`;
+}
+
+export const SpacingKnownValues = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
+
+export const ColorKnownValues = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
+
+export const BackgroundColorKnownValues = { ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(ColorPrefix)), ...ColorKnownValues };
+
+export const BorderKnownValues = {
+    ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`),
+    ...createValuesMapping(Colors, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
+};
 
 // TODO: fix typings
-export type BackgroundColorProp2 = Simplify<LiteralUnion<typeof BackgroundColorValues[string | number], string>>;
+export type BackgroundColorValue = Simplify<LiteralUnion<keyof typeof BackgroundColorKnownValues, string> | ColorKeywordValue | GlobalValue2>;
+export type BackgroundColorProp2 = BackgroundColorValue | ResponsiveValue<BackgroundColorValue>;
+
+export type BorderValue = Simplify<LiteralUnion<keyof typeof BorderKnownValues, string> | ColorKeywordValue | GlobalValue2>;
+export type BorderProp2 = BorderValue | ResponsiveValue<BorderValue>;
+
+// export type BorderBottomProp = Simplify<LiteralUnion<keyof typeof BorderBottomClasses, string>>;
+
+// export type BorderBottomLeftRadiusProp = string;
+
+// export type BorderBottomRightRadiusProp = string;
+
+// export type BorderLeftProp = Simplify<LiteralUnion<keyof typeof BorderLeftClasses, string>>;
+
+// export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
+
+// export type BorderRightProp = Simplify<LiteralUnion<keyof typeof BorderRightClasses, string>>;
+
+// export type BorderTopProp = Simplify<LiteralUnion<keyof typeof BorderTopClasses, string>>;
+
+// export type BorderTopLeftRadiusProp = string;
+
+// export type BorderTopRightRadiusProp = string;
+
+export type WidthValue = Simplify<LiteralUnion<keyof typeof SpacingKnownValues, string> | DimensionKeywordValue | GlobalValue2>;
+export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
 
 export interface StyledSystemProps2 {
     /**
      * @ignore
      */
-    backgroundColor?: BackgroundColorProp2 | ResponsiveValue<BackgroundColorProp2>;
-    // /**
-    //  * @ignore
-    //  */
-    // width?: WidthProp;
+    backgroundColor?: BackgroundColorProp2;
+    /**
+     * @ignore
+     */
+    backgroundColorHover?: BackgroundColorProp2;
+    /**
+     * @ignore
+     */
+    border?: BorderProp2;
+    /**
+     * @ignore
+     */
+    borderHover?: BorderProp2;
+    /**
+     * @ignore
+     */
+    width?: WidthProp2;
 }
 
 class StylingContext {
@@ -355,64 +419,144 @@ function tryAddKnownValue<T extends Record<string | number, string>>(name: strin
     return false;
 }
 
-function createHandler<TValue extends string>(knownValues?: Record<TValue, string>): PropHandler<TValue> {
+function createHandler<TValue extends string | number>(knownValues?: Record<TValue, string>): PropHandler<TValue> {
     const knownValuesHandler = (name, value, context: StylingContext) => {
+        // Trying to hit a known value before parsing for a responsive value.
         if (tryAddKnownValue(name, value, knownValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
-        if (!tryAddKnownValue(name, parsedValue, knownValues, context)) {
-            context.addStyleValue(name, parsedValue);
+        if (!isNil(parsedValue)) {
+            if (!tryAddKnownValue(name, parsedValue, knownValues, context)) {
+                context.addStyleValue(name, parsedValue);
+            }
         }
     };
 
     const passThroughHandler = (name, value, context: StylingContext) => {
         const responsiveValue = parsePropValue(value, context.breakpoint);
 
-        context.addStyleValue(name, !isNil(responsiveValue) ? responsiveValue : value);
+        if (!isNil(responsiveValue)) {
+            context.addStyleValue(name, !isNil(responsiveValue) ? responsiveValue : value);
+        }
     };
 
     return !isNil(knownValues) ? knownValuesHandler : passThroughHandler;
 }
 
-function createPseudoHandler<TValue extends string>(pseudoClassName, pseudoVariable, knownValues?: Record<TValue, string>): PropHandler<TValue> {
+function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, knownValues?: Record<TValue, string>): PropHandler<TValue> {
     const knownValuesHandler = (name, value, context: StylingContext) => {
         context.addClass(pseudoClassName);
 
+        // Trying to hit a known value before parsing for a responsive value.
         if (tryAddKnownValue(pseudoVariable, value, knownValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
-        if (!tryAddKnownValue(pseudoVariable, parsedValue, knownValues, context)) {
-            context.addStyleValue(pseudoVariable, parsedValue);
+        if (!isNil(parsedValue)) {
+            if (!tryAddKnownValue(pseudoVariable, parsedValue, knownValues, context)) {
+                context.addStyleValue(pseudoVariable, parsedValue);
+            }
         }
     };
 
     const passThroughHandler = (name, value, context: StylingContext) => {
         const responsiveValue = parsePropValue(value, context.breakpoint);
 
-        context.addClass(pseudoClassName);
-        context.addStyleValue(pseudoVariable, !isNil(responsiveValue) ? responsiveValue : value);
+        if (!isNil(responsiveValue)) {
+            context.addClass(pseudoClassName);
+            context.addStyleValue(pseudoVariable, !isNil(responsiveValue) ? responsiveValue : value);
+        }
     };
 
     return !isNil(knownValues) ? knownValuesHandler : passThroughHandler;
 }
 
+type BorderProp =
+    "border" |
+    "borderBottom" |
+    "borderLeft" |
+    "borderRight" |
+    "borderTop";
+
+const BorderColorTypes = [
+    "#",
+    "rgb",
+    "rgba",
+    "hsl",
+    "hsla"
+];
+
+// Custom handler for borders to allow the following syntax:
+// - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
+// - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
+function borderHandler<TValue extends string>(knownValues: Record<TValue, string>): PropHandler<TValue> {
+    return (name: BorderProp, value, context) => {
+        // Trying to hit a known value before parsing for a responsive value.
+        if (tryAddKnownValue(name, value, knownValues, context)) {
+            return;
+        }
+
+        const parsedValue = parsePropValue(value, context.breakpoint);
+
+        if (!isNil(parsedValue)) {
+            if (!tryAddKnownValue(name, parsedValue, knownValues, context)) {
+                if (BorderColorTypes.some(x => parsedValue.startsWith(x))) {
+                    context.addStyleValue(name, `${BorderWidthAndStyle} ${parsedValue}`);
+                }
+                else {
+                    context.addStyleValue(name, parsedValue);
+                }
+            }
+        }
+    };
+}
+
+function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVariable, knownValues: Record<TValue, string>): PropHandler<TValue> {
+    return (name: BorderProp, value, context) => {
+        context.addClass(pseudoClassName);
+
+        // Trying to hit a known value before parsing for a responsive value.
+        if (tryAddKnownValue(pseudoVariable, value, knownValues, context)) {
+            return;
+        }
+
+        const parsedValue = parsePropValue(value, context.breakpoint);
+
+        if (!isNil(parsedValue)) {
+            if (!tryAddKnownValue(pseudoVariable, parsedValue, knownValues, context)) {
+                if (BorderColorTypes.some(x => parsedValue.startsWith(x))) {
+                    context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${parsedValue}`);
+                }
+                else {
+                    context.addStyleValue(pseudoVariable, parsedValue);
+                }
+            }
+        }
+    };
+}
+
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    backgroundColor: createHandler(BackgroundColorValues),
-    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorValues)
+    backgroundColor: createHandler(BackgroundColorKnownValues),
+    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorKnownValues),
+    border: borderHandler(BorderKnownValues),
+    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderKnownValues),
+    width: createHandler(SpacingKnownValues)
 };
 
 export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
     const {
         backgroundColor,
         backgroundColorHover,
+        border,
+        borderHover,
         className,
         style,
+        width,
         ...rest
     } = props;
 
@@ -440,7 +584,10 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
     }, [
         backgroundColor,
         backgroundColorHover,
-        breakpoint
+        border,
+        borderHover,
+        breakpoint,
+        width
     ]);
     /* eslint-enable react-hooks/exhaustive-deps */
 
