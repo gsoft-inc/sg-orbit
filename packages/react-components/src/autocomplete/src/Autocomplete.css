@@ -3,7 +3,7 @@
     align-items: center;
     border: 1px solid var(--o-ui-b-alias-2);
     border-radius: var(--o-ui-space-1);
-    box-shadow: var(--o-ui-box-shadows-alias-lifted);
+    box-shadow: var(--o-ui-bs-alias-lifted);
     background-color: var(--o-ui-bg-alias-1);
     padding-right: var(--o-ui-space-8);
     padding-left: var(--o-ui-space-3);

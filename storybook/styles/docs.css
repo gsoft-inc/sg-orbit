@@ -120,7 +120,7 @@
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--o-ui-box-shadows-alias-raised);
+    box-shadow: var(--o-ui-bs-alias-raised);
 }
 
 .sbdocs.sbdocs-preview,

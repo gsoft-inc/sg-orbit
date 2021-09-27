@@ -10,7 +10,7 @@
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
     cursor: pointer;
-    box-shadow: var(--o-ui-box-shadows-2);
+    box-shadow: var(--o-ui-bs-2);
 }
 
 /* HEADING */

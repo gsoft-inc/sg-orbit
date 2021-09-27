@@ -7,7 +7,7 @@
 
 /* BORDERED */
 .o-ui-accordion-bordered {
-    box-shadow: var(--o-ui-box-shadows-alias-skim);
+    box-shadow: var(--o-ui-bs-alias-skim);
     border-radius: var(--o-ui-space-2);
     background-color: var(--o-ui-bg-alias-1);
 }
