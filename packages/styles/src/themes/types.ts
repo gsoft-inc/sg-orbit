@@ -22,11 +22,13 @@ export interface FontSizeValues {
     "headline": string;
 }
 
+export type FontWeightValues = FixedLengthArray<string, 3>;
+
 export type LineHeightValues = FixedLengthArray<number, 6>;
 
 export type BoxShadowValues = FixedLengthArray<string, 4>;
 
-export interface BoxShadowRoles {
+export interface BoxShadowAliases {
     "alias-skim": string;
     "alias-lifted": string;
     "alias-raised": string;
@@ -35,7 +37,7 @@ export interface BoxShadowRoles {
 
 export type BorderRadiusValues = FixedLengthArray<string, 4>;
 
-export type BoxShadowColorSchemes = ColorSchemes<BoxShadowRoles, BoxShadowValues, BoxShadowValues>;
+export type BoxShadowColorSchemes = ColorSchemes<BoxShadowAliases, BoxShadowValues, BoxShadowValues>;
 
 export type ColorPalette = FixedLengthArray<string, 10>;
 
@@ -53,7 +55,7 @@ export interface ColorPalettes {
     "primary": ColorPalette;
 }
 
-export interface ColorRoles {
+export interface ColorAliases {
     /* Background */
     "bg-alias-1": string;
     "bg-alias-1-hover": string;
@@ -161,12 +163,13 @@ export interface ColorRoles {
     "text-alias-input-placeholder": string;
 }
 
-export type ColorColorSchemes = ColorSchemes<ColorPalettes, ColorRoles, ColorRoles>;
+export type ColorColorSchemes = ColorSchemes<ColorPalettes, ColorAliases, ColorAliases>;
 
 export interface OrbitTheme {
     name: string;
     space: SpaceValues;
     fontSizes: FontSizeValues;
+    fontWeights: FontWeightValues;
     lineHeights: LineHeightValues;
     borderRadii: BorderRadiusValues;
     boxShadows: BoxShadowColorSchemes;

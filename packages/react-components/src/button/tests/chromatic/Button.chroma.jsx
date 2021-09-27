@@ -63,6 +63,9 @@ stories()
                 <Test backgroundColorHover="red">
                     <Test backgroundColor="green" backgroundColorHover="black">Tata</Test>
                 </Test>
+                <Test fontWeight="400">Toto</Test>
+                <Test fontWeight="500">Toto</Test>
+                <Test fontWeight="600">Toto</Test>
                 <div>{breakpoint}</div>
             </>
         );

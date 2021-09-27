@@ -1,4 +1,4 @@
-import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
+import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
 import { CSSProperties, useMemo } from "react";
 import { LiteralUnion, Simplify } from "type-fest";
 import { isNil, isObject } from "./assertions";
@@ -45,16 +45,18 @@ export type GlobalValue2 =
     "revert" |
     "unset";
 
-export type ColorKeywordValue =
+export type ColorKeyword =
     "currentColor" |
     "transparent";
 
-export type SpacingKeywordValue =
+export type SpacingKeyword =
     "max-content" |
     "min-content" |
     "fit-content" |
     `fit-content(${string})` |
     "auto";
+
+export type NoneKeyword = "none";
 
 const ColorExpressionTypes = [
     "#",
@@ -64,7 +66,7 @@ const ColorExpressionTypes = [
     "hsla"
 ];
 
-export const SpacingScale2 = [
+const SpacingScale2 = [
     1,
     2,
     3,
@@ -80,7 +82,7 @@ export const SpacingScale2 = [
     13
 ] as const;
 
-export const Colors = [
+const Colors = [
     "white",
     "black",
     // Marine
@@ -184,7 +186,7 @@ export const Colors = [
     "primary-10"
 ] as const;
 
-export const BackgroundColorAliases = [
+const BackgroundColorAliases = [
     "alias-1",
     "alias-2",
     "alias-3",
@@ -204,7 +206,7 @@ export const BackgroundColorAliases = [
 
 const BorderWidthAndStyle = "1px solid";
 
-export const BorderColorAliases = [
+const BorderColorAliases = [
     "alias-1",
     "alias-2",
     "alias-3",
@@ -218,44 +220,30 @@ export const BorderColorAliases = [
     "alias-warning-1"
 ] as const;
 
-export const IconColorAliases = [
-    "alias-1",
-    "alias-2",
-    "alias-info-1",
-    "alias-negative-1",
-    "alias-negative-2",
-    "alias-positive-1",
-    "alias-positive-2",
-    "alias-primary-1",
-    "alias-warning-1",
-    "alias-warning-2"
-] as const;
-
-export const BorderRadiusScale = [
+const BorderRadiusScale = [
     0,
     1,
     2,
     3,
     4,
-    "100%",
     "pill"
 ] as const;
 
-export const BoxShadowScale = [
+const BoxShadowScale = [
     1,
     2,
     3,
     4
 ] as const;
 
-export const BoxShadowAliases = [
+const BoxShadowAliases = [
     "alias-floating",
     "alias-lifted",
     "alias-raised",
     "alias-skim"
 ] as const;
 
-export const FontSizeScale = [
+const FontSizeScale = [
     1,
     2,
     3,
@@ -269,26 +257,32 @@ export const FontSizeScale = [
     "subheadline"
 ] as const;
 
-export const FontWeightScale = [
+const FontWeightScale = [
     1,
     2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
+    3
 ] as const;
 
-export const LineHeightScale = [
+const IconColorAliases = [
+    "alias-1",
+    "alias-2",
+    "alias-info-1",
+    "alias-negative-1",
+    "alias-negative-2",
+    "alias-positive-1",
+    "alias-positive-2",
+    "alias-primary-1",
+    "alias-warning-1",
+    "alias-warning-2"
+] as const;
+
+const LineHeightScale = [
     1,
     2,
     3,
     4,
     5,
-    6,
-    "normal"
+    6
 ] as const;
 
 // TODO: add TS typing to generate intellisense.
@@ -305,31 +299,55 @@ function createValuesMapping(values: Record<string | number, any>, template: (va
     return mapping;
 }
 
+function composePrefixes(...rest) {
+    return rest.reduce((acc, prefix) => {
+        return !isNil(prefix) ? `${acc}-${prefix}` : acc;
+    }, "");
+}
+
 function createPrefixedValueTemplate(prefix: string) {
     return (value: string) => `var(${normalizeVariable(value, prefix)})`;
 }
 
-export const SpacingValues = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
+export const SpacingMapping = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
 
-export const ColorValues = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
+export const ColorMapping = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
 
-export const BackgroundColorValues = { ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(`${ColorPrefix}-bg`)), ...ColorValues };
+export const BackgroundColorMapping = {
+    ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "bg"))),
+    ...ColorMapping
+};
 
-export const BorderValues = {
-    ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, `${ColorPrefix}-b`)})`),
+export const BorderMapping = {
+    ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, composePrefixes(ColorPrefix, "b"))})`),
     ...createValuesMapping(Colors, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
 };
 
-export const BorderRadiusValues = createValuesMapping(BorderRadiusScale, createPrefixedValueTemplate(BorderRadiusPrefix));
+export const BorderRadiusMapping = createValuesMapping(BorderRadiusScale, createPrefixedValueTemplate(BorderRadiusPrefix));
 
-export const IconValues = { ...createValuesMapping(IconColorAliases, createPrefixedValueTemplate(`${ColorPrefix}-icon`)), ...ColorValues };
+export const BoxShadowMapping = {
+    ...createValuesMapping(BoxShadowScale, createPrefixedValueTemplate(BoxShadowPrefix)),
+    ...createValuesMapping(BoxShadowAliases, createPrefixedValueTemplate(BoxShadowPrefix))
+};
+
+export const FontSizeMapping = createValuesMapping(FontSizeScale, createPrefixedValueTemplate(FontSizePrefix));
+
+export const FontWeightMapping = createValuesMapping(FontWeightScale, createPrefixedValueTemplate(FontWeightPrefix));
+
+export const IconMapping = {
+    ...createValuesMapping(IconColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "icon"))),
+    ...ColorMapping
+};
 
 // TODO: fix typings
-export type BackgroundColorValue = Simplify<LiteralUnion<keyof typeof BackgroundColorValues, string> | ColorKeywordValue | GlobalValue2>;
-export type BorderValue = Simplify<LiteralUnion<keyof typeof BorderValues, string> | ColorKeywordValue | GlobalValue2>;
-export type BorderRadiusValue = Simplify<LiteralUnion<keyof typeof BorderRadiusValues, string> | GlobalValue2>;
-export type IconValue = Simplify<LiteralUnion<keyof typeof IconValues, string> | ColorKeywordValue | GlobalValue2>;
-export type WidthValue = Simplify<LiteralUnion<keyof typeof SpacingValues, string> | SpacingKeywordValue | GlobalValue2>;
+export type BackgroundColorValue = Simplify<LiteralUnion<keyof typeof BackgroundColorMapping, string> | ColorKeyword | GlobalValue2>;
+export type BorderValue = Simplify<LiteralUnion<keyof typeof BorderMapping, string> | ColorKeyword | GlobalValue2>;
+export type BorderRadiusValue = Simplify<LiteralUnion<keyof typeof BorderRadiusMapping, string> | GlobalValue2>;
+export type BoxShadowValue = Simplify<LiteralUnion<keyof typeof BoxShadowMapping, string> | NoneKeyword | GlobalValue2>;
+export type FontSizeValue = Simplify<LiteralUnion<keyof typeof FontSizeMapping, string> | GlobalValue2>;
+export type FontWeightValue = Simplify<LiteralUnion<keyof typeof FontWeightMapping, string> | GlobalValue2>;
+export type IconValue = Simplify<LiteralUnion<keyof typeof IconMapping, string> | ColorKeyword | GlobalValue2>;
+export type WidthValue = Simplify<LiteralUnion<keyof typeof SpacingMapping, string> | SpacingKeyword | GlobalValue2>;
 
 export type BackgroundColorProp2 = BackgroundColorValue | ResponsiveValue<BackgroundColorValue>;
 export type BorderProp2 = BorderValue | ResponsiveValue<BorderValue>;
@@ -342,7 +360,10 @@ export type BorderBottomLeftRadiusProp2 = BorderRadiusProp2;
 export type BorderBottomRightRadiusProp2 = BorderRadiusProp2;
 export type BorderTopLeftRadiusProp2 = BorderRadiusProp2;
 export type BorderTopRightRadiusProp2 = BorderRadiusProp2;
+export type BoxShadowProp2 = BoxShadowValue | ResponsiveValue<BoxShadowValue>;
 export type FillProp2 = IconValue | ResponsiveValue<IconValue>;
+export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
+export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
 export type StrokeProp2 = IconValue | ResponsiveValue<IconValue>;
 export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
 
@@ -418,11 +439,27 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    boxShadow?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
+    boxShadowHover?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
     fill?: FillProp2;
     /**
      * @ignore
      */
     fillHover?: FillProp2;
+    /**
+     * @ignore
+     */
+    fontSize?: FontSizeProp2;
+    /**
+     * @ignore
+     */
+    fontWeight?: FontWeightProp2;
     /**
      * @ignore
      */
@@ -601,28 +638,37 @@ function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVaria
     };
 }
 
+function fontWeightHandler(name: string, value: string, context: StylingContext) {
+    context.addStyleValue("fontVariationSettings", `'wght' ${value}`);
+    context.addStyleValue("fontWeight", "400");
+}
+
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    backgroundColor: createHandler(BackgroundColorValues),
-    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorValues),
-    border: borderHandler(BorderValues),
-    borderBottom: borderHandler(BorderValues),
-    borderBottomHover: borderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderValues),
-    borderBottomLeftRadius: borderHandler(BorderRadiusValues),
-    borderBottomRightRadius: borderHandler(BorderRadiusValues),
-    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderValues),
-    borderLeft: borderHandler(BorderValues),
-    borderLeftHover: borderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderValues),
-    borderRadius: borderHandler(BorderRadiusValues),
-    borderRight: borderHandler(BorderValues),
-    borderRightHover: borderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderValues),
-    borderTop: borderHandler(BorderValues),
-    borderTopHover: borderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderValues),
-    borderTopLeftRadius: borderHandler(BorderRadiusValues),
-    borderTopRightRadius: borderHandler(BorderRadiusValues),
-    fill: borderHandler(IconValues),
-    fillHover: borderHandlerPseudo("o-ui-f-hover", "--o-ui-f-hover", BorderValues),
-    stroke: borderHandler(IconValues),
-    width: createHandler(SpacingValues)
+    backgroundColor: createHandler(BackgroundColorMapping),
+    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorMapping),
+    border: borderHandler(BorderMapping),
+    borderBottom: borderHandler(BorderMapping),
+    borderBottomHover: borderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
+    borderBottomLeftRadius: createHandler(BorderRadiusMapping),
+    borderBottomRightRadius: createHandler(BorderRadiusMapping),
+    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
+    borderLeft: borderHandler(BorderMapping),
+    borderLeftHover: borderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
+    borderRadius: createHandler(BorderRadiusMapping),
+    borderRight: borderHandler(BorderMapping),
+    borderRightHover: borderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
+    borderTop: borderHandler(BorderMapping),
+    borderTopHover: borderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
+    borderTopLeftRadius: createHandler(BorderRadiusMapping),
+    borderTopRightRadius: createHandler(BorderRadiusMapping),
+    boxShadow: createHandler(BoxShadowMapping),
+    boxShadowHover: createPseudoHandler("o-ui-bs-hover", "--o-ui-bs-hover", BoxShadowMapping),
+    fill: createHandler(IconMapping),
+    fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
+    fontSize: createHandler(FontSizeMapping),
+    fontWeight: fontWeightHandler,
+    stroke: createHandler(IconMapping),
+    width: createHandler(SpacingMapping)
 };
 
 export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
@@ -644,9 +690,13 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         borderTopHover,
         borderTopLeftRadius,
         borderTopRightRadius,
+        boxShadow,
+        boxShadowHover,
         className,
         fill,
         fillHover,
+        fontSize,
+        fontWeight,
         stroke,
         style,
         width,
@@ -692,9 +742,13 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         borderBottomRightRadius,
         borderTopLeftRadius,
         borderTopRightRadius,
+        boxShadow,
+        boxShadowHover,
         breakpoint,
         fill,
         fillHover,
+        fontSize,
+        fontWeight,
         stroke,
         width
     ]);

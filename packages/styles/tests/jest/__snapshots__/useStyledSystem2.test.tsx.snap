@@ -5,105 +5,105 @@ Array [
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-2)",
+        "backgroundColor": "var(--o-ui--bg-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-3)",
+        "backgroundColor": "var(--o-ui--bg-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-4)",
+        "backgroundColor": "var(--o-ui--bg-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-5)",
+        "backgroundColor": "var(--o-ui--bg-alias-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-6)",
+        "backgroundColor": "var(--o-ui--bg-alias-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-info-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-info-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-negative-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-negative-2)",
+        "backgroundColor": "var(--o-ui--bg-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-positive-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-positive-2)",
+        "backgroundColor": "var(--o-ui--bg-alias-positive-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-primary-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-primary-2)",
+        "backgroundColor": "var(--o-ui--bg-alias-primary-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-warning-1)",
+        "backgroundColor": "var(--o-ui--bg-alias-warning-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-null-bg-alias-warning-2)",
+        "backgroundColor": "var(--o-ui--bg-alias-warning-2)",
       }
     }
   />,
@@ -838,7 +838,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-1)",
       }
     }
   />,
@@ -846,7 +846,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-2)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-2)",
       }
     }
   />,
@@ -854,7 +854,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-3)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-3)",
       }
     }
   />,
@@ -862,7 +862,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-4)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-4)",
       }
     }
   />,
@@ -870,7 +870,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-5)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-5)",
       }
     }
   />,
@@ -878,7 +878,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-6)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-6)",
       }
     }
   />,
@@ -886,7 +886,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-info-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-info-1)",
       }
     }
   />,
@@ -894,7 +894,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-negative-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-negative-1)",
       }
     }
   />,
@@ -902,7 +902,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-negative-2)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-negative-2)",
       }
     }
   />,
@@ -910,7 +910,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-positive-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-positive-1)",
       }
     }
   />,
@@ -918,7 +918,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-positive-2)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-positive-2)",
       }
     }
   />,
@@ -926,7 +926,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-primary-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-primary-1)",
       }
     }
   />,
@@ -934,7 +934,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-primary-2)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-primary-2)",
       }
     }
   />,
@@ -942,7 +942,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-warning-1)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-warning-1)",
       }
     }
   />,
@@ -950,7 +950,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-null-bg-alias-warning-2)",
+        "--o-ui-bg-hover": "var(--o-ui--bg-alias-warning-2)",
       }
     }
   />,
@@ -1789,77 +1789,77 @@ Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-1)",
+        "border": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-2)",
+        "border": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-3)",
+        "border": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-4)",
+        "border": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "border": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "border": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "border": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "border": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "border": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "border": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "border": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -2593,77 +2593,77 @@ Array [
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-1)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-2)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-3)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-4)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "borderBottom": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -3397,49 +3397,49 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-0)",
+        "borderBottomLeftRadius": "var(--o-ui-br-0)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-1)",
+        "borderBottomLeftRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-2)",
+        "borderBottomLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-3)",
+        "borderBottomLeftRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-4)",
+        "borderBottomLeftRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-100%)",
+        "borderBottomLeftRadius": "var(--o-ui-br-100%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-border-radii-pill)",
+        "borderBottomLeftRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -3543,49 +3543,49 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-0)",
+        "borderBottomRightRadius": "var(--o-ui-br-0)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-1)",
+        "borderBottomRightRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-2)",
+        "borderBottomRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-3)",
+        "borderBottomRightRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-4)",
+        "borderBottomRightRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-100%)",
+        "borderBottomRightRadius": "var(--o-ui-br-100%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-border-radii-pill)",
+        "borderBottomRightRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -3690,7 +3690,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -3698,7 +3698,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -3706,7 +3706,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-3)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
@@ -3714,7 +3714,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-4)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
@@ -3722,7 +3722,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -3730,7 +3730,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
@@ -3738,7 +3738,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -3746,7 +3746,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -3754,7 +3754,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -3762,7 +3762,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
@@ -3770,7 +3770,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -4609,77 +4609,77 @@ Array [
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-1)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-2)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-3)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-4)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "borderLeft": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -5414,7 +5414,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -5422,7 +5422,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -5430,7 +5430,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-3)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
@@ -5438,7 +5438,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-4)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
@@ -5446,7 +5446,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -5454,7 +5454,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
@@ -5462,7 +5462,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -5470,7 +5470,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -5478,7 +5478,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -5486,7 +5486,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
@@ -5494,7 +5494,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -6333,49 +6333,49 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-0)",
+        "borderRadius": "var(--o-ui-br-0)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-1)",
+        "borderRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-2)",
+        "borderRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-3)",
+        "borderRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-4)",
+        "borderRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-100%)",
+        "borderRadius": "var(--o-ui-br-100%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-border-radii-pill)",
+        "borderRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -6486,77 +6486,77 @@ Array [
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-1)",
+        "borderRight": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-2)",
+        "borderRight": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-3)",
+        "borderRight": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-4)",
+        "borderRight": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "borderRight": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "borderRight": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "borderRight": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "borderRight": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "borderRight": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "borderRight": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "borderRight": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -7291,7 +7291,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -7299,7 +7299,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -7307,7 +7307,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-3)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
@@ -7315,7 +7315,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-4)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
@@ -7323,7 +7323,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -7331,7 +7331,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
@@ -7339,7 +7339,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -7347,7 +7347,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -7355,7 +7355,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -7363,7 +7363,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
@@ -7371,7 +7371,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-br-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -8210,77 +8210,77 @@ Array [
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-1)",
+        "borderTop": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-2)",
+        "borderTop": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-3)",
+        "borderTop": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-4)",
+        "borderTop": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "borderTop": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "borderTop": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "borderTop": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "borderTop": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "borderTop": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "borderTop": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "borderTop": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -9014,49 +9014,49 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-0)",
+        "borderTopLeftRadius": "var(--o-ui-br-0)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-1)",
+        "borderTopLeftRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-2)",
+        "borderTopLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-3)",
+        "borderTopLeftRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-4)",
+        "borderTopLeftRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-100%)",
+        "borderTopLeftRadius": "var(--o-ui-br-100%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-border-radii-pill)",
+        "borderTopLeftRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -9160,49 +9160,49 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-0)",
+        "borderTopRightRadius": "var(--o-ui-br-0)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-1)",
+        "borderTopRightRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-2)",
+        "borderTopRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-3)",
+        "borderTopRightRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-4)",
+        "borderTopRightRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-100%)",
+        "borderTopRightRadius": "var(--o-ui-br-100%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-border-radii-pill)",
+        "borderTopRightRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -9307,7 +9307,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -9315,7 +9315,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -9323,7 +9323,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-3)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
@@ -9331,7 +9331,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-4)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
@@ -9339,7 +9339,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -9347,7 +9347,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
@@ -9355,7 +9355,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -9363,7 +9363,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -9371,7 +9371,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -9379,7 +9379,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
@@ -9387,7 +9387,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -10227,7 +10227,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -10235,7 +10235,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -10243,7 +10243,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-3)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-3)",
       }
     }
   />,
@@ -10251,7 +10251,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-4)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-4)",
       }
     }
   />,
@@ -10259,7 +10259,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -10267,7 +10267,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-negative-1-translucent)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
       }
     }
   />,
@@ -10275,7 +10275,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -10283,7 +10283,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -10291,7 +10291,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -10299,7 +10299,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-primary-1-translucent)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
       }
     }
   />,
@@ -10307,7 +10307,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-b-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -11141,75 +11141,295 @@ Array [
 ]
 `;
 
+exports[`box shadow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-alias-lifted)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-alias-raised)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-alias-skim)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "10px 5px 5px black",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`box shadow/hover 1`] = `
+Array [
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-alias-lifted)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-alias-raised)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-alias-skim)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "none",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "10px 5px 5px black",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`fill 1`] = `
 Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-1)",
+        "fill": "var(--o-ui--icon-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-2)",
+        "fill": "var(--o-ui--icon-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-info-1)",
+        "fill": "var(--o-ui--icon-alias-info-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-negative-1)",
+        "fill": "var(--o-ui--icon-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-negative-2)",
+        "fill": "var(--o-ui--icon-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-positive-1)",
+        "fill": "var(--o-ui--icon-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-positive-2)",
+        "fill": "var(--o-ui--icon-alias-positive-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-primary-1)",
+        "fill": "var(--o-ui--icon-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-warning-1)",
+        "fill": "var(--o-ui--icon-alias-warning-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-null-icon-alias-warning-2)",
+        "fill": "var(--o-ui--icon-alias-warning-2)",
       }
     }
   />,
@@ -11853,7 +12073,7 @@ Array [
   <div
     style={
       Object {
-        "fill": "1px solid #fff",
+        "fill": "#fff",
       }
     }
   />,
@@ -11867,28 +12087,28 @@ Array [
   <div
     style={
       Object {
-        "fill": "1px solid rgb(255, 255, 128)",
+        "fill": "rgb(255, 255, 128)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "1px solid rgba(255, 255, 128, .5)",
+        "fill": "rgba(255, 255, 128, .5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "1px solid hsl(50, 33%, 25%)",
+        "fill": "hsl(50, 33%, 25%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "1px solid hsla(50, 33%, 25%, .75)",
+        "fill": "hsla(50, 33%, 25%, .75)",
       }
     }
   />,
@@ -11944,7 +12164,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-1)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-1)",
       }
     }
   />,
@@ -11952,7 +12172,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-2)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-2)",
       }
     }
   />,
@@ -11968,7 +12188,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-negative-1)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-negative-1)",
       }
     }
   />,
@@ -11976,7 +12196,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-negative-2)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-negative-2)",
       }
     }
   />,
@@ -11984,7 +12204,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-positive-1)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-positive-1)",
       }
     }
   />,
@@ -12000,7 +12220,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-primary-1)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-primary-1)",
       }
     }
   />,
@@ -12008,7 +12228,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid var(--o-ui-null-b-alias-warning-1)",
+        "--o-ui-f-hover": "1px solid var(--o-ui--b-alias-warning-1)",
       }
     }
   />,
@@ -12752,7 +12972,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid #fff",
+        "--o-ui-f-hover": "#fff",
       }
     }
   />,
@@ -12768,7 +12988,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid rgb(255, 255, 128)",
+        "--o-ui-f-hover": "rgb(255, 255, 128)",
       }
     }
   />,
@@ -12776,7 +12996,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid rgba(255, 255, 128, .5)",
+        "--o-ui-f-hover": "rgba(255, 255, 128, .5)",
       }
     }
   />,
@@ -12784,7 +13004,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid hsl(50, 33%, 25%)",
+        "--o-ui-f-hover": "hsl(50, 33%, 25%)",
       }
     }
   />,
@@ -12792,7 +13012,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "1px solid hsla(50, 33%, 25%, .75)",
+        "--o-ui-f-hover": "hsla(50, 33%, 25%, .75)",
       }
     }
   />,
@@ -12855,70 +13075,70 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-1)",
+        "stroke": "var(--o-ui--icon-alias-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-2)",
+        "stroke": "var(--o-ui--icon-alias-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-info-1)",
+        "stroke": "var(--o-ui--icon-alias-info-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-negative-1)",
+        "stroke": "var(--o-ui--icon-alias-negative-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-negative-2)",
+        "stroke": "var(--o-ui--icon-alias-negative-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-positive-1)",
+        "stroke": "var(--o-ui--icon-alias-positive-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-positive-2)",
+        "stroke": "var(--o-ui--icon-alias-positive-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-primary-1)",
+        "stroke": "var(--o-ui--icon-alias-primary-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-warning-1)",
+        "stroke": "var(--o-ui--icon-alias-warning-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-null-icon-alias-warning-2)",
+        "stroke": "var(--o-ui--icon-alias-warning-2)",
       }
     }
   />,
@@ -13562,7 +13782,7 @@ Array [
   <div
     style={
       Object {
-        "stroke": "1px solid #fff",
+        "stroke": "#fff",
       }
     }
   />,
@@ -13576,28 +13796,28 @@ Array [
   <div
     style={
       Object {
-        "stroke": "1px solid rgb(255, 255, 128)",
+        "stroke": "rgb(255, 255, 128)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "1px solid rgba(255, 255, 128, .5)",
+        "stroke": "rgba(255, 255, 128, .5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "1px solid hsl(50, 33%, 25%)",
+        "stroke": "hsl(50, 33%, 25%)",
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "1px solid hsla(50, 33%, 25%, .75)",
+        "stroke": "hsla(50, 33%, 25%, .75)",
       }
     }
   />,
@@ -13652,91 +13872,91 @@ Array [
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-1)",
+        "width": "var(--o-ui-sp-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-2)",
+        "width": "var(--o-ui-sp-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-3)",
+        "width": "var(--o-ui-sp-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-4)",
+        "width": "var(--o-ui-sp-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-5)",
+        "width": "var(--o-ui-sp-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-6)",
+        "width": "var(--o-ui-sp-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-7)",
+        "width": "var(--o-ui-sp-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-8)",
+        "width": "var(--o-ui-sp-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-9)",
+        "width": "var(--o-ui-sp-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-10)",
+        "width": "var(--o-ui-sp-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-11)",
+        "width": "var(--o-ui-sp-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-12)",
+        "width": "var(--o-ui-sp-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-13)",
+        "width": "var(--o-ui-sp-13)",
       }
     }
   />,

@@ -10,7 +10,10 @@ import {
     BorderTopLeftRadiusProp2 as BorderTopLeftRadiusProp,
     BorderTopProp2 as BorderTopProp,
     BorderTopRightRadiusProp2 as BorderTopRightRadiusProp,
+    BoxShadowProp2 as BoxShadowProp,
     FillProp2 as FillProp,
+    FontSizeProp2 as FontSizeProp,
+    FontWeightProp2 as FontWeightProp,
     GlobalValue2 as GlobalValue,
     ResponsiveValue,
     StrokeProp2 as StrokeProp,
@@ -162,63 +165,63 @@ expectAssignable<BorderTopProp>("transparent");
 expectAssignable<BorderTopProp>({ base: "sunray-1", s: "sunray-1", m: "sunray-1", l: "sunray-1" });
 
 expectAssignable<BorderRadiusProp>(1);
-expectAssignable<BorderRadiusProp>("100%");
+expectAssignable<BorderRadiusProp>(2);
+expectAssignable<BorderRadiusProp>(3);
+expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("pill");
 expectAssignable<BorderRadiusProp>("1px");
 expectAssignable<BorderRadiusProp>("1em");
 expectAssignable<BorderRadiusProp>("1rem");
 expectAssignable<BorderRadiusProp>("1%");
-expectAssignable<BorderRadiusProp>("1vh");
-expectAssignable<BorderRadiusProp>("1vw");
 expectAssignable<BorderRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderRadiusProp>("1px 0 3px 4px");
 expectAssignable<BorderRadiusProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
 expectAssignable<BorderBottomLeftRadiusProp>(1);
-expectAssignable<BorderBottomLeftRadiusProp>("100%");
+expectAssignable<BorderBottomLeftRadiusProp>(2);
+expectAssignable<BorderBottomLeftRadiusProp>(3);
+expectAssignable<BorderBottomLeftRadiusProp>(4);
 expectAssignable<BorderBottomLeftRadiusProp>("pill");
 expectAssignable<BorderBottomLeftRadiusProp>("1px");
 expectAssignable<BorderBottomLeftRadiusProp>("1em");
 expectAssignable<BorderBottomLeftRadiusProp>("1rem");
 expectAssignable<BorderBottomLeftRadiusProp>("1%");
-expectAssignable<BorderBottomLeftRadiusProp>("1vh");
-expectAssignable<BorderBottomLeftRadiusProp>("1vw");
 expectAssignable<BorderBottomLeftRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderBottomLeftRadiusProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
 expectAssignable<BorderBottomRightRadiusProp>(1);
-expectAssignable<BorderBottomRightRadiusProp>("100%");
+expectAssignable<BorderBottomRightRadiusProp>(2);
+expectAssignable<BorderBottomRightRadiusProp>(3);
+expectAssignable<BorderBottomRightRadiusProp>(4);
 expectAssignable<BorderBottomRightRadiusProp>("pill");
 expectAssignable<BorderBottomRightRadiusProp>("1px");
 expectAssignable<BorderBottomRightRadiusProp>("1em");
 expectAssignable<BorderBottomRightRadiusProp>("1rem");
 expectAssignable<BorderBottomRightRadiusProp>("1%");
-expectAssignable<BorderBottomRightRadiusProp>("1vh");
-expectAssignable<BorderBottomRightRadiusProp>("1vw");
 expectAssignable<BorderBottomRightRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderBottomRightRadiusProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
 expectAssignable<BorderTopLeftRadiusProp>(1);
-expectAssignable<BorderTopLeftRadiusProp>("100%");
+expectAssignable<BorderTopLeftRadiusProp>(2);
+expectAssignable<BorderTopLeftRadiusProp>(3);
+expectAssignable<BorderTopLeftRadiusProp>(4);
 expectAssignable<BorderTopLeftRadiusProp>("pill");
 expectAssignable<BorderTopLeftRadiusProp>("1px");
 expectAssignable<BorderTopLeftRadiusProp>("1em");
 expectAssignable<BorderTopLeftRadiusProp>("1rem");
 expectAssignable<BorderTopLeftRadiusProp>("1%");
-expectAssignable<BorderTopLeftRadiusProp>("1vh");
-expectAssignable<BorderTopLeftRadiusProp>("1vw");
 expectAssignable<BorderTopLeftRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderTopLeftRadiusProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
 expectAssignable<BorderTopRightRadiusProp>(1);
-expectAssignable<BorderTopRightRadiusProp>("100%");
+expectAssignable<BorderTopRightRadiusProp>(2);
+expectAssignable<BorderTopRightRadiusProp>(3);
+expectAssignable<BorderTopRightRadiusProp>(4);
 expectAssignable<BorderTopRightRadiusProp>("pill");
 expectAssignable<BorderTopRightRadiusProp>("1px");
 expectAssignable<BorderTopRightRadiusProp>("1em");
 expectAssignable<BorderTopRightRadiusProp>("1rem");
 expectAssignable<BorderTopRightRadiusProp>("1%");
-expectAssignable<BorderTopRightRadiusProp>("1vh");
-expectAssignable<BorderTopRightRadiusProp>("1vw");
 expectAssignable<BorderTopRightRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderTopRightRadiusProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
@@ -233,14 +236,17 @@ expectAssignable<BorderTopRightRadiusProp>({ base: "1px", s: "1px", m: "1px", l:
 // expectAssignable<BottomProp>("1px");
 // expectAssignable<BottomProp>("auto");
 
-// expectAssignable<BoxShadowProp>(1);
-// expectAssignable<BoxShadowProp>(2);
-// expectAssignable<BoxShadowProp>(3);
-// expectAssignable<BoxShadowProp>(4);
-// expectAssignable<BoxShadowProp>("alias-skim");
-// expectAssignable<BoxShadowProp>("alias-lifted");
-// expectAssignable<BoxShadowProp>("alias-raised");
-// expectAssignable<BoxShadowProp>("alias-floating");
+expectAssignable<BoxShadowProp>(1);
+expectAssignable<BoxShadowProp>(2);
+expectAssignable<BoxShadowProp>(3);
+expectAssignable<BoxShadowProp>(4);
+expectAssignable<BoxShadowProp>("alias-skim");
+expectAssignable<BoxShadowProp>("alias-lifted");
+expectAssignable<BoxShadowProp>("alias-raised");
+expectAssignable<BoxShadowProp>("alias-floating");
+expectAssignable<BoxShadowProp>("none");
+expectAssignable<BoxShadowProp>("10px 5px 5px black");
+expectAssignable<BoxShadowProp>({ base: 1, s: 1, m: 1, l: 1 });
 
 // expectAssignable<ColorProp>("#fff");
 // expectAssignable<ColorProp>("white");
@@ -337,22 +343,34 @@ expectAssignable<FillProp>({ base: "sunray-1", s: "sunray-1", m: "sunray-1", l: 
 // expectAssignable<FlexWrapProp>("nowrap");
 // expectAssignable<FlexWrapProp>("wrap-reverse");
 
-// expectAssignable<FontSizeProp>(1);
-// expectAssignable<FontSizeProp>(2);
-// expectAssignable<FontSizeProp>(3);
-// expectAssignable<FontSizeProp>(4);
-// expectAssignable<FontSizeProp>(5);
-// expectAssignable<FontSizeProp>(6);
-// expectAssignable<FontSizeProp>(7);
-// expectAssignable<FontSizeProp>(8);
-// expectAssignable<FontSizeProp>(9);
-// expectAssignable<FontSizeProp>("subheadline");
-// expectAssignable<FontSizeProp>("headline");
+expectAssignable<FontSizeProp>(1);
+expectAssignable<FontSizeProp>(2);
+expectAssignable<FontSizeProp>(3);
+expectAssignable<FontSizeProp>(4);
+expectAssignable<FontSizeProp>(5);
+expectAssignable<FontSizeProp>(6);
+expectAssignable<FontSizeProp>(7);
+expectAssignable<FontSizeProp>(8);
+expectAssignable<FontSizeProp>(9);
+expectAssignable<FontSizeProp>("subheadline");
+expectAssignable<FontSizeProp>("headline");
+expectAssignable<FontSizeProp>("1px");
+expectAssignable<FontSizeProp>("1em");
+expectAssignable<FontSizeProp>("1rem");
+expectAssignable<FontSizeProp>("1%");
+expectAssignable<FontSizeProp>("calc(1px + 1px)");
+expectAssignable<FontSizeProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
 // expectAssignable<FontStyleProp>("oblique 10deg");
 // expectAssignable<FontStyleProp>("italic");
 
-// expectAssignable<FontWeightProp>(3);
+expectAssignable<FontWeightProp>(1);
+expectAssignable<FontWeightProp>(2);
+expectAssignable<FontWeightProp>(3);
+expectAssignable<FontWeightProp>("100");
+expectAssignable<FontWeightProp>("400");
+expectAssignable<FontWeightProp>("700");
+expectAssignable<FontWeightProp>({ base: 1, s: 1, m: 1, l: 1 });
 
 // expectAssignable<GapProp>(0);
 // expectAssignable<GapProp>(1);
@@ -592,17 +610,23 @@ expectAssignable<StyledSystemProps>({
     // backgroundRepeat: "no-repeat",
     // backgroundSize: "auto",
     border: "sunray-10",
+    borderHover: "sunray-10",
     borderBottom: "sunray-10",
-    // borderBottomLeftRadius: "2rem",
-    // borderBottomRightRadius: "2rem",
+    borderBottomHover: "sunray-10",
+    borderBottomLeftRadius: "2rem",
+    borderBottomRightRadius: "2rem",
     borderLeft: "sunray-10",
+    borderLeftHover: "sunray-10",
     borderRadius: 1,
     borderRight: "sunray-10",
+    borderRightHover: "sunray-10",
     borderTop: "sunray-10",
-    // borderTopLeftRadius: "2rem",
-    // borderTopRightRadius: "2rem",
+    borderTopHover: "sunray-10",
+    borderTopLeftRadius: "2rem",
+    borderTopRightRadius: "2rem",
     // bottom: "1px",
-    // boxShadow: 1,
+    boxShadow: 1,
+    boxShadowHover: 1,
     // color: "sunray-1",
     // columnGap: 1,
     // content: "open-quote",
@@ -618,9 +642,9 @@ expectAssignable<StyledSystemProps>({
     // flexGrow: 1,
     // flexShrink: 1,
     // flexWrap: "wrap",
-    // fontSize: 1,
+    fontSize: 1,
     // fontStyle: "oblique 23deg",
-    // fontWeight: 1,
+    fontWeight: 1,
     // gap: 1,
     // height: 1,
     // justifyContent: "center",
