@@ -21,6 +21,10 @@ import {
     BottomProp2 as BottomProp,
     BoxShadowProp2 as BoxShadowProp,
     ColorProp2 as ColorProp,
+    ColumnGapProp2 as ColumnGapProp,
+    ContentProp2 as ContentProp,
+    ContentVisibilityProp2 as ContentVisibilityProp,
+    CursorProp2 as CursorProp,
     FillProp2 as FillProp,
     FontSizeProp2 as FontSizeProp,
     FontWeightProp2 as FontWeightProp,
@@ -316,21 +320,35 @@ expectAssignable<ColorProp>("currentColor");
 expectAssignable<ColorProp>("transparent");
 expectAssignable<ColorProp>({ base: "sunray-1", s: "sunray-1", m: "sunray-1", l: "sunray-1" });
 
-// expectAssignable<ColumnGapProp>(0);
-// expectAssignable<ColumnGapProp>(1);
-// expectAssignable<ColumnGapProp>("1px");
+expectAssignable<ColumnGapProp>(1);
+expectAssignable<ColumnGapProp>("1px");
+expectAssignable<ColumnGapProp>("1em");
+expectAssignable<ColumnGapProp>("1rem");
+expectAssignable<ColumnGapProp>("1%");
+expectAssignable<ColumnGapProp>("calc(1px + 1px)");
+expectAssignable<ColumnGapProp>("normal");
+expectAssignable<ColumnGapProp>({ base: 1, s: 1, m: 1, l: 1 });
 
-// expectAssignable<ContentProp>("open-quote");
+expectAssignable<ContentProp>("normal");
+expectAssignable<ContentProp>("none");
+expectAssignable<ContentProp>("linear-gradient(#e66465, #9198e5)");
+expectAssignable<ContentProp>({ base: "none", s: "none", m: "none", l: "none" });
 
-// expectAssignable<ContentVisibilityProp>("hidden");
+expectAssignable<ContentVisibilityProp>("visible");
+expectAssignable<ContentVisibilityProp>("hidden");
+expectAssignable<ContentVisibilityProp>("auto");
+expectAssignable<ContentVisibilityProp>({ base: "hidden", s: "hidden", m: "hidden", l: "hidden" });
 
-// expectAssignable<CursorProp>("auto");
-// expectAssignable<CursorProp>("crosshair");
-// expectAssignable<CursorProp>("grab");
-// expectAssignable<CursorProp>("help");
-// expectAssignable<CursorProp>("not-allowed");
-// expectAssignable<CursorProp>("wait");
-// expectAssignable<CursorProp>("zoom-in");
+expectAssignable<CursorProp>("auto");
+expectAssignable<CursorProp>("pointer");
+expectAssignable<CursorProp>("crosshair");
+expectAssignable<CursorProp>("grab");
+expectAssignable<CursorProp>("help");
+expectAssignable<CursorProp>("not-allowed");
+expectAssignable<CursorProp>("wait");
+expectAssignable<CursorProp>("zoom-in");
+expectAssignable<CursorProp>("url(cursor1.png) 4 12, auto");
+expectAssignable<CursorProp>({ base: "pointer", s: "pointer", m: "pointer", l: "pointer" });
 
 // expectAssignable<DisplayProp>("block");
 // expectAssignable<DisplayProp>("inline-block");

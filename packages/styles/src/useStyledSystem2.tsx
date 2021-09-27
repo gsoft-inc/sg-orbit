@@ -408,6 +408,7 @@ export type BorderValue = Simplify<keyof typeof BorderMapping | Property.Border>
 export type BorderRadiusValue = Simplify<keyof typeof BorderRadiusMapping | Property.BorderRadius>;
 export type BoxShadowValue = Simplify<keyof typeof BoxShadowMapping | Property.BoxShadow>;
 export type ColorValue = Simplify<keyof typeof TextColorMapping | Property.Color>;
+export type ColumnGapValue = Simplify<keyof typeof SpacingMapping | Property.ColumnGap>;
 export type FillValue = Simplify<keyof typeof IconColorMapping | Property.Fill>;
 export type FontSizeValue = Simplify<keyof typeof FontSizeMapping | Property.FontSize>;
 export type FontWeightValue = Simplify<keyof typeof FontWeightMapping | Property.FontWeight>;
@@ -439,6 +440,10 @@ export type BorderTopRightRadiusProp2 = BorderRadiusProp2;
 export type BottomProp2 = Property.Bottom | ResponsiveValue<Property.Bottom>;
 export type BoxShadowProp2 = BoxShadowValue | ResponsiveValue<BoxShadowValue>;
 export type ColorProp2 = ColorValue | ResponsiveValue<ColorValue>;
+export type ColumnGapProp2 = ColumnGapValue | ResponsiveValue<ColumnGapValue>;
+export type ContentProp2 = Property.Content | ResponsiveValue<Property.Content>;
+export type ContentVisibilityProp2 = Property.ContentVisibility | ResponsiveValue<Property.ContentVisibility>;
+export type CursorProp2 = Property.Cursor | ResponsiveValue<Property.Cursor>;
 export type FillProp2 = FillValue | ResponsiveValue<FillValue>;
 export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
 export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
@@ -581,6 +586,26 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     colorHover?: ColorProp2;
+    /**
+     * @ignore
+     */
+    columnGap?: ColumnGapProp2;
+    /**
+     * @ignore
+     */
+    content?: ContentProp2;
+    /**
+     * @ignore
+     */
+    contentVisibility?: ContentVisibilityProp2;
+    /**
+     * @ignore
+     */
+    cursor?: CursorProp2;
+    /**
+     * @ignore
+     */
+    cursorHover?: CursorProp2;
     /**
      * @ignore
      */
@@ -881,6 +906,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     boxShadowHover: createPseudoHandler("o-ui-bs-hover", "--o-ui-bs-hover", BoxShadowMapping),
     color: createHandler(ColorMapping),
     colorHover: createPseudoHandler("o-ui-c-hover", "--o-ui-c-hover", ColorMapping),
+    columnGap: createHandler(SpacingMapping),
+    content: createHandler(),
+    contentVisibility: createHandler(),
+    cursor: createHandler(),
+    cursorHover: createPseudoHandler("o-ui-cs-hover", "--o-ui-cs-hover"),
     fill: createHandler(IconColorMapping),
     fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
     fontSize: createHandler(FontSizeMapping),
@@ -937,6 +967,11 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         className,
         color,
         colorHover,
+        columnGap,
+        content,
+        contentVisibility,
+        cursor,
+        cursorHover,
         fill,
         fillHover,
         fontSize,
@@ -1015,6 +1050,11 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         breakpoint,
         color,
         colorHover,
+        columnGap,
+        content,
+        contentVisibility,
+        cursor,
+        cursorHover,
         fill,
         fillHover,
         fontSize,
