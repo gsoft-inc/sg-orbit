@@ -3,7 +3,7 @@
     display: grid;
     align-items: stretch;
     grid-template-columns: 1fr 1fr;
-    gap: var(--o-ui-space-7);
+    gap: var(--o-ui-sp-7);
 }
 
 .o-ui-modal-choice {

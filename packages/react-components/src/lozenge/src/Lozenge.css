@@ -4,28 +4,28 @@
     background-color: var(--o-ui-bg-alias-3);
     color: var(--o-ui-text-alias-1);
     text-transform: uppercase;
-    padding: 0 var(--o-ui-space-2);
+    padding: 0 var(--o-ui-sp-2);
     border-radius: 4px;
-    min-height: var(--o-ui-space-5);
-    line-height: var(--o-ui-space-5);
+    min-height: var(--o-ui-sp-5);
+    line-height: var(--o-ui-sp-5);
     width: max-content;
     height: max-content;
 }
 
 /* SIZE */
 .o-ui-lozenge-sm {
-    min-height: var(--o-ui-space-4);
-    line-height: var(--o-ui-space-4);
+    min-height: var(--o-ui-sp-4);
+    line-height: var(--o-ui-sp-4);
 }
 
 .o-ui-lozenge-lg {
-    min-height: var(--o-ui-space-6);
-    line-height: var(--o-ui-space-6);
+    min-height: var(--o-ui-sp-6);
+    line-height: var(--o-ui-sp-6);
 }
 
 /* CONTENT | ICON */
 .o-ui-lozenge-has-icon {
-    padding-left: calc(var(--o-ui-space-2) / 2);
+    padding-left: calc(var(--o-ui-sp-2) / 2);
 }
 
 .o-ui-lozenge-icon {

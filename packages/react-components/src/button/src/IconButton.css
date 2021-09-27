@@ -1,8 +1,8 @@
 @import "./Button.css";
 
 #o-ui {
-    --o-ui-icon-button-height-2xs: var(--o-ui-space-5);
-    --o-ui-icon-button-height-xs: var(--o-ui-space-6);
+    --o-ui-icon-button-height-2xs: var(--o-ui-sp-5);
+    --o-ui-icon-button-height-xs: var(--o-ui-sp-6);
 }
 
 /* ICON BUTTON */
@@ -25,28 +25,28 @@
 
 /* SIZES | ROUNDED */
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-2xs {
-    min-width: var(--o-ui-space-5);
+    min-width: var(--o-ui-sp-5);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-xs {
-    min-width: var(--o-ui-space-6);
+    min-width: var(--o-ui-sp-6);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-sm {
-    min-width: var(--o-ui-space-7);
+    min-width: var(--o-ui-sp-7);
 }
 
 .o-ui-icon-button.o-ui-button-rounded.o-ui-button-md {
-    min-width: var(--o-ui-space-8);
+    min-width: var(--o-ui-sp-8);
 }
 
 /* SIZES | CIRCULAR */
 .o-ui-icon-button.o-ui-button-circular.o-ui-button-2xs {
-    min-width: var(--o-ui-space-5);
+    min-width: var(--o-ui-sp-5);
 }
 
 .o-ui-icon-button.o-ui-button-circular.o-ui-button-xs {
-    min-width: var(--o-ui-space-6);
+    min-width: var(--o-ui-sp-6);
 }
 
 /* LOADING */

@@ -1,837 +1,955 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https:
+//goo.gl/fbAQLP
 
-exports[`background color 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-info-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-negative-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-negative-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-positive-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-positive-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-primary-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-primary-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-warning-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-alias-warning-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-white)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-black)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-marine-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-moonstone-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-cloud-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-neutral-dark-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-beetle-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-botanic-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-3)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-4)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-6)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-7)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-8)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-9)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-primary-10)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "#fff",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-white)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "rgb(255, 255, 128)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "rgba(255, 255, 128, .5)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "hsl(50, 33%, 25%)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "hsla(50, 33%, 25%, .75)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-1)",
-      }
-    }
-  />,
-  <div />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-sunray-1)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "inherit",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "initial",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "revert",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "unset",
-      }
-    }
-  />,
-]
-`;
-
+    exports[`background color 1`] = `
+    Array [
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-info-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-negative-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-negative-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-positive-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-positive-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-primary-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-primary-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-warning-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-alias-warning-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-white)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-black)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-marine-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-moonstone-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-cloud-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-neutral-dark-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-beetle-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-botanic-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-2)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-3)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-4)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-6)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-7)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-8)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-9)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-primary-10)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "#fff",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-white)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "rgb(255, 255, 128)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "rgba(255, 255, 128, .5)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "hsl(50, 33%, 25%)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "hsla(50, 33%, 25%, .75)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-1)",
+    }
+    }
+    />,
+    <div />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "var(--o-ui-sunray-1)",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "inherit",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "initial",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "revert",
+    }
+    }
+    />,
+    <div
+    style={;
+object {
+    "backgroundColor":
+ "unset",
+    }
+    }
+    />,
+    ]
+    `;
 exports[`background color/hover 1`] = `
 Array [
   <div
@@ -1782,8 +1900,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`border 1`] = `
 Array [
   <div
@@ -2586,8 +2703,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`border/hover 1`] = `
 Array [
   <div
@@ -3506,98 +3622,97 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`width 1`] = `
 Array [
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-1)",
+        "width": "var(--o-ui-sp-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-2)",
+        "width": "var(--o-ui-sp-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-3)",
+        "width": "var(--o-ui-sp-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-4)",
+        "width": "var(--o-ui-sp-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-5)",
+        "width": "var(--o-ui-sp-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-6)",
+        "width": "var(--o-ui-sp-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-7)",
+        "width": "var(--o-ui-sp-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-8)",
+        "width": "var(--o-ui-sp-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-9)",
+        "width": "var(--o-ui-sp-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-10)",
+        "width": "var(--o-ui-sp-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-11)",
+        "width": "var(--o-ui-sp-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-12)",
+        "width": "var(--o-ui-sp-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-space-13)",
+        "width": "var(--o-ui-sp-13)",
       }
     }
   />,
@@ -3694,4 +3809,4 @@ Array [
     }
   />,
 ]
-`;
+`

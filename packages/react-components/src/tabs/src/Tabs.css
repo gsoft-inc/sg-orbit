@@ -31,13 +31,13 @@
     align-items: center;
     justify-content: center;
     background: transparent;
-    padding: calc(var(--o-ui-space-3) + 1px);
+    padding: calc(var(--o-ui-sp-3) + 1px);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: max-content;
-    min-width: var(--o-ui-space-13);
+    min-width: var(--o-ui-sp-13);
     height: max-content;
-    min-height: var(--o-ui-space-9);
+    min-height: var(--o-ui-sp-9);
     cursor: pointer;
     color: var(--o-ui-text-alias-2);
     position: relative;
@@ -50,7 +50,7 @@
 
 /* TAB | WITH ICON */
 .o-ui-tab-has-icon {
-    padding-left: calc(var(--o-ui-space-2) + 1px);
+    padding-left: calc(var(--o-ui-sp-2) + 1px);
 }
 
 /* TAB | STATE | FOCUS */
@@ -59,11 +59,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(var(--o-ui-space-2) - 2px);
+    bottom: calc(var(--o-ui-sp-2) - 2px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
-    height: calc(var(--o-ui-space-5) + var(--o-ui-space-1));
+    height: calc(var(--o-ui-sp-5) + var(--o-ui-sp-1));
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -74,7 +74,7 @@
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    margin-right: var(--o-ui-space-3);
+    margin-right: var(--o-ui-sp-3);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
 }
@@ -86,7 +86,7 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    margin-bottom: var(--o-ui-space-3);
+    margin-bottom: var(--o-ui-sp-3);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
@@ -155,7 +155,7 @@
 }
 
 .o-ui-tab-icon + .o-ui-tab-text {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* TAB | ICON */
@@ -165,7 +165,7 @@
 
 /* TAB | LOZENGE */
 .o-ui-tab-text + .o-ui-tab-lozenge {
-    margin-left: var(--o-ui-space-2);
+    margin-left: var(--o-ui-sp-2);
 }
 
 /* PANEL */
@@ -176,12 +176,12 @@
 
 /* PANEL | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-panel {
-    padding: var(--o-ui-space-4) var(--o-ui-space-2);
+    padding: var(--o-ui-sp-4) var(--o-ui-sp-2);
 }
 
 /*  PANEL | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-panel {
-    padding: calc(var(--o-ui-space-3) + 1px) var(--o-ui-space-4);
+    padding: calc(var(--o-ui-sp-3) + 1px) var(--o-ui-sp-4);
 }
 
 /* PANEL | FLUID */

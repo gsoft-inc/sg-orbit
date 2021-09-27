@@ -1,9 +1,9 @@
 .o-ui-sb-component-info {
-    margin: var(--o-ui-space-6) 0 var(--o-ui-space-7) 0;
+    margin: var(--o-ui-sp-6) 0 var(--o-ui-sp-7) 0;
 }
 
 .o-ui-sb-component-info-compact {
-    margin: var(--o-ui-space-4) 0;
+    margin: var(--o-ui-sp-4) 0;
 }
 
 .o-ui-sb-component-info-item {
@@ -16,20 +16,20 @@
     display: inline-block !important;
     color: var(--o-ui-text-alias-2) !important;
     font-variation-settings: "wght" 500 !important;
-    font-size: var(--o-ui-font-sizes-3) !important;
+    font-size: var(--o-ui-fs-3) !important;
     font-style: normal !important;
-    width: var(--o-ui-space-13) !important;
+    width: var(--o-ui-sp-13) !important;
     margin: 0 !important;
     min-width: 80px;
 }
 
 .o-ui-sb-component-info-compact .o-ui-sb-component-info-title {
-    width: var(--o-ui-space-11) !important;
+    width: var(--o-ui-sp-11) !important;
 }
 
 .o-ui-sb-component-info-value {
     display: flex !important;
-    font-size: var(--o-ui-font-sizes-3) !important;
+    font-size: var(--o-ui-fs-3) !important;
     font-variant: normal !important;
     margin: 0 !important;
     overflow-x: auto;
@@ -37,10 +37,10 @@
 }
 
 .o-ui-sb-component-info-value a {
-    font-size: var(--o-ui-font-sizes-3) !important;
+    font-size: var(--o-ui-fs-3) !important;
 }
 
 .o-ui-sb-component-info code {
     white-space: nowrap;
-    padding: var(--o-ui-space-2) 0;
+    padding: var(--o-ui-sp-2) 0;
 }

@@ -1,7 +1,7 @@
 .o-ui-popover {
     background-color: var(--o-ui-bg-alias-1);
-    padding: var(--o-ui-space-6);
-    padding-top: var(--o-ui-space-4);
+    padding: var(--o-ui-sp-6);
+    padding-top: var(--o-ui-sp-4);
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-bs-alias-raised);
     /* Must keep a max width. */
@@ -11,7 +11,7 @@
 
 /* HEADER | SECTION */
 .o-ui-popover-header-section {
-    margin-bottom: var(--o-ui-space-2);
+    margin-bottom: var(--o-ui-sp-2);
 }
 
 /* CONTENT */
@@ -22,7 +22,7 @@
 
 /* FOOTER | SECTION */
 .o-ui-popover-footer-section {
-    margin-top: var(--o-ui-space-4);
+    margin-top: var(--o-ui-sp-4);
     display: grid;
     align-items: center;
     grid-template-columns: max-content auto;
@@ -32,7 +32,7 @@
 /* FOOTER | TEXT */
 .o-ui-popover-footer {
     grid-area: text;
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }
 
 /* BUTTONS */

@@ -1,7 +1,7 @@
 .o-ui-sb-tagline {
-    font-size: var(--o-ui-font-sizes-5) !important;
-    line-height: var(--o-ui-line-heights-4) !important;
-    margin: var(--o-ui-space-4) 0 1rem 0 !important;
+    font-size: var(--o-ui-fs-5) !important;
+    line-height: var(--o-ui-lh-4) !important;
+    margin: var(--o-ui-sp-4) 0 1rem 0 !important;
     color: var(--o-ui-text-alias-2) !important;
     max-width: 60ch !important;
 }

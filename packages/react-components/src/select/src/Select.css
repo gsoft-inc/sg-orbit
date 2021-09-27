@@ -9,9 +9,9 @@
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    min-height: var(--o-ui-space-8);
+    min-height: var(--o-ui-sp-8);
     overflow: hidden;
-    padding: 0 var(--o-ui-space-3) 0;
+    padding: 0 var(--o-ui-sp-3) 0;
     border-radius: var(--o-ui-shape-rounded);
 }
 
@@ -70,7 +70,7 @@
 
 /* TRIGGER | GHOST | PLACEHOLDER / VALUE */
 .o-ui-select-trigger-ghost .o-ui-select-placeholder {
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
 }
 
 /* TRIGGER | OUTLINE */
@@ -152,25 +152,25 @@
 .o-ui-select-placeholder {
     flex-grow: 1;
     text-align: left;
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }
 
 /* SELECT VALUE | START ICON */
 .o-ui-select-value-start-icon {
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
     flex-shrink: 0;
 }
 
 /* SELECT VALUE | END ICON */
 .o-ui-select-value-end-icon {
     flex-shrink: 0;
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* ICON */
 .o-ui-select-icon {
     flex-shrink: 0;
-    margin-right: var(--o-ui-space-1);
+    margin-right: var(--o-ui-sp-1);
 }
 
 /* MENU | FLUID */

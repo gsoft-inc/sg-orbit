@@ -1,13 +1,13 @@
 #o-ui {
-    --o-ui-button-height-sm: var(--o-ui-space-7);
-    --o-ui-button-height-md: var(--o-ui-space-8);
+    --o-ui-button-height-sm: var(--o-ui-sp-7);
+    --o-ui-button-height-md: var(--o-ui-sp-8);
     --o-ui-button-loading-spinner-background: rgba(256, 256, 256, 0.5);
 }
 
 /* SHARED */
 .o-ui-button {
     padding: 0;
-    line-height: var(--o-ui-line-heights-1);
+    line-height: var(--o-ui-lh-1);
     cursor: pointer;
     outline: none;
     font-variation-settings: "wght" 500;
@@ -476,13 +476,13 @@ a.o-ui-button {
 
 /* CIRCULAR | SIZES */
 .o-ui-button-circular.o-ui-button-sm {
-    min-width: var(--o-ui-space-7);
-    padding: 0 var(--o-ui-space-1);
+    min-width: var(--o-ui-sp-7);
+    padding: 0 var(--o-ui-sp-1);
 }
 
 .o-ui-button-circular.o-ui-button-md {
-    min-width: var(--o-ui-space-8);
-    padding: 0 var(--o-ui-space-1);
+    min-width: var(--o-ui-sp-8);
+    padding: 0 var(--o-ui-sp-1);
 }
 
 /* ROUNDED */

@@ -9,13 +9,13 @@
 
 /* PUSHED */
 .o-ui-counter-pushed {
-    margin-left: var(--o-ui-space-2);
+    margin-left: var(--o-ui-sp-2);
 }
 
 /* PUSHED | REVERSE */
 .o-ui-counter-pushed.o-ui-counter-reverse {
     margin-left: 0;
-    margin-right: var(--o-ui-space-2);
+    margin-right: var(--o-ui-sp-2);
 }
 
 /* DISABLED */
@@ -32,7 +32,7 @@
 .o-ui-counter-divider {
     display: inline-block;
     position: relative;
-    padding-left: var(--o-ui-space-2);
+    padding-left: var(--o-ui-sp-2);
 }
 
 /* Using a before element for the border to add an opacity to the border color when it's inherited. */
@@ -50,7 +50,7 @@
 /* DIVIDER | REVERSE */
 .o-ui-counter-divider.o-ui-counter-reverse {
     padding-left: 0;
-    padding-right: var(--o-ui-space-2);
+    padding-right: var(--o-ui-sp-2);
 }
 
 .o-ui-counter-divider.o-ui-counter-reverse::before {

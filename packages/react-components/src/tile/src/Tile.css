@@ -16,7 +16,7 @@
 /* HEADING */
 .o-ui-tile-heading {
     display: block;
-    margin-bottom: var(--o-ui-space-4);
+    margin-bottom: var(--o-ui-sp-4);
 }
 
 /* STATES */
@@ -132,7 +132,7 @@
 
 /* ILLUSTRATION */
 .o-ui-tile-illustration {
-    padding: var(--o-ui-space-5);
+    padding: var(--o-ui-sp-5);
 }
 
 .o-ui-tile-vertical .o-ui-tile-illustration {
@@ -147,7 +147,7 @@
 
 /* MAIN SECTION */
 .o-ui-tile-main {
-    padding: var(--o-ui-space-6);
+    padding: var(--o-ui-sp-6);
     grid-area: aside;
     display: flex;
     flex-direction: column;
@@ -155,7 +155,7 @@
 }
 
 .o-ui-tile-thumbnail + .o-ui-tile-main {
-    padding: var(--o-ui-space-4) var(--o-ui-space-5) var(--o-ui-space-5) var(--o-ui-space-5);
+    padding: var(--o-ui-sp-4) var(--o-ui-sp-5) var(--o-ui-sp-5) var(--o-ui-sp-5);
 }
 
 /* ORIENTATIONS */

@@ -53,7 +53,7 @@ Global variables have their use, spacing, typography and other static values are
 ```css
 // Label.css
 .o-ui-field-label-required {
-    margin-left: var(--o-ui-space-1);
+    margin-left: var(--o-ui-sp-1);
 }
 ```
 

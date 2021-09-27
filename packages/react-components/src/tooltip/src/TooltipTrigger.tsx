@@ -180,7 +180,7 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: "var(--o-ui-space-3)",
+                        borderOffset: "var(--o-ui-sp-3)",
                         ref: overlayRef,
                         show: isOpen,
                         zIndex

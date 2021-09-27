@@ -4,7 +4,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-mt-#{$i} {
-        margin-top: var(--o-ui-space-#{$i});
+        margin-top: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -18,7 +18,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-mb-#{$i} {
-        margin-bottom: var(--o-ui-space-#{$i});
+        margin-bottom: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -32,7 +32,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-ml-#{$i} {
-        margin-left: var(--o-ui-space-#{$i});
+        margin-left: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -46,7 +46,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-mr-#{$i} {
-        margin-right: var(--o-ui-space-#{$i});
+        margin-right: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -60,7 +60,7 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-ma-#{$i} {
-        margin: var(--o-ui-space-#{$i});
+        margin: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -75,8 +75,8 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-mx-#{$i} {
-        margin-left: var(--o-ui-space-#{$i});
-        margin-right: var(--o-ui-space-#{$i});
+        margin-left: var(--o-ui-sp-#{$i});
+        margin-right: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -92,8 +92,8 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-my-#{$i} {
-        margin-top: var(--o-ui-space-#{$i});
-        margin-bottom: var(--o-ui-space-#{$i});
+        margin-top: var(--o-ui-sp-#{$i});
+        margin-bottom: var(--o-ui-sp-#{$i});
     }
 }
 
@@ -104,24 +104,24 @@
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-nmt-#{$i} {
-        margin-top: calc(-1 * var(--o-ui-space-#{$i}));
+        margin-top: calc(-1 * var(--o-ui-sp-#{$i}));
     }
 }
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-nmb-#{$i} {
-        margin-bottom: calc(-1 * var(--o-ui-space-#{$i}));
+        margin-bottom: calc(-1 * var(--o-ui-sp-#{$i}));
     }
 }
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-nml-#{$i} {
-        margin-left: calc(-1 * var(--o-ui-space-#{$i}));
+        margin-left: calc(-1 * var(--o-ui-sp-#{$i}));
     }
 }
 
 @for $i from 1 through $spacing-scale-size {
     .o-ui-nmr-#{$i} {
-        margin-right: calc(-1 * var(--o-ui-space-#{$i}));
+        margin-right: calc(-1 * var(--o-ui-sp-#{$i}));
     }
 }

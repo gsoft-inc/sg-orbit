@@ -7,7 +7,7 @@
     background-color: var(--o-ui-moonstone-1);
     cursor: pointer;
     border: 0;
-    margin-top: var(--o-ui-space-4);
+    margin-top: var(--o-ui-sp-4);
 }
 
 .o-ui-sb-gallery-item-variant-section-toggle:first-child {

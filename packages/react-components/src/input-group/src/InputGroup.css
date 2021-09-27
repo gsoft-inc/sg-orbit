@@ -72,8 +72,8 @@
 .o-ui-input-group-text-addon {
     display: flex;
     align-items: center;
-    padding: 0 var(--o-ui-space-3);
-    min-height: var(--o-ui-space-8);
+    padding: 0 var(--o-ui-sp-3);
+    min-height: var(--o-ui-sp-8);
     border-radius: var(--o-ui-shape-rounded);
     border: 1px solid var(--o-ui-b-alias-1);
     color: var(--o-ui-text-alias-1);

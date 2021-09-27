@@ -1,6 +1,6 @@
 @for $i from 1 through 4 {
     .o-ui-bdrs-#{$i} {
-        border-radius: var(--o-ui-border-radii-#{$i});
+        border-radius: var(--o-ui-br-#{$i});
     }
 }
 

@@ -1,5 +1,5 @@
 .o-ui-date-range-input {
-    --o-ui-date-range-input-padding: var(--o-ui-space-3);
+    --o-ui-date-range-input-padding: var(--o-ui-sp-3);
     --o-ui-date-range-input-border-color: var(--o-ui-b-alias-1);
     --o-ui-date-range-input-background-color: var(--o-ui-bg-alias-2);
     display: inline-flex;
@@ -8,7 +8,7 @@
     transition: var(--o-ui-focus-ring-transition);
     padding: 0 var(--o-ui-date-range-input-padding);
     /* For clear button */
-    padding-right: var(--o-ui-space-7);
+    padding-right: var(--o-ui-sp-7);
     border-radius: var(--o-ui-shape-rounded);
     border: 1px solid var(--o-ui-date-range-input-border-color);
     color: var(--o-ui-text-alias-1);
@@ -74,14 +74,14 @@
 
 /* DATE INPUT */
 .o-ui-date-range-input-date-input {
-    font-size: var(--o-ui-font-sizes-3);
+    font-size: var(--o-ui-fs-3);
     color: var(--o-ui-text-alias-1);
-    padding-left: var(--o-ui-space-1);
+    padding-left: var(--o-ui-sp-1);
     border: none;
     outline: none;
     transition: all .12s ease-in, padding 0s linear;
     width: 100%;
-    min-height: calc(var(--o-ui-space-8) - 2px);
+    min-height: calc(var(--o-ui-sp-8) - 2px);
     background-color: transparent;
 }
 
@@ -106,7 +106,7 @@
 /* CLEAR BUTTON */
 .o-ui-date-range-input-clear-button {
     position: absolute;
-    right: var(--o-ui-space-1);
+    right: var(--o-ui-sp-1);
 }
 
 /* BUTTON PRESETS */
@@ -117,7 +117,7 @@
 }
 
 .o-ui-date-range-input-button-presets .o-ui-date-range-input {
-    margin-right: var(--o-ui-space-4);
+    margin-right: var(--o-ui-sp-4);
 }
 
 /* BUTTON PRESETS | FLUID */
