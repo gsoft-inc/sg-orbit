@@ -300,7 +300,7 @@ const LineHeightScale = [
     6
 ] as const;
 
-function createValuesMapping<T extends readonly (string | number)[]>(values: T, template: (value: T[number]) => string)  {
+function createValuesMapping<T extends readonly (string | number)[]>(values: T, template: (value: T[number]) => string) {
     const mapping = {} as Record<T[number], string>;
 
     values.reduce((acc, x) => {
@@ -457,7 +457,7 @@ export type ResizeProp2 = Property.Resize | ResponsiveValue<Property.Resize>;
 export type RightProp2 = Property.Right | ResponsiveValue<Property.Right>;
 export type RowGapProp2 = RowGapValue | ResponsiveValue<RowGapValue>;
 export type StrokeProp2 = StrokeValue | ResponsiveValue<StrokeValue>;
-export type TextAlignProp2 = Property.TextAlign | ResponsiveValue<Property.TextAlign>;
+export type TextAlignProp2 = Property.TextAlign | ResponsiveValue<Property.TextAlign> | "justify-all";
 export type TextDecorationProp2 = Property.TextDecoration | ResponsiveValue<Property.TextDecoration>;
 export type TextOverflowProp2 = Property.TextOverflow | ResponsiveValue<Property.TextOverflow>;
 export type TextTransformProp2 = Property.TextTransform | ResponsiveValue<Property.TextTransform>;
@@ -468,8 +468,10 @@ export type TransformStyleProp2 = Property.TransformStyle | ResponsiveValue<Prop
 export type VerticalAlignProp2 = Property.VerticalAlign | ResponsiveValue<Property.VerticalAlign>;
 export type VisibilityProp2 = Property.Visibility | ResponsiveValue<Property.Visibility>;
 export type WhiteSpaceProp2 = Property.WhiteSpace | ResponsiveValue<Property.WhiteSpace>;
-export type WillChangeProp2 = Property.WillChange | ResponsiveValue<Property.WillChange>;
 export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
+export type WillChangeProp2 = Property.WillChange | ResponsiveValue<Property.WillChange>;
+export type WordBreakProp2 = Property.WordBreak | ResponsiveValue<Property.WordBreak>;
+export type ZIndexProp2 = Property.ZIndex | ResponsiveValue<Property.ZIndex>;
 
 export interface StyledSystemProps2 {
     /**
@@ -759,6 +761,10 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    opacityHover?: OpacityProp2;
+    /**
+     * @ignore
+     */
     order?: OrderProp2;
     /**
      * @ignore
@@ -839,6 +845,10 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    textDecorationHover?: TextDecorationProp2;
+    /**
+     * @ignore
+     */
     textOverflow?: TextOverflowProp2;
     /**
      * @ignore
@@ -855,7 +865,7 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
-    transformOrgin?: TransformOriginProp2;
+    transformOrigin?: TransformOriginProp2;
     /**
      * @ignore
      */
@@ -880,6 +890,14 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     willChange?: WillChangeProp2;
+    /**
+     * @ignore
+     */
+    wordBreak?: WordBreakProp2;
+    /**
+     * @ignore
+     */
+    zIndex?: ZIndexProp2;
 }
 
 class StylingContext {
@@ -1137,6 +1155,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     objectFit: createHandler(),
     objectPosition: createHandler(),
     opacity: createHandler(),
+    opacityHover: createPseudoHandler("o-ui-o-hover", "o-ui-o-hover"),
     order: createHandler(),
     outline: createHandler(),
     overflow: createHandler(),
@@ -1157,6 +1176,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     stroke: createHandler(IconColorMapping),
     textAlign: createHandler(),
     textDecoration: createHandler(),
+    textDecorationHover: createPseudoHandler("o-ui-tc-hover", "o-ui-tc-hover"),
     textOverflow: createHandler(),
     textTransform: createHandler(),
     top: createHandler(),
@@ -1167,7 +1187,9 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     visibility: createHandler(),
     whiteSpace: createHandler(),
     width: createHandler(SpacingMapping),
-    willChange: createHandler()
+    willChange: createHandler(),
+    wordBreak: createHandler(),
+    zIndex: createHandler()
 };
 
 export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
@@ -1244,6 +1266,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         objectFit,
         objectPosition,
         opacity,
+        opacityHover,
         order,
         outline,
         overflow,
@@ -1265,6 +1288,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         style,
         textAlign,
         textDecoration,
+        textDecorationHover,
         textOverflow,
         textTransform,
         top,
@@ -1276,6 +1300,8 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         whiteSpace,
         width,
         willChange,
+        wordBreak,
+        zIndex,
         ...rest
     } = props;
 
@@ -1373,6 +1399,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         objectFit,
         objectPosition,
         opacity,
+        opacityHover,
         order,
         outline,
         overflow,
@@ -1393,6 +1420,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         stroke,
         textAlign,
         textDecoration,
+        textDecorationHover,
         textOverflow,
         textTransform,
         top,
@@ -1403,7 +1431,9 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         visibility,
         whiteSpace,
         width,
-        willChange
+        willChange,
+        wordBreak,
+        zIndex
     ]);
     /* eslint-enable react-hooks/exhaustive-deps */
 

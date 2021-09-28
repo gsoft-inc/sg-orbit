@@ -121,7 +121,7 @@ const Props: PropDefinition[] = [
     { name: "content", key: "content", values: ["normal", "none", "linear-gradient(#e66465, #9198e5)", "open-quote", ...GlobalSampling] },
     { name: "content visibility", key: "contentVisibility", values: ["visible", "hidden", "auto", ...GlobalSampling] },
     { name: "cursor", key: "cursor", values: ["pointer", "hand", "url(cursor1.png) 4 12, auto", ...GlobalSampling] },
-    { name: "cursor/hover", key: "cursor/hover", values: ["pointer", "hand", "url(cursor1.png) 4 12, auto", ...GlobalSampling] },
+    { name: "cursor/hover", key: "cursorHover", values: ["pointer", "hand", "url(cursor1.png) 4 12, auto", ...GlobalSampling] },
     { name: "display", key: "display", values: ["block", "inline", "inline-block", "flex", "inline-flex", "grid", "inline-grid", "none", "table", ...GlobalSampling] },
     { name: "fill", key: "fill", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "fill/hover", key: "fillHover", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
@@ -158,6 +158,7 @@ const Props: PropDefinition[] = [
     { name: "object fit", key: "objectFit", values: ["contain", "cover", "fill", "none", "scale-down", ...GlobalSampling] },
     { name: "object position", key: "objectPosition", values: ["center top", "100px 50px", ...GlobalSampling] },
     { name: "opacity", key: "opacity", values: ["0.9", "90%", ...GlobalSampling] },
+    { name: "opacity/hover", key: "opacityHover", values: ["0.9", "90%", ...GlobalSampling] },
     { name: "order", key: "order", values: [1, -1, ...GlobalSampling] },
     { name: "outline", key: "outline", values: ["solid", "#f66 dashed", "inset thick", "green solid 3px", ...GlobalSampling] },
     { name: "overflow", key: "overflow", values: ["visible", "hidden", "clip", "scroll", "auto", "hidden visible", ...GlobalSampling] },
@@ -176,8 +177,9 @@ const Props: PropDefinition[] = [
     { name: "right", key: "right", values: ["-1px", ...LengthSampling, ...GlobalSampling] },
     { name: "row gap", key: "rowGap", values: [...Object.keys(SpacingMapping), ...LengthSampling, ...GlobalSampling] },
     { name: "stroke", key: "stroke", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
-    { name: "text align", key: "textAlign", values: ["start", "end", "left", "right", "center", "justify", "justify-all", ...GlobalSampling] },
+    { name: "text align", key: "textAlign", values: ["start", "end", "left", "right", "center", "justify", ...GlobalSampling] },
     { name: "text decoration", key: "textDecoration", values: ["underline", "overline #FF3028", "none", ...GlobalSampling] },
+    { name: "text decoration/hover", key: "textDecorationHover", values: ["underline", "overline #FF3028", "none", ...GlobalSampling] },
     { name: "text overflow", key: "textOverflow", values: ["clip", "ellipsis ellipsis", ...GlobalSampling] },
     { name: "text transform", key: "textTransform", values: ["none", "capitalize", "uppercase", "lowercase", "full-width", "full-size-kana", ...GlobalSampling] },
     { name: "top", key: "top", values: ["-1px", ...LengthSampling, ...GlobalSampling] },
@@ -218,9 +220,9 @@ const Props: PropDefinition[] = [
     { name: "visibility", key: "visibility", values: ["visible", "hidden", "collapse", ...GlobalSampling] },
     { name: "white-space", key: "whiteSpace", values: ["normal", "nowrap", "pre", "pre-wrap", "pre-line", "break-spaces", ...GlobalSampling] },
     { name: "width", key: "width", values: [...Object.keys(SpacingMapping), ...DimensionSampling, ...GlobalSampling] },
-    { name: "will-change", key: "willChange", values: ["auto", "scroll-position", "contents", "transform", "opacity", "left, top", ...GlobalSampling] }
-    // { name: "work-break", key: "wordBreak", values: Object.keys(WordBreakClasses) },
-    // { name: "z-index", key: "zIndex", values: ["1"] }
+    { name: "will-change", key: "willChange", values: ["auto", "scroll-position", "contents", "transform", "opacity", "left, top", ...GlobalSampling] },
+    { name: "word-break", key: "wordBreak", values: ["normal", "break-all", "keep-all", ...GlobalSampling] },
+    { name: "z-index", key: "zIndex", values: ["auto", "0", "3", "289", "-1", ...GlobalSampling] }
 ];
 
 function Box(props: ComponentProps<"div"> & StyledSystemProps2) {
@@ -274,7 +276,7 @@ test("when inline style is provided, append new style", async () => {
     }));
 });
 
-test("when hover prop is specified and there are already a class, append hover prop class", async () => {
+test("when hover prop is specified and there are already a class, append hover class", async () => {
     const { getByTestId } = render(
         <Box
             className="toto"
@@ -286,60 +288,37 @@ test("when hover prop is specified and there are already a class, append hover p
     await waitFor(() => expect(getByTestId("box")).toHaveClass("toto o-ui-b-hover"));
 });
 
-// test("do not add style when a prop value is undefined", async () => {
-//     const { getByTestId } = render(
-//         <Box
-//             bottom={undefined}
-//             data-testid="box"
-//         />
-//     );
+test("do not add style when a prop value is undefined", async () => {
+    const { getByTestId } = render(
+        <Box
+            bottom={undefined}
+            data-testid="box"
+        />
+    );
 
-//     await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("style"));
-// });
+    await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("style"));
+});
 
-// test("when style is provided, append new style values", async () => {
-//     const { getByTestId } = render(
-//         <Box
-//             style={{ top: "1px" }}
-//             bottom="2px"
-//             data-testid="box"
-//         />
-//     );
+test("when style is provided, append new style values", async () => {
+    const { getByTestId } = render(
+        <Box
+            style={{ top: "1px" }}
+            bottom="2px"
+            data-testid="box"
+        />
+    );
 
-//     await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px; bottom: 2px;"));
-// });
+    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px; bottom: 2px;"));
+});
 
-// test("when style is provided with a value matching a provided style prop, do not add the class twice", async () => {
-//     const { getByTestId } = render(
-//         <Box
-//             style={{ top: "1px" }}
-//             top="1px"
-//             data-testid="box"
-//         />
-//     );
+test("when style is provided with a value matching a provided style prop, do not override the existing style", async () => {
+    const { getByTestId } = render(
+        <Box
+            style={{ top: "1px" }}
+            top="2px"
+            data-testid="box"
+        />
+    );
 
-//     await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
-// });
-
-// test("when style is provided and the provided value match a provided style prop but with a difference value, the style value have precedence", async () => {
-//     const { getByTestId } = render(
-//         <Box
-//             style={{ top: "1px" }}
-//             top="2px"
-//             data-testid="box"
-//         />
-//     );
-
-//     await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
-// });
-
-// test("when an unknown value is specified for a prop with predefined values, add the value to style", async () => {
-//     const { getByTestId } = render(
-//         <Box
-//             fill="primary-100"
-//             data-testid="box"
-//         />
-//     );
-
-//     await waitFor(() => expect(getByTestId("box")).toHaveStyle("fill: primary-100;"));
-// });
+    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+});

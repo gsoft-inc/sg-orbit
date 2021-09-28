@@ -14658,25 +14658,60 @@ Array [
 exports[`cursor/hover 1`] = `
 Array [
   <div
-    cursor/hover="pointer"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "pointer",
+      }
+    }
   />,
   <div
-    cursor/hover="hand"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "hand",
+      }
+    }
   />,
   <div
-    cursor/hover="url(cursor1.png) 4 12, auto"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "url(cursor1.png) 4 12, auto",
+      }
+    }
   />,
   <div
-    cursor/hover="inherit"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "inherit",
+      }
+    }
   />,
   <div
-    cursor/hover="initial"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "initial",
+      }
+    }
   />,
   <div
-    cursor/hover="revert"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "revert",
+      }
+    }
   />,
   <div
-    cursor/hover="unset"
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "unset",
+      }
+    }
   />,
 ]
 `;
@@ -21333,6 +21368,59 @@ Array [
 ]
 `;
 
+exports[`opacity/hover 1`] = `
+Array [
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "0.9",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "90%",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`order 1`] = `
 Array [
   <div
@@ -24560,13 +24648,6 @@ Array [
   <div
     style={
       Object {
-        "textAlign": "justify-all",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "textAlign": "inherit",
       }
     }
@@ -24643,6 +24724,67 @@ Array [
     style={
       Object {
         "textDecoration": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`text decoration/hover 1`] = `
+Array [
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "underline",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "overline #FF3028",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "none",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-tc-hover"
+    style={
+      Object {
+        "o-ui-tc-hover": "unset",
       }
     }
   />,
@@ -25671,6 +25813,128 @@ Array [
     style={
       Object {
         "willChange": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`word-break 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "wordBreak": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "break-all",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "keep-all",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`z-index 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "zIndex": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "0",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "289",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "-1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "unset",
       }
     }
   />,

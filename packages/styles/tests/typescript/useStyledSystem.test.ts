@@ -80,7 +80,20 @@ import {
     RowGapProp2 as RowGapProp,
     StrokeProp2 as StrokeProp,
     StyledSystemProps2 as StyledSystemProps,
-    WidthProp2 as WidthProp
+    TextAlignProp2 as TextAlignProp,
+    TextDecorationProp2 as TextDecorationProp,
+    TextOverflowProp2 as TextOverflowProp,
+    TopProp2 as TopProp,
+    TransformOriginProp2 as TransformOriginProp,
+    TransformProp2 as TransformProp,
+    TransformStyleProp2 as TransformStyleProp,
+    VerticalAlignProp2 as VerticalAlignProp,
+    VisibilityProp2 as VisibilityProp,
+    WhiteSpaceProp2 as WhiteSpaceProp,
+    WidthProp2 as WidthProp,
+    WillChangeProp2 as WillChangeProp,
+    WordBreakProp2 as WordBreakProp,
+    ZIndexProp2 as ZIndexProp
 } from "@styles/useStyledSystem2";
 import { expectAssignable } from "@typescript/tests";
 
@@ -516,9 +529,9 @@ expectAssignable<FontStyleProp>({ base: "normal", s: "normal", m: "normal", l: "
 expectAssignable<FontWeightProp>(1);
 expectAssignable<FontWeightProp>(2);
 expectAssignable<FontWeightProp>(3);
-expectAssignable<FontWeightProp>("100");
-expectAssignable<FontWeightProp>("400");
-expectAssignable<FontWeightProp>("700");
+expectAssignable<FontWeightProp>(100);
+expectAssignable<FontWeightProp>(400);
+expectAssignable<FontWeightProp>(700);
 expectAssignable<FontWeightProp>({ base: 1, s: 1, m: 1, l: 1 });
 
 expectAssignable<GapProp>(1);
@@ -938,48 +951,113 @@ expectAssignable<StrokeProp>("currentColor");
 expectAssignable<StrokeProp>("transparent");
 expectAssignable<StrokeProp>({ base: "sunray-1", s: "sunray-1", m: "sunray-1", l: "sunray-1" });
 
-// expectAssignable<TextAlignProp>("start");
-// expectAssignable<TextAlignProp>("end");
-// expectAssignable<TextAlignProp>("left");
-// expectAssignable<TextAlignProp>("right");
-// expectAssignable<TextAlignProp>("center");
-// expectAssignable<TextAlignProp>("justify");
-// expectAssignable<TextAlignProp>("justify-all");
-// expectAssignable<TextAlignProp>("match-parent");
+expectAssignable<TextAlignProp>("start");
+expectAssignable<TextAlignProp>("end");
+expectAssignable<TextAlignProp>("left");
+expectAssignable<TextAlignProp>("right");
+expectAssignable<TextAlignProp>("center");
+expectAssignable<TextAlignProp>("justify");
+expectAssignable<TextAlignProp>("justify-all");
+expectAssignable<TextAlignProp>("match-parent");
+expectAssignable<TextAlignProp>({ base: "start", s: "start", m: "start", l: "start" });
 
-// expectAssignable<TextDecorationProp>("underline");
-// expectAssignable<TextDecorationProp>("underline dotted");
-// expectAssignable<TextDecorationProp>("underline overline #FF3028");
+expectAssignable<TextDecorationProp>("underline");
+expectAssignable<TextDecorationProp>("underline dotted");
+expectAssignable<TextDecorationProp>("overline #FF3028");
+expectAssignable<TextDecorationProp>({ base: "underline", s: "underline", m: "underline", l: "underline" });
 
-// expectAssignable<TextOverflowProp>("clip");
-// expectAssignable<TextOverflowProp>("ellipsis");
+expectAssignable<TextOverflowProp>("clip");
+expectAssignable<TextOverflowProp>("ellipsis");
+expectAssignable<TextOverflowProp>("ellipsis ellipsis");
+expectAssignable<TextOverflowProp>("ellipsis \" [..]\"");
+expectAssignable<TextOverflowProp>({ base: "clip", s: "clip", m: "clip", l: "clip" });
 
-// expectAssignable<TopProp>("1px");
-// expectAssignable<TopProp>("auto");
+expectAssignable<TopProp>("1px");
+expectAssignable<TopProp>("-1px");
+expectAssignable<TopProp>("1em");
+expectAssignable<TopProp>("1rem");
+expectAssignable<TopProp>("1%");
+expectAssignable<TopProp>("calc(1px + 1px)");
+expectAssignable<TopProp>("auto");
+expectAssignable<TopProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<TransformProp>("rotate(20deg) rotate(2deg)");
+expectAssignable<TransformProp>("none");
+expectAssignable<TransformProp>("matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)");
+expectAssignable<TransformProp>("matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)");
+expectAssignable<TransformProp>("perspective(17px)");
+expectAssignable<TransformProp>("rotate(0.5turn)");
+expectAssignable<TransformProp>("rotate3d(1, 2.0, 3.0, 10deg)");
+expectAssignable<TransformProp>("rotateX(10deg)");
+expectAssignable<TransformProp>("rotateY(10deg)");
+expectAssignable<TransformProp>("rotateZ(10deg)");
+expectAssignable<TransformProp>("translate(12px, 50%)");
+expectAssignable<TransformProp>("translate3d(12px, 50%, 3em)");
+expectAssignable<TransformProp>("translateX(2em)");
+expectAssignable<TransformProp>("translateY(3in)");
+expectAssignable<TransformProp>("translateZ(2px)");
+expectAssignable<TransformProp>("scale(2, 0.5)");
+expectAssignable<TransformProp>("scale3d(2.5, 1.2, 0.3)");
+expectAssignable<TransformProp>("scaleX(2)");
+expectAssignable<TransformProp>("scaleY(0.5)");
+expectAssignable<TransformProp>("scaleZ(0.3)");
+expectAssignable<TransformProp>("skew(30deg, 20deg)");
+expectAssignable<TransformProp>("skewX(30deg)");
+expectAssignable<TransformProp>("skewY(1.07rad)");
+expectAssignable<TransformProp>("translateX(10px) rotate(10deg) translateY(5px)");
+expectAssignable<TransformProp>("perspective(500px) translate(10px, 0, 20px) rotateY(3deg)");
+expectAssignable<TransformProp>({ base: "none", s: "none", m: "none", l: "none" });
 
-// expectAssignable<TransformOriginProp>("top center");
+expectAssignable<TransformOriginProp>("2px");
+expectAssignable<TransformOriginProp>("bottom");
+expectAssignable<TransformOriginProp>("3cm 2px");
+expectAssignable<TransformOriginProp>("left 2px");
+expectAssignable<TransformOriginProp>("right top");
+expectAssignable<TransformOriginProp>("top right");
+expectAssignable<TransformOriginProp>("2px 30% 10px");
+expectAssignable<TransformOriginProp>("left 5px -3px");
+expectAssignable<TransformOriginProp>("right bottom 2cm");
+expectAssignable<TransformOriginProp>("bottom right 2cm");
+expectAssignable<TransformOriginProp>({ base: "2px", s: "2px", m: "2px", l: "2px" });
 
-// expectAssignable<TransformStyleProp>("preserve-3d");
+expectAssignable<TransformStyleProp>("flat");
+expectAssignable<TransformStyleProp>("preserve-3d");
+expectAssignable<TransformOriginProp>({ base: "flat", s: "flat", m: "flat", l: "flat" });
 
-// expectAssignable<VerticalAlignProp>("baseline");
-// expectAssignable<VerticalAlignProp>("bottom");
-// expectAssignable<VerticalAlignProp>("middle");
-// expectAssignable<VerticalAlignProp>("sub");
-// expectAssignable<VerticalAlignProp>("super");
-// expectAssignable<VerticalAlignProp>("text-bottom");
-// expectAssignable<VerticalAlignProp>("text-top");
-// expectAssignable<VerticalAlignProp>("top");
+expectAssignable<VerticalAlignProp>("baseline");
+expectAssignable<VerticalAlignProp>("sub");
+expectAssignable<VerticalAlignProp>("super");
+expectAssignable<VerticalAlignProp>("text-top");
+expectAssignable<VerticalAlignProp>("text-bottom");
+expectAssignable<VerticalAlignProp>("middle");
+expectAssignable<VerticalAlignProp>("top");
+expectAssignable<VerticalAlignProp>("bottom");
+expectAssignable<VerticalAlignProp>("1px");
+expectAssignable<VerticalAlignProp>("1em");
+expectAssignable<VerticalAlignProp>("1rem");
+expectAssignable<VerticalAlignProp>("1%");
+expectAssignable<VerticalAlignProp>("calc(1px + 1px)");
+expectAssignable<VerticalAlignProp>({ base: "middle", s: "middle", m: "middle", l: "middle" });
 
-// expectAssignable<VisibilityProp>("hidden");
+expectAssignable<VisibilityProp>("visible");
+expectAssignable<VisibilityProp>("hidden");
+expectAssignable<VisibilityProp>("collapse");
+expectAssignable<VisibilityProp>({ base: "visible", s: "visible", m: "visible", l: "visible" });
 
-// expectAssignable<WhiteSpaceProp>("nowrap");
-// expectAssignable<WhiteSpaceProp>("break-spaces");
-// expectAssignable<WhiteSpaceProp>("normal");
-// expectAssignable<WhiteSpaceProp>("pre");
-// expectAssignable<WhiteSpaceProp>("pre-line");
-// expectAssignable<WhiteSpaceProp>("pre-wrap");
+expectAssignable<WhiteSpaceProp>("normal");
+expectAssignable<WhiteSpaceProp>("nowrap");
+expectAssignable<WhiteSpaceProp>("pre");
+expectAssignable<WhiteSpaceProp>("pre-wrap");
+expectAssignable<WhiteSpaceProp>("pre-line");
+expectAssignable<WhiteSpaceProp>("break-spaces");
+expectAssignable<WhiteSpaceProp>({ base: "nowrap", s: "nowrap", m: "nowrap", l: "nowrap" });
+
+expectAssignable<WillChangeProp>("auto");
+expectAssignable<WillChangeProp>("scroll-position");
+expectAssignable<WillChangeProp>("contents");
+expectAssignable<WillChangeProp>("transform");
+expectAssignable<WillChangeProp>("opacity");
+expectAssignable<WillChangeProp>("left, top");
+expectAssignable<WillChangeProp>({ base: "contents", s: "contents", m: "contents", l: "contents" });
 
 expectAssignable<WidthProp>(1);
 expectAssignable<WidthProp>("1px");
@@ -995,14 +1073,16 @@ expectAssignable<WidthProp>("fit-content(1em)");
 expectAssignable<WidthProp>("auto");
 expectAssignable<WidthProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<WillChangeProp>("contents");
+expectAssignable<WordBreakProp>("normal");
+expectAssignable<WordBreakProp>("break-all");
+expectAssignable<WordBreakProp>("keep-all");
+expectAssignable<WordBreakProp>("break-word");
+expectAssignable<WordBreakProp>({ base: "break-word", s: "break-word", m: "break-word", l: "break-word" });
 
-// expectAssignable<WordBreakProp>("break-all");
-// expectAssignable<WordBreakProp>("break-word");
-// expectAssignable<WordBreakProp>("keep-all");
-// expectAssignable<WordBreakProp>("normal");
-
-// expectAssignable<ZindexProp>(1);
+expectAssignable<ZIndexProp>("auto");
+expectAssignable<ZIndexProp>(1);
+expectAssignable<ZIndexProp>(-1);
+expectAssignable<ZIndexProp>({ base: 1, s: 1, m: 1, l: 1 });
 
 expectAssignable<StyledSystemProps>({
     alignContent: "center",
@@ -1086,24 +1166,24 @@ expectAssignable<StyledSystemProps>({
     paddingTop: 1,
     paddingX: 1,
     paddingY: 1,
-    // pointerEvents: "none",
-    // position: "absolute",
-    // resize: "both",
-    // right: "1px",
-    // rowGap: 1,
+    pointerEvents: "none",
+    position: "absolute",
+    resize: "both",
+    right: "1px",
+    rowGap: 1,
     stroke: "sunray-1",
-    // textAlign: "center",
-    // textDecoration: "underline",
-    // textOverflow: "clip",
-    // top: "1px",
-    // transform: "rotate(3deg) scale(1.3)",
-    // transformOrigin: "top left",
-    // transformStyle: "preserve-3d",
-    // verticalAlign: "middle",
-    // visibility: "hidden",
-    // whiteSpace: "nowrap",
-    width: 1
-    // willChange: "contents",
-    // wordBreak: "break-all",
-    // zIndex: 1
+    textAlign: "center",
+    textDecoration: "underline",
+    textOverflow: "clip",
+    top: "1px",
+    transform: "rotate(3deg) scale(1.3)",
+    transformOrigin: "top left",
+    transformStyle: "preserve-3d",
+    verticalAlign: "middle",
+    visibility: "hidden",
+    whiteSpace: "nowrap",
+    width: 1,
+    willChange: "contents",
+    wordBreak: "break-all",
+    zIndex: 1
 });
