@@ -11795,6 +11795,13 @@ Array [
   <div
     style={
       Object {
+        "bottom": "-1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "bottom": "1px",
       }
     }
@@ -14478,6 +14485,102 @@ Array [
 ]
 `;
 
+exports[`display 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "display": "block",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline-flex",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "grid",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline-grid",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "table",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`fill 1`] = `
 Array [
   <div
@@ -16187,6 +16290,643 @@ Array [
 ]
 `;
 
+exports[`filter 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "filter": "url(\\"filters.svg#filter-id\\")",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "blur(5px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flex": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "2 2 10%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "flex": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex basis 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexBasis": "content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "fill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex direction 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "row-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "column-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex flow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexFlow": "row",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "row-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "nowrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "wrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "wrap-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "row nowrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column wrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column-reverse wrap-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex grow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexGrow": "3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "0.6",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex shrink 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexShrink": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "0.6",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`flex wrap 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "flexWrap": "nowrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "wrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "wrap-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`font size 1`] = `
 Array [
   <div
@@ -16347,6 +17087,67 @@ Array [
 ]
 `;
 
+exports[`font style 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "fontStyle": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "italic",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "oblique",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "oblique 10deg",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`font weight 1`] = `
 Array [
   <div
@@ -16474,6 +17275,940 @@ Array [
       Object {
         "fontVariationSettings": "'wght' unset",
         "fontWeight": "400",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gap 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`height 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "height": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`justify content 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "justifyContent": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "first baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "last baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "space-between",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "space-around",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "space-evenly",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "stretch",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "flex-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "flex-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`justify items 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "justifyItems": "self-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "self-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "first baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "last baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "space-between",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "space-around",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "space-evenly",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "stretch",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "flex-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "flex-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`justify self 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "justifySelf": "self-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "self-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "first baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "last baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "space-between",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "space-around",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "space-evenly",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "stretch",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "flex-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "flex-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`left 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "left": "-1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "left": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`letter spacing 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "letterSpacing": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "0.3em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": ".3px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "unset",
       }
     }
   />,
@@ -16702,6 +18437,13 @@ Array [
     style={
       Object {
         "margin": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "-1px",
       }
     }
   />,
@@ -17975,6 +19717,13 @@ Array [
     style={
       Object {
         "padding": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "-1px",
       }
     }
   />,

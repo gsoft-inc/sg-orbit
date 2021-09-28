@@ -1,7 +1,7 @@
 import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
 import { CSSProperties, useMemo } from "react";
-import { LiteralUnion, Simplify } from "type-fest";
 import { Property } from "csstype";
+import { Simplify } from "type-fest";
 import { isNil, isObject } from "./assertions";
 import { useBreakpoint } from "./BreakpointProvider";
 
@@ -371,6 +371,8 @@ export type ColumnGapValue = Simplify<keyof typeof SpacingMapping | Property.Col
 export type FillValue = Simplify<keyof typeof IconColorMapping | Property.Fill>;
 export type FontSizeValue = Simplify<keyof typeof FontSizeMapping | Property.FontSize>;
 export type FontWeightValue = Simplify<keyof typeof FontWeightMapping | Property.FontWeight>;
+export type GapValue = Simplify<keyof typeof SpacingMapping | Property.Gap>;
+export type HeightValue = Simplify<keyof typeof SpacingMapping | Property.Height>;
 export type LineHeightValue = Simplify<keyof typeof LineHeightMapping | Property.LineHeight>;
 export type MarginValue = Simplify<keyof typeof SpacingMapping | Property.Margin>;
 export type PaddingValue = Simplify<keyof typeof SpacingMapping | Property.Padding>;
@@ -405,8 +407,24 @@ export type ContentVisibilityProp2 = Property.ContentVisibility | ResponsiveValu
 export type CursorProp2 = Property.Cursor | ResponsiveValue<Property.Cursor>;
 export type DisplayProp2 = Property.Display | ResponsiveValue<Property.Display>;
 export type FillProp2 = FillValue | ResponsiveValue<FillValue>;
+export type FilterProp2 = Property.Filter | ResponsiveValue<Property.Filter>;
+export type FlexProp2 = Property.Flex | ResponsiveValue<Property.Flex>;
+export type FlexBasisProp2 = Property.FlexBasis | ResponsiveValue<Property.FlexBasis>;
+export type FlexDirectionProp2 = Property.FlexDirection | ResponsiveValue<Property.FlexDirection>;
+export type FlexFlowProp2 = Property.FlexFlow | ResponsiveValue<Property.FlexFlow>;
+export type FlexGrowProp2 = Property.FlexGrow | ResponsiveValue<Property.FlexGrow>;
+export type FlexShrinkProp2 = Property.FlexShrink | ResponsiveValue<Property.FlexShrink>;
+export type FlexWrapProp2 = Property.FlexWrap | ResponsiveValue<Property.FlexWrap>;
 export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
+export type FontStyleProp2 = Property.FontStyle | ResponsiveValue<Property.FontStyle>;
 export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
+export type GapProp2 = GapValue | ResponsiveValue<GapValue>;
+export type HeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type JustifyContentProp2 = Property.JustifyContent | ResponsiveValue<Property.JustifyContent>;
+export type JustifyItemsProp2 = Property.JustifyItems | ResponsiveValue<Property.JustifyItems>;
+export type JustifySelfProp2 = Property.JustifySelf | ResponsiveValue<Property.JustifySelf>;
+export type LeftProp2 = Property.Left | ResponsiveValue<Property.Left>;
+export type LetterSpacingProp2 = Property.LetterSpacing | ResponsiveValue<Property.LetterSpacing>;
 export type LineHeightProp2 = LineHeightValue | ResponsiveValue<LineHeightValue>;
 export type MarginProp2 = MarginValue | ResponsiveValue<MarginValue>;
 export type MarginBottomProp2 = MarginValue | ResponsiveValue<MarginValue>;
@@ -581,11 +599,75 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    filter?: FilterProp2;
+    /**
+     * @ignore
+     */
+    flex?: FlexProp2;
+    /**
+     * @ignore
+     */
+    flexBasis?: FlexBasisProp2;
+    /**
+     * @ignore
+     */
+    flexDirection?: FlexDirectionProp2;
+    /**
+     * @ignore
+     */
+    flexFlow?: FlexFlowProp2;
+    /**
+     * @ignore
+     */
+    flexGrow?: FlexGrowProp2;
+    /**
+     * @ignore
+     */
+    flexShrink?: FlexShrinkProp2;
+    /**
+     * @ignore
+     */
+    flexWrap?: FlexWrapProp2;
+    /**
+     * @ignore
+     */
     fontSize?: FontSizeProp2;
     /**
      * @ignore
      */
+    fontStyle?: FontStyleProp2;
+    /**
+     * @ignore
+     */
     fontWeight?: FontWeightProp2;
+    /**
+     * @ignore
+     */
+    gap?: GapProp2;
+    /**
+     * @ignore
+     */
+    height?: HeightProp2;
+    /**
+     * @ignore
+     */
+    justifyContent?: JustifyContentProp2;
+    /**
+     * @ignore
+     */
+    justifyItems?: JustifyItemsProp2;
+    /**
+     * @ignore
+     */
+    justifySelf?: JustifySelfProp2;
+    /**
+     * @ignore
+     */
+    left?: LeftProp2;
+    /**
+     * @ignore
+     */
+    letterSpacing?: LetterSpacingProp2;
     /**
      * @ignore
      */
@@ -878,8 +960,24 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     display: createHandler(),
     fill: createHandler(IconColorMapping),
     fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
+    filter: createHandler(),
+    flex: createHandler(),
+    flexBasis: createHandler(),
+    flexDirection: createHandler(),
+    flexFlow: createHandler(),
+    flexGrow: createHandler(),
+    flexShrink: createHandler(),
+    flexWrap: createHandler(),
     fontSize: createHandler(FontSizeMapping),
+    fontStyle: createHandler(),
     fontWeight: fontWeightHandler,
+    gap: createHandler(SpacingMapping),
+    height: createHandler(SpacingMapping),
+    justifyContent: createHandler(),
+    justifyItems: createHandler(),
+    justifySelf: createHandler(),
+    left: createHandler(),
+    letterSpacing: createHandler(),
     lineHeight: createHandler(LineHeightMapping),
     margin: createHandler(SpacingMapping),
     marginBottom: createHandler(SpacingMapping),
@@ -940,8 +1038,24 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         display,
         fill,
         fillHover,
+        filter,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
         fontSize,
+        fontStyle,
         fontWeight,
+        gap,
+        height,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        left,
+        letterSpacing,
         lineHeight,
         margin,
         marginBottom,
@@ -1024,8 +1138,24 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         display,
         fill,
         fillHover,
+        filter,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
         fontSize,
+        fontStyle,
         fontWeight,
+        gap,
+        height,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        left,
+        letterSpacing,
         lineHeight,
         margin,
         marginBottom,
