@@ -24513,6 +24513,858 @@ Array [
 ]
 `;
 
+exports[`text align 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "textAlign": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "left",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "right",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "justify",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "justify-all",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`text decoration 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "textDecoration": "underline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "overline #FF3028",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`text overflow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "textOverflow": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "ellipsis ellipsis",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`text transform 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "textTransform": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "capitalize",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "uppercase",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "lowercase",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "full-width",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "full-size-kana",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`top 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "top": "-1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "top": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`transform 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "transform": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "perspective(17px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotate(0.5turn)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotate3d(1, 2.0, 3.0, 10deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotateX(10deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotateY(10deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotateZ(10deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translate(12px, 50%)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translate3d(12px, 50%, 3em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translateX(2em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translateY(3in)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translateZ(2px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "scale(2, 0.5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "scale3d(2.5, 1.2, 0.3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "scaleX(2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "scaleY(0.5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "scaleZ(0.3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "skew(30deg, 20deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "skewX(30deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "skewY(1.07rad)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "translateX(10px) rotate(10deg) translateY(5px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "perspective(500px) translate(10px, 0, 20px) rotateY(3deg)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`transform origin 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "transformOrigin": "2px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "bottom",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "3cm 2px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "right bottom 2cm",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`transform style 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "transformStyle": "flat",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "preserve-3d",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`vertical align 1`] = `
+Array [
+  <div
+    verticalALign="baseline"
+  />,
+  <div
+    verticalALign="sub"
+  />,
+  <div
+    verticalALign="super"
+  />,
+  <div
+    verticalALign="text-top"
+  />,
+  <div
+    verticalALign="text-bottom"
+  />,
+  <div
+    verticalALign="middle"
+  />,
+  <div
+    verticalALign="10em"
+  />,
+  <div
+    verticalALign="inherit"
+  />,
+  <div
+    verticalALign="initial"
+  />,
+  <div
+    verticalALign="revert"
+  />,
+  <div
+    verticalALign="unset"
+  />,
+]
+`;
+
+exports[`visibility 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "visibility": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "hidden",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "collapse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`white-space 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "whiteSpace": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "nowrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre-wrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre-line",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "break-spaces",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`width 1`] = `
 Array [
   <div
@@ -24744,6 +25596,81 @@ Array [
     style={
       Object {
         "width": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`will-change 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "willChange": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "scroll-position",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "contents",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "transform",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "opacity",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "left, top",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "unset",
       }
     }
   />,

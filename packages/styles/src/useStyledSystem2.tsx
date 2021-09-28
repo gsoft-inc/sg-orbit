@@ -459,6 +459,18 @@ export type ResizeProp2 = Property.Resize | ResponsiveValue<Property.Resize>;
 export type RightProp2 = Property.Right | ResponsiveValue<Property.Right>;
 export type RowGapProp2 = RowGapValue | ResponsiveValue<RowGapValue>;
 export type StrokeProp2 = StrokeValue | ResponsiveValue<StrokeValue>;
+export type TextAlignProp2 = Property.TextAlign | ResponsiveValue<Property.TextAlign>;
+export type TextDecorationProp2 = Property.TextDecoration | ResponsiveValue<Property.TextDecoration>;
+export type TextOverflowProp2 = Property.TextOverflow | ResponsiveValue<Property.TextOverflow>;
+export type TextTransformProp2 = Property.TextTransform | ResponsiveValue<Property.TextTransform>;
+export type TopProp2 = Property.Top | ResponsiveValue<Property.Top>;
+export type TransformProp2 = Property.Transform | ResponsiveValue<Property.Transform>;
+export type TransformOriginProp2 = Property.TransformOrigin | ResponsiveValue<Property.TransformOrigin>;
+export type TransformStyleProp2 = Property.TransformStyle | ResponsiveValue<Property.TransformStyle>;
+export type VerticalAlignProp2 = Property.VerticalAlign | ResponsiveValue<Property.VerticalAlign>;
+export type VisibilityProp2 = Property.Visibility | ResponsiveValue<Property.Visibility>;
+export type WhiteSpaceProp2 = Property.WhiteSpace | ResponsiveValue<Property.WhiteSpace>;
+export type WillChangeProp2 = Property.WillChange | ResponsiveValue<Property.WillChange>;
 export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
 
 export interface StyledSystemProps2 {
@@ -821,7 +833,55 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    textAlign?: TextAlignProp2;
+    /**
+     * @ignore
+     */
+    textDecoration?: TextDecorationProp2;
+    /**
+     * @ignore
+     */
+    textOverflow?: TextOverflowProp2;
+    /**
+     * @ignore
+     */
+    textTransform?: TextTransformProp2;
+    /**
+     * @ignore
+     */
+    top?: TopProp2;
+    /**
+     * @ignore
+     */
+    transform?: TransformProp2;
+    /**
+     * @ignore
+     */
+    transformOrgin?: TransformOriginProp2;
+    /**
+     * @ignore
+     */
+    transformStyle?: TransformStyleProp2;
+    /**
+     * @ignore
+     */
+    verticalAlign?: VerticalAlignProp2;
+    /**
+     * @ignore
+     */
+    visibility?: VisibilityProp2;
+    /**
+     * @ignore
+     */
+    whiteSpace?: WhiteSpaceProp2;
+    /**
+     * @ignore
+     */
     width?: WidthProp2;
+    /**
+     * @ignore
+     */
+    willChange?: WillChangeProp2;
 }
 
 class StylingContext {
@@ -1097,7 +1157,19 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     right: createHandler(),
     rowGap: createHandler(SpacingMapping),
     stroke: createHandler(IconColorMapping),
-    width: createHandler(SpacingMapping)
+    textAlign: createHandler(),
+    textDecoration: createHandler(),
+    textOverflow: createHandler(),
+    textTransform: createHandler(),
+    top: createHandler(),
+    transform: createHandler(),
+    transformOrigin: createHandler(),
+    transformStyle: createHandler(),
+    verticalAlign: createHandler(),
+    visibility: createHandler(),
+    whiteSpace: createHandler(),
+    width: createHandler(SpacingMapping),
+    willChange: createHandler()
 };
 
 export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
@@ -1193,7 +1265,19 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         rowGap,
         stroke,
         style,
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        transform,
+        transformOrigin,
+        transformStyle,
+        verticalAlign,
+        visibility,
+        whiteSpace,
         width,
+        willChange,
         ...rest
     } = props;
 
@@ -1309,7 +1393,19 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         right,
         rowGap,
         stroke,
-        width
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        transform,
+        transformOrigin,
+        transformStyle,
+        verticalAlign,
+        visibility,
+        whiteSpace,
+        width,
+        willChange
     ]);
     /* eslint-enable react-hooks/exhaustive-deps */
 
