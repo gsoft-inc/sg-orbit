@@ -403,6 +403,7 @@ export type ColumnGapProp2 = ColumnGapValue | ResponsiveValue<ColumnGapValue>;
 export type ContentProp2 = Property.Content | ResponsiveValue<Property.Content>;
 export type ContentVisibilityProp2 = Property.ContentVisibility | ResponsiveValue<Property.ContentVisibility>;
 export type CursorProp2 = Property.Cursor | ResponsiveValue<Property.Cursor>;
+export type DisplayProp2 = Property.Display | ResponsiveValue<Property.Display>;
 export type FillProp2 = FillValue | ResponsiveValue<FillValue>;
 export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
 export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
@@ -565,6 +566,10 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     cursorHover?: CursorProp2;
+    /**
+     * @ignore
+     */
+    display?: DisplayProp2;
     /**
      * @ignore
      */
@@ -870,6 +875,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     contentVisibility: createHandler(),
     cursor: createHandler(),
     cursorHover: createPseudoHandler("o-ui-cs-hover", "--o-ui-cs-hover"),
+    display: createHandler(),
     fill: createHandler(IconColorMapping),
     fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
     fontSize: createHandler(FontSizeMapping),
@@ -931,6 +937,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         contentVisibility,
         cursor,
         cursorHover,
+        display,
         fill,
         fillHover,
         fontSize,
@@ -1014,6 +1021,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         contentVisibility,
         cursor,
         cursorHover,
+        display,
         fill,
         fillHover,
         fontSize,

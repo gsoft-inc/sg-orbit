@@ -118,7 +118,7 @@ const Props: PropDefinition[] = [
     { name: "content visibility", key: "contentVisibility", values: ["visible", "hidden", "auto", ...GlobalSampling] },
     { name: "cursor", key: "cursor", values: ["pointer", "hand", "url(cursor1.png) 4 12, auto", ...GlobalSampling] },
     { name: "cursor/hover", key: "cursor/hover", values: ["pointer", "hand", "url(cursor1.png) 4 12, auto", ...GlobalSampling] },
-    // { name: "display", key: "display", values: Object.keys(DisplayClasses) },
+    { name: "display", key: "display", values: ["block", "inline", "inline-block", "flex", "inline-flex", "grid", "inline-grid", "none", "table", ...GlobalSampling] },
     { name: "fill", key: "fill", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
     { name: "fill/hover", key: "fillHover", values: [...Object.keys(IconColorMapping), ...ColorSampling, ...GlobalSampling] },
     // { name: "filter", key: "filter", values: ["blur(5px)"] },

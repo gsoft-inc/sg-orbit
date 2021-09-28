@@ -25,6 +25,7 @@ import {
     ContentProp2 as ContentProp,
     ContentVisibilityProp2 as ContentVisibilityProp,
     CursorProp2 as CursorProp,
+    DisplayProp2 as DisplayProp,
     FillProp2 as FillProp,
     FontSizeProp2 as FontSizeProp,
     FontWeightProp2 as FontWeightProp,
@@ -350,25 +351,26 @@ expectAssignable<CursorProp>("zoom-in");
 expectAssignable<CursorProp>("url(cursor1.png) 4 12, auto");
 expectAssignable<CursorProp>({ base: "pointer", s: "pointer", m: "pointer", l: "pointer" });
 
-// expectAssignable<DisplayProp>("block");
-// expectAssignable<DisplayProp>("inline-block");
-// expectAssignable<DisplayProp>("inline");
-// expectAssignable<DisplayProp>("flex");
-// expectAssignable<DisplayProp>("inline-flex");
-// expectAssignable<DisplayProp>("table");
-// expectAssignable<DisplayProp>("inline-table");
-// expectAssignable<DisplayProp>("table-caption");
-// expectAssignable<DisplayProp>("table-cell");
-// expectAssignable<DisplayProp>("table-column");
-// expectAssignable<DisplayProp>("table-column-group");
-// expectAssignable<DisplayProp>("table-footer-group");
-// expectAssignable<DisplayProp>("table-header-group");
-// expectAssignable<DisplayProp>("table-row-group");
-// expectAssignable<DisplayProp>("table-row");
-// expectAssignable<DisplayProp>("grid");
-// expectAssignable<DisplayProp>("inline-grid");
-// expectAssignable<DisplayProp>("list-item");
-// expectAssignable<DisplayProp>("none");
+expectAssignable<DisplayProp>("block");
+expectAssignable<DisplayProp>("inline-block");
+expectAssignable<DisplayProp>("inline");
+expectAssignable<DisplayProp>("flex");
+expectAssignable<DisplayProp>("inline-flex");
+expectAssignable<DisplayProp>("table");
+expectAssignable<DisplayProp>("inline-table");
+expectAssignable<DisplayProp>("table-caption");
+expectAssignable<DisplayProp>("table-cell");
+expectAssignable<DisplayProp>("table-column");
+expectAssignable<DisplayProp>("table-column-group");
+expectAssignable<DisplayProp>("table-footer-group");
+expectAssignable<DisplayProp>("table-header-group");
+expectAssignable<DisplayProp>("table-row-group");
+expectAssignable<DisplayProp>("table-row");
+expectAssignable<DisplayProp>("grid");
+expectAssignable<DisplayProp>("inline-grid");
+expectAssignable<DisplayProp>("list-item");
+expectAssignable<DisplayProp>("none");
+expectAssignable<DisplayProp>({ base: "block", s: "block", m: "block", l: "block" });
 
 expectAssignable<FillProp>("#fff");
 expectAssignable<FillProp>("white");
@@ -819,11 +821,11 @@ expectAssignable<StyledSystemProps>({
     boxShadowHover: 1,
     color: "sunray-1",
     colorHover: "sunray-1",
-    // columnGap: 1,
-    // content: "open-quote",
-    // contentVisibility: "hidden",
-    // cursor: "crosshair",
-    // display: "block",
+    columnGap: 1,
+    content: "open-quote",
+    contentVisibility: "hidden",
+    cursor: "crosshair",
+    display: "block",
     // fill: "sunray-1",
     // filter: "blur(5px)",
     // flex: "2 2 10%",
