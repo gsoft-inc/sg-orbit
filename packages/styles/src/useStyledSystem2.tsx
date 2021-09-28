@@ -376,6 +376,7 @@ export type HeightValue = Simplify<keyof typeof SpacingMapping | Property.Height
 export type LineHeightValue = Simplify<keyof typeof LineHeightMapping | Property.LineHeight>;
 export type MarginValue = Simplify<keyof typeof SpacingMapping | Property.Margin>;
 export type PaddingValue = Simplify<keyof typeof SpacingMapping | Property.Padding>;
+export type RowGapValue = Simplify<keyof typeof SpacingMapping | Property.RowGap>;
 export type StrokeValue = Simplify<keyof typeof IconColorMapping | Property.Stroke>;
 export type WidthValue = Simplify<keyof typeof SpacingMapping | Property.Width>;
 
@@ -433,6 +434,18 @@ export type MarginRightProp2 = MarginValue | ResponsiveValue<MarginValue>;
 export type MarginTopProp2 = MarginValue | ResponsiveValue<MarginValue>;
 export type MarginXProp2 = MarginValue | ResponsiveValue<MarginValue>;
 export type MarginYProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MaxHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type MaxWidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
+export type MinHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type MinWidthProp2 = WidthValue | ResponsiveValue<HeightValue>;
+export type ObjectFitProp2 = Property.ObjectFit | ResponsiveValue<Property.ObjectFit>;
+export type ObjectPositionProp2 = Property.ObjectPosition | ResponsiveValue<Property.ObjectPosition>;
+export type OpacityProp2 = Property.Opacity | ResponsiveValue<Property.Opacity>;
+export type OrderProp2 = Property.Order | ResponsiveValue<Property.Order>;
+export type OutlineProp2 = Property.Outline | ResponsiveValue<Property.Outline>;
+export type OverflowProp2 = Property.Overflow | ResponsiveValue<Property.Overflow>;
+export type OverflowXProp2 = Property.OverflowX | ResponsiveValue<Property.OverflowX>;
+export type OverflowYProp2 = Property.OverflowY | ResponsiveValue<Property.OverflowY>;
 export type PaddingProp2 = MarginValue | ResponsiveValue<PaddingValue>;
 export type PaddingBottomProp2 = MarginValue | ResponsiveValue<PaddingValue>;
 export type PaddingLeftProp2 = MarginValue | ResponsiveValue<PaddingValue>;
@@ -440,6 +453,11 @@ export type PaddingRightProp2 = MarginValue | ResponsiveValue<PaddingValue>;
 export type PaddingTopProp2 = MarginValue | ResponsiveValue<PaddingValue>;
 export type PaddingXProp2 = MarginValue | ResponsiveValue<PaddingValue>;
 export type PaddingYProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PointerEventsProp2 = Property.PointerEvents | ResponsiveValue<Property.PointerEvents>;
+export type PositionProp2 = Property.Position | ResponsiveValue<Property.Position>;
+export type ResizeProp2 = Property.Resize | ResponsiveValue<Property.Resize>;
+export type RightProp2 = Property.Right | ResponsiveValue<Property.Right>;
+export type RowGapProp2 = RowGapValue | ResponsiveValue<RowGapValue>;
 export type StrokeProp2 = StrokeValue | ResponsiveValue<StrokeValue>;
 export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
 
@@ -703,6 +721,54 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    maxHeight?: MaxHeightProp2;
+    /**
+     * @ignore
+     */
+    maxWidth?: MaxWidthProp2;
+    /**
+     * @ignore
+     */
+    minHeight?: MinHeightProp2;
+    /**
+     * @ignore
+     */
+    minWidth?: MinWidthProp2;
+    /**
+     * @ignore
+     */
+    objectFit?: ObjectFitProp2;
+    /**
+     * @ignore
+     */
+    objectPosition?: ObjectPositionProp2;
+    /**
+     * @ignore
+     */
+    opacity?: OpacityProp2;
+    /**
+     * @ignore
+     */
+    order?: OrderProp2;
+    /**
+     * @ignore
+     */
+    outline?: OutlineProp2;
+    /**
+     * @ignore
+     */
+    overflow?: OverflowProp2;
+    /**
+     * @ignore
+     */
+    overflowX?: OverflowXProp2;
+    /**
+     * @ignore
+     */
+    overflowY?: OverflowYProp2;
+    /**
+     * @ignore
+     */
     padding?: PaddingProp2;
     /**
      * @ignore
@@ -728,6 +794,26 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     paddingY?: PaddingYProp2;
+    /**
+     * @ignore
+     */
+    pointerEvents?: PointerEventsProp2;
+    /**
+     * @ignore
+     */
+    position?: PositionProp2;
+    /**
+     * @ignore
+     */
+    resize?: ResizeProp2;
+    /**
+     * @ignore
+     */
+    right?: RightProp2;
+    /**
+     * @ignore
+     */
+    rowGap?: RowGapProp2;
     /**
      * @ignore
      */
@@ -986,6 +1072,18 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginTop: createHandler(SpacingMapping),
     marginX: createAxisHandler("marginLeft", "marginRight", SpacingMapping),
     marginY: createAxisHandler("marginBottom", "marginTop", SpacingMapping),
+    maxHeight: createHandler(SpacingMapping),
+    maxWidth: createHandler(SpacingMapping),
+    minHeight: createHandler(SpacingMapping),
+    minWidth: createHandler(SpacingMapping),
+    objectFit: createHandler(),
+    objectPosition: createHandler(),
+    opacity: createHandler(),
+    order: createHandler(),
+    outline: createHandler(),
+    overflow: createHandler(),
+    overflowX: createHandler(),
+    overflowY: createHandler(),
     padding: createHandler(SpacingMapping),
     paddingBottom: createHandler(SpacingMapping),
     paddingLeft: createHandler(SpacingMapping),
@@ -993,6 +1091,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     paddingTop: createHandler(SpacingMapping),
     paddingX: createAxisHandler("paddingLeft", "paddingRight", SpacingMapping),
     paddingY: createAxisHandler("paddingBottom", "paddingTop", SpacingMapping),
+    pointerEvents: createHandler(),
+    position: createHandler(),
+    resize: createHandler(),
+    right: createHandler(),
+    rowGap: createHandler(SpacingMapping),
     stroke: createHandler(IconColorMapping),
     width: createHandler(SpacingMapping)
 };
@@ -1064,6 +1167,18 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         marginTop,
         marginX,
         marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        objectPosition,
+        opacity,
+        order,
+        outline,
+        overflow,
+        overflowX,
+        overflowY,
         padding,
         paddingBottom,
         paddingLeft,
@@ -1071,6 +1186,11 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         paddingTop,
         paddingX,
         paddingY,
+        pointerEvents,
+        position,
+        resize,
+        right,
+        rowGap,
         stroke,
         style,
         width,
@@ -1164,6 +1284,18 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         marginTop,
         marginX,
         marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        objectPosition,
+        opacity,
+        order,
+        outline,
+        overflow,
+        overflowX,
+        overflowY,
         padding,
         paddingBottom,
         paddingLeft,
@@ -1171,6 +1303,11 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         paddingTop,
         paddingX,
         paddingY,
+        pointerEvents,
+        position,
+        resize,
+        right,
+        rowGap,
         stroke,
         width
     ]);

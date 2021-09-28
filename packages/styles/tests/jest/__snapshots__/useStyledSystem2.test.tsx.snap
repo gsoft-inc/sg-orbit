@@ -4221,6 +4221,34 @@ Array [
   <div
     style={
       Object {
+        "borderBottomLeftRadius": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "borderBottomLeftRadius": "calc(1px + 1px)",
       }
     }
@@ -4340,6 +4368,34 @@ Array [
     style={
       Object {
         "borderBottomRightRadius": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "1vmax",
       }
     }
   />,
@@ -7115,6 +7171,34 @@ Array [
   <div
     style={
       Object {
+        "borderRadius": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "borderRadius": "calc(1px + 1px)",
       }
     }
@@ -9775,6 +9859,34 @@ Array [
   <div
     style={
       Object {
+        "borderTopLeftRadius": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "borderTopLeftRadius": "calc(1px + 1px)",
       }
     }
@@ -9894,6 +10006,34 @@ Array [
     style={
       Object {
         "borderTopRightRadius": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "1vmax",
       }
     }
   />,
@@ -11824,6 +11964,34 @@ Array [
     style={
       Object {
         "bottom": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1vmax",
       }
     }
   />,
@@ -14240,6 +14408,34 @@ Array [
   <div
     style={
       Object {
+        "columnGap": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "columnGap": "calc(1px + 1px)",
       }
     }
@@ -16398,6 +16594,34 @@ Array [
   <div
     style={
       Object {
+        "flex": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "flex": "calc(1px + 1px)",
       }
     }
@@ -16524,6 +16748,34 @@ Array [
     style={
       Object {
         "flexBasis": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1vmax",
       }
     }
   />,
@@ -17037,6 +17289,34 @@ Array [
   <div
     style={
       Object {
+        "fontSize": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "fontSize": "calc(1px + 1px)",
       }
     }
@@ -17405,6 +17685,34 @@ Array [
   <div
     style={
       Object {
+        "gap": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "gap": "calc(1px + 1px)",
       }
     }
@@ -17573,6 +17881,34 @@ Array [
     style={
       Object {
         "height": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "1vmax",
       }
     }
   />,
@@ -18104,6 +18440,34 @@ Array [
   <div
     style={
       Object {
+        "left": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "left": "calc(1px + 1px)",
       }
     }
@@ -18291,6 +18655,34 @@ Array [
     style={
       Object {
         "lineHeight": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "1vmax",
       }
     }
   />,
@@ -18485,6 +18877,34 @@ Array [
   <div
     style={
       Object {
+        "margin": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "margin": "calc(1px + 1px)",
       }
     }
@@ -18653,6 +19073,34 @@ Array [
     style={
       Object {
         "marginBottom": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vmax",
       }
     }
   />,
@@ -18833,6 +19281,34 @@ Array [
   <div
     style={
       Object {
+        "marginLeft": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "marginLeft": "calc(1px + 1px)",
       }
     }
@@ -19007,6 +19483,34 @@ Array [
   <div
     style={
       Object {
+        "marginRight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "marginRight": "calc(1px + 1px)",
       }
     }
@@ -19175,6 +19679,34 @@ Array [
     style={
       Object {
         "marginTop": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "1vmax",
       }
     }
   />,
@@ -19366,6 +19898,38 @@ Array [
       Object {
         "marginLeft": "1%",
         "marginRight": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vh",
+        "marginRight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vw",
+        "marginRight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vmin",
+        "marginRight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "1vmax",
+        "marginRight": "1vmax",
       }
     }
   />,
@@ -19570,6 +20134,38 @@ Array [
   <div
     style={
       Object {
+        "marginBottom": "1vh",
+        "marginTop": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vw",
+        "marginTop": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vmin",
+        "marginTop": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "1vmax",
+        "marginTop": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "marginBottom": "calc(1px + 1px)",
         "marginTop": "calc(1px + 1px)",
       }
@@ -19621,6 +20217,1449 @@ Array [
       Object {
         "marginBottom": "unset",
         "marginTop": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`max height 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "maxHeight": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`max width 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "maxWidth": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`min height 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "minHeight": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`min width 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "minWidth": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`object fit 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "objectFit": "contain",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "cover",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "fill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "scale-down",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`object position 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "objectPosition": "center top",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "100px 50px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`opacity 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "opacity": "0.9",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "90%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`order 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "order": 1,
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": -1,
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`outline 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "outline": "solid",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "#f66 dashed",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "inset thick",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "green solid 3px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`overflow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "overflow": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "hidden",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "hidden visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`overflow x 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "overflowX": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "hidden",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "hidden visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`overflow y 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "overflowY": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "hidden",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "hidden visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "unset",
       }
     }
   />,
@@ -19759,6 +21798,34 @@ Array [
     style={
       Object {
         "padding": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "1vmax",
       }
     }
   />,
@@ -19939,6 +22006,34 @@ Array [
   <div
     style={
       Object {
+        "paddingBottom": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "paddingBottom": "calc(1px + 1px)",
       }
     }
@@ -20107,6 +22202,34 @@ Array [
     style={
       Object {
         "paddingLeft": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vmax",
       }
     }
   />,
@@ -20287,6 +22410,34 @@ Array [
   <div
     style={
       Object {
+        "paddingRight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "paddingRight": "calc(1px + 1px)",
       }
     }
@@ -20455,6 +22606,34 @@ Array [
     style={
       Object {
         "paddingTop": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "1vmax",
       }
     }
   />,
@@ -20646,6 +22825,38 @@ Array [
       Object {
         "paddingLeft": "1%",
         "paddingRight": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vh",
+        "paddingRight": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vw",
+        "paddingRight": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vmin",
+        "paddingRight": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "1vmax",
+        "paddingRight": "1vmax",
       }
     }
   />,
@@ -20850,6 +23061,38 @@ Array [
   <div
     style={
       Object {
+        "paddingBottom": "1vh",
+        "paddingTop": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vw",
+        "paddingTop": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vmin",
+        "paddingTop": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "1vmax",
+        "paddingTop": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "paddingBottom": "calc(1px + 1px)",
         "paddingTop": "calc(1px + 1px)",
       }
@@ -20901,6 +23144,572 @@ Array [
       Object {
         "paddingBottom": "unset",
         "paddingTop": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`pointer events 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "pointerEvents": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visiblePainted",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visibleFill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visibleStroke",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visible",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "painted",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "fill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "stroke",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "all",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`position 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "position": "static",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "absolute",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "fixed",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "sticky",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`resize 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "resize": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "both",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "horizontal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "vertical",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "block",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "inline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`right 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "right": "-1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "right": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`row gap 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "rowGap": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "unset",
       }
     }
   />,
@@ -21822,6 +24631,34 @@ Array [
     style={
       Object {
         "width": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "1vmax",
       }
     }
   />,

@@ -53,6 +53,18 @@ import {
     MarginTopProp2 as MarginTopProp,
     MarginXProp2 as MarginXProp,
     MarginYProp2 as MarginYProp,
+    MaxHeightProp2 as MaxHeightProp,
+    MaxWidthProp2 as MaxWidthProp,
+    MinHeightProp2 as MinHeightProp,
+    MinWidthProp2 as MinWidthProp,
+    ObjectFitProp2 as ObjectFitProp,
+    ObjectPositionProp2 as ObjectPositionProp,
+    OpacityProp2 as OpacityProp,
+    OrderProp2 as OrderProp,
+    OutlineProp2 as OutlineProp,
+    OverflowProp2 as OverflowProp,
+    OverflowXProp2 as OverflowXProp,
+    OverflowYProp2 as OverflowYProp,
     PaddingBottomProp2 as PaddingBottomProp,
     PaddingLeftProp2 as PaddingLeftProp,
     PaddingProp2 as PaddingProp,
@@ -60,7 +72,12 @@ import {
     PaddingTopProp2 as PaddingTopProp,
     PaddingXProp2 as PaddingXProp,
     PaddingYProp2 as PaddingYProp,
+    PointerEventsProp2 as PointerEventsProp,
+    PositionProp2 as PositionProp,
+    ResizeProp2 as ResizeProp,
     ResponsiveValue,
+    RightProp2 as RightProp,
+    RowGapProp2 as RowGapProp,
     StrokeProp2 as StrokeProp,
     StyledSystemProps2 as StyledSystemProps,
     WidthProp2 as WidthProp
@@ -688,67 +705,110 @@ expectAssignable<MarginYProp>("calc(1px + 1px)");
 expectAssignable<MarginYProp>("auto");
 expectAssignable<MarginYProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<MaxHeightProp>("1px");
-// expectAssignable<MaxHeightProp>("100%");
-// expectAssignable<MaxHeightProp>("auto");
-// expectAssignable<MaxHeightProp>("max-content");
-// expectAssignable<MaxHeightProp>("min-content");
+expectAssignable<MaxHeightProp>(1);
+expectAssignable<MaxHeightProp>("1px");
+expectAssignable<MaxHeightProp>("1em");
+expectAssignable<MaxHeightProp>("1rem");
+expectAssignable<MaxHeightProp>("1%");
+expectAssignable<MaxHeightProp>("1vh");
+expectAssignable<MaxHeightProp>("1vw");
+expectAssignable<MaxHeightProp>("calc(1px + 1px)");
+expectAssignable<MaxHeightProp>("max-content");
+expectAssignable<MaxHeightProp>("min-content");
+expectAssignable<MaxHeightProp>("fit-content(1em)");
+expectAssignable<MaxHeightProp>("auto");
+expectAssignable<MaxHeightProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<MaxWidthProp>("1px");
-// expectAssignable<MaxWidthProp>("100%");
-// expectAssignable<MaxWidthProp>("auto");
-// expectAssignable<MaxWidthProp>("max-content");
-// expectAssignable<MaxWidthProp>("min-content");
+expectAssignable<MaxWidthProp>(1);
+expectAssignable<MaxWidthProp>("1px");
+expectAssignable<MaxWidthProp>("1em");
+expectAssignable<MaxWidthProp>("1rem");
+expectAssignable<MaxWidthProp>("1%");
+expectAssignable<MaxWidthProp>("1vh");
+expectAssignable<MaxWidthProp>("1vw");
+expectAssignable<MaxWidthProp>("calc(1px + 1px)");
+expectAssignable<MaxWidthProp>("max-content");
+expectAssignable<MaxWidthProp>("min-content");
+expectAssignable<MaxWidthProp>("fit-content(1em)");
+expectAssignable<MaxWidthProp>("auto");
+expectAssignable<MaxWidthProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<MinHeightProp>("1px");
-// expectAssignable<MinHeightProp>("100%");
-// expectAssignable<MinHeightProp>("auto");
-// expectAssignable<MinHeightProp>("max-content");
-// expectAssignable<MinHeightProp>("min-content");
+expectAssignable<MinHeightProp>(1);
+expectAssignable<MinHeightProp>("1px");
+expectAssignable<MinHeightProp>("1em");
+expectAssignable<MinHeightProp>("1rem");
+expectAssignable<MinHeightProp>("1%");
+expectAssignable<MinHeightProp>("1vh");
+expectAssignable<MinHeightProp>("1vw");
+expectAssignable<MinHeightProp>("calc(1px + 1px)");
+expectAssignable<MinHeightProp>("max-content");
+expectAssignable<MinHeightProp>("min-content");
+expectAssignable<MinHeightProp>("fit-content(1em)");
+expectAssignable<MinHeightProp>("auto");
+expectAssignable<MinHeightProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<MinWidthProp>("1px");
-// expectAssignable<MinWidthProp>("100%");
-// expectAssignable<MinWidthProp>("auto");
-// expectAssignable<MinWidthProp>("max-content");
-// expectAssignable<MinWidthProp>("min-content");
+expectAssignable<MinWidthProp>(1);
+expectAssignable<MinWidthProp>("1px");
+expectAssignable<MinWidthProp>("1em");
+expectAssignable<MinWidthProp>("1rem");
+expectAssignable<MinWidthProp>("1%");
+expectAssignable<MinWidthProp>("1vh");
+expectAssignable<MinWidthProp>("1vw");
+expectAssignable<MinWidthProp>("calc(1px + 1px)");
+expectAssignable<MinWidthProp>("max-content");
+expectAssignable<MinWidthProp>("min-content");
+expectAssignable<MinWidthProp>("fit-content(1em)");
+expectAssignable<MinWidthProp>("auto");
+expectAssignable<MinWidthProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<ObjectFitProp>("fill");
-// expectAssignable<ObjectFitProp>("contain");
-// expectAssignable<ObjectFitProp>("cover");
-// expectAssignable<ObjectFitProp>("none");
-// expectAssignable<ObjectFitProp>("scale-down");
+expectAssignable<ObjectFitProp>("fill");
+expectAssignable<ObjectFitProp>("contain");
+expectAssignable<ObjectFitProp>("cover");
+expectAssignable<ObjectFitProp>("none");
+expectAssignable<ObjectFitProp>("scale-down");
+expectAssignable<ObjectFitProp>({ base: "fill", s: "fill", m: "fill", l: "fill" });
 
-// expectAssignable<ObjectPositionProp>("50% 50%");
-// expectAssignable<ObjectPositionProp>("right top");
-// expectAssignable<ObjectPositionProp>("left bottom");
-// expectAssignable<ObjectPositionProp>("250px 125px");
+expectAssignable<ObjectPositionProp>("50% 50%");
+expectAssignable<ObjectPositionProp>("right top");
+expectAssignable<ObjectPositionProp>("left bottom");
+expectAssignable<ObjectPositionProp>("250px 125px");
+expectAssignable<ObjectPositionProp>({ base: "right top", s: "right top", m: "right top", l: "right top" });
 
-// expectAssignable<OpacityProp>("disabled");
-// expectAssignable<OpacityProp>("not-visible");
-// expectAssignable<OpacityProp>("visible");
+expectAssignable<OpacityProp>(0.9);
+expectAssignable<OpacityProp>("90%");
+expectAssignable<OpacityProp>({ base: 0.9, s: 0.9, m: 0.9, l: 0.9 });
 
-// expectAssignable<OrderProp>(1);
-// expectAssignable<OrderProp>("inherit");
+expectAssignable<OrderProp>(1);
+expectAssignable<OrderProp>(-1);
+expectAssignable<OrderProp>({ base: 1, s: 1, m: 1, l: 1 });
 
-// expectAssignable<OutlineProp>("none");
+expectAssignable<OutlineProp>("solid");
+expectAssignable<OutlineProp>("#f66 dashed");
+expectAssignable<OutlineProp>("inset thick");
+expectAssignable<OutlineProp>("green solid 3px");
+expectAssignable<OutlineProp>("none");
+expectAssignable<OutlineProp>({ base: "none", s: "none", m: "none", l: "none" });
 
-// expectAssignable<OverflowProp>("auto");
-// expectAssignable<OverflowProp>("clip");
-// expectAssignable<OverflowProp>("hidden");
-// expectAssignable<OverflowProp>("scroll");
-// expectAssignable<OverflowProp>("visible");
+expectAssignable<OverflowProp>("auto");
+expectAssignable<OverflowProp>("clip");
+expectAssignable<OverflowProp>("hidden");
+expectAssignable<OverflowProp>("scroll");
+expectAssignable<OverflowProp>("visible");
+expectAssignable<OverflowProp>({ base: "visible", s: "visible", m: "visible", l: "visible" });
 
-// expectAssignable<OverflowXProp>("auto");
-// expectAssignable<OverflowXProp>("clip");
-// expectAssignable<OverflowXProp>("hidden");
-// expectAssignable<OverflowXProp>("scroll");
-// expectAssignable<OverflowXProp>("visible");
+expectAssignable<OverflowXProp>("auto");
+expectAssignable<OverflowXProp>("clip");
+expectAssignable<OverflowXProp>("hidden");
+expectAssignable<OverflowXProp>("scroll");
+expectAssignable<OverflowXProp>("visible");
+expectAssignable<OverflowXProp>({ base: "visible", s: "visible", m: "visible", l: "visible" });
 
-// expectAssignable<OverflowYProp>("auto");
-// expectAssignable<OverflowYProp>("clip");
-// expectAssignable<OverflowYProp>("hidden");
-// expectAssignable<OverflowYProp>("scroll");
-// expectAssignable<OverflowYProp>("visible");
+expectAssignable<OverflowYProp>("auto");
+expectAssignable<OverflowYProp>("clip");
+expectAssignable<OverflowYProp>("hidden");
+expectAssignable<OverflowYProp>("scroll");
+expectAssignable<OverflowYProp>("visible");
+expectAssignable<OverflowYProp>({ base: "visible", s: "visible", m: "visible", l: "visible" });
 
 expectAssignable<PaddingProp>(1);
 expectAssignable<PaddingProp>("1px");
@@ -821,26 +881,50 @@ expectAssignable<PaddingYProp>("calc(1px + 1px)");
 expectAssignable<PaddingYProp>("auto");
 expectAssignable<PaddingYProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<PointerEventsProp>("auto");
-// expectAssignable<PointerEventsProp>("none");
+expectAssignable<PointerEventsProp>("auto");
+expectAssignable<PointerEventsProp>("none");
+expectAssignable<PointerEventsProp>("visiblePainted");
+expectAssignable<PointerEventsProp>("visibleFill");
+expectAssignable<PointerEventsProp>("visibleStroke");
+expectAssignable<PointerEventsProp>("visible");
+expectAssignable<PointerEventsProp>("painted");
+expectAssignable<PointerEventsProp>("fill");
+expectAssignable<PointerEventsProp>("stroke");
+expectAssignable<PointerEventsProp>("all");
+expectAssignable<PointerEventsProp>({ base: "fill", s: "fill", m: "fill", l: "fill" });
 
-// expectAssignable<PositionProp>("static");
-// expectAssignable<PositionProp>("fixed");
-// expectAssignable<PositionProp>("absolute");
-// expectAssignable<PositionProp>("relative");
-// expectAssignable<PositionProp>("sticky");
+expectAssignable<PositionProp>("static");
+expectAssignable<PositionProp>("fixed");
+expectAssignable<PositionProp>("absolute");
+expectAssignable<PositionProp>("relative");
+expectAssignable<PositionProp>("sticky");
+expectAssignable<PositionProp>({ base: "fixed", s: "fixed", m: "fixed", l: "fixed" });
 
-// expectAssignable<ResizeProp>("none");
-// expectAssignable<ResizeProp>("vertical");
-// expectAssignable<ResizeProp>("horizontal");
-// expectAssignable<ResizeProp>("both");
+expectAssignable<ResizeProp>("none");
+expectAssignable<ResizeProp>("both");
+expectAssignable<ResizeProp>("horizontal");
+expectAssignable<ResizeProp>("vertical");
+expectAssignable<ResizeProp>("block");
+expectAssignable<ResizeProp>("inline");
+expectAssignable<ResizeProp>({ base: "both", s: "both", m: "both", l: "both" });
 
-// expectAssignable<RightProp>("1px");
-// expectAssignable<RightProp>("auto");
+expectAssignable<RightProp>("1px");
+expectAssignable<RightProp>("-1px");
+expectAssignable<RightProp>("1em");
+expectAssignable<RightProp>("1rem");
+expectAssignable<RightProp>("1%");
+expectAssignable<RightProp>("calc(1px + 1px)");
+expectAssignable<RightProp>("auto");
+expectAssignable<RightProp>({ base: "1px", s: "1px", m: "1px", l: "1px" });
 
-// expectAssignable<RowGapProp>(0);
-// expectAssignable<RowGapProp>(1);
-// expectAssignable<RowGapProp>("1px");
+expectAssignable<RowGapProp>(1);
+expectAssignable<RowGapProp>("1px");
+expectAssignable<RowGapProp>("1em");
+expectAssignable<RowGapProp>("1rem");
+expectAssignable<RowGapProp>("1%");
+expectAssignable<RowGapProp>("calc(1px + 1px)");
+expectAssignable<RowGapProp>("normal");
+expectAssignable<RowGapProp>({ base: 1, s: 1, m: 1, l: 1 });
 
 expectAssignable<StrokeProp>("#fff");
 expectAssignable<StrokeProp>("white");
@@ -983,16 +1067,18 @@ expectAssignable<StyledSystemProps>({
     marginTop: 1,
     marginX: 1,
     marginY: 1,
-    // maxHeight: "1px",
-    // maxWidth: "1px",
-    // minHeight: "1px",
-    // minWidth: "1px",
-    // opacity: "visible",
-    // order: 1,
-    // outline: "none",
-    // overflow: "clip",
-    // overflowX: "clip",
-    // overflowY: "clip",
+    maxHeight: "1px",
+    maxWidth: "1px",
+    minHeight: "1px",
+    minWidth: "1px",
+    objectFit: "cover",
+    objectPosition: "center",
+    opacity: "visible",
+    order: 1,
+    outline: "none",
+    overflow: "clip",
+    overflowX: "clip",
+    overflowY: "clip",
     padding: 1,
     paddingBottom: 1,
     paddingLeft: 1,
@@ -1005,7 +1091,7 @@ expectAssignable<StyledSystemProps>({
     // resize: "both",
     // right: "1px",
     // rowGap: 1,
-    // stroke: "sunray-1",
+    stroke: "sunray-1",
     // textAlign: "center",
     // textDecoration: "underline",
     // textOverflow: "clip",
