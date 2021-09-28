@@ -205,8 +205,7 @@ export function InnerDateInput({
     );
 
     if (!isNil(presetsProps)) {
-        return presetsVariant === "compact"
-            ?
+        return presetsVariant === "compact" ?
             (
                 <InputGroup
                     {...mergeProps(
