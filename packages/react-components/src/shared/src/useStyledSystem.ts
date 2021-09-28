@@ -1436,7 +1436,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     zIndex: styleHandler
 };
 
-export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
+export function useStyledSystem<TProps extends StyledSystemProps & {className?: string, style?: Record<string, any>}>(props: TProps) {
     const {
         alignContent,
         alignItems,
