@@ -41,6 +41,6 @@ export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<
 
 export type StyledSystemOverlappingHtmlAttributes = "as" | "color" | "height" | "size" | "width" | "wrap";
 
-export type StyledComponentProps<T extends JsxElement<T>> = StyledSystemProps & Omit<ComponentProps<T>, StyledSystemOverlappingHtmlAttributes>;
+export type StyledComponentProps<T extends ElementType> = StyledSystemProps & Omit<ComponentProps<T>, StyledSystemOverlappingHtmlAttributes>;
 
 export type StyledHtmlAttributes = StyledSystemProps & Omit<AllHTMLAttributes<any>, StyledSystemOverlappingHtmlAttributes>;
