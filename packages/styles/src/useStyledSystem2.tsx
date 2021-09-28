@@ -300,10 +300,8 @@ const LineHeightScale = [
     6
 ] as const;
 
-// TODO: add TS typing to generate intellisense.
-// Would be nice if the string | number would be infered from keys of the values.
-function createValuesMapping(values: Record<string | number, any>, template: (value: string) => string) {
-    const mapping: Record<string | number, string> = {};
+function createValuesMapping<T extends readonly (string | number)[]>(values: T, template: (value: T[number]) => string)  {
+    const mapping = {} as Record<T[number], string>;
 
     values.reduce((acc, x) => {
         acc[x] = template(x);
@@ -321,7 +319,7 @@ function composePrefixes(...rest) {
 }
 
 function createPrefixedValueTemplate(prefix: string) {
-    return (value: string) => `var(${normalizeVariable(value, prefix)})`;
+    return (value: string | number) => `var(${normalizeVariable(value, prefix)})`;
 }
 
 export const SpacingMapping = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));

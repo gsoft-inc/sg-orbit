@@ -12,7 +12,7 @@ type NumberArray = readonly number[];
 
 type Array = StringArray | NumberArray;
 
-export function normalizeVariable(name: string, prefix?: string) {
+export function normalizeVariable(name: string | number, prefix?: string) {
     return isNil(prefix) ? `--o-ui-${name}` : `--o-ui-${prefix}-${name}`;
 }
 
