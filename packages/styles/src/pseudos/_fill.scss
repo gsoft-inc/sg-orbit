@@ -2,3 +2,8 @@
     --o-ui-f-hover: initial;
     fill: var(--o-ui-f-hover) !important;
 }
+
+.o-ui-f-focus:focus-visible {
+    --o-ui-f-focus: initial;
+    fill: var(--o-ui-f-focus) !important;
+}

@@ -497,6 +497,10 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    backgroundColorFocus?: BackgroundColorProp2;
+    /**
+     * @ignore
+     */
     backgroundColorHover?: BackgroundColorProp2;
     /**
      * @ignore
@@ -525,6 +529,10 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    borderBottomFocus?: BorderBottomProp2;
+    /**
+     * @ignore
+     */
     borderBottomHover?: BorderBottomProp2;
     /**
      * @ignore
@@ -537,11 +545,19 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    borderFocus?: BorderProp2;
+    /**
+     * @ignore
+     */
     borderHover?: BorderProp2;
     /**
      * @ignore
      */
     borderLeft?: BorderLeftProp2;
+    /**
+     * @ignore
+     */
+    borderLeftFocus?: BorderLeftProp2;
     /**
      * @ignore
      */
@@ -557,11 +573,19 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    borderRightFocus?: BorderRightProp2;
+    /**
+     * @ignore
+     */
     borderRightHover?: BorderRightProp2;
     /**
      * @ignore
      */
     borderTop?: BorderTopProp2;
+    /**
+     * @ignore
+     */
+    borderTopFocus?: BorderTopProp2;
     /**
      * @ignore
      */
@@ -585,11 +609,19 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    boxShadowFocus?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
     boxShadowHover?: BoxShadowProp2;
     /**
      * @ignore
      */
     color?: ColorProp2;
+    /**
+     * @ignore
+     */
+    colorFocus?: ColorProp2;
     /**
      * @ignore
      */
@@ -622,6 +654,10 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     fill?: FillProp2;
+    /**
+     * @ignore
+     */
+    fillFocus?: FillProp2;
     /**
      * @ignore
      */
@@ -773,6 +809,10 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    outlineFocus?: OutlineProp2;
+    /**
+     * @ignore
+     */
     overflow?: OverflowProp2;
     /**
      * @ignore
@@ -842,10 +882,6 @@ export interface StyledSystemProps2 {
      * @ignore
      */
     textDecoration?: TextDecorationProp2;
-    /**
-     * @ignore
-     */
-    textDecorationHover?: TextDecorationProp2;
     /**
      * @ignore
      */
@@ -1089,6 +1125,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignSelf: createHandler(),
     aspectRatio: createHandler(),
     backgroundColor: createHandler(BackgroundColorMapping),
+    backgroundColorFocus: createPseudoHandler("o-ui-bg-focus", "--o-ui-bg-focus", BackgroundColorMapping),
     backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorMapping),
     backgroundImage: createHandler(),
     backgroundPosition: createHandler(),
@@ -1096,23 +1133,30 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundSize: createHandler(),
     border: borderHandler(BorderMapping),
     borderBottom: borderHandler(BorderMapping),
+    borderBottomFocus: borderHandlerPseudo("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
     borderBottomHover: borderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
     borderBottomLeftRadius: createHandler(BorderRadiusMapping),
     borderBottomRightRadius: createHandler(BorderRadiusMapping),
+    borderFocus: borderHandlerPseudo("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
     borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
     borderLeft: borderHandler(BorderMapping),
+    borderLeftFocus: borderHandlerPseudo("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
     borderLeftHover: borderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
     borderRadius: createHandler(BorderRadiusMapping),
     borderRight: borderHandler(BorderMapping),
+    borderRightFocus: borderHandlerPseudo("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
     borderRightHover: borderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
     borderTop: borderHandler(BorderMapping),
+    borderTopFocus: borderHandlerPseudo("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
     borderTopHover: borderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
     borderTopLeftRadius: createHandler(BorderRadiusMapping),
     borderTopRightRadius: createHandler(BorderRadiusMapping),
     bottom: createHandler(),
     boxShadow: createHandler(BoxShadowMapping),
+    boxShadowFocus: createPseudoHandler("o-ui-bs-focus", "--o-ui-bs-focus", BoxShadowMapping),
     boxShadowHover: createPseudoHandler("o-ui-bs-hover", "--o-ui-bs-hover", BoxShadowMapping),
     color: createHandler(ColorMapping),
+    colorFocus: createPseudoHandler("o-ui-c-focus", "--o-ui-c-focus", ColorMapping),
     colorHover: createPseudoHandler("o-ui-c-hover", "--o-ui-c-hover", ColorMapping),
     columnGap: createHandler(SpacingMapping),
     content: createHandler(),
@@ -1121,6 +1165,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     cursorHover: createPseudoHandler("o-ui-cs-hover", "--o-ui-cs-hover"),
     display: createHandler(),
     fill: createHandler(IconColorMapping),
+    fillFocus: createPseudoHandler("o-ui-f-focus", "--o-ui-f-focus", BorderMapping),
     fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
     filter: createHandler(),
     flex: createHandler(),
@@ -1158,6 +1203,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     opacityHover: createPseudoHandler("o-ui-o-hover", "o-ui-o-hover"),
     order: createHandler(),
     outline: createHandler(),
+    outlineFocus: createPseudoHandler("o-ui-ol-focus", "o-ui-ol-focus"),
     overflow: createHandler(),
     overflowX: createHandler(),
     overflowY: createHandler(),
@@ -1176,7 +1222,6 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     stroke: createHandler(IconColorMapping),
     textAlign: createHandler(),
     textDecoration: createHandler(),
-    textDecorationHover: createPseudoHandler("o-ui-tc-hover", "o-ui-tc-hover"),
     textOverflow: createHandler(),
     textTransform: createHandler(),
     top: createHandler(),
@@ -1199,6 +1244,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         alignSelf,
         aspectRatio,
         backgroundColor,
+        backgroundColorFocus,
         backgroundColorHover,
         backgroundImage,
         backgroundPosition,
@@ -1206,24 +1252,31 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         backgroundSize,
         border,
         borderBottom,
+        borderBottomFocus,
         borderBottomHover,
         borderBottomLeftRadius,
         borderBottomRightRadius,
+        borderFocus,
         borderHover,
         borderLeft,
+        borderLeftFocus,
         borderLeftHover,
         borderRadius,
         borderRight,
+        borderRightFocus,
         borderRightHover,
         borderTop,
+        borderTopFocus,
         borderTopHover,
         borderTopLeftRadius,
         borderTopRightRadius,
         bottom,
         boxShadow,
+        boxShadowFocus,
         boxShadowHover,
         className,
         color,
+        colorFocus,
         colorHover,
         columnGap,
         content,
@@ -1232,6 +1285,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         cursorHover,
         display,
         fill,
+        fillFocus,
         fillHover,
         filter,
         flex,
@@ -1269,6 +1323,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         opacityHover,
         order,
         outline,
+        outlineFocus,
         overflow,
         overflowX,
         overflowY,
@@ -1288,7 +1343,6 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         style,
         textAlign,
         textDecoration,
-        textDecorationHover,
         textOverflow,
         textTransform,
         top,
@@ -1332,6 +1386,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         alignSelf,
         aspectRatio,
         backgroundColor,
+        backgroundColorFocus,
         backgroundColorHover,
         backgroundImage,
         backgroundPosition,
@@ -1339,13 +1394,18 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         backgroundSize,
         border,
         borderBottom,
+        borderBottomFocus,
         borderBottomHover,
         borderLeft,
+        borderLeftFocus,
         borderLeftHover,
         borderRight,
+        borderRightFocus,
         borderRightHover,
         borderTop,
+        borderTopFocus,
         borderTopHover,
+        borderFocus,
         borderHover,
         borderRadius,
         borderBottomLeftRadius,
@@ -1353,10 +1413,12 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         borderTopLeftRadius,
         borderTopRightRadius,
         boxShadow,
+        boxShadowFocus,
         boxShadowHover,
         bottom,
         breakpoint,
         color,
+        colorFocus,
         colorHover,
         columnGap,
         content,
@@ -1365,6 +1427,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         cursorHover,
         display,
         fill,
+        fillFocus,
         fillHover,
         filter,
         flex,
@@ -1402,6 +1465,7 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         opacityHover,
         order,
         outline,
+        outlineFocus,
         overflow,
         overflowX,
         overflowY,
@@ -1420,7 +1484,6 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         stroke,
         textAlign,
         textDecoration,
-        textDecorationHover,
         textOverflow,
         textTransform,
         top,

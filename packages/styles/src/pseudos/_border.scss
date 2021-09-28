@@ -22,3 +22,28 @@
     --o-ui-bt-hover: initial;
     border-top: var(--o-ui-bt-hover) !important;
 }
+
+.o-ui-b-focus:focus-visible {
+    --o-ui-b-focus: initial;
+    border: var(--o-ui-b-focus) !important;
+}
+
+.o-ui-bb-focus:focus-visible {
+    --o-ui-bb-focus: initial;
+    border-bottom: var(--o-ui-bb-focus) !important;
+}
+
+.o-ui-bl-focus:focus-visible {
+    --o-ui-bl-focus: initial;
+    border-left: var(--o-ui-bl-focus) !important;
+}
+
+.o-ui-br-focus:focus-visible {
+    --o-ui-br-focus: initial;
+    border-right: var(--o-ui-br-focus) !important;
+}
+
+.o-ui-bt-focus:focus-visible {
+    --o-ui-bt-focus: initial;
+    border-top: var(--o-ui-bt-focus) !important;
+}

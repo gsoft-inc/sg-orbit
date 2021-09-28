@@ -1293,6 +1293,958 @@ Array [
 ]
 `;
 
+exports[`background color/focus 1`] = `
+Array [
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-positive-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui--bg-alias-warning-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`background color/hover 1`] = `
 Array [
   <div
@@ -4452,6 +5404,926 @@ Array [
 ]
 `;
 
+exports[`border bottom/focus 1`] = `
+Array [
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`border bottom/hover 1`] = `
 Array [
   <div
@@ -6170,6 +8042,926 @@ Array [
     style={
       Object {
         "borderLeft": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border left/focus 1`] = `
+Array [
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "unset",
       }
     }
   />,
@@ -8054,6 +10846,926 @@ Array [
     style={
       Object {
         "borderRight": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border right/focus 1`] = `
+Array [
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "unset",
       }
     }
   />,
@@ -10090,6 +13802,926 @@ Array [
 ]
 `;
 
+exports[`border top/focus 1`] = `
+Array [
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`border top/hover 1`] = `
 Array [
   <div
@@ -11004,6 +15636,926 @@ Array [
     style={
       Object {
         "--o-ui-bt-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`border/focus 1`] = `
+Array [
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "unset",
       }
     }
   />,
@@ -12151,6 +17703,123 @@ Array [
 ]
 `;
 
+exports[`box shadow/focus 1`] = `
+Array [
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-alias-lifted)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-alias-raised)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-alias-skim)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "none",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "10px 5px 5px black",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`box shadow/hover 1`] = `
 Array [
   <div
@@ -13199,6 +18868,1078 @@ Array [
     style={
       Object {
         "color": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`color/focus 1`] = `
+Array [
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-2-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-3",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-3-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-3-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-4",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-primary-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-primary-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-primary-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-negative-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-negative-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-negative-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-negative-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-info-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-info-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-info-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-positive-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-positive-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-positive-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-positive-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-warning-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-warning-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-warning-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-warning-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-input-selection",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-input-placeholder",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "unset",
       }
     }
   />,
@@ -15603,6 +22344,918 @@ Array [
     style={
       Object {
         "fill": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`fill/focus 1`] = `
+Array [
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "alias-info-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "alias-positive-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui--b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "alias-warning-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "unset",
       }
     }
   />,
@@ -21529,6 +29182,75 @@ Array [
 ]
 `;
 
+exports[`outline/focus 1`] = `
+Array [
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "solid",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "#f66 dashed",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "inset thick",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "green solid 3px",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`overflow 1`] = `
 Array [
   <div
@@ -24724,67 +32446,6 @@ Array [
     style={
       Object {
         "textDecoration": "unset",
-      }
-    }
-  />,
-]
-`;
-
-exports[`text decoration/hover 1`] = `
-Array [
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "underline",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "overline #FF3028",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "none",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "inherit",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "initial",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "revert",
-      }
-    }
-  />,
-  <div
-    className="o-ui-tc-hover"
-    style={
-      Object {
-        "o-ui-tc-hover": "unset",
       }
     }
   />,
