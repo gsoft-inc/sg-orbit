@@ -7,6 +7,9 @@
         "declaration": true,
         "emitDeclarationOnly": true
     },
+    "references": [
+        { "@orbit-ui/styles": "../styles" }
+    ],
     "include": [
         "src/**/*",
         "../../typescript/typings/*",

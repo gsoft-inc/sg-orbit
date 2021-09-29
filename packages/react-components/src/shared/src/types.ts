@@ -39,7 +39,7 @@ export interface InteractionProps {
 
 export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 
-export type StyledSystemOverlappingHtmlAttributes = "as" | "color" | "height" | "size" | "width" | "wrap";
+export type StyledSystemOverlappingHtmlAttributes = "as" | "color" | "content" | "height" | "size" | "width" | "wrap";
 
 export type StyledComponentProps<T extends ElementType> = StyledSystemProps & Omit<ComponentProps<T>, StyledSystemOverlappingHtmlAttributes>;
 
