@@ -1,26 +1,26 @@
 #o-ui.light {
-    --o-ui-shadow-100:
+    --o-ui-bs-1:
         0 0.1px 0.3px rgba(0, 0, 0, 0.022),
         0 0.1px 0.7px rgba(0, 0, 0, 0.032),
         0 0.3px 1.3px rgba(0, 0, 0, 0.04),
         0 0.4px 2.2px rgba(0, 0, 0, 0.048),
         0 0.8px 4.2px rgba(0, 0, 0, 0.058),
         0 2px 10px rgba(0, 0, 0, 0.08);
-    --o-ui-shadow-200:
+    --o-ui-bs-2:
         0 0.2px 0.6px rgba(0, 0, 0, 0.02),
         0 0.5px 1.3px rgba(0, 0, 0, 0.028),
         0 0.9px 2.5px rgba(0, 0, 0, 0.035),
         0 1.6px 4.5px rgba(0, 0, 0, 0.042),
         0 2.9px 8.4px rgba(0, 0, 0, 0.05),
         0 7px 20px rgba(0, 0, 0, 0.07);
-    --o-ui-shadow-300:
+    --o-ui-bs-3:
         0 0.3px 1.1px rgba(0, 0, 0, 0.017),
         0 0.7px 2.7px rgba(0, 0, 0, 0.024),
         0 1.3px 5px rgba(0, 0, 0, 0.03),
         0 2.2px 8.9px rgba(0, 0, 0, 0.036),
         0 4.2px 16.7px rgba(0, 0, 0, 0.043),
         0 10px 40px rgba(0, 0, 0, 0.06);
-    --o-ui-shadow-400:
+    --o-ui-bs-4:
         0 1.1px 2.2px -5px rgba(0, 0, 0, 0.022),
         0 2.7px 5.3px -5px rgba(0, 0, 0, 0.032),
         0 5px 10px -5px rgba(0, 0, 0, 0.04),
@@ -30,28 +30,28 @@
 }
 
 #o-ui.dark {
-    --o-ui-shadow-100:
+    --o-ui-bs-1:
         0 0.3px 1.1px rgba(0, 0, 0, 0.056),
         0 0.7px 2.7px rgba(0, 0, 0, 0.081),
         0 1.3px 5px rgba(0, 0, 0, 0.1),
         0 2.2px 8.9px rgba(0, 0, 0, 0.119),
         0 4.2px 16.7px rgba(0, 0, 0, 0.144),
         0 10px 40px rgba(0, 0, 0, 0.2);
-    --o-ui-shadow-200:
+    --o-ui-bs-2:
         0 0.2px 0.6px rgba(0, 0, 0, 0.056),
         0 0.5px 1.3px rgba(0, 0, 0, 0.081),
         0 0.9px 2.5px rgba(0, 0, 0, 0.1),
         0 1.6px 4.5px rgba(0, 0, 0, 0.119),
         0 2.9px 8.4px rgba(0, 0, 0, 0.144),
         0 7px 20px rgba(0, 0, 0, 0.2);
-    --o-ui-shadow-300:
+    --o-ui-bs-3:
         0 0.3px 1.1px rgba(0, 0, 0, 0.056),
         0 0.7px 2.7px rgba(0, 0, 0, 0.081),
         0 1.3px 5px rgba(0, 0, 0, 0.1),
         0 2.2px 8.9px rgba(0, 0, 0, 0.119),
         0 4.2px 16.7px rgba(0, 0, 0, 0.144),
         0 10px 40px rgba(0, 0, 0, 0.2);
-    --o-ui-shadow-400:
+    --o-ui-bs-4:
         0 0.7px 2.2px rgba(0, 0, 0, 0.034),
         0 1.7px 5.3px rgba(0, 0, 0, 0.048),
         0 3.1px 10px rgba(0, 0, 0, 0.06),

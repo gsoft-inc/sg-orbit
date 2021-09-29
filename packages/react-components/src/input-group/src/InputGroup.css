@@ -1,6 +1,7 @@
 .o-ui-input-group {
     display: inline-flex;
     align-items: center;
+    max-width: 100%;
     width: max-content;
 }
 

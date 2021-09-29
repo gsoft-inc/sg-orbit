@@ -1,5 +1,6 @@
 .o-ui-form {
-    width: max-content;
+    width: 100%;
+    max-width: max-content;
 }
 
 /* FIELD */

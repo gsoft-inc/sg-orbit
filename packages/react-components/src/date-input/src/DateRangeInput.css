@@ -16,12 +16,14 @@
 }
 
 .o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
-    width: 325px;
+    max-width: 325px;
+    width: 100%;
 }
 
 /* FLUID */
 .o-ui-date-range-input-fluid {
     flex-grow: 1;
+    width: 100%;
 }
 
 /* STATES */
@@ -113,11 +115,10 @@
 .o-ui-date-range-input-button-presets {
     display: inline-flex;
     align-items: center;
-    width: max-content;
-}
-
-.o-ui-date-range-input-button-presets .o-ui-date-range-input {
-    margin-right: var(--o-ui-sp-4);
+    max-width: max-content;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--o-ui-sp-4);
 }
 
 /* BUTTON PRESETS | FLUID */
@@ -128,5 +129,6 @@
 
 /* IN GROUP */
 .o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
-    width: 300px;
+    width: 100%;
+    max-width: 300px;
 }
