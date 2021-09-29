@@ -1,6 +1,8 @@
 {
-    "extends": "../../typescript/tsconfig",
+    "extends": "../../typescript/tsconfig.shared.json",
     "compilerOptions": {
+        "composite": true,
+        "rootDir": "./src",
         "outDir": "./dist",
         // Generate typing files.
         "noEmit": false,
@@ -13,5 +15,10 @@
     ],
     "exclude": [
         "**/tests/*"
+    ],
+    "references": [
+        {
+            "path": "../styles"
+        }
     ]
 }

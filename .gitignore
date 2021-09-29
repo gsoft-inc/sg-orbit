@@ -7,3 +7,4 @@ lerna-debug.log*
 __MACOSX
 .DS_Store
 .netlify
+*.tsbuildinfo

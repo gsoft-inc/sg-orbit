@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "composite": true,
         "target": "es6",
         "moduleResolution": "node",
         // Skip type checking of all declaration files
@@ -14,16 +15,6 @@
         // Disallow features that require cross-file information for emit
         "isolatedModules": true,
         // We don't create declaration files when linting
-        "noEmit": true,
-        "paths": {
-            "@typescript/*": ["./*"],
-            "@utils/*": ["../jest/utils/*"],
-            "@styles/*": ["../packages/styles/src/*"],
-            "@react-components/*": ["../packages/react-components/src/*"]
-        }
-    },
-    "include": [
-        "../packages",
-        "./typings"
-    ]
+        "noEmit": true
+    }
 }

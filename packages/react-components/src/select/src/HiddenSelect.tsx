@@ -1,4 +1,4 @@
-import { HtmlInput } from "@react-components/html";
+import { HtmlInput } from "../../html";
 import { Ref } from "react";
 import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";

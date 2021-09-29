@@ -1,3 +1,26 @@
 {
-    "extends": "./typescript/tsconfig.json"
+    "extends": "./typescript/tsconfig.shared.json",
+    "compilerOptions": {
+        "paths": {
+            "@typescript/*": ["./typescript/*"],
+            "@utils/*": ["./jest/utils/*"],
+            "@styles/*": ["./packages/styles/src/*"],
+            "@react-components/*": ["./packages/react-components/src/*"],
+            "@orbit-ui/styles": ["./packages/styles/src/*"]
+        }
+    },
+    "include": [
+        "./packages",
+        "./typescript/typings"
+    ],
+    // https://github.com/microsoft/TypeScript/issues/37997
+    "files": [],
+    "references": [
+        {
+            "path": "./packages/styles"
+        },
+        {
+            "path": "./packages/react-components"
+        }
+    ]
 }
