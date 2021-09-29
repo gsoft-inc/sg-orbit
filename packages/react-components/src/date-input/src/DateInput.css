@@ -6,12 +6,10 @@
 .o-ui-date-input-button-presets {
     display: inline-flex;
     align-items: center;
-    width: max-content;
+    max-width: max-content;
+    width: 100%;
     flex-wrap: wrap;
-}
-
-.o-ui-date-input-button-presets .o-ui-date-input {
-    margin-right: var(--o-ui-sp-4);
+    gap: var(--o-ui-sp-4);
 }
 
 /* BUTTON PRESETS | FLUID */

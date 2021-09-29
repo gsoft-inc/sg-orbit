@@ -32,10 +32,5 @@
 }
 
 .o-ui-form-field {
-    max-width: 325px;
-    width: 100%;
-}
-
-.o-ui-form-field.o-ui-field-fluid {
-    max-width: 100%;
+    width: 325px;
 }
