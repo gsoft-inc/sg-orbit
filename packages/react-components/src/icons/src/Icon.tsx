@@ -2,7 +2,8 @@ import "./Icon.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledSystemProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { StyledSystemProps } from "@orbit-ui/styles";
 
 export type IconSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
 

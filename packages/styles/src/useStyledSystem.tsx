@@ -1,4 +1,4 @@
-import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
+import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createThemeVars";
 import { CSSProperties, useMemo } from "react";
 import { Property } from "csstype";
 import { Simplify } from "type-fest";
@@ -48,7 +48,7 @@ const ColorExpressionTypes = [
     "hsla"
 ];
 
-const SpacingScale2 = [
+const SpacingScale = [
     1,
     2,
     3,
@@ -322,7 +322,7 @@ function createPrefixedValueTemplate(prefix: string) {
     return (value: string | number) => `var(${normalizeVariable(value, prefix)})`;
 }
 
-export const SpacingMapping = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
+export const SpacingMapping = createValuesMapping(SpacingScale, createPrefixedValueTemplate(SpacePrefix));
 
 export const ColorMapping = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
 
@@ -378,562 +378,562 @@ export type RowGapValue = Simplify<keyof typeof SpacingMapping | Property.RowGap
 export type StrokeValue = Simplify<keyof typeof IconColorMapping | Property.Stroke>;
 export type WidthValue = Simplify<keyof typeof SpacingMapping | Property.Width>;
 
-export type AlignContentProp2 = Property.AlignContent | ResponsiveValue<Property.AlignContent>;
-export type AlignItemsProp2 = Property.AlignItems | ResponsiveValue<Property.AlignItems>;
-export type AlignSelfProp2 = Property.AlignSelf | ResponsiveValue<Property.AlignSelf>;
-export type AspectRatioProp2 = Property.AspectRatio | ResponsiveValue<Property.AspectRatio>;
-export type BackgroundColorProp2 = BackgroundColorValue | ResponsiveValue<BackgroundColorValue>;
-export type BackgroundImageProp2 = Property.BackgroundImage | ResponsiveValue<Property.BackgroundImage>;
-export type BackgroundPositionProp2 = Property.BackgroundPosition | ResponsiveValue<Property.BackgroundPosition>;
-export type BackgroundRepeatProp2 = Property.BackgroundRepeat | ResponsiveValue<Property.BackgroundRepeat>;
-export type BackgroundSizeProp2 = Property.BackgroundSize | ResponsiveValue<Property.BackgroundSize>;
-export type BorderProp2 = BorderValue | ResponsiveValue<BorderValue>;
-export type BorderBottomProp2 = BorderProp2;
-export type BorderLeftProp2 = BorderProp2;
-export type BorderRightProp2 = BorderProp2;
-export type BorderTopProp2 = BorderProp2;
-export type BorderRadiusProp2 = BorderRadiusValue | ResponsiveValue<BorderRadiusValue>;
-export type BorderBottomLeftRadiusProp2 = BorderRadiusProp2;
-export type BorderBottomRightRadiusProp2 = BorderRadiusProp2;
-export type BorderTopLeftRadiusProp2 = BorderRadiusProp2;
-export type BorderTopRightRadiusProp2 = BorderRadiusProp2;
-export type BottomProp2 = Property.Bottom | ResponsiveValue<Property.Bottom>;
-export type BoxShadowProp2 = BoxShadowValue | ResponsiveValue<BoxShadowValue>;
-export type ColorProp2 = ColorValue | ResponsiveValue<ColorValue>;
-export type ColumnGapProp2 = ColumnGapValue | ResponsiveValue<ColumnGapValue>;
-export type ContentProp2 = Property.Content | ResponsiveValue<Property.Content>;
-export type ContentVisibilityProp2 = Property.ContentVisibility | ResponsiveValue<Property.ContentVisibility>;
-export type CursorProp2 = Property.Cursor | ResponsiveValue<Property.Cursor>;
-export type DisplayProp2 = Property.Display | ResponsiveValue<Property.Display>;
-export type FillProp2 = FillValue | ResponsiveValue<FillValue>;
-export type FilterProp2 = Property.Filter | ResponsiveValue<Property.Filter>;
-export type FlexProp2 = Property.Flex | ResponsiveValue<Property.Flex>;
-export type FlexBasisProp2 = Property.FlexBasis | ResponsiveValue<Property.FlexBasis>;
-export type FlexDirectionProp2 = Property.FlexDirection | ResponsiveValue<Property.FlexDirection>;
-export type FlexFlowProp2 = Property.FlexFlow | ResponsiveValue<Property.FlexFlow>;
-export type FlexGrowProp2 = Property.FlexGrow | ResponsiveValue<Property.FlexGrow>;
-export type FlexShrinkProp2 = Property.FlexShrink | ResponsiveValue<Property.FlexShrink>;
-export type FlexWrapProp2 = Property.FlexWrap | ResponsiveValue<Property.FlexWrap>;
-export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
-export type FontStyleProp2 = Property.FontStyle | ResponsiveValue<Property.FontStyle>;
-export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
-export type GapProp2 = GapValue | ResponsiveValue<GapValue>;
-export type HeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
-export type JustifyContentProp2 = Property.JustifyContent | ResponsiveValue<Property.JustifyContent>;
-export type JustifyItemsProp2 = Property.JustifyItems | ResponsiveValue<Property.JustifyItems>;
-export type JustifySelfProp2 = Property.JustifySelf | ResponsiveValue<Property.JustifySelf>;
-export type LeftProp2 = Property.Left | ResponsiveValue<Property.Left>;
-export type LetterSpacingProp2 = Property.LetterSpacing | ResponsiveValue<Property.LetterSpacing>;
-export type LineHeightProp2 = LineHeightValue | ResponsiveValue<LineHeightValue>;
-export type MarginProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginBottomProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginLeftProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginRightProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginTopProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginXProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MarginYProp2 = MarginValue | ResponsiveValue<MarginValue>;
-export type MaxHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
-export type MaxWidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
-export type MinHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
-export type MinWidthProp2 = WidthValue | ResponsiveValue<HeightValue>;
-export type ObjectFitProp2 = Property.ObjectFit | ResponsiveValue<Property.ObjectFit>;
-export type ObjectPositionProp2 = Property.ObjectPosition | ResponsiveValue<Property.ObjectPosition>;
-export type OpacityProp2 = Property.Opacity | ResponsiveValue<Property.Opacity>;
-export type OrderProp2 = Property.Order | ResponsiveValue<Property.Order>;
-export type OutlineProp2 = Property.Outline | ResponsiveValue<Property.Outline>;
-export type OverflowProp2 = Property.Overflow | ResponsiveValue<Property.Overflow>;
-export type OverflowXProp2 = Property.OverflowX | ResponsiveValue<Property.OverflowX>;
-export type OverflowYProp2 = Property.OverflowY | ResponsiveValue<Property.OverflowY>;
-export type PaddingProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingBottomProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingLeftProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingRightProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingTopProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingXProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PaddingYProp2 = MarginValue | ResponsiveValue<PaddingValue>;
-export type PointerEventsProp2 = Property.PointerEvents | ResponsiveValue<Property.PointerEvents>;
-export type PositionProp2 = Property.Position | ResponsiveValue<Property.Position>;
-export type ResizeProp2 = Property.Resize | ResponsiveValue<Property.Resize>;
-export type RightProp2 = Property.Right | ResponsiveValue<Property.Right>;
-export type RowGapProp2 = RowGapValue | ResponsiveValue<RowGapValue>;
-export type StrokeProp2 = StrokeValue | ResponsiveValue<StrokeValue>;
-export type TextAlignProp2 = Property.TextAlign | ResponsiveValue<Property.TextAlign> | "justify-all";
-export type TextDecorationProp2 = Property.TextDecoration | ResponsiveValue<Property.TextDecoration>;
-export type TextOverflowProp2 = Property.TextOverflow | ResponsiveValue<Property.TextOverflow>;
-export type TextTransformProp2 = Property.TextTransform | ResponsiveValue<Property.TextTransform>;
-export type TopProp2 = Property.Top | ResponsiveValue<Property.Top>;
-export type TransformProp2 = Property.Transform | ResponsiveValue<Property.Transform>;
-export type TransformOriginProp2 = Property.TransformOrigin | ResponsiveValue<Property.TransformOrigin>;
-export type TransformStyleProp2 = Property.TransformStyle | ResponsiveValue<Property.TransformStyle>;
-export type VerticalAlignProp2 = Property.VerticalAlign | ResponsiveValue<Property.VerticalAlign>;
-export type VisibilityProp2 = Property.Visibility | ResponsiveValue<Property.Visibility>;
-export type WhiteSpaceProp2 = Property.WhiteSpace | ResponsiveValue<Property.WhiteSpace>;
-export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
-export type WillChangeProp2 = Property.WillChange | ResponsiveValue<Property.WillChange>;
-export type WordBreakProp2 = Property.WordBreak | ResponsiveValue<Property.WordBreak>;
-export type ZIndexProp2 = Property.ZIndex | ResponsiveValue<Property.ZIndex>;
+export type AlignContentProp = Property.AlignContent | ResponsiveValue<Property.AlignContent>;
+export type AlignItemsProp = Property.AlignItems | ResponsiveValue<Property.AlignItems>;
+export type AlignSelfProp = Property.AlignSelf | ResponsiveValue<Property.AlignSelf>;
+export type AspectRatioProp = Property.AspectRatio | ResponsiveValue<Property.AspectRatio>;
+export type BackgroundColorProp = BackgroundColorValue | ResponsiveValue<BackgroundColorValue>;
+export type BackgroundImageProp = Property.BackgroundImage | ResponsiveValue<Property.BackgroundImage>;
+export type BackgroundPositionProp = Property.BackgroundPosition | ResponsiveValue<Property.BackgroundPosition>;
+export type BackgroundRepeatProp = Property.BackgroundRepeat | ResponsiveValue<Property.BackgroundRepeat>;
+export type BackgroundSizeProp = Property.BackgroundSize | ResponsiveValue<Property.BackgroundSize>;
+export type BorderProp = BorderValue | ResponsiveValue<BorderValue>;
+export type BorderBottomProp = BorderProp;
+export type BorderLeftProp = BorderProp;
+export type BorderRightProp = BorderProp;
+export type BorderTopProp = BorderProp;
+export type BorderRadiusProp = BorderRadiusValue | ResponsiveValue<BorderRadiusValue>;
+export type BorderBottomLeftRadiusProp = BorderRadiusProp;
+export type BorderBottomRightRadiusProp = BorderRadiusProp;
+export type BorderTopLeftRadiusProp = BorderRadiusProp;
+export type BorderTopRightRadiusProp = BorderRadiusProp;
+export type BottomProp = Property.Bottom | ResponsiveValue<Property.Bottom>;
+export type BoxShadowProp = BoxShadowValue | ResponsiveValue<BoxShadowValue>;
+export type ColorProp = ColorValue | ResponsiveValue<ColorValue>;
+export type ColumnGapProp = ColumnGapValue | ResponsiveValue<ColumnGapValue>;
+export type ContentProp = Property.Content | ResponsiveValue<Property.Content>;
+export type ContentVisibilityProp = Property.ContentVisibility | ResponsiveValue<Property.ContentVisibility>;
+export type CursorProp = Property.Cursor | ResponsiveValue<Property.Cursor>;
+export type DisplayProp = Property.Display | ResponsiveValue<Property.Display>;
+export type FillProp = FillValue | ResponsiveValue<FillValue>;
+export type FilterProp = Property.Filter | ResponsiveValue<Property.Filter>;
+export type FlexProp = Property.Flex | ResponsiveValue<Property.Flex>;
+export type FlexBasisProp = Property.FlexBasis | ResponsiveValue<Property.FlexBasis>;
+export type FlexDirectionProp = Property.FlexDirection | ResponsiveValue<Property.FlexDirection>;
+export type FlexFlowProp = Property.FlexFlow | ResponsiveValue<Property.FlexFlow>;
+export type FlexGrowProp = Property.FlexGrow | ResponsiveValue<Property.FlexGrow>;
+export type FlexShrinkProp = Property.FlexShrink | ResponsiveValue<Property.FlexShrink>;
+export type FlexWrapProp = Property.FlexWrap | ResponsiveValue<Property.FlexWrap>;
+export type FontSizeProp = FontSizeValue | ResponsiveValue<FontSizeValue>;
+export type FontStyleProp = Property.FontStyle | ResponsiveValue<Property.FontStyle>;
+export type FontWeightProp = FontWeightValue | ResponsiveValue<FontWeightValue>;
+export type GapProp = GapValue | ResponsiveValue<GapValue>;
+export type HeightProp = HeightValue | ResponsiveValue<HeightValue>;
+export type JustifyContentProp = Property.JustifyContent | ResponsiveValue<Property.JustifyContent>;
+export type JustifyItemsProp = Property.JustifyItems | ResponsiveValue<Property.JustifyItems>;
+export type JustifySelfProp = Property.JustifySelf | ResponsiveValue<Property.JustifySelf>;
+export type LeftProp = Property.Left | ResponsiveValue<Property.Left>;
+export type LetterSpacingProp = Property.LetterSpacing | ResponsiveValue<Property.LetterSpacing>;
+export type LineHeightProp = LineHeightValue | ResponsiveValue<LineHeightValue>;
+export type MarginProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginBottomProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginLeftProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginRightProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginTopProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginXProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginYProp = MarginValue | ResponsiveValue<MarginValue>;
+export type MaxHeightProp = HeightValue | ResponsiveValue<HeightValue>;
+export type MaxWidthProp = WidthValue | ResponsiveValue<WidthValue>;
+export type MinHeightProp = HeightValue | ResponsiveValue<HeightValue>;
+export type MinWidthProp = WidthValue | ResponsiveValue<HeightValue>;
+export type ObjectFitProp = Property.ObjectFit | ResponsiveValue<Property.ObjectFit>;
+export type ObjectPositionProp = Property.ObjectPosition | ResponsiveValue<Property.ObjectPosition>;
+export type OpacityProp = Property.Opacity | ResponsiveValue<Property.Opacity>;
+export type OrderProp = Property.Order | ResponsiveValue<Property.Order>;
+export type OutlineProp = Property.Outline | ResponsiveValue<Property.Outline>;
+export type OverflowProp = Property.Overflow | ResponsiveValue<Property.Overflow>;
+export type OverflowXProp = Property.OverflowX | ResponsiveValue<Property.OverflowX>;
+export type OverflowYProp = Property.OverflowY | ResponsiveValue<Property.OverflowY>;
+export type PaddingProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingBottomProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingLeftProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingRightProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingTopProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingXProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingYProp = MarginValue | ResponsiveValue<PaddingValue>;
+export type PointerEventsProp = Property.PointerEvents | ResponsiveValue<Property.PointerEvents>;
+export type PositionProp = Property.Position | ResponsiveValue<Property.Position>;
+export type ResizeProp = Property.Resize | ResponsiveValue<Property.Resize>;
+export type RightProp = Property.Right | ResponsiveValue<Property.Right>;
+export type RowGapProp = RowGapValue | ResponsiveValue<RowGapValue>;
+export type StrokeProp = StrokeValue | ResponsiveValue<StrokeValue>;
+export type TextAlignProp = Property.TextAlign | ResponsiveValue<Property.TextAlign> | "justify-all";
+export type TextDecorationProp = Property.TextDecoration | ResponsiveValue<Property.TextDecoration>;
+export type TextOverflowProp = Property.TextOverflow | ResponsiveValue<Property.TextOverflow>;
+export type TextTransformProp = Property.TextTransform | ResponsiveValue<Property.TextTransform>;
+export type TopProp = Property.Top | ResponsiveValue<Property.Top>;
+export type TransformProp = Property.Transform | ResponsiveValue<Property.Transform>;
+export type TransformOriginProp = Property.TransformOrigin | ResponsiveValue<Property.TransformOrigin>;
+export type TransformStyleProp = Property.TransformStyle | ResponsiveValue<Property.TransformStyle>;
+export type VerticalAlignProp = Property.VerticalAlign | ResponsiveValue<Property.VerticalAlign>;
+export type VisibilityProp = Property.Visibility | ResponsiveValue<Property.Visibility>;
+export type WhiteSpaceProp = Property.WhiteSpace | ResponsiveValue<Property.WhiteSpace>;
+export type WidthProp = WidthValue | ResponsiveValue<WidthValue>;
+export type WillChangeProp = Property.WillChange | ResponsiveValue<Property.WillChange>;
+export type WordBreakProp = Property.WordBreak | ResponsiveValue<Property.WordBreak>;
+export type ZIndexProp = Property.ZIndex | ResponsiveValue<Property.ZIndex>;
 
-export interface StyledSystemProps2 {
+export interface StyledSystemProps {
     /**
      * @ignore
      */
-    alignContent?: AlignContentProp2;
+    alignContent?: AlignContentProp;
     /**
      * @ignore
      */
-    alignItems?: AlignItemsProp2;
+    alignItems?: AlignItemsProp;
     /**
      * @ignore
      */
-    alignSelf?: AlignSelfProp2;
+    alignSelf?: AlignSelfProp;
     /**
      * @ignore
      */
-    aspectRatio?: AspectRatioProp2;
+    aspectRatio?: AspectRatioProp;
     /**
      * @ignore
      */
-    backgroundColor?: BackgroundColorProp2;
+    backgroundColor?: BackgroundColorProp;
     /**
      * @ignore
      */
-    backgroundColorFocus?: BackgroundColorProp2;
+    backgroundColorFocus?: BackgroundColorProp;
     /**
      * @ignore
      */
-    backgroundColorHover?: BackgroundColorProp2;
+    backgroundColorHover?: BackgroundColorProp;
     /**
      * @ignore
      */
-    backgroundImage?: BackgroundImageProp2;
+    backgroundImage?: BackgroundImageProp;
     /**
      * @ignore
      */
-    backgroundPosition?: BackgroundPositionProp2;
+    backgroundPosition?: BackgroundPositionProp;
     /**
      * @ignore
      */
-    backgroundRepeat?: BackgroundRepeatProp2;
+    backgroundRepeat?: BackgroundRepeatProp;
     /**
      * @ignore
      */
-    backgroundSize?: BackgroundSizeProp2;
+    backgroundSize?: BackgroundSizeProp;
     /**
      * @ignore
      */
-    border?: BorderProp2;
+    border?: BorderProp;
     /**
      * @ignore
      */
-    borderBottom?: BorderBottomProp2;
+    borderBottom?: BorderBottomProp;
     /**
      * @ignore
      */
-    borderBottomFocus?: BorderBottomProp2;
+    borderBottomFocus?: BorderBottomProp;
     /**
      * @ignore
      */
-    borderBottomHover?: BorderBottomProp2;
+    borderBottomHover?: BorderBottomProp;
     /**
      * @ignore
      */
-    borderBottomLeftRadius?: BorderRadiusProp2;
+    borderBottomLeftRadius?: BorderRadiusProp;
     /**
      * @ignore
      */
-    borderBottomRightRadius?: BorderRadiusProp2;
+    borderBottomRightRadius?: BorderRadiusProp;
     /**
      * @ignore
      */
-    borderFocus?: BorderProp2;
+    borderFocus?: BorderProp;
     /**
      * @ignore
      */
-    borderHover?: BorderProp2;
+    borderHover?: BorderProp;
     /**
      * @ignore
      */
-    borderLeft?: BorderLeftProp2;
+    borderLeft?: BorderLeftProp;
     /**
      * @ignore
      */
-    borderLeftFocus?: BorderLeftProp2;
+    borderLeftFocus?: BorderLeftProp;
     /**
      * @ignore
      */
-    borderLeftHover?: BorderLeftProp2;
+    borderLeftHover?: BorderLeftProp;
     /**
      * @ignore
      */
-    borderRadius?: BorderRadiusProp2;
+    borderRadius?: BorderRadiusProp;
     /**
      * @ignore
      */
-    borderRight?: BorderRightProp2;
+    borderRight?: BorderRightProp;
     /**
      * @ignore
      */
-    borderRightFocus?: BorderRightProp2;
+    borderRightFocus?: BorderRightProp;
     /**
      * @ignore
      */
-    borderRightHover?: BorderRightProp2;
+    borderRightHover?: BorderRightProp;
     /**
      * @ignore
      */
-    borderTop?: BorderTopProp2;
+    borderTop?: BorderTopProp;
     /**
      * @ignore
      */
-    borderTopFocus?: BorderTopProp2;
+    borderTopFocus?: BorderTopProp;
     /**
      * @ignore
      */
-    borderTopHover?: BorderTopProp2;
+    borderTopHover?: BorderTopProp;
     /**
      * @ignore
      */
-    borderTopLeftRadius?: BorderRadiusProp2;
+    borderTopLeftRadius?: BorderRadiusProp;
     /**
      * @ignore
      */
-    borderTopRightRadius?: BorderRadiusProp2;
+    borderTopRightRadius?: BorderRadiusProp;
     /**
      * @ignore
      */
-    bottom?: BottomProp2;
+    bottom?: BottomProp;
     /**
      * @ignore
      */
-    boxShadow?: BoxShadowProp2;
+    boxShadow?: BoxShadowProp;
     /**
      * @ignore
      */
-    boxShadowFocus?: BoxShadowProp2;
+    boxShadowFocus?: BoxShadowProp;
     /**
      * @ignore
      */
-    boxShadowHover?: BoxShadowProp2;
+    boxShadowHover?: BoxShadowProp;
     /**
      * @ignore
      */
-    color?: ColorProp2;
+    color?: ColorProp;
     /**
      * @ignore
      */
-    colorFocus?: ColorProp2;
+    colorFocus?: ColorProp;
     /**
      * @ignore
      */
-    colorHover?: ColorProp2;
+    colorHover?: ColorProp;
     /**
      * @ignore
      */
-    columnGap?: ColumnGapProp2;
+    columnGap?: ColumnGapProp;
     /**
      * @ignore
      */
-    content?: ContentProp2;
+    content?: ContentProp;
     /**
      * @ignore
      */
-    contentVisibility?: ContentVisibilityProp2;
+    contentVisibility?: ContentVisibilityProp;
     /**
      * @ignore
      */
-    cursor?: CursorProp2;
+    cursor?: CursorProp;
     /**
      * @ignore
      */
-    cursorHover?: CursorProp2;
+    cursorHover?: CursorProp;
     /**
      * @ignore
      */
-    display?: DisplayProp2;
+    display?: DisplayProp;
     /**
      * @ignore
      */
-    fill?: FillProp2;
+    fill?: FillProp;
     /**
      * @ignore
      */
-    fillFocus?: FillProp2;
+    fillFocus?: FillProp;
     /**
      * @ignore
      */
-    fillHover?: FillProp2;
+    fillHover?: FillProp;
     /**
      * @ignore
      */
-    filter?: FilterProp2;
+    filter?: FilterProp;
     /**
      * @ignore
      */
-    flex?: FlexProp2;
+    flex?: FlexProp;
     /**
      * @ignore
      */
-    flexBasis?: FlexBasisProp2;
+    flexBasis?: FlexBasisProp;
     /**
      * @ignore
      */
-    flexDirection?: FlexDirectionProp2;
+    flexDirection?: FlexDirectionProp;
     /**
      * @ignore
      */
-    flexFlow?: FlexFlowProp2;
+    flexFlow?: FlexFlowProp;
     /**
      * @ignore
      */
-    flexGrow?: FlexGrowProp2;
+    flexGrow?: FlexGrowProp;
     /**
      * @ignore
      */
-    flexShrink?: FlexShrinkProp2;
+    flexShrink?: FlexShrinkProp;
     /**
      * @ignore
      */
-    flexWrap?: FlexWrapProp2;
+    flexWrap?: FlexWrapProp;
     /**
      * @ignore
      */
-    fontSize?: FontSizeProp2;
+    fontSize?: FontSizeProp;
     /**
      * @ignore
      */
-    fontStyle?: FontStyleProp2;
+    fontStyle?: FontStyleProp;
     /**
      * @ignore
      */
-    fontWeight?: FontWeightProp2;
+    fontWeight?: FontWeightProp;
     /**
      * @ignore
      */
-    gap?: GapProp2;
+    gap?: GapProp;
     /**
      * @ignore
      */
-    height?: HeightProp2;
+    height?: HeightProp;
     /**
      * @ignore
      */
-    justifyContent?: JustifyContentProp2;
+    justifyContent?: JustifyContentProp;
     /**
      * @ignore
      */
-    justifyItems?: JustifyItemsProp2;
+    justifyItems?: JustifyItemsProp;
     /**
      * @ignore
      */
-    justifySelf?: JustifySelfProp2;
+    justifySelf?: JustifySelfProp;
     /**
      * @ignore
      */
-    left?: LeftProp2;
+    left?: LeftProp;
     /**
      * @ignore
      */
-    letterSpacing?: LetterSpacingProp2;
+    letterSpacing?: LetterSpacingProp;
     /**
      * @ignore
      */
-    lineHeight?: LineHeightProp2;
+    lineHeight?: LineHeightProp;
     /**
      * @ignore
      */
-    margin?: MarginProp2;
+    margin?: MarginProp;
     /**
      * @ignore
      */
-    marginBottom?: MarginBottomProp2;
+    marginBottom?: MarginBottomProp;
     /**
      * @ignore
      */
-    marginLeft?: MarginLeftProp2;
+    marginLeft?: MarginLeftProp;
     /**
      * @ignore
      */
-    marginRight?: MarginRightProp2;
+    marginRight?: MarginRightProp;
     /**
      * @ignore
      */
-    marginTop?: MarginTopProp2;
+    marginTop?: MarginTopProp;
     /**
      * @ignore
      */
-    marginX?: MarginXProp2;
+    marginX?: MarginXProp;
     /**
      * @ignore
      */
-    marginY?: MarginYProp2;
+    marginY?: MarginYProp;
     /**
      * @ignore
      */
-    maxHeight?: MaxHeightProp2;
+    maxHeight?: MaxHeightProp;
     /**
      * @ignore
      */
-    maxWidth?: MaxWidthProp2;
+    maxWidth?: MaxWidthProp;
     /**
      * @ignore
      */
-    minHeight?: MinHeightProp2;
+    minHeight?: MinHeightProp;
     /**
      * @ignore
      */
-    minWidth?: MinWidthProp2;
+    minWidth?: MinWidthProp;
     /**
      * @ignore
      */
-    objectFit?: ObjectFitProp2;
+    objectFit?: ObjectFitProp;
     /**
      * @ignore
      */
-    objectPosition?: ObjectPositionProp2;
+    objectPosition?: ObjectPositionProp;
     /**
      * @ignore
      */
-    opacity?: OpacityProp2;
+    opacity?: OpacityProp;
     /**
      * @ignore
      */
-    opacityHover?: OpacityProp2;
+    opacityHover?: OpacityProp;
     /**
      * @ignore
      */
-    order?: OrderProp2;
+    order?: OrderProp;
     /**
      * @ignore
      */
-    outline?: OutlineProp2;
+    outline?: OutlineProp;
     /**
      * @ignore
      */
-    outlineFocus?: OutlineProp2;
+    outlineFocus?: OutlineProp;
     /**
      * @ignore
      */
-    overflow?: OverflowProp2;
+    overflow?: OverflowProp;
     /**
      * @ignore
      */
-    overflowX?: OverflowXProp2;
+    overflowX?: OverflowXProp;
     /**
      * @ignore
      */
-    overflowY?: OverflowYProp2;
+    overflowY?: OverflowYProp;
     /**
      * @ignore
      */
-    padding?: PaddingProp2;
+    padding?: PaddingProp;
     /**
      * @ignore
      */
-    paddingBottom?: PaddingBottomProp2;
+    paddingBottom?: PaddingBottomProp;
     /**
      * @ignore
      */
-    paddingLeft?: PaddingLeftProp2;
+    paddingLeft?: PaddingLeftProp;
     /**
      * @ignore
      */
-    paddingRight?: PaddingRightProp2;
+    paddingRight?: PaddingRightProp;
     /**
      * @ignore
      */
-    paddingTop?: PaddingTopProp2;
+    paddingTop?: PaddingTopProp;
     /**
      * @ignore
      */
-    paddingX?: PaddingXProp2;
+    paddingX?: PaddingXProp;
     /**
      * @ignore
      */
-    paddingY?: PaddingYProp2;
+    paddingY?: PaddingYProp;
     /**
      * @ignore
      */
-    pointerEvents?: PointerEventsProp2;
+    pointerEvents?: PointerEventsProp;
     /**
      * @ignore
      */
-    position?: PositionProp2;
+    position?: PositionProp;
     /**
      * @ignore
      */
-    resize?: ResizeProp2;
+    resize?: ResizeProp;
     /**
      * @ignore
      */
-    right?: RightProp2;
+    right?: RightProp;
     /**
      * @ignore
      */
-    rowGap?: RowGapProp2;
+    rowGap?: RowGapProp;
     /**
      * @ignore
      */
-    stroke?: StrokeProp2;
+    stroke?: StrokeProp;
     /**
      * @ignore
      */
-    textAlign?: TextAlignProp2;
+    textAlign?: TextAlignProp;
     /**
      * @ignore
      */
-    textDecoration?: TextDecorationProp2;
+    textDecoration?: TextDecorationProp;
     /**
      * @ignore
      */
-    textOverflow?: TextOverflowProp2;
+    textOverflow?: TextOverflowProp;
     /**
      * @ignore
      */
-    textTransform?: TextTransformProp2;
+    textTransform?: TextTransformProp;
     /**
      * @ignore
      */
-    top?: TopProp2;
+    top?: TopProp;
     /**
      * @ignore
      */
-    transform?: TransformProp2;
+    transform?: TransformProp;
     /**
      * @ignore
      */
-    transformOrigin?: TransformOriginProp2;
+    transformOrigin?: TransformOriginProp;
     /**
      * @ignore
      */
-    transformStyle?: TransformStyleProp2;
+    transformStyle?: TransformStyleProp;
     /**
      * @ignore
      */
-    verticalAlign?: VerticalAlignProp2;
+    verticalAlign?: VerticalAlignProp;
     /**
      * @ignore
      */
-    visibility?: VisibilityProp2;
+    visibility?: VisibilityProp;
     /**
      * @ignore
      */
-    whiteSpace?: WhiteSpaceProp2;
+    whiteSpace?: WhiteSpaceProp;
     /**
      * @ignore
      */
-    width?: WidthProp2;
+    width?: WidthProp;
     /**
      * @ignore
      */
-    willChange?: WillChangeProp2;
+    willChange?: WillChangeProp;
     /**
      * @ignore
      */
-    wordBreak?: WordBreakProp2;
+    wordBreak?: WordBreakProp;
     /**
      * @ignore
      */
-    zIndex?: ZIndexProp2;
+    zIndex?: ZIndexProp;
 }
 
 class StylingContext {
@@ -1048,18 +1048,11 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
     return !isNil(systemValues) ? systemValuesHandler : passThroughHandler;
 }
 
-type BorderProp =
-    "border" |
-    "borderBottom" |
-    "borderLeft" |
-    "borderRight" |
-    "borderTop";
-
 // Custom handler for borders to allow the following syntax:
 // - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
 function borderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
-    return (name: BorderProp, value, context) => {
+    return (name: string, value, context) => {
         // Trying to hit a system value before parsing for a responsive value.
         if (tryAddSystemValue(name, value, systemValues, context)) {
             return;
@@ -1237,7 +1230,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     zIndex: createHandler()
 };
 
-export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
+export function useStyledSystem<TProps extends Record<string, any>>(props: TProps) {
     const {
         alignContent,
         alignItems,
@@ -1504,6 +1497,6 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
         ...rest,
         className: styling.className,
         style: styling.style
-    } as Omit<TProps, keyof StyledSystemProps2>;
+    } as Omit<TProps, keyof StyledSystemProps>;
 
 }

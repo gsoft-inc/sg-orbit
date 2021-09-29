@@ -2,7 +2,8 @@ import "./Underlay.css";
 
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, ZindexProp, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ZIndexProp } from "@orbit-ui/styles";
 
 const DefaultElement = "div";
 
@@ -10,7 +11,7 @@ export interface InnerUnderlayProps extends InternalProps, StyledComponentProps<
     /**
      * The z-index of the underlay.
      */
-    zIndex?: ZindexProp;
+    zIndex?: ZIndexProp;
 }
 
 export function InnerUnderlay({

@@ -67,10 +67,10 @@ export function ThemeProvider({
                         {
                             as,
                             className: mergeClasses(
+                                "o-ui",
                                 `o-ui-${theme.name}`,
                                 `o-ui-${theme.name}-${colorScheme}`
-                            ),
-                            id: "o-ui"
+                            )
                         }
                     )}
                 >

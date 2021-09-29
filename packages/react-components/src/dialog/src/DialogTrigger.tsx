@@ -4,7 +4,6 @@ import {
     InternalProps,
     OmitInternalProps,
     StyledComponentProps,
-    ZindexProp,
     augmentElement,
     isNil,
     mergeProps,
@@ -13,6 +12,7 @@ import {
     useEventCallback
 } from "../../shared";
 import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
+import { ZIndexProp } from "@orbit-ui/styles";
 
 const DefaultElement = "div";
 
@@ -43,7 +43,7 @@ export interface InnerDialogTriggerProps extends InternalProps, Omit<StyledCompo
     /**
      * The z-index of of the dialog.
      */
-    zIndex?: ZindexProp;
+    zIndex?: ZIndexProp;
 }
 
 export function InnerDialogTrigger({

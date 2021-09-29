@@ -63,7 +63,7 @@ Sometimes a component needs reusable values through it's UI while not explicitly
 
 ```css
 // Input.css
-#o-ui {
+.o-ui {
     --o-ui-input-border-color: var(--o-ui-b-alias-1);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
 }
@@ -81,7 +81,7 @@ As you can see the local variables are not prefixed by global or alias while kee
 Utility variables are variables that helps crafting experiences, while being utilitarian. These are not values that have been discussed with designers, a circle being a circle there is no art direction on these. Creating a circle with a border-radius is a common CSS trick that is used all over Orbit and the web in general. Instead of repeating the same line of CSS all the time, there is an utility for that. Many more utilities are available through Orbit, check Orbit's documentation for more information.
 
 ```css
-#o-ui {
+.o-ui {
   --o-ui-shape-circular: 100%;
 }
 
@@ -100,7 +100,7 @@ Global variables, alias variables as well as alias CSS classes are declared at t
 
 ```css
 // background.css
-#o-ui {
+.o-ui {
   --o-ui-global-background-...: value;
 }
 

@@ -7,7 +7,6 @@ import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
     Keys,
     OmitInternalProps,
-    WidthProp,
     augmentElement,
     isNil,
     isNilOrEmpty,
@@ -23,6 +22,7 @@ import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps, PopupPosition, PopupProps, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
+import { WidthProp } from "@orbit-ui/styles";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useDebouncedCallback } from "./useDebouncedCallback";

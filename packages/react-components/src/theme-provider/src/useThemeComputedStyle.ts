@@ -17,7 +17,7 @@ export class ThemeComputedStyle {
     }
 
     private getThemeElement() {
-        const themeElement = this.componentRef.current.closest("#o-ui");
+        const themeElement = this.componentRef.current.closest(".o-ui");
 
         if (isNil(themeElement)) {
             throw new Error("Cannot find a theme element, did you defined a ThemeProvider?");

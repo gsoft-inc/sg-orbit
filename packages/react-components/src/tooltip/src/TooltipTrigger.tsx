@@ -6,7 +6,6 @@ import {
     InternalProps,
     OmitInternalProps,
     StyledComponentProps,
-    ZindexProp,
     augmentElement,
     isNil,
     mergeProps,
@@ -18,6 +17,7 @@ import {
 } from "../../shared";
 import { Overlay, OverlayArrow, OverlayPosition, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
+import { ZIndexProp } from "@orbit-ui/styles";
 
 const DefaultElement = "div";
 
@@ -64,7 +64,7 @@ export interface InnerTooltipTriggerProps extends InternalProps, Omit<StyledComp
     /**
      * The z-index of the popover element.
      */
-    zIndex?: ZindexProp;
+    zIndex?: ZIndexProp;
 }
 
 export function parseTooltipTrigger(children: ReactNode) {

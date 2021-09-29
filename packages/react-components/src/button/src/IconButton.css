@@ -1,6 +1,6 @@
 @import "./Button.css";
 
-#o-ui {
+.o-ui {
     --o-ui-icon-button-height-2xs: var(--o-ui-sp-5);
     --o-ui-icon-button-height-xs: var(--o-ui-sp-6);
 }

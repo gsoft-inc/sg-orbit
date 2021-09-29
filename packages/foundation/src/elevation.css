@@ -1,7 +1,0 @@
-#o-ui {
-    --o-ui-bs-alias-none: none;
-    --o-ui-bs-alias-skim: var(--o-ui-bs-1);
-    --o-ui-bs-alias-lifted: var(--o-ui-bs-2);
-    --o-ui-bs-alias-raised: var(--o-ui-bs-3);
-    --o-ui-bs-alias-floating: var(--o-ui-bs-4);
-}

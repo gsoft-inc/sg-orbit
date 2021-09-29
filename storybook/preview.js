@@ -1,4 +1,4 @@
-import { ApricotTheme, DesktopTheme, createCss } from "@orbit-ui/styles";
+import { ApricotTheme, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
@@ -14,7 +14,7 @@ import "@orbit-ui/styles/dist/pseudos.css";
 
 import "./styles";
 
-createCss([ApricotTheme, DesktopTheme]);
+createThemeVars([ApricotTheme, DesktopTheme]);
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.

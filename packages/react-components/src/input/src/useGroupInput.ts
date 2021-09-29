@@ -1,7 +1,8 @@
 import { FlexAlignment, FlexOrientation } from "../../layout";
-import { GapProp, cssModule, normalizeSize } from "../../shared";
+import { GapProp } from "@orbit-ui/styles";
 import { Ref } from "react";
 import { ValidationState } from "../../input";
+import { cssModule, normalizeSize } from "../../shared";
 import { useFieldContext } from "../../field";
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */

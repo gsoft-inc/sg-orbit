@@ -24,8 +24,6 @@ export function BreakpointProvider({
 
     // TODO: Debounce
     const handleResize = useCallback(() => {
-        console.log("*** refreshing breakpoints...");
-
         for (const [key, value] of Object.entries(Breakpoints)) {
             if (window.matchMedia(value).matches) {
                 setBreakpoint(key);

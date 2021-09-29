@@ -32,13 +32,13 @@
         "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
     },
     "peerDependencies": {
-        "@orbit-ui/icons": "*",
         "@orbit-ui/styles": "*",
         "react": "*",
         "react-dom": "*"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
+        "@orbit-ui/icons": "9.0.0",
         "@popperjs/core": "2.9.2",
         "@reach/auto-id": "0.15.0",
         "react-is": "17.0.2",

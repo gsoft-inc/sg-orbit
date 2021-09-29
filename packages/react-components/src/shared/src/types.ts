@@ -1,5 +1,5 @@
 import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
-import { StyledSystemProps } from "./useStyledSystem";
+import { StyledSystemProps } from "@orbit-ui/styles";
 
 export interface SlotProps {
     /**

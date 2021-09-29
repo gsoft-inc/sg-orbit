@@ -8,12 +8,12 @@ import {
     IconColorMapping,
     LineHeightMapping,
     SpacingMapping,
-    StyledSystemProps2,
+    StyledSystemProps,
     TextColorMapping,
-    useStyledSystem2
-} from "@styles/useStyledSystem2";
+    useStyledSystem
+} from "@styles/useStyledSystem";
 import { ComponentProps, Fragment } from "react";
-import { SpacePrefix, normalizeVariable } from "@styles/createCss";
+import { SpacePrefix, normalizeVariable } from "@styles/createThemeVars";
 import { render, waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
@@ -234,8 +234,8 @@ const Props: PropDefinition[] = [
     { name: "z-index", key: "zIndex", values: ["auto", "0", "3", "289", "-1", ...GlobalSampling] }
 ];
 
-function Box(props: ComponentProps<"div"> & StyledSystemProps2) {
-    const styledProps = useStyledSystem2(props);
+function Box(props: ComponentProps<"div"> & StyledSystemProps) {
+    const styledProps = useStyledSystem(props);
 
     return (
         <div {...styledProps} />

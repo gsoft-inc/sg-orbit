@@ -1,4 +1,4 @@
-#o-ui {
+.o-ui {
     --o-ui-avatar-2xs: var(--o-ui-sp-5);
     --o-ui-avatar-xs: var(--o-ui-sp-6);
     --o-ui-avatar-sm: var(--o-ui-sp-7);

@@ -5,10 +5,11 @@ import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } f
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
-import { OmitInternalProps, ZindexProp, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
+import { OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Overlay, OverlayProps, PopupAlignment, PopupDirection } from "../../overlay";
 import { Span } from "../../html";
 import { Text } from "../../typography";
+import { ZIndexProp } from "@orbit-ui/styles";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupSelectAddonProps } from "../../input-group";
 import { useSelect } from "./useSelect";
@@ -105,7 +106,7 @@ export interface InnerSelectProps extends Omit<AbstractInputProps<typeof Default
     /**
      * The z-index of the overlay element.
      */
-    zIndex?: ZindexProp;
+    zIndex?: ZIndexProp;
 }
 
 export function InnerSelect(props: InnerSelectProps) {

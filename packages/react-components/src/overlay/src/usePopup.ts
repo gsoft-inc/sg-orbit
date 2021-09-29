@@ -1,6 +1,7 @@
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
-import { ZindexProp, isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
+import { ZIndexProp } from "@orbit-ui/styles";
+import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
@@ -49,7 +50,7 @@ export interface PopupProps {
     /**
      * The z-index of the menu.
      */
-    zIndex?: ZindexProp;
+    zIndex?: ZIndexProp;
 }
 
 export interface UsePopupOptions {

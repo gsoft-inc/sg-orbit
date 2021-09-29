@@ -1,4 +1,4 @@
-#o-ui {
+.o-ui {
     --o-ui-button-height-sm: var(--o-ui-sp-7);
     --o-ui-button-height-md: var(--o-ui-sp-8);
     --o-ui-button-loading-spinner-background: rgba(256, 256, 256, 0.5);

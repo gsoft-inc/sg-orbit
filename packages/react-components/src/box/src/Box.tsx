@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledHtmlAttributes, omitProps, useStyledSystem } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledHtmlAttributes, omitProps } from "../../shared";
 import { getHtmlElementType } from "../../html";
+import { useStyledSystem } from "@orbit-ui/styles";
 
 const DefaultElement = "div";
 

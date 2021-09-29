@@ -37,7 +37,6 @@ export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";
 export * from "./useFocusWithin";
-export * from "./useStyledSystem";
 
 // Features
 export * from "./slots";

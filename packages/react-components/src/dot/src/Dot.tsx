@@ -1,8 +1,9 @@
 import "./Dot.css";
 
-import { BackgroundColorProp, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { BackgroundColorProp } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { Text } from "../../typography";
 import { useMemo } from "react";
 

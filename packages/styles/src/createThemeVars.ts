@@ -2,8 +2,6 @@ import { ColorSchemes, OrbitTheme } from "./themes";
 import { Entry, JsonObject, JsonValue } from "type-fest";
 import { isArray, isNil, isNumber, isString } from "./assertions";
 
-// TODO: Rename to createThemeVars?
-
 type VarsBucket = string[];
 
 type StringArray = readonly string[];
@@ -99,7 +97,7 @@ function renderBucket(scope: string, bucket: VarsBucket) {
     const element = document.createElement("style");
 
     element.setAttribute("id", scope);
-    element.innerText = `#o-ui.${scope} { ${bucket.join(" ")} }`;
+    element.innerText = `.o-ui.${scope} { ${bucket.join(" ")} }`;
 
     document.head.appendChild(element);
 }
@@ -112,7 +110,7 @@ export const BorderRadiusPrefix = "br";
 export const BoxShadowPrefix = "bs";
 export const ColorPrefix = null;
 
-export function createCss(themes: OrbitTheme[]) {
+export function createThemeVars(themes: OrbitTheme[]) {
     themes.forEach(theme => {
         const common: VarsBucket = [];
         const light: VarsBucket = [];

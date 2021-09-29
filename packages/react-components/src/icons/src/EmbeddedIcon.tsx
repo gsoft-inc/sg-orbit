@@ -1,6 +1,7 @@
 import { Children, ReactElement, ReactNode, SVGProps } from "react";
 import { IconSize } from "./Icon";
-import { InternalProps, SlotProps, StyledSystemProps, augmentElement, createSizeAdapter } from "../../shared";
+import { InternalProps, SlotProps, augmentElement, createSizeAdapter } from "../../shared";
+import { StyledSystemProps } from "@orbit-ui/styles";
 
 export interface EmbeddedIconProps extends
     StyledSystemProps,

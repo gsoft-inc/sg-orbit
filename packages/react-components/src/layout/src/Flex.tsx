@@ -1,23 +1,8 @@
-import {
-    AlignContentProp,
-    AlignItemsProp,
-    ColumnGapProp,
-    FlexBasisProp,
-    FlexDirectionProp,
-    FlexWrapProp,
-    GapProp,
-    InternalProps,
-    JustifyContentProp,
-    OmitInternalProps,
-    RowGapProp,
-    SlotProps,
-    StyledComponentProps,
-    isNil,
-    mergeProps
-} from "../../shared";
+import { AlignContentProp, AlignItemsProp, ColumnGapProp, FlexBasisProp, FlexDirectionProp, FlexWrapProp, GapProp, JustifyContentProp, RowGapProp } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FlexDirection } from "./adapters";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNil, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
 
