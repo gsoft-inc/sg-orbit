@@ -18,7 +18,7 @@
 /* TRIGGER | FLUID */
 .o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
 .o-ui-select-trigger-outline.o-ui-select-trigger-fluid {
-    width: 100%;
+    max-width: 100%;
 }
 
 /* TRIGGER | STATE | INVALID */
@@ -75,7 +75,8 @@
 
 /* TRIGGER | OUTLINE */
 .o-ui-select-trigger-outline {
-    width: 325px;
+    width: 100%;
+    max-width: 325px;
     background-color: var(--o-ui-bg-alias-1);
     border: 1px solid var(--o-ui-b-alias-1);
 }
@@ -175,7 +176,7 @@
 
 /* MENU | FLUID */
 .o-ui-select-menu-fluid {
-    width: 100%;
+    max-width: 100%;
 }
 
 /* TEXT & PLACEHOLDER OVERFLOW */

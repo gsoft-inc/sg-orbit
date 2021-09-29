@@ -8,23 +8,28 @@
 
 /* SIZES */
 .o-ui-card-xs {
-    width: 15rem;
+    width: 100%;
+    max-width: 15rem;
 }
 
 .o-ui-card-sm {
-    width: 20rem;
+    width: 100%;
+    max-width: 20rem;
 }
 
 .o-ui-card-md {
-    width: 30rem;
+    width: 100%;
+    max-width: 30rem;
 }
 
 .o-ui-card-lg {
-    width: 35rem;
+    width: 100%;
+    max-width: 35rem;
 }
 
 .o-ui-card-xl {
-    width: 40rem;
+    width: 100%;
+    max-width: 40rem;
 }
 
 /* FLUID */
@@ -51,9 +56,11 @@
 /* SPACING */
 .o-ui-card-header-section {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--o-ui-sp-4);
+    column-gap: var(--o-ui-sp-4);
 }
 
 .o-ui-card-footer-section {
@@ -65,8 +72,8 @@
 .o-ui-card-header {
     justify-self: end;
     flex-shrink: 0;
-    margin-left: var(--o-ui-sp-4);
     max-width: 200px;
+    width: max-content;
 }
 
 .o-ui-card-heading {

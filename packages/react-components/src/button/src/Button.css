@@ -14,7 +14,8 @@
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     border: none;
     position: relative;
-    width: max-content;
+    max-width: max-content;
+    width: 100%;
 }
 
 /* STATES | FOCUS */
@@ -41,6 +42,7 @@
 /* TEXT */
 .o-ui-button-text {
     flex-grow: 1;
+    line-height: 1;
 }
 
 /* ANCHOR */
@@ -348,7 +350,7 @@ a.o-ui-button {
 
 /* FLUID */
 .o-ui-button-fluid {
-    width: 100%;
+    max-width: 100%;
 }
 
 /* LOADING */

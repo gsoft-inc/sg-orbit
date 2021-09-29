@@ -80,6 +80,8 @@
 .o-ui-dialog-header-section {
     display: flex;
     justify-content: space-between;
+    gap: var(--o-ui-sp-4);
+    flex-wrap: wrap;
 }
 
 /* DIALOG | HEADER SECTION | HEADING */
@@ -91,7 +93,6 @@
 /* DIALOG | HEADER SECTION | HEADER */
 .o-ui-dialog-header {
     align-self: center;
-    margin-left: var(--o-ui-sp-4);
     max-width: 200px;
     flex-shrink: 0;
 }
@@ -110,6 +111,7 @@
     justify-content: space-between;
     padding-top: var(--o-ui-sp-6);
     margin-top: auto;
+    gap: var(--o-ui-sp-4);
 }
 
 /* DIALOG | FOOTER SECTION | FOOTER */
@@ -126,10 +128,6 @@
 
 .o-ui-dialog-button-group {
     flex-wrap: wrap;
-}
-
-.o-ui-dialog-button-group > :first-child {
-    margin-left: var(--o-ui-sp-4);
 }
 
 /* DISMISS BUTTON */

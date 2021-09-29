@@ -22,10 +22,10 @@ export const ApricotTheme: OrbitTheme = {
     borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
     boxShadows: {
         common: {
-            "alias-skim": "$box-shadows-1",
-            "alias-lifted": "$box-shadows-2",
-            "alias-raised": "$box-shadows-3",
-            "alias-floating": "$box-shadows-4"
+            "alias-skim": "$bs-1",
+            "alias-lifted": "$bs-2",
+            "alias-raised": "$bs-3",
+            "alias-floating": "$bs-4"
         },
         light: [`
             0 0.1px 0.3px rgba(0, 0, 0, 0.022),

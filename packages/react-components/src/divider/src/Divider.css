@@ -22,6 +22,7 @@
 /* LABELLED */
 .o-ui-divider-label {
     max-width: 40ch;
+    width: 100%;
 }
 
 /* HORIZONTAL | LABELLED */
@@ -43,7 +44,8 @@
 /* VERTICAL */
 .o-ui-divider[aria-orientation="vertical"] {
     margin: 0 var(--o-ui-sp-2);
-    width: max-content;
+    max-width: max-content;
+    width: 100%;
     height: auto;
     min-height: 100%;
 }

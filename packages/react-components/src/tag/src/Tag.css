@@ -8,7 +8,8 @@
     color: var(--o-ui-text-alias-1);
     border-radius: var(--o-ui-shape-pill);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
-    width: max-content;
+    width: 100%;
+    max-width: max-content;
     height: max-content;
 }
 
@@ -84,7 +85,7 @@ a.o-ui-tag:hover {
 
 /* FLUID */
 .o-ui-tag-fluid {
-    width: 100%;
+    max-width: 100%;
     text-align: center;
 }
 
