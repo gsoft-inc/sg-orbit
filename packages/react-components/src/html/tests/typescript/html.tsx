@@ -13,5 +13,5 @@ expectAssignable<AProps>({ className: "toto", style: { border: "1px solid red" }
 expectAssignable<AProps>({ ref: createRef() });
 
 // @ts-expect-error
-expectAssignable<AProps>({ type: "text" });
+expectAssignable<AProps>({ readOnly });
 
