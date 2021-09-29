@@ -102,13 +102,13 @@ export function InnerFlex({
                 rest,
                 {
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
-                    alignItems: (alignItems && alignItems.replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
+                    alignItems: (alignItems && (alignItems as string).replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
                     as: asProp,
                     display: inline ? "inline-flex" as const : "flex" as const,
                     flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     flexWrap: wrap,
                     height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
-                    justifyContent: (justifyContent && justifyContent.replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
+                    justifyContent: (justifyContent && (justifyContent as string).replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
                     ref: forwardedRef,
                     width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
                 }

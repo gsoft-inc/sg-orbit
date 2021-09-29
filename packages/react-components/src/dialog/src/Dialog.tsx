@@ -28,7 +28,6 @@ import {
 } from "../../shared";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
-import { ZIndexProp } from "@orbit-ui/styles";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export type AbstractDialogProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "role" | "zIndex"> & {
@@ -47,7 +46,7 @@ export type AbstractDialogProps<T extends JsxElement<T>> = InternalProps & Inter
     /**
      * The z-index of the dialog.
      */
-    zIndex?: ZIndexProp;
+    zIndex?: number;
 };
 
 const DefaultElement = "section";

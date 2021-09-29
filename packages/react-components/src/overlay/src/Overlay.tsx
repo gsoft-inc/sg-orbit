@@ -4,7 +4,6 @@ import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider, useThemeContext } from "../../theme-provider";
 import { Transition } from "../../transition";
-import { ZIndexProp } from "@orbit-ui/styles";
 import { createPortal } from "react-dom";
 
 const DefaultElement = "div";
@@ -30,7 +29,7 @@ export interface InnerOverlayProps extends InternalProps, Omit<StyledComponentPr
     /**
      * The z-index of the overlay.
      */
-    zIndex?: ZIndexProp;
+    zIndex?: number;
 }
 
 export function InnerOverlay({

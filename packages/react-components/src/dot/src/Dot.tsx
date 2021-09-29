@@ -16,7 +16,7 @@ export interface InnerDotProps extends SlotProps, InternalProps, StyledComponent
     color?: BackgroundColorProp;
 }
 
-function useColor(color: BackgroundColorProp) {
+function useColor(color: string) {
     return useMemo(() => {
         if (!isNil(color)) {
             if (color.startsWith("rgb") || color.startsWith("hsl") || color.startsWith("#")) {
@@ -59,7 +59,7 @@ export function InnerDot(props: InnerDotProps) {
                     ),
                     ref: forwardedRef,
                     style: {
-                        ["--o-ui-dot-color" as any]: useColor(color)
+                        ["--o-ui-dot-color" as any]: useColor(color as string)
                     }
                 }
             )}
