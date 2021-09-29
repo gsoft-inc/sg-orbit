@@ -11,7 +11,7 @@
 
 /* FLUID */
 .o-ui-field-fluid {
-    max-width: 100%;
+    width: 100%;
 }
 
 /* LABEL */
@@ -29,8 +29,4 @@
 .o-ui-field .o-ui-field-message {
     grid-area: message;
     padding-top: var(--o-ui-sp-2);
-}
-
-.o-ui-form-field {
-    width: 325px;
 }

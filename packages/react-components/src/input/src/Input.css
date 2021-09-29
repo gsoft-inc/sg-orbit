@@ -14,8 +14,7 @@
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
     color: var(--o-ui-text-alias-1);
-    max-width: 325px;
-    width: 100%;
+    width: 325px;
 }
 
 .o-ui-input input {
@@ -63,12 +62,12 @@
 
 /* FLUID */
 .o-ui-input.o-ui-input-fluid {
-    max-width: 100%;
+    width: 100%;
 }
 
 .o-ui-input-fluid input,
 .o-ui-input-fluid textarea {
-    max-width: 100%;
+    width: 100%;
 }
 
 /* INVALID */
