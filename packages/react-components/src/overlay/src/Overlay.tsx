@@ -41,7 +41,7 @@ export function InnerOverlay({
     show,
     zIndex,
     ...rest
-}: InnerOverlayProps) {
+}: InnerOverlayProps): JSX.Element {
     // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
     const { colorScheme, theme } = useThemeContext();
 

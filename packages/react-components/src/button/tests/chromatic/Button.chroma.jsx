@@ -1,5 +1,5 @@
 import { Button } from "@react-components/button";
-import { Div } from "@react-components/html";
+import { Div, TD, TR } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { cloneElement } from "react";
 import { createButtonTestSuite } from "./createButtonTestSuite";
@@ -63,7 +63,27 @@ stories()
                 <Test backgroundColorHover="red">
                     <Test backgroundColor="green" backgroundColorHover="black">Tata</Test>
                 </Test>
+                <Test fontWeight="400">Toto</Test>
+                <Test fontWeight="500">Toto</Test>
+                <Test fontWeight="600">Toto</Test>
                 <div>{breakpoint}</div>
             </>
+        );
+    })
+    .add("test2", () => {
+        return (
+            <table>
+                <tbody>
+                    {Array.from(Array(250).keys()).map(x => {
+                        return (
+                            <TR key={x}>
+                                <TD backgroundColor="sunray-5">{`${x}-1`}</TD>
+                                <TD backgroundColor="sunray-6">{`${x}-2`}</TD>
+                                <TD backgroundColor="sunray-7">{`${x}-3`}</TD>
+                            </TR>
+                        );
+                    })}
+                </tbody>
+            </table>
         );
     });

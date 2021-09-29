@@ -1,0 +1,9 @@
+.o-ui-c-hover:hover {
+    --o-ui-c-hover: initial;
+    color: var(--o-ui-c-hover) !important;
+}
+
+.o-ui-c-focus:focus-visible {
+    --o-ui-c-focus: initial;
+    color: var(--o-ui-c-focus) !important;
+}

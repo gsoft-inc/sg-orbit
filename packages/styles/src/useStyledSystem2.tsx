@@ -1,10 +1,9 @@
-import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
+import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createCss";
 import { CSSProperties, useMemo } from "react";
-import { LiteralUnion, Simplify } from "type-fest";
+import { Property } from "csstype";
+import { Simplify } from "type-fest";
 import { isNil, isObject } from "./assertions";
 import { useBreakpoint } from "./BreakpointProvider";
-
-// TODO: "known values" -> "system values" ?
 
 /*
 CASES:
@@ -41,23 +40,15 @@ export interface ResponsiveValue<T> {
     s?: T;
 }
 
-export type GlobalValue2 =
-    "inherit" |
-    "initial" |
-    "revert" |
-    "unset";
+const ColorExpressionTypes = [
+    "#",
+    "rgb",
+    "rgba",
+    "hsl",
+    "hsla"
+];
 
-export type ColorKeywordValue =
-    "currentColor" |
-    "transparent";
-
-export type DimensionKeywordValue =
-    "max-content" |
-    "min-content" |
-    `fit-content(${string})` |
-    "auto";
-
-export const SpacingScale2 = [
+const SpacingScale2 = [
     1,
     2,
     3,
@@ -73,7 +64,7 @@ export const SpacingScale2 = [
     13
 ] as const;
 
-export const Colors = [
+const Colors = [
     "white",
     "black",
     // Marine
@@ -177,7 +168,7 @@ export const Colors = [
     "primary-10"
 ] as const;
 
-export const BackgroundColorAliases = [
+const BackgroundColorAliases = [
     "alias-1",
     "alias-2",
     "alias-3",
@@ -197,7 +188,7 @@ export const BackgroundColorAliases = [
 
 const BorderWidthAndStyle = "1px solid";
 
-export const BorderColorAliases = [
+const BorderColorAliases = [
     "alias-1",
     "alias-2",
     "alias-3",
@@ -211,7 +202,7 @@ export const BorderColorAliases = [
     "alias-warning-1"
 ] as const;
 
-export const IconColorAliases = [
+const IconColorAliases = [
     "alias-1",
     "alias-2",
     "alias-info-1",
@@ -224,31 +215,63 @@ export const IconColorAliases = [
     "alias-warning-2"
 ] as const;
 
-export const BorderRadiusScale = [
+const TextColorAliases = [
+    "alias-1",
+    "alias-1-hover",
+    "alias-1-active",
+    "alias-2",
+    "alias-2-hover",
+    "alias-2-active",
+    "alias-3",
+    "alias-3-hover",
+    "alias-3-active",
+    "alias-4",
+    "alias-primary-1",
+    "alias-primary-1-hover",
+    "alias-primary-1-active",
+    "alias-negative-1",
+    "alias-negative-1-hover",
+    "alias-negative-1-active",
+    "alias-negative-2",
+    "alias-info-1",
+    "alias-info-1-hover",
+    "alias-info-1-active",
+    "alias-positive-1",
+    "alias-positive-1-hover",
+    "alias-positive-1-active",
+    "alias-positive-2",
+    "alias-warning-1",
+    "alias-warning-1-hover",
+    "alias-warning-1-active",
+    "alias-warning-2",
+    "alias-input-selection",
+    "alias-input-placeholder"
+] as const;
+
+const BorderRadiusScale = [
     0,
     1,
     2,
     3,
     4,
-    "100%",
     "pill"
 ] as const;
 
-export const BoxShadowScale = [
+const BoxShadowScale = [
     1,
     2,
     3,
     4
 ] as const;
 
-export const BoxShadowAliases = [
+const BoxShadowAliases = [
     "alias-floating",
     "alias-lifted",
     "alias-raised",
     "alias-skim"
 ] as const;
 
-export const FontSizeScale = [
+const FontSizeScale = [
     1,
     2,
     3,
@@ -262,32 +285,23 @@ export const FontSizeScale = [
     "subheadline"
 ] as const;
 
-export const FontWeightScale = [
+const FontWeightScale = [
+    1,
+    2,
+    3
+] as const;
+
+const LineHeightScale = [
     1,
     2,
     3,
     4,
     5,
-    6,
-    7,
-    8,
-    9
+    6
 ] as const;
 
-export const LineHeightScale = [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    "normal"
-] as const;
-
-// TODO: add TS typing to generate intellisense.
-// Would be nice if the string | number would be infered from keys of the values.
-function createValuesMapping(values: Record<string | number, any>, template: (value: string) => string) {
-    const mapping: Record<string | number, string> = {};
+function createValuesMapping<T extends readonly (string | number)[]>(values: T, template: (value: T[number]) => string) {
+    const mapping = {} as Record<T[number], string>;
 
     values.reduce((acc, x) => {
         acc[x] = template(x);
@@ -298,50 +312,184 @@ function createValuesMapping(values: Record<string | number, any>, template: (va
     return mapping;
 }
 
-function createPrefixedValueTemplate(prefix: string) {
-    return (value: string) => `var(${normalizeVariable(value, prefix)})`;
+function composePrefixes(...rest) {
+    return rest.reduce((acc, prefix) => {
+        return !isNil(prefix) ? `${acc}-${prefix}` : acc;
+    }, "");
 }
 
-export const SpacingKnownValues = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
+function createPrefixedValueTemplate(prefix: string) {
+    return (value: string | number) => `var(${normalizeVariable(value, prefix)})`;
+}
 
-export const ColorKnownValues = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
+export const SpacingMapping = createValuesMapping(SpacingScale2, createPrefixedValueTemplate(SpacePrefix));
 
-export const BackgroundColorKnownValues = { ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(ColorPrefix)), ...ColorKnownValues };
+export const ColorMapping = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
 
-export const BorderKnownValues = {
-    ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`),
+export const BackgroundColorMapping = {
+    ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "bg"))),
+    ...ColorMapping
+};
+
+export const BorderMapping = {
+    ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, composePrefixes(ColorPrefix, "b"))})`),
     ...createValuesMapping(Colors, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
 };
 
+export const BorderRadiusMapping = createValuesMapping(BorderRadiusScale, createPrefixedValueTemplate(BorderRadiusPrefix));
+
+export const BoxShadowMapping = {
+    ...createValuesMapping(BoxShadowScale, createPrefixedValueTemplate(BoxShadowPrefix)),
+    ...createValuesMapping(BoxShadowAliases, createPrefixedValueTemplate(BoxShadowPrefix))
+};
+
+export const FontSizeMapping = createValuesMapping(FontSizeScale, createPrefixedValueTemplate(FontSizePrefix));
+
+export const FontWeightMapping = createValuesMapping(FontWeightScale, createPrefixedValueTemplate(FontWeightPrefix));
+
+export const IconColorMapping = {
+    ...createValuesMapping(IconColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "icon"))),
+    ...ColorMapping
+};
+
+export const LineHeightMapping = createValuesMapping(LineHeightScale, createPrefixedValueTemplate(LineHeightPrefix));
+
+export const TextColorMapping = {
+    ...createValuesMapping(TextColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "text"))),
+    ...ColorMapping
+};
+
 // TODO: fix typings
-export type BackgroundColorValue = Simplify<LiteralUnion<keyof typeof BackgroundColorKnownValues, string> | ColorKeywordValue | GlobalValue2>;
+export type BackgroundColorValue = Simplify<keyof typeof BackgroundColorMapping | Property.BackgroundColor>;
+export type BorderValue = Simplify<keyof typeof BorderMapping | Property.Border>;
+export type BorderRadiusValue = Simplify<keyof typeof BorderRadiusMapping | Property.BorderRadius>;
+export type BoxShadowValue = Simplify<keyof typeof BoxShadowMapping | Property.BoxShadow>;
+export type ColorValue = Simplify<keyof typeof TextColorMapping | Property.Color>;
+export type ColumnGapValue = Simplify<keyof typeof SpacingMapping | Property.ColumnGap>;
+export type FillValue = Simplify<keyof typeof IconColorMapping | Property.Fill>;
+export type FontSizeValue = Simplify<keyof typeof FontSizeMapping | Property.FontSize>;
+export type FontWeightValue = Simplify<keyof typeof FontWeightMapping | Property.FontWeight>;
+export type GapValue = Simplify<keyof typeof SpacingMapping | Property.Gap>;
+export type HeightValue = Simplify<keyof typeof SpacingMapping | Property.Height>;
+export type LineHeightValue = Simplify<keyof typeof LineHeightMapping | Property.LineHeight>;
+export type MarginValue = Simplify<keyof typeof SpacingMapping | Property.Margin>;
+export type PaddingValue = Simplify<keyof typeof SpacingMapping | Property.Padding>;
+export type RowGapValue = Simplify<keyof typeof SpacingMapping | Property.RowGap>;
+export type StrokeValue = Simplify<keyof typeof IconColorMapping | Property.Stroke>;
+export type WidthValue = Simplify<keyof typeof SpacingMapping | Property.Width>;
+
+export type AlignContentProp2 = Property.AlignContent | ResponsiveValue<Property.AlignContent>;
+export type AlignItemsProp2 = Property.AlignItems | ResponsiveValue<Property.AlignItems>;
+export type AlignSelfProp2 = Property.AlignSelf | ResponsiveValue<Property.AlignSelf>;
+export type AspectRatioProp2 = Property.AspectRatio | ResponsiveValue<Property.AspectRatio>;
 export type BackgroundColorProp2 = BackgroundColorValue | ResponsiveValue<BackgroundColorValue>;
-
-export type BorderValue = Simplify<LiteralUnion<keyof typeof BorderKnownValues, string> | ColorKeywordValue | GlobalValue2>;
+export type BackgroundImageProp2 = Property.BackgroundImage | ResponsiveValue<Property.BackgroundImage>;
+export type BackgroundPositionProp2 = Property.BackgroundPosition | ResponsiveValue<Property.BackgroundPosition>;
+export type BackgroundRepeatProp2 = Property.BackgroundRepeat | ResponsiveValue<Property.BackgroundRepeat>;
+export type BackgroundSizeProp2 = Property.BackgroundSize | ResponsiveValue<Property.BackgroundSize>;
 export type BorderProp2 = BorderValue | ResponsiveValue<BorderValue>;
-
-// export type BorderBottomProp = Simplify<LiteralUnion<keyof typeof BorderBottomClasses, string>>;
-
-// export type BorderBottomLeftRadiusProp = string;
-
-// export type BorderBottomRightRadiusProp = string;
-
-// export type BorderLeftProp = Simplify<LiteralUnion<keyof typeof BorderLeftClasses, string>>;
-
-// export type BorderRadiusProp = Simplify<LiteralUnion<keyof typeof BorderRadiusClasses, string>>;
-
-// export type BorderRightProp = Simplify<LiteralUnion<keyof typeof BorderRightClasses, string>>;
-
-// export type BorderTopProp = Simplify<LiteralUnion<keyof typeof BorderTopClasses, string>>;
-
-// export type BorderTopLeftRadiusProp = string;
-
-// export type BorderTopRightRadiusProp = string;
-
-export type WidthValue = Simplify<LiteralUnion<keyof typeof SpacingKnownValues, string> | DimensionKeywordValue | GlobalValue2>;
+export type BorderBottomProp2 = BorderProp2;
+export type BorderLeftProp2 = BorderProp2;
+export type BorderRightProp2 = BorderProp2;
+export type BorderTopProp2 = BorderProp2;
+export type BorderRadiusProp2 = BorderRadiusValue | ResponsiveValue<BorderRadiusValue>;
+export type BorderBottomLeftRadiusProp2 = BorderRadiusProp2;
+export type BorderBottomRightRadiusProp2 = BorderRadiusProp2;
+export type BorderTopLeftRadiusProp2 = BorderRadiusProp2;
+export type BorderTopRightRadiusProp2 = BorderRadiusProp2;
+export type BottomProp2 = Property.Bottom | ResponsiveValue<Property.Bottom>;
+export type BoxShadowProp2 = BoxShadowValue | ResponsiveValue<BoxShadowValue>;
+export type ColorProp2 = ColorValue | ResponsiveValue<ColorValue>;
+export type ColumnGapProp2 = ColumnGapValue | ResponsiveValue<ColumnGapValue>;
+export type ContentProp2 = Property.Content | ResponsiveValue<Property.Content>;
+export type ContentVisibilityProp2 = Property.ContentVisibility | ResponsiveValue<Property.ContentVisibility>;
+export type CursorProp2 = Property.Cursor | ResponsiveValue<Property.Cursor>;
+export type DisplayProp2 = Property.Display | ResponsiveValue<Property.Display>;
+export type FillProp2 = FillValue | ResponsiveValue<FillValue>;
+export type FilterProp2 = Property.Filter | ResponsiveValue<Property.Filter>;
+export type FlexProp2 = Property.Flex | ResponsiveValue<Property.Flex>;
+export type FlexBasisProp2 = Property.FlexBasis | ResponsiveValue<Property.FlexBasis>;
+export type FlexDirectionProp2 = Property.FlexDirection | ResponsiveValue<Property.FlexDirection>;
+export type FlexFlowProp2 = Property.FlexFlow | ResponsiveValue<Property.FlexFlow>;
+export type FlexGrowProp2 = Property.FlexGrow | ResponsiveValue<Property.FlexGrow>;
+export type FlexShrinkProp2 = Property.FlexShrink | ResponsiveValue<Property.FlexShrink>;
+export type FlexWrapProp2 = Property.FlexWrap | ResponsiveValue<Property.FlexWrap>;
+export type FontSizeProp2 = FontSizeValue | ResponsiveValue<FontSizeValue>;
+export type FontStyleProp2 = Property.FontStyle | ResponsiveValue<Property.FontStyle>;
+export type FontWeightProp2 = FontWeightValue | ResponsiveValue<FontWeightValue>;
+export type GapProp2 = GapValue | ResponsiveValue<GapValue>;
+export type HeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type JustifyContentProp2 = Property.JustifyContent | ResponsiveValue<Property.JustifyContent>;
+export type JustifyItemsProp2 = Property.JustifyItems | ResponsiveValue<Property.JustifyItems>;
+export type JustifySelfProp2 = Property.JustifySelf | ResponsiveValue<Property.JustifySelf>;
+export type LeftProp2 = Property.Left | ResponsiveValue<Property.Left>;
+export type LetterSpacingProp2 = Property.LetterSpacing | ResponsiveValue<Property.LetterSpacing>;
+export type LineHeightProp2 = LineHeightValue | ResponsiveValue<LineHeightValue>;
+export type MarginProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginBottomProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginLeftProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginRightProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginTopProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginXProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MarginYProp2 = MarginValue | ResponsiveValue<MarginValue>;
+export type MaxHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type MaxWidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
+export type MinHeightProp2 = HeightValue | ResponsiveValue<HeightValue>;
+export type MinWidthProp2 = WidthValue | ResponsiveValue<HeightValue>;
+export type ObjectFitProp2 = Property.ObjectFit | ResponsiveValue<Property.ObjectFit>;
+export type ObjectPositionProp2 = Property.ObjectPosition | ResponsiveValue<Property.ObjectPosition>;
+export type OpacityProp2 = Property.Opacity | ResponsiveValue<Property.Opacity>;
+export type OrderProp2 = Property.Order | ResponsiveValue<Property.Order>;
+export type OutlineProp2 = Property.Outline | ResponsiveValue<Property.Outline>;
+export type OverflowProp2 = Property.Overflow | ResponsiveValue<Property.Overflow>;
+export type OverflowXProp2 = Property.OverflowX | ResponsiveValue<Property.OverflowX>;
+export type OverflowYProp2 = Property.OverflowY | ResponsiveValue<Property.OverflowY>;
+export type PaddingProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingBottomProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingLeftProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingRightProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingTopProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingXProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PaddingYProp2 = MarginValue | ResponsiveValue<PaddingValue>;
+export type PointerEventsProp2 = Property.PointerEvents | ResponsiveValue<Property.PointerEvents>;
+export type PositionProp2 = Property.Position | ResponsiveValue<Property.Position>;
+export type ResizeProp2 = Property.Resize | ResponsiveValue<Property.Resize>;
+export type RightProp2 = Property.Right | ResponsiveValue<Property.Right>;
+export type RowGapProp2 = RowGapValue | ResponsiveValue<RowGapValue>;
+export type StrokeProp2 = StrokeValue | ResponsiveValue<StrokeValue>;
+export type TextAlignProp2 = Property.TextAlign | ResponsiveValue<Property.TextAlign> | "justify-all";
+export type TextDecorationProp2 = Property.TextDecoration | ResponsiveValue<Property.TextDecoration>;
+export type TextOverflowProp2 = Property.TextOverflow | ResponsiveValue<Property.TextOverflow>;
+export type TextTransformProp2 = Property.TextTransform | ResponsiveValue<Property.TextTransform>;
+export type TopProp2 = Property.Top | ResponsiveValue<Property.Top>;
+export type TransformProp2 = Property.Transform | ResponsiveValue<Property.Transform>;
+export type TransformOriginProp2 = Property.TransformOrigin | ResponsiveValue<Property.TransformOrigin>;
+export type TransformStyleProp2 = Property.TransformStyle | ResponsiveValue<Property.TransformStyle>;
+export type VerticalAlignProp2 = Property.VerticalAlign | ResponsiveValue<Property.VerticalAlign>;
+export type VisibilityProp2 = Property.Visibility | ResponsiveValue<Property.Visibility>;
+export type WhiteSpaceProp2 = Property.WhiteSpace | ResponsiveValue<Property.WhiteSpace>;
 export type WidthProp2 = WidthValue | ResponsiveValue<WidthValue>;
+export type WillChangeProp2 = Property.WillChange | ResponsiveValue<Property.WillChange>;
+export type WordBreakProp2 = Property.WordBreak | ResponsiveValue<Property.WordBreak>;
+export type ZIndexProp2 = Property.ZIndex | ResponsiveValue<Property.ZIndex>;
 
 export interface StyledSystemProps2 {
+    /**
+     * @ignore
+     */
+    alignContent?: AlignContentProp2;
+    /**
+     * @ignore
+     */
+    alignItems?: AlignItemsProp2;
+    /**
+     * @ignore
+     */
+    alignSelf?: AlignSelfProp2;
+    /**
+     * @ignore
+     */
+    aspectRatio?: AspectRatioProp2;
     /**
      * @ignore
      */
@@ -349,7 +497,27 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    backgroundColorFocus?: BackgroundColorProp2;
+    /**
+     * @ignore
+     */
     backgroundColorHover?: BackgroundColorProp2;
+    /**
+     * @ignore
+     */
+    backgroundImage?: BackgroundImageProp2;
+    /**
+     * @ignore
+     */
+    backgroundPosition?: BackgroundPositionProp2;
+    /**
+     * @ignore
+     */
+    backgroundRepeat?: BackgroundRepeatProp2;
+    /**
+     * @ignore
+     */
+    backgroundSize?: BackgroundSizeProp2;
     /**
      * @ignore
      */
@@ -357,11 +525,415 @@ export interface StyledSystemProps2 {
     /**
      * @ignore
      */
+    borderBottom?: BorderBottomProp2;
+    /**
+     * @ignore
+     */
+    borderBottomFocus?: BorderBottomProp2;
+    /**
+     * @ignore
+     */
+    borderBottomHover?: BorderBottomProp2;
+    /**
+     * @ignore
+     */
+    borderBottomLeftRadius?: BorderRadiusProp2;
+    /**
+     * @ignore
+     */
+    borderBottomRightRadius?: BorderRadiusProp2;
+    /**
+     * @ignore
+     */
+    borderFocus?: BorderProp2;
+    /**
+     * @ignore
+     */
     borderHover?: BorderProp2;
     /**
      * @ignore
      */
+    borderLeft?: BorderLeftProp2;
+    /**
+     * @ignore
+     */
+    borderLeftFocus?: BorderLeftProp2;
+    /**
+     * @ignore
+     */
+    borderLeftHover?: BorderLeftProp2;
+    /**
+     * @ignore
+     */
+    borderRadius?: BorderRadiusProp2;
+    /**
+     * @ignore
+     */
+    borderRight?: BorderRightProp2;
+    /**
+     * @ignore
+     */
+    borderRightFocus?: BorderRightProp2;
+    /**
+     * @ignore
+     */
+    borderRightHover?: BorderRightProp2;
+    /**
+     * @ignore
+     */
+    borderTop?: BorderTopProp2;
+    /**
+     * @ignore
+     */
+    borderTopFocus?: BorderTopProp2;
+    /**
+     * @ignore
+     */
+    borderTopHover?: BorderTopProp2;
+    /**
+     * @ignore
+     */
+    borderTopLeftRadius?: BorderRadiusProp2;
+    /**
+     * @ignore
+     */
+    borderTopRightRadius?: BorderRadiusProp2;
+    /**
+     * @ignore
+     */
+    bottom?: BottomProp2;
+    /**
+     * @ignore
+     */
+    boxShadow?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
+    boxShadowFocus?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
+    boxShadowHover?: BoxShadowProp2;
+    /**
+     * @ignore
+     */
+    color?: ColorProp2;
+    /**
+     * @ignore
+     */
+    colorFocus?: ColorProp2;
+    /**
+     * @ignore
+     */
+    colorHover?: ColorProp2;
+    /**
+     * @ignore
+     */
+    columnGap?: ColumnGapProp2;
+    /**
+     * @ignore
+     */
+    content?: ContentProp2;
+    /**
+     * @ignore
+     */
+    contentVisibility?: ContentVisibilityProp2;
+    /**
+     * @ignore
+     */
+    cursor?: CursorProp2;
+    /**
+     * @ignore
+     */
+    cursorHover?: CursorProp2;
+    /**
+     * @ignore
+     */
+    display?: DisplayProp2;
+    /**
+     * @ignore
+     */
+    fill?: FillProp2;
+    /**
+     * @ignore
+     */
+    fillFocus?: FillProp2;
+    /**
+     * @ignore
+     */
+    fillHover?: FillProp2;
+    /**
+     * @ignore
+     */
+    filter?: FilterProp2;
+    /**
+     * @ignore
+     */
+    flex?: FlexProp2;
+    /**
+     * @ignore
+     */
+    flexBasis?: FlexBasisProp2;
+    /**
+     * @ignore
+     */
+    flexDirection?: FlexDirectionProp2;
+    /**
+     * @ignore
+     */
+    flexFlow?: FlexFlowProp2;
+    /**
+     * @ignore
+     */
+    flexGrow?: FlexGrowProp2;
+    /**
+     * @ignore
+     */
+    flexShrink?: FlexShrinkProp2;
+    /**
+     * @ignore
+     */
+    flexWrap?: FlexWrapProp2;
+    /**
+     * @ignore
+     */
+    fontSize?: FontSizeProp2;
+    /**
+     * @ignore
+     */
+    fontStyle?: FontStyleProp2;
+    /**
+     * @ignore
+     */
+    fontWeight?: FontWeightProp2;
+    /**
+     * @ignore
+     */
+    gap?: GapProp2;
+    /**
+     * @ignore
+     */
+    height?: HeightProp2;
+    /**
+     * @ignore
+     */
+    justifyContent?: JustifyContentProp2;
+    /**
+     * @ignore
+     */
+    justifyItems?: JustifyItemsProp2;
+    /**
+     * @ignore
+     */
+    justifySelf?: JustifySelfProp2;
+    /**
+     * @ignore
+     */
+    left?: LeftProp2;
+    /**
+     * @ignore
+     */
+    letterSpacing?: LetterSpacingProp2;
+    /**
+     * @ignore
+     */
+    lineHeight?: LineHeightProp2;
+    /**
+     * @ignore
+     */
+    margin?: MarginProp2;
+    /**
+     * @ignore
+     */
+    marginBottom?: MarginBottomProp2;
+    /**
+     * @ignore
+     */
+    marginLeft?: MarginLeftProp2;
+    /**
+     * @ignore
+     */
+    marginRight?: MarginRightProp2;
+    /**
+     * @ignore
+     */
+    marginTop?: MarginTopProp2;
+    /**
+     * @ignore
+     */
+    marginX?: MarginXProp2;
+    /**
+     * @ignore
+     */
+    marginY?: MarginYProp2;
+    /**
+     * @ignore
+     */
+    maxHeight?: MaxHeightProp2;
+    /**
+     * @ignore
+     */
+    maxWidth?: MaxWidthProp2;
+    /**
+     * @ignore
+     */
+    minHeight?: MinHeightProp2;
+    /**
+     * @ignore
+     */
+    minWidth?: MinWidthProp2;
+    /**
+     * @ignore
+     */
+    objectFit?: ObjectFitProp2;
+    /**
+     * @ignore
+     */
+    objectPosition?: ObjectPositionProp2;
+    /**
+     * @ignore
+     */
+    opacity?: OpacityProp2;
+    /**
+     * @ignore
+     */
+    opacityHover?: OpacityProp2;
+    /**
+     * @ignore
+     */
+    order?: OrderProp2;
+    /**
+     * @ignore
+     */
+    outline?: OutlineProp2;
+    /**
+     * @ignore
+     */
+    outlineFocus?: OutlineProp2;
+    /**
+     * @ignore
+     */
+    overflow?: OverflowProp2;
+    /**
+     * @ignore
+     */
+    overflowX?: OverflowXProp2;
+    /**
+     * @ignore
+     */
+    overflowY?: OverflowYProp2;
+    /**
+     * @ignore
+     */
+    padding?: PaddingProp2;
+    /**
+     * @ignore
+     */
+    paddingBottom?: PaddingBottomProp2;
+    /**
+     * @ignore
+     */
+    paddingLeft?: PaddingLeftProp2;
+    /**
+     * @ignore
+     */
+    paddingRight?: PaddingRightProp2;
+    /**
+     * @ignore
+     */
+    paddingTop?: PaddingTopProp2;
+    /**
+     * @ignore
+     */
+    paddingX?: PaddingXProp2;
+    /**
+     * @ignore
+     */
+    paddingY?: PaddingYProp2;
+    /**
+     * @ignore
+     */
+    pointerEvents?: PointerEventsProp2;
+    /**
+     * @ignore
+     */
+    position?: PositionProp2;
+    /**
+     * @ignore
+     */
+    resize?: ResizeProp2;
+    /**
+     * @ignore
+     */
+    right?: RightProp2;
+    /**
+     * @ignore
+     */
+    rowGap?: RowGapProp2;
+    /**
+     * @ignore
+     */
+    stroke?: StrokeProp2;
+    /**
+     * @ignore
+     */
+    textAlign?: TextAlignProp2;
+    /**
+     * @ignore
+     */
+    textDecoration?: TextDecorationProp2;
+    /**
+     * @ignore
+     */
+    textOverflow?: TextOverflowProp2;
+    /**
+     * @ignore
+     */
+    textTransform?: TextTransformProp2;
+    /**
+     * @ignore
+     */
+    top?: TopProp2;
+    /**
+     * @ignore
+     */
+    transform?: TransformProp2;
+    /**
+     * @ignore
+     */
+    transformOrigin?: TransformOriginProp2;
+    /**
+     * @ignore
+     */
+    transformStyle?: TransformStyleProp2;
+    /**
+     * @ignore
+     */
+    verticalAlign?: VerticalAlignProp2;
+    /**
+     * @ignore
+     */
+    visibility?: VisibilityProp2;
+    /**
+     * @ignore
+     */
+    whiteSpace?: WhiteSpaceProp2;
+    /**
+     * @ignore
+     */
     width?: WidthProp2;
+    /**
+     * @ignore
+     */
+    willChange?: WillChangeProp2;
+    /**
+     * @ignore
+     */
+    wordBreak?: WordBreakProp2;
+    /**
+     * @ignore
+     */
+    zIndex?: ZIndexProp2;
 }
 
 class StylingContext {
@@ -407,11 +979,11 @@ function parsePropValue<T>(value: T | ResponsiveValue<T>, breakpoint: string): T
     return value as T;
 }
 
-function tryAddKnownValue<T extends Record<string | number, string>>(name: string, value: keyof T, knownValues: T, context: StylingContext) {
-    const knownValue = knownValues[value as keyof typeof knownValues];
+function tryAddSystemValue<T extends Record<string | number, string>>(name: string, value: keyof T, systemValues: T, context: StylingContext) {
+    const systemValue = systemValues[value as keyof typeof systemValues];
 
-    if (!isNil(knownValue)) {
-        context.addStyleValue(name, knownValue);
+    if (!isNil(systemValue)) {
+        context.addStyleValue(name, systemValue);
 
         return true;
     }
@@ -419,17 +991,17 @@ function tryAddKnownValue<T extends Record<string | number, string>>(name: strin
     return false;
 }
 
-function createHandler<TValue extends string | number>(knownValues?: Record<TValue, string>): PropHandler<TValue> {
-    const knownValuesHandler = (name, value, context: StylingContext) => {
-        // Trying to hit a known value before parsing for a responsive value.
-        if (tryAddKnownValue(name, value, knownValues, context)) {
+function createHandler<TValue extends string | number>(systemValues?: Record<TValue, string>): PropHandler<TValue> {
+    const systemValuesHandler = (name, value, context: StylingContext) => {
+        // Trying to hit a system value before parsing for a responsive value.
+        if (tryAddSystemValue(name, value, systemValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
         if (!isNil(parsedValue)) {
-            if (!tryAddKnownValue(name, parsedValue, knownValues, context)) {
+            if (!tryAddSystemValue(name, parsedValue, systemValues, context)) {
                 context.addStyleValue(name, parsedValue);
             }
         }
@@ -443,22 +1015,22 @@ function createHandler<TValue extends string | number>(knownValues?: Record<TVal
         }
     };
 
-    return !isNil(knownValues) ? knownValuesHandler : passThroughHandler;
+    return !isNil(systemValues) ? systemValuesHandler : passThroughHandler;
 }
 
-function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, knownValues?: Record<TValue, string>): PropHandler<TValue> {
-    const knownValuesHandler = (name, value, context: StylingContext) => {
+function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, systemValues?: Record<TValue, string>): PropHandler<TValue> {
+    const systemValuesHandler = (name, value, context: StylingContext) => {
         context.addClass(pseudoClassName);
 
-        // Trying to hit a known value before parsing for a responsive value.
-        if (tryAddKnownValue(pseudoVariable, value, knownValues, context)) {
+        // Trying to hit a system value before parsing for a responsive value.
+        if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
         if (!isNil(parsedValue)) {
-            if (!tryAddKnownValue(pseudoVariable, parsedValue, knownValues, context)) {
+            if (!tryAddSystemValue(pseudoVariable, parsedValue, systemValues, context)) {
                 context.addStyleValue(pseudoVariable, parsedValue);
             }
         }
@@ -473,7 +1045,7 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
         }
     };
 
-    return !isNil(knownValues) ? knownValuesHandler : passThroughHandler;
+    return !isNil(systemValues) ? systemValuesHandler : passThroughHandler;
 }
 
 type BorderProp =
@@ -483,29 +1055,21 @@ type BorderProp =
     "borderRight" |
     "borderTop";
 
-const BorderColorTypes = [
-    "#",
-    "rgb",
-    "rgba",
-    "hsl",
-    "hsla"
-];
-
 // Custom handler for borders to allow the following syntax:
 // - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
-function borderHandler<TValue extends string>(knownValues: Record<TValue, string>): PropHandler<TValue> {
+function borderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name: BorderProp, value, context) => {
-        // Trying to hit a known value before parsing for a responsive value.
-        if (tryAddKnownValue(name, value, knownValues, context)) {
+        // Trying to hit a system value before parsing for a responsive value.
+        if (tryAddSystemValue(name, value, systemValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
         if (!isNil(parsedValue)) {
-            if (!tryAddKnownValue(name, parsedValue, knownValues, context)) {
-                if (BorderColorTypes.some(x => parsedValue.startsWith(x))) {
+            if (!tryAddSystemValue(name, parsedValue, systemValues, context)) {
+                if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
                     context.addStyleValue(name, `${BorderWidthAndStyle} ${parsedValue}`);
                 }
                 else {
@@ -516,20 +1080,20 @@ function borderHandler<TValue extends string>(knownValues: Record<TValue, string
     };
 }
 
-function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVariable, knownValues: Record<TValue, string>): PropHandler<TValue> {
+function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVariable, systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name: BorderProp, value, context) => {
         context.addClass(pseudoClassName);
 
-        // Trying to hit a known value before parsing for a responsive value.
-        if (tryAddKnownValue(pseudoVariable, value, knownValues, context)) {
+        // Trying to hit a system value before parsing for a responsive value.
+        if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
             return;
         }
 
         const parsedValue = parsePropValue(value, context.breakpoint);
 
         if (!isNil(parsedValue)) {
-            if (!tryAddKnownValue(pseudoVariable, parsedValue, knownValues, context)) {
-                if (BorderColorTypes.some(x => parsedValue.startsWith(x))) {
+            if (!tryAddSystemValue(pseudoVariable, parsedValue, systemValues, context)) {
+                if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
                     context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${parsedValue}`);
                 }
                 else {
@@ -540,23 +1104,258 @@ function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVaria
     };
 }
 
+function fontWeightHandler(name: string, value: string, context: StylingContext) {
+    context.addStyleValue("fontVariationSettings", `'wght' ${value}`);
+    context.addStyleValue("fontWeight", "400");
+}
+
+function createAxisHandler<TValue extends string>(firstPropName: string, secondPropName: string, systemValues: Record<TValue, string>) {
+    const firstHandler = createHandler(systemValues);
+    const secondHandler = createHandler(systemValues);
+
+    return (name, value, context) => {
+        firstHandler(firstPropName, value, context);
+        secondHandler(secondPropName, value, context);
+    };
+}
+
 const PropsHandlers: Record<string, PropHandler<unknown>> = {
-    backgroundColor: createHandler(BackgroundColorKnownValues),
-    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorKnownValues),
-    border: borderHandler(BorderKnownValues),
-    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderKnownValues),
-    width: createHandler(SpacingKnownValues)
+    alignContent: createHandler(),
+    alignItems: createHandler(),
+    alignSelf: createHandler(),
+    aspectRatio: createHandler(),
+    backgroundColor: createHandler(BackgroundColorMapping),
+    backgroundColorFocus: createPseudoHandler("o-ui-bg-focus", "--o-ui-bg-focus", BackgroundColorMapping),
+    backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorMapping),
+    backgroundImage: createHandler(),
+    backgroundPosition: createHandler(),
+    backgroundRepeat: createHandler(),
+    backgroundSize: createHandler(),
+    border: borderHandler(BorderMapping),
+    borderBottom: borderHandler(BorderMapping),
+    borderBottomFocus: borderHandlerPseudo("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
+    borderBottomHover: borderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
+    borderBottomLeftRadius: createHandler(BorderRadiusMapping),
+    borderBottomRightRadius: createHandler(BorderRadiusMapping),
+    borderFocus: borderHandlerPseudo("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
+    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
+    borderLeft: borderHandler(BorderMapping),
+    borderLeftFocus: borderHandlerPseudo("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
+    borderLeftHover: borderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
+    borderRadius: createHandler(BorderRadiusMapping),
+    borderRight: borderHandler(BorderMapping),
+    borderRightFocus: borderHandlerPseudo("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
+    borderRightHover: borderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
+    borderTop: borderHandler(BorderMapping),
+    borderTopFocus: borderHandlerPseudo("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
+    borderTopHover: borderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
+    borderTopLeftRadius: createHandler(BorderRadiusMapping),
+    borderTopRightRadius: createHandler(BorderRadiusMapping),
+    bottom: createHandler(),
+    boxShadow: createHandler(BoxShadowMapping),
+    boxShadowFocus: createPseudoHandler("o-ui-bs-focus", "--o-ui-bs-focus", BoxShadowMapping),
+    boxShadowHover: createPseudoHandler("o-ui-bs-hover", "--o-ui-bs-hover", BoxShadowMapping),
+    color: createHandler(ColorMapping),
+    colorFocus: createPseudoHandler("o-ui-c-focus", "--o-ui-c-focus", ColorMapping),
+    colorHover: createPseudoHandler("o-ui-c-hover", "--o-ui-c-hover", ColorMapping),
+    columnGap: createHandler(SpacingMapping),
+    content: createHandler(),
+    contentVisibility: createHandler(),
+    cursor: createHandler(),
+    cursorHover: createPseudoHandler("o-ui-cs-hover", "--o-ui-cs-hover"),
+    display: createHandler(),
+    fill: createHandler(IconColorMapping),
+    fillFocus: createPseudoHandler("o-ui-f-focus", "--o-ui-f-focus", BorderMapping),
+    fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
+    filter: createHandler(),
+    flex: createHandler(),
+    flexBasis: createHandler(),
+    flexDirection: createHandler(),
+    flexFlow: createHandler(),
+    flexGrow: createHandler(),
+    flexShrink: createHandler(),
+    flexWrap: createHandler(),
+    fontSize: createHandler(FontSizeMapping),
+    fontStyle: createHandler(),
+    fontWeight: fontWeightHandler,
+    gap: createHandler(SpacingMapping),
+    height: createHandler(SpacingMapping),
+    justifyContent: createHandler(),
+    justifyItems: createHandler(),
+    justifySelf: createHandler(),
+    left: createHandler(),
+    letterSpacing: createHandler(),
+    lineHeight: createHandler(LineHeightMapping),
+    margin: createHandler(SpacingMapping),
+    marginBottom: createHandler(SpacingMapping),
+    marginLeft: createHandler(SpacingMapping),
+    marginRight: createHandler(SpacingMapping),
+    marginTop: createHandler(SpacingMapping),
+    marginX: createAxisHandler("marginLeft", "marginRight", SpacingMapping),
+    marginY: createAxisHandler("marginBottom", "marginTop", SpacingMapping),
+    maxHeight: createHandler(SpacingMapping),
+    maxWidth: createHandler(SpacingMapping),
+    minHeight: createHandler(SpacingMapping),
+    minWidth: createHandler(SpacingMapping),
+    objectFit: createHandler(),
+    objectPosition: createHandler(),
+    opacity: createHandler(),
+    opacityHover: createPseudoHandler("o-ui-o-hover", "o-ui-o-hover"),
+    order: createHandler(),
+    outline: createHandler(),
+    outlineFocus: createPseudoHandler("o-ui-ol-focus", "o-ui-ol-focus"),
+    overflow: createHandler(),
+    overflowX: createHandler(),
+    overflowY: createHandler(),
+    padding: createHandler(SpacingMapping),
+    paddingBottom: createHandler(SpacingMapping),
+    paddingLeft: createHandler(SpacingMapping),
+    paddingRight: createHandler(SpacingMapping),
+    paddingTop: createHandler(SpacingMapping),
+    paddingX: createAxisHandler("paddingLeft", "paddingRight", SpacingMapping),
+    paddingY: createAxisHandler("paddingBottom", "paddingTop", SpacingMapping),
+    pointerEvents: createHandler(),
+    position: createHandler(),
+    resize: createHandler(),
+    right: createHandler(),
+    rowGap: createHandler(SpacingMapping),
+    stroke: createHandler(IconColorMapping),
+    textAlign: createHandler(),
+    textDecoration: createHandler(),
+    textOverflow: createHandler(),
+    textTransform: createHandler(),
+    top: createHandler(),
+    transform: createHandler(),
+    transformOrigin: createHandler(),
+    transformStyle: createHandler(),
+    verticalAlign: createHandler(),
+    visibility: createHandler(),
+    whiteSpace: createHandler(),
+    width: createHandler(SpacingMapping),
+    willChange: createHandler(),
+    wordBreak: createHandler(),
+    zIndex: createHandler()
 };
 
 export function useStyledSystem2<TProps extends Record<string, any>>(props: TProps) {
     const {
+        alignContent,
+        alignItems,
+        alignSelf,
+        aspectRatio,
         backgroundColor,
+        backgroundColorFocus,
         backgroundColorHover,
+        backgroundImage,
+        backgroundPosition,
+        backgroundRepeat,
+        backgroundSize,
         border,
+        borderBottom,
+        borderBottomFocus,
+        borderBottomHover,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
+        borderFocus,
         borderHover,
+        borderLeft,
+        borderLeftFocus,
+        borderLeftHover,
+        borderRadius,
+        borderRight,
+        borderRightFocus,
+        borderRightHover,
+        borderTop,
+        borderTopFocus,
+        borderTopHover,
+        borderTopLeftRadius,
+        borderTopRightRadius,
+        bottom,
+        boxShadow,
+        boxShadowFocus,
+        boxShadowHover,
         className,
+        color,
+        colorFocus,
+        colorHover,
+        columnGap,
+        content,
+        contentVisibility,
+        cursor,
+        cursorHover,
+        display,
+        fill,
+        fillFocus,
+        fillHover,
+        filter,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
+        fontSize,
+        fontStyle,
+        fontWeight,
+        gap,
+        height,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        left,
+        letterSpacing,
+        lineHeight,
+        margin,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+        marginX,
+        marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        objectPosition,
+        opacity,
+        opacityHover,
+        order,
+        outline,
+        outlineFocus,
+        overflow,
+        overflowX,
+        overflowY,
+        padding,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingTop,
+        paddingX,
+        paddingY,
+        pointerEvents,
+        position,
+        resize,
+        right,
+        rowGap,
+        stroke,
         style,
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        transform,
+        transformOrigin,
+        transformStyle,
+        verticalAlign,
+        visibility,
+        whiteSpace,
         width,
+        willChange,
+        wordBreak,
+        zIndex,
         ...rest
     } = props;
 
@@ -582,12 +1381,122 @@ export function useStyledSystem2<TProps extends Record<string, any>>(props: TPro
 
         return context.computeStyling();
     }, [
+        alignContent,
+        alignItems,
+        alignSelf,
+        aspectRatio,
         backgroundColor,
+        backgroundColorFocus,
         backgroundColorHover,
+        backgroundImage,
+        backgroundPosition,
+        backgroundRepeat,
+        backgroundSize,
         border,
+        borderBottom,
+        borderBottomFocus,
+        borderBottomHover,
+        borderLeft,
+        borderLeftFocus,
+        borderLeftHover,
+        borderRight,
+        borderRightFocus,
+        borderRightHover,
+        borderTop,
+        borderTopFocus,
+        borderTopHover,
+        borderFocus,
         borderHover,
+        borderRadius,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
+        borderTopLeftRadius,
+        borderTopRightRadius,
+        boxShadow,
+        boxShadowFocus,
+        boxShadowHover,
+        bottom,
         breakpoint,
-        width
+        color,
+        colorFocus,
+        colorHover,
+        columnGap,
+        content,
+        contentVisibility,
+        cursor,
+        cursorHover,
+        display,
+        fill,
+        fillFocus,
+        fillHover,
+        filter,
+        flex,
+        flexBasis,
+        flexDirection,
+        flexFlow,
+        flexGrow,
+        flexShrink,
+        flexWrap,
+        fontSize,
+        fontStyle,
+        fontWeight,
+        gap,
+        height,
+        justifyContent,
+        justifyItems,
+        justifySelf,
+        left,
+        letterSpacing,
+        lineHeight,
+        margin,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+        marginX,
+        marginY,
+        maxHeight,
+        maxWidth,
+        minHeight,
+        minWidth,
+        objectFit,
+        objectPosition,
+        opacity,
+        opacityHover,
+        order,
+        outline,
+        outlineFocus,
+        overflow,
+        overflowX,
+        overflowY,
+        padding,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+        paddingTop,
+        paddingX,
+        paddingY,
+        pointerEvents,
+        position,
+        resize,
+        right,
+        rowGap,
+        stroke,
+        textAlign,
+        textDecoration,
+        textOverflow,
+        textTransform,
+        top,
+        transform,
+        transformOrigin,
+        transformStyle,
+        verticalAlign,
+        visibility,
+        whiteSpace,
+        width,
+        willChange,
+        wordBreak,
+        zIndex
     ]);
     /* eslint-enable react-hooks/exhaustive-deps */
 

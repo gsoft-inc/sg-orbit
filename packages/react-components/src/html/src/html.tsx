@@ -27,7 +27,7 @@ export const Main = htmlElement("html-main", "main", "o-ui-html-main");
 
 export const Nav = htmlElement("html-nav", "nav", "o-ui-html-nav");
 
-export const Section = htmlElement("html-section", "section", "o-ui-html-section");
+export const HtmlSection = htmlElement("html-section", "section", "o-ui-html-section");
 
 export type AddressProps = ComponentProps<typeof Address>;
 export type ArticleProps = ComponentProps<typeof Article>;
@@ -42,7 +42,7 @@ export type HtmlH6Props = ComponentProps<typeof HtmlH6>;
 export type HtmlHeaderProps = ComponentProps<typeof HtmlHeader>;
 export type MainProps = ComponentProps<typeof Main>;
 export type NavProps = ComponentProps<typeof Nav>;
-export type SectionProps = ComponentProps<typeof Section>;
+export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
 
 // Text content
 
@@ -111,7 +111,7 @@ export type HtmlButtonProps = ComponentProps<typeof HtmlButton>;
 export type HtmlFormProps = ComponentProps<typeof HtmlForm>;
 export type HtmlInputProps = ComponentProps<typeof HtmlInput>;
 export type HtmlLabelProps = ComponentProps<typeof HtmlLabel>;
-export type TextAreaProps = ComponentProps<typeof HtmlTextArea>;
+export type HtmlTextAreaProps = ComponentProps<typeof HtmlTextArea>;
 
 ///////////
 
@@ -138,7 +138,7 @@ export const HtmlElementType: Record<any, ElementType> = {
     "nav": Nav,
     "ol": OL,
     "p": HtmlParagraph,
-    "section": Section,
+    "section": HtmlSection,
     "span": Span,
     "table": Table,
     "tbody": TBody,

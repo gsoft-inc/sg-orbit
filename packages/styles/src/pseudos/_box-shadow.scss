@@ -1,0 +1,9 @@
+.o-ui-bs-hover:hover {
+    --o-ui-bs-hover: initial;
+    box-shadow: var(--o-ui-bs-hover) !important;
+}
+
+.o-ui-bs-focus:focus-visible {
+    --o-ui-bs-focus: initial;
+    box-shadow: var(--o-ui-bs-focus) !important;
+}
