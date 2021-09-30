@@ -22,7 +22,7 @@
         "prebuild": "yarn clean",
         "build": "run-s build:*",
         "postbuild": "yarn copy-fonts-to-dist",
-        "build:types": "tsc --build",
+        "build:types": "tsc --build ./tsconfig.build.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --extensions .ts,.tsx ",
         "build:css": "sass src/index.scss:dist/index.css src/font/index.scss:dist/font.css src/pseudos/index.scss:dist/pseudos.css --no-source-map",
         "prewatch": "yarn clean && yarn copy-fonts-to-dist",
@@ -33,7 +33,7 @@
         "prepublishOnly": "yarn copy-license-to-dist",
         "clear-dist": "node scripts/clear-dist",
         "create-dist": "node scripts/create-dist",
-        "clear-ts-cache": "yarn rimraf tsconfig.tsbuildinfo",
+        "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
         "copy-fonts-to-dist": "node scripts/copy-fonts-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },

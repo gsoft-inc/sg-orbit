@@ -8,13 +8,13 @@
         "./packages",
     ],
     // https://github.com/microsoft/TypeScript/issues/37997
-    "files": [],
-    "references": [
-        {
-            "path": "./packages/styles"
-        },
-        {
-            "path": "./packages/react-components"
-        }
-    ]
+    "files": []
+    // "references": [
+    //     {
+    //         "path": "./packages/styles"
+    //     },
+    //     {
+    //         "path": "./packages/react-components"
+    //     }
+    // ]
 }

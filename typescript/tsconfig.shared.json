@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "composite": true,
         "target": "es6",
         "moduleResolution": "node",
         // Skip type checking of all declaration files
