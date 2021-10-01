@@ -2,12 +2,11 @@ import "./IconButton.css";
 
 import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
-import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import {
     InteractionProps,
     InternalProps,
-    JsxElement,
     OmitInternalProps,
     SlotProps,
     StyledComponentProps,
@@ -21,7 +20,7 @@ import {
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export type AbstractIconButtonProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
+export type AbstractIconButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */

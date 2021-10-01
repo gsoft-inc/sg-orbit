@@ -1,10 +1,10 @@
 import { AbstractGroupProps } from "../../group";
-import { InteractionProps, InternalProps, JsxElement, StyledComponentProps } from "../../shared";
-import { SyntheticEvent } from "react";
+import { ElementType, SyntheticEvent } from "react";
+import { InteractionProps, InternalProps, StyledComponentProps } from "../../shared";
 
 export type ValidationState = "valid" | "invalid";
 
-export type AbstractInputProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "type"> & {
+export type AbstractInputProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "type"> & {
     /**
     * Whether or not the input should autoFocus on render.
     */
@@ -19,7 +19,7 @@ export type AbstractInputProps<T extends JsxElement<T>> = InternalProps & Intera
     validationState?: ValidationState;
 };
 
-export type AbstractGroupInputProps<T extends JsxElement<T>, V> = Omit<AbstractGroupProps<T>, "onChange"> & {
+export type AbstractGroupInputProps<T extends ElementType, V> = Omit<AbstractGroupProps<T>, "onChange"> & {
     /**
      * Whether or not the first input of the group should autoFocus on render.
      */

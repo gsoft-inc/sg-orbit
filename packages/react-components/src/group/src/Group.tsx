@@ -1,8 +1,8 @@
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
-import { InternalProps, JsxElement, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
-export type AbstractGroupProps<T extends JsxElement<T>> = InternalProps & Omit<StyledComponentProps<T>, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> & {
+export type AbstractGroupProps<T extends ElementType> = InternalProps & Omit<StyledComponentProps<T>, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> & {
     /**
      * The alignment of the elements.
      */

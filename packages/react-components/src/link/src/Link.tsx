@@ -1,17 +1,17 @@
 import "./Link.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InteractionProps, InternalProps, JsxElement, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { InteractionProps, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps, useStyleProps } from "../../shared";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { useLink } from "./useLink";
 
-export type AbstractLinkProps<T extends JsxElement<T>> =
+export type AbstractLinkProps<T extends ElementType> =
     // Keep it so it could be used with dynamic slots.
     SlotProps &
     InternalProps &
     InteractionProps &
-    Omit<StyledComponentProps<typeof DefaultElement>, "autoFocus" | "external" | "href" | "rel" | "target"> & {
+    Omit<StyledComponentProps<T>, "autoFocus" | "external" | "href" | "rel" | "target"> & {
         /**
          * Whether or not the link should autoFocus on render.
          */
