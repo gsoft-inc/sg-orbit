@@ -21,7 +21,8 @@
             "@utils/*": ["../jest/utils/*"],
             "@styles/*": ["../packages/styles/src/*"],
             "@react-components/*": ["../packages/react-components/src/*"],
-            "@orbit-ui/styles": ["../packages/styles"]
+            "@orbit-ui/styles": ["../packages/styles"],
+            "@orbit-ui/react-components": ["../packages/react-components"]
         }
     }
 }

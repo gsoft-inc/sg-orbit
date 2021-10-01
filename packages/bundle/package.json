@@ -5,17 +5,25 @@
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
     "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "files": [
+        "/dist"
+    ],
     "publishConfig": {
-        "access": "public",
-        "directory": "dist"
+        "access": "public"
     },
     "scripts": {
+        "setup": "yarn create-dist",
         "prebuild": "yarn clean",
-        "build": "yarn copy-to-dist",
-        "clean": "rimraf dist",
-        "prepublishOnly": "yarn copy-license-to-dist",
-        "copy-to-dist": "node scripts/copy-to-dist",
-        "copy-license-to-dist": "node ../../../scripts/copy-root-license dist"
+        "build": "run-s build:*",
+        "build:types": "tsc --build ./tsconfig.build.json",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .ts,.tsx ",
+        "clean": "run-p clear-dist clear-ts-cache",
+        "clear-dist": "node scripts/clear-dist",
+        "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
+        "create-dist": "node scripts/create-dist"
     },
     "peerDependencies": {
         "react": "*",
