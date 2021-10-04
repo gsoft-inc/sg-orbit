@@ -1,4 +1,4 @@
-import { BoxShadowColorSchemes, ColorColorSchemes, ColorSchemes, FontSizeValues, OrbitTheme } from "./types";
+import { BoxShadowColorSchemes, ColorColorSchemes, ColorSchemeSection, FontSizeValues, OrbitTheme } from "./types";
 import { isNil } from "../assertions";
 
 export class ThemeAccessor {
@@ -8,7 +8,7 @@ export class ThemeAccessor {
         this.theme = theme;
     }
 
-    private getColorSchemeValue<C, L, D>(values: ColorSchemes<C, L, D>, key: string, colorScheme: keyof ColorSchemes<C, L, D>) {
+    private getColorSchemeValue<C, L, D>(values: ColorSchemeSection<C, L, D>, key: string, colorScheme: keyof ColorSchemeSection<C, L, D>) {
         let section = values[colorScheme];
 
         if (!isNil(section)) {

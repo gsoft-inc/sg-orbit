@@ -1,4 +1,5 @@
-import { ColorSchemes, OrbitTheme } from "./themes";
+import { ColorScheme } from "./useColorScheme";
+import { ColorSchemeSection, OrbitTheme } from "./themes";
 import { Entry, JsonObject, JsonValue } from "type-fest";
 import { isArray, isNil, isNumber, isString } from "./assertions";
 
@@ -18,7 +19,7 @@ export function getThemeClassName(themeName: string) {
     return `o-ui-${themeName}`;
 }
 
-export function getColorSchemeClassName(themeName: string, colorScheme: string) {
+export function getColorSchemeClassName(themeName: string, colorScheme: ColorScheme) {
     return `o-ui-${themeName}-${colorScheme}`;
 }
 
@@ -85,11 +86,11 @@ function appendColorScheme(values: Array | JsonObject, prefix: string, bucket: V
 }
 
 function appendColorSchemes<C, L, D>(
-    values: C | L | D | ColorSchemes<C, L, D>,
+    values: C | L | D | ColorSchemeSection<C, L, D>,
     prefix: string,
     { common, dark, light }: { common?: VarsBucket; dark: VarsBucket; light: VarsBucket }
 ) {
-    const colorSchemes = values as ColorSchemes<C, L, D>;
+    const colorSchemes = values as ColorSchemeSection<C, L, D>;
 
     if (!isNil(colorSchemes.common) || !isNil(colorSchemes.light) || !isNil(colorSchemes.dark)) {
         if (!isNil(colorSchemes.common)) {

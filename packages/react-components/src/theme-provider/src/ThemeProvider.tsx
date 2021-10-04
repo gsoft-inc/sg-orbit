@@ -1,13 +1,8 @@
-import { ApricotTheme, BreakpointProvider, OrbitTheme, getColorSchemeClassName, getThemeClassName } from "@orbit-ui/styles";
+import { ApricotTheme, BreakpointProvider, ColorScheme, ColorSchemeOrSystem, OrbitTheme, getColorSchemeClassName, getThemeClassName, useColorScheme } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
 import { ReactNode, Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
-import { useColorScheme } from "./useColorScheme";
-
-export type ColorScheme = "light" | "dark";
-
-export type ColorSchemeOrSystem = ColorScheme | "system";
 
 const DefaultElement = "div";
 

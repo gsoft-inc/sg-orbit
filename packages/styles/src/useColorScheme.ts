@@ -1,6 +1,10 @@
-import { isNil, useMediaQuery } from "../../shared";
+import { isNil } from "./assertions";
 import { useEffect } from "react";
-import type { ColorScheme, ColorSchemeOrSystem } from "./ThemeProvider";
+import { useMediaQuery } from "./useMediaQuery";
+
+export type ColorScheme = "light" | "dark";
+
+export type ColorSchemeOrSystem = ColorScheme | "system";
 
 export function useColorScheme(colorScheme: ColorSchemeOrSystem, defaultColorScheme: ColorScheme): ColorScheme {
     const matchesLight = useMediaQuery("(prefers-color-scheme: light)");
