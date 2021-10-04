@@ -14,6 +14,14 @@ export function normalizeVariable(name: string | number, prefix?: string) {
     return isNil(prefix) ? `--o-ui-${name}` : `--o-ui-${prefix}-${name}`;
 }
 
+export function getThemeClassName(themeName: string) {
+    return `o-ui-${themeName}`;
+}
+
+export function getColorSchemeClassName(themeName: string, colorScheme: string) {
+    return `o-ui-${themeName}-${colorScheme}`;
+}
+
 function augmentPrefix(current: string, newPart: string) {
     return isNil(current) ? newPart : `${current}-${newPart}`;
 }
@@ -124,8 +132,8 @@ export function createThemeVars(themes: OrbitTheme[]) {
         appendColorSchemes(theme.boxShadows, BoxShadowPrefix, { common, dark, light });
         appendColorSchemes(theme.colors, ColorPrefix, { common, dark, light });
 
-        renderBucket(`o-ui-${theme.name}`, common);
-        renderBucket(`o-ui-${theme.name}-light`, light);
-        renderBucket(`o-ui-${theme.name}-dark`, dark);
+        renderBucket(getThemeClassName(theme.name), common);
+        renderBucket(getColorSchemeClassName(theme.name, "light"), light);
+        renderBucket(getColorSchemeClassName(theme.name, "dark"), dark);
     });
 }

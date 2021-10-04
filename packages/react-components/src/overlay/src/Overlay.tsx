@@ -46,30 +46,34 @@ export function InnerOverlay({
     const { colorScheme, theme } = useThemeContext();
 
     const content = (
-        <ThemeProvider colorScheme={colorScheme} theme={theme}>
-            <Transition
-                {...mergeProps(
-                    rest,
-                    {
-                        as,
-                        className: cssModule(
-                            "o-ui-overlay",
-                            borderOffset && "has-border-offset"
-                        ),
-                        enter: "o-ui-fade-in",
-                        leave: "o-ui-fade-out",
-                        ref: forwardedRef,
-                        show,
-                        style: {
-                            "--o-ui-overlay-border-offset": borderOffset
-                        },
-                        zIndex
-                    }
-                )}
-            >
+        <Transition
+            {...mergeProps(
+                rest,
+                {
+                    as,
+                    className: cssModule(
+                        // The "o-ui" class is a small hack to allow nesting ThemeProvider inside the transition instead of outside to prevent rendering a div when the overlay is not visible.
+                        // Since the transition component use the "o-ui-fade-in" and "o-ui-fade-out" classes which are using CSS variables declared inside an ".o-ui" class
+                        // we must render the class somewhere.
+                        "o-ui",
+                        "o-ui-overlay",
+                        borderOffset && "has-border-offset"
+                    ),
+                    enter: "o-ui-fade-in",
+                    leave: "o-ui-fade-out",
+                    ref: forwardedRef,
+                    show,
+                    style: {
+                        "--o-ui-overlay-border-offset": borderOffset
+                    },
+                    zIndex
+                }
+            )}
+        >
+            <ThemeProvider colorScheme={colorScheme} theme={theme}>
                 {children}
-            </Transition>
-        </ThemeProvider>
+            </ThemeProvider>
+        </Transition>
     );
 
     return createPortal(content, containerElement || document.body);

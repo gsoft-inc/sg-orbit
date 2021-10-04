@@ -1,4 +1,4 @@
-import { ApricotTheme, BreakpointProvider, OrbitTheme } from "@orbit-ui/styles";
+import { ApricotTheme, BreakpointProvider, OrbitTheme, getColorSchemeClassName, getThemeClassName } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../shared";
 import { ReactNode, Ref, useCallback, useState } from "react";
@@ -68,8 +68,8 @@ export function ThemeProvider({
                             as,
                             className: mergeClasses(
                                 "o-ui",
-                                `o-ui-${theme.name}`,
-                                `o-ui-${theme.name}-${colorScheme}`
+                                getThemeClassName(theme.name),
+                                getColorSchemeClassName(theme.name, colorScheme)
                             )
                         }
                     )}
