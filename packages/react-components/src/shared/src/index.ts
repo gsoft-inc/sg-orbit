@@ -32,7 +32,6 @@ export * from "./useKeyboardNavigation";
 export * from "./useHasChild";
 export * from "./useIsInitialRender";
 export * from "./useDisposables";
-export * from "./useMediaQuery";
 export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";

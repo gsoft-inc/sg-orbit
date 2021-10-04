@@ -28,10 +28,12 @@
         "watch": "run-p build:*",
         "watch:js": "yarn build:js --watch",
         "clean": "run-p clear-dist clear-ts-cache",
-        "clear-dist": "node scripts/clear-dist",
+        "prepublishOnly": "yarn copy-license-to-dist",
+        "clear-dist": "node ../../scripts/clear-dir dist",
         "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
-        "create-dist": "node scripts/create-dist",
-        "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
+        "create-dist": "node ../../scripts/create-dir dist",
+        "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist",
+        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
         "@orbit-ui/styles": "*",

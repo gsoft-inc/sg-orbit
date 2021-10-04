@@ -1,4 +1,5 @@
-import { ColorSchemes, OrbitTheme } from "./themes";
+import { ColorScheme } from "./useColorScheme";
+import { ColorSchemeSection, OrbitTheme } from "./themes";
 import { Entry, JsonObject, JsonValue } from "type-fest";
 import { isArray, isNil, isNumber, isString } from "./assertions";
 
@@ -12,6 +13,14 @@ type Array = StringArray | NumberArray;
 
 export function normalizeVariable(name: string | number, prefix?: string) {
     return isNil(prefix) ? `--o-ui-${name}` : `--o-ui-${prefix}-${name}`;
+}
+
+export function getThemeClassName(themeName: string) {
+    return `o-ui-${themeName}`;
+}
+
+export function getColorSchemeClassName(themeName: string, colorScheme: ColorScheme) {
+    return `o-ui-${themeName}-${colorScheme}`;
 }
 
 function augmentPrefix(current: string, newPart: string) {
@@ -77,11 +86,11 @@ function appendColorScheme(values: Array | JsonObject, prefix: string, bucket: V
 }
 
 function appendColorSchemes<C, L, D>(
-    values: C | L | D | ColorSchemes<C, L, D>,
+    values: C | L | D | ColorSchemeSection<C, L, D>,
     prefix: string,
     { common, dark, light }: { common?: VarsBucket; dark: VarsBucket; light: VarsBucket }
 ) {
-    const colorSchemes = values as ColorSchemes<C, L, D>;
+    const colorSchemes = values as ColorSchemeSection<C, L, D>;
 
     if (!isNil(colorSchemes.common) || !isNil(colorSchemes.light) || !isNil(colorSchemes.dark)) {
         if (!isNil(colorSchemes.common)) {
@@ -124,8 +133,8 @@ export function createThemeVars(themes: OrbitTheme[]) {
         appendColorSchemes(theme.boxShadows, BoxShadowPrefix, { common, dark, light });
         appendColorSchemes(theme.colors, ColorPrefix, { common, dark, light });
 
-        renderBucket(`o-ui-${theme.name}`, common);
-        renderBucket(`o-ui-${theme.name}-light`, light);
-        renderBucket(`o-ui-${theme.name}-dark`, dark);
+        renderBucket(getThemeClassName(theme.name), common);
+        renderBucket(getColorSchemeClassName(theme.name, "light"), light);
+        renderBucket(getColorSchemeClassName(theme.name, "dark"), dark);
     });
 }

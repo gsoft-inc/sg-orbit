@@ -45,6 +45,9 @@ const ColorSampling = [
     "hsl(50, 33%, 25%)",
     "hsla(50, 33%, 25%, .75)",
     { base: "sunray-1" },
+    { s: "sunray-2" },
+    { m: "sunray-3" },
+    { l: "sunray-4" },
     { s: "sunray-2", m: "sunray-3", l: "sunray-4" },
     { base: "sunray-1", s: "sunray-2", m: "sunray-3", l: "sunray-4" }
 ];
@@ -60,7 +63,9 @@ const LengthSampling = [
     "1vmax",
     "calc(1px + 1px)",
     { base: "1px" },
-    { s: "2px", m: "3px", l: "4px" },
+    { s: "2px" },
+    { sm: "3px" },
+    { l: "4px" },
     { base: "1px", s: "2px", m: "3px", l: "4px" }
 ];
 
@@ -330,4 +335,48 @@ test("when style is provided with a value matching a provided style prop, do not
     );
 
     await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+});
+
+test("when className is updated, update the rendered className", async () => {
+    const { getByTestId, rerender } = render(
+        <Box
+            className="toto"
+            top="2px"
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).toHaveClass("toto"));
+
+    rerender(
+        <Box
+            className="tata"
+            top="2px"
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).toHaveClass("tata"));
+});
+
+test("when style is updated, update the rendered inline style", async () => {
+    const { getByTestId, rerender } = render(
+        <Box
+            style={{ top: "1px" }}
+            top="2px"
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+
+    rerender(
+        <Box
+            style={{ top: "2px" }}
+            top="2px"
+            data-testid="box"
+        />
+    );
+
+    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 2px;"));
 });

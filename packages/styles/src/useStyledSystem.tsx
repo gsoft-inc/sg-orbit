@@ -1038,16 +1038,16 @@ function createHandler<TValue extends string | number>(systemValues?: Record<TVa
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
         const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
 
-        if (!isAdded) {
+        if (!isAdded && !isNil(underlyingValue)) {
             context.addStyleValue(name, underlyingValue);
         }
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context: StylingContext) => {
-        const responsiveValue = parseResponsiveValue(value, context.breakpoint);
+        const underlyingValue = parseResponsiveValue(value, context.breakpoint);
 
-        if (!isNil(responsiveValue)) {
-            context.addStyleValue(name, !isNil(responsiveValue) ? responsiveValue : value);
+        if (!isNil(underlyingValue)) {
+            context.addStyleValue(name, !isNil(underlyingValue) ? underlyingValue : value);
         }
     };
 
@@ -1058,17 +1058,17 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
         const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
 
-        if (!isAdded) {
+        if (!isAdded && !isNil(underlyingValue)) {
             context.addStyleValue(pseudoVariable, underlyingValue);
         }
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context) => {
-        const responsiveValue = parseResponsiveValue(value, context.breakpoint);
+        const underlyingValue = parseResponsiveValue(value, context.breakpoint);
 
-        if (!isNil(responsiveValue)) {
+        if (!isNil(underlyingValue)) {
             context.addClass(pseudoClassName);
-            context.addStyleValue(pseudoVariable, !isNil(responsiveValue) ? responsiveValue : value);
+            context.addStyleValue(pseudoVariable, !isNil(underlyingValue) ? underlyingValue : value);
         }
     };
 
@@ -1082,7 +1082,7 @@ function createBorderHandler<TValue extends string>(systemValues: Record<TValue,
     return (name, value, context) => {
         const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
 
-        if (!isAdded) {
+        if (!isAdded && !isNil(underlyingValue)) {
             if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
                 context.addStyleValue(name, `${BorderWidthAndStyle} ${underlyingValue}`);
             }
@@ -1097,7 +1097,7 @@ function createBorderHandlerPseudo<TValue extends string>(pseudoClassName: strin
     return (name, value, context) => {
         const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
 
-        if (!isAdded) {
+        if (!isAdded && !isNil(underlyingValue)) {
             if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
                 context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${underlyingValue}`);
             }
@@ -1426,6 +1426,7 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         boxShadowHover,
         bottom,
         breakpoint,
+        className,
         color,
         colorFocus,
         colorHover,
@@ -1491,6 +1492,7 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         right,
         rowGap,
         stroke,
+        style,
         textAlign,
         textDecoration,
         textOverflow,

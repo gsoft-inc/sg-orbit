@@ -9,7 +9,9 @@
     "types": "dist/index.d.ts",
     "style": "dist/index.css",
     "files": [
-        "/dist"
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
     ],
     "publishConfig": {
         "access": "public"
@@ -21,9 +23,11 @@
         "build:types": "tsc --build ./tsconfig.build.json",
         "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .ts,.tsx ",
         "clean": "run-p clear-dist clear-ts-cache",
-        "clear-dist": "node scripts/clear-dist",
+        "prepublishOnly": "yarn copy-license-to-dist",
+        "clear-dist": "node ../../scripts/clear-dir dist",
         "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
-        "create-dist": "node scripts/create-dist"
+        "create-dist": "node ../../scripts/create-dir dist",
+        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
         "react": "*",

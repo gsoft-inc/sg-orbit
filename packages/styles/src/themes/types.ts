@@ -1,6 +1,6 @@
 import { FixedLengthArray } from "type-fest";
 
-export interface ColorSchemes<C, L, D> {
+export interface ColorSchemeSection<C, L, D> {
     common?: Partial<C>;
     light: Partial<L>;
     dark: Partial<D>;
@@ -37,11 +37,11 @@ export interface BoxShadowAliases {
 
 export type BorderRadiusValues = FixedLengthArray<string, 4>;
 
-export type BoxShadowColorSchemes = ColorSchemes<BoxShadowAliases, BoxShadowValues, BoxShadowValues>;
+export type BoxShadowColorSchemes = ColorSchemeSection<BoxShadowAliases, BoxShadowValues, BoxShadowValues>;
 
 export type ColorPalette = FixedLengthArray<string, 10>;
 
-export interface ColorPalettes {
+export interface ColorPaletteSection {
     "white": string;
     "black": string;
     "marine": ColorPalette;
@@ -163,7 +163,7 @@ export interface ColorAliases {
     "text-alias-input-placeholder": string;
 }
 
-export type ColorColorSchemes = ColorSchemes<ColorPalettes, ColorAliases, ColorAliases>;
+export type ColorColorSchemes = ColorSchemeSection<ColorPaletteSection, ColorAliases, ColorAliases>;
 
 export interface OrbitTheme {
     name: string;
