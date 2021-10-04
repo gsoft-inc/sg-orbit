@@ -24,7 +24,7 @@ export function BreakpointProvider({
     const [breakpoint, setBreakpoint] = useState<string>(DefaultBreakpoint);
 
     const handleResize = useDebouncedCallback(() => {
-        console.log("resizing");
+        console.log("** Resizing **");
 
         for (const [key, value] of Object.entries(Breakpoints)) {
             if (window.matchMedia(value).matches) {

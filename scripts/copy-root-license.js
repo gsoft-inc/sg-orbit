@@ -1,7 +1,7 @@
-const meow = require("meow");
 const chalk = require("chalk");
-const shell = require("shelljs");
 const es = require("./ensure-success");
+const meow = require("meow");
+const shell = require("shelljs");
 
 const USAGE = `
 Usage
@@ -25,8 +25,8 @@ if (!dest) {
 
 const projectPath = es(shell.pwd()).stdout;
 
-if (!shell.test("-d", "dist")) {
-    es(shell.mkdir("dist"));
+if (!shell.test("-d", dest)) {
+    es(shell.mkdir(dest));
 }
 
 // Navigate up until we find the LICENSE file.

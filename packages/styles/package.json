@@ -31,8 +31,8 @@
         "watch:css": "yarn build:css --watch",
         "clean": "run-p clear-dist clear-ts-cache",
         "prepublishOnly": "yarn copy-license-to-dist",
-        "clear-dist": "node scripts/clear-dist",
-        "create-dist": "node scripts/create-dist",
+        "clear-dist": "node ../../scripts/clear-dir dist",
+        "create-dist": "node ../../scripts/create-dir dist",
         "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
         "copy-fonts-to-dist": "node scripts/copy-fonts-to-dist",
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
