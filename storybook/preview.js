@@ -1,15 +1,10 @@
-import { ApricotTheme, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
+import { ApricotTheme, Breakpoints, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 import "@orbit-ui/react-components/dist/index.css";
-
-// TEMP START
-import "@orbit-ui/styles/dist/index.css";
-// TEMP END
-
 import "@orbit-ui/styles/dist/pseudos.css";
 
 import "./styles";
@@ -55,6 +50,24 @@ export const parameters = {
             rules: [
                 { id: "button-name", enabled: false }
             ]
+        }
+    },
+    viewport: {
+        viewports: {
+            m: {
+                name: "medium (900px)",
+                styles: {
+                    width: "900px",
+                    height: "100%"
+                }
+            },
+            l: {
+                name: "large (1280px)",
+                styles: {
+                    width: "1280px",
+                    height: "100%"
+                }
+            }
         }
     }
 };

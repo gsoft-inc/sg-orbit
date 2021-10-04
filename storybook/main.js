@@ -16,6 +16,7 @@ if (includeDocs) {
 if (includeChromatic) {
     stories = [
         ...stories,
+        "../packages/styles/**/tests/chromatic/**/*.chroma.jsx",
         "../packages/react-components/**/tests/chromatic/**/*.chroma.jsx"
     ];
 }

@@ -6,6 +6,7 @@ class ParamsBuilder {
     _excludeFromDocs = false;
     _component = null;
     _a11y = null;
+    _viewports = null;
 
     canvasLayout(config) {
         if (!isNil(config)) {
@@ -67,6 +68,12 @@ class ParamsBuilder {
         return this;
     }
 
+    viewports(values) {
+        this._viewports = values;
+
+        return this;
+    }
+
     build() {
         const params = {};
 
@@ -88,6 +95,10 @@ class ParamsBuilder {
 
         if (!isNil(this._a11y)) {
             params.a11y = this._a11y;
+        }
+
+        if (!isNil(this._viewports)) {
+            params.viewports = this._viewports;
         }
 
         const docs = {};

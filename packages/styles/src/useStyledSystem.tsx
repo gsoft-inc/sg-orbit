@@ -1,9 +1,9 @@
 import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createThemeVars";
+import { Breakpoints, useBreakpoint } from "./BreakpointProvider";
 import { CSSProperties, useMemo } from "react";
 import { Property } from "csstype";
 import { Simplify } from "type-fest";
 import { isNil, isObject } from "./assertions";
-import { useBreakpoint } from "./BreakpointProvider";
 
 /*
 CASES:
@@ -33,12 +33,7 @@ CASES:
 <Button backgroundColorHover={{ s: "sunray-10", m: "#fff", l: "black" }}>Toto</Button>
 */
 
-export interface ResponsiveValue<T> {
-    base?: T;
-    l?: T;
-    m?: T;
-    s?: T;
-}
+export type ResponsiveValue<T> = Simplify<Partial<Record<keyof typeof Breakpoints, T>> & { base?: T }>;
 
 const ColorExpressionTypes = [
     "#",

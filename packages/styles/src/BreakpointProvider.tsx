@@ -3,10 +3,9 @@ import { isNil } from "./assertions";
 import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
-const Breakpoints = {
-    s: "(max-width: 991px)",
-    m: "(min-width: 992px) and (max-width: 1199px)",
-    l: "(min-width: 1200px)"
+export const Breakpoints = {
+    m: "(max-width: 900px)",
+    l: "(min-width: 901px)"
 };
 /* eslint-enable sort-keys-fix/sort-keys-fix */
 
