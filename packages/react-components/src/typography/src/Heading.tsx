@@ -1,10 +1,10 @@
 import "./Heading.css";
 
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, JsxElement, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
 
-export type AbstractHeadingProps<T extends JsxElement<T>> = SlotProps & InternalProps & StyledComponentProps<T> & {
+export type AbstractHeadingProps<T extends ElementType> = SlotProps & InternalProps & StyledComponentProps<T> & {
     /**
      * React children.
      */

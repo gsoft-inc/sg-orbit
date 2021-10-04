@@ -1,4 +1,4 @@
-import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef, JSXElementConstructor } from "react";
+import { AllHTMLAttributes, ComponentProps, ElementType, ForwardedRef } from "react";
 import { StyledSystemProps } from "@orbit-ui/styles";
 
 export interface SlotProps {
@@ -36,8 +36,6 @@ export interface InteractionProps {
      */
     hover?: boolean;
 }
-
-export type JsxElement<T> = keyof JSX.IntrinsicElements | JSXElementConstructor<T>;
 
 export type StyledSystemOverlappingHtmlAttributes = "as" | "color" | "content" | "height" | "size" | "width" | "wrap";
 

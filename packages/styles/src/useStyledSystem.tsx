@@ -314,7 +314,7 @@ function createValuesMapping<T extends readonly (string | number)[]>(values: T, 
 
 function composePrefixes(...rest) {
     return rest.reduce((acc, prefix) => {
-        return !isNil(prefix) ? `${acc}-${prefix}` : acc;
+        return !isNil(prefix) ? `${acc}${acc !== "" ? "-" : ""}${prefix}` : acc;
     }, "");
 }
 
@@ -345,7 +345,9 @@ export const BoxShadowMapping = {
 
 export const FontSizeMapping = createValuesMapping(FontSizeScale, createPrefixedValueTemplate(FontSizePrefix));
 
-export const FontWeightMapping = createValuesMapping(FontWeightScale, createPrefixedValueTemplate(FontWeightPrefix));
+const fontVariationSettingsValueTemplate = (value: string | number) => `'wght' var(${normalizeVariable(value, FontWeightPrefix)})`;
+
+export const FontWeightMapping = createValuesMapping(FontWeightScale, fontVariationSettingsValueTemplate);
 
 export const IconColorMapping = {
     ...createValuesMapping(IconColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "icon"))),
@@ -969,9 +971,9 @@ class StylingContext {
 
 type PropHandler<TValue> = (name: string, value: TValue, context: StylingContext) => void;
 
-function parsePropValue<T>(value: T | ResponsiveValue<T>, breakpoint: string): T {
+function parseResponsiveValue<T>(value: T | ResponsiveValue<T>, matchedBreakpoint: string): T {
     if (isObject(value)) {
-        const responsiveValue = value[breakpoint ?? "base"];
+        const responsiveValue = value[matchedBreakpoint ?? "base"];
 
         return (responsiveValue ?? value["base"]) as T;
     }
@@ -991,53 +993,78 @@ function tryAddSystemValue<T extends Record<string | number, string>>(name: stri
     return false;
 }
 
+function tryAddResponse(isAdded: boolean, underlyingValue?: any) {
+    return { isAdded, underlyingValue };
+}
+
+function tryAddResponsiveSystemValue<TValue extends string | number>(name: string, value: TValue, systemValues: Record<TValue, string>, context: StylingContext) {
+    // Trying to hit a system value before parsing for a responsive value.
+    if (tryAddSystemValue(name, value, systemValues, context)) {
+        return tryAddResponse(true);
+    }
+
+    const underlyingValue = parseResponsiveValue(value, context.breakpoint);
+
+    if (!isNil(underlyingValue)) {
+        return tryAddResponse(tryAddSystemValue(name, underlyingValue, systemValues, context), underlyingValue);
+    }
+
+    return tryAddResponse(false, underlyingValue);
+}
+
+function tryAddResponsiveSystemValuePseudo<TValue extends string | number>(
+    pseudoClassName: string,
+    pseudoVariable: string,
+    value: TValue,
+    systemValues: Record<TValue, string>,
+    context: StylingContext) {
+    context.addClass(pseudoClassName);
+
+    // Trying to hit a system value before parsing for a responsive value.
+    if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
+        return tryAddResponse(true);
+    }
+
+    const underlyingValue = parseResponsiveValue(value, context.breakpoint);
+
+    if (!isNil(underlyingValue)) {
+        return tryAddResponse(tryAddSystemValue(pseudoVariable, underlyingValue, systemValues, context), underlyingValue);
+    }
+
+    return tryAddResponse(false, underlyingValue);
+}
+
 function createHandler<TValue extends string | number>(systemValues?: Record<TValue, string>): PropHandler<TValue> {
-    const systemValuesHandler = (name, value, context: StylingContext) => {
-        // Trying to hit a system value before parsing for a responsive value.
-        if (tryAddSystemValue(name, value, systemValues, context)) {
-            return;
-        }
+    const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
+        const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
 
-        const parsedValue = parsePropValue(value, context.breakpoint);
-
-        if (!isNil(parsedValue)) {
-            if (!tryAddSystemValue(name, parsedValue, systemValues, context)) {
-                context.addStyleValue(name, parsedValue);
-            }
+        if (!isAdded) {
+            context.addStyleValue(name, underlyingValue);
         }
     };
 
-    const passThroughHandler = (name, value, context: StylingContext) => {
-        const responsiveValue = parsePropValue(value, context.breakpoint);
+    const passThroughHandler: PropHandler<TValue> = (name, value, context: StylingContext) => {
+        const responsiveValue = parseResponsiveValue(value, context.breakpoint);
 
         if (!isNil(responsiveValue)) {
             context.addStyleValue(name, !isNil(responsiveValue) ? responsiveValue : value);
         }
     };
 
-    return !isNil(systemValues) ? systemValuesHandler : passThroughHandler;
+    return !isNil(systemValues) ? systemValueHandler : passThroughHandler;
 }
 
 function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, systemValues?: Record<TValue, string>): PropHandler<TValue> {
-    const systemValuesHandler = (name, value, context: StylingContext) => {
-        context.addClass(pseudoClassName);
+    const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
+        const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
 
-        // Trying to hit a system value before parsing for a responsive value.
-        if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
-            return;
-        }
-
-        const parsedValue = parsePropValue(value, context.breakpoint);
-
-        if (!isNil(parsedValue)) {
-            if (!tryAddSystemValue(pseudoVariable, parsedValue, systemValues, context)) {
-                context.addStyleValue(pseudoVariable, parsedValue);
-            }
+        if (!isAdded) {
+            context.addStyleValue(pseudoVariable, underlyingValue);
         }
     };
 
-    const passThroughHandler = (name, value, context: StylingContext) => {
-        const responsiveValue = parsePropValue(value, context.breakpoint);
+    const passThroughHandler: PropHandler<TValue> = (name, value, context) => {
+        const responsiveValue = parseResponsiveValue(value, context.breakpoint);
 
         if (!isNil(responsiveValue)) {
             context.addClass(pseudoClassName);
@@ -1045,64 +1072,53 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
         }
     };
 
-    return !isNil(systemValues) ? systemValuesHandler : passThroughHandler;
+    return !isNil(systemValues) ? systemValueHandler : passThroughHandler;
 }
 
 // Custom handler for borders to allow the following syntax:
 // - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
-function borderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
-    return (name: string, value, context) => {
-        // Trying to hit a system value before parsing for a responsive value.
-        if (tryAddSystemValue(name, value, systemValues, context)) {
-            return;
-        }
+function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
+    return (name, value, context) => {
+        const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
 
-        const parsedValue = parsePropValue(value, context.breakpoint);
-
-        if (!isNil(parsedValue)) {
-            if (!tryAddSystemValue(name, parsedValue, systemValues, context)) {
-                if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
-                    context.addStyleValue(name, `${BorderWidthAndStyle} ${parsedValue}`);
-                }
-                else {
-                    context.addStyleValue(name, parsedValue);
-                }
+        if (!isAdded) {
+            if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
+                context.addStyleValue(name, `${BorderWidthAndStyle} ${underlyingValue}`);
+            }
+            else {
+                context.addStyleValue(name, underlyingValue);
             }
         }
     };
 }
 
-function borderHandlerPseudo<TValue extends string>(pseudoClassName, pseudoVariable, systemValues: Record<TValue, string>): PropHandler<TValue> {
-    return (name: BorderProp, value, context) => {
-        context.addClass(pseudoClassName);
+function createBorderHandlerPseudo<TValue extends string>(pseudoClassName: string, pseudoVariable: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
+    return (name, value, context) => {
+        const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
 
-        // Trying to hit a system value before parsing for a responsive value.
-        if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
-            return;
-        }
-
-        const parsedValue = parsePropValue(value, context.breakpoint);
-
-        if (!isNil(parsedValue)) {
-            if (!tryAddSystemValue(pseudoVariable, parsedValue, systemValues, context)) {
-                if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
-                    context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${parsedValue}`);
-                }
-                else {
-                    context.addStyleValue(pseudoVariable, parsedValue);
-                }
+        if (!isAdded) {
+            if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
+                context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${underlyingValue}`);
+            }
+            else {
+                context.addStyleValue(pseudoVariable, underlyingValue);
             }
         }
     };
 }
 
-function fontWeightHandler(name: string, value: string, context: StylingContext) {
-    context.addStyleValue("fontVariationSettings", `'wght' ${value}`);
+const fontWeightHandler: PropHandler<string | number> = (name, value, context) => {
+    const { isAdded, underlyingValue } = tryAddResponsiveSystemValue("fontVariationSettings", value, FontWeightMapping, context);
+
+    if (!isAdded) {
+        context.addStyleValue("fontVariationSettings", fontVariationSettingsValueTemplate(underlyingValue));
+    }
+
     context.addStyleValue("fontWeight", "400");
-}
+};
 
-function createAxisHandler<TValue extends string>(firstPropName: string, secondPropName: string, systemValues: Record<TValue, string>) {
+function createAxisHandler<TValue extends string>(firstPropName: string, secondPropName: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
     const firstHandler = createHandler(systemValues);
     const secondHandler = createHandler(systemValues);
 
@@ -1124,24 +1140,24 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundPosition: createHandler(),
     backgroundRepeat: createHandler(),
     backgroundSize: createHandler(),
-    border: borderHandler(BorderMapping),
-    borderBottom: borderHandler(BorderMapping),
-    borderBottomFocus: borderHandlerPseudo("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
-    borderBottomHover: borderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
+    border: createBorderHandler(BorderMapping),
+    borderBottom: createBorderHandler(BorderMapping),
+    borderBottomFocus: createBorderHandlerPseudo("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
+    borderBottomHover: createBorderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
     borderBottomLeftRadius: createHandler(BorderRadiusMapping),
     borderBottomRightRadius: createHandler(BorderRadiusMapping),
-    borderFocus: borderHandlerPseudo("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
-    borderHover: borderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
-    borderLeft: borderHandler(BorderMapping),
-    borderLeftFocus: borderHandlerPseudo("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
-    borderLeftHover: borderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
+    borderFocus: createBorderHandlerPseudo("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
+    borderHover: createBorderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
+    borderLeft: createBorderHandler(BorderMapping),
+    borderLeftFocus: createBorderHandlerPseudo("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
+    borderLeftHover: createBorderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
     borderRadius: createHandler(BorderRadiusMapping),
-    borderRight: borderHandler(BorderMapping),
-    borderRightFocus: borderHandlerPseudo("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
-    borderRightHover: borderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
-    borderTop: borderHandler(BorderMapping),
-    borderTopFocus: borderHandlerPseudo("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
-    borderTopHover: borderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
+    borderRight: createBorderHandler(BorderMapping),
+    borderRightFocus: createBorderHandlerPseudo("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
+    borderRightHover: createBorderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
+    borderTop: createBorderHandler(BorderMapping),
+    borderTopFocus: createBorderHandlerPseudo("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
+    borderTopHover: createBorderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
     borderTopLeftRadius: createHandler(BorderRadiusMapping),
     borderTopRightRadius: createHandler(BorderRadiusMapping),
     bottom: createHandler(),

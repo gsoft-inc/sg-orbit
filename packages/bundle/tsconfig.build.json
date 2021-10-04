@@ -1,0 +1,24 @@
+{
+    "extends": "../../typescript/tsconfig.shared.json",
+    "compilerOptions": {
+        "composite": true,
+        "rootDir": "./src",
+        "outDir": "./dist",
+        // Generate typing files.
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true
+    },
+    "include": [
+        "src/**/*",
+        "../../typescript/typings/*",
+    ],
+    "references": [
+        {
+            "path": "../styles/tsconfig.build.json"
+        },
+        {
+            "path": "../react-components/tsconfig.build.json"
+        }
+    ]
+}

@@ -40,5 +40,8 @@
     "peerDependencies": {
         "react": "*",
         "react-dom": "*"
+    },
+    "dependencies": {
+        "use-debounce": "7.0.0"
     }
 }

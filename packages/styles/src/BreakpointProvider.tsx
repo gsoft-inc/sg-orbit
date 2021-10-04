@@ -1,5 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { isNil } from "./assertions";
+import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 const Breakpoints = {
@@ -22,8 +23,9 @@ export function BreakpointProvider({
 }) {
     const [breakpoint, setBreakpoint] = useState<string>(DefaultBreakpoint);
 
-    // TODO: Debounce
-    const handleResize = useCallback(() => {
+    const handleResize = useDebouncedCallback(() => {
+        console.log("resizing");
+
         for (const [key, value] of Object.entries(Breakpoints)) {
             if (window.matchMedia(value).matches) {
                 setBreakpoint(key);
@@ -31,7 +33,7 @@ export function BreakpointProvider({
                 break;
             }
         }
-    }, []);
+    }, 50);
 
     useEffect(() => {
         // Initialize breakpoint.

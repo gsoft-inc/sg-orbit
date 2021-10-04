@@ -2,13 +2,13 @@ import "./TextInput.css";
 
 import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ReactElement, forwardRef } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { JsxElement, OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
-export interface AbstractTextInputProps<T extends JsxElement<T>> extends AbstractInputProps<typeof DefaultElement> {
+export type AbstractTextInputProps<T extends ElementType> = AbstractInputProps<T> & {
     /**
      * [Button](/?path=/docs/button--default-story) component rendered after the value.
      */
@@ -44,7 +44,7 @@ export interface AbstractTextInputProps<T extends JsxElement<T>> extends Abstrac
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
-}
+};
 
 const DefaultElement = "input";
 

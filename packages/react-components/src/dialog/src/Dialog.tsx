@@ -1,13 +1,12 @@
 import "./Dialog.css";
 
 import { Box, BoxProps } from "../../box";
-import { ComponentProps, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
 import {
     InteractionProps,
     InternalProps,
-    JsxElement,
     MergedRef,
     OmitInternalProps,
     StyledComponentProps,
@@ -30,7 +29,7 @@ import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
-export type AbstractDialogProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "role" | "zIndex"> & {
+export type AbstractDialogProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "role" | "zIndex"> & {
     /**
      * React children.
      */

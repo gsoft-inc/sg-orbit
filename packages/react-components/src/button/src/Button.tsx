@@ -2,11 +2,10 @@ import "./TextButton.css";
 
 import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
-import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
     InternalProps,
-    JsxElement,
     OmitInternalProps,
     SlotProps,
     StyledComponentProps,
@@ -25,7 +24,7 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export type AbstractButtonProps<T extends JsxElement<T>> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
+export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
      * Whether or not the button should autoFocus on render.
      */
