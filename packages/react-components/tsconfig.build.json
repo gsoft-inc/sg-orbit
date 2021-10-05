@@ -7,7 +7,7 @@
         // Generate typing files.
         "noEmit": false,
         "declaration": true,
-        "emitDeclarationOnly": true
+        "emitDeclarationOnly": true,
     },
     "include": [
         "src/**/*",
