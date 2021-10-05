@@ -1,5 +1,4 @@
-import { ColorScheme } from "./ThemeProvider";
-import { OrbitTheme, ThemeAccessor } from "@orbit-ui/styles";
+import { ColorScheme, OrbitTheme, ThemeAccessor } from "@orbit-ui/styles";
 import { createContext, useContext } from "react";
 
 export interface ThemeContextType {

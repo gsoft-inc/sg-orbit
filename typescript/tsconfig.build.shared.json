@@ -1,0 +1,20 @@
+{
+    "extends": "./tsconfig.shared.json",
+    "compilerOptions": {
+        "composite": true,
+
+        // Generate typing files.
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true,
+
+        "paths": {
+            "@typescript/*": ["./*"],
+            "@utils/*": ["../jest/utils/*"],
+            "@styles/*": ["../packages/styles/*"],
+            "@react-components/*": ["../packages/react-components/*"],
+            "@orbit-ui/styles": ["../packages/styles"],
+            "@orbit-ui/react-components": ["../packages/react-components"]
+        }
+    }
+}

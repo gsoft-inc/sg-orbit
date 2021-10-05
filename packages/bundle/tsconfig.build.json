@@ -1,5 +1,5 @@
 {
-    "extends": "../../typescript/tsconfig.shared.json",
+    "extends": "../../typescript/tsconfig.build.shared.json",
     "compilerOptions": {
         "composite": true,
         "rootDir": "./src",

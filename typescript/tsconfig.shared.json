@@ -1,6 +1,5 @@
 {
     "compilerOptions": {
-        "composite": true,
         "target": "es6",
         "moduleResolution": "node",
         // Skip type checking of all declaration files
@@ -21,8 +20,8 @@
             "@utils/*": ["../jest/utils/*"],
             "@styles/*": ["../packages/styles/src/*"],
             "@react-components/*": ["../packages/react-components/src/*"],
-            "@orbit-ui/styles": ["../packages/styles"],
-            "@orbit-ui/react-components": ["../packages/react-components"]
+            "@orbit-ui/styles": ["../packages/styles/src"],
+            "@orbit-ui/react-components": ["../packages/react-components/src"]
         }
     }
 }
