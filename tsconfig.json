@@ -1,6 +1,7 @@
 // Great article about how to configure TS in a monorepo: https://medium.com/ah-technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a
 
 {
+    "baseUrl": ".",
     "extends": "./typescript/tsconfig.shared.json",
     "include": [
         "./typescript",
