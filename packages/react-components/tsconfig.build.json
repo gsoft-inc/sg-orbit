@@ -1,8 +1,13 @@
 {
-    "extends": "../../typescript/tsconfig.build.shared.json",
+    "extends": "../../typescript/tsconfig.shared.json",
     "compilerOptions": {
+        "composite": true,
         "rootDir": "./src",
         "outDir": "./dist",
+        // Generate typing files.
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true,
     },
     "include": [
         "src/**/*",
