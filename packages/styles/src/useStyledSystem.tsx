@@ -356,7 +356,6 @@ export const TextColorMapping = {
     ...ColorMapping
 };
 
-// TODO: fix typings
 export type BackgroundColorValue = Simplify<keyof typeof BackgroundColorMapping | Property.BackgroundColor>;
 export type BorderValue = Simplify<keyof typeof BorderMapping | Property.Border>;
 export type BorderRadiusValue = Simplify<keyof typeof BorderRadiusMapping | Property.BorderRadius>;
@@ -367,6 +366,10 @@ export type FillValue = Simplify<keyof typeof IconColorMapping | Property.Fill>;
 export type FontSizeValue = Simplify<keyof typeof FontSizeMapping | Property.FontSize>;
 export type FontWeightValue = Simplify<keyof typeof FontWeightMapping | Property.FontWeight>;
 export type GapValue = Simplify<keyof typeof SpacingMapping | Property.Gap>;
+export type GridAutoColumnsValue = Simplify<keyof typeof SpacingMapping | Property.GridAutoColumns>;
+export type GridAutoRowsValue = Simplify<keyof typeof SpacingMapping | Property.GridAutoRows>;
+export type GridTemplateColumnsValue = Simplify<keyof typeof SpacingMapping | Property.GridTemplateColumns>;
+export type GridTemplateRowsValue = Simplify<keyof typeof SpacingMapping | Property.GridTemplateRows>;
 export type HeightValue = Simplify<keyof typeof SpacingMapping | Property.Height>;
 export type LineHeightValue = Simplify<keyof typeof LineHeightMapping | Property.LineHeight>;
 export type MarginValue = Simplify<keyof typeof SpacingMapping | Property.Margin>;
@@ -415,6 +418,21 @@ export type FontSizeProp = FontSizeValue | ResponsiveValue<FontSizeValue>;
 export type FontStyleProp = Property.FontStyle | ResponsiveValue<Property.FontStyle>;
 export type FontWeightProp = FontWeightValue | ResponsiveValue<FontWeightValue>;
 export type GapProp = GapValue | ResponsiveValue<GapValue>;
+export type GridProp = Property.Grid | ResponsiveValue<Property.Grid>;
+export type GridAreaProp = Property.GridArea | ResponsiveValue<Property.GridArea>;
+export type GridAutoColumnsProp = GridAutoColumnsValue | ResponsiveValue<GridAutoColumnsValue>;
+export type GridAutoFlowProp = Property.GridAutoFlow | ResponsiveValue<Property.GridAutoFlow>;
+export type GridAutoRowsProp = GridAutoRowsValue | ResponsiveValue<GridAutoRowsValue>;
+export type GridColumnProp = Property.GridColumn | ResponsiveValue<Property.GridColumn>;
+export type GridColumnEndProp = Property.GridColumnEnd | ResponsiveValue<Property.GridColumnEnd>;
+export type GridColumnStartProp = Property.GridColumnStart | ResponsiveValue<Property.GridColumnStart>;
+export type GridRowProp = Property.GridRow | ResponsiveValue<Property.GridRow>;
+export type GridRowEndProp = Property.GridRowEnd | ResponsiveValue<Property.GridRowEnd>;
+export type GridRowStartProp = Property.GridRowStart | ResponsiveValue<Property.GridRowStart>;
+export type GridTemplateProp = Property.GridTemplate | ResponsiveValue<Property.GridTemplate>;
+export type GridTemplateAreasProp = Property.GridTemplateAreas | ResponsiveValue<Property.GridTemplateAreas>;
+export type GridTemplateColumnsProp = GridTemplateColumnsValue | ResponsiveValue<GridTemplateColumnsValue>;
+export type GridTemplateRowsProp = GridTemplateRowsValue | ResponsiveValue<GridTemplateRowsValue>;
 export type HeightProp = HeightValue | ResponsiveValue<HeightValue>;
 export type JustifyContentProp = Property.JustifyContent | ResponsiveValue<Property.JustifyContent>;
 export type JustifyItemsProp = Property.JustifyItems | ResponsiveValue<Property.JustifyItems>;
@@ -707,6 +725,66 @@ export interface StyledSystemProps {
      * @ignore
      */
     gap?: GapProp;
+    /**
+     * @ignore
+     */
+    grid?: GridProp;
+    /**
+     * @ignore
+     */
+    gridArea?: GridAreaProp;
+    /**
+     * @ignore
+     */
+    gridAutoColumns?: GridAutoColumnsProp;
+    /**
+     * @ignore
+     */
+    gridAutoFlow?: GridAutoFlowProp;
+    /**
+     * @ignore
+     */
+    gridAutoRows?: GridAutoRowsProp;
+    /**
+     * @ignore
+     */
+    gridColumn?: GridColumnProp;
+    /**
+     * @ignore
+     */
+    gridColumnEnd?: GridColumnEndProp;
+    /**
+     * @ignore
+     */
+    gridColumnStart?: GridColumnStartProp;
+    /**
+     * @ignore
+     */
+    gridRow?: GridRowProp;
+    /**
+     * @ignore
+     */
+    gridRowEnd?: GridRowEndProp;
+    /**
+     * @ignore
+     */
+    gridRowStart?: GridRowStartProp;
+    /**
+     * @ignore
+     */
+    gridTemplate?: GridTemplateProp;
+    /**
+     * @ignore
+     */
+    gridTemplateAreas?: GridTemplateAreasProp;
+    /**
+     * @ignore
+     */
+    gridTemplateColumns?: GridTemplateColumnsProp;
+    /**
+     * @ignore
+     */
+    gridTemplateRows?: GridTemplateRowsProp;
     /**
      * @ignore
      */
@@ -1183,6 +1261,21 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     fontStyle: createHandler(),
     fontWeight: fontWeightHandler,
     gap: createHandler(SpacingMapping),
+    grid: createHandler(),
+    gridArea: createHandler(),
+    gridAutoColumns: createHandler(SpacingMapping),
+    gridAutoFlow: createHandler(),
+    gridAutoRows: createHandler(SpacingMapping),
+    gridColumn: createHandler(),
+    gridColumnEnd: createHandler(),
+    gridColumnStart: createHandler(),
+    gridRow: createHandler(),
+    gridRowEnd: createHandler(),
+    gridRowStart: createHandler(),
+    gridTemplate: createHandler(),
+    gridTemplateAreas: createHandler(),
+    gridTemplateColumns: createHandler(SpacingMapping),
+    gridTemplateRows: createHandler(SpacingMapping),
     height: createHandler(SpacingMapping),
     justifyContent: createHandler(),
     justifyItems: createHandler(),
@@ -1303,6 +1396,21 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         fontStyle,
         fontWeight,
         gap,
+        grid,
+        gridArea,
+        gridAutoColumns,
+        gridAutoFlow,
+        gridAutoRows,
+        gridColumn,
+        gridColumnEnd,
+        gridColumnStart,
+        gridRow,
+        gridRowEnd,
+        gridRowStart,
+        gridTemplate,
+        gridTemplateAreas,
+        gridTemplateColumns,
+        gridTemplateRows,
         height,
         justifyContent,
         justifyItems,
@@ -1446,6 +1554,21 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         fontStyle,
         fontWeight,
         gap,
+        grid,
+        gridArea,
+        gridAutoColumns,
+        gridAutoFlow,
+        gridAutoRows,
+        gridColumn,
+        gridColumnEnd,
+        gridColumnStart,
+        gridRow,
+        gridRowEnd,
+        gridRowStart,
+        gridTemplate,
+        gridTemplateAreas,
+        gridTemplateColumns,
+        gridTemplateRows,
         height,
         justifyContent,
         justifyItems,
