@@ -2,8 +2,6 @@ import { Div } from "@react-components/html";
 import { Flex, Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
-////////////
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Flex")
         .segment(segment)
@@ -11,6 +9,13 @@ function stories(segment) {
 }
 
 stories()
+    .add("default", () =>
+        <Flex>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
     .add("inline", () =>
         <>
             <Flex inline>
@@ -37,6 +42,27 @@ stories()
                 <Div backgroundColor="beetle-5">Echo</Div>
                 <Div backgroundColor="beetle-5">Foxtrot</Div>
             </Flex>
+        </Flex>
+    )
+    .add("gap", () =>
+        <Flex gap={4}>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("column gap", () =>
+        <Flex columnGap={4}>
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("row gap", () =>
+        <Flex rowGap={4} flexDirection="column">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     );
 

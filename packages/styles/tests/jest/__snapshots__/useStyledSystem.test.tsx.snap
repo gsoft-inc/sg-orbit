@@ -2202,18 +2202,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bg-focus"
-  />,
-  <div
-    className="o-ui-bg-focus"
-  />,
-  <div
-    className="o-ui-bg-focus"
-  />,
-  <div
-    className="o-ui-bg-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bg-focus"
     style={
@@ -3163,18 +3155,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bg-hover"
-  />,
-  <div
-    className="o-ui-bg-hover"
-  />,
-  <div
-    className="o-ui-bg-hover"
-  />,
-  <div
-    className="o-ui-bg-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bg-hover"
     style={
@@ -6309,18 +6293,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bb-focus"
-  />,
-  <div
-    className="o-ui-bb-focus"
-  />,
-  <div
-    className="o-ui-bb-focus"
-  />,
-  <div
-    className="o-ui-bb-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bb-focus"
     style={
@@ -7238,18 +7214,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bb-hover"
-  />,
-  <div
-    className="o-ui-bb-hover"
-  />,
-  <div
-    className="o-ui-bb-hover"
-  />,
-  <div
-    className="o-ui-bb-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bb-hover"
     style={
@@ -8974,18 +8942,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bl-focus"
-  />,
-  <div
-    className="o-ui-bl-focus"
-  />,
-  <div
-    className="o-ui-bl-focus"
-  />,
-  <div
-    className="o-ui-bl-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bl-focus"
     style={
@@ -9903,18 +9863,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bl-hover"
-  />,
-  <div
-    className="o-ui-bl-hover"
-  />,
-  <div
-    className="o-ui-bl-hover"
-  />,
-  <div
-    className="o-ui-bl-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bl-hover"
     style={
@@ -11801,18 +11753,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-br-focus"
-  />,
-  <div
-    className="o-ui-br-focus"
-  />,
-  <div
-    className="o-ui-br-focus"
-  />,
-  <div
-    className="o-ui-br-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-br-focus"
     style={
@@ -12730,18 +12674,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-br-hover"
-  />,
-  <div
-    className="o-ui-br-hover"
-  />,
-  <div
-    className="o-ui-br-hover"
-  />,
-  <div
-    className="o-ui-br-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-br-hover"
     style={
@@ -14776,18 +14712,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bt-focus"
-  />,
-  <div
-    className="o-ui-bt-focus"
-  />,
-  <div
-    className="o-ui-bt-focus"
-  />,
-  <div
-    className="o-ui-bt-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bt-focus"
     style={
@@ -15705,18 +15633,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-bt-hover"
-  />,
-  <div
-    className="o-ui-bt-hover"
-  />,
-  <div
-    className="o-ui-bt-hover"
-  />,
-  <div
-    className="o-ui-bt-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-bt-hover"
     style={
@@ -16634,18 +16554,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-b-focus"
-  />,
-  <div
-    className="o-ui-b-focus"
-  />,
-  <div
-    className="o-ui-b-focus"
-  />,
-  <div
-    className="o-ui-b-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-b-focus"
     style={
@@ -17563,18 +17475,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-b-hover"
-  />,
-  <div
-    className="o-ui-b-hover"
-  />,
-  <div
-    className="o-ui-b-hover"
-  />,
-  <div
-    className="o-ui-b-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-b-hover"
     style={
@@ -20041,18 +19945,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-c-focus"
-  />,
-  <div
-    className="o-ui-c-focus"
-  />,
-  <div
-    className="o-ui-c-focus"
-  />,
-  <div
-    className="o-ui-c-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-c-focus"
     style={
@@ -21122,18 +21018,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-c-hover"
-  />,
-  <div
-    className="o-ui-c-hover"
-  />,
-  <div
-    className="o-ui-c-hover"
-  />,
-  <div
-    className="o-ui-c-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-c-hover"
     style={
@@ -23380,18 +23268,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-f-focus"
-  />,
-  <div
-    className="o-ui-f-focus"
-  />,
-  <div
-    className="o-ui-f-focus"
-  />,
-  <div
-    className="o-ui-f-focus"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-f-focus"
     style={
@@ -24301,18 +24181,10 @@ Array [
       }
     }
   />,
-  <div
-    className="o-ui-f-hover"
-  />,
-  <div
-    className="o-ui-f-hover"
-  />,
-  <div
-    className="o-ui-f-hover"
-  />,
-  <div
-    className="o-ui-f-hover"
-  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
   <div
     className="o-ui-f-hover"
     style={
@@ -25333,7 +25205,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-100)",
+        "fontVariationSettings": "100",
         "fontWeight": "400",
       }
     }
@@ -25341,7 +25213,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-200)",
+        "fontVariationSettings": "200",
         "fontWeight": "400",
       }
     }
@@ -25349,7 +25221,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-300)",
+        "fontVariationSettings": "300",
         "fontWeight": "400",
       }
     }
@@ -25357,7 +25229,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-400)",
+        "fontVariationSettings": "400",
         "fontWeight": "400",
       }
     }
@@ -25365,7 +25237,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-500)",
+        "fontVariationSettings": "500",
         "fontWeight": "400",
       }
     }
@@ -25373,7 +25245,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-600)",
+        "fontVariationSettings": "600",
         "fontWeight": "400",
       }
     }
@@ -25381,7 +25253,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-700)",
+        "fontVariationSettings": "700",
         "fontWeight": "400",
       }
     }
@@ -25389,7 +25261,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-800)",
+        "fontVariationSettings": "800",
         "fontWeight": "400",
       }
     }
@@ -25397,7 +25269,7 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-900)",
+        "fontVariationSettings": "900",
         "fontWeight": "400",
       }
     }
@@ -25405,32 +25277,28 @@ Array [
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-inherit)",
-        "fontWeight": "400",
+        "fontVariationSettings": "inherit",
       }
     }
   />,
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-initial)",
-        "fontWeight": "400",
+        "fontVariationSettings": "initial",
       }
     }
   />,
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-revert)",
-        "fontWeight": "400",
+        "fontVariationSettings": "revert",
       }
     }
   />,
   <div
     style={
       Object {
-        "fontVariationSettings": "'wght' var(--o-ui-fw-unset)",
-        "fontWeight": "400",
+        "fontVariationSettings": "unset",
       }
     }
   />,
@@ -26459,6 +26327,25 @@ Array [
 ]
 `;
 
+exports[`gridColumnSpan 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridColumn": "span 1 / span 1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "span 2 / span 2",
+      }
+    }
+  />,
+]
+`;
+
 exports[`gridColumnStart 1`] = `
 Array [
   <div
@@ -26678,6 +26565,25 @@ Array [
     style={
       Object {
         "gridRowEnd": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridRowSpan 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridRow": "span 1 / span 1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "span 2 / span 2",
       }
     }
   />,

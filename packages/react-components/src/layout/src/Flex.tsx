@@ -6,9 +6,9 @@ import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNi
 
 const DefaultElement = "div";
 
-export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+export type SafeAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
 
-export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+export type SafeJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
     // Keep it so it could be used with dynamic slots.
@@ -34,13 +34,13 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?: NextIterationAlignItemsProp;
+    alignItems?: SafeAlignItemsProp;
     /**
      * Alias for [flex basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis);
      */
     basis?: FlexBasisProp;
     /**
-     * React children
+     * React children.
      */
     children: ReactNode;
     /**
@@ -66,7 +66,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    justifyContent?: NextIterationJustifyContentProp;
+    justifyContent?: SafeJustifyContentProp;
     /**
      * Whether or not to reverse the order of the elements.
      */
@@ -83,7 +83,7 @@ export interface InnerFlexProps extends
 
 export function InnerFlex({
     alignItems,
-    as: asProp = DefaultElement,
+    as = DefaultElement,
     children,
     direction = "row",
     fluid,
@@ -103,7 +103,7 @@ export function InnerFlex({
                 {
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
                     alignItems: (alignItems && (alignItems as string).replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
-                    as: asProp,
+                    as,
                     display: inline ? "inline-flex" as const : "flex" as const,
                     flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     flexWrap: wrap,

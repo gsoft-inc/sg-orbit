@@ -1,9 +1,9 @@
 import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "./createThemeVars";
-import { Breakpoints, useBreakpoint } from "./BreakpointProvider";
+import { Breakpoint, ResponsiveValue, parseResponsiveValue, useBreakpoint } from "./BreakpointProvider";
 import { CSSProperties, useMemo } from "react";
+import { LiteralUnion } from "type-fest";
 import { Property } from "csstype";
-import { Simplify } from "type-fest";
-import { isNil, isObject } from "./assertions";
+import { isNil } from "./assertions";
 
 /*
 CASES:
@@ -33,7 +33,12 @@ CASES:
 <Button backgroundColorHover={{ s: "sunray-10", m: "#fff", l: "black" }}>Toto</Button>
 */
 
-export type ResponsiveValue<T> = Simplify<Partial<Record<keyof typeof Breakpoints, T>> & { base?: T }>;
+const GlobalValues = [
+    "inherit",
+    "initial",
+    "revert",
+    "unset"
+];
 
 const ColorExpressionTypes = [
     "#",
@@ -356,27 +361,28 @@ export const TextColorMapping = {
     ...ColorMapping
 };
 
-export type BackgroundColorValue = Simplify<keyof typeof BackgroundColorMapping | Property.BackgroundColor>;
-export type BorderValue = Simplify<keyof typeof BorderMapping | Property.Border>;
-export type BorderRadiusValue = Simplify<keyof typeof BorderRadiusMapping | Property.BorderRadius>;
-export type BoxShadowValue = Simplify<keyof typeof BoxShadowMapping | Property.BoxShadow>;
-export type ColorValue = Simplify<keyof typeof TextColorMapping | Property.Color>;
-export type ColumnGapValue = Simplify<keyof typeof SpacingMapping | Property.ColumnGap>;
-export type FillValue = Simplify<keyof typeof IconColorMapping | Property.Fill>;
-export type FontSizeValue = Simplify<keyof typeof FontSizeMapping | Property.FontSize>;
-export type FontWeightValue = Simplify<keyof typeof FontWeightMapping | Property.FontWeight>;
-export type GapValue = Simplify<keyof typeof SpacingMapping | Property.Gap>;
-export type GridAutoColumnsValue = Simplify<keyof typeof SpacingMapping | Property.GridAutoColumns>;
-export type GridAutoRowsValue = Simplify<keyof typeof SpacingMapping | Property.GridAutoRows>;
-export type GridTemplateColumnsValue = Simplify<keyof typeof SpacingMapping | Property.GridTemplateColumns>;
-export type GridTemplateRowsValue = Simplify<keyof typeof SpacingMapping | Property.GridTemplateRows>;
-export type HeightValue = Simplify<keyof typeof SpacingMapping | Property.Height>;
-export type LineHeightValue = Simplify<keyof typeof LineHeightMapping | Property.LineHeight>;
-export type MarginValue = Simplify<keyof typeof SpacingMapping | Property.Margin>;
-export type PaddingValue = Simplify<keyof typeof SpacingMapping | Property.Padding>;
-export type RowGapValue = Simplify<keyof typeof SpacingMapping | Property.RowGap>;
-export type StrokeValue = Simplify<keyof typeof IconColorMapping | Property.Stroke>;
-export type WidthValue = Simplify<keyof typeof SpacingMapping | Property.Width>;
+export type BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor;
+export type BorderValue = keyof typeof BorderMapping | Property.Border;
+export type BorderRadiusValue = keyof typeof BorderRadiusMapping | Property.BorderRadius;
+export type BoxShadowValue = keyof typeof BoxShadowMapping | Property.BoxShadow;
+export type ColorValue = keyof typeof TextColorMapping | Property.Color;
+export type ColumnGapValue = keyof typeof SpacingMapping | Property.ColumnGap;
+export type FillValue = keyof typeof IconColorMapping | Property.Fill;
+export type FontSizeValue = keyof typeof FontSizeMapping | Property.FontSize;
+export type FontWeightValue = keyof typeof FontWeightMapping | Property.FontWeight;
+export type GapValue = keyof typeof SpacingMapping | Property.Gap;
+export type GridAutoColumnsValue = keyof typeof SpacingMapping | Property.GridAutoColumns;
+export type GridAutoRowsValue = keyof typeof SpacingMapping | Property.GridAutoRows;
+export type GridTemplateColumnsValue = keyof typeof SpacingMapping | Property.GridTemplateColumns;
+export type GridTemplateRowsValue = keyof typeof SpacingMapping | Property.GridTemplateRows;
+export type HeightValue = keyof typeof SpacingMapping | Property.Height;
+export type LineHeightValue = keyof typeof LineHeightMapping | Property.LineHeight;
+export type MarginValue = keyof typeof SpacingMapping | Property.Margin;
+export type PaddingValue = keyof typeof SpacingMapping | Property.Padding;
+export type RowGapValue = keyof typeof SpacingMapping | Property.RowGap;
+export type SpacingValue = LiteralUnion<keyof typeof SpacingMapping, string>;
+export type StrokeValue = keyof typeof IconColorMapping | Property.Stroke;
+export type WidthValue = keyof typeof SpacingMapping | Property.Width;
 
 export type AlignContentProp = Property.AlignContent | ResponsiveValue<Property.AlignContent>;
 export type AlignItemsProp = Property.AlignItems | ResponsiveValue<Property.AlignItems>;
@@ -425,10 +431,12 @@ export type GridAutoFlowProp = Property.GridAutoFlow | ResponsiveValue<Property.
 export type GridAutoRowsProp = GridAutoRowsValue | ResponsiveValue<GridAutoRowsValue>;
 export type GridColumnProp = Property.GridColumn | ResponsiveValue<Property.GridColumn>;
 export type GridColumnEndProp = Property.GridColumnEnd | ResponsiveValue<Property.GridColumnEnd>;
+export type GridColumnSpanProp = number | ResponsiveValue<number>;
 export type GridColumnStartProp = Property.GridColumnStart | ResponsiveValue<Property.GridColumnStart>;
 export type GridRowProp = Property.GridRow | ResponsiveValue<Property.GridRow>;
 export type GridRowEndProp = Property.GridRowEnd | ResponsiveValue<Property.GridRowEnd>;
 export type GridRowStartProp = Property.GridRowStart | ResponsiveValue<Property.GridRowStart>;
+export type GridRowSpanProp = number | ResponsiveValue<number>;
 export type GridTemplateProp = Property.GridTemplate | ResponsiveValue<Property.GridTemplate>;
 export type GridTemplateAreasProp = Property.GridTemplateAreas | ResponsiveValue<Property.GridTemplateAreas>;
 export type GridTemplateColumnsProp = GridTemplateColumnsValue | ResponsiveValue<GridTemplateColumnsValue>;
@@ -756,6 +764,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    gridColumnSpan?: GridColumnSpanProp;
+    /**
+     * @ignore
+     */
     gridColumnStart?: GridColumnStartProp;
     /**
      * @ignore
@@ -765,6 +777,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     gridRowEnd?: GridRowEndProp;
+    /**
+     * @ignore
+     */
+    gridRowSpan?: GridRowSpanProp;
     /**
      * @ignore
      */
@@ -1014,9 +1030,9 @@ export interface StyledSystemProps {
 class StylingContext {
     private classes: string[];
     private style: Record<string, any>;
-    breakpoint: string;
+    breakpoint: Breakpoint;
 
-    constructor(className: string, style: CSSProperties, breakpoint: string) {
+    constructor(className: string, style: CSSProperties, breakpoint: Breakpoint) {
         this.classes = !isNil(className) ? [className] : [];
         this.style = style ?? {};
         this.breakpoint = breakpoint;
@@ -1044,83 +1060,55 @@ class StylingContext {
 
 type PropHandler<TValue> = (name: string, value: TValue, context: StylingContext) => void;
 
-function parseResponsiveValue<T>(value: T | ResponsiveValue<T>, matchedBreakpoint: string): T {
-    if (isObject(value)) {
-        const responsiveValue = value[matchedBreakpoint ?? "base"];
-
-        return (responsiveValue ?? value["base"]) as T;
-    }
-
-    return value as T;
+function getSystemValue<T extends Record<string | number, string>>(value: keyof T, systemValues: T) {
+    return systemValues[value as keyof typeof systemValues];
 }
 
-function tryAddSystemValue<T extends Record<string | number, string>>(name: string, value: keyof T, systemValues: T, context: StylingContext) {
-    const systemValue = systemValues[value as keyof typeof systemValues];
+export function getSpacingValue(value: string | keyof typeof SpacingMapping) {
+    const systemValue = getSystemValue(value as keyof typeof SpacingMapping, SpacingMapping);
+
+    return systemValue ?? value;
+}
+
+function parseResponsiveSystemValue<TValue extends string | number>(value: TValue, systemValues: Record<TValue, string>, breakpoint: Breakpoint) {
+    if (isNil(value)) {
+        return value;
+    }
+
+    // Quick lookup since most values will be a non responsive system value and will not requires to parse for a responsive value.
+    const systemValue = getSystemValue(value, systemValues);
 
     if (!isNil(systemValue)) {
-        context.addStyleValue(name, systemValue);
-
-        return true;
+        return systemValue;
     }
 
-    return false;
-}
-
-function tryAddResponse(isAdded: boolean, underlyingValue?: any) {
-    return { isAdded, underlyingValue };
-}
-
-function tryAddResponsiveSystemValue<TValue extends string | number>(name: string, value: TValue, systemValues: Record<TValue, string>, context: StylingContext) {
-    // Trying to hit a system value before parsing for a responsive value.
-    if (tryAddSystemValue(name, value, systemValues, context)) {
-        return tryAddResponse(true);
-    }
-
-    const underlyingValue = parseResponsiveValue(value, context.breakpoint);
+    const underlyingValue = parseResponsiveValue(value, breakpoint);
 
     if (!isNil(underlyingValue)) {
-        return tryAddResponse(tryAddSystemValue(name, underlyingValue, systemValues, context), underlyingValue);
+        const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
+
+        if (!isNil(underlyingSystemValue)) {
+            return underlyingSystemValue;
+        }
     }
 
-    return tryAddResponse(false, underlyingValue);
-}
-
-function tryAddResponsiveSystemValuePseudo<TValue extends string | number>(
-    pseudoClassName: string,
-    pseudoVariable: string,
-    value: TValue,
-    systemValues: Record<TValue, string>,
-    context: StylingContext) {
-    context.addClass(pseudoClassName);
-
-    // Trying to hit a system value before parsing for a responsive value.
-    if (tryAddSystemValue(pseudoVariable, value, systemValues, context)) {
-        return tryAddResponse(true);
-    }
-
-    const underlyingValue = parseResponsiveValue(value, context.breakpoint);
-
-    if (!isNil(underlyingValue)) {
-        return tryAddResponse(tryAddSystemValue(pseudoVariable, underlyingValue, systemValues, context), underlyingValue);
-    }
-
-    return tryAddResponse(false, underlyingValue);
+    return underlyingValue;
 }
 
 function createHandler<TValue extends string | number>(systemValues?: Record<TValue, string>): PropHandler<TValue> {
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
-        const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
 
-        if (!isAdded && !isNil(underlyingValue)) {
-            context.addStyleValue(name, underlyingValue);
+        if (!isNil(parsedValue)) {
+            context.addStyleValue(name, parsedValue);
         }
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context: StylingContext) => {
-        const underlyingValue = parseResponsiveValue(value, context.breakpoint);
+        const parsedValue = parseResponsiveValue(value, context.breakpoint);
 
-        if (!isNil(underlyingValue)) {
-            context.addStyleValue(name, !isNil(underlyingValue) ? underlyingValue : value);
+        if (!isNil(parsedValue)) {
+            context.addStyleValue(name, parsedValue);
         }
     };
 
@@ -1129,19 +1117,20 @@ function createHandler<TValue extends string | number>(systemValues?: Record<TVa
 
 function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, systemValues?: Record<TValue, string>): PropHandler<TValue> {
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
-        const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
 
-        if (!isAdded && !isNil(underlyingValue)) {
-            context.addStyleValue(pseudoVariable, underlyingValue);
+        if (!isNil(parsedValue)) {
+            context.addClass(pseudoClassName);
+            context.addStyleValue(pseudoVariable, parsedValue);
         }
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context) => {
-        const underlyingValue = parseResponsiveValue(value, context.breakpoint);
+        const parsedValue = parseResponsiveValue(value, context.breakpoint);
 
-        if (!isNil(underlyingValue)) {
+        if (!isNil(parsedValue)) {
             context.addClass(pseudoClassName);
-            context.addStyleValue(pseudoVariable, !isNil(underlyingValue) ? underlyingValue : value);
+            context.addStyleValue(pseudoVariable, parsedValue);
         }
     };
 
@@ -1153,42 +1142,62 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
 function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
-        const { isAdded, underlyingValue } = tryAddResponsiveSystemValue(name, value, systemValues, context);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
 
-        if (!isAdded && !isNil(underlyingValue)) {
-            if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
-                context.addStyleValue(name, `${BorderWidthAndStyle} ${underlyingValue}`);
+        if (!isNil(parsedValue)) {
+            if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
+                context.addStyleValue(name, `${BorderWidthAndStyle} ${parsedValue}`);
             }
             else {
-                context.addStyleValue(name, underlyingValue);
+                context.addStyleValue(name, parsedValue);
             }
         }
     };
 }
 
-function createBorderHandlerPseudo<TValue extends string>(pseudoClassName: string, pseudoVariable: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
+function createBorderPseudoHandler<TValue extends string>(pseudoClassName: string, pseudoVariable: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
-        const { isAdded, underlyingValue } = tryAddResponsiveSystemValuePseudo(pseudoClassName, pseudoVariable, value, systemValues, context);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
 
-        if (!isAdded && !isNil(underlyingValue)) {
-            if (ColorExpressionTypes.some(x => underlyingValue.startsWith(x))) {
-                context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${underlyingValue}`);
+        if (!isNil(parsedValue)) {
+            context.addClass(pseudoClassName);
+
+            if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
+                context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${parsedValue}`);
             }
             else {
-                context.addStyleValue(pseudoVariable, underlyingValue);
+                context.addStyleValue(pseudoVariable, parsedValue);
             }
         }
     };
 }
 
 const fontWeightHandler: PropHandler<string | number> = (name, value, context) => {
-    const { isAdded, underlyingValue } = tryAddResponsiveSystemValue("fontVariationSettings", value, FontWeightMapping, context);
+    const parsedValue = parseResponsiveSystemValue(value, FontWeightMapping, context.breakpoint);
 
-    if (!isAdded) {
-        context.addStyleValue("fontVariationSettings", fontVariationSettingsValueTemplate(underlyingValue));
+    if (!isNil(parsedValue)) {
+        context.addStyleValue("fontVariationSettings", parsedValue);
+
+        if (!GlobalValues.includes(parsedValue as string)) {
+            context.addStyleValue("fontWeight", "400");
+        }
     }
+};
 
-    context.addStyleValue("fontWeight", "400");
+const gridColumnSpanHandler: PropHandler<string | number> = (name, value, context) => {
+    const parsedValue = parseResponsiveValue(value, context.breakpoint);
+
+    if (!isNil(parsedValue)) {
+        context.addStyleValue("gridColumn", `span ${parsedValue} / span ${parsedValue}`);
+    }
+};
+
+const gridRowSpanHandler: PropHandler<string | number> = (name, value, context) => {
+    const parsedValue = parseResponsiveValue(value, context.breakpoint);
+
+    if (!isNil(parsedValue)) {
+        context.addStyleValue("gridRow", `span ${parsedValue} / span ${parsedValue}`);
+    }
 };
 
 function createAxisHandler<TValue extends string>(firstPropName: string, secondPropName: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
@@ -1215,22 +1224,22 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundSize: createHandler(),
     border: createBorderHandler(BorderMapping),
     borderBottom: createBorderHandler(BorderMapping),
-    borderBottomFocus: createBorderHandlerPseudo("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
-    borderBottomHover: createBorderHandlerPseudo("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
+    borderBottomFocus: createBorderPseudoHandler("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
+    borderBottomHover: createBorderPseudoHandler("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
     borderBottomLeftRadius: createHandler(BorderRadiusMapping),
     borderBottomRightRadius: createHandler(BorderRadiusMapping),
-    borderFocus: createBorderHandlerPseudo("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
-    borderHover: createBorderHandlerPseudo("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
+    borderFocus: createBorderPseudoHandler("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
+    borderHover: createBorderPseudoHandler("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
     borderLeft: createBorderHandler(BorderMapping),
-    borderLeftFocus: createBorderHandlerPseudo("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
-    borderLeftHover: createBorderHandlerPseudo("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
+    borderLeftFocus: createBorderPseudoHandler("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
+    borderLeftHover: createBorderPseudoHandler("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
     borderRadius: createHandler(BorderRadiusMapping),
     borderRight: createBorderHandler(BorderMapping),
-    borderRightFocus: createBorderHandlerPseudo("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
-    borderRightHover: createBorderHandlerPseudo("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
+    borderRightFocus: createBorderPseudoHandler("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
+    borderRightHover: createBorderPseudoHandler("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
     borderTop: createBorderHandler(BorderMapping),
-    borderTopFocus: createBorderHandlerPseudo("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
-    borderTopHover: createBorderHandlerPseudo("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
+    borderTopFocus: createBorderPseudoHandler("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
+    borderTopHover: createBorderPseudoHandler("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
     borderTopLeftRadius: createHandler(BorderRadiusMapping),
     borderTopRightRadius: createHandler(BorderRadiusMapping),
     bottom: createHandler(),
@@ -1268,9 +1277,11 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     gridAutoRows: createHandler(SpacingMapping),
     gridColumn: createHandler(),
     gridColumnEnd: createHandler(),
+    gridColumnSpan: gridColumnSpanHandler,
     gridColumnStart: createHandler(),
     gridRow: createHandler(),
     gridRowEnd: createHandler(),
+    gridRowSpan: gridRowSpanHandler,
     gridRowStart: createHandler(),
     gridTemplate: createHandler(),
     gridTemplateAreas: createHandler(),
@@ -1403,9 +1414,11 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         gridAutoRows,
         gridColumn,
         gridColumnEnd,
+        gridColumnSpan,
         gridColumnStart,
         gridRow,
         gridRowEnd,
+        gridRowSpan,
         gridRowStart,
         gridTemplate,
         gridTemplateAreas,
@@ -1561,9 +1574,11 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         gridAutoRows,
         gridColumn,
         gridColumnEnd,
+        gridColumnSpan,
         gridColumnStart,
         gridRow,
         gridRowEnd,
+        gridRowSpan,
         gridRowStart,
         gridTemplate,
         gridTemplateAreas,
