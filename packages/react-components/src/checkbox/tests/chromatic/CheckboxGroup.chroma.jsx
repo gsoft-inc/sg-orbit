@@ -108,6 +108,17 @@ stories()
             </CheckboxGroup>
         </Div>
     )
+    .add("wrap overflow", () =>
+        <Div width="230px">
+            <CheckboxGroup wrap>
+                {
+                    ["1", "2", "3", "Neptune", "5", "6", "7", "8"].map(x =>
+                        <Checkbox value={x} key={x}>{x}</Checkbox>
+                    )
+                }
+            </CheckboxGroup>
+        </Div>
+    )
     .add("toggle buttons", () =>
         <CheckboxGroup gap={2} defaultValue={["2"]}>
             <ToggleButton variant="secondary" shape="circular" value="1">1</ToggleButton>

@@ -200,8 +200,22 @@ stories()
                 </Field>
             </Inline>
         </Stack>
-    )
-    .add("styling", () =>
+    ).add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+            </Div>
+            <Div className="zoom-out">
+                <Field>
+                    <Label>Where to?</Label>
+                    <TextInput />
+                </Field>
+            </Div>
+        </Stack>
+    ).add("styling", () =>
         <Inline>
             <Field border="sunray-10">
                 <Label>Launch date</Label>

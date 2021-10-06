@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Field, Label } from "@react-components/field";
 import { Fieldset, Form, Row } from "@react-components/form";
 import { Stack } from "@react-components/layout";
@@ -96,6 +97,38 @@ stories()
             </Fieldset>
             <Button variant="secondary">Submit</Button>
         </Form>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Fieldset label="Shipping Address">
+                    <Row>
+                        <Field>
+                            <Label>First name</Label>
+                            <TextInput />
+                        </Field>
+                        <Field>
+                            <Label>Last name</Label>
+                            <TextInput />
+                        </Field>
+                    </Row>
+                </Fieldset>
+            </Div>
+            <Div className="zoom-out">
+                <Fieldset label="Shipping Address">
+                    <Row>
+                        <Field>
+                            <Label>First name</Label>
+                            <TextInput />
+                        </Field>
+                        <Field>
+                            <Label>Last name</Label>
+                            <TextInput />
+                        </Field>
+                    </Row>
+                </Fieldset>
+            </Div>
+        </Stack>
     )
     .add("styling", () =>
         <Stack>

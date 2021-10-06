@@ -37,3 +37,11 @@
 .fill-blue {
     fill: blue !important;
 }
+
+.zoom-in {
+    zoom: 120% !important;
+}
+
+.zoom-out {
+    zoom: 90% !important;
+}

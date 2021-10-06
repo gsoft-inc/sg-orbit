@@ -1,4 +1,5 @@
 import { Avatar, AvatarGroup } from "@react-components/avatar";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
@@ -164,4 +165,14 @@ stories()
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>
         </Inline>
+    )
+    .add("overflow", () =>
+        <Div width="100px">
+            <AvatarGroup size="2xl">
+                <Avatar name="Sally Ride" />
+                <Avatar name="Alan Shepard" />
+                <Avatar name="Chris Hadfield" />
+                <Avatar name="Christa McAuliffe" />
+            </AvatarGroup>
+        </Div>
     );

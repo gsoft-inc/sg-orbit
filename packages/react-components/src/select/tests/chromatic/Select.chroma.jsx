@@ -1,4 +1,5 @@
 import { Button } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Listbox } from "@react-components/listbox";
@@ -86,6 +87,24 @@ stories()
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
+    )
+    .add("zoom", () =>
+        <>
+            <Div className="zoom-in">
+                <Select placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+            </Div>
+            <Div className="zoom-out">
+                <Select placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Select>
+            </Div>
+        </>
     )
     .add("styling", () =>
         <Inline>

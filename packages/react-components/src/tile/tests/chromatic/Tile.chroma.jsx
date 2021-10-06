@@ -1,5 +1,6 @@
 import { Apollo11Banner, Apollo11Poster, Nasa } from "./assets";
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
@@ -11,6 +12,9 @@ import { storiesOfBuilder } from "@stories/utils";
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tile")
         .segment(segment)
+        .parameters({
+            chromatic: { viewports: [900, 1280] }
+        })
         .build();
 }
 
@@ -32,6 +36,26 @@ stories()
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </Tile>
+            </Stack>
+        </Inline>
+    )
+    .add("zoom", () =>
+        <Inline>
+            <Stack>
+                <Div className="zoom-in">
+                    <Tile orientation="vertical">
+                        <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Div>
+                <Div className="zoom-out">
+                    <Tile orientation="vertical">
+                        <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Div>
             </Stack>
         </Inline>
     )

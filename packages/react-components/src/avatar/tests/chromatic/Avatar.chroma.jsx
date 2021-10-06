@@ -1,4 +1,5 @@
 import { Avatar } from "@react-components/avatar";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Person } from "./assets";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -78,8 +79,16 @@ stories()
             <Avatar src="" size="xl" name="Neil Armstrong" />
             <Avatar src="" size="2xl" name="Neil Armstrong" />
         </Inline>
-    )
-    .add("styling", () =>
+    ).add("zoom", () =>
+        <>
+            <Div className="zoom-in">
+                <Avatar src={Person} name="Neil Armstrong" />
+            </Div>
+            <Div className="zoom-out">
+                <Avatar src={Person} name="Neil Armstrong" />
+            </Div>
+        </>
+    ).add("styling", () =>
         <Inline>
             <Avatar name="Sally Ride" border="sunray-10" />
             <Avatar name="Sally Ride" className="border-red" />

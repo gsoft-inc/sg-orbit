@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { Switch } from "@react-components/switch";
 import { createTestSuite } from "./createTestSuite";
@@ -17,6 +18,16 @@ createTestSuite(<Switch />, stories("/unchecked"));
 createTestSuite(<Switch defaultChecked />, stories("/checked"));
 
 stories()
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Switch>Engines</Switch>
+            </Div>
+            <Div className="zoom-out">
+                <Switch>Engines</Switch>
+            </Div>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <Switch border="sunray-10">Engines</Switch>

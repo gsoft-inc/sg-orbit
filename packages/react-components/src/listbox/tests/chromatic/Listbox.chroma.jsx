@@ -1,5 +1,6 @@
 import { Avatar } from "@react-components/avatar";
 import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Item, Section } from "@react-components/collection";
 import { Listbox, ListboxOption } from "@react-components/listbox";
@@ -582,6 +583,26 @@ stories()
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Listbox>
+    )
+    .add("zoom", () =>
+        <>
+            <Div className="zoom-in">
+                <Listbox aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+
+            </Div>
+            <Div className="zoom-out">
+                <Listbox aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="mars">Mars</Item>
+                    <Item key="saturn">Saturn</Item>
+                </Listbox>
+
+            </Div>
+        </>
     )
     .add("styling", () =>
         <Inline>
