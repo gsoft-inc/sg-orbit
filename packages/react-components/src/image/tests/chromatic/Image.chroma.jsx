@@ -79,6 +79,16 @@ stories()
             <Image objectPosition="250px 150px" fit="none" width="200px" height="200px" src={Mars} alt="SpaceX launch" />
         </Inline>
     )
+    .add("zoom", () =>
+        <>
+            <Div className="zoom-in">
+                <Image src={Launch} alt="SpaceX launch" />
+            </Div>
+            <Div className="zoom-out">
+                <Image src={Launch} alt="SpaceX launch" />
+            </Div>
+        </>
+    )
     .add("styling", () =>
         <Inline>
             <Image border="sunray-10" src={Mars} alt="SpaceX launch" />

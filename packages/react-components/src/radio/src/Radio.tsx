@@ -18,6 +18,7 @@ import {
     useForwardInputApi,
     useSlots
 } from "../../shared";
+import { Span } from "../../html";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 
@@ -187,7 +188,7 @@ export function InnerRadio(props: InnerRadioProps) {
                 type="radio"
                 value={value}
             />
-            <span className="o-ui-radio-button"></span>
+            <Span className="o-ui-radio-button"></Span>
             {text}
             {icon}
             {counter}

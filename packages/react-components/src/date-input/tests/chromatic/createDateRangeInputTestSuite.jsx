@@ -65,6 +65,16 @@ export function createDateRangeInputTestSuite(element, stories) {
                 <DateRangeInput disabled focus hover element={element} />
             </Stack>
         )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <DateRangeInput element={element} />
+                </Div>
+                <Div className="zoom-out'">
+                    <DateRangeInput element={element} />
+                </Div>
+            </Stack>
+        )
         .add("styling", () =>
             <Stack>
                 <DateRangeInput border="sunray-10" element={element} />

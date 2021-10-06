@@ -85,8 +85,22 @@ stories("/count")
                 <Text>50</Text>
             </IconBadge>
         </Inline>
-    )
-    .add("styling", () =>
+    ).add("zoom", () =>
+        <Inline gap={8}>
+            <Div className="zoom-in">
+                <SquareBadge>
+                    <Text>5</Text>
+                </SquareBadge>
+
+            </Div>
+            <Div className="zoom-out">
+                <SquareBadge>
+                    <Text>5</Text>
+                </SquareBadge>
+            </Div>
+
+        </Inline>
+    ).add("styling", () =>
         <Inline gap={8}>
             <SquareBadge border="sunray-10">
                 <Text>100</Text>

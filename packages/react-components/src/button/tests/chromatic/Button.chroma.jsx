@@ -34,7 +34,16 @@ createButtonTestSuite(<SunrayBackground button={<Button variant="tertiary" inher
 createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
 
 stories()
-    .add("styling", () =>
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Button variant="primary">Button</Button>
+            </Div>
+            <Div className="zoom-out'">
+                <Button variant="primary">Button</Button>
+            </Div>
+        </Inline>
+    ).add("styling", () =>
         <Inline>
             <Button border="sunray-10" variant="secondary">Button</Button>
             <Button className="bg-red" variant="secondary">Button</Button>

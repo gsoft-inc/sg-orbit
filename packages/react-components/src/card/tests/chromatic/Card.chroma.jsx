@@ -2,6 +2,7 @@ import { ApolloBanner, ApolloPoster } from "./assets";
 import { Box } from "@react-components/box";
 import { Card } from "@react-components/card";
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Flex, Inline, Stack } from "@react-components/layout";
 import { Heading } from "@react-components/typography";
 import { Image } from "@react-components/image";
@@ -19,6 +20,22 @@ createTestSuite(<Card orientation="horizontal" />, stories("/horizontal"));
 createTestSuite(<Card orientation="vertical" />, stories("/vertical"));
 
 stories()
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Card>
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Div>
+            <Div className="zoom-out'">
+                <Card>
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Div>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <Card border="sunray-10">

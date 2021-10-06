@@ -103,6 +103,15 @@ stories()
             </RadioGroup>
         </Div>
     )
+    .add("overflow wrapped", () =>
+        <Div width="130px">
+            <RadioGroup wrap orientation="horizontal">
+                {["1", "2", "3", "Neptune", "5", "6", "7", "8"].map(x =>
+                    <Radio value={x} key={x}>{x}</Radio>
+                )}
+            </RadioGroup>
+        </Div>
+    )
     .add("toggle buttons", () =>
         <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
             <ToggleButton variant="secondary" shape="circular" value="1">1</ToggleButton>

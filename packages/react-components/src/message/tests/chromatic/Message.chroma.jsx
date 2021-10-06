@@ -78,6 +78,16 @@ stories()
             <Button>Undo</Button>
         </Message>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Message>Scheduled launch today at 1PM.</Message>
+            </Div>
+            <Div className="zoom-out">
+                <Message>Scheduled launch today at 1PM.</Message>
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Stack>
             <Message border="sunray-10"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>

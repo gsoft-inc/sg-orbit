@@ -67,6 +67,16 @@ export function createDateInputTestSuite(element, stories) {
                 <DateInput validationState="invalid" readOnly placeholder="Where to?" element={element} />
             </Stack>
         )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <DateInput element={element} />
+                </Div>
+                <Div className="zoom-out'">
+                    <DateInput element={element} />
+                </Div>
+            </Stack>
+        )
         .add("styling", () =>
             <Stack>
                 <DateInput border="sunray-10" element={element} />

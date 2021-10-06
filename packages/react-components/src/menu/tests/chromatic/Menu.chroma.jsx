@@ -1,4 +1,5 @@
 import { Avatar } from "@react-components/avatar";
+import { Div } from "@react-components/html";
 import { Divider } from "@react-components/divider";
 import { IconList, LightbulbIcon, NotificationIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
@@ -618,6 +619,24 @@ stories()
             <Item key="uranus">Uranus</Item>
             <Item key="venus">Venus</Item>
         </Menu>
+    )
+    .add("zoom", () =>
+        <>
+            <Div className="zoom-in">
+                <Menu aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Menu>
+            </Div>
+            <Div className="zoom-out">
+                <Menu aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Menu>
+            </Div>
+        </>
     )
     .add("styling", () =>
         <Inline>

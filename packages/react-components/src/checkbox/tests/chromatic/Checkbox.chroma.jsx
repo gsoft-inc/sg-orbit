@@ -1,4 +1,5 @@
 import { Checkbox } from "@react-components/checkbox";
+import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { createCheckboxTestSuite } from "./createCheckboxTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -19,7 +20,16 @@ createCheckboxTestSuite(<Checkbox defaultChecked />, stories("/checked"));
 createCheckboxTestSuite(<Checkbox defaultIndeterminate />, stories("/indeterminate"));
 
 stories()
-    .add("styling", () =>
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Checkbox>Milky Way</Checkbox>
+            </Div>
+            <Div className="zoom-out'">
+                <Checkbox>Milky Way</Checkbox>
+            </Div>
+        </Inline>
+    ).add("styling", () =>
         <Inline>
             <Checkbox border="sunray-10">Milky Way</Checkbox>
             <Checkbox className="bg-red">Milky Way</Checkbox>

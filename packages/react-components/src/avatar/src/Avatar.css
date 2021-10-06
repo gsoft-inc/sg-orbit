@@ -73,7 +73,8 @@
 .o-ui-avatar-group {
     display: inline-flex;
     align-items: center;
-    width: max-content;
+    width: inherit;
+    flex-wrap: wrap;
 }
 
 /* GROUPS | REMAININGS */

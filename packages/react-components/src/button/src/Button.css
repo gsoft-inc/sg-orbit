@@ -13,6 +13,7 @@
     font-variation-settings: "wght" 500;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     border: none;
+    text-align: center;
     position: relative;
     max-width: max-content;
     width: 100%;

@@ -1,5 +1,6 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Footer } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Field, Label } from "@react-components/field";
 import { Form } from "@react-components/form";
 import { Heading } from "@react-components/typography";
@@ -119,6 +120,22 @@ stories()
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
         </Popover>
+    )
+    .add("zoom in", () =>
+        <Div className="zoom-in">
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </Div>
+    )
+    .add("zoom out", () =>
+        <Div className="zoom-out">
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </Div>
     )
     .add("style", () =>
         <Popover style={{ border: "1px solid red" }}>
