@@ -1,6 +1,7 @@
 // Great article about how to configure TS in a monorepo: https://medium.com/ah-technology/a-guide-through-the-wild-wild-west-of-setting-up-a-mono-repo-with-typescript-lerna-and-yarn-ed6a1e5467a
 
 {
+    "baseUrl": ".",
     "extends": "./typescript/tsconfig.shared.json",
     "include": [
         "./typescript",
@@ -8,5 +9,15 @@
         "./packages",
     ],
     // https://github.com/microsoft/TypeScript/issues/37997
-    "files": []
+    "files": [],
+    "compilerOptions": {
+        "paths": {
+            "@typescript/*": ["./typescript/*"],
+            "@utils/*": ["./jest/utils/*"],
+            "@styles/*": ["./packages/styles/src/*"],
+            "@react-components/*": ["./packages/react-components/src/*"],
+            "@orbit-ui/styles": ["./packages/styles/src"],
+            "@orbit-ui/react-components": ["./packages/react-components/src"]
+        }
+    }
 }

@@ -39,6 +39,21 @@ import {
     FontStyleProp,
     FontWeightProp,
     GapProp,
+    GridAreaProp,
+    GridAutoColumnsProp,
+    GridAutoFlowProp,
+    GridAutoRowsProp,
+    GridColumnEndProp,
+    GridColumnProp,
+    GridColumnStartProp,
+    GridProp,
+    GridRowEndProp,
+    GridRowProp,
+    GridRowStartProp,
+    GridTemplateAreasProp,
+    GridTemplateColumnsProp,
+    GridTemplateProp,
+    GridTemplateRowsProp,
     HeightProp,
     JustifyContentProp,
     JustifyItemsProp,
@@ -333,7 +348,7 @@ expectAssignable<BorderTopRightRadiusProp>("1rem");
 expectAssignable<BorderTopRightRadiusProp>("1%");
 expectAssignable<BorderTopRightRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderTopRightRadiusProp>({ base: "1px", m: "1px", l: "1px" });
-//
+
 expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("-1px");
 expectAssignable<BottomProp>("1em");
@@ -540,6 +555,196 @@ expectAssignable<GapProp>("1rem");
 expectAssignable<GapProp>("1%");
 expectAssignable<GapProp>("calc(1px + 1px)");
 expectAssignable<GapProp>({ base: 1, m: 1, l: 1 });
+
+expectAssignable<GridProp>("none");
+expectAssignable<GridProp>("\"a\" 100px \"b\" 1fr");
+expectAssignable<GridProp>("[linename1] \"a\" 100px [linename2]");
+expectAssignable<GridProp>("100px / 200px");
+expectAssignable<GridProp>("minmax(400px, min-content) / repeat(auto-fill, 50px)");
+expectAssignable<GridProp>("200px / auto-flow");
+expectAssignable<GridProp>("30% / auto-flow dense");
+expectAssignable<GridProp>("auto-flow / 200px");
+expectAssignable<GridProp>("auto-flow dense 40% / [line1] minmax(20em, max-content)");
+expectAssignable<GridProp>({ base: "none", m: "none", l: "none" });
+
+expectAssignable<GridAreaProp>("auto");
+expectAssignable<GridAreaProp>("auto / auto");
+expectAssignable<GridAreaProp>("auto / auto / auto");
+expectAssignable<GridAreaProp>("auto / auto / auto / auto");
+expectAssignable<GridAreaProp>("some-grid-area");
+expectAssignable<GridAreaProp>("span 3");
+expectAssignable<GridAreaProp>("4 some-grid-area / 2 another-grid-area");
+expectAssignable<GridAreaProp>({ base: "auto", m: "auto", l: "auto" });
+
+expectAssignable<GridAutoColumnsProp>(1);
+expectAssignable<GridAutoColumnsProp>("1px");
+expectAssignable<GridAutoColumnsProp>("1em");
+expectAssignable<GridAutoColumnsProp>("1rem");
+expectAssignable<GridAutoColumnsProp>("1%");
+expectAssignable<GridAutoColumnsProp>("1vh");
+expectAssignable<GridAutoColumnsProp>("1vw");
+expectAssignable<GridAutoColumnsProp>("calc(1px + 1px)");
+expectAssignable<GridAutoColumnsProp>("max-content");
+expectAssignable<GridAutoColumnsProp>("min-content");
+expectAssignable<GridAutoColumnsProp>("fit-content(1em)");
+expectAssignable<GridAutoColumnsProp>("minmax(100px, auto)");
+expectAssignable<GridAutoColumnsProp>("minmax(max-content, 2fr)");
+expectAssignable<GridAutoColumnsProp>("min-content max-content auto");
+expectAssignable<GridAutoColumnsProp>("100px 150px 390px");
+expectAssignable<GridAutoColumnsProp>("10% 33.3%");
+expectAssignable<GridAutoColumnsProp>("0.5fr 3fr 1fr");
+expectAssignable<GridAutoColumnsProp>("minmax(100px, auto) minmax(max-content, 2fr) minmax(20%, 80vmax)");
+expectAssignable<GridAutoColumnsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
+expectAssignable<GridAutoColumnsProp>({ base: "1px", m: "1px", l: "1px" });
+
+expectAssignable<GridAutoFlowProp>("row");
+expectAssignable<GridAutoFlowProp>("column");
+expectAssignable<GridAutoFlowProp>("dense");
+expectAssignable<GridAutoFlowProp>("row dense");
+expectAssignable<GridAutoFlowProp>("column dense");
+expectAssignable<GridAutoFlowProp>({ base: "row", m: "row", l: "row" });
+
+expectAssignable<GridAutoRowsProp>(1);
+expectAssignable<GridAutoRowsProp>("1px");
+expectAssignable<GridAutoRowsProp>("1em");
+expectAssignable<GridAutoRowsProp>("1rem");
+expectAssignable<GridAutoRowsProp>("1%");
+expectAssignable<GridAutoRowsProp>("1vh");
+expectAssignable<GridAutoRowsProp>("1vw");
+expectAssignable<GridAutoRowsProp>("calc(1px + 1px)");
+expectAssignable<GridAutoRowsProp>("max-content");
+expectAssignable<GridAutoRowsProp>("min-content");
+expectAssignable<GridAutoRowsProp>("fit-content(1em)");
+expectAssignable<GridAutoRowsProp>("minmax(100px, auto)");
+expectAssignable<GridAutoRowsProp>("minmax(max-content, 2fr)");
+expectAssignable<GridAutoRowsProp>("min-content max-content auto");
+expectAssignable<GridAutoRowsProp>("100px 150px 390px");
+expectAssignable<GridAutoRowsProp>("10% 33.3%");
+expectAssignable<GridAutoRowsProp>("0.5fr 3fr 1fr");
+expectAssignable<GridAutoRowsProp>("minmax(100px, auto) minmax(max-content, 2fr) minmax(20%, 80vmax)");
+expectAssignable<GridAutoRowsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
+expectAssignable<GridAutoRowsProp>({ base: "1px", m: "1px", l: "1px" });
+
+expectAssignable<GridColumnProp>("auto");
+expectAssignable<GridColumnProp>("1");
+expectAssignable<GridColumnProp>("1 / 3");
+expectAssignable<GridColumnProp>("1 / span 2");
+expectAssignable<GridColumnProp>("main-start");
+expectAssignable<GridColumnProp>("main-start / main-end");
+expectAssignable<GridColumnProp>({ base: "1 / 3", m: "1 / 3", l: "1 / 3" });
+
+expectAssignable<GridColumnEndProp>("auto");
+expectAssignable<GridColumnEndProp>("somegridarea");
+expectAssignable<GridColumnEndProp>("2");
+expectAssignable<GridColumnEndProp>("somegridarea 4");
+expectAssignable<GridColumnEndProp>("span 3");
+expectAssignable<GridColumnEndProp>("5 somegridarea span");
+expectAssignable<GridColumnEndProp>({ base: "2", m: "2", l: "2" });
+
+expectAssignable<GridColumnStartProp>("auto");
+expectAssignable<GridColumnStartProp>("somegridarea");
+expectAssignable<GridColumnStartProp>("2");
+expectAssignable<GridColumnStartProp>("somegridarea 4");
+expectAssignable<GridColumnStartProp>("span somegridarea 5");
+expectAssignable<GridColumnStartProp>({ base: "auto", m: "auto", l: "auto" });
+
+expectAssignable<GridRowProp>("auto");
+expectAssignable<GridRowProp>("1");
+expectAssignable<GridRowProp>("1 / 3");
+expectAssignable<GridRowProp>("1 / span 2");
+expectAssignable<GridRowProp>("main-start");
+expectAssignable<GridRowProp>("main-start / main-end");
+expectAssignable<GridRowProp>({ base: "1 / 3", m: "1 / 3", l: "1 / 3" });
+
+expectAssignable<GridRowEndProp>("auto");
+expectAssignable<GridRowEndProp>("somegridarea");
+expectAssignable<GridRowEndProp>("2");
+expectAssignable<GridRowEndProp>("somegridarea 4");
+expectAssignable<GridRowEndProp>("span somegridarea 5");
+expectAssignable<GridRowEndProp>({ base: "auto", m: "auto", l: "auto" });
+
+expectAssignable<GridRowStartProp>("auto");
+expectAssignable<GridRowStartProp>("somegridarea");
+expectAssignable<GridRowStartProp>("2");
+expectAssignable<GridRowStartProp>("somegridarea 4");
+expectAssignable<GridRowStartProp>("span somegridarea 5");
+expectAssignable<GridRowStartProp>({ base: "auto", m: "auto", l: "auto" });
+
+expectAssignable<GridTemplateAreasProp>("none");
+expectAssignable<GridTemplateAreasProp>("a b");
+expectAssignable<GridTemplateAreasProp>(`
+    "a b b"
+    "a c d"
+`);
+expectAssignable<GridTemplateAreasProp>("\"head head\" \"nav  main\" \"nav  foot\"");
+expectAssignable<GridTemplateAreasProp>({ base: "none", m: "none", l: "none" });
+
+expectAssignable<GridTemplateColumnsProp>("none");
+expectAssignable<GridTemplateColumnsProp>(1);
+expectAssignable<GridTemplateColumnsProp>("1px");
+expectAssignable<GridTemplateColumnsProp>("1em");
+expectAssignable<GridTemplateColumnsProp>("1rem");
+expectAssignable<GridTemplateColumnsProp>("1%");
+expectAssignable<GridTemplateColumnsProp>("1vh");
+expectAssignable<GridTemplateColumnsProp>("1vw");
+expectAssignable<GridTemplateColumnsProp>("calc(1px + 1px)");
+expectAssignable<GridTemplateColumnsProp>("max-content");
+expectAssignable<GridTemplateColumnsProp>("min-content");
+expectAssignable<GridTemplateColumnsProp>("fit-content(1em)");
+expectAssignable<GridTemplateColumnsProp>("100px 1fr");
+expectAssignable<GridTemplateColumnsProp>("[linename] 100px");
+expectAssignable<GridTemplateColumnsProp>("minmax(100px, 1fr)");
+expectAssignable<GridTemplateColumnsProp>("fit-content(40%)");
+expectAssignable<GridTemplateColumnsProp>("repeat(3, 200px)");
+expectAssignable<GridTemplateColumnsProp>("subgrid");
+expectAssignable<GridTemplateColumnsProp>("masonry");
+expectAssignable<GridTemplateColumnsProp>("200px repeat(auto-fill, 100px) 300px");
+expectAssignable<GridTemplateColumnsProp>(`
+    [linename1] 100px [linename2]
+    repeat(auto-fit, [linename3 linename4] 300px)
+    100px
+`);
+expectAssignable<GridTemplateColumnsProp>({ base: "none", m: "none", l: "none" });
+
+expectAssignable<GridTemplateProp>("none");
+expectAssignable<GridTemplateProp>("100px 1fr / 50px 1fr");
+expectAssignable<GridTemplateProp>("auto 1fr / auto 1fr auto");
+expectAssignable<GridTemplateProp>("[linename] 100px / [columnname1] 30% [columnname2] 70%");
+expectAssignable<GridTemplateProp>("fit-content(100px) / fit-content(40%)");
+expectAssignable<GridTemplateProp>("\"a a a\" \"b b b\"");
+expectAssignable<GridTemplateProp>(`
+    [header-top] "a a a"     [header-bottom]
+    [main-top] "b b b" 1fr [main-bottom]
+            / auto 1fr auto
+`);
+expectAssignable<GridTemplateProp>({ base: "none", m: "none", l: "none" });
+
+expectAssignable<GridTemplateRowsProp>("none");
+expectAssignable<GridTemplateRowsProp>(1);
+expectAssignable<GridTemplateRowsProp>("1px");
+expectAssignable<GridTemplateRowsProp>("1em");
+expectAssignable<GridTemplateRowsProp>("1rem");
+expectAssignable<GridTemplateRowsProp>("1%");
+expectAssignable<GridTemplateRowsProp>("1vh");
+expectAssignable<GridTemplateRowsProp>("1vw");
+expectAssignable<GridTemplateRowsProp>("calc(1px + 1px)");
+expectAssignable<GridTemplateRowsProp>("max-content");
+expectAssignable<GridTemplateRowsProp>("min-content");
+expectAssignable<GridTemplateRowsProp>("fit-content(1em)");
+expectAssignable<GridTemplateRowsProp>("100px 1fr");
+expectAssignable<GridTemplateRowsProp>("[linename] 100px");
+expectAssignable<GridTemplateRowsProp>("minmax(100px, 1fr)");
+expectAssignable<GridTemplateRowsProp>("fit-content(40%)");
+expectAssignable<GridTemplateRowsProp>("repeat(3, 200px)");
+expectAssignable<GridTemplateRowsProp>("subgrid");
+expectAssignable<GridTemplateRowsProp>("masonry");
+expectAssignable<GridTemplateRowsProp>("200px repeat(auto-fill, 100px) 300px");
+expectAssignable<GridTemplateRowsProp>(`
+    [linename1] 100px [linename2]
+    repeat(auto-fit, [linename3 linename4] 300px)
+    100px
+`);
+expectAssignable<GridTemplateRowsProp>({ base: "none", m: "none", l: "none" });
 
 expectAssignable<HeightProp>(1);
 expectAssignable<HeightProp>("1px");
@@ -1143,6 +1348,29 @@ expectAssignable<StyledSystemProps>({
     fontStyle: "italic",
     fontWeight: 1,
     gap: 1,
+    grid: "auto-flow / 1px 1px 1px",
+    gridAutoColumns: "1px",
+    gridAutoRows: "auto",
+    gridAutoFlow: "column",
+    gridArea: "auto / auto / auto",
+    gridColumn: "1 / 3",
+    gridRow: "1 / 3",
+    gridTemplate: `
+        "a a a" 40px
+        "b c c" 40px
+        "b c c" 40px / 1fr 1fr 1fr
+    `,
+    gridTemplateAreas: `
+        "b b a"
+        "b b c"
+        "b b c"
+    `,
+    gridTemplateColumns: "1fr 60px",
+    gridTemplateRows: "1fr 60px",
+    gridColumnStart: "auto",
+    gridColumnEnd: "auto",
+    gridRowStart: "auto",
+    gridRowEnd: "auto",
     height: 1,
     justifyContent: "center",
     justifyItems: "center",

@@ -25641,6 +25641,1717 @@ Array [
 ]
 `;
 
+exports[`grid 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "grid": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "\\"a\\" 100px \\"b\\" 1fr",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "minmax(400px, min-content) / repeat(auto-fill, 50px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "auto-flow dense 40% / [line1] minmax(20em, max-content)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridArea 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridArea": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "auto / auto / auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "some-grid-area",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "4 some-grid-area / 2 another-grid-area",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridAutoColumns 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridAutoFlow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "row",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "column",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "row dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "column dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridAutoRows 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridColumn 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridColumn": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "1 / 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "1 / span 2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "main-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "main-start / main-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridColumnEnd 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "somegridarea",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "5 somegridarea span",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridColumnStart 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridColumnStart": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "somegridarea",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "5 somegridarea span",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridRow 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridRow": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "1 / 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "1 / span 2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "main-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "main-start / main-end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridRowEnd 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridRowEnd": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "somegridarea",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "5 somegridarea span",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridRowStart 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridRowStart": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "somegridarea",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "5 somegridarea span",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridTemplate 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridTemplate": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "100px 1fr / 50px 1fr",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "[linename] 100px / [columnname1] 30% [columnname2] 70%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "\\"a a a\\" \\"b b b\\"",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridTemplateAreas 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "a b",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "\\"head head\\" \\"nav  main\\" \\"nav  foot\\"",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridTemplateColumns 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`gridTemplateRows 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-6)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-7)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-8)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-9)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-10)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-11)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-12)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sp-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1vh",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1vw",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1vmin",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1vmax",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "calc(1px + 1px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1px",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "max-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "min-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "fit-content",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "fit-content(1em)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`height 1`] = `
 Array [
   <div
