@@ -1,6 +1,6 @@
 import "./Dot.css";
 
-import { BackgroundColorProp } from "@orbit-ui/styles";
+import { BackgroundColorProp, useResponsiveValue } from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
@@ -9,7 +9,7 @@ import { useMemo } from "react";
 
 const DefaultElement = "span";
 
-export interface InnerDotProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerDotProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color"> {
     /**
      * The dot color.
      */
@@ -41,6 +41,8 @@ export function InnerDot(props: InnerDotProps) {
         ...rest
     } = props;
 
+    const colorValue = useResponsiveValue(color);
+
     const labelMarkup = children && (
         <Text>
             {children}
@@ -59,7 +61,7 @@ export function InnerDot(props: InnerDotProps) {
                     ),
                     ref: forwardedRef,
                     style: {
-                        ["--o-ui-dot-color" as any]: useColor(color as string)
+                        ["--o-ui-dot-color" as any]: useColor(colorValue)
                     }
                 }
             )}

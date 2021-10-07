@@ -627,6 +627,7 @@ expectAssignable<GridAutoRowsProp>("minmax(100px, auto) minmax(max-content, 2fr)
 expectAssignable<GridAutoRowsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
 expectAssignable<GridAutoRowsProp>({ base: "1px", m: "1px", l: "1px" });
 
+expectAssignable<GridColumnProp>(3);
 expectAssignable<GridColumnProp>("auto");
 expectAssignable<GridColumnProp>("1");
 expectAssignable<GridColumnProp>("1 / 3");
@@ -653,6 +654,7 @@ expectAssignable<GridColumnStartProp>("somegridarea 4");
 expectAssignable<GridColumnStartProp>("span somegridarea 5");
 expectAssignable<GridColumnStartProp>({ base: "auto", m: "auto", l: "auto" });
 
+expectAssignable<GridRowProp>(3);
 expectAssignable<GridRowProp>("auto");
 expectAssignable<GridRowProp>("1");
 expectAssignable<GridRowProp>("1 / 3");

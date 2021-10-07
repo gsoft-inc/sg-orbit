@@ -197,7 +197,12 @@ stories()
                 <Div gridArea="d" backgroundColor="primary-9">Delta</Div>
                 <Div gridArea="e" backgroundColor="primary-10">Echo</Div>
             </Grid>
-        </Stack>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
     )
     .add("auto flow", () =>
         <Stack>
@@ -215,7 +220,79 @@ stories()
                 <Div backgroundColor="primary-10">Delta</Div>
                 <Div backgroundColor="primary-10">Echo</Div>
             </Grid>
-        </Stack>
+            <Grid autoFlow={{ m: "row", l: "column" }} gap={4}>
+                <Div backgroundColor="primary-10">Alpha</Div>
+                <Div backgroundColor="primary-10">Bravo</Div>
+                <Div backgroundColor="primary-10">Charlie</Div>
+                <Div backgroundColor="primary-10">Delta</Div>
+                <Div backgroundColor="primary-10">Echo</Div>
+            </Grid>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
+    )
+    .add("auto columns", () =>
+        <Stack>
+            <Grid autoColumns={13} gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+            <Grid autoColumns="200px" gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+            <Grid autoColumns={{ m: 13, l: "200px" }} gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+                <Div backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
+    )
+    .add("auto rows", () =>
+        <Stack>
+            <Grid autoRows={8} gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={3} backgroundColor="primary-5">Bravo</Div>
+                <Div gridColumnSpan={3} backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+            <Grid autoRows="25px" gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={3} backgroundColor="primary-5">Bravo</Div>
+                <Div gridColumnSpan={3} backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+            <Grid autoRows={{ m: "25px", l: 8 }} gap={4}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div gridColumn={3} backgroundColor="primary-5">Bravo</Div>
+                <Div gridColumnSpan={3} backgroundColor="primary-5">Charlie</Div>
+                <Div backgroundColor="primary-5">Delta</Div>
+                <Div backgroundColor="primary-5">Echo</Div>
+            </Grid>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
     )
     .add("column span", () =>
         <Stack>
@@ -235,7 +312,152 @@ stories()
                 <Div backgroundColor="primary-10">Echo</Div>
                 <Div backgroundColor="primary-10">Foxtrot</Div>
             </Grid>
-        </Stack>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
+    )
+    .add("align content start", () =>
+        <Grid alignContent="start" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align content center", () =>
+        <Grid alignContent="center" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align content space-between", () =>
+        <Grid alignContent="space-between" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align content space-around", () =>
+        <Grid alignContent="space-around" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align items start", () =>
+        <Grid alignItems="start" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align items center", () =>
+        <Grid alignItems="center" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("align items end", () =>
+        <Grid alignItems="end" gap={4} height="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content start", () =>
+        <Grid justifyContent="start" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content center", () =>
+        <Grid justifyContent="center" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content end", () =>
+        <Grid justifyContent="end" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content left", () =>
+        <Grid justifyContent="left" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content right", () =>
+        <Grid justifyContent="right" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content space between", () =>
+        <Grid justifyContent="space-between" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content space around", () =>
+        <Grid justifyContent="space-around" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify content space evenly", () =>
+        <Grid justifyContent="space-evenly" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify items start", () =>
+        <Grid justifyItems="start" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify items center", () =>
+        <Grid justifyItems="center" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify items end", () =>
+        <Grid justifyItems="end" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify items left", () =>
+        <Grid justifyItems="left" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
+    )
+    .add("justify items right", () =>
+        <Grid justifyItems="right" gap={4} width="300px">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Grid>
     )
     .add("row span", () =>
         <Stack>
@@ -255,7 +477,12 @@ stories()
                 <Div backgroundColor="primary-10">Echo</Div>
                 <Div backgroundColor="primary-10">Foxtrot</Div>
             </Grid>
-        </Stack>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .viewports([900, 1280])
+                 .build()
+         }
     )
     .add("repeat", () =>
         <Stack>

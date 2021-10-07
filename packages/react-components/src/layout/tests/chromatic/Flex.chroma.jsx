@@ -81,6 +81,34 @@ stories("/row")
             <Div backgroundColor="primary-5" width="100%">Charlie</Div>
         </Flex>
     )
+    .add("content start", () =>
+        <Flex alignContent="start" height="200px" direction="row" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content center", () =>
+        <Flex alignContent="center" height="200px" direction="row" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content space between", () =>
+        <Flex alignContent="space-between" height="200px" direction="row" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content space around", () =>
+        <Flex alignContent="space-around" height="200px" direction="row" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
     .add("items start", () =>
         <Flex alignItems="start" height="200px" direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
@@ -180,6 +208,34 @@ stories("/column")
             <Div backgroundColor="primary-5" height="100%">Alpha</Div>
             <Div backgroundColor="primary-5" height="100%">Bravo</Div>
             <Div backgroundColor="primary-5" height="100%">Charlie</Div>
+        </Flex>
+    )
+    .add("content start", () =>
+        <Flex alignContent="start" width="200px" direction="column" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content center", () =>
+        <Flex alignContent="center" width="200px" direction="column" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content space between", () =>
+        <Flex alignContent="space-between" width="200px" direction="column" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
+        </Flex>
+    )
+    .add("content space around", () =>
+        <Flex alignContent="space-around" width="200px" direction="column" wrap="wrap">
+            <Div backgroundColor="primary-5">Alpha</Div>
+            <Div backgroundColor="primary-5">Bravo</Div>
+            <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("items start", () =>

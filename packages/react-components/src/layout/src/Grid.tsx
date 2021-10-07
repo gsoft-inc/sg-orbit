@@ -76,7 +76,7 @@ export interface InnerGridProps extends
     /**
      * A number of equally sized columns.
      */
-    columns?: number;
+    columns?: ResponsiveValue<number>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
@@ -100,7 +100,7 @@ export interface InnerGridProps extends
     /**
      * A number of equally sized rows.
      */
-    rows?: number;
+    rows?: ResponsiveValue<number>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns).
      */
@@ -135,6 +135,7 @@ export function InnerGrid({
     as = DefaultElement,
     autoColumns,
     autoFlow,
+    autoRows,
     children,
     columns,
     forwardedRef,
@@ -144,26 +145,26 @@ export function InnerGrid({
     templateRows,
     ...rest
 }: InnerGridProps) {
-    const underlyingAreas = useResponsiveValue(areas);
-    const underlyingColumns = useResponsiveValue(columns);
-    const underlyingRows = useResponsiveValue(rows);
-    const underlyingTemplateColumns = useResponsiveValue(templateColumns);
-    const underlyingTemplateRows = useResponsiveValue(templateRows);
+    const areasValue = useResponsiveValue(areas);
+    const columnsValue = useResponsiveValue(columns);
+    const rowsValue = useResponsiveValue(rows);
+    const templateColumnsValue = useResponsiveValue(templateColumns);
+    const templateRowsValue = useResponsiveValue(templateRows);
 
     if (!isNil(columns) && !isNil(templateColumns)) {
         throw new Error("A grid component cannot receive \"columns\" and \"templateColumns\" at the same time.");
     }
 
-    const gridTemplateColumns = !isNil(underlyingColumns)
-        ? `repeat(${underlyingColumns}, minmax(0, 1fr))`
-        : !isNil(underlyingTemplateColumns)
-            ? isArray(underlyingTemplateColumns) ? interpolateGridTemplateArray(underlyingTemplateColumns) : underlyingTemplateColumns
+    const gridTemplateColumns = !isNil(columnsValue)
+        ? `repeat(${columnsValue}, minmax(0, 1fr))`
+        : !isNil(templateColumnsValue)
+            ? isArray(templateColumnsValue) ? interpolateGridTemplateArray(templateColumnsValue) : templateColumnsValue
             : undefined;
 
-    const gridTemplateRows = !isNil(underlyingRows)
-        ? `repeat(${underlyingRows}, minmax(0, 1fr))`
-        : !isNil(underlyingTemplateRows)
-            ? isArray(underlyingTemplateRows) ? interpolateGridTemplateArray(underlyingTemplateRows) : underlyingTemplateRows
+    const gridTemplateRows = !isNil(rowsValue)
+        ? `repeat(${rowsValue}, minmax(0, 1fr))`
+        : !isNil(templateRowsValue)
+            ? isArray(templateRowsValue) ? interpolateGridTemplateArray(templateRowsValue) : templateRowsValue
             : undefined;
 
     return (
@@ -175,7 +176,8 @@ export function InnerGrid({
                     display: inline ? "inline-grid" : "grid",
                     gridAutoColumns: autoColumns,
                     gridAutoFlow: autoFlow,
-                    gridTemplateAreas: isArray(underlyingAreas) ? underlyingAreas.map(x => `"${x}"`).join(" ") : underlyingAreas,
+                    gridAutoRows: autoRows,
+                    gridTemplateAreas: isArray(areasValue) ? areasValue.map(x => `"${x}"`).join(" ") : areasValue,
                     gridTemplateColumns: gridTemplateColumns,
                     gridTemplateRows: gridTemplateRows,
                     ref: forwardedRef
