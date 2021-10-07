@@ -1,4 +1,15 @@
-import { AlignContentProp, AlignItemsProp, ColumnGapProp, FlexBasisProp, FlexDirectionProp, FlexWrapProp, GapProp, JustifyContentProp, RowGapProp } from "@orbit-ui/styles";
+import {
+    AlignContentProp,
+    AlignItemsProp,
+    ColumnGapProp,
+    FlexBasisProp,
+    FlexDirectionProp,
+    FlexWrapProp,
+    GapProp,
+    JustifyContentProp,
+    RowGapProp,
+    useResponsiveValue
+} from "@orbit-ui/styles";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FlexDirection } from "./adapters";
@@ -6,9 +17,9 @@ import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNi
 
 const DefaultElement = "div";
 
-export type NextIterationAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+export type SafeAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
 
-export type NextIterationJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+export type SafeJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
 
 export interface InnerFlexProps extends
     // Keep it so it could be used with dynamic slots.
@@ -34,13 +45,13 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items).
      */
-    alignItems?: NextIterationAlignItemsProp;
+    alignItems?: SafeAlignItemsProp;
     /**
      * Alias for [flex basis](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis);
      */
     basis?: FlexBasisProp;
     /**
-     * React children
+     * React children.
      */
     children: ReactNode;
     /**
@@ -66,7 +77,7 @@ export interface InnerFlexProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content).
      */
-    justifyContent?: NextIterationJustifyContentProp;
+    justifyContent?: SafeJustifyContentProp;
     /**
      * Whether or not to reverse the order of the elements.
      */
@@ -83,7 +94,7 @@ export interface InnerFlexProps extends
 
 export function InnerFlex({
     alignItems,
-    as: asProp = DefaultElement,
+    as = DefaultElement,
     children,
     direction = "row",
     fluid,
@@ -96,21 +107,25 @@ export function InnerFlex({
     wrap,
     ...rest
 }: InnerFlexProps) {
+    const alignItemsValue = useResponsiveValue(alignItems);
+    const directionValue = useResponsiveValue(direction);
+    const justifyContentValue = useResponsiveValue(justifyContent);
+
     return (
         <Box
             {...mergeProps(
                 rest,
                 {
                     // Normalize values until Chrome support `start` & `end`, https://developer.mozilla.org/en-US/docs/Web/CSS/align-items.
-                    alignItems: (alignItems && (alignItems as string).replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
-                    as: asProp,
+                    alignItems: (alignItemsValue && (alignItemsValue as string).replace("start", "flex-start").replace("end", "flex-end")) as AlignItemsProp,
+                    as,
                     display: inline ? "inline-flex" as const : "flex" as const,
-                    flexDirection: (direction ? `${direction}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
+                    flexDirection: (directionValue ? `${directionValue}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     flexWrap: wrap,
-                    height: !isNil(height) ? height : (fluid && direction === "column" ? "100%" : undefined),
-                    justifyContent: (justifyContent && (justifyContent as string).replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
+                    height: !isNil(height) ? height : (fluid && directionValue === "column" ? "100%" : undefined),
+                    justifyContent: (justifyContentValue && (justifyContentValue as string).replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
                     ref: forwardedRef,
-                    width: !isNil(width) ? width : (fluid && direction === "row" ? "100%" : undefined)
+                    width: !isNil(width) ? width : (fluid && directionValue === "row" ? "100%" : undefined)
                 }
             )}
         >

@@ -45,10 +45,12 @@ import {
     GridAutoRowsProp,
     GridColumnEndProp,
     GridColumnProp,
+    GridColumnSpanProp,
     GridColumnStartProp,
     GridProp,
     GridRowEndProp,
     GridRowProp,
+    GridRowSpanProp,
     GridRowStartProp,
     GridTemplateAreasProp,
     GridTemplateColumnsProp,
@@ -90,7 +92,6 @@ import {
     PointerEventsProp,
     PositionProp,
     ResizeProp,
-    ResponsiveValue,
     RightProp,
     RowGapProp,
     StrokeProp,
@@ -110,6 +111,7 @@ import {
     WordBreakProp,
     ZIndexProp
 } from "@styles/useStyledSystem";
+import { ResponsiveValue } from "@styles/BreakpointProvider";
 import { expectAssignable } from "@typescript/tests";
 
 expectAssignable<ResponsiveValue<string>>({ base: "value" });
@@ -625,6 +627,7 @@ expectAssignable<GridAutoRowsProp>("minmax(100px, auto) minmax(max-content, 2fr)
 expectAssignable<GridAutoRowsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
 expectAssignable<GridAutoRowsProp>({ base: "1px", m: "1px", l: "1px" });
 
+expectAssignable<GridColumnProp>(3);
 expectAssignable<GridColumnProp>("auto");
 expectAssignable<GridColumnProp>("1");
 expectAssignable<GridColumnProp>("1 / 3");
@@ -641,6 +644,9 @@ expectAssignable<GridColumnEndProp>("span 3");
 expectAssignable<GridColumnEndProp>("5 somegridarea span");
 expectAssignable<GridColumnEndProp>({ base: "2", m: "2", l: "2" });
 
+expectAssignable<GridColumnSpanProp>(3);
+expectAssignable<GridColumnSpanProp>({ base: 3, m: 3, l: 3 });
+
 expectAssignable<GridColumnStartProp>("auto");
 expectAssignable<GridColumnStartProp>("somegridarea");
 expectAssignable<GridColumnStartProp>("2");
@@ -648,6 +654,7 @@ expectAssignable<GridColumnStartProp>("somegridarea 4");
 expectAssignable<GridColumnStartProp>("span somegridarea 5");
 expectAssignable<GridColumnStartProp>({ base: "auto", m: "auto", l: "auto" });
 
+expectAssignable<GridRowProp>(3);
 expectAssignable<GridRowProp>("auto");
 expectAssignable<GridRowProp>("1");
 expectAssignable<GridRowProp>("1 / 3");
@@ -662,6 +669,9 @@ expectAssignable<GridRowEndProp>("2");
 expectAssignable<GridRowEndProp>("somegridarea 4");
 expectAssignable<GridRowEndProp>("span somegridarea 5");
 expectAssignable<GridRowEndProp>({ base: "auto", m: "auto", l: "auto" });
+
+expectAssignable<GridRowSpanProp>(3);
+expectAssignable<GridRowSpanProp>({ base: 3, m: 3, l: 3 });
 
 expectAssignable<GridRowStartProp>("auto");
 expectAssignable<GridRowStartProp>("somegridarea");
@@ -1367,8 +1377,10 @@ expectAssignable<StyledSystemProps>({
     `,
     gridTemplateColumns: "1fr 60px",
     gridTemplateRows: "1fr 60px",
+    gridColumnSpan: 3,
     gridColumnStart: "auto",
     gridColumnEnd: "auto",
+    gridRowSpan: 3,
     gridRowStart: "auto",
     gridRowEnd: "auto",
     height: 1,

@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { isNil } from "./assertions";
+import { isObject } from "./assertions";
 import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
@@ -11,8 +12,22 @@ export const Breakpoints = {
 
 const DefaultBreakpoint = "l";
 
+export type Breakpoint = keyof typeof Breakpoints;
+
+export type ResponsiveValue<T> = Partial<Record<Breakpoint, T>> & { base?: T };
+
+export function parseResponsiveValue<T>(value: T | ResponsiveValue<T>, breakpoint: string): T {
+    if (isObject(value)) {
+        const responsiveValue = value[breakpoint ?? "base"];
+
+        return (responsiveValue ?? value["base"]) as T;
+    }
+
+    return value as T;
+}
+
 export interface BreakpointContextType {
-    breakpoint?: string;
+    breakpoint?: Breakpoint;
 }
 
 export const BreakpointContext = createContext<BreakpointContextType>({});
@@ -20,12 +35,14 @@ export const BreakpointContext = createContext<BreakpointContextType>({});
 export function BreakpointProvider({
     children
 }) {
-    const [breakpoint, setBreakpoint] = useState<string>(DefaultBreakpoint);
+    const [breakpoint, setBreakpoint] = useState<Breakpoint>(DefaultBreakpoint);
 
     const handleResize = useDebouncedCallback(() => {
+        console.log("handle resize");
+
         for (const [key, value] of Object.entries(Breakpoints)) {
             if (window.matchMedia(value).matches) {
-                setBreakpoint(key);
+                setBreakpoint(key as Breakpoint);
 
                 break;
             }
