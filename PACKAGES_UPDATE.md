@@ -6,9 +6,9 @@ To udpate our packages use a package called ![npm-check-updates](https://www.npm
 
 In a terminal, use the followings commands
 
-- To list the available updates, type `npx npm-check-updates`
+- To list the available updates, type `npx --yes npm-check-updates`
 - If you want to proceed with the updates, your must first delete `yarn.lock`
-- Then type `npx npm-check-updates -u` to bump the versions in the `package.json` file
+- Then type `npx --yes npm-check-updates -u` to bump the versions in the `package.json` file
 - Install the new packages with `yarn update`
 
 ## Meow
