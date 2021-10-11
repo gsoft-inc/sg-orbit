@@ -1,4 +1,4 @@
-import { ApricotTheme, Breakpoints, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
+import { ApricotTheme, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
