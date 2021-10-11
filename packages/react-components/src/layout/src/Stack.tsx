@@ -1,7 +1,6 @@
 import { ColumnGapProp, GapProp, RowGapProp } from "@orbit-ui/styles";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex } from "./Flex";
-import { FlexAlignment, useFlexAlignment } from "./adapters";
+import { Flex, FlexAlignment, useFlexAlignment } from "./Flex";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
