@@ -56,8 +56,8 @@ export function InnerOverlay({
                         // Since the transition component use the "o-ui-fade-in" and "o-ui-fade-out" classes which are using CSS variables declared inside an ".o-ui" class
                         // we must render the class somewhere.
                         "o-ui",
-                        "o-ui-overlay",
-                        borderOffset && "has-border-offset"
+                        "overlay",
+                        borderOffset && "overlay-has-border-offset"
                     ),
                     enter: "o-ui-fade-in",
                     leave: "o-ui-fade-out",

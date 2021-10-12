@@ -25,19 +25,19 @@
 }
 
 /* ARROW | POSITION */
-.o-ui-overlay[data-popper-placement^="top"] > .o-ui-overlay-arrow {
+.o-ui-overlay[data-popper-placement^="top"] .o-ui > .o-ui-overlay-arrow {
     bottom: calc(-1 * var(--o-ui-sp-1) - 1px);
 }
 
-.o-ui-overlay[data-popper-placement^="bottom"] > .o-ui-overlay-arrow {
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui > .o-ui-overlay-arrow {
     top: calc(-1 * var(--o-ui-sp-1) - 1px);
 }
 
-.o-ui-overlay[data-popper-placement^="left"] > .o-ui-overlay-arrow {
+.o-ui-overlay[data-popper-placement^="left"] .o-ui > .o-ui-overlay-arrow {
     right: calc(-1 * var(--o-ui-sp-1) - 1px);
 }
 
-.o-ui-overlay[data-popper-placement^="right"] > .o-ui-overlay-arrow {
+.o-ui-overlay[data-popper-placement^="right"] .o-ui > .o-ui-overlay-arrow {
     left: calc(-1 * var(--o-ui-sp-1) - 1px);
 }
 
