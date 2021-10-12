@@ -1,0 +1,220 @@
+import { ApricotTheme } from "@orbit-ui/styles";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Div } from "@react-components/html";
+import { Grid, InnerGrid, fitContent, minmax, repeat } from "@react-components/layout";
+
+<Meta
+    title="Layout/Grid"
+    id="grid"
+/>
+
+# Grid
+
+<Tagline>A layout container using grid.</Tagline>
+
+<ComponentInfo
+    usage={"import { Grid, repeat, minmax, fitContent } from \"@orbit-ui/react-components\";"}
+    githubPath="/packages/react-components/src/layout/src"
+/>
+
+## Usage
+
+Grid layout offer a lot of options to solve a bunch of use cases. This page only showcase a few use cases. For a thorough documentation, please have a look at [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids).
+
+### Areas
+
+A grid can define explicit sections with areas.
+
+<Preview>
+    <Story name="areas">
+        <Grid
+            areas={["a  a", "b c"]}
+            gap={2}
+            height="100px"
+        >
+            <Div gridArea="a" backgroundColor="primary-5" />
+            <Div gridArea="b" backgroundColor="beetle-5" />
+            <Div gridArea="c" backgroundColor="botanic-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Template columns
+
+A grid can define explicit columns (and rows). A value can be a grid length value or an Orbit spacing scale value.
+
+<Preview>
+    <Story name="template columns">
+        <Grid
+            templateColumns={[13, "50px", "1fr"]}
+            gap={2}
+            height="50px"
+        >
+            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Auto columns
+
+A grid can define the size of implicitly created columns. A value can be a grid length value or an Orbit spacing scale value.
+
+<Preview>
+    <Story name="auto columns">
+        <Grid
+            autoColumns="1fr"
+            gap={2}
+            height="100px"
+        >
+            <Div gridColumn={2} backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Fluid columns
+
+A grid can define an explicit number of equally sized fluid columns.
+
+<Preview>
+    <Story name="fluid columns">
+        <Grid
+            fluidColumns={4}
+            gap={2}
+            height="50px"
+        >
+            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+            <Div backgroundColor="cloud-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Gap
+
+A grid layout can have a gap between his columns and rows. `columnGap` and `rowGap` are also available to specify a gap for a single axis.
+
+<Preview>
+    <Story name="gap">
+        <Grid
+            templateColumns="1fr 1fr"
+            gap={2}
+            height="100px"
+        >
+            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+            <Div backgroundColor="cloud-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Column spanning
+
+A grid item can span over multiple columns.
+
+<Preview>
+    <Story name="column span">
+        <Grid
+            templateColumns="1fr 1fr 1fr"
+            gap={2}
+            height="100px"
+        >
+            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+            <Div gridColumnSpan={3} gridRow={2} backgroundColor="cloud-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Nesting
+
+Grids can be nested.
+
+<Preview>
+    <Story name="nesting">
+        <Grid
+            templateRows={["50px", "50px"]}
+            gap={2}
+        >
+            <Grid templateColumns={[13, "auto"]}>
+                <Div backgroundColor="primary-5" />
+                <Div backgroundColor="beetle-5" />
+            </Grid>
+            <Grid templateColumns="auto 300px">
+                <Div backgroundColor="botanic-5" />
+                <Div backgroundColor="cloud-5" />
+            </Grid>
+        </Grid>
+    </Story>
+</Preview>
+
+### Repeat
+
+A custom `repeat` function is available to support Orbit spacing scale values. However, if you prefer, you can use the [native CSS repeat function](https://developer.mozilla.org/en-US/docs/Web/CSS/repeat())
+
+<Preview scope={{ ApricotTheme }}>
+    <Story name="repeat function">
+        <Grid
+            templateColumns={repeat("auto-fit", 8)}
+            autoRows={8}
+            gap={2}
+        >
+            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} key={x} />)}
+            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} key={x} />)}
+            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} key={x} />)}
+        </Grid>
+    </Story>
+</Preview>
+
+### Minmax
+
+A custom `minmax` function is avaiable to support Orbit spacing scalue values. However, if you prefer, you can use the [native CSS minmax function](https://developer.mozilla.org/en-US/docs/Web/CSS/minmax())
+
+<Preview>
+    <Story name="minmax function">
+        <Grid
+            templateColumns={[minmax(13, "1fr"), "100px", minmax(13, "1fr")]}
+            gap={2}
+            height="50px"
+        >
+            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="beetle-5" />
+            <Div backgroundColor="botanic-5" />
+        </Grid>
+    </Story>
+</Preview>
+
+### Fit-content
+
+<Preview>
+    <Story name="fit-content function">
+        <Grid
+            templateColumns={[fitContent(13), fitContent(13), "1fr"]}
+            gap={2}
+            height="50px"
+            color="white"
+        >
+            <Div backgroundColor="primary-5" paddingX={2}>Mars</Div>
+            <Div backgroundColor="beetle-5" paddingX={2}>Pluto</Div>
+            <Div backgroundColor="botanic-5" paddingX={2}>Jupiter</Div>
+        </Grid>
+    </Story>
+</Preview>
+
+## API
+
+### Grid
+
+<ComponentInfo
+    usage={"import { Grid } from \"@orbit-ui/react-components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerGrid} sort="alpha" />

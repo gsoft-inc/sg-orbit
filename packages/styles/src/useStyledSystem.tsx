@@ -6,7 +6,7 @@ import { Property } from "csstype";
 import { isNil } from "./assertions";
 
 /*
-CASES:
+SYNTAX:
 
 // No breakpoint, no pseudo, known value
 <Button backgroundColor="sunray-10">Toto</Button>

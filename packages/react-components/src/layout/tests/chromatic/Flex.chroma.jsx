@@ -30,7 +30,7 @@ stories()
             </Flex>
         </>
     )
-    .add("nested", () =>
+    .add("nesting", () =>
         <Flex direction="row" gap={8}>
             <Flex direction="row" gap={1}>
                 <Div backgroundColor="primary-5">Alpha</Div>

@@ -11,22 +11,24 @@ import { Flex, Inline, InnerFlex, InnerInline, InnerStack, Stack } from "@react-
 
 # Flex
 
-<Tagline>Use this component to display an image.</Tagline>
+<Tagline>A layout container using flexbox.</Tagline>
 
 <ComponentInfo
     usage={"import { Flex, Inline, Stack } from \"@orbit-ui/react-components\";"}
-    githubPath="/packages/react-components/src/flex/src"
+    githubPath="/packages/react-components/src/layout/src"
 />
 
 ## Usage
 
+Flex layout offer a lot of options to solve a bunch of use cases. This page only showcase a few use cases. For a thorough documentation, please have a look at [MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox).
+
 ### Horizontal alignment
 
-A flex component can horizontally align items.
+A flex layout can have horizontally aligned items.
 
 <Preview>
     <Story name="horizontal">
-        <Flex direction="row">
+        <Flex direction="row" gap={2}>
             <Div backgroundColor="primary-5" width={12} height={12} />
             <Div backgroundColor="beetle-5" width={12} height={12} />
             <Div backgroundColor="botanic-5" width={12} height={12} />
@@ -36,11 +38,11 @@ A flex component can horizontally align items.
 
 ### Vertical alignment
 
-A flex component can vertically align items.
+A flex layout can have vertically aligned items.
 
 <Preview>
     <Story name="vertical">
-        <Flex direction="column">
+        <Flex direction="column" gap={2}>
             <Div backgroundColor="primary-5" width={12} height={12} />
             <Div backgroundColor="beetle-5" width={12} height={12} />
             <Div backgroundColor="botanic-5" width={12} height={12} />
@@ -50,7 +52,7 @@ A flex component can vertically align items.
 
 ### Gap
 
-A flex component can add a gap between the items.
+A flex layout can have a gap between his items. `columnGap` and `rowGap` are also available to specify a gap for a single axis.
 
 <Preview>
     <Story name="gap">
@@ -64,7 +66,7 @@ A flex component can add a gap between the items.
 
 ### Align items
 
-A flex component can align the items along the cross axis. When direction is "column", this refers to horizontal alignment, and when direction is "row" it refers to vertical alignment.
+A flex layout can align his items along the cross axis. When the direction is "column", this refers to horizontal alignment, and when direction is "row" it refers to vertical alignment.
 
 <Preview>
     <Story name="align items">
@@ -78,7 +80,7 @@ A flex component can align the items along the cross axis. When direction is "co
 
 ### Justify content
 
-A flex component can align the items along the main axis. When direction is "column", this refers to vertical alignment, and when direction is "row" it refers to horizontal alignment.
+A flex layout can align his items along the main axis. When direction is "column", this refers to vertical alignment, and when direction is "row" it refers to horizontal alignment.
 
 <Preview>
     <Story name="justify content">
@@ -92,7 +94,7 @@ A flex component can align the items along the main axis. When direction is "col
 
 ### Wrap
 
-A flex component items can wrap on multiple rows.
+A flex layout items can wrap on multiple rows.
 
 <Preview scope={{ ApricotTheme }}>
     <Story name="wrap">
@@ -106,7 +108,7 @@ A flex component items can wrap on multiple rows.
 
 ### Reverse
 
-A flex component can reverse the items order.
+A flex layout can reverse the items order.
 
 <Preview>
     <Story name="reverse">
@@ -120,11 +122,11 @@ A flex component can reverse the items order.
 
 ### Nesting
 
-Flex components can be nested.
+Flex layouts can be nested.
 
 <Preview>
     <Story name="nesting">
-        <Flex gap={6}>
+        <Flex gap={4}>
             <Flex gap={2}>
                 <Div backgroundColor="primary-5" width={12} height={12} />
                 <Div backgroundColor="primary-5" width={12} height={12} />
@@ -143,7 +145,7 @@ Flex components can be nested.
 
 ### Inline
 
-An inline utility component is available to facilitate horizontal alignment.
+An inline utility component is available for horizontal alignment.
 
 <Preview>
     <Story name="inline">
@@ -157,7 +159,7 @@ An inline utility component is available to facilitate horizontal alignment.
 
 ### Stack
 
-A stack utility component is available to facilitate vertical alignment.
+A stack utility component is available for vertical alignment.
 
 <Preview>
     <Story name="stack">

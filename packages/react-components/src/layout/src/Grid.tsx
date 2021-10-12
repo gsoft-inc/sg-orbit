@@ -20,6 +20,21 @@ import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isArray, isNil, mergeProps } from "../../shared";
 
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/repeat.
+export function repeat(count: number | "auto-fill" | "auto-fit", repetition: SpacingValue | SpacingValue[]) {
+    return `repeat(${count}, ${isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSpacingValue(repetition)})`;
+}
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/minmax.
+export function minmax(min: SpacingValue, max: SpacingValue) {
+    return `minmax(${getSpacingValue(min)}, ${getSpacingValue(max)})`;
+}
+
+// See https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content.
+export function fitContent(dimension: SpacingValue) {
+    return `fit-content(${getSpacingValue(dimension)})`;
+}
+
 const DefaultElement = "div";
 
 export interface InnerGridProps extends
@@ -74,9 +89,13 @@ export interface InnerGridProps extends
      */
     columnGap?: ColumnGapProp;
     /**
-     * A number of equally sized columns.
+     * A number of equally sized fluid columns.
      */
-    columns?: ResponsiveValue<number>;
+    fluidColumns?: ResponsiveValue<number>;
+    /**
+     * A number of equally sized fluid rows.
+     */
+    fluidRows?: ResponsiveValue<number>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
@@ -98,10 +117,6 @@ export interface InnerGridProps extends
      */
     rowGap?: RowGapProp;
     /**
-     * A number of equally sized rows.
-     */
-    rows?: ResponsiveValue<number>;
-    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns).
      */
     templateColumns?: GridTemplateColumnsValue | GridTemplateColumnsValue[] | ResponsiveValue<GridTemplateColumnsValue | GridTemplateColumnsValue[]>;
@@ -115,21 +130,6 @@ function interpolateGridTemplateArray<T>(values: T[]) {
     return values.map(x => getSpacingValue(x as any)).join(" ");
 }
 
-// See https://developer.mozilla.org/en-US/docs/Web/CSS/repeat.
-export function repeat(count: number | "auto-fill" | "auto-fit", repetition: SpacingValue | SpacingValue[]) {
-    return `repeat(${count}, ${isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSpacingValue(repetition)})`;
-}
-
-// See https://developer.mozilla.org/en-US/docs/Web/CSS/minmax.
-export function minmax(min: SpacingValue, max: SpacingValue) {
-    return `minmax(${getSpacingValue(min)}, ${getSpacingValue(max)})`;
-}
-
-// See https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content.
-export function fitContent(dimension: SpacingValue) {
-    return `fit-content(${getSpacingValue(dimension)})`;
-}
-
 export function InnerGrid({
     areas,
     as = DefaultElement,
@@ -137,32 +137,36 @@ export function InnerGrid({
     autoFlow,
     autoRows,
     children,
-    columns,
+    fluidColumns,
+    fluidRows,
     forwardedRef,
     inline,
-    rows,
     templateColumns,
     templateRows,
     ...rest
 }: InnerGridProps) {
     const areasValue = useResponsiveValue(areas);
-    const columnsValue = useResponsiveValue(columns);
-    const rowsValue = useResponsiveValue(rows);
+    const fluidColumnsValue = useResponsiveValue(fluidColumns);
+    const fluidRowsValue = useResponsiveValue(fluidRows);
     const templateColumnsValue = useResponsiveValue(templateColumns);
     const templateRowsValue = useResponsiveValue(templateRows);
 
-    if (!isNil(columns) && !isNil(templateColumns)) {
-        throw new Error("A grid component cannot receive \"columns\" and \"templateColumns\" at the same time.");
+    if (!isNil(fluidColumnsValue) && !isNil(templateColumnsValue)) {
+        throw new Error("A grid component can receive either \"fluidColumns\" or \"templateColumns\" but not both.");
     }
 
-    const gridTemplateColumns = !isNil(columnsValue)
-        ? `repeat(${columnsValue}, minmax(0, 1fr))`
+    if (!isNil(fluidRowsValue) && !isNil(templateRowsValue)) {
+        throw new Error("A grid component can receive either \"fluidRows\" or \"templateRows\" but not both.");
+    }
+
+    const gridTemplateColumns = !isNil(fluidColumnsValue)
+        ? `repeat(${fluidColumnsValue}, minmax(0, 1fr))`
         : !isNil(templateColumnsValue)
             ? isArray(templateColumnsValue) ? interpolateGridTemplateArray(templateColumnsValue) : templateColumnsValue
             : undefined;
 
-    const gridTemplateRows = !isNil(rowsValue)
-        ? `repeat(${rowsValue}, minmax(0, 1fr))`
+    const gridTemplateRows = !isNil(fluidRowsValue)
+        ? `repeat(${fluidRowsValue}, minmax(0, 1fr))`
         : !isNil(templateRowsValue)
             ? isArray(templateRowsValue) ? interpolateGridTemplateArray(templateRowsValue) : templateRowsValue
             : undefined;

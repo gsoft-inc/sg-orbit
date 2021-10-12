@@ -8,17 +8,6 @@ function stories(segment) {
         .build();
 }
 
-/*
-TODO:
-- nested test
-- auto columns
-- auto rows
-- alignContent
-- alignItems
-- justifyContent
-- justifyItems
-*/
-
 stories()
     .add("default", () =>
         <Grid>
@@ -43,6 +32,18 @@ stories()
                 <Div backgroundColor="primary-10">Foxtrot</Div>
             </Grid>
         </>
+    )
+    .add("nesting", () =>
+        <Grid fluidColumns={2} gap={4}>
+            <Grid templateColumns={[13, "auto"]}>
+                <Div backgroundColor="primary-5">Alpha</Div>
+                <Div backgroundColor="primary-6">Bravo</Div>
+            </Grid>
+            <Grid templateColumns="auto 75px">
+                <Div backgroundColor="primary-8">Delta</Div>
+                <Div backgroundColor="primary-9">Echo</Div>
+            </Grid>
+        </Grid>
     )
     .add("gap", () =>
         <Grid gap={4}>
@@ -74,9 +75,9 @@ stories()
             <Div backgroundColor="primary-5">Foxtrot</Div>
         </Grid>
     )
-    .add("columns", () =>
+    .add("fluid columns", () =>
         <Stack>
-            <Grid columns={3} gap={4}>
+            <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -84,7 +85,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid columns={{ m: 2, l: 3 }} gap={4}>
+            <Grid fluidColumns={{ m: 2, l: 3 }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -99,9 +100,9 @@ stories()
                  .build()
          }
     )
-    .add("rows", () =>
+    .add("fluid rows", () =>
         <Stack>
-            <Grid rows={2} autoFlow="column" gap={4}>
+            <Grid fluidRows={2} autoFlow="column" gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -109,7 +110,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid rows={{ m: 3, l: 2 }} autoFlow="column" gap={4}>
+            <Grid fluidRows={{ m: 3, l: 2 }} autoFlow="column" gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -135,20 +136,20 @@ stories()
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
             <Grid templateColumns={[13, 10, 13]} gap={4}>
+                <Div backgroundColor="primary-7">Alpha</Div>
+                <Div backgroundColor="primary-7">Bravo</Div>
+                <Div backgroundColor="primary-7">Charlie</Div>
+                <Div backgroundColor="primary-7">Delta</Div>
+                <Div backgroundColor="primary-7">Echo</Div>
+                <Div backgroundColor="primary-7">Foxtrot</Div>
+            </Grid>
+            <Grid templateColumns={{ m: [13, 10], l: "150px 100px 150px" }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
                 <Div backgroundColor="primary-10">Delta</Div>
                 <Div backgroundColor="primary-10">Echo</Div>
                 <Div backgroundColor="primary-10">Foxtrot</Div>
-            </Grid>
-            <Grid templateColumns={{ m: [13, 10], l: "150px 100px 150px" }} gap={4}>
-                <Div backgroundColor="primary-12">Alpha</Div>
-                <Div backgroundColor="primary-12">Bravo</Div>
-                <Div backgroundColor="primary-12">Charlie</Div>
-                <Div backgroundColor="primary-12">Delta</Div>
-                <Div backgroundColor="primary-12">Echo</Div>
-                <Div backgroundColor="primary-12">Foxtrot</Div>
             </Grid>
         </Stack>,
          {
@@ -165,14 +166,14 @@ stories()
                 <Div backgroundColor="primary-5">Charlie</Div>
             </Grid>
             <Grid templateRows={[13, 10, 13]} gap={4}>
+                <Div backgroundColor="primary-7">Alpha</Div>
+                <Div backgroundColor="primary-7">Bravo</Div>
+                <Div backgroundColor="primary-7">Charlie</Div>
+            </Grid>
+            <Grid templateRows={{ m: [13, 10, 13], l: "200px 100px 200px" }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
-            </Grid>
-            <Grid templateRows={{ m: [13, 10, 13], l: "200px 100px 200px" }} gap={4}>
-                <Div backgroundColor="primary-12">Alpha</Div>
-                <Div backgroundColor="primary-12">Bravo</Div>
-                <Div backgroundColor="primary-12">Charlie</Div>
             </Grid>
         </Inline>,
          {
@@ -214,11 +215,11 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
             </Grid>
             <Grid autoFlow="row" gap={4}>
-                <Div backgroundColor="primary-10">Alpha</Div>
-                <Div backgroundColor="primary-10">Bravo</Div>
-                <Div backgroundColor="primary-10">Charlie</Div>
-                <Div backgroundColor="primary-10">Delta</Div>
-                <Div backgroundColor="primary-10">Echo</Div>
+                <Div backgroundColor="primary-7">Alpha</Div>
+                <Div backgroundColor="primary-7">Bravo</Div>
+                <Div backgroundColor="primary-7">Charlie</Div>
+                <Div backgroundColor="primary-7">Delta</Div>
+                <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
             <Grid autoFlow={{ m: "row", l: "column" }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
@@ -244,18 +245,18 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
             </Grid>
             <Grid autoColumns="200px" gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
-                <Div backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
+                <Div backgroundColor="primary-7">Alpha</Div>
+                <Div gridColumn={2} backgroundColor="primary-7">Bravo</Div>
+                <Div backgroundColor="primary-7">Charlie</Div>
+                <Div backgroundColor="primary-7">Delta</Div>
+                <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
             <Grid autoColumns={{ m: 13, l: "200px" }} gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
-                <Div backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
+                <Div backgroundColor="primary-10">Alpha</Div>
+                <Div gridColumn={2} backgroundColor="primary-10">Bravo</Div>
+                <Div backgroundColor="primary-10">Charlie</Div>
+                <Div backgroundColor="primary-10">Delta</Div>
+                <Div backgroundColor="primary-10">Echo</Div>
             </Grid>
         </Stack>,
          {
@@ -274,18 +275,18 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
             </Grid>
             <Grid autoRows="25px" gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div gridColumn={3} backgroundColor="primary-5">Bravo</Div>
-                <Div gridColumnSpan={3} backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
+                <Div backgroundColor="primary-7">Alpha</Div>
+                <Div gridColumn={3} backgroundColor="primary-7">Bravo</Div>
+                <Div gridColumnSpan={3} backgroundColor="primary-7">Charlie</Div>
+                <Div backgroundColor="primary-7">Delta</Div>
+                <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
             <Grid autoRows={{ m: "25px", l: 8 }} gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div gridColumn={3} backgroundColor="primary-5">Bravo</Div>
-                <Div gridColumnSpan={3} backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
+                <Div backgroundColor="primary-10">Alpha</Div>
+                <Div gridColumn={3} backgroundColor="primary-10">Bravo</Div>
+                <Div gridColumnSpan={3} backgroundColor="primary-10">Charlie</Div>
+                <Div backgroundColor="primary-10">Delta</Div>
+                <Div backgroundColor="primary-10">Echo</Div>
             </Grid>
         </Stack>,
          {
@@ -296,7 +297,7 @@ stories()
     )
     .add("column span", () =>
         <Stack>
-            <Grid columns={3} gap={4}>
+            <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div gridColumnSpan={2} backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -304,7 +305,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid columns={3} gap={4}>
+            <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridColumnSpan={{ m: undefined, l: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -461,7 +462,7 @@ stories()
     )
     .add("row span", () =>
         <Stack>
-            <Grid columns={3} gap={4}>
+            <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div gridRowSpan={2} backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -469,9 +470,9 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid columns={3} gap={4}>
+            <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
-                <Div gridRowSpan={{ m: undefined, l: 2 }} backgroundColor="primary-10">Bravo</Div>
+                <Div gridRowSpan={{ l: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
                 <Div backgroundColor="primary-10">Delta</Div>
                 <Div backgroundColor="primary-10">Echo</Div>
