@@ -1,12 +1,13 @@
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
+import { Flex, FlexAlignmentProp, FlexOrientationProp, useFlexAlignment } from "../../layout";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 export type AbstractGroupProps<T extends ElementType> = InternalProps & Omit<StyledComponentProps<T>, "display" | "alignItems" | "flex" | "flexDirection" | "flexWrap" | "justifyContent"> & {
     /**
      * The alignment of the elements.
      */
-    align?: FlexAlignment;
+    align?: FlexAlignmentProp;
     /**
      * React children.
      */
@@ -14,7 +15,7 @@ export type AbstractGroupProps<T extends ElementType> = InternalProps & Omit<Sty
     /**
      * Whether the elements take up the width & height of their container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the element generate line breaks before or after himself.
      */
@@ -22,7 +23,7 @@ export type AbstractGroupProps<T extends ElementType> = InternalProps & Omit<Sty
     /**
      * The orientation of the elements.
      */
-    orientation?: FlexOrientation;
+    orientation?: FlexOrientationProp;
     /**
      * Whether or not to reverse the order of the elements.
      */
@@ -30,7 +31,7 @@ export type AbstractGroupProps<T extends ElementType> = InternalProps & Omit<Sty
     /**
      * Whether elements are forced onto one line or can wrap onto multiple rows.
      */
-    wrap?: boolean;
+    wrap?: ResponsiveProp<boolean>;
 };
 
 export interface InnerGroupProps extends Omit<AbstractGroupProps<"div">, "as"> {
@@ -49,7 +50,11 @@ export function InnerGroup({
     wrap,
     ...rest
 }: InnerGroupProps) {
-    const alignProps = useFlexAlignment({ alignX: align, orientation });
+    const alignValue = useResponsiveValue(align);
+    const orientationValue = useResponsiveValue(orientation);
+    const wrapValue = useResponsiveValue(wrap);
+
+    const alignProps = useFlexAlignment({ alignX: alignValue, orientation: orientationValue });
 
     return (
         <Flex
@@ -58,7 +63,7 @@ export function InnerGroup({
                 {
                     as,
                     ref: forwardedRef,
-                    wrap: wrap ? "wrap" as const : undefined
+                    wrap: wrapValue ? "wrap" as const : undefined
                 },
                 alignProps
             )}

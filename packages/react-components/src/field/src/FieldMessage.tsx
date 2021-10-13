@@ -2,7 +2,7 @@ import "./FieldMessage.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
-import { StyleProvider } from "../../styling";
+import { ResponsiveProp, StyleProvider, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -15,7 +15,7 @@ export interface SharedFieldMessageProps extends InternalProps, StyledComponentP
     /**
      * Whether or not the field take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
 }
 
 export interface InnerFieldMessageProps extends Omit<SharedFieldMessageProps, "forwardedRef"> {
@@ -43,6 +43,8 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
     tone,
     ...rest
 }, ref) => {
+    const fluidValue = useResponsiveValue(fluid);
+
     return (
         <Text
             {...mergeProps(
@@ -52,7 +54,7 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
                     className: cssModule(
                         "o-ui-field-message",
                         tone,
-                        fluid && "fluid"
+                        fluidValue && "fluid"
                     ),
                     ref
                 }

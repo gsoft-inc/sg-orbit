@@ -10,7 +10,7 @@ import {
     GridTemplateRowsValue,
     JustifyContentProp,
     JustifyItemsProp,
-    ResponsiveValue,
+    ResponsiveProp,
     RowGapProp,
     SpacingValue,
     getSpacingValue,
@@ -67,7 +67,7 @@ export interface InnerGridProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas).
      */
-    areas?: ResponsiveValue<string[]>;
+    areas?: ResponsiveProp<string[]>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns).
      */
@@ -111,11 +111,11 @@ export interface InnerGridProps extends
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns).
      */
-    templateColumns?: GridTemplateColumnsValue | GridTemplateColumnsValue[] | ResponsiveValue<GridTemplateColumnsValue | GridTemplateColumnsValue[]>;
+    templateColumns?: ResponsiveProp<GridTemplateColumnsValue | GridTemplateColumnsValue[]>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows).
      */
-    templateRows?: GridTemplateRowsValue | GridTemplateRowsValue[] | ResponsiveValue<GridTemplateRowsValue | GridTemplateRowsValue[]>;
+    templateRows?: ResponsiveProp<GridTemplateRowsValue | GridTemplateRowsValue[]>;
 }
 
 function interpolateGridTemplateArray<T>(values: T[]) {

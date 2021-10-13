@@ -39,6 +39,7 @@ import {
     useMergedRefs
 } from "../../shared";
 import { MenuPresets } from "./MenuPresets";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { areEqualDates, toMidnightDate } from "./dateUtils";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -62,18 +63,22 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      */
     defaultEndDate?: Date;
     /**
-     * Whether or not the input is disabled.
+     * A controlled start date value.
      */
-    disabled?: boolean;
+    startDate?: Date | null;
     /**
      * A controlled end date value.
      */
     endDate?: Date | null;
+    /**
+     * Whether or not the input is disabled.
+     */
+    disabled?: boolean;
     /* eslint-enable typescript-sort-keys/interface */
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * The maximum (inclusive) date.
      */
@@ -110,10 +115,6 @@ export interface InnerDateRangeInputProps extends Omit<AbstractInputProps<typeof
      * Whether or not the input is readonly.
      */
     readOnly?: boolean;
-    /**
-     * A controlled start date value.
-     */
-    startDate?: Date | null;
 }
 
 const DateInput = forwardRef<HTMLInputElement, any>(({
@@ -176,10 +177,8 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
         as = "div",
         autoFocus,
         disabled,
-        /* eslint-disable sort-destructure-keys/sort-destructure-keys */
         endDate,
         fluid,
-        /* eslint-enable sort-destructure-keys/sort-destructure-keys */
         focus = false,
         hover,
         max,
@@ -412,6 +411,8 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
         inputGroupProps
     );
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const [startDate, setStartDate] = useControllableState(startDateProp, defaultStartDate, null);
     const [endDate, setEndDate] = useControllableState(endDateProp, defaultEndDate, null);
 
@@ -475,7 +476,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
             autoFocus={autoFocus}
             disabled={disabled}
             endDate={endDate}
-            fluid={fluid}
+            fluid={fluidValue}
             focus={focus}
             hover={hover}
             max={max}
@@ -502,7 +503,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                         {
                             as,
                             disabled,
-                            fluid,
+                            fluid: fluidValue,
                             readOnly,
                             ref: containerRef
                         }
@@ -520,7 +521,7 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
                             as,
                             className: cssModule(
                                 "o-ui-date-range-input-button-presets",
-                                fluid && "fluid"
+                                fluidValue && "fluid"
                             ),
                             ref: containerRef
                         }

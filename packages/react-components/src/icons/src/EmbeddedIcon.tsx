@@ -1,7 +1,7 @@
 import { Children, ReactElement, ReactNode, SVGProps } from "react";
 import { IconSize } from "./Icon";
 import { InternalProps, SlotProps, augmentElement, createSizeAdapter } from "../../shared";
-import { StyledSystemProps } from "../../styling";
+import { ResponsiveProp, StyledSystemProps, useResponsiveValue } from "../../styling";
 
 export interface EmbeddedIconProps extends
     StyledSystemProps,
@@ -19,7 +19,7 @@ export interface EmbeddedIconProps extends
     /**
      * An icon can vary in size.
      */
-    size?: IconSize;
+    size?: ResponsiveProp<IconSize>;
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -35,10 +35,12 @@ export const embeddedIconSize = createSizeAdapter({
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function EmbeddedIcon({ children, size, ...rest }: EmbeddedIconProps) {
+    const sizeValue = useResponsiveValue(size);
+
     const icon = Children.only(children) as ReactElement;
 
     return augmentElement(icon, {
-        size: embeddedIconSize(size),
+        size: embeddedIconSize(sizeValue),
         ...rest
     });
 }

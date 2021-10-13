@@ -68,8 +68,8 @@ class ParamsBuilder {
         return this;
     }
 
-    viewports(values) {
-        this._viewports = values;
+    validateBreakpoints() {
+        this._viewports = [900, 1280];
 
         return this;
     }

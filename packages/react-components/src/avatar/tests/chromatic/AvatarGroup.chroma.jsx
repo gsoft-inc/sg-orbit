@@ -95,7 +95,12 @@ stories()
                     <Avatar name="Christa McAuliffe" />
                 </AvatarGroup>
             </Stack>
-        </Inline>
+        </Inline>,
+         {
+             ...paramsBuilder()
+                 .validateBreakpoints()
+                 .build()
+         }
     )
     .add("with remainings", () =>
         <Stack>

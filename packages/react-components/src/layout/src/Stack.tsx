@@ -1,6 +1,6 @@
-import { ColumnGapProp, GapProp, RowGapProp } from "../../styling";
+import { ColumnGapProp, GapProp, ResponsiveProp, RowGapProp, useResponsiveValue } from "../../styling";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex, FlexAlignment, useFlexAlignment } from "./Flex";
+import { Flex, FlexAlignmentProp, useFlexAlignment } from "./Flex";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps } from "../../shared";
 
 const DefaultElement = "div";
@@ -24,11 +24,11 @@ export interface InnerStackProps extends
     /**
       * The horizontal alignment of the elements.
       */
-    alignX?: FlexAlignment;
+    alignX?: FlexAlignmentProp;
     /**
      * The vertical alignment of the elements.
      */
-    alignY?: FlexAlignment;
+    alignY?: FlexAlignmentProp;
     /**
      * React children
      */
@@ -40,7 +40,7 @@ export interface InnerStackProps extends
     /**
      * Whether the elements take up all the space of their container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
       * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
       */
@@ -60,7 +60,7 @@ export interface InnerStackProps extends
     /**
      * Whether or not to wrap the elements on multiple lines.
      */
-    wrap?: boolean;
+    wrap?: ResponsiveProp<boolean>;
 }
 
 export function InnerStack({
@@ -73,7 +73,11 @@ export function InnerStack({
     wrap,
     ...rest
 }: InnerStackProps) {
-    const alignProps = useFlexAlignment({ alignX, alignY, orientation: "vertical" });
+    const alignXValue = useResponsiveValue(alignX);
+    const alignYValue = useResponsiveValue(alignY);
+    const wrapValue = useResponsiveValue(wrap);
+
+    const alignProps = useFlexAlignment({ alignX: alignXValue, alignY: alignYValue, orientation: "vertical" });
 
     return (
         <Flex
@@ -83,7 +87,7 @@ export function InnerStack({
                     as,
                     gap,
                     ref: forwardedRef,
-                    wrap: wrap ? "wrap" as const : undefined
+                    wrap: wrapValue ? "wrap" as const : undefined
                 },
                 alignProps
             )}

@@ -2,7 +2,7 @@ import { Div } from "@react-components/html";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Launch, Mars } from "./assets";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Image")
@@ -12,7 +12,12 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Image src={Launch} alt="SpaceX launch" />
+        <Image src={Launch} alt="SpaceX launch" />,
+         {
+             ...paramsBuilder()
+                 .validateBreakpoints()
+                 .build()
+         }
     )
     .add("contained", () =>
         <Div width="200px" height="200px">

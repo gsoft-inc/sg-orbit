@@ -1,6 +1,7 @@
 import { CheckIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
+import { paramsBuilder } from "@stories/utils";
 
 function ToggleIconButton({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -22,7 +23,12 @@ export function createToggleIconButtonTestSuite(element, stories) {
                     <ToggleIconButton focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                     <ToggleIconButton disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
-            </Stack>
+            </Stack>,
+             {
+                 ...paramsBuilder()
+                     .validateBreakpoints()
+                     .build()
+             }
         )
         .add("rounded", () =>
             <Stack>

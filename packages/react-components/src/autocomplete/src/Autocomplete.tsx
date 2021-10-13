@@ -20,9 +20,9 @@ import {
 } from "../../shared";
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps, PopupPosition, PopupProps, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
+import { ResponsiveProp, WidthProp } from "../../styling";
 import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
-import { WidthProp } from "../../styling";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 import { useDebouncedCallback } from "./useDebouncedCallback";
@@ -47,7 +47,7 @@ export interface InnerAutocompleteProps extends PopupProps, Omit<AbstractInputPr
     /**
      * Whether or not the autocomplete take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * A trigger icon.
      */

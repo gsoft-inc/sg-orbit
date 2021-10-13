@@ -3,6 +3,7 @@ import "./ButtonGroup.css";
 import { AbstractGroupProps, Group } from "../../group";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
 import { OmitInternalProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "div";
@@ -13,13 +14,9 @@ export interface InnerButtonGroupProps extends Omit<AbstractGroupProps<typeof De
      */
     disabled?: boolean;
     /**
-     * Whether or not the group take up the width of its container.
-     */
-    fluid?: boolean;
-    /**
      * The buttons size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -53,6 +50,9 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
         omitProps(fieldProps, ["fluid"])
     );
 
+    const orientationValue = useResponsiveValue(orientation);
+    const sizeValue = useResponsiveValue(size);
+
     return (
         <Group
             {...mergeProps(
@@ -65,7 +65,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                         isInField && "in-field"
                     ),
                     fluid,
-                    gap: Gap[orientation][normalizeSize(size)],
+                    gap: Gap[orientationValue][normalizeSize(sizeValue)],
                     orientation,
                     ref: forwardedRef,
                     role: !isInField ? "group" : undefined
@@ -76,7 +76,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                 return augmentElement(x, {
                     disabled,
                     fluid,
-                    size
+                    size: sizeValue
                 });
             })}
         </Group>

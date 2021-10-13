@@ -1,6 +1,7 @@
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
 import { cloneElement } from "react";
+import { paramsBuilder } from "@stories/utils";
 
 function Alert({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -15,7 +16,12 @@ export function createTestSuite(element, stories) {
             >
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
-            </Alert>
+            </Alert>,
+             {
+                 ...paramsBuilder()
+                     .validateBreakpoints()
+                     .build()
+             }
         )
         .add("primary button disabled", () =>
             <Alert

@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 const DefaultElement = "form";
 
@@ -19,7 +20,7 @@ export interface InnerFormProps extends InternalProps, StyledComponentProps<type
     /**
      * Whether or not the form take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
 }
 
 export function InnerForm(props: InnerFormProps) {
@@ -32,6 +33,8 @@ export function InnerForm(props: InnerFormProps) {
         ...rest
     } = props;
 
+    const fluidValue = useResponsiveValue(fluid);
+
     return (
         <Box
             {...mergeProps(
@@ -40,7 +43,7 @@ export function InnerForm(props: InnerFormProps) {
                     as,
                     className: cssModule(
                         "o-ui-form",
-                        fluid && "fluid"
+                        fluidValue && "fluid"
                     ),
                     ref: forwardedRef
                 }
@@ -49,7 +52,7 @@ export function InnerForm(props: InnerFormProps) {
             <FormContext.Provider
                 value={{
                     disabled,
-                    fluid
+                    fluid: fluidValue
                 }}
             >
                 {children}

@@ -19,6 +19,7 @@ import {
     omitProps,
     slot
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -35,7 +36,7 @@ export interface InnerAvatarProps extends SlotProps, InternalProps, StyledCompon
     /**
      * An avatar can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
     /**
      * The url of a remote image or an image object.
      */
@@ -170,20 +171,22 @@ export function InnerAvatar({
     src,
     ...rest
 }: InnerAvatarProps) {
+    const sizeValue = useResponsiveValue(size);
+
     const content = !isNilOrEmpty(src)
         ? (
             <AvatarImage
                 aria-label={ariaLabel}
                 name={name}
                 retryCount={retryCount}
-                size={size}
+                size={sizeValue}
                 src={src}
             />
         ) : (
             <AvatarInitials
                 aria-label={ariaLabel}
                 name={name}
-                size={size}
+                size={sizeValue}
             />
         );
 
@@ -195,7 +198,7 @@ export function InnerAvatar({
                     as,
                     className: cssModule(
                         "o-ui-avatar",
-                        normalizeSize(size)
+                        normalizeSize(sizeValue)
                     ),
                     ref: forwardedRef
                 }

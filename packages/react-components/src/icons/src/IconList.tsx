@@ -2,6 +2,7 @@ import { Children, ComponentProps, ReactElement, ReactNode, cloneElement, forwar
 import { IconSize } from "./Icon";
 import { Inline } from "../../layout";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, slot } from "../../shared";
+import { ResponsiveProp } from "../../styling";
 
 const DefaultElement = "span";
 
@@ -17,7 +18,7 @@ export interface InnerIconListProps extends SlotProps, InternalProps, StyledComp
     /**
      * Size of the icons.
      */
-    size?: IconSize;
+    size?: ResponsiveProp<IconSize>;
 }
 
 export function InnerIconList({

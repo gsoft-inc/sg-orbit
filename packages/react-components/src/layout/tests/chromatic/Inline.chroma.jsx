@@ -2,8 +2,6 @@ import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
-////////////
-
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Inline")
         .segment(segment)

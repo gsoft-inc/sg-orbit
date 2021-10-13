@@ -12,6 +12,14 @@ function stories(segment) {
 }
 
 stories()
+    .add("default", () =>
+        <DisclosureArrow />,
+         {
+             ...paramsBuilder()
+                 .validateBreakpoints()
+                 .build()
+         }
+    )
     .add("controlled", () =>
         <Inline>
             <DisclosureArrow open={false} />

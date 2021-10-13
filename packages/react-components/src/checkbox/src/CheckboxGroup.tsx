@@ -21,6 +21,7 @@ import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } fr
 import { ClearFieldContext, useFieldInputProps } from "../../field";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { Group } from "../../group";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 const DefaultElement = "div";
 
@@ -28,7 +29,7 @@ export interface InnerCheckboxGroupProps extends AbstractGroupInputProps<typeof 
     /**
      * The checkbox of a group can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
 }
 
 function arrayToggleValue<T>(array: T[], value: T) {
@@ -75,6 +76,9 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         omitProps(fieldProps, ["fluid"])
     );
 
+    const sizeValue = useResponsiveValue(size);
+    const wrapValue = useResponsiveValue(wrap);
+
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, []);
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -97,9 +101,9 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         orientation,
         required,
         reverse,
-        size,
+        size: sizeValue,
         validationState,
-        wrap
+        wrap: wrapValue
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {

@@ -4,7 +4,7 @@ import { DateRangeInput } from "@react-components/date-input";
 import { GroupField, HelpMessage, Label } from "@react-components/field";
 import { Inline, Stack } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/GroupField")
@@ -33,7 +33,12 @@ stories()
                 </CheckboxGroup>
                 <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
             </GroupField>
-        </Stack>
+        </Stack>,
+         {
+             ...paramsBuilder()
+                 .validateBreakpoints()
+                 .build()
+         }
     )
     .add("radio group", () =>
         <Inline gap={13} alignY="end">
