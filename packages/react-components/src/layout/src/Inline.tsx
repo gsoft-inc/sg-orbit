@@ -1,4 +1,4 @@
-import { ColumnGapProp, GapProp, RowGapProp } from "@orbit-ui/styles";
+import { ColumnGapProp, GapProp, RowGapProp } from "../../styling";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { Flex, FlexAlignment, useFlexAlignment } from "./Flex";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps } from "../../shared";

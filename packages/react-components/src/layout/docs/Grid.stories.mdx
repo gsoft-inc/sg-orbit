@@ -1,4 +1,4 @@
-import { ApricotTheme } from "@orbit-ui/styles";
+import { ApricotTheme } from "../../styling";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Div } from "@react-components/html";
@@ -72,25 +72,6 @@ A grid can define the size of implicitly created columns. A value can be a grid 
             <Div gridColumn={2} backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
             <Div backgroundColor="botanic-5" />
-        </Grid>
-    </Story>
-</Preview>
-
-### Fluid columns
-
-A grid can define an explicit number of equally sized fluid columns.
-
-<Preview>
-    <Story name="fluid columns">
-        <Grid
-            fluidColumns={4}
-            gap={2}
-            height="50px"
-        >
-            <Div backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
-            <Div backgroundColor="cloud-5" />
         </Grid>
     </Story>
 </Preview>

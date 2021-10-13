@@ -1,7 +1,7 @@
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
 import { Icon, IconSize } from "./Icon";
 import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared";
-import { StyledSystemProps } from "@orbit-ui/styles";
+import { StyledSystemProps } from "../../styling";
 
 export interface InnerMultiVariantIconProps extends
     StyledSystemProps,

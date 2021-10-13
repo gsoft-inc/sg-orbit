@@ -2,7 +2,7 @@ import "./Image.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, forwardRef } from "react";
-import { HeightProp, ObjectFitProp, ObjectPositionProp, WidthProp } from "@orbit-ui/styles";
+import { HeightProp, ObjectFitProp, ObjectPositionProp, WidthProp } from "../../styling";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot } from "../../shared";
 
 export type AbstractImageProps<T extends ElementType> = SlotProps & InternalProps & Omit<StyledComponentProps<T>, "height" | "objectFit" | "objectPosition" | "width"> & {

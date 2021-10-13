@@ -1,7 +1,8 @@
 import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps, normalizeSize, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
+import { StyleProvider, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "p";

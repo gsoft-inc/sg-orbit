@@ -1,6 +1,6 @@
 import "./Dot.css";
 
-import { BackgroundColorProp, useResponsiveValue } from "@orbit-ui/styles";
+import { BackgroundColorProp, useResponsiveValue } from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";

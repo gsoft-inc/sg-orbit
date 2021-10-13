@@ -1,0 +1,10 @@
+/* NORMALIZE */
+html {
+    font-size: 16px;
+}
+
+@media not (prefers-reduced-motion) {
+    .html {
+        scroll-behavior: smooth;
+    }
+}

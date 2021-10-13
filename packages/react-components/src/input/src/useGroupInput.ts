@@ -1,5 +1,5 @@
 import { FlexAlignment, FlexOrientation } from "../../layout";
-import { GapProp } from "@orbit-ui/styles";
+import { GapProp } from "../../styling";
 import { Ref } from "react";
 import { ValidationState } from "../../input";
 import { cssModule, normalizeSize } from "../../shared";

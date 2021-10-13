@@ -40,7 +40,6 @@ export * from "./useFocusWithin";
 // Features
 export * from "./slots";
 export * from "./CheckableContext";
-export * from "./StyleContext";
 
 // Types
 export * from "./types";

@@ -1,0 +1,28 @@
+/* Temporary animation utility classes until animation components are introduced in Orbit */
+
+/* ANIMATIONS | FADE */
+.o-ui-fade-in {
+    animation: o-ui-fade-in-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}
+
+.o-ui-fade-out {
+    animation: o-ui-fade-out-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}
+
+@keyframes o-ui-fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes o-ui-fade-out-animation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

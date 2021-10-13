@@ -1,6 +1,6 @@
 import { A } from "@react-components/html";
 import { Inline } from "@react-components/layout";
-import { StyleProvider } from "@react-components/shared";
+import { StyleProvider } from "@react-components/styling";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

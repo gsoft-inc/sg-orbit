@@ -9,7 +9,7 @@ import {
     JustifyContentProp,
     RowGapProp,
     useResponsiveValue
-} from "@orbit-ui/styles";
+} from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNil, mergeProps } from "../../shared";

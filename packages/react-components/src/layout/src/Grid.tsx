@@ -15,7 +15,7 @@ import {
     SpacingValue,
     getSpacingValue,
     useResponsiveValue
-} from "@orbit-ui/styles";
+} from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isArray, isNil, mergeProps } from "../../shared";
@@ -89,14 +89,6 @@ export interface InnerGridProps extends
      */
     columnGap?: ColumnGapProp;
     /**
-     * A number of equally sized fluid columns.
-     */
-    fluidColumns?: ResponsiveValue<number>;
-    /**
-     * A number of equally sized fluid rows.
-     */
-    fluidRows?: ResponsiveValue<number>;
-    /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
     gap?: GapProp;
@@ -137,8 +129,6 @@ export function InnerGrid({
     autoFlow,
     autoRows,
     children,
-    fluidColumns,
-    fluidRows,
     forwardedRef,
     inline,
     templateColumns,
@@ -146,30 +136,16 @@ export function InnerGrid({
     ...rest
 }: InnerGridProps) {
     const areasValue = useResponsiveValue(areas);
-    const fluidColumnsValue = useResponsiveValue(fluidColumns);
-    const fluidRowsValue = useResponsiveValue(fluidRows);
     const templateColumnsValue = useResponsiveValue(templateColumns);
     const templateRowsValue = useResponsiveValue(templateRows);
 
-    if (!isNil(fluidColumnsValue) && !isNil(templateColumnsValue)) {
-        throw new Error("A grid component can receive either \"fluidColumns\" or \"templateColumns\" but not both.");
-    }
+    const gridTemplateColumns = !isNil(templateColumnsValue)
+        ? isArray(templateColumnsValue) ? interpolateGridTemplateArray(templateColumnsValue) : templateColumnsValue
+        : undefined;
 
-    if (!isNil(fluidRowsValue) && !isNil(templateRowsValue)) {
-        throw new Error("A grid component can receive either \"fluidRows\" or \"templateRows\" but not both.");
-    }
-
-    const gridTemplateColumns = !isNil(fluidColumnsValue)
-        ? `repeat(${fluidColumnsValue}, minmax(0, 1fr))`
-        : !isNil(templateColumnsValue)
-            ? isArray(templateColumnsValue) ? interpolateGridTemplateArray(templateColumnsValue) : templateColumnsValue
-            : undefined;
-
-    const gridTemplateRows = !isNil(fluidRowsValue)
-        ? `repeat(${fluidRowsValue}, minmax(0, 1fr))`
-        : !isNil(templateRowsValue)
-            ? isArray(templateRowsValue) ? interpolateGridTemplateArray(templateRowsValue) : templateRowsValue
-            : undefined;
+    const gridTemplateRows = !isNil(templateRowsValue)
+        ? isArray(templateRowsValue) ? interpolateGridTemplateArray(templateRowsValue) : templateRowsValue
+        : undefined;
 
     return (
         <Box

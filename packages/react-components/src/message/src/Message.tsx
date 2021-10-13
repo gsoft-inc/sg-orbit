@@ -4,7 +4,8 @@ import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
-import { InternalProps, OmitInternalProps, StyleProvider, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, cssModule, isNil, mergeProps, useMergedRefs, useSlots } from "../../shared";
+import { StyleProvider } from "../../styling";
 import { Text, TextProps } from "../../typography";
 import { Transition } from "../../transition";
 

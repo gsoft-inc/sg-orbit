@@ -7,12 +7,12 @@ import {
     FontWeightMapping,
     IconColorMapping,
     LineHeightMapping,
-    SpacingMapping
-} from "@orbit-ui/styles";
+    SpacingMapping,
+    ThemeProvider
+} from "@react-components/styling";
 import { Box } from "@react-components/box";
 import { FileIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
-import { ThemeProvider } from "@react-components/theme-provider";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

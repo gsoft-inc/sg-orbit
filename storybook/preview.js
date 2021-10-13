@@ -1,11 +1,15 @@
-import { ApricotTheme, DesktopTheme, createThemeVars } from "@orbit-ui/styles";
+import { ApricotTheme, DesktopTheme, createThemeVars } from "@react-components/styling";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
-import "@orbit-ui/react-components/dist/index.css";
-import "@orbit-ui/styles/dist/pseudos.css";
+/* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
+import "@react-components/styling/src/normalize.css";
+import "@react-components/styling/src/vars.css";
+import "@react-components/styling/src/animate.css";
+import "@react-components/styling/src/styled-system/index.css";
+/* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
 import "./styles";
 
@@ -13,7 +17,7 @@ createThemeVars([ApricotTheme, DesktopTheme]);
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
-    import("@orbit-ui/styles/dist/font.css");
+    import("@react-components/styling/src/font/index.css");
 }
 
 export const parameters = {

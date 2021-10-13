@@ -11,7 +11,7 @@ import {
 } from "../../shared";
 import { Overlay, OverlayArrow, PopupPosition, PopupProps, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { useThemeContext } from "../../theme-provider";
+import { useThemeContext } from "../../styling";
 
 const DefaultElement = "div";
 

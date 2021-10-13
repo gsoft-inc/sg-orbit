@@ -75,56 +75,6 @@ stories()
             <Div backgroundColor="primary-5">Foxtrot</Div>
         </Grid>
     )
-    .add("fluid columns", () =>
-        <Stack>
-            <Grid fluidColumns={3} gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div backgroundColor="primary-5">Bravo</Div>
-                <Div backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
-                <Div backgroundColor="primary-5">Foxtrot</Div>
-            </Grid>
-            <Grid fluidColumns={{ m: 2, l: 3 }} gap={4}>
-                <Div backgroundColor="primary-10">Alpha</Div>
-                <Div backgroundColor="primary-10">Bravo</Div>
-                <Div backgroundColor="primary-10">Charlie</Div>
-                <Div backgroundColor="primary-10">Delta</Div>
-                <Div backgroundColor="primary-10">Echo</Div>
-                <Div backgroundColor="primary-10">Foxtrot</Div>
-            </Grid>
-        </Stack>,
-         {
-             ...paramsBuilder()
-                 .viewports([900, 1280])
-                 .build()
-         }
-    )
-    .add("fluid rows", () =>
-        <Stack>
-            <Grid fluidRows={2} autoFlow="column" gap={4}>
-                <Div backgroundColor="primary-5">Alpha</Div>
-                <Div backgroundColor="primary-5">Bravo</Div>
-                <Div backgroundColor="primary-5">Charlie</Div>
-                <Div backgroundColor="primary-5">Delta</Div>
-                <Div backgroundColor="primary-5">Echo</Div>
-                <Div backgroundColor="primary-5">Foxtrot</Div>
-            </Grid>
-            <Grid fluidRows={{ m: 3, l: 2 }} autoFlow="column" gap={4}>
-                <Div backgroundColor="primary-10">Alpha</Div>
-                <Div backgroundColor="primary-10">Bravo</Div>
-                <Div backgroundColor="primary-10">Charlie</Div>
-                <Div backgroundColor="primary-10">Delta</Div>
-                <Div backgroundColor="primary-10">Echo</Div>
-                <Div backgroundColor="primary-10">Foxtrot</Div>
-            </Grid>
-        </Stack>,
-         {
-             ...paramsBuilder()
-                 .viewports([900, 1280])
-                 .build()
-         }
-    )
     .add("template columns", () =>
         <Stack>
             <Grid templateColumns="65px 50px 65px" gap={4}>

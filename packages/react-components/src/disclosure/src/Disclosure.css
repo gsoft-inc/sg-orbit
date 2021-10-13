@@ -19,3 +19,13 @@
     padding-bottom: var(--o-ui-sp-5);
     color: var(--o-ui-text-alias-1);
 }
+
+/* SLIDE ANIMATION */
+/* Must be a transition on height otherwise it won't work. */
+.o-ui-disclosure-slide-down {
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}
+
+.o-ui-disclosure-slide-up {
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}

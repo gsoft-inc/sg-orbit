@@ -2,7 +2,7 @@ import "./Overlay.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
-import { ThemeProvider, useThemeContext } from "../../theme-provider";
+import { ThemeProvider, useThemeContext } from "../../styling";
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
 
