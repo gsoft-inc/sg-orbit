@@ -104,49 +104,25 @@ For more informations about automated visual tests, read the [Testings](#testing
 
 ### Start developing
 
-The tooling to develop a component involve 2 processes:
-
-- A process that watch & re-compile the packages
-- A process that run the Storybook app
-
-Therefore, [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
-
-The first terminal will watch & compile the packages. Execute the following command at the root of the workspace:
+To start developing, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
 yarn start
 ```
 
-The second terminal will start the Storybook app. Executing the following command at the root of the workspace:
+Any updates to the packages or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
-```bash
-yarn start-sb
-```
+## Start Storybook in docs mode.
 
-Any updates to the packages (components, SUI theme, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
-
-## Update docs
-
-The tooling to update the website involve 2 processes:
-
-- A process that watch & re-compile the packages
-- A process that run the Storybook app in `--docs` mode
-
-Therefore, [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
-
-The first terminal will watch & compile the packages. Execute the following command at the root of the workspace:
-
-```bash
-yarn start
-```
-
-The second terminal will start the website. Execute the following command at the root of the workspace:
+To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
 yarn start-docs
 ```
 
-Any updates to the packages (components, SUI theme, ...) or the website's pages  will automatically re-compile the packages and refresh the docs accordingly.
+Basically the only difference is that the process will be start with the `--docs` arguments.
+
+Any updates to the packages or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
 ## Release the packages
 
@@ -267,18 +243,18 @@ yarn bootstrap
 
 ### start
 
-Compile & watch all the packages.
+Compile all the packages & start Storybook.
 
 ```bash
 yarn start
 ```
 
-### start-sb
+### start-docs
 
-Start Storybook.
+Compile all the packages & start Storybook in docs mode.
 
 ```bash
-yarn start-sb
+yarn start-docs
 ```
 
 ### build
@@ -325,10 +301,18 @@ yarn update
 
 ### lint
 
-Execute all the linters.
+Execute all the linters & validate the TypeScript types.
 
 ```bash
 yarn lint
+```
+
+### check-types
+
+Validate the TypeScript types.
+
+```bash
+yarn check-types
 ```
 
 ### jest
@@ -591,3 +575,7 @@ For more information on the topic view the issue [https://github.com/testing-lib
 To enable deploy previews on PR, Netlify sg-orbit and sg-storybook sites have been linked to the sg-orbit Github repository. Netlify will deploy a preview on every commits for any branches, even for master (which is Netlify production). This beging said, since the sites have been configured with "Auto Publish" disabled, even if a deploy is compiled for production IT IS NOT DEPLOY, it's only available for preview and must be deployed manually.
 
 Having disabled "Auto Publish" is also the reason why our script that publish our sites to production "doesn't work anymore". It still works, the reason why the site doesn't update is because the script will create a new production build but WILL NOT PUBLISH IT, since it's auto publishing is disabled. It must be published manually throught Netlify web interface.
+
+### Storybook props Tables
+
+The Storybook props tables somewhow doesn't play well if our types comes from an external packages (even if it's a package in our own mono-repo). Props from the external packages might not be list in the props tables.

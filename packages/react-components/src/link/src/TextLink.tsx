@@ -5,10 +5,11 @@ import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, as, augmentElement, mergeProps, useSlots, useStyleProps } from "../../shared";
+import { OmitInternalProps, as, augmentElement, mergeProps, useSlots } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
+import { useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 

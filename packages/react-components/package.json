@@ -18,7 +18,6 @@
     },
     "scripts": {
         "setup": "yarn create-dist",
-        "start": "yarn copy-css-index-to-dist",
         "start-components": "yarn watch",
         "prebuild": "yarn clean",
         "build": "run-s build:*",
@@ -36,7 +35,6 @@
         "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
     },
     "peerDependencies": {
-        "@orbit-ui/styles": "*",
         "react": "*",
         "react-dom": "*"
     },

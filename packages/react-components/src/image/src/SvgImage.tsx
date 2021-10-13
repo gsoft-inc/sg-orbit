@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, SVGProps, forwardRef, useCallback } from "react";
-import { FillProp, HeightProp, StrokeProp, StyledSystemProps, WidthProp } from "@orbit-ui/styles";
+import { FillProp, HeightProp, StrokeProp, StyledSystemProps, WidthProp } from "../../styling";
 import { InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 
 type OverlappingStyleProps = "fill" | "height" | "stroke" | "width";

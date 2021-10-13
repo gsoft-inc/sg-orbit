@@ -6,7 +6,8 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "r
 import { EmbeddedIcon } from "../../icons";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, as, augmentElement, mergeProps, useStyleProps } from "../../shared";
+import { OmitInternalProps, as, augmentElement, mergeProps } from "../../shared";
+import { useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 

@@ -1,0 +1,37 @@
+/* VARS */
+.o-ui {
+    /* SHAPES */
+    --o-ui-shape-pill: 999px;
+    --o-ui-shape-circular: 100%;
+    --o-ui-shape-rounded: var(--o-ui-sp-1);
+
+    /* STATES | DISABLED */
+    --o-ui-disabled-opacity: 0.4;
+
+    /* FOCUS RING */
+    --o-ui-focus-ring-thickness-sm: 1px;
+    --o-ui-focus-ring-thickness-md: 3px;
+    --o-ui-focus-ring-thickness-lg: 5px;
+    --o-ui-focus-ring-color: rgba(31, 115, 183, .35);
+    --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-outset-inner-offset: 1px;
+    --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
+
+    /* TRANSITIONS | TIMING */
+    --o-ui-easing-duration-1: .1s;
+    --o-ui-easing-duration-2: .2s;
+    --o-ui-easing-duration-3: .3s;
+    --o-ui-easing-duration-4: .5s;
+    --o-ui-easing-duration-5: .8s;
+
+    /* TRANSITIONS | EASING */
+    --o-ui-easing-productive: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --o-ui-easing-focus: cubic-bezier(0.46, 0.03, 0.52, 0.96);
+    --o-ui-easing-expressive: cubic-bezier(0.58, 0.01, 0.15, 1.5);
+
+    /* DEFAULTS */
+    color: var(--o-ui-text-alias-1);
+}

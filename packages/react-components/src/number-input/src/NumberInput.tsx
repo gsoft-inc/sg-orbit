@@ -127,8 +127,8 @@ function Spinner({
                 type="button"
             >
                 <CaretIcon
-                    className="o-ui-rotate-180"
                     size="xs"
+                    transform="rotate(180deg)"
                 />
             </HtmlButton>
         </Div>

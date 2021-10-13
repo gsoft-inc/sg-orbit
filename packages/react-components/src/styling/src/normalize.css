@@ -1,0 +1,6 @@
+/* NORMALIZE */
+@media not (prefers-reduced-motion) {
+    .body {
+        scroll-behavior: smooth;
+    }
+}

@@ -1,8 +1,7 @@
 import { Box } from "@react-components/box";
-import { DesktopTheme } from "@orbit-ui/styles";
+import { DesktopTheme, ThemeProvider } from "@react-components/styling";
 import { Overlay } from "@react-components/overlay";
-import { ThemeProvider } from "@react-components/theme-provider";
-import { augmentElement, mergeProps, useMergedRefs } from "../../../shared";
+import { augmentElement, mergeProps, useMergedRefs } from "@react-components/shared";
 import { forwardRef, useState } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 

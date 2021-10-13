@@ -2,7 +2,8 @@ import "./Heading.css";
 
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot, useStyleProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { useStyleProps } from "../../styling";
 
 export type AbstractHeadingProps<T extends ElementType> = SlotProps & InternalProps & StyledComponentProps<T> & {
     /**

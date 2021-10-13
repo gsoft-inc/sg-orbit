@@ -15,7 +15,7 @@ import {
     SpacingValue,
     getSpacingValue,
     useResponsiveValue
-} from "@orbit-ui/styles";
+} from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isArray, isNil, mergeProps } from "../../shared";

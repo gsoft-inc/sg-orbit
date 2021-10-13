@@ -1,7 +1,8 @@
 import "./FieldMessage.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, StyleProvider, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+import { InternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+import { StyleProvider } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";

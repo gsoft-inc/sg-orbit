@@ -2,7 +2,7 @@ import { ComponentProps } from "react";
 import { Keys } from "@react-components/shared";
 import { UseOverlayTriggerOptions, useOverlayTrigger } from "@react-components/overlay";
 import { act, fireEvent, render, waitFor } from "@testing-library/react";
-import { mergeProps } from "../../../shared";
+import { mergeProps } from "@react-components/shared";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = { open: boolean } & UseOverlayTriggerOptions & ComponentProps<"button">;

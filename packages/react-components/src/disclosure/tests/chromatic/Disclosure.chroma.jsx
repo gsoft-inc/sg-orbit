@@ -46,7 +46,7 @@ stories()
                     alignItems="center"
                 >
                     {children}
-                    <ArrowIcon className={isOpen ? "rotate-90" : undefined} />
+                    <ArrowIcon transform={isOpen ? "rotate(90deg)" : undefined} />
                 </Flex>
             );
         };

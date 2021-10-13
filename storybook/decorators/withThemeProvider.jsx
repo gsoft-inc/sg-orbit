@@ -1,5 +1,4 @@
-import { ApricotTheme, DesktopTheme } from "@orbit-ui/styles";
-import { ThemeProvider } from "@react-components/theme-provider";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@react-components/styling";
 import { isChromatic } from "../env";
 
 export function withThemeProvider(Story, context) {

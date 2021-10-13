@@ -1,6 +1,5 @@
-import { ApricotTheme, DesktopTheme } from "@orbit-ui/styles";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@react-components/styling";
 import { DocsContainer } from "@storybook/addon-docs";
-import { ThemeProvider } from "@react-components/theme-provider";
 
 function ThemedDocsContainer({ context, children }) {
     const theme = context.globals.theme === "desktop" ? DesktopTheme : ApricotTheme;

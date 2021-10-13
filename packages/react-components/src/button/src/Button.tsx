@@ -15,13 +15,13 @@ import {
     mergeProps,
     omitProps,
     slot,
-    useSlots,
-    useStyleProps
+    useSlots
 } from "../../shared";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
+import { useStyleProps } from "../../styling";
 import { useToolbarProps } from "../../toolbar";
 
 export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {

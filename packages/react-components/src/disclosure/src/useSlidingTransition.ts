@@ -1,7 +1,6 @@
-import { RefObject, useCallback, useReducer } from "react";
+import { RefObject, useCallback, useEffect, useReducer } from "react";
 import { isNil, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
 import { match } from "./match";
-import { useEffect } from "react";
 
 enum ActionType {
     slideDown = "SlideDown",
@@ -121,7 +120,7 @@ export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): Slid
 
     return match(transitionState, {
         [TransitionState.transitioning]: () => ({
-            transitionClasses: direction === SlidingDirection.down ? "expanding o-ui-slide-down" : "collapsing o-ui-slide-up",
+            transitionClasses: direction === SlidingDirection.down ? "expanding o-ui-disclosure-slide-down" : "collapsing o-ui-disclosure-slide-up",
             transitionProps: { onTransitionEnd: completeTransition }
         }),
         [TransitionState.completed]: () => ({

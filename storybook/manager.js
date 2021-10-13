@@ -3,5 +3,6 @@ import { addons } from "@storybook/addons";
 
 addons.setConfig({
     theme: Themes.manager,
-    panelPosition: "right"
+    panelPosition: "right",
+    enableShortcuts: false
 });

@@ -11,9 +11,6 @@
     ],
     "references": [
         {
-            "path": "../styles/tsconfig.build.json"
-        },
-        {
             "path": "../react-components/tsconfig.build.json"
         }
     ]
