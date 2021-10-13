@@ -9,9 +9,9 @@ import {
     resolveChildren,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPosition, PopupProps, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { useThemeContext } from "../../styling";
+import { useResponsiveValue, useThemeContext } from "../../styling";
 
 const DefaultElement = "div";
 
@@ -34,7 +34,7 @@ export interface InnerPopoverTriggerProps extends
     /**
      * Position of the popover element related to the trigger.
      */
-    position?: PopupPosition;
+    position?: PopupPositionProp;
 }
 
 export function InnerPopoverTrigger({
@@ -53,6 +53,8 @@ export function InnerPopoverTrigger({
     zIndex = 10000,
     ...rest
 }: InnerPopoverTriggerProps) {
+    const positionValue = useResponsiveValue(positionProp);
+
     const { themeAccessor } = useThemeContext();
 
     const overlayRef = useMergedRefs(forwardedRef);
@@ -69,7 +71,7 @@ export function InnerPopoverTrigger({
         id,
         onOpenChange,
         open,
-        position: positionProp,
+        position: positionValue,
         restoreFocus: true,
         trigger: "click"
     });

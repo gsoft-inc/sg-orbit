@@ -2,7 +2,7 @@ import "./Paragraph.css";
 
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
-import { StyleProvider, useStyleProps } from "../../styling";
+import { ResponsiveProp, StyleProvider, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "p";
@@ -15,7 +15,7 @@ export interface InnerParagraphProps extends InternalProps, StyledComponentProps
     /**
      * A paragraph can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit";
+    size?: ResponsiveProp<"xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "inherit">;
 }
 
 export function InnerParagraph(props: InnerParagraphProps) {
@@ -32,6 +32,8 @@ export function InnerParagraph(props: InnerParagraphProps) {
         styleProps
     );
 
+    const sizeValue = useResponsiveValue(size);
+
     return (
         <Text
             {...mergeProps(
@@ -40,10 +42,10 @@ export function InnerParagraph(props: InnerParagraphProps) {
                     as,
                     className: cssModule(
                         "o-ui-p",
-                        size && size === "inherit" ? "inherit-size" : normalizeSize(size)
+                        sizeValue && sizeValue === "inherit" ? "inherit-size" : normalizeSize(sizeValue)
                     ),
                     ref: forwardedRef,
-                    size
+                    size: sizeValue
                 }
             )}
         >

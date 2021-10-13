@@ -15,7 +15,7 @@ stories()
         <Label>Where to?</Label>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

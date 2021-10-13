@@ -27,7 +27,7 @@ stories()
         </Field>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

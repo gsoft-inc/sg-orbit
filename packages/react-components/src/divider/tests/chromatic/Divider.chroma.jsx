@@ -17,7 +17,7 @@ stories()
         <Divider />,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

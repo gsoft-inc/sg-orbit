@@ -15,6 +15,7 @@ import {
     useMergedRefs
 } from "../../shared";
 import { RadioGroup } from "../../radio";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 const DefaultElement = "div";
 
@@ -45,7 +46,7 @@ export interface InnerTileGroupProps extends Omit<AbstractGroupProps<typeof Defa
     /**
      * The number of tiles per row.
      */
-    rowSize?: number;
+    rowSize?: ResponsiveProp<number>;
     /**
      * The type of selection that is allowed.
      */
@@ -117,6 +118,8 @@ export function InnerTileGroup({
     value,
     ...rest
 }: InnerTileGroupProps) {
+    const rowSizeValue = useResponsiveValue(rowSize);
+
     const As = GroupType[selectionMode];
 
     const handleChange = useEventCallback((event, newValue) => {
@@ -149,7 +152,7 @@ export function InnerTileGroup({
                 return augmentElement(x, {
                     disabled: selectionMode === "none" ? disabled : undefined,
                     orientation: "horizontal",
-                    width: `calc((100% - ${(rowSize - 1) * 16}px) / ${rowSize})`
+                    width: `calc((100% - ${(rowSizeValue - 1) * 16}px) / ${rowSizeValue})`
                 });
             })}
         </As>

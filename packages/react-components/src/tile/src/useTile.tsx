@@ -1,12 +1,13 @@
 import { Div } from "../../html";
-import { FlexOrientation } from "../../layout";
 import { InteractionProps, cssModule, useSlots } from "../../shared";
 import { ReactNode, useMemo } from "react";
 import { Text } from "../../typography";
 
+export type TileOrientation = "horizontal" | "vertical";
+
 export interface UseTileProps extends InteractionProps {
     children: ReactNode;
-    orientation: FlexOrientation;
+    orientation: TileOrientation;
     variant: "checkable" | "link";
 }
 

@@ -67,7 +67,7 @@ export function createCheckboxTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )
@@ -121,7 +121,7 @@ export function createCheckboxTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

@@ -15,7 +15,7 @@ stories()
         <Image src={Launch} alt="SpaceX launch" />,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

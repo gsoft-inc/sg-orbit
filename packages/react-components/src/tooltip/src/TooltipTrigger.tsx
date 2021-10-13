@@ -15,9 +15,9 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayPosition, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { useThemeContext } from "../../styling";
+import { useResponsiveValue, useThemeContext } from "../../styling";
 
 const DefaultElement = "div";
 
@@ -60,7 +60,7 @@ export interface InnerTooltipTriggerProps extends InternalProps, Omit<StyledComp
     /**
      * Position of the tooltip element related to the trigger.
      */
-    position?: OverlayPosition;
+    position?: OverlayPositionProp;
     /**
      * The z-index of the popover element.
      */
@@ -92,6 +92,8 @@ export function InnerTooltipTrigger({
     zIndex = 10000,
     ...rest
 }: InnerTooltipTriggerProps) {
+    const positionValue = useResponsiveValue(positionProp);
+
     const { themeAccessor } = useThemeContext();
 
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -111,7 +113,7 @@ export function InnerTooltipTrigger({
         allowPreventOverflow,
         boundaryElement: containerElement,
         hasArrow: true,
-        position: positionProp
+        position: positionValue
     });
 
     const overlayRef = useMergedRefs(overlayPositionRef, forwardedRef);

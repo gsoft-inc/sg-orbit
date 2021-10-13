@@ -38,7 +38,7 @@ export function createButtonTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

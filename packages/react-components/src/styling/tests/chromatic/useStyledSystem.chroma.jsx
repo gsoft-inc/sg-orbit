@@ -20,7 +20,7 @@ stories()
         </Box>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     );

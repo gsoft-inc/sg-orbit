@@ -36,6 +36,20 @@ stories()
             </Popover>
         </PopoverTrigger>
     )
+    .add("position", () =>
+        <PopoverTrigger position={{ m: "top", l: "top" }}>
+            <Button variant="secondary">Toggle</Button>
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </PopoverTrigger>,
+         {
+             ...paramsBuilder()
+                 .withBreakpoints()
+                 .build()
+         }
+    )
     .add("position auto", () =>
         <PopoverTrigger position="auto" open>
             <Button variant="secondary">Toggle</Button>

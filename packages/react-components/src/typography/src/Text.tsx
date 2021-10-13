@@ -3,7 +3,7 @@ import "./Text.css";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
-import { useStyleProps } from "../../styling";
+import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 
 const DefaultElement = "span";
 
@@ -11,7 +11,7 @@ export interface InnerTextProps extends SlotProps, InternalProps, StyledComponen
     /**
      * A text can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
+    size?: ResponsiveProp<"xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit">;
 }
 
 export function InnerText(props: InnerTextProps) {
@@ -28,6 +28,8 @@ export function InnerText(props: InnerTextProps) {
         styleProps
     );
 
+    const sizeValue = useResponsiveValue(size);
+
     return (
         <Box
             {...mergeProps(
@@ -36,7 +38,7 @@ export function InnerText(props: InnerTextProps) {
                     as,
                     className: cssModule(
                         "o-ui-text",
-                        size && size === "inherit" ? "inherit-size" : normalizeSize(size)
+                        sizeValue && sizeValue === "inherit" ? "inherit-size" : normalizeSize(sizeValue)
                     ),
                     ref: forwardedRef
                 }

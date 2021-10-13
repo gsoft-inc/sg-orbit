@@ -4,6 +4,7 @@ import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter 
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
 import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "textarea";
@@ -24,7 +25,7 @@ export interface InnerTextAreaProps extends AbstractInputProps<typeof DefaultEle
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not to render a loader.
      */
@@ -101,6 +102,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [rows, setRows] = useState(rowsProp);
 
@@ -119,7 +122,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         autoFocus,
         cssModule: "o-ui-text-area",
         disabled,
-        fluid,
+        fluid: fluidValue,
         focus,
         forwardedRef,
         hover,

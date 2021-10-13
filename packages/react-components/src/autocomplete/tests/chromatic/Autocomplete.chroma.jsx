@@ -81,7 +81,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

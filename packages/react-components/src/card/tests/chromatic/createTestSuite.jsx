@@ -51,7 +51,7 @@ export function createTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

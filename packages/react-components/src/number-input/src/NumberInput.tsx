@@ -19,6 +19,7 @@ import {
     useFocusWithin,
     useRefState
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -33,7 +34,7 @@ interface InnerNumberInputProps extends Omit<AbstractInputProps<typeof DefaultEl
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
@@ -207,6 +208,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const [inputValueRef, setInputValue] = useRefState("");
 
     const [value, setValue] = useControllableState(valueProp, defaultValue, null, {
@@ -322,7 +325,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         autoFocus,
         cssModule: "o-ui-number-input",
         disabled,
-        fluid,
+        fluid: fluidValue,
         focus,
         forwardedRef,
         hover,

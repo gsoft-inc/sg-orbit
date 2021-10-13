@@ -29,7 +29,7 @@ stories()
         </Dialog>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

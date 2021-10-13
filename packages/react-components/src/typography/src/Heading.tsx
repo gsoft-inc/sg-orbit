@@ -3,7 +3,7 @@ import "./Heading.css";
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
-import { useStyleProps } from "../../styling";
+import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 
 export type AbstractHeadingProps<T extends ElementType> = SlotProps & InternalProps & StyledComponentProps<T> & {
     /**
@@ -13,7 +13,7 @@ export type AbstractHeadingProps<T extends ElementType> = SlotProps & InternalPr
     /**
      * An heading can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl";
+    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl">;
 };
 
 const DefaultElement = "div";
@@ -34,6 +34,8 @@ export function InnerHeading(props: InnerHeadingProps) {
         styleProps
     );
 
+    const sizeValue = useResponsiveValue(size);
+
     return (
         <Box
             {...mergeProps(
@@ -42,7 +44,7 @@ export function InnerHeading(props: InnerHeadingProps) {
                     as,
                     className: cssModule(
                         "o-ui-heading",
-                        normalizeSize(size)
+                        normalizeSize(sizeValue)
                     ),
                     ref: forwardedRef
                 }

@@ -24,7 +24,12 @@ stories()
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
-        </Menu>
+        </Menu>,
+         {
+             ...paramsBuilder()
+                 .withBreakpoints()
+                 .build()
+         }
     )
     .add("generated keys", () =>
         <Menu aria-label="Planets">

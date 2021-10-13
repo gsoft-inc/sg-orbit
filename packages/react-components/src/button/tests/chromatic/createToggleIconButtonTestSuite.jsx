@@ -26,7 +26,7 @@ export function createToggleIconButtonTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

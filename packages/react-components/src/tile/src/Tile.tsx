@@ -2,7 +2,6 @@ import "./Tile.css";
 
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { FlexOrientation } from "../../layout";
 import {
     InteractionProps,
     InternalProps,
@@ -18,7 +17,8 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { useTile } from "./useTile";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { TileOrientation, useTile } from "./useTile";
 
 const DefaultElement = "button";
 
@@ -49,7 +49,7 @@ export interface InnerTileProps extends InternalProps, InteractionProps, Omit<St
     /**
      * The orientation of the tile.
      */
-    orientation?: FlexOrientation;
+    orientation?: ResponsiveProp<TileOrientation>;
     /**
      * The value to associate with when in a group.
      */
@@ -79,6 +79,8 @@ export function InnerTile(props: InnerTileProps) {
         checkableProps
     );
 
+    const orientationValue = useResponsiveValue(orientation);
+
     const [isChecked, setIsChecked] = useControllableState(checked, defaultChecked, false);
 
     const ref = useMergedRefs(forwardedRef);
@@ -100,7 +102,7 @@ export function InnerTile(props: InnerTileProps) {
         children,
         focus,
         hover,
-        orientation,
+        orientation: orientationValue,
         variant: "checkable"
     });
 

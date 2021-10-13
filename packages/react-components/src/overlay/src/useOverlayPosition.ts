@@ -1,9 +1,11 @@
 import { Instance, Placement, createPopper } from "@popperjs/core";
-import { Simplify } from "type-fest";
+import { ResponsiveProp } from "../../styling";
 import { isNil, useMergedRefs, useRefState } from "../../shared";
 import { useCallback } from "react";
 
-export type OverlayPosition = Simplify<Placement>;
+export type OverlayPosition = Placement;
+
+export type OverlayPositionProp = ResponsiveProp<OverlayPosition>;
 
 export interface UseOverlayPositionOptions {
     allowFlip?: boolean;

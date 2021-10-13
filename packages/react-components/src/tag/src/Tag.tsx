@@ -4,6 +4,7 @@ import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
@@ -21,7 +22,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
     /**
      * Whether the tag take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Called when the remove button is clicked.
      * @param {SyntheticEvent} event - React's original event.
@@ -31,7 +32,7 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
     /**
      * A tag can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The tag style to use.
      */
@@ -52,6 +53,9 @@ export function InnerTag({
     variant = "solid",
     ...rest
 }: InnerTagProps) {
+    const fluidValue = useResponsiveValue(fluid);
+    const sizeValue = useResponsiveValue(size);
+
     const ref = useMergedRefs(forwardedRef);
 
     const { counter, dot, "end-icon": endIcon, icon, text } = useSlots(children, useMemo(() => ({
@@ -62,7 +66,7 @@ export function InnerTag({
             color: "inherit",
             disabled,
             pushed: true,
-            size
+            size: sizeValue
         },
         dot: {
             className: "o-ui-tag-dot",
@@ -70,25 +74,25 @@ export function InnerTag({
         },
         "end-icon": {
             className: "o-ui-tag-end-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         icon: {
             className: "o-ui-tag-start-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         text: {
             className: "o-ui-tag-text",
             color: "inherit",
-            size
+            size: sizeValue
         }
-    }), [size, disabled]));
+    }), [sizeValue, disabled]));
 
     const removeMarkup = !isNil(onRemove) && embedIconButton(<CrossButton aria-label="Remove" />, {
         "aria-label": "Remove",
         className: "o-ui-tag-remove-button",
         condensed: true,
         onClick: onRemove,
-        size
+        size: sizeValue
     });
 
     return (
@@ -104,11 +108,11 @@ export function InnerTag({
                         icon && "has-start-icon",
                         endIcon && "has-end-icon",
                         removeMarkup && "has-remove-button",
-                        fluid && "fluid",
+                        fluidValue && "fluid",
                         active && "active",
                         focus && "focus",
                         hover && "hover",
-                        normalizeSize(size)
+                        normalizeSize(sizeValue)
                     ),
                     disabled,
                     ref

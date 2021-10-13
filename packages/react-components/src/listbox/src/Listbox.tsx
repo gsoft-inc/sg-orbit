@@ -29,6 +29,7 @@ import {
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
@@ -57,7 +58,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     /**
      * Whether or not the listbox take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not to focus the hovered item.
      */
@@ -174,6 +175,8 @@ export function InnerListbox({
     validationState,
     ...rest
 }: InnerListboxProps) {
+    const fluidValue = useResponsiveValue(fluid);
+
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
@@ -433,7 +436,7 @@ export function InnerListbox({
                     as,
                     className: cssModule(
                         "o-ui-listbox",
-                        fluid && "fluid",
+                        fluidValue && "fluid",
                         validationState
                     ),
                     id: rootId,

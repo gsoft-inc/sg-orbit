@@ -6,10 +6,10 @@ import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
-import { useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 
@@ -25,7 +25,7 @@ export interface InnerTextLinkProps extends AbstractLinkProps<typeof DefaultElem
     /**
      * A link can vary in size.
      */
-    size?: "sm" | "md" | "inherit";
+    size?: ResponsiveProp<"sm" | "md" | "inherit">;
     /**
      * The underline style.
      */
@@ -63,6 +63,8 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         formProps
     );
 
+    const sizeValue = useResponsiveValue(size);
+
     const { linkProps, showNewTabIndicator } = useLink({
         active,
         autoFocus,
@@ -86,17 +88,17 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         icon: null,
         "start-icon": {
             className: "o-ui-link-start-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         text: {
             className: "o-ui-link-text",
-            size
+            size: sizeValue
         }
-    }), [size]));
+    }), [sizeValue]));
 
     const iconMarkup = icon && augmentElement(icon, {
         className: "o-ui-link-end-icon",
-        size: embeddedIconSize(size)
+        size: embeddedIconSize(sizeValue)
     });
 
     return (
