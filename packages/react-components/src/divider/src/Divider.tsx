@@ -3,6 +3,7 @@ import "./Divider.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -15,7 +16,7 @@ export interface InnerDividerProps extends InternalProps, StyledComponentProps<t
     /**
      * The orientation of the divider.
      */
-    orientation?: "horizontal" | "vertical";
+    orientation?: ResponsiveProp<"horizontal" | "vertical">;
 }
 
 export function InnerDivider({
@@ -25,6 +26,8 @@ export function InnerDivider({
     orientation = "horizontal",
     ...rest
 }: InnerDividerProps) {
+    const orientationValue = useResponsiveValue(orientation);
+
     const labelMarkup = children && (
         <Text className="o-ui-divider-label">
             {children}
@@ -36,7 +39,7 @@ export function InnerDivider({
             {...mergeProps(
                 rest,
                 {
-                    "aria-orientation": orientation,
+                    "aria-orientation": orientationValue,
                     as,
                     className: cssModule(
                         "o-ui-divider",

@@ -5,6 +5,7 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 import { useField } from "./useField";
 import { useFormField } from "../../form";
@@ -19,7 +20,7 @@ export interface InnerFieldProps extends InternalProps, StyledComponentProps<typ
     /**
      * Whether or not the field take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the field show a required state.
      */
@@ -51,10 +52,12 @@ export function InnerField(props: InnerFieldProps) {
         toolbarProps
     );
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const { fieldContext, fieldProps } = useField({
         className,
         disabled,
-        fluid,
+        fluid: fluidValue,
         forwardedRef,
         id,
         required,

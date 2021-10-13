@@ -3,6 +3,7 @@ import "./Card.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "section";
@@ -15,15 +16,15 @@ export interface InnerCardProps extends SlotProps, InternalProps, StyledComponen
     /**
      * Whether or not the card take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * The orientation of the card.
      */
-    orientation?: "horizontal" | "vertical";
+    orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
      * A card can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl";
+    size?: ResponsiveProp<"xs" | "sm" | "md" | "lg" | "xl">;
 }
 
 export function InnerCard({
@@ -35,6 +36,10 @@ export function InnerCard({
     size,
     ...rest
 }: InnerCardProps) {
+    const fluidValue = useResponsiveValue(fluid);
+    const orientationValue = useResponsiveValue(orientation);
+    const sizeValue = useResponsiveValue(size);
+
     const { button, "button-group": buttonGroup, content, header, heading, illustration, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["heading", "content"]
@@ -59,10 +64,10 @@ export function InnerCard({
         },
         illustration: {
             className: "o-ui-card-illustration",
-            orientation: orientation === "horizontal" ? "vertical" : "horizontal"
+            orientation: orientationValue === "horizontal" ? "vertical" : "horizontal"
         },
         image: null
-    }), [orientation]));
+    }), [orientationValue]));
 
     const headerMarkup = isString(header?.props?.children)
         ? cloneElement(header, { children: <Text>{header?.props?.children}</Text> })
@@ -96,9 +101,9 @@ export function InnerCard({
                     as,
                     className: cssModule(
                         "o-ui-card",
-                        orientation,
-                        !fluid && normalizeSize(size),
-                        fluid && "fluid"
+                        orientationValue,
+                        !fluidValue && normalizeSize(sizeValue),
+                        fluidValue && "fluid"
                     ),
                     ref: forwardedRef
                 }

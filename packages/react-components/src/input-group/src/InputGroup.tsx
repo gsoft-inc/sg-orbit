@@ -18,6 +18,7 @@ import {
     useHasChild,
     useMergedRefs
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { TextAddon } from "./TextAddon";
 
 const DefaultElement = "div";
@@ -34,7 +35,7 @@ export interface InnerInputGroupProps extends InternalProps, StyledComponentProp
     /**
      * Whether or not the input group take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the input group is readonly.
      */
@@ -62,13 +63,15 @@ export function InnerInputGroup({
     readOnly,
     ...rest
 }: InnerInputGroupProps) {
+    const fluidValue = useResponsiveValue(fluid);
+
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
 
     const inputProps = mergeProps(
         {
             disabled,
-            fluid,
+            fluid: fluidValue,
             readOnly
         },
         omitProps(toolbarProps, ["orientation"]),
@@ -103,7 +106,7 @@ export function InnerInputGroup({
                     as,
                     className: cssModule(
                         "o-ui-input-group",
-                        fluid && "fluid",
+                        fluidValue && "fluid",
                         hasTextInput && "has-text-input"
                     ),
                     ref

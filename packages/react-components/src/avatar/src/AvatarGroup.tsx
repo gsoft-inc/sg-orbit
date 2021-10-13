@@ -3,6 +3,7 @@ import { AvatarText } from "./Avatar";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, normalizeSize } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Tooltip, TooltipTrigger } from "../../tooltip";
 
 const DefaultElement = "div";
@@ -11,7 +12,7 @@ export interface InnerAvatarGroupProps extends Omit<AbstractGroupProps<typeof De
     /**
      * The avatars of the group can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl";
+    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
 }
 
 interface RemainingAvatarsProps {
@@ -70,6 +71,8 @@ export function InnerAvatarGroup({
     forwardedRef,
     ...rest
 }: InnerAvatarGroupProps) {
+    const sizeValue = useResponsiveValue(size);
+
     const avatars = Children.toArray(children);
 
     const isExceeding = avatars.length > AvailableSlots;
@@ -83,7 +86,7 @@ export function InnerAvatarGroup({
         return (
             <TooltipTrigger key={name}>
                 {augmentElement(x, {
-                    size
+                    size: sizeValue
                 })}
                 <Tooltip>{name}</Tooltip>
             </TooltipTrigger>
@@ -93,7 +96,7 @@ export function InnerAvatarGroup({
     const remainingAvatarsMarkup = remainingAvatars && (
         <RemainingAvatars
             avatars={remainingAvatars as ReactElement[]}
-            size={size}
+            size={sizeValue}
         />
     );
 

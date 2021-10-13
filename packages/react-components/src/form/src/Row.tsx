@@ -1,6 +1,7 @@
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import { Inline } from "../../layout";
 import { InternalProps, OmitInternalProps, StyledComponentProps, augmentElement, mergeProps, omitProps } from "../../shared";
+import { ResponsiveProp } from "../../styling";
 import { useFormContext } from "./FormContext";
 
 const DefaultElement = "div";
@@ -13,7 +14,7 @@ export interface InnerRowProps extends InternalProps, StyledComponentProps<typeo
     /**
      * Whether or not the fields take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
 }
 
 export function InnerRow(props: InnerRowProps) {

@@ -32,7 +32,8 @@ stories()
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>}
         </Accordion>
-    ).add("zoom", () =>
+    )
+    .add("zoom", () =>
         <>
             <Div className="zoom-in">
                 <Accordion>

@@ -5,6 +5,7 @@ import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FieldContext } from "./FieldContext";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 import { useFormField } from "../../form";
 import { useGroupField } from "./useGroupField";
@@ -19,7 +20,7 @@ export interface InnerGroupFieldProps extends InternalProps, StyledComponentProp
     /**
      * Whether or not the field take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the field show a required state.
      */
@@ -51,10 +52,12 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
         toolbarProps
     );
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const { fieldContext, fieldProps } = useGroupField({
         className,
         disabled,
-        fluid,
+        fluid: fluidValue,
         forwardedRef,
         id,
         required,

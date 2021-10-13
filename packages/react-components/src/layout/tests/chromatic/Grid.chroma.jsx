@@ -104,7 +104,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -128,7 +128,7 @@ stories()
         </Inline>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -151,7 +151,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -181,7 +181,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -211,7 +211,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -241,7 +241,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -266,7 +266,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )
@@ -431,7 +431,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     )

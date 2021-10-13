@@ -4,6 +4,7 @@ import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -58,7 +59,7 @@ export interface InnerCheckboxProps extends Omit<AbstractInputProps<typeof Defau
     /**
      * A checkbox can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The value to associate with when in a group.
      */
@@ -109,6 +110,8 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         console.error("A checkbox must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
     }
 
+    const sizeValue = useResponsiveValue(size);
+
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
         if (!isNil(onValueChange)) {
             onValueChange(event, isChecked);
@@ -139,7 +142,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         onChange: handleChange,
         required,
         reverse,
-        size,
+        size: sizeValue,
         tabIndex,
         validationState
     });
@@ -155,19 +158,19 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
             color: "inherit",
             pushed: true,
             reverse,
-            size,
+            size: sizeValue,
             variant: "divider"
         },
         icon: {
             className: "o-ui-checkbox-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         text: {
             className: "o-ui-checkbox-label",
             color: "inherit",
-            size
+            size: sizeValue
         }
-    }), [size, reverse]));
+    }), [sizeValue, reverse]));
 
     return (
         <Box

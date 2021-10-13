@@ -4,7 +4,7 @@ import { Dot } from "@react-components/dot";
 import { Flex, Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
-import { storiesOfBuilder } from "@stories/utils";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Divider")
@@ -14,7 +14,12 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Divider />
+        <Divider />,
+         {
+             ...paramsBuilder()
+                 .validateBreakpoints()
+                 .build()
+         }
     )
     .add("surrounded", () =>
         <Div>

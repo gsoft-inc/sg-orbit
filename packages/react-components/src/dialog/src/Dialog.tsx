@@ -25,6 +25,7 @@ import {
     useResizeObserver,
     useSlots
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
@@ -58,7 +59,7 @@ export interface InnerDialogProps extends AbstractDialogProps<typeof DefaultElem
     /**
      * A dialog can vary in size.
      */
-    size?: "sm" | "md" | "lg" | "fullscreen";
+    size?: ResponsiveProp<"sm" | "md" | "lg" | "fullscreen">;
 }
 
 function useHideBodyScrollbar() {
@@ -136,6 +137,8 @@ export function InnerDialog({
     zIndex = 1,
     ...rest
 }: InnerDialogProps) {
+    const sizeValue = useResponsiveValue(size);
+
     const [focusScope, setFocusRef] = useFocusScope();
 
     const wrapperRef = useRef<HTMLElement>();
@@ -299,7 +302,7 @@ export function InnerDialog({
                             as,
                             className: cssModule(
                                 "o-ui-dialog",
-                                size === "fullscreen" ? size : normalizeSize(size),
+                                sizeValue === "fullscreen" ? sizeValue : normalizeSize(sizeValue),
                                 focus && "focus"
                             ),
                             id: dialogId,

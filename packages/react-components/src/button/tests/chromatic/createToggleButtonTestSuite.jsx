@@ -2,6 +2,7 @@ import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
+import { paramsBuilder } from "@stories/utils";
 
 function ToggleButton({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -19,7 +20,12 @@ export function createToggleButtonTestSuite(element, stories) {
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
-            </Stack>
+            </Stack>,
+             {
+                 ...paramsBuilder()
+                     .validateBreakpoints()
+                     .build()
+             }
         )
         .add("states", () =>
             <Inline alignY="end">

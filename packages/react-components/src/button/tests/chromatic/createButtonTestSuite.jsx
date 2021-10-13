@@ -4,6 +4,7 @@ import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
+import { paramsBuilder } from "@stories/utils";
 
 function Button({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -34,7 +35,12 @@ export function createButtonTestSuite(element, stories) {
                 <Div>
                     <Button loading fluid element={element}>Button</Button>
                 </Div>
-            </Stack>
+            </Stack>,
+             {
+                 ...paramsBuilder()
+                     .validateBreakpoints()
+                     .build()
+             }
         )
         .add("icon", () =>
             <Stack>
@@ -308,6 +314,16 @@ export function createButtonTestSuite(element, stories) {
                         <Button disabled focus hover element={element}>Button</Button>
                     </Inline>
                 </Stack>
+            </Inline>
+        )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <Button variant="primary">Button</Button>
+                </Div>
+                <Div className="zoom-out'">
+                    <Button variant="primary">Button</Button>
+                </Div>
             </Inline>
         );
 }

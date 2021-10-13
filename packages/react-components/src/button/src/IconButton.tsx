@@ -17,6 +17,7 @@ import {
     omitProps,
     slot
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
@@ -36,7 +37,7 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
     /**
      * Whether or not the button take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the button should inherit it's parent style.
      */
@@ -52,7 +53,7 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
     /**
      * A button can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md";
+    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md">;
     /**
      * The icon button type.
      */
@@ -100,19 +101,22 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         inputGroupProps
     );
 
+    const fluidValue = useResponsiveValue(fluid);
+    const sizeValue = useResponsiveValue(size);
+
     const buttonProps = useButton({
         active,
         as: asProp,
         autoFocus,
         cssModule: "o-ui-icon-button",
-        fluid,
+        fluid: fluidValue,
         focus,
         forwardedRef,
         hover,
         inherit,
         loading,
         shape,
-        size,
+        size: sizeValue,
         type,
         variant
     });
@@ -121,7 +125,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
     const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
         className: "o-ui-button-icon",
-        size
+        size: sizeValue
     });
 
     return (

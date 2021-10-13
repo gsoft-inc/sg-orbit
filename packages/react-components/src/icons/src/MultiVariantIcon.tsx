@@ -1,7 +1,7 @@
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
 import { Icon, IconSize } from "./Icon";
 import { InternalProps, OmitInternalProps, SlotProps, slot } from "../../shared";
-import { StyledSystemProps } from "../../styling";
+import { ResponsiveProp, StyledSystemProps, useResponsiveValue } from "../../styling";
 
 export interface InnerMultiVariantIconProps extends
     StyledSystemProps,
@@ -15,7 +15,7 @@ export interface InnerMultiVariantIconProps extends
     /**
      * An icon can vary in size.
      */
-    size?: IconSize;
+    size?: ResponsiveProp<IconSize>;
     /**
      * An icon as a React component for the 24px variant.
      */
@@ -26,10 +26,18 @@ export interface InnerMultiVariantIconProps extends
     src32: ElementType;
 }
 
-export const InnerMultiVariantIcon = (({ forwardedRef, size, src24: Component24, src32: Component32, ...rest }: InnerMultiVariantIconProps) => {
+export const InnerMultiVariantIcon = (({
+    forwardedRef,
+    size,
+    src24: Component24,
+    src32: Component32,
+    ...rest
+}: InnerMultiVariantIconProps) => {
+    const sizeValue = useResponsiveValue(size);
+
     let src = Component24;
 
-    if (size === "lg" || size === "xl") {
+    if (sizeValue === "lg" || sizeValue === "xl") {
         src = Component32;
     }
 
@@ -37,7 +45,7 @@ export const InnerMultiVariantIcon = (({ forwardedRef, size, src24: Component24,
         <Icon
             {...rest}
             ref={forwardedRef}
-            size={size}
+            size={sizeValue}
             src={src}
         />
     );

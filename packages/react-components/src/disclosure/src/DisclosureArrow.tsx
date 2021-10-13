@@ -3,6 +3,7 @@ import "./DisclosureArrow.css";
 import { ChevronIcon } from "../../icons";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { ResponsiveProp } from "../../styling";
 import { useDisclosureContext } from "./DisclosureContext";
 
 export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, StyledComponentProps<"svg"> {
@@ -13,7 +14,7 @@ export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, Sty
     /**
      * An arrow can vary in size.
      */
-    size?: "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit">;
 }
 
 export function InnerDisclosureArrow({

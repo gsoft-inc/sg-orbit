@@ -3,6 +3,7 @@ import "./Counter.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "span";
@@ -31,7 +32,7 @@ export interface InnerCounterProps extends SlotProps, InternalProps, StyledCompo
     /**
      * A counter can vary in size.
      */
-    size?: "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit";
+    size?: ResponsiveProp<"xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "inherit">;
     /**
      * The style to use.
      */
@@ -52,6 +53,8 @@ export function InnerCounter(props: InnerCounterProps) {
         ...rest
     } = props;
 
+    const sizeValue = useResponsiveValue(size);
+
     return (
         <Box
             {...mergeProps(
@@ -65,14 +68,14 @@ export function InnerCounter(props: InnerCounterProps) {
                         highlight && "highlight",
                         reverse && "reverse",
                         pushed && "pushed",
-                        normalizeSize(size)
+                        normalizeSize(sizeValue)
                     ),
                     color,
                     ref: forwardedRef
                 }
             )}
         >
-            <Text color="inherit" size={size}>{children}</Text>
+            <Text color="inherit" size={sizeValue}>{children}</Text>
         </Box>
     );
 }

@@ -17,11 +17,11 @@ import {
     slot,
     useSlots
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
-import { useStyleProps } from "../../styling";
 import { useToolbarProps } from "../../toolbar";
 
 export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
@@ -36,7 +36,7 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
     /**
      * Whether or not the button take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not the button should inherit it's parent style.
      */
@@ -52,7 +52,7 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
     /**
      * A button can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The button type.
      */
@@ -111,19 +111,22 @@ export function InnerButton(props: InnerButtonProps) {
         styleProps
     );
 
+    const fluidValue = useResponsiveValue(fluid);
+    const sizeValue = useResponsiveValue(size);
+
     const { ref: buttonRef, ...buttonProps } = useButton({
         active,
         as: asProp,
         autoFocus,
         cssModule: "o-ui-text-button",
-        fluid,
+        fluid: fluidValue,
         focus,
         forwardedRef,
         hover,
         inherit,
         loading,
         shape,
-        size,
+        size: sizeValue,
         type,
         variant
     });
@@ -137,22 +140,22 @@ export function InnerButton(props: InnerButtonProps) {
             color: "inherit",
             disabled,
             pushed: true,
-            size: condensed ? condensedTextSize(size) : size
+            size: condensed ? condensedTextSize(sizeValue) : sizeValue
         },
         "end-icon": {
             className: "o-ui-button-end-icon",
-            size: condensed ? size : embeddedIconSize(size)
+            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
         },
         icon: {
             className: "o-ui-button-icon o-ui-button-start-icon",
-            size: condensed ? size : embeddedIconSize(size)
+            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
         },
         text: {
             "aria-hidden": loading,
             className: "o-ui-button-text",
-            size: condensed ? condensedTextSize(size) : size
+            size: condensed ? condensedTextSize(sizeValue) : sizeValue
         }
-    }), [size, disabled, condensed, loading]));
+    }), [sizeValue, disabled, condensed, loading]));
 
     return (
         <Box

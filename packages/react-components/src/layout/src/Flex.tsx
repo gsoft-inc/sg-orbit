@@ -3,20 +3,25 @@ import {
     AlignItemsProp,
     ColumnGapProp,
     FlexBasisProp,
-    FlexDirectionProp,
     FlexWrapProp,
     GapProp,
     JustifyContentProp,
+    ResponsiveProp,
     RowGapProp,
     useResponsiveValue
 } from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNil, mergeProps } from "../../shared";
+import { Property } from "csstype";
 
 export type FlexOrientation = "horizontal" | "vertical";
 export type FlexDirection = "row" | "column";
 export type FlexAlignment = "start" | "end" | "center";
+
+export type FlexOrientationProp = ResponsiveProp<FlexOrientation>;
+export type FlexDirectionProp = ResponsiveProp<FlexDirection>;
+export type FlexAlignmentProp = ResponsiveProp<FlexAlignment>;
 
 export interface UseFlexAlignmentProps {
     alignX?: FlexAlignment;
@@ -40,9 +45,9 @@ export function useFlexAlignment({ alignX, alignY, orientation }: UseFlexAlignme
 
 const DefaultElement = "div";
 
-export type SafeAlignItemsProp = Omit<AlignItemsProp, "flex-start" | "flex-end">;
+export type SafeAlignItemsProp = ResponsiveProp<Omit<Property.AlignItems, "flex-start" | "flex-end">>;
 
-export type SafeJustifyContentProp = Omit<JustifyContentProp, "flex-start" | "flex-end">;
+export type SafeJustifyContentProp = ResponsiveProp<Omit<Property.JustifyContent, "flex-start" | "flex-end">>;
 
 export interface InnerFlexProps extends
     // Keep it so it could be used with dynamic slots.
@@ -84,11 +89,11 @@ export interface InnerFlexProps extends
     /**
      * Alias for [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction).
      */
-    direction?: FlexDirection;
+    direction?: FlexDirectionProp;
     /**
      * Whether the elements take up all the space of their container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/gap).
      */
@@ -132,6 +137,7 @@ export function InnerFlex({
 }: InnerFlexProps) {
     const alignItemsValue = useResponsiveValue(alignItems);
     const directionValue = useResponsiveValue(direction);
+    const fluidValue = useResponsiveValue(fluid);
     const justifyContentValue = useResponsiveValue(justifyContent);
 
     return (
@@ -145,10 +151,10 @@ export function InnerFlex({
                     display: inline ? "inline-flex" as const : "flex" as const,
                     flexDirection: (directionValue ? `${directionValue}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
                     flexWrap: wrap,
-                    height: !isNil(height) ? height : (fluid && directionValue === "column" ? "100%" : undefined),
+                    height: !isNil(height) ? height : (fluidValue && directionValue === "column" ? "100%" : undefined),
                     justifyContent: (justifyContentValue && (justifyContentValue as string).replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,
                     ref: forwardedRef,
-                    width: !isNil(width) ? width : (fluid && directionValue === "row" ? "100%" : undefined)
+                    width: !isNil(width) ? width : (fluidValue && directionValue === "row" ? "100%" : undefined)
                 }
             )}
         >

@@ -20,7 +20,7 @@ stories()
         </Box>,
          {
              ...paramsBuilder()
-                 .viewports([900, 1280])
+                 .validateBreakpoints()
                  .build()
          }
     );

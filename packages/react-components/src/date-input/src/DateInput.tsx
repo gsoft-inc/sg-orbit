@@ -16,6 +16,7 @@ import {
 import { InputGroup, useInputGroupProps } from "../../input-group";
 import { MenuPresets } from "./MenuPresets";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, useControllableState, useEventCallback } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./dateUtils";
 import { useDateInput } from "./useDateInput";
@@ -33,7 +34,7 @@ export interface InnerDateInputProps extends Omit<AbstractInputProps<"input">, "
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * The maximum (inclusive) date.
      */
@@ -134,6 +135,8 @@ export function InnerDateInput({
     wrapperProps,
     ...rest
 }: InnerDateInputProps) {
+    const fluidValue = useResponsiveValue(fluid);
+
     const [value, setValue] = useControllableState(valueProp, defaultValue, null);
 
     const containerRef = useRef<HTMLElement>();
@@ -212,7 +215,7 @@ export function InnerDateInput({
                         {
                             as,
                             disabled,
-                            fluid,
+                            fluid: fluidValue,
                             readOnly,
                             ref: containerRef
                         },
@@ -230,7 +233,7 @@ export function InnerDateInput({
                             as,
                             className: cssModule(
                                 "o-ui-date-input-button-presets",
-                                fluid && "fluid"
+                                fluidValue && "fluid"
                             ),
                             ref: containerRef
                         },
@@ -248,7 +251,7 @@ export function InnerDateInput({
     return augmentElement(inputMarkup, {
         as,
         disabled,
-        fluid,
+        fluid: fluidValue,
         readOnly,
         wrapperProps
     });

@@ -3,6 +3,7 @@ import "./Illustration.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
@@ -15,7 +16,7 @@ export interface InnerIllustrationProps extends SlotProps, InternalProps, Styled
     /**
      * The orientation of the illustration.
      */
-    orientation?: "horizontal" | "vertical";
+    orientation?: ResponsiveProp<"horizontal" | "vertical">;
     /**
      * The illustration shape.
      */
@@ -30,6 +31,8 @@ export function InnerIllustration({
     shape = "straight",
     ...rest
 }: InnerIllustrationProps) {
+    const orientationValue = useResponsiveValue(orientation);
+
     const { content, heading, image } = useSlots(children, useMemo(() => ({
         _: {
             required: ["image"]
@@ -56,7 +59,7 @@ export function InnerIllustration({
                     as,
                     className: cssModule(
                         "o-ui-illustration",
-                        orientation,
+                        orientationValue,
                         shape
                     ),
                     ref: forwardedRef
