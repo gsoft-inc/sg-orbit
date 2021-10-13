@@ -17,6 +17,7 @@ import {
 } from "../../shared";
 import { Overlay, OverlayArrow, OverlayPosition, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
+import { useThemeContext } from "../../theme-provider";
 
 const DefaultElement = "div";
 
@@ -91,6 +92,8 @@ export function InnerTooltipTrigger({
     zIndex = 10000,
     ...rest
 }: InnerTooltipTriggerProps) {
+    const { themeAccessor } = useThemeContext();
+
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
@@ -179,7 +182,7 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: "var(--o-ui-sp-3)",
+                        borderOffset: themeAccessor.getSpace(3),
                         ref: overlayRef,
                         show: isOpen,
                         zIndex

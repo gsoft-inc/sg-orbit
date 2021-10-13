@@ -1,6 +1,10 @@
 /* NORMALIZE */
+html {
+    font-size: 16px;
+}
+
 @media not (prefers-reduced-motion) {
-    .body {
+    .html {
         scroll-behavior: smooth;
     }
 }
