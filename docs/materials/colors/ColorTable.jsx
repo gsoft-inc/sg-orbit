@@ -4,15 +4,15 @@ import { arrayOf, shape, string } from "prop-types";
 const propTypes = {
     colors: arrayOf(shape({
         shade: string.isRequired,
-        variable: string.isRequired,
+        value: string.isRequired,
         color: string.isRequired
     })).isRequired
 };
 
-function toRowValues({ shade, variable, color }) {
+function toRowValues({ shade, value, color }) {
     return [
         shade,
-        variable,
+        value,
         color,
         { style: { backgroundColor: color } }
     ];
@@ -23,7 +23,7 @@ export function ColorTable({ colors }) {
         <Table
             columns={[
                 { title: "Shade", headerStyle: { width: "150px" } },
-                { title: "Variable", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
+                { title: "Value", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
                 { title: "Color Code", headerStyle: { width: "275px" }, rowClassName: "code f7 o-90" },
                 { title: "", headerStyle: { width: "300px" } }
             ]}
