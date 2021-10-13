@@ -17,7 +17,7 @@ import {
 } from "../../shared";
 import { Overlay, OverlayArrow, OverlayPosition, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
-import { useThemeContext } from "../../theme-provider";
+import { useThemeContext } from "../../styling";
 
 const DefaultElement = "div";
 
