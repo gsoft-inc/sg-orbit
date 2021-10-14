@@ -1,10 +1,12 @@
 import { isFunction } from "../../shared";
 import { useEffect, useState } from "react";
 
+// This check is the make sure that the matchMedia function exists. In the test environement, that
+// function is not available.
+export const supportsMatchMedia = isFunction(window?.matchMedia);
+
 // Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/useMediaQuery.ts
 export function useMediaQuery(query: string) {
-    const supportsMatchMedia = isFunction(window?.matchMedia);
-
     const [matches, setMatches] = useState(() => supportsMatchMedia
         ? window.matchMedia(query).matches
         : false
@@ -21,12 +23,12 @@ export function useMediaQuery(query: string) {
             setMatches(event.matches);
         };
 
-        mediaQueryList.addListener(onChange);
+        mediaQueryList.addEventListener("change", onChange);
 
         return () => {
-            mediaQueryList.removeListener(onChange);
+            mediaQueryList.removeEventListener("change", onChange);
         };
-    }, [supportsMatchMedia, query]);
+    }, [query]);
 
     return matches;
 }
