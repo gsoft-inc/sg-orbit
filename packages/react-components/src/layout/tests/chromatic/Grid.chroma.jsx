@@ -104,7 +104,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -128,7 +128,7 @@ stories()
         </Inline>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -151,7 +151,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -181,7 +181,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -211,7 +211,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -241,7 +241,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -266,7 +266,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )
@@ -431,7 +431,7 @@ stories()
         </Stack>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

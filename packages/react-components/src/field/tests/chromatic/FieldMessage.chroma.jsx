@@ -27,7 +27,7 @@ stories()
         </HelpMessage>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

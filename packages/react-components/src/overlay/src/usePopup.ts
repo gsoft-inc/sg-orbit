@@ -1,5 +1,6 @@
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
+import { ResponsiveProp } from "../../styling";
 import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayTrigger } from "./useOverlayTrigger";
@@ -7,10 +8,12 @@ import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export type PopupAlignment = "start" | "end";
-
 export type PopupDirection = "top" | "bottom";
-
 export type PopupPosition = OverlayPosition;
+
+export type PopupAlignmentProp = ResponsiveProp<PopupAlignment>;
+export type PopupDirectionProp = ResponsiveProp<PopupDirection>;
+export type PopupPositionProp = ResponsiveProp<PopupPosition>;
 
 export type PopupTrigger = "none" | "click";
 

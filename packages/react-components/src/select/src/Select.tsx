@@ -6,7 +6,8 @@ import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
-import { Overlay, OverlayProps, PopupAlignment, PopupDirection } from "../../overlay";
+import { Overlay, OverlayProps, PopupAlignmentProp, PopupDirectionProp } from "../../overlay";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Span } from "../../html";
 import { Text } from "../../typography";
 import { useFieldInputProps } from "../../field";
@@ -19,7 +20,7 @@ export interface InnerSelectProps extends Omit<AbstractInputProps<typeof Default
     /**
      * The horizontal alignment of the select menu relative to the input.
      */
-    align?: PopupAlignment;
+    align?: PopupAlignmentProp;
     /**
      * Whether or not the select menu can flip when it will overflow it's boundary area.
      */
@@ -47,7 +48,7 @@ export interface InnerSelectProps extends Omit<AbstractInputProps<typeof Default
     /**
      * The direction the select menu will open relative to the input.
      */
-    direction?: PopupDirection;
+    direction?: PopupDirectionProp;
     /**
      * Whether or not the select is disabled.
      */
@@ -55,7 +56,7 @@ export interface InnerSelectProps extends Omit<AbstractInputProps<typeof Default
     /**
      * Whether or not the select take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * A trigger icon.
      */
@@ -154,8 +155,11 @@ export function InnerSelect(props: InnerSelectProps) {
         inputGroupProps
     );
 
+    const alignValue = useResponsiveValue(align);
+    const directionValue = useResponsiveValue(direction);
+
     const { isOpen, listboxProps, overlayProps, selectedItem, selectedKey, triggerProps } = useSelect(children, {
-        align,
+        align: alignValue,
         allowFlip,
         allowPreventOverflow,
         allowResponsiveMenuWidth: allowResponsiveMenuWidth ?? variant !== "ghost",
@@ -165,7 +169,7 @@ export function InnerSelect(props: InnerSelectProps) {
         autoFocus,
         defaultOpen,
         defaultSelectedKey,
-        direction,
+        direction: directionValue,
         disabled,
         id,
         onOpenChange,

@@ -25,7 +25,7 @@ stories()
         </Row>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

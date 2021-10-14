@@ -28,6 +28,7 @@ import {
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 
 export type SelectionMode = "none" | "single" | "multiple";
@@ -60,7 +61,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     /**
      * Whether or not the listbox take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * A collection of nodes to render instead of children. It should only be used if you embed a Menu inside another component.
      */
@@ -110,6 +111,8 @@ export function InnerMenu({
     validationState,
     ...rest
 }: InnerMenuProps) {
+    const fluidValue = useResponsiveValue(fluid);
+
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
     const [searchQueryRef, setSearchQuery] = useRefState("");
 
@@ -295,7 +298,7 @@ export function InnerMenu({
                     as,
                     className: cssModule(
                         "o-ui-menu",
-                        fluid && "fluid",
+                        fluidValue && "fluid",
                         selectionMode !== "none" && "with-selection",
                         validationState
                     ),

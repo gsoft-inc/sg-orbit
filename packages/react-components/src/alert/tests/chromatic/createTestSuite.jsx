@@ -19,7 +19,7 @@ export function createTestSuite(element, stories) {
             </Alert>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

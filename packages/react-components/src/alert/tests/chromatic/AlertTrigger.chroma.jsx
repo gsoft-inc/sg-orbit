@@ -21,7 +21,7 @@ stories()
         </AlertTrigger>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

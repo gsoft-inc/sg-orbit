@@ -23,7 +23,7 @@ export function createToggleButtonTestSuite(element, stories) {
             </Stack>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

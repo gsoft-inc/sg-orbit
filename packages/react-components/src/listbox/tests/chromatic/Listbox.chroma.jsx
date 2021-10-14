@@ -27,7 +27,12 @@ stories()
             <Item key="neptune">Neptune</Item>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
-        </Listbox>
+        </Listbox>,
+         {
+             ...paramsBuilder()
+                 .withBreakpoints()
+                 .build()
+         }
     )
     .add("generated keys", () =>
         <Listbox aria-label="Planets">

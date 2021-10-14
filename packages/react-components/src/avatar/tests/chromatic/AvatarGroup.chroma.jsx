@@ -98,7 +98,7 @@ stories()
         </Inline>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

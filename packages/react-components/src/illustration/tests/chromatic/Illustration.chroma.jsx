@@ -18,7 +18,7 @@ stories()
         </Illustration>,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

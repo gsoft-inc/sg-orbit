@@ -4,6 +4,7 @@ import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useSlots } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -54,7 +55,7 @@ export interface InnerSwitchProps extends Omit<AbstractInputProps<typeof Default
     /**
      * A checkbox can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
 }
 
 export function InnerSwitch(props: InnerSwitchProps) {
@@ -94,6 +95,8 @@ export function InnerSwitch(props: InnerSwitchProps) {
         console.error("A switch must either have children, an \"aria-label\" attribute or an \"aria-labelledby\" attribute.");
     }
 
+    const sizeValue = useResponsiveValue(size);
+
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>, isChecked: boolean) => {
         if (!isNil(onValueChange)) {
             onValueChange(event, isChecked);
@@ -118,7 +121,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         onChange: handleChange,
         required,
         reverse,
-        size,
+        size: sizeValue,
         tabIndex,
         validationState
     });
@@ -134,19 +137,19 @@ export function InnerSwitch(props: InnerSwitchProps) {
             color: "inherit",
             pushed: true,
             reverse,
-            size,
+            size: sizeValue,
             variant: "divider"
         },
         icon: {
             className: "o-ui-switch-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         text: {
             className: "o-ui-switch-label",
             color: "inherit",
-            size
+            size: sizeValue
         }
-    }), [size, reverse]));
+    }), [sizeValue, reverse]));
 
     return (
         <Box

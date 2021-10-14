@@ -55,7 +55,7 @@ export function createAccordionTestSuite(element, stories) {
             </Accordion>,
              {
                  ...paramsBuilder()
-                     .validateBreakpoints()
+                     .withBreakpoints()
                      .build()
              }
         )

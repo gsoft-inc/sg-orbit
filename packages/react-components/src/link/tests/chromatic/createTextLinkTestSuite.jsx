@@ -3,6 +3,7 @@ import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
+import { paramsBuilder } from "@stories/utils";
 
 function TextLink({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -24,7 +25,12 @@ export function createTextLinkTestSuite(element, stories) {
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
                     </TextLink>
                 </Div>
-            </Stack>
+            </Stack>,
+             {
+                 ...paramsBuilder()
+                     .withBreakpoints()
+                     .build()
+             }
         )
         .add("icon", () =>
             <Stack>

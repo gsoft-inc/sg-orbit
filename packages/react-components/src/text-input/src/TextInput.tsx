@@ -5,6 +5,7 @@ import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -20,7 +21,7 @@ export type AbstractTextInputProps<T extends ElementType> = AbstractInputProps<T
     /**
      * Whether or not the input take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * [Icon](/?path=/docs/icon--default-story) component rendered before the value.
      */
@@ -102,6 +103,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }
 
+    const fluidValue = useResponsiveValue(fluid);
+
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const handleChange = useChainedEventCallback(onChange, (event: ChangeEvent<HTMLInputElement>) => {
@@ -119,7 +122,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         autoFocus,
         cssModule: "o-ui-text-input",
         disabled,
-        fluid,
+        fluid: fluidValue,
         focus,
         forwardedRef,
         hover,

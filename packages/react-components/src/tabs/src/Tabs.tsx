@@ -3,6 +3,7 @@ import "./Tabs.css";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
 import { TabsContext, TabsOrientation } from "./TabsContext";
@@ -31,7 +32,7 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
     /**
      * Whether or not the tabs take up the width of the container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * Whether or not keyboard navigation changes focus between tabs but doens't activate it.
      */
@@ -46,7 +47,7 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
     /**
      * The orientation of the tabs elements.
      */
-    orientation?: TabsOrientation;
+    orientation?: ResponsiveProp<TabsOrientation>;
     /**
      * A controlled selected key.
      */
@@ -68,6 +69,9 @@ export function InnerTabs({
     selectedKey: selectedKeyProp,
     ...rest
 }: InnerTabsProps) {
+    const fluidValue = useResponsiveValue(fluid);
+    const orientationValue = useResponsiveValue(orientation);
+
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, "0");
 
     const [tabs, panels] = useTabsItems(children, useId(id, "o-ui-tabs"));
@@ -106,8 +110,8 @@ export function InnerTabs({
                     as,
                     className: cssModule(
                         "o-ui-tabs",
-                        fluid && "fluid",
-                        orientation
+                        fluidValue && "fluid",
+                        orientationValue
                     ),
                     id,
                     ref: forwardedRef
@@ -118,7 +122,7 @@ export function InnerTabs({
                 value={{
                     isManual: manual,
                     onSelect: handleSelect,
-                    orientation,
+                    orientation: orientationValue,
                     selectedKey: adjustedKey
                 }}
             >

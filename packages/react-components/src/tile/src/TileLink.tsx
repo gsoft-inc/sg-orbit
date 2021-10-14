@@ -1,8 +1,8 @@
 import { AbstractLinkProps, Link } from "../../link";
 import { ComponentProps, forwardRef } from "react";
-import { FlexOrientation } from "../../layout";
 import { OmitInternalProps, cssModule, mergeProps } from "../../shared";
-import { useTile } from "./useTile";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { TileOrientation, useTile } from "./useTile";
 
 const DefaultElement = "a";
 
@@ -10,7 +10,7 @@ export interface InnerTileLinkProps extends AbstractLinkProps<typeof DefaultElem
     /**
      * The orientation of the tile.
      */
-    orientation?: FlexOrientation;
+    orientation?: ResponsiveProp<TileOrientation>;
 }
 
 export function InnerTileLink({
@@ -24,12 +24,14 @@ export function InnerTileLink({
     orientation = "vertical",
     ...rest
 }: InnerTileLinkProps) {
+    const orientationValue = useResponsiveValue(orientation);
+
     const { markup, tileProps } = useTile({
         active,
         children,
         focus,
         hover,
-        orientation,
+        orientation: orientationValue,
         variant: "link"
     });
 

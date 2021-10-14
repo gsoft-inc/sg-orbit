@@ -231,5 +231,15 @@ export function createTestSuite(element, stories) {
                     </Switch>
                 </Div>
             </Stack>
+        )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <Switch>Engines</Switch>
+                </Div>
+                <Div className="zoom-out">
+                    <Switch>Engines</Switch>
+                </Div>
+            </Inline>
         );
 }

@@ -386,6 +386,18 @@ export function createTestSuite(element, stories) {
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
+        .add("direction", () =>
+            <Select direction={{ m: "top", l: "bottom" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>,
+             {
+                 ...paramsBuilder()
+                     .withBreakpoints()
+                     .build()
+             }
+        )
         .add("direction bottom", () =>
             <Select direction="bottom" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
@@ -402,6 +414,18 @@ export function createTestSuite(element, stories) {
              {
                  ...paramsBuilder()
                      .canvasLayout({ marginTop: "100px" })
+                     .build()
+             }
+        )
+        .add("align", () =>
+            <Select align={{ m: "start", l: "end" }} overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>,
+             {
+                 ...paramsBuilder()
+                     .withBreakpoints()
                      .build()
              }
         )

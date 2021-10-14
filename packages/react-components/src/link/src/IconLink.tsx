@@ -7,7 +7,7 @@ import { EmbeddedIcon } from "../../icons";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps } from "../../shared";
-import { useStyleProps } from "../../styling";
+import { ResponsiveProp, useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 
@@ -31,7 +31,7 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
     /**
      * A link can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The link style to use.
      */

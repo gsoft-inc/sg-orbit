@@ -23,6 +23,7 @@ import {
 import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
+import { useResponsiveValue } from "../../styling";
 import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "div";
@@ -76,6 +77,8 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         omitProps(fieldProps, ["fluid", "size"])
     );
 
+    const wrapValue = useResponsiveValue(wrap);
+
     const [checkedValue, setCheckedValue] = useControllableState(value, defaultValue, null);
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -115,7 +118,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         reverse,
         role: "radiogroup",
         validationState,
-        wrap
+        wrap: wrapValue
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {

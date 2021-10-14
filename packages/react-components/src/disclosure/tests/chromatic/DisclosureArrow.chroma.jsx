@@ -16,7 +16,7 @@ stories()
         <DisclosureArrow />,
          {
              ...paramsBuilder()
-                 .validateBreakpoints()
+                 .withBreakpoints()
                  .build()
          }
     )

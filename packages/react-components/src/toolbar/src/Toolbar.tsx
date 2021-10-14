@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { Flex, FlexAlignment, FlexOrientation, useFlexAlignment } from "../../layout";
+import { Flex, FlexAlignmentProp, FlexOrientationProp, useFlexAlignment } from "../../layout";
 import {
     InternalProps,
     Keys,
@@ -14,6 +14,7 @@ import {
     useMergedRefs,
     useRovingFocus
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ToolbarContext } from "./ToolbarContext";
 
 const DefaultElement = "div";
@@ -24,11 +25,11 @@ export interface InnerToolbarProps extends
     /**
      * The horizontal alignment of the elements.
      */
-    alignX?: FlexAlignment;
+    alignX?: FlexAlignmentProp;
     /**
      * The vertical alignment of the elements.
      */
-    alignY?: FlexAlignment;
+    alignY?: FlexAlignmentProp;
     /**
      * Whether or not the toolbar should autoFocus the first tabbable element on render.
      */
@@ -44,15 +45,15 @@ export interface InnerToolbarProps extends
     /**
      * Whether the toolbar take up the width of its container.
      */
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     /**
      * The orientation of the elements.
      */
-    orientation?: FlexOrientation;
+    orientation?: FlexOrientationProp;
     /**
      * Whether or not the elements are forced onto one line or can wrap onto multiple lines
      */
-    wrap?: boolean;
+    wrap?: ResponsiveProp<boolean>;
 }
 
 const NavigationKeyBinding = {
@@ -83,6 +84,11 @@ export function InnerToolbar({
     wrap = true,
     ...rest
 }: InnerToolbarProps) {
+    const alignXValue = useResponsiveValue(alignX);
+    const alignYValue = useResponsiveValue(alignY);
+    const orientationValue = useResponsiveValue(orientation);
+    const wrapValue = useResponsiveValue(wrap);
+
     const [focusScope, setFocusRef] = useFocusScope();
 
     const containerRef = useMergedRefs(setFocusRef, forwardedRef);
@@ -96,14 +102,14 @@ export function InnerToolbar({
         isDisabled: !autoFocus
     });
 
-    const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation]);
+    const arrowNavigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientationValue]);
 
     const alignProps = useFlexAlignment({
-        alignX,
-        alignY: orientation === "horizontal"
-            ? alignY ?? "center"
-            : alignY,
-        orientation
+        alignX: alignXValue,
+        alignY: orientationValue === "horizontal"
+            ? alignYValue ?? "center"
+            : alignYValue,
+        orientation: orientationValue
     });
 
     return (
@@ -111,12 +117,12 @@ export function InnerToolbar({
             {...mergeProps(
                 rest,
                 {
-                    "aria-orientation": orientation,
+                    "aria-orientation": orientationValue,
                     as,
                     gap,
                     ref: containerRef,
                     role: "toolbar",
-                    wrap: wrap ? "wrap" as const : undefined
+                    wrap: wrapValue ? "wrap" as const : undefined
                 },
                 alignProps,
                 arrowNavigationProps
@@ -125,7 +131,7 @@ export function InnerToolbar({
             <ToolbarContext.Provider
                 value={{
                     disabled,
-                    orientation
+                    orientation: orientationValue
                 }}
             >
                 {children}

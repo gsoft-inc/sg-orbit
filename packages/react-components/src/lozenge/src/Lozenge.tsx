@@ -1,6 +1,6 @@
 import "./Lozenge.css";
 
-import { Box } from "../../box/src/Box";
+import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import {
     InternalProps,
@@ -15,6 +15,7 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
 
@@ -28,7 +29,7 @@ export interface InnerLozengeProps extends SlotProps, InternalProps, StyledCompo
     /**
      * A lozenge can vary in size.
      */
-    size?: "sm" | "md";
+    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The lozenze style to use.
      */
@@ -50,6 +51,8 @@ export function InnerLozenge({
     size,
     ...rest
 }: InnerLozengeProps) {
+    const sizeValue = useResponsiveValue(size);
+
     const ref = useMergedRefs(forwardedRef);
 
     const { icon, text } = useSlots(children, useMemo(() => ({
@@ -58,13 +61,13 @@ export function InnerLozenge({
         },
         icon: {
             className: "o-ui-lozenge-icon",
-            size: embeddedIconSize(size)
+            size: embeddedIconSize(sizeValue)
         },
         text: {
             className: "o-ui-lozenge-text",
-            size: textSize(size)
+            size: textSize(sizeValue)
         }
-    }), [size]));
+    }), [sizeValue]));
 
     return (
         <Box
@@ -76,7 +79,7 @@ export function InnerLozenge({
                         "o-ui-lozenge",
                         variant,
                         icon && "has-icon",
-                        normalizeSize(size)
+                        normalizeSize(sizeValue)
                     ),
                     ref
                 }
