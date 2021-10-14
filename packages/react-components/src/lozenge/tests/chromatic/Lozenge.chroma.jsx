@@ -3,7 +3,7 @@ import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Lozenge } from "@react-components/lozenge";
 import { Text } from "@react-components/typography";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Lozenge")
@@ -16,12 +16,7 @@ stories()
         <Inline alignY="end">
             <Lozenge size="sm">New</Lozenge>
             <Lozenge>New</Lozenge>
-        </Inline>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Inline>
     )
     .add("icon", () =>
         <Stack>

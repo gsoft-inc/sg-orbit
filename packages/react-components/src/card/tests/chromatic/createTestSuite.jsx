@@ -10,7 +10,6 @@ import { Nasa } from "./assets";
 import { Tabs } from "@react-components/tabs";
 import { TextLink } from "@react-components/link";
 import { cloneElement } from "react";
-import { paramsBuilder } from "@stories/utils";
 
 function Card({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -48,12 +47,7 @@ export function createTestSuite(element, stories) {
                     <Heading>Nasa</Heading>
                     <Content>The National Aeronautics and Space Administration</Content>
                 </Card>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("illustration 1", () =>
             <Stack>

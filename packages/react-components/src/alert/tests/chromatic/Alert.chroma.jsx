@@ -36,7 +36,8 @@ stories()
             <Heading className="border-red">Launch</Heading>
             <Content className="border-red">Are you use you want to launch the space shuttle?</Content>
         </Alert>
-    ).add("zoom in", () =>
+    )
+    .add("zoom in", () =>
         <div className="zoom-in">
             <Alert
                 primaryButtonLabel="Yes"
@@ -45,7 +46,8 @@ stories()
                 <Content>Are you use you want to launch the space shuttle?</Content>
             </Alert>
         </div>
-    ).add("zoom out", () =>
+    )
+    .add("zoom out", () =>
         <div className="zoom-out">
             <Alert
                 primaryButtonLabel="Yes"
@@ -54,7 +56,8 @@ stories()
                 <Content>Are you use you want to launch the space shuttle?</Content>
             </Alert>
         </div>
-    ).add("styles", () =>
+    )
+    .add("styles", () =>
         <Alert
             primaryButtonLabel="Yes"
             style={{ border: "1px solid red" }}

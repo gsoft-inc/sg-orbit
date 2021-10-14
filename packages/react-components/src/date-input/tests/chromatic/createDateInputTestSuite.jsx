@@ -1,7 +1,6 @@
 import { Div } from "@react-components/html";
 import { Stack } from "@react-components/layout";
 import { cloneElement } from "react";
-import { paramsBuilder } from "@stories/utils";
 
 function DateInput({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -16,12 +15,7 @@ export function createDateInputTestSuite(element, stories) {
                 <Div width="10%">
                     <DateInput fluid element={element} />
                 </Div>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("placeholder", () =>
             <Stack>

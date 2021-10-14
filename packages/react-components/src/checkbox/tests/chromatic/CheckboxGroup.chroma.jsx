@@ -55,12 +55,7 @@ stories()
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
-        </Stack>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Stack>
     )
     .add("selection", () =>
         <Stack>

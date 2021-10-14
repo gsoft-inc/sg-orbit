@@ -13,12 +13,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <DisclosureArrow />,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        <DisclosureArrow />
     )
     .add("controlled", () =>
         <Inline>

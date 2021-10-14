@@ -2,7 +2,7 @@ import { Inline } from "@react-components/layout";
 import { Label } from "@react-components/field";
 import { Span } from "@react-components/html";
 import { TextLink } from "@react-components/link";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Label")
@@ -12,12 +12,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <Label>Where to?</Label>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        <Label>Where to?</Label>
     )
     .add("complex", () =>
         <Label>

@@ -43,12 +43,7 @@ stories()
                 <Heading>Space News</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
             </Popover>
-        </PopoverTrigger>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </PopoverTrigger>
     )
     .add("position auto", () =>
         <PopoverTrigger position="auto" open>

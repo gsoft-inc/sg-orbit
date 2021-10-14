@@ -2,7 +2,7 @@ import { Alert, AlertTrigger } from "@react-components/alert";
 import { Button } from "@react-components/button";
 import { Content } from "@react-components/placeholders";
 import { Heading } from "@react-components/typography";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/AlertTrigger")
@@ -18,12 +18,7 @@ stories()
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
             </Alert>
-        </AlertTrigger>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </AlertTrigger>
     )
     .add("default open", () =>
         <AlertTrigger defaultOpen>

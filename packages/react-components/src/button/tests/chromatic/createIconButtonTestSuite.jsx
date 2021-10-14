@@ -2,7 +2,6 @@ import { AddIcon } from "@react-components/icons";
 import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
-import { paramsBuilder } from "@stories/utils";
 
 function IconButton({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -30,12 +29,7 @@ export function createIconButtonTestSuite(element, stories) {
                     <IconButton condensed size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton condensed aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("rounded", () =>
             <Stack>

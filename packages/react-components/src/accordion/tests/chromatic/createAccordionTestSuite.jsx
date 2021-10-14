@@ -8,7 +8,6 @@ import { Item } from "@react-components/collection";
 import { Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 import { mergeProps } from "@react-components/shared";
-import { paramsBuilder } from "@stories/utils";
 
 function Accordion({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -52,12 +51,7 @@ export function createAccordionTestSuite(element, stories) {
                     <H3>Venus</H3>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
-            </Accordion>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Accordion>
         )
         .add("icon", () =>
             <Accordion element={element}>

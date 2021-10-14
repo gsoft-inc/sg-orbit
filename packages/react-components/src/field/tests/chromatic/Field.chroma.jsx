@@ -24,12 +24,7 @@ stories()
     .add("default", () =>
         <Field>
             <TextInput placeholder="Where to?" />
-        </Field>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Field>
     )
     .add("label", () =>
         <Field>

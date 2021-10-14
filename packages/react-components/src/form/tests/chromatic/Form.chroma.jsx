@@ -9,7 +9,7 @@ import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea } from "@react-components/text-area";
 import { TextInput } from "@react-components/text-input";
 import { TextLinkAsButton } from "@react-components/link";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Form")
@@ -44,12 +44,7 @@ stories()
                 </Field>
                 <TextLinkAsButton>Submit</TextLinkAsButton>
             </Form>
-        </Inline>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Inline>
     )
     .add("fluid", () =>
         <Inline gap={13}>
