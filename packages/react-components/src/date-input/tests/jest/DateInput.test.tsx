@@ -302,7 +302,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -330,7 +330,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -339,7 +339,7 @@ describe("compact presets", () => {
             userEvent.click(getByRole("menuitemradio"));
         });
 
-        await waitFor(() => expect(container.querySelector(":scope > [aria-label=\"Date presets\"]")).toHaveFocus());
+        await waitFor(() => expect(container.querySelector(":scope [aria-label=\"Date presets\"]")).toHaveFocus());
     });
 
     test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
@@ -352,7 +352,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -375,7 +375,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -685,7 +685,7 @@ test("when a preset is selected, call onDateChange with the preset date", async 
     );
 
     act(() => {
-        userEvent.click(container.querySelector(":scope > [aria-label=\"Date presets\"]"));
+        userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
     });
 
     await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());

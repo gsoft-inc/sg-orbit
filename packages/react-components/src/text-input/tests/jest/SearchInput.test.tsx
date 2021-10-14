@@ -24,7 +24,7 @@ test("clear value on clear button click", async () => {
     await waitFor(() => expect(getInput(getByTestId("input")).value).toBe("Mars"));
 
     act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope > button"));
+        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
     });
 
     await waitFor(() => expect(getInput(getByTestId("input")).value).toBe(""));
@@ -57,7 +57,7 @@ test("focus input on clear", async () => {
     );
 
     act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope > button"));
+        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());

@@ -396,7 +396,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay").querySelector(":scope > .o-ui-listbox")).toHaveAttribute("aria-labelledby", "planets"));
+    await waitFor(() => expect(getByTestId("overlay").querySelector(":scope .o-ui-listbox")).toHaveAttribute("aria-labelledby", "planets"));
 });
 
 // ***** Api *****

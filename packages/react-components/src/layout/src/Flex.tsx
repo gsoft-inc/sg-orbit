@@ -3,6 +3,7 @@ import {
     AlignItemsProp,
     ColumnGapProp,
     FlexBasisProp,
+    FlexDirectionProp,
     FlexWrapProp,
     GapProp,
     JustifyContentProp,
@@ -16,11 +17,9 @@ import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNi
 import { Property } from "csstype";
 
 export type FlexOrientation = "horizontal" | "vertical";
-export type FlexDirection = "row" | "column";
 export type FlexAlignment = "start" | "end" | "center";
 
 export type FlexOrientationProp = ResponsiveProp<FlexOrientation>;
-export type FlexDirectionProp = ResponsiveProp<FlexDirection>;
 export type FlexAlignmentProp = ResponsiveProp<FlexAlignment>;
 
 export interface UseFlexAlignmentProps {
@@ -33,12 +32,12 @@ export function useFlexAlignment({ alignX, alignY, orientation }: UseFlexAlignme
     return orientation === "horizontal"
         ? {
             alignItems: alignY,
-            direction: "row" as FlexDirection,
+            direction: "row" as FlexDirectionProp,
             justifyContent: alignX
         }
         : {
             alignItems: alignX,
-            direction: "column" as FlexDirection,
+            direction: "column" as FlexDirectionProp,
             justifyContent: alignY
         };
 }
