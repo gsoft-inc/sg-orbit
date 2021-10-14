@@ -68,10 +68,12 @@ export function InnerAvatarGroup({
     size,
     as = DefaultElement,
     children,
+    wrap = true,
     forwardedRef,
     ...rest
 }: InnerAvatarGroupProps) {
     const sizeValue = useResponsiveValue(size);
+    const wrapValue = useResponsiveValue(wrap);
 
     const avatars = Children.toArray(children);
 
@@ -109,7 +111,8 @@ export function InnerAvatarGroup({
                     className: "o-ui-avatar-group",
                     gap: 1 as const,
                     orientation: "horizontal" as const,
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    wrap: wrapValue
                 }
             )}
         >

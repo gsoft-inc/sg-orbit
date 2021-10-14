@@ -170,9 +170,9 @@ stories()
             </Toolbar>
         </Inline>
     )
-    .add("wrap", () =>
+    .add("no wrap", () =>
         <Div width="170px">
-            <Toolbar wrap>
+            <Toolbar wrap={false}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

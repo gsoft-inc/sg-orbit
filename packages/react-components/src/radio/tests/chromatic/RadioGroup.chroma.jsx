@@ -94,9 +94,18 @@ stories()
             <Radio value="3">3</Radio>
         </RadioGroup>
     )
-    .add("wrapped", () =>
+    .add("wrap", () =>
         <Div width="130px">
             <RadioGroup wrap orientation="horizontal">
+                {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
+                    <Radio width="35px" value={x} key={x}>{x}</Radio>
+                )}
+            </RadioGroup>
+        </Div>
+    )
+    .add("no wrap", () =>
+        <Div width="130px">
+            <RadioGroup wrap={false} orientation="horizontal">
                 {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
                     <Radio width="35px" value={x} key={x}>{x}</Radio>
                 )}

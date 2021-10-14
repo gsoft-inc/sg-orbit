@@ -68,7 +68,7 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
         size,
         validationState,
         value,
-        wrap,
+        wrap = true,
         ...rest
     } = mergeProps(
         props,

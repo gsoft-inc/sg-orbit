@@ -80,7 +80,7 @@ export function InnerToolbar({
     forwardedRef,
     gap = 5,
     orientation = "horizontal",
-    wrap,
+    wrap = true,
     ...rest
 }: InnerToolbarProps) {
     const [focusScope, setFocusRef] = useFocusScope();
