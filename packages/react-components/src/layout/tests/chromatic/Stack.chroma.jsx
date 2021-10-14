@@ -72,13 +72,6 @@ stories()
             <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
-    .add("wrap reverse", () =>
-        <Stack wrap="wrap-reverse" height="25px">
-            <Div backgroundColor="primary-5">Alpha</Div>
-            <Div backgroundColor="primary-5">Bravo</Div>
-            <Div backgroundColor="primary-5">Charlie</Div>
-        </Stack>
-    )
     .add("inline", () =>
         <>
             <Stack inline>

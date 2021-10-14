@@ -70,7 +70,7 @@ export function InnerStack({
     children,
     forwardedRef,
     gap = 5,
-    wrap,
+    wrap = true,
     ...rest
 }: InnerStackProps) {
     const alignXValue = useResponsiveValue(alignX);

@@ -66,14 +66,14 @@ stories()
         </Inline>
     )
     .add("wrap", () =>
-        <Inline wrap="wrap" width="25px">
+        <Inline width="25px">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("wrap reverse", () =>
-        <Inline wrap="wrap-reverse" width="25px">
+    .add("nowrap", () =>
+        <Inline wrap={false} width="25px">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
