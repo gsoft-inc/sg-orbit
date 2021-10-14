@@ -13,7 +13,7 @@ import {
     ResponsiveProp,
     RowGapProp,
     SpacingValue,
-    getSpacingValue,
+    getSizingValue,
     useResponsiveValue
 } from "../../styling";
 import { Box } from "../../box";
@@ -22,17 +22,17 @@ import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isAr
 
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/repeat.
 export function repeat(count: number | "auto-fill" | "auto-fit", repetition: SpacingValue | SpacingValue[]) {
-    return `repeat(${count}, ${isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSpacingValue(repetition)})`;
+    return `repeat(${count}, ${isArray(repetition) ? interpolateGridTemplateArray(repetition) : getSizingValue(repetition)})`;
 }
 
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/minmax.
 export function minmax(min: SpacingValue, max: SpacingValue) {
-    return `minmax(${getSpacingValue(min)}, ${getSpacingValue(max)})`;
+    return `minmax(${getSizingValue(min)}, ${getSizingValue(max)})`;
 }
 
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/fit-content.
 export function fitContent(dimension: SpacingValue) {
-    return `fit-content(${getSpacingValue(dimension)})`;
+    return `fit-content(${getSizingValue(dimension)})`;
 }
 
 const DefaultElement = "div";
@@ -119,7 +119,7 @@ export interface InnerGridProps extends
 }
 
 function interpolateGridTemplateArray<T>(values: T[]) {
-    return values.map(x => getSpacingValue(x as any)).join(" ");
+    return values.map(x => getSizingValue(x as any)).join(" ");
 }
 
 export function InnerGrid({

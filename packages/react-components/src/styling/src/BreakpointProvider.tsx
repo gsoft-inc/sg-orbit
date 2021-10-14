@@ -36,7 +36,7 @@ export function BreakpointProvider({
         }
 
         return defaultBreakpoint;
-    },[defaultBreakpoint]);
+    }, [defaultBreakpoint]);
 
     const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint);
 

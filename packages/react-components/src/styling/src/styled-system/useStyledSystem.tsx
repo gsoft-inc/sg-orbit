@@ -1,4 +1,4 @@
-import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SpacePrefix, normalizeVariable } from "../theming";
+import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SizingPrefix, SpacePrefix, normalizeVariable } from "../theming";
 import { Breakpoint, useBreakpoint } from "../BreakpointProvider";
 import { CSSProperties, useMemo } from "react";
 import { LiteralUnion } from "type-fest";
@@ -48,6 +48,22 @@ const ColorExpressionTypes = [
     "hsl",
     "hsla"
 ];
+
+const SizingScale = [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+] as const;
 
 const SpacingScale = [
     1,
@@ -325,6 +341,8 @@ function createPrefixedValueTemplate(prefix: string) {
 
 export const SpacingMapping = createValuesMapping(SpacingScale, createPrefixedValueTemplate(SpacePrefix));
 
+export const SizingMapping = createValuesMapping(SizingScale, createPrefixedValueTemplate(SizingPrefix));
+
 export const ColorMapping = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
 
 export const BackgroundColorMapping = {
@@ -372,18 +390,19 @@ export type FillValue = keyof typeof IconColorMapping | Property.Fill;
 export type FontSizeValue = keyof typeof FontSizeMapping | Property.FontSize;
 export type FontWeightValue = keyof typeof FontWeightMapping | typeof GlobalValues[number];
 export type GapValue = keyof typeof SpacingMapping | Property.Gap;
-export type GridAutoColumnsValue = keyof typeof SpacingMapping | Property.GridAutoColumns;
-export type GridAutoRowsValue = keyof typeof SpacingMapping | Property.GridAutoRows;
-export type GridTemplateColumnsValue = keyof typeof SpacingMapping | Property.GridTemplateColumns;
-export type GridTemplateRowsValue = keyof typeof SpacingMapping | Property.GridTemplateRows;
-export type HeightValue = keyof typeof SpacingMapping | Property.Height;
+export type GridAutoColumnsValue = keyof typeof SizingMapping | Property.GridAutoColumns;
+export type GridAutoRowsValue = keyof typeof SizingMapping | Property.GridAutoRows;
+export type GridTemplateColumnsValue = keyof typeof SizingMapping | Property.GridTemplateColumns;
+export type GridTemplateRowsValue = keyof typeof SizingMapping | Property.GridTemplateRows;
+export type HeightValue = keyof typeof SizingMapping | Property.Height;
 export type LineHeightValue = keyof typeof LineHeightMapping | Property.LineHeight;
 export type MarginValue = keyof typeof SpacingMapping | Property.Margin;
 export type PaddingValue = keyof typeof SpacingMapping | Property.Padding;
 export type RowGapValue = keyof typeof SpacingMapping | Property.RowGap;
+export type SizingValue = LiteralUnion<keyof typeof SizingMapping, string>;
 export type SpacingValue = LiteralUnion<keyof typeof SpacingMapping, string>;
 export type StrokeValue = keyof typeof IconColorMapping | Property.Stroke;
-export type WidthValue = keyof typeof SpacingMapping | Property.Width;
+export type WidthValue = keyof typeof SizingMapping | Property.Width;
 
 export type AlignContentProp = ResponsiveProp<Property.AlignContent>;
 export type AlignItemsProp = ResponsiveProp<Property.AlignItems>;
@@ -1065,8 +1084,8 @@ function getSystemValue<T extends Record<string | number, string>>(value: keyof 
     return systemValues[value as keyof typeof systemValues];
 }
 
-export function getSpacingValue(value: string | keyof typeof SpacingMapping) {
-    const systemValue = getSystemValue(value as keyof typeof SpacingMapping, SpacingMapping);
+export function getSizingValue(value: string | keyof typeof SizingMapping) {
+    const systemValue = getSystemValue(value as keyof typeof SizingMapping, SizingMapping);
 
     return systemValue ?? value;
 }
@@ -1273,9 +1292,9 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     gap: createHandler(SpacingMapping),
     grid: createHandler(),
     gridArea: createHandler(),
-    gridAutoColumns: createHandler(SpacingMapping),
+    gridAutoColumns: createHandler(SizingMapping),
     gridAutoFlow: createHandler(),
-    gridAutoRows: createHandler(SpacingMapping),
+    gridAutoRows: createHandler(SizingMapping),
     gridColumn: createHandler(),
     gridColumnEnd: createHandler(),
     gridColumnSpan: gridColumnSpanHandler,
@@ -1286,9 +1305,9 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     gridRowStart: createHandler(),
     gridTemplate: createHandler(),
     gridTemplateAreas: createHandler(),
-    gridTemplateColumns: createHandler(SpacingMapping),
-    gridTemplateRows: createHandler(SpacingMapping),
-    height: createHandler(SpacingMapping),
+    gridTemplateColumns: createHandler(SizingMapping),
+    gridTemplateRows: createHandler(SizingMapping),
+    height: createHandler(SizingMapping),
     justifyContent: createHandler(),
     justifyItems: createHandler(),
     justifySelf: createHandler(),
@@ -1302,10 +1321,10 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     marginTop: createHandler(SpacingMapping),
     marginX: createAxisHandler("marginLeft", "marginRight", SpacingMapping),
     marginY: createAxisHandler("marginBottom", "marginTop", SpacingMapping),
-    maxHeight: createHandler(SpacingMapping),
-    maxWidth: createHandler(SpacingMapping),
-    minHeight: createHandler(SpacingMapping),
-    minWidth: createHandler(SpacingMapping),
+    maxHeight: createHandler(SizingMapping),
+    maxWidth: createHandler(SizingMapping),
+    minHeight: createHandler(SizingMapping),
+    minWidth: createHandler(SizingMapping),
     objectFit: createHandler(),
     objectPosition: createHandler(),
     opacity: createHandler(),
@@ -1340,7 +1359,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     verticalAlign: createHandler(),
     visibility: createHandler(),
     whiteSpace: createHandler(),
-    width: createHandler(SpacingMapping),
+    width: createHandler(SizingMapping),
     willChange: createHandler(),
     wordBreak: createHandler(),
     zIndex: createHandler()

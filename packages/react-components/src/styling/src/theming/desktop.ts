@@ -2,8 +2,8 @@ import { OrbitTheme } from "./orbitTheme";
 
 export const DesktopTheme: OrbitTheme = {
     name: "desktop",
+    sizing: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
     space: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
-    // TODO FRANK: How many font sizes we realistically need.
     fontSizes: {
         1: ".625rem",
         2: ".75rem",
