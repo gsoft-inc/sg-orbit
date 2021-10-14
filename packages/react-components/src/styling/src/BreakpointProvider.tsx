@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 import { isNil } from "../../shared";
+import { supportsMatchMedia } from "./useMediaQuery";
 import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
@@ -19,25 +20,34 @@ export interface BreakpointContextType {
 
 export const BreakpointContext = createContext<BreakpointContextType>({});
 
+export interface BreakpointProvider {
+    children: ReactNode;
+    defaultBreakpoint?: Breakpoint;
+}
+
 export function BreakpointProvider({
-    children
-}) {
-    const [breakpoint, setBreakpoint] = useState<Breakpoint>(DefaultBreakpoint);
-
-    const handleResize = useDebouncedCallback(() => {
-        for (const [key, value] of Object.entries(Breakpoints)) {
-            if (window.matchMedia(value).matches) {
-                setBreakpoint(key as Breakpoint);
-
-                break;
+    children,
+    defaultBreakpoint = DefaultBreakpoint
+}: BreakpointProvider) {
+    const getCurrentBreakpoint = useCallback(() => {
+        if (supportsMatchMedia) {
+            for (const [key, value] of Object.entries(Breakpoints)) {
+                if (window.matchMedia(value).matches) {
+                    return key as Breakpoint;
+                }
             }
         }
+
+        return defaultBreakpoint;
+    }, [defaultBreakpoint]);
+
+    const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint);
+
+    const handleResize = useDebouncedCallback(() => {
+        setBreakpoint(getCurrentBreakpoint());
     }, 50);
 
     useEffect(() => {
-        // Initialize breakpoint.
-        handleResize();
-
         window.addEventListener("resize", handleResize);
 
         return () => {

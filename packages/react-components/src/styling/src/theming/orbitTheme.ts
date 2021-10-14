@@ -8,6 +8,8 @@ export interface ColorSchemeSection<C, L, D> {
 
 export type SpaceValues = FixedLengthArray<string, 13>;
 
+export type SizingValues = FixedLengthArray<string, 13>;
+
 export interface FontSizeValues {
     1: string;
     2: string;
@@ -167,6 +169,7 @@ export type ColorColorSchemes = ColorSchemeSection<ColorPaletteSection, ColorAli
 
 export interface OrbitTheme {
     name: string;
+    sizing: SizingValues;
     space: SpaceValues;
     fontSizes: FontSizeValues;
     fontWeights: FontWeightValues;

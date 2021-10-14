@@ -7,6 +7,7 @@ import {
     FontWeightMapping,
     IconColorMapping,
     LineHeightMapping,
+    SizingMapping,
     SpacingMapping,
     ThemeProvider
 } from "@react-components/styling";
@@ -106,9 +107,14 @@ stories()
             {Object.keys(LineHeightMapping).map(x => <Box lineHeight={x} key={x}>That's one small step for man, one giant leap for mankind.</Box>)}
         </Inline>
     )
-    .add("width", () =>
+    .add("spacing", () =>
         <Stack>
             {Object.keys(SpacingMapping).map(x => <Box width={x} height="20px" backgroundColor="#000" key={x} />)}
+        </Stack>
+    )
+    .add("sizing", () =>
+        <Stack>
+            {Object.keys(SizingMapping).map(x => <Box width={x} height="20px" backgroundColor="#000" key={x} />)}
         </Stack>
     );
 

@@ -112,6 +112,7 @@ function renderBucket(scope: string, bucket: VarsBucket) {
 }
 
 export const SpacePrefix = "sp";
+export const SizingPrefix = "sz";
 export const FontSizePrefix = "fs";
 export const FontWeightPrefix = "fw";
 export const LineHeightPrefix = "lh";
@@ -126,6 +127,7 @@ export function createThemeVars(themes: OrbitTheme[]) {
         const dark: VarsBucket = [];
 
         appendArray(theme.space, SpacePrefix, common);
+        appendArray(theme.sizing, SizingPrefix, common);
         appendJsonObject((theme.fontSizes as unknown) as JsonObject, FontSizePrefix, common);
         appendArray(theme.fontWeights, FontWeightPrefix, common);
         appendArray(theme.lineHeights, LineHeightPrefix, common);

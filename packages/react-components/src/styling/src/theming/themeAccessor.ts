@@ -31,6 +31,10 @@ export class ThemeAccessor {
         return !isNil(this.theme) ? this.theme.space[index - 1] : "";
     }
 
+    getSizing(index: number): string {
+        return !isNil(this.theme) ? this.theme.sizing[index - 1] : "";
+    }
+
     getFontSize(key: keyof FontSizeValues): string {
         return !isNil(this.theme) ? this.theme.fontSizes[key] : "";
     }
