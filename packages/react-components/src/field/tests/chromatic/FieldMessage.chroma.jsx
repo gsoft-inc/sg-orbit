@@ -4,7 +4,7 @@ import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Inline } from "@react-components/layout";
 import { Paragraph } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/FieldMessage")
@@ -24,12 +24,7 @@ stories()
     .add("default", () =>
         <HelpMessage>
             Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
-        </HelpMessage>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </HelpMessage>
     )
     .add("icon", () =>
         <ValidMessage>

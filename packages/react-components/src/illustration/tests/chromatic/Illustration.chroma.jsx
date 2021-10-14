@@ -3,7 +3,7 @@ import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Nasa } from "./assets";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Illustration")
@@ -15,12 +15,7 @@ stories()
     .add("default", () =>
         <Illustration>
             <Image src={Nasa} alt="Nasa" width="150px" />
-        </Illustration>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Illustration>
     )
     .add("horizontal", () =>
         <Stack>

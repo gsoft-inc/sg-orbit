@@ -4,7 +4,6 @@ import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/ic
 import { Flex, Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
-import { paramsBuilder } from "@stories/utils";
 
 function Checkbox({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -64,12 +63,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("no label", () =>
             <Stack>
@@ -118,12 +112,7 @@ export function createCheckboxTestSuite(element, stories) {
                         <Counter>60</Counter>
                     </Checkbox>
                 </Inline>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("reverse", () =>
             <Stack>

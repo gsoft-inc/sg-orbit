@@ -9,7 +9,7 @@ import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components";
 import { TextLink } from "@react-components/link";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Dialog")
@@ -26,12 +26,7 @@ stories()
                 <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
-        </Dialog>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Dialog>
     )
     .add("text header", () =>
         <Dialog>

@@ -2,7 +2,7 @@ import { Counter } from "@react-components/counter";
 import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Counter")
@@ -31,12 +31,7 @@ stories()
                     <Counter size="inherit">15</Counter>
                 </Text>
             </Inline>
-        </Stack>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Stack>
     )
     .add("divider", () =>
         <Stack>

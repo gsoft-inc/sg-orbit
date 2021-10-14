@@ -78,12 +78,7 @@ stories()
                     <Item key="uranus">Uranus</Item>
                 </Autocomplete>
             </Div>
-        </Stack>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Stack>
     )
     .add("placeholder", () =>
         <Stack>

@@ -4,7 +4,6 @@ import { IconList, SignoutIcon } from "@react-components/icons";
 import { Inline, Stack } from "@react-components/layout";
 import { Text } from "@react-components/typography";
 import { cloneElement } from "react";
-import { paramsBuilder } from "@stories/utils";
 
 function Button({ element, ...rest }) {
     return cloneElement(element, rest);
@@ -35,12 +34,7 @@ export function createButtonTestSuite(element, stories) {
                 <Div>
                     <Button loading fluid element={element}>Button</Button>
                 </Div>
-            </Stack>,
-             {
-                 ...paramsBuilder()
-                     .withBreakpoints()
-                     .build()
-             }
+            </Stack>
         )
         .add("icon", () =>
             <Stack>

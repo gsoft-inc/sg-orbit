@@ -95,12 +95,7 @@ stories()
                     <Avatar name="Christa McAuliffe" />
                 </AvatarGroup>
             </Stack>
-        </Inline>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
+        </Inline>
     )
     .add("no wrap", () =>
         <Div width="200px">
