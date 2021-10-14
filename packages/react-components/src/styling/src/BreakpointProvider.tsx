@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
-import { isFunction, isNil } from "../../shared";
+import { isNil } from "../../shared";
+import { supportsMatchMedia } from "./useMediaQuery";
 import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
@@ -29,8 +30,6 @@ export function BreakpointProvider({
     defaultBreakpoint = DefaultBreakpoint
 }: BreakpointProvider) {
     const getCurrentBreakpoint = useCallback(() => {
-        const supportsMatchMedia = isFunction(window?.matchMedia);
-
         if (supportsMatchMedia) {
             for (const [key, value] of Object.entries(Breakpoints)) {
                 if (window.matchMedia(value).matches) {
