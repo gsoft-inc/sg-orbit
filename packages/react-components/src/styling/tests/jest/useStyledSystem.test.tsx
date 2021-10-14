@@ -3,6 +3,8 @@ import {
     BorderMapping,
     BorderRadiusMapping,
     BoxShadowMapping,
+    BreakpointProvider,
+    Breakpoints,
     FontSizeMapping,
     FontWeightMapping,
     IconColorMapping,
@@ -265,20 +267,69 @@ function Box(props: ComponentProps<"div"> & StyledSystemProps) {
     );
 }
 
-Props.forEach(x => {
-    test(`${x.name}`, () => {
-        const tree = renderer
-            .create(
-                <Fragment key={x.key}>
-                    {x.values.map((y, index) =>
-                        // eslint-disable-next-line react/no-array-index-key
-                        <Box key={index} {...{ [x.key]: y }} />
-                    )}
-                </Fragment>
-            )
-            .toJSON();
+describe("props", () => {
+    Props.forEach((x: PropDefinition) => {
+        test(`${x.name}`, () => {
+            const tree = renderer
+                .create(
+                    <Fragment key={x.key}>
+                        {x.values.map((y, index) =>
+                            // eslint-disable-next-line react/no-array-index-key
+                            <Box key={index} {...{ [x.key]: y }} />
+                        )}
+                    </Fragment>
+                )
+                .toJSON();
 
-        expect(tree).toMatchSnapshot();
+            expect(tree).toMatchSnapshot();
+        });
+    });
+});
+
+const responsiveBoxes = Props.map((x: PropDefinition) => (
+    <Box
+        key={x.key}
+        {...{
+            [x.key]: Object.keys(Breakpoints).reduce((acc, y, index) => {
+                acc[y] = x.values[index];
+
+                return acc;
+            }, {})
+        }}
+    />
+));
+
+describe("breakpoints", () => {
+    let nativeAddEventListener;
+    let nativeRemoveEventListener;
+
+    beforeEach(() => {
+        nativeAddEventListener = window.addEventListener;
+        nativeRemoveEventListener = window.removeEventListener;
+
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        window.addEventListener = () => { };
+        // eslint-disable-next-line @typescript-eslint/no-empty-function
+        window.removeEventListener = () => { };
+    });
+
+    afterEach(() => {
+        window.addEventListener = nativeAddEventListener;
+        window.removeEventListener = nativeRemoveEventListener;
+    });
+
+    Object.keys(Breakpoints).forEach((x: keyof typeof Breakpoints) => {
+        test(`${x}`, () => {
+            const tree = renderer
+                .create(
+                    <BreakpointProvider defaultBreakpoint={x}>
+                        {responsiveBoxes}
+                    </BreakpointProvider>
+                )
+                .toJSON();
+
+            expect(tree).toMatchSnapshot();
+        });
     });
 });
 
