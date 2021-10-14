@@ -97,9 +97,20 @@ stories()
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
     )
-    .add("wrapped", () =>
+    .add("wrap", () =>
         <Div width="130px">
             <CheckboxGroup wrap>
+                {
+                    ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
+                        <Checkbox width="35px" value={x} key={x}>{x}</Checkbox>
+                    )
+                }
+            </CheckboxGroup>
+        </Div>
+    )
+    .add("no wrap", () =>
+        <Div width="130px">
+            <CheckboxGroup wrap={false}>
                 {
                     ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
                         <Checkbox width="35px" value={x} key={x}>{x}</Checkbox>

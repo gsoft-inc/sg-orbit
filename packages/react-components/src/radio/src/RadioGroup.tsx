@@ -69,7 +69,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         reverse,
         validationState,
         value,
-        wrap,
+        wrap = true,
         ...rest
     } = mergeProps(
         props,
@@ -166,4 +166,3 @@ export const RadioGroup = forwardRef<any, OmitInternalProps<InnerRadioGroupProps
 ));
 
 export type RadioGroupProps = ComponentProps<typeof RadioGroup>;
-

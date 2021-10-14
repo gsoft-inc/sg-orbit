@@ -97,6 +97,17 @@ stories()
             </Stack>
         </Inline>
     )
+    .add("no wrap", () =>
+        <Div width="200px">
+            <AvatarGroup wrap={false} size="xl">
+                <Avatar name="Sally Ride" />
+                <Avatar name="Alan Shepard" />
+                <Avatar name="Chris Hadfield" />
+                <Avatar name="Christa McAuliffe" />
+                <Avatar name="Neil Armstrong" />
+            </AvatarGroup>
+        </Div>
+    )
     .add("with remainings", () =>
         <Stack>
             <AvatarGroup size="2xs">

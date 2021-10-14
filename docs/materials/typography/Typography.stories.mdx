@@ -1,5 +1,6 @@
 import { Figure, Table, Tagline } from "@stories/components";
 import { Meta } from "@storybook/addon-docs";
+import { Heading, Paragraph, Text } from "@react-components/typography";
 
 <Meta
     title="Materials/Typography"
@@ -38,12 +39,12 @@ Headlines are the largest text on the screen, reserved for short, important text
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f9", "lh5", "500", <h1 className="o-ui-fs-9 o-ui-fw-5 o-ui-lh-5">That’s one small step for man,<br/>one giant leap for mankind.</h1>],
-        ["f8", "lh5", "500", <h1 className="o-ui-fs-8 o-ui-fw-5 o-ui-lh-5">That’s one small step for man,<br/>one giant leap for mankind.</h1>],
-        ["f7", "lh4", "500", <h1 className="o-ui-fs-7 o-ui-fw-5 o-ui-lh-4">That’s one small step for man,<br/>one giant leap for mankind.</h1>],
-        ["f6", "lh4", "500", <h1 className="o-ui-fs-6 o-ui-fw-5 o-ui-lh-4">That’s one small step for man,<br/>one giant leap for mankind.</h1>],
-        ["f5", "lh3", "500", <h1 className="o-ui-fs-5 o-ui-fw-5 o-ui-lh-3">That’s one small step for man,<br/>one giant leap for mankind.</h1>],
-        ["f4", "lh5", "500", <h1 className="o-ui-fs-4 o-ui-fw-5 o-ui-lh-5">That’s one small step for man,<br/>one giant leap for mankind.</h1>]
+        ["f9", "lh5", "500", <Heading as="h1" fontWeight="5" fontSize="9" lineHeight="5">That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
+        ["f8", "lh5", "500", <Heading as="h1" fontWeight="5" fontSize="8" lineHeight="5">That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
+        ["f7", "lh4", "500", <Heading as="h1" fontWeight="5" fontSize="7" lineHeight="4">That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
+        ["f6", "lh4", "500", <Heading as="h1" fontWeight="5" fontSize="6" lineHeight="4">That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
+        ["f5", "lh3", "500", <Heading as="h1" fontWeight="5" fontSize="5" lineHeight="3">That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
+        ["f4", "lh5", "500", <Heading as="h1" fontWeight="5" fontSize="4" lineHeight="5">That’s one small step for man,<br/>one giant leap for mankind.</Heading>]
     ]}
 />
 
@@ -59,12 +60,12 @@ Body text is typically used for long-form writing as it works well for small tex
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f1", "lh4", "fw4", <p className="o-ui-fs-1 o-ui-lh-4">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f2", "lh3", "fw4", <p className="o-ui-fs-2 o-ui-lh-3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f3", "lh5", "fw4", <p className="o-ui-fs-3 o-ui-lh-5">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f4", "lh4", "fw4", <p className="o-ui-fs-4 o-ui-lh-4">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f5", "lh3", "fw4", <p className="o-ui-fs-5 o-ui-lh-3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>],
-        ["f6", "lh2", "fw4", <p className="o-ui-fs-6 o-ui-lh-2">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</p>]
+        ["f1", "lh4", "fw4", <Paragraph fontSize="1" lineHeight="4">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["f2", "lh3", "fw4", <Paragraph fontSize="2" lineHeight="3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["f3", "lh5", "fw4", <Paragraph fontSize="3" lineHeight="5">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["f4", "lh4", "fw4", <Paragraph fontSize="4" lineHeight="4">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["f5", "lh3", "fw4", <Paragraph fontSize="5" lineHeight="3">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["f6", "lh2", "fw4", <Paragraph fontSize="6" lineHeight="2">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>]
     ]}
 />
 
@@ -76,23 +77,23 @@ A simple ratio-based scale with 9 options. Font sizes are designed to work in co
 
 <Table
     columns={[
-        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Computed", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f1", "0.625rem (10px)", "--type-scale-1", <p className="o-ui-fs-1">Halleys Comet</p>],
-        ["f2", "0.75rem (12px)", "--type-scale-2", <p className="o-ui-fs-2">Halleys Comet</p>],
-        ["f3", "0.875rem (14px)", "--type-scale-3", <p className="o-ui-fs-3">Halleys Comet</p>],
-        ["f4", "1.rem (16px)", "--type-scale-4", <p className="o-ui-fs-4">Halleys Comet</p>],
-        ["f5", "1.125rem (18px)", "--type-scale-5", <p className="o-ui-fs-5">Halleys Comet</p>],
-        ["f6", "1.375rem (22px) ", "--type-scale-6", <p className="o-ui-fs-6">Halleys Comet</p>],
-        ["f7", "1.75rem (28px)", "--type-scale-7", <p className="o-ui-fs-7">Halleys Comet</p>],
-        ["f8", "2rem (32px)", "--type-scale-8", <p className="o-ui-fs-8">Halleys Comet</p>],
-        ["f9", "2.5rem (40px)", "--type-scale-9", <p className="o-ui-fs-9">Halleys Comet</p>],
-        ["f-headline", "3.75rem (60px)", "--type-scale-headline", <p className="o-ui-headline">Halleys Comet</p>],
-        ["f-subheadline", "5rem (80px)", "--type-scale-subheadline", <p className="o-ui-subheadline">Halleys Comet</p>]
+        ["1", "0.625rem (10px)", "--type-scale-1", <Text fontSize="1">Halleys Comet</Text>],
+        ["2", "0.75rem (12px)", "--type-scale-2", <Text fontSize="2">Halleys Comet</Text>],
+        ["3", "0.875rem (14px)", "--type-scale-3", <Text fontSize="3">Halleys Comet</Text>],
+        ["4", "1.rem (16px)", "--type-scale-4", <Text fontSize="4">Halleys Comet</Text>],
+        ["5", "1.125rem (18px)", "--type-scale-5", <Text fontSize="5">Halleys Comet</Text>],
+        ["6", "1.375rem (22px) ", "--type-scale-6", <Text fontSize="6">Halleys Comet</Text>],
+        ["7", "1.75rem (28px)", "--type-scale-7", <Text fontSize="7">Halleys Comet</Text>],
+        ["8", "2rem (32px)", "--type-scale-8", <Text fontSize="8">Halleys Comet</Text>],
+        ["9", "2.5rem (40px)", "--type-scale-9", <Text fontSize="9">Halleys Comet</Text>],
+        ["headline", "3.75rem (60px)", "--type-scale-headline", <Text fontSize="headline">Halleys Comet</Text>],
+        ["subheadline", "5rem (80px)", "--type-scale-subheadline", <Text fontSize="subheadline">Halleys Comet</Text>]
     ]}
 />
 
@@ -102,18 +103,18 @@ Also known as leading, line height controls the amount of space between baseline
 
 <Table
     columns={[
-        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Computed", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "", headerStyle: { width: "550px" } }
     ]}
     rows={[
-        ["lh1", "1", "--line-height-1" , <p className="o-ui-lh-1">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
-        ["lh2", "1.2", "--line-height-2" , <p className="o-ui-lh-2">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
-        ["lh3", "1.25", "--line-height-3" , <p className="o-ui-lh-3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
-        ["lh4", "1.333", "--line-height-4" , <p className="o-ui-lh-4">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
-        ["lh5", "1.454595", "--line-height-5" , <p className="o-ui-lh-5">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>],
-        ["lh6", "1.5", "--line-height-6" , <p className="o-ui-lh-6">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</p>]
+        ["1", "1", "--line-height-1" , <Paragraph lineHeight="1">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["2", "1.2", "--line-height-2" , <Paragraph lineHeight="2">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["3", "1.25", "--line-height-3" , <Paragraph lineHeight="3">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["4", "1.333", "--line-height-4" , <Paragraph lineHeight="4">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["5", "1.454595", "--line-height-5" , <Paragraph lineHeight="5">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["6", "1.5", "--line-height-6" , <Paragraph lineHeight="6">If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>]
     ]}
 />
 
@@ -123,19 +124,13 @@ Weight refers to the relative thickness of a font's stroke. A typeface can come 
 
 <Table
     columns={[
-        { title: "Class", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
+        { title: "Computed", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
         { title: "", headerStyle: { width: "400px" } }
     ]}
     rows={[
-        ["fw1", "100", <p className="o-ui-fw-1 o-ui-fs-2">Space Flight Program</p>],
-        ["fw2", "200", <p className="o-ui-fw-2 o-ui-fs-2">Space Flight Program</p>],
-        ["fw3", "300", <p className="o-ui-fw-3 o-ui-fs-2">Space Flight Program</p>],
-        ["fw4", "400", <p className="o-ui-fw-4 o-ui-fs-2">Space Flight Program</p>],
-        ["fw5", "500", <p className="o-ui-fw-5 o-ui-fs-2">Space Flight Program</p>],
-        ["fw6", "600", <p className="o-ui-fw-6 o-ui-fs-2">Space Flight Program</p>],
-        ["fw7", "700", <p className="o-ui-fw-7 o-ui-fs-2">Space Flight Program</p>],
-        ["fw8", "800", <p className="o-ui-fw-8 o-ui-fs-2">Space Flight Program</p>],
-        ["fw9", "900", <p className="o-ui-fw-9 o-ui-fs-2">Space Flight Program</p>]
+        ["1", "400", <Paragraph fontSize="5" fontWeight="1">Space Flight Program</Paragraph>],
+        ["2", "500", <Paragraph fontSize="5" fontWeight="2">Space Flight Program</Paragraph>],
+        ["3", "600", <Paragraph fontSize="5" fontWeight="3">Space Flight Program</Paragraph>]
     ]}
 />
