@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
 import { isNil } from "../../shared";
 import { useDebouncedCallback } from "use-debounce";
 
@@ -28,22 +28,25 @@ export function BreakpointProvider({
     children,
     defaultBreakpoint = DefaultBreakpoint
 }: BreakpointProvider) {
-    const [breakpoint, setBreakpoint] = useState<Breakpoint>(defaultBreakpoint);
-
-    const handleResize = useDebouncedCallback(() => {
+    const getCurrentBreakpoint = useCallback(() => {
         for (const [key, value] of Object.entries(Breakpoints)) {
             if (window.matchMedia(value).matches) {
-                setBreakpoint(key as Breakpoint);
-
-                break;
+                return key as Breakpoint;
             }
         }
+
+        return defaultBreakpoint;
+    },[defaultBreakpoint]);
+
+    const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint());
+
+    console.log("breakpoint", breakpoint, window.outerWidth);
+
+    const handleResize = useDebouncedCallback(() => {
+        setBreakpoint(getCurrentBreakpoint());
     }, 50);
 
     useEffect(() => {
-        // Initialize breakpoint.
-        // handleResize();
-
         window.addEventListener("resize", handleResize);
 
         return () => {
