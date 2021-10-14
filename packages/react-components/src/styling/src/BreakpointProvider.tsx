@@ -38,9 +38,7 @@ export function BreakpointProvider({
         return defaultBreakpoint;
     },[defaultBreakpoint]);
 
-    const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint());
-
-    console.log("breakpoint", breakpoint, window.outerWidth);
+    const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint);
 
     const handleResize = useDebouncedCallback(() => {
         setBreakpoint(getCurrentBreakpoint());
