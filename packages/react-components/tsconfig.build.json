@@ -7,7 +7,7 @@
     },
     "include": [
         "src/**/*",
-        "../../typescript/typings/*",
+        "../../typescript/typings/named-asset-import.d.ts"
     ],
     "exclude": [
         "**/tests/*"
