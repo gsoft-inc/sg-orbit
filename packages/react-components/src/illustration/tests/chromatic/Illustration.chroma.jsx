@@ -14,15 +14,15 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <Illustration>
-            <Image src={Nasa} alt="Nasa" width="150px" />
+            <Image src={Nasa} alt="Nasa" width="11" />
         </Illustration>
     )
     .add("horizontal", () =>
         <Stack>
-            <Illustration orientation="horizontal" width="700px" height="200px" backgroundColor="primary-2">
+            <Illustration orientation="horizontal" width="17" height="12" backgroundColor="primary-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Box width="700px" height="200px">
+            <Box width="17" height="12">
                 <Illustration orientation="horizontal" backgroundColor="primary-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
@@ -31,10 +31,10 @@ stories()
     )
     .add("vertical", () =>
         <Inline>
-            <Illustration orientation="vertical" width="200px" height="500px" backgroundColor="primary-2">
+            <Illustration orientation="vertical" width="12" height="16" backgroundColor="primary-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Box width="200px" height="500px">
+            <Box width="12" height="16">
                 <Illustration orientation="vertical" backgroundColor="primary-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
@@ -42,30 +42,30 @@ stories()
         </Inline>
     )
     .add("straight", () =>
-        <Illustration shape="straight" width="700px" height="200px" backgroundColor="primary-2">
+        <Illustration shape="straight" width="17" height="12" backgroundColor="primary-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("rounded", () =>
-        <Illustration shape="rounded" width="700px" height="200px" backgroundColor="primary-2">
+        <Illustration shape="rounded" width="17" height="12" backgroundColor="primary-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("color", () =>
         <Stack>
             <Inline>
-                <Illustration backgroundColor="primary-2" width="700px" height="200px">
+                <Illustration backgroundColor="primary-2" width="17" height="12">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
-                <Illustration backgroundColor="rgb(151, 231, 222)" width="700px" height="200px">
+                <Illustration backgroundColor="rgb(151, 231, 222)" width="17" height="12">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Inline>
             <Inline>
-                <Illustration backgroundColor="hsla(173, 63%, 75%, 1)" width="700px" height="200px">
+                <Illustration backgroundColor="hsla(173, 63%, 75%, 1)" width="17" height="12">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
-                <Illustration backgroundColor="#97e7de" width="700px" height="200px">
+                <Illustration backgroundColor="#97e7de" width="17" height="12">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Inline>
@@ -73,13 +73,13 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Illustration border="sunray-10" width="700px" height="200px">
+            <Illustration border="sunray-10" width="17" height="12">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Illustration className="border-red" width="700px" height="200px">
+            <Illustration className="border-red" width="17" height="12">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
-            <Illustration style={{ border: "1px solid red" }} width="700px" height="200px">
+            <Illustration style={{ border: "1px solid red" }} width="17" height="12">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Stack>

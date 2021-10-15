@@ -373,14 +373,14 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("custom trigger width", () =>
-            <Select width="500px" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select width="16" defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
         .add("custom menu width", () =>
-            <Select overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select overlayProps={{ width: "16" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -413,14 +413,14 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align", () =>
-            <Select align={{ m: "start", l: "end" }} overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align={{ m: "start", l: "end" }} overlayProps={{ width: "16" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Select>
         )
         .add("align start", () =>
-            <Select align="start" overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="start" overlayProps={{ width: "16" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -432,7 +432,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align end", () =>
-            <Select align="end" overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align="end" overlayProps={{ width: "16" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

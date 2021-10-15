@@ -14,7 +14,7 @@ stories()
     .add("breakpoints", () =>
         <Box
             backgroundColor={{ base: "sunray-10", m: "primary-10", l: "cloud-1" }}
-            width="200px"
+            width="12"
         >
                 Space X
         </Box>,

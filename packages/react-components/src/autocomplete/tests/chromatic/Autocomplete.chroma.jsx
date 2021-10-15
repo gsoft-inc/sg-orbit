@@ -357,14 +357,14 @@ stories()
         </Stack>
     )
     .add("custom trigger width", () =>
-        <Autocomplete style={{ width: "500px" }} placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete width="16" placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
     .add("custom menu width", () =>
-        <Autocomplete overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>

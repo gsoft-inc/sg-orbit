@@ -60,7 +60,7 @@ stories()
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
             <Card fluid orientation="horizontal">
-                <Image src={ApolloPoster} alt="Appolo 11" width="200px" />
+                <Image src={ApolloPoster} alt="Appolo 11" width="12" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
@@ -74,7 +74,7 @@ stories()
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
             <Card fluid orientation="vertical">
-                <Image src={ApolloBanner} alt="Appolo 11" fit="cover" height="200px" />
+                <Image src={ApolloBanner} alt="Appolo 11" fit="cover" height="12" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
@@ -108,7 +108,7 @@ stories()
     )
     .add("flex layout", () =>
         <Stack>
-            <Flex gap="24px">
+            <Flex gap="4">
                 <Card>
                     <Image src={ApolloBanner} alt="Appolo 11 Banner" />
                     <Heading>Nasa</Heading>
@@ -124,7 +124,7 @@ stories()
                     <Content>The National Aeronautics and Space Administration</Content>
                 </Card>
             </Flex>
-            <Flex gap="24px">
+            <Flex gap="4">
                 <Card fluid>
                     <Image src={ApolloBanner} alt="Appolo 11 Banner" />
                     <Heading>Nasa</Heading>

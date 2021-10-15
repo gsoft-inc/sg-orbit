@@ -98,29 +98,29 @@ stories()
         </CheckboxGroup>
     )
     .add("wrap", () =>
-        <Div width="130px">
+        <Div width="11">
             <CheckboxGroup wrap>
                 {
                     ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                        <Checkbox width="35px" value={x} key={x}>{x}</Checkbox>
+                        <Checkbox width="6" value={x} key={x}>{x}</Checkbox>
                     )
                 }
             </CheckboxGroup>
         </Div>
     )
     .add("no wrap", () =>
-        <Div width="130px">
+        <Div width="11">
             <CheckboxGroup wrap={false}>
                 {
                     ["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                        <Checkbox width="35px" value={x} key={x}>{x}</Checkbox>
+                        <Checkbox width="6" value={x} key={x}>{x}</Checkbox>
                     )
                 }
             </CheckboxGroup>
         </Div>
     )
     .add("wrap overflow", () =>
-        <Div width="230px">
+        <Div width="12">
             <CheckboxGroup wrap>
                 {
                     ["1", "2", "3", "Neptune", "5", "6", "7", "8"].map(x =>

@@ -111,7 +111,7 @@ stories()
     )
     .add("multiple rows", () =>
         <Stack>
-            <Div width="600px">
+            <Div width="17">
                 <TagList>
                     <Item key="mercury">Mercury Program</Item>
                     <Item key="gemini">Gemini Program</Item>
@@ -127,7 +127,7 @@ stories()
                     <Item key="artemis-6">Artemis Program</Item>
                 </TagList>
             </Div>
-            <Div width="600px">
+            <Div width="17">
                 <TagList onClear={() => {}}>
                     <Item key="mercury">Mercury Program</Item>
                     <Item key="gemini">Gemini Program</Item>

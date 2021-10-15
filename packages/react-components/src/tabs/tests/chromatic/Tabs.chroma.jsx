@@ -174,7 +174,7 @@ stories()
     )
     .add("tab overflow", () =>
         <Stack>
-            <Tabs width="300px" aria-label="Planets">
+            <Tabs width="14" aria-label="Planets">
                 <Item>
                     <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -184,7 +184,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
             </Tabs>
-            <Tabs width="300px" aria-label="Planets">
+            <Tabs width="14" aria-label="Planets">
                 <Item>
                     <Header>
                         <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
@@ -197,7 +197,7 @@ stories()
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
             </Tabs>
-            <Tabs width="300px" aria-label="Planets">
+            <Tabs width="14" aria-label="Planets">
                 <Item>
                     <Header>
                         <NotificationIcon />
@@ -537,7 +537,7 @@ stories("/vertical")
         </Tabs>
     )
     .add("fluid", () =>
-        <Tabs orientation="vertical" fluid height="300px" aria-label="Planets">
+        <Tabs orientation="vertical" fluid height="14" aria-label="Planets">
             <Item>
                 <Header>Mars</Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
