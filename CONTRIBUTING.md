@@ -172,7 +172,7 @@ If you are using 2FA, make sure you specified a valid OTP.
 If the packages failed to compile, it's easier to debug without executing the full release flow everytime. To do so, instead, execute the following command:
 
 ```bash
-yarn build:pkg
+yarn build-pkg
 ```
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
@@ -207,7 +207,7 @@ Before you release, make sure you have access to the GSoft Netlify team and the 
 To release, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
-yarn build:pkg
+yarn build-pkg
 yarn release-docs
 ```
 

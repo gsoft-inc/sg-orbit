@@ -20,17 +20,17 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Dependencies
-                  command: yarn install:pkg --frozen-lockfile
+                  command: yarn install-pkg --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: Lint
                   command: yarn lint-ci
             - run:
                   name: Setup Packages
-                  command: yarn setup:pkg
+                  command: yarn setup
             - run:
                   name: Build Packages
-                  command: yarn build:pkg
+                  command: yarn build-pkg
             - run:
                   name: Run Jest
                   command: yarn jest-ci
@@ -47,17 +47,17 @@ jobs:
             - restore_cache: *restore-yarn-deps
             - run:
                   name: Install Packages Dependencies
-                  command: yarn install:pkg --frozen-lockfile
+                  command: yarn install-pkg --frozen-lockfile
             - run:
                   name: Install Storybook Dependencies
-                  command: yarn install:sb --frozen-lockfile
+                  command: yarn install-sb --frozen-lockfile
             - save_cache: *save-yarn-deps
             - run:
                   name: Setup Packages
-                  command: yarn setup:pkg
+                  command: yarn setup
             - run:
                   name: Build Packages
-                  command: yarn build:pkg
+                  command: yarn build-pkg
             - run:
                   name: Run chromatic
                   command: yarn chromatic-ci<<# parameters.exitOnceUploaded >> --exit-once-uploaded<</ parameters.exitOnceUploaded >>

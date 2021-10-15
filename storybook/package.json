@@ -11,7 +11,7 @@
         "start-sb-no-chroma": "cross-env STORYBOOK_INCLUDE_CHROMATIC=false yarn start-sb",
         "start-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true yarn start-sb",
         "start-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true start-storybook -c . --docs",
-        "build-sb": "cross-env build-storybook -c . -o dist/sb",
+        "build-sb": "build-storybook -c . -o dist/sb",
         "build-sb-for-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true build-storybook -c . -o dist/chromatic",
         "build-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true build-storybook -c . -o dist/docs --docs",
         "serve-sb": "serve dist/sb",
