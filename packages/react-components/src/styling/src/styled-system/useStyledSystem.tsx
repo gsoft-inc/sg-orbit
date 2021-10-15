@@ -22,16 +22,16 @@ SYNTAX:
 <Button backgroundColorHover="#fff">Toto</Button>
 
 // Breakpoint, no pseudo, known value
-<Button backgroundColor={{ s: "sunray-10", m: "primary-10", l: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, no pseudo, dynamic value
-<Button backgroundColor={{ s: "sunray-10", m: "#fff", l: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, known value
-<Button backgroundColorHover={{ s: "sunray-10", m: "primary-10", l: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, dynamic value
-<Button backgroundColorHover={{ s: "sunray-10", m: "#fff", l: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
 */
 
 const GlobalValues = [

@@ -387,7 +387,7 @@ export function createTestSuite(element, stories) {
             </Select>
         )
         .add("direction", () =>
-            <Select direction={{ m: "top", l: "bottom" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select direction={{ md: "top", lg: "bottom" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -413,7 +413,7 @@ export function createTestSuite(element, stories) {
              }
         )
         .add("align", () =>
-            <Select align={{ m: "start", l: "end" }} overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
+            <Select align={{ md: "start", lg: "end" }} overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets" element={element}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

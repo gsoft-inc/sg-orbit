@@ -50,10 +50,10 @@ const ColorSampling = [
     "hsla(50, 33%, 25%, .75)",
     { base: "sunray-1" },
     { s: "sunray-2" },
-    { m: "sunray-3" },
-    { l: "sunray-4" },
-    { s: "sunray-2", m: "sunray-3", l: "sunray-4" },
-    { base: "sunray-1", s: "sunray-2", m: "sunray-3", l: "sunray-4" }
+    { md: "sunray-3" },
+    { lg: "sunray-4" },
+    { s: "sunray-2", md: "sunray-3", lg: "sunray-4" },
+    { base: "sunray-1", s: "sunray-2", md: "sunray-3", lg: "sunray-4" }
 ];
 
 const LengthSampling = [
@@ -69,8 +69,8 @@ const LengthSampling = [
     { base: "1px" },
     { s: "2px" },
     { sm: "3px" },
-    { l: "4px" },
-    { base: "1px", s: "2px", m: "3px", l: "4px" }
+    { lg: "4px" },
+    { base: "1px", s: "2px", md: "3px", lg: "4px" }
 ];
 
 const GlobalSampling = [
