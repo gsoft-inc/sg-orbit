@@ -452,7 +452,7 @@ Array [
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-2)",
+        "gridAutoColumns": "var(--o-ui-sz-2)",
       }
     }
   />,
@@ -466,7 +466,7 @@ Array [
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-2)",
+        "gridAutoRows": "var(--o-ui-sz-2)",
       }
     }
   />,
@@ -543,21 +543,21 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-2)",
+        "gridTemplateColumns": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-2)",
+        "gridTemplateRows": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-2)",
+        "height": "var(--o-ui-sz-2)",
       }
     }
   />,
@@ -657,28 +657,28 @@ Array [
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-2)",
+        "maxHeight": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-2)",
+        "maxWidth": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-2)",
+        "minHeight": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-2)",
+        "minWidth": "var(--o-ui-sz-2)",
       }
     }
   />,
@@ -928,7 +928,7 @@ Array [
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-2)",
+        "width": "var(--o-ui-sz-2)",
       }
     }
   />,
@@ -1408,7 +1408,7 @@ Array [
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-1)",
+        "gridAutoColumns": "var(--o-ui-sz-1)",
       }
     }
   />,
@@ -1422,7 +1422,7 @@ Array [
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-1)",
+        "gridAutoRows": "var(--o-ui-sz-1)",
       }
     }
   />,
@@ -1499,21 +1499,21 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-1)",
+        "gridTemplateColumns": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-1)",
+        "gridTemplateRows": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-1)",
+        "height": "var(--o-ui-sz-1)",
       }
     }
   />,
@@ -1613,28 +1613,28 @@ Array [
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-1)",
+        "maxHeight": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-1)",
+        "maxWidth": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-1)",
+        "minHeight": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-1)",
+        "minWidth": "var(--o-ui-sz-1)",
       }
     }
   />,
@@ -1884,7 +1884,7 @@ Array [
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-1)",
+        "width": "var(--o-ui-sz-1)",
       }
     }
   />,
@@ -27476,91 +27476,91 @@ Array [
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-1)",
+        "gridAutoColumns": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-2)",
+        "gridAutoColumns": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-3)",
+        "gridAutoColumns": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-4)",
+        "gridAutoColumns": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-5)",
+        "gridAutoColumns": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-6)",
+        "gridAutoColumns": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-7)",
+        "gridAutoColumns": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-8)",
+        "gridAutoColumns": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-9)",
+        "gridAutoColumns": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-10)",
+        "gridAutoColumns": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-11)",
+        "gridAutoColumns": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-12)",
+        "gridAutoColumns": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoColumns": "var(--o-ui-sp-13)",
+        "gridAutoColumns": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -27783,91 +27783,91 @@ Array [
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-1)",
+        "gridAutoRows": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-2)",
+        "gridAutoRows": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-3)",
+        "gridAutoRows": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-4)",
+        "gridAutoRows": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-5)",
+        "gridAutoRows": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-6)",
+        "gridAutoRows": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-7)",
+        "gridAutoRows": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-8)",
+        "gridAutoRows": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-9)",
+        "gridAutoRows": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-10)",
+        "gridAutoRows": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-11)",
+        "gridAutoRows": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-12)",
+        "gridAutoRows": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridAutoRows": "var(--o-ui-sp-13)",
+        "gridAutoRows": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -28625,91 +28625,91 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-1)",
+        "gridTemplateColumns": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-2)",
+        "gridTemplateColumns": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-3)",
+        "gridTemplateColumns": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-4)",
+        "gridTemplateColumns": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-5)",
+        "gridTemplateColumns": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-6)",
+        "gridTemplateColumns": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-7)",
+        "gridTemplateColumns": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-8)",
+        "gridTemplateColumns": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-9)",
+        "gridTemplateColumns": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-10)",
+        "gridTemplateColumns": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-11)",
+        "gridTemplateColumns": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-12)",
+        "gridTemplateColumns": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateColumns": "var(--o-ui-sp-13)",
+        "gridTemplateColumns": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -28864,91 +28864,91 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-1)",
+        "gridTemplateRows": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-2)",
+        "gridTemplateRows": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-3)",
+        "gridTemplateRows": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-4)",
+        "gridTemplateRows": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-5)",
+        "gridTemplateRows": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-6)",
+        "gridTemplateRows": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-7)",
+        "gridTemplateRows": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-8)",
+        "gridTemplateRows": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-9)",
+        "gridTemplateRows": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-10)",
+        "gridTemplateRows": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-11)",
+        "gridTemplateRows": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-12)",
+        "gridTemplateRows": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "gridTemplateRows": "var(--o-ui-sp-13)",
+        "gridTemplateRows": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -29103,91 +29103,91 @@ Array [
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-1)",
+        "height": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-2)",
+        "height": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-3)",
+        "height": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-4)",
+        "height": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-5)",
+        "height": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-6)",
+        "height": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-7)",
+        "height": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-8)",
+        "height": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-9)",
+        "height": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-10)",
+        "height": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-11)",
+        "height": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-12)",
+        "height": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "height": "var(--o-ui-sp-13)",
+        "height": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -31583,91 +31583,91 @@ Array [
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-1)",
+        "maxHeight": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-2)",
+        "maxHeight": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-3)",
+        "maxHeight": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-4)",
+        "maxHeight": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-5)",
+        "maxHeight": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-6)",
+        "maxHeight": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-7)",
+        "maxHeight": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-8)",
+        "maxHeight": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-9)",
+        "maxHeight": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-10)",
+        "maxHeight": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-11)",
+        "maxHeight": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-12)",
+        "maxHeight": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxHeight": "var(--o-ui-sp-13)",
+        "maxHeight": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -31822,91 +31822,91 @@ Array [
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-1)",
+        "maxWidth": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-2)",
+        "maxWidth": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-3)",
+        "maxWidth": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-4)",
+        "maxWidth": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-5)",
+        "maxWidth": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-6)",
+        "maxWidth": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-7)",
+        "maxWidth": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-8)",
+        "maxWidth": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-9)",
+        "maxWidth": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-10)",
+        "maxWidth": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-11)",
+        "maxWidth": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-12)",
+        "maxWidth": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "maxWidth": "var(--o-ui-sp-13)",
+        "maxWidth": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -32061,91 +32061,91 @@ Array [
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-1)",
+        "minHeight": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-2)",
+        "minHeight": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-3)",
+        "minHeight": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-4)",
+        "minHeight": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-5)",
+        "minHeight": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-6)",
+        "minHeight": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-7)",
+        "minHeight": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-8)",
+        "minHeight": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-9)",
+        "minHeight": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-10)",
+        "minHeight": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-11)",
+        "minHeight": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-12)",
+        "minHeight": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minHeight": "var(--o-ui-sp-13)",
+        "minHeight": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -32300,91 +32300,91 @@ Array [
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-1)",
+        "minWidth": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-2)",
+        "minWidth": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-3)",
+        "minWidth": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-4)",
+        "minWidth": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-5)",
+        "minWidth": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-6)",
+        "minWidth": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-7)",
+        "minWidth": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-8)",
+        "minWidth": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-9)",
+        "minWidth": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-10)",
+        "minWidth": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-11)",
+        "minWidth": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-12)",
+        "minWidth": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "minWidth": "var(--o-ui-sp-13)",
+        "minWidth": "var(--o-ui-sz-13)",
       }
     }
   />,
@@ -36871,91 +36871,91 @@ Array [
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-1)",
+        "width": "var(--o-ui-sz-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-2)",
+        "width": "var(--o-ui-sz-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-3)",
+        "width": "var(--o-ui-sz-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-4)",
+        "width": "var(--o-ui-sz-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-5)",
+        "width": "var(--o-ui-sz-5)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-6)",
+        "width": "var(--o-ui-sz-6)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-7)",
+        "width": "var(--o-ui-sz-7)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-8)",
+        "width": "var(--o-ui-sz-8)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-9)",
+        "width": "var(--o-ui-sz-9)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-10)",
+        "width": "var(--o-ui-sz-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-11)",
+        "width": "var(--o-ui-sz-11)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-12)",
+        "width": "var(--o-ui-sz-12)",
       }
     }
   />,
   <div
     style={
       Object {
-        "width": "var(--o-ui-sp-13)",
+        "width": "var(--o-ui-sz-13)",
       }
     }
   />,

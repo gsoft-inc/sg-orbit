@@ -61,7 +61,7 @@ test("when a query matching no values is entered, open the overlay with a not fo
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("overlay").querySelector(":scope > .o-ui-autocomplete-no-results")));
+    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("overlay").querySelector(":scope .o-ui-autocomplete-no-results")));
 });
 
 test("when opening, the focus stay on the input", async () => {
@@ -137,7 +137,7 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
-        userEvent.click(container.querySelector(":scope > .o-ui-search-input-clear-button"));
+        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
@@ -503,7 +503,7 @@ test("when the clear button is clicked, the focus is moved to the input", async 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
-        userEvent.click(container.querySelector(":scope > .o-ui-search-input-clear-button"));
+        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());

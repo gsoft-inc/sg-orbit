@@ -16,7 +16,7 @@ export interface InnerAccordionHeaderProps extends InternalProps, InteractionPro
      */
     disabled?: boolean;
     /**
-     * The header item props
+     * The header item props.
      */
     header: {
         key: string;

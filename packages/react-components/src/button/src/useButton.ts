@@ -52,7 +52,7 @@ export function useButton({
     loading,
     shape: userShape,
     size,
-    type,
+    type = "button",
     variant: userVariant
 }: UseButtonProps): UseButtonReturn {
     const buttonRef = useMergedRefs(forwardedRef);
