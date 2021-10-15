@@ -145,7 +145,7 @@ To release, open a terminal at the root of the workspace and execute the followi
 
 ```bash
 yarn new-version
-yarn release-pkg
+yarn release
 yarn push-release <yyyy-MM-dd>
 Release docs
 Release Storybook
