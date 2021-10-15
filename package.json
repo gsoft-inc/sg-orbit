@@ -45,7 +45,7 @@
     "push-release": "node scripts/push-release",
     "publish-pkg": "lerna publish from-package --exact --loglevel verbose",
     "release": "cross-env NODE_ENV=production run-s build-pkg publish-pkg",
-    "release-alpha": "cross-env NODE_ENV=production run-s build-pkg \"publish-pkg --dist-tag=alpha\"",
+    "release-alpha": "cross-env NODE_ENV=production run-s build-pkg \"publish-pkg --allow-branch=* --dist-tag=alpha --no-push\"",
     "reset": "run-s -c clean delete-yarn-lock delete-node-modules",
     "setup": "lerna run setup --parallel",
     "start": "run-s start-pkg start-sb",
