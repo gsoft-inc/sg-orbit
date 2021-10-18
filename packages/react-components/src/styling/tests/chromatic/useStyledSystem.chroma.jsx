@@ -13,7 +13,7 @@ function stories(segment) {
 stories()
     .add("breakpoints", () =>
         <Box
-            backgroundColor={{ base: "sunray-10", m: "primary-10", l: "cloud-1" }}
+            backgroundColor={{ base: "sunray-10", md: "primary-10", lg: "cloud-1" }}
             width="12"
         >
                 Space X

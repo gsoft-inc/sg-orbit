@@ -5,12 +5,10 @@ import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const Breakpoints = {
-    m: "(max-width: 900px)",
-    l: "(min-width: 901px)"
+    md: "(max-width: 900px)",
+    lg: "(min-width: 901px)"
 };
 /* eslint-enable sort-keys-fix/sort-keys-fix */
-
-const DefaultBreakpoint = "l";
 
 export type Breakpoint = keyof typeof Breakpoints;
 
@@ -27,7 +25,7 @@ export interface BreakpointProvider {
 
 export function BreakpointProvider({
     children,
-    defaultBreakpoint = DefaultBreakpoint
+    defaultBreakpoint = "lg"
 }: BreakpointProvider) {
     const getCurrentBreakpoint = useCallback(() => {
         if (supportsMatchMedia) {

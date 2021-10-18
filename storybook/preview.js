@@ -58,14 +58,14 @@ export const parameters = {
     },
     viewport: {
         viewports: {
-            m: {
+            md: {
                 name: "medium (900px)",
                 styles: {
                     width: "900px",
                     height: "100%"
                 }
             },
-            l: {
+            lg: {
                 name: "large (1280px)",
                 styles: {
                     width: "1280px",

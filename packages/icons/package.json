@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/icons",
-    "version": "9.0.0",
+    "version": "10.0.1-alpha.2",
     "description": "ShareGate Orbit Icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -16,8 +16,7 @@
         "prebuild": "yarn clean",
         "build": "yarn copy-to-dist",
         "clean": "rimraf dist",
-        "prepublishOnly": "yarn copy-license-to-dist",
-        "copy-to-dist": "node scripts/copy-to-dist",
-        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
-    }
+        "copy-to-dist": "node scripts/copy-to-dist"
+    },
+    "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }

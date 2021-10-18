@@ -163,9 +163,9 @@ All components should leverage React hooks.
 
 #### Styling
 
-An Orbit UI component shouldn't use Tachyons classes.
+An Orbit UI component shouldn't use any CSS in JS properties.
 
-All styling should be done with native CSS. Custom classes should use [Orbit UI foundation CSS variables](https://orbit.sharegate.design/?path=/docs/getting-started-foundation--page) when available.
+All styling should be done with native CSS and use our foundation CSS variables when possible
 
 #### Controlled & Auto-controlled
 
@@ -235,6 +235,8 @@ The following usage should be possible for all components:
 ```jsx
 <Button as="link" href="#>Click me!</Button>
 ```
+
+> This is not true anymore, component public interface doesn't accept `as` prop anymore. Instead, when needed, the `as()` function should be used. That being said, since our internals are still dependend on the `as` prop, every components should still accept the prop internally.
 
 #### Ref
 

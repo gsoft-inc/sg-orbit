@@ -68,7 +68,6 @@ module.exports = {
         ],
         "@babel/plugin-proposal-nullish-coalescing-operator",
         "@babel/plugin-proposal-optional-chaining",
-        IS_PRODUCTION && "babel-plugin-jsx-remove-data-test-id",
         !IS_TEST && [
             "babel-plugin-named-asset-import",
             {

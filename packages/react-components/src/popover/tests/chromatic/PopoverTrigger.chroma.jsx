@@ -37,7 +37,7 @@ stories()
         </PopoverTrigger>
     )
     .add("position", () =>
-        <PopoverTrigger position={{ m: "top", l: "top" }}>
+        <PopoverTrigger position={{ md: "top", lg: "top" }}>
             <Button variant="secondary">Toggle</Button>
             <Popover>
                 <Heading>Space News</Heading>

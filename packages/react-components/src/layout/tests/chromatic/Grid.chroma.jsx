@@ -93,7 +93,7 @@ stories()
                 <Div backgroundColor="primary-7">Echo</Div>
                 <Div backgroundColor="primary-7">Foxtrot</Div>
             </Grid>
-            <Grid templateColumns={{ m: [13, 10], l: [12, 10, 12] }} gap={4}>
+            <Grid templateColumns={{ md: [13, 10], l: [12, 10, 12] }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -120,7 +120,7 @@ stories()
                 <Div backgroundColor="primary-7">Bravo</Div>
                 <Div backgroundColor="primary-7">Charlie</Div>
             </Grid>
-            <Grid templateRows={{ m: [13, 10, 13], l: [12, 10, 12] }} gap={4}>
+            <Grid templateRows={{ md: [13, 10, 13], l: [12, 10, 12] }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -141,7 +141,7 @@ stories()
                 <Div gridArea="d" backgroundColor="primary-4">Delta</Div>
                 <Div gridArea="e" backgroundColor="primary-5">Echo</Div>
             </Grid>
-            <Grid areas={{ m: ["a", "b", "c", "d", "e"], l: ["a a", "b c", "d e"] }} gap={4}>
+            <Grid areas={{ md: ["a", "b", "c", "d", "e"], lg: ["a a", "b c", "d e"] }} gap={4}>
                 <Div gridArea="a" backgroundColor="primary-6">Alpha</Div>
                 <Div gridArea="b" backgroundColor="primary-7">Bravo</Div>
                 <Div gridArea="c" backgroundColor="primary-8">Charlie</Div>
@@ -171,7 +171,7 @@ stories()
                 <Div backgroundColor="primary-7">Delta</Div>
                 <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
-            <Grid autoFlow={{ m: "row", l: "column" }} gap={4}>
+            <Grid autoFlow={{ md: "row", lg: "column" }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -201,7 +201,7 @@ stories()
                 <Div backgroundColor="primary-7">Delta</Div>
                 <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
-            <Grid autoColumns={{ m: 13, l: "12" }} gap={4}>
+            <Grid autoColumns={{ md: 13, lg: "12" }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridColumn={2} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -231,7 +231,7 @@ stories()
                 <Div backgroundColor="primary-7">Delta</Div>
                 <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
-            <Grid autoRows={{ m: 4, l: 8 }} gap={4}>
+            <Grid autoRows={{ md: 4, lg: 8 }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridColumn={3} backgroundColor="primary-10">Bravo</Div>
                 <Div gridColumnSpan={3} backgroundColor="primary-10">Charlie</Div>
@@ -257,7 +257,7 @@ stories()
             </Grid>
             <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
-                <Div gridColumnSpan={{ m: undefined, l: 2 }} backgroundColor="primary-10">Bravo</Div>
+                <Div gridColumnSpan={{ md: undefined, lg: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
                 <Div backgroundColor="primary-10">Delta</Div>
                 <Div backgroundColor="primary-10">Echo</Div>
@@ -422,7 +422,7 @@ stories()
             </Grid>
             <Grid fluidColumns={3} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
-                <Div gridRowSpan={{ l: 2 }} backgroundColor="primary-10">Bravo</Div>
+                <Div gridRowSpan={{ lg: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
                 <Div backgroundColor="primary-10">Delta</Div>
                 <Div backgroundColor="primary-10">Echo</Div>

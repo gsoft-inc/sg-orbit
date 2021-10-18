@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "18.1.2",
+    "version": "19.0.1-alpha.2",
     "description": "Sharegate Orbit UI React components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -11,7 +11,8 @@
     "files": [
         "/dist",
         "!/dist/**/docs/*",
-        "!/dist/**/tests/*"
+        "!/dist/**/tests/*",
+        "index.css"
     ],
     "publishConfig": {
         "access": "public"
@@ -27,12 +28,10 @@
         "watch": "run-p build:*",
         "watch:js": "yarn build:js --watch",
         "clean": "run-p clear-dist clear-ts-cache",
-        "prepublishOnly": "yarn copy-license-to-dist",
         "clear-dist": "node ../../scripts/clear-dir dist",
         "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
         "create-dist": "node ../../scripts/create-dir dist",
-        "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist",
-        "copy-license-to-dist": "node ../../scripts/copy-root-license dist"
+        "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
     },
     "peerDependencies": {
         "react": "*",
@@ -40,12 +39,12 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/icons": "9.0.0",
+        "@orbit-ui/icons": "10.0.1-alpha.2",
         "@popperjs/core": "2.10.2",
         "@reach/auto-id": "0.16.0",
         "react-is": "17.0.2",
         "text-mask-core": "5.1.2",
         "use-debounce": "7.0.0"
     },
-    "gitHead": "4d7ad695b1605caf34c39464f1635023890da087"
+    "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
