@@ -43,7 +43,7 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
-    colorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
+    const computedColorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
 
     const setColorScheme = useCallback(newColorScheme => {
         setRemoteColorScheme(newColorScheme);
@@ -54,7 +54,7 @@ export function ThemeProvider({
     return (
         <ThemeContext.Provider
             value={{
-                colorScheme,
+                colorScheme: computedColorScheme,
                 setColorScheme,
                 theme
             }}
@@ -68,7 +68,7 @@ export function ThemeProvider({
                             className: mergeClasses(
                                 "o-ui",
                                 getThemeClassName(theme.name),
-                                getColorSchemeClassName(theme.name, colorScheme)
+                                getColorSchemeClassName(theme.name, computedColorScheme)
                             )
                         }
                     )}
