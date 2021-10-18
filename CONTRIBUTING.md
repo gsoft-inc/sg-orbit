@@ -139,21 +139,41 @@ Releasing the packages includes several steps:
 
 Fortunately, this is all automated with a few commands!
 
-Before you release, make sure you have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+Before you release, make sure you are in the `master` branch, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
 
 To release, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
 yarn new-version
 yarn release
-yarn push-release <yyyy-MM-dd>
+yarn push-release <@orbit-ui/react-components package version>
 Release docs
 Release Storybook
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
+Ex:
+
+```bash
+yarn new-version
+yarn release
+yarn push-release 19.0.1
+```
+
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@orbit-ui/react-components package version] created earlier by the `push-release` command and list all the changes that has been published.
 
 Don't forget to **publish** the release.
+
+### Alpha release
+
+Sometimes it's useful to publish an alpha version to test the packages installation or share a preview.
+
+Before you release, make sure you are in the `master` branch or a branch with a name matching the `feature/*` pattern, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+
+To release an alpha version, open a terminal at the root of the workspace and execute the following commands:
+
+```bash
+yarn release-alpha
+```
 
 ### Troubleshooting
 
@@ -177,73 +197,40 @@ yarn build-pkg
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
 
-### Troubleshooting
+## Release docs
 
-#### Netlify
+Orbit documentation is host on Netlify. 2 sites are available, a currated site for the official documentation (https://orbit.sharegate.design) and a raw site containing every Storybook stories (https://sg-storybook.netlify.com). 
 
-Orbit owns 2 Netlify sites in the GSoft team: **sg-storybook** and **sg-orbit**.
+Login to [Netlify](https://app.netlify.com) and make sure you have access to the **sg-orbit** and **sg-storybook** sites of the GSoft team.
 
 Netlify is configured to automatically deploy (unpublished) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
 
-To publish a site, login to [Netlify](https://app.netlify.com) and make sure you have access to **sg-storybook** and **sg-orbit** sites of the GSoft team.
+To publish a site:
 
-For each site:
-
-- Find the latest deploy
+- Login to [Netlify](https://app.netlify.com)
+- Find the latest deploy of your site
 - Click on the deploy link to access it's overview
 - Click on the "Publish deploy" button
 
-If you encounter any errors, go to the deploy settings and make sure the `Build command` and the `Publish directory` properties are valid.
+### Troubleshoot
 
-##### Manual CLI deploy
+If you encounter any errors when building or publishing a site, login to [Netlify](https://app.netlify.com) and go to the deploy settings of the site. Make sure the `Build command` and the `Publish directory` properties are valid.
 
-When needed, you can also start a Netlify deploy from the CLI. This is useful if you are working in a branch and want to share a preview of your work with someone else.
+The `Build command` property should match a script of the root `package.json` file and the `Publish directory` property should be a relative path matching a folder of the solution containing the static site to deploy **after build**.
 
-To do so, execute the following command:
+### Local CLI deploy
+
+A Netlify deploy can be started locally with a CLI command. This is useful if you are working in a branch and want to share a preview of your work with someone else.
+
+To deploy (unpublished), open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
 yarn deploy-sb-preview
 ```
 
-The previous command will add a deploy to the **sg-storybook** site but WILL NOT PUBLISH the deploy. 
+The previous command will add a deploy (unpublished) to the **sg-storybook** site. 
 
 If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [storybook/package.json](/storybook/package.json) file.
-
-## Release docs
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
-
-Releasing the docs website includes a few steps:
-
-1. Build the packages
-2. Build storybook with `--docs` mode into a static web app
-3. Deploy the static web app to Netlify
-4. Go to https://app.netlify.com/sites/sg-orbit/deploys, select the new build and "Publish deploy"
-
-Before you release, make sure you have access to the GSoft Netlify team and the **sg-orbit** site.
-
-To release, open a terminal at the root of the workspace and execute the following command:
-
-```bash
-yarn build-pkg
-yarn release-docs
-```
-
-Open a web browser and navigate to https://orbit.sharegate.design.
-
-### Troubleshooting
-
-#### Netlify
-
-Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to **sg-orbit** site.
-
-Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the script `deploy-docs` in the [storybook/package.json](/storybook/package.json) file.
-
-To deploy the website without building the static web app everytime, execute any of the following command:
-
-```bash
-yarn deploy-docs
-```
 
 ## Commands
 
@@ -339,6 +326,22 @@ Execute all the Jest tests.
 
 ```bash
 yarn jest
+```
+
+### deploy-sb-preview
+
+Manually deploy Storybook to Netlify from any branch.
+
+```bash
+yarn deploy-sb-preview
+```
+
+### release-alpha
+
+Deploy an alpha version of the packages.
+
+```bash
+yarn release-alpha
 ```
 
 ## Testing
