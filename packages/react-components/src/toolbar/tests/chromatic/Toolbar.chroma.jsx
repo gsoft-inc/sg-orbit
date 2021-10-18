@@ -138,7 +138,7 @@ stories()
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar alignY="start" height="100px">
+            <Toolbar alignY="start" height="10">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -148,7 +148,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar alignY="end" height="100px">
+            <Toolbar alignY="end" height="10">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -158,7 +158,7 @@ stories()
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
-            <Toolbar alignY="center" height="100px">
+            <Toolbar alignY="center" height="10">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -171,7 +171,7 @@ stories()
         </Inline>
     )
     .add("no wrap", () =>
-        <Div width="170px">
+        <Div width="12">
             <Toolbar wrap={false}>
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
@@ -322,7 +322,7 @@ stories("/vertical")
     )
     .add("vertical align", () =>
         <Inline gap={13}>
-            <Toolbar alignY="start" orientation="vertical" height="500px">
+            <Toolbar alignY="start" orientation="vertical" height="16">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -331,7 +331,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar alignY="end" orientation="vertical" height="500px">
+            <Toolbar alignY="end" orientation="vertical" height="16">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>
@@ -340,7 +340,7 @@ stories("/vertical")
                 <TextInput aria-label="Label" />
                 <ToggleButton>Activate</ToggleButton>
             </Toolbar>
-            <Toolbar alignY="center" orientation="vertical" height="500px">
+            <Toolbar alignY="center" orientation="vertical" height="16">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

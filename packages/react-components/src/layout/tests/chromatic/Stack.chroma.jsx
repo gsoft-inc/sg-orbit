@@ -45,35 +45,28 @@ stories()
         </Stack>
     )
     .add("align Y start", () =>
-        <Stack alignY="start" height="200px">
+        <Stack alignY="start" height="12">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
     .add("align Y center", () =>
-        <Stack alignY="center" height="200px">
+        <Stack alignY="center" height="12">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
     .add("align Y end", () =>
-        <Stack alignY="end" height="200px">
+        <Stack alignY="end" height="12">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Stack>
     )
     .add("wrap", () =>
-        <Stack wrap="wrap" height="25px">
-            <Div backgroundColor="primary-5">Alpha</Div>
-            <Div backgroundColor="primary-5">Bravo</Div>
-            <Div backgroundColor="primary-5">Charlie</Div>
-        </Stack>
-    )
-    .add("wrap reverse", () =>
-        <Stack wrap="wrap-reverse" height="25px">
+        <Stack wrap="wrap" height="4">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>

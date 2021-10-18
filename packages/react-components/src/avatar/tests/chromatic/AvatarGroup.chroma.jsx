@@ -98,7 +98,7 @@ stories()
         </Inline>
     )
     .add("no wrap", () =>
-        <Div width="200px">
+        <Div width="12">
             <AvatarGroup wrap={false} size="xl">
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />
@@ -178,7 +178,7 @@ stories()
         </Inline>
     )
     .add("overflow", () =>
-        <Div width="100px">
+        <Div width="10">
             <AvatarGroup size="2xl">
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />

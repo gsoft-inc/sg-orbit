@@ -8,7 +8,7 @@ export interface ColorSchemeSection<C, L, D> {
 
 export type SpaceValues = FixedLengthArray<string, 13>;
 
-export type SizingValues = FixedLengthArray<string, 13>;
+export type SizingValues = FixedLengthArray<string, 18>;
 
 export interface FontSizeValues {
     1: string;

@@ -70,7 +70,7 @@ export function InnerInline({
     children,
     forwardedRef,
     gap = 5,
-    wrap,
+    wrap = true,
     ...rest
 }: InnerInlineProps) {
     const alignXValue = useResponsiveValue(alignX);

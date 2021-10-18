@@ -62,7 +62,12 @@ const SizingScale = [
     10,
     11,
     12,
-    13
+    13,
+    14,
+    15,
+    16,
+    17,
+    18
 ] as const;
 
 const SpacingScale = [

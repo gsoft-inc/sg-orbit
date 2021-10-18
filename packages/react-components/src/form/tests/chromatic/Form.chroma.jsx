@@ -284,7 +284,7 @@ stories("/inline")
         </Form>
     )
     .add("fluid with fix width container", () =>
-        <Div width="700px">
+        <Div width="17">
             <Form fluid>
                 <Row>
                     <Field>

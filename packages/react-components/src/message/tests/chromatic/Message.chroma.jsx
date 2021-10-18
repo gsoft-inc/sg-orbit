@@ -68,7 +68,7 @@ stories()
         </Message>
     )
     .add("contained", () =>
-        <Div width="500px">
+        <Div width="16">
             <Message>Scheduled launch today at 1PM.</Message>
         </Div>
     )

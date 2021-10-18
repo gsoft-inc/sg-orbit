@@ -6,21 +6,21 @@
     text-transform: uppercase;
     padding: 0 var(--o-ui-sp-2);
     border-radius: 4px;
-    min-height: var(--o-ui-sp-5);
-    line-height: var(--o-ui-sp-5);
+    min-height: var(--o-ui-sz-3);
+    line-height: var(--o-ui-sz-3);
     width: max-content;
     height: max-content;
 }
 
 /* SIZE */
 .o-ui-lozenge-sm {
-    min-height: var(--o-ui-sp-4);
-    line-height: var(--o-ui-sp-4);
+    min-height: var(--o-ui-sz-2);
+    line-height: var(--o-ui-sz-2);
 }
 
 .o-ui-lozenge-lg {
-    min-height: var(--o-ui-sp-6);
-    line-height: var(--o-ui-sp-6);
+    min-height: var(--o-ui-sz-4);
+    line-height: var(--o-ui-sz-4);
 }
 
 /* CONTENT | ICON */

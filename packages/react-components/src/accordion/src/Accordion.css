@@ -141,10 +141,10 @@
 
 /* FOCUS | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-trigger::before {
-    left: var(--o-ui-sp-4);
-    right: var(--o-ui-sp-4);
-    bottom: var(--o-ui-sp-2);
-    top: var(--o-ui-sp-2);
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.5rem;
+    top: 0.5rem;
 }
 
 .o-ui-accordion-trigger:focus-visible,

@@ -1,13 +1,3 @@
-.o-ui {
-    --o-ui-avatar-2xs: var(--o-ui-sp-5);
-    --o-ui-avatar-xs: var(--o-ui-sp-6);
-    --o-ui-avatar-sm: var(--o-ui-sp-7);
-    --o-ui-avatar-md: var(--o-ui-sp-8);
-    --o-ui-avatar-lg: var(--o-ui-sp-9);
-    --o-ui-avatar-xl: var(--o-ui-sp-10);
-    --o-ui-avatar-2xl: var(--o-ui-sp-11);
-}
-
 .o-ui-avatar {
     display: inline-flex;
     flex-shrink: 0;
@@ -17,38 +7,38 @@
 
 /* SIZES */
 .o-ui-avatar-2xs {
-    width: var(--o-ui-sp-5);
-    height: var(--o-ui-sp-5);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
 }
 
 .o-ui-avatar-xs {
-    width: var(--o-ui-sp-6);
-    height: var(--o-ui-sp-6);
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
 }
 
 .o-ui-avatar-sm {
-    width: var(--o-ui-sp-7);
-    height: var(--o-ui-sp-7);
+    width: var(--o-ui-sz-5);
+    height: var(--o-ui-sz-5);
 }
 
 .o-ui-avatar-md {
-    width: var(--o-ui-sp-8);
-    height: var(--o-ui-sp-8);
+    width: var(--o-ui-sz-6);
+    height: var(--o-ui-sz-6);
 }
 
 .o-ui-avatar-lg {
-    width: var(--o-ui-sp-9);
-    height: var(--o-ui-sp-9);
+    width: var(--o-ui-sz-7);
+    height: var(--o-ui-sz-7);
 }
 
 .o-ui-avatar-xl {
-    width: var(--o-ui-sp-10);
-    height: var(--o-ui-sp-10);
+    width: var(--o-ui-sz-8);
+    height: var(--o-ui-sz-8);
 }
 
 .o-ui-avatar-2xl {
-    width: var(--o-ui-sp-11);
-    height: var(--o-ui-sp-11);
+    width: var(--o-ui-sz-9);
+    height: var(--o-ui-sz-9);
 }
 
 /* IMAGE */

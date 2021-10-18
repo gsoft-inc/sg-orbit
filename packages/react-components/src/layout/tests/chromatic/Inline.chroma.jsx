@@ -45,35 +45,35 @@ stories()
         </Inline>
     )
     .add("align Y start", () =>
-        <Inline alignY="start" height="100px">
+        <Inline alignY="start" height="10">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
     .add("align Y center", () =>
-        <Inline alignY="center" height="100px">
+        <Inline alignY="center" height="10">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
     .add("align Y end", () =>
-        <Inline alignY="end" height="100px">
+        <Inline alignY="end" height="10">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
     .add("wrap", () =>
-        <Inline wrap="wrap" width="25px">
+        <Inline width="4">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Inline>
     )
-    .add("wrap reverse", () =>
-        <Inline wrap="wrap-reverse" width="25px">
+    .add("nowrap", () =>
+        <Inline wrap={false} width="4">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>

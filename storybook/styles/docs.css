@@ -341,6 +341,6 @@
 }
 
 .sbdocs.sbdocs-h1 a svg {
-    width: var(--o-ui-sp-6);
-    height: var(--o-ui-sp-6);
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
 }

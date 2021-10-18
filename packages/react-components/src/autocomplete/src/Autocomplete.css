@@ -9,7 +9,7 @@
     padding-left: var(--o-ui-sp-3);
     position: relative;
     cursor: default;
-    height: calc(var(--o-ui-sp-7) + 2px);
+    height: calc(var(--o-ui-sz-5) + 2px);
 }
 
 .o-ui-autocomplete-no-results {

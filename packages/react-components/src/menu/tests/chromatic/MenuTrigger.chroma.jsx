@@ -121,7 +121,7 @@ stories()
     .add("align start", () =>
         <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button variant="secondary">Trigger</Button>
-            <Menu style={{ width: "300px" }}>
+            <Menu width="14">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -136,7 +136,7 @@ stories()
     .add("align end", () =>
         <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button variant="secondary">Trigger</Button>
-            <Menu width="300px">
+            <Menu width="14">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>

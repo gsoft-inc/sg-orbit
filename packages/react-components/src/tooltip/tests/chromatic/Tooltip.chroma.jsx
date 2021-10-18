@@ -61,7 +61,7 @@ stories()
     )
     .add("image trigger", () =>
         <TooltipTrigger open>
-            <Image src={Launch} width="400px" alt="SpaceX launch" />
+            <Image src={Launch} width="16" alt="SpaceX launch" />
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>
     )

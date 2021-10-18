@@ -35,9 +35,9 @@
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: max-content;
-    min-width: var(--o-ui-sp-13);
+    min-width: var(--o-ui-sz-11);
     height: max-content;
-    min-height: var(--o-ui-sp-9);
+    min-height: var(--o-ui-sz-7);
     cursor: pointer;
     color: var(--o-ui-text-alias-2);
     position: relative;
@@ -50,7 +50,7 @@
 
 /* TAB | WITH ICON */
 .o-ui-tab-has-icon {
-    padding-left: calc(var(--o-ui-sp-2) + 1px);
+    padding-left: calc(0.5rem + 1px);
 }
 
 /* TAB | STATE | FOCUS */
@@ -59,11 +59,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(var(--o-ui-sp-2) - 2px);
+    bottom: calc(0.5rem - 2px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-shape-rounded);
     pointer-events: none;
-    height: calc(var(--o-ui-sp-5) + var(--o-ui-sp-1));
+    height: calc(var(--o-ui-sz-3) + 0.25rem);
     transition: var(--o-ui-focus-ring-transition);
 }
 

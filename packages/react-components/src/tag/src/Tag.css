@@ -64,7 +64,7 @@ a.o-ui-tag:hover {
 /* SIZE */
 /* SIZE | SMALL */
 .o-ui-tag-sm {
-    min-height: var(--o-ui-sp-7);
+    min-height: var(--o-ui-sz-5);
     padding: 0 var(--o-ui-padding-sm);
 }
 
@@ -75,7 +75,7 @@ a.o-ui-tag:hover {
 /* SIZE */
 /* SIZE | MEDIUM */
 .o-ui-tag-md {
-    min-height: var(--o-ui-sp-8);
+    min-height: var(--o-ui-sz-6);
     padding: 0 var(--o-ui-padding-md);
 }
 

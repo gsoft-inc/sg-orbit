@@ -210,12 +210,12 @@ stories()
     )
     .add("item overflow", () =>
         <Inline>
-            <Menu width="150px" aria-label="Planets">
+            <Menu width="12" aria-label="Planets">
                 <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                 <Item>Jupiter</Item>
                 <Item>Mars</Item>
             </Menu>
-            <Menu defaultSelectedKeys={["0"]} selectionMode="single" width="150px" aria-label="Planets">
+            <Menu defaultSelectedKeys={["0"]} selectionMode="single" width="12" aria-label="Planets">
                 <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                 <Item>Jupiter</Item>
                 <Item>Mars</Item>
@@ -266,7 +266,7 @@ stories()
     )
     .add("item with description overflow when fluid", () =>
         <Inline>
-            <Menu fluid width="400px" aria-label="Planets">
+            <Menu fluid width="15" aria-label="Planets">
                 <Item key="earth">
                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                     <Text slot="description">Home sweet home!</Text>
@@ -281,7 +281,7 @@ stories()
                 <Item key="saturn">Saturn</Item>
                 <Item key="uranus">Uranus</Item>
             </Menu>
-            <Menu defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid width="400px" aria-label="Planets">
+            <Menu defaultSelectedKeys={["earth", "mars"]} selectionMode="multiple" fluid width="15" aria-label="Planets">
                 <Item key="earth">
                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
                     <Text slot="description">Home sweet home!</Text>
@@ -448,7 +448,7 @@ stories()
         </Menu>
     )
     .add("custom menu width", () =>
-        <Menu width="500px" aria-label="Planets">
+        <Menu width="16" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -603,7 +603,7 @@ stories()
         </Menu>
     )
     .add("scrolling with custom style height", () =>
-        <Menu selectionMode="single" height="200px" aria-label="Planets">
+        <Menu selectionMode="single" height="12" aria-label="Planets">
             <Item key="ceres">Ceres</Item>
             <Item key="charon">Charon</Item>
             <Item key="earth">Earth</Item>
