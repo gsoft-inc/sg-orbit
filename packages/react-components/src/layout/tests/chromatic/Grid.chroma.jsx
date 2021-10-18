@@ -485,7 +485,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid templateColumns={[fitContent("10"), 12, 12]} gap={4}>
+            <Grid templateColumns={[fitContent(10), 12, 12]} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>

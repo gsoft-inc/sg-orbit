@@ -76,9 +76,9 @@ stories("/row")
     )
     .add("fluid", () =>
         <Flex fluid direction="row">
-            <Div backgroundColor="primary-5" width={100}">Alpha</Div>
-            <Div backgroundColor="primary-5" width={100}">Bravo</Div>
-            <Div backgroundColor="primary-5" width={100}">Charlie</Div>
+            <Div backgroundColor="primary-5" width="100%">Alpha</Div>
+            <Div backgroundColor="primary-5" width="100%">Bravo</Div>
+            <Div backgroundColor="primary-5" width="100%">Charlie</Div>
         </Flex>
     )
     .add("content start", () =>
