@@ -31,7 +31,7 @@ A grid can define explicit sections with areas.
         <Grid
             areas={["a  a", "b c"]}
             gap={2}
-            height="10"
+            height={10}
         >
             <Div gridArea="a" backgroundColor="primary-5" />
             <Div gridArea="b" backgroundColor="beetle-5" />
@@ -47,9 +47,9 @@ A grid can define explicit columns (and rows). A value can be a grid length valu
 <Preview>
     <Story name="template columns">
         <Grid
-            templateColumns={[9, "7", "1fr"]}
+            templateColumns={[9, 7, "1fr"]}
             gap={2}
-            height="7"
+            height={7}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -67,7 +67,7 @@ A grid can define the size of implicitly created columns. A value can be a grid 
         <Grid
             autoColumns="1fr"
             gap={2}
-            height="10"
+            height={10}
         >
             <Div gridColumn={2} backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -85,7 +85,7 @@ A grid layout can have a gap between his columns and rows. `columnGap` and `rowG
         <Grid
             templateColumns="1fr 1fr"
             gap={2}
-            height="10"
+            height={10}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -104,7 +104,7 @@ A grid item can span over multiple columns.
         <Grid
             templateColumns="1fr 1fr 1fr"
             gap={2}
-            height="10"
+            height={10}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -163,7 +163,7 @@ A custom `minmax` function is avaiable to support Orbit spacing scalue values. H
         <Grid
             templateColumns={[minmax(9, "1fr"), "10", minmax(9, "1fr")]}
             gap={2}
-            height="7"
+            height={7}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -179,7 +179,7 @@ A custom `minmax` function is avaiable to support Orbit spacing scalue values. H
         <Grid
             templateColumns={[fitContent(9), fitContent(9), "1fr"]}
             gap={2}
-            height="7"
+            height={7}
             color="white"
         >
             <Div backgroundColor="primary-5" paddingX={2}>Mars</Div>

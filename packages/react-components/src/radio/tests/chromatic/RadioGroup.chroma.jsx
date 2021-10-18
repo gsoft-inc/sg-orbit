@@ -95,25 +95,25 @@ stories()
         </RadioGroup>
     )
     .add("wrap", () =>
-        <Div width="11">
+        <Div width={11}>
             <RadioGroup wrap orientation="horizontal">
                 {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                    <Radio width="6" value={x} key={x}>{x}</Radio>
+                    <Radio width={6} value={x} key={x}>{x}</Radio>
                 )}
             </RadioGroup>
         </Div>
     )
     .add("no wrap", () =>
-        <Div width="11">
+        <Div width={11}>
             <RadioGroup wrap={false} orientation="horizontal">
                 {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
-                    <Radio width="6" value={x} key={x}>{x}</Radio>
+                    <Radio width={6} value={x} key={x}>{x}</Radio>
                 )}
             </RadioGroup>
         </Div>
     )
     .add("overflow wrapped", () =>
-        <Div width="11">
+        <Div width={11}>
             <RadioGroup wrap orientation="horizontal">
                 {["1", "2", "3", "Neptune", "5", "6", "7", "8"].map(x =>
                     <Radio value={x} key={x}>{x}</Radio>
@@ -196,7 +196,7 @@ stories()
                         <Counter>60</Counter>
                     </Radio>
                 </RadioGroup>
-                <Div border="1px solid #000" width="100%" height="7"></Div>
+                <Div border="1px solid #000" width="100%" height={7}></Div>
             </Inline>
         </Stack>
     );

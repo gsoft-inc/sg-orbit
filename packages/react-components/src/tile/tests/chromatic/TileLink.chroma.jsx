@@ -9,6 +9,6 @@ function stories(segment) {
         .build();
 }
 
-createTileLinkTestSuite(<TileLink orientation="horizontal" width="17" />, stories("/horizontal"));
+createTileLinkTestSuite(<TileLink orientation="horizontal" width="600px" />, stories("/horizontal"));
 
-createTileLinkTestSuite(<TileLink orientation="vertical" width="14" />, stories("/vertical"));
+createTileLinkTestSuite(<TileLink orientation="vertical" width="300px" />, stories("/vertical"));

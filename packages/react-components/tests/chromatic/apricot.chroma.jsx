@@ -26,8 +26,8 @@ function SmallSquare(props) {
     return (
         <Box
             {...props}
-            width="5"
-            height="5"
+            width={5}
+            height={5}
         />
     );
 }
@@ -36,8 +36,8 @@ function LargeSquare(props) {
     return (
         <Box
             {...props}
-            width="8"
-            height="8"
+            width={8}
+            height={8}
         />
     );
 }
@@ -109,12 +109,12 @@ stories()
     )
     .add("spacing", () =>
         <Stack>
-            {Object.keys(SpacingMapping).map(x => <Box width={x} height="3" backgroundColor="#000" key={x} />)}
+            {Object.keys(SpacingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
         </Stack>
     )
     .add("sizing", () =>
         <Stack>
-            {Object.keys(SizingMapping).map(x => <Box width={x} height="3" backgroundColor="#000" key={x} />)}
+            {Object.keys(SizingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
         </Stack>
     );
 

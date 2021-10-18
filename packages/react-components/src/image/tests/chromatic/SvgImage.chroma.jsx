@@ -20,10 +20,10 @@ stories()
         <SvgImage width={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("height", () =>
-        <SvgImage height="10" src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage height={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("size", () =>
-        <SvgImage size="10" src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage size={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("styling", () =>
         <Inline>
