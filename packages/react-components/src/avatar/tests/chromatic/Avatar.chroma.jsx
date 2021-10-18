@@ -79,16 +79,18 @@ stories()
             <Avatar src="" size="xl" name="Neil Armstrong" />
             <Avatar src="" size="2xl" name="Neil Armstrong" />
         </Inline>
-    ).add("zoom", () =>
-        <>
+    )
+    .add("zoom", () =>
+        <Stack>
             <Div className="zoom-in">
                 <Avatar src={Person} name="Neil Armstrong" />
             </Div>
             <Div className="zoom-out">
                 <Avatar src={Person} name="Neil Armstrong" />
             </Div>
-        </>
-    ).add("styling", () =>
+        </Stack>
+    )
+    .add("styling", () =>
         <Inline>
             <Avatar name="Sally Ride" border="sunray-10" />
             <Avatar name="Sally Ride" className="border-red" />

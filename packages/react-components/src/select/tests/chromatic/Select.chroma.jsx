@@ -1,6 +1,6 @@
 import { Button } from "@react-components/button";
 import { Div } from "@react-components/html";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { Listbox } from "@react-components/listbox";
 import { Overlay } from "@react-components/overlay";
@@ -89,7 +89,7 @@ stories()
         </Select>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Select placeholder="Select a planet" aria-label="Planets">
                     <Item key="earth">Earth</Item>
@@ -104,7 +104,7 @@ stories()
                     <Item key="saturn">Saturn</Item>
                 </Select>
             </Div>
-        </>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

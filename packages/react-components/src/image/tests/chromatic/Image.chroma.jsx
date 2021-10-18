@@ -80,14 +80,14 @@ stories()
         </Inline>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Image src={Launch} alt="SpaceX launch" />
             </Div>
             <Div className="zoom-out">
                 <Image src={Launch} alt="SpaceX launch" />
             </Div>
-        </>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

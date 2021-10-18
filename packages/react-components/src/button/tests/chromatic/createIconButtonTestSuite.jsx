@@ -122,10 +122,10 @@ export function createIconButtonTestSuite(element, stories) {
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">
-                    <IconButton variant="primary">Button</IconButton>
+                    <IconButton variant="primary" element={element}><AddIcon /></IconButton>
                 </Div>
                 <Div className="zoom-out'">
-                    <IconButton variant="primary">Button</IconButton>
+                    <IconButton variant="primary" element={element}><AddIcon /></IconButton>
                 </Div>
             </Inline>
         );

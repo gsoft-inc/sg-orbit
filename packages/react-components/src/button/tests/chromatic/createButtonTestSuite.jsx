@@ -313,10 +313,10 @@ export function createButtonTestSuite(element, stories) {
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">
-                    <Button variant="primary">Button</Button>
+                    <Button variant="primary" element={element}>Button</Button>
                 </Div>
                 <Div className="zoom-out'">
-                    <Button variant="primary">Button</Button>
+                    <Button variant="primary" element={element}>Button</Button>
                 </Div>
             </Inline>
         );
