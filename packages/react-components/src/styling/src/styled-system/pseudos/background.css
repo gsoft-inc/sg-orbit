@@ -8,3 +8,8 @@
     --o-ui-bg-focus: initial;
     background-color: var(--o-ui-bg-focus) !important;
 }
+
+.o-ui-bg-active:active {
+    --o-ui-bg-active: initial;
+    background-color: var(--o-ui-bg-active) !important;
+}

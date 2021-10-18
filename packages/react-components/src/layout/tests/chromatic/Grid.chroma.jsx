@@ -39,7 +39,7 @@ stories()
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-6">Bravo</Div>
             </Grid>
-            <Grid templateColumns="auto 9">
+            <Grid templateColumns={["auto", 9]}>
                 <Div backgroundColor="primary-8">Delta</Div>
                 <Div backgroundColor="primary-9">Echo</Div>
             </Grid>
@@ -77,7 +77,7 @@ stories()
     )
     .add("template columns", () =>
         <Stack>
-            <Grid templateColumns="8 7 8" gap={4}>
+            <Grid templateColumns={[8, 7, 8]} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -201,7 +201,7 @@ stories()
                 <Div backgroundColor="primary-7">Delta</Div>
                 <Div backgroundColor="primary-7">Echo</Div>
             </Grid>
-            <Grid autoColumns={{ md: 13, lg: "12" }} gap={4}>
+            <Grid autoColumns={{ md: 13, lg: 12 }} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridColumn={2} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>

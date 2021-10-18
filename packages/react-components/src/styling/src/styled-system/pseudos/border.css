@@ -48,3 +48,28 @@
     --o-ui-bt-focus: initial;
     border-top: var(--o-ui-bt-focus) !important;
 }
+
+.o-ui-b-active:active {
+    --o-ui-b-active: initial;
+    border: var(--o-ui-b-active) !important;
+}
+
+.o-ui-bb-active:active {
+    --o-ui-bb-active: initial;
+    border-bottom: var(--o-ui-bb-active) !important;
+}
+
+.o-ui-bl-active:active {
+    --o-ui-bl-active: initial;
+    border-left: var(--o-ui-bl-active) !important;
+}
+
+.o-ui-br-active:active {
+    --o-ui-br-active: initial;
+    border-right: var(--o-ui-br-active) !important;
+}
+
+.o-ui-bt-active:active {
+    --o-ui-bt-active: initial;
+    border-top: var(--o-ui-bt-active) !important;
+}

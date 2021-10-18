@@ -8,3 +8,8 @@
     --o-ui-c-focus: initial;
     color: var(--o-ui-c-focus) !important;
 }
+
+.o-ui-c-active:active {
+    --o-ui-c-active: initial;
+    color: var(--o-ui-c-active) !important;
+}

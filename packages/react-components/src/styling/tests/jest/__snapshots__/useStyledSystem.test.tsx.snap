@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`breakpoints l 1`] = `
+exports[`breakpoints lg 1`] = `
 Array [
   <div
     style={
@@ -34,6 +34,14 @@ Array [
     style={
       Object {
         "backgroundColor": "var(--o-ui-bg-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-2)",
       }
     }
   />,
@@ -89,6 +97,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
     className="o-ui-b-focus"
     style={
       Object {
@@ -108,6 +124,14 @@ Array [
     style={
       Object {
         "borderBottom": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-2)",
       }
     }
   />,
@@ -135,6 +159,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
     className="o-ui-bl-focus"
     style={
       Object {
@@ -158,6 +190,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
     className="o-ui-br-focus"
     style={
       Object {
@@ -177,6 +217,14 @@ Array [
     style={
       Object {
         "borderTop": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-2)",
       }
     }
   />,
@@ -246,6 +294,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-2)",
+      }
+    }
+  />,
+  <div
     className="o-ui-bs-focus"
     style={
       Object {
@@ -265,6 +321,14 @@ Array [
     style={
       Object {
         "color": "alias-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1-hover",
       }
     }
   />,
@@ -704,6 +768,22 @@ Array [
     }
   />,
   <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "90%",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "90%",
+      }
+    }
+  />,
+  <div
     className="o-ui-o-hover"
     style={
       Object {
@@ -906,8 +986,8 @@ Array [
   <div
     verticalALign={
       Object {
-        "l": "sub",
-        "m": "baseline",
+        "lg": "sub",
+        "md": "baseline",
       }
     }
   />,
@@ -956,7 +1036,7 @@ Array [
 ]
 `;
 
-exports[`breakpoints m 1`] = `
+exports[`breakpoints md 1`] = `
 Array [
   <div
     style={
@@ -990,6 +1070,14 @@ Array [
     style={
       Object {
         "backgroundColor": "var(--o-ui-bg-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-1)",
       }
     }
   />,
@@ -1045,6 +1133,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
     className="o-ui-b-focus"
     style={
       Object {
@@ -1064,6 +1160,14 @@ Array [
     style={
       Object {
         "borderBottom": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-1)",
       }
     }
   />,
@@ -1091,6 +1195,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
     className="o-ui-bl-focus"
     style={
       Object {
@@ -1114,6 +1226,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
     className="o-ui-br-focus"
     style={
       Object {
@@ -1133,6 +1253,14 @@ Array [
     style={
       Object {
         "borderTop": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-1)",
       }
     }
   />,
@@ -1202,6 +1330,14 @@ Array [
     }
   />,
   <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-1)",
+      }
+    }
+  />,
+  <div
     className="o-ui-bs-focus"
     style={
       Object {
@@ -1221,6 +1357,14 @@ Array [
     style={
       Object {
         "color": "alias-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1",
       }
     }
   />,
@@ -1660,6 +1804,22 @@ Array [
     }
   />,
   <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "0.9",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "0.9",
+      }
+    }
+  />,
+  <div
     className="o-ui-o-hover"
     style={
       Object {
@@ -1862,8 +2022,8 @@ Array [
   <div
     verticalALign={
       Object {
-        "l": "sub",
-        "m": "baseline",
+        "lg": "sub",
+        "md": "baseline",
       }
     }
   />,
@@ -3202,6 +3362,959 @@ Array [
     style={
       Object {
         "backgroundColor": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props background color/active 1`] = `
+Array [
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-positive-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-warning-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "unset",
       }
     }
   />,
@@ -7331,6 +8444,927 @@ Array [
 ]
 `;
 
+exports[`props border bottom/active 1`] = `
+Array [
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`props border bottom/focus 1`] = `
 Array [
   <div
@@ -9974,6 +12008,927 @@ Array [
     style={
       Object {
         "borderLeft": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props border left/active 1`] = `
+Array [
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "unset",
       }
     }
   />,
@@ -12785,6 +15740,927 @@ Array [
     style={
       Object {
         "borderRight": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props border right/active 1`] = `
+Array [
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "unset",
       }
     }
   />,
@@ -15750,6 +19626,927 @@ Array [
 ]
 `;
 
+exports[`props border top/active 1`] = `
+Array [
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`props border top/focus 1`] = `
 Array [
   <div
@@ -17586,6 +22383,927 @@ Array [
     style={
       Object {
         "--o-ui-bt-hover": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props border/active 1`] = `
+Array [
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-negative-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-positive-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-primary-1-translucent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-warning-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid #fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "unset",
       }
     }
   />,
@@ -19657,6 +25375,123 @@ Array [
 ]
 `;
 
+exports[`props box shadow/active 1`] = `
+Array [
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-alias-lifted)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-alias-raised)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-alias-skim)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "none",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "10px 5px 5px black",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "unset",
+      }
+    }
+  />,
+]
+`;
+
 exports[`props box shadow/focus 1`] = `
 Array [
   <div
@@ -20825,6 +26660,1079 @@ Array [
     style={
       Object {
         "color": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props color/active 1`] = `
+Array [
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-2-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-3",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-3-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-3-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-4",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-primary-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-primary-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-primary-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-negative-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-negative-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-negative-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-negative-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-info-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-info-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-info-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-positive-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-positive-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-positive-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-positive-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-warning-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-warning-1-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-warning-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-warning-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-input-selection",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-input-placeholder",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-marine-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-moonstone-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-cloud-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-neutral-dark-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-beetle-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-botanic-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-6)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-7)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-8)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-9)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-primary-10)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "#fff",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-white)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "rgb(255, 255, 128)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "rgba(255, 255, 128, .5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "hsl(50, 33%, 25%)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "hsla(50, 33%, 25%, .75)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div />,
+  <div />,
+  <div />,
+  <div />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-sunray-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "unset",
       }
     }
   />,
@@ -27567,6 +34475,41 @@ Array [
   <div
     style={
       Object {
+        "gridAutoColumns": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-18)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "gridAutoColumns": "1px",
       }
     }
@@ -27868,6 +34811,41 @@ Array [
     style={
       Object {
         "gridAutoRows": "var(--o-ui-sz-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-18)",
       }
     }
   />,
@@ -28716,6 +35694,41 @@ Array [
   <div
     style={
       Object {
+        "gridTemplateColumns": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-18)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "gridTemplateColumns": "1px",
       }
     }
@@ -28955,6 +35968,41 @@ Array [
   <div
     style={
       Object {
+        "gridTemplateRows": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-18)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "gridTemplateRows": "1px",
       }
     }
@@ -29188,6 +36236,41 @@ Array [
     style={
       Object {
         "height": "var(--o-ui-sz-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-18)",
       }
     }
   />,
@@ -31674,6 +38757,41 @@ Array [
   <div
     style={
       Object {
+        "maxHeight": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-18)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "maxHeight": "1px",
       }
     }
@@ -31907,6 +39025,41 @@ Array [
     style={
       Object {
         "maxWidth": "var(--o-ui-sz-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-18)",
       }
     }
   />,
@@ -32152,6 +39305,41 @@ Array [
   <div
     style={
       Object {
+        "minHeight": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-18)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "minHeight": "1px",
       }
     }
@@ -32385,6 +39573,41 @@ Array [
     style={
       Object {
         "minWidth": "var(--o-ui-sz-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-18)",
       }
     }
   />,
@@ -32690,6 +39913,112 @@ Array [
     style={
       Object {
         "opacity": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props opacity/active 1`] = `
+Array [
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "0.9",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "90%",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "unset",
+      }
+    }
+  />,
+]
+`;
+
+exports[`props opacity/focus 1`] = `
+Array [
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "0.9",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "90%",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "unset",
       }
     }
   />,
@@ -36956,6 +44285,41 @@ Array [
     style={
       Object {
         "width": "var(--o-ui-sz-13)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-14)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-15)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-16)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-17)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-18)",
       }
     }
   />,

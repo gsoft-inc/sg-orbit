@@ -177,7 +177,7 @@ yarn release-alpha
 
 When Lerna version prompt pop, you should pick a version number matching your future main version. E.g. if you plan on publishing your changes as version `19.0.0` once they are done, your alpha version should be `19.0.0-alpha.1`.
 
-If you need to publish a subsequent alpha package for the same version, do not select any Lerna suggestion. Instead, select "Custom" and then enter "alpha". By doing so, the new alpha package version will be `19.0.0-alpha.2`.
+If you need to publish a subsequent alpha package for the same version, do not select any Lerna suggestion. Instead, select **"Custom Prelease"** and then enter **"alpha"**. By doing so, the new alpha package version will be `19.0.0-alpha.2`.
 
 ### Troubleshooting
 

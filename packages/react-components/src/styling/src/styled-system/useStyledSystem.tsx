@@ -545,6 +545,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    backgroundColorActive?: BackgroundColorProp;
+    /**
+     * @ignore
+     */
     backgroundColorFocus?: BackgroundColorProp;
     /**
      * @ignore
@@ -577,6 +581,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    borderBottomActive?: BorderBottomProp;
+    /**
+     * @ignore
+     */
     borderBottomFocus?: BorderBottomProp;
     /**
      * @ignore
@@ -593,6 +601,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    borderActive?: BorderProp;
+    /**
+     * @ignore
+     */
     borderFocus?: BorderProp;
     /**
      * @ignore
@@ -602,6 +614,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     borderLeft?: BorderLeftProp;
+    /**
+     * @ignore
+     */
+    borderLeftActive?: BorderLeftProp;
     /**
      * @ignore
      */
@@ -621,6 +637,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    borderRightActive?: BorderRightProp;
+    /**
+     * @ignore
+     */
     borderRightFocus?: BorderRightProp;
     /**
      * @ignore
@@ -630,6 +650,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     borderTop?: BorderTopProp;
+    /**
+     * @ignore
+     */
+    borderTopActive?: BorderTopProp;
     /**
      * @ignore
      */
@@ -657,6 +681,10 @@ export interface StyledSystemProps {
     /**
      * @ignore
      */
+    boxShadowActive?: BoxShadowProp;
+    /**
+     * @ignore
+     */
     boxShadowFocus?: BoxShadowProp;
     /**
      * @ignore
@@ -666,6 +694,10 @@ export interface StyledSystemProps {
      * @ignore
      */
     color?: ColorProp;
+    /**
+     * @ignore
+     */
+    colorActive?: ColorProp;
     /**
      * @ignore
      */
@@ -910,6 +942,14 @@ export interface StyledSystemProps {
      * @ignore
      */
     opacity?: OpacityProp;
+    /**
+     * @ignore
+     */
+    opacityActive?: OpacityProp;
+    /**
+     * @ignore
+     */
+    opacityFocus?: OpacityProp;
     /**
      * @ignore
      */
@@ -1241,6 +1281,7 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     alignSelf: createHandler(),
     aspectRatio: createHandler(),
     backgroundColor: createHandler(BackgroundColorMapping),
+    backgroundColorActive: createPseudoHandler("o-ui-bg-active", "--o-ui-bg-active", BackgroundColorMapping),
     backgroundColorFocus: createPseudoHandler("o-ui-bg-focus", "--o-ui-bg-focus", BackgroundColorMapping),
     backgroundColorHover: createPseudoHandler("o-ui-bg-hover", "--o-ui-bg-hover", BackgroundColorMapping),
     backgroundImage: createHandler(),
@@ -1249,29 +1290,36 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     backgroundSize: createHandler(),
     border: createBorderHandler(BorderMapping),
     borderBottom: createBorderHandler(BorderMapping),
+    borderBottomActive: createBorderPseudoHandler("o-ui-bb-active", "--o-ui-bb-active", BorderMapping),
     borderBottomFocus: createBorderPseudoHandler("o-ui-bb-focus", "--o-ui-bb-focus", BorderMapping),
     borderBottomHover: createBorderPseudoHandler("o-ui-bb-hover", "--o-ui-bb-hover", BorderMapping),
     borderBottomLeftRadius: createHandler(BorderRadiusMapping),
     borderBottomRightRadius: createHandler(BorderRadiusMapping),
+    borderActive: createBorderPseudoHandler("o-ui-b-active", "--o-ui-b-active", BorderMapping),
     borderFocus: createBorderPseudoHandler("o-ui-b-focus", "--o-ui-b-focus", BorderMapping),
     borderHover: createBorderPseudoHandler("o-ui-b-hover", "--o-ui-b-hover", BorderMapping),
     borderLeft: createBorderHandler(BorderMapping),
+    borderLeftActive: createBorderPseudoHandler("o-ui-bl-active", "--o-ui-bl-active", BorderMapping),
     borderLeftFocus: createBorderPseudoHandler("o-ui-bl-focus", "--o-ui-bl-focus", BorderMapping),
     borderLeftHover: createBorderPseudoHandler("o-ui-bl-hover", "--o-ui-bl-hover", BorderMapping),
     borderRadius: createHandler(BorderRadiusMapping),
     borderRight: createBorderHandler(BorderMapping),
+    borderRightActive: createBorderPseudoHandler("o-ui-br-active", "--o-ui-br-active", BorderMapping),
     borderRightFocus: createBorderPseudoHandler("o-ui-br-focus", "--o-ui-br-focus", BorderMapping),
     borderRightHover: createBorderPseudoHandler("o-ui-br-hover", "--o-ui-br-hover", BorderMapping),
     borderTop: createBorderHandler(BorderMapping),
+    borderTopActive: createBorderPseudoHandler("o-ui-bt-active", "--o-ui-bt-active", BorderMapping),
     borderTopFocus: createBorderPseudoHandler("o-ui-bt-focus", "--o-ui-bt-focus", BorderMapping),
     borderTopHover: createBorderPseudoHandler("o-ui-bt-hover", "--o-ui-bt-hover", BorderMapping),
     borderTopLeftRadius: createHandler(BorderRadiusMapping),
     borderTopRightRadius: createHandler(BorderRadiusMapping),
     bottom: createHandler(),
     boxShadow: createHandler(BoxShadowMapping),
+    boxShadowActive: createPseudoHandler("o-ui-bs-active", "--o-ui-bs-active", BoxShadowMapping),
     boxShadowFocus: createPseudoHandler("o-ui-bs-focus", "--o-ui-bs-focus", BoxShadowMapping),
     boxShadowHover: createPseudoHandler("o-ui-bs-hover", "--o-ui-bs-hover", BoxShadowMapping),
     color: createHandler(ColorMapping),
+    colorActive: createPseudoHandler("o-ui-c-active", "--o-ui-c-active", ColorMapping),
     colorFocus: createPseudoHandler("o-ui-c-focus", "--o-ui-c-focus", ColorMapping),
     colorHover: createPseudoHandler("o-ui-c-hover", "--o-ui-c-hover", ColorMapping),
     columnGap: createHandler(SpacingMapping),
@@ -1333,6 +1381,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     objectFit: createHandler(),
     objectPosition: createHandler(),
     opacity: createHandler(),
+    opacityActive: createPseudoHandler("o-ui-o-active", "o-ui-o-active"),
+    opacityFocus: createPseudoHandler("o-ui-o-focus", "o-ui-o-focus"),
     opacityHover: createPseudoHandler("o-ui-o-hover", "o-ui-o-hover"),
     order: createHandler(),
     outline: createHandler(),
@@ -1377,6 +1427,7 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         alignSelf,
         aspectRatio,
         backgroundColor,
+        backgroundColorActive,
         backgroundColorFocus,
         backgroundColorHover,
         backgroundImage,
@@ -1385,30 +1436,37 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         backgroundSize,
         border,
         borderBottom,
+        borderBottomActive,
         borderBottomFocus,
         borderBottomHover,
         borderBottomLeftRadius,
         borderBottomRightRadius,
         borderFocus,
         borderHover,
+        borderActive,
         borderLeft,
+        borderLeftActive,
         borderLeftFocus,
         borderLeftHover,
         borderRadius,
         borderRight,
+        borderRightActive,
         borderRightFocus,
         borderRightHover,
         borderTop,
+        borderTopActive,
         borderTopFocus,
         borderTopHover,
         borderTopLeftRadius,
         borderTopRightRadius,
         bottom,
         boxShadow,
+        boxShadowActive,
         boxShadowFocus,
         boxShadowHover,
         className,
         color,
+        colorActive,
         colorFocus,
         colorHover,
         columnGap,
@@ -1470,6 +1528,8 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         objectFit,
         objectPosition,
         opacity,
+        opacityActive,
+        opacityFocus,
         opacityHover,
         order,
         outline,
@@ -1536,6 +1596,7 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         alignSelf,
         aspectRatio,
         backgroundColor,
+        backgroundColorActive,
         backgroundColorFocus,
         backgroundColorHover,
         backgroundImage,
@@ -1544,17 +1605,22 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         backgroundSize,
         border,
         borderBottom,
+        borderBottomActive,
         borderBottomFocus,
         borderBottomHover,
         borderLeft,
+        borderLeftActive,
         borderLeftFocus,
         borderLeftHover,
         borderRight,
+        borderRightActive,
         borderRightFocus,
         borderRightHover,
         borderTop,
+        borderTopActive,
         borderTopFocus,
         borderTopHover,
+        borderActive,
         borderFocus,
         borderHover,
         borderRadius,
@@ -1563,12 +1629,14 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         borderTopLeftRadius,
         borderTopRightRadius,
         boxShadow,
+        boxShadowActive,
         boxShadowFocus,
         boxShadowHover,
         bottom,
         breakpoint,
         className,
         color,
+        colorActive,
         colorFocus,
         colorHover,
         columnGap,
@@ -1630,6 +1698,8 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         objectFit,
         objectPosition,
         opacity,
+        opacityActive,
+        opacityFocus,
         opacityHover,
         order,
         outline,
