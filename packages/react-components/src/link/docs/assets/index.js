@@ -1,3 +1,3 @@
-import LaunchImage from "./launch.jpg";
+import GalaxyLargeImage from "./galaxy-lg.png";
 
-export { LaunchImage };
+export { GalaxyLargeImage };

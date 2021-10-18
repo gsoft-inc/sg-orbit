@@ -31,8 +31,8 @@ An image can use a different shape.
 <Preview scope={{ GalaxyImage }}>
     <Story name="shape">
         <Inline>
-            <Image shape="rounded" src={GalaxyImage} alt="Galaxy" width={10} height={10} />
-            <Image shape="circular" src={GalaxyImage} alt="Galaxy" width={10} height={10} />
+            <Image shape="rounded" src={GalaxyImage} alt="Galaxy" width={12} height={12} />
+            <Image shape="circular" src={GalaxyImage} alt="Galaxy" width={12} height={12} />
         </Inline>
     </Story>
 </Preview>
@@ -43,7 +43,7 @@ An image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ GalaxyImageLg }}>
     <Story name="size">
-        <Image width={12} height={12} src={GalaxyImageLg} alt="Galaxy" />
+        <Image width={13} height={13} src={GalaxyImageLg} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -57,7 +57,7 @@ _Avoid serving images that are unecessary big, images should be resized to the i
 
 <Preview scope={{ GalaxyImage, GalaxyImage2x }}>
     <Story name="retina">
-        <Image width={10} height={10} srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
+        <Image width={13} height={13} srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -77,7 +77,7 @@ An SVG image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ NoResults }}>
     <Story name="svg image size">
-        <SvgImage width={11} height={11} stroke="marine-6" src={NoResults} aria-label="No results" />
+        <SvgImage width={14} height={13} stroke="marine-6" src={NoResults} aria-label="No results" />
     </Story>
 </Preview>
 
