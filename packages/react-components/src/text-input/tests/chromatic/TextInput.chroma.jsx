@@ -114,6 +114,16 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <TextInput placeholder="Where to?" />
+            </Div>
+            <Div className="zoom-out">
+                <TextInput placeholder="Where to?" />
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <TextInput border="sunray-10" aria-label="Label" />

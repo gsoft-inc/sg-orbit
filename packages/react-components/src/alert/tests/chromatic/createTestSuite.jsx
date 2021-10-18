@@ -1,4 +1,5 @@
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading } from "@react-components/typography";
 import { cloneElement } from "react";
 
@@ -68,5 +69,21 @@ export function createTestSuite(element, stories) {
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
             </Alert>
+        )
+        .add("zoom in", () =>
+            <Div className="zoom-in">
+                <Alert primaryButtonLabel="Yes" element={element}>
+                    <Heading>Launch</Heading>
+                    <Content>Are you use you want to launch the space shuttle?</Content>
+                </Alert>
+            </Div>
+        )
+        .add("zoom out", () =>
+            <Div className="zoom-out">
+                <Alert primaryButtonLabel="Yes" element={element}>
+                    <Heading>Launch</Heading>
+                    <Content>Are you use you want to launch the space shuttle?</Content>
+                </Alert>
+            </Div>
         );
 }

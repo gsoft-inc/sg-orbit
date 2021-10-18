@@ -30,7 +30,7 @@ export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">,
     /**
      * The theme to use.
      */
-    theme?: OrbitTheme;
+    theme: OrbitTheme;
 }
 
 export function ThemeProvider({

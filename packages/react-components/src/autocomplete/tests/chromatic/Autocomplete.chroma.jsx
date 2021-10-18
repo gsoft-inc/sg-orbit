@@ -415,6 +415,24 @@ stories()
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Autocomplete placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Autocomplete>
+            </Div>
+            <Div className="zoom-out">
+                <Autocomplete placeholder="Select a planet" aria-label="Planets">
+                    <Item key="earth">Earth</Item>
+                    <Item key="jupiter">Jupiter</Item>
+                    <Item key="mars">Mars</Item>
+                </Autocomplete>
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <Autocomplete border="sunray-10" placeholder="Select a planet" aria-label="Planets">

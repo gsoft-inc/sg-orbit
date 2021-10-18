@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Dot } from "@react-components/dot";
 import { Inline, Stack } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
@@ -32,6 +33,16 @@ stories()
             <Dot disabled color="alias-2"></Dot>
             <Dot color="hsl(25, 69%, 41%)" disabled>Habitable</Dot>
         </Stack>
+    )
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Dot color="alias-2" />
+            </Div>
+            <Div className="zoom-out">
+                <Dot color="alias-2" />
+            </Div>
+        </Inline>
     )
     .add("styling", () =>
         <Stack>

@@ -58,6 +58,16 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <Lozenge>New</Lozenge>
+            </Div>
+            <Div className="zoom-out">
+                <Lozenge>New</Lozenge>
+            </Div>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <Lozenge border="sunray-10">New</Lozenge>

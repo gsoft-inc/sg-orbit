@@ -1,11 +1,11 @@
 import { Button, ButtonGroup } from "@react-components/button";
 import { Content, Header } from "@react-components/placeholders";
+import { Div, LI, UL } from "@react-components/html";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
-import { LI, UL } from "@react-components/html";
 import { Nasa } from "./assets";
 import { Tabs } from "@react-components/tabs";
 import { TextLink } from "@react-components/link";
@@ -681,5 +681,21 @@ export function createTestSuite(element, stories) {
                     <Button>Lorem ipsum dolor sit amet.</Button>
                 </ButtonGroup>
             </Card>
+        )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <Card element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Div>
+                <Div className="zoom-out">
+                    <Card element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Div>
+            </Stack>
         );
 }

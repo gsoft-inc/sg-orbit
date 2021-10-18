@@ -1,4 +1,5 @@
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading } from "@react-components/typography";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
@@ -59,6 +60,22 @@ export function createTileLinkTestSuite(element, stories) {
                         <Content>View space map</Content>
                     </TileLink>
                 </Inline>
+            </Stack>
+        )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <TileLink href="https://www.google.com" element={element}>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </TileLink>
+                </Div>
+                <Div className="zoom-out">
+                    <TileLink href="https://www.google.com" element={element}>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </TileLink>
+                </Div>
             </Stack>
         )
         .add("styling", () =>

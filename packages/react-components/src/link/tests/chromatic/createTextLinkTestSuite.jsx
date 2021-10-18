@@ -149,5 +149,15 @@ export function createTextLinkTestSuite(element, stories) {
         )
         .add("new tab", () =>
             <TextLink target="_blank" href="#" element={element}>Flight details</TextLink>
+        )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <TextLink href="#" element={element}>Flight details</TextLink>
+                </Div>
+                <Div className="zoom-out">
+                    <TextLink href="#" element={element}>Flight details</TextLink>
+                </Div>
+            </Stack>
         );
 }

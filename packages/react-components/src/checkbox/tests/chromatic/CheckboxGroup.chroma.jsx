@@ -190,6 +190,24 @@ stories()
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
         </Stack>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <CheckboxGroup label="Select your packages">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+            </Div>
+            <Div className="zoom-out">
+                <CheckboxGroup label="Select your packages">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+            </Div>
+        </Stack>
     );
 
 stories("/vertical")
@@ -220,5 +238,23 @@ stories("/vertical")
             <Checkbox value="2">A very long option to read while you wait for the countdown to mars.</Checkbox>
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <CheckboxGroup label="Select your packages">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+            </Div>
+            <Div className="zoom-out">
+                <CheckboxGroup label="Select your packages">
+                    <Checkbox value="1">1</Checkbox>
+                    <Checkbox value="2">2</Checkbox>
+                    <Checkbox value="3">3</Checkbox>
+                </CheckboxGroup>
+            </Div>
+        </Stack>
     );
 

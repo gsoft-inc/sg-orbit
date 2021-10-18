@@ -37,26 +37,6 @@ stories()
             <Content className="border-red">Are you use you want to launch the space shuttle?</Content>
         </Alert>
     )
-    .add("zoom in", () =>
-        <div className="zoom-in">
-            <Alert
-                primaryButtonLabel="Yes"
-            >
-                <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
-            </Alert>
-        </div>
-    )
-    .add("zoom out", () =>
-        <div className="zoom-out">
-            <Alert
-                primaryButtonLabel="Yes"
-            >
-                <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
-            </Alert>
-        </div>
-    )
     .add("styles", () =>
         <Alert
             primaryButtonLabel="Yes"

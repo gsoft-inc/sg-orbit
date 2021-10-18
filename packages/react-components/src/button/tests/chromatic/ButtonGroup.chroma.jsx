@@ -1,5 +1,6 @@
 import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -81,6 +82,22 @@ stories()
                 <Button variant="primary">Submit form</Button>
             </ButtonGroup>
         </Stack>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <ButtonGroup>
+                    <Button variant="tertiary">Reset</Button>
+                    <Button variant="primary">Submit form</Button>
+                </ButtonGroup>
+            </Div>
+            <Div className="zoom-out">
+                <ButtonGroup>
+                    <Button variant="tertiary">Reset</Button>
+                    <Button variant="primary">Submit form</Button>
+                </ButtonGroup>
+            </Div>
+        </Stack>
     );
 
 stories("/vertical")
@@ -119,5 +136,21 @@ stories("/vertical")
                 <Button variant="secondary">Reset</Button>
                 <Button variant="secondary">Submit form</Button>
             </ButtonGroup>
+        </Inline>
+    )
+    .add("zoom", () =>
+        <Inline>
+            <Div className="zoom-in">
+                <ButtonGroup orientation="vertical">
+                    <Button variant="tertiary">Reset</Button>
+                    <Button variant="primary">Submit form</Button>
+                </ButtonGroup>
+            </Div>
+            <Div className="zoom-out">
+                <ButtonGroup orientation="vertical">
+                    <Button variant="tertiary">Reset</Button>
+                    <Button variant="primary">Submit form</Button>
+                </ButtonGroup>
+            </Div>
         </Inline>
     );

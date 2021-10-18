@@ -56,6 +56,16 @@ stories()
             <NumberInput validationState="valid" placeholder="Age" />
         </Inline>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <NumberInput placeholder="Age" />
+            </Div>
+            <Div className="zoom-out">
+                <NumberInput placeholder="Age" />
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <NumberInput border="sunray-10" placeholder="Age" />

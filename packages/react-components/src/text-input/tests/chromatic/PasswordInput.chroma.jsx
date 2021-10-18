@@ -66,6 +66,16 @@ stories()
             <PasswordInput readOnly placeholder="What's your secret?" />
         </Stack>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <PasswordInput placeholder="What's your secret?" />
+            </Div>
+            <Div className="zoom-out">
+                <PasswordInput placeholder="What's your secret?" />
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <PasswordInput border="sunray-10" aria-label="Label" />

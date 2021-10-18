@@ -1,4 +1,5 @@
 import { AddIcon } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
@@ -93,6 +94,16 @@ export function createIconLinkTestSuite(element, stories) {
         )
         .add("new tab", () =>
             <IconLink target="_blank" href="#" aria-label="Add" element={element}><AddIcon /></IconLink>
+        )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <IconLink href="#" aria-label="Add" element={element}><AddIcon /></IconLink>
+                </Div>
+                <Div className="zoom-out">
+                    <IconLink href="#" aria-label="Add" element={element}><AddIcon /></IconLink>
+                </Div>
+            </Stack>
         );
 }
 

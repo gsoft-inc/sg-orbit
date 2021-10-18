@@ -102,6 +102,16 @@ stories()
             <SearchInput readOnly placeholder="Where to?" />
         </Stack>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <SearchInput placeholder="Where to?" />
+            </Div>
+            <Div className="zoom-out">
+                <SearchInput placeholder="Where to?" />
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <SearchInput border="sunray-10" aria-label="Label" />

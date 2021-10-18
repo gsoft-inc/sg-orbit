@@ -97,6 +97,22 @@ stories()
             <Counter variant="divider" disabled>15</Counter>
         </Inline>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Inline>
+                    <Counter>15</Counter>
+                    <Counter variant="divider">15</Counter>
+                </Inline>
+            </Div>
+            <Div className="zoom-out">
+                <Inline>
+                    <Counter>15</Counter>
+                    <Counter variant="divider">15</Counter>
+                </Inline>
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Stack>
             <Inline alignY="center">

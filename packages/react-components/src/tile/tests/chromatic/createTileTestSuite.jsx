@@ -1,4 +1,5 @@
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading, Paragraph } from "@react-components/typography";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
@@ -114,6 +115,22 @@ export function createTileTestSuite(element, stories) {
                         <Content>Fuel configuration and level</Content>
                     </Tile>
                 </Inline>
+            </Stack>
+        )
+        .add("zoom", () =>
+            <Stack>
+                <Div className="zoom-in">
+                    <Tile element={element}>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Div>
+                <Div className="zoom-out">
+                    <Tile element={element}>
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                </Div>
             </Stack>
         )
         .add("styling", () =>

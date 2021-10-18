@@ -113,6 +113,16 @@ stories()
     .add("rows", () =>
         <TextArea rows={12} aria-label="Label" />
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <TextArea aria-label="Label" />
+            </Div>
+            <Div className="zoom-out">
+                <TextArea aria-label="Label" />
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <TextArea border="sunray-10" aria-label="Label" />
