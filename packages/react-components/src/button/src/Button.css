@@ -1,6 +1,6 @@
 .o-ui {
-    --o-ui-button-height-sm: var(--o-ui-sp-7);
-    --o-ui-button-height-md: var(--o-ui-sp-8);
+    --o-ui-button-height-sm: var(--o-ui-sz-5);
+    --o-ui-button-height-md: var(--o-ui-sz-6);
     --o-ui-button-loading-spinner-background: rgba(256, 256, 256, 0.5);
 }
 
@@ -479,12 +479,12 @@ a.o-ui-button {
 
 /* CIRCULAR | SIZES */
 .o-ui-button-circular.o-ui-button-sm {
-    min-width: var(--o-ui-sp-7);
+    min-width: var(--o-ui-sz-5);
     padding: 0 var(--o-ui-sp-1);
 }
 
 .o-ui-button-circular.o-ui-button-md {
-    min-width: var(--o-ui-sp-8);
+    min-width: var(--o-ui-sz-6);
     padding: 0 var(--o-ui-sp-1);
 }
 

@@ -82,7 +82,7 @@
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sp-8) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sz-6) / 2 + 2px), 2px);
 }
 
 /* STATE | FOCUS */
@@ -120,30 +120,30 @@
 /* SIZING */
 /* SMALL */
 .o-ui-switch-sm .o-ui-switch-control {
-    width: var(--o-ui-sp-7);
-    height: var(--o-ui-sp-4);
+    width: var(--o-ui-sz-5);
+    height: var(--o-ui-sz-2);
 }
 
 .o-ui-switch-sm .o-ui-switch-control::before {
-    width: var(--o-ui-sp-3);
-    height: var(--o-ui-sp-3);
+    width: var(--o-ui-sz-1);
+    height: var(--o-ui-sz-1);
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sp-7) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sz-5) / 2 + 2px), 2px);
 }
 
 /* MEDIUM */
 .o-ui-switch-md .o-ui-switch-control {
-    width: var(--o-ui-sp-8);
-    height: var(--o-ui-sp-5);
+    width: var(--o-ui-sz-6);
+    height: var(--o-ui-sz-3);
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
-    width: var(--o-ui-sp-4);
-    height: var(--o-ui-sp-4);
+    width: var(--o-ui-sz-2);
+    height: var(--o-ui-sz-2);
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sp-8) / 2 + 2px), 2px);
+    transform: translate(calc(var(--o-ui-sz-6) / 2 + 2px), 2px);
 }

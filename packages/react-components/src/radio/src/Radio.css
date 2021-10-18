@@ -16,8 +16,8 @@
     border-radius: var(--o-ui-shape-circular);
     border: 1px solid var(--o-ui-b-alias-1);
     position: relative;
-    width: var(--o-ui-sp-5);
-    height: var(--o-ui-sp-5);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
 }
 
 .o-ui-radio-button::before {
@@ -27,8 +27,8 @@
     border-radius: var(--o-ui-shape-circular);
     transform: scale(0) translate(-2px, -2px);
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing--productive);
-    width: var(--o-ui-sp-5);
-    height: var(--o-ui-sp-5);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
 }
 
 /* CONTENT | LABEL */

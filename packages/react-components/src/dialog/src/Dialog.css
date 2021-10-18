@@ -50,8 +50,8 @@
 }
 
 .o-ui-dialog-fullscreen {
-    width: calc(100% - (2 * var(--o-ui-sp-8)));
-    min-height: calc(100% - (2 * var(--o-ui-sp-8)));
+    width: calc(100% - (2 * var(--o-ui-sz-6)));
+    min-height: calc(100% - (2 * var(--o-ui-sz-6)));
 }
 
 /* DIALOG | IMAGE & ILLUSTRATION */
@@ -133,6 +133,6 @@
 /* DISMISS BUTTON */
 .o-ui-dialog .o-ui-dialog-dismiss-button {
     position: absolute;
-    top: var(--o-ui-sp-4);
-    right: var(--o-ui-sp-4);
+    top: 1rem;
+    right: 1rem;
 }

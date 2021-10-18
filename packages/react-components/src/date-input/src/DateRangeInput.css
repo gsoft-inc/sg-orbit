@@ -16,7 +16,7 @@
 }
 
 .o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
-    max-width: 325px;
+    max-width: var(--o-ui-sz-16);
     width: 100%;
 }
 
@@ -83,7 +83,7 @@
     outline: none;
     transition: all .12s ease-in, padding 0s linear;
     width: 100%;
-    min-height: calc(var(--o-ui-sp-8) - 2px);
+    min-height: calc(var(--o-ui-sz-6) - 2px);
     background-color: transparent;
 }
 
@@ -108,7 +108,7 @@
 /* CLEAR BUTTON */
 .o-ui-date-range-input-clear-button {
     position: absolute;
-    right: var(--o-ui-sp-1);
+    right: 0.25rem;
 }
 
 /* BUTTON PRESETS */

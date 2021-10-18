@@ -14,13 +14,13 @@
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
     color: var(--o-ui-text-alias-1);
-    width: 325px;
+    width: var(--o-ui-sz-16);
 }
 
 .o-ui-input input {
     -webkit-appearance: none;
     outline: none;
-    min-height: var(--o-ui-sp-8);
+    min-height: var(--o-ui-sz-6);
 }
 
 .o-ui-input input,
