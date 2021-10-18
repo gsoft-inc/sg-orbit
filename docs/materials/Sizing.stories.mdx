@@ -9,13 +9,7 @@ import { Div } from "@react-components/html";
 
 # Sizing
 
-Our Sizing scale is used for sizing things(width and height), if you need to space items use the spacing scale.
-
-Orbit Design spacing scale use an 8 point scale.
-
-We chose a base-8 scale because eight is a highly composable number (it can be divided and multiplied many times and result in whole numbers), yet allows spacing dense enough for ShareGate's products.
-
-A few half points have been added to cover specific use cases that requires smaller padding and margin.
+Our Sizing scale is used for sizing things(width, height, min-width, min-height, etc), if you need to space items use the [spacing scale](?path=/docs/spacing--page).
 
 ### Units
 
@@ -25,11 +19,9 @@ For a deep understanding of rem units, refer to the [Values and units](https://d
 
 ## Values
 
-Pixel values are based on a font-size of `16px` which gives an equivalent of `1rem` unit to `16px`.
+Orbit Design’s sizing scale uses an 8px scale. We chose a base-8 scale because 8 is a highly composable number (it can be divided and multiplied many times and result in whole numbers), yet allows spacing dense enough for ShareGate's products. A few half points(4px) have been added to cover specific use cases that requires more granular sizing.
 
-These values follows a logical gradation and are a multiple of 16. They should cover most interfaces needs, while keeping unity within our system.
-
-_Since dimensions higher than 500 are mostly used for layout, these are not included in our sizing scale and should be set by your application, while keeping them a multiple of 16px._
+_Since dimensions higher than 480px are mostly used for layout, these are not included in our sizing scale and should be set by your application, while keeping them a multiple of 16px._
 
 <Table
     columns={[
