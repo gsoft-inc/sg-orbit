@@ -200,7 +200,8 @@ stories()
                 </Field>
             </Inline>
         </Stack>
-    ).add("zoom", () =>
+    )
+    .add("zoom", () =>
         <Stack>
             <Div className="zoom-in">
                 <Field>
@@ -215,7 +216,8 @@ stories()
                 </Field>
             </Div>
         </Stack>
-    ).add("styling", () =>
+    )
+    .add("styling", () =>
         <Inline>
             <Field border="sunray-10">
                 <Label>Launch date</Label>

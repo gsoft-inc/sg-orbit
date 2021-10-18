@@ -415,7 +415,7 @@ stories()
         </Tabs>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Tabs aria-label="Planets">
                     <Item>
@@ -472,7 +472,7 @@ stories()
                     </Item>
                 </Tabs>
             </Div>
-        </>
+        </Stack>
     )
     .add("styling", () =>
         <Stack>

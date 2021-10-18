@@ -2,7 +2,7 @@ import { Accordion } from "@react-components/accordion";
 import { Content } from "@react-components/placeholders";
 import { Div } from "@react-components/html";
 import { H3 } from "@react-components/typography";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Item } from "@react-components/collection";
 import { createAccordionTestSuite } from "./createAccordionTestSuite";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -34,7 +34,7 @@ stories()
         </Accordion>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Accordion>
                     <Item>
@@ -111,7 +111,7 @@ stories()
                     </Item>
                 </Accordion>
             </Div>
-        </>
+        </Stack>
     ).add("styling", () =>
         <Inline>
             <Accordion border="sunray-10" expandedKeys={["0"]}>

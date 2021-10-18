@@ -585,7 +585,7 @@ stories()
         </Listbox>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Listbox aria-label="Planets">
                     <Item key="earth">Earth</Item>
@@ -602,7 +602,7 @@ stories()
                 </Listbox>
 
             </Div>
-        </>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

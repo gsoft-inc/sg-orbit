@@ -85,7 +85,8 @@ stories("/count")
                 <Text>50</Text>
             </IconBadge>
         </Inline>
-    ).add("zoom", () =>
+    )
+    .add("zoom", () =>
         <Inline gap={8}>
             <Div className="zoom-in">
                 <SquareBadge>
@@ -100,7 +101,8 @@ stories("/count")
             </Div>
 
         </Inline>
-    ).add("styling", () =>
+    )
+    .add("styling", () =>
         <Inline gap={8}>
             <SquareBadge border="sunray-10">
                 <Text>100</Text>

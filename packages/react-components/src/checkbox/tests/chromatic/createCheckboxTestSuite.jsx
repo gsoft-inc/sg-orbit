@@ -242,10 +242,10 @@ export function createCheckboxTestSuite(element, stories) {
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">
-                    <Checkbox>Milky Way</Checkbox>
+                    <Checkbox element={element}>Milky Way</Checkbox>
                 </Div>
                 <Div className="zoom-out'">
-                    <Checkbox>Milky Way</Checkbox>
+                    <Checkbox element={element}>Milky Way</Checkbox>
                 </Div>
             </Inline>
         );

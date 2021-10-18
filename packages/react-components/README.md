@@ -112,6 +112,8 @@ The stories must be located in a `tests/chromatic` folder next to the `src` fold
                     Button.chroma.jsx
 ```
 
+Every component should have a test for "zoom" and "styling". Have a look at the existing tests to learn more.
+
 For more information about the Storybook automated visual tests workflow, read the following [blog post](https://blog.hichroma.com/the-delightful-storybook-workflow-b322b76fd07) and the following [introduction to visual testing](https://storybook.js.org/tutorials/visual-testing-handbook/react/en/introduction/).
 
 ##### Interaction testing

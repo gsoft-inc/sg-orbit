@@ -1,4 +1,3 @@
-import { Div } from "@react-components/html";
 import { Inline } from "@react-components/layout";
 import { Radio } from "@react-components/radio";
 import { createRadioTestSuite } from "./createRadioTestSuite";
@@ -18,16 +17,6 @@ createRadioTestSuite(<Radio />, stories("/unchecked"));
 createRadioTestSuite(<Radio defaultChecked />, stories("/checked"));
 
 stories()
-    .add("zoom", () =>
-        <Inline>
-            <Div className="zoom-in">
-                <Radio value="any">Milky Way</Radio>
-            </Div>
-            <Div className="zoom-out">
-                <Radio value="any">Milky Way</Radio>
-            </Div>
-        </Inline>
-    )
     .add("styling", () =>
         <Inline>
             <Radio border="sunray-10" value="any">Milky Way</Radio>

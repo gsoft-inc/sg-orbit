@@ -621,7 +621,7 @@ stories()
         </Menu>
     )
     .add("zoom", () =>
-        <>
+        <Stack>
             <Div className="zoom-in">
                 <Menu aria-label="Planets">
                     <Item key="earth">Earth</Item>
@@ -636,7 +636,7 @@ stories()
                     <Item key="mars">Mars</Item>
                 </Menu>
             </Div>
-        </>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

@@ -1,4 +1,5 @@
 import { Counter } from "@react-components/counter";
+import { Div } from "@react-components/html";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@react-components/icons";
 import { Flex } from "@react-components/layout";
 import { Inline, Stack } from "@react-components/layout";
@@ -124,5 +125,15 @@ export function createRadioTestSuite(element, stories) {
                     </Radio>
                 </Flex>
             </Stack>
+        )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <Radio value="any" element={element}>Milky Way</Radio>
+                </Div>
+                <Div className="zoom-out">
+                    <Radio value="any" element={element}>Milky Way</Radio>
+                </Div>
+            </Inline>
         );
 }

@@ -175,6 +175,10 @@ To release an alpha version, open a terminal at the root of the workspace and ex
 yarn release-alpha
 ```
 
+When Lerna version prompt pop, you should pick a version number matching your future main version. E.g. if you plan on publishing your changes as version `19.0.0` once they are done, your alpha version should be `19.0.0-alpha.1`.
+
+If you need to publish a subsequent alpha package for the same version, do not select any Lerna suggestion. Instead, select "Custom" and then enter "alpha". By doing so, the new alpha package version will be `19.0.0-alpha.2`.
+
 ### Troubleshooting
 
 #### Github
@@ -203,13 +207,13 @@ Orbit documentation is host on Netlify. 2 sites are available, a currated site f
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the **sg-orbit** and **sg-storybook** sites of the GSoft team.
 
-Netlify is configured to automatically deploy (draft) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
+Netlify is configured to automatically deploy (unpublished) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
 
 To publish a site:
 
 - Login to [Netlify](https://app.netlify.com)
-- Find the latest draft deploy of your site
-- Click on the draft deploy link to access it's overview
+- Find the latest deploy of your site
+- Click on the deploy link to access it's overview
 - Click on the "Publish deploy" button
 
 ### Troubleshoot
@@ -228,7 +232,7 @@ To deploy a draft to the **sg-storybook** site, open a terminal at the root of t
 yarn deploy-sb-preview
 ```
 
-The draft link will be available in the terminal and on Netlify under the **sg-storybook** site.
+The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
 
 If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [storybook/package.json](/storybook/package.json) file.
 

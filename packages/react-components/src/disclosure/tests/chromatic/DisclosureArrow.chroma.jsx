@@ -13,7 +13,7 @@ function stories(segment) {
 
 stories()
     .add("default", () =>
-        <DisclosureArrow />
+        <DisclosureArrow open />
     )
     .add("controlled", () =>
         <Inline>

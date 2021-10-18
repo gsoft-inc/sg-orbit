@@ -1,4 +1,5 @@
-import { Box } from "../../../box";
+import { Box } from "@react-components/box";
+import { Div } from "@react-components/html";
 import { Illustration } from "@react-components/illustration";
 import { Image } from "@react-components/image";
 import { Inline, Stack } from "@react-components/layout";
@@ -70,6 +71,21 @@ stories()
                 </Illustration>
             </Inline>
         </Stack>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Illustration border="sunray-10" width="700px" height="200px">
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Div>
+            <Div className="zoom-out">
+                <Illustration border="sunray-10" width="700px" height="200px">
+                    <Image src={Nasa} alt="Nasa" />
+                </Illustration>
+            </Div>
+        </Stack>
+
     )
     .add("styling", () =>
         <Stack>
