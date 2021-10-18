@@ -231,6 +231,16 @@ export function createTagTestSuite(element, stories) {
                 </Div>
             </Stack>
         )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <Tag element={element}>Falcon 9</Tag>
+                </Div>
+                <Div className="zoom-out">
+                    <Tag element={element}>Falcon 9</Tag>
+                </Div>
+            </Inline>
+        )
         .add("as link", () =>
             <Inline>
                 <Tag as="a" element={element} href="#">Falcon 9</Tag>

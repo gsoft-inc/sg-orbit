@@ -1,3 +1,4 @@
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { LightbulbIcon } from "@react-components/icons";
 import { Text } from "@react-components/typography";
@@ -71,6 +72,16 @@ export function createToggleButtonTestSuite(element, stories) {
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
+            </Inline>
+        )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <ToggleButton element={element}>Cutoff</ToggleButton>
+                </Div>
+                <Div className="zoom-out">
+                    <ToggleButton element={element}>Cutoff</ToggleButton>
+                </Div>
             </Inline>
         );
 }

@@ -161,6 +161,32 @@ stories()
             </AvatarGroup>
         </Stack>
     )
+    .add("overflow", () =>
+        <Div width="10">
+            <AvatarGroup size="2xl">
+                <Avatar name="Sally Ride" />
+                <Avatar name="Alan Shepard" />
+                <Avatar name="Chris Hadfield" />
+                <Avatar name="Christa McAuliffe" />
+            </AvatarGroup>
+        </Div>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <AvatarGroup>
+                    <Avatar name="Sally Ride" />
+                    <Avatar name="Alan Shepard" />
+                </AvatarGroup>
+            </Div>
+            <Div className="zoom-out">
+                <AvatarGroup>
+                    <Avatar name="Sally Ride" />
+                    <Avatar name="Alan Shepard" />
+                </AvatarGroup>
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Inline>
             <AvatarGroup border="sunray-10">
@@ -176,14 +202,4 @@ stories()
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>
         </Inline>
-    )
-    .add("overflow", () =>
-        <Div width="10">
-            <AvatarGroup size="2xl">
-                <Avatar name="Sally Ride" />
-                <Avatar name="Alan Shepard" />
-                <Avatar name="Chris Hadfield" />
-                <Avatar name="Christa McAuliffe" />
-            </AvatarGroup>
-        </Div>
     );

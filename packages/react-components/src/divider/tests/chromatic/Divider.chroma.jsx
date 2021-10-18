@@ -47,6 +47,16 @@ stories()
             <Text>Voyager 1 - 1990</Text>
         </Div>
     )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Divider>Since 1978</Divider>
+            </Div>
+            <Div className="zoom-out">
+                <Divider>Since 1978</Divider>
+            </Div>
+        </Stack>
+    )
     .add("styling", () =>
         <Stack>
             <Divider border="sunray-10" />
@@ -100,6 +110,16 @@ stories("/vertical")
             <Divider orientation="vertical" />
             <Text size="sm">Mission post mortem</Text>
         </Flex>
+    )
+    .add("zoom", () =>
+        <Inline height={16}>
+            <Div className="zoom-in">
+                <Divider orientation="vertical">Since 1978</Divider>
+            </Div>
+            <Div className="zoom-out">
+                <Divider orientation="vertical">Since 1978</Divider>
+            </Div>
+        </Inline>
     )
     .add("styling", () =>
         <Inline height="16">

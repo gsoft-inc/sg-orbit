@@ -1,4 +1,5 @@
 import { CheckIcon } from "@react-components/icons";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { cloneElement } from "react";
 
@@ -60,6 +61,16 @@ export function createToggleIconButtonTestSuite(element, stories) {
             <Inline>
                 <ToggleIconButton checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 <ToggleIconButton defaultChecked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+            </Inline>
+        )
+        .add("zoom", () =>
+            <Inline>
+                <Div className="zoom-in">
+                    <ToggleIconButton aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                </Div>
+                <Div className="zoom-out">
+                    <ToggleIconButton aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                </Div>
             </Inline>
         );
 }

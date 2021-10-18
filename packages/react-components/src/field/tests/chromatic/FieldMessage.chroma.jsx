@@ -1,7 +1,7 @@
 import { Div, LI, OL, UL } from "@react-components/html";
 import { ErrorMessage, HelpMessage, ValidMessage } from "@react-components/field";
 import { HelpIcon, InfoIcon, WarningIcon } from "@react-components/icons";
-import { Inline } from "@react-components/layout";
+import { Inline, Stack } from "@react-components/layout";
 import { Paragraph } from "@react-components/typography";
 import { TextLink } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
@@ -107,6 +107,20 @@ stories()
                 <InfoIcon /> Thank you! Here's your <TextLink href="https://www.sharegate.com" external>receipt</TextLink>.
             </Align>
         </ValidMessage>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <HelpMessage>
+                    Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+                </HelpMessage>
+            </Div>
+            <Div className="zoom-out">
+                <HelpMessage>
+                    Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+                </HelpMessage>
+            </Div>
+        </Stack>
     )
     .add("styling", () =>
         <Inline>

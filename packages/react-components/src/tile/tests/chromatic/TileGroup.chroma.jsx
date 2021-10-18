@@ -1,4 +1,5 @@
 import { Content } from "@react-components/placeholders";
+import { Div } from "@react-components/html";
 import { Heading } from "@react-components/typography";
 import { Stack } from "@react-components/layout";
 import { Tile, TileGroup, TileLink } from "@react-components/tile";
@@ -145,6 +146,42 @@ stories()
                     <Content>Cockpit settings</Content>
                 </Tile>
             </TileGroup>
+        </Stack>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <TileGroup rowSize={3}>
+                    <Tile value="map">
+                        <Heading>Map</Heading>
+                        <Content>View space map</Content>
+                    </Tile>
+                    <Tile value="fuel">
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile value="setting">
+                        <Heading>Setting</Heading>
+                        <Content>Cockpit settings</Content>
+                    </Tile>
+                </TileGroup>
+            </Div>
+            <Div className="zoom-out">
+                <TileGroup rowSize={3}>
+                    <Tile value="map">
+                        <Heading>Map</Heading>
+                        <Content>View space map</Content>
+                    </Tile>
+                    <Tile value="fuel">
+                        <Heading>Fuel</Heading>
+                        <Content>Fuel configuration and level</Content>
+                    </Tile>
+                    <Tile value="setting">
+                        <Heading>Setting</Heading>
+                        <Content>Cockpit settings</Content>
+                    </Tile>
+                </TileGroup>
+            </Div>
         </Stack>
     )
     .add("styling", () =>

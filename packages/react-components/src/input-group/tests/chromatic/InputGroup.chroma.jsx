@@ -2,6 +2,7 @@ import { Autocomplete } from "@react-components/autocomplete";
 import { Button, IconButton } from "@react-components/button";
 import { DateInput, DateRangeInput } from "@react-components/date-input";
 import { DisclosureArrow } from "@react-components/disclosure";
+import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
 import { InputGroup } from "@react-components/input-group";
 import { Item } from "@react-components/collection";
@@ -835,6 +836,80 @@ stories()
                     </Autocomplete>
                 </InputGroup>
             </Inline>
+        </Stack>
+    )
+    .add("zoom", () =>
+        <Stack>
+            <Div className="zoom-in">
+                <Inline>
+                    <InputGroup>
+                        <Text>Days</Text>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <Button variant="secondary">Trigger</Button>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <MenuTrigger>
+                            <Button variant="secondary">Trigger</Button>
+                            <Menu aria-label="Planets">
+                                <Item key="earth">Earth</Item>
+                                <Item key="mars">Mars</Item>
+                                <Item key="saturn">Saturn</Item>
+                            </Menu>
+                        </MenuTrigger>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <Select aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Select>
+                        <TextInput aria-label="Planet" />
+                    </InputGroup>
+                </Inline>
+            </Div>
+            <Div className="zoom-out">
+                <Inline>
+                    <InputGroup>
+                        <Text>Days</Text>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <Button variant="secondary">Trigger</Button>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <MenuTrigger>
+                            <Button variant="secondary">Trigger</Button>
+                            <Menu aria-label="Planets">
+                                <Item key="earth">Earth</Item>
+                                <Item key="mars">Mars</Item>
+                                <Item key="saturn">Saturn</Item>
+                            </Menu>
+                        </MenuTrigger>
+                        <TextInput aria-label="Duration" />
+                    </InputGroup>
+                    <InputGroup>
+                        <Select aria-label="Planets">
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Select>
+                        <TextInput aria-label="Planet" />
+                    </InputGroup>
+                </Inline>
+            </Div>
         </Stack>
     )
     .add("styling", () =>
