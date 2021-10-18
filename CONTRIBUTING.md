@@ -203,13 +203,13 @@ Orbit documentation is host on Netlify. 2 sites are available, a currated site f
 
 Login to [Netlify](https://app.netlify.com) and make sure you have access to the **sg-orbit** and **sg-storybook** sites of the GSoft team.
 
-Netlify is configured to automatically deploy (unpublished) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
+Netlify is configured to automatically deploy (draft) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
 
 To publish a site:
 
 - Login to [Netlify](https://app.netlify.com)
-- Find the latest deploy of your site
-- Click on the deploy link to access it's overview
+- Find the latest draft deploy of your site
+- Click on the draft deploy link to access it's overview
 - Click on the "Publish deploy" button
 
 ### Troubleshoot
@@ -222,13 +222,13 @@ The `Build command` property should match a script of the root `package.json` fi
 
 A Netlify deploy can be started locally with a CLI command. This is useful if you are working in a branch and want to share a preview of your work with someone else.
 
-To deploy (unpublished), open a terminal at the root of the workspace and execute the following commands:
+To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
 yarn deploy-sb-preview
 ```
 
-The previous command will add a deploy (unpublished) to the **sg-storybook** site. 
+The draft link will be available in the terminal and on Netlify under the **sg-storybook** site.
 
 If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [storybook/package.json](/storybook/package.json) file.
 
