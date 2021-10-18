@@ -26,12 +26,12 @@ stories()
     .add("images", () =>
         <Inline>
             <Stack>
-                <Tile width={12} orientation="vertical">
+                <Tile width="300px" orientation="vertical">
                     <Image src={Apollo11Banner} alt="Apollo 11 Banner" />
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </Tile>
-                <Tile width={16} orientation="horizontal">
+                <Tile width="500px" orientation="horizontal">
                     <Image src={Apollo11Poster} alt="Apollo 11 Poster" />
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
@@ -62,14 +62,14 @@ stories()
     .add("flex layout", () =>
         <Stack>
             <Inline>
-                <Tile width={16} orientation="vertical">
+                <Tile width="500px" orientation="vertical">
                     <Illustration color="marine-2">
                         <Image src={Nasa} width={10} alt="Nasa Logo" />
                     </Illustration>
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </Tile>
-                <Tile width={16} orientation="vertical">
+                <Tile width="500px" orientation="vertical">
                     <Illustration color="marine-2">
                         <Image src={Nasa} width={10} alt="Nasa Logo" />
                     </Illustration>
@@ -78,14 +78,14 @@ stories()
                 </Tile>
             </Inline>
             <Inline>
-                <Tile width={16} orientation="horizontal">
+                <Tile width="500px" orientation="horizontal">
                     <Illustration color="marine-2">
                         <Image src={Nasa} width={10} alt="Nasa Logo" />
                     </Illustration>
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </Tile>
-                <Tile width={16} orientation="horizontal">
+                <Tile width="500px" orientation="horizontal">
                     <Illustration color="marine-2">
                         <Image src={Nasa} width={10} alt="Nasa Logo" />
                     </Illustration>
