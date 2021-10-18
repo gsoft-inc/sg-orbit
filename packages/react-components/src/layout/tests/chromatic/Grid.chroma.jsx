@@ -271,140 +271,140 @@ stories()
          }
     )
     .add("align content start", () =>
-        <Grid alignContent="start" gap={4} height="14">
+        <Grid alignContent="start" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align content center", () =>
-        <Grid alignContent="center" gap={4} height="14">
+        <Grid alignContent="center" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align content space-between", () =>
-        <Grid alignContent="space-between" gap={4} height="14">
+        <Grid alignContent="space-between" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align content space-around", () =>
-        <Grid alignContent="space-around" gap={4} height="14">
+        <Grid alignContent="space-around" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align items start", () =>
-        <Grid alignItems="start" gap={4} height="14">
+        <Grid alignItems="start" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align items center", () =>
-        <Grid alignItems="center" gap={4} height="14">
+        <Grid alignItems="center" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("align items end", () =>
-        <Grid alignItems="end" gap={4} height="14">
+        <Grid alignItems="end" gap={4} height={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content start", () =>
-        <Grid justifyContent="start" gap={4} width="14">
+        <Grid justifyContent="start" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content center", () =>
-        <Grid justifyContent="center" gap={4} width="14">
+        <Grid justifyContent="center" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content end", () =>
-        <Grid justifyContent="end" gap={4} width="14">
+        <Grid justifyContent="end" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content left", () =>
-        <Grid justifyContent="left" gap={4} width="14">
+        <Grid justifyContent="left" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content right", () =>
-        <Grid justifyContent="right" gap={4} width="14">
+        <Grid justifyContent="right" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content space between", () =>
-        <Grid justifyContent="space-between" gap={4} width="14">
+        <Grid justifyContent="space-between" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content space around", () =>
-        <Grid justifyContent="space-around" gap={4} width="14">
+        <Grid justifyContent="space-around" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify content space evenly", () =>
-        <Grid justifyContent="space-evenly" gap={4} width="14">
+        <Grid justifyContent="space-evenly" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify items start", () =>
-        <Grid justifyItems="start" gap={4} width="14">
+        <Grid justifyItems="start" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify items center", () =>
-        <Grid justifyItems="center" gap={4} width="14">
+        <Grid justifyItems="center" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify items end", () =>
-        <Grid justifyItems="end" gap={4} width="14">
+        <Grid justifyItems="end" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify items left", () =>
-        <Grid justifyItems="left" gap={4} width="14">
+        <Grid justifyItems="left" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Grid>
     )
     .add("justify items right", () =>
-        <Grid justifyItems="right" gap={4} width="14">
+        <Grid justifyItems="right" gap={4} width={14}>
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div gridColumn={2} backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
@@ -445,7 +445,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid templateColumns={repeat("auto-fit", "12")} gap={4}>
+            <Grid templateColumns={repeat("auto-fit", 12)} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>

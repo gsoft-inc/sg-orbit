@@ -20,8 +20,8 @@ function PrimaryBox({ children, ...rest }) {
         <Box
             {...rest}
             backgroundColor="primary-6"
-            height="9"
-            width="9"
+            height={9}
+            width={9}
         >
             {children}
         </Box>

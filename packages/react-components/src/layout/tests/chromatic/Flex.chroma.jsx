@@ -76,55 +76,55 @@ stories("/row")
     )
     .add("fluid", () =>
         <Flex fluid direction="row">
-            <Div backgroundColor="primary-5" width="100%">Alpha</Div>
-            <Div backgroundColor="primary-5" width="100%">Bravo</Div>
-            <Div backgroundColor="primary-5" width="100%">Charlie</Div>
+            <Div backgroundColor="primary-5" width={100}">Alpha</Div>
+            <Div backgroundColor="primary-5" width={100}">Bravo</Div>
+            <Div backgroundColor="primary-5" width={100}">Charlie</Div>
         </Flex>
     )
     .add("content start", () =>
-        <Flex alignContent="start" height="12" direction="row" wrap="wrap">
+        <Flex alignContent="start" height={12} direction="row" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content center", () =>
-        <Flex alignContent="center" height="12" direction="row" wrap="wrap">
+        <Flex alignContent="center" height={12} direction="row" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content space between", () =>
-        <Flex alignContent="space-between" height="12" direction="row" wrap="wrap">
+        <Flex alignContent="space-between" height={12} direction="row" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content space around", () =>
-        <Flex alignContent="space-around" height="12" direction="row" wrap="wrap">
+        <Flex alignContent="space-around" height={12} direction="row" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("items start", () =>
-        <Flex alignItems="start" height="12" direction="row">
+        <Flex alignItems="start" height={12} direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("items center", () =>
-        <Flex alignItems="center" height="12" direction="row">
+        <Flex alignItems="center" height={12} direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("items end", () =>
-        <Flex alignItems="end" height="12" direction="row">
+        <Flex alignItems="end" height={12} direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
@@ -152,14 +152,14 @@ stories("/row")
         </Flex>
     )
     .add("wrap", () =>
-        <Flex wrap="wrap" width="4" direction="row">
+        <Flex wrap="wrap" width={4} direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("wrap reverse", () =>
-        <Flex wrap="wrap-reverse" width="4" direction="row">
+        <Flex wrap="wrap-reverse" width={4} direction="row">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
@@ -211,28 +211,28 @@ stories("/column")
         </Flex>
     )
     .add("content start", () =>
-        <Flex alignContent="start" width="12" direction="column" wrap="wrap">
+        <Flex alignContent="start" width={12} direction="column" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content center", () =>
-        <Flex alignContent="center" width="12" direction="column" wrap="wrap">
+        <Flex alignContent="center" width={12} direction="column" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content space between", () =>
-        <Flex alignContent="space-between" width="12" direction="column" wrap="wrap">
+        <Flex alignContent="space-between" width={12} direction="column" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("content space around", () =>
-        <Flex alignContent="space-around" width="12" direction="column" wrap="wrap">
+        <Flex alignContent="space-around" width={12} direction="column" wrap="wrap">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
@@ -281,14 +281,14 @@ stories("/column")
         </Flex>
     )
     .add("wrap", () =>
-        <Flex wrap="wrap" height="4" direction="column">
+        <Flex wrap="wrap" height={4} direction="column">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>
         </Flex>
     )
     .add("wrap reverse", () =>
-        <Flex wrap="wrap-reverse" height="4" direction="column">
+        <Flex wrap="wrap-reverse" height={4} direction="column">
             <Div backgroundColor="primary-5">Alpha</Div>
             <Div backgroundColor="primary-5">Bravo</Div>
             <Div backgroundColor="primary-5">Charlie</Div>

@@ -38,7 +38,7 @@ stories()
         <Divider>Since 1978</Divider>
     )
     .add("long label", () =>
-        <Divider height="16">Since 1978 there have been more than 10 space exploration missions.</Divider>
+        <Divider height={16}>Since 1978 there have been more than 10 space exploration missions.</Divider>
     )
     .add("labelled + surrounded", () =>
         <Div>
@@ -57,7 +57,7 @@ stories()
 
 stories("/vertical")
     .add("default", () =>
-        <Div height="16">
+        <Div height={16}>
             <Divider orientation="vertical" />
         </Div>
     )
@@ -78,17 +78,17 @@ stories("/vertical")
         </Flex>
     )
     .add("labelled", () =>
-        <Div height="16">
+        <Div height={16}>
             <Divider orientation="vertical">Since 1978</Divider>
         </Div>
     )
     .add("long label", () =>
-        <Div height="16">
+        <Div height={16}>
             <Divider orientation="vertical">Since 1978 there have been more than 10 space exploration missions.</Divider>
         </Div>
     )
     .add("labelled + surrounded", () =>
-        <Flex height="16">
+        <Flex height={16}>
             <Text>Mission goals</Text>
             <Divider orientation="vertical">Since 1978</Divider>
             <Text>Mission post mortem</Text>
@@ -102,7 +102,7 @@ stories("/vertical")
         </Flex>
     )
     .add("styling", () =>
-        <Inline height="16">
+        <Inline height={16}>
             <Divider border="sunray-10" orientation="vertical" />
             <Divider className="border-red" orientation="vertical" />
             <Divider style={{ border: "1px solid red" }} orientation="vertical" />
