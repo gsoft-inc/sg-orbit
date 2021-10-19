@@ -3,8 +3,8 @@ import { Checkbox } from "@react-components/checkbox";
 import { DateInput } from "@react-components/date-input";
 import { Div } from "@react-components/html";
 import { ErrorMessage, Field, GroupField, HelpMessage, Label } from "@react-components/field";
-import { Form, Row } from "@react-components/form";
-import { Inline, Stack } from "@react-components/layout";
+import { Form } from "@react-components/form";
+import { Grid, Inline, repeat } from "@react-components/layout";
 import { Radio, RadioGroup } from "@react-components/radio";
 import { TextArea } from "@react-components/text-area";
 import { TextInput } from "@react-components/text-input";
@@ -204,10 +204,14 @@ stories()
         </Inline>
     );
 
-stories("/inline")
+stories("/flex inline")
     .add("default", () =>
         <Form>
-            <Row>
+            <Field>
+                <Label>Gender</Label>
+                <TextInput />
+            </Field>
+            <Inline>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -220,8 +224,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </Row>
-            <Row>
+            </Inline>
+            <Inline>
                 <Field>
                     <Label>City</Label>
                     <TextInput />
@@ -234,7 +238,7 @@ stories("/inline")
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </Row>
+            </Inline>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -246,7 +250,11 @@ stories("/inline")
     )
     .add("fluid", () =>
         <Form fluid>
-            <Row>
+            <Field>
+                <Label>Gender</Label>
+                <TextInput />
+            </Field>
+            <Inline>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -259,8 +267,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </Row>
-            <Row>
+            </Inline>
+            <Inline>
                 <Field width="50%">
                     <Label>City</Label>
                     <TextInput />
@@ -273,7 +281,7 @@ stories("/inline")
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </Row>
+            </Inline>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -286,7 +294,11 @@ stories("/inline")
     .add("fluid with fix width container", () =>
         <Div width={17}>
             <Form fluid>
-                <Row>
+                <Field>
+                    <Label>Gender</Label>
+                    <TextInput />
+                </Field>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -299,8 +311,8 @@ stories("/inline")
                         <Label>Username</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field width="50%">
                         <Label>City</Label>
                         <TextInput />
@@ -313,7 +325,7 @@ stories("/inline")
                         <Label>Zip</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
                 <Field>
                     <Checkbox>Agree to terms and conditions</Checkbox>
                 </Field>
@@ -326,7 +338,7 @@ stories("/inline")
     )
     .add("messages", () =>
         <Form>
-            <Row>
+            <Inline>
                 <Field>
                     <Label>First name</Label>
                     <TextInput />
@@ -340,8 +352,8 @@ stories("/inline")
                     <Label>Username</Label>
                     <TextInput />
                 </Field>
-            </Row>
-            <Row>
+            </Inline>
+            <Inline>
                 <Field>
                     <Label>City</Label>
                     <TextInput />
@@ -355,7 +367,52 @@ stories("/inline")
                     <TextInput />
                     <ErrorMessage>Invalid Zip code!</ErrorMessage>
                 </Field>
-            </Row>
+            </Inline>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <ButtonGroup>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
+                <Button type="submit" variant="secondary">Submit</Button>
+            </ButtonGroup>
+        </Form>
+    );
+
+stories("/grid inline")
+    .add("default", () =>
+        <Form>
+            <Field>
+                <Label>Gender</Label>
+                <TextInput />
+            </Field>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -365,55 +422,87 @@ stories("/inline")
             </ButtonGroup>
         </Form>
     )
-    .add("styling", () =>
-        <Stack>
-            <Form border="sunray-10">
-                <Row>
-                    <Field>
-                        <Label>First name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Last name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Username</Label>
-                        <TextInput />
-                    </Field>
-                </Row>
-            </Form>
-            <Form className="border-red">
-                <Row>
-                    <Field>
-                        <Label>First name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Last name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Username</Label>
-                        <TextInput />
-                    </Field>
-                </Row>
-            </Form>
-            <Form style={{ border: "1px solid red" }}>
-                <Row>
-                    <Field>
-                        <Label>First name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Last name</Label>
-                        <TextInput />
-                    </Field>
-                    <Field>
-                        <Label>Username</Label>
-                        <TextInput />
-                    </Field>
-                </Row>
-            </Form>
-        </Stack>
+    .add("fluid", () =>
+        <Form>
+            <Field>
+                <Label>Gender</Label>
+                <TextInput />
+            </Field>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <ButtonGroup>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
+                <Button type="submit" variant="secondary">Submit</Button>
+            </ButtonGroup>
+        </Form>
+    )
+    .add("messages", () =>
+        <Form>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>First name</Label>
+                    <TextInput />
+                    <HelpMessage>Non helpfull message!</HelpMessage>
+                </Field>
+                <Field>
+                    <Label>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Username</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field validationState="invalid">
+                    <Label>Zip</Label>
+                    <TextInput />
+                    <ErrorMessage>Invalid Zip code!</ErrorMessage>
+                </Field>
+            </Grid>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <ButtonGroup>
+                <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
+                <Button type="submit" variant="secondary">Submit</Button>
+            </ButtonGroup>
+        </Form>
     );

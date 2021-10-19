@@ -19,6 +19,7 @@ import {
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isArray, isNil, mergeProps } from "../../shared";
+import { useFormContext } from "../../form";
 
 // See https://developer.mozilla.org/en-US/docs/Web/CSS/repeat.
 export function repeat(count: number | "auto-fill" | "auto-fit", repetition: SpacingValue | SpacingValue[]) {
@@ -139,6 +140,8 @@ export function InnerGrid({
     const templateColumnsValue = useResponsiveValue(templateColumns);
     const templateRowsValue = useResponsiveValue(templateRows);
 
+    const [, isInFormContext] = useFormContext();
+
     const gridTemplateColumns = !isNil(templateColumnsValue)
         ? isArray(templateColumnsValue) ? interpolateGridTemplateArray(templateColumnsValue) : templateColumnsValue
         : undefined;
@@ -146,6 +149,9 @@ export function InnerGrid({
     const gridTemplateRows = !isNil(templateRowsValue)
         ? isArray(templateRowsValue) ? interpolateGridTemplateArray(templateRowsValue) : templateRowsValue
         : undefined;
+
+    // Specialized defaults when a Grid is used in a form.
+    const formProps = isInFormContext ? { gap: 4 as const } : {};
 
     return (
         <Box
@@ -161,7 +167,8 @@ export function InnerGrid({
                     gridTemplateColumns: gridTemplateColumns,
                     gridTemplateRows: gridTemplateRows,
                     ref: forwardedRef
-                }
+                },
+                formProps
             )}
         >
             {children}

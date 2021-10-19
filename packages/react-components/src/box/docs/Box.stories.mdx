@@ -9,7 +9,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 
 # Box
 
-<Tagline>A box is a general purpose component that can be used to compose new components or render a component into a slot.</Tagline>
+<Tagline>A box is a general purpose component that can be used to compose new components, use the slot system or render styled components props.</Tagline>
 
 <ComponentInfo
     usage={"import { Box } from \"@orbit-ui/react-components\";"}
@@ -18,7 +18,7 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 
 ## Usage
 
-As the design system evolve, we plan on adding more features which will justify using a box component instead of a native DOM element. Therefore, we do recommend you start using it as early as possible even if it currently only helps with [slots](?path=/docs/slots--page).
+> Instead of using a box component, you should use one of Orbit's HTML element components, like a [Div](?path=/docs/html-div--example) component.
 
 ### Default
 
@@ -27,16 +27,6 @@ A default box.
 <Preview>
     <Story name="default">
         <Box>Enjoy space like never before.</Box>
-    </Story>
-</Preview>
-
-### As DOM element
-
-A box component will render as a `div` element by default. You can change this by using the `as` prop.
-
-<Preview>
-    <Story name="dom element">
-        <Box as="span">Enjoy space like never before.</Box>
     </Story>
 </Preview>
 
