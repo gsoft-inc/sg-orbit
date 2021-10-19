@@ -17,13 +17,13 @@ stories()
         <SvgImage fill="alias-1" src={NoResults} aria-label="No Results" />
     )
     .add("width", () =>
-        <SvgImage width={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage width="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("height", () =>
-        <SvgImage height={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage height="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("size", () =>
-        <SvgImage size={10} src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage size="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
     )
     .add("styling", () =>
         <Inline>

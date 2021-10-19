@@ -43,7 +43,7 @@ An image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ GalaxyImageLg }}>
     <Story name="size">
-        <Image width={13} height={13} src={GalaxyImageLg} alt="Galaxy" />
+        <Image width="200px" height="200px" src={GalaxyImageLg} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -57,7 +57,7 @@ _Avoid serving images that are unecessary big, images should be resized to the i
 
 <Preview scope={{ GalaxyImage, GalaxyImage2x }}>
     <Story name="retina">
-        <Image width={13} height={13} srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
+        <Image width="200px" height="200px" srcSet={`${GalaxyImage} 1x, ${GalaxyImage2x} 2x`} alt="Galaxy" />
     </Story>
 </Preview>
 
@@ -77,7 +77,7 @@ An SVG image can adjust it's size by specifying `width` and `height` props.
 
 <Preview scope={{ NoResults }}>
     <Story name="svg image size">
-        <SvgImage width={14} height={13} stroke="marine-6" src={NoResults} aria-label="No results" />
+        <SvgImage width="150px" height="150px"stroke="marine-6" src={NoResults} aria-label="No results" />
     </Story>
 </Preview>
 
