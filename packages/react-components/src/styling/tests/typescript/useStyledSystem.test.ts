@@ -117,7 +117,7 @@ import { expectAssignable } from "@typescript/tests";
 expectAssignable<ResponsiveValue<string>>({ base: "value" });
 expectAssignable<ResponsiveValue<string>>({ md: "value" });
 expectAssignable<ResponsiveValue<string>>({ lg: "value" });
-expectAssignable<ResponsiveValue<string>>({ base: "value", md: "value", lg: "value" });
+expectAssignable<ResponsiveValue<string>>({ base: "value", xs: "value", sm: "value", md: "value", lg: "value", xl: "value" });
 
 expectAssignable<AlignContentProp>("center");
 expectAssignable<AlignContentProp>("start");
@@ -136,7 +136,7 @@ expectAssignable<AlignContentProp>("stretch");
 expectAssignable<AlignContentProp>("normal");
 expectAssignable<AlignContentProp>("safe center");
 expectAssignable<AlignContentProp>("unsafe center");
-expectAssignable<AlignContentProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<AlignContentProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<AlignItemsProp>("center");
 expectAssignable<AlignItemsProp>("start");
@@ -157,7 +157,7 @@ expectAssignable<AlignItemsProp>("stretch");
 expectAssignable<AlignItemsProp>("normal");
 expectAssignable<AlignItemsProp>("safe center");
 expectAssignable<AlignItemsProp>("unsafe center");
-expectAssignable<AlignItemsProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<AlignItemsProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<AlignSelfProp>("center");
 expectAssignable<AlignSelfProp>("start");
@@ -179,12 +179,12 @@ expectAssignable<AlignSelfProp>("normal");
 expectAssignable<AlignSelfProp>("auto");
 expectAssignable<AlignSelfProp>("safe center");
 expectAssignable<AlignSelfProp>("unsafe center");
-expectAssignable<AlignSelfProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<AlignSelfProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<AspectRatioProp>("1");
 expectAssignable<AspectRatioProp>("1 / 1");
 expectAssignable<AspectRatioProp>("16 / 9");
-expectAssignable<AspectRatioProp>({ base: "1", md: "1", lg: "1" });
+expectAssignable<AspectRatioProp>({ base: "1", xs: "1", sm: "1", md: "1", lg: "1", xl: "1" });
 
 expectAssignable<BackgroundColorProp>("#fff");
 expectAssignable<BackgroundColorProp>("white");
@@ -196,10 +196,10 @@ expectAssignable<BackgroundColorProp>("sunray-1");
 expectAssignable<BackgroundColorProp>("alias-1");
 expectAssignable<BackgroundColorProp>("currentColor");
 expectAssignable<BackgroundColorProp>("transparent");
-expectAssignable<BackgroundColorProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BackgroundColorProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BackgroundImageProp>("url(dog.gif)");
-expectAssignable<BackgroundImageProp>({ base: "url(dog.gif)", md: "url(dog.gif)", lg: "url(dog.gif)" });
+expectAssignable<BackgroundImageProp>({ base: "url(dog.gif)", xs: "url(dog.gif)", sm: "url(dog.gif)", md: "url(dog.gif)", lg: "url(dog.gif)", xl: "url(dog.gif)" });
 
 expectAssignable<BackgroundPositionProp>("top");
 expectAssignable<BackgroundPositionProp>("bottom");
@@ -210,7 +210,7 @@ expectAssignable<BackgroundPositionProp>("left-top");
 expectAssignable<BackgroundPositionProp>("left-bottom");
 expectAssignable<BackgroundPositionProp>("right-top");
 expectAssignable<BackgroundPositionProp>("right-bottom");
-expectAssignable<BackgroundPositionProp>({ base: "top", md: "top", lg: "top" });
+expectAssignable<BackgroundPositionProp>({ base: "top", xs: "top", sm: "top", md: "top", lg: "top", xl: "top" });
 
 expectAssignable<BackgroundRepeatProp>("no-repeat");
 expectAssignable<BackgroundRepeatProp>("repeat");
@@ -218,12 +218,12 @@ expectAssignable<BackgroundRepeatProp>("repeat-x");
 expectAssignable<BackgroundRepeatProp>("repeat-y");
 expectAssignable<BackgroundRepeatProp>("round");
 expectAssignable<BackgroundRepeatProp>("space");
-expectAssignable<BackgroundRepeatProp>({ base: "round", md: "round", lg: "round" });
+expectAssignable<BackgroundRepeatProp>({ base: "round", xs: "round", sm: "round", md: "round", lg: "round", xl: "round" });
 
 expectAssignable<BackgroundSizeProp>("top");
 expectAssignable<BackgroundSizeProp>("cover");
 expectAssignable<BackgroundSizeProp>("contain");
-expectAssignable<BackgroundSizeProp>({ base: "cover", md: "cover", lg: "cover" });
+expectAssignable<BackgroundSizeProp>({ base: "cover", xs: "cover", sm: "cover", md: "cover", lg: "cover", xl: "cover" });
 
 expectAssignable<BorderProp>("0");
 expectAssignable<BorderProp>("#fff");
@@ -236,7 +236,7 @@ expectAssignable<BorderProp>("sunray-1");
 expectAssignable<BorderProp>("alias-1");
 expectAssignable<BorderProp>("currentColor");
 expectAssignable<BorderProp>("transparent");
-expectAssignable<BorderProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BorderProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BorderBottomProp>("0");
 expectAssignable<BorderBottomProp>("#fff");
@@ -249,7 +249,7 @@ expectAssignable<BorderBottomProp>("sunray-1");
 expectAssignable<BorderBottomProp>("alias-1");
 expectAssignable<BorderBottomProp>("currentColor");
 expectAssignable<BorderBottomProp>("transparent");
-expectAssignable<BorderBottomProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BorderBottomProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BorderLeftProp>("0");
 expectAssignable<BorderLeftProp>("#fff");
@@ -262,7 +262,7 @@ expectAssignable<BorderLeftProp>("sunray-1");
 expectAssignable<BorderLeftProp>("alias-1");
 expectAssignable<BorderLeftProp>("currentColor");
 expectAssignable<BorderLeftProp>("transparent");
-expectAssignable<BorderLeftProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BorderLeftProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BorderRightProp>("0");
 expectAssignable<BorderRightProp>("#fff");
@@ -275,7 +275,7 @@ expectAssignable<BorderRightProp>("sunray-1");
 expectAssignable<BorderRightProp>("alias-1");
 expectAssignable<BorderRightProp>("currentColor");
 expectAssignable<BorderRightProp>("transparent");
-expectAssignable<BorderRightProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BorderRightProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BorderTopProp>("0");
 expectAssignable<BorderTopProp>("#fff");
@@ -288,7 +288,7 @@ expectAssignable<BorderTopProp>("sunray-1");
 expectAssignable<BorderTopProp>("alias-1");
 expectAssignable<BorderTopProp>("currentColor");
 expectAssignable<BorderTopProp>("transparent");
-expectAssignable<BorderTopProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<BorderTopProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<BorderRadiusProp>(1);
 expectAssignable<BorderRadiusProp>(2);
@@ -301,7 +301,7 @@ expectAssignable<BorderRadiusProp>("1rem");
 expectAssignable<BorderRadiusProp>("1%");
 expectAssignable<BorderRadiusProp>("calc(1px + 1px)");
 expectAssignable<BorderRadiusProp>("1px 0 3px 4px");
-expectAssignable<BorderRadiusProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BorderRadiusProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BorderBottomLeftRadiusProp>(1);
 expectAssignable<BorderBottomLeftRadiusProp>(2);
@@ -313,7 +313,7 @@ expectAssignable<BorderBottomLeftRadiusProp>("1em");
 expectAssignable<BorderBottomLeftRadiusProp>("1rem");
 expectAssignable<BorderBottomLeftRadiusProp>("1%");
 expectAssignable<BorderBottomLeftRadiusProp>("calc(1px + 1px)");
-expectAssignable<BorderBottomLeftRadiusProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BorderBottomLeftRadiusProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BorderBottomRightRadiusProp>(1);
 expectAssignable<BorderBottomRightRadiusProp>(2);
@@ -325,7 +325,7 @@ expectAssignable<BorderBottomRightRadiusProp>("1em");
 expectAssignable<BorderBottomRightRadiusProp>("1rem");
 expectAssignable<BorderBottomRightRadiusProp>("1%");
 expectAssignable<BorderBottomRightRadiusProp>("calc(1px + 1px)");
-expectAssignable<BorderBottomRightRadiusProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BorderBottomRightRadiusProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BorderTopLeftRadiusProp>(1);
 expectAssignable<BorderTopLeftRadiusProp>(2);
@@ -337,7 +337,7 @@ expectAssignable<BorderTopLeftRadiusProp>("1em");
 expectAssignable<BorderTopLeftRadiusProp>("1rem");
 expectAssignable<BorderTopLeftRadiusProp>("1%");
 expectAssignable<BorderTopLeftRadiusProp>("calc(1px + 1px)");
-expectAssignable<BorderTopLeftRadiusProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BorderTopLeftRadiusProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BorderTopRightRadiusProp>(1);
 expectAssignable<BorderTopRightRadiusProp>(2);
@@ -349,7 +349,7 @@ expectAssignable<BorderTopRightRadiusProp>("1em");
 expectAssignable<BorderTopRightRadiusProp>("1rem");
 expectAssignable<BorderTopRightRadiusProp>("1%");
 expectAssignable<BorderTopRightRadiusProp>("calc(1px + 1px)");
-expectAssignable<BorderTopRightRadiusProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BorderTopRightRadiusProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BottomProp>("1px");
 expectAssignable<BottomProp>("-1px");
@@ -358,7 +358,7 @@ expectAssignable<BottomProp>("1rem");
 expectAssignable<BottomProp>("1%");
 expectAssignable<BottomProp>("calc(1px + 1px)");
 expectAssignable<BottomProp>("auto");
-expectAssignable<BottomProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<BottomProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<BoxShadowProp>(1);
 expectAssignable<BoxShadowProp>(2);
@@ -370,7 +370,7 @@ expectAssignable<BoxShadowProp>("alias-raised");
 expectAssignable<BoxShadowProp>("alias-floating");
 expectAssignable<BoxShadowProp>("none");
 expectAssignable<BoxShadowProp>("10px 5px 5px black");
-expectAssignable<BoxShadowProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<BoxShadowProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<ColorProp>("#fff");
 expectAssignable<ColorProp>("white");
@@ -382,7 +382,7 @@ expectAssignable<ColorProp>("sunray-1");
 expectAssignable<ColorProp>("alias-1");
 expectAssignable<ColorProp>("currentColor");
 expectAssignable<ColorProp>("transparent");
-expectAssignable<ColorProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<ColorProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<ColumnGapProp>(1);
 expectAssignable<ColumnGapProp>("1px");
@@ -391,17 +391,17 @@ expectAssignable<ColumnGapProp>("1rem");
 expectAssignable<ColumnGapProp>("1%");
 expectAssignable<ColumnGapProp>("calc(1px + 1px)");
 expectAssignable<ColumnGapProp>("normal");
-expectAssignable<ColumnGapProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<ColumnGapProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<ContentProp>("normal");
 expectAssignable<ContentProp>("none");
 expectAssignable<ContentProp>("linear-gradient(#e66465, #9198e5)");
-expectAssignable<ContentProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<ContentProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<ContentVisibilityProp>("visible");
 expectAssignable<ContentVisibilityProp>("hidden");
 expectAssignable<ContentVisibilityProp>("auto");
-expectAssignable<ContentVisibilityProp>({ base: "hidden", md: "hidden", lg: "hidden" });
+expectAssignable<ContentVisibilityProp>({ base: "hidden", xs: "hidden", sm: "hidden", md: "hidden", lg: "hidden", xl: "hidden" });
 
 expectAssignable<CursorProp>("auto");
 expectAssignable<CursorProp>("pointer");
@@ -412,7 +412,7 @@ expectAssignable<CursorProp>("not-allowed");
 expectAssignable<CursorProp>("wait");
 expectAssignable<CursorProp>("zoom-in");
 expectAssignable<CursorProp>("url(cursor1.png) 4 12, auto");
-expectAssignable<CursorProp>({ base: "pointer", md: "pointer", lg: "pointer" });
+expectAssignable<CursorProp>({ base: "pointer", xs: "pointer", sm: "pointer", md: "pointer", lg: "pointer", xl: "pointer" });
 
 expectAssignable<DisplayProp>("block");
 expectAssignable<DisplayProp>("inline-block");
@@ -433,7 +433,7 @@ expectAssignable<DisplayProp>("grid");
 expectAssignable<DisplayProp>("inline-grid");
 expectAssignable<DisplayProp>("list-item");
 expectAssignable<DisplayProp>("none");
-expectAssignable<DisplayProp>({ base: "block", md: "block", lg: "block" });
+expectAssignable<DisplayProp>({ base: "block", xs: "block", sm: "block", md: "block", lg: "block", xl: "block" });
 
 expectAssignable<FillProp>("#fff");
 expectAssignable<FillProp>("white");
@@ -445,12 +445,12 @@ expectAssignable<FillProp>("sunray-1");
 expectAssignable<FillProp>("alias-1");
 expectAssignable<FillProp>("currentColor");
 expectAssignable<FillProp>("transparent");
-expectAssignable<FillProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<FillProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<FilterProp>("url(\"filters.svg#filter-id\")");
 expectAssignable<FilterProp>("blur(5px)");
 expectAssignable<FilterProp>("none");
-expectAssignable<FillProp>({ base: "blur(5px)", md: "blur(5px)", lg: "blur(5px)" });
+expectAssignable<FillProp>({ base: "blur(5px)", xs: "blur(5px)", sm: "blur(5px)", md: "blur(5px)", lg: "blur(5px)", xl: "blur(5px)" });
 
 expectAssignable<FlexProp>("1px");
 expectAssignable<FlexProp>("1em");
@@ -465,7 +465,7 @@ expectAssignable<FlexProp>("fit-content(1em)");
 expectAssignable<FlexProp>("auto");
 expectAssignable<FlexProp>("none");
 expectAssignable<FlexProp>("2 2 10%");
-expectAssignable<FlexProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<FlexProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<FlexBasisProp>("1px");
 expectAssignable<FlexBasisProp>("1em");
@@ -479,13 +479,13 @@ expectAssignable<FlexBasisProp>("min-content");
 expectAssignable<FlexBasisProp>("fit-content(1em)");
 expectAssignable<FlexBasisProp>("content");
 expectAssignable<FlexBasisProp>("fill");
-expectAssignable<FlexBasisProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<FlexBasisProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<FlexDirectionProp>("row");
 expectAssignable<FlexDirectionProp>("row-reverse");
 expectAssignable<FlexDirectionProp>("column");
 expectAssignable<FlexDirectionProp>("column-reverse");
-expectAssignable<FlexDirectionProp>({ base: "row", md: "row", lg: "row" });
+expectAssignable<FlexDirectionProp>({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 
 expectAssignable<FlexFlowProp>("row");
 expectAssignable<FlexFlowProp>("row-reverse");
@@ -497,26 +497,26 @@ expectAssignable<FlexFlowProp>("wrap-reverse");
 expectAssignable<FlexFlowProp>("row nowrap");
 expectAssignable<FlexFlowProp>("column wrap");
 expectAssignable<FlexFlowProp>("column-reverse wrap-reverse");
-expectAssignable<FlexFlowProp>({ base: "row", md: "row", lg: "row" });
+expectAssignable<FlexFlowProp>({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 
 expectAssignable<FlexGrowProp>(0);
 expectAssignable<FlexGrowProp>(1);
 expectAssignable<FlexGrowProp>(2);
 expectAssignable<FlexGrowProp>(3);
 expectAssignable<FlexGrowProp>(3.6);
-expectAssignable<FlexGrowProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<FlexGrowProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<FlexShrinkProp>(0);
 expectAssignable<FlexShrinkProp>(1);
 expectAssignable<FlexShrinkProp>(2);
 expectAssignable<FlexShrinkProp>(3);
 expectAssignable<FlexShrinkProp>(3.6);
-expectAssignable<FlexShrinkProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<FlexShrinkProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<FlexWrapProp>("wrap");
 expectAssignable<FlexWrapProp>("nowrap");
 expectAssignable<FlexWrapProp>("wrap-reverse");
-expectAssignable<FlexWrapProp>({ base: "wrap", md: "wrap", lg: "wrap" });
+expectAssignable<FlexWrapProp>({ base: "wrap", xs: "wrap", sm: "wrap", md: "wrap", lg: "wrap", xl: "wrap" });
 
 expectAssignable<FontSizeProp>(1);
 expectAssignable<FontSizeProp>(2);
@@ -534,18 +534,18 @@ expectAssignable<FontSizeProp>("1em");
 expectAssignable<FontSizeProp>("1rem");
 expectAssignable<FontSizeProp>("1%");
 expectAssignable<FontSizeProp>("calc(1px + 1px)");
-expectAssignable<FontSizeProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<FontSizeProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<FontStyleProp>("normal");
 expectAssignable<FontStyleProp>("italic");
 expectAssignable<FontStyleProp>("oblique");
 expectAssignable<FontStyleProp>("oblique 10deg");
-expectAssignable<FontStyleProp>({ base: "normal", md: "normal", lg: "normal" });
+expectAssignable<FontStyleProp>({ base: "normal", xs: "normal", sm: "normal", md: "normal", lg: "normal", xl: "normal" });
 
 expectAssignable<FontWeightProp>(1);
 expectAssignable<FontWeightProp>(2);
 expectAssignable<FontWeightProp>(3);
-expectAssignable<FontWeightProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<FontWeightProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<GapProp>(1);
 expectAssignable<GapProp>("1px");
@@ -553,7 +553,7 @@ expectAssignable<GapProp>("1em");
 expectAssignable<GapProp>("1rem");
 expectAssignable<GapProp>("1%");
 expectAssignable<GapProp>("calc(1px + 1px)");
-expectAssignable<GapProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<GapProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<GridProp>("none");
 expectAssignable<GridProp>("\"a\" 100px \"b\" 1fr");
@@ -564,7 +564,7 @@ expectAssignable<GridProp>("200px / auto-flow");
 expectAssignable<GridProp>("30% / auto-flow dense");
 expectAssignable<GridProp>("auto-flow / 200px");
 expectAssignable<GridProp>("auto-flow dense 40% / [line1] minmax(20em, max-content)");
-expectAssignable<GridProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<GridProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<GridAreaProp>("auto");
 expectAssignable<GridAreaProp>("auto / auto");
@@ -573,7 +573,7 @@ expectAssignable<GridAreaProp>("auto / auto / auto / auto");
 expectAssignable<GridAreaProp>("some-grid-area");
 expectAssignable<GridAreaProp>("span 3");
 expectAssignable<GridAreaProp>("4 some-grid-area / 2 another-grid-area");
-expectAssignable<GridAreaProp>({ base: "auto", md: "auto", lg: "auto" });
+expectAssignable<GridAreaProp>({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 
 expectAssignable<GridAutoColumnsProp>(1);
 expectAssignable<GridAutoColumnsProp>("1px");
@@ -594,14 +594,14 @@ expectAssignable<GridAutoColumnsProp>("10% 33.3%");
 expectAssignable<GridAutoColumnsProp>("0.5fr 3fr 1fr");
 expectAssignable<GridAutoColumnsProp>("minmax(100px, auto) minmax(max-content, 2fr) minmax(20%, 80vmax)");
 expectAssignable<GridAutoColumnsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
-expectAssignable<GridAutoColumnsProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<GridAutoColumnsProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<GridAutoFlowProp>("row");
 expectAssignable<GridAutoFlowProp>("column");
 expectAssignable<GridAutoFlowProp>("dense");
 expectAssignable<GridAutoFlowProp>("row dense");
 expectAssignable<GridAutoFlowProp>("column dense");
-expectAssignable<GridAutoFlowProp>({ base: "row", md: "row", lg: "row" });
+expectAssignable<GridAutoFlowProp>({ base: "row", xs: "row", sm: "row", md: "row", lg: "row", xl: "row" });
 
 expectAssignable<GridAutoRowsProp>(1);
 expectAssignable<GridAutoRowsProp>("1px");
@@ -622,7 +622,7 @@ expectAssignable<GridAutoRowsProp>("10% 33.3%");
 expectAssignable<GridAutoRowsProp>("0.5fr 3fr 1fr");
 expectAssignable<GridAutoRowsProp>("minmax(100px, auto) minmax(max-content, 2fr) minmax(20%, 80vmax)");
 expectAssignable<GridAutoRowsProp>("100px minmax(100px, auto) 10% 0.5fr fit-content(400px)");
-expectAssignable<GridAutoRowsProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<GridAutoRowsProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<GridColumnProp>(3);
 expectAssignable<GridColumnProp>("auto");
@@ -631,7 +631,7 @@ expectAssignable<GridColumnProp>("1 / 3");
 expectAssignable<GridColumnProp>("1 / span 2");
 expectAssignable<GridColumnProp>("main-start");
 expectAssignable<GridColumnProp>("main-start / main-end");
-expectAssignable<GridColumnProp>({ base: "1 / 3", md: "1 / 3", lg: "1 / 3" });
+expectAssignable<GridColumnProp>({ base: "1 / 3", xs: "1 / 3", sm: "1 / 3", md: "1 / 3", lg: "1 / 3", xl: "1 / 3" });
 
 expectAssignable<GridColumnEndProp>("auto");
 expectAssignable<GridColumnEndProp>("somegridarea");
@@ -639,17 +639,17 @@ expectAssignable<GridColumnEndProp>("2");
 expectAssignable<GridColumnEndProp>("somegridarea 4");
 expectAssignable<GridColumnEndProp>("span 3");
 expectAssignable<GridColumnEndProp>("5 somegridarea span");
-expectAssignable<GridColumnEndProp>({ base: "2", md: "2", lg: "2" });
+expectAssignable<GridColumnEndProp>({ base: "2", xs: "2", sm: "2", md: "2", lg: "2", xl: "2" });
 
 expectAssignable<GridColumnSpanProp>(3);
-expectAssignable<GridColumnSpanProp>({ base: 3, md: 3, lg: 3 });
+expectAssignable<GridColumnSpanProp>({ base: 3, xs: 3, sm: 3, md: 3, lg: 3, xl: 3 });
 
 expectAssignable<GridColumnStartProp>("auto");
 expectAssignable<GridColumnStartProp>("somegridarea");
 expectAssignable<GridColumnStartProp>("2");
 expectAssignable<GridColumnStartProp>("somegridarea 4");
 expectAssignable<GridColumnStartProp>("span somegridarea 5");
-expectAssignable<GridColumnStartProp>({ base: "auto", md: "auto", lg: "auto" });
+expectAssignable<GridColumnStartProp>({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 
 expectAssignable<GridRowProp>(3);
 expectAssignable<GridRowProp>("auto");
@@ -658,24 +658,24 @@ expectAssignable<GridRowProp>("1 / 3");
 expectAssignable<GridRowProp>("1 / span 2");
 expectAssignable<GridRowProp>("main-start");
 expectAssignable<GridRowProp>("main-start / main-end");
-expectAssignable<GridRowProp>({ base: "1 / 3", md: "1 / 3", lg: "1 / 3" });
+expectAssignable<GridRowProp>({ base: "1 / 3", xs: "1 / 3", sm: "1 / 3", md: "1 / 3", lg: "1 / 3", xl: "1 / 3" });
 
 expectAssignable<GridRowEndProp>("auto");
 expectAssignable<GridRowEndProp>("somegridarea");
 expectAssignable<GridRowEndProp>("2");
 expectAssignable<GridRowEndProp>("somegridarea 4");
 expectAssignable<GridRowEndProp>("span somegridarea 5");
-expectAssignable<GridRowEndProp>({ base: "auto", md: "auto", lg: "auto" });
+expectAssignable<GridRowEndProp>({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 
 expectAssignable<GridRowSpanProp>(3);
-expectAssignable<GridRowSpanProp>({ base: 3, md: 3, lg: 3 });
+expectAssignable<GridRowSpanProp>({ base: 3, xs: 3, sm: 3, md: 3, lg: 3, xl: 3 });
 
 expectAssignable<GridRowStartProp>("auto");
 expectAssignable<GridRowStartProp>("somegridarea");
 expectAssignable<GridRowStartProp>("2");
 expectAssignable<GridRowStartProp>("somegridarea 4");
 expectAssignable<GridRowStartProp>("span somegridarea 5");
-expectAssignable<GridRowStartProp>({ base: "auto", md: "auto", lg: "auto" });
+expectAssignable<GridRowStartProp>({ base: "auto", xs: "auto", sm: "auto", md: "auto", lg: "auto", xl: "auto" });
 
 expectAssignable<GridTemplateAreasProp>("none");
 expectAssignable<GridTemplateAreasProp>("a b");
@@ -684,7 +684,7 @@ expectAssignable<GridTemplateAreasProp>(`
     "a c d"
 `);
 expectAssignable<GridTemplateAreasProp>("\"head head\" \"nav  main\" \"nav  foot\"");
-expectAssignable<GridTemplateAreasProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<GridTemplateAreasProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<GridTemplateColumnsProp>("none");
 expectAssignable<GridTemplateColumnsProp>(1);
@@ -711,7 +711,7 @@ expectAssignable<GridTemplateColumnsProp>(`
     repeat(auto-fit, [linename3 linename4] 300px)
     100px
 `);
-expectAssignable<GridTemplateColumnsProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<GridTemplateColumnsProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<GridTemplateProp>("none");
 expectAssignable<GridTemplateProp>("100px 1fr / 50px 1fr");
@@ -724,7 +724,7 @@ expectAssignable<GridTemplateProp>(`
     [main-top] "b b b" 1fr [main-bottom]
             / auto 1fr auto
 `);
-expectAssignable<GridTemplateProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<GridTemplateProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<GridTemplateRowsProp>("none");
 expectAssignable<GridTemplateRowsProp>(1);
@@ -751,7 +751,7 @@ expectAssignable<GridTemplateRowsProp>(`
     repeat(auto-fit, [linename3 linename4] 300px)
     100px
 `);
-expectAssignable<GridTemplateRowsProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<GridTemplateRowsProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<HeightProp>(1);
 expectAssignable<HeightProp>("1px");
@@ -765,7 +765,7 @@ expectAssignable<HeightProp>("max-content");
 expectAssignable<HeightProp>("min-content");
 expectAssignable<HeightProp>("fit-content(1em)");
 expectAssignable<HeightProp>("auto");
-expectAssignable<HeightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<HeightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<JustifyContentProp>("center");
 expectAssignable<JustifyContentProp>("start");
@@ -784,7 +784,7 @@ expectAssignable<JustifyContentProp>("stretch");
 expectAssignable<JustifyContentProp>("normal");
 expectAssignable<JustifyContentProp>("safe center");
 expectAssignable<JustifyContentProp>("unsafe center");
-expectAssignable<JustifyContentProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<JustifyContentProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<JustifyItemsProp>("center");
 expectAssignable<JustifyItemsProp>("start");
@@ -805,7 +805,7 @@ expectAssignable<JustifyItemsProp>("stretch");
 expectAssignable<JustifyItemsProp>("normal");
 expectAssignable<JustifyItemsProp>("safe center");
 expectAssignable<JustifyItemsProp>("unsafe center");
-expectAssignable<JustifyItemsProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<JustifyItemsProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<JustifySelfProp>("center");
 expectAssignable<JustifySelfProp>("start");
@@ -827,7 +827,7 @@ expectAssignable<JustifySelfProp>("normal");
 expectAssignable<JustifySelfProp>("auto");
 expectAssignable<JustifySelfProp>("safe center");
 expectAssignable<JustifySelfProp>("unsafe center");
-expectAssignable<JustifySelfProp>({ base: "center", md: "center", lg: "center" });
+expectAssignable<JustifySelfProp>({ base: "center", xs: "center", sm: "center", md: "center", lg: "center", xl: "center" });
 
 expectAssignable<LeftProp>("1px");
 expectAssignable<LeftProp>("-1px");
@@ -836,13 +836,13 @@ expectAssignable<LeftProp>("1rem");
 expectAssignable<LeftProp>("1%");
 expectAssignable<LeftProp>("calc(1px + 1px)");
 expectAssignable<LeftProp>("auto");
-expectAssignable<LeftProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<LeftProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<LetterSpacingProp>("1px");
 expectAssignable<LetterSpacingProp>("0.3em");
 expectAssignable<LetterSpacingProp>(".3px");
 expectAssignable<LetterSpacingProp>("auto");
-expectAssignable<LetterSpacingProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<LetterSpacingProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<LineHeightProp>(1);
 expectAssignable<LineHeightProp>(2);
@@ -856,7 +856,7 @@ expectAssignable<LineHeightProp>("1em");
 expectAssignable<LineHeightProp>("1rem");
 expectAssignable<LineHeightProp>("1%");
 expectAssignable<LineHeightProp>("calc(1px + 1px)");
-expectAssignable<LineHeightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<LineHeightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginProp>(1);
 expectAssignable<MarginProp>("1px");
@@ -867,7 +867,7 @@ expectAssignable<MarginProp>("1%");
 expectAssignable<MarginProp>("calc(1px + 1px)");
 expectAssignable<MarginProp>("auto");
 expectAssignable<MarginProp>("2px 1em 0 auto");
-expectAssignable<MarginProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginBottomProp>(1);
 expectAssignable<MarginBottomProp>("1px");
@@ -877,7 +877,7 @@ expectAssignable<MarginBottomProp>("1rem");
 expectAssignable<MarginBottomProp>("1%");
 expectAssignable<MarginBottomProp>("calc(1px + 1px)");
 expectAssignable<MarginBottomProp>("auto");
-expectAssignable<MarginBottomProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginBottomProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginLeftProp>(1);
 expectAssignable<MarginLeftProp>("1px");
@@ -887,7 +887,7 @@ expectAssignable<MarginLeftProp>("1rem");
 expectAssignable<MarginLeftProp>("1%");
 expectAssignable<MarginLeftProp>("calc(1px + 1px)");
 expectAssignable<MarginLeftProp>("auto");
-expectAssignable<MarginLeftProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginLeftProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginRightProp>(1);
 expectAssignable<MarginRightProp>("1px");
@@ -897,7 +897,7 @@ expectAssignable<MarginRightProp>("1rem");
 expectAssignable<MarginRightProp>("1%");
 expectAssignable<MarginRightProp>("calc(1px + 1px)");
 expectAssignable<MarginRightProp>("auto");
-expectAssignable<MarginRightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginRightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginTopProp>(1);
 expectAssignable<MarginTopProp>("1px");
@@ -907,7 +907,7 @@ expectAssignable<MarginTopProp>("1rem");
 expectAssignable<MarginTopProp>("1%");
 expectAssignable<MarginTopProp>("calc(1px + 1px)");
 expectAssignable<MarginTopProp>("auto");
-expectAssignable<MarginTopProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginTopProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginXProp>(1);
 expectAssignable<MarginXProp>("1px");
@@ -917,7 +917,7 @@ expectAssignable<MarginXProp>("1rem");
 expectAssignable<MarginXProp>("1%");
 expectAssignable<MarginXProp>("calc(1px + 1px)");
 expectAssignable<MarginXProp>("auto");
-expectAssignable<MarginXProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginXProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MarginYProp>(1);
 expectAssignable<MarginYProp>("1px");
@@ -927,7 +927,7 @@ expectAssignable<MarginYProp>("1rem");
 expectAssignable<MarginYProp>("1%");
 expectAssignable<MarginYProp>("calc(1px + 1px)");
 expectAssignable<MarginYProp>("auto");
-expectAssignable<MarginYProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MarginYProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MaxHeightProp>(1);
 expectAssignable<MaxHeightProp>("1px");
@@ -941,7 +941,7 @@ expectAssignable<MaxHeightProp>("max-content");
 expectAssignable<MaxHeightProp>("min-content");
 expectAssignable<MaxHeightProp>("fit-content(1em)");
 expectAssignable<MaxHeightProp>("auto");
-expectAssignable<MaxHeightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MaxHeightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MaxWidthProp>(1);
 expectAssignable<MaxWidthProp>("1px");
@@ -955,7 +955,7 @@ expectAssignable<MaxWidthProp>("max-content");
 expectAssignable<MaxWidthProp>("min-content");
 expectAssignable<MaxWidthProp>("fit-content(1em)");
 expectAssignable<MaxWidthProp>("auto");
-expectAssignable<MaxWidthProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MaxWidthProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MinHeightProp>(1);
 expectAssignable<MinHeightProp>("1px");
@@ -969,7 +969,7 @@ expectAssignable<MinHeightProp>("max-content");
 expectAssignable<MinHeightProp>("min-content");
 expectAssignable<MinHeightProp>("fit-content(1em)");
 expectAssignable<MinHeightProp>("auto");
-expectAssignable<MinHeightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MinHeightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<MinWidthProp>(1);
 expectAssignable<MinWidthProp>("1px");
@@ -983,56 +983,56 @@ expectAssignable<MinWidthProp>("max-content");
 expectAssignable<MinWidthProp>("min-content");
 expectAssignable<MinWidthProp>("fit-content(1em)");
 expectAssignable<MinWidthProp>("auto");
-expectAssignable<MinWidthProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<MinWidthProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<ObjectFitProp>("fill");
 expectAssignable<ObjectFitProp>("contain");
 expectAssignable<ObjectFitProp>("cover");
 expectAssignable<ObjectFitProp>("none");
 expectAssignable<ObjectFitProp>("scale-down");
-expectAssignable<ObjectFitProp>({ base: "fill", md: "fill", lg: "fill" });
+expectAssignable<ObjectFitProp>({ base: "fill", xs: "fill", sm: "fill", md: "fill", lg: "fill", xl: "fill" });
 
 expectAssignable<ObjectPositionProp>("50% 50%");
 expectAssignable<ObjectPositionProp>("right top");
 expectAssignable<ObjectPositionProp>("left bottom");
 expectAssignable<ObjectPositionProp>("250px 125px");
-expectAssignable<ObjectPositionProp>({ base: "right top", md: "right top", lg: "right top" });
+expectAssignable<ObjectPositionProp>({ base: "right top", xs: "right top", sm: "right top", md: "right top", lg: "right top", xl: "right top" });
 
 expectAssignable<OpacityProp>(0.9);
 expectAssignable<OpacityProp>("90%");
-expectAssignable<OpacityProp>({ base: 0.9, md: 0.9, lg: 0.9 });
+expectAssignable<OpacityProp>({ base: 0.9, xs: 0.9, sm: 0.9, md: 0.9, lg: 0.9, xl: 0.9 });
 
 expectAssignable<OrderProp>(1);
 expectAssignable<OrderProp>(-1);
-expectAssignable<OrderProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<OrderProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<OutlineProp>("solid");
 expectAssignable<OutlineProp>("#f66 dashed");
 expectAssignable<OutlineProp>("inset thick");
 expectAssignable<OutlineProp>("green solid 3px");
 expectAssignable<OutlineProp>("none");
-expectAssignable<OutlineProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<OutlineProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<OverflowProp>("auto");
 expectAssignable<OverflowProp>("clip");
 expectAssignable<OverflowProp>("hidden");
 expectAssignable<OverflowProp>("scroll");
 expectAssignable<OverflowProp>("visible");
-expectAssignable<OverflowProp>({ base: "visible", md: "visible", lg: "visible" });
+expectAssignable<OverflowProp>({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 
 expectAssignable<OverflowXProp>("auto");
 expectAssignable<OverflowXProp>("clip");
 expectAssignable<OverflowXProp>("hidden");
 expectAssignable<OverflowXProp>("scroll");
 expectAssignable<OverflowXProp>("visible");
-expectAssignable<OverflowXProp>({ base: "visible", md: "visible", lg: "visible" });
+expectAssignable<OverflowXProp>({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 
 expectAssignable<OverflowYProp>("auto");
 expectAssignable<OverflowYProp>("clip");
 expectAssignable<OverflowYProp>("hidden");
 expectAssignable<OverflowYProp>("scroll");
 expectAssignable<OverflowYProp>("visible");
-expectAssignable<OverflowYProp>({ base: "visible", md: "visible", lg: "visible" });
+expectAssignable<OverflowYProp>({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 
 expectAssignable<PaddingProp>(1);
 expectAssignable<PaddingProp>("1px");
@@ -1043,7 +1043,7 @@ expectAssignable<PaddingProp>("1%");
 expectAssignable<PaddingProp>("calc(1px + 1px)");
 expectAssignable<PaddingProp>("auto");
 expectAssignable<PaddingProp>("2px 1em 0 auto");
-expectAssignable<PaddingProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingBottomProp>(1);
 expectAssignable<PaddingBottomProp>("1px");
@@ -1053,7 +1053,7 @@ expectAssignable<PaddingBottomProp>("1rem");
 expectAssignable<PaddingBottomProp>("1%");
 expectAssignable<PaddingBottomProp>("calc(1px + 1px)");
 expectAssignable<PaddingBottomProp>("auto");
-expectAssignable<PaddingBottomProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingBottomProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingLeftProp>(1);
 expectAssignable<PaddingLeftProp>("1px");
@@ -1063,7 +1063,7 @@ expectAssignable<PaddingLeftProp>("1rem");
 expectAssignable<PaddingLeftProp>("1%");
 expectAssignable<PaddingLeftProp>("calc(1px + 1px)");
 expectAssignable<PaddingLeftProp>("auto");
-expectAssignable<PaddingLeftProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingLeftProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingRightProp>(1);
 expectAssignable<PaddingRightProp>("1px");
@@ -1073,7 +1073,7 @@ expectAssignable<PaddingRightProp>("1rem");
 expectAssignable<PaddingRightProp>("1%");
 expectAssignable<PaddingRightProp>("calc(1px + 1px)");
 expectAssignable<PaddingRightProp>("auto");
-expectAssignable<PaddingRightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingRightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingTopProp>(1);
 expectAssignable<PaddingTopProp>("1px");
@@ -1083,7 +1083,7 @@ expectAssignable<PaddingTopProp>("1rem");
 expectAssignable<PaddingTopProp>("1%");
 expectAssignable<PaddingTopProp>("calc(1px + 1px)");
 expectAssignable<PaddingTopProp>("auto");
-expectAssignable<PaddingTopProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingTopProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingXProp>(1);
 expectAssignable<PaddingXProp>("1px");
@@ -1093,7 +1093,7 @@ expectAssignable<PaddingXProp>("1rem");
 expectAssignable<PaddingXProp>("1%");
 expectAssignable<PaddingXProp>("calc(1px + 1px)");
 expectAssignable<PaddingXProp>("auto");
-expectAssignable<PaddingXProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingXProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PaddingYProp>(1);
 expectAssignable<PaddingYProp>("1px");
@@ -1103,7 +1103,7 @@ expectAssignable<PaddingYProp>("1rem");
 expectAssignable<PaddingYProp>("1%");
 expectAssignable<PaddingYProp>("calc(1px + 1px)");
 expectAssignable<PaddingYProp>("auto");
-expectAssignable<PaddingYProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<PaddingYProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<PointerEventsProp>("auto");
 expectAssignable<PointerEventsProp>("none");
@@ -1115,14 +1115,14 @@ expectAssignable<PointerEventsProp>("painted");
 expectAssignable<PointerEventsProp>("fill");
 expectAssignable<PointerEventsProp>("stroke");
 expectAssignable<PointerEventsProp>("all");
-expectAssignable<PointerEventsProp>({ base: "fill", md: "fill", lg: "fill" });
+expectAssignable<PointerEventsProp>({ base: "fill", xs: "fill", sm: "fill", md: "fill", lg: "fill", xl: "fill" });
 
 expectAssignable<PositionProp>("static");
 expectAssignable<PositionProp>("fixed");
 expectAssignable<PositionProp>("absolute");
 expectAssignable<PositionProp>("relative");
 expectAssignable<PositionProp>("sticky");
-expectAssignable<PositionProp>({ base: "fixed", md: "fixed", lg: "fixed" });
+expectAssignable<PositionProp>({ base: "fixed", xs: "fixed", sm: "fixed", md: "fixed", lg: "fixed", xl: "fixed" });
 
 expectAssignable<ResizeProp>("none");
 expectAssignable<ResizeProp>("both");
@@ -1130,7 +1130,7 @@ expectAssignable<ResizeProp>("horizontal");
 expectAssignable<ResizeProp>("vertical");
 expectAssignable<ResizeProp>("block");
 expectAssignable<ResizeProp>("inline");
-expectAssignable<ResizeProp>({ base: "both", md: "both", lg: "both" });
+expectAssignable<ResizeProp>({ base: "both", xs: "both", sm: "both", md: "both", lg: "both", xl: "both" });
 
 expectAssignable<RightProp>("1px");
 expectAssignable<RightProp>("-1px");
@@ -1139,7 +1139,7 @@ expectAssignable<RightProp>("1rem");
 expectAssignable<RightProp>("1%");
 expectAssignable<RightProp>("calc(1px + 1px)");
 expectAssignable<RightProp>("auto");
-expectAssignable<RightProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<RightProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<RowGapProp>(1);
 expectAssignable<RowGapProp>("1px");
@@ -1148,7 +1148,7 @@ expectAssignable<RowGapProp>("1rem");
 expectAssignable<RowGapProp>("1%");
 expectAssignable<RowGapProp>("calc(1px + 1px)");
 expectAssignable<RowGapProp>("normal");
-expectAssignable<RowGapProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<RowGapProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<StrokeProp>("#fff");
 expectAssignable<StrokeProp>("white");
@@ -1160,7 +1160,7 @@ expectAssignable<StrokeProp>("sunray-1");
 expectAssignable<StrokeProp>("alias-1");
 expectAssignable<StrokeProp>("currentColor");
 expectAssignable<StrokeProp>("transparent");
-expectAssignable<StrokeProp>({ base: "sunray-1", md: "sunray-1", lg: "sunray-1" });
+expectAssignable<StrokeProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
 
 expectAssignable<TextAlignProp>("start");
 expectAssignable<TextAlignProp>("end");
@@ -1170,18 +1170,18 @@ expectAssignable<TextAlignProp>("center");
 expectAssignable<TextAlignProp>("justify");
 expectAssignable<TextAlignProp>("justify-all");
 expectAssignable<TextAlignProp>("match-parent");
-expectAssignable<TextAlignProp>({ base: "start", md: "start", lg: "start" });
+expectAssignable<TextAlignProp>({ base: "start", xs: "start", sm: "start", md: "start", lg: "start", xl: "start" });
 
 expectAssignable<TextDecorationProp>("underline");
 expectAssignable<TextDecorationProp>("underline dotted");
 expectAssignable<TextDecorationProp>("overline #FF3028");
-expectAssignable<TextDecorationProp>({ base: "underline", md: "underline", lg: "underline" });
+expectAssignable<TextDecorationProp>({ base: "underline", xs: "underline", sm: "underline", md: "underline", lg: "underline", xl: "underline" });
 
 expectAssignable<TextOverflowProp>("clip");
 expectAssignable<TextOverflowProp>("ellipsis");
 expectAssignable<TextOverflowProp>("ellipsis ellipsis");
 expectAssignable<TextOverflowProp>("ellipsis \" [..]\"");
-expectAssignable<TextOverflowProp>({ base: "clip", md: "clip", lg: "clip" });
+expectAssignable<TextOverflowProp>({ base: "clip", xs: "clip", sm: "clip", md: "clip", lg: "clip", xl: "clip" });
 
 expectAssignable<TopProp>("1px");
 expectAssignable<TopProp>("-1px");
@@ -1190,7 +1190,7 @@ expectAssignable<TopProp>("1rem");
 expectAssignable<TopProp>("1%");
 expectAssignable<TopProp>("calc(1px + 1px)");
 expectAssignable<TopProp>("auto");
-expectAssignable<TopProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<TopProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<TransformProp>("none");
 expectAssignable<TransformProp>("matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)");
@@ -1216,7 +1216,7 @@ expectAssignable<TransformProp>("skewX(30deg)");
 expectAssignable<TransformProp>("skewY(1.07rad)");
 expectAssignable<TransformProp>("translateX(10px) rotate(10deg) translateY(5px)");
 expectAssignable<TransformProp>("perspective(500px) translate(10px, 0, 20px) rotateY(3deg)");
-expectAssignable<TransformProp>({ base: "none", md: "none", lg: "none" });
+expectAssignable<TransformProp>({ base: "none", xs: "none", sm: "none", md: "none", lg: "none", xl: "none" });
 
 expectAssignable<TransformOriginProp>("2px");
 expectAssignable<TransformOriginProp>("bottom");
@@ -1228,11 +1228,11 @@ expectAssignable<TransformOriginProp>("2px 30% 10px");
 expectAssignable<TransformOriginProp>("left 5px -3px");
 expectAssignable<TransformOriginProp>("right bottom 2cm");
 expectAssignable<TransformOriginProp>("bottom right 2cm");
-expectAssignable<TransformOriginProp>({ base: "2px", md: "2px", lg: "2px" });
+expectAssignable<TransformOriginProp>({ base: "2px", xs: "2px", sm: "2px", md: "2px", lg: "2px", xl: "2px" });
 
 expectAssignable<TransformStyleProp>("flat");
 expectAssignable<TransformStyleProp>("preserve-3d");
-expectAssignable<TransformOriginProp>({ base: "flat", md: "flat", lg: "flat" });
+expectAssignable<TransformOriginProp>({ base: "flat", xs: "flat", sm: "flat", md: "flat", lg: "flat", xl: "flat" });
 
 expectAssignable<VerticalAlignProp>("baseline");
 expectAssignable<VerticalAlignProp>("sub");
@@ -1247,12 +1247,12 @@ expectAssignable<VerticalAlignProp>("1em");
 expectAssignable<VerticalAlignProp>("1rem");
 expectAssignable<VerticalAlignProp>("1%");
 expectAssignable<VerticalAlignProp>("calc(1px + 1px)");
-expectAssignable<VerticalAlignProp>({ base: "middle", md: "middle", lg: "middle" });
+expectAssignable<VerticalAlignProp>({ base: "middle", xs: "middle", sm: "middle", md: "middle", lg: "middle", xl: "middle" });
 
 expectAssignable<VisibilityProp>("visible");
 expectAssignable<VisibilityProp>("hidden");
 expectAssignable<VisibilityProp>("collapse");
-expectAssignable<VisibilityProp>({ base: "visible", md: "visible", lg: "visible" });
+expectAssignable<VisibilityProp>({ base: "visible", xs: "visible", sm: "visible", md: "visible", lg: "visible", xl: "visible" });
 
 expectAssignable<WhiteSpaceProp>("normal");
 expectAssignable<WhiteSpaceProp>("nowrap");
@@ -1260,7 +1260,7 @@ expectAssignable<WhiteSpaceProp>("pre");
 expectAssignable<WhiteSpaceProp>("pre-wrap");
 expectAssignable<WhiteSpaceProp>("pre-line");
 expectAssignable<WhiteSpaceProp>("break-spaces");
-expectAssignable<WhiteSpaceProp>({ base: "nowrap", md: "nowrap", lg: "nowrap" });
+expectAssignable<WhiteSpaceProp>({ base: "nowrap", xs: "nowrap", sm: "nowrap", md: "nowrap", lg: "nowrap", xl: "nowrap" });
 
 expectAssignable<WillChangeProp>("auto");
 expectAssignable<WillChangeProp>("scroll-position");
@@ -1268,7 +1268,7 @@ expectAssignable<WillChangeProp>("contents");
 expectAssignable<WillChangeProp>("transform");
 expectAssignable<WillChangeProp>("opacity");
 expectAssignable<WillChangeProp>("left, top");
-expectAssignable<WillChangeProp>({ base: "contents", md: "contents", lg: "contents" });
+expectAssignable<WillChangeProp>({ base: "contents", xs: "contents", sm: "contents", md: "contents", lg: "contents", xl: "contents" });
 
 expectAssignable<WidthProp>(1);
 expectAssignable<WidthProp>("1px");
@@ -1282,18 +1282,18 @@ expectAssignable<WidthProp>("max-content");
 expectAssignable<WidthProp>("min-content");
 expectAssignable<WidthProp>("fit-content(1em)");
 expectAssignable<WidthProp>("auto");
-expectAssignable<WidthProp>({ base: "1px", md: "1px", lg: "1px" });
+expectAssignable<WidthProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg: "1px", xl: "1px" });
 
 expectAssignable<WordBreakProp>("normal");
 expectAssignable<WordBreakProp>("break-all");
 expectAssignable<WordBreakProp>("keep-all");
 expectAssignable<WordBreakProp>("break-word");
-expectAssignable<WordBreakProp>({ base: "break-word", md: "break-word", lg: "break-word" });
+expectAssignable<WordBreakProp>({ base: "break-word", xs: "break-word", sm: "break-word", md: "break-word", lg: "break-word", xl: "break-word" });
 
 expectAssignable<ZIndexProp>("auto");
 expectAssignable<ZIndexProp>(1);
 expectAssignable<ZIndexProp>(-1);
-expectAssignable<ZIndexProp>({ base: 1, md: 1, lg: 1 });
+expectAssignable<ZIndexProp>({ base: 1, xs: 1, sm: 1, md: 1, lg: 1, xl: 1 });
 
 expectAssignable<StyledSystemProps>({
     alignContent: "center",

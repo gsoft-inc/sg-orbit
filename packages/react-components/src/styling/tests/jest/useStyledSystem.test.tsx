@@ -315,7 +315,7 @@ describe("breakpoints", () => {
         test(`${x}`, () => {
             const tree = renderer
                 .create(
-                    <BreakpointProvider defaultBreakpoint={x}>
+                    <BreakpointProvider unsupportedMatchMediaBreakpoint={x}>
                         {responsiveBoxes}
                     </BreakpointProvider>
                 )

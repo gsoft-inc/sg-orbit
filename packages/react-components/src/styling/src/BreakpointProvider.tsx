@@ -5,8 +5,11 @@ import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 export const Breakpoints = {
-    md: "(max-width: 900px)",
-    lg: "(min-width: 901px)"
+    xs: "(min-width: 640px)",
+    sm: "(min-width: 768px)",
+    md: "(min-width: 1024px)",
+    lg: "(min-width: 1280px)",
+    xl: "(min-width: 1536px)"
 };
 /* eslint-enable sort-keys-fix/sort-keys-fix */
 
@@ -20,24 +23,33 @@ export const BreakpointContext = createContext<BreakpointContextType>({});
 
 export interface BreakpointProvider {
     children: ReactNode;
-    defaultBreakpoint?: Breakpoint;
+    unsupportedMatchMediaBreakpoint?: Breakpoint;
 }
+
+// Reversing breakpoints to resolve from higher to lower.
+const ReversedBreakpoints = Object.entries(Breakpoints).reduce((acc, entry) => {
+    acc.unshift(entry);
+
+    return acc;
+}, []);
 
 export function BreakpointProvider({
     children,
-    defaultBreakpoint = "lg"
+    unsupportedMatchMediaBreakpoint = "lg"
 }: BreakpointProvider) {
     const getCurrentBreakpoint = useCallback(() => {
         if (supportsMatchMedia) {
-            for (const [key, value] of Object.entries(Breakpoints)) {
+            for (const [key, value] of ReversedBreakpoints) {
                 if (window.matchMedia(value).matches) {
                     return key as Breakpoint;
                 }
             }
+
+            return undefined;
         }
 
-        return defaultBreakpoint;
-    }, [defaultBreakpoint]);
+        return unsupportedMatchMediaBreakpoint;
+    }, [unsupportedMatchMediaBreakpoint]);
 
     const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint);
 

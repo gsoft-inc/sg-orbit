@@ -5,6 +5,2059 @@ Array [
   <div
     style={
       Object {
+        "alignContent": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignItems": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignSelf": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "aspectRatio": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundImage": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundPosition": "right",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundRepeat": "no-repeat",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundSize": "3.2em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottom": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-hover"
+    style={
+      Object {
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderLeft": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-hover"
+    style={
+      Object {
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRight": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-hover"
+    style={
+      Object {
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTop": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-hover"
+    style={
+      Object {
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "var(--o-ui-br-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "var(--o-ui-br-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "var(--o-ui-br-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "var(--o-ui-br-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "var(--o-ui-br-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "color": "alias-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-2",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": "alias-2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "open-quote",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "flex",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fill": "var(--o-ui-icon-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-hover"
+    style={
+      Object {
+        "--o-ui-f-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "column-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "oblique 10deg",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "auto-flow dense 40% / [line1] minmax(20em, max-content)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "4 some-grid-area / 2 another-grid-area",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "row dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "1 / span 2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "somegridarea 4",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "1 / span 2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "somegridarea 4",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "somegridarea 4",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "\\"a a a\\" \\"b b b\\"",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "normal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "end",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": ".3px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "var(--o-ui-lh-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-4)",
+        "marginRight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-4)",
+        "marginTop": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "green solid 3px",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "green solid 3px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "scroll",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-4)",
+        "paddingRight": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-4)",
+        "paddingTop": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visibleFill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "fixed",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "vertical",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "stroke": "var(--o-ui-icon-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "right",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "lowercase",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "perspective(17px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "right bottom 2cm",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "initial",
+      }
+    }
+  />,
+  <div
+    verticalALign={
+      Object {
+        "lg": "text-top",
+        "md": "super",
+        "sm": "sub",
+        "xl": "text-bottom",
+        "xs": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre-wrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "transform",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "289",
+      }
+    }
+  />,
+]
+`;
+
+exports[`breakpoints md 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "alignContent": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignSelf": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "aspectRatio": "16 / 9",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundImage": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundPosition": "left",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundRepeat": "repeat",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundSize": "50%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottom": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-hover"
+    style={
+      Object {
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderLeft": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-hover"
+    style={
+      Object {
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRight": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-hover"
+    style={
+      Object {
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTop": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-hover"
+    style={
+      Object {
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "var(--o-ui-br-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "var(--o-ui-br-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "var(--o-ui-br-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "var(--o-ui-br-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "var(--o-ui-br-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "color": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": "alias-1-active",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "linear-gradient(#e66465, #9198e5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "url(cursor1.png) 4 12, auto",
+      }
+    }
+  />,
+  <div
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "url(cursor1.png) 4 12, auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline-block",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fill": "var(--o-ui-icon-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "alias-info-1",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-hover"
+    style={
+      Object {
+        "--o-ui-f-hover": "alias-info-1",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "2 2 10%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "column",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "column",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "wrap-reverse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "oblique",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "'wght' var(--o-ui-fw-3)",
+        "fontWeight": "400",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "minmax(400px, min-content) / repeat(auto-fill, 50px)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "some-grid-area",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "1 / 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "2",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "1 / 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "2",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "2",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "[linename] 100px / [columnname1] 30% [columnname2] 70%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "\\"head head\\" \\"nav  main\\" \\"nav  foot\\"",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "0.3em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "var(--o-ui-lh-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-3)",
+        "marginRight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-3)",
+        "marginTop": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "fill",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "inset thick",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "inset thick",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "clip",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-3)",
+        "paddingRight": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-3)",
+        "paddingTop": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visiblePainted",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "absolute",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "horizontal",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "stroke": "var(--o-ui-icon-alias-info-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "left",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "none",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "uppercase",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "3cm 2px",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "inherit",
+      }
+    }
+  />,
+  <div
+    verticalALign={
+      Object {
+        "lg": "text-top",
+        "md": "super",
+        "sm": "sub",
+        "xl": "text-bottom",
+        "xs": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "collapse",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-3)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "contents",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "keep-all",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "3",
+      }
+    }
+  />,
+]
+`;
+
+exports[`breakpoints sm 1`] = `
+Array [
+  <div
+    style={
+      Object {
         "alignContent": "end",
       }
     }
@@ -986,8 +3039,11 @@ Array [
   <div
     verticalALign={
       Object {
-        "lg": "sub",
-        "md": "baseline",
+        "lg": "text-top",
+        "md": "super",
+        "sm": "sub",
+        "xl": "text-bottom",
+        "xs": "baseline",
       }
     }
   />,
@@ -1036,7 +3092,1033 @@ Array [
 ]
 `;
 
-exports[`breakpoints md 1`] = `
+exports[`breakpoints xl 1`] = `
+Array [
+  <div
+    style={
+      Object {
+        "alignContent": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignItems": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "alignSelf": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "aspectRatio": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundColor": "var(--o-ui-bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundImage": "unset",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundPosition": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundRepeat": "space",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "backgroundSize": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "border": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-active"
+    style={
+      Object {
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-focus"
+    style={
+      Object {
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-b-hover"
+    style={
+      Object {
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottom": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-active"
+    style={
+      Object {
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-focus"
+    style={
+      Object {
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bb-hover"
+    style={
+      Object {
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderLeft": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-active"
+    style={
+      Object {
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-focus"
+    style={
+      Object {
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bl-hover"
+    style={
+      Object {
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRight": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-active"
+    style={
+      Object {
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-focus"
+    style={
+      Object {
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-br-hover"
+    style={
+      Object {
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTop": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-active"
+    style={
+      Object {
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-focus"
+    style={
+      Object {
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bt-hover"
+    style={
+      Object {
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-negative-1)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "var(--o-ui-br-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "var(--o-ui-br-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "var(--o-ui-br-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "var(--o-ui-br-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "var(--o-ui-br-4)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "bottom": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "boxShadow": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-active"
+    style={
+      Object {
+        "--o-ui-bs-active": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-focus"
+    style={
+      Object {
+        "--o-ui-bs-focus": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bs-hover"
+    style={
+      Object {
+        "--o-ui-bs-hover": "var(--o-ui-bs-alias-floating)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "color": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": "alias-2-hover",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "columnGap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "content": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "contentVisibility": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "cursor": "initial",
+      }
+    }
+  />,
+  <div
+    className="o-ui-cs-hover"
+    style={
+      Object {
+        "--o-ui-cs-hover": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "display": "inline-flex",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fill": "var(--o-ui-icon-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-hover"
+    style={
+      Object {
+        "--o-ui-f-hover": "1px solid var(--o-ui-b-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "filter": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flex": "1em",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexBasis": "1rem",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexDirection": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexFlow": "nowrap",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexGrow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexShrink": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "flexWrap": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontSize": "var(--o-ui-fs-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontStyle": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "fontVariationSettings": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "grid": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridArea": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoFlow": "column dense",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumn": "main-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridColumnEnd": "span 3",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridColumnStart": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRow": "main-start",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridRowEnd": "span 3",
+      }
+    }
+  />,
+  <div />,
+  <div
+    style={
+      Object {
+        "gridRowStart": "span 3",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplate": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateAreas": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "height": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyContent": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifyItems": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "justifySelf": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "left": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "letterSpacing": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "lineHeight": "var(--o-ui-lh-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "margin": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginRight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginTop": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginLeft": "var(--o-ui-sp-5)",
+        "marginRight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "marginBottom": "var(--o-ui-sp-5)",
+        "marginTop": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxHeight": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "maxWidth": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minHeight": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "minWidth": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectFit": "scale-down",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "objectPosition": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "opacity": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-active"
+    style={
+      Object {
+        "o-ui-o-active": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-focus"
+    style={
+      Object {
+        "o-ui-o-focus": "revert",
+      }
+    }
+  />,
+  <div
+    className="o-ui-o-hover"
+    style={
+      Object {
+        "o-ui-o-hover": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "order": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "outline": "inherit",
+      }
+    }
+  />,
+  <div
+    className="o-ui-ol-focus"
+    style={
+      Object {
+        "o-ui-ol-focus": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflow": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowX": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "overflowY": "auto",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "padding": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingRight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingTop": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingLeft": "var(--o-ui-sp-5)",
+        "paddingRight": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "paddingBottom": "var(--o-ui-sp-5)",
+        "paddingTop": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "pointerEvents": "visibleStroke",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "position": "sticky",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "resize": "block",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "right": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "rowGap": "var(--o-ui-sp-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "stroke": "var(--o-ui-icon-alias-negative-2)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textDecoration": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textOverflow": "revert",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "textTransform": "full-width",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "top": "1%",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transform": "rotate(0.5turn)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformOrigin": "inherit",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "transformStyle": "revert",
+      }
+    }
+  />,
+  <div
+    verticalALign={
+      Object {
+        "lg": "text-top",
+        "md": "super",
+        "sm": "sub",
+        "xl": "text-bottom",
+        "xs": "baseline",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "visibility": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "whiteSpace": "pre-line",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "width": "var(--o-ui-sz-5)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "willChange": "opacity",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "wordBreak": "initial",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "zIndex": "-1",
+      }
+    }
+  />,
+]
+`;
+
+exports[`breakpoints xs 1`] = `
 Array [
   <div
     style={
@@ -2022,8 +5104,11 @@ Array [
   <div
     verticalALign={
       Object {
-        "lg": "sub",
-        "md": "baseline",
+        "lg": "text-top",
+        "md": "super",
+        "sm": "sub",
+        "xl": "text-bottom",
+        "xs": "baseline",
       }
     }
   />,

@@ -94,9 +94,9 @@ A tile can be disabled.
 
 A tile can render horizontally.
 
-<Preview scope={{ SpacePortrait, Planet }} width="1000px">
+<Preview scope={{ SpacePortrait, Planet }}>
     <Story name="orientation">
-        <Inline>
+        <Inline wrap={false}>
             <Tile orientation="horizontal">
                 <Image src={SpacePortrait} alt="Space Portrait" />
                 <Heading>Buy a ticket</Heading>

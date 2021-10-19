@@ -34,7 +34,7 @@ stories()
         </>
     )
     .add("nesting", () =>
-        <Grid fluidColumns={2} gap={4}>
+        <Grid templateColumns={["1fr", "1fr"]} gap={4}>
             <Grid templateColumns={[13, "auto"]}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-6">Bravo</Div>
@@ -247,7 +247,7 @@ stories()
     )
     .add("column span", () =>
         <Stack>
-            <Grid fluidColumns={3} gap={4}>
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div gridColumnSpan={2} backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -255,7 +255,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid fluidColumns={3} gap={4}>
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridColumnSpan={{ md: undefined, lg: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
@@ -412,7 +412,7 @@ stories()
     )
     .add("row span", () =>
         <Stack>
-            <Grid fluidColumns={3} gap={4}>
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div gridRowSpan={2} backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -420,7 +420,7 @@ stories()
                 <Div backgroundColor="primary-5">Echo</Div>
                 <Div backgroundColor="primary-5">Foxtrot</Div>
             </Grid>
-            <Grid fluidColumns={3} gap={4}>
+            <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
                 <Div backgroundColor="primary-10">Alpha</Div>
                 <Div gridRowSpan={{ lg: 2 }} backgroundColor="primary-10">Bravo</Div>
                 <Div backgroundColor="primary-10">Charlie</Div>
