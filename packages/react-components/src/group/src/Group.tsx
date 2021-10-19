@@ -54,7 +54,7 @@ export function InnerGroup({
     const orientationValue = useResponsiveValue(orientation);
     const wrapValue = useResponsiveValue(wrap);
 
-    const alignProps = useFlexAlignment({ alignX: alignValue, orientation: orientationValue });
+    const alignProps = useFlexAlignment({ alignX: alignValue, alignY: "center", orientation: orientationValue });
 
     return (
         <Flex

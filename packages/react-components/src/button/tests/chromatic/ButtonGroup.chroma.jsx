@@ -2,6 +2,7 @@ import { AddIcon } from "@react-components/icons";
 import { Button, ButtonGroup, IconButton } from "@react-components/button";
 import { Div } from "@react-components/html";
 import { Inline, Stack } from "@react-components/layout";
+import { TextLinkAsButton } from "@react-components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -81,6 +82,10 @@ stories()
                 <Button variant="tertiary">Reset</Button>
                 <Button variant="primary">Submit form</Button>
             </ButtonGroup>
+            <ButtonGroup>
+                <TextLinkAsButton href="#">Reset</TextLinkAsButton>
+                <Button variant="secondary">Submit form</Button>
+            </ButtonGroup>
         </Stack>
     )
     .add("zoom", () =>
@@ -123,20 +128,26 @@ stories("/vertical")
         </Inline>
     )
     .add("align", () =>
-        <Inline>
-            <ButtonGroup align="start" orientation="vertical">
-                <Button variant="secondary">Reset</Button>
+        <Stack>
+            <Inline>
+                <ButtonGroup align="start" orientation="vertical">
+                    <Button variant="secondary">Reset</Button>
+                    <Button variant="secondary">Submit form</Button>
+                </ButtonGroup>
+                <ButtonGroup align="end" orientation="vertical">
+                    <Button variant="secondary">Reset</Button>
+                    <Button variant="secondary">Submit form</Button>
+                </ButtonGroup>
+                <ButtonGroup align="center" orientation="vertical">
+                    <Button variant="secondary">Reset</Button>
+                    <Button variant="secondary">Submit form</Button>
+                </ButtonGroup>
+            </Inline>
+            <ButtonGroup orientation="vertical">
+                <TextLinkAsButton href="#">Reset</TextLinkAsButton>
                 <Button variant="secondary">Submit form</Button>
             </ButtonGroup>
-            <ButtonGroup align="end" orientation="vertical">
-                <Button variant="secondary">Reset</Button>
-                <Button variant="secondary">Submit form</Button>
-            </ButtonGroup>
-            <ButtonGroup align="center" orientation="vertical">
-                <Button variant="secondary">Reset</Button>
-                <Button variant="secondary">Submit form</Button>
-            </ButtonGroup>
-        </Inline>
+        </Stack>
     )
     .add("zoom", () =>
         <Inline>

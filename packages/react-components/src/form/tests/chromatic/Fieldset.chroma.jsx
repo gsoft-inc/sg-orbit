@@ -1,8 +1,8 @@
 import { Button } from "@react-components/button";
 import { Div } from "@react-components/html";
 import { Field, Label } from "@react-components/field";
-import { Fieldset, Form, Row } from "@react-components/form";
-import { Stack } from "@react-components/layout";
+import { Fieldset, Form } from "@react-components/form";
+import { Inline, Stack } from "@react-components/layout";
 import { TextInput } from "@react-components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -16,7 +16,7 @@ stories()
     .add("default", () =>
         <Form>
             <Fieldset label="Shipping Address">
-                <Row>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -25,8 +25,8 @@ stories()
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field>
                         <Label>Address</Label>
                         <TextInput />
@@ -35,8 +35,8 @@ stories()
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field>
                         <Label>City</Label>
                         <TextInput />
@@ -49,14 +49,14 @@ stories()
                         <Label>Country</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
                 <Field>
                     <Label>Postal code</Label>
                     <TextInput />
                 </Field>
             </Fieldset>
             <Fieldset label="Billing Address">
-                <Row>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -65,8 +65,8 @@ stories()
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field>
                         <Label>Address</Label>
                         <TextInput />
@@ -75,8 +75,8 @@ stories()
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field>
                         <Label>City</Label>
                         <TextInput />
@@ -89,7 +89,7 @@ stories()
                         <Label>Country</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
                 <Field>
                     <Label>Postal code</Label>
                     <TextInput />
@@ -102,7 +102,7 @@ stories()
         <Stack>
             <Div className="zoom-in">
                 <Fieldset label="Shipping Address">
-                    <Row>
+                    <Inline>
                         <Field>
                             <Label>First name</Label>
                             <TextInput />
@@ -111,12 +111,12 @@ stories()
                             <Label>Last name</Label>
                             <TextInput />
                         </Field>
-                    </Row>
+                    </Inline>
                 </Fieldset>
             </Div>
             <Div className="zoom-out">
                 <Fieldset label="Shipping Address">
-                    <Row>
+                    <Inline>
                         <Field>
                             <Label>First name</Label>
                             <TextInput />
@@ -125,7 +125,7 @@ stories()
                             <Label>Last name</Label>
                             <TextInput />
                         </Field>
-                    </Row>
+                    </Inline>
                 </Fieldset>
             </Div>
         </Stack>
@@ -133,7 +133,7 @@ stories()
     .add("styling", () =>
         <Stack>
             <Fieldset border="sunray-10" label="Shipping Address">
-                <Row>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -142,10 +142,10 @@ stories()
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
             </Fieldset>
             <Fieldset className="border-red" label="Shipping Address">
-                <Row>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -154,10 +154,10 @@ stories()
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
             </Fieldset>
             <Fieldset style={{ border: "1px solid red" }} label="Shipping Address">
-                <Row>
+                <Inline>
                     <Field>
                         <Label>First name</Label>
                         <TextInput />
@@ -166,7 +166,7 @@ stories()
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
             </Fieldset>
         </Stack>
     );
