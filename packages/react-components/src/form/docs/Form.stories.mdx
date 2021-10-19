@@ -3,8 +3,8 @@ import { Button, ButtonGroup } from "@react-components/button";
 import { Checkbox } from "@react-components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@react-components/field";
-import { Fieldset, Form, InnerFieldset, InnerForm, InnerRow, Row } from "@react-components/form";
-import { Inline } from "@react-components/layout";
+import { Fieldset, Form, InnerFieldset, InnerForm } from "@react-components/form";
+import { Grid, Inline, repeat } from "@react-components/layout";
 import { PasswordInput, TextInput } from "@react-components/text-input";
 
 <Meta
@@ -57,12 +57,12 @@ A form can stack fields vertically.
 
 ### Inline layout
 
-Multiple form fields can be inlined on the same row.
+Multiple form fields can be inlined on the same row either with a [Flex](?path=/docs/flex--horizontal) component:
 
 <Preview>
-    <Story name="inline layout">
+    <Story name="inline layout flex">
         <Form fluid>
-            <Row>
+            <Inline>
                 <Field>
                     <Label required>First name</Label>
                     <TextInput />
@@ -75,8 +75,8 @@ Multiple form fields can be inlined on the same row.
                     <Label required>Username</Label>
                     <TextInput />
                 </Field>
-            </Row>
-            <Row>
+            </Inline>
+            <Inline>
                 <Field width="50%">
                     <Label>City</Label>
                     <TextInput />
@@ -89,7 +89,48 @@ Multiple form fields can be inlined on the same row.
                     <Label>Zip</Label>
                     <TextInput />
                 </Field>
-            </Row>
+            </Inline>
+            <Field>
+                <Checkbox>Agree to terms and conditions</Checkbox>
+            </Field>
+            <Button type="submit" variant="secondary">Submit</Button>
+        </Form>
+    </Story>
+</Preview>
+
+Or a [Grid](?path=/docs/grid--areas) component:
+
+<Preview>
+    <Story name="inline layout grid">
+        <Form fluid>
+            <Grid templateColumns={repeat(3, "1fr")}>
+                <Field>
+                    <Label required>First name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Last name</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label required>Username</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
+            <Grid templateColumns={["50%", "25%", "25%"]}>
+                <Field>
+                    <Label>City</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>State</Label>
+                    <TextInput />
+                </Field>
+                <Field>
+                    <Label>Zip</Label>
+                    <TextInput />
+                </Field>
+            </Grid>
             <Field>
                 <Checkbox>Agree to terms and conditions</Checkbox>
             </Field>
@@ -106,7 +147,7 @@ Form fields can be grouped together within fieldsets.
     <Story name="fieldset">
         <Form>
             <Fieldset label="Shipping Address">
-                <Row>
+                <Inline>
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -115,8 +156,8 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -125,14 +166,14 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
                 </Field>
             </Fieldset>
             <Fieldset label="Billing Address">
-                <Row>
+                <Inline>
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -141,8 +182,8 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Row>
-                <Row>
+                </Inline>
+                <Inline>
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -151,7 +192,7 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Row>
+                </Inline>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
@@ -240,15 +281,6 @@ The form state and validation could be managed by an external library like [Form
 />
 
 <ArgsTable of={InnerForm} sort="alpha" />
-
-### Row
-
-<ComponentInfo
-    usage={"import { Row } from \"@orbit-ui/react-components\";"}
-    compact
-/>
-
-<ArgsTable of={InnerRow} sort="alpha" />
 
 ### Fieldset
 

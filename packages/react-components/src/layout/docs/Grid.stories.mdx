@@ -5,7 +5,7 @@ import { Div } from "@react-components/html";
 import { Grid, InnerGrid, fitContent, minmax, repeat } from "@react-components/layout";
 
 <Meta
-    title="Layout/Grid"
+    title="Components/Grid"
     id="grid"
 />
 
@@ -121,7 +121,7 @@ Grids can be nested.
 <Preview>
     <Story name="nesting">
         <Grid
-            templateRows={["7", "7"]}
+            templateRows={[7, 7]}
             gap={2}
         >
             <Grid templateColumns={[9, "auto"]}>
@@ -161,7 +161,7 @@ A custom `minmax` function is avaiable to support Orbit spacing scalue values. H
 <Preview>
     <Story name="minmax function">
         <Grid
-            templateColumns={[minmax(9, "1fr"), "10", minmax(9, "1fr")]}
+            templateColumns={[minmax(9, "1fr"), 10, minmax(9, "1fr")]}
             gap={2}
             height={7}
         >

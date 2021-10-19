@@ -13,8 +13,9 @@ import {
 } from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNil, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, isNil, mergeProps, omitProps } from "../../shared";
 import { Property } from "csstype";
+import { useFormContext } from "../../form";
 
 export type FlexOrientation = "horizontal" | "vertical";
 export type FlexAlignment = "start" | "end" | "center";
@@ -119,21 +120,30 @@ export interface InnerFlexProps extends
     wrap?: FlexWrapProp;
 }
 
-export function InnerFlex({
-    alignItems,
-    as = DefaultElement,
-    children,
-    direction = "row",
-    fluid,
-    forwardedRef,
-    height,
-    inline,
-    justifyContent,
-    reverse,
-    width,
-    wrap,
-    ...rest
-}: InnerFlexProps) {
+export function InnerFlex(props: InnerFlexProps) {
+    const [formProps, isInFormContext] = useFormContext();
+
+    const {
+        alignItems,
+        as = DefaultElement,
+        children,
+        direction = "row",
+        fluid,
+        forwardedRef,
+        height,
+        inline,
+        justifyContent,
+        reverse,
+        width,
+        wrap,
+        ...rest
+    } = mergeProps(
+        // Defaults when a Flex is used in a form. These defaults are placed before "props" to ensure they have precedence.
+        isInFormContext ? { gap: 4 as const, wrap: false } : {} as Record<string, any>,
+        props,
+        omitProps(formProps, ["disabled"])
+    );
+
     const alignItemsValue = useResponsiveValue(alignItems);
     const directionValue = useResponsiveValue(direction);
     const fluidValue = useResponsiveValue(fluid);
