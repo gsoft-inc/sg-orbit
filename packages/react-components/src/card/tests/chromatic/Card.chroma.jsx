@@ -60,7 +60,7 @@ stories()
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
             <Card fluid orientation="horizontal">
-                <Image src={ApolloPoster} alt="Appolo 11" width={12} />
+                <Image src={ApolloPoster} alt="Appolo 11" width="200px" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
@@ -74,7 +74,7 @@ stories()
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
             <Card fluid orientation="vertical">
-                <Image src={ApolloBanner} alt="Appolo 11" fit="cover" height={12} />
+                <Image src={ApolloBanner} alt="Appolo 11" fit="cover" height="200px" />
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
