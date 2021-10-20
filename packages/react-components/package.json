@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/react-components",
-    "version": "19.0.1-alpha.5",
+    "version": "19.0.1-alpha.6",
     "description": "Orbit components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",
-        "@orbit-ui/icons": "10.0.1-alpha.5",
+        "@orbit-ui/icons": "10.0.1-alpha.6",
         "@popperjs/core": "2.10.2",
         "@reach/auto-id": "0.16.0",
         "react-is": "17.0.2",
