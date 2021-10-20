@@ -31,7 +31,7 @@
 }
 
 /* CONTENT */
-.o-ui-illustration-heading {
+.o-ui-illustration .o-ui-illustration-heading {
     margin-top: var(--o-ui-sp-6);
     margin-bottom: 0;
 }
