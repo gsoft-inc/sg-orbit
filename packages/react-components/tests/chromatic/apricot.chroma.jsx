@@ -1,4 +1,5 @@
 import {
+    ApricotTheme,
     BackgroundColorMapping,
     BorderMapping,
     BoxShadowMapping,
@@ -48,7 +49,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
-            <ThemeProvider colorScheme="dark">
+            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
                 </Inline>
@@ -60,7 +61,7 @@ stories()
             <Inline gap={1} wrap>
                 {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
             </Inline>
-            <ThemeProvider colorScheme="dark">
+            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
                 <Inline gap={1} wrap>
                     {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
                 </Inline>
@@ -77,7 +78,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
             </Inline>
-            <ThemeProvider colorScheme="dark">
+            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
                 </Inline>
@@ -89,7 +90,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
-            <ThemeProvider colorScheme="dark">
+            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
                 </Inline>

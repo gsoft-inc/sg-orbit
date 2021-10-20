@@ -1,5 +1,5 @@
 import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SizingPrefix, SpacePrefix, normalizeVariable } from "../theming";
-import { Breakpoint, useBreakpoint } from "../BreakpointProvider";
+import { Breakpoint, useMatchedBreakpoints } from "../BreakpointProvider";
 import { CSSProperties, useMemo } from "react";
 import { LiteralUnion } from "type-fest";
 import { Property } from "csstype";
@@ -1095,12 +1095,12 @@ export interface StyledSystemProps {
 class StylingContext {
     private classes: string[];
     private style: Record<string, any>;
-    breakpoint: Breakpoint;
+    matchedBreakpoints: Breakpoint[];
 
-    constructor(className: string, style: CSSProperties, breakpoint: Breakpoint) {
+    constructor(className: string, style: CSSProperties, matchedBreakpoints: Breakpoint[]) {
         this.classes = !isNil(className) ? [className] : [];
         this.style = style ?? {};
-        this.breakpoint = breakpoint;
+        this.matchedBreakpoints = matchedBreakpoints;
     }
 
     addClass(className: string) {
@@ -1135,7 +1135,7 @@ export function getSizingValue(value: string | keyof typeof SizingMapping) {
     return systemValue ?? value;
 }
 
-function parseResponsiveSystemValue<TValue extends string | number>(value: TValue, systemValues: Record<TValue, string>, breakpoint: Breakpoint) {
+function parseResponsiveSystemValue<TValue extends string | number>(value: TValue, systemValues: Record<TValue, string>, matchedBreakpoints: Breakpoint[]) {
     if (isNil(value)) {
         return value;
     }
@@ -1147,7 +1147,7 @@ function parseResponsiveSystemValue<TValue extends string | number>(value: TValu
         return systemValue;
     }
 
-    const underlyingValue = parseResponsiveValue(value, breakpoint);
+    const underlyingValue = parseResponsiveValue(value, matchedBreakpoints);
 
     if (!isNil(underlyingValue)) {
         const underlyingSystemValue = getSystemValue(underlyingValue, systemValues);
@@ -1162,7 +1162,7 @@ function parseResponsiveSystemValue<TValue extends string | number>(value: TValu
 
 function createHandler<TValue extends string | number>(systemValues?: Record<TValue, string>): PropHandler<TValue> {
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
-        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             context.addStyleValue(name, parsedValue);
@@ -1170,7 +1170,7 @@ function createHandler<TValue extends string | number>(systemValues?: Record<TVa
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context: StylingContext) => {
-        const parsedValue = parseResponsiveValue(value, context.breakpoint);
+        const parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             context.addStyleValue(name, parsedValue);
@@ -1182,7 +1182,7 @@ function createHandler<TValue extends string | number>(systemValues?: Record<TVa
 
 function createPseudoHandler<TValue extends string | number>(pseudoClassName, pseudoVariable, systemValues?: Record<TValue, string>): PropHandler<TValue> {
     const systemValueHandler: PropHandler<TValue> = (name, value, context) => {
-        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             context.addClass(pseudoClassName);
@@ -1191,7 +1191,7 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
     };
 
     const passThroughHandler: PropHandler<TValue> = (name, value, context) => {
-        const parsedValue = parseResponsiveValue(value, context.breakpoint);
+        const parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             context.addClass(pseudoClassName);
@@ -1207,7 +1207,7 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
 function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
-        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
@@ -1222,7 +1222,7 @@ function createBorderHandler<TValue extends string>(systemValues: Record<TValue,
 
 function createBorderPseudoHandler<TValue extends string>(pseudoClassName: string, pseudoVariable: string, systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
-        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.breakpoint);
+        const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);
 
         if (!isNil(parsedValue)) {
             context.addClass(pseudoClassName);
@@ -1238,7 +1238,7 @@ function createBorderPseudoHandler<TValue extends string>(pseudoClassName: strin
 }
 
 const fontWeightHandler: PropHandler<string | number> = (name, value, context) => {
-    const parsedValue = parseResponsiveSystemValue(value, FontWeightMapping, context.breakpoint);
+    const parsedValue = parseResponsiveSystemValue(value, FontWeightMapping, context.matchedBreakpoints);
 
     if (!isNil(parsedValue)) {
         context.addStyleValue("fontVariationSettings", parsedValue);
@@ -1250,7 +1250,7 @@ const fontWeightHandler: PropHandler<string | number> = (name, value, context) =
 };
 
 const gridColumnSpanHandler: PropHandler<string | number> = (name, value, context) => {
-    const parsedValue = parseResponsiveValue(value, context.breakpoint);
+    const parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
 
     if (!isNil(parsedValue)) {
         context.addStyleValue("gridColumn", `span ${parsedValue} / span ${parsedValue}`);
@@ -1258,7 +1258,7 @@ const gridColumnSpanHandler: PropHandler<string | number> = (name, value, contex
 };
 
 const gridRowSpanHandler: PropHandler<string | number> = (name, value, context) => {
-    const parsedValue = parseResponsiveValue(value, context.breakpoint);
+    const parsedValue = parseResponsiveValue(value, context.matchedBreakpoints);
 
     if (!isNil(parsedValue)) {
         context.addStyleValue("gridRow", `span ${parsedValue} / span ${parsedValue}`);
@@ -1569,13 +1569,13 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         ...rest
     } = props;
 
-    const breakpoint = useBreakpoint();
+    const matchedBreakpoints = useMatchedBreakpoints();
 
     // We don't have to add "props" as a dependency because useStyledSystem return the "rest" which is all the props that are not already a dependency
     // of this memoization. If we do add props, the memoization will refresh on every render, which is bad, so don't do it.
     /* eslint-disable react-hooks/exhaustive-deps */
     const styling = useMemo(() => {
-        const context = new StylingContext(className, style, breakpoint);
+        const context = new StylingContext(className, style, matchedBreakpoints);
 
         Object.keys(props).forEach(key => {
             const value = props[key];
@@ -1633,7 +1633,7 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         boxShadowFocus,
         boxShadowHover,
         bottom,
-        breakpoint,
+        matchedBreakpoints,
         className,
         color,
         colorActive,

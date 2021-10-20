@@ -42,12 +42,12 @@ stories()
         </ThemeProvider>
     )
     .add("light", () =>
-        <ThemeProvider colorScheme="light">
+        <ThemeProvider theme={ApricotTheme} colorScheme="light">
             <Box padding={4} backgroundColor="alias-2" />
         </ThemeProvider>
     )
     .add("dark", () =>
-        <ThemeProvider colorScheme="dark">
+        <ThemeProvider theme={ApricotTheme} colorScheme="dark">
             <Box padding={4} backgroundColor="alias-2" />
         </ThemeProvider>
     )
@@ -64,7 +64,7 @@ stories()
         };
 
         return (
-            <ThemeProvider colorScheme="light">
+            <ThemeProvider theme={ApricotTheme} colorScheme="light">
                 <SwitchColorScheme />
                 <Box padding={4} backgroundColor="alias-2" />
             </ThemeProvider>

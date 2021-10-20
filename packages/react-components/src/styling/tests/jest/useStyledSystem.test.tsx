@@ -283,12 +283,12 @@ describe("props", () => {
         test(`${x.name}`, () => {
             const tree = renderer
                 .create(
-                    <Fragment key={x.key}>
+                    <BreakpointProvider key={x.key}>
                         {x.values.map((y, index) =>
                             // eslint-disable-next-line react/no-array-index-key
                             <Box key={index} {...{ [x.key]: y }} />
                         )}
-                    </Fragment>
+                    </BreakpointProvider>
                 )
                 .toJSON();
 

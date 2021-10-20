@@ -16,7 +16,7 @@ export const Breakpoints = {
 export type Breakpoint = keyof typeof Breakpoints;
 
 export interface BreakpointContextType {
-    breakpoint?: Breakpoint;
+    matchedBreakpoints?: Breakpoint[];
 }
 
 export const BreakpointContext = createContext<BreakpointContextType>({});
@@ -37,24 +37,27 @@ export function BreakpointProvider({
     children,
     unsupportedMatchMediaBreakpoint = "lg"
 }: BreakpointProvider) {
-    const getCurrentBreakpoint = useCallback(() => {
+    // Took from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/BreakpointProvider.tsx
+    const getBreakpointHandler = useCallback((): Breakpoint[] => {
         if (supportsMatchMedia) {
+            const matched: Breakpoint[] = [];
+
             for (const [key, value] of ReversedBreakpoints) {
                 if (window.matchMedia(value).matches) {
-                    return key as Breakpoint;
+                    matched.push(key);
                 }
             }
 
-            return undefined;
+            return matched;
         }
 
-        return unsupportedMatchMediaBreakpoint;
+        return [unsupportedMatchMediaBreakpoint];
     }, [unsupportedMatchMediaBreakpoint]);
 
-    const [breakpoint, setBreakpoint] = useState<Breakpoint>(getCurrentBreakpoint);
+    const [matchedBreakpoints, setMatchedBreakpoints] = useState<Breakpoint[]>(getBreakpointHandler);
 
     const handleResize = useDebouncedCallback(() => {
-        setBreakpoint(getCurrentBreakpoint());
+        setMatchedBreakpoints(getBreakpointHandler());
     }, 50);
 
     useEffect(() => {
@@ -66,7 +69,7 @@ export function BreakpointProvider({
     }, [handleResize]);
 
     return (
-        <BreakpointContext.Provider value={{ breakpoint }}>
+        <BreakpointContext.Provider value={{ matchedBreakpoints }}>
             {children}
         </BreakpointContext.Provider>
     );
@@ -76,8 +79,8 @@ export function useBreakpointContext() {
     return useContext(BreakpointContext);
 }
 
-export function useBreakpoint() {
+export function useMatchedBreakpoints() {
     const context = useContext(BreakpointContext);
 
-    return !isNil(context) ? context.breakpoint : undefined;
+    return !isNil(context) ? context.matchedBreakpoints : [];
 }
