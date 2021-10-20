@@ -152,7 +152,7 @@ stories()
             </Content>
         </Modal>
     )
-    .add("styled system", () =>
+    .add("styled system styleProp", () =>
         <Modal border="sunray-10">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>

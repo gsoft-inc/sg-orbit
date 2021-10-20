@@ -76,7 +76,7 @@
     width: max-content;
 }
 
-.o-ui-card-heading {
+.o-ui-card .o-ui-card-header-section .o-ui-card-heading {
     margin-bottom: 0;
 }
 

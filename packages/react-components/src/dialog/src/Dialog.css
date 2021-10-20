@@ -85,7 +85,7 @@
 }
 
 /* DIALOG | HEADER SECTION | HEADING */
-.o-ui-dialog-heading {
+.o-ui-dialog .o-ui-dialog-header-section .o-ui-dialog-heading {
     align-self: center;
     margin-bottom: 0;
 }
