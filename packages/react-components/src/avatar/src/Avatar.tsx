@@ -1,5 +1,3 @@
-import "./Avatar.css";
-
 import { AsyncImage } from "../../image";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef, useMemo } from "react";

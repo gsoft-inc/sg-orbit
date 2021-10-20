@@ -1,5 +1,3 @@
-import "./Link.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { InteractionProps, InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, mergeProps } from "../../shared";

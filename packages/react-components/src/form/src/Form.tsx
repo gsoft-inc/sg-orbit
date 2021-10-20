@@ -1,5 +1,3 @@
-import "./Form.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { FormContext } from "./FormContext";

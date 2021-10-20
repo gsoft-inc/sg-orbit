@@ -1,5 +1,3 @@
-import "./Label.css";
-
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { Text } from "../../typography";

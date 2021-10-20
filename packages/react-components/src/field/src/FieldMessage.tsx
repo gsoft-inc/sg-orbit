@@ -1,5 +1,3 @@
-import "./FieldMessage.css";
-
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { ResponsiveProp, StyleProvider, useResponsiveValue } from "../../styling";

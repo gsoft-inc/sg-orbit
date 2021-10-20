@@ -1,5 +1,3 @@
-import "./Image.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ElementType, forwardRef } from "react";
 import { HeightProp, ObjectFitProp, ObjectPositionProp, WidthProp } from "../../styling";

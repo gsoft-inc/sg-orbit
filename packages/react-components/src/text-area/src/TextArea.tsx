@@ -1,5 +1,3 @@
-import "./TextArea.css";
-
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";

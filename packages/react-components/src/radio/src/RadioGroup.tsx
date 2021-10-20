@@ -1,5 +1,3 @@
-import "./RadioGroup.css";
-
 import { AbstractGroupInputProps, useGroupInput } from "../../input";
 import {
     CheckableContext,

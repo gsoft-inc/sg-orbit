@@ -1,5 +1,3 @@
-import "./Listbox.css";
-
 import { Box } from "../../box";
 import { CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef, useImperativeHandle, useMemo } from "react";

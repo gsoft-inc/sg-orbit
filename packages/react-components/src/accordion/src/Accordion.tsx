@@ -1,5 +1,3 @@
-import "./Accordion.css";
-
 import { AccordionContext } from "./AccordionContext";
 import { AccordionItem } from "./AccordionItem";
 import { Box } from "../../box";

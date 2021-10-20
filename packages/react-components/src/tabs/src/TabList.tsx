@@ -1,5 +1,3 @@
-import "./Tabs.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ForwardedRef, forwardRef } from "react";
 import {

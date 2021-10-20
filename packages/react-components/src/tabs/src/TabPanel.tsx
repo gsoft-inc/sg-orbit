@@ -1,5 +1,3 @@
-import "./Tabs.css";
-
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";

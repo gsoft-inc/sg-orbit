@@ -1,5 +1,3 @@
-import "./TagList.css";
-
 import { Box } from "../../box";
 import { Button } from "../../button";
 import { CollectionItem, useCollection } from "../../collection";

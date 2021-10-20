@@ -1,5 +1,3 @@
-import "./Accordion.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, omitProps } from "../../shared";

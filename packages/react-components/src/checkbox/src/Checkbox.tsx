@@ -1,5 +1,3 @@
-import "./Checkbox.css";
-
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";

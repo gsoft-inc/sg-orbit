@@ -1,5 +1,3 @@
-import "./DisclosureArrow.css";
-
 import { ChevronIcon } from "../../icons";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";

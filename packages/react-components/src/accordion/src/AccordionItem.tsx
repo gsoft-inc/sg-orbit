@@ -1,5 +1,3 @@
-import "./Accordion.css";
-
 import { AccordionBuilderHeader, AccordionBuilderPanel } from "./useAccordionItems";
 import { AccordionHeader } from "./AccordionHeader";
 import { AccordionPanel } from "./AccordionPanel";

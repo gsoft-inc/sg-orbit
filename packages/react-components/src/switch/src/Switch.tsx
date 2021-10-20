@@ -1,5 +1,3 @@
-import "./Switch.css";
-
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useMemo } from "react";

@@ -1,5 +1,3 @@
-import "./Tag.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";

@@ -1,5 +1,3 @@
-import "./Underlay.css";
-
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";

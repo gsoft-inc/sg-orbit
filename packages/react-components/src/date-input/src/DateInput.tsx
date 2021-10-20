@@ -1,5 +1,3 @@
-import "./DateInput.css";
-
 import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";

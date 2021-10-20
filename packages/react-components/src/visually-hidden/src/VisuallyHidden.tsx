@@ -1,5 +1,3 @@
-import "./VisuallyHidden.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledHtmlAttributes, mergeProps } from "../../shared";

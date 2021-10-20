@@ -6,9 +6,7 @@ import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContaine
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@css/normalize.css";
-import "@react-components/styling/src/vars.css";
-import "@react-components/styling/src/animate.css";
-import "@react-components/styling/src/styled-system/index.css";
+import "@react-components/index.css";
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
 import "./styles";

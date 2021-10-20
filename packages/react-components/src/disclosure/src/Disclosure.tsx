@@ -1,5 +1,3 @@
-import "./Disclosure.css";
-
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import {

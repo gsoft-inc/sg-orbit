@@ -1,5 +1,3 @@
-import "./Paragraph.css";
-
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
 import { ResponsiveProp, StyleProvider, useResponsiveValue, useStyleProps } from "../../styling";

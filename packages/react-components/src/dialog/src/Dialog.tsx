@@ -1,5 +1,3 @@
-import "./Dialog.css";
-
 import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CrossButton } from "../../button";

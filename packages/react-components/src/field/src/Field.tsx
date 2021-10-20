@@ -1,5 +1,3 @@
-import "./Field.css";
-
 import { Box } from "../../box";
 import { ClearToolbar, useToolbarProps } from "../../toolbar";
 import { ComponentProps, ReactNode, forwardRef } from "react";

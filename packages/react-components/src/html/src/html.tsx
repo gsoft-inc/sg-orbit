@@ -1,5 +1,3 @@
-import "./html.css";
-
 import { ComponentProps, ElementType } from "react";
 import { htmlElement } from "./htmlElement";
 import { isNil } from "../../shared";

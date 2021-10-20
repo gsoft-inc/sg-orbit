@@ -1,5 +1,3 @@
-import "./Overlay.css";
-
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
 import { ThemeProvider, useThemeContext } from "../../styling";

@@ -1,5 +1,3 @@
-import "./Dot.css";
-
 import { BackgroundColorProp, useResponsiveValue } from "../../styling";
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";

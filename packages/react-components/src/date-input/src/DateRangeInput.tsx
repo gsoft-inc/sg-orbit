@@ -1,5 +1,3 @@
-import "./DateRangeInput.css";
-
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ButtonPresets } from "./ButtonPresets";

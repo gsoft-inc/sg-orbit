@@ -1,5 +1,3 @@
-import "./Card.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useMemo } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, isString, mergeProps, normalizeSize, slot, useSlots } from "../../shared";

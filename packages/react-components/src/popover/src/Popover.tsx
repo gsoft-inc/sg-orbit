@@ -1,5 +1,3 @@
-import "./Popover.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {

@@ -1,5 +1,3 @@
-import "./Menu.css";
-
 import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";

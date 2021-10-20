@@ -1,5 +1,3 @@
-import "./Link.css";
-
 import { AbstractLinkProps } from "./Link";
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";

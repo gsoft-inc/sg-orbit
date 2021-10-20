@@ -14,7 +14,7 @@
 }
 
 /* HEADING */
-.o-ui-tile .o-ui-tile-main .o-ui-tile-heading {
+.o-ui-tile-heading {
     display: block;
     margin-bottom: var(--o-ui-sp-4);
 }

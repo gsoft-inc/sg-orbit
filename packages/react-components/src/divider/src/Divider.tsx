@@ -1,5 +1,3 @@
-import "./Divider.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";

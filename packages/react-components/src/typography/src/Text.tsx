@@ -1,5 +1,3 @@
-import "./Text.css";
-
 import { Box } from "../../box";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";

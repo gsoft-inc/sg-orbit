@@ -1,5 +1,3 @@
-import "./Badge.css";
-
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
 import { Div } from "../../html";

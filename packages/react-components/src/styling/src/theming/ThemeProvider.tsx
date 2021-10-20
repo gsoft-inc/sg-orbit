@@ -1,14 +1,15 @@
+import { Box } from "../../../box";
 import { BreakpointProvider } from "../BreakpointProvider";
 import { ColorScheme, ColorSchemeOrSystem, useColorScheme } from "../useColorScheme";
-import { ComponentProps, ReactNode, Ref, useCallback, useState } from "react";
-import { InternalProps, mergeClasses, mergeProps } from "../../../shared";
+import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../../shared";
 import { OrbitTheme } from "./orbitTheme";
+import { ReactNode, Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { getColorSchemeClassName, getThemeClassName } from "./createThemeVars";
 
 const DefaultElement = "div";
 
-export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<ComponentProps<typeof DefaultElement>, "ref"> {
+export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * React children
      */
@@ -56,7 +57,7 @@ export function ThemeProvider({
             }}
         >
             <BreakpointProvider>
-                <div
+                <Box
                     {...mergeProps(
                         rest,
                         {
@@ -70,7 +71,7 @@ export function ThemeProvider({
                     )}
                 >
                     {children}
-                </div>
+                </Box>
             </BreakpointProvider>
         </ThemeContext.Provider>
     );

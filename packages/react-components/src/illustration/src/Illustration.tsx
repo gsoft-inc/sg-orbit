@@ -1,5 +1,3 @@
-import "./Illustration.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";

@@ -1,5 +1,3 @@
-import "./Autocomplete.css";
-
 import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";

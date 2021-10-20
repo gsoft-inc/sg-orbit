@@ -1,5 +1,3 @@
-import "./Lozenge.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import {

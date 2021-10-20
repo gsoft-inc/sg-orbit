@@ -1,5 +1,3 @@
-import "./Select.css";
-
 import { AbstractInputProps } from "../../input";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { DisclosureArrow } from "../../disclosure";

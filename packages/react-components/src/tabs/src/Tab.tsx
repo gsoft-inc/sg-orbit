@@ -1,5 +1,3 @@
-import "./Tabs.css";
-
 import { Box } from "../../box";
 import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";

@@ -1,5 +1,3 @@
-import "./IconButton.css";
-
 import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";

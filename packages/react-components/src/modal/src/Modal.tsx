@@ -1,5 +1,3 @@
-import "./Modal.css";
-
 import { AbstractDialogProps, Dialog } from "../../dialog";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";

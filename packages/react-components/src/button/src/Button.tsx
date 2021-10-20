@@ -1,5 +1,3 @@
-import "./TextButton.css";
-
 import { Box } from "../../box";
 import { ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";

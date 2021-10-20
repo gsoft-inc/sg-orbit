@@ -1,5 +1,3 @@
-import "./NumberInput.css";
-
 import { AbstractInputProps, useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { CaretIcon } from "../../icons";

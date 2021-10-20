@@ -1,5 +1,3 @@
-import "./Tabs.css";
-
 import { Box } from "../../box";
 import { InternalProps, StyledComponentProps, mergeProps } from "../../shared";
 import { PanelType } from "./useTabsItems";

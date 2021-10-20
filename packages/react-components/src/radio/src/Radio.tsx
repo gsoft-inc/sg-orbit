@@ -1,5 +1,3 @@
-import "./Radio.css";
-
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";

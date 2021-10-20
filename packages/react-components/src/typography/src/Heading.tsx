@@ -1,5 +1,3 @@
-import "./Heading.css";
-
 import { Box } from "../../box";
 import { ComponentProps, ElementType, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, slot } from "../../shared";

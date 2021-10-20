@@ -1,5 +1,3 @@
-import "./Accordion.css";
-
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import { DisclosureArrow } from "../../disclosure";
 import { Div, HtmlButton } from "../../html";

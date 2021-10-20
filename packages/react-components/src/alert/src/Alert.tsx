@@ -1,5 +1,3 @@
-import "./Alert.css";
-
 import { AbstractDialogProps, Dialog, useDialogTriggerContext } from "../../dialog";
 import { Button, ButtonGroup } from "../../button";
 import { ComponentProps, MouseEvent, forwardRef, useMemo } from "react";

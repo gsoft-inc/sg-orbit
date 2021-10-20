@@ -1,5 +1,3 @@
-import "./SearchInput.css";
-
 import { AbstractTextInputProps, TextInput } from "../../text-input";
 import { ChangeEvent, ComponentProps, KeyboardEvent, SyntheticEvent, forwardRef, useCallback } from "react";
 import { CrossButton } from "../../button";

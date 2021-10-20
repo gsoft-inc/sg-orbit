@@ -1,5 +1,3 @@
-import "./ButtonGroup.css";
-
 import { AbstractGroupProps, Group } from "../../group";
 import { Children, ComponentProps, ReactElement, forwardRef } from "react";
 import { OmitInternalProps, SlotProps, augmentElement, cssModule, mergeProps, normalizeSize, omitProps, slot } from "../../shared";

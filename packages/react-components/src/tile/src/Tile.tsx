@@ -1,5 +1,3 @@
-import "./Tile.css";
-
 import { Box } from "../../box";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {

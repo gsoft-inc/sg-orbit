@@ -1,5 +1,3 @@
-import "./InputGroup.css";
-
 import { Box } from "../../box";
 import { Children, ComponentProps, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { ClearFieldContext, useFieldInputProps } from "../../field";

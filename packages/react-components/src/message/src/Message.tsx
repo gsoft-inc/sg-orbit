@@ -1,5 +1,3 @@
-import "./Message.css";
-
 import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
