@@ -69,7 +69,7 @@ class ParamsBuilder {
     }
 
     withBreakpoints() {
-        this._viewports = [900, 1280];
+        this._viewports = [640, 768, 1024, 1280, 1536];
 
         return this;
     }

@@ -4,6 +4,8 @@ import {
     ColumnGapProp,
     FlexBasisProp,
     FlexDirectionProp,
+    FlexGrowProp,
+    FlexShrinkProp,
     FlexWrapProp,
     GapProp,
     JustifyContentProp,
@@ -99,6 +101,10 @@ export interface InnerFlexProps extends
      */
     gap?: GapProp;
     /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow).
+     */
+    grow?: FlexGrowProp;
+    /**
      * Whether or not the element generate line breaks before or after himself.
      */
     inline?: boolean;
@@ -115,6 +121,10 @@ export interface InnerFlexProps extends
      */
     rowGap?: RowGapProp;
     /**
+     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink).
+     */
+    shrink?: FlexShrinkProp;
+    /**
      * Alias for [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap).
      */
     wrap?: FlexWrapProp;
@@ -130,10 +140,12 @@ export function InnerFlex(props: InnerFlexProps) {
         direction = "row",
         fluid,
         forwardedRef,
+        grow,
         height,
         inline,
         justifyContent,
         reverse,
+        shrink,
         width,
         wrap,
         ...rest
@@ -159,6 +171,8 @@ export function InnerFlex(props: InnerFlexProps) {
                     as,
                     display: inline ? "inline-flex" as const : "flex" as const,
                     flexDirection: (directionValue ? `${directionValue}${reverse ? "-reverse" : ""}` : undefined) as FlexDirectionProp,
+                    flexGrow: grow,
+                    flexShrink: shrink,
                     flexWrap: wrap,
                     height: !isNil(height) ? height : (fluidValue && directionValue === "column" ? "100%" : undefined),
                     justifyContent: (justifyContentValue && (justifyContentValue as string).replace("start", "flex-start").replace("end", "flex-end")) as JustifyContentProp,

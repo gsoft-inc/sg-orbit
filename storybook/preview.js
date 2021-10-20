@@ -5,7 +5,7 @@ import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
-import "@react-components/styling/src/normalize.css";
+import "@css/normalize.css";
 import "@react-components/styling/src/vars.css";
 import "@react-components/styling/src/animate.css";
 import "@react-components/styling/src/styled-system/index.css";
@@ -17,7 +17,7 @@ createThemeVars([ApricotTheme, DesktopTheme]);
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
-    import("@react-components/styling/src/font/index.css");
+    import("@css/font/index.css");
 }
 
 export const parameters = {
@@ -58,17 +58,38 @@ export const parameters = {
     },
     viewport: {
         viewports: {
-            md: {
-                name: "medium (900px)",
+            xs: {
+                name: "xs (640px)",
                 styles: {
-                    width: "900px",
+                    width: "640px",
+                    height: "100%"
+                }
+            },
+            sm: {
+                name: "sm (768px)",
+                styles: {
+                    width: "768px",
+                    height: "100%"
+                }
+            },
+            md: {
+                name: "md (1024px)",
+                styles: {
+                    width: "1024px",
                     height: "100%"
                 }
             },
             lg: {
-                name: "large (1280px)",
+                name: "lg (1280px)",
                 styles: {
                     width: "1280px",
+                    height: "100%"
+                }
+            },
+            xl: {
+                name: "xl (1536px)",
+                styles: {
+                    width: "1536px",
                     height: "100%"
                 }
             }
@@ -85,7 +106,7 @@ if (isDocs) {
 export const globalTypes = {
     theme: {
         name: "Theme",
-        description: "Orbit UI theme for components",
+        description: "Theme for components",
         defaultValue: ApricotTheme.name,
         toolbar: {
             icon: "photo",
@@ -94,7 +115,7 @@ export const globalTypes = {
     },
     colorScheme: {
         name: "ColorScheme",
-        description: "Orbit UI color scheme for components",
+        description: "Color scheme for components",
         defaultValue: "light",
         toolbar: {
             icon: "mirror",

@@ -1,0 +1,39 @@
+{
+    "name": "@sharegate/orbit-ui",
+    "version": "0.1.0-alpha.4",
+    "description": "Orbit design system",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
+    "author": "Groupe ShareGate inc.",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "setup": "yarn create-dist",
+        "prebuild": "yarn clean",
+        "build": "run-s build:*",
+        "build:types": "tsc --build ./tsconfig.build.json",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .ts,.tsx ",
+        "clean": "run-p clear-dist clear-ts-cache",
+        "clear-dist": "node ../../scripts/clear-dir dist",
+        "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
+        "create-dist": "node ../../scripts/create-dir dist"
+    },
+    "peerDependencies": {
+        "react": "*",
+        "react-dom": "*"
+    },
+    "dependencies": {
+        "@orbit-ui/css": "0.1.0-alpha.4",
+        "@orbit-ui/icons": "10.0.1-alpha.4",
+        "@orbit-ui/react-components": "19.0.1-alpha.4"
+    }
+}

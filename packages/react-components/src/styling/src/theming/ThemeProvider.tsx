@@ -1,16 +1,14 @@
-import { ApricotTheme } from "./apricot";
-import { Box } from "../../../box";
 import { BreakpointProvider } from "../BreakpointProvider";
 import { ColorScheme, ColorSchemeOrSystem, useColorScheme } from "../useColorScheme";
-import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../../shared";
+import { ComponentProps, ReactNode, Ref, useCallback, useState } from "react";
+import { InternalProps, mergeClasses, mergeProps } from "../../../shared";
 import { OrbitTheme } from "./orbitTheme";
-import { ReactNode, Ref, useCallback, useState } from "react";
 import { ThemeContext } from "./ThemeContext";
 import { getColorSchemeClassName, getThemeClassName } from "./createThemeVars";
 
 const DefaultElement = "div";
 
-export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
+export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<ComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * React children
      */
@@ -38,7 +36,7 @@ export function ThemeProvider({
     children,
     colorScheme,
     defaultColorScheme,
-    theme: userTheme,
+    theme,
     ...rest
 }: ThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
@@ -49,8 +47,6 @@ export function ThemeProvider({
         setRemoteColorScheme(newColorScheme);
     }, [setRemoteColorScheme]);
 
-    const theme = userTheme ?? ApricotTheme;
-
     return (
         <ThemeContext.Provider
             value={{
@@ -60,7 +56,7 @@ export function ThemeProvider({
             }}
         >
             <BreakpointProvider>
-                <Box
+                <div
                     {...mergeProps(
                         rest,
                         {
@@ -74,7 +70,7 @@ export function ThemeProvider({
                     )}
                 >
                     {children}
-                </Box>
+                </div>
             </BreakpointProvider>
         </ThemeContext.Provider>
     );

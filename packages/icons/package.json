@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/icons",
     "version": "10.0.1-alpha.4",
-    "description": "ShareGate Orbit Icons",
+    "description": "Orbit icons",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",

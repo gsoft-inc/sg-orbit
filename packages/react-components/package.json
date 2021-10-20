@@ -1,7 +1,7 @@
 {
     "name": "@orbit-ui/react-components",
     "version": "19.0.1-alpha.4",
-    "description": "Sharegate Orbit UI React components",
+    "description": "Orbit components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
     "license": "Apache-2.0",
