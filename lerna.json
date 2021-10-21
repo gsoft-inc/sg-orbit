@@ -1,11 +1,23 @@
 {
     "npmClient": "yarn",
     "useWorkspaces": true,
-    "version": "21.0.0.alpha.6",
+    "version": null,
     "command": {
         "version": {
-            "ignoreChanges": ["**/*.md*", "**/*.json", "**/*.config.js", "**/*rc*", "**/stories/**", "**/tests/**", "**/docs/**", "**/dist/**", "**/scripts/**"],
-            "allowBranch": ["master"]
+            "ignoreChanges": [
+                "**/*.md*",
+                "**/*.json",
+                "**/*.config.js",
+                "**/*rc*",
+                "**/stories/**",
+                "**/tests/**",
+                "**/docs/**",
+                "**/dist/**",
+                "**/scripts/**"
+            ],
+            "allowBranch": [
+                "master"
+            ]
         }
     }
 }
