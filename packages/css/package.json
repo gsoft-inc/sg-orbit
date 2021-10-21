@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/css",
-    "version": "0.1.0-1.0.0.alpha.7.0",
+    "version": "0.1.0",
     "description": "Orbit CSS bootstrap",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
