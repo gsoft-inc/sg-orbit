@@ -11,9 +11,6 @@ import { storiesOfBuilder } from "@stories/utils";
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tile")
         .segment(segment)
-        .parameters({
-            chromatic: { viewports: [900, 1280] }
-        })
         .build();
 }
 

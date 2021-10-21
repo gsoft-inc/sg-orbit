@@ -98,7 +98,10 @@ class ParamsBuilder {
         }
 
         if (!isNil(this._viewports)) {
-            params.viewports = this._viewports;
+            params.chromatic = {
+                ...(params.chromatic ?? {}),
+                viewports: this._viewports
+            };
         }
 
         const docs = {};

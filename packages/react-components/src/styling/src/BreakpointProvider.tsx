@@ -38,6 +38,7 @@ export function BreakpointProvider({
     unsupportedMatchMediaBreakpoint = "lg"
 }: BreakpointProvider) {
     // Took from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/BreakpointProvider.tsx
+    // Our breakpoints strategy have been inspired by how Tailwind does it https://tailwindcss.com/docs/responsive-design.
     const getBreakpointHandler = useCallback((): Breakpoint[] => {
         if (supportsMatchMedia) {
             const matched: Breakpoint[] = [];

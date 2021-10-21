@@ -6,17 +6,18 @@ export type ResponsiveValue<T> = Partial<Record<Breakpoint, T>> & { base?: T };
 export type ResponsiveProp<T> = T | ResponsiveValue<T>;
 
 // Inspired by https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/styleProps.ts
-export function parseResponsiveValue<T>(value: T | ResponsiveValue<T>, matchedBreakpoints: Breakpoint[]): T {
+// Our breakpoints strategy have been inspired by how Tailwind does it https://tailwindcss.com/docs/responsive-design.
+export function parseResponsiveValue<T>(value: T | ResponsiveValue<T>, matchedBreakpoints: Breakpoint[]) {
     if (isObject(value)) {
         for (let i = 0; i < matchedBreakpoints.length; i++) {
             const responsiveValue = value[matchedBreakpoints[i]];
 
             if (!isNil(responsiveValue)) {
-                return responsiveValue;
+                return responsiveValue as T;
             }
         }
 
-        return value["base"];
+        return value["base"] as T;
     }
 
     return value as T;
