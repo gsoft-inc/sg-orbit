@@ -2,11 +2,9 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
-import { Div } from "@components/html";
 import { InfoIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { Text } from "@components/typography";
-import { ToggleButton } from "@components/button";
 
 <Meta
     title="Components/Checkbox"
@@ -215,6 +213,7 @@ A checkbox group can handle `value` state in controlled mode.
 <ComponentInfo
     usage={"import { Checkbox } from \"@orbit-ui/components\";"}
     slots={["label", "icon", "counter"]}
+    inherits={[InnerCheckbox.defaultElement, "styled-component"]}
     compact
 />
 
@@ -224,6 +223,7 @@ A checkbox group can handle `value` state in controlled mode.
 
 <ComponentInfo
     usage={"import { CheckboxGroup } from \"@orbit-ui/components\";"}
+    inherits={[InnerCheckboxGroup.defaultElement, "styled-component"]}
     compact
 />
 

@@ -326,6 +326,8 @@ export function InnerDialog({
     );
 }
 
+InnerDialog.defaultElement = DefaultElement;
+
 export const Dialog = forwardRef<any, OmitInternalProps<InnerDialogProps>>((props, ref) => (
     <InnerDialog {...props} forwardedRef={ref} />
 ));

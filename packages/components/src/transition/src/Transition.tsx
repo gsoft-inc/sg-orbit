@@ -82,6 +82,8 @@ export function InnerTransition({
     );
 }
 
+InnerTransition.defaultElement = DefaultElement;
+
 export const Transition = forwardRef<any, OmitInternalProps<InnerTransitionProps>>((props, ref) => (
     <InnerTransition {...props} forwardedRef={ref} />
 ));

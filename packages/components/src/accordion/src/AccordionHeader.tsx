@@ -4,7 +4,9 @@ import { Div, HtmlButton } from "../../html";
 import { H3, HeadingProps, Text } from "../../typography";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, omitProps, useSlots } from "../../shared";
 
-export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps, StyledComponentProps<"button"> {
+const DefaultElement = "button";
+
+export interface InnerAccordionHeaderProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -98,6 +100,8 @@ export function InnerAccordionHeader(props: InnerAccordionHeaderProps) {
         </HeadingType>
     );
 }
+
+InnerAccordionHeader.defaultElement = DefaultElement;
 
 export const AccordionHeader = forwardRef<any, OmitInternalProps<InnerAccordionHeaderProps>>((props, ref) => (
     <InnerAccordionHeader {...props} forwardedRef={ref} />

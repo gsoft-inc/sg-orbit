@@ -120,6 +120,8 @@ export function InnerPopoverTrigger({
     );
 }
 
+InnerPopoverTrigger.defaultElement = DefaultElement;
+
 export const PopoverTrigger = forwardRef<any, OmitInternalProps<InnerPopoverTriggerProps>>((props, ref) => (
     <InnerPopoverTrigger {...props} forwardedRef={ref} />
 ));

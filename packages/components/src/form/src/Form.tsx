@@ -59,6 +59,8 @@ export function InnerForm(props: InnerFormProps) {
     );
 }
 
+InnerForm.defaultElement = DefaultElement;
+
 export const Form = forwardRef<any, OmitInternalProps<InnerFormProps>>((props, ref) => (
     <InnerForm {...props} forwardedRef={ref} />
 ));

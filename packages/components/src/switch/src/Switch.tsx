@@ -171,6 +171,8 @@ export function InnerSwitch(props: InnerSwitchProps) {
     );
 }
 
+InnerSwitch.defaultElement = DefaultElement;
+
 export const Switch = forwardRef<any, OmitInternalProps<InnerSwitchProps>>((props, ref) => (
     <InnerSwitch {...props} forwardedRef={ref} />
 ));

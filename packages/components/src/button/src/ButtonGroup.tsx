@@ -81,6 +81,8 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
     );
 }
 
+InnerButtonGroup.defaultElement = DefaultElement;
+
 export const ButtonGroup = slot("button-group", forwardRef<any, OmitInternalProps<InnerButtonGroupProps>>((props, ref) => (
     <InnerButtonGroup {...props} forwardedRef={ref} />
 )));

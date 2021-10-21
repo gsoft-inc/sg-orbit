@@ -65,6 +65,8 @@ export function InnerImage({
     );
 }
 
+InnerImage.defaultElement = DefaultElement;
+
 export const Image = slot("image", forwardRef<any, OmitInternalProps<InnerImageProps>>((props, ref) => (
     <InnerImage {...props} forwardedRef={ref} />
 )));

@@ -453,6 +453,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     );
 }
 
+InnerAutocomplete.defaultElement = DefaultElement;
+
 export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<InnerAutocompleteProps>>((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));

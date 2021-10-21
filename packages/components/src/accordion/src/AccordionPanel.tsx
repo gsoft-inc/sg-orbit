@@ -4,7 +4,7 @@ import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, omi
 
 const DefaultElement = "div";
 
-export interface InnerAccordionPanelProps extends InternalProps, StyledComponentProps<"div"> {
+export interface InnerAccordionPanelProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
@@ -40,6 +40,8 @@ export function InnerAccordionPanel(props: InnerAccordionPanelProps) {
         </Box>
     );
 }
+
+InnerAccordionPanel.defaultElement = DefaultElement;
 
 export const AccordionPanel = forwardRef<any, OmitInternalProps<InnerAccordionPanelProps>>((props, ref) => (
     <InnerAccordionPanel {...props} forwardedRef={ref} />

@@ -140,6 +140,8 @@ export function InnerToolbar({
     );
 }
 
+InnerToolbar.defaultElement = DefaultElement;
+
 export const Toolbar = forwardRef<any, OmitInternalProps<InnerToolbarProps>>((props, ref) => (
     <InnerToolbar {...props} forwardedRef={ref} />
 ));

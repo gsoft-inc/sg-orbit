@@ -53,6 +53,8 @@ export function InnerDivider({
     );
 }
 
+InnerDivider.defaultElement = DefaultElement;
+
 export const Divider = forwardRef<any, OmitInternalProps<InnerDividerProps>>((props, ref) => (
     <InnerDivider {...props} forwardedRef={ref} />
 ));

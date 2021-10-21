@@ -127,6 +127,8 @@ export function InnerTag({
     );
 }
 
+InnerTag.defaultElement = DefaultElement;
+
 export const Tag = forwardRef<any, OmitInternalProps<InnerTagProps>>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));

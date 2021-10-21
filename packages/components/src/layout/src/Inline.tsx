@@ -97,6 +97,8 @@ export function InnerInline({
     );
 }
 
+InnerInline.defaultElement = DefaultElement;
+
 export const Inline = forwardRef<any, OmitInternalProps<InnerInlineProps>>((props, ref) => (
     <InnerInline {...props} forwardedRef={ref} />
 ));

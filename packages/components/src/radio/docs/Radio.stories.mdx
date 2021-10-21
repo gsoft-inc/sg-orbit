@@ -1,11 +1,9 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
-import { Div } from "@components/html";
 import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@components/radio";
 import { LightbulbIcon } from "@components/icons";
 import { Text } from "@components/typography";
-import { ToggleButton } from "@components/button";
 
 <Meta
     title="Components/RadioGroup"
@@ -188,6 +186,7 @@ A radio group can handle `value` state in controlled mode.
 
 <ComponentInfo
     usage={"import { RadioGroup } from \"@orbit-ui/components\";"}
+    inherits={[InnerRadioGroup.defaultElement, "styled-component"]}
     compact
 />
 
@@ -198,6 +197,7 @@ A radio group can handle `value` state in controlled mode.
 <ComponentInfo
     usage={"import { Radio } from \"@orbit-ui/components\";"}
     slots={["label", "icon", "counter"]}
+    inherits={[InnerRadio.defaultElement, "styled-component"]}
     compact
 />
 

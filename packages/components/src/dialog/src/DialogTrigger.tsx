@@ -135,6 +135,8 @@ export function InnerDialogTrigger({
     );
 }
 
+InnerDialogTrigger.defaultElement = DefaultElement;
+
 export const DialogTrigger = forwardRef<any, OmitInternalProps<InnerDialogTriggerProps>>((props, ref) => (
     <InnerDialogTrigger {...props} forwardedRef={ref} />
 ));

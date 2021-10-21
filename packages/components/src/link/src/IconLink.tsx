@@ -100,6 +100,8 @@ export function InnerIconLink(props: InnerIconLinkProps) {
     );
 }
 
+InnerIconLink.defaultElement = DefaultElement;
+
 export const IconLink = forwardRef<any, OmitInternalProps<InnerIconLinkProps>>((props, ref) => (
     <InnerIconLink {...props} forwardedRef={ref} />
 ));

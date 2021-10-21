@@ -54,6 +54,8 @@ export function InnerLabel(props: InnerLabelProps) {
     );
 }
 
+InnerLabel.defaultElement = DefaultElement;
+
 export const Label = forwardRef<any, OmitInternalProps<InnerLabelProps>>((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));

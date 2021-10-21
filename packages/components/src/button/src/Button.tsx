@@ -180,6 +180,8 @@ export function InnerButton(props: InnerButtonProps) {
     );
 }
 
+InnerButton.defaultElement = DefaultElement;
+
 export const Button = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerButtonProps>>((props, ref) => (
     <InnerButton {...props} forwardedRef={ref} />
 )));

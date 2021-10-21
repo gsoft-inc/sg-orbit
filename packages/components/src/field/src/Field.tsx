@@ -81,6 +81,8 @@ export function InnerField(props: InnerFieldProps) {
     );
 }
 
+InnerField.defaultElement = DefaultElement;
+
 export const Field = forwardRef<any, OmitInternalProps<InnerFieldProps>>((props, ref) => (
     <InnerField {...props} forwardedRef={ref} />
 ));

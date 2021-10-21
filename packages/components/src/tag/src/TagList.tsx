@@ -121,6 +121,8 @@ export function InnerTagList({
     );
 }
 
+InnerTagList.defaultElement = DefaultElement;
+
 export const TagList = forwardRef<any, OmitInternalProps<InnerTagListProps>>((props, ref) => (
     <InnerTagList {...props} forwardedRef={ref} />
 ));

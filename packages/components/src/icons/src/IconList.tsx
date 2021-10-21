@@ -47,6 +47,8 @@ export function InnerIconList({
     );
 }
 
+InnerIconList.defaultElement = DefaultElement;
+
 export const IconList = slot("icon", forwardRef<any, OmitInternalProps<InnerIconListProps>>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));

@@ -28,6 +28,8 @@ export function InnerContent({
     );
 }
 
+InnerContent.defaultElement = DefaultElement;
+
 export const Content = slot("content", forwardRef<any, OmitInternalProps<InnerContentProps>>((props, ref) => (
     <InnerContent {...props} forwardedRef={ref} />
 )));

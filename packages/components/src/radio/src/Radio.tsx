@@ -194,6 +194,8 @@ export function InnerRadio(props: InnerRadioProps) {
     );
 }
 
+InnerRadio.defaultElement = DefaultElement;
+
 export const Radio = forwardRef<any, OmitInternalProps<InnerRadioProps>>((props, ref) => (
     <InnerRadio {...props} forwardedRef={ref} />
 ));

@@ -114,6 +114,8 @@ function InnerAsyncImage({
     return children as ReactElement;
 }
 
+InnerAsyncImage.defaultElement = DefaultElement;
+
 export const AsyncImage = slot("image", forwardRef<any, OmitInternalProps<InnerAsyncImageProps>>((props, ref) => (
     <InnerAsyncImage {...props} forwardedRef={ref} />
 )));

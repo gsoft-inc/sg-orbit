@@ -46,6 +46,8 @@ export function InnerTabPanel({
     );
 }
 
+InnerTabPanel.defaultElement = DefaultElement;
+
 export const TabPanel = forwardRef<any, OmitInternalProps<InnerTabPanelProps>>((props, ref) => (
     <InnerTabPanel {...props} forwardedRef={ref} />
 ));

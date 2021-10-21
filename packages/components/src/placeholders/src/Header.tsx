@@ -28,6 +28,8 @@ export function InnerHeader({
     );
 }
 
+InnerHeader.defaultElement = DefaultElement;
+
 export const Header = slot("header", forwardRef<any, OmitInternalProps<InnerHeaderProps>>((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
 )));

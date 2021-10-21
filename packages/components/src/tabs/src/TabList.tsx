@@ -109,6 +109,8 @@ export function InnerTabList({
     );
 }
 
+InnerTabList.defaultElement = DefaultElement;
+
 export const TabList = forwardRef<any, OmitInternalProps<InnerTabListProps>>((props, ref) => (
     <InnerTabList {...props} forwardedRef={ref} />
 ));

@@ -50,6 +50,8 @@ export function InnerListboxSection({
     );
 }
 
+InnerListboxSection.defaultElement = DefaultElement;
+
 export const ListboxSection = forwardRef<any, OmitInternalProps<InnerListboxSectionProps>>((props, ref) => (
     <InnerListboxSection {...props} forwardedRef={ref} />
 ));

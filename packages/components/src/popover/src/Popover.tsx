@@ -140,6 +140,8 @@ export function InnerPopover({
     );
 }
 
+InnerPopover.defaultElement = DefaultElement;
+
 export const Popover = forwardRef<any, OmitInternalProps<InnerPopoverProps>>((props, ref) => (
     <InnerPopover {...props} forwardedRef={ref} />
 ));

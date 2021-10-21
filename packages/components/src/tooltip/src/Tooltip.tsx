@@ -34,6 +34,8 @@ export function InnerTooltip({
     );
 }
 
+InnerTooltip.defaultElement = DefaultElement;
+
 export const Tooltip = forwardRef<any, OmitInternalProps<InnerTooltipProps>>((props, ref) => (
     <InnerTooltip {...props} forwardedRef={ref} />
 ));

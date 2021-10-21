@@ -171,6 +171,8 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     );
 }
 
+InnerMenuTrigger.defaultElement = DefaultElement;
+
 export const MenuTrigger = forwardRef<any, OmitInternalProps<InnerMenuTriggerProps>>((props, ref) => (
     <InnerMenuTrigger {...props} forwardedRef={ref} />
 ));

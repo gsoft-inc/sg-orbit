@@ -159,6 +159,8 @@ export function InnerTileGroup({
     );
 }
 
+InnerTileGroup.defaultElement = DefaultElement;
+
 export const TileGroup = forwardRef<any, OmitInternalProps<InnerTileGroupProps>>((props, ref) => (
     <InnerTileGroup {...props} forwardedRef={ref} />
 ));

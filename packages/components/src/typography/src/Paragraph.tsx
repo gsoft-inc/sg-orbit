@@ -60,6 +60,8 @@ export function InnerParagraph(props: InnerParagraphProps) {
     );
 }
 
+InnerParagraph.defaultElement = DefaultElement;
+
 export const Paragraph = forwardRef<any, OmitInternalProps<InnerParagraphProps>>((props, ref) => (
     <InnerParagraph {...props} forwardedRef={ref} />
 ));

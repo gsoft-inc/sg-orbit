@@ -33,6 +33,8 @@ export function InnerVisuallyHidden({
     );
 }
 
+InnerVisuallyHidden.defaultElement = DefaultElement;
+
 export const VisuallyHidden = forwardRef<any, OmitInternalProps<InnerVisuallyHiddenProps>>((props, ref) => (
     <InnerVisuallyHidden {...props} forwardedRef={ref} />
 ));

@@ -33,6 +33,8 @@ export function InnerUnderlay({
     );
 }
 
+InnerUnderlay.defaultElement = DefaultElement;
+
 export const Underlay = forwardRef<any, OmitInternalProps<InnerUnderlayProps>>((props, ref) => (
     <InnerUnderlay {...props} forwardedRef={ref} />
 ));

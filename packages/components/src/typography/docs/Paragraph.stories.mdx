@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { InnerParagraph, P, Paragraph } from "@components/typography";
+import { InnerParagraph, Paragraph } from "@components/typography";
 
 <Meta
     title="Components/Paragraph"
@@ -35,6 +35,7 @@ You can alter the size of the paragraph by specifying a `size` prop. The availab
 
 <ComponentInfo
     usage={"import { Paragraph } from \"@orbit-ui/components\";"}
+    inherits={[InnerParagraph.defaultElement, "styled-component"]}
     compact
 />
 

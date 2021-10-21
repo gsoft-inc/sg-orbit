@@ -1,4 +1,4 @@
-import { AbstractIconButtonProps, IconButton } from "./IconButton";
+import { AbstractIconButtonProps, IconButton, InnerIconButton } from "./IconButton";
 import { ComponentProps, forwardRef } from "react";
 import { CrossIcon } from "../../icons";
 import { OmitInternalProps, slot } from "../../shared";
@@ -16,6 +16,8 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
         </IconButton>
     );
 }
+
+InnerCrossButton.defaultElement = InnerIconButton.defaultElement;
 
 export const CrossButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerCrossButtonProps>>((props, ref) => (
     <InnerCrossButton {...props} forwardedRef={ref} />

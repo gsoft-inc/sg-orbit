@@ -25,6 +25,8 @@ export function InnerOverlayArrow({
     );
 }
 
+InnerOverlayArrow.defaultElement = DefaultElement;
+
 export const OverlayArrow = forwardRef<any, OmitInternalProps<InnerOverlayArrowProps>>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));

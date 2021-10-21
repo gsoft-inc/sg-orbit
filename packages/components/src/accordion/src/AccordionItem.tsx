@@ -7,7 +7,9 @@ import { H1, H2, H3, H4, H5, H6 } from "../../typography";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback } from "../../shared";
 import { useAccordionContext } from "./AccordionContext";
 
-export interface InnerAccordionItemProps extends InternalProps, Omit<StyledComponentProps<"div">, "ref"> {
+const DefaultElement = "div";
+
+export interface InnerAccordionItemProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
     item: {
         header: AccordionBuilderHeader;
         id: string;
@@ -82,6 +84,8 @@ export function InnerAccordionItem({
         </Disclosure>
     );
 }
+
+InnerAccordionItem.defaultElement = DefaultElement;
 
 export const AccordionItem = forwardRef<any, OmitInternalProps<InnerAccordionItemProps>>((props, ref) => (
     <InnerAccordionItem {...props} forwardedRef={ref} />

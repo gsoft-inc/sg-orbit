@@ -207,6 +207,8 @@ export function InnerAvatar({
     );
 }
 
+InnerAvatar.defaultElement = DefaultElement;
+
 export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvatarProps>>((props, ref) => (
     <InnerAvatar {...props} forwardedRef={ref} />
 )));

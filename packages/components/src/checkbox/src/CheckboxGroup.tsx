@@ -148,6 +148,8 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
     );
 }
 
+InnerCheckboxGroup.defaultElement = DefaultElement;
+
 export const CheckboxGroup = forwardRef<any, OmitInternalProps<InnerCheckboxGroupProps>>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));

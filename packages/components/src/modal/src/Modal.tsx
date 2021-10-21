@@ -133,6 +133,8 @@ export function InnerModal({
     );
 }
 
+InnerModal.defaultElement = DefaultElement;
+
 export const Modal = forwardRef<any, OmitInternalProps<InnerModalProps>>((props, ref) => (
     <InnerModal {...props} forwardedRef={ref} />
 ));

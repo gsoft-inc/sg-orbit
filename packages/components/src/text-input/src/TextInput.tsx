@@ -181,6 +181,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
     );
 }
 
+InnerTextInput.defaultElement = DefaultElement;
+
 export const TextInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerTextInputProps>>((props, ref) => (
     <InnerTextInput {...props} forwardedRef={ref} />
 ));

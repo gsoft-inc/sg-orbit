@@ -143,8 +143,8 @@ A custom `repeat` function is available to support Orbit spacing scale values. H
 <Preview scope={{ ApricotTheme }}>
     <Story name="repeat function">
         <Grid
-            templateColumns={repeat("auto-fit", 8)}
-            autoRows={8}
+            templateColumns={repeat("auto-fit", 7)}
+            autoRows={7}
             gap={2}
         >
             {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} key={x} />)}
@@ -195,6 +195,7 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
 
 <ComponentInfo
     usage={"import { Grid } from \"@orbit-ui/components\";"}
+    inherits={[InnerGrid.defaultElement, "styled-component"]}
     compact
 />
 

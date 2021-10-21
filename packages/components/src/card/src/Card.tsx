@@ -118,6 +118,8 @@ export function InnerCard({
     );
 }
 
+InnerCard.defaultElement = DefaultElement;
+
 export const Card = slot("card", forwardRef<any, OmitInternalProps<InnerCardProps>>((props, ref) => (
     <InnerCard {...props} forwardedRef={ref} />
 )));

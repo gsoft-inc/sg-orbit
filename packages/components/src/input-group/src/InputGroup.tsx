@@ -122,6 +122,8 @@ export function InnerInputGroup({
     );
 }
 
+InnerInputGroup.defaultElement = DefaultElement;
+
 export const InputGroup = forwardRef<any, OmitInternalProps<InnerInputGroupProps>>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));

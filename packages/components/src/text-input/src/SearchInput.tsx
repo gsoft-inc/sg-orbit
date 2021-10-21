@@ -124,6 +124,8 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
     );
 }
 
+InnerSearchInput.defaultElement = DefaultElement;
+
 export const SearchInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerSearchInputProps>>((props, ref) => (
     <InnerSearchInput {...props} forwardedRef={ref} />
 ));

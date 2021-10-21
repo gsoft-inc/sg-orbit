@@ -142,6 +142,8 @@ export function InnerMessage({
     );
 }
 
+InnerMessage.defaultElement = DefaultElement;
+
 export const Message = forwardRef<any, OmitInternalProps<InnerMessageProps>>((props, ref) => (
     <InnerMessage {...props} forwardedRef={ref} />
 ));

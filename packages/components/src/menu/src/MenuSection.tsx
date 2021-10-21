@@ -54,6 +54,8 @@ export function InnerMenuSection({
     );
 }
 
+InnerMenuSection.defaultElement = DefaultElement;
+
 export const MenuSection = forwardRef<any, OmitInternalProps<InnerMenuSectionProps>>((props, ref) => (
     <InnerMenuSection {...props} forwardedRef={ref} />
 ));

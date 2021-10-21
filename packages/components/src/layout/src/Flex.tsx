@@ -186,6 +186,8 @@ export function InnerFlex(props: InnerFlexProps) {
     );
 }
 
+InnerFlex.defaultElement = DefaultElement;
+
 export const Flex = forwardRef<any, OmitInternalProps<InnerFlexProps>>((props, ref) => (
     <InnerFlex {...props} forwardedRef={ref} />
 ));

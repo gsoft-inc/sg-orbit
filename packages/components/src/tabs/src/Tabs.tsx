@@ -135,6 +135,8 @@ export function InnerTabs({
     );
 }
 
+InnerTabs.defaultElement = DefaultElement;
+
 export const Tabs = forwardRef<any, OmitInternalProps<InnerTabsProps>>((props, ref) => (
     <InnerTabs {...props} forwardedRef={ref} />
 ));

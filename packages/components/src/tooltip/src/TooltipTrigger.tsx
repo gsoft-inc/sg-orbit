@@ -199,6 +199,8 @@ export function InnerTooltipTrigger({
     );
 }
 
+InnerTooltipTrigger.defaultElement = DefaultElement;
+
 export const TooltipTrigger = forwardRef<any, OmitInternalProps<InnerTooltipTriggerProps>>((props, ref) => (
     <InnerTooltipTrigger {...props} forwardedRef={ref} />
 ));

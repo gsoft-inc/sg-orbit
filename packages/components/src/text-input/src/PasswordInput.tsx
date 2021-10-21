@@ -70,6 +70,8 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
     );
 }
 
+InnerPasswordInput.defaultElement = DefaultElement;
+
 export const PasswordInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerPasswordInputProps>>((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));

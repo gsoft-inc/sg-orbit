@@ -41,6 +41,8 @@ export function InnerTextAddon(props: InnerTextAddonProps) {
     );
 }
 
+InnerTextAddon.defaultElement = DefaultElement;
+
 export const TextAddon = forwardRef<any, OmitInternalProps<InnerTextAddonProps>>((props, ref) => (
     <InnerTextAddon {...props} forwardedRef={ref} />
 ));

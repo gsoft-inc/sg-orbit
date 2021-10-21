@@ -122,6 +122,8 @@ export function InnerAvatarGroup({
     );
 }
 
+InnerAvatarGroup.defaultElement = DefaultElement;
+
 export const AvatarGroup = forwardRef<any, OmitInternalProps<InnerAvatarGroupProps>>((props, ref) => (
     <InnerAvatarGroup {...props} forwardedRef={ref} />
 ));

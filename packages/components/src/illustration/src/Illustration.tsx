@@ -71,6 +71,8 @@ export function InnerIllustration({
     );
 }
 
+InnerIllustration.defaultElement = DefaultElement;
+
 export const Illustration = slot("illustration", forwardRef<any, OmitInternalProps<InnerIllustrationProps>>((props, ref) => (
     <InnerIllustration {...props} forwardedRef={ref} />
 )));

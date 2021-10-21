@@ -32,6 +32,8 @@ export function InnerBox(props: InnerBoxProps) {
     );
 }
 
+InnerBox.defaultElement = DefaultElement;
+
 export const Box = forwardRef<any, OmitInternalProps<InnerBoxProps>>((props, ref) => (
     <InnerBox {...props} forwardedRef={ref} />
 ));

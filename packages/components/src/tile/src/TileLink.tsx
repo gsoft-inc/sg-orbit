@@ -59,6 +59,8 @@ export function InnerTileLink({
     );
 }
 
+InnerTileLink.defaultElement = DefaultElement;
+
 export const TileLink = forwardRef<any, OmitInternalProps<InnerTileLinkProps>>((props, ref) => (
     <InnerTileLink {...props} forwardedRef={ref} />
 ));

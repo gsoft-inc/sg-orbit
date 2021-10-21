@@ -257,6 +257,8 @@ export function InnerSelect(props: InnerSelectProps) {
     );
 }
 
+InnerSelect.defaultElement = DefaultElement;
+
 export const Select = forwardRef<any, OmitInternalProps<InnerSelectProps>>((props, ref) => (
     <InnerSelect {...props} forwardedRef={ref} />
 ));

@@ -28,6 +28,8 @@ export function InnerFooter({
     );
 }
 
+InnerFooter.defaultElement = DefaultElement;
+
 export const Footer = slot("footer", forwardRef<any, OmitInternalProps<InnerFooterProps>>((props, ref) => (
     <InnerFooter {...props} forwardedRef={ref} />
 )));

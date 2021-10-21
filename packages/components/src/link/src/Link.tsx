@@ -105,6 +105,8 @@ export function InnerLink(props: InnerLinkProps) {
     );
 }
 
+InnerLink.defaultElement = DefaultElement;
+
 export const Link = forwardRef<any, OmitInternalProps<InnerLinkProps>>((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));

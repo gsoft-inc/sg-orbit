@@ -159,6 +159,8 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     );
 }
 
+InnerRadioGroup.defaultElement = DefaultElement;
+
 export const RadioGroup = forwardRef<any, OmitInternalProps<InnerRadioGroupProps>>((props, ref) => (
     <InnerRadioGroup {...props} forwardedRef={ref} />
 ));

@@ -117,6 +117,8 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     );
 }
 
+InnerTextLink.defaultElement = DefaultElement;
+
 export const TextLink = forwardRef<any, OmitInternalProps<InnerTextLinkProps>>((props, ref) => (
     <InnerTextLink {...props} forwardedRef={ref} />
 ));

@@ -193,6 +193,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     );
 }
 
+InnerTextArea.defaultElement = DefaultElement;
+
 export const TextArea = forwardRef<any, OmitInternalProps<InnerTextAreaProps>>((props, ref) => (
     <InnerTextArea {...props} forwardedRef={ref} />
 ));

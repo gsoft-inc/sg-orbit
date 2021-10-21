@@ -51,6 +51,8 @@ export function InnerFieldset({
     );
 }
 
+InnerFieldset.defaultElement = DefaultElement;
+
 export const Fieldset = forwardRef<any, OmitInternalProps<InnerFieldsetProps>>((props, ref) => (
     <InnerFieldset {...props} forwardedRef={ref} />
 ));

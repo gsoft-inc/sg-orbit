@@ -547,6 +547,9 @@ export function InnerDateRangeInput(props: InnerDateRangeInputProps) {
     );
 }
 
+// Cheating here because we want to mimick an input even it's a div.
+InnerDateRangeInput.defaultElement = "input";
+
 export const DateRangeInput = forwardRef<any, OmitInternalProps<InnerDateRangeInputProps>>((props, ref) => (
     <InnerDateRangeInput {...props} forwardedRef={ref} />
 ));

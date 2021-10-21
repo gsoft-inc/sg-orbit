@@ -13,10 +13,8 @@ import {
     ToggleButton,
     ToggleIconButton
 } from "@components/button";
-import { CheckboxGroup } from "@components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
-import { Div } from "@components/html";
 import { Inline } from "@components/layout";
 import { RadioGroup } from "@components/radio";
 import { Text } from "@components/typography";
@@ -282,6 +280,7 @@ A toggle button can handle `checked` state in controlled mode.
 <ComponentInfo
     usage={"import { Button } from \"@orbit-ui/components\";"}
     slots={["icon", "text", "end-icon", "counter"]}
+    inherits={[InnerButton.defaultElement, "styled-component"]}
     compact
 />
 
@@ -291,6 +290,7 @@ A toggle button can handle `checked` state in controlled mode.
 
 <ComponentInfo
     usage={"import { IconButton } from \"@orbit-ui/components\";"}
+    inherits={[InnerIconButton.defaultElement, "styled-component"]}
     compact
 />
 
@@ -301,6 +301,7 @@ A toggle button can handle `checked` state in controlled mode.
 <ComponentInfo
     usage={"import { ToggleButton } from \"@orbit-ui/components\";"}
     slots={["icon", "text", "end-icon"]}
+    inherits={[InnerToggleButton.defaultElement, "styled-component"]}
     compact
 />
 
@@ -310,6 +311,7 @@ A toggle button can handle `checked` state in controlled mode.
 
 <ComponentInfo
     usage={"import { ToggleIconButton } from \"@orbit-ui/components\";"}
+    inherits={[InnerToggleIconButton.defaultElement, "styled-component"]}
     compact
 />
 
@@ -319,6 +321,7 @@ A toggle button can handle `checked` state in controlled mode.
 
 <ComponentInfo
     usage={"import { ButtonGroup } from \"@orbit-ui/components\";"}
+    inherits={[InnerButtonGroup.defaultElement, "styled-component"]}
     compact
 />
 
@@ -328,6 +331,7 @@ A toggle button can handle `checked` state in controlled mode.
 
 <ComponentInfo
     usage={"import { ButtonAsLink } from \"@orbit-ui/components\";"}
+    inherits={[InnerButton.defaultElement, "styled-component"]}
     compact
 />
 

@@ -194,6 +194,8 @@ export function InnerListboxOption({
     return optionMarkup;
 }
 
+InnerListboxOption.defaultElement = DefaultElement;
+
 export const ListboxOption = forwardRef<any, OmitInternalProps<InnerListboxOptionProps>>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));

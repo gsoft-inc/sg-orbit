@@ -4,7 +4,9 @@ import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssM
 import { ResponsiveProp } from "../../styling";
 import { useDisclosureContext } from "./DisclosureContext";
 
-export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, StyledComponentProps<"svg"> {
+const DefaultElement = "svg";
+
+export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * A controlled open value that determined whether or not the arrow is up or down.
      */
@@ -43,6 +45,8 @@ export function InnerDisclosureArrow({
         />
     );
 }
+
+InnerDisclosureArrow.defaultElement = DefaultElement;
 
 export const DisclosureArrow = slot("icon", forwardRef<any, OmitInternalProps<InnerDisclosureArrowProps>>((props, ref) => (
     <InnerDisclosureArrow {...props} forwardedRef={ref} />

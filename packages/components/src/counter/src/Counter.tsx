@@ -78,6 +78,8 @@ export function InnerCounter(props: InnerCounterProps) {
     );
 }
 
+InnerCounter.defaultElement = DefaultElement;
+
 export const Counter = slot("counter", forwardRef<any, OmitInternalProps<InnerCounterProps>>((props, ref) => (
     <InnerCounter {...props} forwardedRef={ref} />
 )));

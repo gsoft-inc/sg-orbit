@@ -142,6 +142,8 @@ export function InnerIconButton(props: InnerIconButtonProps) {
     );
 }
 
+InnerIconButton.defaultElement = DefaultElement;
+
 export const IconButton = slot("button", forwardRef<HTMLButtonElement, OmitInternalProps<InnerIconButtonProps>>((props, ref) => (
     <InnerIconButton {...props} forwardedRef={ref} />
 )));

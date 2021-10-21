@@ -86,6 +86,8 @@ export function InnerGroupField(props: InnerGroupFieldProps) {
     );
 }
 
+InnerGroupField.defaultElement = DefaultElement;
+
 export const GroupField = forwardRef<any, OmitInternalProps<InnerGroupFieldProps>>((props, ref) => (
     <InnerGroupField {...props} forwardedRef={ref} />
 ));

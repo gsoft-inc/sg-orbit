@@ -178,6 +178,8 @@ export function InnerAlert({
     );
 }
 
+InnerAlert.defaultElement = DefaultElement;
+
 export const Alert = forwardRef<any, OmitInternalProps<InnerAlertProps>>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));

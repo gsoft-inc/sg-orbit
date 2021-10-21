@@ -176,6 +176,8 @@ export function InnerGrid({
     );
 }
 
+InnerGrid.defaultElement = DefaultElement;
+
 export const Grid = forwardRef<any, OmitInternalProps<InnerGridProps>>((props, ref) => (
     <InnerGrid {...props} forwardedRef={ref} />
 ));

@@ -189,6 +189,8 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
     );
 }
 
+InnerCheckbox.defaultElement = DefaultElement;
+
 export const Checkbox = forwardRef<any, OmitInternalProps<InnerCheckboxProps>>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));

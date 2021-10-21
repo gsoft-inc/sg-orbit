@@ -1,5 +1,5 @@
 import { ComponentProps, forwardRef } from "react";
-import { FieldMessage, SharedFieldMessageProps, getValidationProps } from "./FieldMessage";
+import { FieldMessage, FieldMessageDefaultElement, SharedFieldMessageProps, getValidationProps } from "./FieldMessage";
 import { OmitInternalProps, mergeProps } from "../../shared";
 import { useFieldMessageProps } from "./FieldContext";
 
@@ -28,6 +28,8 @@ export function InnerHelpMessage(props: SharedFieldMessageProps) {
         </FieldMessage>
     );
 }
+
+InnerHelpMessage.defaultElement = FieldMessageDefaultElement;
 
 export const HelpMessage = forwardRef<any, OmitInternalProps<SharedFieldMessageProps>>((props, ref) => (
     <InnerHelpMessage {...props} forwardedRef={ref} />

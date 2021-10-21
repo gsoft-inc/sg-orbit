@@ -158,6 +158,8 @@ export function InnerAccordion({
     );
 }
 
+InnerAccordion.defaultElement = DefaultElement;
+
 export const Accordion = forwardRef<any, OmitInternalProps<InnerAccordionProps>>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));

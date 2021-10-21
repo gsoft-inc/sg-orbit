@@ -3,9 +3,9 @@ import { InternalProps, StyledComponentProps, cssModule, mergeProps } from "../.
 import { ResponsiveProp, StyleProvider, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
-const DefaultElement = "div";
+export const FieldMessageDefaultElement = "div";
 
-export interface SharedFieldMessageProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface SharedFieldMessageProps extends InternalProps, StyledComponentProps<typeof FieldMessageDefaultElement> {
     /**
      * React children.
      */
@@ -35,7 +35,7 @@ export function getValidationProps(validationState: string) {
 }
 
 export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
-    as = DefaultElement,
+    as = FieldMessageDefaultElement,
     children,
     fluid,
     tone,

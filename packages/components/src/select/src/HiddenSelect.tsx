@@ -3,7 +3,9 @@ import { Ref } from "react";
 import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 import { ValidationState } from "../../input";
 
-export interface HiddenSelectProps extends Omit<StyledComponentProps<"input">, "ref"> {
+const DefaultElement = "input";
+
+export interface HiddenSelectProps extends Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
     /**
      * @ignore
      */
@@ -41,3 +43,5 @@ export function HiddenSelect({ name, required, selectedKey, validationState, ...
         />
     );
 }
+
+HiddenSelect.defaultElement = DefaultElement;

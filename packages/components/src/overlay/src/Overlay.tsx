@@ -77,6 +77,8 @@ export function InnerOverlay({
     return createPortal(content, containerElement || document.body);
 }
 
+InnerOverlay.defaultElement = DefaultElement;
+
 export const Overlay = forwardRef<any, OmitInternalProps<InnerOverlayProps>>((props, ref) => (
     <InnerOverlay {...props} forwardedRef={ref} />
 ));

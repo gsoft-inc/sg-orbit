@@ -473,6 +473,8 @@ export type ListboxElement = HTMLElement & {
     focusManager?: FocusManager;
 };
 
+InnerListbox.defaultElement = DefaultElement;
+
 export const Listbox = forwardRef<ListboxElement, OmitInternalProps<InnerListboxProps>>((props, ref) => (
     <InnerListbox {...props} forwardedRef={ref} />
 ));

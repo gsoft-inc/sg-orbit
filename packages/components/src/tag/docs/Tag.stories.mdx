@@ -243,6 +243,7 @@ The following example show how a TagList can be composed with one of Orbit's pic
 <ComponentInfo
     usage={"import { Tag } from \"@orbit-ui/components\";"}
     slots={["text", "icon", "dot", "counter"]}
+    inherits={[InnerTag.defaultElement, "styled-component"]}
     compact
 />
 
@@ -252,6 +253,7 @@ The following example show how a TagList can be composed with one of Orbit's pic
 
 <ComponentInfo
     usage={"import { TagList } from \"@orbit-ui/components\";"}
+    inherits={[InnerTagList.defaultElement, "styled-component"]}
     compact
 />
 

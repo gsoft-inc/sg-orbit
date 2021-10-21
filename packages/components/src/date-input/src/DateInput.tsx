@@ -24,7 +24,9 @@ export interface DatePreset {
     text: string;
 }
 
-export interface InnerDateInputProps extends Omit<AbstractInputProps<"input">, "defaultValue" | "max" | "min" | "value"> {
+const DefaultElement = "input";
+
+export interface InnerDateInputProps extends Omit<AbstractInputProps<typeof DefaultElement>, "defaultValue" | "max" | "min" | "value"> {
     /**
      * The default value of `value` when uncontrolled.
      */
@@ -254,6 +256,8 @@ export function InnerDateInput({
         wrapperProps
     });
 }
+
+InnerDateInput.defaultElement = DefaultElement;
 
 export const DateInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerDateInputProps>>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />

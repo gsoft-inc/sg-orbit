@@ -89,6 +89,8 @@ export function InnerLozenge({
     );
 }
 
+InnerLozenge.defaultElement = DefaultElement;
+
 export const Lozenge = slot("lozenge", forwardRef<any, OmitInternalProps<InnerLozengeProps>>((props, ref) => (
     <InnerLozenge {...props} forwardedRef={ref} />
 )));

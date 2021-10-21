@@ -398,6 +398,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
     );
 }
 
+InnerNumberInput.defaultElement = DefaultElement;
+
 export const NumberInput = forwardRef<any, OmitInternalProps<InnerNumberInputProps>>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));

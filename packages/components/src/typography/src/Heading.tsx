@@ -53,6 +53,8 @@ export function InnerHeading(props: InnerHeadingProps) {
     );
 }
 
+InnerHeading.defaultElement = DefaultElement;
+
 export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps>>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));

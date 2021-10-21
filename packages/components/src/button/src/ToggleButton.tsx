@@ -3,7 +3,9 @@ import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
 import { ToggleButtonVariant, useToggleButton } from "./useToggleButton";
 
-export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<"button">, "onChange" | "variant"> {
+const DefaultElement = "button";
+
+export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */
@@ -79,6 +81,8 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         </Button>
     );
 }
+
+InnerToggleButton.defaultElement = DefaultElement;
 
 export const ToggleButton = forwardRef<HTMLButtonElement, OmitInternalProps<InnerToggleButtonProps>>((props, ref) => (
     <InnerToggleButton {...props} forwardedRef={ref} />

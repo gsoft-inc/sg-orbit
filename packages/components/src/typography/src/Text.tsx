@@ -47,6 +47,8 @@ export function InnerText(props: InnerTextProps) {
     );
 }
 
+InnerText.defaultElement = DefaultElement;
+
 export const Text = slot("text", forwardRef<any, OmitInternalProps<InnerTextProps>>((props, ref) => (
     <InnerText {...props} forwardedRef={ref} />
 )));

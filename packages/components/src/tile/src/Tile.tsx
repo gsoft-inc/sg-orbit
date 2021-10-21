@@ -131,6 +131,8 @@ export function InnerTile(props: InnerTileProps) {
     );
 }
 
+InnerTile.defaultElement = DefaultElement;
+
 export const Tile = forwardRef<any, OmitInternalProps<InnerTileProps>>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));

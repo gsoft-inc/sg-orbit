@@ -97,6 +97,8 @@ export function InnerStack({
     );
 }
 
+InnerStack.defaultElement = DefaultElement;
+
 export const Stack = forwardRef<any, OmitInternalProps<InnerStackProps>>((props, ref) => (
     <InnerStack {...props} forwardedRef={ref} />
 ));

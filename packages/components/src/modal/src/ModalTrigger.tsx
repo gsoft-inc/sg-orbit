@@ -1,5 +1,5 @@
 import { ComponentProps, forwardRef } from "react";
-import { DialogTrigger, InnerDialogTriggerProps } from "../../dialog";
+import { DialogTrigger, InnerDialogTrigger, InnerDialogTriggerProps } from "../../dialog";
 import { OmitInternalProps } from "../../shared";
 
 export type InnerModalTriggerProps = InnerDialogTriggerProps;
@@ -17,6 +17,8 @@ export function InnerModalTrigger({
         />
     );
 }
+
+InnerModalTrigger.defaultElement = InnerDialogTrigger.defaultElement;
 
 export const ModalTrigger = forwardRef<any, OmitInternalProps<InnerModalTriggerProps>>((props, ref) => (
     <InnerModalTrigger {...props} forwardedRef={ref} />
