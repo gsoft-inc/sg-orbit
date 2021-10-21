@@ -1,0 +1,36 @@
+import { ComponentInfo, Link, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Footer"
+    id="html-footer"
+/>
+
+# Footer
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML footer element.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlFooter } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A footer component accepts all the [footer HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer) and Orbit styled system props.
+
+```jsx
+<HtmlArticle>
+    <H1>What does an aerospace engineer do?</H1>
+    <UL>
+        <LI>Research and development</LI>
+        <LI>Testing</LI>
+        <LI>Production and maintenance</LI>
+    </UL>
+    <HtmlFooter color="cloud-8">
+        <Paragraph>© 2021 Orbit</Paragraph>
+    </HtmlFooter>
+</HtmlArticle>
+```

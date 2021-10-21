@@ -1,4 +1,4 @@
-import { Flex } from "@react-components/layout";
+import { Flex } from "@components/layout";
 import { ModalContext } from "./ModalContext";
 import { NAVIGATE_URL } from "@storybook/core-events";
 import { components } from "@storybook/components";

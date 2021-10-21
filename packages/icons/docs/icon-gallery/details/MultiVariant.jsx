@@ -1,7 +1,7 @@
 import "./MultiVariant.css";
 
 import { CheckeredBackground } from "@stories/components";
-import { Inline } from "@react-components/layout";
+import { Inline } from "@components/layout";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
 import { Snippet } from "@stories/components";
@@ -14,7 +14,7 @@ function ImportSection({ componentType }) {
     return (
         <>
             <H4>Import</H4>
-            <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} className="mv2" />
+            <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/components"`} className="mv2" />
         </>
     );
 }

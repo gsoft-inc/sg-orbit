@@ -90,7 +90,7 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 ## Develop a component
 
-The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/react-components).
+The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/components).
 
 ### Storybook
 
@@ -146,7 +146,7 @@ To release, open a terminal at the root of the workspace and execute the followi
 ```bash
 yarn new-version
 yarn release
-yarn push-release <@orbit-ui/react-components package version>
+yarn push-release <@orbit-ui/components package version>
 Release docs
 Release Storybook
 ```
@@ -159,7 +159,7 @@ yarn release
 yarn push-release 19.0.1
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@orbit-ui/react-components package version] created earlier by the `push-release` command and list all the changes that has been published.
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@orbit-ui/components package version] created earlier by the `push-release` command and list all the changes that has been published.
 
 Don't forget to **publish** the release.
 
@@ -475,7 +475,7 @@ Before adding a script, make sure you read the following [gotcha](#lerna-and-npm
 
 ### React components
 
-If you're package is a new React component, please read the [React components documentation](/packages/react-components)
+If you're package is a new React component, please read the [React components documentation](/packages/components)
 
 ## Add a new Yarn script
 

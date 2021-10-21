@@ -1,9 +1,9 @@
 import "./ComponentInfo.css";
 
-import { Div } from "@react-components/html";
+import { Div } from "@components/html";
 import { ExternalLink, GithubLink, useThemedSnippet } from "@stories/components";
 import { arrayOf, bool, oneOfType, shape, string } from "prop-types";
-import { cssModule, mergeClasses } from "@react-components/shared";
+import { cssModule, mergeClasses } from "@components/shared";
 
 const propTypes = {
     usage: oneOfType([

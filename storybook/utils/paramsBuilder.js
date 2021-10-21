@@ -1,4 +1,4 @@
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 
 class ParamsBuilder {
     _canvasLayout = {}

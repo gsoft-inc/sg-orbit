@@ -1,7 +1,7 @@
 import "./Snippet.css";
 
-import { Div } from "@react-components/html";
-import { isNil, mergeClasses } from "@react-components/shared";
+import { Div } from "@components/html";
+import { isNil, mergeClasses } from "@components/shared";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
 import { useState } from "react";
@@ -54,7 +54,7 @@ function FileSnippet({ filePath, language, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
             .then(module => {
                 setCode(module.default);
             });

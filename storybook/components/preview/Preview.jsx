@@ -1,13 +1,13 @@
 import "./Preview.css";
 
-import { Box } from "@react-components/box";
+import { Box } from "@components/box";
 import { CodeTheme, useFormattedCode } from "@stories/components";
-import { Div, Span } from "@react-components/html";
+import { Div, Span } from "@components/html";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { KnownScope } from "./scopes";
 import { applyHooks, defaultDecorateStory } from "@storybook/client-api";
-import { as, isNil } from "@react-components/shared";
+import { as, isNil } from "@components/shared";
 import { object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
 import { useContext, useState } from "react";
@@ -74,7 +74,7 @@ function FilePreview({ filePath, language, scope, noInline, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
             .then(module => {
                 setCode(module.default);
             });

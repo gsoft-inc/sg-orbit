@@ -1,4 +1,4 @@
-import { ApricotTheme, DesktopTheme, ThemeProvider } from "@react-components/styling";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
 import { DocsContainer } from "@storybook/addon-docs";
 
 function ThemedDocsContainer({ context, children }) {

@@ -1,0 +1,29 @@
+import { A } from "@components/html";
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/A"
+    id="html-anchor"
+/>
+
+# Anchor
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML anchor element.</Tagline>
+
+<ComponentInfo
+    usage={"import { A } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An anchor component accepts all the [anchor HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <A href="https://www.cc.com/shows/futurama" color="cloud-8">Futurama</A>
+    </Story>
+</Preview>

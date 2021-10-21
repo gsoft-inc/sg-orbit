@@ -1,4 +1,4 @@
-import { ApricotTheme, DesktopTheme, createThemeVars } from "@react-components/styling";
+import { ApricotTheme, DesktopTheme, createThemeVars } from "@components/styling";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
@@ -6,7 +6,7 @@ import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContaine
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@css/normalize.css";
-import "@react-components/index.css";
+import "@components/index.css";
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
 import "./styles";

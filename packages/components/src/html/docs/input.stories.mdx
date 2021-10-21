@@ -1,0 +1,29 @@
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { HtmlInput } from "@components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Input"
+    id="html-input"
+/>
+
+# Input
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML input element.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlInput } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An input component accepts all the [input HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) and Orbit styled system props.
+
+<Preview>
+    <Story name="example">
+        <HtmlInput type="text" border="cloud-10" />
+    </Story>
+</Preview>

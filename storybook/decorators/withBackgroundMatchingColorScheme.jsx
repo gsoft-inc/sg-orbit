@@ -1,4 +1,4 @@
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 import { useEffect } from "react";
 
 const StyleElementId = "story-background-color";

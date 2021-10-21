@@ -1,13 +1,13 @@
 import "./Variants.css";
 
-import { Content, Header } from "@react-components/placeholders";
-import { Disclosure, DisclosureArrow } from "@react-components/disclosure";
-import { Div, HtmlButton } from "@react-components/html";
-import { Item } from "@react-components/collection";
+import { Content, Header } from "@components/placeholders";
+import { Disclosure, DisclosureArrow } from "@components/disclosure";
+import { Div, HtmlButton } from "@components/html";
+import { Item } from "@components/collection";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
-import { Tabs } from "@react-components/tabs";
-import { Text } from "@react-components/typography";
+import { Tabs } from "@components/tabs";
+import { Text } from "@components/typography";
 import { VARIANT_SHAPE } from "../shapes";
 import { arrayOf, shape, string } from "prop-types";
 import { components } from "@storybook/components";
@@ -34,7 +34,7 @@ function IconComponent({ componentType }) {
         <VariantSection name="Use as a component">
             <>
                 <H4>Import</H4>
-                <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} />
+                <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/components"`} />
                 <H4>Usage</H4>
                 <Snippet language="jsx" code={`<${componentType} />`} />
                 <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />

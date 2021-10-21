@@ -1,0 +1,65 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview } from "@stories/components";
+import { Dot, InnerDot } from "@components/dot";
+import { Inline } from "@components/layout";
+
+<Meta
+    title="Components/Dot"
+    id="dot"
+/>
+
+# Dot
+
+<ComponentInfo
+    usage={"import { Dot } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/dot/src"
+/>
+
+## Usage
+
+### Default
+
+A default dot.
+
+<Preview>
+    <Story name="default">
+        <Dot color="alias-2" />
+    </Story>
+</Preview>
+
+### Label
+
+A dot can have a label.
+
+<Preview>
+    <Story name="label">
+        <Dot color="alias-2">Habitable</Dot>
+    </Story>
+</Preview>
+
+### Color
+
+A dot color can vary.
+
+You can use a color name from our Orbit design system (e.g. `alias-2`, `--o-ui-primary6`), an hexadecimal color code (e.g. `#c5cac8`), an `hsl`, an `hsla`, a `rgb` or a `rgba` color code.
+
+<Preview>
+    <Story name="color">
+        <Inline>
+            <Dot color="alias-2">Habitable</Dot>
+            <Dot color="hsl(25, 69%, 41%)">Uninhabitable</Dot>
+            <Dot color="--o-ui-primary-6">Clean</Dot>
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+### Dot
+
+<ComponentInfo
+    usage={"import { Dot } from \"@orbit-ui/components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerDot} sort="alpha" />

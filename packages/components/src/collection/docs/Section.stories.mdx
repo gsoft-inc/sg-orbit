@@ -1,0 +1,42 @@
+import { ArgsTable, Meta } from "@storybook/addon-docs";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { InnerSection } from "@components/collection";
+
+<Meta
+    title="Collection/Section"
+    id="section"
+/>
+
+# Section
+
+<Tagline>A group of related items.</Tagline>
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/collection/src"
+/>
+
+## Usage
+
+### Example
+
+A section component *doesn't render anything*, but provide information about the section to it's parent container.
+
+```jsx
+<Section title="Favorite Planets">
+    <Item>Earth</Item>
+    <Item>Mars</Item>
+    <Item>Saturn</Item>
+</Section>
+```
+
+## API
+
+### Content
+
+<ComponentInfo
+    usage={"import { Section } from \"@orbit-ui/components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerSection} sort="alpha" />

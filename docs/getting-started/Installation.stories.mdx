@@ -13,7 +13,7 @@ Multiple [npm packages](?path=/docs/packages--page) compose Orbit UI. Based on w
 
 ## React bundle
 
-For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle. The bundle will install the [core](?path=/docs/packages--page#core) and [React](?path=/docs/packages--page#react-components) packages of Orbit UI in 5 easy steps.
+For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle. The bundle will install the [core](?path=/docs/packages--page#core) and [React](?path=/docs/packages--page#components) packages of Orbit UI in 5 easy steps.
 
 #### Install bundle packages
 
@@ -22,7 +22,7 @@ For a React application, the easiest way to use Orbit UI is by installing the [@
 #### Import components
 
 ```javascript
-import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/react-components";
+import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/components";
 ```
 
 #### Import styles
@@ -45,7 +45,7 @@ html, body {
 ```jsx
 // index.jsx
 
-import { ThemeProvider } from "@orbit-ui/react-components";
+import { ThemeProvider } from "@orbit-ui/components";
 import { render } from "react-dom";
 import App from "./App";
 
@@ -65,7 +65,7 @@ Strict *peerDependencies* are defined in every packages to ensure that dependent
 
 ### Core packages
 
-Before installing any [React components packages](?path=/docs/packages--page#react-components), you must install the [core packages](?path=/docs/packages--page#core). You can pick and choose the *core packages* to install but we do recommend installing all of them.
+Before installing any [React components packages](?path=/docs/packages--page#components), you must install the [core packages](?path=/docs/packages--page#core). You can pick and choose the *core packages* to install but we do recommend installing all of them.
 
 #### Install core packages
 
@@ -93,24 +93,24 @@ html, body {
 
 ### React components packages
 
-Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/packages--page#react-components).
+Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/packages--page#components).
 
 #### Install packages
 
 ```bash
-npm install @orbit-ui/react-components
+npm install @orbit-ui/components
 ```
 
 ### Import styles
 
 ```css
-@import "~@orbit-ui/react-components/dist/index.css";
+@import "~@orbit-ui/components/dist/index.css";
 ```
 
 #### Import components
 
 ```javascript
-import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/react-components";
+import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/components";
 ```
 
 #### Declare a theme provider
@@ -118,7 +118,7 @@ import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/react-componen
 ```jsx
 // index.jsx
 
-import { ThemeProvider } from "@orbit-ui/react-components";
+import { ThemeProvider } from "@orbit-ui/components";
 import { render } from "react-dom";
 import App from "./App";
 
