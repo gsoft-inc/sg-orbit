@@ -98,7 +98,7 @@ export function InnerButton(props: InnerButtonProps) {
         shape,
         size,
         type,
-        variant,
+        variant = "secondary",
         inherit,
         ...rest
     } = mergeProps(

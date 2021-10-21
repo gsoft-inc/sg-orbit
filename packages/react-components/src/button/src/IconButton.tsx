@@ -91,7 +91,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         shape = "circular",
         size,
         type,
-        variant,
+        variant = "secondary",
         ...rest
     } = mergeProps(
         props,
