@@ -1,5 +1,3 @@
-@import "../../input/src/Input.css";
-
 .o-ui-text-area textarea {
     --o-ui-textarea-padding: var(--o-ui-sp-3);
     resize: "vertical";

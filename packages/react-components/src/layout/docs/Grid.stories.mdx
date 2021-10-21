@@ -49,7 +49,7 @@ A grid can define explicit columns (and rows). A value can be a grid length valu
         <Grid
             templateColumns={[9, 7, "1fr"]}
             gap={2}
-            height={7}
+            height={5}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -121,7 +121,7 @@ Grids can be nested.
 <Preview>
     <Story name="nesting">
         <Grid
-            templateRows={[7, 7]}
+            templateRows={[5, 5]}
             gap={2}
         >
             <Grid templateColumns={[9, "auto"]}>
@@ -163,7 +163,7 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
         <Grid
             templateColumns={[minmax(9, "1fr"), 10, minmax(9, "1fr")]}
             gap={2}
-            height={7}
+            height={5}
         >
             <Div backgroundColor="primary-5" />
             <Div backgroundColor="beetle-5" />
@@ -179,12 +179,12 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
         <Grid
             templateColumns={[fitContent(9), fitContent(9), "1fr"]}
             gap={2}
-            height={7}
+            alignItems="center"
             color="white"
         >
-            <Div backgroundColor="primary-5" paddingX={2}>Mars</Div>
-            <Div backgroundColor="beetle-5" paddingX={2}>Pluto</Div>
-            <Div backgroundColor="botanic-5" paddingX={2}>Jupiter</Div>
+            <Div backgroundColor="primary-5" padding={1}>Mars</Div>
+            <Div backgroundColor="beetle-5" padding={1}>Pluto</Div>
+            <Div backgroundColor="botanic-5" padding={1}>Jupiter</Div>
         </Grid>
     </Story>
 </Preview>

@@ -68,8 +68,9 @@ NOTE: Importing all the components CSS files in a root file is not our preferred
 Sadly, we encountered CSS ordering issues when the components are bundled in our apps.
 */
 
-/* Must be import before all components */
+/* Must be imported first */
 @import "./html/index.css";
+@import "./input/index.css";
 
 @import "./accordion/index.css";
 @import "./alert/index.css";
