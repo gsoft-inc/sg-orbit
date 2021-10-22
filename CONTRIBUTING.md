@@ -146,7 +146,7 @@ To release, open a terminal at the root of the workspace and execute the followi
 ```bash
 yarn new-version
 yarn release
-yarn push-release <@orbit-ui/components package version>
+yarn push-release <@sharegate/orbit-ui package version>
 Release docs
 Release Storybook
 ```
@@ -159,7 +159,7 @@ yarn release
 yarn push-release 19.0.1
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@orbit-ui/components package version] created earlier by the `push-release` command and list all the changes that has been published.
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@sharegate/orbit-ui package version] created earlier by the `push-release` command and list all the changes that has been published.
 
 Don't forget to **publish** the release.
 

@@ -223,7 +223,7 @@ Two types of components are available, _multi-variants_ components and _variants
 Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
 ```jsx
-import { CalendarIcon } from "@orbit-ui/components";
+import { CalendarIcon } from "@sharegate/orbit-ui";
 
 function render() {
     return <CalendarIcon aria-label="Calendar" />;
@@ -235,7 +235,7 @@ function render() {
 Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
 
 ```jsx
-import { CalendarIcon24 } from "@orbit-ui/components";
+import { CalendarIcon24 } from "@sharegate/orbit-ui";
 
 function render() {
     return <CalendarIcon24 aria-label="Calendar" />;
@@ -302,7 +302,7 @@ This means that you can alter the color of an icon by specifying a new `fill` va
 To set the color of an icon component, you can set the `fill` prop of Orbit [styled-system](?path=/docs/styled-system).
 
 ```jsx
-import { CalendarIcon } from "@orbit-ui/components";
+import { CalendarIcon } from "@sharegate/orbit-ui";
 
 function render() {
     return <CalendarIcon aria-label="Calendar" fill="marine-10" />

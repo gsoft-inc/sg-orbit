@@ -14,7 +14,7 @@ function ImportSection({ componentType }) {
     return (
         <>
             <H4>Import</H4>
-            <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/components"`} className="mv2" />
+            <Snippet language="javascript" code={`import { ${componentType} } from "@sharegate/orbit-ui"`} className="mv2" />
         </>
     );
 }

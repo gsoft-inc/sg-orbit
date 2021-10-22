@@ -40,7 +40,7 @@ import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
 Then you can either wrap your icon with an `<Icon />` or `<MultiVariantIcon />` component:
 
 ```jsx
-import { Icon } from "@orbit-ui/components";
+import { Icon } from "@sharegate/orbit-ui";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 
 <Icon type={Azure32} />
@@ -49,7 +49,7 @@ import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 Or export your icon as an HOC and render it at a later time:
 
 ```jsx
-import { createIcon } from "@orbit-ui/components";
+import { createIcon } from "@sharegate/orbit-ui";
 import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
 
 export const AzureIcon32 = createIcon(Azure32);

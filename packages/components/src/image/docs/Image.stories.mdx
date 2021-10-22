@@ -14,7 +14,7 @@ import { Inline } from "@components/layout";
 <Tagline>Use this component to display an image.</Tagline>
 
 <ComponentInfo
-    usage={"import { Image, SvgImage } from \"@orbit-ui/components\";"}
+    usage={"import { Image, SvgImage } from \"@sharegate/orbit-ui\";"}
     githubPath="/packages/components/src/image/src"
 />
 
@@ -39,7 +39,7 @@ An image can use a different shape.
 
 ### Size
 
-An image can adjust it's size by specifying `width` and `height` props.
+An image size can be specifyied with the `width` and `height` props.
 
 <Preview scope={{ GalaxyImageLg }}>
     <Story name="size">
@@ -73,7 +73,7 @@ For some use cases, like dark mode support, an SVG image is a better fit than a 
 
 ### Size
 
-An SVG image can adjust it's size by specifying `width` and `height` props.
+An SVG image size can be specifyied with the `width` and `height` props.
 
 <Preview scope={{ NoResults }}>
     <Story name="svg image size">
@@ -96,7 +96,7 @@ An SVG image `stroke` and `fill` color can vary.
 ### Image
 
 <ComponentInfo
-    usage={"import { Image } from \"@orbit-ui/components\";"}
+    usage={"import { Image } from \"@sharegate/orbit-ui\";"}
     inherits={[InnerImage.defaultElement, "styled-component"]}
     compact
 />
@@ -106,7 +106,7 @@ An SVG image `stroke` and `fill` color can vary.
 ### SvgImage
 
 <ComponentInfo
-    usage={"import { SvgImage } from \"@orbit-ui/components\";"}
+    usage={"import { SvgImage } from \"@sharegate/orbit-ui\";"}
     inherits={["svg", "styled-component"]}
     compact
 />
