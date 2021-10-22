@@ -187,6 +187,12 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-5);
 }
 
+/* OUTLINE | ACTIVE */
+.o-ui-button-outline:active:hover,
+.o-ui-button-outline:not([disabled]).o-ui-button-active.o-ui-button-hover {
+    color: var(--o-ui-white);
+}
+
 /* OUTLINE | PRIMARY */
 .o-ui-button-outline.o-ui-button-primary {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-primary-1) inset;
