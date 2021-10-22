@@ -23,7 +23,7 @@ export interface InnerSvgImageProps extends
     */
     height?: HeightProp;
     /**
-     * An SVG as a React component.
+     * An SVG as a component.
      */
     src: ElementType;
     /**

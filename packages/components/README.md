@@ -151,7 +151,7 @@ Usually, interaction tests are split into 4 distinct regions: *Behaviors*, *Aria
 
 ## Component guidelines
 
-Every Orbit UI custom components must share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
+Every Orbit custom components must share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
 
 ### Design
 
@@ -165,7 +165,7 @@ All components should leverage React hooks.
 
 #### Styling
 
-An Orbit UI component shouldn't use any CSS in JS properties.
+An Orbit component shouldn't use any CSS in JS properties.
 
 All styling should be done with native CSS and use our foundation CSS variables when possible
 

@@ -19,7 +19,7 @@ export interface InnerIconProps extends
      */
     size?: ResponsiveProp<IconSize>;
     /**
-     * An icon as a React component.
+     * An icon as a component.
      */
     src: ElementType;
 }

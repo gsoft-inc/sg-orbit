@@ -20,8 +20,8 @@ const propTypes = {
     compact: bool
 };
 
-const InheritsProps = {
-    "styled-component": <Link href="?path=/docs/styling--page">Style props</Link>,
+const ExtendLinks = {
+    "styled-component": <Link href="?path=/docs/styling--page">StyledComponent</Link>,
     "a": <Link href="?path=/docs/html-anchor--example">A</Link>,
     "button": <Link href="?path=/docs/html-button--example">Button</Link>,
     "div": <Link href="?path=/docs/html-div--example">Div</Link>,
@@ -96,11 +96,11 @@ export function ComponentInfo({
             )}
             {inherits && (
                 <Div className="o-ui-sb-component-info-item">
-                    <dt className="o-ui-sb-component-info-title">inherits props</dt>
+                    <dt className="o-ui-sb-component-info-title">extends</dt>
                     <dd className="o-ui-sb-component-info-value">
                         <ul>
                             {/* eslint-disable-next-line react/no-array-index-key */}
-                            {inherits.map((x, index) => <li key={index}>{InheritsProps[x]}</li>)}
+                            {inherits.map((x, index) => <li key={index}>{ExtendLinks[x]}</li>)}
                         </ul>
                     </dd>
                 </Div>

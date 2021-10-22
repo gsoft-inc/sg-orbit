@@ -18,14 +18,10 @@
     font-variation-settings: "wght" 500 !important;
     font-size: var(--o-ui-fs-3) !important;
     font-style: normal !important;
-    width: var(--o-ui-sz-13) !important;
+    width: var(--o-ui-sz-11) !important;
     margin: 0 !important;
     min-width: 80px;
 }
-
-/* .o-ui-sb-component-info-compact .o-ui-sb-component-info-title {
-    width: var(--o-ui-sz-9) !important;
-} */
 
 .o-ui-sb-component-info-value {
     display: flex !important;

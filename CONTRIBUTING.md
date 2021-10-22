@@ -475,7 +475,7 @@ Before adding a script, make sure you read the following [gotcha](#lerna-and-npm
 
 ### React components
 
-If you're package is a new React component, please read the [React components documentation](/packages/components)
+If you're package is a new component, please read the [React components documentation](/packages/components)
 
 ## Add a new Yarn script
 

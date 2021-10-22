@@ -17,11 +17,11 @@ export interface InnerMultiVariantIconProps extends
      */
     size?: ResponsiveProp<IconSize>;
     /**
-     * An icon as a React component for the 24px variant.
+     * An icon as a component for the 24px variant.
      */
     src24: ElementType;
     /**
-     * An icon as a React component for the 32px variant.
+     * An icon as a component for the 32px variant.
      */
     src32: ElementType;
 }
