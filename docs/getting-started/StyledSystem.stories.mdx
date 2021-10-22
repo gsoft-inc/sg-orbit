@@ -9,11 +9,11 @@ import { Box } from "@components/box";
 
 # Styled System
 
-In order to achieve a consistent UI, Orbit lets you quickly build custom UI components with constraint-based [style props](/story/style-props--page) based on scales defined in a [theme](/story/theming--page), defined by our product designers.
+In order to achieve a consistent UI, Orbit lets you quickly build custom UI components with constraint-based [style props](#style-props) based on scales defined in a [theme](#theming), defined by our product designers.
 
 Styled system let's you quickly set responsive _font-size_, _margin_, _padding_, _width_, and more on a component. All this following standards defined in a theme object provided by Orbit and customizable, to an extent, by you.
 
-<Preview>
+```
     <Box
     fontSize={6}
     fontWeight="3"
@@ -24,6 +24,129 @@ Styled system let's you quickly set responsive _font-size_, _margin_, _padding_,
     backgroundColor="primary-5">
     Hello World
     </Box>
-</Preview>
+```
+
+## Style Props
+
+Each style props maps to a [CSS Property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) allowing you to style any components as usual.
 
 All style props are discovererable with TypeScript intellisense as well as the values defined by the theme, no more guessing.
+
+Below a common usage of style props :
+
+<Preview>
+    <Div width={18} backgroundColor="sunray-2" padding={4} borderRadius={2}>
+        <Paragraph>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+### Responsive Styles
+
+Orbit's style props also supports responsive breakpoints. These breakpoints are documented below and behaves like their CSS media query counterparts.
+
+<Table
+    columns={[
+        { title: "Value", headerStyle: { width: "100px" } },
+        { title: "Computed", headerStyle: { width: "250px" } } ]}
+    rows={[
+        ["xs", "min-width: 640px"],
+        ["sm", "min-width: 768px"],
+        ["md", "min-width: 1024px"],
+        ["lg", "min-width: 1280px"],
+        ["xl", "min-width: 1536px"]
+    ]}
+    rowClassName="background-1"
+/>
+
+By passing an object to any style props you can specify how style will behave at different breakpoints. These rules are on a min-width basis meaning that a `sm` value will apply from 768px up until another higher breakpoint matches.
+
+```
+backgroundColor={{ base: "sunray-5", xs: "marine-5", sm: "beetle-5", md: "primary-5", lg: "cloud-5", xl: "botanic-5" }}
+```
+
+Below a common usage of responsive style props :
+
+<Preview>
+    <Div width={18} backgroundColor={{ base: "sunray-2", xs: "marine-2", sm: "beetle-2", md: "primary-2", lg: "cloud-2", xl: "botanic-2" }} padding={4}>
+        <Paragraph>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that base and md would be valid breakpoints, lg and xl would takes the value set by md.
+
+### Pseudo Styles
+
+Other than setting styles for a components some Orbit's style props supports pseudo state styles, these are documented below and behaves like their pseudo `CSS` counterparts.
+
+<Table
+    columns={[
+        { title: "Suffix", headerStyle: { width: "100px" } },
+        { title: "Computed", headerStyle: { width: "250px" } } ]}
+    rows={[
+        ["Active", ":active"],
+        ["Hover", ":hover"],
+        ["Focus", ":focus"]
+    ]}
+    rowClassName="background-1"
+/>
+
+Below a common usage of pseudo state style props :
+
+```jsx
+import { Div } from "@sharegate/orbit-ui";
+
+<Div width={18} backgroundColor="sunray-2" backgroundColorHover="sunray-5" padding={4} borderRadius={2}>
+    <Paragraph>Lost in space.</Paragraph>
+</Div>
+```
+
+Which computes to
+
+<Div width={18} backgroundColor="sunray-2" backgroundColorHover="sunray-5" padding={4} borderRadius={2}>
+    <Paragraph>Lost in space.</Paragraph>
+</Div>
+
+Not all style props supports these states as some of them have no concrete use cases in a real life situation. When supported the [reference table](/story/props-reference--page) will indicate it.
+
+## Theming
+
+The Orbit UI theme object stores our design system style values and scales. The objects shape is based on the [System UI Theme Specification](https://system-ui.com/theme).
+
+### Scale Objects
+
+Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's theme object is centered around the idea of scales, such as a [typographic](/story/typography--page) (font-size) scale, a spacing scale for margin and padding, and a color object.
+
+```
+    // example fontSizes scale
+    fontSizes: {
+        1: ".625rem",
+        2: ".75rem",
+        3: ".875rem",
+        4: "1rem",
+        5: "1.125rem",
+        6: "1.375rem",
+        7: "1.75rem",
+        8: "2rem",
+        9: "2.5rem",
+        "subheadline": "3.75rem",
+        "headline": "5rem"
+    }
+```
+
+#### Excluded Values
+
+Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object. For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent. Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
+
+### Keys
+
+#### Space
+
+The [space](/story/spacing--page) key is a specially-named scale intended for use with `margin`, `padding`, and other layout-related CSS properties.
+
+#### Sizing
+
+The [sizing](/story/sizing--page) key is a specially-named scale intended for use with `width`, `height`, and other layout-related CSS properties.
+
+#### Colors
+
+[Colors](/story/colors--page) provided by the theme are intended for use with `color`, `background-color` and other color related CSS properties. They provides light and dark variation of semantic colors.

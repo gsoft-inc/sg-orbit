@@ -1,0 +1,59 @@
+import { GithubLink } from "@stories/components";
+import { Table } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+import { paramsBuilder } from "@stories/utils";
+import { Div } from "@components/html";
+import { Paragraph } from "@components/typography";
+
+<Meta
+    title="Getting Started/Styling/Theme Reference"
+    id="theme-reference"
+/>
+
+# Theme Reference
+
+## Keys
+
+The following is a list of theme object keys and their corresponding CSS properties. This list may be non-exhaustive.
+
+<Table
+    columns={[
+        { title: "Theme Key", headerStyle: { width: "200px" }},
+        { title: "CSS Properties", headerStyle: { width: "450px" }}
+    ]}
+    rows={[
+        ["space", "margin, margin-top, margin-bottom, margin-right, margin-left, padding, padding-left, padding-right, padding-bottom, gap, column-gap, row-gap"],
+        ["sizing", "width, height, min-width, max-width, min-height, max-height, grid-auto-columns, grid-auto-rows"],
+        ["boxShadows", "box-shadow"],
+        ["fontSizes", "font-size"],
+        ["colors", "color, background-color, border-color"],
+        ["fontWeights", "font-weights"],
+        ["lineHeights", "line-heights"],
+        ["borderRadii", "border-radius"]
+    ]}
+    rowClassName="background-1"
+/>
+
+## CSS
+
+Orbit theme object is also available as `CSS` variables in order to adapt to all the developments use cases.
+
+The following is a list of theme object keys and their corresponding CSS variables values.
+
+<Table
+    columns={[
+        { title: "Theme Key", headerStyle: { width: "200px" }},
+        { title: "CSS Variable", headerStyle: { width: "450px" }}
+    ]}
+    rows={[
+        ["space", "--o-ui-sp-{x}"],
+        ["sizing", "--o-ui-sz-{x}"],
+        ["boxShadows", "--o-ui-bs-{x}"],
+        ["fontSizes", "--o-ui-fs-{x}"],
+        ["colors", "--o-ui-{x}"],
+        ["fontWeights", "--o-ui-fw-{x}"],
+        ["lineHeights", "--o-ui-lh-{x}"],
+        ["borderRadii", "--o-ui-br-{x}"]
+    ]}
+    rowClassName="background-1"
+/>
