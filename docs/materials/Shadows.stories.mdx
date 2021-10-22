@@ -15,13 +15,14 @@ import { Div } from "@react-components/html";
 
 <Table
     columns={[
-        { title: "Value", headerStyle: { width: "200px" } },
+        { title: "Scale", headerStyle: { width: "100px" } },
+        { title: "Variable", headerStyle: { width: "200px" } },
         { title: "Sample", headerStyle: { width: "350px" } } ]}
     rows={[
-        ["1", <Div boxShadow={1} borderRadius={2} backgroundColor={white} height={9} margin={3}></Div>],
-        ["2", <Div boxShadow={1} borderRadius={2} backgroundColor={white} height={9} margin={3}></Div>],
-        ["3", <Div boxShadow={1} borderRadius={2} backgroundColor={white} height={9} margin={3}></Div>],
-        ["4", <Div boxShadow={1} borderRadius={2} backgroundColor={white} height={9} margin={3}></Div>]
+        ["1", "--o-ui-bs-1", <Div boxShadow={1} borderRadius={2} backgroundColor="white" height={9} margin={3}></Div>],
+        ["2", "--o-ui-bs-2", <Div boxShadow={1} borderRadius={2} backgroundColor="white" height={9} margin={3}></Div>],
+        ["3", "--o-ui-bs-3", <Div boxShadow={1} borderRadius={2} backgroundColor="white" height={9} margin={3}></Div>],
+        ["4", "--o-ui-bs-4", <Div boxShadow={1} borderRadius={2} backgroundColor="white" height={9} margin={3}></Div>]
     ]}
     rowClassName="background-1"
 />

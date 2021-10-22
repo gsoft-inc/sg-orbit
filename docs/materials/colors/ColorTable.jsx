@@ -1,20 +1,23 @@
 import { Table } from "@stories/components";
+import { Div } from "@react-components/html";
 import { arrayOf, shape, string } from "prop-types";
 
 const propTypes = {
     colors: arrayOf(shape({
         shade: string.isRequired,
         value: string.isRequired,
+        variable: string.isRequired,
         color: string.isRequired
     })).isRequired
 };
 
-function toRowValues({ shade, value, color }) {
+function toRowValues({ shade, value, variable, color }) {
     return [
         shade,
         value,
+        variable,
         color,
-        { style: { backgroundColor: color } }
+        <Div backgroundColor={value} width={12} height={12}></Div>
     ];
 }
 
@@ -23,7 +26,8 @@ export function ColorTable({ colors }) {
         <Table
             columns={[
                 { title: "Shade", headerStyle: { width: "150px" } },
-                { title: "Value", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
+                { title: "Value", headerStyle: { width: "150px" }, rowClassName: "code f7 o-90" },
+                { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
                 { title: "Color Code", headerStyle: { width: "275px" }, rowClassName: "code f7 o-90" },
                 { title: "", headerStyle: { width: "300px" } }
             ]}
