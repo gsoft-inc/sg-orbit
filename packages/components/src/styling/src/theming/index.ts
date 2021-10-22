@@ -1,4 +1,5 @@
 export * from "./apricot";
+export * from "./createTheme";
 export * from "./createThemeVars";
 export * from "./desktop";
 export * from "./orbitTheme";
