@@ -24,8 +24,7 @@ export const parameters = {
             method: "alphabetical",
             order: [
                 "Getting Started",
-                ["Installation", "Slots", "As", "Supported Platforms", "Contributing"],
-                "Styling",
+                ["Installation", "Styling", "Slots", "As", "Supported Platforms", "Contributing"],
                 "Materials",
                 ["Icons", "Motion"],
                 "Theme",
