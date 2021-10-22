@@ -5,6 +5,7 @@ import { paramsBuilder } from "@stories/utils";
 import { Div } from "@components/html";
 import { Preview } from "@stories/components";
 import { Paragraph } from "@components/typography";
+import { PropsReferenceTable } from "./PropsReferenceTable";
 
 <Meta
     title="Getting Started/Styling/Props Reference"
@@ -13,7 +14,9 @@ import { Paragraph } from "@components/typography";
 
 # Props Reference
 
-## Space
+Orbit styled system is organized into categories of style props. Each function provides the following props and maps to scales defined in a theme.
+
+### Space
 
 ```jsx
 <Box padding={4}>
@@ -21,13 +24,7 @@ import { Paragraph } from "@components/typography";
 </Box>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["margin", "margin", "spacing", "breakpoints"],
         ["marginTop", "margin-top", "spacing", "breakpoints"],
@@ -45,10 +42,9 @@ import { Paragraph } from "@components/typography";
         ["paddingY", "padding-top & padding-bottom", "spacing", "breakpoints"],
         ["whiteSpace", "white-space", "none", "breakpoints"],
     ]}
-    rowClassName="background-1"
 />
 
-## Color
+### Color
 
 ```jsx
 <Text backgroundColor="marine-2" color="white">
@@ -56,13 +52,7 @@ import { Paragraph } from "@components/typography";
 </Text>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["color", "color", "colors", "breakpoints"],
         ["backgroundColor", "background-color", "colors", "breakpoints & focus/hover/active"],
@@ -71,24 +61,17 @@ import { Paragraph } from "@components/typography";
         ["stroke", "stroke", "none", "breakpoints"],
         ["filter", "filter", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Typography
+### Typography
 
 ```jsx
 <Header letterSpacing="0.3rem">
-  Hello!
+    Hello!
 </Header>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["fontSize", "font-size", "fontSizes", "breakpoints"],
         ["fontWeight", "font-weight", "fontWeights", "breakpoints"],
@@ -101,10 +84,9 @@ import { Paragraph } from "@components/typography";
         ["wordBreak", "word-break", "none", "breakpoints"],
         ["fontStyle", "font-style", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Layout
+### Layout
 
 ```jsx
 <Box width={18}>
@@ -112,13 +94,7 @@ import { Paragraph } from "@components/typography";
 </Box>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["width", "width", "sizing", "breakpoints"],
         ["height", "height", "sizing", "breakpoints"],
@@ -142,10 +118,9 @@ import { Paragraph } from "@components/typography";
         ["transformOrigin", "transform-origin", "none", "breakpoints"],
         ["transformStyle", "transform-style", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Flex Layout
+### Flex Layout
 
 ```jsx
 <Flex alignItems="center">
@@ -154,13 +129,7 @@ import { Paragraph } from "@components/typography";
 </Flex>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["alignItems", "align-items", "none", "breakpoints"],
         ["alignContent", "align-content", "none", "breakpoints"],
@@ -173,10 +142,9 @@ import { Paragraph } from "@components/typography";
         ["flexWrap", "flex-wrap", "none", "breakpoints"],
         ["order", "order", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Grid Layout
+### Grid Layout
 
 ```jsx
 <Grid gridAutoFlow="row dense">
@@ -185,13 +153,7 @@ import { Paragraph } from "@components/typography";
 </Grid>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["grid", "grid (shorthand)", "none", "breakpoints"],
         ["gridArea", "grid-area", "none", "breakpoints"],
@@ -213,10 +175,9 @@ import { Paragraph } from "@components/typography";
         ["columnGap", "column-gap", "gap", "breakpoints"],
         ["rowGap", "row-gap", "gap", "breakpoints"],
     ]}
-    rowClassName="background-1"
 />
 
-## Background
+### Background
 
 ```jsx
 <Box
@@ -226,23 +187,16 @@ import { Paragraph } from "@components/typography";
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["backgroundImage", "background-image", "none", "breakpoints"],
         ["backgroundPosition", "background-position", "none", "breakpoints"],
         ["backgroundRepeat", "background-repeat", "sizing", "breakpoints"],
         ["backgroundSize", "background-size", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Border
+### Border
 
 ```jsx
 <Box
@@ -255,13 +209,7 @@ import { Paragraph } from "@components/typography";
 
 Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors as a value.
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["border", "border-color", "colors", "breakpoints & focus/hover/active"],
         ["borderBottom", "border-bottom-color", "colors", "breakpoints & focus/hover/active"],
@@ -275,10 +223,9 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["borderBottomRightRadius", "border-bottom-right-radius", "borderRadii", "breakpoints"],
         ["outline", "outline", "none", "breakpoints & focus"]
     ]}
-    rowClassName="background-1"
 />
 
-## Position
+### Position
 
 ```jsx
 <Box
@@ -287,13 +234,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["position", "position", "none", "breakpoints"],
         ["top", "top", "none", "breakpoints"],
@@ -304,10 +245,9 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["objectFit", "object-fit", "none", "breakpoints"],
         ["objectPosition", "object-position", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Position
+### Position
 
 ```jsx
 <Box
@@ -317,13 +257,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["position", "position", "none", "breakpoints"],
         ["top", "top", "none", "breakpoints"],
@@ -332,10 +266,9 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["left", "left", "none", "breakpoints"],
         ["zIndex", "z-index", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
-## Shadow
+### Shadow
 
 ```jsx
 <Box
@@ -343,28 +276,15 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["boxShadow", "box-shadow", "boxShadows", "breakpoints & focus/hover/active"],
     ]}
-    rowClassName="background-1"
 />
 
-## Miscellaneous
+### Miscellaneous
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["content", "content", "none", "breakpoint"],
         ["cursor", "cursor", "none", "breakpoint & hover"],
@@ -372,5 +292,4 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["resize", "resize", "none", "breakpoint"],
         ["willChange", "will-change", "none", "breakpoint"]
     ]}
-    rowClassName="background-1"
 />

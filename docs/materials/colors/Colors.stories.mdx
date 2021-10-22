@@ -5,25 +5,13 @@ import { Div } from "@components/html";
 import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
 
 <Meta
-    title="Theme/Colors"
+    title="Materials/Colors"
     id="colors"
 />
 
 # Colors
 
 <Tagline>Our colors are meant to put forward our brand and to express our personality in a constantly growing market. We use them to differentiate our products and brand visuals from each other.</Tagline>
-
-### Foundation colors
-
-For any [brand](#brand-colors), [products](#products-colors) or [feedback and UI](#feedback-and-ui-colors) colors, use the following values:
-
-- `[color-name|product-name]-[1-10]` (ex. `sunray-1`, `apricot-1`)
-
-### Primary
-
-Whenever you can, prefer using primary values over your product color values:
-
-- `primary-[1-10]` (ex. `primary-1`)
 
 ## Brand colors
 
@@ -127,29 +115,6 @@ Also it suggest stability and endurance, qualities that fit perfectly with the m
             { shade: "8", value: "primary-8", variable: "--o-ui-primary-8", color: ApricotTheme.colors.common.primary[7] },
             { shade: "9", value: "primary-9", variable: "--o-ui-primary-9", color: ApricotTheme.colors.common.primary[8] },
             { shade: "10", value: "primary-10", variable: "--o-ui-primary-10", color: ApricotTheme.colors.common.primary[9] }
-        ]}
-    />
-</ThemeProvider>
-
-### Desktop
-
-This color is the trademark of ShareGate Desktop tool. People learned to recognizes our brand with this orange and there is so much history behind it.
-
-Combined to Marine and Sunray, it brings energy and enthusiasm in a SharePoint (and Office 365) world! Based on those traits, it reflect our past and our vision at the same time.
-
-<ThemeProvider theme={DesktopTheme} colorScheme="light">
-    <ColorTable
-        colors={[
-            { shade: "1", value: "primary-1", variable: "--o-ui-primary-1", color: DesktopTheme.colors.common.primary[0] },
-            { shade: "2", value: "primary-2", variable: "--o-ui-primary-2", color: DesktopTheme.colors.common.primary[1] },
-            { shade: "3", value: "primary-3", variable: "--o-ui-primary-3", color: DesktopTheme.colors.common.primary[2] },
-            { shade: "4", value: "primary-4", variable: "--o-ui-primary-4", color: DesktopTheme.colors.common.primary[3] },
-            { shade: "5", value: "primary-5", variable: "--o-ui-primary-5", color: DesktopTheme.colors.common.primary[4] },
-            { shade: "6", value: "primary-6", variable: "--o-ui-primary-6", color: DesktopTheme.colors.common.primary[5] },
-            { shade: "7", value: "primary-7", variable: "--o-ui-primary-7", color: DesktopTheme.colors.common.primary[6] },
-            { shade: "8", value: "primary-8", variable: "--o-ui-primary-8", color: DesktopTheme.colors.common.primary[7] },
-            { shade: "9", value: "primary-9", variable: "--o-ui-primary-9", color: DesktopTheme.colors.common.primary[8] },
-            { shade: "10", value: "primary-10", variable: "--o-ui-primary-10", color: DesktopTheme.colors.common.primary[9] }
         ]}
     />
 </ThemeProvider>

@@ -16,22 +16,22 @@ import { Paragraph } from "@components/typography";
 
 ### Space
 
-The [space](/story/spacing--page) key is a specially-named scale (scale 13) intended for use with `margin`, `padding`, and other layout-related CSS properties.
+The [space](/story/spacing--page) key is a specially-named scale (scale 13) intended to be used with `margin`, `padding`, and other layout-related CSS properties.
 
 ### Sizing
 
-The [sizing](/story/sizing--page) key is a specially-named scale (scale 18) intended for use with `width`, `height`, and other layout-related CSS properties.
+The [sizing](/story/sizing--page) key is a specially-named scale (scale 18) intended to be used with `width`, `height`, and other layout-related CSS properties.
 
 ### Colors
 
-[Colors](/story/colors--page) provided by the theme are intended for use with `color`, `background-color` and other color related CSS properties. They provides light and dark variation of semantic colors.
+[Colors](/story/colors--page) provided by the theme are intended to be used with `color`, `background-color` and other color related CSS properties. They provides light and dark variation of semantic colors.
 
 The following is a list of theme object keys and their corresponding CSS properties. This list may be non-exhaustive.
 
 <Table
     columns={[
-        { title: "Theme Key", headerStyle: { width: "200px" }},
-        { title: "CSS Properties", headerStyle: { width: "450px" }}
+        { title: "Theme key", headerStyle: { width: "200px" }, rowClassName: "code"},
+        { title: "CSS properties", headerStyle: { width: "450px" }, rowClassName: "code"}
     ]}
     rows={[
         ["space", "margin, margin-top, margin-bottom, margin-right, margin-left, padding, padding-left, padding-right, padding-bottom, gap, column-gap, row-gap"],
@@ -46,16 +46,16 @@ The following is a list of theme object keys and their corresponding CSS propert
     rowClassName="background-1"
 />
 
-## CSS
+## CSS variables
 
-Orbit theme object is also available as `CSS` variables in order to adapt to all the developments use cases.
+Orbit theme object is also available as CSS variables in order to adapt to all the developments use cases.
 
 The following is a list of theme object keys and their corresponding CSS variables values.
 
 <Table
     columns={[
-        { title: "Theme Key", headerStyle: { width: "200px" }},
-        { title: "CSS Variable", headerStyle: { width: "450px" }}
+        { title: "Theme key", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "CSS variable", headerStyle: { width: "450px" }, rowClassName: "code"}
     ]}
     rows={[
         ["space", "--o-ui-sp-{x}"],

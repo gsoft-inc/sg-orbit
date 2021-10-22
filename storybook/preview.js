@@ -23,12 +23,16 @@ export const parameters = {
         storySort: {
             method: "alphabetical",
             order: [
-                "Getting Started",
-                ["Installation", "Styling", "Slots", "As", "Supported Platforms", "Contributing"],
-                "Materials",
-                ["Icons", "Motion"],
-                "Theme",
-                ["Colors", "Shadows", "Spacing", "Typography"],
+                "Getting Started", [
+                    "Installation",
+                    "Styling",
+                    ["Styled System", "Props Reference", "Theme Reference"],
+                    "Slots",
+                    "As",
+                    "Supported Platforms",
+                    "Contributing"
+                ],
+                "Materials", ["Colors", "Icons", "Shadows", "Spacing", "Sizing", "Typography", "Motion"],
                 "Layout",
                 "Components",
                 "Content",
