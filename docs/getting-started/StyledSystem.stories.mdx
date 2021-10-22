@@ -134,3 +134,78 @@ Many CSS style properties accept open-ended values like lengths, colors, and mar
 #### Excluded Values
 
 Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object. For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent. Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
+
+### Usage
+
+Our approach is to get Orbit foundation values from the app, in order to achieve this we offer a theme object. Letting everything in app hands would be unfair, that's why we still provide default themes.
+
+```jsx
+import { ApricotTheme } from "@sharegate/orbit-ui";
+```
+
+Defining your own theme is as easy as importing the createTheme function and defining some values.
+
+```jsx
+import { createTheme } from "@sharegate/orbit-ui";
+
+const SpaceTheme = createTheme({
+   name: "space-theme",
+   colors: {
+        white: "#FFF",
+        black: "#000",
+        primary: [
+            "hsla(174, 61%, 94%, 1)",
+            "hsla(173, 63%, 85%, 1)"
+        ],
+        light: {
+            "bg-alias-warning": "#aa33ee"
+        },
+        dark: {
+            "bg-alias-warning": "#00aa99"
+        }
+   }
+});
+```
+
+Of course, using the theme object like this is totally optional.
+
+For an exhaustive list of all the values you can set check the [theme reference](/story/theme-reference--page).
+
+Once you have a theme object, you can initialize your app and provide a theme object to Orbit with `createThemeVars()` and `<ThemeProvider>`:
+
+```jsx
+import { createThemeVars, ApricotTheme, ThemeProvider } from "@sharegate/orbit-ui";
+import { render } from "react-dom";
+import App from "./App";
+
+createThemeVars([ApricotTheme]);
+
+render(
+    <ThemeProvider theme={ApricotTheme} colorScheme="light">
+        <App />
+    </ThemeProvider>,
+    document.getElementById("root")
+);
+```
+
+Using values in your JavaScript code is a possibility too :
+
+```jsx
+<Div padding={SpaceTheme.spacing[2]}>
+    Hello world!
+</Div>
+```
+
+When you don't have access to the theme object, you can retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook:
+
+```jsx
+import { useThemeContext } from "sharegate/orbit-ui";
+
+const { themeAccessor } = useThemeContext();
+
+return (
+   <Div padding={themeAccessor.getSizing(3)}>
+       Hello world!
+   </Div>
+)
+```
