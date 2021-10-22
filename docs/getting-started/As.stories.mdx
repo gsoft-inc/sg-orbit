@@ -11,13 +11,6 @@ import { paramsBuilder } from "@stories/utils";
 
 Previously, all Orbit components were accepting an `as` prop. This feature have always be useful to handle use cases were you need to change the underlying element type or integrate Orbit with an external library like [React router](https://reactrouter.com/).
 
-```jsx
-import { Link as ReactRouterLink } from "react-router-dom";
-import { TextLink } from "@sharegate/orbit-ui";
-
-<TextLink as={ReactRouterLink} to="/home">Home</TextLink>
-```
-
 Since we introduced TypeScript, the `as` prop has proven to be difficult. Dynamic typings based on a React prop value is not Typescript best friend.
 
 To mitigate the problem, we choose to deprecated the `as` prop in favor of an `as(baseComponent, asComponent)` function. The new `as()` function return a new component which render the provided `baseComponent` as `asComponent` and merge the typings of both components.

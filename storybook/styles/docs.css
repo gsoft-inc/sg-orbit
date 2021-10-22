@@ -344,3 +344,7 @@
     width: var(--o-ui-sz-4);
     height: var(--o-ui-sz-4);
 }
+
+.code {
+    font-family: Consolas, monaco, monospace !important;
+}

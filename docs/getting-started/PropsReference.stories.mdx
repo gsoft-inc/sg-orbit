@@ -13,7 +13,9 @@ import { Paragraph } from "@components/typography";
 
 # Props Reference
 
-## Space
+Orbit styled system is organized into categories of style props. Each function provides the following props and maps to scales defined in a theme.
+
+### Space
 
 ```jsx
 <Box padding={4}>
@@ -24,31 +26,31 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
     rows={[
-        ["margin", "margin", "spacing", "breakpoints"],
-        ["marginTop", "margin-top", "spacing", "breakpoints"],
-        ["marginBottom", "margin-bottom", "spacing", "breakpoints"],
-        ["marginRight", "margin-right", "spacing", "breakpoints"],
-        ["marginLeft", "margin-left", "spacing", "breakpoints"],
-        ["marginX", "margin-left & margin-right", "spacing", "breakpoints"],
-        ["marginY", "margin-top & margin-bottom", "spacing", "breakpoints"],
-        ["padding", "padding", "spacing", "breakpoints"],
-        ["paddingTop", "padding-top", "spacing", "breakpoints"],
-        ["paddingBottom", "padding-bottom", "spacing", "breakpoints"],
-        ["paddingRight", "padding-right", "spacing", "breakpoints"],
-        ["paddingLeft", "padding-left", "spacing", "breakpoints"],
-        ["paddingX", "padding-left & padding-right", "spacing", "breakpoints"],
-        ["paddingY", "padding-top & padding-bottom", "spacing", "breakpoints"],
+        ["margin", "margin", "space", "breakpoints"],
+        ["marginTop", "margin-top", "space", "breakpoints"],
+        ["marginBottom", "margin-bottom", "space", "breakpoints"],
+        ["marginRight", "margin-right", "space", "breakpoints"],
+        ["marginLeft", "margin-left", "space", "breakpoints"],
+        ["marginX", "margin-left & margin-right", "space", "breakpoints"],
+        ["marginY", "margin-top & margin-bottom", "space", "breakpoints"],
+        ["padding", "padding", "space", "breakpoints"],
+        ["paddingTop", "padding-top", "space", "breakpoints"],
+        ["paddingBottom", "padding-bottom", "space", "breakpoints"],
+        ["paddingRight", "padding-right", "space", "breakpoints"],
+        ["paddingLeft", "padding-left", "space", "breakpoints"],
+        ["paddingX", "padding-left & padding-right", "space", "breakpoints"],
+        ["paddingY", "padding-top & padding-bottom", "space", "breakpoints"],
         ["whiteSpace", "white-space", "none", "breakpoints"],
     ]}
     rowClassName="background-1"
 />
 
-## Color
+### Color
 
 ```jsx
 <Text backgroundColor="marine-2" color="white">
@@ -59,7 +61,7 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -74,18 +76,18 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Typography
+### Typography
 
 ```jsx
 <Header letterSpacing="0.3rem">
-  Hello!
+    Hello!
 </Header>
 ```
 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -104,7 +106,7 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Layout
+### Layout
 
 ```jsx
 <Box width={18}>
@@ -115,7 +117,7 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -145,7 +147,7 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Flex Layout
+### Flex Layout
 
 ```jsx
 <Flex alignItems="center">
@@ -157,7 +159,7 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -176,7 +178,7 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Grid Layout
+### Grid Layout
 
 ```jsx
 <Grid gridAutoFlow="row dense">
@@ -188,7 +190,7 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -216,7 +218,7 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Background
+### Background
 
 ```jsx
 <Box
@@ -229,7 +231,7 @@ import { Paragraph } from "@components/typography";
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -242,7 +244,7 @@ import { Paragraph } from "@components/typography";
     rowClassName="background-1"
 />
 
-## Border
+### Border
 
 ```jsx
 <Box
@@ -258,7 +260,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -278,7 +280,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
     rowClassName="background-1"
 />
 
-## Position
+### Position
 
 ```jsx
 <Box
@@ -290,7 +292,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -307,7 +309,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
     rowClassName="background-1"
 />
 
-## Position
+### Position
 
 ```jsx
 <Box
@@ -320,7 +322,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -335,7 +337,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
     rowClassName="background-1"
 />
 
-## Shadow
+### Shadow
 
 ```jsx
 <Box
@@ -346,7 +348,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}
@@ -356,12 +358,12 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
     rowClassName="background-1"
 />
 
-## Miscellaneous
+### Miscellaneous
 
 <Table
     columns={[
         { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS Property", headerStyle: { width: "250px" }},
+        { title: "CSS property", headerStyle: { width: "250px" }},
         { title: "Theming", headerStyle: { width: "200px" }},
         { title: "Supports", headerStyle: { width: "250px" }}
     ]}

@@ -19,7 +19,7 @@ function toRowValues({ shade, value, variable, color }) {
         value,
         variable,
         color,
-        <Div backgroundColor={value} width={12} height={12}></Div>
+        <Div backgroundColor={value} height={6}></Div>
     ];
 }
 

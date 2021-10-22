@@ -9,17 +9,17 @@ import { Div } from "@components/html";
 
 # Spacing
 
-Our spacing scale is used for sizing things(margin, padding, gap, etc), if you need to set an item dimension use the [sizing scale](?path=/docs/sizing--page).
+Our spacing scale is used by CSS properties which set space between elements like `margin`, `padding`, `gap`, etc... If you need to set an item dimension use the [sizing scale](?path=/docs/sizing--page).
 
 ### Units
 
-Our spacing values are expressed in `rem` units based on a font-size of `16px`. We choosed `rem` units over `em` units since they are relative to the font-size of the root element instead of the parent element which can cause unexpected results when cascading.
+Our spacing values are expressed in `rem` units based on a `font-size` of `16px`. We choosed `rem` units over `em` units since they are relative to the `font-size` of the root element instead of the parent element which can cause unexpected results when cascading.
 
 For a deep understanding of rem units, refer to the [Values and units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units) article on MDN.
 
 ## Values
 
-Orbit Design’s spacing scale uses an 8px scale. We chose a base-8 scale because 8 is a highly composable number (it can be divided and multiplied many times and result in whole numbers), yet allows spacing dense enough for ShareGate's products. A few half points(4px) have been added to cover specific use cases that requires smaller padding and margin.
+Orbit Design's spacing scale uses an `8px` scale. We chose a base-8 scale because 8 is a highly composable number (it can be divided and multiplied many times and result in whole numbers), yet allows spacing dense enough for ShareGate's products. A few half points(4px) have been added to cover specific use cases that requires smaller padding and margin.
 
 <Table
     columns={[
