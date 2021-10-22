@@ -1,0 +1,29 @@
+import { Meta } from "@storybook/addon-docs";
+import { Preview } from "@stories/components";
+import { Box } from "@components/box";
+
+<Meta
+    title="Getting Started/Styling/Styled System"
+    id="styled-system"
+/>
+
+# Styled System
+
+In order to achieve a consistent UI, Orbit lets you quickly build custom UI components with constraint-based [style props](/story/style-props--page) based on scales defined in a [theme](/story/theming--page), defined by our product designers.
+
+Styled system let's you quickly set responsive _font-size_, _margin_, _padding_, _width_, and more on a component. All this following standards defined in a theme object provided by Orbit and customizable, to an extent, by you.
+
+<Preview>
+    <Box
+    fontSize={6}
+    fontWeight="3"
+    padding={3}
+    marginBottom={3}
+    color="white"
+    borderRadius={3}
+    backgroundColor="primary-5">
+    Hello World
+    </Box>
+</Preview>
+
+All style props are discovererable with TypeScript intellisense as well as the values defined by the theme, no more guessing.
