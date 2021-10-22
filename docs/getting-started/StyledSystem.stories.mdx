@@ -108,32 +108,26 @@ Not all style props supports these states as some of them have no concrete use c
 
 ## Theming
 
-The Orbit UI theme object stores our design system style values and scales. The objects shape is based on the [System UI Theme Specification](https://system-ui.com/theme).
+The Orbit theme object stores our design system style values and scales. The objects shape is inspired by the [System UI Theme Specification](https://system-ui.com/theme).
 
-### Scale Objects
+### Scale objects
 
-Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's theme object is centered around the idea of scales, such as a [typographic](/story/typography--page) (font-size) scale, a spacing scale for margin and padding, and a color object.
+Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's theme object is centered around the idea of scales, such as a [typographic](?path=/story/typography--page) scale for text, a [spacing scale](?path=/story/spacing--page) for margins and paddings, a [sizing scale](?path=/story/sizing--page) for widths and heights and a color object.
 
-```
-    // example fontSizes scale
-    fontSizes: {
-        1: ".625rem",
-        2: ".75rem",
-        3: ".875rem",
-        4: "1rem",
-        5: "1.125rem",
-        6: "1.375rem",
-        7: "1.75rem",
-        8: "2rem",
-        9: "2.5rem",
-        "subheadline": "3.75rem",
-        "headline": "5rem"
-    }
+```js
+{
+    sizing: [".75rem", "1rem", "1.25rem", "1.5rem", ...],
+    space: [".25rem", ".5rem", ".75rem", "1rem", ...],
+}
 ```
 
-#### Excluded Values
+#### Excluded values
 
-Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object. For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent. Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
+Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object.
+
+For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent.
+
+Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
 
 ### Usage
 
@@ -143,7 +137,7 @@ Our approach is to get Orbit foundation values from the app, in order to achieve
 import { ApricotTheme } from "@sharegate/orbit-ui";
 ```
 
-Defining your own theme is as easy as importing the createTheme function and defining some values.
+Defining your own theme is as easy as importing the `createTheme` function and defining some values.
 
 ```jsx
 import { createTheme } from "@sharegate/orbit-ui";
@@ -169,7 +163,7 @@ const SpaceTheme = createTheme({
 
 Of course, using the theme object like this is totally optional.
 
-For an exhaustive list of all the values you can set check the [theme reference](/story/theme-reference--page#theme-object).
+For an exhaustive list of all the values have a look at the [theme reference](/story/theme-reference--page#theme-object).
 
 Once you have a theme object, you can initialize your app and provide a theme object to Orbit with `createThemeVars()` and `<ThemeProvider>`:
 
@@ -188,7 +182,7 @@ render(
 );
 ```
 
-Using values in your JavaScript code is a possibility too :
+Using values in your JavaScript code is a possibility too:
 
 ```jsx
 <Div padding={SpaceTheme.spacing[2]}>
