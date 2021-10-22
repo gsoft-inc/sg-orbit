@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
 import { Preview } from "@stories/components";
 import { Box } from "@components/box";
+import { Table } from "@stories/components";
 
 <Meta
     title="Getting Started/Styling/Styled System"
@@ -11,7 +12,7 @@ import { Box } from "@components/box";
 
 In order to achieve a consistent UI, Orbit lets you quickly build custom UI components with constraint-based [style props](#style-props) based on scales defined in a [theme](#theming).
 
-Styled system let's you quickly set responsive _font-size_, _margin_, _padding_, _width_, and more on a component. All this following standards defined in a theme object provided by Orbit and customizable, to an extent, by you.
+Styled system let's you quickly set responsive _font-size_, _margin_, _padding_, _width_, and more on a component. All this following standards defined in a [theme object]() provided by Orbit and customizable, to an extent, by you.
 
 ```jsx
 <Box
@@ -108,11 +109,11 @@ Not all style props supports these states as some of them have no concrete use c
 
 ## Theming
 
-The Orbit UI theme object stores our design system style values and scales. The objects shape is based on the [System UI Theme Specification](https://system-ui.com/theme).
+The Orbit UI [theme object]() stores our design system style values and scales. The objects shape is based on the [System UI Theme Specification](https://system-ui.com/theme).
 
 ### Scale Objects
 
-Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's theme object is centered around the idea of scales, such as a [typographic](/story/typography--page) (font-size) scale, a spacing scale for margin and padding, and a color object.
+Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's [theme object]() is centered around the idea of scales, such as a [typographic](/story/typography--page) (font-size) scale, a spacing scale for margin and padding, and a color object.
 
 ```
     // example fontSizes scale
@@ -137,7 +138,7 @@ Some CSS properties accept only a small, finite number of valid CSS values and a
 
 ### Usage
 
-Our approach is to get Orbit foundation values from the app, in order to achieve this we offer a theme object. Letting everything in app hands would be unfair, that's why we still provide default themes.
+Our approach is to get Orbit foundation values from the app, in order to achieve this we offer a [theme object](). Letting everything in app hands would be unfair, that's why we still provide default themes.
 
 ```jsx
 import { ApricotTheme } from "@sharegate/orbit-ui";
@@ -167,11 +168,11 @@ const SpaceTheme = createTheme({
 });
 ```
 
-Of course, using the theme object like this is totally optional.
+Of course, using the [theme object]() like this is totally optional.
 
 For an exhaustive list of all the values you can set check the [theme reference](/story/theme-reference--page#theme-object).
 
-Once you have a theme object, you can initialize your app and provide a theme object to Orbit with `createThemeVars()` and `<ThemeProvider>`:
+Once you have a [theme object](), you can initialize your app and provide a [theme object]() to Orbit with `createThemeVars()` and `<ThemeProvider>`:
 
 ```jsx
 import { createThemeVars, ApricotTheme, ThemeProvider } from "@sharegate/orbit-ui";
@@ -196,7 +197,7 @@ Using values in your JavaScript code is a possibility too :
 </Div>
 ```
 
-When you don't have access to the theme object, you can retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook:
+When you don't have access to the [theme object](), you can retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook:
 
 ```jsx
 import { useThemeContext } from "sharegate/orbit-ui";
