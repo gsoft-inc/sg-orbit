@@ -72,7 +72,13 @@ Below a common usage of responsive style props :
     </Div>
 </Preview>
 
-Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that base and md would be valid breakpoints, lg and xl would takes the value set by md.
+Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that base and lg would be valid breakpoints, xl would takes the value set by lg since it is wider than lg.
+
+<Preview>
+    <Div width={18} backgroundColor={{ base: "sunray-2", lg: "botanic-2" }} padding={4}>
+        <Paragraph>Lost in space.</Paragraph>
+    </Div>
+</Preview>
 
 ### Pseudo Styles
 
