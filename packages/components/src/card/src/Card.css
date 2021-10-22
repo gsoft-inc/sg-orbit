@@ -76,7 +76,6 @@
     width: max-content;
 }
 
-/* card heading is using heading therefore if heading is loaded after card our margin bottom wont be good */
 .o-ui-card .o-ui-card-heading {
     margin-bottom: 0;
 }
