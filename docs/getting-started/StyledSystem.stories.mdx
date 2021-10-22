@@ -72,7 +72,7 @@ Below a common usage of responsive style props :
     </Div>
 </Preview>
 
-Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that base and lg would be valid breakpoints, xl would takes the value set by lg since it is wider than lg. Everything below lg would inherit the base color.
+Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that *base* and lg would be valid breakpoints, xl would takes the value set by lg since it is wider than lg. Everything below lg would inherit the base color.
 
 <Preview>
     <Div width={18} backgroundColor={{ base: "sunray-2", lg: "botanic-2" }} padding={4}>
@@ -134,17 +134,3 @@ Many CSS style properties accept open-ended values like lengths, colors, and mar
 #### Excluded Values
 
 Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object. For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent. Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
-
-### Keys
-
-#### Space
-
-The [space](/story/spacing--page) key is a specially-named scale intended for use with `margin`, `padding`, and other layout-related CSS properties.
-
-#### Sizing
-
-The [sizing](/story/sizing--page) key is a specially-named scale intended for use with `width`, `height`, and other layout-related CSS properties.
-
-#### Colors
-
-[Colors](/story/colors--page) provided by the theme are intended for use with `color`, `background-color` and other color related CSS properties. They provides light and dark variation of semantic colors.
