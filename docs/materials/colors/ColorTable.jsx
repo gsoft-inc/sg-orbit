@@ -12,6 +12,8 @@ const propTypes = {
 };
 
 function toRowValues({ shade, value, variable, color }) {
+    console.log(color);
+
     return [
         shade,
         value,
