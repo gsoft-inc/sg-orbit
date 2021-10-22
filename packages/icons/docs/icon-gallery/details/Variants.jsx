@@ -34,7 +34,7 @@ function IconComponent({ componentType }) {
         <VariantSection name="Use as a component">
             <>
                 <H4>Import</H4>
-                <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/components"`} />
+                <Snippet language="javascript" code={`import { ${componentType} } from "@sharegate/orbit-ui"`} />
                 <H4>Usage</H4>
                 <Snippet language="jsx" code={`<${componentType} />`} />
                 <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
