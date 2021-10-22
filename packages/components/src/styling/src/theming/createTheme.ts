@@ -148,10 +148,10 @@ export function createTheme({
         name,
         boxShadows,
         colors: {
-            black,
-            white,
             common: {
                 ...ShareGateColors,
+                black,
+                white,
                 primary
             },
             light,

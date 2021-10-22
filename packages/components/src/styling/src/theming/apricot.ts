@@ -301,3 +301,5 @@ export const ApricotTheme = createTheme({
         }
     }
 });
+
+console.log(ApricotTheme);
