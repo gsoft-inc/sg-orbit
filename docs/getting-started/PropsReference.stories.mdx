@@ -5,6 +5,7 @@ import { paramsBuilder } from "@stories/utils";
 import { Div } from "@components/html";
 import { Preview } from "@stories/components";
 import { Paragraph } from "@components/typography";
+import { PropsReferenceTable } from "./PropsReferenceTable";
 
 <Meta
     title="Getting Started/Styling/Props Reference"
@@ -23,13 +24,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Box>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["margin", "margin", "space", "breakpoints"],
         ["marginTop", "margin-top", "space", "breakpoints"],
@@ -47,7 +42,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["paddingY", "padding-top & padding-bottom", "space", "breakpoints"],
         ["whiteSpace", "white-space", "none", "breakpoints"],
     ]}
-    rowClassName="background-1"
 />
 
 ### Color
@@ -58,13 +52,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Text>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["color", "color", "colors", "breakpoints"],
         ["backgroundColor", "background-color", "colors", "breakpoints & focus/hover/active"],
@@ -73,7 +61,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["stroke", "stroke", "none", "breakpoints"],
         ["filter", "filter", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Typography
@@ -84,13 +71,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Header>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["fontSize", "font-size", "fontSizes", "breakpoints"],
         ["fontWeight", "font-weight", "fontWeights", "breakpoints"],
@@ -103,7 +84,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["wordBreak", "word-break", "none", "breakpoints"],
         ["fontStyle", "font-style", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Layout
@@ -114,13 +94,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Box>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["width", "width", "sizing", "breakpoints"],
         ["height", "height", "sizing", "breakpoints"],
@@ -144,7 +118,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["transformOrigin", "transform-origin", "none", "breakpoints"],
         ["transformStyle", "transform-style", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Flex Layout
@@ -156,13 +129,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Flex>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["alignItems", "align-items", "none", "breakpoints"],
         ["alignContent", "align-content", "none", "breakpoints"],
@@ -175,7 +142,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["flexWrap", "flex-wrap", "none", "breakpoints"],
         ["order", "order", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Grid Layout
@@ -187,13 +153,7 @@ Orbit styled system is organized into categories of style props. Each function p
 </Grid>
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["grid", "grid (shorthand)", "none", "breakpoints"],
         ["gridArea", "grid-area", "none", "breakpoints"],
@@ -215,7 +175,6 @@ Orbit styled system is organized into categories of style props. Each function p
         ["columnGap", "column-gap", "gap", "breakpoints"],
         ["rowGap", "row-gap", "gap", "breakpoints"],
     ]}
-    rowClassName="background-1"
 />
 
 ### Background
@@ -228,20 +187,13 @@ Orbit styled system is organized into categories of style props. Each function p
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["backgroundImage", "background-image", "none", "breakpoints"],
         ["backgroundPosition", "background-position", "none", "breakpoints"],
         ["backgroundRepeat", "background-repeat", "sizing", "breakpoints"],
         ["backgroundSize", "background-size", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Border
@@ -257,13 +209,7 @@ Orbit styled system is organized into categories of style props. Each function p
 
 Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors as a value.
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["border", "border-color", "colors", "breakpoints & focus/hover/active"],
         ["borderBottom", "border-bottom-color", "colors", "breakpoints & focus/hover/active"],
@@ -277,7 +223,6 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["borderBottomRightRadius", "border-bottom-right-radius", "borderRadii", "breakpoints"],
         ["outline", "outline", "none", "breakpoints & focus"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Position
@@ -289,13 +234,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["position", "position", "none", "breakpoints"],
         ["top", "top", "none", "breakpoints"],
@@ -306,7 +245,6 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["objectFit", "object-fit", "none", "breakpoints"],
         ["objectPosition", "object-position", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Position
@@ -319,13 +257,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["position", "position", "none", "breakpoints"],
         ["top", "top", "none", "breakpoints"],
@@ -334,7 +266,6 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["left", "left", "none", "breakpoints"],
         ["zIndex", "z-index", "none", "breakpoints"]
     ]}
-    rowClassName="background-1"
 />
 
 ### Shadow
@@ -345,28 +276,15 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 />
 ```
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["boxShadow", "box-shadow", "boxShadows", "breakpoints & focus/hover/active"],
     ]}
-    rowClassName="background-1"
 />
 
 ### Miscellaneous
 
-<Table
-    columns={[
-        { title: "Prop", headerStyle: { width: "200px" }},
-        { title: "CSS property", headerStyle: { width: "250px" }},
-        { title: "Theming", headerStyle: { width: "200px" }},
-        { title: "Supports", headerStyle: { width: "250px" }}
-    ]}
+<PropsReferenceTable
     rows={[
         ["content", "content", "none", "breakpoint"],
         ["cursor", "cursor", "none", "breakpoint & hover"],
@@ -374,5 +292,4 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["resize", "resize", "none", "breakpoint"],
         ["willChange", "will-change", "none", "breakpoint"]
     ]}
-    rowClassName="background-1"
 />

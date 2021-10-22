@@ -12,8 +12,6 @@ const propTypes = {
 };
 
 function toRowValues({ shade, value, variable, color }) {
-    console.log(color);
-
     return [
         shade,
         value,
@@ -25,7 +23,6 @@ function toRowValues({ shade, value, variable, color }) {
 
 export function ColorTable({ colors }) {
     return (
-
         <Table
             columns={[
                 { title: "Shade", headerStyle: { width: "150px" } },

@@ -32,8 +32,7 @@ export const parameters = {
                     "Supported Platforms",
                     "Contributing"
                 ],
-                "Materials", ["Icons", "Motion"],
-                "Theme", ["Colors", "Shadows", "Spacing", "Typography"],
+                "Materials", ["Colors", "Icons", "Shadows", "Spacing", "Typography", "Motion"],
                 "Layout",
                 "Components",
                 "Content",
