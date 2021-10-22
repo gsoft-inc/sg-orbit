@@ -1,5 +1,5 @@
 import { Table } from "@stories/components";
-import { Div } from "@react-components/html";
+import { Div } from "@components/html";
 import { arrayOf, shape, string } from "prop-types";
 
 const propTypes = {
@@ -23,6 +23,7 @@ function toRowValues({ shade, value, variable, color }) {
 
 export function ColorTable({ colors }) {
     return (
+
         <Table
             columns={[
                 { title: "Shade", headerStyle: { width: "150px" } },
