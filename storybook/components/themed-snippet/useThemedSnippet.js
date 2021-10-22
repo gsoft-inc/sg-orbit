@@ -1,5 +1,5 @@
 import { DocsContext } from "@storybook/addon-docs";
-import { isNil, isString } from "@react-components/shared";
+import { isNil, isString } from "@components/shared";
 import { useContext, useMemo } from "react";
 
 export function useThemedSnippet(snippets) {

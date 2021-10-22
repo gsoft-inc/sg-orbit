@@ -1,4 +1,4 @@
-import { ApricotTheme, DesktopTheme, ThemeProvider } from "@react-components/styling";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
 import { isChromatic } from "../env";
 
 export function withThemeProvider(Story, context) {

@@ -14,8 +14,8 @@
         "paths": {
             "@typescript/*": ["./typescript/*"],
             "@utils/*": ["./jest/utils/*"],
-            "@react-components/*": ["./packages/react-components/src/*"],
-            "@orbit-ui/react-components": ["./packages/react-components/src"]
+            "@components/*": ["./packages/components/src/*"],
+            "@orbit-ui/components": ["./packages/components/src"]
         }
     }
 }

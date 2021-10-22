@@ -1,0 +1,230 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@components/checkbox";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@components/counter";
+import { InfoIcon } from "@components/icons";
+import { Inline } from "@components/layout";
+import { Text } from "@components/typography";
+
+<Meta
+    title="Components/Checkbox"
+    id="checkbox"
+/>
+
+# Checkbox
+
+<Tagline>A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.</Tagline>
+
+<ComponentInfo
+    usage={"import { Checkbox, CheckboxGroup } from \"@orbit-ui/components\";"}
+    ariaPath="#checkbox"
+    githubPath="/packages/components/src/checkbox/src"
+/>
+
+## Usage
+
+### Default
+
+A default checkbox.
+
+<Preview>
+    <Story name="default">
+        <Checkbox>Milky Way</Checkbox>
+    </Story>
+</Preview>
+
+### No label
+
+A checkbox can be rendered without a label.
+
+<Preview>
+    <Story name="no label">
+        <Checkbox aria-label="Milky Way" />
+    </Story>
+</Preview>
+
+### Checked
+
+A checkbox can be checked.
+
+<Preview>
+    <Story name="checked">
+        <Checkbox defaultChecked>Milky Way</Checkbox>
+    </Story>
+</Preview>
+
+### Indeterminate
+
+A checkbox can be indeterminate.
+
+<Preview>
+    <Story name="indeterminate">
+        <Checkbox defaultIndeterminate>Milky Way</Checkbox>
+    </Story>
+</Preview>
+
+### Disabled
+
+A checkbox can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Checkbox disabled>Milky Way</Checkbox>
+    </Story>
+</Preview>
+
+### Icon
+
+A checkbox can have [icons](?path=/docs/icon-gallery--page) after his label.
+
+<Preview>
+    <Story name="icon">
+        <Checkbox>
+            <Text>Milky Way</Text>
+            <InfoIcon />
+        </Checkbox>
+    </Story>
+</Preview>
+
+### Counter
+
+A checkbox can have a [counter](?path=/docs/counter--default-story) after his label.
+
+<Preview>
+    <Story name="counter">
+        <Checkbox>
+            <Text>Andromeda</Text>
+            <Counter>6</Counter>
+        </Checkbox>
+    </Story>
+</Preview>
+
+### Size
+
+A checkbox can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline alignY="center">
+            <Checkbox size="sm">Milky Way</Checkbox>
+            <Checkbox>Milky Way</Checkbox>
+        </Inline>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox checkmark can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse">
+        <Checkbox reverse>
+            <Text>Milky Way</Text>
+            <InfoIcon />
+            <Counter variant="divider">6</Counter>
+        </Checkbox>
+    </Story>
+</Preview>
+
+### Validation
+
+A checkbox can display a validation state to communicate to the user whether the current value is valid or invalid.
+
+Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if the user has checked the checkbox.
+
+<Preview filePath="/checkbox/docs/CheckedValidation" />
+
+### Controlled
+
+A checkbox can handle `checked` state in controlled mode.
+
+<Preview filePath="/checkbox/docs/ControlledCheckbox" />
+
+## Checkbox group
+
+Related checkboxes can be group together.
+
+<Preview>
+    <Story name="checkbox group">
+        <CheckboxGroup>
+            <Checkbox value="milky-way">Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Orientation
+
+A checkbox group can render his elements vertically.
+
+<Preview>
+    <Story name="checkbox group orientation">
+        <CheckboxGroup orientation="vertical">
+            <Checkbox value="milky-way" >Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A checkbox group elements can be reversed.
+
+<Preview>
+    <Story name="checkbox group reverse">
+        <CheckboxGroup reverse>
+            <Checkbox value="milky-way" >Milky Way</Checkbox>
+            <Checkbox value="andromeda">Andromeda</Checkbox>
+            <Checkbox value="medusa">Medusa</Checkbox>
+        </CheckboxGroup>
+    </Story>
+</Preview>
+
+### Validation
+
+A checkbox group can display a validation state to communicate to the user whether the current value is valid or invalid.
+
+Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if the user has checked all the checkbox.
+
+<Preview filePath="/checkbox/docs/AllCheckedValidation" />
+
+### Custom components
+
+Any component implementing the `CheckableContext` can behave like a checkbox group. This is usually done by using the `useCheckableProps` hook.
+
+<Preview filePath="/checkbox/docs/CustomGroup" />
+
+### Controlled
+
+A checkbox group can handle `value` state in controlled mode.
+
+<Preview filePath="/checkbox/docs/ControlledCheckboxGroup" />
+
+## API
+
+### Checkbox
+
+<ComponentInfo
+    usage={"import { Checkbox } from \"@orbit-ui/components\";"}
+    slots={["label", "icon", "counter"]}
+    inherits={[InnerCheckbox.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerCheckbox} sort="alpha" />
+
+### CheckboxGroup
+
+<ComponentInfo
+    usage={"import { CheckboxGroup } from \"@orbit-ui/components\";"}
+    inherits={[InnerCheckboxGroup.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerCheckboxGroup} sort="alpha" />

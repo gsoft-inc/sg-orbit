@@ -8,7 +8,7 @@ The following documentation is only for the maintainers of this repository.
 
 ### Icons Guidelines
 
-In order to be included in Orbit UI an icon must satisfy the following guidelines
+In order to be included in Orbit an icon must satisfy the following guidelines
 
 - It should not be specific to an app, e.g. Azure specific icons. <img src="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/packages/icons/assets/app-specific-icon.png" width="27">
 

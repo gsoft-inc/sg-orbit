@@ -8,11 +8,11 @@ function addWebpackAliases(config) {
     config.resolve.alias = {
         ...existingAlias,
         "@root": path.resolve(__dirname, ".."),
-        "@styles": path.resolve(__dirname, "../packages/styles/src"),
-        "@react-components": path.resolve(__dirname, "../packages/react-components/src"),
-        "@stories/components": path.resolve(__dirname, "./components/"),
-        "@stories/mdx": path.resolve(__dirname, "./mdx/"),
-        "@stories/utils": path.resolve(__dirname, "./utils/")
+        "@css": path.resolve(__dirname, "../packages/css/src"),
+        "@components": path.resolve(__dirname, "../packages/components/src"),
+        "@stories/components": path.resolve(__dirname, "./components"),
+        "@stories/mdx": path.resolve(__dirname, "./mdx"),
+        "@stories/utils": path.resolve(__dirname, "./utils")
     };
 }
 

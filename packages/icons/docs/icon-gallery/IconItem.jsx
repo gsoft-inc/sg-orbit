@@ -1,10 +1,10 @@
 import "./IconItem.css";
 
-import { Content } from "@react-components/placeholders";
-import { Dialog, DialogTrigger } from "@react-components/dialog";
-import { Div } from "@react-components/html";
-import { Flex } from "@react-components/layout";
-import { Heading } from "@react-components/typography";
+import { Content } from "@components/placeholders";
+import { Dialog, DialogTrigger } from "@components/dialog";
+import { Div } from "@components/html";
+import { Flex } from "@components/layout";
+import { Heading } from "@components/typography";
 import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";

@@ -1,4 +1,4 @@
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 
 class ParamsBuilder {
     _canvasLayout = {}
@@ -69,7 +69,7 @@ class ParamsBuilder {
     }
 
     withBreakpoints() {
-        this._viewports = [900, 1280];
+        this._viewports = [640, 768, 1024, 1280, 1536];
 
         return this;
     }
@@ -98,7 +98,10 @@ class ParamsBuilder {
         }
 
         if (!isNil(this._viewports)) {
-            params.viewports = this._viewports;
+            params.chromatic = {
+                ...(params.chromatic ?? {}),
+                viewports: this._viewports
+            };
         }
 
         const docs = {};

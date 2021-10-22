@@ -1,4 +1,4 @@
-import { Flex } from "@react-components/layout";
+import { Flex } from "@components/layout";
 
 export function IconGallery({ children }) {
     return (

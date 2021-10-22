@@ -1,0 +1,301 @@
+import "./loader.css";
+
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, Header, InnerContent, InnerHeader } from "@components/placeholders";
+import { InnerItem, Item } from "@components/collection";
+import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@components/tabs";
+import { Lozenge } from "@components/lozenge";
+import { NotificationIcon } from "@components/icons";
+import { Text } from "@components/typography";
+
+<Meta
+    title="Components/Tabs"
+    id="tabs"
+/>
+
+# Tabs
+
+<Tagline>Tabs are used to organize content by grouping similar information on the same page.</Tagline>
+
+<ComponentInfo
+    usage={"import { Tabs, Item, Header, Content, TabsContext, useTabsContext } from \"@orbit-ui/components\";"}
+    ariaPath="#tabpanel"
+    githubPath="/packages/components/src/tabs/src"
+/>
+
+## Accessibility
+
+An accessible title must be provided through aria-label prop. See [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties-20).
+
+## Usage
+
+We do recommend that you specify a unique `key` prop for every `<Item>`. If you choose to omit the `key` prop, a key matching the `<Item>` position will be generated. For example, `"0"` would be the generated key for the first `<Item>` of a `<Tabs>` component without keys.
+
+### Default
+
+A default tabs.
+
+<Preview>
+    <Story name="default">
+        <Tabs aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Icon
+
+A tab can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Tabs aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>
+                    <NotificationIcon />
+                    <Text>Jupiter</Text>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Lozenge
+
+A tab can contains a [lozenge](?path=/docs/components-lozenge--default-story).
+
+<Preview>
+    <Story name="lozenge">
+        <Tabs aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>
+                    <Text>Jupiter</Text>
+                    <Lozenge>New</Lozenge>
+                </Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Dynamic tabs
+
+Tabs items can be rendered dynamically.
+
+<Preview>
+    <Story name="dynamic tabs">
+        <Tabs aria-label="Planets">
+            {[
+                { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { id: "jupiter", header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { id: "venus", header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ]
+                .map(({ id, header, content }) =>
+                    <Item key={id}>
+                        <Header>{header}</Header>
+                        <Content>{content}</Content>
+                    </Item>
+                )}
+        </Tabs>
+    </Story>
+</Preview>
+
+### Async content
+
+A tab can use `useTabsContext` to load async content when a tab is selected.
+
+<Preview filePath="/tabs/docs/AsyncTabs" />
+
+### Manually activated tabs
+
+By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
+
+> The content of a tab should ideally be preloaded. However, if switching to a tab panel causes a network request and possibly a page refresh, there might be some notable latency and this might affect the experience for keyboard and screen reader users.
+
+In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing ``Space`` or ``Enter``.
+
+<Preview>
+    <Story name="manual">
+        <Tabs manual aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Orientation
+
+A tabs component can be rendered vertically.
+
+<Preview>
+    <Story name="orientation">
+        <Tabs orientation="vertical" aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Fluid
+
+A tabs component can split the width of it's container equally between his tabs.
+
+<Preview>
+    <Story name="fluid">
+        <Tabs fluid aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Disabled
+
+A tab can be disabled.
+
+<Preview>
+    <Story name="disabled tab">
+        <Tabs aria-label="Planets">
+            <Item key="mars">
+                <Header>Mars</Header>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item disabled key="jupiter">
+                <Header>Jupiter</Header>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <Header>Venus</Header>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Tabs>
+    </Story>
+</Preview>
+
+### Controlled
+
+The `selectedKey` state can be handled in controlled mode.
+
+<Preview filePath="/tabs/docs/ControlledTabs" />
+
+## API
+
+### Tabs
+
+<ComponentInfo
+    usage={"import { Tabs } from \"@orbit-ui/components\";"}
+    inherits={[InnerTabs.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerTabs} sort="alpha" />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerItem} sort="alpha" />
+
+### Header
+
+<ComponentInfo
+    usage={"import { Header } from \"@orbit-ui/components\";"}
+    slots={["icon", "text", "lozenge"]}
+    inherits={[InnerHeader.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerHeader} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/components\";"}
+    inherits={[InnerContent.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />
+
+### Tab
+
+<ComponentInfo
+    usage={"import { Tab } from \"@orbit-ui/components\";"}
+    slots={["icon", "text", "lozenge"]}
+    inherits={[InnerTab.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerTab} sort="alpha" />
+
+### TabPanel
+
+<ComponentInfo
+    usage={"import { TabPanel } from \"@orbit-ui/components\";"}
+    inherits={[InnerTabPanel.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerTabPanel} sort="alpha" />

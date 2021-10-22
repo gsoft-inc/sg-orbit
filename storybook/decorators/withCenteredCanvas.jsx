@@ -1,5 +1,5 @@
-import { Div } from "@react-components/html";
-import { Flex } from "@react-components/layout";
+import { Div } from "@components/html";
+import { Flex } from "@components/layout";
 import { isChromatic } from "../env";
 
 export function withCenteredCanvas(Story, context) {

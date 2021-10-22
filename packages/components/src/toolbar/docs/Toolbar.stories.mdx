@@ -1,0 +1,165 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { CheckboxGroup } from "@components/checkbox";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Div } from "@components/html";
+import { InnerToolbar, Toolbar } from "@components/toolbar";
+import { Radio, RadioGroup } from "@components/radio";
+import { TextInput } from "@components/text-input";
+import { ToggleButton } from "@components/button";
+
+<Meta
+    title="Components/Toolbar"
+    id="toolbar"
+/>
+
+# Toolbar
+
+<Tagline>A toolbar is a container for grouping a set of controls, such as buttons, menubuttons, or checkboxes.</Tagline>
+
+<ComponentInfo
+    usage={"import { Toolbar, ToolbarContext, useToolbarContext, useToolbarProps, ClearToolbar } from \"@orbit-ui/components\";"}
+    ariaPath="#toolbar"
+    githubPath="/packages/components/src/toolbar/src"
+/>
+
+## Usage
+
+### Default
+
+A default toolbar.
+
+<Preview>
+    <Story name="default">
+        <Toolbar>
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Disabled
+
+A toolbar can have a few disabled controls.
+
+<Preview>
+    <Story name="disabled control">
+        <Toolbar>
+            <TextInput placeholder="Destination" />
+            <RadioGroup disabled>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+Or disabled all the controls.
+
+<Preview>
+    <Story name="disabled toolbar">
+        <Toolbar disabled>
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Gap
+
+The gap between a toolbar controls is configurable.
+
+<Preview>
+    <Story name="gap">
+        <Toolbar gap={9}>
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Orientation
+
+A toolbar can change his orientation to `vertical` to render his controls horizontally.
+
+<Preview>
+    <Story name="orientation">
+        <Toolbar orientation="vertical">
+            <TextInput placeholder="Destination" />
+            <RadioGroup>
+                <Radio value="roscosmos">Roscosmos</Radio>
+                <Radio value="nasa">NASA</Radio>
+            </RadioGroup>
+            <CheckboxGroup>
+                <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+            </CheckboxGroup>
+        </Toolbar>
+    </Story>
+</Preview>
+
+### Wrapped
+
+Toolbar controls can wrap on multiple lines.
+
+<Preview>
+    <Story name="wrap">
+        <Div width="700px">
+            <Toolbar wrap>
+                <TextInput placeholder="Destination" />
+                <RadioGroup>
+                    <Radio value="roscosmos">Roscosmos</Radio>
+                    <Radio value="nasa">NASA</Radio>
+                </RadioGroup>
+                <CheckboxGroup>
+                    <ToggleButton variant="secondary" value="round-trip">Round trip</ToggleButton>
+                    <ToggleButton variant="secondary" value="one-way">One way</ToggleButton>
+                </CheckboxGroup>
+            </Toolbar>
+        </Div>
+    </Story>
+</Preview>
+
+### Custom components
+
+Any component can be added to a toolbar. However to benefit from the toolbar behaviors, a component must implement the `ToolbarContext`. This is done by using the `useToolbarProps` hook.
+
+<Preview filePath="/toolbar/docs/CustomComponent" />
+
+## API
+
+### Toolbar
+
+<ComponentInfo
+    usage={"import { Toolbar } from \"@orbit-ui/components\";"}
+    inherits={[InnerToolbar.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerToolbar} sort="alpha" />
+
+

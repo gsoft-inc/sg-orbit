@@ -1,0 +1,29 @@
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { HtmlButton } from "@components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Button"
+    id="html-button"
+/>
+
+# Button
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML button element.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlButton } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A button component accepts all the [button HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) and [Orbit styled component props](?path=/docs/styling--page).
+
+<Preview>
+    <Story name="example">
+        <HtmlButton type="button" border="cloud-10" padding={1}>Launch</HtmlButton>
+    </Story>
+</Preview>

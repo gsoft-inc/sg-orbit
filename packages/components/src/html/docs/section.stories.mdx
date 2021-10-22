@@ -1,0 +1,32 @@
+import { ComponentInfo, Link, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Section"
+    id="html-section"
+/>
+
+# Section
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML section element.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlSection } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A section component accepts all the [section HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section) and [Orbit styled component props](?path=/docs/styling--page).
+
+```jsx
+<body>
+    <H1>Blue Origin</H1>
+    <HtmlSection color="cloud-8">
+        <H2>Our vision</H2>
+        <Pararaph>Blue Origin was founded by Jeff Bezos with the vision of enabling a future where millions of people are living and working in space to benefit Earth.</Pararaph>
+    </HtmlSection>
+</body>
+```

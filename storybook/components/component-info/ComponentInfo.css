@@ -23,10 +23,6 @@
     min-width: 80px;
 }
 
-.o-ui-sb-component-info-compact .o-ui-sb-component-info-title {
-    width: var(--o-ui-sz-9) !important;
-}
-
 .o-ui-sb-component-info-value {
     display: flex !important;
     font-size: var(--o-ui-fs-3) !important;
@@ -38,6 +34,14 @@
 
 .o-ui-sb-component-info-value a {
     font-size: var(--o-ui-fs-3) !important;
+}
+
+.o-ui-sb-component-info-value ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    column-gap: 8px;
 }
 
 .o-ui-sb-component-info code {

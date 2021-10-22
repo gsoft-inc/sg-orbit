@@ -1,4 +1,4 @@
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 import { useMemo } from "react";
 import prettier from "prettier/standalone";
 import prettierBabel from "prettier/parser-babel";

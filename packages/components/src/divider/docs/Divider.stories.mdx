@@ -1,0 +1,81 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Div } from "@components/html";
+import { Divider, InnerDivider } from "@components/divider";
+import { Dot } from "@components/dot";
+import { Flex } from "@components/layout";
+import { TextLink } from "@components/link";
+
+<Meta
+    title="Components/Divider"
+    id="divider"
+/>
+
+# Divider
+
+<Tagline>A divider to separates and distinguishes sections of content or groups of menu items.</Tagline>
+
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/divider/src"
+/>
+
+## Usage
+
+### Default
+
+By default a divider render horizontally which takes the width of it's container.
+
+<Preview>
+    <Story name="horizontal">
+        <Divider />
+    </Story>
+</Preview>
+
+### Vertical
+
+A divider can change his orientation to vertical.
+
+<Preview>
+    <Story name="vertical">
+        <Flex>
+            <Dot color="--o-ui-botanic-6">Starlink operational</Dot>
+            <Divider orientation="vertical" />
+            <TextLink href="#">Manage</TextLink>
+            <Divider orientation="vertical" />
+            <TextLink href="#">View logs</TextLink>
+        </Flex>
+    </Story>
+</Preview>
+
+### Labelled
+
+A divider can have a label when it's render horizontally:
+
+<Preview>
+    <Story name="labelled horizontally">
+        <Divider>Last 30 days</Divider>
+    </Story>
+</Preview>
+
+Or vertically:
+
+<Preview>
+    <Story name="labelled vertically">
+        <Div height="150px">
+            <Divider orientation="vertical">Last 30 days</Divider>
+        </Div>
+    </Story>
+</Preview>
+
+## API
+
+### Divider
+
+<ComponentInfo
+    usage={"import { Divider } from \"@orbit-ui/components\";"}
+    inherits={[InnerDivider.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerDivider} sort="alpha" />

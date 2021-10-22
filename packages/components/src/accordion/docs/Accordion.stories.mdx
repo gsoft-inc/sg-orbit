@@ -1,0 +1,242 @@
+import { Accordion, InnerAccordion, InnerAccordionHeader, InnerAccordionPanel } from "@components/accordion";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content, InnerContent } from "@components/placeholders";
+import { H3, Text } from "@components/typography";
+import { HelpIcon, InfoIcon, NotificationIcon } from "@components/icons";
+import { InnerItem, Item } from "@components/collection";
+
+<Meta
+    title="Components/Accordion"
+    id="accordion"
+/>
+
+# Accordion
+
+<Tagline>Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.</Tagline>
+
+<ComponentInfo
+    usage={"import { Accordion, Item, Header, Content, AccordionContext, useAccordionContext } from \"@orbit-ui/components\";"}
+    ariaPath="#accordion"
+    githubPath="/packages/components/src/accordion/src"
+/>
+
+## Accessibility
+
+The accordion header that shows and hides the content must be an [heading element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements).
+
+That heading element should have a level that is appropriate for the information architecture of the page. You can choose the appropriate level by selecting one of Orbit heading element accordingly.
+
+## Usage
+
+We do recommend that you specify a unique `key` prop for every `<Item>`. If you choose to omit the `key` prop, a key matching the `<Item>` position will be generated. For example, `"0"` would be the generated key for the first `<Item>` of an `<Accordion>` component without keys.
+
+### Default
+
+A default accordion.
+
+<Preview>
+    <Story name="default">
+        <Accordion>
+            <Item key="mars">
+                <H3>Mars</H3>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item key="jupiter">
+                <H3>Jupiter</H3>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <H3>Venus</H3>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Icon
+
+An accordion item can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Accordion>
+            <Item key="mars">
+                <H3>
+                    <NotificationIcon />
+                    <Text>Mars</Text>
+                </H3>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item key="jupiter">
+                <H3>
+                    <InfoIcon />
+                    <Text>Jupiter</Text>
+                </H3>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <H3>
+                    <HelpIcon />
+                    <Text>Venus</Text>
+                </H3>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Multiple
+
+An accordion can allow multiple items to be expanded at once.
+
+<Preview>
+    <Story name="multiple">
+        <Accordion expansionMode="multiple">
+            <Item key="mars">
+                <H3>Mars</H3>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item key="jupiter">
+                <H3>Jupiter</H3>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <H3>Venus</H3>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+An accordion items can be rendered dynamically.
+
+<Preview>
+    <Story name="dynamic items">
+        <Accordion aria-label="Planets">
+            {[
+                { id: "mars", header: "Mars", content: "Mars is the fourth planet from the Sun and the second-smallest planet." },
+                { id: "jupiter", header: "Jupiter", content: "Jupiter is the fifth planet from the Sun and the largest in the Solar System." },
+                { id: "venus", header: "Venus", content: "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty." }
+            ]
+                .map(({ id, header, content }) =>
+                    <Item key={id}>
+                        <H3>{header}</H3>
+                        <Content>{content}</Content>
+                    </Item>
+                )}
+        </Accordion>
+    </Story>
+</Preview>
+
+### Disabled
+
+An accordion item can be disabled.
+
+<Preview>
+    <Story name="disabled item">
+        <Accordion>
+            <Item key="mars">
+                <H3>Mars</H3>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+            </Item>
+            <Item disabled key="jupiter">
+                <H3>Jupiter</H3>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <H3>Venus</H3>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Bordered
+
+An accordion can have be contained by borders.
+
+<Preview>
+    <Story name="bordered">
+        <Accordion variant="bordered">
+            <Item key="mars">
+                <H3>Mars</H3>
+                <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+            </Item>
+            <Item key="jupiter">
+                <H3>Jupiter</H3>
+                <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+            </Item>
+            <Item key="venus">
+                <H3>Venus</H3>
+                <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
+            </Item>
+        </Accordion>
+    </Story>
+</Preview>
+
+### Accordion context
+
+The `expandedKeys` can be retrieved from `useAccordionContext`.
+
+<Preview filePath="/accordion/docs/AccordionContext" />
+
+### Controlled
+
+The `expandedKeys` state can be handled in controlled mode.
+
+<Preview filePath="/accordion/docs/ControlledAccordion" />
+
+## API
+
+### Accordion
+
+<ComponentInfo
+    usage={"import { Accordion } from \"@orbit-ui/components\";"}
+    inherits={[InnerAccordion.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerAccordion} sort="alpha" />
+
+### Item
+
+<ComponentInfo
+    usage={"import { Item } from \"@orbit-ui/components\";"}
+    compact
+/>
+
+<ArgsTable of={InnerItem} sort="alpha" />
+
+### Content
+
+<ComponentInfo
+    usage={"import { Content } from \"@orbit-ui/components\";"}
+    inherits={[InnerContent.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerContent} sort="alpha" />
+
+### AccordionHeader
+
+<ComponentInfo
+    usage={"import { AccordionHeader } from \"@orbit-ui/components\";"}
+    slots={["icon", "text"]}
+    inherits={[InnerAccordionHeader.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerAccordionHeader} sort="alpha" />
+
+### AccordionPanel
+
+<ComponentInfo
+    usage={"import { AccordionPanel } from \"@orbit-ui/components\";"}
+    inherits={[InnerAccordionPanel.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerAccordionPanel} sort="alpha" />

@@ -1,7 +1,7 @@
 import "./CheckeredBackground.css";
 
-import { Div } from "@react-components/html";
-import { mergeProps } from "@react-components/shared";
+import { Div } from "@components/html";
+import { mergeProps } from "@components/shared";
 
 export function CheckeredBackground({ children, ...rest }) {
     return (

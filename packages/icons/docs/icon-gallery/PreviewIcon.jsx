@@ -1,6 +1,6 @@
 import "./PreviewIcon.css";
 
-import { Div, HtmlButton } from "@react-components/html";
+import { Div, HtmlButton } from "@components/html";
 import { cloneElement } from "react";
 import { element, func } from "prop-types";
 

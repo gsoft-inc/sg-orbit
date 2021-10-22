@@ -1,13 +1,13 @@
 import "./MotionPreview.css";
 
-import { Button } from "@react-components/button";
-import { Field, Label } from "@react-components/field";
-import { H4 } from "@react-components/typography";
-import { Inline } from "@react-components/layout";
-import { Item } from "@react-components/collection";
-import { Select } from "@react-components/select";
+import { Button } from "@components/button";
+import { Field, Label } from "@components/field";
+import { H4 } from "@components/typography";
+import { Inline } from "@components/layout";
+import { Item } from "@components/collection";
+import { Select } from "@components/select";
 import { useState } from "react";
-import { Div } from "@react-components/html";
+import { Div } from "@components/html";
 
 export function MotionPreview() {
     const [isAnimated, setAnimated] = useState(false);

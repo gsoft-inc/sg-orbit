@@ -1,6 +1,6 @@
 import { any } from "prop-types";
 import { cloneElement, useCallback } from "react";
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 
 const propTypes = {
     children: any.isRequired

@@ -9,14 +9,14 @@ if (includeDocs) {
     stories = [
         "../docs/**/*.stories.mdx",
         "../packages/icons/docs/**/*.stories.mdx",
-        "../packages/react-components/src/**/docs/**/*.stories.mdx"
+        "../packages/components/src/**/docs/**/*.stories.mdx"
     ];
 }
 
 if (includeChromatic) {
     stories = [
         ...stories,
-        "../packages/react-components/**/tests/chromatic/**/*.chroma.jsx"
+        "../packages/components/**/tests/chromatic/**/*.chroma.jsx"
     ];
 }
 

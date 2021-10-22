@@ -1,0 +1,34 @@
+import { Address } from "@components/html";
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { Meta, Story } from "@storybook/addon-docs";
+import { TextLink } from "@components/link";
+
+<Meta
+    title="Html elements/Address"
+    id="html-address"
+/>
+
+# Address
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML address element.</Tagline>
+
+<ComponentInfo
+    usage={"import { Address } from \"@orbit-ui/components\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An address component accepts all the [address HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) and [Orbit styled component props](?path=/docs/styling--page).
+
+<Preview>
+    <Story name="example">
+        <Address color="cloud-8">
+            <TextLink href="mailto:media@spacex.com">media@spacex.com</TextLink>
+            <br />
+            <TextLink href="tel:+13103636000">(310) 363-6000</TextLink>
+        </Address>
+    </Story>
+</Preview>
