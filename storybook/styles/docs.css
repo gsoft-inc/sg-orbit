@@ -267,6 +267,14 @@
     border: 1px solid var(--o-ui-b-alias-1);
 }
 
+.sbdocs.sbdocs-table a {
+    font-size: var(--o-ui-fs-3) !important;
+}
+
+.sbdocs.sbdocs-table .code a {
+    font-family: Consolas, monaco, monospace !important;
+}
+
 .sbdocs.sbdocs-table b,
 .sbdocs.sbdocs-table strong {
     font-variation-settings: "wght" 600;
@@ -347,4 +355,8 @@
 
 .code {
     font-family: Consolas, monaco, monospace !important;
+}
+
+.w-100 {
+    width: 100%;
 }

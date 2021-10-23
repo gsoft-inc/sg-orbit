@@ -23,7 +23,7 @@ The command will install all Orbit packages in your app `node_modules` folder.
 
 ### Import styles
 
-Orbit styles includes [the ShareGate font](?path=/docs/typography--page), a CSS bootstrap and of course the components styles.
+Orbit styles includes the [ShareGate font](?path=/docs/typography--page), a [CSS bootstrap](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/css/src) and of course the components styles.
 
 To import Orbit styles add the following import statement to your root stylesheet:
 
@@ -33,7 +33,7 @@ To import Orbit styles add the following import statement to your root styleshee
 
 ### Bootstrap your app
 
-Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](#) which allow apps to easily provide their foundation values to Orbit.
+Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/story/styled-system--page#theming) which allow apps to easily provide their foundation values to Orbit.
 
 The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a `<ThemeProvider>` at the root of your application.
 

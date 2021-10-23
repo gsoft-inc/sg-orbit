@@ -78,7 +78,6 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
 
     const renderValue = (value, index) => {
         const defaultClasses = mergeClasses(
-            "h8",
             rowClassName,
             columns[index].rowClassName
         );
