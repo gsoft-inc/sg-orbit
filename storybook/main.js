@@ -47,17 +47,27 @@ const config = {
 };
 
 // An optimized version of the components props will be visibile in the production build. It's available for debug & chromatic because the performance cost is too big.
-// if (!isChromatic && !isDebug) {
-//     config.typescript = {
-//         reactDocgenTypescriptOptions: {
-//         // Slow down Storybook initial rendering by 3x but his essential to render a union values instead of a named export (e.g. will render "top" | "bottom" instead of PositionProp).
-//             shouldExtractValuesFromUnion: true,
-//             shouldExtractLiteralValuesFromEnum: true,
-//             shouldRemoveUndefinedFromOptional: true,
-//             exclude: ["node_modules"],
-//             propFilter: prop => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true)
-//         }
-//     };
-// }
+if (!isChromatic && !isDebug) {
+    config.typescript = {
+        reactDocgenTypescriptOptions: {
+        // Slow down Storybook initial rendering by 3x but his essential to render a union values instead of a named export (e.g. will render "top" | "bottom" instead of PositionProp).
+            shouldExtractValuesFromUnion: true,
+            shouldExtractLiteralValuesFromEnum: true,
+            shouldRemoveUndefinedFromOptional: true,
+            exclude: ["node_modules"],
+            propFilter: (prop, component) => {
+                if (prop.parent && /node_modules/.test(prop.parent.fileName)) {
+                    return false;
+                }
+
+                if (component && component.name && !component.name.startsWith("Inner")) {
+                    return false;
+                }
+
+                return true;
+            }
+        }
+    };
+}
 
 module.exports = config;
