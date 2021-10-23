@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/addon-docs";
-import { Preview } from "@stories/components";
+import { Preview, Table } from "@stories/components";
 import { Box } from "@components/box";
 
 <Meta
@@ -22,7 +22,7 @@ Styled system let's you quickly set responsive `font-size`, `margin`, `padding`,
     color="white"
     borderRadius={3}
     backgroundColor="primary-5">
-    Hello World
+    Lost in space.
 </Box>
 ```
 
@@ -36,7 +36,7 @@ Below a common usage of style props:
 
 <Preview>
     <Div width={18} backgroundColor="sunray-2" padding={4} borderRadius={2}>
-        <Paragraph>Lost in space.</Paragraph>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
 
@@ -46,8 +46,9 @@ Orbit's style props also supports responsive breakpoints. These breakpoints are 
 
 <Table
     columns={[
-        { title: "Value", headerStyle: { width: "100px" } },
-        { title: "Computed", headerStyle: { width: "250px" } } ]}
+        { title: "Value", headerStyle: { width: "100px" }, rowClassName: "code" },
+        { title: "Computed", headerStyle: { width: "250px" }, rowClassName: "code" }
+    ]}
     rows={[
         ["xs", "min-width: 640px"],
         ["sm", "min-width: 768px"],
@@ -55,7 +56,6 @@ Orbit's style props also supports responsive breakpoints. These breakpoints are 
         ["lg", "min-width: 1280px"],
         ["xl", "min-width: 1536px"]
     ]}
-    rowClassName="background-1"
 />
 
 By passing an object to any style props you can specify how style will behave at different breakpoints. These rules are on a `min-width` basis meaning that a `sm` value will apply from `768px` up until another higher breakpoint matches.
@@ -68,7 +68,7 @@ Below a common usage of responsive style props:
 
 <Preview>
     <Div width={18} backgroundColor={{ base: "sunray-2", xs: "marine-2", sm: "beetle-2", md: "primary-2", lg: "cloud-2", xl: "botanic-2" }} padding={4}>
-        <Paragraph>Lost in space.</Paragraph>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
 
@@ -76,7 +76,7 @@ Not all breakpoints needs to be explicitly set as the system is robust enough to
 
 <Preview>
     <Div width={18} backgroundColor={{ base: "sunray-2", lg: "botanic-2" }} padding={4}>
-        <Paragraph>Lost in space.</Paragraph>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
 
@@ -93,18 +93,17 @@ Other than setting styles for a components some Orbit's style props supports pse
         ["Hover", ":hover"],
         ["Focus", ":focus"]
     ]}
-    rowClassName="background-1"
 />
 
 Below a common usage of pseudo state style props:
 
 <Preview>
     <Div width={18} backgroundColor="sunray-2" backgroundColorHover="sunray-5" cursorHover="pointer" padding={4} borderRadius={2}>
-        <Paragraph>Lost in space.</Paragraph>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
 
-Not all style props supports these states as some of them have no concrete use cases in a real life situation. When supported the [reference table](/story/props-reference--page#props-reference) will indicate it.
+Not all style props supports these states as some of them have no concrete use cases in a real life situation. When supported the [reference table](?path=/story/props-reference--page) will indicate it.
 
 ## Theming
 
@@ -129,7 +128,7 @@ For example, the `text-align` property accepts the following values: left, right
 
 Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
 
-### Usage
+### Usage ( DE QUOI AUTOUR DE "CHOOSE A THEME")
 
 Our approach is to get Orbit foundation values from the app, in order to achieve this we offer a theme object. Letting everything in app hands would be unfair, that's why we still provide default themes.
 
@@ -163,30 +162,13 @@ const SpaceTheme = createTheme({
 
 Of course, using the theme object like this is totally optional.
 
-For an exhaustive list of all the values have a look at the [theme reference](/story/theme-reference--page#theme-object).
-
-Once you have a theme object, you can initialize your app and provide a theme object to Orbit with `createThemeVars()` and `<ThemeProvider>`:
-
-```jsx
-import { createThemeVars, ApricotTheme, ThemeProvider } from "@sharegate/orbit-ui";
-import { render } from "react-dom";
-import App from "./App";
-
-createThemeVars([ApricotTheme]);
-
-render(
-    <ThemeProvider theme={ApricotTheme} colorScheme="light">
-        <App />
-    </ThemeProvider>,
-    document.getElementById("root")
-);
-```
+For an exhaustive list of all the values have a look at the [theme reference](?path=/story/theme-reference--page).
 
 Using values in your JavaScript code is a possibility too:
 
 ```jsx
 <Div padding={SpaceTheme.spacing[2]}>
-    Hello world!
+    Lost in space.
 </Div>
 ```
 
@@ -199,7 +181,7 @@ const { themeAccessor } = useThemeContext();
 
 return (
    <Div padding={themeAccessor.getSizing(3)}>
-       Hello world!
+       Lost in space.
    </Div>
 )
 ```

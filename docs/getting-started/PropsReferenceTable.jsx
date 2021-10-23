@@ -21,7 +21,7 @@ export function PropsReferenceTable({ rows }) {
                 { title: "Prop", headerStyle: { width: "200px" }, rowClassName: "code" },
                 { title: "CSS property", headerStyle: { width: "250px" }, rowClassName: "code" },
                 { title: "Theming", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "Supports", headerStyle: { width: "250px" }, rowClassName: "code" },
+                { title: "Supports", headerStyle: { width: "300px" }, rowClassName: "code" },
             ]}
             rows={rows.map(x => toRowValues(x))}
         />
