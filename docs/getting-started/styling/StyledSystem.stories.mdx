@@ -1,6 +1,7 @@
 import { Meta } from "@storybook/addon-docs";
 import { Preview, Table } from "@stories/components";
 import { Box } from "@components/box";
+import { ThemeSpecificationTable } from "./ThemeSpecificationTable";
 
 <Meta
     title="Getting Started/Styling/Styled System"
@@ -9,30 +10,29 @@ import { Box } from "@components/box";
 
 # Styled System
 
-In order to achieve a consistent UI, Orbit lets you quickly build custom UI components with constraint-based [style props](#style-props) based on scales defined in a [theme](#theming).
+Orbit styled system is a new way to alter the style of a component by simply passing props to it instead of writing CSS. Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense.
 
-Styled system let's you quickly set responsive `font-size`, `margin`, `padding`, `width`, and more on a component. All this following standards defined in a theme object provided by Orbit and customizable, to an extent, by you.
+To helps achieve a consistent UI, Orbit [style props](#style-props) are based on scales and values defined in a customizable [theme](#theme).
 
 ```jsx
-<Box
+<Div
     fontSize={6}
     fontWeight="3"
     padding={3}
     marginBottom={3}
     color="white"
     borderRadius={3}
-    backgroundColor="primary-5">
+    backgroundColor="primary-5"
+    backgroundColorHover="primary-7">
     Lost in space.
-</Box>
+</Div>
 ```
 
 ## Style props
 
-Each style props maps to a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) allowing you to style any components as usual.
+An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications. Shorthands like `border` and `paddingX` are also provided to helps you save time. An exhaustive list of all the supported props is available in the [props reference](?path=/story/props-reference--page) page.
 
-All style props are discovererable with TypeScript intellisense as well as the values defined by the theme, no more guessing.
-
-Below a common usage of style props:
+All style props and style values are discovererable with TypeScript intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](#theme) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
 
 <Preview>
     <Div width={18} backgroundColor="sunray-2" padding={4} borderRadius={2}>
@@ -40,14 +40,14 @@ Below a common usage of style props:
     </Div>
 </Preview>
 
-### Responsive styles
+## Responsive style
 
-Orbit's style props also supports responsive breakpoints. These breakpoints are documented below and behaves like their CSS media query counterparts.
+Orbit [style props](#style-props) also supports responsive breakpoints. These breakpoints are documented below and behaves like their CSS media query counterparts.
 
 <Table
     columns={[
-        { title: "Value", headerStyle: { width: "100px" }, rowClassName: "code" },
-        { title: "Computed", headerStyle: { width: "250px" }, rowClassName: "code" }
+        { title: "Size", headerStyle: { width: "75px" }, rowClassName: "code" },
+        { title: "Media query", headerStyle: { width: "200px" }, rowClassName: "code" }
     ]}
     rows={[
         ["xs", "min-width: 640px"],
@@ -56,15 +56,13 @@ Orbit's style props also supports responsive breakpoints. These breakpoints are 
         ["lg", "min-width: 1280px"],
         ["xl", "min-width: 1536px"]
     ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
 />
 
-By passing an object to any style props you can specify how style will behave at different breakpoints. These rules are on a `min-width` basis meaning that a `sm` value will apply from `768px` up until another higher breakpoint matches.
-
-```
-backgroundColor={{ base: "sunray-5", xs: "marine-5", sm: "beetle-5", md: "primary-5", lg: "cloud-5", xl: "botanic-5" }}
-```
-
-Below a common usage of responsive style props:
+By passing an object to any style props you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
 
 <Preview>
     <Div width={18} backgroundColor={{ base: "sunray-2", xs: "marine-2", sm: "beetle-2", md: "primary-2", lg: "cloud-2", xl: "botanic-2" }} padding={4}>
@@ -72,7 +70,7 @@ Below a common usage of responsive style props:
     </Div>
 </Preview>
 
-Not all breakpoints needs to be explicitly set as the system is robust enough to fill in the voids, meaning that `base` and `lg` would be valid breakpoints, `xl` would takes the value set by `lg` since it is wider than `lg`. Everything below `lg` would inherit the `base` color.
+Not all breakpoints needs to be set explicitly. In the following example, `base` and `lg` are explicitly set breakpoints. When match, the `xl` breakpoint will implicitly takes the value set by `lg` breakpoints since it is wider than `lg`. Everything below `lg` inherits the `base` color.
 
 <Preview>
     <Div width={18} backgroundColor={{ base: "sunray-2", lg: "botanic-2" }} padding={4}>
@@ -80,101 +78,205 @@ Not all breakpoints needs to be explicitly set as the system is robust enough to
     </Div>
 </Preview>
 
-### Pseudo styles
+### Pseudo state
 
-Other than setting styles for a components some Orbit's style props supports pseudo state styles, these are documented below and behaves like their pseudo CSS counterparts.
+The following pseudo states are supported by some styled props and behaves like their pseudo CSS counterparts.
 
 <Table
     columns={[
         { title: "Suffix", headerStyle: { width: "100px" } },
-        { title: "Computed", headerStyle: { width: "250px" } } ]}
+        { title: "Pseudo state", headerStyle: { width: "250px" } } ]}
     rows={[
         ["Active", ":active"],
         ["Hover", ":hover"],
         ["Focus", ":focus"]
     ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
 />
 
-Below a common usage of pseudo state style props:
+Not all style props supports pseudo state. Find out which props support pseudo state in the [props reference](?path=/story/props-reference--page) page.
 
-<Preview>
-    <Div width={18} backgroundColor="sunray-2" backgroundColorHover="sunray-5" cursorHover="pointer" padding={4} borderRadius={2}>
-        <Paragraph fontSize={4}>Lost in space.</Paragraph>
-    </Div>
-</Preview>
+## HTML elements
 
-Not all style props supports these states as some of them have no concrete use cases in a real life situation. When supported the [reference table](?path=/story/props-reference--page) will indicate it.
+You might be wondering how will you use Orbit style props on your HTML elements?
 
-## Theming
+Orbit provides a set of HTML element components already setup with Orbit styled system. You should always prefer these components to native HTML elements.
 
-The Orbit theme object stores our design system style values and scales. The objects shape is inspired by the [System UI Theme Specification](https://system-ui.com/theme).
+[`<A>`](?path=/docs/html-anchor--example), [`<Address>`](?path=/docs/html-address--example), [`<Article>`](?path=/docs/html-article--page), [`<Aside>`](?path=/docs/html-aside--page), [`<Button>`](?path=/docs/html-button--example), [`<Div>`](?path=/docs/html-div--example), [`<Footer>`](?path=/docs/html-footer--page), [`<Header>`](?path=/docs/html-header--page), [`<Img>`](?path=/docs/html-img--example), [`<Input>`](?path=/docs/html-input--example), [`<List>`](?path=/docs/html-list--example), [`<Main>`](?path=/docs/html-main--page), [`<Nav>`](?path=/docs/html-nav--page), [`<Section>`](?path=/docs/html-section--page), [`<Span>`](?path=/docs/html-span--example), [`<Table>`](?path=/docs/html-table--example)
 
-### Scale objects
+For text elements, when applicable, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph`](?path=/docs/paragraph--size) component.
 
-Many CSS style properties accept open-ended values like lengths, colors, and margins. In order to create a consistent styling system, Orbit's theme object is centered around the idea of scales, such as a [typographic](?path=/story/typography--page) scale for text, a [spacing scale](?path=/story/spacing--page) for margins and paddings, a [sizing scale](?path=/story/sizing--page) for widths and heights and a color object.
+## Layout containers
 
-DE QUOI À FAIRE ICI
+To make it easier for you, Orbit provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
 
-```js
-{
-    sizing: [".75rem", "1rem", "1.25rem", "1.5rem", ...],
-    space: [".25rem", ".5rem", ".75rem", "1rem", ...],
-}
-```
-
-#### Excluded values
-
-Some CSS properties accept only a small, finite number of valid CSS values and are not included as a scale object.
-
-For example, the `text-align` property accepts the following values: left, right, center, justify, justify-all, start, end, or match-parent.
-
-Other properties that are intentionally excluded from this specification include, but is not limited to: `display`, `overflow`, `position`, `vertical-align`, `align-items`, `justify-content`, and `flex-direction`.
-
-### Usage ( DE QUOI AUTOUR DE "CHOOSE A THEME")
-
-Our approach is to get Orbit foundation values from the app, in order to achieve this we offer a theme object. Letting everything in app hands would be unfair, that's why we still provide default themes.
+When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component over a [`<Div>`](?path=/docs/html-div--example) component.
 
 ```jsx
-import { ApricotTheme } from "@sharegate/orbit-ui";
+<Grid templateColumns="1fr 1fr" gap={2} height={10}>
+    <Div backgroundColor="primary-5" />
+    <Div backgroundColor="beetle-5" />
+    <Div backgroundColor="botanic-5" />
+    <Div backgroundColor="cloud-5" />
+</Grid>
 ```
 
-Defining your own theme is as easy as importing the `createTheme` function and defining some values.
+## Theme
+
+Instead of harcoding the design values in Orbit like we did before, the Orbit styled system is now powered by the values of a theme object provided by the application.
+
+A theme object is a combinaison of design values and design scales. A design scale can be for [typography](?path=/story/typography--page), [spacing](path=/story/spacing--page), [sizing](?path=/story/sizing--page) or even [colors](?path=/story/colors--page). Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some like `fontSizes` are even a mix of both.
+
+### Specification
+
+The Orbit theme object specification have been inspired by [Styled System Theme Specifications](https://styled-system.com/theme-specification) which is inspired by [System UI Theme Specification](https://system-ui.com/theme/).
+
+An Orbit theme object is currently composed of the following *8 keys*.
+
+<ThemeSpecificationTable
+    rows={[
+        ["space", "margin, margin-top, margin-bottom, margin-right, margin-left, padding, padding-left, padding-right, padding-bottom, gap, column-gap, row-gap", "spacing-scale"],
+        ["sizing", "width, height, min-width, max-width, min-height, max-height, grid-auto-columns, grid-auto-rows", "sizing-scale"],
+        ["boxShadows", "box-shadow", "box-shadow-scale"],
+        ["fontSizes", "font-size", "1..9 / alias"],
+        ["colors", "color, background-color, border-color", "color-scale"],
+        ["fontWeights", "font-weights", "1..3"],
+        ["lineHeights", "line-heights", "1..6"],
+        ["borderRadii", "border-radius", "1..4"]
+    ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
+/>
+
+When rendered with the `createThemeVars` function, the following CSS variables will be created from the theme object values.
+
+<Table
+    columns={[
+        { title: "Theme key", headerStyle: { width: "150px" }, rowClassName: "code" },
+        { title: "CSS variable", headerStyle: { width: "200px" }, rowClassName: "code"}
+    ]}
+    rows={[
+        ["space", "--o-ui-sp-{x}"],
+        ["sizing", "--o-ui-sz-{x}"],
+        ["boxShadows", "--o-ui-bs-{x}"],
+        ["fontSizes", "--o-ui-fs-{x}"],
+        ["colors", "--o-ui-{x}"],
+        ["fontWeights", "--o-ui-fw-{x}"],
+        ["lineHeights", "--o-ui-lh-{x}"],
+        ["borderRadii", "--o-ui-br-{x}"]
+    ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
+/>
+
+### Apply a theme
+
+Orbit components and Orbit style props doesn't render any style until a theme is applied.
+
+To apply a theme:
+
+- Retrieve a theme object
+- Render CSS variables from the theme object with `createThemeVars`
+- Select a theme to apply with `<ThemeProvider>`
 
 ```jsx
-import { createTheme } from "@sharegate/orbit-ui";
+import { createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
+
+createThemeVars([theme]);
+
+<ThemeProvider theme={theme} colorScheme="light">
+    <Button>Launch</Button>
+</ThemeProvider>
+```
+
+### Select a theme object
+
+Any object can be used as an Orbit theme object as long as it extend the `OrbitTheme` TypeScript type. A few options are available.
+
+You can define your own theme from scratch.
+
+```jsx
+import { OrbitTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
+
+// prettier-ignore
+const SpaceTheme: OrbitTheme = {
+    name: "space-theme",
+    space: [/*...*/],
+    sizing: [/*...*/],
+    fontSizes: { /*...*/}
+    /* ... */
+};
+
+createThemeVars([theme]);
+
+<ThemeProvider theme={theme} colorScheme="light">
+    <Button>Launch</Button>
+</ThemeProvider>
+```
+
+You can create a new theme from Orbit defaults. If you choose to do so, you only provide a subset of `OrbitTheme` values. The remaining values will come from Orbit defaults.
+
+```jsx
+import { createTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
 
 const SpaceTheme = createTheme({
-   name: "space-theme",
-   colors: {
-        white: "#FFF",
-        black: "#000",
-        primary: [
-            "hsla(174, 61%, 94%, 1)",
-            "hsla(173, 63%, 85%, 1)"
-        ],
-        light: {
-            "bg-alias-warning": "#aa33ee"
-        },
-        dark: {
-            "bg-alias-warning": "#00aa99"
-        }
-   }
+    name: "space-theme",
+    white: "#fff",
+    black: "#000",
+    primary: [
+        "hsla(174, 61%, 94%, 1)",
+        "hsla(173, 63%, 85%, 1)",
+        "hsla(173, 63%, 75%, 1)",
+        "hsla(173, 64%, 65%, 1)",
+        "hsla(173, 64%, 50%, 1)",
+        "hsla(172, 65%, 48%, 1)",
+        "hsla(173, 65%, 46%, 1)",
+        "hsla(172, 63%, 45%, 1)",
+        "hsla(172, 64%, 43%, 1)",
+        "hsla(172, 62%, 41%, 1)"
+    ]
+    /* ... */
 });
+
+createThemeVars([theme]);
+
+<ThemeProvider theme={theme} colorScheme="light">
+    <Button>Launch</Button>
+</ThemeProvider>
 ```
 
-Of course, using the theme object like this is totally optional.
+You can retrieve a pre-construct theme from Orbit.
 
-For an exhaustive list of all the values have a look at the [theme reference](?path=/story/theme-reference--page).
+```jsx
+import { ApricotTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
 
-Using values in your JavaScript code is a possibility too:
+createThemeVars([ApricotTheme]);
+
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <Button>Launch</Button>
+</ThemeProvider>
+```
+
+### Use a theme object in code
+
+Theme objects are primarily used to boostrap Orbit styled system but they can also be used directly in JavaScript code when a theme value is needed.
+
+If you have access to the theme object, use the object directly.
 
 ```jsx
 <Div padding={SpaceTheme.spacing[2]}>
-    Lost in space.
+    Hello world!
 </Div>
 ```
 
-When you don't have access to the theme object, you can retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook:
+If you don't have access to the theme object, retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook.
 
 ```jsx
 import { useThemeContext } from "sharegate/orbit-ui";
@@ -183,7 +285,15 @@ const { themeAccessor } = useThemeContext();
 
 return (
    <Div padding={themeAccessor.getSizing(3)}>
-       Lost in space.
+       Hello world!
    </Div>
 )
 ```
+
+
+
+
+
+
+
+

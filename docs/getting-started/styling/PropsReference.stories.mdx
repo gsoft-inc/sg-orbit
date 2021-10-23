@@ -19,9 +19,9 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Space
 
 ```jsx
-<Box padding={4}>
+<Div padding={4}>
     Galaxy
-</Box>
+</Div>
 ```
 
 <PropsReferenceTable
@@ -40,7 +40,7 @@ Orbit styled system is organized into categories of style props. Each function p
         ["paddingLeft", "padding-left", "spacing", "spacing-scale", "breakpoints"],
         ["paddingX", "padding-left & padding-right", "spacing", "spacing-scale", "breakpoints"],
         ["paddingY", "padding-top & padding-bottom", "spacing", "spacing-scale", "breakpoints"],
-        ["whiteSpace", "white-space", "none", "spacing-scale", "breakpoints"],
+        ["whiteSpace", "white-space", "none", "none", "breakpoints"],
     ]}
 />
 
@@ -56,10 +56,10 @@ Orbit styled system is organized into categories of style props. Each function p
     rows={[
         ["color", "color", "colors", "color-scale", "breakpoints"],
         ["backgroundColor", "background-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
-        ["opacity", "opacity", "none", "color-scale", "breakpoints & focus/hover/active"],
+        ["opacity", "opacity", "none", "none", "breakpoints & focus/hover/active"],
         ["fill", "fill", "none", "color-scale", "breakpoints & focus/hover"],
         ["stroke", "stroke", "none", "color-scale", "breakpoints"],
-        ["filter", "filter", "none", "color-scale", "breakpoints"]
+        ["filter", "filter", "none", "none", "breakpoints"]
     ]}
 />
 
@@ -89,9 +89,9 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Layout
 
 ```jsx
-<Box width={18}>
+<Div width={18}>
     Galaxy
-</Box>
+</Div>
 ```
 
 <PropsReferenceTable
@@ -123,10 +123,10 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Flex Layout
 
 ```jsx
-<Flex alignItems="center">
-    <Box>Andromeda</Box>
-    <Box>Batuu</Box>
-</Flex>
+<Div alignItems="center">
+    <Text>Andromeda</Text>
+    <Text>Batuu</Text>
+</Div>
 ```
 
 <PropsReferenceTable
@@ -147,10 +147,10 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Grid Layout
 
 ```jsx
-<Grid gridAutoFlow="row dense">
-    <Box>Andromeda</Box>
-    <Box>Batuu</Box>
-</Grid>
+<Div gridAutoFlow="row dense">
+    <Text>Andromeda</Text>
+    <Text>Batuu</Text>
+</Div>
 ```
 
 <PropsReferenceTable
@@ -180,7 +180,7 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Background
 
 ```jsx
-<Box
+<Div
   backgroundImage="url('/images/dog.png')"
   backgroundPosition="center"
   backgroundRepeat="no-repeat"
@@ -199,12 +199,12 @@ Orbit styled system is organized into categories of style props. Each function p
 ### Border
 
 ```jsx
-<Box
+<Div
     border={1}
     borderRadius={2}
 >
     Rocket
-</Box>
+</Div>
 ```
 
 Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors as a value.
@@ -228,7 +228,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 ### Position
 
 ```jsx
-<Box
+<Div
     top="12px"
     position="absolute"
 />
@@ -250,7 +250,7 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
 ### Shadow
 
 ```jsx
-<Box
+<Div
     boxShadow="alias-lifted"
 />
 ```

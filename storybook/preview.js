@@ -26,7 +26,7 @@ export const parameters = {
                 "Getting Started", [
                     "Installation",
                     "Styling",
-                    ["Styled System", "Props Reference", "Theme Reference"],
+                    ["Styled System", "Props Reference"],
                     "Slots",
                     "As",
                     "Supported Platforms",

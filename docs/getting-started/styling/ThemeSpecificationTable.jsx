@@ -16,29 +16,26 @@ function toScaleLink(scale) {
     return ScaleLinks[scale] ?? scale;
 }
 
-function toRowValues([propName, cssProperty, themeKey, scale, supports]) {
+function toRowValues([themeKey, cssProperties, scale]) {
     return [
-        propName,
-        cssProperty,
         themeKey,
+        cssProperties,
         toScaleLink(scale),
-        supports,
     ];
 }
 
-export function PropsReferenceTable({ rows }) {
+export function ThemeSpecificationTable({ rows, ...rest }) {
     return (
         <Table
+            {...rest}
             columns={[
-                { title: "Prop", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "CSS property", headerStyle: { width: "250px" }, rowClassName: "code" },
-                { title: "Theme key", headerStyle: { width: "125px" }, rowClassName: "code" },
-                { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "Supports", headerStyle: { width: "300px" }, rowClassName: "code" },
+                { title: "Theme key", headerStyle: { width: "150px" }, rowClassName: "code"},
+                { title: "CSS properties", headerStyle: { width: "650px" }, rowClassName: "code"},
+                { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code"}
             ]}
             rows={rows.map(x => toRowValues(x))}
         />
     );
 }
 
-PropsReferenceTable.propTypes = propTypes;
+ThemeSpecificationTable.propTypes = propTypes;
