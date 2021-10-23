@@ -17,13 +17,12 @@ To helps achieve a consistent UI, Orbit [style props](#style-props) are based on
 ```jsx
 <Div
     fontSize={6}
-    fontWeight="3"
+    fontWeight={3}
     padding={3}
     marginBottom={3}
     color="white"
     borderRadius={3}
-    backgroundColor="primary-5"
-    backgroundColorHover="primary-7">
+    backgroundColor="primary-5">
     Lost in space.
 </Div>
 ```
@@ -164,7 +163,7 @@ When rendered with the `createThemeVars` function, the following CSS variables w
 <Table
     columns={[
         { title: "Theme key", headerStyle: { width: "150px" }, rowClassName: "code" },
-        { title: "CSS variable", headerStyle: { width: "200px" }, rowClassName: "code"}
+        { title: "CSS variables", headerStyle: { width: "200px" }, rowClassName: "code"}
     ]}
     rows={[
         ["space", "--o-ui-sp-{x}"],
@@ -184,7 +183,7 @@ When rendered with the `createThemeVars` function, the following CSS variables w
 
 ### Apply a theme
 
-Orbit components and Orbit style props doesn't render any style until a theme is applied.
+Orbit components and Orbit style props doesn't render any styles until a theme is applied.
 
 To apply a theme:
 
@@ -211,13 +210,12 @@ You can define your own theme from scratch.
 ```jsx
 import { OrbitTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
 
-// prettier-ignore
 const SpaceTheme: OrbitTheme = {
     name: "space-theme",
-    space: [/*...*/],
-    sizing: [/*...*/],
-    fontSizes: { /*...*/}
-    /* ... */
+    space: [],
+    sizing: [],
+    fontSizes: {}
+    // ...
 };
 
 createThemeVars([theme]);
@@ -248,7 +246,7 @@ const SpaceTheme = createTheme({
         "hsla(172, 64%, 43%, 1)",
         "hsla(172, 62%, 41%, 1)"
     ]
-    /* ... */
+    // ...
 });
 
 createThemeVars([theme]);
