@@ -2,7 +2,8 @@ import { ComponentProps, useRef } from "react";
 import { Div } from "@components/html";
 import { Keys, mergeProps } from "@components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@components/overlay";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;
@@ -43,7 +44,7 @@ describe("\"click\" trigger", () => {
     test("call onHide on esc keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 onHide={handler}
                 trigger="click"
@@ -65,7 +66,7 @@ describe("\"click\" trigger", () => {
     test("call onHide on blur", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Overlay
@@ -90,7 +91,7 @@ describe("\"click\" trigger", () => {
     test("call onHide on outside click", async () => {
         const handler = jest.fn();
 
-        render(
+        renderWithTheme(
             <Overlay
                 onHide={handler}
                 trigger="click"
@@ -108,7 +109,7 @@ describe("\"click\" trigger", () => {
     test("when hideOnEscape is false, do not call onHide on esc keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnEscape={false}
                 onHide={handler}
@@ -131,7 +132,7 @@ describe("\"click\" trigger", () => {
     test("when hideOnLeave is false, do not call onHide on blur", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Overlay
@@ -157,7 +158,7 @@ describe("\"click\" trigger", () => {
     test("when hideOnOutsideClick is false, do not call onHide on outside click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnOutsideClick={false}
                 onHide={handler}
@@ -182,7 +183,7 @@ describe("\"hover\" trigger", () => {
     test("call onHide on esc keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 onHide={handler}
                 trigger="hover"
@@ -204,7 +205,7 @@ describe("\"hover\" trigger", () => {
     test("call onHide on mouse leave", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 onHide={handler}
                 trigger="hover"
@@ -222,7 +223,7 @@ describe("\"hover\" trigger", () => {
     test("call onHide on outside click", async () => {
         const handler = jest.fn();
 
-        render(
+        renderWithTheme(
             <Overlay
                 onHide={handler}
                 trigger="hover"
@@ -240,7 +241,7 @@ describe("\"hover\" trigger", () => {
     test("when hideOnEscape is false, do not call onHide on esc keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnEscape={false}
                 onHide={handler}
@@ -263,7 +264,7 @@ describe("\"hover\" trigger", () => {
     test("when hideOnLeave is false, do not call onHide on mouse leave", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Overlay
@@ -285,7 +286,7 @@ describe("\"hover\" trigger", () => {
     test("when hideOnOutsideClick is false, do not call onHide on outside click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnOutsideClick={false}
                 onHide={handler}

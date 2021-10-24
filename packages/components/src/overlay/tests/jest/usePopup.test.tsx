@@ -2,7 +2,8 @@ import { Button } from "@components/button";
 import { Keys } from "@components/shared";
 import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
 import { Transition } from "@components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 type PopupProps = UsePopupOptions & {
@@ -61,7 +62,7 @@ beforeEach(() => {
 
 describe("\"click\" trigger", () => {
     test("when closed, open on trigger click", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -79,7 +80,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when closed, open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -97,7 +98,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when closed, open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -115,7 +116,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when closed and disabled, do not open on trigger click", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -132,7 +133,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when closed and disabled, do not open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -149,7 +150,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when closed and disabled, do not open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -166,7 +167,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened, close on trigger click", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -188,7 +189,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened, close on esc keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -214,7 +215,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened and hideOnEscape is false, do not close on esc keypress", async () => {
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Popup
                 hideOnEscape={false}
                 trigger="click"
@@ -241,7 +242,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened, close on blur", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
@@ -270,7 +271,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened and hideOnLeave is false, do not close on blur", async () => {
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
@@ -300,7 +301,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened, close on outside click", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -326,7 +327,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened and hideOnOutsideClick is false, do not close on outside click", async () => {
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Popup
                 hideOnOutsideClick={false}
                 trigger="click"
@@ -355,7 +356,7 @@ describe("\"click\" trigger", () => {
 
 describe("\"none\" trigger", () => {
     test("when closed, do not open on trigger click", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -371,7 +372,7 @@ describe("\"none\" trigger", () => {
     });
 
     test("when closed, do not open on trigger hover", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -387,7 +388,7 @@ describe("\"none\" trigger", () => {
     });
 
     test("when closed, do not open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -403,7 +404,7 @@ describe("\"none\" trigger", () => {
     });
 
     test("when closed, do not open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId } = render(
+        const { getByTestId, queryByTestId } = renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -423,7 +424,7 @@ test("when restoreFocus is true, closing the popup with esc keypress return the 
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             restoreFocus
             data-triggertestid="trigger"
@@ -451,7 +452,7 @@ test("when restoreFocus is true, closing the popup with esc keypress return the 
 // ***** Aria *****
 
 test("a popup trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -462,7 +463,7 @@ test("a popup trigger have an aria-haspopup attribute", async () => {
 });
 
 test("when the popup is open, the popup trigger aria-expanded is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -477,7 +478,7 @@ test("when the popup is open, the popup trigger aria-expanded is \"true\"", asyn
 });
 
 test("when the popup is open, the popup trigger aria-controls match the overlay id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -492,7 +493,7 @@ test("when the popup is open, the popup trigger aria-controls match the overlay 
 });
 
 test("when an id is provided for the overlay, it is used as the overlay id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             id="overlay-custom-id"
             data-triggertestid="trigger"
@@ -508,7 +509,7 @@ test("when an id is provided for the overlay, it is used as the overlay id", asy
 });
 
 test("when no overlay id is provided, an overlay id is autogenerated", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -527,7 +528,7 @@ test("when no overlay id is provided, an overlay id is autogenerated", async () 
 test("call onOpenChange when the popup open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             onOpenChange={handler}
             data-triggertestid="trigger"
@@ -546,7 +547,7 @@ test("call onOpenChange when the popup open", async () => {
 test("call onOpenChange when the popup close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popup
             onOpenChange={handler}
             defaultOpen

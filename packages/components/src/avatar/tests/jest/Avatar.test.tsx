@@ -1,11 +1,12 @@
 import { Avatar } from "@components/avatar";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when no image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithTheme(
         <Avatar name="Elon Musk" aria-label="Maye Musk" />
     );
 
@@ -13,7 +14,7 @@ test("when no image src is provided and a custom aria-label is provided, the ari
 });
 
 test("when an image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = render(
+    const { getByLabelText } = renderWithTheme(
         <Avatar src="dummy" name="Elon Musk" aria-label="Maye Musk" />
     );
 
@@ -25,7 +26,7 @@ test("when an image src is provided and a custom aria-label is provided, the ari
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Avatar name="Elon Musk" ref={ref} />
     );
 
@@ -38,7 +39,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Avatar
             name="Elon Musk"
             ref={node => {
@@ -56,7 +57,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Avatar name="Elon Musk" ref={handler} />
     );
 

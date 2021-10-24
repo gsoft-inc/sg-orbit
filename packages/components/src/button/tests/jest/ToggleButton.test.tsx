@@ -1,13 +1,13 @@
 import { ToggleButton } from "@components/button";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleButton autoFocus variant="secondary" data-testid="button">Cutoff</ToggleButton>
     );
 
@@ -15,7 +15,7 @@ test("when autofocus is true, the button is focused on render", async () => {
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleButton
             disabled
             autoFocus
@@ -28,7 +28,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleButton
             autoFocus={10}
             variant="secondary"
@@ -48,7 +48,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
 test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleButton
             onChange={handler}
             value="any"
@@ -70,7 +70,7 @@ test("call onChange when the button is selected", async () => {
 test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleButton
             onChange={handler}
             value="any"
@@ -98,7 +98,7 @@ test("call onChange when the button is unselected", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
-    render(
+    renderWithTheme(
         <ToggleButton variant="secondary" ref={ref} value="any">Cutoff</ToggleButton>
     );
 
@@ -111,7 +111,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <ToggleButton
             variant="secondary"
             ref={node => {
@@ -130,7 +130,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <ToggleButton variant="secondary" ref={handler} value="any">Cutoff</ToggleButton>
     );
 

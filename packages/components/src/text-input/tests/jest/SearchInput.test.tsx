@@ -1,7 +1,8 @@
 import { Keys } from "@components/shared";
 import { SearchInput } from "@components/text-input";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -10,7 +11,7 @@ function getInput(element: Element) {
 }
 
 test("clear value on clear button click", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -31,7 +32,7 @@ test("clear value on clear button click", async () => {
 });
 
 test("clear value on esc", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SearchInput data-testid="input" defaultValue="Mars" aria-label="Label" />
     );
 
@@ -45,7 +46,7 @@ test("clear value on esc", async () => {
 });
 
 test("focus input on clear", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -68,7 +69,7 @@ test("focus input on clear", async () => {
 test("can focus the input with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <SearchInput
             ref={node => {
                 refNode = node;
@@ -87,7 +88,7 @@ test("can focus the input with the focus api", async () => {
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SearchInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -102,7 +103,7 @@ test("call onChange when the value change", async () => {
 test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -121,7 +122,7 @@ test("call onValueChange when the value change", async () => {
 test("call onValueChange when the value is cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = render(
+    const { getByTestId, container } = renderWithTheme(
         <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -146,7 +147,7 @@ test("call onValueChange when the value is cleared", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <SearchInput ref={ref} aria-label="Label" />
     );
 
@@ -159,7 +160,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <SearchInput
             ref={node => {
                 refNode = node;
@@ -177,7 +178,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <SearchInput ref={handler} aria-label="Label" />
     );
 

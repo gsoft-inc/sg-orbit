@@ -2,12 +2,13 @@ import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { Toolbar } from "@components/toolbar";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
 
 test("first element is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar>
             <Button data-testid="element-1">1</Button>
             <Button data-testid="element-2">2</Button>
@@ -19,7 +20,7 @@ test("first element is tabbable", async () => {
 });
 
 test("a disabled element is not tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar>
             <Button disabled data-testid="element-1">1</Button>
             <Button data-testid="element-2">2</Button>
@@ -31,7 +32,7 @@ test("a disabled element is not tabbable", async () => {
 });
 
 test("when autofocus is true, the first focusable element is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar autoFocus>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
@@ -42,7 +43,7 @@ test("when autofocus is true, the first focusable element is focused on render",
 });
 
 test("when autofocus is true and the toolbar is disabled, do not autofocuus an element on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar disabled autoFocus>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
@@ -53,7 +54,7 @@ test("when autofocus is true and the toolbar is disabled, do not autofocuus an e
 });
 
 test("when autofocus is true and the first focusable element is disabled, the next focusable element is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar autoFocus>
             <Button disabled>1</Button>
             <Button data-testid="element-2">2</Button>
@@ -64,7 +65,7 @@ test("when autofocus is true and the first focusable element is disabled, the ne
 });
 
 test("when autofocus is specified with a delay, the first focusable element is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar autoFocus={10}>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
@@ -77,7 +78,7 @@ test("when autofocus is specified with a delay, the first focusable element is f
 // ***** Aria *****
 
 test("a toolbar have the \"toolbar\" role", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Toolbar data-testid="toolbar">
             <Button>1</Button>
             <Button>2</Button>
@@ -92,7 +93,7 @@ test("a toolbar have the \"toolbar\" role", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Toolbar ref={ref}><Div>Hey!</Div></Toolbar>
     );
 
@@ -105,7 +106,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Toolbar
             ref={node => {
                 refNode = node;
@@ -124,7 +125,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Toolbar ref={handler}>
             <Div>Hey!</Div>
         </Toolbar>

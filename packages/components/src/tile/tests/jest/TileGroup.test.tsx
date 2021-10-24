@@ -1,14 +1,15 @@
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile, TileGroup } from "@components/tile";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when selectionMode is \"single\" and a value is specified, the tile matching the value is checked", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup value={["2"]} selectionMode="single">
             <Tile value="1">
                 <Heading>1</Heading>
@@ -25,7 +26,7 @@ test("when selectionMode is \"single\" and a value is specified, the tile matchi
 });
 
 test("when selectionMode is \"single\" and a default value is specified, the tile matching the value is checked", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup defaultValue={["2"]} selectionMode="single">
             <Tile value="1">
                 <Heading>1</Heading>
@@ -42,7 +43,7 @@ test("when selectionMode is \"single\" and a default value is specified, the til
 });
 
 test("when selectionMode is \"none\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup autoFocus selectionMode="none">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -59,7 +60,7 @@ test("when selectionMode is \"none\" and autofocus is true, the first tile is fo
 });
 
 test("when selectionMode is \"single\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup autoFocus selectionMode="single">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -76,7 +77,7 @@ test("when selectionMode is \"single\" and autofocus is true, the first tile is 
 });
 
 test("when selectionMode is \"single\", there is a selected title and autofocus is true, the selected tile is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup autoFocus defaultValue={["2"]} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -95,7 +96,7 @@ test("when selectionMode is \"single\", there is a selected title and autofocus 
 });
 
 test("when selectionMode is \"multiple\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup autoFocus selectionMode="multiple">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -114,7 +115,7 @@ test("when selectionMode is \"multiple\" and autofocus is true, the first tile i
 // ***** Aria *****
 
 test("when selectionMode is \"single\" the group role is \"radiogroup\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="single" data-testid="group">
             <Tile>
                 <Heading>1</Heading>
@@ -131,7 +132,7 @@ test("when selectionMode is \"single\" the group role is \"radiogroup\"", async 
 });
 
 test("when selectionMode is \"single\", the tile role is \"radio\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="single">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -148,7 +149,7 @@ test("when selectionMode is \"single\", the tile role is \"radio\"", async () =>
 });
 
 test("when selectionMode is \"multiple\", the group role is \"group\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="multiple" data-testid="group">
             <Tile>
                 <Heading>1</Heading>
@@ -165,7 +166,7 @@ test("when selectionMode is \"multiple\", the group role is \"group\"", async ()
 });
 
 test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="multiple">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -186,7 +187,7 @@ test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async 
 test("when selectionMode is \"single\", call onChange when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup onChange={handler} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -210,7 +211,7 @@ test("when selectionMode is \"single\", call onChange when a tile is selected", 
 test("when selectionMode is \"single\", call onChange when then selected tile change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup onChange={handler} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -238,7 +239,7 @@ test("when selectionMode is \"single\", call onChange when then selected tile ch
 test("when selectionMode is \"multiple\", call onChange when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup onChange={handler} selectionMode="multiple">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -266,7 +267,7 @@ test("when selectionMode is \"multiple\", call onChange when a tile is selected"
 test("when selectionMode is \"multiple\", call onChange when a tile is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup onChange={handler} selectionMode="multiple">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -298,7 +299,7 @@ test("when selectionMode is \"multiple\", call onChange when a tile is unselecte
 test("when selectionMode is \"single\" call the tile onChange handler when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="single">
             <Tile onChange={handler} value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -322,7 +323,7 @@ test("when selectionMode is \"single\" call the tile onChange handler when a til
 test("when selectionMode is \"multiple\", call the tile onChange handler when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TileGroup selectionMode="multiple">
             <Tile onChange={handler} value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -348,7 +349,7 @@ test("when selectionMode is \"multiple\", call the tile onChange handler when a 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <TileGroup ref={ref}>
             <Tile value="1">
                 <Heading>1</Heading>
@@ -370,7 +371,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <TileGroup
             ref={node => {
                 refNode = node;
@@ -396,7 +397,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <TileGroup ref={handler}>
             <Tile value="1">
                 <Heading>1</Heading>

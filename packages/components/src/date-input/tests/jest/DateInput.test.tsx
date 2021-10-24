@@ -1,8 +1,8 @@
 import { DateInput } from "@components/date-input";
 import { Field, Label } from "@components/field";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
@@ -26,7 +26,7 @@ function backspace(element: Element, times = 1) {
 // ***** Behaviors *****
 
 test("only accept number characters", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput data-testid="date" />
     );
 
@@ -48,7 +48,7 @@ test("only accept number characters", async () => {
 });
 
 test("when the input has no value and a partial date has been entered, reset to an empty value on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput data-testid="date" />
     );
 
@@ -74,7 +74,7 @@ test("when the input has no value and a partial date has been entered, reset to 
 });
 
 test("when the input has no value and an invalid date has been entered, clear the input value on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput data-testid="date" />
     );
 
@@ -98,7 +98,7 @@ test("when the input has no value and an invalid date has been entered, clear th
 });
 
 test("when the entered date is lower than the min date, reset value to min date", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             min={new Date(2021, 0, 1)}
             data-testid="date"
@@ -125,7 +125,7 @@ test("when the entered date is lower than the min date, reset value to min date"
 });
 
 test("when the entered date is greater than the max date, reset the date to the max date value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             max={new Date(2021, 0, 1)}
             data-testid="date"
@@ -152,7 +152,7 @@ test("when the entered date is greater than the max date, reset the date to the 
 });
 
 test("when a valid date is entered, convert the date format to a read format on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput data-testid="date" />
     );
 
@@ -170,7 +170,7 @@ test("when a valid date is entered, convert the date format to a read format on 
 });
 
 test("when the input value has a valid date and receive focus, convert the date format to an editable format", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             data-testid="date"
@@ -185,7 +185,7 @@ test("when the input value has a valid date and receive focus, convert the date 
 });
 
 test("when the input value has a valid date and a partial date has been entered entered, reset to the last valid date on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             data-testid="date"
@@ -212,7 +212,7 @@ test("when the input value has a valid date and a partial date has been entered 
 });
 
 test("when the input value has a valid date and a malformed date has been entered, reset to the last valid date", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             data-testid="date"
@@ -241,7 +241,7 @@ test("when the input value has a valid date and a malformed date has been entere
 });
 
 test("when in a field, clicking on the field label focus the date input", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Date</Label>
             <DateInput data-testid="date" />
@@ -256,7 +256,7 @@ test("when in a field, clicking on the field label focus the date input", async 
 });
 
 test("when autofocus is true, the date input is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput autoFocus data-testid="date" />
     );
 
@@ -264,7 +264,7 @@ test("when autofocus is true, the date input is focused on render", async () => 
 });
 
 test("when autofocus is true and the date input is disabled, the date input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput disabled autoFocus data-testid="date" />
     );
 
@@ -272,7 +272,7 @@ test("when autofocus is true and the date input is disabled, the date input is n
 });
 
 test("when autofocus is true and the date input is readonly, the date input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput readOnly autoFocus data-testid="date" />
     );
 
@@ -280,7 +280,7 @@ test("when autofocus is true and the date input is readonly, the date input is n
 });
 
 test("when autofocus is specified with a de lay, the date input is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput autoFocus={10} data-testid="date" />
     );
 
@@ -293,7 +293,7 @@ test("when autofocus is specified with a de lay, the date input is focused after
 
 describe("compact presets", () => {
     test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-        const { container, getByRole, getByPlaceholderText } = render(
+        const { container, getByRole, getByPlaceholderText } = renderWithTheme(
             <DateInput
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
                 presetsVariant="compact"
@@ -321,7 +321,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected, the preset menu trigger is focused", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateInput
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
                 presetsVariant="compact"
@@ -343,7 +343,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateInput
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
                 presetsVariant="compact"
@@ -365,7 +365,7 @@ describe("compact presets", () => {
     });
 
     test("when the date value match a preset, the selected item of the menu match the preset", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateInput
                 value={new Date(2020, 0, 1)}
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
@@ -386,7 +386,7 @@ describe("compact presets", () => {
 
 describe("expanded presets", () => {
     test("when a preset is selected, the input is filled with the preset date", async () => {
-        const { getByRole, getByPlaceholderText } = render(
+        const { getByRole, getByPlaceholderText } = renderWithTheme(
             <DateInput
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
                 presetsVariant="expanded"
@@ -408,7 +408,7 @@ describe("expanded presets", () => {
     });
 
     test("when a preset is selected, the toggled button match the selected preset", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithTheme(
             <DateInput
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
                 presetsVariant="expanded"
@@ -424,7 +424,7 @@ describe("expanded presets", () => {
     });
 
     test("when the date match a preset, the toggled button match the preset", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithTheme(
             <DateInput
                 value={new Date(2020, 0, 1)}
                 presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
@@ -442,7 +442,7 @@ describe("expanded presets", () => {
 test("when the input has no value and a valid date has been entered, call onDateChange with the new date on blur", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             onDateChange={handler}
             data-testid="date"
@@ -466,7 +466,7 @@ test("when the input has no value and a valid date has been entered, call onDate
 test("when the input has no value and a partial date has been cleared, do not call onDateChange", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             onDateChange={handler}
             data-testid="date"
@@ -497,7 +497,7 @@ test("when the input has no value and a partial date has been cleared, do not ca
 test("when the input has no value and a malformed date has been entered, do not call onDateChange", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             onDateChange={handler}
             data-testid="date"
@@ -522,7 +522,7 @@ test("when the input has no value and a malformed date has been entered, do not 
 test("when the input value has a valid date and a new valid date has been entered, call onDateChange with the new date", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             onDateChange={handler}
@@ -551,7 +551,7 @@ test("when the input value has a valid date and a new valid date has been entere
 test("when the input value has a valid date and the date has been cleared, call onDateChange with null", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             onDateChange={handler}
@@ -578,7 +578,7 @@ test("when the input value has a valid date and the date has been cleared, call 
 test("when the input value has a valid date and a partial date has been entered, do not call onDateChange on date reset", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             onDateChange={handler}
@@ -604,7 +604,7 @@ test("when the input value has a valid date and a partial date has been entered,
 test("when the input value has a valid date and a malformed date has been entered, do not call onDateChange", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             onDateChange={handler}
@@ -630,7 +630,7 @@ test("when the input value has a valid date and a malformed date has been entere
 test("when the input value has a valid date and is focused then blured with the same date, do not call onDateChange", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             defaultValue={new Date(2021, 0, 1)}
             onDateChange={handler}
@@ -652,7 +652,7 @@ test("when the input value has a valid date and is focused then blured with the 
 test("when a valid date has been entered and the date exceed the specified min or max value, onDateChange is called with the clamped date before onBlur is called", async () => {
     const handleDateChange = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateInput
             onDateChange={handleDateChange}
             min={new Date(2021, 0, 1)}
@@ -677,7 +677,7 @@ test("when a valid date has been entered and the date exceed the specified min o
 test("when a preset is selected, call onDateChange with the preset date", async () => {
     const handler = jest.fn();
 
-    const { container, getByRole } = render(
+    const { container, getByRole } = renderWithTheme(
         <DateInput
             presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
             onDateChange={handler}
@@ -701,7 +701,7 @@ test("when a preset is selected, call onDateChange with the preset date", async 
 test("can focus the date input with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <DateInput
             ref={node => {
                 refNode = node;
@@ -720,7 +720,7 @@ test("can focus the date input with the focus api", async () => {
 test("when compact presets are provided, can focus the input with the focus api", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    const { getByPlaceholderText } = render(
+    const { getByPlaceholderText } = renderWithTheme(
         <DateInput
             presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
             presetsVariant="compact"
@@ -739,7 +739,7 @@ test("when compact presets are provided, can focus the input with the focus api"
 test("when expanded presets are provided, can focus the input with the focus api", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    const { getByPlaceholderText } = render(
+    const { getByPlaceholderText } = renderWithTheme(
         <DateInput
             presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
             presetsVariant="expanded"
@@ -760,7 +760,7 @@ test("when expanded presets are provided, can focus the input with the focus api
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <DateInput ref={ref} />
     );
 
@@ -773,7 +773,7 @@ test("ref is a DOM element", async () => {
 test("when compact presets are provided, ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <DateInput
             presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
             presetsVariant="compact"
@@ -790,7 +790,7 @@ test("when compact presets are provided, ref is a DOM element", async () => {
 test("when expanded presets are provided, ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <DateInput
             presets={[{ text: "Preset 1", date: new Date(2020, 0, 1) }]}
             presetsVariant="expanded"
@@ -807,7 +807,7 @@ test("when expanded presets are provided, ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <DateInput
             ref={node => {
                 refNode = node;
@@ -824,7 +824,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <DateInput ref={handler} />
     );
 

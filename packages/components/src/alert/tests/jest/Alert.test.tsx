@@ -2,12 +2,13 @@ import { Alert } from "@components/alert";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
 
 test("when autoFocusButton value is \"primary\", autofocus the primary button on render", async () => {
-    const { getByText } = render(
+    const { getByText } = renderWithTheme(
         <Alert autoFocusButton="primary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>
@@ -18,7 +19,7 @@ test("when autoFocusButton value is \"primary\", autofocus the primary button on
 });
 
 test("when autoFocusButton value is \"secondary\", autofocus the secondary button on render", async () => {
-    const { getByText } = render(
+    const { getByText } = renderWithTheme(
         <Alert autoFocusButton="secondary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>
@@ -29,7 +30,7 @@ test("when autoFocusButton value is \"secondary\", autofocus the secondary butto
 });
 
 test("when autoFocusButton value is \"cancel\", autofocus the cancel button on render", async () => {
-    const { getByText } = render(
+    const { getByText } = renderWithTheme(
         <Alert autoFocusButton="cancel" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>
@@ -40,7 +41,7 @@ test("when autoFocusButton value is \"cancel\", autofocus the cancel button on r
 });
 
 test("when autoFocusButton value is not defined, autofocus the primary button", async () => {
-    const { getByText } = render(
+    const { getByText } = renderWithTheme(
         <Alert primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>
@@ -55,7 +56,7 @@ test("when autoFocusButton value is not defined, autofocus the primary button", 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Alert ref={ref} primaryButtonLabel="Primary">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>
@@ -71,7 +72,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Alert
             primaryButtonLabel="Primary"
             ref={node => {
@@ -92,7 +93,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Alert ref={handler} primaryButtonLabel="Primary">
             <Heading>Autopilot</Heading>
             <Content>Are you use sure you want to engage autopilot?</Content>

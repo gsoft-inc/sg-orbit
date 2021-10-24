@@ -1,14 +1,14 @@
 import { Field, Label } from "@components/field";
 import { NumberInput } from "@components/number-input";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("accept numbers", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -24,7 +24,7 @@ test("accept numbers", async () => {
 });
 
 test("accept negative numbers", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -40,7 +40,7 @@ test("accept negative numbers", async () => {
 });
 
 // test("accept floating numbers", async () => {
-//     const { getByTestId } = render(
+//     const { getByTestId } = renderWithTheme(
 //         <NumberInput data-testid="input" />
 //     );
 
@@ -56,7 +56,7 @@ test("accept negative numbers", async () => {
 // });
 
 test("do not accept non numeric characters", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -78,7 +78,7 @@ test("do not accept non numeric characters", async () => {
 });
 
 test("increment value on increment button click", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput defaultValue={1} aria-label="Label" data-testid="input" />
     );
 
@@ -94,7 +94,7 @@ test("increment value on increment button click", async () => {
 });
 
 test("when a value has been entered, increment the entered value on increment button click", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -114,7 +114,7 @@ test("when a value has been entered, increment the entered value on increment bu
 });
 
 test("decrement value on decrement button click", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput defaultValue={1} aria-label="Label" data-testid="input" />
     );
 
@@ -130,7 +130,7 @@ test("decrement value on decrement button click", async () => {
 });
 
 test("when a value has been entered, decrement the entered value on decrement button click", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -150,7 +150,7 @@ test("when a value has been entered, decrement the entered value on decrement bu
 });
 
 test("when no value has been entered yet and the increment button is clicked, set value to 1", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -166,7 +166,7 @@ test("when no value has been entered yet and the increment button is clicked, se
 });
 
 test("when no value has been entered yet and the decrement button is clicked, set value to -1", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput aria-label="Label" data-testid="input" />
     );
 
@@ -182,7 +182,7 @@ test("when no value has been entered yet and the decrement button is clicked, se
 });
 
 test("when a max value is specified, do not increment over the max value", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput defaultValue={1} max={2} aria-label="Label" data-testid="input" />
     );
 
@@ -202,7 +202,7 @@ test("when a max value is specified, do not increment over the max value", async
 });
 
 test("when a max value is specified and no value has been set yet, do not increment over the max value", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput max={0} aria-label="Label" data-testid="input" />
     );
 
@@ -218,7 +218,7 @@ test("when a max value is specified and no value has been set yet, do not increm
 });
 
 test("when a min value is specified, do not decrement under the min value", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput defaultValue={5} min={4} aria-label="Label" data-testid="input" />
     );
 
@@ -238,7 +238,7 @@ test("when a min value is specified, do not decrement under the min value", asyn
 });
 
 test("when a min value is specified and no value has been set yet, do not decrement under the max value", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput min={4} aria-label="Label" data-testid="input" />
     );
 
@@ -254,7 +254,7 @@ test("when a min value is specified and no value has been set yet, do not decrem
 });
 
 test("when the entered value is lower than the min value, reset value to min value on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput min={3} aria-label="Label" data-testid="input" />
     );
 
@@ -274,7 +274,7 @@ test("when the entered value is lower than the min value, reset value to min val
 });
 
 test("when the entered value is greater than the max value, reset the value to the max value on blur", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput max={1} aria-label="Label" data-testid="input" />
     );
 
@@ -294,7 +294,7 @@ test("when the entered value is greater than the max value, reset the value to t
 });
 
 test("when the entered value is equal to the min value, the decrement stepper is disabled", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput min={2} aria-label="Label" data-testid="input" />
     );
 
@@ -312,7 +312,7 @@ test("when the entered value is equal to the min value, the decrement stepper is
 });
 
 test("when the entered value is equal to the max value, the increment stepper is disabled", async () => {
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput max={2} aria-label="Label" data-testid="input" />
     );
 
@@ -330,7 +330,7 @@ test("when the entered value is equal to the max value, the increment stepper is
 });
 
 test("when autofocus is true, the input is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -338,7 +338,7 @@ test("when autofocus is true, the input is focused on render", async () => {
 });
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -346,7 +346,7 @@ test("when autofocus is true and the input is disabled, the input is not focused
 });
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -354,7 +354,7 @@ test("when autofocus is true and the input is readonly, the input is not focused
 });
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
@@ -366,7 +366,7 @@ test("when autofocus is specified with a delay, the input is focused after the d
 });
 
 test("when in a field, clicking on the field label focus the input", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Label</Label>
             <NumberInput aria-label="Label" data-testid="input" />
@@ -385,7 +385,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -400,7 +400,7 @@ test("call onChange when the value change", async () => {
 test("call onValueChange when the value change and the input lose focus", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -419,7 +419,7 @@ test("call onValueChange when the value change and the input lose focus", async 
 test("call onValueChange when the value is incremented", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput
             onValueChange={handler}
             defaultValue={1}
@@ -443,7 +443,7 @@ test("call onValueChange when the value is incremented", async () => {
 test("call onValueChange when the value is decremented", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput
             onValueChange={handler}
             defaultValue={1}
@@ -467,7 +467,7 @@ test("call onValueChange when the value is decremented", async () => {
 test("call onFocus when the input receive focus", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput
             onFocus={handler}
             defaultValue={1}
@@ -487,7 +487,7 @@ test("call onFocus when the input receive focus", async () => {
 test("do not call onFocus again when a spinner arrow is clicked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput
             onFocus={handler}
             defaultValue={1}
@@ -510,7 +510,7 @@ test("do not call onFocus again when a spinner arrow is clicked", async () => {
 test("call onBlur when the input lose focus", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput
             onBlur={handler}
             defaultValue={1}
@@ -534,7 +534,7 @@ test("call onBlur when the input lose focus", async () => {
 test("do not call onBlur when a spinner arrow is clicked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, getByLabelText } = render(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <NumberInput
             onBlur={handler}
             defaultValue={1}
@@ -557,7 +557,7 @@ test("do not call onBlur when a spinner arrow is clicked", async () => {
 test("can focus the input with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <NumberInput
             ref={node => {
                 refNode = node;
@@ -581,7 +581,7 @@ test("when the entered value exceed the specified min or max value, onValueChang
 
     };
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <NumberInput
             onValueChange={handleValueChange}
             onBlur={onBlur}
@@ -612,7 +612,7 @@ test("when the entered value exceed the specified min or max value, onValueChang
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <NumberInput ref={ref} aria-label="Label" />
     );
 
@@ -625,7 +625,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <NumberInput
             ref={node => {
                 refNode = node;
@@ -643,7 +643,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <NumberInput ref={handler} aria-label="Label" />
     );
 

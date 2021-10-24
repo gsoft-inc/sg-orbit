@@ -1,7 +1,8 @@
 import { Form, FormProps } from "@components/form";
 import { createRef } from "react";
 import { forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const BasicForm = forwardRef<HTMLElement, Omit<FormProps, "children">>((props, ref) => {
     return (
@@ -19,7 +20,7 @@ const BasicForm = forwardRef<HTMLElement, Omit<FormProps, "children">>((props, r
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <BasicForm ref={ref} />
     );
 
@@ -32,7 +33,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <BasicForm
             ref={node => {
                 refNode = node;
@@ -49,7 +50,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <BasicForm ref={handler} />
     );
 

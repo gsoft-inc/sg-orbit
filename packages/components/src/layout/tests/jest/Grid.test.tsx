@@ -1,7 +1,8 @@
 import { Div } from "@components/html";
 import { Grid, GridProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const SimpleGrid = forwardRef<HTMLDivElement, Omit<GridProps, "children">>((props, ref) => {
     return (
@@ -19,7 +20,7 @@ const SimpleGrid = forwardRef<HTMLDivElement, Omit<GridProps, "children">>((prop
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLDivElement>();
 
-    render(
+    renderWithTheme(
         <SimpleGrid ref={ref} />
     );
 
@@ -32,7 +33,7 @@ test("ref is a DOM element", async () => {
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLDivElement = null;
 
-    render(
+    renderWithTheme(
         <SimpleGrid
             ref={node => {
                 refNode = node;
@@ -49,7 +50,7 @@ test("using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <SimpleGrid ref={handler} />
     );
 

@@ -2,15 +2,15 @@ import { CheckableContext } from "@components/shared";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile } from "@components/tile";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the tile is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile autoFocus data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -21,7 +21,7 @@ test("when autofocus is true, the tile is focused on render", async () => {
 });
 
 test("when autofocus is true and the tile is disabled, the tile is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile disabled autoFocus data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -32,7 +32,7 @@ test("when autofocus is true and the tile is disabled, the tile is not focused o
 });
 
 test("when autofocus is specified with a delay, the tile is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile autoFocus={10} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -49,7 +49,7 @@ test("when autofocus is specified with a delay, the tile is focused after the de
 // ***** Aria *****
 
 test("when a tile is not in a checkable context and is not selected, aria-pressed is \"false\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -60,7 +60,7 @@ test("when a tile is not in a checkable context and is not selected, aria-presse
 });
 
 test("when a tile is not in a checkable context and is selected, aria-pressed is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile checked data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -71,7 +71,7 @@ test("when a tile is not in a checkable context and is selected, aria-pressed is
 });
 
 test("when a tile is in a checkable context and is not selected, aria-checked is \"false\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <CheckableContext.Provider
             value={{
                 checkedValue: []
@@ -88,7 +88,7 @@ test("when a tile is in a checkable context and is not selected, aria-checked is
 });
 
 test("when a tile is in a checkable context and is selected, aria-checked is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <CheckableContext.Provider
             value={{
                 checkedValue: ["fuel"]
@@ -109,7 +109,7 @@ test("when a tile is in a checkable context and is selected, aria-checked is \"t
 test("call onChange when the tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile onChange={handler} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -127,7 +127,7 @@ test("call onChange when the tile is selected", async () => {
 test("call onChange when the tile is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tile onChange={handler} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -151,7 +151,7 @@ test("call onChange when the tile is unselected", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Tile ref={ref}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -167,7 +167,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Tile
             ref={node => {
                 refNode = node;
@@ -187,7 +187,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Tile ref={handler}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>

@@ -3,7 +3,8 @@ import { Div } from "@components/html";
 import { Text } from "@components/typography";
 import { createRef } from "react";
 import { forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, ref) => {
     return (
@@ -22,7 +23,7 @@ const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <SquareBadge ref={ref}>
             <Text>100</Text>
         </SquareBadge>
@@ -37,7 +38,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <SquareBadge
             ref={node => {
                 refNode = node;
@@ -56,7 +57,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <SquareBadge ref={handler}>
             <Text>100</Text>
         </SquareBadge>

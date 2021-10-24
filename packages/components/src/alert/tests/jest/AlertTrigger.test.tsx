@@ -4,13 +4,14 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { act } from "@testing-library/react-hooks";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("do not dismiss on outside click", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <AlertTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Alert data-testid="alert" primaryButtonLabel="Primary">
@@ -38,7 +39,7 @@ test("do not dismiss on outside click", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <AlertTrigger defaultOpen ref={ref}>
             <Button>Trigger</Button>
             <Alert primaryButtonLabel="Primary">
@@ -57,7 +58,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <AlertTrigger
             defaultOpen
             ref={node => {
@@ -81,7 +82,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <AlertTrigger defaultOpen ref={handler}>
             <Button>Trigger</Button>
             <Alert primaryButtonLabel="Primary">

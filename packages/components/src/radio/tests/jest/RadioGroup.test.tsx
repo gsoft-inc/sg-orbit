@@ -1,9 +1,9 @@
 import { Keys } from "@components/shared";
 import { Radio, RadioGroup } from "@components/radio";
 import { ToggleButton } from "@components/button";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -13,7 +13,7 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("first radio is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -25,7 +25,7 @@ test("first radio is tabbable", async () => {
 });
 
 test("selected radio is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup defaultValue="2">
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -37,7 +37,7 @@ test("selected radio is tabbable", async () => {
 });
 
 test("a disabled radio is not tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio disabled value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -50,7 +50,7 @@ test("a disabled radio is not tabbable", async () => {
 });
 
 test("right arrow keypress select the next radio", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -70,7 +70,7 @@ test("right arrow keypress select the next radio", async () => {
 });
 
 test("left arrow keypress select the next radio", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -90,7 +90,7 @@ test("left arrow keypress select the next radio", async () => {
 });
 
 test("down arrow keypress select the next radio", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -110,7 +110,7 @@ test("down arrow keypress select the next radio", async () => {
 });
 
 test("up arrow keypress select the next radio", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -130,7 +130,7 @@ test("up arrow keypress select the next radio", async () => {
 });
 
 test("when autofocus is true, the first radio is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup autoFocus>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -142,7 +142,7 @@ test("when autofocus is true, the first radio is focused on render", async () =>
 });
 
 test("when autofocus is true and the radio group is disabled, the first radio is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup disabled autoFocus>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -154,7 +154,7 @@ test("when autofocus is true and the radio group is disabled, the first radio is
 });
 
 test("when autofocus is true and the first radio is disabled, the next checkbox is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup autoFocus>
             <Radio disabled value="1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -166,7 +166,7 @@ test("when autofocus is true and the first radio is disabled, the next checkbox 
 });
 
 test("when autofocus is true and there is a default value, the radio matching the default value is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup defaultValue="2" autoFocus>
             <Radio value="1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -178,7 +178,7 @@ test("when autofocus is true and there is a default value, the radio matching th
 });
 
 test("when autofocus is specified with a delay, the first radio is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup autoFocus={10}>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -196,7 +196,7 @@ test("when autofocus is specified with a delay, the first radio is focused after
 test("when a radio value is not provided, the value is autogenerated", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup onChange={handler}>
             <Radio>1</Radio>
             <Radio data-testid="radio-2">2</Radio>
@@ -216,7 +216,7 @@ test("when a radio value is not provided, the value is autogenerated", async () 
 test("call onChange when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup
             onChange={handler}
         >
@@ -237,7 +237,7 @@ test("call onChange when a radio is selected", async () => {
 test("call the radio onValueChange handler when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio onValueChange={handler} value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -256,7 +256,7 @@ test("call the radio onValueChange handler when a radio is selected", async () =
 test("call the radio onChange handler when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio onChange={handler} value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -275,7 +275,7 @@ test("call the radio onChange handler when a radio is selected", async () => {
 // ***** Aria *****
 
 test("when a name is provided, the group elements name attribute match the provided name", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup name="foo">
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -289,7 +289,7 @@ test("when a name is provided, the group elements name attribute match the provi
 });
 
 test("when no name is provided, all the group elements share the same auto generated name", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -305,7 +305,7 @@ test("when no name is provided, all the group elements share the same auto gener
 });
 
 test("a radio group role is \"radiogroup\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup data-testid="radio-group">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
@@ -317,7 +317,7 @@ test("a radio group role is \"radiogroup\"", async () => {
 });
 
 test("when a radio group elements are not radio, their role is \"radio\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <RadioGroup>
             <ToggleButton value="1" data-testid="radio-1">1</ToggleButton>
             <ToggleButton value="2" data-testid="radio-2">2</ToggleButton>
@@ -335,7 +335,7 @@ test("when a radio group elements are not radio, their role is \"radio\"", async
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <RadioGroup ref={ref}>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
@@ -353,7 +353,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <RadioGroup
             ref={node => {
                 refNode = node;
@@ -375,7 +375,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <RadioGroup ref={handler}>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
@@ -390,7 +390,7 @@ test("set ref once", async () => {
 
 describe("with toggle buttons", () => {
     test("a toggled button have aria-checked set to \"true\"", async () => {
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <RadioGroup>
                 <ToggleButton value="1" data-testid="button-1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>
@@ -408,7 +408,7 @@ describe("with toggle buttons", () => {
     test("call onChange when a button is toggled", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <RadioGroup onChange={handler}>
                 <ToggleButton value="1" data-testid="button-1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>

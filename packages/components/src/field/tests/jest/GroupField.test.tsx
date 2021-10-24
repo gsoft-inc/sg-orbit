@@ -1,12 +1,13 @@
 import { Checkbox, CheckboxGroup } from "@components/checkbox";
 import { GroupField, HelpMessage, Label } from "@components/field";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when an id is provided, the group field id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField id="foo" data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -21,7 +22,7 @@ test("when an id is provided, the group field id attribute match the provided id
 });
 
 test("when the id is auto generated, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -39,7 +40,7 @@ test("when the id is auto generated, the group field aria-labelledby attribute m
 });
 
 test("when an id is provided, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField id="foo" data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -57,7 +58,7 @@ test("when an id is provided, the group field aria-labelledby attribute match th
 });
 
 test("when the id is auto generated, the group field aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -76,7 +77,7 @@ test("when the id is auto generated, the group field aria-describedby attribute 
 });
 
 test("when an id is provided, the group field aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField id="foo" data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -99,7 +100,7 @@ test("when an id is provided, the group field aria-describedby attribute match t
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <GroupField ref={ref}>
             <CheckboxGroup>
                 <Checkbox value="milky-way" >Milky Way</Checkbox>
@@ -118,7 +119,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <GroupField
             ref={node => {
                 refNode = node;
@@ -141,7 +142,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <GroupField ref={handler}>
             <CheckboxGroup>
                 <Checkbox value="milky-way" >Milky Way</Checkbox>

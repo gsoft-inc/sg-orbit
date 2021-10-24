@@ -1,13 +1,14 @@
 import { Paragraph } from "@components/typography";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Paragraph ref={ref}>Body</Paragraph>
     );
 
@@ -20,7 +21,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Paragraph
             ref={node => {
                 refNode = node;
@@ -39,7 +40,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Paragraph ref={handler}>
             Body
         </Paragraph>

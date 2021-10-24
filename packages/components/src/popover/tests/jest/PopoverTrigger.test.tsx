@@ -3,8 +3,9 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Popover, PopoverTrigger } from "@components/popover";
 import { Transition } from "@components/transition";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -15,7 +16,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when a popover is dismissable, hide the popover on outside click", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <PopoverTrigger
             dismissable
             data-testid="overlay"
@@ -42,7 +43,7 @@ test("when a popover is dismissable, hide the popover on outside click", async (
 });
 
 test("when a popover is not dismissable, do not hide the popover on outside click", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger
             dismissable={false}
             data-testid="overlay"
@@ -71,7 +72,7 @@ test("when a popover is not dismissable, do not hide the popover on outside clic
 // ***** Aria *****
 
 test("a popover trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger data-testid="overlay">
             <Button data-testid="trigger">Trigger</Button>
             <Popover>
@@ -95,7 +96,7 @@ test("a popover trigger have an aria-haspopup attribute", async () => {
 test("call onOpenChange when the popover appears", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -116,7 +117,7 @@ test("call onOpenChange when the popover appears", async () => {
 test("call onOpenChange when the popover disappear", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -143,7 +144,7 @@ test("call onOpenChange when the popover disappear", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger ref={ref}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover>
@@ -166,7 +167,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger
             ref={node => {
                 refNode = node;
@@ -193,7 +194,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <PopoverTrigger ref={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover>

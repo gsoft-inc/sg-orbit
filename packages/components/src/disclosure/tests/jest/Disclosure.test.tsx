@@ -2,12 +2,13 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Disclosure } from "@components/disclosure";
 import { Keys } from "@components/shared";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
 
 // ***** Behaviors *****
 
 test("spacebar keypress toggles content visibility", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
@@ -32,7 +33,7 @@ test("spacebar keypress toggles content visibility", async () => {
 });
 
 test("enter keypress toggles content visibility", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
@@ -59,7 +60,7 @@ test("enter keypress toggles content visibility", async () => {
 // ***** Aria *****
 
 test("when an id is provided, the disclosure id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure id="foo" data-testid="disclosure">
             <Button>Header</Button>
             <Content>Content</Content>
@@ -70,7 +71,7 @@ test("when an id is provided, the disclosure id attribute match the provided id"
 });
 
 test("when an id is provided, a disclosure aria-controls attribute match the content element id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure id="foo">
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
@@ -85,7 +86,7 @@ test("when an id is provided, a disclosure aria-controls attribute match the con
 });
 
 test("when an id is auto generated, a disclosure aria-controls attribute match the content element id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
@@ -104,7 +105,7 @@ test("when an id is auto generated, a disclosure aria-controls attribute match t
 test("call onOpenChange when expand", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
@@ -122,7 +123,7 @@ test("call onOpenChange when expand", async () => {
 test("call onOpenChange when close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Disclosure defaultOpen onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>

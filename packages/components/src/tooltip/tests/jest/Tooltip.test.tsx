@@ -1,11 +1,12 @@
 import { Tooltip } from "@components/tooltip";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when an id is provided, the tooltip id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tooltip id="foo" data-testid="tooltip">Content</Tooltip>
     );
 
@@ -13,7 +14,7 @@ test("when an id is provided, the tooltip id attribute match the provided id", a
 });
 
 test("a tooltip have the \"tooltip\" role", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Tooltip data-testid="tooltip">Content</Tooltip>
     );
 
@@ -25,7 +26,7 @@ test("a tooltip have the \"tooltip\" role", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Tooltip ref={ref}>Content</Tooltip>
     );
 
@@ -38,7 +39,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Tooltip
             ref={node => {
                 refNode = node;
@@ -57,7 +58,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Tooltip ref={handler}>Content</Tooltip>
     );
 

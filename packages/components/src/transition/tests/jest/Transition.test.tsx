@@ -1,11 +1,12 @@
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
 
 test("when no enter transition is specified, render the element on show", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
@@ -15,7 +16,7 @@ test("when no enter transition is specified, render the element on show", async 
 });
 
 test("when no leave transition is specified, remove the element on hide", async () => {
-    const { getByTestId, queryByTestId, rerender } = render(
+    const { getByTestId, queryByTestId, rerender } = renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
@@ -37,7 +38,7 @@ test("when no leave transition is specified, remove the element on hide", async 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Transition show ref={ref}>Content</Transition>
     );
 
@@ -50,7 +51,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Transition
             show
             ref={node => {
@@ -70,7 +71,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Transition show ref={handler}>Content</Transition>
     );
 

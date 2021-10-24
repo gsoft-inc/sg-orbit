@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, ButtonGroupProps } from "@components/button";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const Group = forwardRef<HTMLElement, Omit<ButtonGroupProps, "children">>((props, ref) => {
     return (
@@ -19,7 +20,7 @@ const Group = forwardRef<HTMLElement, Omit<ButtonGroupProps, "children">>((props
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Group ref={ref} />
     );
 
@@ -32,7 +33,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Group
             ref={node => {
                 refNode = node;
@@ -49,7 +50,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Group ref={handler} />
     );
 

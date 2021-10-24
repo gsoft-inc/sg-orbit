@@ -1,6 +1,7 @@
 import { ComponentProps, createRef, forwardRef } from "react";
 import { SvgImage } from "@components/image";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
@@ -40,7 +41,7 @@ const SvgWithTitle = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, re
 // ***** Behaviors *****
 
 test("an aria-hidden attribute is added to all the path elements of the svg", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SvgImage data-testid="svg" src={BasicSvg} aria-label="Basic SVG" />
     );
 
@@ -52,7 +53,7 @@ test("an aria-hidden attribute is added to all the path elements of the svg", as
 });
 
 test("remove the title element of the svg", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <SvgImage data-testid="svg" src={SvgWithTitle} aria-label="Basic SVG" />
     );
 
@@ -64,7 +65,7 @@ test("remove the title element of the svg", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <SvgImage ref={ref} src={BasicSvg} aria-label="Basic SVG" />
     );
 
@@ -77,7 +78,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <SvgImage
             src={BasicSvg}
             aria-label="Basic SVG"
@@ -96,7 +97,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <SvgImage
             src={BasicSvg}
             aria-label="Basic SVG"

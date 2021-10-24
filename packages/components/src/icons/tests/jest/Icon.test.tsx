@@ -1,6 +1,7 @@
 import { AzureIcon32 } from "./assets";
 import { Icon, IconProps, createIcon } from "@components/icons";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 function createAzureIcon(props: Omit<IconProps, "src"> = {}) {
     return <Icon
@@ -14,7 +15,7 @@ function createAzureIcon(props: Omit<IconProps, "src"> = {}) {
 test("ref is a DOM element", async () => {
     let refNode: SVGSVGElement = null;
 
-    render(
+    renderWithTheme(
         createAzureIcon({
             ref: node => {
                 refNode = node;
@@ -33,7 +34,7 @@ test("hoc icon ref is a DOM element", async () => {
 
     const HocIcon = createIcon(AzureIcon32);
 
-    render(
+    renderWithTheme(
         <HocIcon
             ref={node => {
                 refNode = node;
@@ -50,7 +51,7 @@ test("hoc icon ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         createAzureIcon({
             ref: handler
         })

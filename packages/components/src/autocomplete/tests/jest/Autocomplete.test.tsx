@@ -4,9 +4,9 @@ import { Field, Label } from "@components/field";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -17,7 +17,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when a query matching existing values is entered, open the overlay with the matching values", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -43,7 +43,7 @@ test("when a query matching existing values is entered, open the overlay with th
 });
 
 test("when a query matching no values is entered, open the overlay with a not found message", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -65,7 +65,7 @@ test("when a query matching no values is entered, open the overlay with a not fo
 });
 
 test("when opening, the focus stay on the input", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -88,7 +88,7 @@ test("when opening, the focus stay on the input", async () => {
 });
 
 test("when a query is cleared with backspaces, hide the overlay", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -117,7 +117,7 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
 });
 
 test("when a query is cleared with the clear button, hide the overlay", async () => {
-    const { container, getByTestId, queryByTestId } = render(
+    const { container, getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -146,7 +146,7 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
 });
 
 test("when opened, clicking on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -175,7 +175,7 @@ test("when opened, clicking on a value close the overlay & select the value", as
 });
 
 test("when opened, enter keypress on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -208,7 +208,7 @@ test("when opened, enter keypress on a value close the overlay & select the valu
 });
 
 test("when opened, on esc keypress hide the overlay and focus the input", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -235,7 +235,7 @@ test("when opened, on esc keypress hide the overlay and focus the input", async 
 });
 
 test("when opened, down arrow keypress virtually focus the first value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -260,7 +260,7 @@ test("when opened, down arrow keypress virtually focus the first value", async (
 });
 
 test("when opened, up arrow keypress virtually focus the last value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -284,7 +284,7 @@ test("when opened, up arrow keypress virtually focus the last value", async () =
 });
 
 test("when opened, home keypress virtually focus the first value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -308,7 +308,7 @@ test("when opened, home keypress virtually focus the first value", async () => {
 });
 
 test("when opened, end keypress virtually focus the last value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -332,7 +332,7 @@ test("when opened, end keypress virtually focus the last value", async () => {
 });
 
 test("when no value is selected, leaving the autocomplete without selecting a new value clear the input", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -361,7 +361,7 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
 });
 
 test("when a value is selected, leaving the autocomplete without selecting a value reset the input with the selected value", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -410,7 +410,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <Autocomplete
@@ -450,7 +450,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Autocomplete
@@ -483,7 +483,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
 });
 
 test("when the clear button is clicked, the focus is moved to the input", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -510,7 +510,7 @@ test("when the clear button is clicked, the focus is moved to the input", async 
 });
 
 test("when in a field, clicking on the field label focus the autocomplete", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Autocomplete</Label>
             <Autocomplete aria-label="Planet" data-testid="autocomplete">
@@ -530,7 +530,7 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
 });
 
 test("when autofocus is true, the autocomplete trigger is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             autoFocus
             aria-label="Planet"
@@ -547,7 +547,7 @@ test("when autofocus is true, the autocomplete trigger is focused on render", as
 });
 
 test("when autofocus is true and the autocomplete is disabled, the autocomplete trigger is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             disabled
             autoFocus
@@ -565,7 +565,7 @@ test("when autofocus is true and the autocomplete is disabled, the autocomplete 
 });
 
 test("when autofocus is specified with a delay, the autocomplete trigger is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             autoFocus={10}
             aria-label="Planet"
@@ -588,7 +588,7 @@ test("when autofocus is specified with a delay, the autocomplete trigger is focu
 // ***** Aria *****
 
 test("when an id is provided, it is used as the trigger id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete id="foo" aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -600,7 +600,7 @@ test("when an id is provided, it is used as the trigger id", async () => {
 });
 
 test("an autocomplete have the \"combobox\" role", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -613,7 +613,7 @@ test("an autocomplete have the \"combobox\" role", async () => {
 });
 
 test("an autocomplete have an aria-haspopup attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -626,7 +626,7 @@ test("an autocomplete have an aria-haspopup attribute", async () => {
 });
 
 test("an autocomplete have an aria-expanded attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -649,7 +649,7 @@ test("an autocomplete have an aria-expanded attribute", async () => {
 });
 
 test("when opened, the autocomplete aria-controls match the overlay id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -676,7 +676,7 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
 test("call onSearch when the query is updated", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             onSearch={handler}
             aria-label="Planet"
@@ -700,7 +700,7 @@ test("call onSearch when the query is updated", async () => {
 test("do not call onSearch when the query is empty", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             onSearch={handler}
             aria-label="Planet"
@@ -727,7 +727,7 @@ test("do not call onSearch when the query is empty", async () => {
 test("call onOpenChange when the autocomplete overlay open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             onOpenChange={handler}
             aria-label="Planet"
@@ -751,7 +751,7 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
 test("call onOpenChange when the autocomplete overlay close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             onOpenChange={handler}
             aria-label="Planet"
@@ -779,7 +779,7 @@ test("call onOpenChange when the autocomplete overlay close", async () => {
 test("call onSelectionChange when a value is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             onSelectionChange={handler}
             aria-label="Planet"
@@ -807,7 +807,7 @@ test("call onSelectionChange when a value is selected", async () => {
 test("calling the focus function on the autocomplete ref will focus the autocomplete", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Autocomplete
             defaultOpen
             ref={ref}
@@ -833,7 +833,7 @@ test("calling the focus function on the autocomplete ref will focus the autocomp
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <Autocomplete defaultOpen ref={ref} aria-label="Planet">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -851,7 +851,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Autocomplete
             defaultOpen
             ref={node => {
@@ -875,7 +875,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Autocomplete
             defaultOpen
             ref={handler}

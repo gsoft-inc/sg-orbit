@@ -1,12 +1,13 @@
 import { Field, HelpMessage, Label } from "@components/field";
 import { TextInput } from "@components/text-input";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when an id is provided, the field id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo" data-testid="field">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -17,7 +18,7 @@ test("when an id is provided, the field id attribute match the provided id", asy
 });
 
 test("when an id is provided, it is assigned to the input", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -30,7 +31,7 @@ test("when an id is provided, it is assigned to the input", async () => {
 });
 
 test("when an id is provided, it is set as the input name", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -43,7 +44,7 @@ test("when an id is provided, it is set as the input name", async () => {
 });
 
 test("when an id is provided and a name prop is set on the input, the name attribute on the input have precedence", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput name="bar" data-testid="text-input" />
@@ -56,7 +57,7 @@ test("when an id is provided and a name prop is set on the input, the name attri
 });
 
 test("when the id is auto generated, the label for attribute and the input id are matching", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -70,7 +71,7 @@ test("when the id is auto generated, the label for attribute and the input id ar
 });
 
 test("when an id is provided, the label for attribute and the input id are matching", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -84,7 +85,7 @@ test("when an id is provided, the label for attribute and the input id are match
 });
 
 test("when the id is auto generated, the field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -98,7 +99,7 @@ test("when the id is auto generated, the field aria-labelledby attribute match t
 });
 
 test("when an id is provided, the field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -112,7 +113,7 @@ test("when an id is provided, the field aria-labelledby attribute match the labe
 });
 
 test("when the id is auto generated, the field aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -127,7 +128,7 @@ test("when the id is auto generated, the field aria-describedby attribute match 
 });
 
 test("when an id is provided, the input aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field id="foo">
             <Label data-testid="field-label">Where to?</Label>
             <TextInput data-testid="text-input" />
@@ -146,7 +147,7 @@ test("when an id is provided, the input aria-describedby attribute match the mes
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Field ref={ref}>
             <TextInput aria-label="Label" />
         </Field>
@@ -161,7 +162,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Field
             ref={node => {
                 refNode = node;
@@ -180,7 +181,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Field ref={handler}>
             <TextInput aria-label="Label" />
         </Field>

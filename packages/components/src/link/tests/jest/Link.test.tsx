@@ -1,13 +1,13 @@
 import { AddIcon } from "@components/icons";
 import { Link } from "@components/link";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** External *****;
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Link external href="#" aria-label="Add" data-testid="link">
             <AddIcon />
         </Link>
@@ -17,7 +17,7 @@ test("when external, add rel=\"noopener noreferrer\"", async () => {
 });
 
 test("when autofocus is true, the icon link is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Link autoFocus href="#" aria-label="Add" data-testid="link">
             <AddIcon />
         </Link>
@@ -27,7 +27,7 @@ test("when autofocus is true, the icon link is focused on render", async () => {
 });
 
 test("when autofocus is true and the link is disabled, the icon link is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Link
             disabled
             autoFocus
@@ -43,7 +43,7 @@ test("when autofocus is true and the link is disabled, the icon link is not focu
 });
 
 test("when autofocus is specified with a delay, the link is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Link
             autoFocus={10}
             href="#"
@@ -66,7 +66,7 @@ test("when autofocus is specified with a delay, the link is focused after the de
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Link ref={ref} href="#" aria-label="Add">
             <AddIcon />
         </Link>
@@ -81,7 +81,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Link
             ref={node => {
                 refNode = node;
@@ -102,7 +102,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Link ref={handler} href="#" aria-label="Add">
             <AddIcon />
         </Link>

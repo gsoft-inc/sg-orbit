@@ -1,7 +1,8 @@
 import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { ReactNode } from "react";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
 import { useFocusManager, useFocusScope } from "@components/shared";
 import { useTrapFocus } from "@components/overlay";
 import userEvent from "@testing-library/user-event";
@@ -21,7 +22,7 @@ function Trap({ children }: { children?: ReactNode }) {
 }
 
 test("Move the focus to the next element of the scope on tab keypress", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <>
             <Button>1</Button>
             <Trap>
@@ -55,7 +56,7 @@ test("Move the focus to the next element of the scope on tab keypress", async ()
 });
 
 test("Move the focus to the previous element of the scope on shift + tab keypress", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <>
             <Button>1</Button>
             <Trap>
@@ -89,7 +90,7 @@ test("Move the focus to the previous element of the scope on shift + tab keypres
 });
 
 test("When an element of the scope is focused, clicking an element outside of the scope will focus back the last focused element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <>
             <Button data-testid="button-1">1</Button>
             <Trap>
@@ -113,7 +114,7 @@ test("When an element of the scope is focused, clicking an element outside of th
 });
 
 test("When no element of the scope is focused, clicking an element outside of the scope will focus the first focusable element of the scope", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <>
             <Button>1</Button>
             <Trap>

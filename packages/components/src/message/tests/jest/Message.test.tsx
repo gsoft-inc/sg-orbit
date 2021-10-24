@@ -1,11 +1,12 @@
 import { Message } from "@components/message";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when a message variant is \"informative\", role is \"status\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Message variant="informative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
@@ -13,7 +14,7 @@ test("when a message variant is \"informative\", role is \"status\"", async () =
 });
 
 test("when a message variant is \"warning\", role is \"alert\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Message variant="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
@@ -21,7 +22,7 @@ test("when a message variant is \"warning\", role is \"alert\"", async () => {
 });
 
 test("when a message variant is \"positive\", role is \"status\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Message variant="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
@@ -29,7 +30,7 @@ test("when a message variant is \"positive\", role is \"status\"", async () => {
 });
 
 test("when a message variant is \"negative\", role is \"alert\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Message variant="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
@@ -41,7 +42,7 @@ test("when a message variant is \"negative\", role is \"alert\"", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Message ref={ref}>Scheduled launch today at 1PM.</Message>
     );
 
@@ -54,7 +55,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Message
             ref={node => {
                 refNode = node;
@@ -73,7 +74,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Message ref={handler}>
             Scheduled launch today at 1PM.
         </Message>

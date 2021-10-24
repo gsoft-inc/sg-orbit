@@ -1,13 +1,14 @@
 import { DisclosureArrow } from "@components/disclosure";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <DisclosureArrow open ref={ref} />
     );
 

@@ -13,7 +13,7 @@
     "compilerOptions": {
         "paths": {
             "@typescript/*": ["./typescript/*"],
-            "@utils/*": ["./jest/utils/*"],
+            "@utils": ["./jest/utils"],
             "@components/*": ["./packages/components/src/*"],
             "@orbit-ui/components": ["./packages/components/src"]
         }

@@ -1,13 +1,14 @@
 import { Lozenge } from "@components/lozenge";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Lozenge ref={ref}>New</Lozenge>
     );
 
@@ -20,7 +21,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Lozenge
             ref={node => {
                 refNode = node;
@@ -37,7 +38,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Lozenge ref={handler}>New</Lozenge>
     );
 

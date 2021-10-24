@@ -1,13 +1,14 @@
 import { PasswordInput } from "@components/text-input";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 
 // ***** Api *****
 
 test("can focus the input with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <PasswordInput
             ref={node => {
                 refNode = node;
@@ -28,7 +29,7 @@ test("can focus the input with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <PasswordInput ref={ref} aria-label="Label" />
     );
 
@@ -41,7 +42,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <PasswordInput
             ref={node => {
                 refNode = node;
@@ -59,7 +60,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <PasswordInput ref={handler} aria-label="Label" />
     );
 

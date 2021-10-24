@@ -1,14 +1,15 @@
 import { Div } from "@components/html";
 import { Illustration } from "@components/illustration";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Illustration ref={ref}>
             <Div slot="image">Image</Div>
         </Illustration>
@@ -23,7 +24,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Illustration
             ref={node => {
                 refNode = node;
@@ -42,7 +43,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Illustration ref={handler}>
             <Div slot="image">Image</Div>
         </Illustration>

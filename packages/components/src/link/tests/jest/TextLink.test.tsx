@@ -1,36 +1,36 @@
 import { TextLink } from "@components/link";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** External *****
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
+    const { getByTestId } = renderWithTheme(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "noopener noreferrer"));
 });
 
 test("when external and rel is specified, don't add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = render(<TextLink rel="stylesheet" external href="#" data-testid="text-link">Flight details</TextLink>);
+    const { getByTestId } = renderWithTheme(<TextLink rel="stylesheet" external href="#" data-testid="text-link">Flight details</TextLink>);
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("rel", "stylesheet"));
 });
 
 test("when external, add target=\"_blank\"", async () => {
-    const { getByTestId } = render(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
+    const { getByTestId } = renderWithTheme(<TextLink external href="#" data-testid="text-link">Flight details</TextLink>);
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("target", "_blank"));
 });
 
 test("when external and target is specified, don't add target=\"_blank\"", async () => {
-    const { getByTestId } = render(<TextLink external target="_self" href="#" data-testid="text-link">Flight details</TextLink>);
+    const { getByTestId } = renderWithTheme(<TextLink external target="_self" href="#" data-testid="text-link">Flight details</TextLink>);
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveAttribute("target", "_self"));
 });
 
 test("when autofocus is true, the icon link is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextLink autoFocus href="#" data-testid="text-link">
             Flight details
         </TextLink>
@@ -40,7 +40,7 @@ test("when autofocus is true, the icon link is focused on render", async () => {
 });
 
 test("when autofocus is true and the link is disabled, the icon link is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextLink
             disabled
             autoFocus
@@ -55,7 +55,7 @@ test("when autofocus is true and the link is disabled, the icon link is not focu
 });
 
 test("when autofocus is specified with a delay, the link is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextLink
             autoFocus={10}
             href="#"
@@ -77,7 +77,7 @@ test("when autofocus is specified with a delay, the link is focused after the de
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <TextLink ref={ref} href="#">Flight details</TextLink>
     );
 
@@ -90,7 +90,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <TextLink
             ref={node => {
                 refNode = node;
@@ -110,7 +110,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <TextLink ref={handler} href="#">Flight details</TextLink>
     );
 

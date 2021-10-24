@@ -3,8 +3,9 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Menu, MenuTrigger } from "@components/menu";
 import { Transition } from "@components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
@@ -16,7 +17,7 @@ beforeEach(() => {
 // ***** Behaviors *****
 
 test("when a menu open and there is no selected item, the first item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -35,7 +36,7 @@ test("when a menu open and there is no selected item, the first item is focused"
 });
 
 test("when a menu open and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -54,7 +55,7 @@ test("when a menu open and there is a selected item, the selected item is focuse
 });
 
 test("when a menu open with arrow down keypress and there is no selected item, the first item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -73,7 +74,7 @@ test("when a menu open with arrow down keypress and there is no selected item, t
 });
 
 test("when a menu open with arrow down keypress and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -92,7 +93,7 @@ test("when a menu open with arrow down keypress and there is a selected item, th
 });
 
 test("when a menu open with arrow up keypress and there is no selected item, the last item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -111,7 +112,7 @@ test("when a menu open with arrow up keypress and there is no selected item, the
 });
 
 test("when a menu open with arrow up keypress and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -130,7 +131,7 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
 });
 
 test("when selectionMode is \"none\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="none" data-testid="menu">
@@ -153,7 +154,7 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
 });
 
 test("when selectionMode is \"single\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -176,7 +177,7 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
 });
 
 test("when selectionMode is \"multiple\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -202,7 +203,7 @@ test("selecting an item focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -225,7 +226,7 @@ test("selecting an item focus the trigger", async () => {
 });
 
 test("when closeOnSelect is false, selecting an item doesn't close the menu", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger closeOnSelect={false} defaultOpen>
             <Button>Trigger</Button>
             <Menu data-testid="menu">
@@ -244,7 +245,7 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <MenuTrigger>
@@ -279,7 +280,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <MenuTrigger>
@@ -318,7 +319,7 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
 // ***** Aria *****
 
 test("a menu trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -333,7 +334,7 @@ test("a menu trigger have an aria-haspopup attribute", async () => {
 });
 
 test("when a trigger have an aria-labelledby attribute, the menu aria-labelledby match the trigger aria-labelledby attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button aria-labelledby="trigger-label">Trigger</Button>
             <Menu data-testid="menu">
@@ -348,7 +349,7 @@ test("when a trigger have an aria-labelledby attribute, the menu aria-labelledby
 });
 
 test("when a trigger doesn't have a aria-labelledby attribute, the menu aria-labelledby match the trigger id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button id="trigger-id">Trigger</Button>
             <Menu data-testid="menu">
@@ -363,7 +364,7 @@ test("when a trigger doesn't have a aria-labelledby attribute, the menu aria-lab
 });
 
 test("when a trigger have a aria-describedby attribute, the menu aria-describedby match the trigger aria-describedby attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button aria-describedby="trigger-description">Trigger</Button>
             <Menu data-testid="menu">
@@ -378,7 +379,7 @@ test("when a trigger have a aria-describedby attribute, the menu aria-describedb
 });
 
 test("when a trigger have an id, use this id for the trigger", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button id="trigger-id" data-testid="trigger">Trigger</Button>
             <Menu>
@@ -393,7 +394,7 @@ test("when a trigger have an id, use this id for the trigger", async () => {
 });
 
 test("when a trigger doesn't have an id, a trigger id is autogenerated", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button id="trigger-id" data-testid="trigger">Trigger</Button>
             <Menu>
@@ -412,7 +413,7 @@ test("when a trigger doesn't have an id, a trigger id is autogenerated", async (
 test("call onOpenChange when the menu open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Menu data-testid="menu">
@@ -434,7 +435,7 @@ test("call onOpenChange when the menu open", async () => {
 test("call onOpenChange when the menu close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <MenuTrigger
             onOpenChange={handler}
             defaultOpen
@@ -465,7 +466,7 @@ test("call onOpenChange when the menu close", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <MenuTrigger defaultOpen ref={ref}>
             <Button>Trigger</Button>
             <Menu>
@@ -485,7 +486,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <MenuTrigger
             defaultOpen
             ref={node => {
@@ -510,7 +511,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <MenuTrigger
             defaultOpen
             ref={handler}

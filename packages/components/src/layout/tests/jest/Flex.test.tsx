@@ -1,7 +1,8 @@
 import { Div } from "@components/html";
 import { Flex, FlexProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const Flexed = forwardRef<HTMLDivElement, Omit<FlexProps, "children">>((props, ref) => {
     return (
@@ -19,7 +20,7 @@ const Flexed = forwardRef<HTMLDivElement, Omit<FlexProps, "children">>((props, r
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLDivElement>();
 
-    render(
+    renderWithTheme(
         <Flexed ref={ref} />
     );
 
@@ -32,7 +33,7 @@ test("ref is a DOM element", async () => {
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLDivElement = null;
 
-    render(
+    renderWithTheme(
         <Flexed
             ref={node => {
                 refNode = node;
@@ -49,7 +50,7 @@ test("using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Flexed ref={handler} />
     );
 

@@ -3,15 +3,15 @@ import { Item, Section } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Menu } from "@components/menu";
 import { Text } from "@components/typography";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when a menu have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -23,7 +23,7 @@ test("when a menu have no selection, the first item is tabbable", async () => {
 });
 
 test("when a menu with sections have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
@@ -43,7 +43,7 @@ test("when a menu with sections have no selection, the first item is tabbable", 
 });
 
 test("when a menu with dividers have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -57,7 +57,7 @@ test("when a menu with dividers have no selection, the first item is tabbable", 
 });
 
 test("a disabled item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item disabled key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -69,7 +69,7 @@ test("a disabled item is tabbable", async () => {
 });
 
 test("when a menu have a single item selected, this item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter"]} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -81,7 +81,7 @@ test("when a menu have a single item selected, this item is tabbable", async () 
 });
 
 test("when a menu have multiple selected items, the first selected item is tabbable", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -93,7 +93,7 @@ test("when a menu have multiple selected items, the first selected item is tabba
 });
 
 test("down arrow keypress moves focus to the next item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -113,7 +113,7 @@ test("down arrow keypress moves focus to the next item", async () => {
 });
 
 test("up arrow keypress moves focus to the previous item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -137,7 +137,7 @@ test("up arrow keypress moves focus to the previous item", async () => {
 });
 
 test("home keypress move the focus to the first item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -161,7 +161,7 @@ test("home keypress move the focus to the first item", async () => {
 });
 
 test("end keypress move the focus to the last item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -181,7 +181,7 @@ test("end keypress move the focus to the last item", async () => {
 });
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -201,7 +201,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the item se
 });
 
 test("when selectionMode is \"none\", enter keypress don't toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -221,7 +221,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the item selec
 });
 
 test("when selectionMode is \"none\", mouse click doesn't toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -237,7 +237,7 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the item select
 });
 
 test("when selectionMode is \"single\", spacebar keypress toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -263,7 +263,7 @@ test("when selectionMode is \"single\", spacebar keypress toggle the item select
 });
 
 test("when selectionMode is \"single\", enter keypress toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -289,7 +289,7 @@ test("when selectionMode is \"single\", enter keypress toggle the item selection
 });
 
 test("when selectionMode is \"single\", mouse click toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -311,7 +311,7 @@ test("when selectionMode is \"single\", mouse click toggle the item selection", 
 });
 
 test("when selectionMode is \"multiple\", spacebar keypress toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -337,7 +337,7 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the item sele
 });
 
 test("when selectionMode is \"multiple\", enter keypress toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -363,7 +363,7 @@ test("when selectionMode is \"multiple\", enter keypress toggle the item selecti
 });
 
 test("when selectionMode is \"multiple\", mouse click toggle the item selection", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -385,7 +385,7 @@ test("when selectionMode is \"multiple\", mouse click toggle the item selection"
 });
 
 test("when autofocus is true, the first menu item is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -397,7 +397,7 @@ test("when autofocus is true, the first menu item is focused on render", async (
 });
 
 test("when autofocus is true and the menu is disabled, the first item is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu disabled autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -409,7 +409,7 @@ test("when autofocus is true and the menu is disabled, the first item is not foc
 });
 
 test("when autofocus is true and the menu have sections, the first menu item is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu autoFocus>
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
@@ -429,7 +429,7 @@ test("when autofocus is true and the menu have sections, the first menu item is 
 });
 
 test("when autofocus is true and there is a single default key, the menu item matching the default key is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter"]} autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -441,7 +441,7 @@ test("when autofocus is true and there is a single default key, the menu item ma
 });
 
 test("when autofocus is true and there are multiple default keys, the menu item matching the first default key is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -453,7 +453,7 @@ test("when autofocus is true and there are multiple default keys, the menu item 
 });
 
 test("when autofocus is true and the default focus target is \"first\", the menu first item is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultFocusTarget="first" autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -465,7 +465,7 @@ test("when autofocus is true and the default focus target is \"first\", the menu
 });
 
 test("when autofocus is true and the default focus target is \"last\", the menu last item is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultFocusTarget="last" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -477,7 +477,7 @@ test("when autofocus is true and the default focus target is \"last\", the menu 
 });
 
 test("when autofocus is true and the default focus target match an item key, the menu item matching the key is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultFocusTarget="jupiter" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -489,7 +489,7 @@ test("when autofocus is true and the default focus target match an item key, the
 });
 
 test("when autofocus is specified with a delay, the first menu item is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu autoFocus={10}>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -507,7 +507,7 @@ test("when autofocus is specified with a delay, the first menu item is focused a
 // ***** Aria *****
 
 test("when an id is provided, the menu id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu id="foo" aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -519,7 +519,7 @@ test("when an id is provided, the menu id attribute match the provided id", asyn
 });
 
 test("a menu role is \"menu\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -531,7 +531,7 @@ test("a menu role is \"menu\"", async () => {
 });
 
 test("menu aria-orientation is always \"vertical\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -543,7 +543,7 @@ test("menu aria-orientation is always \"vertical\"", async () => {
 });
 
 test("when selectionMode is \"none\", a menu item role is \"menuitem\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -555,7 +555,7 @@ test("when selectionMode is \"none\", a menu item role is \"menuitem\"", async (
 });
 
 test("when selectionMode is \"single\", a menu item role is \"menuitemradio\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -567,7 +567,7 @@ test("when selectionMode is \"single\", a menu item role is \"menuitemradio\"", 
 });
 
 test("when selectionMode is \"multiple\", a menu item role is \"menuitemcheckbox\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -579,7 +579,7 @@ test("when selectionMode is \"multiple\", a menu item role is \"menuitemcheckbox
 });
 
 test("when a menu item is selected, aria-checked is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu defaultSelectedKeys={["earth"]} aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -591,7 +591,7 @@ test("when a menu item is selected, aria-checked is \"true\"", async () => {
 });
 
 test("when a menu item is disabled, aria-disabled is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item disabled key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -603,7 +603,7 @@ test("when a menu item is disabled, aria-disabled is \"true\"", async () => {
 });
 
 test("a menu item aria-labelledby match the menu item id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="earth-item" key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -615,7 +615,7 @@ test("a menu item aria-labelledby match the menu item id", async () => {
 });
 
 test("when a menu item have a description, the menu item aria-describedby match the description id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="earth-item" key="earth" data-testid="earth-item">
                 <Text>Earth</Text>
@@ -630,7 +630,7 @@ test("when a menu item have a description, the menu item aria-describedby match 
 });
 
 test("when an id is provided to an item, it is used as the item id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="i-am-earth" key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -642,7 +642,7 @@ test("when an id is provided to an item, it is used as the item id", async () =>
 });
 
 test("when no item id is provided, an item id is autogenerated", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -658,7 +658,7 @@ test("when no item id is provided, an item id is autogenerated", async () => {
 test("when selectionMode is \"none\", call onSelectionChange when a single item is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu
             selectionMode="none"
             onSelectionChange={handler}
@@ -681,7 +681,7 @@ test("when selectionMode is \"none\", call onSelectionChange when a single item 
 test("when selectionMode is \"single\", call onSelectionChange when a single item is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu
             onSelectionChange={handler}
             selectionMode="single"
@@ -704,7 +704,7 @@ test("when selectionMode is \"single\", call onSelectionChange when a single ite
 test("when selectionMode is \"multiple\", call onSelectionChange when multiple items are selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Menu
             onSelectionChange={handler}
             selectionMode="multiple"
@@ -733,7 +733,7 @@ test("when selectionMode is \"multiple\", call onSelectionChange when multiple i
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Menu ref={ref} >
             <Item key="jupiter">Jupiter</Item>
         </Menu>
@@ -748,7 +748,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Menu
             ref={node => {
                 refNode = node;
@@ -767,7 +767,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Menu ref={handler} >
             <Item key="jupiter">Jupiter</Item>
         </Menu>

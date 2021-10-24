@@ -12,7 +12,7 @@ module.exports = {
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
-        "@utils/(.*)$": "<rootDir>/jest/utils/$1",
+        "@utils$": "<rootDir>/jest/utils/index.ts",
         "@components/(.*)$": "<rootDir>/packages/components/src/$1"
     },
     setupFilesAfterEnv: [

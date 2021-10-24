@@ -1,6 +1,7 @@
 import { CheckIcon, IconList, IconListProps } from "@components/icons";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const Icons = forwardRef<HTMLElement, Omit<IconListProps, "children">>((props, ref) => {
     return (
@@ -17,7 +18,7 @@ const Icons = forwardRef<HTMLElement, Omit<IconListProps, "children">>((props, r
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Icons ref={ref} />
     );
 
@@ -30,7 +31,7 @@ test("ref is a DOM element", async () => {
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Icons
             ref={node => {
                 refNode = node;
@@ -47,7 +48,7 @@ test("using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Icons ref={handler} />
     );
 

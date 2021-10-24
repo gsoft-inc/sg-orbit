@@ -1,6 +1,6 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
 import { MultiVariantIcon, MultiVariantIconProps, createMultiVariantIcon } from "@components/icons";
-import { render } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
 
 function createIcon(props: Omit<MultiVariantIconProps, "src24" | "src32"> = {}) {
     return <MultiVariantIcon
@@ -15,7 +15,7 @@ function createIcon(props: Omit<MultiVariantIconProps, "src24" | "src32"> = {}) 
 test("ref is a DOM element", async () => {
     let refNode: SVGSVGElement = null;
 
-    render(
+    renderWithTheme(
         createIcon({
             ref: node => {
                 refNode = node;
@@ -33,7 +33,7 @@ test("hoc icon ref is a DOM element", async () => {
 
     const HocIcon = createMultiVariantIcon(FilterIcon24, FilterIcon32);
 
-    render(
+    renderWithTheme(
         <HocIcon
             ref={node => {
                 refNode = node;

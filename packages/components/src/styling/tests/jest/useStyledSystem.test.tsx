@@ -17,8 +17,9 @@ import {
     normalizeVariable,
     useStyledSystem
 } from "@components/styling";
-import { ComponentProps, Fragment } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { ComponentProps } from "react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
 
 const AlignmentSampling = [
@@ -327,7 +328,7 @@ describe("breakpoints", () => {
 });
 
 test("do not add inline style when a prop value is undefined", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             width={undefined}
             data-testid="box"
@@ -338,7 +339,7 @@ test("do not add inline style when a prop value is undefined", async () => {
 });
 
 test("when inline style is provided, append new style", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             style={{ display: "block" }}
             width={1}
@@ -353,7 +354,7 @@ test("when inline style is provided, append new style", async () => {
 });
 
 test("when hover prop is specified and there are already a class, append hover class", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             className="toto"
             borderHover="#fff"
@@ -365,7 +366,7 @@ test("when hover prop is specified and there are already a class, append hover c
 });
 
 test("do not add style when a prop value is undefined", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             bottom={undefined}
             data-testid="box"
@@ -376,7 +377,7 @@ test("do not add style when a prop value is undefined", async () => {
 });
 
 test("when style is provided, append new style values", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             style={{ top: "1px" }}
             bottom="2px"
@@ -388,7 +389,7 @@ test("when style is provided, append new style values", async () => {
 });
 
 test("when style is provided with a value matching a provided style prop, do not override the existing style", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Box
             style={{ top: "1px" }}
             top="2px"
@@ -400,7 +401,7 @@ test("when style is provided with a value matching a provided style prop, do not
 });
 
 test("when className is updated, update the rendered className", async () => {
-    const { getByTestId, rerender } = render(
+    const { getByTestId, rerender } = renderWithTheme(
         <Box
             className="toto"
             top="2px"
@@ -422,7 +423,7 @@ test("when className is updated, update the rendered className", async () => {
 });
 
 test("when style is updated, update the rendered inline style", async () => {
-    const { getByTestId, rerender } = render(
+    const { getByTestId, rerender } = renderWithTheme(
         <Box
             style={{ top: "1px" }}
             top="2px"

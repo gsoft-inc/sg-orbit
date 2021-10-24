@@ -2,7 +2,8 @@ import { Field, Label } from "@components/field";
 import { Fieldset, FieldsetProps } from "@components/form";
 import { TextInput } from "@components/text-input";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const BasicFieldset = forwardRef<HTMLElement, Omit<FieldsetProps, "children" | "label">>((props, ref) => {
     return (
@@ -30,7 +31,7 @@ function getLabel(element: HTMLElement) {
 // ***** Aria *****
 
 test("when an id is provided, the fieldset id attribute match the provided id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <BasicFieldset id="foo" data-testid="fieldset" />
     );
 
@@ -38,7 +39,7 @@ test("when an id is provided, the fieldset id attribute match the provided id", 
 });
 
 test("a field role is \"group\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <BasicFieldset data-testid="fieldset" />
     );
 
@@ -46,7 +47,7 @@ test("a field role is \"group\"", async () => {
 });
 
 test("when an id is provided, the fieldset aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <BasicFieldset id="foo" data-testid="fieldset" />
     );
 
@@ -56,7 +57,7 @@ test("when an id is provided, the fieldset aria-labelledby attribute match the l
 });
 
 test("when an id is auto generated, the fieldset aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <BasicFieldset data-testid="fieldset" />
     );
 
@@ -70,7 +71,7 @@ test("when an id is auto generated, the fieldset aria-labelledby attribute match
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <BasicFieldset ref={ref} />
     );
 
@@ -83,7 +84,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <BasicFieldset
             ref={node => {
                 refNode = node;
@@ -100,7 +101,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <BasicFieldset ref={handler} />
     );
 

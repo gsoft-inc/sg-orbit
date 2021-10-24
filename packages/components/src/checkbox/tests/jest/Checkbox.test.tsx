@@ -1,7 +1,7 @@
 import { Checkbox } from "@components/checkbox";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -11,7 +11,7 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the checkbox is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox autoFocus data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -19,7 +19,7 @@ test("when autofocus is true, the checkbox is focused on render", async () => {
 });
 
 test("when autofocus is true and the checkbox is disabled, the checkbox is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox
             disabled
             autoFocus
@@ -31,7 +31,7 @@ test("when autofocus is true and the checkbox is disabled, the checkbox is not f
 });
 
 test("when autofocus is specified with a delay, the checkbox is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox
             autoFocus={10}
             data-testid="checkbox"
@@ -50,7 +50,7 @@ test("when autofocus is specified with a delay, the checkbox is focused after th
 test("call onChange, when the checkbox is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -65,7 +65,7 @@ test("call onChange, when the checkbox is checked", async () => {
 test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -84,7 +84,7 @@ test("call onChange when the checkbox is unchecked", async () => {
 test("call onValueChange when the checkbox is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -99,7 +99,7 @@ test("call onValueChange when the checkbox is checked", async () => {
 test("call onValueChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -118,7 +118,7 @@ test("call onValueChange when the checkbox is unchecked", async () => {
 test("call onValueChange when the checkbox goes from indeterminate to checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -133,7 +133,7 @@ test("call onValueChange when the checkbox goes from indeterminate to checked", 
 test("dont call onValueChange when the checkbox is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Checkbox disabled onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -147,7 +147,7 @@ test("dont call onValueChange when the checkbox is disabled", async () => {
 test("can focus the checkbox with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Checkbox
             ref={node => {
                 refNode = node;
@@ -168,7 +168,7 @@ test("can focus the checkbox with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Checkbox ref={ref} data-testid="checkbox">Milky Way</Checkbox>
     );
 
@@ -181,7 +181,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Checkbox
             ref={node => {
                 refNode = node;
@@ -199,7 +199,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Checkbox ref={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 

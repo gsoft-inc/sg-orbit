@@ -4,14 +4,15 @@ import { Heading } from "@components/typography";
 import { HtmlInput } from "@components/html";
 import { Popover } from "@components/popover";
 import { TextLink } from "@components/link";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when an element is manually autofocus, keep the focus on this element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -26,7 +27,7 @@ test("when an element is manually autofocus, keep the focus on this element", as
 });
 
 test("when no element is focused, autofocus the first focusable element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -40,7 +41,7 @@ test("when no element is focused, autofocus the first focusable element", async 
 });
 
 test("when no element is focused and there are no focusable element, autofocus the popover element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -51,7 +52,7 @@ test("when no element is focused and there are no focusable element, autofocus t
 });
 
 test("do not autofocus an anchor element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -67,7 +68,7 @@ test("do not autofocus an anchor element", async () => {
 });
 
 test("tabbing the last focusable element of the popover will move the focus to the popover element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -91,7 +92,7 @@ test("tabbing the last focusable element of the popover will move the focus to t
 // ***** Aria *****
 
 test("when an id is provided, the popover id attribute match the provided id value.", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover id="foo" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -102,7 +103,7 @@ test("when an id is provided, the popover id attribute match the provided id val
 });
 
 test("when an aria-label attribute and an aria-labelledby attribute are provided, do not set aria-labelledby on the popover", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover aria-label="Iconic Arecibo Observatory" aria-labelledby="heading-1" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -114,7 +115,7 @@ test("when an aria-label attribute and an aria-labelledby attribute are provided
 });
 
 test("when an aria-labelledby attribute is provided, the popover aria-labelledby attribute value match the provided value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover aria-labelledby="heading-1" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -125,7 +126,7 @@ test("when an aria-labelledby attribute is provided, the popover aria-labelledby
 });
 
 test("when no aria-label or aria-labelledby attributes are provided, the popover aria-labelledby attribute value match the heading id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Popover data-testid="popover">
             <Heading id="heading-1">Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -140,7 +141,7 @@ test("when no aria-label or aria-labelledby attributes are provided, the popover
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Popover ref={ref}>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
@@ -156,7 +157,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Popover
             ref={node => {
                 refNode = node;
@@ -176,7 +177,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Popover ref={handler}>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>

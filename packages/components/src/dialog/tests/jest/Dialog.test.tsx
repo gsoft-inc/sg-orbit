@@ -2,14 +2,15 @@ import { Button } from "@components/button";
 import { Content, Footer, Header } from "@components/placeholders";
 import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when an element is manually autofocus, keep the focus on this element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -24,7 +25,7 @@ test("when an element is manually autofocus, keep the focus on this element", as
 });
 
 test("when no element is focused, autofocus the first focusable element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -38,7 +39,7 @@ test("when no element is focused, autofocus the first focusable element", async 
 });
 
 test("when no element is focused and there are no focusable element, autofocus the dialog element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -49,7 +50,7 @@ test("when no element is focused and there are no focusable element, autofocus t
 });
 
 test("do not autofocus an anchor element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Header>
@@ -68,7 +69,7 @@ test("do not autofocus an anchor element", async () => {
 });
 
 test("tabbing the last focusable element of the dialog will move the focus to the dialog element", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -92,7 +93,7 @@ test("tabbing the last focusable element of the dialog will move the focus to th
 // ***** Aria *****
 
 test("when an id is provided, the dialog id attribute match the provided id value.", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog id="foo" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -103,7 +104,7 @@ test("when an id is provided, the dialog id attribute match the provided id valu
 });
 
 test("when no role are provided role, the dialog role is \"dialog\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -114,7 +115,7 @@ test("when no role are provided role, the dialog role is \"dialog\"", async () =
 });
 
 test("when the role \"alertdialog\" is provided, the dialog role is \"alertdialog\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog role="alertdialog" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -125,7 +126,7 @@ test("when the role \"alertdialog\" is provided, the dialog role is \"alertdialo
 });
 
 test("a dialog aria-modal attribute value is \"true\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -136,7 +137,7 @@ test("a dialog aria-modal attribute value is \"true\"", async () => {
 });
 
 test("when an aria-label attribute and an aria-labelledby attribute are provided, do not set aria-labelledby on the dialog", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog aria-label="Iconic Arecibo Observatory" aria-labelledby="heading-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -148,7 +149,7 @@ test("when an aria-label attribute and an aria-labelledby attribute are provided
 });
 
 test("when an aria-labelledby attribute is provided, the dialog aria-labelledby attribute value match the provided value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog aria-labelledby="heading-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -159,7 +160,7 @@ test("when an aria-labelledby attribute is provided, the dialog aria-labelledby 
 });
 
 test("when no aria-label or aria-labelledby attributes are provided, the dialog aria-labelledby attribute value match the heading id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading id="heading-1">Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -170,7 +171,7 @@ test("when no aria-label or aria-labelledby attributes are provided, the dialog 
 });
 
 test("when an aria-describedby attribute is provided, the dialog aria-describedby attribute value match the provided value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog aria-describedby="content-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -181,7 +182,7 @@ test("when an aria-describedby attribute is provided, the dialog aria-describedb
 });
 
 test("when no aria-describedby attributes is provided, the dialog aria-describedby attribute value match the content id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content id="content-1">This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -196,7 +197,7 @@ test("when no aria-describedby attributes is provided, the dialog aria-described
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Dialog ref={ref}>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -212,7 +213,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Dialog
             ref={node => {
                 refNode = node;
@@ -232,7 +233,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Dialog ref={handler}>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>

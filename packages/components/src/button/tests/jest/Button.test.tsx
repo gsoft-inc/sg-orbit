@@ -1,12 +1,12 @@
 import { Button } from "@components/button";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Button autoFocus variant="secondary" data-testid="button">Cutoff</Button>
     );
 
@@ -14,7 +14,7 @@ test("when autofocus is true, the button is focused on render", async () => {
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Button
             disabled
             autoFocus
@@ -27,7 +27,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Button
             autoFocus={10}
             variant="secondary"
@@ -45,7 +45,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
 // ***** Aria *****
 
 test("when no type is specified, the type is default to \"button\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Button
             variant="secondary"
             data-testid="button"
@@ -56,7 +56,7 @@ test("when no type is specified, the type is default to \"button\"", async () =>
 });
 
 test("when type is specified, the type is forwarded", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Button
             type="submit"
             variant="secondary"
@@ -72,7 +72,7 @@ test("when type is specified, the type is forwarded", async () => {
 test("can focus the button with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Button
             variant="secondary"
             ref={node => {
@@ -93,7 +93,7 @@ test("can focus the button with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
-    render(
+    renderWithTheme(
         <Button variant="secondary" ref={ref}>Cutoff</Button>
     );
 
@@ -106,7 +106,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Button
             variant="secondary"
             ref={node => {
@@ -124,7 +124,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Button variant="secondary" ref={handler}>Cutoff</Button>
     );
 

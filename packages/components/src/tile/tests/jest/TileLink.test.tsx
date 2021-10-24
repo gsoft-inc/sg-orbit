@@ -2,14 +2,15 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { TileLink } from "@components/tile";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <TileLink ref={ref}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -25,7 +26,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <TileLink
             ref={node => {
                 refNode = node;
@@ -45,7 +46,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <TileLink ref={handler}>
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>

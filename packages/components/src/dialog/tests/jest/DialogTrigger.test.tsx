@@ -4,8 +4,9 @@ import { Dialog, DialogProps, DialogTrigger, useDialogTriggerContext } from "@co
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef, forwardRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -16,7 +17,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when dismissable is true, close the dialog on dismiss button click", async () => {
-    const { getByLabelText, getByTestId, queryByTestId } = render(
+    const { getByLabelText, getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -40,7 +41,7 @@ test("when dismissable is true, close the dialog on dismiss button click", async
 });
 
 test("when dismissable is true, close the dialog on outside click", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -64,7 +65,7 @@ test("when dismissable is true, close the dialog on outside click", async () => 
 });
 
 test("when dismissable is true, close the dialog on esc keypress", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -88,7 +89,7 @@ test("when dismissable is true, close the dialog on esc keypress", async () => {
 });
 
 test("when dismissable is false, do not close the dialog on outside click", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -112,7 +113,7 @@ test("when dismissable is false, do not close the dialog on outside click", asyn
 });
 
 test("when dismissable is false, close the dialog on esc keypress", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -136,7 +137,7 @@ test("when dismissable is false, close the dialog on esc keypress", async () => 
 });
 
 test("when the render props close function is called, close the dialog", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger>
             {({ close }: { close: () => void }) => {
                 return (
@@ -183,7 +184,7 @@ test("when the context close function is called, close the dialog", async () => 
         );
     });
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <CustomDialog />
@@ -208,7 +209,7 @@ test("when the context close function is called, close the dialog", async () => 
 test("when the dialog open, call onOpenChange", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -231,7 +232,7 @@ test("when the dialog open, call onOpenChange", async () => {
 test("call onOpenChange when the dismiss button is clicked", async () => {
     const handler = jest.fn();
 
-    const { getByLabelText, getByTestId, queryByTestId } = render(
+    const { getByLabelText, getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -260,7 +261,7 @@ test("call onOpenChange when the dismiss button is clicked", async () => {
 test("call onOpenChange on outside click", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -289,7 +290,7 @@ test("call onOpenChange on outside click", async () => {
 test("call onOpenChange on esc keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -318,7 +319,7 @@ test("call onOpenChange on esc keypress", async () => {
 test("call onOpenChange when the close function is called", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger onOpenChange={handler}>
             {({ close }: { close: () => void }) => {
                 return (
@@ -356,7 +357,7 @@ test("call onOpenChange when the close function is called", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <DialogTrigger defaultOpen ref={ref}>
             <Button>Trigger</Button>
             <Dialog>
@@ -375,7 +376,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <DialogTrigger
             defaultOpen
             ref={node => {
@@ -399,7 +400,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <DialogTrigger defaultOpen ref={handler}>
             <Button>Trigger</Button>
             <Dialog>

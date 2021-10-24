@@ -1,8 +1,9 @@
 import { ComponentProps } from "react";
 import { Keys } from "@components/shared";
 import { UseOverlayTriggerOptions, useOverlayTrigger } from "@components/overlay";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { mergeProps } from "@components/shared";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = { open: boolean } & UseOverlayTriggerOptions & ComponentProps<"button">;
@@ -41,7 +42,7 @@ describe("\"click\" trigger", () => {
     test("when is closed, call onShow on trigger click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -60,7 +61,7 @@ describe("\"click\" trigger", () => {
     test("when is closed, call onShow on trigger space keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -79,7 +80,7 @@ describe("\"click\" trigger", () => {
     test("when is opened, do not call onShow on trigger space keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open
                 onShow={handler}
@@ -98,7 +99,7 @@ describe("\"click\" trigger", () => {
     test("when is closed, call onShow on trigger enter keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -117,7 +118,7 @@ describe("\"click\" trigger", () => {
     test("when is opened, do not call onShow on trigger enter keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -136,7 +137,7 @@ describe("\"click\" trigger", () => {
     test("when is closed and disabled, do not call onShow on trigger click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 disabled
@@ -156,7 +157,7 @@ describe("\"click\" trigger", () => {
     test("when is closed and disabled, do not call onShow on trigger space keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 disabled
@@ -176,7 +177,7 @@ describe("\"click\" trigger", () => {
     test("when is closed and disabled, do not call onShow on trigger enter keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 disabled
@@ -196,7 +197,7 @@ describe("\"click\" trigger", () => {
     test("when is opened, call onHide on trigger click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open
                 onHide={handler}
@@ -217,7 +218,7 @@ describe("\"hover\" trigger", () => {
     test("when is closed, call onShow on hover", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -236,7 +237,7 @@ describe("\"hover\" trigger", () => {
     test("when is closed, call onShow on focus", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -255,7 +256,7 @@ describe("\"hover\" trigger", () => {
     test("when is opened, call onHide on unhover", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open
                 onShow={handler}
@@ -278,7 +279,7 @@ describe("\"hover\" trigger", () => {
     test("when is opened, call onHide on blur", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open
                 onShow={handler}
@@ -301,7 +302,7 @@ describe("\"hover\" trigger", () => {
     test("when hideOnLeave is false, do not call onHide on unhover", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnLeave={false}
                 open
@@ -325,7 +326,7 @@ describe("\"hover\" trigger", () => {
     test("when hideOnLeave is false, do not call onHide on blur", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 hideOnLeave={false}
                 open
@@ -349,7 +350,7 @@ describe("\"hover\" trigger", () => {
     test("when is closed and disabled, do not call onShow on hover", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 disabled
                 open={false}
@@ -369,7 +370,7 @@ describe("\"hover\" trigger", () => {
     test("when is closed and disabled, do not call onShow on focus", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 disabled
                 open={false}
@@ -391,7 +392,7 @@ describe("\"none\" trigger", () => {
     test("when is closed, do not call onShow on trigger click", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -410,7 +411,7 @@ describe("\"none\" trigger", () => {
     test("when is closed, do not call onShow on trigger space keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -429,7 +430,7 @@ describe("\"none\" trigger", () => {
     test("when is closed, do not call onShow on trigger enter keypress", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -448,7 +449,7 @@ describe("\"none\" trigger", () => {
     test("when is closed, do not call onShow on hover", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}
@@ -467,7 +468,7 @@ describe("\"none\" trigger", () => {
     test("when is closed, do not call onShow on focus", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = render(
+        const { getByTestId } = renderWithTheme(
             <Overlay
                 open={false}
                 onShow={handler}

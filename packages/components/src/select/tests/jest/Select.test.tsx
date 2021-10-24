@@ -4,8 +4,9 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
@@ -17,7 +18,7 @@ beforeEach(() => {
 // ***** Behaviors *****
 
 test("when a select open and there is no selected option, the first option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -33,7 +34,7 @@ test("when a select open and there is no selected option, the first option is fo
 });
 
 test("when a select open and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -49,7 +50,7 @@ test("when a select open and there is a selected option, the selected option is 
 });
 
 test("when a select open with arrow down keypress and there is no selected option, the first option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -65,7 +66,7 @@ test("when a select open with arrow down keypress and there is no selected optio
 });
 
 test("when a select open with arrow down keypress and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -81,7 +82,7 @@ test("when a select open with arrow down keypress and there is a selected option
 });
 
 test("when a select open with arrow up keypress and there is no selected option, the last option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -97,7 +98,7 @@ test("when a select open with arrow up keypress and there is no selected option,
 });
 
 test("when a select open with arrow up keypress and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -113,7 +114,7 @@ test("when a select open with arrow up keypress and there is a selected option, 
 });
 
 test("selecting an option close the menu", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -136,7 +137,7 @@ test("selecting an option close the menu", async () => {
 });
 
 test("selecting an option update the trigger selected value text", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -159,7 +160,7 @@ test("selecting an option focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <Select
             overlayProps={{ "data-testid": "overlay" }}
             data-testid="select"
@@ -182,7 +183,7 @@ test("selecting an option focus the trigger", async () => {
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <Select
@@ -217,7 +218,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { getByTestId, queryByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Select
@@ -252,7 +253,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
 });
 
 test("when in a field, clicking on the field label open the select and focus the first option", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Select</Label>
             <Select
@@ -276,7 +277,7 @@ test("when in a field, clicking on the field label open the select and focus the
 });
 
 test("when autofocus is true, the select trigger is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             autoFocus
             data-testid="select"
@@ -291,7 +292,7 @@ test("when autofocus is true, the select trigger is focused on render", async ()
 });
 
 test("when autofocus is true and the select is disabled, the select trigger is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             disabled
             autoFocus
@@ -309,7 +310,7 @@ test("when autofocus is true and the select is disabled, the select trigger is n
 // ***** Aria *****
 
 test("a select have an aria-haspopup attribute", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             defaultOpen
             data-testid="select"
@@ -324,7 +325,7 @@ test("a select have an aria-haspopup attribute", async () => {
 });
 
 test("when an aria-label and an aria-labelledby are provided, do not set aria-labelledby on the trigger", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             aria-label="Planets"
             aria-labelledby="an-id"
@@ -340,7 +341,7 @@ test("when an aria-label and an aria-labelledby are provided, do not set aria-la
 });
 
 test("when an id is provided, it is used as the trigger id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             id="planets"
             data-testid="select"
@@ -355,7 +356,7 @@ test("when an id is provided, it is used as the trigger id", async () => {
 });
 
 test("when no id is provided, generate a trigger id", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -367,7 +368,7 @@ test("when no id is provided, generate a trigger id", async () => {
 });
 
 test("when an aria-label and an aria-labelledby are provided, do not set aria-labelledby on the overlay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             defaultOpen
             overlayProps={{ "data-testid": "overlay" }}
@@ -384,7 +385,7 @@ test("when an aria-label and an aria-labelledby are provided, do not set aria-la
 });
 
 test("when no aria-label and no aria-labelledby are provided, set the trigger id as listbox aria-labelledby", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             id="planets"
             defaultOpen
@@ -404,7 +405,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
 test("call onOpenChange when the select open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             onOpenChange={handler}
             overlayProps={{ "data-testid": "overlay" }}
@@ -427,7 +428,7 @@ test("call onOpenChange when the select open", async () => {
 test("call onOpenChange when the select close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             onOpenChange={handler}
             defaultOpen
@@ -455,7 +456,7 @@ test("call onOpenChange when the select close", async () => {
 test("call onSelectionChange when an option is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select
             onSelectionChange={handler}
             defaultOpen
@@ -479,7 +480,7 @@ test("call onSelectionChange when an option is selected", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Select ref={ref}>
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -496,7 +497,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Select
             ref={node => {
                 refNode = node;
@@ -517,7 +518,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Select ref={handler}>
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -531,7 +532,7 @@ test("set ref once", async () => {
 test("calling the focus function on the select ref will focus the select trigger", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Select ref={ref} data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>

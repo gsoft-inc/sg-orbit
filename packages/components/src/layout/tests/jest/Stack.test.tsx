@@ -1,7 +1,8 @@
 import { Div } from "@components/html";
 import { Stack, StackProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const Stacked = forwardRef<HTMLElement, Omit<StackProps, "children">>((props, ref) => {
     return (
@@ -19,7 +20,7 @@ const Stacked = forwardRef<HTMLElement, Omit<StackProps, "children">>((props, re
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Stacked ref={ref} />
     );
 
@@ -32,7 +33,7 @@ test("ref is a DOM element", async () => {
 test("using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Stacked
             ref={node => {
                 refNode = node;
@@ -49,7 +50,7 @@ test("using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Stacked ref={handler} />
     );
 

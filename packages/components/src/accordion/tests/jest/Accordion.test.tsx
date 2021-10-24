@@ -3,14 +3,14 @@ import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 
 // ***** Behaviors *****
 
 test("down arrow keypress select the next item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -39,7 +39,7 @@ test("down arrow keypress select the next item", async () => {
 });
 
 test("up arrow keypress select the next item", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -68,7 +68,7 @@ test("up arrow keypress select the next item", async () => {
 });
 
 test("when autofocus is true, accordion header is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion autoFocus>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -89,7 +89,7 @@ test("when autofocus is true, accordion header is focused on render", async () =
 });
 
 test("when autofocus is specified with a delay, accordion header is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion autoFocus={10}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -116,7 +116,7 @@ test("when autofocus is specified with a delay, accordion header is focused afte
 // ***** Aria *****
 
 test("when an id is provided, the accordion id attribute match the provided value", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion id="foo" data-testid="accordion">
             <Item>
                 <H3>Header</H3>
@@ -137,7 +137,7 @@ test("when an id is provided, the accordion id attribute match the provided valu
 test("when single, call onExpansionChange when the expanded tab change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion expansionMode="single" onExpansionChange={handler}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -171,7 +171,7 @@ test("when single, call onExpansionChange when the expanded tab change", async (
 test("when multiple, call onExpansionChange when the expanded tabs change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Accordion expansionMode="multiple" onExpansionChange={handler}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -213,7 +213,7 @@ test("when multiple, call onExpansionChange when the expanded tabs change", asyn
 test("accordion ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Accordion ref={ref}>
             <Item>
                 <H3>Header</H3>
@@ -231,7 +231,7 @@ test("accordion ref is a DOM element", async () => {
 test("header ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Accordion>
             <Item>
                 <H3 ref={ref}>Header</H3>
@@ -249,7 +249,7 @@ test("header ref is a DOM element", async () => {
 test("content ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Accordion>
             <Item>
                 <H3>Header</H3>

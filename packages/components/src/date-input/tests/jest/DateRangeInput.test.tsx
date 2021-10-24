@@ -2,9 +2,9 @@ import { Button } from "@components/button";
 import { DateRangeInput } from "@components/date-input";
 import { GroupField } from "@components/field";
 import { Keys } from "@components/shared";
-import { act, fireEvent, render, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
@@ -36,7 +36,7 @@ function getEndDateInput(container: HTMLElement, name = "date-range") {
 // ***** Behaviors *****
 
 test("when a valid date has been entered in the start date input, move focus to the end date input", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -50,7 +50,7 @@ test("when a valid date has been entered in the start date input, move focus to 
 });
 
 test("when the focus is in the end date input and the end date input value is empty, move focus to the start date input on backspace keypress", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -72,7 +72,7 @@ test("when the focus is in the end date input and the end date input value is em
 });
 
 test("when the focus is in the end date input and the end date input value is empty, keep focus in the end date input on non digit character keypress", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -94,7 +94,7 @@ test("when the focus is in the end date input and the end date input value is em
 });
 
 test("when the focus is in the end date input and the end date input value is not empty, move focus to the start date input on the next backspace keypress following the clearing of the end date input value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -112,7 +112,7 @@ test("when the focus is in the end date input and the end date input value is no
 });
 
 test("when the focus is in the start date input, tab keypress move the focus to the end date input", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -128,7 +128,7 @@ test("when the focus is in the start date input, tab keypress move the focus to 
 });
 
 test("when the focus is in the end date input, shift + tab keypress move the focus to the start date input", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput name="date-range" />
     );
 
@@ -144,7 +144,7 @@ test("when the focus is in the end date input, shift + tab keypress move the foc
 });
 
 test("when the start date is greater than the end date, reset the start date to the end date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             defaultEndDate={new Date(2020, 0, 1)}
             name="date-range"
@@ -171,7 +171,7 @@ test("when the start date is greater than the end date, reset the start date to 
 });
 
 test("when the end date is lower than the start date, reset the end date to the start date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             defaultStartDate={new Date(2020, 0, 1)}
             name="date-range"
@@ -198,7 +198,7 @@ test("when the end date is lower than the start date, reset the end date to the 
 });
 
 test("when the start date is lower than the min date, reset the start date to the min date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             min={new Date(2020, 0, 1)}
             name="date-range"
@@ -225,7 +225,7 @@ test("when the start date is lower than the min date, reset the start date to th
 });
 
 test("when the start date is greater than the max date, reset the start date to the max date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             max={new Date(2020, 0, 1)}
             name="date-range"
@@ -252,7 +252,7 @@ test("when the start date is greater than the max date, reset the start date to 
 });
 
 test("when the end date is lower than the min date, reset the end date to the min date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             min={new Date(2020, 0, 1)}
             name="date-range"
@@ -279,7 +279,7 @@ test("when the end date is lower than the min date, reset the end date to the mi
 });
 
 test("when the end date is greater than the max date, reset the end date to the max date value", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             max={new Date(2020, 0, 1)}
             name="date-range"
@@ -306,7 +306,7 @@ test("when the end date is greater than the max date, reset the end date to the 
 });
 
 test("clear both dates on clear button click", async () => {
-    const { container, getByRole } = render(
+    const { container, getByRole } = renderWithTheme(
         <DateRangeInput
             defaultStartDate={new Date(2020, 0, 1)}
             defaultEndDate={new Date(2021, 0, 1)}
@@ -323,7 +323,7 @@ test("clear both dates on clear button click", async () => {
 });
 
 test("clear both dates on esc keypress", async () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             defaultStartDate={new Date(2020, 0, 1)}
             defaultEndDate={new Date(2021, 0, 1)}
@@ -344,7 +344,7 @@ test("clear both dates on esc keypress", async () => {
 });
 
 test("tab keypress from outside will focus the start date input", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <DateRangeInput
@@ -369,7 +369,7 @@ test("tab keypress from outside will focus the start date input", async () => {
 });
 
 // test("shift + tab keypress from outside will focus the start date input", async () => {
-//     const { container, getByTestId } = render(
+//     const { container, getByTestId } = renderWithTheme(
 //         <>
 //             <DateRangeInput
 //                 defaultStartDate={new Date(2020, 0, 1)}
@@ -394,7 +394,7 @@ test("tab keypress from outside will focus the start date input", async () => {
 // });
 
 test("when autofocus is true, the date range input is focused on render", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <DateRangeInput
             autoFocus
             name="date-range"
@@ -407,7 +407,7 @@ test("when autofocus is true, the date range input is focused on render", async 
 });
 
 test("when autofocus is true and the date range input is disabled, the date range input is not focused on render", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <DateRangeInput
             disabled
             autoFocus
@@ -421,7 +421,7 @@ test("when autofocus is true and the date range input is disabled, the date rang
 });
 
 test("when autofocus is true and the date range input is readonly, the date range input is not focused on render", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <DateRangeInput
             readOnly
             autoFocus
@@ -435,7 +435,7 @@ test("when autofocus is true and the date range input is readonly, the date rang
 });
 
 test("when autofocus is specified with a delay, the date range input is focused after the delay", async () => {
-    const { container, getByTestId } = render(
+    const { container, getByTestId } = renderWithTheme(
         <DateRangeInput
             autoFocus={10}
             name="date-range"
@@ -454,7 +454,7 @@ test("when autofocus is specified with a delay, the date range input is focused 
 
 describe("compact presets", () => {
     test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -489,7 +489,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected, the preset menu trigger is focused", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -511,7 +511,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -533,7 +533,7 @@ describe("compact presets", () => {
     });
 
     test("when dates match a preset, the selected item of the menu match the preset", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateRangeInput
                 startDate={new Date(2020, 0, 1)}
                 endDate={new Date(2020, 0, 7)}
@@ -555,7 +555,7 @@ describe("compact presets", () => {
 
 describe("extended presets", () => {
     test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-        const { container, getByRole } = render(
+        const { container, getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="expanded"
@@ -584,7 +584,7 @@ describe("extended presets", () => {
     });
 
     test("when a preset is selected, the toggled button match the selected preset", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="expanded"
@@ -600,7 +600,7 @@ describe("extended presets", () => {
     });
 
     test("when dates match a preset, the toggled button match the preset", async () => {
-        const { getByRole } = render(
+        const { getByRole } = renderWithTheme(
             <DateRangeInput
                 startDate={new Date(2020, 0, 1)}
                 endDate={new Date(2020, 0, 7)}
@@ -617,7 +617,7 @@ describe("extended presets", () => {
 // ***** Aria *****
 
 test("when is not in a group field, role is \"group\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <DateRangeInput data-testid="date-range-input" />
     );
 
@@ -625,7 +625,7 @@ test("when is not in a group field, role is \"group\"", async () => {
 });
 
 test("when is in a group field, a role attribute is not rendered", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <GroupField>
             <DateRangeInput data-testid="date-range-input" />
         </GroupField>
@@ -639,7 +639,7 @@ test("when is in a group field, a role attribute is not rendered", async () => {
 test("when a start date is applied, call onDatesChange with the new start date", async () => {
     const handler = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             onDatesChange={handler}
             name="date-range"
@@ -663,7 +663,7 @@ test("when a start date is applied, call onDatesChange with the new start date",
 test("when an end date is applied, call onDatesChange with the new end date", async () => {
     const handler = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             onDatesChange={handler}
             name="date-range"
@@ -687,7 +687,7 @@ test("when an end date is applied, call onDatesChange with the new end date", as
 test("when the start date and the end date are applied, call onDatesChange with both dates", async () => {
     const handler = jest.fn();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             onDatesChange={handler}
             name="date-range"
@@ -719,7 +719,7 @@ test("when the start date and the end date are applied, call onDatesChange with 
 test("when the dates are cleared, call onDatesChange with null for both dates", async () => {
     const handler = jest.fn();
 
-    const { getByRole } = render(
+    const { getByRole } = renderWithTheme(
         <DateRangeInput
             defaultStartDate={new Date(2020, 0, 1)}
             defaultEndDate={new Date(2021, 0, 1)}
@@ -738,7 +738,7 @@ test("when the dates are cleared, call onDatesChange with null for both dates", 
 test("when a preset is selected, call onDatesChange with both dates", async () => {
     const handler = jest.fn();
 
-    const { container, getByRole } = render(
+    const { container, getByRole } = renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             onDatesChange={handler}
@@ -763,7 +763,7 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
 test("can focus the start date input with the focus api", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             name="date-range"
             ref={ref}
@@ -780,7 +780,7 @@ test("can focus the start date input with the focus api", async () => {
 test("when compact presets are provided, can focus the start date input with the focus api", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             presetsVariant="compact"
@@ -799,7 +799,7 @@ test("when compact presets are provided, can focus the start date input with the
 test("when expanded presets are provided, can focus the start date input with the focus api", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { container } = render(
+    const { container } = renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             presetsVariant="expanded"
@@ -820,7 +820,7 @@ test("when expanded presets are provided, can focus the start date input with th
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <DateRangeInput ref={ref} />
     );
 
@@ -833,7 +833,7 @@ test("ref is a DOM element", async () => {
 test("when compact presets are provided, ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             presetsVariant="compact"
@@ -850,7 +850,7 @@ test("when compact presets are provided, ref is a DOM element", async () => {
 test("when expanded presets are provided, ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             presetsVariant="expanded"
@@ -867,7 +867,7 @@ test("when expanded presets are provided, ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <DateRangeInput
             ref={node => {
                 refNode = node;
@@ -884,7 +884,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <DateRangeInput ref={handler} />
     );
 

@@ -1,14 +1,14 @@
 import { Field, Label } from "@components/field";
 import { TextInput } from "@components/text-input";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the input is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -16,7 +16,7 @@ test("when autofocus is true, the input is focused on render", async () => {
 });
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -24,7 +24,7 @@ test("when autofocus is true and the input is disabled, the input is not focused
 });
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
@@ -32,7 +32,7 @@ test("when autofocus is true and the input is readonly, the input is not focused
 });
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
@@ -44,7 +44,7 @@ test("when autofocus is specified with a delay, the input is focused after the d
 });
 
 test("when in a field, clicking on the field label focus the input", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Label</Label>
             <TextInput data-testid="input" />
@@ -63,7 +63,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
 test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -78,7 +78,7 @@ test("call onValueChange when the value change", async () => {
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <TextInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -93,7 +93,7 @@ test("call onChange when the value change", async () => {
 test("can focus the input with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <TextInput
             ref={node => {
                 refNode = node;
@@ -114,7 +114,7 @@ test("can focus the input with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    render(
+    renderWithTheme(
         <TextInput ref={ref} aria-label="Label" />
     );
 
@@ -127,7 +127,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <TextInput
             ref={node => {
                 refNode = node;
@@ -145,7 +145,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <TextInput ref={handler} aria-label="Label" />
     );
 

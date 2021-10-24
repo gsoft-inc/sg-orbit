@@ -1,7 +1,7 @@
 import { Radio } from "@components/radio";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -11,7 +11,7 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the radio is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio autoFocus value="1" data-testid="radio">1</Radio>
     );
 
@@ -19,7 +19,7 @@ test("when autofocus is true, the radio is focused on render", async () => {
 });
 
 test("when autofocus is true and the radio is disabled, the radio is not focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio disabled autoFocus value="1" data-testid="radio">1</Radio>
     );
 
@@ -27,7 +27,7 @@ test("when autofocus is true and the radio is disabled, the radio is not focused
 });
 
 test("when autofocus is specified with a delay, the radio is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio autoFocus={10} value="1" data-testid="radio">1</Radio>
     );
 
@@ -43,7 +43,7 @@ test("when autofocus is specified with a delay, the radio is focused after the d
 test("call onChange when the radio is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
@@ -58,7 +58,7 @@ test("call onChange when the radio is checked", async () => {
 test("call onValueChange when the radio is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
@@ -73,7 +73,7 @@ test("call onValueChange when the radio is checked", async () => {
 test("dont call onValueChange when the radio is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Radio disabled value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
@@ -87,7 +87,7 @@ test("dont call onValueChange when the radio is disabled", async () => {
 test("can focus the radio with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Radio
             value="1"
             ref={node => {
@@ -108,7 +108,7 @@ test("can focus the radio with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Radio value="1" ref={ref}>1</Radio>
     );
 
@@ -121,7 +121,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Radio
             value="1"
             ref={node => {
@@ -139,7 +139,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Radio value="1" ref={handler}>1</Radio>
     );
 

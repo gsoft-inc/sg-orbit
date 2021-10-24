@@ -1,6 +1,7 @@
 import { H1, Heading } from "@components/typography";
 import { createRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
 
@@ -8,7 +9,7 @@ describe("Heading", () => {
     test("ref is a DOM element", async () => {
         const ref = createRef<HTMLElement>();
 
-        render(
+        renderWithTheme(
             <Heading ref={ref}>Header</Heading>
         );
 
@@ -21,7 +22,7 @@ describe("Heading", () => {
     test("when using a callback ref, ref is a DOM element", async () => {
         let refNode: HTMLElement = null;
 
-        render(
+        renderWithTheme(
             <Heading
                 ref={node => {
                     refNode = node;
@@ -40,7 +41,7 @@ describe("Heading", () => {
     test("set ref once", async () => {
         const handler = jest.fn();
 
-        render(
+        renderWithTheme(
             <Heading
                 ref={handler}
             >
@@ -56,7 +57,7 @@ describe("H1", () => {
     test("ref is a DOM element", async () => {
         const ref = createRef<HTMLElement>();
 
-        render(
+        renderWithTheme(
             <H1 ref={ref}>Header</H1>
         );
 
@@ -69,7 +70,7 @@ describe("H1", () => {
     test("when using a callback ref, ref is a DOM element", async () => {
         let refNode: HTMLElement = null;
 
-        render(
+        renderWithTheme(
             <H1
                 ref={node => {
                     refNode = node;
@@ -88,7 +89,7 @@ describe("H1", () => {
     test("set ref once", async () => {
         const handler = jest.fn();
 
-        render(
+        renderWithTheme(
             <H1
                 ref={handler}
             >

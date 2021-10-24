@@ -1,7 +1,7 @@
 import { Switch } from "@components/switch";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { waitDelay } from "@utils/waitDelay";
+import { renderWithTheme, waitDelay } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: HTMLElement) {
@@ -11,7 +11,7 @@ function getInput(element: HTMLElement) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the switch is focused on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch autoFocus data-testid="switch">Engines</Switch>
     );
 
@@ -19,7 +19,7 @@ test("when autofocus is true, the switch is focused on render", async () => {
 });
 
 test("when autofocus is true and the switch is disabled, do not focus the switch on render", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch disabled autoFocus data-testid="switch">Engines</Switch>
     );
 
@@ -27,7 +27,7 @@ test("when autofocus is true and the switch is disabled, do not focus the switch
 });
 
 test("when autofocus is specified with a delay, the switch is focused after the delay", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch autoFocus={10} data-testid="switch">Engines</Switch>
     );
 
@@ -41,7 +41,7 @@ test("when autofocus is specified with a delay, the switch is focused after the 
 // ***** Aria *****
 
 test("a switch role is \"switch\"", async () => {
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch data-testid="switch">Engines</Switch>
     );
 
@@ -53,7 +53,7 @@ test("a switch role is \"switch\"", async () => {
 test("call onChange, when the switch is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
@@ -68,7 +68,7 @@ test("call onChange, when the switch is checked", async () => {
 test("call onChange when the switch is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
@@ -87,7 +87,7 @@ test("call onChange when the switch is unchecked", async () => {
 test("call onValueChange when the switch is turned on", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
@@ -102,7 +102,7 @@ test("call onValueChange when the switch is turned on", async () => {
 test("call onValueChange when the switch is turned off", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
@@ -121,7 +121,7 @@ test("call onValueChange when the switch is turned off", async () => {
 test("dont call onValueChange when the switch is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <Switch disabled onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
@@ -135,7 +135,7 @@ test("dont call onValueChange when the switch is disabled", async () => {
 test("can focus the switch with the focus api", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Switch
             ref={node => {
                 refNode = node;
@@ -155,7 +155,7 @@ test("can focus the switch with the focus api", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    render(
+    renderWithTheme(
         <Switch ref={ref}>Engines</Switch>
     );
 
@@ -168,7 +168,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <Switch
             ref={node => {
                 refNode = node;
@@ -185,7 +185,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <Switch ref={handler}>Engines</Switch>
     );
 

@@ -1,6 +1,7 @@
 import { ErrorMessage, ErrorMessageProps, HelpMessage, HelpMessageProps, ValidMessage, ValidMessageProps } from "@components/field";
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { renderWithTheme } from "@utils";
+import { waitFor } from "@testing-library/react";
 
 const Help = forwardRef<HTMLElement, Omit<HelpMessageProps, "children">>((props, ref) => {
     return (
@@ -47,7 +48,7 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
         test("ref is a DOM element", async () => {
             const ref = createRef<HTMLElement>();
 
-            render(
+            renderWithTheme(
                 <Element ref={ref} />
             );
 
@@ -60,7 +61,7 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
         test("when using a callback ref, ref is a DOM element", async () => {
             let refNode: HTMLElement = null;
 
-            render(
+            renderWithTheme(
                 <Element
                     ref={node => {
                         refNode = node;
@@ -77,7 +78,7 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
         test("set ref once", async () => {
             const handler = jest.fn();
 
-            render(
+            renderWithTheme(
                 <Element ref={handler} />
             );
 

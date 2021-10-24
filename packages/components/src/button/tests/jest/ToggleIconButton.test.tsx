@@ -1,7 +1,8 @@
 import { AddIcon } from "@components/icons";
 import { ToggleIconButton } from "@components/button";
-import { act, render, waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
+import { renderWithTheme } from "@utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Api *****
@@ -9,7 +10,7 @@ import userEvent from "@testing-library/user-event";
 test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleIconButton
             onChange={handler}
             value="any"
@@ -32,7 +33,7 @@ test("call onChange when the button is selected", async () => {
 test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    const { getByTestId } = renderWithTheme(
         <ToggleIconButton
             onChange={handler}
             value="any"
@@ -61,7 +62,7 @@ test("call onChange when the button is unselected", async () => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
-    render(
+    renderWithTheme(
         <ToggleIconButton
             variant="secondary"
             ref={ref}
@@ -81,7 +82,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    render(
+    renderWithTheme(
         <ToggleIconButton
             variant="secondary"
             ref={node => {
@@ -103,7 +104,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    render(
+    renderWithTheme(
         <ToggleIconButton
             variant="secondary"
             ref={handler}
