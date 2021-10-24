@@ -1,0 +1,2 @@
+/* Alias to enable loading CSS from the root of the packages instead of the /dist folder. */
+@import "./dist/index.css";

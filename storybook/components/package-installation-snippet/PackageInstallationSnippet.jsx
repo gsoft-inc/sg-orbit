@@ -1,5 +1,5 @@
 import { Snippet } from "@stories/components";
-import { isNil } from "@react-components/shared";
+import { isNil } from "@components/shared";
 import { string } from "prop-types";
 import { useState } from "react";
 

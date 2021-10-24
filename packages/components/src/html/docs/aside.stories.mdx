@@ -1,0 +1,28 @@
+import { ComponentInfo, Link, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Aside"
+    id="html-aside"
+/>
+
+# Aside
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML aside element.</Tagline>
+
+<ComponentInfo
+    usage={"import { Aside } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An aside component accepts all the [aside HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside) and [Orbit styled component props](?path=/docs/styling--page).
+
+```jsx
+<Aside color="cloud-8">
+    <Paragraph>The Universe is under no obligation to make sense to you. The Earth is the cradle of humanity, but mankind cannot stay in the cradle forever.</Paragraph>
+</Aside>
+```

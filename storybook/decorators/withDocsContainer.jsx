@@ -1,8 +1,8 @@
-import { DocsContainer } from "@storybook/addon-docs/blocks";
-import { ThemeProvider } from "@react-components/theme-provider";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
+import { DocsContainer } from "@storybook/addon-docs";
 
 function ThemedDocsContainer({ context, children }) {
-    const theme = context.globals.theme;
+    const theme = context.globals.theme === "desktop" ? DesktopTheme : ApricotTheme;
 
     return (
         <ThemeProvider theme={theme} colorScheme="light">

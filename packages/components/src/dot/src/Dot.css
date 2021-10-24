@@ -1,0 +1,26 @@
+.o-ui-dot {
+    display: inline-flex;
+    align-items: center;
+    color: var(--o-ui-text-alias-1);
+}
+
+.o-ui-dot:before {
+    content: "";
+    display: inline-block;
+    border-radius: var(--o-ui-shape-pill);
+    background-color: var(--o-ui-dot-color);
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--o-ui-fs-3);
+}
+
+/* CONTENT | LABEL */
+.o-ui-dot-has-label.o-ui-dot:before {
+    margin-right: var(--o-ui-sp-2);
+}
+
+/* DISABLED */
+.o-ui-dot[disabled],
+.o-ui-dot[disabled]:before {
+    opacity: var(--o-ui-disabled-opacity);
+}

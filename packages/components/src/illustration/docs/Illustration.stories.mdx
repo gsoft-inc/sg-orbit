@@ -1,0 +1,75 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@components/placeholders";
+import { Heading } from "@components/typography";
+import { Illustration, InnerIllustration } from "@components/illustration";
+import { Image, SvgImage } from "@components/image";
+import { ReactComponent as NoResults } from "./assets/no-results.svg";
+import { Planet } from "./assets";
+
+<Meta
+    title="Components/Illustration"
+    id="illustration"
+/>
+
+# Illustration
+
+<Tagline>Use an illustration to compose an image with a background color, some text or wathever else you need.</Tagline>
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/illustration/src"
+/>
+
+## Usage
+
+### Horizontal
+
+An illustration can render horizontally.
+
+<Preview scope={{ NoResults }}>
+    <Story name="horizontal">
+        <Illustration>
+            <SvgImage src={NoResults} stroke="alias-1" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </Illustration>
+    </Story>
+</Preview>
+
+### Vertical
+
+An illustration can render vertically.
+
+<Preview scope={{ Planet }} height={18}>
+    <Story name="vertical">
+        <Illustration orientation="vertical" backgroundColor="#998BAF" width={14} padding={4}>
+            <Image src={Planet} alt="Planet over another planet" />
+        </Illustration>
+    </Story>
+</Preview>
+
+### Shape
+
+An illustration can have a `rounded` shape.
+
+<Preview scope={{ Planet }}>
+    <Story name="shape">
+        <Illustration shape="rounded" backgroundColor="#998BAF" height={14} padding={4}>
+            <Image src={Planet} alt="Planet over another planet" />
+        </Illustration>
+    </Story>
+</Preview>
+
+## API
+
+### Illustration
+
+<ComponentInfo
+    usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
+    slots={["image", "heading", "content"]}
+    inherits={[InnerIllustration.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerIllustration} sort="alpha" />

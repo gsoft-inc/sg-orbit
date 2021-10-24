@@ -1,4 +1,4 @@
-import * as OrbitComponents from "@react-components";
+import * as OrbitComponents from "@components";
 import { CheckeredBackground } from "@stories/components";
 import { forwardRef, useCallback, useContext, useDebugValue, useEffect, useImperativeHandle, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
 import { useFormik } from "formik";

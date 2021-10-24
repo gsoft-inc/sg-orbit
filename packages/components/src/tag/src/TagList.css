@@ -1,0 +1,12 @@
+.o-ui-tag-list {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: calc(-1 * var(--o-ui-sp-2));
+}
+
+.o-ui-tag-list-item,
+.o-ui-tag-list-clear-button {
+    margin-right: var(--o-ui-sp-2);
+    margin-bottom: var(--o-ui-sp-2);
+}

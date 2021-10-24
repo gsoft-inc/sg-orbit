@@ -1,141 +1,76 @@
-import { Meta } from "@storybook/addon-docs/blocks";
+import { Meta } from "@storybook/addon-docs";
 import { PackageInstallationSnippet } from "@stories/components";
 import { paramsBuilder } from "@stories/utils";
 
 <Meta
     title="Getting Started/Installation"
     id="installation"
-    parameters={paramsBuilder()
-        .sortPriority(-5)
-        .build()}
 />
 
 # Installation
 
-Multiple [npm packages](?path=/docs/packages--page) compose Orbit UI. Based on which type of application you're building you'll choose a different composition.
+Multiple [NPM packages](https://www.npmjs.com/settings/orbit-ui/packages) compose Orbit. We simplify the installation process by creating a bundle package called [@sharegate/orbit-ui](https://www.npmjs.com/package/@sharegate/orbit-ui) so you can install Orbit by adding a single package to your app.
 
-## React bundle
+> We take for granted you already installed [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npmjs.com/package/react-dom). If you haven't, **you'll get a warning at installation**.
 
-For a React application, the easiest way to use Orbit UI is by installing the [@orbit-ui/react](https://www.npmjs.com/package/@orbit-ui/react) bundle. The bundle will install the [core](?path=/docs/packages--page#core) and [React](?path=/docs/packages--page#react-components) packages of Orbit UI in 5 easy steps.
+### Install packages
 
-#### Install bundle packages
+To install Orbit, open a terminal at the root of your project workspace and execute the following command:
 
-<PackageInstallationSnippet packageName="bundles/react" />
+<PackageInstallationSnippet packageName="bundle" />
 
-#### Import components
+The command will install all Orbit packages in your app `node_modules` folder.
 
-```javascript
-import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/react-components";
-```
+### Import styles
 
-#### Import styles
+Orbit styles includes the [ShareGate font](?path=/docs/typography--page), a [CSS bootstrap](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/css/src) and of course the components styles.
 
-```css
-@import "~@orbit-ui/react/index.css";
-```
-
-#### Apply font
+To import Orbit styles add the following import statement to your root stylesheet:
 
 ```css
-html, body {
-    font-family: "TT Interphases Variable", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-}
+@import "~@sharegate/orbit-ui/index.css";
 ```
 
-#### Declare a theme provider
+### Bootstrap your app
+
+Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/story/styled-system--page#theming) which allow apps to easily provide their foundation values to Orbit.
+
+The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a `<ThemeProvider>` at the root of your application.
+
+Here's an example of how to bootstrap an app with a pre-constructed ShareGate Apricot theme object:
 
 ```jsx
-// index.jsx
-
-import { ThemeProvider } from "@orbit-ui/react-components";
+import { createThemeVars, ApricotTheme, ThemeProvider } from "@sharegate/orbit-ui";
 import { render } from "react-dom";
 import App from "./App";
 
+createThemeVars([ApricotTheme]);
+
 render(
-    <ThemeProvider colorScheme="light">
+    <ThemeProvider theme={ApricotTheme} colorScheme="light">
         <App />
     </ThemeProvider>,
     document.getElementById("root")
 );
 ```
 
-## Custom installation
+### Start building
 
-If your app doesn't use React or if you prefer hand-picking a few [packages](?path=/docs/packages--page), this is also possible.
-
-Strict *peerDependencies* are defined in every packages to ensure that dependent packages are installed together. This means that if a required package is missing during the installation, a warning will be output by your package manager.
-
-### Core packages
-
-Before installing any [React components packages](?path=/docs/packages--page#react-components), you must install the [core packages](?path=/docs/packages--page#core). You can pick and choose the *core packages* to install but we do recommend installing all of them.
-
-#### Install core packages
-
-```bash
-npm install @orbit-ui/fonts @orbit-ui/css-normalize @orbit-ui/icons @orbit-ui/foundation @orbit-ui/tachyons
-```
-
-#### Import styles
-
-```css
-@import "~@orbit-ui/fonts";
-@import "~@orbit-ui/css-normalize";
-@import "~@orbit-ui/foundation";
-@import "~@orbit-ui/tachyons";
-```
-
-#### Apply font
-
-```css
-html, body {
-    font-family: "TT Interphases Variable", Arial, Helvetica, sans-serif;
-    font-size: 16px;
-}
-```
-
-### React components packages
-
-Once the *core packages* are installed, you can optionally install [React components packages](?path=/docs/packages--page#react-components).
-
-#### Install packages
-
-```bash
-npm install @orbit-ui/react-components
-```
-
-### Import styles
-
-```css
-@import "~@orbit-ui/react-components/dist/index.css";
-```
-
-#### Import components
-
-```javascript
-import { AddIcon, Button, Select, ThemeProvider } from "@orbit-ui/react-components";
-```
-
-#### Declare a theme provider
+You're all set! You can start building your app with Orbit:
 
 ```jsx
-// index.jsx
+import { Div, Text } from "@sharegate/orbit-ui";
 
-import { ThemeProvider } from "@orbit-ui/react-components";
-import { render } from "react-dom";
-import App from "./App";
-
-render(
-    <ThemeProvider colorScheme="light">
-        <App />
-    </ThemeProvider>,
-    document.getElementById("root")
+export const App = () => (
+  <Div backgroundColor="sunray-10">
+    <Text color="cloud-5">Hello World!</Text>
+  </Div>
 );
 ```
 
 ## Icons
 
-[Orbit UI icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. To setup `@svgr/webpack` you can use [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+[Orbit icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. To setup `@svgr/webpack` you can use [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```javascript
 {

@@ -1,6 +1,6 @@
 :root {
     /* Use this var only when the element is not affected by the font-family specified in Storybook docs theme */
-    --orbit-font-family: "TT Interphases Variable, Arial, Helvetica, sans-serif";
+    --orbit-font-family: "TT Interphases Variable", Arial, Helvetica, sans-serif;
 }
 
 /* LAYOUT */
@@ -9,14 +9,14 @@
 }
 
 .sbdocs.sbdocs-content {
-    max-width: 1200px;
-    font-size: var(--o-ui-global-type-scale-6);
+    max-width: 1280px;
+    font-size: var(--o-ui-fs-4);
 }
 
 /* STORY */
 .docs-story div + div > button {
     font-variation-settings: "wght" 500;
-    font-size: var(--o-ui-global-type-scale-8);
+    font-size: var(--o-ui-fs-2);
 }
 
 /* ARGS TABLE */
@@ -28,13 +28,13 @@
 /* ARGS TABLE | HEADER */
 .docblock-argstable-head,
 .docblock-argstable-body {
-    font-size: var(--o-ui-global-type-scale-7) !important;
+    font-size: var(--o-ui-fs-3) !important;
 }
 
 .docblock-argstable-head tr th {
     font-variation-settings: "wght" 500 !important;
     font-weight: 400;
-    color: var(--o-ui-alias-text-1) !important;
+    color: var(--o-ui-text-alias-1) !important;
 }
 
 /* ARGS TABLE | HEADER | RESET */
@@ -48,11 +48,11 @@
 }
 
 .docblock-argstable-head button:hover {
-    background-color: var(--o-ui-alias-primary-700) !important;
+    background-color: var(--o-ui-primary-8) !important;
 }
 
 .docblock-argstable-head button svg path {
-    fill: var(--o-ui-global-white) !important;
+    fill: var(--o-ui-white) !important;
 }
 
 /* ARGS TABLE | BODY  */
@@ -76,7 +76,7 @@
 }
 
 .docblock-argstable-body td label span {
-    font-size: var(--o-ui-global-type-scale-8) !important;
+    font-size: var(--o-ui-fs-2) !important;
 }
 
 .docblock-argstable-body td label input[type="radio"] {
@@ -87,40 +87,40 @@
 .docblock-argstable-body td input[type="number"],
 .docblock-argstable-body td input[type="text"],
 .docblock-argstable-body td textarea {
-    font-size: var(--o-ui-global-type-scale-8);
+    font-size: var(--o-ui-fs-2);
 }
 
 .docblock-argstable-body a {
-    color: var(--o-ui-alias-primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
 }
 
 .docblock-argstable-body button {
-    color: var(--o-ui-alias-primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
     font-family: var(--orbit-font-family) !important;
-    font-size: var(--o-ui-global-type-scale-8) !important;
+    font-size: var(--o-ui-fs-2) !important;
     padding-left: 2px !important;
 }
 
 /* EMPTY BLOCK */
 .docblock-emptyblock {
-    color: var(--o-ui-global-cloud-500) !important;
-    border: 1px dashed var(--o-ui-alias-border-1) !important;
+    color: var(--o-ui-cloud-6) !important;
+    border: 1px dashed var(--o-ui-b-alias-1) !important;
 }
 
 .docblock-emptyblock a {
-    color: var(--o-ui-alias-primary-500) !important;
+    color: var(--o-ui-primary-500) !important;
 }
 
 /* SOURCE BLOCK */
 .docblock-source {
-    margin-top: var(--o-ui-global-scale-golf) !important;
+    margin-top: var(--o-ui-sp-7) !important;
     margin-bottom: 35px !important;
 }
 
 .sbdocs.sbdocs-preview,
 .sbdocs.sbdocs-pre {
     border: none;
-    box-shadow: var(--o-ui-alias-elevation-raised);
+    box-shadow: var(--o-ui-bs-alias-raised);
 }
 
 .sbdocs.sbdocs-preview,
@@ -140,7 +140,7 @@
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6,
 .sbdocs.sbdocs-p  {
-    color: var(--o-ui-alias-text-1);
+    color: var(--o-ui-text-alias-1);
 }
 
 /* ELEMENTS | HEADER */
@@ -157,8 +157,8 @@
 }
 
 .sbdocs.sbdocs-h1 {
-    font-size: var(--o-ui-global-type-scale-1);
-    line-height: var(--o-ui-global-line-height-6);
+    font-size: var(--o-ui-fs-9);
+    line-height: var(--o-ui-lh-6);
 }
 
 .sbdocs.sbdocs-h1,
@@ -167,25 +167,25 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    border-bottom: 1px solid var(--o-ui-global-marine-50);
+    border-bottom: 1px solid var(--o-ui-marine-1);
 }
 
 .sbdocs.sbdocs-h2,
 .sbdocs.sbdocs-h2:first-of-type {
     margin: 1.5rem 0;
-    font-size: var(--o-ui-global-type-scale-3);
+    font-size: var(--o-ui-fs-7);
 }
 
 .sbdocs.sbdocs.sbdocs-h3 {
-    margin: var(--o-ui-global-scale-golf) 0 var(--o-ui-global-scale-delta);
-    font-size: var(--o-ui-global-type-scale-4);
-    line-height: var(--o-ui-global-line-height-5);
+    margin: var(--o-ui-sp-7) 0 var(--o-ui-sp-4);
+    font-size: var(--o-ui-fs-6);
+    line-height: var(--o-ui-lh-5);
 }
 
 .sbdocs.sbdocs.sbdocs-h4 {
-    font-size: var(--o-ui-global-type-scale-5);
-    line-height: var(--o-ui-global-line-height-4);
-    margin: var(--o-ui-global-scale-foxtrot) 0 var(--o-ui-global-scale-bravo);
+    font-size: var(--o-ui-fs-5);
+    line-height: var(--o-ui-lh-4);
+    margin: var(--o-ui-sp-6) 0 var(--o-ui-sp-2);
 }
 
 .sbdocs.sbdocs-h2 + .sbdocs.sbdocs-p,
@@ -209,8 +209,8 @@
 
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
-    font-size: var(--o-ui-global-type-scale-6);
-    color: var(--o-ui-alias-primary-700) !important;
+    font-size: var(--o-ui-fs-4);
+    color: var(--o-ui-primary-8) !important;
     text-decoration: underline;
 }
 
@@ -232,39 +232,47 @@
 }
 
 .sbdocs .sbdocs-a code {
-    color: var(--o-ui-alias-primary-500);
+    color: var(--o-ui-primary-500);
 }
 
 /* ELEMENTS | TYPOGRAPHY */
 .sbdocs.sbdocs-p,
 .sbdocs.sbdocs-span {
-    font-size: var(--o-ui-global-type-scale-6);
-    line-height: var(--o-ui-global-line-height-6);
+    font-size: var(--o-ui-fs-4);
+    line-height: var(--o-ui-lh-6);
     max-width: 90ch;
 }
 
 /* ELEMENTS | TABLE */
 .sbdocs.sbdocs-table tr {
-    border-top: 1px solid var(--o-ui-alias-border-1);
+    border-top: 1px solid var(--o-ui-b-alias-1);
 }
 
 .sbdocs.sbdocs-table thead tr {
-    border-top: 1px solid var(--o-ui-alias-border-1);
+    border-top: 1px solid var(--o-ui-b-alias-1);
 }
 
 .sbdocs.sbdocs-table tr th {
     font-weight: 400;
     font-variation-settings: "wght" 600;
-    font-size: var(--o-ui-global-type-scale-6);
+    font-size: var(--o-ui-fs-4);
 }
 
 .sbdocs.sbdocs-table td {
-    font-size: var(--o-ui-global-type-scale-7);
+    font-size: var(--o-ui-fs-3);
 }
 
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
-    border: 1px solid var(--o-ui-alias-border-1);
+    border: 1px solid var(--o-ui-b-alias-1);
+}
+
+.sbdocs.sbdocs-table a {
+    font-size: var(--o-ui-fs-3) !important;
+}
+
+.sbdocs.sbdocs-table .code a {
+    font-family: Consolas, monaco, monospace !important;
 }
 
 .sbdocs.sbdocs-table b,
@@ -279,31 +287,31 @@
 
 /* ELEMENTS | SUMMARY */
 .sb-show-main summary {
-    font-size: var(--o-ui-global-type-scale-6);
+    font-size: var(--o-ui-fs-4);
     cursor: pointer;
-    line-height: var(--o-ui-global-line-height-4);
+    line-height: var(--o-ui-lh-4);
 }
 
 .sb-show-main details {
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--o-ui-global-moonstone-50);
+    background-color: var(--o-ui-moonstone-1);
 }
 
 .sb-show-main details + details {
-    margin-top: var(--o-ui-global-scale-delta);
+    margin-top: var(--o-ui-sp-4);
 }
 
 .sbdocs details .docblock-source {
     box-shadow: none !important;
     border: none !important;
-    margin: var(--o-ui-global-scale-delta) 0 !important;
+    margin: var(--o-ui-sp-4) 0 !important;
 }
 
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
-    padding: var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-delta) var(--o-ui-global-scale-charlie) var(--o-ui-global-scale-charlie);
-    background-color: var(--o-ui-global-moonstone-50);
+    padding: var(--o-ui-sp-3) var(--o-ui-sp-4) var(--o-ui-sp-3) var(--o-ui-sp-3);
+    background-color: var(--o-ui-moonstone-1);
     font-size: 15px !important;
 }
 
@@ -313,7 +321,7 @@
 
 /* ELEMENTS | KBD */
 .sbdocs kbd {
-    line-height: var(--o-ui-global-line-height-1);
+    line-height: var(--o-ui-lh-1);
     margin: 0 2px;
     padding: 3px 5px;
     white-space: nowrap;
@@ -326,7 +334,7 @@
 
 /* ELEMENTS | LIST */
 .sbdocs.sbdocs-li {
-    font-size: var(--o-ui-global-type-scale-6) !important;
+    font-size: var(--o-ui-fs-4) !important;
 }
 
 /* ELEMENTS | STRONG */
@@ -341,6 +349,14 @@
 }
 
 .sbdocs.sbdocs-h1 a svg {
-    width: var(--o-ui-global-scale-foxtrot);
-    height: var(--o-ui-global-scale-foxtrot);
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
+}
+
+.code {
+    font-family: Consolas, monaco, monospace !important;
+}
+
+.w-100 {
+    width: 100%;
 }

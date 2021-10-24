@@ -1,0 +1,64 @@
+.o-ui-badge {
+    position: relative;
+    width: max-content;
+    color: var(--o-ui-text-alias-1);
+}
+
+/* ANCHOR */
+.o-ui-badge-anchor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(1) translate(50%, -50%);
+    transform-origin: 100% 0%;
+}
+
+/* OVERLAP */
+.o-ui-badge-over-circle .o-ui-badge-anchor {
+    top: 14%;
+    right: 14%;
+}
+
+.o-ui-badge-over-icon .o-ui-badge-anchor {
+    top: 10%;
+    right: 10%;
+}
+
+/* COUNT */
+.o-ui-badge-count .o-ui-badge-anchor {
+    background-color: var(--o-ui-bg-alias-2);
+    color: var(--o-ui-text-alias-1);
+    border-radius: var(--o-ui-shape-pill);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.25rem;
+    min-width: 1.25rem;
+    padding: 0 0.4rem;
+}
+
+/* DOT */
+.o-ui-badge-dot .o-ui-badge-anchor {
+    background-color: var(--o-ui-bg-alias-2);
+    border-radius: var(--o-ui-shape-pill);
+    min-width: 0.5em;
+    min-height: 0.5em;
+    font-size: var(--o-ui-fs-6);
+}
+
+/* ICON */
+.o-ui-badge-icon .o-ui-badge-anchor {
+    top: 4%;
+    right: 4%;
+}
+
+/* ICON | OVERLAP */
+.o-ui-badge-icon.o-ui-badge-over-circle .o-ui-badge-anchor {
+    top: 18%;
+    right: 18%;
+}
+
+.o-ui-badge-icon.o-ui-badge-over-icon .o-ui-badge-anchor {
+    top: 20%;
+    right: 15%;
+}

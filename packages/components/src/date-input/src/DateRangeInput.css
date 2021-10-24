@@ -1,0 +1,134 @@
+.o-ui-date-range-input {
+    --o-ui-date-range-input-padding: var(--o-ui-sp-3);
+    --o-ui-date-range-input-border-color: var(--o-ui-b-alias-1);
+    --o-ui-date-range-input-background-color: var(--o-ui-bg-alias-2);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    transition: var(--o-ui-focus-ring-transition);
+    padding: 0 var(--o-ui-date-range-input-padding);
+    /* For clear button */
+    padding-right: var(--o-ui-sp-7);
+    border-radius: var(--o-ui-shape-rounded);
+    border: 1px solid var(--o-ui-date-range-input-border-color);
+    color: var(--o-ui-text-alias-1);
+    background-color: var(--o-ui-bg-alias-1);
+}
+
+.o-ui-date-range-input:not(.o-ui-date-range-input-fluid) {
+    max-width: var(--o-ui-sz-16);
+    width: 100%;
+}
+
+/* FLUID */
+.o-ui-date-range-input-fluid {
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* STATES */
+/* STATES | FOCUS */
+.o-ui-date-range-input-focus:not(.o-ui-date-range-input-disabled) {
+    box-shadow: var(--o-ui-focus-ring-inset-md);
+}
+
+/* STATES | FOCUS / INVALID */
+.o-ui-date-range-input-focus.o-ui-date-range-input-invalid {
+    border-color: var(--o-ui-b-alias-negative-1);
+}
+
+/* STATES | FOCUS | HOVER / INVALID */
+.o-ui-date-range-input-focus:hover:not(.o-ui-date-range-input-disabled).o-ui-date-range-input-invalid {
+    border-color: var(--o-ui-b-alias-negative-1-hover);
+}
+
+/* STATES | HOVER */
+.o-ui-date-range-input:hover:not(.o-ui-date-range-input-disabled),
+.o-ui-date-range-input-hover:not(.o-ui-date-range-input-disabled) {
+    border-color: var(--o-ui-b-alias-1-hover);
+}
+
+.o-ui-date-range-input.o-ui-date-range-input-invalid:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
+    border-color: var(--o-ui-b-alias-negative-1-hover);
+}
+
+/* STATES | DISABLED */
+.o-ui-date-range-input-disabled {
+    opacity: var(--o-ui-disabled-opacity);
+    background-color: var(--o-ui-date-range-input-background-color);
+    cursor: not-allowed;
+}
+
+.o-ui-date-range-input-disabled .o-ui-date-range-input-divider {
+    border-left-color: var(--o-ui-b-alias-2) !important;
+}
+
+.o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {
+    background-color: var(--o-ui-date-range-input-background-color);
+    cursor: not-allowed;
+}
+
+/* STATES | INVALID */
+.o-ui-date-range-input-invalid {
+    --o-ui-date-range-input-border-color: var(--o-ui-b-alias-negative-1);
+    z-index: 2;
+}
+
+/* DATE INPUT */
+.o-ui-date-range-input-date-input {
+    font-size: var(--o-ui-fs-3);
+    color: var(--o-ui-text-alias-1);
+    padding-left: var(--o-ui-sp-1);
+    border: none;
+    outline: none;
+    transition: all .12s ease-in, padding 0s linear;
+    width: 100%;
+    min-height: calc(var(--o-ui-sz-6) - 2px);
+    background-color: transparent;
+}
+
+/* DATE INPUT | PLACEHOLDER */
+.o-ui-date-range-input-date-input::placeholder {
+    color: var(--o-ui-text-alias-input-placeholder);
+}
+
+/* DATE INPUT | SELECTION */
+.o-ui-date-range-input-date-input::selection {
+    background-color: var(--o-ui-bg-alias-input-selection);
+    color: var(--o-ui-text-alias-input-selection);
+}
+
+/* DIVIDER */
+.o-ui-date-range-input-divider[aria-orientation="vertical"] {
+    flex-shrink: 0;
+    align-self: auto;
+    height: 25px !important;
+}
+
+/* CLEAR BUTTON */
+.o-ui-date-range-input-clear-button {
+    position: absolute;
+    right: 0.25rem;
+}
+
+/* BUTTON PRESETS */
+.o-ui-date-range-input-button-presets {
+    display: inline-flex;
+    align-items: center;
+    max-width: max-content;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--o-ui-sp-4);
+}
+
+/* BUTTON PRESETS | FLUID */
+.o-ui-date-range-input-button-presets-fluid {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* IN GROUP */
+.o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
+    width: 100%;
+    max-width: 300px;
+}

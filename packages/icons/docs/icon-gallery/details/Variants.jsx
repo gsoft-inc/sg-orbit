@@ -1,9 +1,13 @@
 import "./Variants.css";
 
-import { Box, Disclosure, DisclosureArrow, Text } from "@react-components";
-import { Content, Header, Item, Tabs } from "@react-components";
+import { Content, Header } from "@components/placeholders";
+import { Disclosure, DisclosureArrow } from "@components/disclosure";
+import { Div, HtmlButton } from "@components/html";
+import { Item } from "@components/collection";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
+import { Tabs } from "@components/tabs";
+import { Text } from "@components/typography";
 import { VARIANT_SHAPE } from "../shapes";
 import { arrayOf, shape, string } from "prop-types";
 import { components } from "@storybook/components";
@@ -14,13 +18,13 @@ const H4 = components.h4;
 function VariantSection({ name, children }) {
     return (
         <Disclosure>
-            <button className="o-ui-sb-gallery-item-variant-section-toggle" type="button">
+            <HtmlButton className="o-ui-sb-gallery-item-variant-section-toggle" type="button">
                 <Text size="lg" className="o-ui-sb-gallery-item-variant-section-toggle-text">{name}</Text>
                 <DisclosureArrow />
-            </button>
-            <Box className="o-ui-sb-gallery-item-variant-section-content">
+            </HtmlButton>
+            <Div className="o-ui-sb-gallery-item-variant-section-content">
                 {children}
-            </Box>
+            </Div>
         </Disclosure>
     );
 }
@@ -30,7 +34,7 @@ function IconComponent({ componentType }) {
         <VariantSection name="Use as a component">
             <>
                 <H4>Import</H4>
-                <Snippet language="javascript" code={`import { ${componentType} } from "@orbit-ui/react-components"`} />
+                <Snippet language="javascript" code={`import { ${componentType} } from "@sharegate/orbit-ui"`} />
                 <H4>Usage</H4>
                 <Snippet language="jsx" code={`<${componentType} />`} />
                 <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
@@ -46,7 +50,7 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
                 <H4>Import</H4>
                 <Snippet language="javascript" code={`import ${componentType} from "@orbit-ui/icons/${iconFileName}";`} />
                 <H4>Usage</H4>
-                <Snippet language="jsx" code={`<img src={${componentType}} alt="${iconDisplayName}" className="w6 h6" />`} />
+                <Snippet language="jsx" code={`<img src={${componentType}} alt="${iconDisplayName}" className="o-ui-w-6 o-ui-h-6" />`} />
                 <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
             </>
         </VariantSection>
@@ -56,8 +60,8 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }) {
 function CssBackground({ iconFileName, iconDisplayName }) {
     const code = `.${iconDisplayName.replace(/\s+/g, "-").toLowerCase()} {
     background: url("~@orbit-ui/icons/${iconFileName}");
-    width: var(--o-ui-global-scale-foxtrot);
-    height: var(--o-ui-global-scale-foxtrot);
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
 }`;
 
     return (
@@ -74,11 +78,11 @@ function Variant({ iconDisplayName, iconComponent, iconFileName }) {
     const componentType = iconComponent.props.mdxType;
 
     return (
-        <div className="pt4">
+        <Div paddingTop={4}>
             <IconComponent componentType={componentType} />
             <ImageSource componentType={componentType} iconFileName={iconFileName} iconDisplayName={iconDisplayName} />
             <CssBackground iconFileName={iconFileName} iconDisplayName={iconDisplayName} />
-        </div>
+        </Div>
     );
 }
 

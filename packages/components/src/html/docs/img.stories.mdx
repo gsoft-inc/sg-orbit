@@ -1,0 +1,30 @@
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { Img } from "@components/html";
+import { Meta, Story } from "@storybook/addon-docs";
+import { Planet } from "./assets";
+
+<Meta
+    title="Html elements/Img"
+    id="html-img"
+/>
+
+# Img
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML img element.</Tagline>
+
+<ComponentInfo
+    usage={"import { Img } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An img component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img) and [Orbit styled component props](?path=/docs/styling--page).
+
+<Preview scope={{ Planet }}>
+    <Story name="example">
+        <Img src={Planet} border="cloud-2" />
+    </Story>
+</Preview>

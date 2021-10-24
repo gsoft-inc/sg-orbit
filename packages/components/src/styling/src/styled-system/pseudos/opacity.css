@@ -1,0 +1,15 @@
+/* PSEUDO | OPACITY */
+.o-ui-o-hover:hover {
+    --o-ui-o-hover: initial;
+    opacity: var(--o-ui-o-hover) !important;
+}
+
+.o-ui-o-focus:focus-visible {
+    --o-ui-o-focus: initial;
+    opacity: var(--o-ui-o-focus) !important;
+}
+
+.o-ui-o-active:active {
+    --o-ui-o-active: initial;
+    opacity: var(--o-ui-o-active) !important;
+}

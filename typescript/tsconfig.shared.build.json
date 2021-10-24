@@ -1,0 +1,9 @@
+{
+    "extends": "./tsconfig.shared.json",
+    "compilerOptions": {
+        // Generate typing files.
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": true
+    }
+}

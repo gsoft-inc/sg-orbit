@@ -1,0 +1,43 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { InnerParagraph, Paragraph } from "@components/typography";
+
+<Meta
+    title="Components/Paragraph"
+    id="paragraph"
+/>
+
+# Paragraph
+
+<Tagline>A paragraph is used to render blocks of text.</Tagline>
+
+<ComponentInfo
+    usage={"import { Paragraph } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/paragraph/src"
+/>
+
+## Usage
+
+### Size
+
+You can alter the size of the paragraph by specifying a `size` prop. The available size match Orbit [typographic body text](?path=/docs/typography--page#body).
+
+<Preview>
+    <Story name="size">
+        <>
+            <Paragraph size="lg">If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
+            <Paragraph>If two pieces of the same type of metal touch in space they will permanently bond.</Paragraph>
+        </>
+    </Story>
+</Preview>
+
+## API
+
+<ComponentInfo
+    usage={"import { Paragraph } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerParagraph.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerParagraph} sort="alpha" />
+

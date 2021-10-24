@@ -1,6 +1,7 @@
 import "./Snippet.css";
 
-import { isNil, mergeClasses } from "@react-components/shared";
+import { Div } from "@components/html";
+import { isNil, mergeClasses } from "@components/shared";
 import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
 import { useState } from "react";
@@ -19,7 +20,7 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
     const formattedCode = useFormattedCode(code, language);
 
     return (
-        <div
+        <Div
             className={mergeClasses(
                 "o-ui-sb-snippet",
                 "docblock-source",
@@ -36,16 +37,16 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
                     <pre className={className} style={style}>
                         {tokens.map((line, i) => (
-                            <div {...getLineProps({ line, key: i })}>
+                            <Div {...getLineProps({ line, key: i })}>
                                 {line.map((token, key) => (
                                     <span {...getTokenProps({ token, key })} />
                                 ))}
-                            </div>
+                            </Div>
                         ))}
                     </pre>
                 )}
             </Highlight>
-        </div>
+        </Div>
     );
 }
 
@@ -53,7 +54,7 @@ function FileSnippet({ filePath, language, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/react-components/src${filePath}.sample.jsx`)
+        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
             .then(module => {
                 setCode(module.default);
             });

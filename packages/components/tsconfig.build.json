@@ -1,0 +1,15 @@
+{
+    "extends": "../../typescript/tsconfig.shared.build.json",
+    "compilerOptions": {
+        "composite": true,
+        "rootDir": "./src",
+        "outDir": "./dist"
+    },
+    "include": [
+        "src/**/*",
+        "../../typescript/typings/named-asset-import.d.ts"
+    ],
+    "exclude": [
+        "**/tests/*"
+    ]
+}

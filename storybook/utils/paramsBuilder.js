@@ -1,12 +1,12 @@
-import { isNil, isNumber } from "@react-components/shared";
+import { isNil } from "@components/shared";
 
 class ParamsBuilder {
     _canvasLayout = {}
     _chromatic = {}
-    _sortPriority = null;
     _excludeFromDocs = false;
     _component = null;
     _a11y = null;
+    _viewports = null;
 
     canvasLayout(config) {
         if (!isNil(config)) {
@@ -50,14 +50,6 @@ class ParamsBuilder {
         return this;
     }
 
-    sortPriority(priority) {
-        if (isNumber(priority)) {
-            this._sortPriority = priority;
-        }
-
-        return this;
-    }
-
     excludeFromDocs() {
         this._excludeFromDocs = true;
 
@@ -72,6 +64,12 @@ class ParamsBuilder {
 
     a11y(config) {
         this._a11y = config;
+
+        return this;
+    }
+
+    withBreakpoints() {
+        this._viewports = [640, 768, 1024, 1280, 1536];
 
         return this;
     }
@@ -97,6 +95,13 @@ class ParamsBuilder {
 
         if (!isNil(this._a11y)) {
             params.a11y = this._a11y;
+        }
+
+        if (!isNil(this._viewports)) {
+            params.chromatic = {
+                ...(params.chromatic ?? {}),
+                viewports: this._viewports
+            };
         }
 
         const docs = {};

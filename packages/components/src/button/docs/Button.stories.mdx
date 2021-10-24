@@ -1,0 +1,338 @@
+import { AddIcon, CheckIcon, LightbulbIcon } from "@components/icons";
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import {
+    Button,
+    ButtonAsLink,
+    ButtonGroup,
+    IconButton,
+    InnerButton,
+    InnerButtonGroup,
+    InnerIconButton,
+    InnerToggleButton,
+    InnerToggleIconButton,
+    ToggleButton,
+    ToggleIconButton
+} from "@components/button";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@components/counter";
+import { Inline } from "@components/layout";
+import { RadioGroup } from "@components/radio";
+import { Text } from "@components/typography";
+
+<Meta
+    title="Components/Button"
+    id="button"
+/>
+
+# Button
+
+<Tagline>A button indicates a possible user action.</Tagline>
+
+<ComponentInfo
+    usage={"import { Button, IconButton, ToggleButton, ToggleIconButton, ButtonGroup, ButtonAsLink } from \"@sharegate/orbit-ui\";"}
+    ariaPath="#button"
+    githubPath="/packages/components/src/button/src"
+/>
+
+## Usage
+
+### Default
+
+A default button.
+
+<Preview>
+    <Story name="default">
+        <Button variant="primary">Cutoff</Button>
+    </Story>
+</Preview>
+
+### Icon
+
+A button can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Button variant="secondary">
+            <LightbulbIcon />
+            <Text>Cutoff</Text>
+        </Button>
+    </Story>
+</Preview>
+
+### End icon
+
+*Non standard* end [icons](?path=/docs/icon-gallery--page) can be provided to handle special cases. However, think twice before adding *end* icons, *start* icons should be your go to.
+
+<Preview>
+    <Story name="end icon">
+        <Button variant="secondary">
+            <Text>Cutoff</Text>
+            <LightbulbIcon slot="end-icon" />
+        </Button>
+    </Story>
+</Preview>
+
+### Counter
+
+A button can contain a [counter](?path=/docs/counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Button variant="secondary">
+            <Text>Cutoff</Text>
+            <Counter variant="divider">60</Counter>
+        </Button>
+    </Story>
+</Preview>
+
+### Size
+
+A button can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline alignY="center">
+            <Button size="sm" variant="secondary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Disabled
+
+A button can be disabled.
+
+<Preview>
+    <Story name="disabled">
+        <Button disabled variant="secondary">Cutoff</Button>
+    </Story>
+</Preview>
+
+### Loading
+
+A button can show a loading indicator.
+
+<Preview>
+    <Story name="loading">
+        <Button loading variant="secondary">Loading</Button>
+    </Story>
+</Preview>
+
+### Fluid
+
+A button can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Button fluid variant="secondary">
+            <LightbulbIcon />
+            <Text>To infinity and beyond</Text>
+        </Button>
+    </Story>
+</Preview>
+
+### Variant
+
+A button can use a different style.
+
+<Preview>
+    <Story name="variant">
+        <Inline>
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="tertiary">Tertiary</Button>
+            <Button variant="danger">Danger</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Shape
+
+A button can have a circular shape.
+
+<Preview>
+    <Story name="shape">
+        <Inline>
+            <Button shape="circular" variant="secondary">Aa</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+### Link
+
+A button can be rendered as a link by using the `ButtonAsLink` component.
+
+<Preview>
+    <Story name="as anchor">
+        <ButtonAsLink href="https://sharegate.com" target="_blank" variant="secondary">Cutoff</ButtonAsLink>
+    </Story>
+</Preview>
+
+## Icon button
+
+A button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Preview>
+    <Story name="icon button">
+        <Inline alignY="center">
+            <IconButton size="sm" variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+        </Inline>
+    </Story>
+</Preview>
+
+## Button group
+
+Buttons whose actions are related to each other can be grouped together.
+
+<Preview>
+    <Story name="button group">
+        <ButtonGroup>
+            <Button variant="secondary">No, thanks</Button>
+            <Button variant="secondary">Remind me later</Button>
+            <Button variant="secondary">Rate Now</Button>
+        </ButtonGroup>
+    </Story>
+</Preview>
+
+### Orientation
+
+A button group can render his items vertically.
+
+<Preview>
+    <Story name="button group vertical">
+        <ButtonGroup orientation="vertical">
+            <Button variant="secondary">No, thanks</Button>
+            <Button variant="secondary">Remind me later</Button>
+            <Button variant="secondary">Rate Now</Button>
+        </ButtonGroup>
+    </Story>
+</Preview>
+
+### Alignment
+
+A button group can change the alignment of his items.
+
+<Preview>
+    <Story name="button group alignment">
+        <ButtonGroup align="end">
+            <Button variant="secondary">No, thanks</Button>
+            <Button variant="secondary">Remind me later</Button>
+            <Button variant="secondary">Rate Now</Button>
+        </ButtonGroup>
+    </Story>
+</Preview>
+
+## Toggle button
+
+Offer a similar experience as a checkbox or radio with the appearance of a button.
+
+<Preview>
+    <Story name="toggle button">
+        <Inline>
+            <ToggleButton variant="secondary" shape="circular">On</ToggleButton>
+            <ToggleButton variant="secondary">
+                <LightbulbIcon />
+                <Text>Cutoff</Text>
+            </ToggleButton>
+        </Inline>
+    </Story>
+</Preview>
+
+### Toggle icon button
+
+A toggle button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+
+<Preview>
+    <Story name="toggle icon button">
+        <ToggleIconButton variant="secondary" aria-label="Activate">
+            <CheckIcon />
+        </ToggleIconButton>
+    </Story>
+</Preview>
+
+### Toggle button group
+
+Related toggle buttons can be group together in a [group](#button-group), a [checkbox group](?path=/docs/checkbox--default-story) or a [radio group](?path=/docs/radio-group--default-story):
+
+<Preview>
+    <Story name="toggle button group">
+        <RadioGroup gap={2} orientation="horizontal">
+            <ToggleButton value="none" variant="secondary">None</ToggleButton>
+            <ToggleButton value="1" variant="secondary" shape="circular">1</ToggleButton>
+            <ToggleButton value="2" variant="secondary" shape="circular">2</ToggleButton>
+            <ToggleButton value="3" variant="secondary" shape="circular">3</ToggleButton>
+            <ToggleButton value="4+" variant="secondary" shape="circular">4+</ToggleButton>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Controlled
+
+A toggle button can handle `checked` state in controlled mode.
+
+<Preview filePath="/button/docs/ControlledToggleButton" />
+
+## API
+
+### Button
+
+<ComponentInfo
+    usage={"import { Button } from \"@sharegate/orbit-ui\";"}
+    slots={["icon", "text", "end-icon", "counter"]}
+    inherits={[InnerButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerButton} sort="alpha" />
+
+### IconButton
+
+<ComponentInfo
+    usage={"import { IconButton } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerIconButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerIconButton} sort="alpha" />
+
+### ToggleButton
+
+<ComponentInfo
+    usage={"import { ToggleButton } from \"@sharegate/orbit-ui\";"}
+    slots={["icon", "text", "end-icon"]}
+    inherits={[InnerToggleButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerToggleButton} sort="alpha" />
+
+### ToggleIconButton
+
+<ComponentInfo
+    usage={"import { ToggleIconButton } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerToggleIconButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerToggleIconButton} sort="alpha" />
+
+### ButtonGroup
+
+<ComponentInfo
+    usage={"import { ButtonGroup } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerButtonGroup.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerButtonGroup} sort="alpha" />
+
+### ButtonAsLink
+
+<ComponentInfo
+    usage={"import { ButtonAsLink } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerButton} sort="alpha" />

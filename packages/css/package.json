@@ -1,0 +1,13 @@
+{
+    "name": "@orbit-ui/css",
+    "version": "0.1.1-alpha.0",
+    "description": "Orbit CSS bootstrap",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
+    "author": "Groupe ShareGate inc.",
+    "license": "Apache-2.0",
+    "main": "src/index.css",
+    "style": "src/index.css",
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -1,0 +1,29 @@
+import { ComponentInfo, Link, Preview, Tagline } from "@stories/components";
+import { Meta, Story } from "@storybook/addon-docs";
+import { Span } from "@components/html";
+
+<Meta
+    title="Html elements/Span"
+    id="html-span"
+/>
+
+# Span
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML span element.</Tagline>
+
+<ComponentInfo
+    usage={"import { Span } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+A span component accepts all the [HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span) and [Orbit styled component props](?path=/docs/styling--page).
+
+<Preview>
+    <Story name="example">
+        <Span color="cloud-8">NASA is now preparing for an ambitious new era of sustainable human spaceflight and discovery. The agency is building the Space Launch System rocket and the Orion spacecraft for human deep space exploration.</Span>
+    </Story>
+</Preview>

@@ -1,7 +1,0 @@
-.b--transparent {
-    border-color: var(--o-ui-global-transparent);
-}
-
-.b--inherit {
-    border-color: inherit;
-}

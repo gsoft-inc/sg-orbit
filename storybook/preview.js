@@ -1,20 +1,21 @@
+import { ApricotTheme, DesktopTheme, createThemeVars } from "@components/styling";
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
-import "@orbit-ui/css-normalize";
-import "@orbit-ui/foundation";
-import "@orbit-ui/react-components/dist/index.css";
-import "@orbit-ui/tachyons";
+import "@css/normalize.css";
+import "@components/index.css";
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
 import "./styles";
 
+createThemeVars([ApricotTheme, DesktopTheme]);
+
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
-    import("@orbit-ui/fonts");
+    import("@css/font/index.css");
 }
 
 export const parameters = {
@@ -22,13 +23,22 @@ export const parameters = {
         storySort: {
             method: "alphabetical",
             order: [
-                "Getting Started",
-                ["Packages", "Installation", "Foundation", "Tachyons", "Slots", "Supported Platforms", "Contributing"],
-                "Materials",
-                ["Borders", "Colors", "Flexbox", "Grid", "Icons", "Shadows", "Spacing", "Typography"],
+                "Getting Started", [
+                    "Installation",
+                    "Styling",
+                    ["Styled System", "Props Reference"],
+                    "Slots",
+                    "As",
+                    "Supported Platforms",
+                    "Contributing"
+                ],
+                "Materials", ["Colors", "Icons", "Shadows", "Spacing", "Sizing", "Typography", "Motion"],
+                "Layout",
                 "Components",
+                "Content",
                 "Placeholders",
                 "Collection",
+                "Html elements",
                 "Chromatic"
             ]
         }
@@ -49,6 +59,45 @@ export const parameters = {
                 { id: "button-name", enabled: false }
             ]
         }
+    },
+    viewport: {
+        viewports: {
+            xs: {
+                name: "xs (640px)",
+                styles: {
+                    width: "640px",
+                    height: "100%"
+                }
+            },
+            sm: {
+                name: "sm (768px)",
+                styles: {
+                    width: "768px",
+                    height: "100%"
+                }
+            },
+            md: {
+                name: "md (1024px)",
+                styles: {
+                    width: "1024px",
+                    height: "100%"
+                }
+            },
+            lg: {
+                name: "lg (1280px)",
+                styles: {
+                    width: "1280px",
+                    height: "100%"
+                }
+            },
+            xl: {
+                name: "xl (1536px)",
+                styles: {
+                    width: "1536px",
+                    height: "100%"
+                }
+            }
+        }
     }
 };
 
@@ -61,16 +110,16 @@ if (isDocs) {
 export const globalTypes = {
     theme: {
         name: "Theme",
-        description: "Orbit UI theme for components",
-        defaultValue: "apricot",
+        description: "Theme for components",
+        defaultValue: ApricotTheme.name,
         toolbar: {
             icon: "photo",
-            items: ["apricot", "desktop"]
+            items: [ApricotTheme.name, DesktopTheme.name]
         }
     },
     colorScheme: {
         name: "ColorScheme",
-        description: "Orbit UI color scheme for components",
+        description: "Color scheme for components",
         defaultValue: "light",
         toolbar: {
             icon: "mirror",

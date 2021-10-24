@@ -1,0 +1,15 @@
+/* PSEUDO | COLOR */
+.o-ui-c-hover:hover {
+    --o-ui-c-hover: initial;
+    color: var(--o-ui-c-hover) !important;
+}
+
+.o-ui-c-focus:focus-visible {
+    --o-ui-c-focus: initial;
+    color: var(--o-ui-c-focus) !important;
+}
+
+.o-ui-c-active:active {
+    --o-ui-c-active: initial;
+    color: var(--o-ui-c-active) !important;
+}

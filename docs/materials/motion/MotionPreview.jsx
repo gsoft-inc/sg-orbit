@@ -1,12 +1,13 @@
 import "./MotionPreview.css";
 
-import { Button } from "@react-components/button";
-import { Field, Label } from "@react-components/field";
-import { H4 } from "@react-components/typography";
-import { Inline } from "@react-components/layout";
-import { Item } from "@react-components/collection";
-import { Select } from "@react-components/select";
+import { Button } from "@components/button";
+import { Field, Label } from "@components/field";
+import { H4 } from "@components/typography";
+import { Inline } from "@components/layout";
+import { Item } from "@components/collection";
+import { Select } from "@components/select";
 import { useState } from "react";
+import { Div } from "@components/html";
 
 export function MotionPreview() {
     const [isAnimated, setAnimated] = useState(false);
@@ -26,9 +27,9 @@ export function MotionPreview() {
     };
 
     return (
-        <div className="o-ui-sb-motion-preview bt b--cloud-100">
+        <Div borderTop="cloud-2" className="o-ui-sb-motion-preview">
             <H4>Motion Preview</H4>
-            <Inline className="mb4" verticalAlign="end">
+            <Inline marginBottom={4} alignY="end">
                 <Field>
                     <Label data-testid="label">Easing</Label>
                     <Select placeholder="Easing" aria-label="Easing" defaultSelectedKey={easing} onSelectionChange={handleSelectEasing}>
@@ -47,9 +48,9 @@ export function MotionPreview() {
                         <Item key="duration-5">800ms</Item>
                     </Select>
                 </Field>
-                <Button shape="rounded" color="primary" onClick={handleClick}>Play this motion</Button>
+                <Button variant="primary" onClick={handleClick}>Play this motion</Button>
             </Inline>
-            <div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></div>
-        </div>
+            <Div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></Div>
+        </Div>
     );
 }

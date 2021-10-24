@@ -1,0 +1,204 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@components/counter";
+import { InnerRadio, InnerRadioGroup, Radio, RadioGroup } from "@components/radio";
+import { LightbulbIcon } from "@components/icons";
+import { Text } from "@components/typography";
+
+<Meta
+    title="Components/RadioGroup"
+    id="radio-group"
+/>
+
+# RadioGroup
+
+<Tagline>A radio group is a set of checkable buttons, known as radio buttons, where no more than one of the buttons can be checked at a time.</Tagline>
+
+<ComponentInfo
+    usage={"import { RadioGroup, Radio } from \"@sharegate/orbit-ui\";"}
+    ariaPath="#radiobutton"
+    githubPath="/packages/components/src/radio/src"
+/>
+
+## Usage
+
+### Default
+
+A default radio group.
+
+<Preview>
+    <Story name="default">
+        <RadioGroup>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Selected value
+
+A radio group can have a selected value.
+
+<Preview>
+    <Story name="selected">
+        <RadioGroup defaultValue="jupiter">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Disabled
+
+A single radio can be disabled.
+
+<Preview>
+    <Story name="disabled radio">
+        <RadioGroup>
+            <Radio disabled value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="disabled group">
+        <RadioGroup disabled>
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Icon
+
+A radio can have [icons](?path=/docs/icon-gallery--page) after his text.
+
+<Preview>
+    <Story name="icon">
+        <RadioGroup>
+            <Radio value="mars">
+                <Text>Mars</Text>
+                <LightbulbIcon />
+            </Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Counter
+
+A radio can have a [counter](?path=/docs/counter--default-story) after his text.
+
+<Preview>
+    <Story name="counter">
+        <RadioGroup>
+            <Radio value="mars">
+                <Text>Mars</Text>
+                <Counter>6</Counter>
+            </Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">
+                <Text>Pluto</Text>
+                <Counter>6</Counter>
+            </Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Reverse
+
+A radio button can be to the left or to the right of his label.
+
+<Preview>
+    <Story name="reverse radio">
+        <Radio reverse value="mars">
+            <Text>Mars</Text>
+            <LightbulbIcon />
+            <Counter>6</Counter>
+        </Radio>
+    </Story>
+</Preview>
+
+Or the whole group.
+
+<Preview>
+    <Story name="reverse group">
+        <RadioGroup reverse>
+            <Radio value="mars">
+                <Text>Mars</Text>
+                <LightbulbIcon />
+                <Counter>6</Counter>
+            </Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">
+                <Text>Pluto</Text>
+                <Counter variant="divider">6</Counter>
+            </Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Orientation
+
+A radio group can render his elements horizontally.
+
+<Preview>
+    <Story name="orientation">
+        <RadioGroup orientation="horizontal">
+            <Radio value="mars">Mars</Radio>
+            <Radio value="jupiter">Jupiter</Radio>
+            <Radio value="pluto">Pluto</Radio>
+        </RadioGroup>
+    </Story>
+</Preview>
+
+### Validation
+
+A radio group can display a validation state to communicate to the user whether the current value is valid or invalid. Implement your own validation logic in your app and pass either `"valid"` or `"invalid"` to the input via the `validationState` prop.
+
+The example below illustrates how one would validate if a specific value of the radio group has been selected.
+
+<Preview filePath="/radio/docs/ValueSelectedValidation" />
+
+### Custom components
+
+Any component implementing the `CheckableContext` can behave like a radio group. This is usually done by using the `useCheckableProps` hook.
+
+<Preview filePath="/radio/docs/CustomGroup" />
+
+### Controlled
+
+A radio group can handle `value` state in controlled mode.
+
+<Preview filePath="/radio/docs/ControlledRadioGroup" />
+
+## API
+
+### RadioGroup
+
+<ComponentInfo
+    usage={"import { RadioGroup } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerRadioGroup.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerRadioGroup} sort="alpha" />
+
+### Radio
+
+<ComponentInfo
+    usage={"import { Radio } from \"@sharegate/orbit-ui\";"}
+    slots={["label", "icon", "counter"]}
+    inherits={[InnerRadio.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerRadio} sort="alpha" />

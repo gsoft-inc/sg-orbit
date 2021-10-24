@@ -1,0 +1,27 @@
+.o-ui-date-input {
+    width: 160px;
+}
+
+/* BUTTON PRESETS */
+.o-ui-date-input-button-presets {
+    display: inline-flex;
+    align-items: center;
+    max-width: max-content;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--o-ui-sp-4);
+}
+
+/* BUTTON PRESETS | FLUID */
+.o-ui-date-input-button-presets-fluid {
+    width: 100%;
+}
+
+.o-ui-date-input-button-presets-fluid .o-ui-date-input {
+    flex: 1;
+}
+
+/* IN GROUP */
+.o-ui-date-input-in-group {
+    width: 140px;
+}

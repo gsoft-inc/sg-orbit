@@ -1,0 +1,190 @@
+/* TRIGGER */
+.o-ui-select-trigger {
+    outline: none;
+    appearance: none;
+    border: none;
+    background: none;
+    color: var(--o-ui-text-alias-1);
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+    display: inline-flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: var(--o-ui-sz-6);
+    overflow: hidden;
+    padding: 0 var(--o-ui-sp-3) 0;
+    border-radius: var(--o-ui-shape-rounded);
+}
+
+/* TRIGGER | FLUID */
+.o-ui-select-trigger-ghost.o-ui-select-trigger-fluid,
+.o-ui-select-trigger-outline.o-ui-select-trigger-fluid {
+    max-width: 100%;
+}
+
+/* TRIGGER | STATE | INVALID */
+.o-ui-select-trigger-invalid {
+    color: var(--o-ui-text-alias-negative-1);
+}
+
+/* TRIGGER | STATE | DISABLED */
+.o-ui-select-trigger-ghost[disabled],
+.o-ui-select-trigger-outline[disabled] {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
+}
+
+.o-ui-select-trigger-ghost[disabled] .o-ui-select-value-text,
+.o-ui-select-trigger-outline[disabled] .o-ui-select-value-text,
+.o-ui-select-trigger-ghost[disabled] .o-ui-select-placeholder,
+.o-ui-select-trigger-outline[disabled] .o-ui-select-placeholder {
+    cursor: not-allowed;
+}
+
+/* TRIGGER | GHOST */
+.o-ui-select-trigger-ghost {
+    border: 1px solid transparent;
+}
+
+/* TRIGGER | GHOST | STATE | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus-visible {
+    background: var(--o-ui-bg-alias-3);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+}
+
+.o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
+    background: var(--o-ui-bg-alias-3);
+}
+
+/* TRIGGER | GHOST | STATE | HOVER */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-hover,
+.o-ui-select-trigger-ghost:not([disabled]):hover {
+    background: var(--o-ui-bg-alias-3);
+}
+
+/* TRIGGER | GHOST | STATE | INVALID | FOCUS */
+.o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-invalid.o-ui-select-trigger-focus,
+.o-ui-select-trigger-ghost:not([disabled]):focus-visible.o-ui-select-trigger-invalid {
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-b-alias-negative-1-translucent);
+}
+
+/* TRIGGER | GHOST | PLACEHOLDER / VALUE */
+.o-ui-select-trigger-ghost .o-ui-select-placeholder {
+    margin-right: var(--o-ui-sp-1);
+}
+
+/* TRIGGER | OUTLINE */
+.o-ui-select-trigger-outline {
+    width: 100%;
+    max-width: var(--o-ui-sz-16);
+    background-color: var(--o-ui-bg-alias-1);
+    border: 1px solid var(--o-ui-b-alias-1);
+}
+
+/* TRIGGER | OUTLINE | STATE | OPENED */
+.o-ui-select-trigger-outline[aria-expanded="true"] {
+    border: 1px solid var(--o-ui-b-alias-1-active);
+}
+
+/* TRIGGER | OUTLINE | STATE | HOVER */
+.o-ui-select-trigger-outline:not([disabled]):hover,
+.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-hover {
+    border: 1px solid var(--o-ui-b-alias-1-hover);
+}
+
+/* TRIGGER | OUTLINE | STATE | FOCUS */
+.o-ui-select-trigger-outline.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-invalid:not([disabled]).o-ui-select-trigger-outline:focus-visible:not(:hover) {
+    --o-ui-focus-ring-color: var(--o-ui-b-alias-negative-1-translucent);
+    border: 1px solid var(--o-ui-b-alias-negative-1);
+}
+
+/* TRIGGER | OUTLINE | STATE | INVALID */
+.o-ui-select-trigger-invalid.o-ui-select-trigger-outline {
+    border: 1px solid var(--o-ui-b-alias-negative-1);
+}
+
+/* TRIGGER | OUTLINE | STATE | OPENED | INVALID */
+.o-ui-select-trigger-outline[aria-expanded="true"].o-ui-select-trigger-invalid {
+    border: 1px solid var(--o-ui-b-alias-negative-1-active);
+}
+
+/* TRIGGER | OUTLINE | STATE | HOVER | INVALID */
+.o-ui-select-trigger-outline:not([disabled]):hover.o-ui-select-trigger-invalid,
+.o-ui-select-trigger-hover.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-invalid {
+    border: 1px solid var(--o-ui-b-alias-negative-1-hover);
+}
+
+/* TRIGGER | OUTLINE | STATE | FOCUS */
+.o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
+.o-ui-select-trigger-outline:not([disabled]):focus-visible:not(:hover) {
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+}
+
+/* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
+.o-ui-select-trigger-outline:not([disabled]):hover:focus-visible {
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+}
+
+/* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
+.o-ui-select-trigger-outline:not([disabled]):hover:focus-visible.o-ui-select-trigger-invalid {
+    --o-ui-focus-ring-color: var(--o-ui-b-alias-negative-1-translucent);
+    border: 1px solid var(--o-ui-b-alias-negative-1);
+}
+
+/* SELECT VALUE */
+.o-ui-select-value {
+    display: flex;
+    overflow: hidden;
+}
+
+/* PLACEHOLDER */
+.o-ui-select-trigger-outline.o-ui-select-trigger-has-placeholder {
+    color: var(--o-ui-text-alias-input-placeholder);
+}
+
+/* PLACEHOLDER | INVALID */
+.o-ui-select-trigger-invalid.o-ui-select-trigger-has-placeholder {
+    color: var(--o-ui-text-alias-negative-1);
+}
+
+/* SELECT VALUE & PLACEHOLDER */
+.o-ui-select-value,
+.o-ui-select-placeholder {
+    flex-grow: 1;
+    text-align: left;
+    margin-right: var(--o-ui-sp-2);
+}
+
+/* SELECT VALUE | START ICON */
+.o-ui-select-value-start-icon {
+    margin-right: var(--o-ui-sp-1);
+    flex-shrink: 0;
+}
+
+/* SELECT VALUE | END ICON */
+.o-ui-select-value-end-icon {
+    flex-shrink: 0;
+    margin-left: var(--o-ui-sp-1);
+}
+
+/* ICON */
+.o-ui-select-icon {
+    flex-shrink: 0;
+    margin-right: var(--o-ui-sp-1);
+}
+
+/* MENU | FLUID */
+.o-ui-select-menu-fluid {
+    max-width: 100%;
+}
+
+/* TEXT & PLACEHOLDER OVERFLOW */
+.o-ui-select-value-text,
+.o-ui-select-placeholder {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: default;
+}

@@ -1,0 +1,37 @@
+import { ArgsTable, Meta } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { InnerBox } from "@components/box";
+
+<Meta
+    title="Components/Box"
+    id="box"
+/>
+
+# Box
+
+<Tagline>A box is a general purpose component that can be used to compose new components, use the slot system or render style props.</Tagline>
+
+<ComponentInfo
+    usage={"import { Box } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/box/src"
+/>
+
+## Usage
+
+> Instead of using a box component, you should use one of Orbit's HTML element components, like a [Div](?path=/docs/html-div--example) component.
+
+### Default
+
+A default box.
+
+<Preview filePath="/box/docs/Usage" />
+
+## API
+
+<ComponentInfo
+    usage={"import { Box } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerBox.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerBox} sort="alpha" />

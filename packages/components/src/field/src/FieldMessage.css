@@ -1,0 +1,25 @@
+.o-ui-field-message {
+    max-width: 50ch;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+/* FLUID */
+.o-ui-field-message-fluid {
+    max-width: 100%;
+}
+
+/* NEUTRAL */
+.o-ui-field-message-neutral {
+    color: var(--o-ui-text-alias-2);
+}
+
+/* VALID */
+.o-ui-field-message-success {
+    color: var(--o-ui-botanic-6);
+}
+
+/* INVALID */
+.o-ui-field-message-error {
+    color: var(--o-ui-text-alias-negative-1);
+}

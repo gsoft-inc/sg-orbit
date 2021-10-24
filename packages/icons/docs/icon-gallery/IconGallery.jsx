@@ -1,7 +1,9 @@
+import { Flex } from "@components/layout";
+
 export function IconGallery({ children }) {
     return (
-        <div className="flex flex-wrap">
+        <Flex wrap="wrap">
             {children}
-        </div>
+        </Flex>
     );
 }

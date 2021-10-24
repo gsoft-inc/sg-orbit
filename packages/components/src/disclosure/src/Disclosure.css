@@ -1,0 +1,31 @@
+/* SECTION */
+.o-ui-disclosure-content-collapsing {
+    overflow-y: hidden;
+}
+
+.o-ui-disclosure-content-collapsed {
+    display: none;
+}
+
+.o-ui-disclosure-content-expanding {
+    overflow-y: hidden;
+    height: 0;
+    opacity: 0;
+}
+
+/* CONTENT */
+.o-ui-disclosure-content-inner {
+    padding-top: var(--o-ui-sp-5);
+    padding-bottom: var(--o-ui-sp-5);
+    color: var(--o-ui-text-alias-1);
+}
+
+/* SLIDE ANIMATION */
+/* Must be a transition on height otherwise it won't work. */
+.o-ui-disclosure-slide-down {
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}
+
+.o-ui-disclosure-slide-up {
+    transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}

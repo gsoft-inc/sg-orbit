@@ -1,6 +1,10 @@
 import "./IconItem.css";
 
-import { Content, Dialog, DialogTrigger, Heading } from "@react-components";
+import { Content } from "@components/placeholders";
+import { Dialog, DialogTrigger } from "@components/dialog";
+import { Div } from "@components/html";
+import { Flex } from "@components/layout";
+import { Heading } from "@components/typography";
 import { IconDetail } from "./details";
 import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";
@@ -36,14 +40,14 @@ export function IconItem({ name, multiVariant, variants }) {
             onOpenChange={handleModalOpenChange}
             dismissable
         >
-            <div className="o-ui-sb-gallery-item flex flex-column">
-                <div className="pa3 tc f7">{displayName.toLowerCase()}</div>
-                <div className="flex justify-center">
-                    <div className="w7 h7">
+            <Flex direction="column" className="o-ui-sb-gallery-item">
+                <Div padding={3} fontSize={3} textAlign="center">{displayName.toLowerCase()}</Div>
+                <Flex justifyContent="center">
+                    <Div width={7} height={7}>
                         <PreviewIcon icon={multiVariant.icon} onShowDetail={handleShowDetail} />
-                    </div>
-                </div>
-            </div>
+                    </Div>
+                </Flex>
+            </Flex>
             <Dialog>
                 <Heading>{displayName}</Heading>
                 <Content>

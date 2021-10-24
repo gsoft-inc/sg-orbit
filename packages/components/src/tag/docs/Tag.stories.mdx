@@ -1,0 +1,263 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { CheckCircleIcon, IconList, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Counter } from "@components/counter";
+import { Dot } from "@components/dot";
+import { Inline, Stack } from "@components/layout";
+import { InnerTag, InnerTagList, Tag, TagList } from "@components/tag";
+import { Item } from "@components/collection";
+import { Text } from "@components/typography";
+
+<Meta
+    title="Components/Tag"
+    id="tag"
+/>
+
+# Tag
+
+<Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
+
+<ComponentInfo
+    usage={"import { Tag, TagList, Item } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/tag/src"
+/>
+
+## Usage
+
+### Default
+
+A default tag.
+
+<Preview>
+    <Story name="default">
+        <Tag>Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Icon
+
+A tag can contain [icons](?path=/docs/icon-gallery--page).
+
+<Preview>
+    <Story name="icon">
+        <Tag>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### End icon
+
+*Non standard* end [icons](?path=/docs/icon-gallery--page) can be provided *only if* you have to render a [list of icons](?path=/docs/icon--default-story#icon-list).
+
+<Preview>
+    <Story name="end icon">
+        <Tag>
+            <Text>Falcon 9</Text>
+            <IconList slot="end-icon">
+                <CheckCircleIcon />
+                <LightbulbIcon />
+                <NotificationIcon />
+            </IconList>
+        </Tag>
+    </Story>
+</Preview>
+
+### Dot
+
+A tag can contain a [dot](?path=/docs/dot--default-story).
+
+<Preview>
+    <Story name="dot">
+        <Tag>
+            <Dot color="--o-ui-primary-6" />
+            <Text>Falcon 9</Text>
+        </Tag>
+    </Story>
+</Preview>
+
+### Counter
+
+A tag can contain a [counter](?path=/docs/counter--default-story).
+
+<Preview>
+    <Story name="counter">
+        <Tag>
+            <Text>Falcon 9</Text>
+            <Counter variant="divider">6</Counter>
+        </Tag>
+    </Story>
+</Preview>
+
+### Removable
+
+A tag can be removable by specifying an `onRemove` handler.
+
+<Preview>
+    <Story name="removable">
+        <Tag onRemove={() => {}}>Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Size
+
+A tag can vary in size.
+
+<Preview>
+    <Story name="size">
+        <Inline alignY="center">
+            <Tag size="sm">Falcon 9</Tag>
+            <Tag>Falcon 9</Tag>
+        </Inline>
+    </Story>
+</Preview>
+
+### Fluid
+
+A tag can take the width of its container.
+
+<Preview>
+    <Story name="fluid">
+        <Tag fluid>
+            <CheckCircleIcon />
+            <Text>Falcon 9</Text>
+            <Counter>6</Counter>
+        </Tag>
+    </Story>
+</Preview>
+
+### Outline
+
+A tag can have a subtle appearance.
+
+<Preview>
+    <Story name="outline">
+        <Tag variant="outline">Falcon 9</Tag>
+    </Story>
+</Preview>
+
+### Custom colors
+
+Custom colors can be applied to a tag.
+
+<Preview>
+    <Story name="custom-color">
+        <Tag
+            style={{
+                backgroundColor: "#FFF6E7",
+                color: "var(--o-ui-marine-6)",
+                border: "1px solid #FEE9C3"
+            }}
+        >
+            Falcon 9
+        </Tag>
+    </Story>
+</Preview>
+
+## Tag list
+
+Related tags can be grouped together.
+
+<Preview>
+    <Story name="tag list">
+        <TagList>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Clearable
+
+A tag list can have a clear button.
+
+<Preview>
+    <Story name="tag list clearable">
+        <TagList onClear={() => {}}>
+            <Item key="mercury">Mercury Program</Item>
+            <Item key="gemini">Gemini Program</Item>
+            <Item key="apollo">Apollo Program</Item>
+            <Item key="artemis">Artemis Program</Item>
+        </TagList>
+    </Story>
+</Preview>
+
+### Size
+
+A tag list can vary in size.
+
+<Preview>
+    <Story name="tag list size">
+        <Stack>
+            <TagList size="sm">
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+            <TagList>
+                <Item key="mercury">Mercury Program</Item>
+                <Item key="gemini">Gemini Program</Item>
+                <Item key="apollo">Apollo Program</Item>
+                <Item key="artemis">Artemis Program</Item>
+            </TagList>
+        </Stack>
+    </Story>
+</Preview>
+
+### Dynamic items
+
+A tag list items can be rendered dynamically.
+
+<Preview>
+    <Story name="tag list dynamic items">
+        <TagList>
+            {[
+                { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> },
+                { key: "gemini", value: "Gemini Program" },
+                { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
+                { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
+            ].map(x => (
+                <Item key={x.key}>
+                    {x.icon}
+                    <Text>{x.value}</Text>
+                </Item>
+            ))}
+        </TagList>
+    </Story>
+</Preview>
+
+### Tags picker
+
+The following example show how a TagList can be composed with one of Orbit's picker to build a basic tags picker.
+
+<Preview filePath="/tag/docs/TagsPicker" />
+
+## API
+
+### Tag
+
+<ComponentInfo
+    usage={"import { Tag } from \"@sharegate/orbit-ui\";"}
+    slots={["text", "icon", "dot", "counter"]}
+    inherits={[InnerTag.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerTag} sort="alpha" />
+
+### TagList
+
+<ComponentInfo
+    usage={"import { TagList } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerTagList.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerTagList} sort="alpha" />
+
+
+

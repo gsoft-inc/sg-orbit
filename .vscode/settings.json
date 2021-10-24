@@ -20,13 +20,13 @@
     "eslint.validate": ["javascript", "javascriptreact", "mdx"],
     "stylelint.autoFixOnSave": true,
     "files.associations": {
-        ".overrides": "css",
-        ".variables": "css"
+        "*.snap": "javascriptreact"
     },
     "breadcrumbs.enabled": true,
     "search.exclude": {
         "**/node_modules*": true,
         "**/dist*": true
     },
-    "timeline.showView": true
+    "timeline.showView": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib"
 }

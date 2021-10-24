@@ -1,6 +1,8 @@
 import { ColorTable } from "./ColorTable";
-import { Meta } from "@storybook/addon-docs/blocks";
-import { TachyonsFile, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+import { Tagline } from "@stories/components";
+import { Div } from "@components/html";
+import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
 
 <Meta
     title="Materials/Colors"
@@ -11,46 +13,6 @@ import { TachyonsFile, Tagline } from "@stories/components";
 
 <Tagline>Our colors are meant to put forward our brand and to express our personality in a constantly growing market. We use them to differentiate our products and brand visuals from each other.</Tagline>
 
-## Utilities
-
-Most of Tachyons original colors classes have been replaced by classes matching [Orbit Design colors](?path=/docs/colors--page).
-
-### Foundation colors
-
-For any [brand](#brand-colors), [products](#products-colors) or [feedback and UI](#feedback-and-ui-colors) colors, use the following classes:
-
-- `[color-name|product-name]-[50-900]` (ex. `sunray-50`, `apricot-50`)
-- `hover-[color-name|product-name]-[50-900]` (ex. `hover-sunray-50`, `hover-apricot-50`)
-- `focus-[color-name|product-name]-[50-900]` (ex. `focus-sunray-50`, `focus-apricot-50`)
-- `bg-[color-name|product-name]-[50-900]` (ex. `bg-sunray-50`, `bg-apricot-50`)
-- `hover-bg-[color-name|product-name]-[50-900]` (ex. `hover-bg-sunray-50`, `hover-bg-apricot-50`)
-- `focus-bg-[color-name|product-name]-[50-900]` (ex. `focus-bg-sunray-50`, `focus-bg-apricot-50`)
-- `fill-[color-name|product-name]-[50-900]` (ex. `fill-sunray-50`, `fill-apricot-50`)
-- `hover-fill-[color-name|product-name]-[50-900]` (ex. `hover-fill-sunray-50`, `hover-fill-apricot-50`)
-- `focus-fill-[color-name|product-name]-[50-900]` (ex. `focus-fill-sunray-50`, `focus-fill-apricot-50`)
-- `stroke-[color-name|product-name]-[50-900]` (ex. `stroke-sunray-50`, `stroke-apricot-50`)
-- `hover-stroke-[color-name|product-name]-[50-900]` (ex. `hover-stroke-sunray-50`, `hover-stroke-apricot-50`)
-- `focus-stroke-[color-name|product-name]-[50-900]` (ex. `focus-stroke-sunray-50`, `focus-stroke-apricot-50`)
-
-### Primary
-
-Whenever you can, prefer using primary classes over your product color classes:
-
-- `primary-[50-900]` (ex. `primary-50`)
-- `hover-primary-[50-900]` (ex. `hover-primary-50`)
-- `focus-primary-[50-900]` (ex. `focus-primary-50`)
-- `bg-primary-[50-900]` (ex. `bg-primary-50`)
-- `hover-bg-primary-[50-900]` (ex. `hover-bg-primary-50`)
-- `focus-bg-primary-[50-900]` (ex. `focus-bg-primary-50`)
-- `fill-primary-[50-900]` (ex. `fill-primary-50`)
-- `hover-fill-primary-[50-900]` (ex. `hover-fill-primary-50`)
-- `focus-fill-primary-[50-900]` (ex. `focus-fill-primary-50`)
-- `stroke-primary-[50-900]` (ex. `stroke-primary-50`)
-- `hover-stroke-primary-[50-900]` (ex. `hover-stroke-primary-50`)
-- `focus-stroke-primary-[50-900]` (ex. `focus-stroke-primary-50`)
-
-For an exhaustive list of all colors utilities view the [Tachyons sections](#tachyons) below.
-
 ## Brand colors
 
 Those are the core colors of ShareGate. Except for Moonstone (which is the color differentiator for ShareGate brand), you will always find Marine and Sunray present in every product or brand interfaces.
@@ -59,20 +21,22 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 
 This color is used in ShareGate ecosystem for its signification of trust and confidence. It is the foundation of our palette. It represent our reliability, our loyalty to our customers, the fact that we're there for them and that they can count on us.
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-marine-50", color: "hsla(222, 100%, 96%, 1)" },
-        { shade: "100", variable: "--o-ui-global-marine-100", color: "hsla(222, 26%, 79%, 1)" },
-        { shade: "200", variable: "--o-ui-global-marine-200", color: "hsla(222, 16%, 65%, 1)" },
-        { shade: "300", variable: "--o-ui-global-marine-300", color: "hsla(220, 15%, 54%, 1)" },
-        { shade: "400", variable: "--o-ui-global-marine-400", color: "hsla(220, 18%, 45%, 1)" },
-        { shade: "500", variable: "--o-ui-global-marine-500", color: "hsla(222, 24%, 38%, 1)" },
-        { shade: "600", variable: "--o-ui-global-marine-600", color: "hsla(222, 30%, 32%, 1)" },
-        { shade: "700", variable: "--o-ui-global-marine-700", color: "hsla(222, 37%, 27%, 1)" },
-        { shade: "800", variable: "--o-ui-global-marine-800", color: "hsla(221, 45%, 22%, 1)" },
-        { shade: "900", variable: "--o-ui-global-marine-900", color: "hsla(222, 63%, 15%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "marine-1", variable: "--o-ui-marine-1", color: ApricotTheme.colors.common.marine[0] },
+            { shade: "2", value: "marine-2", variable: "--o-ui-marine-2", color: ApricotTheme.colors.common.marine[1] },
+            { shade: "3", value: "marine-3", variable: "--o-ui-marine-3", color: ApricotTheme.colors.common.marine[2] },
+            { shade: "4", value: "marine-4", variable: "--o-ui-marine-4", color: ApricotTheme.colors.common.marine[3] },
+            { shade: "5", value: "marine-5", variable: "--o-ui-marine-5", color: ApricotTheme.colors.common.marine[4] },
+            { shade: "6", value: "marine-6", variable: "--o-ui-marine-6", color: ApricotTheme.colors.common.marine[5] },
+            { shade: "7", value: "marine-7", variable: "--o-ui-marine-7", color: ApricotTheme.colors.common.marine[6] },
+            { shade: "8", value: "marine-8", variable: "--o-ui-marine-8", color: ApricotTheme.colors.common.marine[7] },
+            { shade: "9", value: "marine-9", variable: "--o-ui-marine-9", color: ApricotTheme.colors.common.marine[8] },
+            { shade: "10", value: "marine-10", variable: "--o-ui-marine-10", color: ApricotTheme.colors.common.marine[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### Sunray
 
@@ -82,20 +46,22 @@ Since the majority of our core colors are cold ones, we want to make sure our pe
 
 It will be use as a small part of theme ratios, to bring energy in our visuals and to differentiate key elements from backgrounds or visuals (ex. textures, illustrations, informational design, etc).
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-sunray-50", color: "hsla(38, 100%, 95%, 1)" },
-        { shade: "100", variable: "--o-ui-global-sunray-100", color: "hsla(39, 97%, 85%, 1)" },
-        { shade: "200", variable: "--o-ui-global-sunray-200", color: "hsla(39, 98%, 80%, 1)" },
-        { shade: "300", variable: "--o-ui-global-sunray-300", color: "hsla(39, 97%, 75%, 1)" },
-        { shade: "400", variable: "--o-ui-global-sunray-400", color: "hsla(39, 97%, 70%, 1)" },
-        { shade: "500", variable: "--o-ui-global-sunray-500", color: "hsla(39, 97%, 65%, 1)" },
-        { shade: "600", variable: "--o-ui-global-sunray-600", color: "hsla(38, 97%, 60%, 1)" },
-        { shade: "700", variable: "--o-ui-global-sunray-700", color: "hsla(36, 96%, 55%, 1)" },
-        { shade: "800", variable: "--o-ui-global-sunray-800", color: "hsla(35, 96%, 50%, 1)" },
-        { shade: "900", variable: "--o-ui-global-sunray-900", color: "hsla(32, 96%, 45%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "sunray-1", variable: "--o-ui-sunray-1", color: ApricotTheme.colors.common.sunray[0] },
+            { shade: "2", value: "sunray-2", variable: "--o-ui-sunray-2", color: ApricotTheme.colors.common.sunray[1] },
+            { shade: "3", value: "sunray-3", variable: "--o-ui-sunray-3", color: ApricotTheme.colors.common.sunray[2] },
+            { shade: "4", value: "sunray-4", variable: "--o-ui-sunray-4", color: ApricotTheme.colors.common.sunray[3] },
+            { shade: "5", value: "sunray-5", variable: "--o-ui-sunray-5", color: ApricotTheme.colors.common.sunray[4] },
+            { shade: "6", value: "sunray-6", variable: "--o-ui-sunray-6", color: ApricotTheme.colors.common.sunray[5] },
+            { shade: "7", value: "sunray-7", variable: "--o-ui-sunray-7", color: ApricotTheme.colors.common.sunray[6] },
+            { shade: "8", value: "sunray-8", variable: "--o-ui-sunray-8", color: ApricotTheme.colors.common.sunray[7] },
+            { shade: "9", value: "sunray-9", variable: "--o-ui-sunray-9", color: ApricotTheme.colors.common.sunray[8] },
+            { shade: "10", value: "sunray-10", variable: "--o-ui-sunray-10", color: ApricotTheme.colors.common.sunray[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### Moonstone
 
@@ -105,20 +71,22 @@ Everyone is open and willing to talk with our customers). It's also a wink to ou
 
 GSoft is a BCorp company and ShareGate has to represent those values too.
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-moonstone-50", color: "hsla(180, 28%, 95%, 1)" },
-        { shade: "100", variable: "--o-ui-global-moonstone-100", color: "hsla(180, 30%, 88%, 1)" },
-        { shade: "200", variable: "--o-ui-global-moonstone-200", color: "hsla(178, 31%, 80%, 1)" },
-        { shade: "300", variable: "--o-ui-global-moonstone-300", color: "hsla(179, 31%, 71%, 1)" },
-        { shade: "400", variable: "--o-ui-global-moonstone-400", color: "hsla(179, 30%, 65%, 1)" },
-        { shade: "500", variable: "--o-ui-global-moonstone-500", color: "hsla(179, 30%, 59%, 1)" },
-        { shade: "600", variable: "--o-ui-global-moonstone-600", color: "hsla(179, 29%, 56%, 1)" },
-        { shade: "700", variable: "--o-ui-global-moonstone-700", color: "hsla(179, 27%, 52%, 1)" },
-        { shade: "800", variable: "--o-ui-global-moonstone-800", color: "hsla(179, 28%, 48%, 1)" },
-        { shade: "900", variable: "--o-ui-global-moonstone-900", color: "hsla(179, 34%, 42%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "moonstone-1", variable: "--o-ui-moonstone-1", color: ApricotTheme.colors.common.moonstone[0] },
+            { shade: "2", value: "moonstone-2", variable: "--o-ui-moonstone-2", color: ApricotTheme.colors.common.moonstone[1] },
+            { shade: "3", value: "moonstone-3", variable: "--o-ui-moonstone-3", color: ApricotTheme.colors.common.moonstone[2] },
+            { shade: "4", value: "moonstone-4", variable: "--o-ui-moonstone-4", color: ApricotTheme.colors.common.moonstone[3] },
+            { shade: "5", value: "moonstone-5", variable: "--o-ui-moonstone-5", color: ApricotTheme.colors.common.moonstone[4] },
+            { shade: "6", value: "moonstone-6", variable: "--o-ui-moonstone-6", color: ApricotTheme.colors.common.moonstone[5] },
+            { shade: "7", value: "moonstone-7", variable: "--o-ui-moonstone-7", color: ApricotTheme.colors.common.moonstone[6] },
+            { shade: "8", value: "moonstone-8", variable: "--o-ui-moonstone-8", color: ApricotTheme.colors.common.moonstone[7] },
+            { shade: "9", value: "moonstone-9", variable: "--o-ui-moonstone-9", color: ApricotTheme.colors.common.moonstone[8] },
+            { shade: "10", value: "moonstone-10", variable: "--o-ui-moonstone-10", color: ApricotTheme.colors.common.moonstone[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ## Products colors
 
@@ -134,41 +102,22 @@ We could have chose a soft orange/yellow to reflect the word *Apricot* but we th
 
 Also it suggest stability and endurance, qualities that fit perfectly with the mission of ShareGate Apricot.
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-apricot-50", color: "hsla(174, 61%, 94%, 1)" },
-        { shade: "100", variable: "--o-ui-global-apricot-100", color: "hsla(173, 63%, 85%, 1)" },
-        { shade: "200", variable: "--o-ui-global-apricot-200", color: "hsla(173, 63%, 75%, 1)" },
-        { shade: "300", variable: "--o-ui-global-apricot-300", color: "hsla(173, 64%, 65%, 1)" },
-        { shade: "400", variable: "--o-ui-global-apricot-400", color: "hsla(173, 64%, 50%, 1)" },
-        { shade: "500", variable: "--o-ui-global-apricot-500", color: "hsla(172, 65%, 48%, 1)" },
-        { shade: "600", variable: "--o-ui-global-apricot-600", color: "hsla(173, 65%, 46%, 1)" },
-        { shade: "700", variable: "--o-ui-global-apricot-700", color: "hsla(172, 63%, 45%, 1)" },
-        { shade: "800", variable: "--o-ui-global-apricot-800", color: "hsla(172, 64%, 43%, 1)" },
-        { shade: "900", variable: "--o-ui-global-apricot-900", color: "hsla(172, 62%, 41%, 1)" }
-    ]}
-/>
-
-### Desktop
-
-This color is the trademark of ShareGate Desktop tool. People learned to recognizes our brand with this orange and there is so much history behind it.
-
-Combined to Marine and Sunray, it brings energy and enthusiasm in a SharePoint (and Office 365) world! Based on those traits, it reflect our past and our vision at the same time.
-
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-desktop-50", color: "#FEEEE4" },
-        { shade: "100", variable: "--o-ui-global-desktop-100", color: "#FCD5BC" },
-        { shade: "200", variable: "--o-ui-global-desktop-200", color: "#FAB990" },
-        { shade: "300", variable: "--o-ui-global-desktop-300", color: "#F79D64" },
-        { shade: "400", variable: "--o-ui-global-desktop-400", color: "#F68842" },
-        { shade: "500", variable: "--o-ui-global-desktop-500", color: "#F47321" },
-        { shade: "600", variable: "--o-ui-global-desktop-600", color: "#EB6300" },
-        { shade: "700", variable: "--o-ui-global-desktop-700", color: "#DD5306" },
-        { shade: "800", variable: "--o-ui-global-desktop-800", color: "#CE4409" },
-        { shade: "900", variable: "--o-ui-global-desktop-900", color: "#AC3400" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "primary-1", variable: "--o-ui-primary-1", color: ApricotTheme.colors.common.primary[0] },
+            { shade: "2", value: "primary-2", variable: "--o-ui-primary-2", color: ApricotTheme.colors.common.primary[1] },
+            { shade: "3", value: "primary-3", variable: "--o-ui-primary-3", color: ApricotTheme.colors.common.primary[2] },
+            { shade: "4", value: "primary-4", variable: "--o-ui-primary-4", color: ApricotTheme.colors.common.primary[3] },
+            { shade: "5", value: "primary-5", variable: "--o-ui-primary-5", color: ApricotTheme.colors.common.primary[4] },
+            { shade: "6", value: "primary-6", variable: "--o-ui-primary-6", color: ApricotTheme.colors.common.primary[5] },
+            { shade: "7", value: "primary-7", variable: "--o-ui-primary-7", color: ApricotTheme.colors.common.primary[6] },
+            { shade: "8", value: "primary-8", variable: "--o-ui-primary-8", color: ApricotTheme.colors.common.primary[7] },
+            { shade: "9", value: "primary-9", variable: "--o-ui-primary-9", color: ApricotTheme.colors.common.primary[8] },
+            { shade: "10", value: "primary-10", variable: "--o-ui-primary-10", color: ApricotTheme.colors.common.primary[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ## Feedback and UI colors
 
@@ -178,82 +127,98 @@ Those colors exist for feedback interactions in our interfaces.
 
 Used in empty states illustrations and for disabled states.
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-cloud-50", color: "hsla(223, 11%, 95%, 1)" },
-        { shade: "100", variable: "--o-ui-global-cloud-100", color: "hsla(223, 12%, 87%, 1)" },
-        { shade: "200", variable: "--o-ui-global-cloud-200", color: "hsla(223, 13%, 78%, 1)" },
-        { shade: "300", variable: "--o-ui-global-cloud-300", color: "hsla(223, 12%, 70%, 1)" },
-        { shade: "400", variable: "--o-ui-global-cloud-400", color: "hsla(223, 13%, 63%, 1)" },
-        { shade: "500", variable: "--o-ui-global-cloud-500", color: "hsla(223, 13%, 56%, 1)" },
-        { shade: "600", variable: "--o-ui-global-cloud-600", color: "hsla(223, 12%, 53%, 1)" },
-        { shade: "700", variable: "--o-ui-global-cloud-700", color: "hsla(223, 12%, 49%, 1)" },
-        { shade: "800", variable: "--o-ui-global-cloud-800", color: "hsla(223, 13%, 45%, 1)" },
-        { shade: "900", variable: "--o-ui-global-cloud-900", color: "hsla(223, 15%, 38%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "cloud-1", variable: "--o-ui-cloud-1", color: ApricotTheme.colors.common.cloud[0] },
+            { shade: "2", value: "cloud-2", variable: "--o-ui-cloud-2", color: ApricotTheme.colors.common.cloud[1] },
+            { shade: "3", value: "cloud-3", variable: "--o-ui-cloud-3", color: ApricotTheme.colors.common.cloud[2] },
+            { shade: "4", value: "cloud-4", variable: "--o-ui-cloud-4", color: ApricotTheme.colors.common.cloud[3] },
+            { shade: "5", value: "cloud-5", variable: "--o-ui-cloud-5", color: ApricotTheme.colors.common.cloud[4] },
+            { shade: "6", value: "cloud-6", variable: "--o-ui-cloud-6", color: ApricotTheme.colors.common.cloud[5] },
+            { shade: "7", value: "cloud-7", variable: "--o-ui-cloud-7", color: ApricotTheme.colors.common.cloud[6] },
+            { shade: "8", value: "cloud-8", variable: "--o-ui-cloud-8", color: ApricotTheme.colors.common.cloud[7] },
+            { shade: "9", value: "cloud-9", variable: "--o-ui-cloud-9", color: ApricotTheme.colors.common.cloud[8] },
+            { shade: "10", value: "cloud-10", variable: "--o-ui-cloud-10", color: ApricotTheme.colors.common.cloud[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### Neutral
 
 Meant to reinforce the use of white space to distinguish groups of elements from one another. This palette can be used for backgrounds, dividers/lines.
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-neutral-50", color: "hsla(180, 14%, 99%, 1)" },
-        { shade: "100", variable: "--o-ui-global-neutral-100", color: "hsla(210, 11%, 96%, 1)" },
-        { shade: "200", variable: "--o-ui-global-neutral-200", color: "hsla(225, 14%, 95%, 1)" },
-        { shade: "300", variable: "--o-ui-global-neutral-300", color: "hsla(228, 13%, 92%, 1)" },
-        { shade: "400", variable: "--o-ui-global-neutral-400", color: "hsla(220, 12%, 91%, 1)" },
-        { shade: "500", variable: "--o-ui-global-neutral-500", color: "hsla(223, 13%, 89%, 1)" },
-        { shade: "600", variable: "--o-ui-global-neutral-600", color: "hsla(218, 9%, 83%, 1)" },
-        { shade: "700", variable: "--o-ui-global-neutral-700", color: "hsla(223, 6%, 77%, 1)" },
-        { shade: "800", variable: "--o-ui-global-neutral-800", color: "hsla(223, 5%, 71%, 1)" },
-        { shade: "900", variable: "--o-ui-global-neutral-900", color: "hsla(223, 4%, 64%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "neutral-1", variable: "--o-ui-neutral-1", color: ApricotTheme.colors.common.neutral[0] },
+            { shade: "2", value: "neutral-2", variable: "--o-ui-neutral-2", color: ApricotTheme.colors.common.neutral[1] },
+            { shade: "3", value: "neutral-3", variable: "--o-ui-neutral-3", color: ApricotTheme.colors.common.neutral[2] },
+            { shade: "4", value: "neutral-4", variable: "--o-ui-neutral-4", color: ApricotTheme.colors.common.neutral[3] },
+            { shade: "5", value: "neutral-5", variable: "--o-ui-neutral-5", color: ApricotTheme.colors.common.neutral[4] },
+            { shade: "6", value: "neutral-6", variable: "--o-ui-neutral-6", color: ApricotTheme.colors.common.neutral[5] },
+            { shade: "7", value: "neutral-7", variable: "--o-ui-neutral-7", color: ApricotTheme.colors.common.neutral[6] },
+            { shade: "8", value: "neutral-8", variable: "--o-ui-neutral-8", color: ApricotTheme.colors.common.neutral[7] },
+            { shade: "9", value: "neutral-9", variable: "--o-ui-neutral-9", color: ApricotTheme.colors.common.neutral[8] },
+            { shade: "10", value: "neutral-10", variable: "--o-ui-neutral-10", color: ApricotTheme.colors.common.neutral[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### Beetle
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-beetle-50", color: "hsla(349, 100%, 95%, 1)" },
-        { shade: "100", variable: "--o-ui-global-beetle-100", color: "hsla(348, 97%, 86%, 1)" },
-        { shade: "200", variable: "--o-ui-global-beetle-200", color: "hsla(348, 98%, 77%, 1)" },
-        { shade: "300", variable: "--o-ui-global-beetle-300", color: "hsla(348, 98%, 67%, 1)" },
-        { shade: "400", variable: "--o-ui-global-beetle-400", color: "hsla(348, 97%, 60%, 1)" },
-        { shade: "500", variable: "--o-ui-global-beetle-500", color: "hsla(348, 98%, 53%, 1)" },
-        { shade: "600", variable: "--o-ui-global-beetle-600", color: "hsla(348, 90%, 51%, 1)" },
-        { shade: "700", variable: "--o-ui-global-beetle-700", color: "hsla(348, 83%, 50%, 1)" },
-        { shade: "800", variable: "--o-ui-global-beetle-800", color: "hsla(348, 81%, 48%, 1)" },
-        { shade: "900", variable: "--o-ui-global-beetle-900", color: "hsla(348, 80%, 46%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "beetle-1", variable: "--o-ui-beetle-1", color: ApricotTheme.colors.common.beetle[0] },
+            { shade: "2", value: "beetle-2", variable: "--o-ui-beetle-2", color: ApricotTheme.colors.common.beetle[1] },
+            { shade: "3", value: "beetle-3", variable: "--o-ui-beetle-3", color: ApricotTheme.colors.common.beetle[2] },
+            { shade: "4", value: "beetle-4", variable: "--o-ui-beetle-4", color: ApricotTheme.colors.common.beetle[3] },
+            { shade: "5", value: "beetle-5", variable: "--o-ui-beetle-5", color: ApricotTheme.colors.common.beetle[4] },
+            { shade: "6", value: "beetle-6", variable: "--o-ui-beetle-6", color: ApricotTheme.colors.common.beetle[5] },
+            { shade: "7", value: "beetle-7", variable: "--o-ui-beetle-7", color: ApricotTheme.colors.common.beetle[6] },
+            { shade: "8", value: "beetle-8", variable: "--o-ui-beetle-8", color: ApricotTheme.colors.common.beetle[7] },
+            { shade: "9", value: "beetle-9", variable: "--o-ui-beetle-9", color: ApricotTheme.colors.common.beetle[8] },
+            { shade: "10", value: "beetle-10", variable: "--o-ui-beetle-10", color: ApricotTheme.colors.common.beetle[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### Botanic
 
-<ColorTable
-    colors={[
-        { shade: "50", variable: "--o-ui-global-botanic-50", color: "hsla(146, 64%, 94%, 1)" },
-        { shade: "100", variable: "--o-ui-global-botanic-100", color: "hsla(146, 64%, 84%, 1)" },
-        { shade: "200", variable: "--o-ui-global-botanic-200", color: "hsla(146, 65%, 73%, 1)" },
-        { shade: "300", variable: "--o-ui-global-botanic-300", color: "hsla(146, 65%, 62%, 1)" },
-        { shade: "400", variable: "--o-ui-global-botanic-400", color: "hsla(146, 64%, 54%, 1)" },
-        { shade: "500", variable: "--o-ui-global-botanic-500", color: "hsla(146, 75%, 46%, 1)" },
-        { shade: "600", variable: "--o-ui-global-botanic-600", color: "hsla(145, 77%, 45%, 1)" },
-        { shade: "700", variable: "--o-ui-global-botanic-700", color: "hsla(143, 80%, 42%, 1)" },
-        { shade: "800", variable: "--o-ui-global-botanic-800", color: "hsla(141, 83%, 40%, 1)" },
-        { shade: "900", variable: "--o-ui-global-botanic-900", color: "hsla(138, 89%, 36%, 1)" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "botanic-1", variable: "--o-ui-botanic-1", color: ApricotTheme.colors.common.botanic[0] },
+            { shade: "2", value: "botanic-2", variable: "--o-ui-botanic-2", color: ApricotTheme.colors.common.botanic[1] },
+            { shade: "3", value: "botanic-3", variable: "--o-ui-botanic-3", color: ApricotTheme.colors.common.botanic[2] },
+            { shade: "4", value: "botanic-4", variable: "--o-ui-botanic-4", color: ApricotTheme.colors.common.botanic[3] },
+            { shade: "5", value: "botanic-5", variable: "--o-ui-botanic-5", color: ApricotTheme.colors.common.botanic[4] },
+            { shade: "6", value: "botanic-6", variable: "--o-ui-botanic-6", color: ApricotTheme.colors.common.botanic[5] },
+            { shade: "7", value: "botanic-7", variable: "--o-ui-botanic-7", color: ApricotTheme.colors.common.botanic[6] },
+            { shade: "8", value: "botanic-8", variable: "--o-ui-botanic-8", color: ApricotTheme.colors.common.botanic[7] },
+            { shade: "9", value: "botanic-9", variable: "--o-ui-botanic-9", color: ApricotTheme.colors.common.botanic[8] },
+            { shade: "10", value: "botanic-10", variable: "--o-ui-botanic-10", color: ApricotTheme.colors.common.botanic[9] }
+        ]}
+    />
+</ThemeProvider>
 
 ### White
 
-<ColorTable
-    colors={[
-        { shade: "-", variable: "--o-ui-global-white", color: "#FFFFFF" }
-    ]}
-/>
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "-", value: "white", variable: "--o-ui-white", color: ApricotTheme.colors.common.white }
+        ]}
+    />
+</ThemeProvider>
 
-## Tachyons
+### Black
 
-<TachyonsFile filePath="/colors.css" />
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "-", value: "black", variable: "--o-ui-black", color: ApricotTheme.colors.common.black }
+        ]}
+    />
+</ThemeProvider>

@@ -1,7 +1,0 @@
-.o-ui {
-    --o-ui-alias-elevation-none: none;
-    --o-ui-alias-elevation-skim: var(--o-ui-global-shadow-100);
-    --o-ui-alias-elevation-lifted: var(--o-ui-global-shadow-200);
-    --o-ui-alias-elevation-raised: var(--o-ui-global-shadow-300);
-    --o-ui-alias-elevation-floating: var(--o-ui-global-shadow-400);
-}

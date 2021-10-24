@@ -1,0 +1,274 @@
+import { GithubLink } from "@stories/components";
+import { Table } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+import { paramsBuilder } from "@stories/utils";
+import { Div } from "@components/html";
+import { Preview } from "@stories/components";
+import { Paragraph } from "@components/typography";
+import { PropsReferenceTable } from "./PropsReferenceTable";
+
+<Meta
+    title="Getting Started/Styling/Props Reference"
+    id="props-reference"
+/>
+
+# Props Reference
+
+Orbit styled system is organized into categories of style props. Each function provides the following props and maps to scales defined in a theme.
+
+### Space
+
+```jsx
+<Div padding={4}>
+    Galaxy
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["margin", "margin", "spacing", "spacing-scale", "breakpoints"],
+        ["marginTop", "margin-top", "spacing", "spacing-scale", "breakpoints"],
+        ["marginBottom", "margin-bottom", "spacing", "spacing-scale", "breakpoints"],
+        ["marginRight", "margin-right", "spacing", "spacing-scale", "breakpoints"],
+        ["marginLeft", "margin-left", "spacing", "spacing-scale", "breakpoints"],
+        ["marginX", "margin-left & margin-right", "spacing", "spacing-scale", "breakpoints"],
+        ["marginY", "margin-top & margin-bottom", "spacing", "spacing-scale", "breakpoints"],
+        ["padding", "padding", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingTop", "padding-top", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingBottom", "padding-bottom", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingRight", "padding-right", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingLeft", "padding-left", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingX", "padding-left & padding-right", "spacing", "spacing-scale", "breakpoints"],
+        ["paddingY", "padding-top & padding-bottom", "spacing", "spacing-scale", "breakpoints"],
+        ["whiteSpace", "white-space", "none", "none", "breakpoints"],
+    ]}
+/>
+
+### Color
+
+```jsx
+<Text backgroundColor="marine-2" color="white">
+    Galaxy
+</Text>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["color", "color", "colors", "color-scale", "breakpoints"],
+        ["backgroundColor", "background-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["opacity", "opacity", "none", "none", "breakpoints & focus/hover/active"],
+        ["fill", "fill", "none", "color-scale", "breakpoints & focus/hover"],
+        ["stroke", "stroke", "none", "color-scale", "breakpoints"],
+        ["filter", "filter", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Typography
+
+```jsx
+<Header letterSpacing="0.3rem">
+    Hello!
+</Header>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["fontSize", "font-size", "fontSizes", "1..9, subheadline, headline", "breakpoints"],
+        ["fontWeight", "font-weight", "fontWeights", "1..3", "breakpoints"],
+        ["lineHeight", "line-height", "lineHeights", "1..6", "breakpoints"],
+        ["letterSpacing", "letter-spacing", "none", "none", "breakpoints"],
+        ["textAlign", "text-align", "none", "none", "breakpoints"],
+        ["textTransform", "text-transform", "none", "none", "breakpoints"],
+        ["textDecoration", "text-decoration", "none", "none", "breakpoints"],
+        ["textOverflow", "text-overflow", "none", "none", "breakpoints"],
+        ["wordBreak", "word-break", "none", "none", "breakpoints"],
+        ["fontStyle", "font-style", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Layout
+
+```jsx
+<Div width={18}>
+    Galaxy
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["width", "width", "sizing", "sizing-scale", "breakpoints"],
+        ["height", "height", "sizing", "sizing-scale", "breakpoints"],
+        ["minWidth", "min-width", "sizing", "sizing-scale", "breakpoints"],
+        ["maxWidth", "max-width", "sizing", "sizing-scale", "breakpoints"],
+        ["minHeight", "min-height", "sizing", "sizing-scale", "breakpoints"],
+        ["maxHeight", "max-height", "sizing", "sizing-scale", "breakpoints"],
+        ["display", "display", "none", "none", "breakpoints"],
+        ["verticalAlign", "vertical-align", "none", "none", "breakpoints"],
+        ["overflow", "overflow", "none", "none", "breakpoints"],
+        ["overflowX", "overflow-x", "none", "none", "breakpoints"],
+        ["overflowY", "overflow-y", "none", "none", "breakpoints"],
+        ["gap", "gap", "none", "none", "breakpoints"],
+        ["alignSelf", "align-self" , "none" , "none", "breakpoints"],
+        ["aspectRatio", "aspect-ratio", "none", "none", "breakpoints"],
+        ["justifyContent", "justify-content", "none", "none", "breakpoints"],
+        ["justifyItems", "justify-items", "none", "none", "breakpoints"],
+        ["justifySelf", "justify-self", "none", "none", "breakpoints"],
+        ["contentVisibility", "content-visibility", "none", "none", "breakpoints"],
+        ["transform", "transform", "none", "none", "breakpoints"],
+        ["transformOrigin", "transform-origin", "none", "none", "breakpoints"],
+        ["transformStyle", "transform-style", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Flex Layout
+
+```jsx
+<Div alignItems="center">
+    <Text>Andromeda</Text>
+    <Text>Batuu</Text>
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["alignItems", "align-items", "none", "none", "breakpoints"],
+        ["alignContent", "align-content", "none", "none", "breakpoints"],
+        ["flex", "flex (shorthand)", "none", "none", "breakpoints"],
+        ["flexBasis", "flex-basis", "none", "none", "breakpoints"],
+        ["flexDirection", "flex-direction", "none", "none", "breakpoints"],
+        ["flexFlow", "flex-flow", "none", "none", "breakpoints"],
+        ["flexGrow", "flex-grow", "none", "none", "breakpoints"],
+        ["flexShrink", "flex-shrink", "none", "none", "breakpoints"],
+        ["flexWrap", "flex-wrap", "none", "none", "breakpoints"],
+        ["order", "order", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Grid Layout
+
+```jsx
+<Div gridAutoFlow="row dense">
+    <Text>Andromeda</Text>
+    <Text>Batuu</Text>
+</Div>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["grid", "grid (shorthand)", "none","none",  "breakpoints"],
+        ["gridArea", "grid-area", "none", "none", "breakpoints"],
+        ["gridAutoColumns", "grid-auto-columns", "sizing", "sizing-scale", "breakpoints"],
+        ["gridAutoFlow", "grid-auto-flow", "none", "none", "breakpoints"],
+        ["gridAutoRows", "grid-auto-rows", "sizing", "sizing-scale", "breakpoints"],
+        ["gridColumn", "grid-column", "none", "none", "breakpoints"],
+        ["gridColumnEnd", "grid-column-end", "none", "none", "breakpoints"],
+        ["gridColumnSpan", "grid-column-span", "none", "none", "breakpoints"],
+        ["gridColumnStart", "grid-column-start", "none", "none", "breakpoints"],
+        ["gridRow", "grid-row", "none", "none", "breakpoints"],
+        ["gridRowEnd", "grid-row-end", "none", "none", "breakpoints"],
+        ["gridRowSpan", "grid-row-span", "none", "none", "breakpoints"],
+        ["gridRowStart", "grid-row-start", "none", "none", "breakpoints"],
+        ["gridTemplate", "grid-template", "none", "none", "breakpoints"],
+        ["gridTemplateAreas", "grid-template-areas", "none", "none", "breakpoints"],
+        ["gridTemplateColumns", "grid-template-columns", "sizing", "sizing-scale", "breakpoints"],
+        ["gridTemplateRows", "grid-template-rows", "sizing", "sizing-scale", "breakpoints"],
+        ["columnGap", "column-gap", "spacing", "spacing-scale", "breakpoints"],
+        ["rowGap", "row-gap", "spacing", "spacing-scale", "breakpoints"],
+    ]}
+/>
+
+### Background
+
+```jsx
+<Div
+  backgroundImage="url('/images/dog.png')"
+  backgroundPosition="center"
+  backgroundRepeat="no-repeat"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["backgroundImage", "background-image", "none", "none", "breakpoints"],
+        ["backgroundPosition", "background-position", "none", "none", "breakpoints"],
+        ["backgroundRepeat", "background-repeat", "none", "none", "breakpoints"],
+        ["backgroundSize", "background-size", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Border
+
+```jsx
+<Div
+    border={1}
+    borderRadius={2}
+>
+    Rocket
+</Div>
+```
+
+Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors as a value.
+
+<PropsReferenceTable
+    rows={[
+        ["border", "border-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderBottom", "border-bottom-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderTop", "border-top-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderLeft", "border-left-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderRight", "border-right-color", "colors", "color-scale", "breakpoints & focus/hover/active"],
+        ["borderRadius", "border-radius", "borderRadii", "0..4", "breakpoints"],
+        ["borderTopLeftRadius", "border-top-left-radius", "borderRadii", "0..4", "breakpoints"],
+        ["borderTopRightRadius", "border-top-right-radius", "borderRadii","0..4",  "breakpoints"],
+        ["borderBottomLeftRadius", "border-bottom-left-radius", "borderRadii", "0..4", "breakpoints"],
+        ["borderBottomRightRadius", "border-bottom-right-radius", "borderRadii", "0..4", "breakpoints"],
+        ["outline", "outline", "none", "none", "breakpoints & focus"]
+    ]}
+/>
+
+### Position
+
+```jsx
+<Div
+    top="12px"
+    position="absolute"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["position", "position", "none", "none", "breakpoints"],
+        ["top", "top", "none", "none", "breakpoints"],
+        ["bottom", "bottom", "none", "none", "breakpoints"],
+        ["right", "right", "none", "none", "breakpoints"],
+        ["left", "left", "none", "none", "breakpoints"],
+        ["zIndex", "z-index", "none", "none", "breakpoints"],
+        ["objectFit", "object-fit", "none", "none", "breakpoints"],
+        ["objectPosition", "object-position", "none", "none", "breakpoints"]
+    ]}
+/>
+
+### Shadow
+
+```jsx
+<Div
+    boxShadow="alias-lifted"
+/>
+```
+
+<PropsReferenceTable
+    rows={[
+        ["boxShadow", "box-shadow", "boxShadows", "box-shadow-scale", "breakpoints & focus/hover/active"],
+    ]}
+/>
+
+### Miscellaneous
+
+<PropsReferenceTable
+    rows={[
+        ["content", "content", "none", "none", "breakpoint"],
+        ["cursor", "cursor", "none", "none", "breakpoint & hover"],
+        ["pointerEvents", "pointer-events", "none", "none" ,"breakpoint"],
+        ["resize", "resize", "none", "none", "breakpoint"],
+        ["willChange", "will-change", "none", "none", "breakpoint"]
+    ]}
+/>

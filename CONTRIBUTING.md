@@ -90,7 +90,7 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 ## Develop a component
 
-The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/react-components).
+The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/components).
 
 ### Storybook
 
@@ -104,49 +104,25 @@ For more informations about automated visual tests, read the [Testings](#testing
 
 ### Start developing
 
-The tooling to develop a component involve 2 processes:
-
-- A process that watch & re-compile the packages
-- A process that run the Storybook app
-
-Therefore, [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
-
-The first terminal will watch & compile the packages. Execute the following command at the root of the workspace:
+To start developing, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
 yarn start
 ```
 
-The second terminal will start the Storybook app. Executing the following command at the root of the workspace:
+Any updates to the packages or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
-```bash
-yarn start-sb
-```
+## Start Storybook in docs mode.
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
-
-## Update docs
-
-The tooling to update the website involve 2 processes:
-
-- A process that watch & re-compile the packages
-- A process that run the Storybook app in `--docs` mode
-
-Therefore, [open 2 terminals in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals).
-
-The first terminal will watch & compile the packages. Execute the following command at the root of the workspace:
-
-```bash
-yarn start
-```
-
-The second terminal will start the website. Execute the following command at the root of the workspace:
+To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
 yarn start-docs
 ```
 
-Any updates to the packages (components, SUI theme, tachyons, ...) or the website's pages  will automatically re-compile the packages and refresh the docs accordingly.
+Basically the only difference is that the process will be start with the `--docs` arguments.
+
+Any updates to the packages or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
 ## Release the packages
 
@@ -163,21 +139,45 @@ Releasing the packages includes several steps:
 
 Fortunately, this is all automated with a few commands!
 
-Before you release, make sure you have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+Before you release, make sure you are in the `master` branch, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
 
 To release, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
 yarn new-version
-yarn release-pkg
-yarn push-release <yyyy-MM-dd>
+yarn release
+yarn push-release <@sharegate/orbit-ui package version>
 Release docs
 Release Storybook
 ```
 
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [yyyy-MM-dd] created earlier by the `push-release` command and list all the changes that has been published.
+Ex:
+
+```bash
+yarn new-version
+yarn release
+yarn push-release 19.0.1
+```
+
+After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@sharegate/orbit-ui package version] created earlier by the `push-release` command and list all the changes that has been published.
 
 Don't forget to **publish** the release.
+
+### Alpha release
+
+Sometimes it's useful to publish an alpha version to test the packages installation or share a preview.
+
+Before you release, make sure you are in the `master` branch or a branch with a name matching the `feature/*` pattern, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
+
+To release an alpha version, open a terminal at the root of the workspace and execute the following commands:
+
+```bash
+yarn release-alpha
+```
+
+When Lerna version prompt pop, you should pick a version number matching your future main version. E.g. if you plan on publishing your changes as version `19.0.0` once they are done, your alpha version should be `19.0.0-alpha.1`.
+
+If you need to publish a subsequent alpha package for the same version, do not select any Lerna suggestion. Instead, select **"Custom Prelease"** and then enter **"alpha"**. By doing so, the new alpha package version will be `19.0.0-alpha.2`.
 
 ### Troubleshooting
 
@@ -196,60 +196,45 @@ If you are using 2FA, make sure you specified a valid OTP.
 If the packages failed to compile, it's easier to debug without executing the full release flow everytime. To do so, instead, execute the following command:
 
 ```bash
-yarn build:pkg
+yarn build-pkg
 ```
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
 
-### Troubleshooting
-
-#### Netlify
-
-Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and the **sg-storybook** site.
-
-Make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb` in the [storybook/package.json](/storybook/package.json) file.
-
-To deploy Storybook without building the static web app everytime, execute the following command:
-
-```bash
-yarn deploy-sb
-```
-
 ## Release docs
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/65b52a34-8224-4783-bed2-64ffd05d36af/deploy-status)](https://app.netlify.com/sites/sg-orbit/deploys)
+Orbit documentation is host on Netlify. 2 sites are available, a currated site for the official documentation (https://orbit.sharegate.design) and a raw site containing every Storybook stories (https://sg-storybook.netlify.com). 
 
-Releasing the docs website includes a few steps:
+Login to [Netlify](https://app.netlify.com) and make sure you have access to the **sg-orbit** and **sg-storybook** sites of the GSoft team.
 
-1. Build the packages
-2. Build storybook with `--docs` mode into a static web app
-3. Deploy the static web app to Netlify
-4. Go to https://app.netlify.com/sites/sg-orbit/deploys, select the new build and "Publish deploy"
+Netlify is configured to automatically deploy (unpublished) both sites everytime **a new commit is done in an opened PR** or **a PR is merged back into master**.
 
-Before you release, make sure you have access to the GSoft Netlify team and the **sg-orbit** site.
+To publish a site:
 
-To release, open a terminal at the root of the workspace and execute the following command:
+- Login to [Netlify](https://app.netlify.com)
+- Find the latest deploy of your site
+- Click on the deploy link to access it's overview
+- Click on the "Publish deploy" button
 
-```bash
-yarn build:pkg
-yarn release-docs
-```
+### Troubleshoot
 
-Open a web browser and navigate to https://orbit.sharegate.design.
+If you encounter any errors when building or publishing a site, login to [Netlify](https://app.netlify.com) and go to the deploy settings of the site. Make sure the `Build command` and the `Publish directory` properties are valid.
 
-### Troubleshooting
+The `Build command` property should match a script of the root `package.json` file and the `Publish directory` property should be a relative path matching a folder of the solution containing the static site to deploy **after build**.
 
-#### Netlify
+### Local CLI deploy
 
-Login to [Netlify](https://app.netlify.com) and make sure you have access to the GSoft team and to **sg-orbit** site.
+A Netlify deploy can be started locally with a CLI command. This is useful if you are working in a branch and want to share a preview of your work with someone else.
 
-Make sure the site `App ID` of **sg-orbit** site match the `--site` parameter of the script `deploy-docs` in the [storybook/package.json](/storybook/package.json) file.
-
-To deploy the website without building the static web app everytime, execute any of the following command:
+To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
-yarn deploy-docs
+yarn deploy-sb-preview
 ```
+
+The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
+
+If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [storybook/package.json](/storybook/package.json) file.
 
 ## Commands
 
@@ -267,18 +252,18 @@ yarn bootstrap
 
 ### start
 
-Compile & watch all the packages.
+Compile all the packages & start Storybook.
 
 ```bash
 yarn start
 ```
 
-### start-sb
+### start-docs
 
-Start Storybook.
+Compile all the packages & start Storybook in docs mode.
 
 ```bash
-yarn start-sb
+yarn start-docs
 ```
 
 ### build
@@ -325,10 +310,18 @@ yarn update
 
 ### lint
 
-Execute all the linters.
+Execute all the linters & validate the TypeScript types.
 
 ```bash
 yarn lint
+```
+
+### check-types
+
+Validate the TypeScript types.
+
+```bash
+yarn check-types
 ```
 
 ### jest
@@ -337,6 +330,22 @@ Execute all the Jest tests.
 
 ```bash
 yarn jest
+```
+
+### deploy-sb-preview
+
+Manually deploy Storybook to Netlify from any branch.
+
+```bash
+yarn deploy-sb-preview
+```
+
+### release-alpha
+
+Deploy an alpha version of the packages.
+
+```bash
+yarn release-alpha
 ```
 
 ## Testing
@@ -466,11 +475,7 @@ Before adding a script, make sure you read the following [gotcha](#lerna-and-npm
 
 ### React components
 
-If you're package is a new React component, please read the [React components documentation](/packages/react-components)
-
-### Bundle
-
-If appropriate, don't forget to add your new package to the [bundle package dependencies](/packages/bundles/react/package.json).
+If you're package is a new component, please read the [React components documentation](/packages/components)
 
 ## Add a new Yarn script
 
@@ -591,3 +596,7 @@ For more information on the topic view the issue [https://github.com/testing-lib
 To enable deploy previews on PR, Netlify sg-orbit and sg-storybook sites have been linked to the sg-orbit Github repository. Netlify will deploy a preview on every commits for any branches, even for master (which is Netlify production). This beging said, since the sites have been configured with "Auto Publish" disabled, even if a deploy is compiled for production IT IS NOT DEPLOY, it's only available for preview and must be deployed manually.
 
 Having disabled "Auto Publish" is also the reason why our script that publish our sites to production "doesn't work anymore". It still works, the reason why the site doesn't update is because the script will create a new production build but WILL NOT PUBLISH IT, since it's auto publishing is disabled. It must be published manually throught Netlify web interface.
+
+### Storybook props Tables
+
+The Storybook props tables somewhow doesn't play well if our types comes from an external packages (even if it's a package in our own mono-repo). Props from the external packages might not be list in the props tables.

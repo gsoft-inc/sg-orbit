@@ -2,15 +2,18 @@ const path = require("path");
 
 module.exports = {
     rootDir: path.resolve(__dirname, ".."),
-    roots: ["<rootDir>/packages/react-components"],
+    roots: [
+        "<rootDir>/packages/components"
+    ],
+    testMatch: ["**/tests/jest/*.test.ts?(x)"],
     transform: {
         "^.+\\.(js|jsx|ts|tsx)$": path.resolve("jest/babel-transform.js")
     },
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
-        "@utils/(.*)$": "<rootDir>/jest/utils/$1",
-        "@react-components/(.*)$": "<rootDir>/packages/react-components/src/$1"
+        "@utils$": "<rootDir>/jest/utils/index.ts",
+        "@components/(.*)$": "<rootDir>/packages/components/src/$1"
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect",
@@ -18,7 +21,7 @@ module.exports = {
     ],
     testEnvironment: "jsdom",
     testPathIgnorePatterns: [
-        "<rootDir>/packages/react-components/dist"
+        "<rootDir>/packages/components/dist"
     ],
     verbose: true
 };

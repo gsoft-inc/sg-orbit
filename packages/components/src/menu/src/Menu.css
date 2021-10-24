@@ -1,0 +1,188 @@
+/*
+IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrollable size, do not remove or rename them:
+    - Classes: "o-ui-menu-item", "o-ui-menu-section-title" and "o-ui-menu-divider"
+*/
+
+.o-ui {
+    --o-ui-menu-border-size: 1px;
+    --o-ui-menu-item-height: var(--o-ui-sz-5);
+    --o-ui-menu-item-checkmark-size: var(--o-ui-sz-1);
+}
+
+.o-ui-menu {
+    background-color: var(--o-ui-bg-alias-1);
+    border: var(--o-ui-menu-border-size) solid var(--o-ui-b-alias-2);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border-radius: var(--o-ui-shape-rounded);
+    width: max-content;
+    min-width: 200px;
+    max-width: var(--o-ui-sz-16);
+    height: max-content;
+    box-shadow: var(--o-ui-bs-alias-lifted);
+    overflow-y: auto;
+}
+
+/* ITEM */
+.o-ui-menu-item {
+    min-height: var(--o-ui-menu-item-height);
+    list-style: none;
+    padding-right: var(--o-ui-sp-8);
+    padding-left: var(--o-ui-sp-3);
+    padding-top: var(--o-ui-sp-2);
+    padding-bottom: var(--o-ui-sp-2);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: var(--o-ui-fs-3);
+    position: relative;
+}
+
+.o-ui-menu-item.o-ui-menu-item-has-description {
+    --o-ui-menu-item-height: var(--o-ui-sz-7);
+    display: grid;
+    overflow-x: hidden;
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content max-content;
+    grid-auto-flow: column;
+    grid-template-areas:
+        "aside label"
+        "aside description";
+}
+
+/* ITEM | ICON | START  */
+.o-ui-menu-item-start-icon {
+    margin-right: var(--o-ui-sp-1);
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.o-ui-menu-item.o-ui-menu-item-has-description .o-ui-menu-item-start-icon {
+    margin-right: var(--o-ui-sp-2);
+    align-self: start;
+}
+
+/* ITEM | ICON | END  */
+.o-ui-menu-item-end-icon {
+    margin-left: var(--o-ui-sp-1);
+}
+
+/* ITEM | STATE | SELECTED */
+.o-ui-menu-item[aria-checked="true"]::before {
+    content: "";
+    width: var(--o-ui-menu-item-checkmark-size);
+    height: var(--o-ui-menu-item-checkmark-size);
+    mask: url("~@orbit-ui/icons/dist/icon-check-32.svg") center center no-repeat;
+    mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
+    background-color: var(--o-ui-bg-alias-primary-1);
+    position: absolute;
+    right: 1rem;
+}
+
+/* ITEM | STATE | FOCUS */
+.o-ui-menu-item:focus,
+.o-ui-menu-item-focus {
+    outline: none;
+    background-color: var(--o-ui-bg-alias-4-hover);
+}
+
+/* OPTION | STATE | FOCUS | WITH SELECTION */
+.o-ui-menu-with-selection .o-ui-menu-item:focus:after,
+.o-ui-menu-with-selection .o-ui-menu-item-focus:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    height: var(--o-ui-menu-item-height);
+    width: 2px;
+    background-color: var(--o-ui-b-alias-primary-1);
+}
+
+/* ITEM | STATE | ACTIVE */
+.o-ui-menu-item:active:not([aria-disabled="true"]),
+.o-ui-menu-item-active:not([aria-disabled="true"]) {
+    background-color: var(--o-ui-bg-alias-4-active);
+}
+
+/* ITEM | STATE | DISABLED */
+.o-ui-menu-item[aria-disabled="true"] {
+    opacity: var(--o-ui-disabled-opacity);
+    cursor: not-allowed;
+}
+
+/* ITEM | STATE | INVALID */
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-label,
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-description {
+    color: var(--o-ui-text-alias-negative-1);
+}
+
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-start-icon,
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-end-icon {
+    fill: var(--o-ui-text-alias-negative-1);
+}
+
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
+    background-color: var(--o-ui-text-alias-negative-1);
+}
+
+/* ITEM | STATE | INVALID | FOCUS | WITH SELECTION */
+.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item:focus:after,
+.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item-focus:after {
+    background-color: var(--o-ui-text-alias-negative-1);
+}
+
+/* ITEM | DESCRIPTION */
+.o-ui-menu-item-description {
+    grid-area: description;
+    color: var(--o-ui-text-alias-2);
+    justify-self: start;
+    width: 100%;
+}
+
+/* LABEL */
+.o-ui-menu-item-label {
+    display: inline-block;
+    white-space: nowrap;
+    line-height: var(--o-ui-lh-2);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    grid-area: label;
+}
+
+/* SECTION */
+.o-ui-menu-section-title {
+    cursor: default;
+    display: flex;
+    font-weight: 400;
+    font-variation-settings: "wght" 500;
+    padding-left: var(--o-ui-sp-3);
+    height: var(--o-ui-menu-item-height);
+    line-height: var(--o-ui-lh-1);
+    color: var(--o-ui-text-alias-3);
+    text-transform: uppercase;
+    font-size: var(--o-ui-fs-2);
+    align-items: center;
+}
+
+.o-ui-menu-section-items {
+    padding: 0;
+}
+
+/* DIVIDER  */
+.o-ui-menu-divider {
+    margin: var(--o-ui-sp-1) 0 !important;
+}
+
+/* FLUID */
+.o-ui-menu-fluid {
+    width: 100%;
+}
+
+/* AVATAR */
+.o-ui-menu-item-option-avatar {
+    margin-right: var(--o-ui-sp-2);
+    grid-area: aside;
+    align-self: start;
+}

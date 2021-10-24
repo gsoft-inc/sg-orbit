@@ -1,0 +1,32 @@
+.o-ui-field {
+    display: grid;
+    align-items: center;
+    grid-template-rows: max-content max-content max-content;
+    grid-template-areas:
+        "label"
+        "input"
+        "message";
+    row-gap: 0;
+}
+
+/* FLUID */
+.o-ui-field-fluid {
+    width: 100%;
+}
+
+/* LABEL */
+.o-ui-field .o-ui-field-label {
+    grid-area: label;
+    padding-bottom: var(--o-ui-sp-2);
+}
+
+/* INPUT */
+.o-ui-field-input {
+    grid-area: input;
+}
+
+/* MESSAGE */
+.o-ui-field .o-ui-field-message {
+    grid-area: message;
+    padding-top: var(--o-ui-sp-2);
+}

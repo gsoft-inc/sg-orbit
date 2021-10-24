@@ -1,0 +1,33 @@
+import { ComponentInfo, Link, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Html elements/Header"
+    id="html-header"
+/>
+
+# Header
+
+<Tagline>A specialized <Link href="?path=/docs/box--default-story">box</Link> component for HTML header element.</Tagline>
+
+<ComponentInfo
+    usage={"import { HtmlHeader as Header } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/html/src"
+/>
+
+## Usage
+
+### Example
+
+An header component accepts all the [header HTML element attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header) and [Orbit styled component props](?path=/docs/styling--page).
+
+```jsx
+<body>
+    <Header>
+        <H1>Walking On The Moon</H1>
+    </Header>
+    <Main color="cloud-8">
+        <Paragraph>Walking on the Moon is classic Sting moment, with his band The Police turning out one of their most groovy reggae-inspired hits to the background of space exploration.</Paragraph>
+    </Main>
+</body>
+```

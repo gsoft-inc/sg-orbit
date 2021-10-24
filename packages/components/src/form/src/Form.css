@@ -1,0 +1,38 @@
+.o-ui-form {
+    width: max-content;
+}
+
+/* FIELD */
+.o-ui-form .o-ui-field {
+    margin-bottom: var(--o-ui-sp-5);
+}
+
+/* FLUID */
+.o-ui-form-fluid {
+    width: 100%;
+}
+
+/* FIELDSET */
+.o-ui-fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+    margin-bottom: var(--o-ui-sp-6);
+}
+
+.o-ui-fieldset:last-of-type {
+    margin-bottom: var(--o-ui-sp-5);
+}
+
+.o-ui-fieldset-label {
+    display: inline-block;
+    font-size: var(--o-ui-fs-4);
+    font-weight: 400;
+    font-variation-settings: "wght" 600;
+    color: var(--o-ui-text-alias-1);
+    margin-bottom: var(--o-ui-sp-3);
+}
+
+.o-ui-fieldset .o-ui-form-field:last-child {
+    margin-bottom: 0;
+}
