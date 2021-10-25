@@ -3,7 +3,7 @@ import { Radio, RadioGroup } from "@components/radio";
 import { ToggleButton } from "@components/button";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {

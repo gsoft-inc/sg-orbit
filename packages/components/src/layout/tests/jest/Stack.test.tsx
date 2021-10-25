@@ -1,7 +1,7 @@
 import { Div } from "@components/html";
 import { Stack, StackProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 const Stacked = forwardRef<HTMLElement, Omit<StackProps, "children">>((props, ref) => {

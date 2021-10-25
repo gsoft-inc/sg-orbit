@@ -3,7 +3,7 @@ import { Content } from "@components/placeholders";
 import { Disclosure } from "@components/disclosure";
 import { Keys } from "@components/shared";
 import { act, fireEvent, waitFor } from "@testing-library/react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 

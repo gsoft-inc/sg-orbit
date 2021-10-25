@@ -1,6 +1,6 @@
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****

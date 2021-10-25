@@ -6,7 +6,7 @@ import { Select } from "@components/select";
 import { Transition } from "@components/transition";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.

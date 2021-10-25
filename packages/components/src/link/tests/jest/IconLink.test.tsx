@@ -1,7 +1,7 @@
 import { AddIcon } from "@components/icons";
 import { IconLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****

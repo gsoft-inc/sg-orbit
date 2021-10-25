@@ -1237,6 +1237,7 @@ function createBorderPseudoHandler<TValue extends string>(pseudoClassName: strin
     };
 }
 
+// Custom handler for font-weight because of "fontVariationSettings".
 const fontWeightHandler: PropHandler<string | number> = (name, value, context) => {
     const parsedValue = parseResponsiveSystemValue(value, FontWeightMapping, context.matchedBreakpoints);
 

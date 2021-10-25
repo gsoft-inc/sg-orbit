@@ -1,7 +1,7 @@
 import { Form, FormProps } from "@components/form";
 import { createRef } from "react";
 import { forwardRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 const BasicForm = forwardRef<HTMLElement, Omit<FormProps, "children">>((props, ref) => {

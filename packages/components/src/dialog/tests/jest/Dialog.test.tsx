@@ -4,7 +4,7 @@ import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

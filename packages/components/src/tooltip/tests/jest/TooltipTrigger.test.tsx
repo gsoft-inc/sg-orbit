@@ -3,7 +3,7 @@ import { Tooltip, TooltipTrigger } from "@components/tooltip";
 import { Transition } from "@components/transition";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

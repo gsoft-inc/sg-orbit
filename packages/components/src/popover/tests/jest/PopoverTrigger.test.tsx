@@ -5,7 +5,7 @@ import { Popover, PopoverTrigger } from "@components/popover";
 import { Transition } from "@components/transition";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

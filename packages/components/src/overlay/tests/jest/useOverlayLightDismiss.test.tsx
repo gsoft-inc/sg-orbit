@@ -3,7 +3,7 @@ import { Div } from "@components/html";
 import { Keys, mergeProps } from "@components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@components/overlay";
 import { act, fireEvent, waitFor } from "@testing-library/react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;

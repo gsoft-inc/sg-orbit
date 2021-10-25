@@ -1,7 +1,7 @@
 import { Div } from "@components/html";
 import { Flex, FlexProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 const Flexed = forwardRef<HTMLDivElement, Omit<FlexProps, "children">>((props, ref) => {

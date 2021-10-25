@@ -2,7 +2,7 @@ import { DateInput } from "@components/date-input";
 import { Field, Label } from "@components/field";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.

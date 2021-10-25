@@ -1,7 +1,7 @@
 import { Button } from "@components/button";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 
 // ***** Behaviors *****
 

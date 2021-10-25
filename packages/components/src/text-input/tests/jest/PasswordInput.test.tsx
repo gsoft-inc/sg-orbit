@@ -1,7 +1,7 @@
 import { PasswordInput } from "@components/text-input";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 
 // ***** Api *****
 

@@ -2,7 +2,7 @@ import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { ReactNode } from "react";
 import { act, waitFor } from "@testing-library/react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { useFocusManager, useFocusScope } from "@components/shared";
 import { useTrapFocus } from "@components/overlay";
 import userEvent from "@testing-library/user-event";

@@ -6,7 +6,7 @@ import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

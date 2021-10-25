@@ -4,7 +4,7 @@ import { Listbox, ListboxElement } from "@components/listbox";
 import { Text } from "@components/typography";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@utils";
+import { renderWithTheme, waitDelay } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

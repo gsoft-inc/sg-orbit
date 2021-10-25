@@ -1,6 +1,6 @@
 import { CheckIcon, IconList, IconListProps } from "@components/icons";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 const Icons = forwardRef<HTMLElement, Omit<IconListProps, "children">>((props, ref) => {

@@ -3,7 +3,7 @@ import { Keys } from "@components/shared";
 import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
 import { Transition } from "@components/transition";
 import { act, fireEvent, waitFor } from "@testing-library/react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 type PopupProps = UsePopupOptions & {

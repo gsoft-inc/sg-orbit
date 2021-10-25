@@ -1,4 +1,4 @@
-import { ErrorBoundary, muteConsoleErrors } from "@utils";
+import { ErrorBoundary, muteConsoleErrors } from "@jest-utils";
 import { ReactNode } from "react";
 import { act, renderHook } from "@testing-library/react-hooks";
 import { useControllableState } from "@components/shared";

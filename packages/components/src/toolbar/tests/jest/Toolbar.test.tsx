@@ -2,7 +2,7 @@ import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { Toolbar } from "@components/toolbar";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****

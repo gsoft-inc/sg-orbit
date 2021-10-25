@@ -1,7 +1,7 @@
 import { Checkbox, CheckboxGroup } from "@components/checkbox";
 import { GroupField, HelpMessage, Label } from "@components/field";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****

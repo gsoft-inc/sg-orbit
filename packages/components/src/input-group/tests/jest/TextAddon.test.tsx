@@ -1,6 +1,6 @@
 import { TextAddon } from "@components/input-group";
 import { createRef } from "react";
-import { renderWithTheme } from "@utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****
