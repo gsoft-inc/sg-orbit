@@ -4,7 +4,7 @@ import { InteractionProps, InternalProps, StyledComponentProps } from "../../sha
 
 export type ValidationState = "valid" | "invalid";
 
-export type AbstractInputProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "type"> & {
+export type AbstractInputProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "type" | "value"> & {
     /**
     * Whether or not the input should autoFocus on render.
     */
