@@ -17,136 +17,26 @@ import { ApricotTheme, DesktopTheme, ThemeProvider } from "@components/styling";
 
 Those are the core colors of ShareGate. Except for Moonstone (which is the color differentiator for ShareGate brand), you will always find Marine and Sunray present in every product or brand interfaces.
 
-### Marine
-
-This color is used in ShareGate ecosystem for its signification of trust and confidence. It is the foundation of our palette. It represent our reliability, our loyalty to our customers, the fact that we're there for them and that they can count on us.
+### Purple
 
 <ThemeProvider theme={ApricotTheme} colorScheme="light">
     <ColorTable
         colors={[
-            { shade: "1", value: "marine-1", variable: "--o-ui-marine-1", color: ApricotTheme.colors.common.marine[0] },
-            { shade: "2", value: "marine-2", variable: "--o-ui-marine-2", color: ApricotTheme.colors.common.marine[1] },
-            { shade: "3", value: "marine-3", variable: "--o-ui-marine-3", color: ApricotTheme.colors.common.marine[2] },
-            { shade: "4", value: "marine-4", variable: "--o-ui-marine-4", color: ApricotTheme.colors.common.marine[3] },
-            { shade: "5", value: "marine-5", variable: "--o-ui-marine-5", color: ApricotTheme.colors.common.marine[4] },
-            { shade: "6", value: "marine-6", variable: "--o-ui-marine-6", color: ApricotTheme.colors.common.marine[5] },
-            { shade: "7", value: "marine-7", variable: "--o-ui-marine-7", color: ApricotTheme.colors.common.marine[6] },
-            { shade: "8", value: "marine-8", variable: "--o-ui-marine-8", color: ApricotTheme.colors.common.marine[7] },
-            { shade: "9", value: "marine-9", variable: "--o-ui-marine-9", color: ApricotTheme.colors.common.marine[8] },
-            { shade: "10", value: "marine-10", variable: "--o-ui-marine-10", color: ApricotTheme.colors.common.marine[9] }
-        ]}
-    />
-</ThemeProvider>
-
-### Sunray
-
-Yellow, the color of sunshine, is used to add a warming effect on ShareGate's visuals.
-
-Since the majority of our core colors are cold ones, we want to make sure our personality is well reflected by adding a touch of warmth with Sunray.
-
-It will be use as a small part of theme ratios, to bring energy in our visuals and to differentiate key elements from backgrounds or visuals (ex. textures, illustrations, informational design, etc).
-
-<ThemeProvider theme={ApricotTheme} colorScheme="light">
-    <ColorTable
-        colors={[
-            { shade: "1", value: "sunray-1", variable: "--o-ui-sunray-1", color: ApricotTheme.colors.common.sunray[0] },
-            { shade: "2", value: "sunray-2", variable: "--o-ui-sunray-2", color: ApricotTheme.colors.common.sunray[1] },
-            { shade: "3", value: "sunray-3", variable: "--o-ui-sunray-3", color: ApricotTheme.colors.common.sunray[2] },
-            { shade: "4", value: "sunray-4", variable: "--o-ui-sunray-4", color: ApricotTheme.colors.common.sunray[3] },
-            { shade: "5", value: "sunray-5", variable: "--o-ui-sunray-5", color: ApricotTheme.colors.common.sunray[4] },
-            { shade: "6", value: "sunray-6", variable: "--o-ui-sunray-6", color: ApricotTheme.colors.common.sunray[5] },
-            { shade: "7", value: "sunray-7", variable: "--o-ui-sunray-7", color: ApricotTheme.colors.common.sunray[6] },
-            { shade: "8", value: "sunray-8", variable: "--o-ui-sunray-8", color: ApricotTheme.colors.common.sunray[7] },
-            { shade: "9", value: "sunray-9", variable: "--o-ui-sunray-9", color: ApricotTheme.colors.common.sunray[8] },
-            { shade: "10", value: "sunray-10", variable: "--o-ui-sunray-10", color: ApricotTheme.colors.common.sunray[9] }
-        ]}
-    />
-</ThemeProvider>
-
-### Moonstone
-
-Between blue and green, Moonstone symbolizes our growth, our energy and the accessibility between humans at ShareGate (you can have a conversation with anybody at ShareGate.
-
-Everyone is open and willing to talk with our customers). It's also a wink to our work environment (plants, wood, etc) and to the environment itself.
-
-GSoft is a BCorp company and ShareGate has to represent those values too.
-
-<ThemeProvider theme={ApricotTheme} colorScheme="light">
-    <ColorTable
-        colors={[
-            { shade: "1", value: "moonstone-1", variable: "--o-ui-moonstone-1", color: ApricotTheme.colors.common.moonstone[0] },
-            { shade: "2", value: "moonstone-2", variable: "--o-ui-moonstone-2", color: ApricotTheme.colors.common.moonstone[1] },
-            { shade: "3", value: "moonstone-3", variable: "--o-ui-moonstone-3", color: ApricotTheme.colors.common.moonstone[2] },
-            { shade: "4", value: "moonstone-4", variable: "--o-ui-moonstone-4", color: ApricotTheme.colors.common.moonstone[3] },
-            { shade: "5", value: "moonstone-5", variable: "--o-ui-moonstone-5", color: ApricotTheme.colors.common.moonstone[4] },
-            { shade: "6", value: "moonstone-6", variable: "--o-ui-moonstone-6", color: ApricotTheme.colors.common.moonstone[5] },
-            { shade: "7", value: "moonstone-7", variable: "--o-ui-moonstone-7", color: ApricotTheme.colors.common.moonstone[6] },
-            { shade: "8", value: "moonstone-8", variable: "--o-ui-moonstone-8", color: ApricotTheme.colors.common.moonstone[7] },
-            { shade: "9", value: "moonstone-9", variable: "--o-ui-moonstone-9", color: ApricotTheme.colors.common.moonstone[8] },
-            { shade: "10", value: "moonstone-10", variable: "--o-ui-moonstone-10", color: ApricotTheme.colors.common.moonstone[9] }
-        ]}
-    />
-</ThemeProvider>
-
-## Products colors
-
-Those are the colors that differentiate our products. They're the primary color, so they're present everywhere we talk about a specific product.
-
-For example, they are used in the ShareGate's products logos, they'll be the main color for interactions in the apps and will be use as the main accent on ShareGate's product pages on the website.
-
-### Apricot
-
-This one is particular, we chose this turquoise to play with people's mind.
-
-We could have chose a soft orange/yellow to reflect the word *Apricot* but we thought it would be more fun and more in connection with our personality to go with a completely different color.
-
-Also it suggest stability and endurance, qualities that fit perfectly with the mission of ShareGate Apricot.
-
-<ThemeProvider theme={ApricotTheme} colorScheme="light">
-    <ColorTable
-        colors={[
-            { shade: "1", value: "primary-1", variable: "--o-ui-primary-1", color: ApricotTheme.colors.common.primary[0] },
-            { shade: "2", value: "primary-2", variable: "--o-ui-primary-2", color: ApricotTheme.colors.common.primary[1] },
-            { shade: "3", value: "primary-3", variable: "--o-ui-primary-3", color: ApricotTheme.colors.common.primary[2] },
-            { shade: "4", value: "primary-4", variable: "--o-ui-primary-4", color: ApricotTheme.colors.common.primary[3] },
-            { shade: "5", value: "primary-5", variable: "--o-ui-primary-5", color: ApricotTheme.colors.common.primary[4] },
-            { shade: "6", value: "primary-6", variable: "--o-ui-primary-6", color: ApricotTheme.colors.common.primary[5] },
-            { shade: "7", value: "primary-7", variable: "--o-ui-primary-7", color: ApricotTheme.colors.common.primary[6] },
-            { shade: "8", value: "primary-8", variable: "--o-ui-primary-8", color: ApricotTheme.colors.common.primary[7] },
-            { shade: "9", value: "primary-9", variable: "--o-ui-primary-9", color: ApricotTheme.colors.common.primary[8] },
-            { shade: "10", value: "primary-10", variable: "--o-ui-primary-10", color: ApricotTheme.colors.common.primary[9] }
-        ]}
-    />
-</ThemeProvider>
-
-## Feedback and UI colors
-
-Those colors exist for feedback interactions in our interfaces.
-
-### Cloud
-
-Used in empty states illustrations and for disabled states.
-
-<ThemeProvider theme={ApricotTheme} colorScheme="light">
-    <ColorTable
-        colors={[
-            { shade: "1", value: "cloud-1", variable: "--o-ui-cloud-1", color: ApricotTheme.colors.common.cloud[0] },
-            { shade: "2", value: "cloud-2", variable: "--o-ui-cloud-2", color: ApricotTheme.colors.common.cloud[1] },
-            { shade: "3", value: "cloud-3", variable: "--o-ui-cloud-3", color: ApricotTheme.colors.common.cloud[2] },
-            { shade: "4", value: "cloud-4", variable: "--o-ui-cloud-4", color: ApricotTheme.colors.common.cloud[3] },
-            { shade: "5", value: "cloud-5", variable: "--o-ui-cloud-5", color: ApricotTheme.colors.common.cloud[4] },
-            { shade: "6", value: "cloud-6", variable: "--o-ui-cloud-6", color: ApricotTheme.colors.common.cloud[5] },
-            { shade: "7", value: "cloud-7", variable: "--o-ui-cloud-7", color: ApricotTheme.colors.common.cloud[6] },
-            { shade: "8", value: "cloud-8", variable: "--o-ui-cloud-8", color: ApricotTheme.colors.common.cloud[7] },
-            { shade: "9", value: "cloud-9", variable: "--o-ui-cloud-9", color: ApricotTheme.colors.common.cloud[8] },
-            { shade: "10", value: "cloud-10", variable: "--o-ui-cloud-10", color: ApricotTheme.colors.common.cloud[9] }
+            { shade: "1", value: "purple-1", variable: "--o-ui-purple-1", color: ApricotTheme.colors.common.purple[0] },
+            { shade: "2", value: "purple-2", variable: "--o-ui-purple-2", color: ApricotTheme.colors.common.purple[1] },
+            { shade: "3", value: "purple-3", variable: "--o-ui-purple-3", color: ApricotTheme.colors.common.purple[2] },
+            { shade: "4", value: "purple-4", variable: "--o-ui-purple-4", color: ApricotTheme.colors.common.purple[3] },
+            { shade: "5", value: "purple-5", variable: "--o-ui-purple-5", color: ApricotTheme.colors.common.purple[4] },
+            { shade: "6", value: "purple-6", variable: "--o-ui-purple-6", color: ApricotTheme.colors.common.purple[5] },
+            { shade: "7", value: "purple-7", variable: "--o-ui-purple-7", color: ApricotTheme.colors.common.purple[6] },
+            { shade: "8", value: "purple-8", variable: "--o-ui-purple-8", color: ApricotTheme.colors.common.purple[7] },
+            { shade: "9", value: "purple-9", variable: "--o-ui-purple-9", color: ApricotTheme.colors.common.purple[8] },
+            { shade: "10", value: "purple-10", variable: "--o-ui-purple-10", color: ApricotTheme.colors.common.purple[9] }
         ]}
     />
 </ThemeProvider>
 
 ### Neutral
-
-Meant to reinforce the use of white space to distinguish groups of elements from one another. This palette can be used for backgrounds, dividers/lines.
 
 <ThemeProvider theme={ApricotTheme} colorScheme="light">
     <ColorTable
@@ -165,40 +55,97 @@ Meant to reinforce the use of white space to distinguish groups of elements from
     />
 </ThemeProvider>
 
-### Beetle
+### Green
 
 <ThemeProvider theme={ApricotTheme} colorScheme="light">
     <ColorTable
         colors={[
-            { shade: "1", value: "beetle-1", variable: "--o-ui-beetle-1", color: ApricotTheme.colors.common.beetle[0] },
-            { shade: "2", value: "beetle-2", variable: "--o-ui-beetle-2", color: ApricotTheme.colors.common.beetle[1] },
-            { shade: "3", value: "beetle-3", variable: "--o-ui-beetle-3", color: ApricotTheme.colors.common.beetle[2] },
-            { shade: "4", value: "beetle-4", variable: "--o-ui-beetle-4", color: ApricotTheme.colors.common.beetle[3] },
-            { shade: "5", value: "beetle-5", variable: "--o-ui-beetle-5", color: ApricotTheme.colors.common.beetle[4] },
-            { shade: "6", value: "beetle-6", variable: "--o-ui-beetle-6", color: ApricotTheme.colors.common.beetle[5] },
-            { shade: "7", value: "beetle-7", variable: "--o-ui-beetle-7", color: ApricotTheme.colors.common.beetle[6] },
-            { shade: "8", value: "beetle-8", variable: "--o-ui-beetle-8", color: ApricotTheme.colors.common.beetle[7] },
-            { shade: "9", value: "beetle-9", variable: "--o-ui-beetle-9", color: ApricotTheme.colors.common.beetle[8] },
-            { shade: "10", value: "beetle-10", variable: "--o-ui-beetle-10", color: ApricotTheme.colors.common.beetle[9] }
+            { shade: "1", value: "green-1", variable: "--o-ui-green-1", color: ApricotTheme.colors.common.green[0] },
+            { shade: "2", value: "green-2", variable: "--o-ui-green-2", color: ApricotTheme.colors.common.green[1] },
+            { shade: "3", value: "green-3", variable: "--o-ui-green-3", color: ApricotTheme.colors.common.green[2] },
+            { shade: "4", value: "green-4", variable: "--o-ui-green-4", color: ApricotTheme.colors.common.green[3] },
+            { shade: "5", value: "green-5", variable: "--o-ui-green-5", color: ApricotTheme.colors.common.green[4] },
+            { shade: "6", value: "green-6", variable: "--o-ui-green-6", color: ApricotTheme.colors.common.green[5] },
+            { shade: "7", value: "green-7", variable: "--o-ui-green-7", color: ApricotTheme.colors.common.green[6] },
+            { shade: "8", value: "green-8", variable: "--o-ui-green-8", color: ApricotTheme.colors.common.green[7] },
+            { shade: "9", value: "green-9", variable: "--o-ui-green-9", color: ApricotTheme.colors.common.green[8] },
+            { shade: "10", value: "green-10", variable: "--o-ui-green-10", color: ApricotTheme.colors.common.green[9] }
         ]}
     />
 </ThemeProvider>
 
-### Botanic
+### Orange
 
 <ThemeProvider theme={ApricotTheme} colorScheme="light">
     <ColorTable
         colors={[
-            { shade: "1", value: "botanic-1", variable: "--o-ui-botanic-1", color: ApricotTheme.colors.common.botanic[0] },
-            { shade: "2", value: "botanic-2", variable: "--o-ui-botanic-2", color: ApricotTheme.colors.common.botanic[1] },
-            { shade: "3", value: "botanic-3", variable: "--o-ui-botanic-3", color: ApricotTheme.colors.common.botanic[2] },
-            { shade: "4", value: "botanic-4", variable: "--o-ui-botanic-4", color: ApricotTheme.colors.common.botanic[3] },
-            { shade: "5", value: "botanic-5", variable: "--o-ui-botanic-5", color: ApricotTheme.colors.common.botanic[4] },
-            { shade: "6", value: "botanic-6", variable: "--o-ui-botanic-6", color: ApricotTheme.colors.common.botanic[5] },
-            { shade: "7", value: "botanic-7", variable: "--o-ui-botanic-7", color: ApricotTheme.colors.common.botanic[6] },
-            { shade: "8", value: "botanic-8", variable: "--o-ui-botanic-8", color: ApricotTheme.colors.common.botanic[7] },
-            { shade: "9", value: "botanic-9", variable: "--o-ui-botanic-9", color: ApricotTheme.colors.common.botanic[8] },
-            { shade: "10", value: "botanic-10", variable: "--o-ui-botanic-10", color: ApricotTheme.colors.common.botanic[9] }
+            { shade: "1", value: "orange-1", variable: "--o-ui-orange-1", color: ApricotTheme.colors.common.orange[0] },
+            { shade: "2", value: "orange-2", variable: "--o-ui-orange-2", color: ApricotTheme.colors.common.orange[1] },
+            { shade: "3", value: "orange-3", variable: "--o-ui-orange-3", color: ApricotTheme.colors.common.orange[2] },
+            { shade: "4", value: "orange-4", variable: "--o-ui-orange-4", color: ApricotTheme.colors.common.orange[3] },
+            { shade: "5", value: "orange-5", variable: "--o-ui-orange-5", color: ApricotTheme.colors.common.orange[4] },
+            { shade: "6", value: "orange-6", variable: "--o-ui-orange-6", color: ApricotTheme.colors.common.orange[5] },
+            { shade: "7", value: "orange-7", variable: "--o-ui-orange-7", color: ApricotTheme.colors.common.orange[6] },
+            { shade: "8", value: "orange-8", variable: "--o-ui-orange-8", color: ApricotTheme.colors.common.orange[7] },
+            { shade: "9", value: "orange-9", variable: "--o-ui-orange-9", color: ApricotTheme.colors.common.orange[8] },
+            { shade: "10", value: "orange-10", variable: "--o-ui-orange-10", color: ApricotTheme.colors.common.orange[9] }
+        ]}
+    />
+</ThemeProvider>
+
+### Alert
+
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "alert-1", variable: "--o-ui-alert-1", color: ApricotTheme.colors.common.alert[0] },
+            { shade: "2", value: "alert-2", variable: "--o-ui-alert-2", color: ApricotTheme.colors.common.alert[1] },
+            { shade: "3", value: "alert-3", variable: "--o-ui-alert-3", color: ApricotTheme.colors.common.alert[2] },
+            { shade: "4", value: "alert-4", variable: "--o-ui-alert-4", color: ApricotTheme.colors.common.alert[3] },
+            { shade: "5", value: "alert-5", variable: "--o-ui-alert-5", color: ApricotTheme.colors.common.alert[4] },
+            { shade: "6", value: "alert-6", variable: "--o-ui-alert-6", color: ApricotTheme.colors.common.alert[5] },
+            { shade: "7", value: "alert-7", variable: "--o-ui-alert-7", color: ApricotTheme.colors.common.alert[6] },
+            { shade: "8", value: "alert-8", variable: "--o-ui-alert-8", color: ApricotTheme.colors.common.alert[7] },
+            { shade: "9", value: "alert-9", variable: "--o-ui-alert-9", color: ApricotTheme.colors.common.alert[8] },
+            { shade: "10", value: "alert-10", variable: "--o-ui-alert-10", color: ApricotTheme.colors.common.alert[9] }
+        ]}
+    />
+</ThemeProvider>
+
+### Warning
+
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "warning-1", variable: "--o-ui-warning-1", color: ApricotTheme.colors.common.warning[0] },
+            { shade: "2", value: "warning-2", variable: "--o-ui-warning-2", color: ApricotTheme.colors.common.warning[1] },
+            { shade: "3", value: "warning-3", variable: "--o-ui-warning-3", color: ApricotTheme.colors.common.warning[2] },
+            { shade: "4", value: "warning-4", variable: "--o-ui-warning-4", color: ApricotTheme.colors.common.warning[3] },
+            { shade: "5", value: "warning-5", variable: "--o-ui-warning-5", color: ApricotTheme.colors.common.warning[4] },
+            { shade: "6", value: "warning-6", variable: "--o-ui-warning-6", color: ApricotTheme.colors.common.warning[5] },
+            { shade: "7", value: "warning-7", variable: "--o-ui-warning-7", color: ApricotTheme.colors.common.warning[6] },
+            { shade: "8", value: "warning-8", variable: "--o-ui-warning-8", color: ApricotTheme.colors.common.warning[7] },
+            { shade: "9", value: "warning-9", variable: "--o-ui-warning-9", color: ApricotTheme.colors.common.warning[8] },
+            { shade: "10", value: "warning-10", variable: "--o-ui-warning-10", color: ApricotTheme.colors.common.warning[9] }
+        ]}
+    />
+</ThemeProvider>
+
+### Success
+
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "1", value: "success-1", variable: "--o-ui-success-1", color: ApricotTheme.colors.common.success[0] },
+            { shade: "2", value: "success-2", variable: "--o-ui-success-2", color: ApricotTheme.colors.common.success[1] },
+            { shade: "3", value: "success-3", variable: "--o-ui-success-3", color: ApricotTheme.colors.common.success[2] },
+            { shade: "4", value: "success-4", variable: "--o-ui-success-4", color: ApricotTheme.colors.common.success[3] },
+            { shade: "5", value: "success-5", variable: "--o-ui-success-5", color: ApricotTheme.colors.common.success[4] },
+            { shade: "6", value: "success-6", variable: "--o-ui-success-6", color: ApricotTheme.colors.common.success[5] },
+            { shade: "7", value: "success-7", variable: "--o-ui-success-7", color: ApricotTheme.colors.common.success[6] },
+            { shade: "8", value: "success-8", variable: "--o-ui-success-8", color: ApricotTheme.colors.common.success[7] },
+            { shade: "9", value: "success-9", variable: "--o-ui-success-9", color: ApricotTheme.colors.common.success[8] },
+            { shade: "10", value: "success-10", variable: "--o-ui-success-10", color: ApricotTheme.colors.common.success[9] }
         ]}
     />
 </ThemeProvider>
@@ -219,6 +166,16 @@ Meant to reinforce the use of white space to distinguish groups of elements from
     <ColorTable
         colors={[
             { shade: "-", value: "black", variable: "--o-ui-black", color: ApricotTheme.colors.common.black }
+        ]}
+    />
+</ThemeProvider>
+
+### Gray
+
+<ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "-", value: "gray", variable: "--o-ui-gray", color: ApricotTheme.colors.common.gray }
         ]}
     />
 </ThemeProvider>
