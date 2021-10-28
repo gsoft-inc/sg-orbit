@@ -32,7 +32,7 @@ export const parameters = {
                     "Supported Platforms",
                     "Contributing"
                 ],
-                "Materials", ["Colors", "Semantic Colors", "Icons", "Shadows", "Spacing", "Sizing", "Typography", "Motion"],
+                "Materials", ["Colors", "Icons", "Shadows", "Spacing", "Sizing", "Typography", "Motion"],
                 "Layout",
                 "Components",
                 "Content",
