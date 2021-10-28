@@ -1,4 +1,6 @@
-import { FixedLengthArray } from "type-fest";
+import { ConditionalKeys, FixedLengthArray } from "type-fest";
+import { Property } from "csstype";
+import type { ColorExpressionTypes } from "@components/styling";
 
 export interface ColorSchemeSection<C, L, D> {
     common?: Partial<C>;
@@ -57,73 +59,79 @@ export interface ColorPaletteSection {
     "primary": ColorPalette;
 }
 
+type AliasValue =
+    `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` | // any color in palette $primary-5
+    `$${ConditionalKeys<ColorPaletteSection, string>}` | // any static colors $white $black
+    `${typeof ColorExpressionTypes[number]}${string}` | // strings starting with hsl(a), rgb(a), #
+    Property.Color; // basic colors
+
 export interface ColorAliases {
     /* Background */
-    "bg-alias-default": string;
-    "bg-alias-side-nav": string;
-    "bg-alias-hard-break": string;
-    "bg-alias-soft-break": string;
-    "bg-alias-grey-hover": string;
-    "bg-alias-grey-active": string;
-    "bg-alias-accent": string;
-    "bg-alias-accent-hover": string;
-    "bg-alias-accent-active": string;
-    "bg-alias-accent-faint": string;
-    "bg-alias-accent-light": string;
-    "bg-alias-alert": string;
-    "bg-alias-alert-hover": string;
-    "bg-alias-alert-active": string;
-    "bg-alias-alert-faint": string;
-    "bg-alias-alert-light": string;
-    "bg-alias-warning": string;
-    "bg-alias-warning-hover": string;
-    "bg-alias-warning-active": string;
-    "bg-alias-warning-faint": string;
-    "bg-alias-warning-light": string;
-    "bg-alias-success": string;
-    "bg-alias-success-hover": string;
-    "bg-alias-success-active": string;
-    "bg-alias-success-faint": string;
-    "bg-alias-success-light": string;
-    "bg-alias-transparent": string;
+    "bg-alias-default": AliasValue;
+    "bg-alias-side-nav": AliasValue;
+    "bg-alias-hard-break": AliasValue;
+    "bg-alias-soft-break": AliasValue;
+    "bg-alias-grey-hover": AliasValue;
+    "bg-alias-grey-active": AliasValue;
+    "bg-alias-accent": AliasValue;
+    "bg-alias-accent-hover": AliasValue;
+    "bg-alias-accent-active": AliasValue;
+    "bg-alias-accent-faint": AliasValue;
+    "bg-alias-accent-light": AliasValue;
+    "bg-alias-alert": AliasValue;
+    "bg-alias-alert-hover": AliasValue;
+    "bg-alias-alert-active": AliasValue;
+    "bg-alias-alert-faint": AliasValue;
+    "bg-alias-alert-light": AliasValue;
+    "bg-alias-warning": AliasValue;
+    "bg-alias-warning-hover": AliasValue;
+    "bg-alias-warning-active": AliasValue;
+    "bg-alias-warning-faint": AliasValue;
+    "bg-alias-warning-light": AliasValue;
+    "bg-alias-success": AliasValue;
+    "bg-alias-success-hover": AliasValue;
+    "bg-alias-success-active": AliasValue;
+    "bg-alias-success-faint": AliasValue;
+    "bg-alias-success-light": AliasValue;
+    "bg-alias-transparent": AliasValue;
     /* Border */
-    "b-alias-low-contrast": string;
-    "b-alias-mid-contrast": string;
-    "b-alias-high-contrast": string;
-    "b-alias-accent": string;
-    "b-alias-accent-hover": string;
-    "b-alias-accent-active": string;
-    "b-alias-alert": string;
-    "b-alias-alert-hover": string;
-    "b-alias-alert-active": string;
-    "b-alias-warning": string;
-    "b-alias-warning-hover": string;
-    "b-alias-warning-active": string;
-    "b-alias-success": string;
-    "b-alias-success-hover": string;
-    "b-alias-success-active": string;
+    "b-alias-low-contrast": AliasValue;
+    "b-alias-mid-contrast": AliasValue;
+    "b-alias-high-contrast": AliasValue;
+    "b-alias-accent": AliasValue;
+    "b-alias-accent-hover": AliasValue;
+    "b-alias-accent-active": AliasValue;
+    "b-alias-alert": AliasValue;
+    "b-alias-alert-hover": AliasValue;
+    "b-alias-alert-active": AliasValue;
+    "b-alias-warning": AliasValue;
+    "b-alias-warning-hover": AliasValue;
+    "b-alias-warning-active": AliasValue;
+    "b-alias-success": AliasValue;
+    "b-alias-success-hover": AliasValue;
+    "b-alias-success-active": AliasValue;
     /* Icon */
-    "icon-alias-primary": string;
-    "icon-alias-secondary": string;
-    "icon-alias-tertiary": string;
-    "icon-alias-inactive": string;
-    "icon-alias-accent": string;
-    "icon-alias-alert": string;
-    "icon-alias-warning": string;
-    "icon-alias-success": string;
-    "icon-alias-static-white": string;
-    "icon-alias-static-black": string;
+    "icon-alias-primary": AliasValue;
+    "icon-alias-secondary": AliasValue;
+    "icon-alias-tertiary": AliasValue;
+    "icon-alias-inactive": AliasValue;
+    "icon-alias-accent": AliasValue;
+    "icon-alias-alert": AliasValue;
+    "icon-alias-warning": AliasValue;
+    "icon-alias-success": AliasValue;
+    "icon-alias-static-white": AliasValue;
+    "icon-alias-static-black": AliasValue;
     /* Text */
-    "text-alias-primary": string;
-    "text-alias-secondary": string;
-    "text-alias-tertiary": string;
-    "text-alias-inactive": string;
-    "text-alias-accent": string;
-    "text-alias-alert": string;
-    "text-alias-warning": string;
-    "text-alias-success": string;
-    "text-alias-static-white": string;
-    "text-alias-static-black": string;
+    "text-alias-primary": AliasValue;
+    "text-alias-secondary": AliasValue;
+    "text-alias-tertiary": AliasValue;
+    "text-alias-inactive": AliasValue;
+    "text-alias-accent": AliasValue;
+    "text-alias-alert": AliasValue;
+    "text-alias-warning": AliasValue;
+    "text-alias-success": AliasValue;
+    "text-alias-static-white": AliasValue;
+    "text-alias-static-black": AliasValue;
 }
 
 export type ColorColorSchemes = ColorSchemeSection<ColorPaletteSection, ColorAliases, ColorAliases>;

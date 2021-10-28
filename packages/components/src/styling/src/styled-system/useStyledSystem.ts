@@ -41,13 +41,13 @@ const GlobalValues = [
     "unset"
 ];
 
-const ColorExpressionTypes = [
+export const ColorExpressionTypes = [
     "#",
     "rgb",
     "rgba",
     "hsl",
     "hsla"
-];
+] as const;
 
 const SizingScale = [
     1,
