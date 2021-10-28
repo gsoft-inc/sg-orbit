@@ -186,7 +186,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <TileGroup border="sunray-10" rowSize={3}>
+            <TileGroup border="warning-7" rowSize={3}>
                 <TileLink href="https://www.google.com">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>

@@ -140,7 +140,7 @@ stories()
     )
     .add("illustration", () =>
         <Dialog>
-            <Illustration color="sunray-1">
+            <Illustration color="warning-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -153,7 +153,7 @@ stories()
     )
     .add("all sections", () =>
         <Dialog>
-            <Illustration color="sunray-1">
+            <Illustration color="warning-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -294,7 +294,7 @@ stories()
     )
     .add("fullscreen", () =>
         <Dialog size="fullscreen">
-            <Illustration color="sunray-1">
+            <Illustration color="warning-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -382,7 +382,7 @@ stories()
         </Dialog>
     )
     .add("wrapper styled system", () =>
-        <Dialog wrapperProps={{ border: "sunray-10" }}>
+        <Dialog wrapperProps={{ border: "warning-7" }}>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
@@ -412,7 +412,7 @@ stories()
         </Dialog>
     )
     .add("styled system", () =>
-        <Dialog border="sunray-10">
+        <Dialog border="warning-7">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>

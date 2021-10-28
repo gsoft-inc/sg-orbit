@@ -15,7 +15,7 @@ function SunrayBackground({ button, ...rest }) {
     console.log(button, rest);
 
     return (
-        <Div color="sunray-10" backgroundColor="sunray-1">
+        <Div color="warning-7" backgroundColor="warning-1">
             {cloneElement(button, rest)}
         </Div>
     );
@@ -36,7 +36,7 @@ createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
 stories()
     .add("styling", () =>
         <Inline>
-            <Button border="sunray-10" variant="secondary">Button</Button>
+            <Button border="warning-7" variant="secondary">Button</Button>
             <Button className="bg-red" variant="secondary">Button</Button>
             <Button style={{ backgroundColor: "red" }} variant="secondary">Button</Button>
         </Inline>

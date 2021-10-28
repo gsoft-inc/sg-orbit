@@ -38,9 +38,9 @@ stories()
                 <Div backgroundColor="primary-5">Charlie</Div>
             </Flex>
             <Flex direction="column" gap={12}>
-                <Div backgroundColor="beetle-5">Delta</Div>
-                <Div backgroundColor="beetle-5">Echo</Div>
-                <Div backgroundColor="beetle-5">Foxtrot</Div>
+                <Div backgroundColor="alert-5">Delta</Div>
+                <Div backgroundColor="alert-5">Echo</Div>
+                <Div backgroundColor="alert-5">Foxtrot</Div>
             </Flex>
         </Flex>
     )
@@ -177,7 +177,7 @@ stories("/row")
     )
     .add("styling", () =>
         <Inline>
-            <Flex border="sunray-10" direction="row">
+            <Flex border="warning-7" direction="row">
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>
@@ -306,7 +306,7 @@ stories("/column")
     )
     .add("styling", () =>
         <Inline>
-            <Flex border="sunray-10" direction="column">
+            <Flex border="warning-7" direction="column">
                 <Div backgroundColor="primary-5">Alpha</Div>
                 <Div backgroundColor="primary-5">Bravo</Div>
                 <Div backgroundColor="primary-5">Charlie</Div>

@@ -34,8 +34,8 @@ A grid can define explicit sections with areas.
             height={10}
         >
             <Div gridArea="a" backgroundColor="primary-5" />
-            <Div gridArea="b" backgroundColor="beetle-5" />
-            <Div gridArea="c" backgroundColor="botanic-5" />
+            <Div gridArea="b" backgroundColor="alert-5" />
+            <Div gridArea="c" backgroundColor="green-5" />
         </Grid>
     </Story>
 </Preview>
@@ -52,8 +52,8 @@ A grid can define explicit columns (and rows). A value can be a grid length valu
             height={5}
         >
             <Div backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
+            <Div backgroundColor="alert-5" />
+            <Div backgroundColor="green-5" />
         </Grid>
     </Story>
 </Preview>
@@ -70,8 +70,8 @@ A grid can define the size of implicitly created columns. A value can be a grid 
             height={10}
         >
             <Div gridColumn={2} backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
+            <Div backgroundColor="alert-5" />
+            <Div backgroundColor="green-5" />
         </Grid>
     </Story>
 </Preview>
@@ -88,9 +88,9 @@ A grid layout can have a gap between his columns and rows. `columnGap` and `rowG
             height={10}
         >
             <Div backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
-            <Div backgroundColor="cloud-5" />
+            <Div backgroundColor="alert-5" />
+            <Div backgroundColor="green-5" />
+            <Div backgroundColor="neutral-5" />
         </Grid>
     </Story>
 </Preview>
@@ -107,9 +107,9 @@ A grid item can span over multiple columns.
             height={10}
         >
             <Div backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
-            <Div gridColumnSpan={3} gridRow={2} backgroundColor="cloud-5" />
+            <Div backgroundColor="alert-5" />
+            <Div backgroundColor="green-5" />
+            <Div gridColumnSpan={3} gridRow={2} backgroundColor="neutral-5" />
         </Grid>
     </Story>
 </Preview>
@@ -126,11 +126,11 @@ Grids can be nested.
         >
             <Grid templateColumns={[9, "auto"]}>
                 <Div backgroundColor="primary-5" />
-                <Div backgroundColor="beetle-5" />
+                <Div backgroundColor="alert-5" />
             </Grid>
             <Grid templateColumns={["auto", 14]}>
-                <Div backgroundColor="botanic-5" />
-                <Div backgroundColor="cloud-5" />
+                <Div backgroundColor="green-5" />
+                <Div backgroundColor="neutral-5" />
             </Grid>
         </Grid>
     </Story>
@@ -147,9 +147,9 @@ A custom `repeat` function is available to support Orbit spacing scale values. H
             autoRows={7}
             gap={2}
         >
-            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} key={x} />)}
-            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} key={x} />)}
-            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} key={x} />)}
+            {ApricotTheme.colors.common.purple.map(x => <Div backgroundColor={x} key={x} />)}
+            {ApricotTheme.colors.common.alert.map(x => <Div backgroundColor={x} key={x} />)}
+            {ApricotTheme.colors.common.green.map(x => <Div backgroundColor={x} key={x} />)}
         </Grid>
     </Story>
 </Preview>
@@ -166,8 +166,8 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
             height={5}
         >
             <Div backgroundColor="primary-5" />
-            <Div backgroundColor="beetle-5" />
-            <Div backgroundColor="botanic-5" />
+            <Div backgroundColor="alert-5" />
+            <Div backgroundColor="green-5" />
         </Grid>
     </Story>
 </Preview>
@@ -183,8 +183,8 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
             color="white"
         >
             <Div backgroundColor="primary-5" padding={1}>Mars</Div>
-            <Div backgroundColor="beetle-5" padding={1}>Pluto</Div>
-            <Div backgroundColor="botanic-5" padding={1}>Jupiter</Div>
+            <Div backgroundColor="alert-5" padding={1}>Pluto</Div>
+            <Div backgroundColor="green-5" padding={1}>Jupiter</Div>
         </Grid>
     </Story>
 </Preview>

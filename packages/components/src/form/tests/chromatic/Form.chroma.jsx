@@ -186,7 +186,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Form border="sunray-10">
+            <Form border="warning-7">
                 <Field>
                     <TextInput placeholder="Where to?" />
                 </Field>

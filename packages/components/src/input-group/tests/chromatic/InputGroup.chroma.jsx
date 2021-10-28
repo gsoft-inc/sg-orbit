@@ -914,7 +914,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <InputGroup border="sunray-10">
+            <InputGroup border="warning-7">
                 <Text>Days</Text>
                 <TextInput aria-label="Duration" />
             </InputGroup>

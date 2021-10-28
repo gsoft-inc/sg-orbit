@@ -88,7 +88,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <GroupField border="sunray-10">
+            <GroupField border="warning-7">
                 <RadioGroup>
                     <Radio value="1">1</Radio>
                     <Radio value="2">2</Radio>

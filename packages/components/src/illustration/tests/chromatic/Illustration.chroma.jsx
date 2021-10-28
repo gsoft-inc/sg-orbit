@@ -75,12 +75,12 @@ stories()
     .add("zoom", () =>
         <Stack>
             <Div className="zoom-in">
-                <Illustration border="sunray-10" width="700px" height="200px">
+                <Illustration border="warning-7" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Div>
             <Div className="zoom-out">
-                <Illustration border="sunray-10" width="700px" height="200px">
+                <Illustration border="warning-7" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Div>
@@ -89,7 +89,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Illustration border="sunray-10" width="700px" height="200px">
+            <Illustration border="warning-7" width="700px" height="200px">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Illustration className="border-red" width="700px" height="200px">

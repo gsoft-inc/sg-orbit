@@ -30,8 +30,8 @@ A flex layout can have horizontally aligned items.
     <Story name="horizontal">
         <Flex direction="row" gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -44,8 +44,8 @@ A flex layout can have vertically aligned items.
     <Story name="vertical">
         <Flex direction="column" gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -58,8 +58,8 @@ A flex layout can have a gap between his items. `columnGap` and `rowGap` are als
     <Story name="gap">
         <Flex direction="row" gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -72,8 +72,8 @@ A flex layout can align his items along the cross axis. When the direction is "c
     <Story name="align items">
         <Flex alignItems="center" direction="column" gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -86,8 +86,8 @@ A flex layout can align his items along the main axis. When direction is "column
     <Story name="justify content">
         <Flex justifyContent="center" gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -100,8 +100,8 @@ A flex layout items can wrap on multiple rows.
     <Story name="wrap">
         <Flex wrap="wrap" gap={1} width={18}>
             {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
-            {ApricotTheme.colors.common.beetle.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
-            {ApricotTheme.colors.common.botanic.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
+            {ApricotTheme.colors.common.alert.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
+            {ApricotTheme.colors.common.green.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
         </Flex>
     </Story>
 </Preview>
@@ -114,8 +114,8 @@ A flex layout can reverse the items order.
     <Story name="reverse">
         <Flex reverse gap={2}>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Flex>
     </Story>
 </Preview>
@@ -132,12 +132,12 @@ Flex layouts can be nested.
                 <Div backgroundColor="primary-5" width={9} height={9} />
             </Flex>
             <Flex direction="column" gap={2}>
-                <Div backgroundColor="beetle-5" width={9} height={9} />
-                <Div backgroundColor="beetle-5" width={9} height={9} />
+                <Div backgroundColor="alert-5" width={9} height={9} />
+                <Div backgroundColor="alert-5" width={9} height={9} />
             </Flex>
             <Flex gap={2}>
-                <Div backgroundColor="botanic-5" width={9} height={9} />
-                <Div backgroundColor="botanic-5" width={9} height={9} />
+                <Div backgroundColor="green-5" width={9} height={9} />
+                <Div backgroundColor="green-5" width={9} height={9} />
             </Flex>
         </Flex>
     </Story>
@@ -151,8 +151,8 @@ An inline utility component is available for horizontal alignment.
     <Story name="inline">
         <Inline>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Inline>
     </Story>
 </Preview>
@@ -165,8 +165,8 @@ A stack utility component is available for vertical alignment.
     <Story name="stack">
         <Stack>
             <Div backgroundColor="primary-5" width={9} height={9} />
-            <Div backgroundColor="beetle-5" width={9} height={9} />
-            <Div backgroundColor="botanic-5" width={9} height={9} />
+            <Div backgroundColor="alert-5" width={9} height={9} />
+            <Div backgroundColor="green-5" width={9} height={9} />
         </Stack>
     </Story>
 </Preview>

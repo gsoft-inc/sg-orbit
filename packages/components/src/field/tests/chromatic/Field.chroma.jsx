@@ -219,7 +219,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Field border="sunray-10">
+            <Field border="warning-7">
                 <Label>Launch date</Label>
                 <TextInput />
             </Field>

@@ -108,7 +108,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Select border="sunray-10" placeholder="Select a planet" aria-label="Planets">
+            <Select border="warning-7" placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

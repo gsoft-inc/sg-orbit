@@ -19,7 +19,7 @@ createTestSuite(<Switch defaultChecked />, stories("/checked"));
 stories()
     .add("styling", () =>
         <Inline>
-            <Switch border="sunray-10">Engines</Switch>
+            <Switch border="warning-7">Engines</Switch>
             <Switch className="border-red">Engines</Switch>
             <Switch style={{ border: "1px solid red" }}>Engines</Switch>
         </Inline>

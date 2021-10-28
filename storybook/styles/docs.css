@@ -34,12 +34,12 @@
 .docblock-argstable-head tr th {
     font-variation-settings: "wght" 500 !important;
     font-weight: 400;
-    color: var(--o-ui-text-alias-1) !important;
+    color: var(--o-ui-text-alias-primary) !important;
 }
 
 /* ARGS TABLE | HEADER | RESET */
 .docblock-argstable-head button {
-    background-color: var(--o-ui-alias-background-primary) !important;
+    background-color: var(--o-ui-alias-background-accent) !important;
     box-shadow: none;
 }
 
@@ -91,11 +91,11 @@
 }
 
 .docblock-argstable-body a {
-    color: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-primary-6) !important;
 }
 
 .docblock-argstable-body button {
-    color: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-primary-6) !important;
     font-family: var(--orbit-font-family) !important;
     font-size: var(--o-ui-fs-2) !important;
     padding-left: 2px !important;
@@ -103,12 +103,12 @@
 
 /* EMPTY BLOCK */
 .docblock-emptyblock {
-    color: var(--o-ui-cloud-6) !important;
-    border: 1px dashed var(--o-ui-b-alias-1) !important;
+    color: var(--o-ui-neutral-6) !important;
+    border: 1px dashed var(--o-ui-neutral-2) !important;
 }
 
 .docblock-emptyblock a {
-    color: var(--o-ui-primary-500) !important;
+    color: var(--o-ui-primary-6) !important;
 }
 
 /* SOURCE BLOCK */
@@ -140,7 +140,7 @@
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6,
 .sbdocs.sbdocs-p  {
-    color: var(--o-ui-text-alias-1);
+    color: var(--o-ui-text-alias-primary);
 }
 
 /* ELEMENTS | HEADER */
@@ -167,7 +167,7 @@
 }
 
 .sbdocs.sbdocs-h2 {
-    border-bottom: 1px solid var(--o-ui-marine-1);
+    border-bottom: 1px solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-h2,
@@ -232,7 +232,7 @@
 }
 
 .sbdocs .sbdocs-a code {
-    color: var(--o-ui-primary-500);
+    color: var(--o-ui-primary-6);
 }
 
 /* ELEMENTS | TYPOGRAPHY */
@@ -245,11 +245,11 @@
 
 /* ELEMENTS | TABLE */
 .sbdocs.sbdocs-table tr {
-    border-top: 1px solid var(--o-ui-b-alias-1);
+    border-top: 1px solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-table thead tr {
-    border-top: 1px solid var(--o-ui-b-alias-1);
+    border-top: 1px solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-table tr th {
@@ -264,7 +264,7 @@
 
 .sbdocs.sbdocs-table tr td,
 .sbdocs.sbdocs-table tr th {
-    border: 1px solid var(--o-ui-b-alias-1);
+    border: 1px solid var(--o-ui-neutral-2);
 }
 
 .sbdocs.sbdocs-table a {
@@ -295,7 +295,7 @@
 .sb-show-main details {
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--o-ui-moonstone-1);
+    background-color: var(--o-ui-purple-1);
 }
 
 .sb-show-main details + details {
@@ -311,7 +311,7 @@
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
     padding: var(--o-ui-sp-3) var(--o-ui-sp-4) var(--o-ui-sp-3) var(--o-ui-sp-3);
-    background-color: var(--o-ui-moonstone-1);
+    background-color: var(--o-ui-purple-1);
     font-size: 15px !important;
 }
 

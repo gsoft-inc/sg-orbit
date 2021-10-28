@@ -59,7 +59,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Divider border="sunray-10" />
+            <Divider border="warning-7" />
             <Divider className="border-red" />
             <Divider style={{ border: "1px solid red" }} />
         </Stack>
@@ -123,7 +123,7 @@ stories("/vertical")
     )
     .add("styling", () =>
         <Inline height={16}>
-            <Divider border="sunray-10" orientation="vertical" />
+            <Divider border="warning-7" orientation="vertical" />
             <Divider className="border-red" orientation="vertical" />
             <Divider style={{ border: "1px solid red" }} orientation="vertical" />
         </Inline>

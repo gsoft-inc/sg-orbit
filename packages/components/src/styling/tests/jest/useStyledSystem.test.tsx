@@ -49,12 +49,12 @@ const ColorSampling = [
     "rgba(255, 255, 128, .5)",
     "hsl(50, 33%, 25%)",
     "hsla(50, 33%, 25%, .75)",
-    { base: "sunray-1" },
-    { s: "sunray-2" },
-    { md: "sunray-3" },
-    { lg: "sunray-4" },
-    { s: "sunray-2", md: "sunray-3", lg: "sunray-4" },
-    { base: "sunray-1", s: "sunray-2", md: "sunray-3", lg: "sunray-4" }
+    { base: "purple-1" },
+    { s: "purple-2" },
+    { md: "purple-3" },
+    { lg: "purple-4" },
+    { s: "purple-2", md: "purple-3", lg: "purple-4" },
+    { base: "purple-1", s: "purple-2", md: "purple-3", lg: "purple-4" }
 ];
 
 const LengthSampling = [

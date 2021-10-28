@@ -25,7 +25,7 @@ stories()
             <Dot color="rgb(128,0,0,0.5)"></Dot>
             <Dot color="alias-primary-1"></Dot>
             <Dot color="red"></Dot>
-            <Dot color="--o-ui-cloud-6"></Dot>
+            <Dot color="--o-ui-neutral-6"></Dot>
         </Stack>
     )
     .add("disabled", () =>
@@ -47,12 +47,12 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Dot border="sunray-10" color="alias-2"></Dot>
+                <Dot border="warning-7" color="alias-2"></Dot>
                 <Dot className="border-red" color="alias-2"></Dot>
                 <Dot style={{ border: "1px solid red" }} color="alias-2"></Dot>
             </Inline>
             <Inline>
-                <Dot border="sunray-10" color="alias-2">Habitable</Dot>
+                <Dot border="warning-7" color="alias-2">Habitable</Dot>
                 <Dot className="border-red" color="alias-2">Habitable</Dot>
                 <Dot style={{ border: "1px solid red" }} color="alias-2">Habitable</Dot>
             </Inline>

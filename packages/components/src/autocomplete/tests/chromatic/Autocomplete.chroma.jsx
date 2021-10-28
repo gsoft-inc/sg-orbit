@@ -435,7 +435,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Autocomplete border="sunray-10" placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete border="warning-7" placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

@@ -147,9 +147,9 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <TagList border="sunray-10">
+            <TagList border="warning-7">
                 <Item key="earth">Earth</Item>
-                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item border="warning-7" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </TagList>
             <TagList className="border-red">

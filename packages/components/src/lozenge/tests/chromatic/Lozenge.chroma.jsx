@@ -70,7 +70,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Lozenge border="sunray-10">New</Lozenge>
+            <Lozenge border="warning-7">New</Lozenge>
             <Lozenge className="border-red">New</Lozenge>
             <Lozenge
                 style={{

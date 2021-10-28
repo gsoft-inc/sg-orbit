@@ -38,7 +38,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Card border="sunray-10">
+            <Card border="warning-7">
                 <Heading>Nasa</Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>

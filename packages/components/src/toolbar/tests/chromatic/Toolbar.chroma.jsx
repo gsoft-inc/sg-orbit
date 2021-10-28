@@ -233,7 +233,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Toolbar border="sunray-10">
+            <Toolbar border="warning-7">
                 <CheckboxGroup>
                     <ToggleButton value="1">1</ToggleButton>
                     <ToggleButton value="2">2</ToggleButton>

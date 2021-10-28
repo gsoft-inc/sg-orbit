@@ -34,7 +34,7 @@ An Orbit style property is a mapping of a [CSS property](https://developer.mozil
 All style props and style values are discovererable with TypeScript intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](#theme) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
 
 <Preview>
-    <Div width={18} backgroundColor="sunray-2" padding={4} borderRadius={2}>
+    <Div width={18} backgroundColor="purple-2" padding={4} borderRadius={2}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -64,7 +64,7 @@ Orbit [style props](#style-props) also supports responsive breakpoints. These br
 By passing an object to any style props you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
 
 <Preview>
-    <Div backgroundColor={{ base: "botanic-2", xs: "marine-2", sm: "beetle-2", md: "primary-2", lg: "cloud-2", xl: "sunray-2" }} width={18} padding={4}>
+    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "primary-2", lg: "neutral-2", xl: "warning-2" }} width={18} padding={4}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -72,7 +72,7 @@ By passing an object to any style props you can specify which style will be appl
 Not all breakpoints needs to be set explicitly. In the following example, `base` and `lg` are explicitly set breakpoints. When match, the `xl` breakpoint will implicitly takes the value set by `lg` breakpoints since it is wider than `lg`. Everything below `lg` inherits the `base` color.
 
 <Preview>
-    <Div backgroundColor={{ base: "botanic-2", lg: "sunray-2" }} width={18} padding={4}>
+    <Div backgroundColor={{ base: "green-2", lg: "warning-2" }} width={18} padding={4}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -97,7 +97,7 @@ The following pseudo states are supported by some styled props and behaves like 
 />
 
 <Preview>
-    <Div backgroundColorHover="botanic-2" backgroundColor="sunray-2" padding={4} width={18}  borderRadius={2}>
+    <Div backgroundColorHover="green-2" backgroundColor="warning-2" padding={4} width={18}  borderRadius={2}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -123,9 +123,9 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
 ```jsx
 <Grid templateColumns="1fr 1fr" gap={2} height={10}>
     <Div backgroundColor="primary-5" />
-    <Div backgroundColor="beetle-5" />
-    <Div backgroundColor="botanic-5" />
-    <Div backgroundColor="cloud-5" />
+    <Div backgroundColor="alert-5" />
+    <Div backgroundColor="green-5" />
+    <Div backgroundColor="neutral-5" />
 </Grid>
 ```
 

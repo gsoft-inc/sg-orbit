@@ -110,7 +110,7 @@ stories()
         </Popover>
     )
     .add("styled system", () =>
-        <Popover border="sunray-10">
+        <Popover border="warning-7">
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
         </Popover>

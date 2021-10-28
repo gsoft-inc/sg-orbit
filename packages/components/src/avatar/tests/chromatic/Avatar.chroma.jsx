@@ -92,7 +92,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Avatar name="Sally Ride" border="sunray-10" />
+            <Avatar name="Sally Ride" border="warning-7" />
             <Avatar name="Sally Ride" className="border-red" />
             <Avatar name="Sally Ride" style={{ border: "1px solid red" }} />
         </Inline>

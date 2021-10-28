@@ -67,7 +67,7 @@ stories()
     )
     .add("styled system", () =>
         <Boundary>
-            <Overlay border="sunray-10" show>
+            <Overlay border="warning-7" show>
                 <PrimaryBox />
             </Overlay>
         </Boundary>

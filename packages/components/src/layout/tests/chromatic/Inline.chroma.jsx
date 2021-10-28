@@ -101,9 +101,9 @@ stories()
                 <Div backgroundColor="primary-5">Charlie</Div>
             </Inline>
             <Inline gap={12}>
-                <Div backgroundColor="beetle-5">Delta</Div>
-                <Div backgroundColor="beetle-5">Echo</Div>
-                <Div backgroundColor="beetle-5">Foxtrot</Div>
+                <Div backgroundColor="alert-5">Delta</Div>
+                <Div backgroundColor="alert-5">Echo</Div>
+                <Div backgroundColor="alert-5">Foxtrot</Div>
             </Inline>
         </Inline>
     );
