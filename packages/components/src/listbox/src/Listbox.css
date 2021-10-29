@@ -13,11 +13,11 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     width: max-content;
     max-width: var(--o-ui-sz-16);
     overflow-y: auto;
-    background-color: var(--o-ui-bg-alias-1);
+    background-color: var(--o-ui-bg-alias-default);
     outline: none;
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-bs-alias-lifted);
-    border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-2);
+    border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-low-contrast);
 }
 
 /* FLUID */

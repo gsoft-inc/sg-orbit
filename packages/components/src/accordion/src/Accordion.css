@@ -9,7 +9,7 @@
 .o-ui-accordion-bordered {
     box-shadow: var(--o-ui-bs-alias-skim);
     border-radius: var(--o-ui-sp-2);
-    background-color: var(--o-ui-bg-alias-1);
+    background-color: var(--o-ui-bg-alias-default);
 }
 
 /* HEADER */
@@ -38,7 +38,7 @@
     border: 0;
     transition: background-color var(--o-ui-easing-duration-3) var(--o-ui-easing-focus), border-bottom-left-radius 5s linear, border-bottom-right-radius 5s linear;
     width: 100%;
-    color: var(--o-ui-text-alias-2);
+    color: var(--o-ui-text-alias-primary);
     line-height: inherit;
     font-weight: inherit;
     position: relative;
@@ -47,15 +47,15 @@
 
 /* TRIGGER | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-trigger {
-    background-color: var(--o-ui-bg-alias-1);
+    background-color: var(--o-ui-bg-alias-default);
     padding: calc(var(--o-ui-sp-4) - 1px) var(--o-ui-sp-5) var(--o-ui-sp-4) var(--o-ui-sp-6);
-    border-top: 1px solid var(--o-ui-b-alias-2);
+    border-top: 1px solid var(--o-ui-b-alias-low-contrast);
 }
 
 /* TRIGGER | BORDERED | HOVER */
 .o-ui-accordion .o-ui-accordion-trigger:not([disabled]):hover,
 .o-ui-accordion .o-ui-accordion-trigger-hover:not([disabled]) {
-    background-color: var(--o-ui-bg-alias-accordion-hover);
+    background-color: var(--o-ui-bg-alias-soft-break);
 }
 
 /* TRIGGER | CONTENT */
@@ -82,8 +82,8 @@
 
 /* PANEL */
 .o-ui-accordion-panel {
-    color: var(--o-ui-text-alias-1);
-    background-color: var(--o-ui-bg-alias-1);
+    color: var(--o-ui-text-alias-primary);
+    background-color: var(--o-ui-bg-alias-default);
 }
 
 /* PANEL | BORDERLESS */
@@ -107,18 +107,6 @@
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-title,
 .o-ui-accordion-trigger[disabled] .o-ui-accordion-arrow {
     opacity: var(--o-ui-disabled-opacity);
-}
-
-/* HOVER */
-.o-ui-accordion-trigger:not([disabled]):hover ,
-.o-ui-accordion-trigger-hover:not([disabled]) {
-    color: var(--o-ui-text-alias-2-hover);
-}
-
-/* ACTIVE */
-.o-ui-accordion-trigger:not([disabled]):active,
-.o-ui-accordion-trigger-active:not([disabled]) {
-    color: var(--o-ui-text-alias-2-active);
 }
 
 /* FOCUS */

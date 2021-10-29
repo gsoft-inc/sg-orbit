@@ -22,8 +22,8 @@ export const DesktopTheme = createTheme({
             /* Background */
             "bg-alias-default": "$white",
             "bg-alias-side-nav": "$gray",
-            "bg-alias-hard-break": "$neutral-1",
-            "bg-alias-soft-break": "$neutral-3",
+            "bg-alias-soft-break": "$neutral-1",
+            "bg-alias-hard-break": "$neutral-3",
             "bg-alias-grey-hover": "$neutral-1",
             "bg-alias-grey-active": "$neutral-3",
             "bg-alias-accent": "$purple-6",
