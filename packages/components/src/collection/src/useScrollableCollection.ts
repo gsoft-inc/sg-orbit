@@ -1,4 +1,4 @@
-import { CollectionNode } from "@components/";
+import { CollectionNode } from "./useCollection";
 import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "../../shared";
 
