@@ -195,7 +195,7 @@ export function InnerMenu({
         target: selectedKeys[0] ?? defaultFocusTarget
     });
 
-    const scrollableProps = useScrollableCollection(containerRef, {
+    const scrollableProps = useScrollableCollection(containerRef, nodesProp, {
         disabled: selectionMode === "none",
         dividerSelector: ".o-ui-menu-divider",
         // A menu have a border-size of 1px
