@@ -195,7 +195,9 @@ export function InnerMenu({
         target: selectedKeys[0] ?? defaultFocusTarget
     });
 
-    const scrollableProps = useScrollableCollection(containerRef, nodesProp, {
+    const nodes = useCollectionNodes(children, nodesProp);
+
+    const scrollableProps = useScrollableCollection(containerRef, nodes, {
         disabled: selectionMode === "none",
         dividerSelector: ".o-ui-menu-divider",
         // A menu have a border-size of 1px
@@ -205,8 +207,6 @@ export function InnerMenu({
         paddingHeight: 2 * 1,
         sectionSelector: ".o-ui-menu-section-title"
     });
-
-    const nodes = useCollectionNodes(children, nodesProp);
 
     const rootId = useId(id, "o-ui-menu");
 
