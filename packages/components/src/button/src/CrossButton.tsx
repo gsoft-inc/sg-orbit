@@ -10,7 +10,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
         <IconButton
             {...rest}
             ref={forwardedRef}
-            variant="tertiary"
+            variant="ghost"
         >
             <CrossIcon />
         </IconButton>
