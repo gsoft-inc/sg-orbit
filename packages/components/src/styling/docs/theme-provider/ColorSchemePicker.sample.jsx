@@ -4,7 +4,7 @@ function ColorSchemePicker() {
     return (
         <Inline
             gap={1}
-            backgroundColor="alias-1"
+            backgroundColor="alias-default"
         >
             <Text marginRight={2}>Color Scheme: </Text>
             <TextLink
@@ -26,7 +26,7 @@ function ColorSchemePicker() {
 
 render(() => {
     return (
-        <ThemeProvider colorScheme="system" defaultColorScheme="light">
+        <ThemeProvider theme={ApricotTheme} colorScheme="system" defaultColorScheme="light">
             <Stack>
                 <Button variant="primary">Cutoff</Button>
                 <ColorSchemePicker />

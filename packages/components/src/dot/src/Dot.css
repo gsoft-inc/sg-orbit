@@ -1,7 +1,7 @@
 .o-ui-dot {
     display: inline-flex;
     align-items: center;
-    color: var(--o-ui-text-alias-1);
+    color: var(--o-ui-text-alias-primary);
 }
 
 .o-ui-dot:before {

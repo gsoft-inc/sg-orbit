@@ -176,7 +176,7 @@
 /* VARIATIONS */
 /* PRIMARY */
 .o-ui-link-primary {
-    color: var(--o-ui-text-alias-primary-1);
+    color: var(--o-ui-text-alias-accent);
 }
 
 /* PRIMARY | STATE | HOVER */
@@ -193,7 +193,7 @@
 
 /* DANGER */
 .o-ui-link-danger {
-    color: var(--o-ui-text-alias-negative-1);
+    color: var(--o-ui-text-alias-alert);
 }
 
 /* DANGER | STATE | HOVER */

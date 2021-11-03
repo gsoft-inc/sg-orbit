@@ -11,19 +11,19 @@ function stories(segment) {
 
 stories()
     .add("stroke", () =>
-        <SvgImage stroke="alias-1" src={NoResults} aria-label="No Results" />
+        <SvgImage stroke="alias-secondary" src={NoResults} aria-label="No Results" />
     )
     .add("fill", () =>
-        <SvgImage fill="alias-1" src={NoResults} aria-label="No Results" />
+        <SvgImage fill="alias-secondary" src={NoResults} aria-label="No Results" />
     )
     .add("width", () =>
-        <SvgImage width="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage width="100px" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
     )
     .add("height", () =>
-        <SvgImage height="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage height="100px" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
     )
     .add("size", () =>
-        <SvgImage size="100px" src={NoResults} stroke="alias-1" aria-label="No Results" />
+        <SvgImage size="100px" src={NoResults} stroke="alias-secondary" aria-label="No Results" />
     )
     .add("styling", () =>
         <Inline>

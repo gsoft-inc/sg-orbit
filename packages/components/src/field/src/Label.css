@@ -1,5 +1,5 @@
 .o-ui-field-label {
-    color: var(--o-ui-text-alias-1);
+    color: var(--o-ui-text-alias-primary);
     white-space: nowrap;
 }
 

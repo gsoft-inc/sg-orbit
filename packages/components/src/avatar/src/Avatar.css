@@ -68,11 +68,11 @@
 
 /* GROUPS | REMAININGS */
 .o-ui-avatar-group-remainings {
-    background-color: var(--o-ui-bg-alias-3);
+    background-color: var(--o-ui-bg-alias-soft-break);
 }
 
 .o-ui-avatar-group-remainings .o-ui-avatar-text {
-    color: var(--o-ui-text-alias-2);
+    color: var(--o-ui-text-alias-secondary);
 }
 
 /* GROUPS | REMAININGS | TOOLTIP */

@@ -76,9 +76,9 @@
     padding: 0 var(--o-ui-sp-3);
     min-height: var(--o-ui-sz-6);
     border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-b-alias-1);
-    color: var(--o-ui-text-alias-1);
-    background-color: var(--o-ui-bg-alias-3);
+    border: 1px solid var(--o-ui-b-alias-mid-contrast);
+    color: var(--o-ui-text-alias-primary);
+    background-color: var(--o-ui-bg-alias-soft-break);
     flex-shrink: 0;
 }
 

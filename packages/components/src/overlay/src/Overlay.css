@@ -21,7 +21,7 @@
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background: var(--o-ui-bg-alias-1);
+    background: var(--o-ui-bg-alias-default);
 }
 
 /* ARROW | POSITION */

@@ -207,7 +207,8 @@ const BackgroundColorAliases = [
     "alias-success-active",
     "alias-success-faint",
     "alias-success-light",
-    "alias-transparent"
+    "alias-transparent",
+    "alias-input-selection"
 ] as const;
 
 const BorderWidthAndStyle = "1px solid";

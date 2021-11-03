@@ -1,5 +1,5 @@
 .o-ui-popover {
-    background-color: var(--o-ui-bg-alias-1);
+    background-color: var(--o-ui-bg-alias-default);
     padding: var(--o-ui-sp-6);
     padding-top: var(--o-ui-sp-4);
     border-radius: var(--o-ui-shape-rounded);

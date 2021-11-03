@@ -94,6 +94,7 @@ export interface ColorAliases {
     "bg-alias-success-faint": AliasValue;
     "bg-alias-success-light": AliasValue;
     "bg-alias-transparent": AliasValue;
+    "bg-alias-input-selection": AliasValue;
     /* Border */
     "b-alias-low-contrast": AliasValue;
     "b-alias-mid-contrast": AliasValue;

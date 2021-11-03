@@ -6,7 +6,7 @@ function CustomOption({ item, children, ...rest }) {
         <ListboxOption
             {...rest}
             item={item}
-            color={selectedKeys.includes(key) ? "primary-7" : undefined}
+            color={selectedKeys.includes(key) ? "alias-accent" : undefined}
         >
             {children}
         </ListboxOption>

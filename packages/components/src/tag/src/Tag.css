@@ -5,7 +5,7 @@
     display: inline-flex;
     align-items: center;
     line-height: var(--o-ui-lh-1);
-    color: var(--o-ui-text-alias-1);
+    color: var(--o-ui-text-alias-primary);
     border-radius: var(--o-ui-shape-pill);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: 100%;
@@ -91,7 +91,7 @@ a.o-ui-tag:hover {
 
 /* SOLID */
 .o-ui-tag-solid {
-    background-color: var(--o-ui-bg-alias-3);
+    background-color: var(--o-ui-bg-alias-soft-break);
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES */
@@ -159,8 +159,8 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
 
 /* OUTLINE */
 .o-ui-tag-outline {
-    background-color: var(--o-ui-bg-alias-1);
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1) inset;
+    background-color: var(--o-ui-bg-alias-default);
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-low-contrast) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES */
