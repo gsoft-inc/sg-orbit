@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonShape, ButtonVariant, useButton } from "./useButton";
+import { ButtonColor, ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import {
@@ -28,6 +28,10 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
+    /**
+     * The button color to use.
+     */
+    color?: ButtonColor;
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -81,6 +85,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
+        color = "secondary",
         condensed,
         fluid,
         focus,
@@ -91,7 +96,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         shape = "circular",
         size,
         type,
-        variant = "secondary",
+        variant = "solid",
         ...rest
     } = mergeProps(
         props,
@@ -106,6 +111,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         active,
         as: asProp,
         autoFocus,
+        color,
         cssModule: "o-ui-icon-button",
         fluid: fluidValue,
         focus,

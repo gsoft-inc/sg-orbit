@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonShape, ButtonVariant, useButton } from "./useButton";
+import { ButtonColor, ButtonShape, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
@@ -22,11 +22,15 @@ import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
 
-export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
+export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus" | "color"> & {
     /**
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
+    /**
+     * The button color to use.
+     */
+    color?: ButtonColor;
     /**
      * Whether or not the button content should takes additional space.
      */
@@ -88,6 +92,7 @@ export function InnerButton(props: InnerButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
+        color,
         condensed,
         disabled,
         fluid,
@@ -98,7 +103,7 @@ export function InnerButton(props: InnerButtonProps) {
         shape,
         size,
         type,
-        variant = "secondary",
+        variant = "solid",
         inherit,
         ...rest
     } = mergeProps(
@@ -116,6 +121,7 @@ export function InnerButton(props: InnerButtonProps) {
         active,
         as: asProp,
         autoFocus,
+        color,
         cssModule: "o-ui-text-button",
         fluid: fluidValue,
         focus,

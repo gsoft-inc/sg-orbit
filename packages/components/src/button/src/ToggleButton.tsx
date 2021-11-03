@@ -42,6 +42,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         active,
         checked,
         children,
+        color,
         defaultChecked,
         forwardedRef,
         onChange,
@@ -58,6 +59,7 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
     const { buttonProps } = useToggleButton({
         active,
         checked,
+        color,
         defaultChecked,
         forwardedRef,
         isCheckable,

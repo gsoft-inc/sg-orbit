@@ -1,4 +1,4 @@
-import { ButtonShape, ButtonVariant } from "./useButton";
+import { ButtonColor, ButtonShape, ButtonVariant } from "./useButton";
 import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
@@ -7,6 +7,7 @@ export type ToggleButtonVariant = Omit<ButtonVariant, "tertiary" | "danger">;
 export interface UseToggleButtonProps {
     active?: boolean;
     checked?: boolean | null;
+    color?: ButtonColor;
     defaultChecked?: boolean;
     forwardedRef?: ForwardedRef<any>;
     isCheckable: boolean;
