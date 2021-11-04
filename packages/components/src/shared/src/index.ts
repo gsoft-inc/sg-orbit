@@ -1,6 +1,7 @@
 // Constants
 export * from "./keys";
 export * from "./focusTarget";
+export * from "./values";
 
 // Utils
 export * from "./assertions";

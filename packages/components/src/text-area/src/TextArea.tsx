@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { FontValues, OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -141,7 +141,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         const { fontSize, lineHeight, paddingBottom, paddingTop } = window.getComputedStyle(input);
 
         const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
-        const currentRows = Math.floor((input.scrollHeight - padding) / pxToInt(lineHeight !== "normal" ? lineHeight : fontSize));
+        const currentRows = Math.floor((input.scrollHeight - padding) / (lineHeight !== "normal" ? pxToInt(lineHeight) : pxToInt(fontSize) * FontValues.normalLineHeightRatio));
 
         const newRows = !isNil(maxRows) && currentRows > maxRows
             ? maxRows
