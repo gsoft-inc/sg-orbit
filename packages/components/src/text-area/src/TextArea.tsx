@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useMemo, useState } from "react";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useFontFaceReady } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -60,6 +60,35 @@ export interface InnerTextAreaProps extends AbstractInputProps<typeof DefaultEle
 const pxToInt = (value?: string) => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
+
+function useCalculateLineHeight(input: HTMLTextAreaElement) {
+    const fontsLoaded = useFontFaceReady();
+
+    return useMemo(() => {
+        if (isNil(input) || !fontsLoaded) {
+            return 0;
+        }
+
+        const { font, lineHeight } = window.getComputedStyle(input);
+
+        if (lineHeight !== "normal") { return pxToInt(lineHeight); }
+
+        const element = document.createElement("SPAN");
+
+        element.id = "o-ui-line-height-helper";
+        element.style.visibility = "hidden";
+        element.style.font = font;
+        element.innerText = "LineHeightHelper";
+
+        document.body.appendChild(element);
+
+        const height = element.getBoundingClientRect().height;
+
+        document.body.removeChild(element);
+
+        return height;
+    }, [input, fontsLoaded]);
+}
 
 export function InnerTextArea(props: InnerTextAreaProps) {
     const [fieldProps] = useFieldInputProps();
@@ -135,20 +164,22 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         value: inputValue
     });
 
+    const lineHeight = useCalculateLineHeight(inputRef.current);
+
     const adjustRows = useCallback(() => {
         const input = inputRef.current;
 
-        const { fontSize, lineHeight, paddingBottom, paddingTop } = window.getComputedStyle(input);
+        const { paddingBottom, paddingTop } = window.getComputedStyle(input);
 
         const padding = pxToInt(paddingTop) + pxToInt(paddingBottom);
-        const currentRows = Math.floor((input.scrollHeight - padding) / pxToInt(lineHeight !== "normal" ? lineHeight : fontSize));
+        const currentRows = Math.floor((input.scrollHeight - padding) / lineHeight);
 
         const newRows = !isNil(maxRows) && currentRows > maxRows
             ? maxRows
             : currentRows;
 
         setRows(newRows);
-    }, [inputRef, maxRows]);
+    }, [inputRef, lineHeight, maxRows]);
 
     useLayoutEffect(() => {
         adjustRows();
