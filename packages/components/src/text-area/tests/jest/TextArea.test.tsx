@@ -7,6 +7,10 @@ import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
+Object.defineProperty(document, "fonts", {
+    value: { ready: true }
+});
+
 test("when autofocus is true, the input is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
         <TextArea autoFocus aria-label="Label" data-testid="input" />
