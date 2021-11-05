@@ -236,6 +236,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
         if (newInputValue !== inputValueRef.current) {
             setInputValue(newInputValue, true);
+            inputRef.current.focus();
         }
     };
 
@@ -297,10 +298,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const handleDecrement = useEventCallback((event: MouseEvent) => {
         applyStep(event, -1);
-    });
-
-    const handleStepperFocus = useEventCallback(() => {
-        inputRef.current.focus();
     });
 
     const focusWithinProps = useFocusWithin({
@@ -365,7 +362,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
                 disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
                 onDecrement={handleDecrement}
-                onFocus={handleStepperFocus}
                 onIncrement={handleIncrement}
             />
         </>
