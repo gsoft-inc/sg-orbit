@@ -236,7 +236,6 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
         if (newInputValue !== inputValueRef.current) {
             setInputValue(newInputValue, true);
-            inputRef.current.focus();
         }
     };
 
@@ -294,10 +293,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const handleIncrement = useEventCallback((event: MouseEvent) => {
         applyStep(event, 1);
+        inputRef.current.focus();
     });
 
     const handleDecrement = useEventCallback((event: MouseEvent) => {
         applyStep(event, -1);
+        inputRef.current.focus();
     });
 
     const focusWithinProps = useFocusWithin({
