@@ -1,7 +1,6 @@
 // Constants
 export * from "./keys";
 export * from "./focusTarget";
-export * from "./values";
 
 // Utils
 export * from "./assertions";
@@ -37,6 +36,7 @@ export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";
 export * from "./useFocusWithin";
+export * from "./useFontFaceReady";
 
 // Features
 export * from "./slots";
