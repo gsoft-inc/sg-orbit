@@ -61,8 +61,7 @@ const pxToInt = (value?: string) => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
 };
 
-function useCalculateLineHeight(inputRef: any) {
-    const input = inputRef.current;
+function useCalculateLineHeight(input: HTMLTextAreaElement) {
     const fontsLoaded = useFontFaceReady();
 
     return useMemo(() => {
@@ -165,7 +164,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         value: inputValue
     });
 
-    const lineHeight = useCalculateLineHeight(inputRef);
+    const lineHeight = useCalculateLineHeight(inputRef.current);
 
     const adjustRows = useCallback(() => {
         const input = inputRef.current;

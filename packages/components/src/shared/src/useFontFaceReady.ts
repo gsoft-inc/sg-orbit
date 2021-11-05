@@ -4,9 +4,14 @@ const useFontFaceReady = () => {
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
-        document.fonts.ready.then(() => {
-            setReady(true);
-        });
+        let isCancelled = false;
+        const loadFonts = async () => {
+            await document.fonts.ready;
+            if (!isCancelled) { setReady(true); }
+        };
+        loadFonts();
+
+        return () => { isCancelled = true; };
     }, []);
 
     return ready;
