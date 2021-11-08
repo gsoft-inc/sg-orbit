@@ -356,7 +356,7 @@ export function InnerListbox({
         target: selectionManager.selectedKeys[0] ?? defaultFocusTarget
     });
 
-    const scrollableProps = useScrollableCollection(containerRef, {
+    const scrollableProps = useScrollableCollection(containerRef, nodes, {
         // A listbox have a border-size of 1px
         itemSelector: ".o-ui-listbox-option",
         maxHeight: 12 * 32 + 2 * 1,

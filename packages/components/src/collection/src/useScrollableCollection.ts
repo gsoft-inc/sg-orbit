@@ -1,3 +1,4 @@
+import { CollectionNode } from "./useCollection";
 import { RefObject, useLayoutEffect, useState } from "react";
 import { isNil } from "../../shared";
 
@@ -30,15 +31,16 @@ function getOuterHeight(element: HTMLElement) {
     return clientRect.height + toPixels(computedStyle.marginTop) + toPixels(computedStyle.marginBottom);
 }
 
-export function useScrollableCollection(containerRef: RefObject<Element>, {
-    borderHeight = 0,
-    disabled,
-    dividerSelector,
-    itemSelector,
-    maxHeight = 500,
-    paddingHeight = 0,
-    sectionSelector
-}: UseScrollableCollectionOptions = {}) {
+export function useScrollableCollection(containerRef: RefObject<Element>, nodes: CollectionNode[],
+    {
+        borderHeight = 0,
+        disabled,
+        dividerSelector,
+        itemSelector,
+        maxHeight = 500,
+        paddingHeight = 0,
+        sectionSelector
+    }: UseScrollableCollectionOptions = {}) {
     const [collectionHeight, setCollectionHeight] = useState<string>();
 
     useLayoutEffect(() => {
@@ -65,7 +67,8 @@ export function useScrollableCollection(containerRef: RefObject<Element>, {
                 setCollectionHeight(`${height}px`);
             }
         }
-    }, [containerRef, maxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
+        // nodes must be in the dependency array in order to be able to recompute new element selected by the querySelectorAll
+    }, [containerRef, nodes, maxHeight, borderHeight, paddingHeight, itemSelector, sectionSelector, dividerSelector, disabled]);
 
     return isNil(collectionHeight) ? {} : {
         style: {
