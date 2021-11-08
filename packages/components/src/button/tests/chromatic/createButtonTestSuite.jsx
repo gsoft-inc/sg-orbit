@@ -161,49 +161,49 @@ export function createButtonTestSuite(element, stories) {
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                     <Button loading element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button condensed size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                     <Button condensed element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
+                        <Counter color="divider">15</Counter>
                     </Button>
                 </Div>
                 <Div>
@@ -212,38 +212,6 @@ export function createButtonTestSuite(element, stories) {
                         <Counter>15</Counter>
                     </Button>
                 </Div>
-            </Stack>
-        )
-        .add("rounded", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button shape="rounded" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button loading shape="rounded" element={element}>Aa</Button>
-                </Inline>
-                <Inline>
-                    <Button shape="rounded" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button shape="rounded" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button shape="rounded" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline alignY="end">
-                    <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button condensed shape="rounded" element={element}>Aa</Button>
-                </Inline>
             </Stack>
         )
         .add("circular", () =>
@@ -313,10 +281,10 @@ export function createButtonTestSuite(element, stories) {
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">
-                    <Button variant="primary" element={element}>Button</Button>
+                    <Button element={element}>Button</Button>
                 </Div>
                 <Div className="zoom-out'">
-                    <Button variant="primary" element={element}>Button</Button>
+                    <Button element={element}>Button</Button>
                 </Div>
             </Inline>
         );

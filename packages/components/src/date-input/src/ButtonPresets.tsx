@@ -35,10 +35,10 @@ export function ButtonPresets({
             {values.map((x, index) => (
                 <ToggleButton
                     // eslint-disable-next-line react/no-array-index-key
+                    color="secondary"
                     key={index}
                     size="sm"
                     value={index.toString()}
-                    variant="secondary"
                 >
                     {x}
                 </ToggleButton>

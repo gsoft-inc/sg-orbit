@@ -10,7 +10,8 @@
         <ToggleButton
             checked={isChecked}
             value="isActive"
-            variant={isChecked ? "primary" : "secondary"}
+            color={isChecked ? "primary" : "secondary"}
+            variant="outline"
             onChange={handleChange}
         >
             {isChecked ? "On" : "Off"}

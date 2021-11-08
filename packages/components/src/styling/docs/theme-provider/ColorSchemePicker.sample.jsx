@@ -28,7 +28,7 @@ render(() => {
     return (
         <ThemeProvider theme={ApricotTheme} colorScheme="system" defaultColorScheme="light">
             <Stack>
-                <Button variant="primary">Cutoff</Button>
+                <Button color="primary">Cutoff</Button>
                 <ColorSchemePicker />
             </Stack>
         </ThemeProvider>

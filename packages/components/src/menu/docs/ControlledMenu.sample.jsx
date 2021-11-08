@@ -17,7 +17,7 @@
             open={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button variant="secondary">Trigger</Button>
+            <Button color="secondary">Trigger</Button>
             <Menu
                 selectionMode="single"
                 selectedKeys={selectedKey}

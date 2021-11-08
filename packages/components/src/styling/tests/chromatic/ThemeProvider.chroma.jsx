@@ -43,12 +43,12 @@ stories()
     )
     .add("light", () =>
         <ThemeProvider theme={ApricotTheme} colorScheme="light">
-            <Box padding={4} backgroundColor="alias-2" />
+            <Box padding={4} backgroundColor="alias-soft-break" />
         </ThemeProvider>
     )
     .add("dark", () =>
         <ThemeProvider theme={ApricotTheme} colorScheme="dark">
-            <Box padding={4} backgroundColor="alias-2" />
+            <Box padding={4} backgroundColor="alias-soft-break" />
         </ThemeProvider>
     )
     .add("set color scheme with api", () => {
@@ -66,7 +66,7 @@ stories()
         return (
             <ThemeProvider theme={ApricotTheme} colorScheme="light">
                 <SwitchColorScheme />
-                <Box padding={4} backgroundColor="alias-2" />
+                <Box padding={4} backgroundColor="alias-soft-break" />
             </ThemeProvider>
         );
     });

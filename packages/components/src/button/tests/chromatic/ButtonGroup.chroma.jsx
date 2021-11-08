@@ -15,14 +15,14 @@ stories()
     .add("default", () =>
         <Stack>
             <ButtonGroup size="sm">
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
             </ButtonGroup>
             <ButtonGroup>
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
             </ButtonGroup>
         </Stack>
     )
@@ -30,61 +30,61 @@ stories()
         <Inline gap={13}>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton color="secondary" aria-label="Add"><AddIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
         </Inline>
     )
     .add("fluid", () =>
         <ButtonGroup fluid>
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("disabled", () =>
         <ButtonGroup disabled>
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("align", () =>
         <Stack>
             <ButtonGroup align="start">
-                <Button variant="tertiary">Reset</Button>
-                <Button variant="primary">Submit form</Button>
+                <Button color="tertiary">Reset</Button>
+                <Button color="primary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end">
-                <Button variant="tertiary">Reset</Button>
-                <Button variant="primary">Submit form</Button>
+                <Button color="tertiary">Reset</Button>
+                <Button color="primary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center">
-                <Button variant="tertiary">Reset</Button>
-                <Button variant="primary">Submit form</Button>
+                <Button color="tertiary">Reset</Button>
+                <Button color="primary">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup>
                 <TextLinkAsButton href="#">Reset</TextLinkAsButton>
-                <Button variant="secondary">Submit form</Button>
+                <Button color="secondary">Submit form</Button>
             </ButtonGroup>
         </Stack>
     )
@@ -92,14 +92,14 @@ stories()
         <Stack>
             <Div className="zoom-in">
                 <ButtonGroup>
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="primary">Submit form</Button>
+                    <Button color="tertiary">Reset</Button>
+                    <Button color="primary">Submit form</Button>
                 </ButtonGroup>
             </Div>
             <Div className="zoom-out">
                 <ButtonGroup>
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="primary">Submit form</Button>
+                    <Button color="tertiary">Reset</Button>
+                    <Button color="primary">Submit form</Button>
                 </ButtonGroup>
             </Div>
         </Stack>
@@ -108,22 +108,22 @@ stories()
 stories("/vertical")
     .add("default", () =>
         <ButtonGroup orientation="vertical">
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
-            <Button variant="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
+            <Button color="secondary">Cutoff</Button>
         </ButtonGroup>
     )
     .add("size", () =>
         <Inline alignY="end">
             <ButtonGroup orientation="vertical" size="sm">
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
             </ButtonGroup>
             <ButtonGroup orientation="vertical">
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
-                <Button variant="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
+                <Button color="secondary">Cutoff</Button>
             </ButtonGroup>
         </Inline>
     )
@@ -131,21 +131,21 @@ stories("/vertical")
         <Stack>
             <Inline>
                 <ButtonGroup align="start" orientation="vertical">
-                    <Button variant="secondary">Reset</Button>
-                    <Button variant="secondary">Submit form</Button>
+                    <Button color="secondary">Reset</Button>
+                    <Button color="secondary">Submit form</Button>
                 </ButtonGroup>
                 <ButtonGroup align="end" orientation="vertical">
-                    <Button variant="secondary">Reset</Button>
-                    <Button variant="secondary">Submit form</Button>
+                    <Button color="secondary">Reset</Button>
+                    <Button color="secondary">Submit form</Button>
                 </ButtonGroup>
                 <ButtonGroup align="center" orientation="vertical">
-                    <Button variant="secondary">Reset</Button>
-                    <Button variant="secondary">Submit form</Button>
+                    <Button color="secondary">Reset</Button>
+                    <Button color="secondary">Submit form</Button>
                 </ButtonGroup>
             </Inline>
             <ButtonGroup orientation="vertical">
                 <TextLinkAsButton href="#">Reset</TextLinkAsButton>
-                <Button variant="secondary">Submit form</Button>
+                <Button color="secondary">Submit form</Button>
             </ButtonGroup>
         </Stack>
     )
@@ -153,14 +153,14 @@ stories("/vertical")
         <Inline>
             <Div className="zoom-in">
                 <ButtonGroup orientation="vertical">
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="primary">Submit form</Button>
+                    <Button color="tertiary">Reset</Button>
+                    <Button color="primary">Submit form</Button>
                 </ButtonGroup>
             </Div>
             <Div className="zoom-out">
                 <ButtonGroup orientation="vertical">
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="primary">Submit form</Button>
+                    <Button color="tertiary">Reset</Button>
+                    <Button color="primary">Submit form</Button>
                 </ButtonGroup>
             </Div>
         </Inline>

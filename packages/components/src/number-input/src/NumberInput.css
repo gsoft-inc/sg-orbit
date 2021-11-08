@@ -49,7 +49,7 @@
     border-left: 1px solid var(--o-ui-input-border-color);
     outline: none;
     cursor: pointer;
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-default);
 }
 
 .o-ui-number-input-spinner-increment {
@@ -74,17 +74,12 @@
 }
 
 /* SPINNER | ACTIVE */
-.o-ui-number-input-spinner-increment:active:not(:disabled),
-.o-ui-number-input-spinner-decrement:active:not(:disabled),
-.o-ui-number-input-spinner-increment:hover:active:not(:disabled),
-.o-ui-number-input-spinner-decrement:hover:active:not(:disabled) {
-    background-color: var(--o-ui-bg-alias-4-active);
-}
+/* to do in JS */
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-hard-break);
+    background-color: var(--o-ui-bg-alias-soft-break);
 }
 
 /* SPINNER | DISABLED */

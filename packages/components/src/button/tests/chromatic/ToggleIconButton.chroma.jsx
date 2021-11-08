@@ -10,16 +10,16 @@ function stories(segment) {
         .build();
 }
 
-createToggleIconButtonTestSuite(<ToggleIconButton variant="primary" />, stories("/primary"));
+createToggleIconButtonTestSuite(<ToggleIconButton color="primary" />, stories("/primary"));
 
-createToggleIconButtonTestSuite(<ToggleIconButton variant="secondary" />, stories("/secondary"));
+createToggleIconButtonTestSuite(<ToggleIconButton color="secondary" />, stories("/secondary"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleIconButton border="warning-7" variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton className="bg-red" variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton style={{ backgroundColor: "red" }} variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton border="warning-7" color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton className="bg-red" color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton style={{ backgroundColor: "red" }} color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
         </Inline>
     );
 

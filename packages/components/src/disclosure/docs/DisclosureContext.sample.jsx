@@ -4,7 +4,7 @@ function HighlightedTrigger({ children, ...rest }) {
     return (
         <Button
             {...rest}
-            variant={isOpen ? "primary" : "secondary"}
+            color={isOpen ? "primary" : "secondary"}
         >
             {children}
         </Button>

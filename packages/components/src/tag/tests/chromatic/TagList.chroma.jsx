@@ -48,15 +48,15 @@ stories()
     .add("item with a dot", () =>
         <TagList>
             <Item key="mercury">
-                <Dot />
+                <Dot color="alias-accent" />
                 <Text>Mercury Program</Text>
             </Item>
             <Item key="gemini">
-                <Dot />
+                <Dot color="alias-accent" />
                 <Text>Gemini Program</Text>
             </Item>
             <Item key="apollo">
-                <Dot />
+                <Dot color="alias-accent" />
                 <Text>Apollo Program</Text>
             </Item>
         </TagList>

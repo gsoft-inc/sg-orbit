@@ -10,7 +10,7 @@ test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus
-            variant="secondary"
+            color="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -26,7 +26,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <IconButton
             disabled
             autoFocus
-            variant="secondary"
+            color="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -41,7 +41,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus={10}
-            variant="secondary"
+            color="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -63,7 +63,7 @@ test("can focus the button with the focus api", async () => {
 
     renderWithTheme(
         <IconButton
-            variant="secondary"
+            color="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -86,7 +86,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <IconButton variant="secondary" ref={ref} aria-label="Add">
+        <IconButton color="secondary" ref={ref} aria-label="Add">
             <AddIcon />
         </IconButton>
     );
@@ -102,7 +102,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <IconButton
-            variant="secondary"
+            color="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -122,7 +122,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <IconButton variant="secondary" ref={handler} aria-label="Add">
+        <IconButton color="secondary" ref={handler} aria-label="Add">
             <AddIcon />
         </IconButton>
     );

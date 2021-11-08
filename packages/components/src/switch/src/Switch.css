@@ -23,7 +23,7 @@
 .o-ui-switch .o-ui-switch-control::before {
     content: "";
     display: inline-block;
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-static-white);
     border-radius: var(--o-ui-shape-circular);
     position: absolute;
     transform: translate(2px, 2px);
@@ -103,11 +103,6 @@
 .o-ui-switch input[type="checkbox"]:focus-visible + .o-ui-switch-control:after,
 .o-ui-switch-focus:not(.o-ui-switch-disabled) .o-ui-switch-control:after {
     opacity: 1;
-}
-
-/* STATE | FOCUS | INVALID */
-.o-ui-switch-invalid .o-ui-switch-control:after {
-    --o-ui-focus-ring-color: var(--o-ui-b-alias-negative-1-translucent);
 }
 
 /* STATE | DISABLED */

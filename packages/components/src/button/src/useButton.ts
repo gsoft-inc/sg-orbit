@@ -4,7 +4,7 @@ import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, 
 
 export type ButtonVariant = "solid" | "outlined" | "ghost";
 
-export type ButtonColor = "primary" | "secondary" | "tertiary" | "accent" | "danger" | "success" | "warning";
+export type ButtonColor = "primary" | "secondary" | "accent" | "danger";
 
 export type ButtonShape = "rounded" | "circular";
 

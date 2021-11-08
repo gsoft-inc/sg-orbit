@@ -21,23 +21,21 @@ function SunrayBackground({ button, ...rest }) {
     );
 }
 
-createButtonTestSuite(<Button variant="primary" />, stories("/primary"));
+createButtonTestSuite(<Button color="primary" />, stories("/primary"));
 
-createButtonTestSuite(<Button variant="secondary" />, stories("/secondary"));
+createButtonTestSuite(<Button color="secondary" />, stories("/secondary"));
 
-createButtonTestSuite(<SunrayBackground button={<Button variant="secondary" inherit />} />, stories("/secondary (inherit)"));
+createButtonTestSuite(<SunrayBackground button={<Button color="secondary" inherit />} />, stories("/secondary (inherit)"));
 
-createButtonTestSuite(<Button variant="tertiary" />, stories("/tertiary"));
+createButtonTestSuite(<SunrayBackground button={<Button color="tertiary" inherit />} />, stories("/tertiary (inherit)"));
 
-createButtonTestSuite(<SunrayBackground button={<Button variant="tertiary" inherit />} />, stories("/tertiary (inherit)"));
-
-createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
+createButtonTestSuite(<Button color="danger" />, stories("/danger"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <Button border="warning-7" variant="secondary">Button</Button>
-            <Button className="bg-red" variant="secondary">Button</Button>
-            <Button style={{ backgroundColor: "red" }} variant="secondary">Button</Button>
+            <Button border="warning-7" color="secondary">Button</Button>
+            <Button className="bg-red" color="secondary">Button</Button>
+            <Button style={{ backgroundColor: "red" }} color="secondary">Button</Button>
         </Inline>
     );

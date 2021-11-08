@@ -27,35 +27,35 @@ stories()
         </HelpMessage>
     )
     .add("icon", () =>
-        <ValidMessage>
+        <HelpMessage>
             <Align>
                 <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </Align>
-        </ValidMessage>
+        </HelpMessage>
     )
     .add("paragraph", () =>
-        <ValidMessage>
+        <HelpMessage>
             <Paragraph>
                 If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
             </Paragraph>
-        </ValidMessage>
+        </HelpMessage>
     )
     .add("list", () =>
         <Inline>
-            <ValidMessage>
+            <HelpMessage>
                 <UL>
                     <LI>Celestial</LI>
                     <LI>Dark matter</LI>
                     <LI>Eclipse</LI>
                 </UL>
-            </ValidMessage>
-            <ValidMessage>
+            </HelpMessage>
+            <HelpMessage>
                 <OL>
                     <LI>Celestial</LI>
                     <LI>Dark matter</LI>
                     <LI>Eclipse</LI>
                 </OL>
-            </ValidMessage>
+            </HelpMessage>
         </Inline>
     )
     .add("wrappers", () =>
@@ -68,7 +68,7 @@ stories()
         </HelpMessage>
     )
     .add("complex", () =>
-        <ValidMessage>
+        <HelpMessage>
             <Align>
                 <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
             </Align>
@@ -80,7 +80,7 @@ stories()
                 <LI>Dark matter</LI>
                 <LI>Eclipse</LI>
             </UL>
-        </ValidMessage>
+        </HelpMessage>
     )
     .add("fluid", () =>
         <HelpMessage fluid>

@@ -7,7 +7,7 @@ import { renderWithTheme, waitDelay } from "@jest-utils";
 
 test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Button autoFocus variant="secondary" data-testid="button">Cutoff</Button>
+        <Button autoFocus color="secondary" data-testid="button">Cutoff</Button>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
@@ -18,7 +18,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <Button
             disabled
             autoFocus
-            variant="secondary"
+            color="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -30,7 +30,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = renderWithTheme(
         <Button
             autoFocus={10}
-            variant="secondary"
+            color="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -47,7 +47,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
 test("when no type is specified, the type is default to \"button\"", async () => {
     const { getByTestId } = renderWithTheme(
         <Button
-            variant="secondary"
+            color="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -59,7 +59,7 @@ test("when type is specified, the type is forwarded", async () => {
     const { getByTestId } = renderWithTheme(
         <Button
             type="submit"
-            variant="secondary"
+            color="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
@@ -74,7 +74,7 @@ test("can focus the button with the focus api", async () => {
 
     renderWithTheme(
         <Button
-            variant="secondary"
+            color="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -94,7 +94,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <Button variant="secondary" ref={ref}>Cutoff</Button>
+        <Button color="secondary" ref={ref}>Cutoff</Button>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -108,7 +108,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <Button
-            variant="secondary"
+            color="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -125,7 +125,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <Button variant="secondary" ref={handler}>Cutoff</Button>
+        <Button color="secondary" ref={handler}>Cutoff</Button>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

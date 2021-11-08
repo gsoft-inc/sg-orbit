@@ -14,7 +14,7 @@ const ApolloModal = forwardRef(({ children, ...rest }, ref) => {
                     The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.
                 </Paragraph>
             </Content>
-            <Button onClick={close} variant="secondary">
+            <Button onClick={close} color="secondary">
                 Close
             </Button>
         </Modal>
@@ -24,7 +24,7 @@ const ApolloModal = forwardRef(({ children, ...rest }, ref) => {
 render(() => {
     return (
         <ModalTrigger dismissable={false}>
-            <Button variant="secondary">Open</Button>
+            <Button color="secondary">Open</Button>
             <ApolloModal />
         </ModalTrigger>
     );

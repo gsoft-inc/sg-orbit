@@ -1,4 +1,9 @@
-.o-ui-autocomplete-menu-no-results {
+.o-ui-autocomplete-no-results {
+    font-size: var(--o-ui-fs-3);
+    line-height: var(--o-ui-lh-2);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--o-ui-b-alias-low-contrast);
@@ -10,12 +15,4 @@
     position: relative;
     cursor: default;
     height: calc(var(--o-ui-sz-5) + 2px);
-}
-
-.o-ui-autocomplete-no-results {
-    font-size: var(--o-ui-fs-3);
-    line-height: var(--o-ui-lh-2);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }

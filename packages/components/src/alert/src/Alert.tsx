@@ -103,22 +103,22 @@ export function InnerAlert({
 
     const warningIconMarkup = variant === "warning" && (
         <Header>
-            <WarningIcon className="o-ui-alert-warning-icon" size="lg" />
+            <WarningIcon className="o-ui-alert-icon o-ui-alert-warning-icon" size="lg" />
         </Header>
     );
 
     const negativeIconMarkup = variant === "negative" && (
         <Header>
-            <InfoIcon className="o-ui-alert-negative-icon" size="lg" />
+            <InfoIcon className="o-ui-alert-icon o-ui-alert-negative-icon" size="lg" />
         </Header>
     );
 
     const primaryButtonMarkup = (
         <Button
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
+            color={variant === "destructive" ? "danger" : "primary"}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
-            variant={variant === "destructive" ? "danger" : "primary"}
         >
             {primaryButtonLabel}
         </Button>
@@ -127,9 +127,9 @@ export function InnerAlert({
     const secondaryButtonMarkup = !isNilOrEmpty(secondaryButtonLabel) && (
         <Button
             autoFocus={autoFocusButton === "secondary"}
+            color="secondary"
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
-            variant="secondary"
         >
             {secondaryButtonLabel}
         </Button>
@@ -138,8 +138,8 @@ export function InnerAlert({
     const cancelButtonMarkup = !isNilOrEmpty(cancelButtonLabel) && (
         <Button
             autoFocus={autoFocusButton === "cancel"}
+            color="secondary"
             onClick={handleCancelButtonClick}
-            variant="secondary"
         >
             {cancelButtonLabel}
         </Button>

@@ -10,19 +10,17 @@ function stories(segment) {
         .build();
 }
 
-createIconButtonTestSuite(<IconButtonAsLink variant="primary" />, stories("/primary"));
+createIconButtonTestSuite(<IconButtonAsLink color="primary" />, stories("/primary"));
 
-createIconButtonTestSuite(<IconButtonAsLink variant="secondary" />, stories("/secondary"));
+createIconButtonTestSuite(<IconButtonAsLink color="secondary" />, stories("/secondary"));
 
-createIconButtonTestSuite(<IconButtonAsLink variant="tertiary" />, stories("/tertiary"));
-
-createIconButtonTestSuite(<IconButtonAsLink variant="danger" />, stories("/danger"));
+createIconButtonTestSuite(<IconButtonAsLink color="danger" />, stories("/danger"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButtonAsLink border="warning-7" variant="secondary"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink className="bg-red" variant="secondary"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink style={{ backgroundColor: "red" }} variant="secondary"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink border="warning-7" color="secondary"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink className="bg-red" color="secondary"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink style={{ backgroundColor: "red" }} color="secondary"><AddIcon /></IconButtonAsLink>
         </Inline>
     );

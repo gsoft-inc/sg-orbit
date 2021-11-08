@@ -17,7 +17,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <DialogTrigger>
-            <Button variant="secondary">Open</Button>
+            <Button color="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -30,7 +30,7 @@ stories()
     )
     .add("default open", () =>
         <DialogTrigger defaultOpen>
-            <Button variant="secondary">Open</Button>
+            <Button color="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -43,7 +43,7 @@ stories()
     )
     .add("not dismissable", () =>
         <DialogTrigger dismissable={false} defaultOpen>
-            <Button variant="secondary">Open</Button>
+            <Button color="secondary">Open</Button>
             <Dialog>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
@@ -59,7 +59,7 @@ stories()
             {() => {
                 return (
                     <>
-                        <Button variant="secondary">Open</Button>
+                        <Button color="secondary">Open</Button>
                         <Dialog>
                             <Heading>Iconic Arecibo Observatory collapses</Heading>
                             <Content>

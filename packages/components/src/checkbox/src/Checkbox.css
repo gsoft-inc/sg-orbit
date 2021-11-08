@@ -136,10 +136,6 @@
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert) inset;
 }
 
-.o-ui-checkbox-invalid .o-ui-checkbox-box::before {
-    --o-ui-focus-ring-color: var(--o-ui-b-alias-alert-translucent);
-}
-
 /* STATE | CHECKED */
 .o-ui-checkbox-checked .o-ui-checkbox-box {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-accent) inset;

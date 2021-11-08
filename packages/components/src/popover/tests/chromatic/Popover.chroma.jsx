@@ -46,7 +46,7 @@ stories()
         <Popover>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-            <Button variant="secondary">Accept</Button>
+            <Button color="secondary">Accept</Button>
         </Popover>
     )
     .add("button group", () =>
@@ -54,8 +54,8 @@ stories()
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <ButtonGroup>
-                <Button variant="secondary">Cancel</Button>
-                <Button variant="primary">Accept</Button>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Accept</Button>
             </ButtonGroup>
         </Popover>
     )
@@ -65,8 +65,8 @@ stories()
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <Footer>Step 2/4</Footer>
             <ButtonGroup>
-                <Button variant="secondary">Cancel</Button>
-                <Button variant="primary">Accept</Button>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Accept</Button>
             </ButtonGroup>
         </Popover>
     )
@@ -86,8 +86,8 @@ stories()
                 </Form>
             </Content>
             <ButtonGroup>
-                <Button variant="secondary">Cancel</Button>
-                <Button variant="primary">Save</Button>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Save</Button>
             </ButtonGroup>
         </Popover>
     )
@@ -98,8 +98,8 @@ stories()
                 <Image src={Launch} alt="SpaceX launch" />
             </Content>
             <ButtonGroup>
-                <Button variant="secondary">Cancel</Button>
-                <Button variant="primary">Save</Button>
+                <Button color="secondary">Cancel</Button>
+                <Button color="primary">Save</Button>
             </ButtonGroup>
         </Popover>
     )
