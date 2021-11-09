@@ -14,6 +14,7 @@ function CustomSelect({
                 {...rest}
                 {...triggerProps}
                 color="secondary"
+                variant="outline"
                 width="20%"
             >
                 <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>

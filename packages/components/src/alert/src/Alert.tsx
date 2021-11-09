@@ -130,6 +130,7 @@ export function InnerAlert({
             color="secondary"
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
+            variant="outline"
         >
             {secondaryButtonLabel}
         </Button>
@@ -140,6 +141,7 @@ export function InnerAlert({
             autoFocus={autoFocusButton === "cancel"}
             color="secondary"
             onClick={handleCancelButtonClick}
+            variant="outline"
         >
             {cancelButtonLabel}
         </Button>

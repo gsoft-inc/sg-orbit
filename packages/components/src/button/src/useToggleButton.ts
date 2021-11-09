@@ -2,7 +2,7 @@ import { ButtonColor, ButtonShape, ButtonVariant } from "./useButton";
 import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
-export type ToggleButtonColor = Omit<ButtonColor, "tertiary" | "danger">;
+export type ToggleButtonColor = Omit<ButtonColor, "danger">;
 
 export type ToggleButtonVariant = ButtonVariant;
 

@@ -59,14 +59,14 @@
 /* ACTIVE */
 .o-ui-tile:active,
 .o-ui-tile-active:not([disabled]) {
-    border-color: var(--o-ui-b-alias-hard-contrast);
+    border-color: var(--o-ui-b-alias-mid-contrast);
 }
 
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
-    background-color: var(--o-ui-bg-alias-hard-break);
-    border-color: var(--o-ui-b-alias-hard-contrast);
+    background-color: var(--o-ui-bg-alias-soft-break);
+    border-color: var(--o-ui-b-alias-high-contrast);
 }
 
 /* CHECKED | CHECKMARK */

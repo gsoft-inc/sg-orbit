@@ -42,9 +42,10 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
         <IconButton
             aria-label="Toggle password visibility"
             className="o-ui-password-input-show-button"
-            color="tertiary"
+            color="secondary"
             onClick={handleShowValue}
             title="Toggle password visibility"
+            variant="ghost"
         >
             {isHidden ? <EyeIcon /> : <PrivacyIcon />}
         </IconButton>

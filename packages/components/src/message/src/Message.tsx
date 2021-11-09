@@ -91,10 +91,11 @@ export function InnerMessage({
         },
         button: {
             className: "o-ui-message-action",
+            color: "secondary",
             condensed: true,
             inherit: true,
             size: "sm",
-            variant: "tertiary"
+            variant: "ghost"
         },
         content: {
             as: MessageContent,

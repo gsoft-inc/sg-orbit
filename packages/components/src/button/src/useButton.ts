@@ -2,7 +2,7 @@ import { AriaAttributes } from "react";
 import { HtmlButton } from "../../html";
 import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
-export type ButtonVariant = "solid" | "outlined" | "ghost";
+export type ButtonVariant = "solid" | "outline" | "ghost";
 
 export type ButtonColor = "primary" | "secondary" | "accent" | "danger";
 

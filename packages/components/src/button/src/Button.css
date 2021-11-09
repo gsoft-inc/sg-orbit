@@ -156,12 +156,15 @@ a.o-ui-button {
 .o-ui-button-outline:not([disabled]).o-ui-button-primary:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-primary.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-accent-hover) inset;
+    background-color: var(--o-ui-bg-alias-accent-transparent-hover);
 }
 
 /* OUTLINE | PRIMARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-primary:active,
+.o-ui-button-outline.o-ui-button-primary:active:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-primary.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-accent-active) inset;
+    background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
 
 /* OUTLINE | PRIMARY | ACTIVE | FOCUS */
@@ -179,14 +182,14 @@ a.o-ui-button {
 /* OUTLINE | SECONDARY | HOVER */
 .o-ui-button-outline:not([disabled]).o-ui-button-secondary:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-secondary.o-ui-button-hover {
-    background-color: var(--o-ui-bg-alias-basic-faint-hover);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* OUTLINE | SECONDARY | ACTIVE */
 .o-ui-button-outline.o-ui-button-secondary:active,
 .o-ui-button-outline.o-ui-button-secondary:active:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-secondary.o-ui-button-active {
-    background-color: var(--o-ui-bg-alias-basic-faint-active);
+    background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
 /* OUTLINE | DANGER */
@@ -199,12 +202,15 @@ a.o-ui-button {
 .o-ui-button-outline:not([disabled]).o-ui-button-danger:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-danger.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert-hover) inset;
+    background-color: var(--o-ui-bg-alias-alert-transparent-hover);
 }
 
 /* OUTLINE | DANGER | ACTIVE */
 .o-ui-button-outline.o-ui-button-danger:active,
+.o-ui-button-outline.o-ui-button-danger:active:hover,
 .o-ui-button-outline:not([disabled]).o-ui-button-danger.o-ui-button-active {
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert-hover) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert-active) inset;
+    background-color: var(--o-ui-bg-alias-alert-transparent-active);
 }
 
 /* OUTLINE | DANGER | ACTIVE | FOCUS */
@@ -240,13 +246,13 @@ a.o-ui-button {
 /* GHOST | PRIMARY | HOVER */
 .o-ui-button-ghost.o-ui-button-primary:hover,
 .o-ui-button-ghost.o-ui-button-hover.o-ui-button-primary {
-    background-color: var(--o-ui-bg-alias-accent-faint-hover);
+    background-color: var(--o-ui-bg-alias-accent-transparent-hover);
 }
 
 /* GHOST | PRIMARY | ACTIVE */
 .o-ui-button-ghost.o-ui-button-primary:active,
 .o-ui-button-ghost:not([disabled]).o-ui-button-active.o-ui-button-primary {
-    background-color: var(--o-ui-bg-alias-accent-faint-active);
+    background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
 
 /* GHOST | SECONDARY */
@@ -257,19 +263,32 @@ a.o-ui-button {
 /* GHOST | SECONDARY | HOVER */
 .o-ui-button-ghost.o-ui-button-secondary:hover,
 .o-ui-button-ghost:not([disabled]).o-ui-button-hover.o-ui-button-secondary {
-    background-color: var(--o-ui-bg-alias-basic-faint-hover);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* GHOST | SECONDARY | ACTIVE */
 .o-ui-button-ghost.o-ui-button-secondary:active,
 .o-ui-button-ghost.o-ui-button-secondary:active:hover,
 .o-ui-button-ghost:not([disabled]).o-ui-button-active.o-ui-button-secondary {
-    background-color: var(--o-ui-bg-alias-basic-faint-active);
+    background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
 /* GHOST | DANGER */
 .o-ui-button-ghost.o-ui-button-danger {
     color: var(--o-ui-text-alias-alert);
+}
+
+/* GHOST | DANGER | HOVER */
+.o-ui-button-ghost.o-ui-button-danger:hover,
+.o-ui-button-ghost:not([disabled]).o-ui-button-hover.o-ui-button-danger {
+    background-color: var(--o-ui-bg-alias-alert-transparent-hover);
+}
+
+/* GHOST | DANGER | ACTIVE */
+.o-ui-button-ghost.o-ui-button-danger:active,
+.o-ui-button-ghost.o-ui-button-danger:active:hover,
+.o-ui-button-ghost:not([disabled]).o-ui-button-active.o-ui-button-danger {
+    background-color: var(--o-ui-bg-alias-alert-transparent-active);
 }
 
 /* FLUID */

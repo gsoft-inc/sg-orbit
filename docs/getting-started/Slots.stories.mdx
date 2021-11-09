@@ -19,7 +19,7 @@ In Orbit, slots are defined [implicitly](#implicit-slots) or [explicitly](#expli
 In the following example, the `<Text>` component implicitly fulfill the `text` slot and the `<LightbulbIcon>` component explicitly fulfill the `end-icon` slot.
 
 ```jsx
-<Button color="secondary">
+<Button variant="outline" color="secondary">
     <Text>Cutoff</Text>
     <LightbulbIcon slot="end-icon" />
 </Button>
@@ -36,7 +36,7 @@ An `<Icon>` component will implicitly fulfill an `icon` slot and a `<Button>` co
 To use an implicit slot, declare a component having a default slot as a children of a component accepting the given slot.
 
 ```jsx
-<Button color="secondary">
+<Button variant="outline" color="secondary">
     <LightbulbIcon />
     <Text>Cutoff</Text>
 </Button>
@@ -57,7 +57,7 @@ export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => 
 An explicit slot is defined by specifying the `slot` prop on a component declaration.
 
 ```jsx
-<Button color="secondary">
+<Button variant="outline" color="secondary">
     <Text>Cutoff</Text>
     <LightbulbIcon slot="end-icon" />
 </Button>

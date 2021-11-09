@@ -174,21 +174,15 @@
 }
 
 /* VARIATIONS */
-/* PRIMARY */
-.o-ui-link-primary {
+/* ACCENT */
+.o-ui-link-accent {
     color: var(--o-ui-text-alias-accent);
 }
 
-/* PRIMARY | STATE | HOVER */
-.o-ui-link:hover.o-ui-link-primary,
-.o-ui-link-hover.o-ui-link-primary {
-    color: var(--o-ui-text-alias-primary-1-hover);
-}
-
-/* PRIMARY | STATE | ACTIVE */
-.o-ui-link:active.o-ui-link-primary,
-.o-ui-link-active.o-ui-link-primary {
-    color: var(--o-ui-text-alias-primary-1-active);
+/* ACCENT | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-accent,
+.o-ui-link-hover.o-ui-link-accent {
+    color: var(--o-ui-text-alias-accent-hover);
 }
 
 /* DANGER */
@@ -199,30 +193,7 @@
 /* DANGER | STATE | HOVER */
 .o-ui-link:hover.o-ui-link-danger,
 .o-ui-link-hover.o-ui-link-danger {
-    color: var(--o-ui-text-alias-negative-1-hover);
-}
-
-/* DANGER | STATE | ACTIVE */
-.o-ui-link:active.o-ui-link-danger,
-.o-ui-link-active.o-ui-link-danger {
-    color: var(--o-ui-text-alias-negative-1-active);
-}
-
-/* SECONDARY */
-.o-ui-link-secondary {
-    color: var(--o-ui-text-alias-3);
-}
-
-/* SECONDARY | STATE | HOVER */
-.o-ui-link:hover.o-ui-link-secondary,
-.o-ui-link-hover.o-ui-link-secondary {
-    color: var(--o-ui-text-alias-3-hover);
-}
-
-/* SECONDARY | STATE | ACTIVE */
-.o-ui-link:active.o-ui-link-secondary,
-.o-ui-link-active.o-ui-link-secondary {
-    color: var(--o-ui-text-alias-3-active);
+    color: var(--o-ui-text-alias-alert-hover);
 }
 
 /* AS BUTTON */

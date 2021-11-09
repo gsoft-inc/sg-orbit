@@ -55,7 +55,7 @@ function TagsPicker() {
     return (
         <Flex>
             <MenuTrigger closeOnSelect={false}>
-                <Button color="secondary" marginRight={2}>
+                <Button color="secondary" variant="outline" marginRight={2}>
                     <Text>{selectedKeys.length > 0 ? "Programs" : "All programs"}</Text>
                     {selectedKeys.length > 0 && <Counter variant="divider">{selectedKeys.length}</Counter>}
                     <DisclosureArrow slot="end-icon" />

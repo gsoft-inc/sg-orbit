@@ -11,6 +11,7 @@ test("when autofocus is true, the button is focused on render", async () => {
         <IconButton
             autoFocus
             color="secondary"
+            variant="outline"
             aria-label="Add"
             data-testid="button"
         >
@@ -27,6 +28,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
             disabled
             autoFocus
             color="secondary"
+            variant="outline"
             aria-label="Add"
             data-testid="button"
         >
@@ -42,6 +44,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
         <IconButton
             autoFocus={10}
             color="secondary"
+            variant="outline"
             aria-label="Add"
             data-testid="button"
         >
@@ -64,6 +67,7 @@ test("can focus the button with the focus api", async () => {
     renderWithTheme(
         <IconButton
             color="secondary"
+            variant="outline"
             ref={node => {
                 refNode = node;
             }}
@@ -86,7 +90,11 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <IconButton color="secondary" ref={ref} aria-label="Add">
+        <IconButton color="secondary"
+            variant="outline"
+            ref={ref}
+            aria-label="Add"
+        >
             <AddIcon />
         </IconButton>
     );
@@ -103,6 +111,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
     renderWithTheme(
         <IconButton
             color="secondary"
+            variant="outline"
             ref={node => {
                 refNode = node;
             }}
@@ -122,7 +131,11 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <IconButton color="secondary" ref={handler} aria-label="Add">
+        <IconButton color="secondary"
+            variant="outline"
+            ref={handler}
+            aria-label="Add"
+        >
             <AddIcon />
         </IconButton>
     );

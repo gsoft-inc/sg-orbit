@@ -123,9 +123,9 @@ stories()
     )
     .add("toggle buttons", () =>
         <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
-            <ToggleButton color="secondary" shape="circular" value="1">1</ToggleButton>
-            <ToggleButton color="secondary" shape="circular" value="2">2</ToggleButton>
-            <ToggleButton color="secondary" shape="circular" value="3">3</ToggleButton>
+            <ToggleButton color="secondary" variant="outline" shape="circular" value="1">1</ToggleButton>
+            <ToggleButton color="secondary" variant="outline" shape="circular" value="2">2</ToggleButton>
+            <ToggleButton color="secondary" variant="outline" shape="circular" value="3">3</ToggleButton>
         </RadioGroup>
     )
     .add("custom components", () =>

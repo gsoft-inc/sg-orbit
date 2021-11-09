@@ -13,7 +13,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <AlertTrigger>
-            <Button color="secondary">Open</Button>
+            <Button variant="outline" color="secondary">Open</Button>
             <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>
@@ -22,7 +22,7 @@ stories()
     )
     .add("default open", () =>
         <AlertTrigger defaultOpen>
-            <Button color="secondary">Open</Button>
+            <Button variant="outline" color="secondary">Open</Button>
             <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
                 <Content>Are you use you want to launch the space shuttle?</Content>

@@ -84,7 +84,7 @@ stories()
                 <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
-            <Button color="secondary">Close</Button>
+            <Button color="secondary" variant="outline">Close</Button>
         </Dialog>
     )
     .add("button group", () =>
@@ -96,7 +96,7 @@ stories()
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -111,7 +111,7 @@ stories()
             </Content>
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -167,7 +167,7 @@ stories()
             </Content>
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -203,7 +203,7 @@ stories()
             </Content>
             <Footer>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -217,8 +217,8 @@ stories()
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
             <ButtonGroup>
-                <Button color="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                <Button color="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 <Button color="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             </ButtonGroup>
         </Dialog>
@@ -234,8 +234,8 @@ stories()
             </Content>
             <Footer>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Footer>
             <ButtonGroup>
-                <Button color="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                <Button color="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 <Button color="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             </ButtonGroup>
         </Dialog>
@@ -259,7 +259,7 @@ stories()
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -273,7 +273,7 @@ stories()
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -287,7 +287,7 @@ stories()
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -305,7 +305,7 @@ stories()
             </Content>
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -327,7 +327,7 @@ stories()
             </Content>
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>
@@ -366,7 +366,7 @@ stories()
             </Content>
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
-                <Button color="secondary">Close</Button>
+                <Button color="secondary" variant="outline">Close</Button>
                 <Button color="primary">Next</Button>
             </ButtonGroup>
         </Dialog>

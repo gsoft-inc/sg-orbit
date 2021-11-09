@@ -27,8 +27,6 @@ createButtonTestSuite(<Button color="secondary" />, stories("/secondary"));
 
 createButtonTestSuite(<SunrayBackground button={<Button color="secondary" inherit />} />, stories("/secondary (inherit)"));
 
-createButtonTestSuite(<SunrayBackground button={<Button color="tertiary" inherit />} />, stories("/tertiary (inherit)"));
-
 createButtonTestSuite(<Button color="danger" />, stories("/danger"));
 
 stories()
