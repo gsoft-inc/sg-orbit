@@ -167,12 +167,6 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
 
-/* OUTLINE | PRIMARY | ACTIVE | FOCUS */
-.o-ui-button-outline.o-ui-button-primary:active:focus,
-.o-ui-button-outline:not([disabled]).o-ui-button-primary.o-ui-button-active.o-ui-button-focus {
-
-}
-
 /* OUTLINE | SECONDARY */
 .o-ui-button-outline.o-ui-button-secondary {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-high-contrast) inset;
