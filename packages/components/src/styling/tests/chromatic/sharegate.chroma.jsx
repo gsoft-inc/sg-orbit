@@ -1,5 +1,4 @@
 import {
-    ApricotTheme,
     BackgroundColorMapping,
     BorderMapping,
     BoxShadowMapping,
@@ -8,6 +7,7 @@ import {
     FontWeightMapping,
     IconColorMapping,
     LineHeightMapping,
+    ShareGateTheme,
     SizingMapping,
     SpacingMapping,
     ThemeProvider
@@ -18,7 +18,7 @@ import { Inline, Stack } from "@components/layout";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Apricot")
+    return storiesOfBuilder(module, "Chromatic/ShareGate")
         .segment(segment)
         .build();
 }
@@ -49,7 +49,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
                 </Inline>
@@ -61,7 +61,7 @@ stories()
             <Inline gap={1} wrap>
                 {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
                 <Inline gap={1} wrap>
                     {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
                 </Inline>
@@ -78,7 +78,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
             </Inline>
-            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
                 </Inline>
@@ -90,7 +90,7 @@ stories()
             <Inline gap={0} wrap>
                 {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ApricotTheme} colorScheme="dark">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
                 <Inline gap={0} wrap>
                     {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
                 </Inline>

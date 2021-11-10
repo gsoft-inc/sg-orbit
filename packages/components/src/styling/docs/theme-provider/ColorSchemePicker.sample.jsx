@@ -26,7 +26,7 @@ function ColorSchemePicker() {
 
 render(() => {
     return (
-        <ThemeProvider theme={ApricotTheme} colorScheme="system" defaultColorScheme="light">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
             <Stack>
                 <Button color="primary">Cutoff</Button>
                 <ColorSchemePicker />

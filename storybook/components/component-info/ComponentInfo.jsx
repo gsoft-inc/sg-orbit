@@ -9,8 +9,7 @@ const propTypes = {
     usage: oneOfType([
         string,
         shape({
-            apricot: string.isRequired,
-            desktop: string.isRequired
+            sharegate: string.isRequired
         })
     ]),
     slots: arrayOf(string),

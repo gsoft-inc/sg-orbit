@@ -1,6 +1,6 @@
 import { Box } from "@components/box";
-import { DesktopTheme, ThemeProvider } from "@components/styling";
 import { Overlay } from "@components/overlay";
+import { SharegateTheme, ThemeProvider } from "@components/styling";
 import { augmentElement, mergeProps, useMergedRefs } from "@components/shared";
 import { forwardRef, useState } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -57,7 +57,7 @@ ref) => {
 
 stories()
     .add("inherit theme", () =>
-        <ThemeProvider theme={DesktopTheme} colorScheme="light">
+        <ThemeProvider theme={SharegateTheme} colorScheme="light">
             <Boundary>
                 <Overlay show>
                     <PrimaryBox />
