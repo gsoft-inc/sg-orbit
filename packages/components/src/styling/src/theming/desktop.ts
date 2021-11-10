@@ -27,7 +27,6 @@ export const DesktopTheme = createTheme({
             "bg-alias-basic": "$neutral-8",
             "bg-alias-basic-hover": "$neutral-9",
             "bg-alias-basic-active": "$neutral-10",
-            "bg-alias-basic-faint": "$transparent",
             "bg-alias-basic-transparent": "$transparent",
             "bg-alias-basic-transparent-hover": "$neutral-2",
             "bg-alias-basic-transparent-active": "$neutral-3",
@@ -61,7 +60,7 @@ export const DesktopTheme = createTheme({
             "bg-alias-success-faint": "$success-1",
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
-            "bg-alias-input-selection": "$primary5",
+            "bg-alias-input-selection": "$primary-3",
             /* Border */
             "b-alias-low-contrast": "$neutral-2",
             "b-alias-mid-contrast": "$neutral-4",
@@ -149,7 +148,7 @@ export const DesktopTheme = createTheme({
             "bg-alias-success-faint": "$success-9",
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
-            "bg-alias-input-selection": "$primary5",
+            "bg-alias-input-selection": "$primary-5",
             /* Border */
             "b-alias-low-contrast": "$neutral-8",
             "b-alias-mid-contrast": "$neutral-7",

@@ -148,7 +148,7 @@ export const ApricotTheme = createTheme({
             "bg-alias-success-faint": "$success-9",
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
-            "bg-alias-input-selection": "$primary5",
+            "bg-alias-input-selection": "$primary-5",
             /* Border */
             "b-alias-low-contrast": "$neutral-8",
             "b-alias-mid-contrast": "$neutral-7",

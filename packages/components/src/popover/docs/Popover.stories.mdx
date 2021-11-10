@@ -36,7 +36,7 @@ A default popover must have an heading and a content.
 <Preview>
     <Story name="default">
         <PopoverTrigger>
-            <Button color="secondary">Trigger</Button>
+            <Button color="secondary" variant="outline">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -52,7 +52,7 @@ A popper can have a single [button](?path=/docs/button--default-story):
 <Preview>
     <Story name="button">
         <PopoverTrigger>
-            <Button color="secondary">Trigger</Button>
+            <Button color="secondary" variant="outline">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -67,12 +67,12 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 <Preview>
     <Story name="button group">
         <PopoverTrigger>
-            <Button color="secondary">Trigger</Button>
+            <Button color="secondary" variant="outline">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 <ButtonGroup>
-                    <Button color="secondary">Next</Button>
+                    <Button color="secondary" variant="outline">Next</Button>
                     <Button color="primary">Got it</Button>
                 </ButtonGroup>
             </Popover>
@@ -87,7 +87,7 @@ A popper can have footer text.
 <Preview>
     <Story name="footer">
         <PopoverTrigger>
-            <Button color="secondary">Trigger</Button>
+            <Button color="secondary" variant="outline">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -105,7 +105,7 @@ A popover can open at different positions.
 <Preview>
     <Story name="position">
         <PopoverTrigger position="right">
-            <Button color="secondary">Trigger</Button>
+            <Button color="secondary" variant="outline">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
                 <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -131,11 +131,11 @@ A call to action can dismiss the popover by calling a `close` function which can
         <PopoverTrigger dismissable={false}>
             {({ close }) => (
                 <>
-                    <Button color="secondary">Trigger</Button>
+                    <Button color="secondary" variant="outline">Trigger</Button>
                     <Popover>
                         <Heading>WikiSpace</Heading>
                         <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-                        <Button onClick={close} color="secondary">Close</Button>
+                        <Button onClick={close} color="secondary" variant="outline">Close</Button>
                     </Popover>
                 </>
             )}

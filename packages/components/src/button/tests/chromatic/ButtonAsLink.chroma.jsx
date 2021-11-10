@@ -11,7 +11,7 @@ function stories(segment) {
 
 createButtonTestSuite(<ButtonAsLink color="primary" />, stories("/primary"));
 
-createButtonTestSuite(<ButtonAsLink variant="outline" color="secondary" />, stories("/secondary"));
+createButtonTestSuite(<ButtonAsLink color="secondary" />, stories("/secondary"));
 
 createButtonTestSuite(<ButtonAsLink color="danger" />, stories("/danger"));
 

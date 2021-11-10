@@ -83,7 +83,6 @@
 /* PANEL */
 .o-ui-accordion-panel {
     color: var(--o-ui-text-alias-primary);
-    background-color: var(--o-ui-bg-alias-default);
 }
 
 /* PANEL | BORDERLESS */
@@ -94,6 +93,7 @@
 
 /* PANEL | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-panel {
+    background-color: var(--o-ui-bg-alias-default);
     padding-left: var(--o-ui-sp-6);
     padding-right: calc(var(--o-ui-sp-6) + var(--o-ui-sp-6));
 }

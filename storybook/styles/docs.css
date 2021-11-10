@@ -210,7 +210,7 @@
 /* ELEMENTS | LINK */
 .sbdocs.sbdocs-a {
     font-size: var(--o-ui-fs-4);
-    color: var(--o-ui-primary-8) !important;
+    color: var(--o-ui-text-alias-accent) !important;
     text-decoration: underline;
 }
 
