@@ -27,7 +27,6 @@ export const DesktopTheme = createTheme({
             "bg-alias-basic": "$neutral-8",
             "bg-alias-basic-hover": "$neutral-9",
             "bg-alias-basic-active": "$neutral-10",
-            "bg-alias-basic-faint": "$transparent",
             "bg-alias-basic-transparent": "$transparent",
             "bg-alias-basic-transparent-hover": "$neutral-2",
             "bg-alias-basic-transparent-active": "$neutral-3",

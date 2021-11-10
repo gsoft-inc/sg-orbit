@@ -91,7 +91,6 @@ export function InnerMessage({
         },
         button: {
             className: "o-ui-message-action",
-            color: "secondary",
             condensed: true,
             inherit: true,
             size: "sm",
@@ -111,7 +110,7 @@ export function InnerMessage({
         <CrossButton
             aria-label="Dismiss"
             className="o-ui-message-dismiss"
-            color="inherit"
+            inherit
             onClick={onDismiss}
             size="sm"
         />
