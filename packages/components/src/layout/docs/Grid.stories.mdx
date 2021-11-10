@@ -1,8 +1,8 @@
-import { ApricotTheme } from "../../styling";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Div } from "@components/html";
 import { Grid, InnerGrid, fitContent, minmax, repeat } from "@components/layout";
+import { ShareGateTheme } from "../../styling";
 
 <Meta
     title="Components/Grid"
@@ -140,16 +140,16 @@ Grids can be nested.
 
 A custom `repeat` function is available to support Orbit spacing scale values. However, if you prefer, you can use the [native CSS repeat function](https://developer.mozilla.org/en-US/docs/Web/CSS/repeat())
 
-<Preview scope={{ ApricotTheme }}>
+<Preview scope={{ ShareGateTheme }}>
     <Story name="repeat function">
         <Grid
             templateColumns={repeat("auto-fit", 7)}
             autoRows={7}
             gap={2}
         >
-            {ApricotTheme.colors.common.purple.map(x => <Div backgroundColor={x} key={x} />)}
-            {ApricotTheme.colors.common.alert.map(x => <Div backgroundColor={x} key={x} />)}
-            {ApricotTheme.colors.common.green.map(x => <Div backgroundColor={x} key={x} />)}
+            {ShareGateTheme.colors.common.purple.map(x => <Div backgroundColor={x} key={x} />)}
+            {ShareGateTheme.colors.common.alert.map(x => <Div backgroundColor={x} key={x} />)}
+            {ShareGateTheme.colors.common.green.map(x => <Div backgroundColor={x} key={x} />)}
         </Grid>
     </Story>
 </Preview>

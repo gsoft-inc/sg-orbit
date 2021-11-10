@@ -1,4 +1,4 @@
-import { ThemeProvider, ApricotTheme } from "@components/styling";
+import { ThemeProvider, ShareGateTheme } from "@components/styling";
 import { ReactNode, ReactElement } from "react";
 import { render } from "@testing-library/react";
 
@@ -6,7 +6,7 @@ function withThemeProvider() {
     return {
         wrapper: ({ children }: { children?: ReactNode }) => {
             return (
-                <ThemeProvider theme={ApricotTheme} colorScheme="light">
+                <ThemeProvider theme={ShareGateTheme} colorScheme="light">
                     {children}
                 </ThemeProvider>
             )

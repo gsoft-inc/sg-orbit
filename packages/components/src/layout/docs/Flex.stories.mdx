@@ -1,8 +1,8 @@
-import { ApricotTheme } from "../../styling";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Div } from "@components/html";
 import { Flex, Inline, InnerFlex, InnerInline, InnerStack, Stack } from "@components/layout";
+import { ShareGateTheme } from "../../styling";
 
 <Meta
     title="Components/Flex"
@@ -96,12 +96,12 @@ A flex layout can align his items along the main axis. When direction is "column
 
 A flex layout items can wrap on multiple rows.
 
-<Preview scope={{ ApricotTheme }}>
+<Preview scope={{ ShareGateTheme }}>
     <Story name="wrap">
         <Flex wrap="wrap" gap={1} width={18}>
-            {ApricotTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
-            {ApricotTheme.colors.common.alert.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
-            {ApricotTheme.colors.common.green.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
+            {ShareGateTheme.colors.common.primary.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
+            {ShareGateTheme.colors.common.alert.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
+            {ShareGateTheme.colors.common.green.map(x => <Div backgroundColor={x} width={6} height={6} key={x} />)}
         </Flex>
     </Story>
 </Preview>

@@ -1,5 +1,5 @@
-import { ApricotTheme, DesktopTheme, createThemeVars } from "@components/styling";
 import { Code } from "@stories/mdx";
+import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { Themes } from "./styles/themes";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
@@ -11,7 +11,7 @@ import "@components/index.css";
 
 import "./styles";
 
-createThemeVars([ApricotTheme, DesktopTheme]);
+createThemeVars([ShareGateTheme]);
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
@@ -111,10 +111,10 @@ export const globalTypes = {
     theme: {
         name: "Theme",
         description: "Theme for components",
-        defaultValue: ApricotTheme.name,
+        defaultValue: ShareGateTheme.name,
         toolbar: {
             icon: "photo",
-            items: [ApricotTheme.name, DesktopTheme.name]
+            items: [ShareGateTheme.name]
         }
     },
     colorScheme: {

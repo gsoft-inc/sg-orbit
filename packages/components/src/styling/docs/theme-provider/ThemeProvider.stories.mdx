@@ -1,7 +1,7 @@
-import { ApricotTheme, ThemeProvider } from "@components/styling"
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Button } from "@components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { ShareGateTheme, ThemeProvider } from "@components/styling"
 
 <Meta
     title="Components/ThemeProvider"
@@ -31,9 +31,9 @@ const { colorScheme, setColorScheme, themeAccessor, theme } = useThemeContext();
 
 A default theme provider.
 
-<Preview scope={{ ApricotTheme }}>
+<Preview scope={{ ShareGateTheme }}>
     <Story name="default">
-        <ThemeProvider theme={ApricotTheme} colorScheme="light">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>
@@ -47,7 +47,7 @@ To enable this feature, you must pass the `system` value to `colorScheme` and an
 
 <Preview>
     <Story name="system">
-        <ThemeProvider theme={ApricotTheme} colorScheme="system" defaultColorScheme="light">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
             <Button color="primary">Cutoff</Button>
         </ThemeProvider>
     </Story>

@@ -1,6 +1,6 @@
-import { ApricotTheme, DesktopTheme, ThemeProvider, useThemeContext } from "@components/styling";
 import { Box } from "@components/box";
 import { Inline } from "@components/layout";
+import { ShareGateTheme, ThemeProvider, useThemeContext } from "@components/styling";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useEffect } from "react";
 
@@ -31,23 +31,18 @@ function PrimaryColors() {
 }
 
 stories()
-    .add("apricot", () =>
-        <ThemeProvider theme={ApricotTheme}>
-            <PrimaryColors />
-        </ThemeProvider>
-    )
-    .add("desktop", () =>
-        <ThemeProvider theme={DesktopTheme}>
+    .add("sharegate", () =>
+        <ThemeProvider theme={ShareGateTheme}>
             <PrimaryColors />
         </ThemeProvider>
     )
     .add("light", () =>
-        <ThemeProvider theme={ApricotTheme} colorScheme="light">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
             <Box padding={4} backgroundColor="alias-soft-break" />
         </ThemeProvider>
     )
     .add("dark", () =>
-        <ThemeProvider theme={ApricotTheme} colorScheme="dark">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Box padding={4} backgroundColor="alias-soft-break" />
         </ThemeProvider>
     )
@@ -64,7 +59,7 @@ stories()
         };
 
         return (
-            <ThemeProvider theme={ApricotTheme} colorScheme="light">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="light">
                 <SwitchColorScheme />
                 <Box padding={4} backgroundColor="alias-soft-break" />
             </ThemeProvider>
