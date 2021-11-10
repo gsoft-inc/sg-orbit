@@ -11,7 +11,7 @@
             open={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button variant="secondary">Trigger</Button>
+            <Button variant="outline" color="secondary">Trigger</Button>
             <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
         </TooltipTrigger>
     );
