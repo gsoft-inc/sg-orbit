@@ -39,6 +39,7 @@ export function ButtonPresets({
                     key={index}
                     size="sm"
                     value={index.toString()}
+                    variant="outline"
                 >
                     {x}
                 </ToggleButton>

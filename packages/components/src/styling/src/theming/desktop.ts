@@ -1,7 +1,7 @@
 import { createTheme } from "./createTheme";
 
-export const ShareGateTheme = createTheme({
-    name: "sharegate",
+export const DesktopTheme = createTheme({
+    name: "desktop",
     colors: {
         white: "#FFF",
         black: "#000",
@@ -60,7 +60,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-faint": "$success-1",
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
-            "bg-alias-input-selection": "$primary-5",
+            "bg-alias-input-selection": "$primary-3",
             /* Border */
             "b-alias-low-contrast": "$neutral-2",
             "b-alias-mid-contrast": "$neutral-4",

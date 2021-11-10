@@ -5,6 +5,7 @@ const CustomTrigger = forwardRef((props, ref) => {
         <IconButton
             {...props}
             color={isOpen ? "primary" : "secondary"}
+            variant={isOpen ? "solid" : "outline"}
             aria-label="Email"
             size="xl"
             ref={ref}

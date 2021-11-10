@@ -161,49 +161,49 @@ export function createButtonTestSuite(element, stories) {
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                     <Button loading element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button condensed size="sm" element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                     <Button condensed element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                 </Inline>
                 <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
-                        <Counter color="divider">15</Counter>
+                        <Counter variant="divider">15</Counter>
                     </Button>
                 </Div>
                 <Div>

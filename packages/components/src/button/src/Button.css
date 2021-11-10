@@ -244,7 +244,7 @@ a.o-ui-button {
 }
 
 /* GHOST | PRIMARY | ACTIVE */
-.o-ui-button-ghost.o-ui-button-primary:active,
+.o-ui-button-ghost:not([disabled]).o-ui-button-primary:active,
 .o-ui-button-ghost:not([disabled]).o-ui-button-active.o-ui-button-primary {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
@@ -255,7 +255,7 @@ a.o-ui-button {
 }
 
 /* GHOST | SECONDARY | HOVER */
-.o-ui-button-ghost.o-ui-button-secondary:hover,
+.o-ui-button-ghost:not([disabled]).o-ui-button-secondary:hover,
 .o-ui-button-ghost:not([disabled]).o-ui-button-hover.o-ui-button-secondary {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
@@ -273,7 +273,7 @@ a.o-ui-button {
 }
 
 /* GHOST | DANGER | HOVER */
-.o-ui-button-ghost.o-ui-button-danger:hover,
+.o-ui-button-ghost:not([disabled]).o-ui-button-danger:hover,
 .o-ui-button-ghost:not([disabled]).o-ui-button-hover.o-ui-button-danger {
     background-color: var(--o-ui-bg-alias-alert-transparent-hover);
 }
@@ -303,6 +303,12 @@ a.o-ui-button {
 
 .o-ui-button-loading > * {
     visibility: hidden;
+}
+
+/* LOADING | SOLID */
+.o-ui-button-loading.o-ui-button-solid:after {
+    border: solid 2px var(--o-ui-button-loading-spinner-background);
+    border-top-color: var(--o-ui-white);
 }
 
 @keyframes o-ui-button-spinner {
@@ -481,6 +487,7 @@ a.o-ui-button {
 .o-ui-button-inherit-style.o-ui-button-solid .o-ui-button-start-icon,
 .o-ui-button-inherit-style.o-ui-button-solid .o-ui-button-end-icon {
     fill: var(--o-ui-white);
+    color: var(--o-ui-white);
     opacity: .9;
 }
 
