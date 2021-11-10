@@ -45,7 +45,7 @@
 /* STATES | HOVER */
 .o-ui-date-range-input:hover:not(.o-ui-date-range-input-disabled),
 .o-ui-date-range-input-hover:not(.o-ui-date-range-input-disabled) {
-    border-color: var(--o-ui-b-alias-hard-break);
+    border-color: var(--o-ui-b-alias-high-contrast);
 }
 
 .o-ui-date-range-input.o-ui-date-range-input-invalid:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
