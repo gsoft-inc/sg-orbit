@@ -1,6 +1,6 @@
 import { ConditionalKeys, FixedLengthArray } from "type-fest";
 import { Property } from "csstype";
-import type { ColorExpressionTypes } from "@components/styling";
+import type { ColorExpressionTypes } from "../styled-system";
 
 export interface ColorSchemeSection<C, L, D> {
     common?: Partial<C>;
