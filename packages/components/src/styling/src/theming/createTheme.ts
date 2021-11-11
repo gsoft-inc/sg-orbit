@@ -6,7 +6,7 @@ export interface CreateThemeProps {
         white: string;
         black: string;
         gray: string;
-        primary: ColorPalette;
+        accent: ColorPalette;
         light: ColorAliases;
         dark: ColorAliases;
     };
@@ -194,7 +194,7 @@ export function createTheme({
         black,
         white,
         gray,
-        primary,
+        accent,
         light,
         dark
     }
@@ -208,7 +208,7 @@ export function createTheme({
                 black,
                 gray,
                 white,
-                primary
+                accent
             },
             light,
             dark

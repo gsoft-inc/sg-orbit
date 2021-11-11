@@ -33,7 +33,7 @@ A grid can define explicit sections with areas.
             gap={2}
             height={10}
         >
-            <Div gridArea="a" backgroundColor="primary-5" />
+            <Div gridArea="a" backgroundColor="accent-5" />
             <Div gridArea="b" backgroundColor="alert-5" />
             <Div gridArea="c" backgroundColor="green-5" />
         </Grid>
@@ -51,7 +51,7 @@ A grid can define explicit columns (and rows). A value can be a grid length valu
             gap={2}
             height={5}
         >
-            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="accent-5" />
             <Div backgroundColor="alert-5" />
             <Div backgroundColor="green-5" />
         </Grid>
@@ -69,7 +69,7 @@ A grid can define the size of implicitly created columns. A value can be a grid 
             gap={2}
             height={10}
         >
-            <Div gridColumn={2} backgroundColor="primary-5" />
+            <Div gridColumn={2} backgroundColor="accent-5" />
             <Div backgroundColor="alert-5" />
             <Div backgroundColor="green-5" />
         </Grid>
@@ -87,7 +87,7 @@ A grid layout can have a gap between his columns and rows. `columnGap` and `rowG
             gap={2}
             height={10}
         >
-            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="accent-5" />
             <Div backgroundColor="alert-5" />
             <Div backgroundColor="green-5" />
             <Div backgroundColor="neutral-5" />
@@ -106,7 +106,7 @@ A grid item can span over multiple columns.
             gap={2}
             height={10}
         >
-            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="accent-5" />
             <Div backgroundColor="alert-5" />
             <Div backgroundColor="green-5" />
             <Div gridColumnSpan={3} gridRow={2} backgroundColor="neutral-5" />
@@ -125,7 +125,7 @@ Grids can be nested.
             gap={2}
         >
             <Grid templateColumns={[9, "auto"]}>
-                <Div backgroundColor="primary-5" />
+                <Div backgroundColor="accent-5" />
                 <Div backgroundColor="alert-5" />
             </Grid>
             <Grid templateColumns={["auto", 14]}>
@@ -165,7 +165,7 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
             gap={2}
             height={5}
         >
-            <Div backgroundColor="primary-5" />
+            <Div backgroundColor="accent-5" />
             <Div backgroundColor="alert-5" />
             <Div backgroundColor="green-5" />
         </Grid>
@@ -182,7 +182,7 @@ A custom `minmax` function is available to support Orbit spacing scalue values. 
             alignItems="center"
             color="white"
         >
-            <Div backgroundColor="primary-5" padding={1}>Mars</Div>
+            <Div backgroundColor="accent-5" padding={1}>Mars</Div>
             <Div backgroundColor="alert-5" padding={1}>Pluto</Div>
             <Div backgroundColor="green-5" padding={1}>Jupiter</Div>
         </Grid>

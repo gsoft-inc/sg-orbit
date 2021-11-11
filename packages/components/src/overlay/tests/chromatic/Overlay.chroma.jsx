@@ -19,7 +19,7 @@ function PrimaryBox({ children, ...rest }) {
     return (
         <Box
             {...rest}
-            backgroundColor="primary-6"
+            backgroundColor="accent-6"
             height={9}
             width={9}
         >

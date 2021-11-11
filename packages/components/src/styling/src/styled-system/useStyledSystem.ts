@@ -22,13 +22,13 @@ SYNTAX:
 <Button backgroundColorHover="#fff">Toto</Button>
 
 // Breakpoint, no pseudo, known value
-<Button backgroundColor={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "sunray-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, no pseudo, dynamic value
 <Button backgroundColor={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, known value
-<Button backgroundColorHover={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "sunray-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, dynamic value
 <Button backgroundColorHover={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
@@ -168,16 +168,16 @@ const Colors = [
     "neutral-9",
     "neutral-10",
     // Primary
-    "primary-1",
-    "primary-2",
-    "primary-3",
-    "primary-4",
-    "primary-5",
-    "primary-6",
-    "primary-7",
-    "primary-8",
-    "primary-9",
-    "primary-10"
+    "accent-1",
+    "accent-2",
+    "accent-3",
+    "accent-4",
+    "accent-5",
+    "accent-6",
+    "accent-7",
+    "accent-8",
+    "accent-9",
+    "accent-10"
 ] as const;
 
 const BackgroundColorAliases = [

@@ -48,7 +48,7 @@
 }
 
 .docblock-argstable-head button:hover {
-    background-color: var(--o-ui-primary-8) !important;
+    background-color: var(--o-ui-accent-8) !important;
 }
 
 .docblock-argstable-head button svg path {
@@ -91,11 +91,11 @@
 }
 
 .docblock-argstable-body a {
-    color: var(--o-ui-primary-6) !important;
+    color: var(--o-ui-accent-6) !important;
 }
 
 .docblock-argstable-body button {
-    color: var(--o-ui-primary-6) !important;
+    color: var(--o-ui-accent-6) !important;
     font-family: var(--orbit-font-family) !important;
     font-size: var(--o-ui-fs-2) !important;
     padding-left: 2px !important;
@@ -108,7 +108,7 @@
 }
 
 .docblock-emptyblock a {
-    color: var(--o-ui-primary-6) !important;
+    color: var(--o-ui-accent-6) !important;
 }
 
 /* SOURCE BLOCK */
@@ -232,7 +232,7 @@
 }
 
 .sbdocs .sbdocs-a code {
-    color: var(--o-ui-primary-6);
+    color: var(--o-ui-accent-6);
 }
 
 /* ELEMENTS | TYPOGRAPHY */

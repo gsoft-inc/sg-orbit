@@ -22,7 +22,7 @@ To helps achieve a consistent UI, Orbit [style props](#style-props) are based on
     marginBottom={3}
     color="white"
     borderRadius={3}
-    backgroundColor="primary-5">
+    backgroundColor="accent-5">
     Lost in space.
 </Div>
 ```
@@ -64,7 +64,7 @@ Orbit [style props](#style-props) also supports responsive breakpoints. These br
 By passing an object to any style props you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
 
 <Preview>
-    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "primary-2", lg: "neutral-2", xl: "warning-2" }} width={18} padding={4}>
+    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "accent-2", lg: "neutral-2", xl: "warning-2" }} width={18} padding={4}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -122,7 +122,7 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
 
 ```jsx
 <Grid templateColumns="1fr 1fr" gap={2} height={10}>
-    <Div backgroundColor="primary-5" />
+    <Div backgroundColor="accent-5" />
     <Div backgroundColor="alert-5" />
     <Div backgroundColor="green-5" />
     <Div backgroundColor="neutral-5" />
