@@ -185,14 +185,14 @@
     color: var(--o-ui-text-alias-accent-hover);
 }
 
-/* DANGER */
-.o-ui-link-danger {
+/* NEGATIVE */
+.o-ui-link-negative {
     color: var(--o-ui-text-alias-alert);
 }
 
-/* DANGER | STATE | HOVER */
-.o-ui-link:hover.o-ui-link-danger,
-.o-ui-link-hover.o-ui-link-danger {
+/* NEGATIVE | STATE | HOVER */
+.o-ui-link:hover.o-ui-link-negative,
+.o-ui-link-hover.o-ui-link-negative {
     color: var(--o-ui-text-alias-alert-hover);
 }
 

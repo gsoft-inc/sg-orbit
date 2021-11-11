@@ -78,10 +78,10 @@ export function createTextLinkTestSuite(element, stories) {
                 <TextLink variant="secondary" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
-        .add("danger", () =>
+        .add("negative", () =>
             <Inline alignY="end">
-                <TextLink variant="danger" size="sm" href="#" element={element}>Flight details</TextLink>
-                <TextLink variant="danger" href="#" element={element}>Flight details</TextLink>
+                <TextLink variant="negative" size="sm" href="#" element={element}>Flight details</TextLink>
+                <TextLink variant="negative" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("inherit color", () =>
