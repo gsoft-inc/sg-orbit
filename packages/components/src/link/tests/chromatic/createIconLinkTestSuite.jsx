@@ -40,7 +40,7 @@ export function createIconLinkTestSuite(element, stories) {
             </Inline>
         )
         .add("inherit color", () =>
-            <Inline alignY="end" color="alias-primary-1">
+            <Inline alignY="end" color="alias-accent">
                 <IconLink color="inherit" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 <IconLink color="inherit" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>

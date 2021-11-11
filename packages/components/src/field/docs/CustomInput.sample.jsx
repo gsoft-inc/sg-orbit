@@ -7,7 +7,7 @@ function CustomInput(props) {
             {...fieldProps}
             type="text"
             width="20%"
-            border={validationState === "invalid" ? "alias-negative-1" : "black"}
+            border={validationState === "invalid" ? "alias-alert" : "black"}
         />
     );
 }

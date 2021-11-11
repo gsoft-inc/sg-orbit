@@ -37,7 +37,6 @@
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
     background-color: var(--o-ui-bg-alias-input-selection);
-    color: var(--o-ui-text-alias-input-selection);
 }
 
 /* STATE | HOVER */
@@ -56,7 +55,7 @@
 
 .o-ui-input input:disabled::placeholder,
 .o-ui-input textarea:disabled::placeholder {
-    color: var(--o-ui-text-alias-info-1);
+    color: var(--o-ui-text-alias-secondary);
 }
 
 /* FLUID */

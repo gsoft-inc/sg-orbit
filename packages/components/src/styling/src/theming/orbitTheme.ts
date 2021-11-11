@@ -152,6 +152,7 @@ export interface ColorAliases {
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
     "text-alias-static-black": AliasValue;
+    "text-alias-input-placeholder": AliasValue;
 }
 
 export type ColorColorSchemes = ColorSchemeSection<ColorPaletteSection, ColorAliases, ColorAliases>;

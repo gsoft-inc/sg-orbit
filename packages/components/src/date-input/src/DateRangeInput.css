@@ -95,7 +95,6 @@
 /* DATE INPUT | SELECTION */
 .o-ui-date-range-input-date-input::selection {
     background-color: var(--o-ui-bg-alias-input-selection);
-    color: var(--o-ui-text-alias-input-selection);
 }
 
 /* DIVIDER */

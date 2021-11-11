@@ -85,7 +85,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        color = "primary",
+        color = "secondary",
         condensed,
         fluid,
         focus,
@@ -96,7 +96,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         shape = "circular",
         size,
         type,
-        variant = "solid",
+        variant = "outline",
         ...rest
     } = mergeProps(
         props,

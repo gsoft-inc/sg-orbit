@@ -273,7 +273,8 @@ const TextColorAliases = [
     "alias-warning",
     "alias-success",
     "alias-static-white",
-    "alias-static-black"
+    "alias-static-black",
+    "alias-input-placeholder"
 ] as const;
 
 const BorderRadiusScale = [

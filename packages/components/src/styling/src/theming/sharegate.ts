@@ -60,7 +60,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-faint": "$success-1",
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
-            "bg-alias-input-selection": "$primary-5",
+            "bg-alias-input-selection": "$primary-3",
             /* Border */
             "b-alias-low-contrast": "$neutral-2",
             "b-alias-mid-contrast": "$neutral-4",
@@ -104,7 +104,8 @@ export const ShareGateTheme = createTheme({
             "text-alias-warning": "$warning-5",
             "text-alias-success": "$success-6",
             "text-alias-static-white": "$white",
-            "text-alias-static-black": "$black"
+            "text-alias-static-black": "$black",
+            "text-alias-input-placeholder": "$text-alias-inactive"
         },
         dark: {
             /* Background */
@@ -192,7 +193,8 @@ export const ShareGateTheme = createTheme({
             "text-alias-warning": "$warning-3",
             "text-alias-success": "$success-5",
             "text-alias-static-white": "$white",
-            "text-alias-static-black": "$black"
+            "text-alias-static-black": "$black",
+            "text-alias-input-placeholder": "$text-alias-inactive"
         }
     }
 });

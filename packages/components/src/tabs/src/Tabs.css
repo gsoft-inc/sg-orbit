@@ -39,7 +39,7 @@
     height: max-content;
     min-height: var(--o-ui-sz-7);
     cursor: pointer;
-    color: var(--o-ui-text-alias-2);
+    color: var(--o-ui-text-alias-secondary);
     position: relative;
     overflow: hidden;
 }

@@ -93,35 +93,6 @@
     display: none;
 }
 
-/* SPINNER | TRANSPARENT */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement {
-    background-color: var(--o-ui-transparent);
-    border: 0;
-}
-
-/* SPINNER | TRANSPARENT | HOVER */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-4-hover);
-}
-
-/* SPINNER | TRANSPARENT | HOVER ACTIVE */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:active:hover,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:active:hover {
-    background-color: var(--o-ui-bg-alias-4-active);
-}
-
-.o-ui-input-transparent .o-ui-number-input-spinner-increment {
-    border: 0;
-}
-
-/* SPINNER | TRANSPARENT | ACTIVE */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
-    background-color: var(--o-ui-bg-alias-4-active);
-}
-
 /* IN GROUP */
 .o-ui-number-input-in-group {
     width: 100px;
