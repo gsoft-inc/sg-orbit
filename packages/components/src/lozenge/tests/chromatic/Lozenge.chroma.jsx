@@ -22,14 +22,14 @@ stories()
         <Inline alignY="end">
             <Lozenge size="sm">New</Lozenge>
             <Lozenge >New</Lozenge>
-            <Lozenge variant="warning" size="sm">New</Lozenge>
-            <Lozenge variant="warning">New</Lozenge>
-            <Lozenge variant="positive" size="sm">New</Lozenge>
-            <Lozenge variant="positive">New</Lozenge>
-            <Lozenge variant="negative" size="sm">New</Lozenge>
-            <Lozenge variant="negative">New</Lozenge>
-            <Lozenge variant="informative" size="sm">New</Lozenge>
-            <Lozenge variant="informative">New</Lozenge>
+            <Lozenge tone="warning" size="sm">New</Lozenge>
+            <Lozenge tone="warning">New</Lozenge>
+            <Lozenge tone="positive" size="sm">New</Lozenge>
+            <Lozenge tone="positive">New</Lozenge>
+            <Lozenge tone="negative" size="sm">New</Lozenge>
+            <Lozenge tone="negative">New</Lozenge>
+            <Lozenge tone="informative" size="sm">New</Lozenge>
+            <Lozenge tone="informative">New</Lozenge>
 
             <Inline alignY="end">
                 <Lozenge size="sm">
@@ -40,35 +40,35 @@ stories()
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="warning" size="sm">
+                <Lozenge tone="warning" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="warning">
+                <Lozenge tone="warning">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="positive" size="sm">
+                <Lozenge tone="positive" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="positive">
+                <Lozenge tone="positive">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="negative" size="sm">
+                <Lozenge tone="negative" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="negative">
+                <Lozenge tone="negative">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="informative" size="sm">
+                <Lozenge tone="informative" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="informative">
+                <Lozenge tone="informative">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
@@ -97,58 +97,58 @@ stories()
             </Div>
         </Stack>
     )
-    .add("highlight and variant", () =>
+    .add("highlight and tone", () =>
         <Stack>
             <Inline alignY="end">
-                <Lozenge highlight size="sm">New</Lozenge>
-                <Lozenge highlight>New</Lozenge>
-                <Lozenge variant="warning" highlight size="sm">New</Lozenge>
-                <Lozenge variant="warning" highlight>New</Lozenge>
-                <Lozenge variant="positive" highlight size="sm">New</Lozenge>
-                <Lozenge variant="positive" highlight>New</Lozenge>
-                <Lozenge variant="negative" highlight size="sm">New</Lozenge>
-                <Lozenge variant="negative" highlight>New</Lozenge>
-                <Lozenge highlight variant="informative" size="sm">New</Lozenge>
-                <Lozenge highlight variant="informative">New</Lozenge>
+                <Lozenge variant="highlight" size="sm">New</Lozenge>
+                <Lozenge variant="highlight">New</Lozenge>
+                <Lozenge tone="warning" variant="highlight" size="sm">New</Lozenge>
+                <Lozenge tone="warning" variant="highlight">New</Lozenge>
+                <Lozenge tone="positive" variant="highlight" size="sm">New</Lozenge>
+                <Lozenge tone="positive" variant="highlight">New</Lozenge>
+                <Lozenge tone="negative" variant="highlight" size="sm">New</Lozenge>
+                <Lozenge tone="negative" variant="highlight">New</Lozenge>
+                <Lozenge variant="highlight" tone="informative" size="sm">New</Lozenge>
+                <Lozenge variant="highlight" tone="informative">New</Lozenge>
             </Inline>
             <Inline alignY="end">
-                <Lozenge highlight size="sm">
+                <Lozenge variant="highlight" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge highlight>
+                <Lozenge variant="highlight">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="warning" highlight size="sm">
+                <Lozenge tone="warning" variant="highlight" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="warning" highlight>
+                <Lozenge tone="warning" variant="highlight">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="positive" highlight size="sm">
+                <Lozenge tone="positive" variant="highlight" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="positive" highlight>
+                <Lozenge tone="positive" variant="highlight">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="negative" highlight size="sm">
+                <Lozenge tone="negative" variant="highlight" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="negative" highlight>
+                <Lozenge tone="negative" variant="highlight">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="informative" highlight size="sm">
+                <Lozenge tone="informative" variant="highlight" size="sm">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
-                <Lozenge variant="informative" highlight>
+                <Lozenge tone="informative" variant="highlight">
                     <CheckCircleIcon />
                     <Text>New</Text>
                 </Lozenge>
