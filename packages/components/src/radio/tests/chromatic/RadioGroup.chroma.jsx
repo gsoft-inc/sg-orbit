@@ -37,7 +37,8 @@ function CustomComponent({
             as="button"
             value={value}
             onClick={handleCheck}
-            className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
+            color={isChecked?"white": undefined}
+            backgroundColor={isChecked?"primary-6": "neutral-6"}
         >
             {children}
         </Tag>
