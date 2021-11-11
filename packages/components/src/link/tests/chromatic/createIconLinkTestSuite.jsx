@@ -33,10 +33,10 @@ export function createIconLinkTestSuite(element, stories) {
                 <IconLink variant="secondary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
-        .add("danger", () =>
+        .add("negative", () =>
             <Inline alignY="end">
-                <IconLink variant="danger" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink variant="danger" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="negative" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="negative" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("inherit color", () =>

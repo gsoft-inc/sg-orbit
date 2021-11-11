@@ -1,7 +1,7 @@
 import { ForwardedRef } from "react";
 import { InteractionProps, cssModule, isNumber, mergeClasses, useAutoFocus, useMergedRefs } from "../../shared";
 
-export type LinkVariant = "primary" | "danger" | "accent";
+export type LinkVariant = "primary" | "negative" | "accent";
 
 export interface UseLinkProps extends InteractionProps {
     autoFocus?: boolean | number;

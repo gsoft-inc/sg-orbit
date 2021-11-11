@@ -25,17 +25,17 @@ export interface InnerLozengeProps extends SlotProps, InternalProps, Omit<Styled
      */
     children: ReactNode;
     /**
-     * Whether or not to add emphasis to the lozenge.
-     */
-    highlight?: boolean;
-    /**
      * A lozenge can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md">;
     /**
      * The lozenze style to use.
      */
-    variant?: "informative" | "warning" | "positive" | "negative";
+    tone?: "informative" | "warning" | "positive" | "negative";
+    /**
+     * Whether or not to add emphasis to the lozenge.
+     */
+    variant?: "basic" | "highlight";
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -48,8 +48,8 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     as = DefaultElement,
     children,
-    highlight,
     variant,
+    tone,
     forwardedRef,
     size,
     ...rest
@@ -80,9 +80,9 @@ export function InnerLozenge({
                     as,
                     className: cssModule(
                         "o-ui-lozenge",
-                        variant,
+                        tone,
                         icon && "has-icon",
-                        highlight && "highlight",
+                        variant,
                         normalizeSize(sizeValue)
                     ),
                     ref

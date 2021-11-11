@@ -5,7 +5,7 @@ function SelectedHeader({ header, children, ...rest }) {
     return (
         <AccordionHeader
             {...rest}
-            color={expandedKeys.includes(key) ? "primary-7" : undefined}
+            color={expandedKeys.includes(key) ? "accent-7" : undefined}
             header={header}
             headingType={H3}
         >

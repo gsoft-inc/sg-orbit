@@ -5,7 +5,7 @@ import { createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 const RouterLink = forwardRef<HTMLDivElement, { to: string }>((props, ref) => {
-    return <Div ref={ref}></Div>;
+    return <Div ref={ref}>{props.to}</Div>;
 });
 
 test("support ref", async () => {

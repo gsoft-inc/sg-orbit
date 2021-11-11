@@ -16,16 +16,16 @@ function stories(segment) {
 function PrimaryColors() {
     return (
         <Inline gap={0}>
-            <Box padding={4} backgroundColor="primary-1" />
-            <Box padding={4} backgroundColor="primary-2" />
-            <Box padding={4} backgroundColor="primary-3" />
-            <Box padding={4} backgroundColor="primary-4" />
-            <Box padding={4} backgroundColor="primary-5" />
-            <Box padding={4} backgroundColor="primary-6" />
-            <Box padding={4} backgroundColor="primary-7" />
-            <Box padding={4} backgroundColor="primary-8" />
-            <Box padding={4} backgroundColor="primary-9" />
-            <Box padding={4} backgroundColor="primary-10" />
+            <Box padding={4} backgroundColor="accent-1" />
+            <Box padding={4} backgroundColor="accent-2" />
+            <Box padding={4} backgroundColor="accent-3" />
+            <Box padding={4} backgroundColor="accent-4" />
+            <Box padding={4} backgroundColor="accent-5" />
+            <Box padding={4} backgroundColor="accent-6" />
+            <Box padding={4} backgroundColor="accent-7" />
+            <Box padding={4} backgroundColor="accent-8" />
+            <Box padding={4} backgroundColor="accent-9" />
+            <Box padding={4} backgroundColor="accent-10" />
         </Inline>
     );
 }

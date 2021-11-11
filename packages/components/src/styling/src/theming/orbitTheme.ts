@@ -60,7 +60,7 @@ export interface ColorPaletteSection {
 }
 
 type AliasValue =
-    `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` | // any color in palette $primary-5
+    `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` | // any color in palette $accent-5
     `$${ConditionalKeys<ColorPaletteSection, string>}` | // any static colors $white $black
     `${typeof ColorExpressionTypes[number]}${string}` | // strings starting with hsl(a), rgb(a), #
     Property.Color; // basic colors
