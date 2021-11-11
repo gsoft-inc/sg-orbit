@@ -44,19 +44,6 @@ a:not([disabled]).o-ui-tag.o-ui-tag-focus:after {
     opacity: 1;
 }
 
-/* AS BUTTON | STATES */
-/* AS BUTTON | STATES | HOVER */
-button.o-ui-tag:hover {
-    background-color: var(--o-ui-bg-alias-2);
-}
-
-/* AS ANCHOR */
-/* AS ANCHOR | STATES */
-/* AS ANCHOR | STATES | HOVER */
-a.o-ui-tag:hover {
-    background-color: var(--o-ui-bg-alias-2);
-}
-
 /* SIZE */
 /* SIZE | SMALL */
 .o-ui-tag-sm {
@@ -124,30 +111,6 @@ a.o-ui-tag-solid.o-ui-tag-disabled {
     opacity: var(--o-ui-disabled-opacity);
 }
 
-/* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
-button.o-ui-tag-solid[disabled]:hover,
-button.o-ui-tag-solid.o-ui-tag-disabled:hover,
-button.o-ui-tag-solid[disabled].o-ui-tag-hover,
-button.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover,
-a.o-ui-tag-solid[disabled]:hover,
-a.o-ui-tag-solid.o-ui-tag-disabled:hover,
-a.o-ui-tag-solid[disabled].o-ui-tag-hover,
-a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-hover {
-    background-color: var(--o-ui-bg-alias-3);
-}
-
-/* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
-button.o-ui-tag-solid[disabled]:focus-visible,
-button.o-ui-tag-solid.o-ui-tag-disabled:focus-visible,
-button.o-ui-tag-solid[disabled].o-ui-tag-focus,
-button.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus,
-a.o-ui-tag-solid[disabled]:focus-visible,
-a.o-ui-tag-solid.o-ui-tag-disabled:focus-visible,
-a.o-ui-tag-solid[disabled].o-ui-tag-focus,
-a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
-    box-shadow: none;
-}
-
 /* OUTLINE */
 .o-ui-tag-outline {
     background-color: var(--o-ui-bg-alias-default);
@@ -156,75 +119,21 @@ a.o-ui-tag-solid.o-ui-tag-disabled.o-ui-tag-focus {
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES */
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | HOVER */
-button.o-ui-tag-outline:hover,
-a.o-ui-tag-outline:hover,
-button.o-ui-tag-outline.o-ui-tag-hover,
-a.o-ui-tag-outline.o-ui-tag-hover {
+button:not([disabled]).o-ui-tag-outline:hover,
+a:not([disabled]).o-ui-tag-outline:hover,
+button:not([disabled]).o-ui-tag-outline.o-ui-tag-hover,
+a:not([disabled]).o-ui-tag-outline.o-ui-tag-hover {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-mid-contrast) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | ACTIVE */
-button.o-ui-tag-outline:active,
-a.o-ui-tag-outline:active,
-button.o-ui-tag-outline.o-ui-tag-active,
-a.o-ui-tag-outline.o-ui-tag-active {
+button:not([disabled]).o-ui-tag-outline:active,
+a:not([disabled]).o-ui-tag-outline:active,
+button:not([disabled]).o-ui-tag-outline.o-ui-tag-active,
+a:not([disabled]).o-ui-tag-outline.o-ui-tag-active {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-high-contrast) inset;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS */
-button.o-ui-tag-outline:focus-visible,
-a.o-ui-tag-outline:focus-visible,
-button.o-ui-tag-outline.o-ui-tag-focus,
-a.o-ui-tag-outline.o-ui-tag-focus {
-    outline: none;
-    background-color: transparent;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-b-alias-1) inset;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & ACTIVE */
-a.o-ui-tag-outline:focus-visible:active,
-a.o-ui-tag-outline.o-ui-tag-focus:active,
-a.o-ui-tag-outline:focus-visible.o-ui-tag-active,
-a.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active
-button.o-ui-tag-outline:focus-visible:active,
-button.o-ui-tag-outline.o-ui-tag-focus:active,
-button.o-ui-tag-outline:focus-visible.o-ui-tag-active,
-button.o-ui-tag-outline.o-ui-tag-focus.o-ui-tag-active {
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-active) inset;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER */
-a.o-ui-tag-outline:hover:focus-visible,
-a.o-ui-tag-outline.o-ui-tag-hover:focus-visible,
-a.o-ui-tag-outline:hover.o-ui-tag-focus,
-a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus,
-button.o-ui-tag-outline:hover:focus-visible,
-button.o-ui-tag-outline.o-ui-tag-hover:focus-visible,
-button.o-ui-tag-outline:hover.o-ui-tag-focus,
-button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus {
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-hover) inset;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | FOCUS & HOVER & ACTIVE */
-a.o-ui-tag-outline:hover:focus-visible:active,
-a.o-ui-tag-outline.o-ui-tag-hover:focus-visible:active,
-a.o-ui-tag-outline:hover.o-ui-tag-focus:active,
-a.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
-a.o-ui-tag-outline.o-ui-tag-active:hover:focus-visible,
-a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus-visible,
-a.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
-a.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus,
-button.o-ui-tag-outline:hover:focus-visible:active,
-button.o-ui-tag-outline.o-ui-tag-hover:focus-visible:active,
-button.o-ui-tag-outline:hover.o-ui-tag-focus:active,
-button.o-ui-tag-outline.o-ui-tag-hover.o-ui-tag-focus:active,
-button.o-ui-tag-outline.o-ui-tag-active:hover:focus-visible,
-button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover:focus-visible,
-button.o-ui-tag-outline.o-ui-tag-active:hover.o-ui-tag-focus,
-button.o-ui-tag-outline.o-ui-tag-active.o-ui-tag-hover.o-ui-tag-focus{
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-active) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */
@@ -233,31 +142,6 @@ a.o-ui-tag-outline[disabled],
 button.o-ui-tag-outline.o-ui-tag-disabled,
 a.o-ui-tag-outline.o-ui-tag-disabled {
     opacity: var(--o-ui-disabled-opacity);
-    cursor: not-allowed;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | FOCUS */
-button.o-ui-tag-outline[disabled]:focus-visible,
-a.o-ui-tag-outline[disabled]:focus-visible,
-button.o-ui-tag-outline.o-ui-tag-disabled:focus-visible,
-a.o-ui-tag-outline.o-ui-tag-disabled:focus-visible,
-button.o-ui-tag-outline[disabled].o-ui-tag-focus,
-a.o-ui-tag-outline[disabled].o-ui-tag-focus,
-button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus,
-a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-focus {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-bg-alias-2) inset;
-}
-
-/* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED | HOVER */
-button.o-ui-tag-outline[disabled]:hover,
-a.o-ui-tag-outline[disabled]:hover,
-button.o-ui-tag-outline.o-ui-tag-disabled:hover,
-a.o-ui-tag-outline.o-ui-tag-disabled:hover,
-button.o-ui-tag-outline[disabled].o-ui-tag-hover,
-a.o-ui-tag-outline[disabled].o-ui-tag-hover,
-button.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover,
-a.o-ui-tag-outline.o-ui-tag-disabled.o-ui-tag-hover {
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1) inset;
     cursor: not-allowed;
 }
 
