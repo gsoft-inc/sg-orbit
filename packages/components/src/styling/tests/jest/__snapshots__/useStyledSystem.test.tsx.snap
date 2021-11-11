@@ -29205,6 +29205,13 @@ Array [
   <div
     style={
       Object {
+        "color": "var(--o-ui-text-alias-input-placeholder)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "color": "var(--o-ui-white)",
       }
     }
@@ -29989,6 +29996,14 @@ Array [
     style={
       Object {
         "--o-ui-c-active": "var(--o-ui-text-alias-static-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-text-alias-input-placeholder)",
       }
     }
   />,
@@ -30883,6 +30898,14 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
+        "--o-ui-c-focus": "var(--o-ui-text-alias-input-placeholder)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
         "--o-ui-c-focus": "var(--o-ui-white)",
       }
     }
@@ -31763,6 +31786,14 @@ Array [
     style={
       Object {
         "--o-ui-c-hover": "var(--o-ui-text-alias-static-black)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": "var(--o-ui-text-alias-input-placeholder)",
       }
     }
   />,
