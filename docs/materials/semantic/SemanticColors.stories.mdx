@@ -1,0 +1,99 @@
+import { ColorTable } from "./ColorTable";
+import { Meta } from "@storybook/addon-docs";
+import { Tagline } from "@stories/components";
+import { Div } from "@components/html";
+import { ShareGateTheme,  ThemeProvider } from "@components/styling";
+
+<Meta
+    title="Materials/Semantic Colors"
+    id="semantic-colors"
+/>
+
+# Semantic Colors
+
+<Tagline>Semantic colors are a way to use colors using meaningful names. This serves two purposes, it helps deginers and developers decide what colors to use and makes our color system more efficient and flexible.</Tagline>
+
+### Usage
+
+Semantic colors also known as aliases can be used in two ways, either in a CSS in JS prop value, e.g. `backgroundColor="alias-accent"` or in CSS, as a variable `background-color: var(--o-ui-bg-alias-accent)`.
+
+When used in a Styled System prop there's no need to specify what property it affects as Styled System is smart enough to do it for you. This means that you only need to specify that the value you are using is an alias and which alias you want to use.
+
+## Text
+
+This affects the CSS `color` property.
+
+<ThemeProvider theme={ShareGateTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "Primary", value: "alias-primary", variable: "--o-ui-text-alias-primary", usage: "Headers" },
+            { shade: "Secondary", value: "alias-secondary", variable: "--o-ui-text-alias-secondary", usage: "Body" },
+            { shade: "Tertiary", value: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", usage: "Details" },
+            { shade: "Inactive", value: "alias-inactive", variable: "--o-ui-text-alias-inactive", usage: "Table header, placeholder, disabled state" },
+            { shade: "Accent", value: "alias-accent", variable: "--o-ui-text-alias-accent", usage: "" },
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-text-alias-alert", usage: "" },
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-text-alias-warning", usage: "" },
+            { shade: "Success", value: "alias-success", variable: "--o-ui-text-alias-success", usage: "" },
+            { shade: "Static Black", value: "alias-static-black", variable: "--o-ui-text-alias-static-black", usage: "Texts that do not change colors depending on theming" },
+            { shade: "Static White", value: "alias-static-white", variable: "--o-ui-text-alias-static-white", usage: "Texts that do not change colors depending on theming" }
+        ]}
+    />
+</ThemeProvider>
+
+## Background
+
+This affects the CSS `background-color` property.
+
+<ThemeProvider theme={ShareGateTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "Default", value: "alias-default", variable: "--o-ui-bg-alias-default", usage: "Default Background" },
+            { shade: "Side Nav", value: "alias-side-nav", variable: "--o-ui-bg-side-nav", usage: "" },
+            { shade: "Soft Break", value: "alias-soft-break", variable: "--o-ui-bg-soft-break", usage: "" },
+            { shade: "Hard Break", value: "alias-hard-break", variable: "--o-ui-bg-hard-break", usage: "" },
+            { shade: "Hard Break", value: "alias-hard-break", variable: "--o-ui-bg-hard-break", usage: "" },
+            { shade: "Basic", value: "alias-basic", variable: "--o-ui-bg-alias-basic", usage: "" },
+            { shade: "Basic Transparent", value: "alias-basic-transpaent", variable: "--o-ui-bg-alias-basic-transparent", usage: "" },
+            { shade: "Static White", value: "alias-static-white", variable: "--o-ui-bg-alias-static-white", usage: "" },
+            { shade: "Accent", value: "alias-accent", variable: "--o-ui-bg-alias-accent", usage: "" },
+            { shade: "Accent Faint", value: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", usage: "" },
+            { shade: "Accent Light", value: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", usage: "" },
+            { shade: "Accent Transparent", value: "alias-accent-transparent", variable: "--o-ui-bg-alias-accent-transparent", usage: "" },
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-bg-alias-alert", usage: "" },
+            { shade: "Alert Faint", value: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", usage: "" },
+            { shade: "Alert Light", value: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", usage: "" },
+            { shade: "Alert Transparent", value: "alias-alert-transparent", variable: "--o-ui-bg-alias-alert-transparent", usage: "" },
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-bg-alias-warning", usage: "" },
+            { shade: "Warning Faint", value: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", usage: "" },
+            { shade: "Warning Light", value: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", usage: "" },
+            { shade: "Success", value: "alias-success", variable: "--o-ui-bg-alias-success", usage: "" },
+            { shade: "Success Faint", value: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", usage: "" },
+            { shade: "Success Light", value: "alias-success-light", variable: "--o-ui-bg-alias-success-light", usage: "" },
+            { shade: "Transparent", value: "alias-transparent", variable: "--o-ui-bg-alias-transparent", usage: "" }
+        ]}
+    />
+</ThemeProvider>
+
+## Border
+
+<ThemeProvider theme={ShareGateTheme} colorScheme="light">
+    <ColorTable
+        colors={[
+            { shade: "Low Contrast", value: "alias-low-contrast", variable: "o-ui-alias-low-contrast" , usage: "x"},
+            { shade: "Mid Contrast", value: "alias-mid-contrast", variable: "o-ui-alias-mid-contrast" , usage: "x"},
+            { shade: "High Contrast", value: "alias-high-contrast", variable: "o-ui-alias-high-contrast" , usage: "x"},
+            { shade: "Accent", value: "alias-accent", variable: "o-ui-alias-accent" , usage: "x"},
+            { shade: "Accent Hover", value: "alias-accent-hover", variable: "o-ui-alias-accent-hover" , usage: "x"},
+            { shade: "Accent Active", value: "alias-accent-active", variable: "o-ui-alias-accent-active" , usage: "x"},
+            { shade: "Alert", value: "alias-alert", variable: "o-ui-alias-alert" , usage: "x"},
+            { shade: "Alert Hover", value: "alias-alert-hover", variable: "o-ui-alias-alert-hover" , usage: "x"},
+            { shade: "Alert Active", value: "alias-alert-active", variable: "o-ui-alias-alert-active" , usage: "x"},
+            { shade: "Warning", value: "alias-warning", variable: "o-ui-alias-warning" , usage: "x"},
+            { shade: "Warning Hover", value: "alias-warning-hover", variable: "o-ui-alias-warning-hover" , usage: "x"},
+            { shade: "Warning Active", value: "alias-warning-active", variable: "o-ui-alias-warning-active" , usage: "x"},
+            { shade: "Success", value: "alias-success", variable: "o-ui-alias-success" , usage: "x"},
+            { shade: "Success Hover", value: "alias-success-hover", variable: "o-ui-alias-success-hover" , usage: "x"},
+            { shade: "Success Active", value: "alias-success-active", variable: "o-ui-alias-success-active", usage: "x" }
+        ]}
+    />
+</ThemeProvider>
