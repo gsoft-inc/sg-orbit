@@ -6484,7 +6484,7 @@ Array [
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-primary-10)",
+        "backgroundColor": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -7581,7 +7581,7 @@ Array [
     className="o-ui-bg-active"
     style={
       Object {
-        "--o-ui-bg-active": "var(--o-ui-primary-10)",
+        "--o-ui-bg-active": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -8692,7 +8692,7 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
-        "--o-ui-bg-focus": "var(--o-ui-primary-10)",
+        "--o-ui-bg-focus": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -9803,7 +9803,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-primary-10)",
+        "--o-ui-bg-hover": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -10894,7 +10894,7 @@ Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-primary-10)",
+        "border": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -11692,7 +11692,7 @@ Array [
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-primary-10)",
+        "borderBottom": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -12903,7 +12903,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -13806,7 +13806,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -14709,7 +14709,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -15514,7 +15514,7 @@ Array [
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-primary-10)",
+        "borderLeft": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -16403,7 +16403,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -17306,7 +17306,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -18209,7 +18209,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -19182,7 +19182,7 @@ Array [
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-primary-10)",
+        "borderRight": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -20071,7 +20071,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-br-active": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -20974,7 +20974,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -21877,7 +21877,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -22682,7 +22682,7 @@ Array [
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-primary-10)",
+        "borderTop": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -23893,7 +23893,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -24796,7 +24796,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -25699,7 +25699,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -26602,7 +26602,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-b-active": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -27505,7 +27505,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -28408,7 +28408,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-primary-10)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-accent-10)",
       }
     }
   />,
@@ -29786,7 +29786,7 @@ Array [
   <div
     style={
       Object {
-        "color": "var(--o-ui-primary-10)",
+        "color": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -30667,7 +30667,7 @@ Array [
     className="o-ui-c-active"
     style={
       Object {
-        "--o-ui-c-active": "var(--o-ui-primary-10)",
+        "--o-ui-c-active": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -31562,7 +31562,7 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
-        "--o-ui-c-focus": "var(--o-ui-primary-10)",
+        "--o-ui-c-focus": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -32457,7 +32457,7 @@ Array [
     className="o-ui-c-hover"
     style={
       Object {
-        "--o-ui-c-hover": "var(--o-ui-primary-10)",
+        "--o-ui-c-hover": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -33791,7 +33791,7 @@ Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-primary-10)",
+        "fill": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -34664,7 +34664,7 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-primary-10)",
+        "--o-ui-f-focus": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -35551,7 +35551,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-primary-10)",
+        "--o-ui-f-hover": "var(--o-ui-accent-10)",
       }
     }
   />,
@@ -46032,7 +46032,7 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-primary-10)",
+        "stroke": "var(--o-ui-accent-10)",
       }
     }
   />,
