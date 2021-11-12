@@ -52,7 +52,7 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="icon">
-        <Button variant="outline" color="secondary">
+        <Button variant="outline" tone="basic">
             <LightbulbIcon />
             <Text>Cutoff</Text>
         </Button>
@@ -65,7 +65,7 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="end icon">
-        <Button variant="outline" color="secondary">
+        <Button variant="outline" tone="basic">
             <Text>Cutoff</Text>
             <LightbulbIcon slot="end-icon" />
         </Button>
@@ -78,7 +78,7 @@ A button can contain a [counter](?path=/docs/counter--default-story).
 
 <Preview>
     <Story name="counter">
-        <Button variant="outline" color="secondary">
+        <Button variant="outline" tone="basic">
             <Text>Cutoff</Text>
             <Counter variant="divider">60</Counter>
         </Button>
@@ -92,8 +92,8 @@ A button can vary in size.
 <Preview>
     <Story name="size">
         <Inline alignY="center">
-            <Button size="sm" variant="outline" color="secondary">Cutoff</Button>
-            <Button variant="outline" color="secondary">Cutoff</Button>
+            <Button size="sm" variant="outline" tone="basic">Cutoff</Button>
+            <Button variant="outline" tone="basic">Cutoff</Button>
         </Inline>
     </Story>
 </Preview>
@@ -114,7 +114,7 @@ A button can show a loading indicator.
 
 <Preview>
     <Story name="loading">
-        <Button loading variant="outline" color="secondary">Loading</Button>
+        <Button loading variant="outline" tone="basic">Loading</Button>
     </Story>
 </Preview>
 
@@ -124,25 +124,25 @@ A button can take the width of its container.
 
 <Preview>
     <Story name="fluid">
-        <Button fluid variant="outline" color="secondary">
+        <Button fluid variant="outline" tone="basic">
             <LightbulbIcon />
             <Text>To infinity and beyond</Text>
         </Button>
     </Story>
 </Preview>
 
-### Color
+### Tone
 
-A button can use a different base color.
+A button can use a different tones.
 
 <Preview>
-    <Story name="color">
+    <Story name="tone">
         <Inline>
-            <Button color="primary">Primary</Button>
-            <Button color="danger">Danger</Button>
-            <Button variant="outline" color="primary">Primary</Button>
-            <Button variant="outline" color="secondary">Primary</Button>
-            <Button variant="outline" color="danger">Danger</Button>
+            <Button tone="accent">Accent</Button>
+            <Button tone="negative">Negative</Button>
+            <Button variant="outline" tone="accent">Accent</Button>
+            <Button variant="outline" tone="basic">Basic</Button>
+            <Button variant="outline" tone="negative">Negative</Button>
         </Inline>
     </Story>
 </Preview>
@@ -154,9 +154,9 @@ A button can be discrete.
 <Preview>
     <Story name="ghost">
         <Inline>
-            <Button color="primary" variant="ghost">Primary</Button>
-            <Button color="secondary" variant="ghost">Secondary</Button>
-            <Button color="danger" variant="ghost">Delete</Button>
+            <Button tone="accent" variant="ghost">Accent</Button>
+            <Button tone="basic" variant="ghost">Basic</Button>
+            <Button tone="negative" variant="ghost">Delete</Button>
         </Inline>
     </Story>
 </Preview>
@@ -168,7 +168,7 @@ A button can have a circular shape.
 <Preview>
     <Story name="shape">
         <Inline>
-            <Button shape="circular" variant="outline" color="secondary">Aa</Button>
+            <Button shape="circular" variant="outline" tone="basic">Aa</Button>
         </Inline>
     </Story>
 </Preview>
@@ -179,7 +179,7 @@ A button can be rendered as a link by using the `ButtonAsLink` component.
 
 <Preview>
     <Story name="as anchor">
-        <ButtonAsLink href="https://sharegate.com" target="_blank" variant="outline" color="secondary">Cutoff</ButtonAsLink>
+        <ButtonAsLink href="https://sharegate.com" target="_blank" variant="outline" tone="basic">Cutoff</ButtonAsLink>
     </Story>
 </Preview>
 
@@ -190,8 +190,8 @@ A button content can be a single icon. An accessible name must be provided throu
 <Preview>
     <Story name="icon button">
         <Inline alignY="center">
-            <IconButton size="sm" variant="outline" color="secondary" aria-label="Add"><AddIcon /></IconButton>
-            <IconButton variant="outline" color="secondary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton size="sm" variant="outline" tone="basic" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton variant="outline" tone="basic" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
     </Story>
 </Preview>
@@ -203,9 +203,9 @@ Buttons whose actions are related to each other can be grouped together.
 <Preview>
     <Story name="button group">
         <ButtonGroup>
-            <Button variant="outline" color="secondary">No, thanks</Button>
-            <Button variant="outline" color="secondary">Remind me later</Button>
-            <Button variant="outline" color="secondary">Rate Now</Button>
+            <Button variant="outline" tone="basic">No, thanks</Button>
+            <Button variant="outline" tone="basic">Remind me later</Button>
+            <Button variant="outline" tone="basic">Rate Now</Button>
         </ButtonGroup>
     </Story>
 </Preview>
@@ -217,9 +217,9 @@ A button group can render his items vertically.
 <Preview>
     <Story name="button group vertical">
         <ButtonGroup orientation="vertical">
-            <Button variant="outline" color="secondary">No, thanks</Button>
-            <Button variant="outline" color="secondary">Remind me later</Button>
-            <Button variant="outline" color="secondary">Rate Now</Button>
+            <Button variant="outline" tone="basic">No, thanks</Button>
+            <Button variant="outline" tone="basic">Remind me later</Button>
+            <Button variant="outline" tone="basic">Rate Now</Button>
         </ButtonGroup>
     </Story>
 </Preview>
@@ -231,9 +231,9 @@ A button group can change the alignment of his items.
 <Preview>
     <Story name="button group alignment">
         <ButtonGroup align="end">
-            <Button variant="outline" color="secondary">No, thanks</Button>
-            <Button variant="outline" color="secondary">Remind me later</Button>
-            <Button variant="outline" color="secondary">Rate Now</Button>
+            <Button variant="outline" tone="basic">No, thanks</Button>
+            <Button variant="outline" tone="basic">Remind me later</Button>
+            <Button variant="outline" tone="basic">Rate Now</Button>
         </ButtonGroup>
     </Story>
 </Preview>
@@ -245,8 +245,8 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
 <Preview>
     <Story name="toggle button">
         <Inline>
-            <ToggleButton variant="outline" color="secondary" shape="circular">On</ToggleButton>
-            <ToggleButton variant="outline" color="secondary">
+            <ToggleButton variant="outline" tone="basic" shape="circular">On</ToggleButton>
+            <ToggleButton variant="outline" tone="basic">
                 <LightbulbIcon />
                 <Text>Cutoff</Text>
             </ToggleButton>
@@ -260,7 +260,7 @@ A toggle button content can be a single icon. An accessible name must be provide
 
 <Preview>
     <Story name="toggle icon button">
-        <ToggleIconButton variant="outline" color="secondary" aria-label="Activate">
+        <ToggleIconButton variant="outline" tone="basic" aria-label="Activate">
             <CheckIcon />
         </ToggleIconButton>
     </Story>
@@ -273,11 +273,11 @@ Related toggle buttons can be group together in a [group](#button-group), a [che
 <Preview>
     <Story name="toggle button group">
         <RadioGroup gap={2} orientation="horizontal">
-            <ToggleButton value="none" variant="outline" color="secondary">None</ToggleButton>
-            <ToggleButton value="1" variant="outline" color="secondary" shape="circular">1</ToggleButton>
-            <ToggleButton value="2" variant="outline" color="secondary" shape="circular">2</ToggleButton>
-            <ToggleButton value="3" variant="outline" color="secondary" shape="circular">3</ToggleButton>
-            <ToggleButton value="4+" variant="outline" color="secondary" shape="circular">4+</ToggleButton>
+            <ToggleButton value="none" variant="outline" tone="basic">None</ToggleButton>
+            <ToggleButton value="1" variant="outline" tone="basic" shape="circular">1</ToggleButton>
+            <ToggleButton value="2" variant="outline" tone="basic" shape="circular">2</ToggleButton>
+            <ToggleButton value="3" variant="outline" tone="basic" shape="circular">3</ToggleButton>
+            <ToggleButton value="4+" variant="outline" tone="basic" shape="circular">4+</ToggleButton>
         </RadioGroup>
     </Story>
 </Preview>

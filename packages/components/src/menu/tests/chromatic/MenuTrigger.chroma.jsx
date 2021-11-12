@@ -22,7 +22,7 @@ function stories(segment) {
 stories()
     .add("default", () =>
         <MenuTrigger>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -32,7 +32,7 @@ stories()
     )
     .add("open with items only", () =>
         <MenuTrigger defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -42,7 +42,7 @@ stories()
     )
     .add("open with sections", () =>
         <MenuTrigger defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Section title="Visited">
                     <Item key="earth">Earth</Item>
@@ -60,7 +60,7 @@ stories()
     )
     .add("open with dividers", () =>
         <MenuTrigger defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -75,7 +75,7 @@ stories()
     )
     .add("open with a selected item", () =>
         <MenuTrigger defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -85,7 +85,7 @@ stories()
     )
     .add("open with multiple selected items", () =>
         <MenuTrigger defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu defaultSelectedKeys={["mars", "saturn"]} selectionMode="multiple">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -95,7 +95,7 @@ stories()
     )
     .add("direction bottom", () =>
         <MenuTrigger direction="bottom" defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -105,7 +105,7 @@ stories()
     )
     .add("direction top", () =>
         <MenuTrigger direction="top" defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -120,7 +120,7 @@ stories()
     )
     .add("align start", () =>
         <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu width={14}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -135,7 +135,7 @@ stories()
     )
     .add("align end", () =>
         <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu width={14}>
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -150,7 +150,7 @@ stories()
     )
     .add("icon button trigger", () =>
         <MenuTrigger defaultOpen>
-            <IconButton color="secondary" variant="outline" aria-label="Open menu">
+            <IconButton tone="basic" variant="outline" aria-label="Open menu">
                 <VerticalDotsIcon />
             </IconButton>
             <Menu>
@@ -202,7 +202,7 @@ stories()
 
         return (
             <MenuTrigger defaultOpen>
-                <Button color="secondary" variant="outline">Trigger</Button>
+                <Button tone="basic" variant="outline">Trigger</Button>
                 <CustomMenu>
                     <Item key="earth">Earth</Item>
                     <Item key="mars">Mars</Item>
@@ -213,7 +213,7 @@ stories()
     })
     .add("styled system", () =>
         <MenuTrigger border="warning-7" defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
@@ -223,7 +223,7 @@ stories()
     )
     .add("className", () =>
         <MenuTrigger className="border-red" defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
@@ -233,7 +233,7 @@ stories()
     )
     .add("style", () =>
         <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
-            <Button color="secondary" variant="outline">Trigger</Button>
+            <Button tone="basic" variant="outline">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>

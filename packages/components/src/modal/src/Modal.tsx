@@ -54,7 +54,7 @@ function useModalContentMarkup(content: ReactElement) {
                         <StyleProvider
                             value={{
                                 button: {
-                                    variant: "secondary"
+                                    variant: "basic"
                                 }
                             }}
                         >

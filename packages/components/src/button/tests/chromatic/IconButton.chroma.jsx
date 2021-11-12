@@ -19,8 +19,8 @@ createIconButtonTestSuite(<IconButton variant="ghost" />, stories("/ghost"));
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButton border="warning-7" color="secondary" aria-label="Add"><AddIcon /></IconButton>
-            <IconButton className="bg-red" color="secondary" aria-label="Add"><AddIcon /></IconButton>
-            <IconButton style={{ backgroundColor: "red" }} color="secondary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton border="warning-7" tone="basic" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton className="bg-red" tone="basic" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton style={{ backgroundColor: "red" }} tone="basic" aria-label="Add"><AddIcon /></IconButton>
         </Inline>
     );

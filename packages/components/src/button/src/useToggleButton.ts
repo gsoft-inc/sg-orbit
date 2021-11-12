@@ -1,21 +1,21 @@
-import { ButtonColor, ButtonShape, ButtonVariant } from "./useButton";
+import { ButtonShape, ButtonTone, ButtonVariant } from "./useButton";
 import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
-export type ToggleButtonColor = Omit<ButtonColor, "danger">;
+export type ToggleButtonTone = Omit<ButtonTone, "negative">;
 
 export type ToggleButtonVariant = ButtonVariant;
 
 export interface UseToggleButtonProps {
     active?: boolean;
     checked?: boolean | null;
-    color?: ToggleButtonColor;
     defaultChecked?: boolean;
     forwardedRef?: ForwardedRef<any>;
     isCheckable: boolean;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
     onCheck?: (event: FormEvent<HTMLButtonElement>, value: string) => void;
     shape?: ButtonShape;
+    tone?: ToggleButtonTone;
     value?: string;
     variant?: ButtonVariant;
 }
@@ -25,13 +25,13 @@ export interface UseToggleButtonProps {
 export function useToggleButton({
     active,
     checked,
-    color,
     defaultChecked,
     forwardedRef,
     isCheckable,
     onChange,
     onCheck,
     shape,
+    tone,
     value,
     variant
 }: UseToggleButtonProps) {
@@ -52,10 +52,10 @@ export function useToggleButton({
     return {
         buttonProps: {
             active: active || isChecked,
-            color: color as ButtonColor,
             onClick: handleClick,
             ref: forwardedRef,
             shape,
+            tone: tone as ButtonTone,
             value,
             [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
             variant: variant as ButtonVariant

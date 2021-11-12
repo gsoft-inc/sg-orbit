@@ -19,8 +19,8 @@ createToggleIconButtonTestSuite(<ToggleIconButton variant="ghost" />, stories("/
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleIconButton border="warning-7" color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton className="bg-red" color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton style={{ backgroundColor: "red" }} color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton border="warning-7" tone="basic" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton className="bg-red" tone="basic" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton style={{ backgroundColor: "red" }} tone="basic" aria-label="Activate"><CheckIcon /></ToggleIconButton>
         </Inline>
     );

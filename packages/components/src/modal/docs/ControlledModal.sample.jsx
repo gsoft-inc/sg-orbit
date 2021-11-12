@@ -15,7 +15,7 @@
             open={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button color="secondary" variant="outline">Open</Button>
+            <Button tone="basic" variant="outline">Open</Button>
             <Modal>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
@@ -25,7 +25,7 @@
                         The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.
                     </Paragraph>
                 </Content>
-                <Button onClick={handleClose} color="secondary" variant="outline">Close</Button>
+                <Button onClick={handleClose} tone="basic" variant="outline">Close</Button>
             </Modal>
         </ModalTrigger>
     );

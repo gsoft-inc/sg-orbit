@@ -167,7 +167,7 @@ const Colors = [
     "neutral-8",
     "neutral-9",
     "neutral-10",
-    // Primary
+    // Accent
     "accent-1",
     "accent-2",
     "accent-3",

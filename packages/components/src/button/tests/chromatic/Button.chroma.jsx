@@ -1,5 +1,4 @@
 import { Button } from "@components/button";
-import { Div } from "@components/html";
 import { Inline } from "@components/layout";
 // import { cloneElement } from "react";
 import { createButtonTestSuite } from "./createButtonTestSuite";
@@ -20,8 +19,8 @@ createButtonTestSuite(<Button variant="ghost" />, stories("/ghost"));
 stories()
     .add("styling", () =>
         <Inline>
-            <Button border="warning-7" color="secondary">Button</Button>
-            <Button className="bg-red" color="secondary">Button</Button>
-            <Button style={{ backgroundColor: "red" }} color="secondary">Button</Button>
+            <Button border="warning-7" tone="basic">Button</Button>
+            <Button className="bg-red" tone="basic">Button</Button>
+            <Button style={{ backgroundColor: "red" }} tone="basic">Button</Button>
         </Inline>
     );

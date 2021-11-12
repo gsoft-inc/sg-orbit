@@ -55,7 +55,7 @@ stories()
                     <Button
                         {...rest}
                         {...triggerProps}
-                        color="secondary"
+                        tone="basic"
                         variant="outline"
                     >
                         {selectedItem?.content ?? placeholder}

@@ -31,35 +31,35 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("primary", () =>
+        .add("accent", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <IconButton color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <IconButton loading color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )
-        .add("danger", () =>
+        .add("negative", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <IconButton color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="negative" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="negative" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="negative" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton tone="negative" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <IconButton loading color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="negative" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="negative" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="negative" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading tone="negative" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )

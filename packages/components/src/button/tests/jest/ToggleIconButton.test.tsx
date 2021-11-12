@@ -14,7 +14,7 @@ test("call onChange when the button is selected", async () => {
         <ToggleIconButton
             onChange={handler}
             value="any"
-            color="secondary"
+            tone="basic"
             variant="outline"
             aria-label="Add"
             data-testid="toggle-icon-button"
@@ -38,7 +38,7 @@ test("call onChange when the button is unselected", async () => {
         <ToggleIconButton
             onChange={handler}
             value="any"
-            color="secondary"
+            tone="basic"
             variant="outline"
             aria-label="Add"
             data-testid="toggle-icon-button"
@@ -66,7 +66,7 @@ test("ref is a DOM element", async () => {
 
     renderWithTheme(
         <ToggleIconButton
-            color="secondary"
+            tone="basic"
             variant="outline"
             ref={ref}
             value="any"
@@ -87,7 +87,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <ToggleIconButton
-            color="secondary"
+            tone="basic"
             variant="outline"
             ref={node => {
                 refNode = node;
@@ -110,7 +110,7 @@ test("set ref once", async () => {
 
     renderWithTheme(
         <ToggleIconButton
-            color="secondary"
+            tone="basic"
             variant="outline"
             ref={handler}
             value="any"

@@ -43,11 +43,11 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         "aria-label": ariaLabel,
         checked,
         children,
-        color,
         defaultChecked,
         forwardedRef,
         onChange,
         shape = "circular",
+        tone,
         value,
         variant,
         ...rest
@@ -59,12 +59,12 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
     const { buttonProps, isChecked } = useToggleButton({
         active,
         checked,
-        color,
         defaultChecked,
         forwardedRef,
         isCheckable,
         onChange,
         shape,
+        tone,
         value,
         variant
     });

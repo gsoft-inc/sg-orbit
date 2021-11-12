@@ -7,7 +7,7 @@
 
     return (
         <MenuTrigger>
-            <IconButton variant="outline" color="secondary" aria-label="View tasks">
+            <IconButton variant="outline" tone="basic" aria-label="View tasks">
                 <VerticalDotsIcon />
             </IconButton>
             <Menu selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={handleSelectionChange}>

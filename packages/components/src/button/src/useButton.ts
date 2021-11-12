@@ -4,19 +4,19 @@ import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, 
 
 export type ButtonVariant = "solid" | "outline" | "ghost";
 
-export type ButtonColor = "primary" | "secondary" | "accent" | "danger";
+export type ButtonTone = "accent" | "basic" | "negative";
 
 export type ButtonShape = "rounded" | "circular";
 
 export interface UseButtonProps extends Partial<InternalProps>, InteractionProps {
     autoFocus?: boolean | number;
-    color?: ButtonColor;
     cssModule?: string;
     fluid?: boolean;
     inherit?: boolean;
     loading?: boolean;
     shape?: ButtonShape;
     size?: Size;
+    tone?: ButtonTone;
     type?: "button" | "submit" | "reset";
     variant?: ButtonVariant;
 }
@@ -33,7 +33,6 @@ export function useButton({
     active,
     as,
     autoFocus,
-    color = "primary",
     cssModule: module,
     fluid,
     focus,
@@ -43,6 +42,7 @@ export function useButton({
     loading,
     shape = "rounded",
     size,
+    tone = "accent",
     type = "button",
     variant = "solid"
 }: UseButtonProps): UseButtonReturn {
@@ -61,7 +61,7 @@ export function useButton({
             cssModule(
                 "o-ui-button",
                 variant,
-                color,
+                tone,
                 shape,
                 inherit && "inherit-style",
                 fluid && "fluid",

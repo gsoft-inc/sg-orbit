@@ -99,7 +99,7 @@ const ShareGateColors: Partial<ColorPaletteSection> = {
     ]
 };
 
-const ThemeBase: Partial<OrbitTheme> = {
+const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
     sizing: [".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem", "6rem", "8rem", "12rem", "16rem", "20rem", "24rem", "30rem"],
     space: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
     fontSizes: {
@@ -198,7 +198,7 @@ export function createTheme({
         light,
         dark
     }
-}: CreateThemeProps) {
+}: CreateThemeProps): OrbitTheme {
     return {
         ...ThemeBase,
         name,
@@ -213,5 +213,5 @@ export function createTheme({
             light,
             dark
         }
-    } as OrbitTheme;
+    } ;
 }

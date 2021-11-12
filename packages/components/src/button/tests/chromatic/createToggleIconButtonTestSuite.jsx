@@ -57,35 +57,35 @@ export function createToggleIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("primary", () =>
+        .add("accent", () =>
             <Stack>
                 <Inline alignY="end">
-                    <ToggleIconButton color="primary" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
                 <Inline alignY="end">
-                    <ToggleIconButton color="primary" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="primary" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="accent" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
             </Stack>
         )
-        .add("secondary", () =>
+        .add("basic", () =>
             <Stack>
                 <Inline alignY="end">
-                    <ToggleIconButton color="secondary" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
                 <Inline alignY="end">
-                    <ToggleIconButton color="secondary" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton tone="basic" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
             </Stack>
         )
