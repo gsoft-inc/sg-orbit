@@ -31,19 +31,19 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("primary", () =>
+        .add("accent", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <IconButton color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline verticalAlign="end">
-                    <IconButton loading color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )

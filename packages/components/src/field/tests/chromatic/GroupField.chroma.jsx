@@ -64,7 +64,7 @@ stories()
                 <ButtonGroup>
                     <Button color="secondary" variant="outline">No, thanks</Button>
                     <Button color="secondary" variant="outline">Remind me later</Button>
-                    <Button color="primary">Rate Now</Button>
+                    <Button color="accent">Rate Now</Button>
                 </ButtonGroup>
                 <HelpMessage>It will only take a minute of your time.</HelpMessage>
             </GroupField>
@@ -73,7 +73,7 @@ stories()
                 <ButtonGroup orientation="vertical">
                     <Button color="secondary" variant="outline">No, thanks</Button>
                     <Button color="secondary" variant="outline">Remind me later</Button>
-                    <Button color="primary">Rate Now</Button>
+                    <Button color="accent">Rate Now</Button>
                 </ButtonGroup>
                 <HelpMessage>It will only take a minute of your time.</HelpMessage>
             </GroupField>

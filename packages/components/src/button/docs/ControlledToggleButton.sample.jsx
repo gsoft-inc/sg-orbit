@@ -10,7 +10,7 @@
         <ToggleButton
             checked={isChecked}
             value="isActive"
-            color={isChecked ? "primary" : "secondary"}
+            color={isChecked ? "accent" : "secondary"}
             variant="outline"
             onChange={handleChange}
         >

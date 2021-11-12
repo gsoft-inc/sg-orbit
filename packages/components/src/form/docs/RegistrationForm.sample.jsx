@@ -53,7 +53,7 @@
             </Field>
             <ButtonGroup align="end">
                 <Button color="secondary" variant="ghost" onClick={formik.resetForm}>Reset</Button>
-                <Button loading={formik.isSubmitting} color="primary" type="submit">Submit</Button>
+                <Button loading={formik.isSubmitting} color="accent" type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
     );

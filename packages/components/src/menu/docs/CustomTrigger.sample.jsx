@@ -4,7 +4,7 @@ const CustomTrigger = forwardRef((props, ref) => {
     return (
         <IconButton
             {...props}
-            color={isOpen ? "primary" : "secondary"}
+            color={isOpen ? "accent" : "secondary"}
             variant={isOpen ? "solid" : "outline"}
             aria-label="View tasks"
             ref={ref}

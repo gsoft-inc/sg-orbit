@@ -72,15 +72,15 @@ stories()
         <Stack>
             <ButtonGroup align="start">
                 <Button variant="ghost" color="secondary">Reset</Button>
-                <Button color="primary">Submit form</Button>
+                <Button color="accent">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="end">
                 <Button variant="ghost" color="secondary">Reset</Button>
-                <Button color="primary">Submit form</Button>
+                <Button color="accent">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup align="center">
                 <Button variant="ghost" color="secondary">Reset</Button>
-                <Button color="primary">Submit form</Button>
+                <Button color="accent">Submit form</Button>
             </ButtonGroup>
             <ButtonGroup>
                 <TextLinkAsButton href="#">Reset</TextLinkAsButton>
@@ -93,13 +93,13 @@ stories()
             <Div className="zoom-in">
                 <ButtonGroup>
                     <Button variant="ghost" color="secondary">Reset</Button>
-                    <Button color="primary">Submit form</Button>
+                    <Button color="accent">Submit form</Button>
                 </ButtonGroup>
             </Div>
             <Div className="zoom-out">
                 <ButtonGroup>
                     <Button variant="ghost" color="secondary">Reset</Button>
-                    <Button color="primary">Submit form</Button>
+                    <Button color="accent">Submit form</Button>
                 </ButtonGroup>
             </Div>
         </Stack>
@@ -154,13 +154,13 @@ stories("/vertical")
             <Div className="zoom-in">
                 <ButtonGroup orientation="vertical">
                     <Button variant="ghost" color="secondary">Reset</Button>
-                    <Button color="primary">Submit form</Button>
+                    <Button color="accent">Submit form</Button>
                 </ButtonGroup>
             </Div>
             <Div className="zoom-out">
                 <ButtonGroup orientation="vertical">
                     <Button variant="ghost" color="secondary">Reset</Button>
-                    <Button color="primary">Submit form</Button>
+                    <Button color="accent">Submit form</Button>
                 </ButtonGroup>
             </Div>
         </Inline>

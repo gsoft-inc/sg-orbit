@@ -97,7 +97,7 @@ stories()
             </Content>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -112,7 +112,7 @@ stories()
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -168,7 +168,7 @@ stories()
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -204,7 +204,7 @@ stories()
             <Footer>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -219,7 +219,7 @@ stories()
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                <Button color="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -236,7 +236,7 @@ stories()
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
                 <Button color="secondary" variant="outline">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
-                <Button color="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
+                <Button color="accent">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -260,7 +260,7 @@ stories()
             </Content>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -274,7 +274,7 @@ stories()
             </Content>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -288,7 +288,7 @@ stories()
             </Content>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -306,7 +306,7 @@ stories()
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -328,7 +328,7 @@ stories()
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )
@@ -367,7 +367,7 @@ stories()
             <Footer>02 December 2020</Footer>
             <ButtonGroup>
                 <Button color="secondary" variant="outline">Close</Button>
-                <Button color="primary">Next</Button>
+                <Button color="accent">Next</Button>
             </ButtonGroup>
         </Dialog>
     )

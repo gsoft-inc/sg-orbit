@@ -4,7 +4,7 @@ import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, 
 
 export type ButtonVariant = "solid" | "outline" | "ghost";
 
-export type ButtonTone = "primary" | "secondary" | "negative";
+export type ButtonTone = "accent" | "secondary" | "negative";
 
 export type ButtonShape = "rounded" | "circular";
 
@@ -33,7 +33,7 @@ export function useButton({
     active,
     as,
     autoFocus,
-    color = "primary",
+    color = "accent",
     cssModule: module,
     fluid,
     focus,
