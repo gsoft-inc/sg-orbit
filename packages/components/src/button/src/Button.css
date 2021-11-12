@@ -128,21 +128,21 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-basic-active);
 }
 
-/* SOLID | DANGER */
-.o-ui-button-solid.o-ui-button-danger {
+/* SOLID | NEGATIVE */
+.o-ui-button-solid.o-ui-button-negative {
     background-color: var(--o-ui-bg-alias-alert);
     color: var(--o-ui-text-alias-static-white);
 }
 
-/* SOLID | DANGER | HOVER */
-.o-ui-button-solid.o-ui-button-danger:not([disabled]):not(.o-ui-button-loading):hover,
-.o-ui-button-solid:not([disabled]).o-ui-button-danger.o-ui-button-hover {
+/* SOLID | NEGATIVE | HOVER */
+.o-ui-button-solid.o-ui-button-negative:not([disabled]):not(.o-ui-button-loading):hover,
+.o-ui-button-solid:not([disabled]).o-ui-button-negative.o-ui-button-hover {
     background-color: var(--o-ui-bg-alias-alert-hover);
 }
 
-/* SOLID | DANGER | ACTIVE */
-.o-ui-button-solid.o-ui-button-danger:not([disabled]):not(.o-ui-button-loading):active,
-.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger.o-ui-button-active {
+/* SOLID | NEGATIVE | ACTIVE */
+.o-ui-button-solid.o-ui-button-negative:not([disabled]):not(.o-ui-button-loading):active,
+.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative.o-ui-button-active {
     background-color: var(--o-ui-bg-alias-alert-active);
 }
 
@@ -186,30 +186,30 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
-/* OUTLINE | DANGER */
-.o-ui-button-outline.o-ui-button-danger {
+/* OUTLINE | NEGATIVE */
+.o-ui-button-outline.o-ui-button-negative {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert) inset;
     color: var(--o-ui-text-alias-alert);
 }
 
-/* OUTLINE | DANGER | HOVER */
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger:hover,
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger.o-ui-button-hover {
+/* OUTLINE | NEGATIVE | HOVER */
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative:hover,
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative.o-ui-button-hover {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert-hover) inset;
     background-color: var(--o-ui-bg-alias-alert-transparent-hover);
 }
 
-/* OUTLINE | DANGER | ACTIVE */
-.o-ui-button-outline.o-ui-button-danger:not(.o-ui-button-loading):active,
-.o-ui-button-outline.o-ui-button-danger:not(.o-ui-button-loading):active:hover,
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger.o-ui-button-active {
+/* OUTLINE | NEGATIVE | ACTIVE */
+.o-ui-button-outline.o-ui-button-negative:not(.o-ui-button-loading):active,
+.o-ui-button-outline.o-ui-button-negative:not(.o-ui-button-loading):active:hover,
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative.o-ui-button-active {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-alert-active) inset;
     background-color: var(--o-ui-bg-alias-alert-transparent-active);
 }
 
-/* OUTLINE | DANGER | ACTIVE | FOCUS */
-.o-ui-button-outline.o-ui-button-danger:not(.o-ui-button-loading):active:focus-visible,
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger.o-ui-button-active.o-ui-button-focus {
+/* OUTLINE | NEGATIVE | ACTIVE | FOCUS */
+.o-ui-button-outline.o-ui-button-negative:not(.o-ui-button-loading):active:focus-visible,
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative.o-ui-button-active.o-ui-button-focus {
     color: var(--o-ui-white);
 }
 
@@ -267,21 +267,21 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
-/* GHOST | DANGER */
-.o-ui-button-ghost.o-ui-button-danger {
+/* GHOST | NEGATIVE */
+.o-ui-button-ghost.o-ui-button-negative {
     color: var(--o-ui-text-alias-alert);
 }
 
-/* GHOST | DANGER | HOVER */
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-danger:hover,
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover.o-ui-button-danger {
+/* GHOST | NEGATIVE | HOVER */
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-negative:hover,
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover.o-ui-button-negative {
     background-color: var(--o-ui-bg-alias-alert-transparent-hover);
 }
 
-/* GHOST | DANGER | ACTIVE */
-.o-ui-button-ghost.o-ui-button-danger:not(.o-ui-button-loading):active,
-.o-ui-button-ghost.o-ui-button-danger:not(.o-ui-button-loading):active:hover,
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-active.o-ui-button-danger {
+/* GHOST | NEGATIVE | ACTIVE */
+.o-ui-button-ghost.o-ui-button-negative:not(.o-ui-button-loading):active,
+.o-ui-button-ghost.o-ui-button-negative:not(.o-ui-button-loading):active:hover,
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-active.o-ui-button-negative {
     background-color: var(--o-ui-bg-alias-alert-transparent-active);
 }
 
