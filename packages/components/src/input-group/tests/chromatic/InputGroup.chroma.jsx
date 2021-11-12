@@ -91,7 +91,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button color="danger">Copy</Button>
+                    <Button color="negative">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
@@ -164,7 +164,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton color="danger" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton color="negative" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>

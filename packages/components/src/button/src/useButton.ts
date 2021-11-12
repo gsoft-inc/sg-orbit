@@ -4,13 +4,13 @@ import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, 
 
 export type ButtonVariant = "solid" | "outline" | "ghost";
 
-export type ButtonColor = "primary" | "secondary" | "accent" | "danger";
+export type ButtonTone = "primary" | "secondary" | "accent" | "negative";
 
 export type ButtonShape = "rounded" | "circular";
 
 export interface UseButtonProps extends Partial<InternalProps>, InteractionProps {
     autoFocus?: boolean | number;
-    color?: ButtonColor;
+    color?: ButtonTone;
     cssModule?: string;
     fluid?: boolean;
     inherit?: boolean;

@@ -245,34 +245,34 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("danger", () =>
+        .add("negative", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <Button color="danger" size="sm" element={element}>Button</Button>
-                    <Button color="danger" element={element}>Button</Button>
+                    <Button color="negative" size="sm" element={element}>Button</Button>
+                    <Button color="negative" element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button color="danger" element={element}>
+                    <Button color="negative" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button color="danger" element={element}>
+                    <Button color="negative" element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <div>
-                    <Button color="danger" element={element}>
+                    <Button color="negative" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </div>
                 <Inline>
-                    <Button active color="danger" element={element}>Button</Button>
-                    <Button focus color="danger" element={element}>Button</Button>
-                    <Button hover color="danger" element={element}>Button</Button>
-                    <Button focus hover color="danger" element={element}>Button</Button>
-                    <Button loading color="danger" element={element}>Button</Button>
+                    <Button active color="negative" element={element}>Button</Button>
+                    <Button focus color="negative" element={element}>Button</Button>
+                    <Button hover color="negative" element={element}>Button</Button>
+                    <Button focus hover color="negative" element={element}>Button</Button>
+                    <Button loading color="negative" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )

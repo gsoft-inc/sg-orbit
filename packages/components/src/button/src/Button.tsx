@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonColor, ButtonShape, ButtonVariant, useButton } from "./useButton";
+import { ButtonShape, ButtonTone, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
@@ -30,7 +30,7 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
     /**
      * The button color to use.
      */
-    color?: ButtonColor;
+    color?: ButtonTone;
     /**
      * Whether or not the button content should takes additional space.
      */

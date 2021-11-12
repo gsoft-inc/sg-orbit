@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonColor, ButtonShape, ButtonVariant, useButton } from "./useButton";
+import { ButtonShape, ButtonTone, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import {
@@ -31,7 +31,7 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
     /**
      * The button color to use.
      */
-    color?: ButtonColor;
+    color?: ButtonTone;
     /**
      * Whether or not the button content should takes additional space.
      */

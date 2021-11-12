@@ -1,15 +1,15 @@
-import { ButtonColor, ButtonShape, ButtonVariant } from "./useButton";
+import { ButtonShape, ButtonTone, ButtonVariant } from "./useButton";
 import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
-export type ToggleButtonColor = Omit<ButtonColor, "danger">;
+export type ToggleButtonTone = Omit<ButtonTone, "negative">;
 
 export type ToggleButtonVariant = ButtonVariant;
 
 export interface UseToggleButtonProps {
     active?: boolean;
     checked?: boolean | null;
-    color?: ToggleButtonColor;
+    color?: ToggleButtonTone;
     defaultChecked?: boolean;
     forwardedRef?: ForwardedRef<any>;
     isCheckable: boolean;
@@ -52,7 +52,7 @@ export function useToggleButton({
     return {
         buttonProps: {
             active: active || isChecked,
-            color: color as ButtonColor,
+            color: color as ButtonTone,
             onClick: handleClick,
             ref: forwardedRef,
             shape,

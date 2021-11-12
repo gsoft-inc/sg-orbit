@@ -1,7 +1,7 @@
 import { AbstractButtonProps, Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
-import { ToggleButtonColor, ToggleButtonVariant, useToggleButton } from "./useToggleButton";
+import { ToggleButtonTone, ToggleButtonVariant, useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
@@ -17,7 +17,7 @@ export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof 
     /**
      * The button color to use.
      */
-    color?: ToggleButtonColor;
+    color?: ToggleButtonTone;
     /**
      * The initial value of `checked` when uncontrolled.
      */
