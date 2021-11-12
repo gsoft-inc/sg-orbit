@@ -88,9 +88,9 @@ export function InnerTagList({
     const clearButtonMarkup = !isNil(onClear) && !readOnly && nodes.length > 0 && (
         <Button
             className="o-ui-tag-list-clear-button"
-            color="basic"
             onClick={onClear}
             size={size}
+            tone="basic"
             variant="ghost"
         >
             Clear all

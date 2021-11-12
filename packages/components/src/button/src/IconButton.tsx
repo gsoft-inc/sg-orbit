@@ -29,10 +29,6 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      */
     autoFocus?: boolean | number;
     /**
-     * The button color to use.
-     */
-    color?: ButtonTone;
-    /**
      * Whether or not the button content should takes additional space.
      */
     condensed?: boolean;
@@ -56,6 +52,10 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      * A button can vary in size.
      */
     size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md">;
+    /**
+     * The button color to use.
+     */
+    tone?: ButtonTone;
     /**
      * The icon button type.
      */
@@ -85,7 +85,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        color = "basic",
+        tone = "basic",
         condensed,
         fluid,
         focus,
@@ -111,7 +111,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         active,
         as: asProp,
         autoFocus,
-        color,
         cssModule: "o-ui-icon-button",
         fluid: fluidValue,
         focus,
@@ -121,6 +120,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         loading,
         shape,
         size: sizeValue,
+        tone,
         type,
         variant
     });

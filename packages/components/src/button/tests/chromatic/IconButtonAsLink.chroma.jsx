@@ -19,8 +19,8 @@ createIconButtonTestSuite(<IconButtonAsLink variant="ghost" />, stories("/ghost"
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButtonAsLink border="warning-7" color="basic"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink className="bg-red" color="basic"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink style={{ backgroundColor: "red" }} color="basic"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink border="warning-7" tone="basic"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink className="bg-red" tone="basic"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink style={{ backgroundColor: "red" }} tone="basic"><AddIcon /></IconButtonAsLink>
         </Inline>
     );

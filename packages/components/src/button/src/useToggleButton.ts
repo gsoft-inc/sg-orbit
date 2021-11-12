@@ -9,13 +9,13 @@ export type ToggleButtonVariant = ButtonVariant;
 export interface UseToggleButtonProps {
     active?: boolean;
     checked?: boolean | null;
-    color?: ToggleButtonTone;
     defaultChecked?: boolean;
     forwardedRef?: ForwardedRef<any>;
     isCheckable: boolean;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
     onCheck?: (event: FormEvent<HTMLButtonElement>, value: string) => void;
     shape?: ButtonShape;
+    tone?: ToggleButtonTone;
     value?: string;
     variant?: ButtonVariant;
 }
@@ -25,13 +25,13 @@ export interface UseToggleButtonProps {
 export function useToggleButton({
     active,
     checked,
-    color,
     defaultChecked,
     forwardedRef,
     isCheckable,
     onChange,
     onCheck,
     shape,
+    tone,
     value,
     variant
 }: UseToggleButtonProps) {
@@ -52,10 +52,10 @@ export function useToggleButton({
     return {
         buttonProps: {
             active: active || isChecked,
-            color: color as ButtonTone,
             onClick: handleClick,
             ref: forwardedRef,
             shape,
+            tone: tone as ButtonTone,
             value,
             [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,
             variant: variant as ButtonVariant

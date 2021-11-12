@@ -217,93 +217,93 @@ export function createButtonTestSuite(element, stories) {
         .add("basic", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <Button color="basic" size="sm" element={element}>Button</Button>
-                    <Button color="basic" element={element}>Button</Button>
+                    <Button tone="basic" size="sm" element={element}>Button</Button>
+                    <Button tone="basic" element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button color="basic" element={element}>
+                    <Button tone="basic" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button color="basic" element={element}>
+                    <Button tone="basic" element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <div>
-                    <Button color="basic" element={element}>
+                    <Button tone="basic" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </div>
                 <Inline>
-                    <Button active color="basic" element={element}>Button</Button>
-                    <Button focus color="basic" element={element}>Button</Button>
-                    <Button hover color="basic" element={element}>Button</Button>
-                    <Button focus hover color="basic" element={element}>Button</Button>
-                    <Button loading color="basic" element={element}>Button</Button>
+                    <Button active tone="basic" element={element}>Button</Button>
+                    <Button focus tone="basic" element={element}>Button</Button>
+                    <Button hover tone="basic" element={element}>Button</Button>
+                    <Button focus hover tone="basic" element={element}>Button</Button>
+                    <Button loading tone="basic" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
         .add("negative", () =>
             <Stack>
                 <Inline verticalAlign="end">
-                    <Button color="negative" size="sm" element={element}>Button</Button>
-                    <Button color="negative" element={element}>Button</Button>
+                    <Button tone="negative" size="sm" element={element}>Button</Button>
+                    <Button tone="negative" element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button color="negative" element={element}>
+                    <Button tone="negative" element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button color="negative" element={element}>
+                    <Button tone="negative" element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <div>
-                    <Button color="negative" element={element}>
+                    <Button tone="negative" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </div>
                 <Inline>
-                    <Button active color="negative" element={element}>Button</Button>
-                    <Button focus color="negative" element={element}>Button</Button>
-                    <Button hover color="negative" element={element}>Button</Button>
-                    <Button focus hover color="negative" element={element}>Button</Button>
-                    <Button loading color="negative" element={element}>Button</Button>
+                    <Button active tone="negative" element={element}>Button</Button>
+                    <Button focus tone="negative" element={element}>Button</Button>
+                    <Button hover tone="negative" element={element}>Button</Button>
+                    <Button focus hover tone="negative" element={element}>Button</Button>
+                    <Button loading tone="negative" element={element}>Button</Button>
                 </Inline>
             </Stack>
         )
         .add("inherit", () =>
             <Stack backgroundColor="warning-1" color="warning-7">
                 <Inline verticalAlign="end">
-                    <Button color="basic" inherit size="sm" element={element}>Button</Button>
-                    <Button color="basic" inherit element={element}>Button</Button>
+                    <Button tone="basic" inherit size="sm" element={element}>Button</Button>
+                    <Button tone="basic" inherit element={element}>Button</Button>
                 </Inline>
                 <Inline>
-                    <Button color="basic" inherit element={element}>
+                    <Button tone="basic" inherit element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                    <Button color="basic" inherit element={element}>
+                    <Button tone="basic" inherit element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <div>
-                    <Button color="basic" inherit element={element}>
+                    <Button tone="basic" inherit element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>
                 </div>
                 <Inline>
-                    <Button active color="basic" inherit element={element}>Button</Button>
-                    <Button focus color="basic" inherit element={element}>Button</Button>
-                    <Button hover color="basic" inherit element={element}>Button</Button>
-                    <Button focus hover color="basic" inherit element={element}>Button</Button>
-                    <Button loading color="basic" inherit element={element}>Button</Button>
+                    <Button active tone="basic" inherit element={element}>Button</Button>
+                    <Button focus tone="basic" inherit element={element}>Button</Button>
+                    <Button hover tone="basic" inherit element={element}>Button</Button>
+                    <Button focus hover tone="basic" inherit element={element}>Button</Button>
+                    <Button loading tone="basic" inherit element={element}>Button</Button>
                 </Inline>
             </Stack>
         )

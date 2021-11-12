@@ -28,7 +28,7 @@ render(() => {
     return (
         <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
             <Stack>
-                <Button color="accent">Cutoff</Button>
+                <Button tone="accent">Cutoff</Button>
                 <ColorSchemePicker />
             </Stack>
         </ThemeProvider>

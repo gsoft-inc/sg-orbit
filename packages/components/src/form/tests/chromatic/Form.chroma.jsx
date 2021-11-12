@@ -30,7 +30,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Button color="basic" variant="outline">Submit</Button>
+                <Button tone="basic" variant="outline">Submit</Button>
             </Form>
             <Form>
                 <Field>
@@ -58,7 +58,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Button color="basic" variant="outline">Submit</Button>
+                <Button tone="basic" variant="outline">Submit</Button>
             </Form>
             <Form fluid>
                 <Field>
@@ -86,7 +86,7 @@ stories()
                     <TextArea />
                     <HelpMessage>Trips to Andromeda galaxy are available every 2 months.</HelpMessage>
                 </Field>
-                <Button color="basic" variant="outline">Submit</Button>
+                <Button tone="basic" variant="outline">Submit</Button>
             </Form>
             <Form disabled>
                 <Field>
@@ -121,7 +121,7 @@ stories()
                     </Field>
                 </Div>
             </Div>
-            <Button color="basic" variant="outline">Submit</Button>
+            <Button tone="basic" variant="outline">Submit</Button>
         </Form>
     )
     .add("group field", () =>
@@ -147,7 +147,7 @@ stories()
                     <Radio value="3">3</Radio>
                 </RadioGroup>
             </GroupField>
-            <Button color="basic" variant="outline">Submit</Button>
+            <Button tone="basic" variant="outline">Submit</Button>
         </Form>
     )
     .add("button alignment", () =>
@@ -158,8 +158,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="start">
-                    <Button color="basic" variant="ghost">Reset</Button>
-                    <Button color="basic" variant="outline">Submit</Button>
+                    <Button tone="basic" variant="ghost">Reset</Button>
+                    <Button tone="basic" variant="outline">Submit</Button>
                 </ButtonGroup>
             </Form>
             <Form>
@@ -168,8 +168,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="center">
-                    <Button color="basic" variant="ghost">Reset</Button>
-                    <Button color="basic" variant="outline">Submit</Button>
+                    <Button tone="basic" variant="ghost">Reset</Button>
+                    <Button tone="basic" variant="outline">Submit</Button>
                 </ButtonGroup>
             </Form>
             <Form>
@@ -178,8 +178,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="end">
-                    <Button color="basic" variant="ghost">Reset</Button>
-                    <Button color="basic" variant="outline">Submit</Button>
+                    <Button tone="basic" variant="ghost">Reset</Button>
+                    <Button tone="basic" variant="outline">Submit</Button>
                 </ButtonGroup>
             </Form>
         </Inline>
@@ -244,7 +244,7 @@ stories("/flex inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     )
@@ -287,7 +287,7 @@ stories("/flex inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     )
@@ -331,7 +331,7 @@ stories("/flex inline")
                 </Field>
                 <ButtonGroup>
                     <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                    <Button type="submit" color="basic" variant="outline">Submit</Button>
+                    <Button type="submit" tone="basic" variant="outline">Submit</Button>
                 </ButtonGroup>
             </Form>
         </Div>
@@ -373,7 +373,7 @@ stories("/flex inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     );
@@ -418,7 +418,7 @@ stories("/grid inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     )
@@ -461,7 +461,7 @@ stories("/grid inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     )
@@ -502,7 +502,7 @@ stories("/grid inline")
             </Field>
             <ButtonGroup>
                 <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
-                <Button type="submit" color="basic" variant="outline">Submit</Button>
+                <Button type="submit" tone="basic" variant="outline">Submit</Button>
             </ButtonGroup>
         </Form>
     );

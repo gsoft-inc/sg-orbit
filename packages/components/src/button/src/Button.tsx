@@ -28,10 +28,6 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
      */
     autoFocus?: boolean | number;
     /**
-     * The button color to use.
-     */
-    color?: ButtonTone;
-    /**
      * Whether or not the button content should takes additional space.
      */
     condensed?: boolean;
@@ -55,6 +51,10 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
      * A button can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md">;
+    /**
+     * The button color to use.
+     */
+    tone?: ButtonTone;
     /**
      * The button type.
      */
@@ -92,7 +92,7 @@ export function InnerButton(props: InnerButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        color,
+        tone,
         condensed,
         disabled,
         fluid,
@@ -121,7 +121,6 @@ export function InnerButton(props: InnerButtonProps) {
         active,
         as: asProp,
         autoFocus,
-        color,
         cssModule: "o-ui-text-button",
         fluid: fluidValue,
         focus,
@@ -131,6 +130,7 @@ export function InnerButton(props: InnerButtonProps) {
         loading,
         shape,
         size: sizeValue,
+        tone,
         type,
         variant
     });

@@ -15,7 +15,7 @@
             open={isOpen}
             onOpenChange={handleOpenChange}
         >
-            <Button color="basic" variant="outline">Open</Button>
+            <Button tone="basic" variant="outline">Open</Button>
             <Alert
                 primaryButtonLabel="Yes"
                 secondaryButtonLabel="Postpone"

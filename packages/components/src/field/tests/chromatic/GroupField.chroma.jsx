@@ -62,18 +62,18 @@ stories()
             <GroupField>
                 <Label>Would you like to rate your experience?</Label>
                 <ButtonGroup>
-                    <Button color="basic" variant="outline">No, thanks</Button>
-                    <Button color="basic" variant="outline">Remind me later</Button>
-                    <Button color="accent">Rate Now</Button>
+                    <Button tone="basic" variant="outline">No, thanks</Button>
+                    <Button tone="basic" variant="outline">Remind me later</Button>
+                    <Button tone="accent">Rate Now</Button>
                 </ButtonGroup>
                 <HelpMessage>It will only take a minute of your time.</HelpMessage>
             </GroupField>
             <GroupField>
                 <Label>Would you like to rate your experience?</Label>
                 <ButtonGroup orientation="vertical">
-                    <Button color="basic" variant="outline">No, thanks</Button>
-                    <Button color="basic" variant="outline">Remind me later</Button>
-                    <Button color="accent">Rate Now</Button>
+                    <Button tone="basic" variant="outline">No, thanks</Button>
+                    <Button tone="basic" variant="outline">Remind me later</Button>
+                    <Button tone="accent">Rate Now</Button>
                 </ButtonGroup>
                 <HelpMessage>It will only take a minute of your time.</HelpMessage>
             </GroupField>

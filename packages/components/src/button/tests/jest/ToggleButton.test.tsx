@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 
 test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <ToggleButton autoFocus color="basic" variant="outline" data-testid="button">Cutoff</ToggleButton>
+        <ToggleButton autoFocus tone="basic" variant="outline" data-testid="button">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
@@ -19,7 +19,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <ToggleButton
             disabled
             autoFocus
-            color="basic"
+            tone="basic"
             variant="outline"
             data-testid="button"
         >Cutoff</ToggleButton>
@@ -32,7 +32,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = renderWithTheme(
         <ToggleButton
             autoFocus={10}
-            color="basic"
+            tone="basic"
             variant="outline"
             data-testid="button"
         >Cutoff</ToggleButton>
@@ -54,7 +54,7 @@ test("call onChange when the button is selected", async () => {
         <ToggleButton
             onChange={handler}
             value="any"
-            color="basic"
+            tone="basic"
             variant="outline"
             data-testid="toggle-button"
         >
@@ -77,7 +77,7 @@ test("call onChange when the button is unselected", async () => {
         <ToggleButton
             onChange={handler}
             value="any"
-            color="basic"
+            tone="basic"
             variant="outline"
             data-testid="toggle-button"
         >
@@ -103,7 +103,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <ToggleButton color="basic" variant="outline" ref={ref} value="any">Cutoff</ToggleButton>
+        <ToggleButton tone="basic" variant="outline" ref={ref} value="any">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -117,7 +117,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <ToggleButton
-            color="basic"
+            tone="basic"
             variant="outline"
             ref={node => {
                 refNode = node;
@@ -136,7 +136,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <ToggleButton color="basic" variant="outline" ref={handler} value="any">Cutoff</ToggleButton>
+        <ToggleButton tone="basic" variant="outline" ref={handler} value="any">Cutoff</ToggleButton>
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

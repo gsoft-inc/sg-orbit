@@ -4,7 +4,7 @@ const CustomTrigger = forwardRef((props, ref) => {
     return (
         <IconButton
             {...props}
-            color={isOpen ? "accent" : "basic"}
+            tone={isOpen ? "accent" : "basic"}
             variant={isOpen ? "solid" : "outline"}
             aria-label="Email"
             size="xl"

@@ -52,8 +52,8 @@
                 <Checkbox onChange={formik.handleChange} checked={formik.values.agreeTerms}>Agree to terms and conditions</Checkbox>
             </Field>
             <ButtonGroup align="end">
-                <Button color="basic" variant="ghost" onClick={formik.resetForm}>Reset</Button>
-                <Button loading={formik.isSubmitting} color="accent" type="submit">Submit</Button>
+                <Button tone="basic" variant="ghost" onClick={formik.resetForm}>Reset</Button>
+                <Button loading={formik.isSubmitting} tone="accent" type="submit">Submit</Button>
             </ButtonGroup>
         </Form>
     );
