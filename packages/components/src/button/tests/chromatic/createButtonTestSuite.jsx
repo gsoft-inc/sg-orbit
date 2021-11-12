@@ -214,6 +214,99 @@ export function createButtonTestSuite(element, stories) {
                 </Div>
             </Stack>
         )
+        .add("secondary", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button color="secondary" size="sm" element={element}>Button</Button>
+                    <Button color="secondary" element={element}>Button</Button>
+                </Inline>
+                <Inline>
+                    <Button color="secondary" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button color="secondary" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <div>
+                    <Button color="secondary" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
+                <Inline>
+                    <Button active color="secondary" element={element}>Button</Button>
+                    <Button focus color="secondary" element={element}>Button</Button>
+                    <Button hover color="secondary" element={element}>Button</Button>
+                    <Button focus hover color="secondary" element={element}>Button</Button>
+                    <Button loading color="secondary" element={element}>Button</Button>
+                </Inline>
+            </Stack>
+        )
+        .add("danger", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <Button color="danger" size="sm" element={element}>Button</Button>
+                    <Button color="danger" element={element}>Button</Button>
+                </Inline>
+                <Inline>
+                    <Button color="danger" element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button color="danger" element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <div>
+                    <Button color="danger" element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
+                <Inline>
+                    <Button active color="danger" element={element}>Button</Button>
+                    <Button focus color="danger" element={element}>Button</Button>
+                    <Button hover color="danger" element={element}>Button</Button>
+                    <Button focus hover color="danger" element={element}>Button</Button>
+                    <Button loading color="danger" element={element}>Button</Button>
+                </Inline>
+            </Stack>
+        )
+        .add("inherit", () =>
+            <Stack backgroundColor="warning-1" color="warning-7">
+                <Inline verticalAlign="end">
+                    <Button color="secondary" inherit size="sm" element={element}>Button</Button>
+                    <Button color="secondary" inherit element={element}>Button</Button>
+                </Inline>
+                <Inline>
+                    <Button color="secondary" inherit element={element}>
+                        <SignoutIcon />
+                        <Text>Button</Text>
+                    </Button>
+                    <Button color="secondary" inherit element={element}>
+                        <Text>Button</Text>
+                        <SignoutIcon slot="end-icon" />
+                    </Button>
+                </Inline>
+                <div>
+                    <Button color="secondary" inherit element={element}>
+                        <Text>Button</Text>
+                        <Counter variant="divider">15</Counter>
+                    </Button>
+                </div>
+                <Inline>
+                    <Button active color="secondary" inherit element={element}>Button</Button>
+                    <Button focus color="secondary" inherit element={element}>Button</Button>
+                    <Button hover color="secondary" inherit element={element}>Button</Button>
+                    <Button focus hover color="secondary" inherit element={element}>Button</Button>
+                    <Button loading color="secondary" inherit element={element}>Button</Button>
+                </Inline>
+            </Stack>
+        )
         .add("circular", () =>
             <Stack>
                 <Inline alignY="end">

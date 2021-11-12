@@ -9,11 +9,11 @@ function stories(segment) {
         .build();
 }
 
-createButtonTestSuite(<ButtonAsLink color="primary" />, stories("/primary"));
+createButtonTestSuite(<ButtonAsLink variant="solid" />, stories("/solid"));
 
-createButtonTestSuite(<ButtonAsLink color="secondary" />, stories("/secondary"));
+createButtonTestSuite(<ButtonAsLink variant="outline" />, stories("/outline"));
 
-createButtonTestSuite(<ButtonAsLink color="danger" />, stories("/danger"));
+createButtonTestSuite(<ButtonAsLink variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("styling", () =>

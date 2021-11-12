@@ -10,9 +10,11 @@ function stories(segment) {
         .build();
 }
 
-createToggleIconButtonTestSuite(<ToggleIconButton color="primary" />, stories("/primary"));
+createToggleIconButtonTestSuite(<ToggleIconButton variant="outline" />, stories("/outline"));
 
-createToggleIconButtonTestSuite(<ToggleIconButton color="secondary" />, stories("/secondary"));
+createToggleIconButtonTestSuite(<ToggleIconButton variant="solid" />, stories("/solid"));
+
+createToggleIconButtonTestSuite(<ToggleIconButton variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("styling", () =>
@@ -22,7 +24,3 @@ stories()
             <ToggleIconButton style={{ backgroundColor: "red" }} color="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
         </Inline>
     );
-
-
-
-

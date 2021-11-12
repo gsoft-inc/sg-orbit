@@ -10,11 +10,11 @@ function stories(segment) {
         .build();
 }
 
-createIconButtonTestSuite(<IconButton color="primary" />, stories("/primary"));
+createIconButtonTestSuite(<IconButton variant="outline" />, stories("/outline"));
 
-createIconButtonTestSuite(<IconButton color="secondary" />, stories("/secondary"));
+createIconButtonTestSuite(<IconButton variant="solid" />, stories("/solid"));
 
-createIconButtonTestSuite(<IconButton color="danger" />, stories("/danger"));
+createIconButtonTestSuite(<IconButton variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("styling", () =>

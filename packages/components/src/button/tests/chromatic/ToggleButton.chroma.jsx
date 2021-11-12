@@ -9,9 +9,11 @@ function stories(segment) {
         .build();
 }
 
-createToggleButtonTestSuite(<ToggleButton color="primary" />, stories("/primary"));
+createToggleButtonTestSuite(<ToggleButton variant="solid" />, stories("/solid"));
 
-createToggleButtonTestSuite(<ToggleButton color="secondary" />, stories("/secondary"));
+createToggleButtonTestSuite(<ToggleButton variant="outline" />, stories("/outline"));
+
+createToggleButtonTestSuite(<ToggleButton variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("styling", () =>

@@ -31,6 +31,38 @@ export function createIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
+        .add("primary", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <IconButton color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconButton loading color="primary" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="primary" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="primary" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="primary" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+            </Stack>
+        )
+        .add("danger", () =>
+            <Stack>
+                <Inline verticalAlign="end">
+                    <IconButton color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+                <Inline verticalAlign="end">
+                    <IconButton loading color="danger" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton loading color="danger" aria-label="Add" element={element}><AddIcon /></IconButton>
+                </Inline>
+            </Stack>
+        )
         .add("states", () =>
             <Inline gap={12}>
                 <Stack>

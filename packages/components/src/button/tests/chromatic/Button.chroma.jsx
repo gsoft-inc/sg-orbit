@@ -1,7 +1,7 @@
 import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { Inline } from "@components/layout";
-import { cloneElement } from "react";
+// import { cloneElement } from "react";
 import { createButtonTestSuite } from "./createButtonTestSuite";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -11,23 +11,11 @@ function stories(segment) {
         .build();
 }
 
-function SunrayBackground({ button, ...rest }) {
-    console.log(button, rest);
+createButtonTestSuite(<Button variant="solid" />, stories("/solid"));
 
-    return (
-        <Div color="warning-7" backgroundColor="warning-1">
-            {cloneElement(button, rest)}
-        </Div>
-    );
-}
+createButtonTestSuite(<Button variant="outline" />, stories("/outline"));
 
-createButtonTestSuite(<Button color="primary" />, stories("/primary"));
-
-createButtonTestSuite(<Button color="secondary" />, stories("/secondary"));
-
-createButtonTestSuite(<SunrayBackground button={<Button color="secondary" inherit />} />, stories("/secondary (inherit)"));
-
-createButtonTestSuite(<Button color="danger" />, stories("/danger"));
+createButtonTestSuite(<Button variant="ghost" />, stories("/ghost"));
 
 stories()
     .add("styling", () =>
