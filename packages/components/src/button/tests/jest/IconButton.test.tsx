@@ -10,7 +10,7 @@ test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus
-            color="secondary"
+            color="basic"
             variant="outline"
             aria-label="Add"
             data-testid="button"
@@ -27,7 +27,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <IconButton
             disabled
             autoFocus
-            color="secondary"
+            color="basic"
             variant="outline"
             aria-label="Add"
             data-testid="button"
@@ -43,7 +43,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus={10}
-            color="secondary"
+            color="basic"
             variant="outline"
             aria-label="Add"
             data-testid="button"
@@ -66,7 +66,7 @@ test("can focus the button with the focus api", async () => {
 
     renderWithTheme(
         <IconButton
-            color="secondary"
+            color="basic"
             variant="outline"
             ref={node => {
                 refNode = node;
@@ -90,7 +90,7 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <IconButton color="secondary"
+        <IconButton color="basic"
             variant="outline"
             ref={ref}
             aria-label="Add"
@@ -110,7 +110,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <IconButton
-            color="secondary"
+            color="basic"
             variant="outline"
             ref={node => {
                 refNode = node;
@@ -131,7 +131,7 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <IconButton color="secondary"
+        <IconButton color="basic"
             variant="outline"
             ref={handler}
             aria-label="Add"

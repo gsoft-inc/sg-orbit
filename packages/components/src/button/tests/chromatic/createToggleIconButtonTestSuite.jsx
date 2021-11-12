@@ -73,19 +73,19 @@ export function createToggleIconButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("secondary", () =>
+        .add("basic", () =>
             <Stack>
                 <Inline alignY="end">
-                    <ToggleIconButton color="secondary" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" size="sm" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
                 <Inline alignY="end">
-                    <ToggleIconButton color="secondary" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
-                    <ToggleIconButton color="secondary" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" checked aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" active aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" focus aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" focus hover aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton color="basic" disabled aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
             </Stack>
         )

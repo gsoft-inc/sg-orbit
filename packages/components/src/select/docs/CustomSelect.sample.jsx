@@ -13,7 +13,7 @@ function CustomSelect({
             <Button
                 {...rest}
                 {...triggerProps}
-                color="secondary"
+                color="basic"
                 variant="outline"
                 width="20%"
             >

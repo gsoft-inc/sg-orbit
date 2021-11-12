@@ -85,7 +85,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        color = "secondary",
+        color = "basic",
         condensed,
         fluid,
         focus,

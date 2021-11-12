@@ -18,9 +18,9 @@ createToggleButtonTestSuite(<ToggleButton variant="ghost" />, stories("/ghost"))
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleButton border="warning-7" color="secondary">Cutoff</ToggleButton>
-            <ToggleButton className="bg-red" color="secondary">Cutoff</ToggleButton>
-            <ToggleButton style={{ backgroundColor: "red" }} color="secondary">Cutoff</ToggleButton>
+            <ToggleButton border="warning-7" color="basic">Cutoff</ToggleButton>
+            <ToggleButton className="bg-red" color="basic">Cutoff</ToggleButton>
+            <ToggleButton style={{ backgroundColor: "red" }} color="basic">Cutoff</ToggleButton>
         </Inline>
     );
 

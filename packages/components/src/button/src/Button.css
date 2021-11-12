@@ -109,22 +109,22 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-accent-active);
 }
 
-/* SOLID | SECONDARY */
-.o-ui-button-solid.o-ui-button-secondary {
+/* SOLID | BASIC */
+.o-ui-button-solid.o-ui-button-basic {
     color: var(--o-ui-text-alias-static-white);
     background-color: var(--o-ui-bg-alias-basic);
 }
 
-/* SOLID | SECONDARY | HOVER */
-.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary:hover,
-.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary.o-ui-button-hover {
+/* SOLID | BASIC | HOVER */
+.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic:hover,
+.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic.o-ui-button-hover {
     background-color: var(--o-ui-bg-alias-basic-hover);
 }
 
-/* SOLID | SECONDARY | ACTIVE */
-.o-ui-button-solid.o-ui-button-secondary:not(.o-ui-button-loading):active,
-.o-ui-button-solid.o-ui-button-secondary:not(.o-ui-button-loading):active:hover,
-.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary.o-ui-button-active {
+/* SOLID | BASIC | ACTIVE */
+.o-ui-button-solid.o-ui-button-basic:not(.o-ui-button-loading):active,
+.o-ui-button-solid.o-ui-button-basic:not(.o-ui-button-loading):active:hover,
+.o-ui-button-solid:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic.o-ui-button-active {
     background-color: var(--o-ui-bg-alias-basic-active);
 }
 
@@ -167,22 +167,22 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
 
-/* OUTLINE | SECONDARY */
-.o-ui-button-outline.o-ui-button-secondary {
+/* OUTLINE | BASIC */
+.o-ui-button-outline.o-ui-button-basic {
     box-shadow: 0 0 0 1px var(--o-ui-b-alias-high-contrast) inset;
     color: var(--o-ui-text-alias-primary);
 }
 
-/* OUTLINE | SECONDARY | HOVER */
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary:hover,
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary.o-ui-button-hover {
+/* OUTLINE | BASIC | HOVER */
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic:hover,
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic.o-ui-button-hover {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
-/* OUTLINE | SECONDARY | ACTIVE */
-.o-ui-button-outline.o-ui-button-secondary:not(.o-ui-button-loading):active,
-.o-ui-button-outline.o-ui-button-secondary:not(.o-ui-button-loading):active:hover,
-.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary.o-ui-button-active {
+/* OUTLINE | BASIC | ACTIVE */
+.o-ui-button-outline.o-ui-button-basic:not(.o-ui-button-loading):active,
+.o-ui-button-outline.o-ui-button-basic:not(.o-ui-button-loading):active:hover,
+.o-ui-button-outline:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic.o-ui-button-active {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
@@ -249,21 +249,21 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
 }
 
-/* GHOST | SECONDARY */
-.o-ui-button-ghost.o-ui-button-secondary {
+/* GHOST | BASIC */
+.o-ui-button-ghost.o-ui-button-basic {
     color: var(--o-ui-text-alias-primary);
 }
 
-/* GHOST | SECONDARY | HOVER */
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-secondary:hover,
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover.o-ui-button-secondary {
+/* GHOST | BASIC | HOVER */
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-basic:hover,
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover.o-ui-button-basic {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
-/* GHOST | SECONDARY | ACTIVE */
-.o-ui-button-ghost.o-ui-button-secondary:not(.o-ui-button-loading):active,
-.o-ui-button-ghost.o-ui-button-secondary:not(.o-ui-button-loading):active:hover,
-.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-active.o-ui-button-secondary {
+/* GHOST | BASIC | ACTIVE */
+.o-ui-button-ghost.o-ui-button-basic:not(.o-ui-button-loading):active,
+.o-ui-button-ghost.o-ui-button-basic:not(.o-ui-button-loading):active:hover,
+.o-ui-button-ghost:not([disabled]):not(.o-ui-button-loading).o-ui-button-active.o-ui-button-basic {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
