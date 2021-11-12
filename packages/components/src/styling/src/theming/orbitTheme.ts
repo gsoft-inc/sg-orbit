@@ -56,7 +56,7 @@ export interface ColorPaletteSection {
     "success": ColorPalette;
     "neutral": ColorPalette;
     "orange": ColorPalette;
-    "primary": ColorPalette;
+    "accent": ColorPalette;
 }
 
 type AliasValue =

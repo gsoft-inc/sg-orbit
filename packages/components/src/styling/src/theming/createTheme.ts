@@ -198,7 +198,7 @@ export function createTheme({
         light,
         dark
     }
-}: CreateThemeProps) {
+}: CreateThemeProps): OrbitTheme {
     return {
         ...ThemeBase,
         name,
@@ -213,5 +213,5 @@ export function createTheme({
             light,
             dark
         }
-    } as OrbitTheme;
+    } ;
 }
