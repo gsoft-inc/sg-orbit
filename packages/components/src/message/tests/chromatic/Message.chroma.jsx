@@ -96,28 +96,28 @@ stories()
         </Stack>
     );
 
-["informative", "warning", "positive", "negative"].forEach(variant => {
+["informative", "warning", "positive", "negative"].forEach(tone => {
     stories()
-        .add(variant, () =>
+        .add(tone, () =>
             <Stack>
-                <Message variant={variant} onDismiss={() => {}}>
+                <Message tone={tone} onDismiss={() => {}}>
                     <Content>
                         <strong>Scheduled launch</strong> today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.
                     </Content>
                 </Message>
-                <Message variant={variant} onDismiss={() => {}}>
+                <Message tone={tone} onDismiss={() => {}}>
                     A launch is scheduled today at 1PM.
                 </Message>
-                <Message variant={variant}>
+                <Message tone={tone}>
                     A launch is scheduled today at 1PM.
                 </Message>
-                <Message variant={variant} onDismiss={() => {}}>
+                <Message tone={tone} onDismiss={() => {}}>
                     <Content>
                         <Heading>Scheduled launch</Heading>
                         <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>
                     </Content>
                 </Message>
-                <Message variant={variant} onDismiss={() => {}}>
+                <Message tone={tone} onDismiss={() => {}}>
                     <Content>
                         <Heading>Scheduled launch</Heading>
                         <Paragraph>A launch is scheduled today at 1PM. <TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Paragraph>

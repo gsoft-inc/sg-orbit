@@ -56,7 +56,7 @@ export interface InnerMessageProps extends InternalProps, StyledComponentProps<t
     /**
      * The style to use.
      */
-    variant?: "informative" | "warning" | "positive" | "negative";
+    tone?: "informative" | "warning" | "positive" | "negative";
 }
 
 const Role = {
@@ -80,7 +80,7 @@ export function InnerMessage({
     onDismiss,
     role: roleProp,
     show = true,
-    variant = "informative",
+    tone = "informative",
     ...rest
 }: InnerMessageProps) {
     const ref = useMergedRefs(forwardedRef);
@@ -102,7 +102,7 @@ export function InnerMessage({
         }
     }), []));
 
-    const iconMarkup = augmentElement(Icon[variant], {
+    const iconMarkup = augmentElement(Icon[tone], {
         className: "o-ui-message-icon"
     });
 
@@ -124,12 +124,12 @@ export function InnerMessage({
                     as,
                     className: cssModule(
                         "o-ui-message",
-                        variant
+                        tone
                     ),
                     enter: "o-ui-fade-in",
                     leave: "o-ui-fade-out",
                     ref,
-                    role: (roleProp ?? Role[variant]) ?? "alert",
+                    role: (roleProp ?? Role[tone]) ?? "alert",
                     show
                 }
             )}
