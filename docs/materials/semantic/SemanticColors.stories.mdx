@@ -45,7 +45,7 @@ This affects the CSS `color` property.
 This affects the CSS `background-color` property.
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <SemanticColorTable
         colors={[
             { shade: "Default", value: "alias-default", variable: "--o-ui-bg-alias-default", usage: "Default Background", itemRenderer: backgroundRenderer },
             { shade: "Side Nav", value: "alias-side-nav", variable: "--o-ui-bg-side-nav", usage: "", itemRenderer: backgroundRenderer},
@@ -77,7 +77,7 @@ This affects the CSS `background-color` property.
 ## Border
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <SemanticColorTable
         colors={[
             { shade: "Low Contrast", value: "alias-low-contrast", variable: "o-ui-alias-low-contrast" , usage: "x", itemRenderer: borderRenderer},
             { shade: "Mid Contrast", value: "alias-mid-contrast", variable: "o-ui-alias-mid-contrast" , usage: "x", itemRenderer: borderRenderer},
