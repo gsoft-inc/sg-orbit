@@ -1,7 +1,7 @@
 import { Table } from "@stories/components";
-import { Div } from "@components/html";
+import { Span, Div } from "@components/html";
 import { H2 } from "@components/typography";
-import { arrayOf, shape, string } from "prop-types";
+import { func, arrayOf, shape, string } from "prop-types";
 import { ShareGateTheme, ThemeProvider } from "@components/styling";
 
 const propTypes = {
@@ -9,12 +9,13 @@ const propTypes = {
         shade: string.isRequired,
         value: string.isRequired,
         variable: string.isRequired,
-        color: string.isRequired
+        color: string.isRequired,
+        itemRenderer: func.isRequired
     })).isRequired
 };
 
-export function ColorTable({ colors, itemRenderer }) {
-    function toRowValues({ shade, value, variable, usage }) {
+export function SemanticColorTable({ colors }) {
+    function toRowValues({ shade, value, variable, usage, itemRenderer }) {
         return [
             shade,
             value,
@@ -40,4 +41,16 @@ export function ColorTable({ colors, itemRenderer }) {
     );
 }
 
-ColorTable.propTypes = propTypes;
+export function textRenderer(value) {
+    return <Span color={value}>Test</Span>
+}
+
+export function backgroundRenderer(value) {
+    return <Div height={4} width={4} backgroundColor={value} />
+}
+
+export function borderRenderer(value) {
+    return <Div height={4} width={4} borderBottom={value} />
+}
+
+SemanticColorTable.propTypes = propTypes;
