@@ -32,8 +32,8 @@ export function MenuPresets({
         <MenuTrigger>
             <IconButton
                 aria-label="Date presets"
-                tone="basic"
                 ref={presetButtonRef}
+                tone="basic"
                 variant="outline"
             >
                 <DisclosureArrow />
