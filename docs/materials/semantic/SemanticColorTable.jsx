@@ -1,20 +1,20 @@
 import { Table } from "@stories/components";
 import { Span, Div } from "@components/html";
-import { H2 } from "@components/typography";
 import { func, arrayOf, shape, string } from "prop-types";
 import { ShareGateTheme, ThemeProvider } from "@components/styling";
+import { EmailIcon } from "@components/icons";
 
 const propTypes = {
     colors: arrayOf(shape({
         shade: string.isRequired,
         value: string.isRequired,
         variable: string.isRequired,
-        color: string.isRequired,
         itemRenderer: func.isRequired
     })).isRequired
 };
 
 export function SemanticColorTable({ colors }) {
+
     function toRowValues({ shade, value, variable, usage, itemRenderer }) {
         return [
             shade,
@@ -42,15 +42,19 @@ export function SemanticColorTable({ colors }) {
 }
 
 export function textRenderer(value) {
-    return <Span color={value}>Test</Span>
+    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%"><Span color={value}>Test</Span></Div></Div>
 }
 
 export function backgroundRenderer(value) {
-    return <Div height={4} width={4} backgroundColor={value} />
+    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%" backgroundColor={value}></Div></Div>
 }
 
 export function borderRenderer(value) {
-    return <Div height={4} width={4} borderBottom={value} />
+    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%" border={value}></Div></Div>
+}
+
+export function iconRenderer(value) {
+    return <Div padding={2} height="100%" width="100%"><EmailIcon fill={value}/></Div>
 }
 
 SemanticColorTable.propTypes = propTypes;

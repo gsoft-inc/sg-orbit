@@ -27,7 +27,7 @@
 .o-ui-tile:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]):hover,
 .o-ui-tile-hover:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]) {
     border-color: var(--o-ui-b-alias-mid-contrast);
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
 }
 
 /* FOCUS */
@@ -65,7 +65,7 @@
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
     border-color: var(--o-ui-b-alias-high-contrast);
 }
 

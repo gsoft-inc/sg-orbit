@@ -68,9 +68,9 @@ type AliasValue =
 export interface ColorAliases {
     /* Background */
     "bg-alias-default": AliasValue;
-    "bg-alias-side-nav": AliasValue;
-    "bg-alias-hard-break": AliasValue;
     "bg-alias-soft-break": AliasValue;
+    "bg-alias-mid-break": AliasValue;
+    "bg-alias-hard-break": AliasValue;
     "bg-alias-basic": AliasValue;
     "bg-alias-basic-hover": AliasValue;
     "bg-alias-basic-active": AliasValue;
@@ -137,7 +137,7 @@ export interface ColorAliases {
     "icon-alias-warning": AliasValue;
     "icon-alias-success": AliasValue;
     "icon-alias-static-white": AliasValue;
-    "icon-alias-static-black": AliasValue;
+    "icon-alias-static-neutral-10": AliasValue;
     /* Text */
     "text-alias-primary": AliasValue;
     "text-alias-primary-hover": AliasValue;
@@ -151,7 +151,7 @@ export interface ColorAliases {
     "text-alias-warning": AliasValue;
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
-    "text-alias-static-black": AliasValue;
+    "text-alias-static-neutral-10": AliasValue;
     "text-alias-input-placeholder": AliasValue;
 }
 

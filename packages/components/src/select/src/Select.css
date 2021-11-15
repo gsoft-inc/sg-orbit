@@ -48,18 +48,18 @@
 /* TRIGGER | GHOST | STATE | FOCUS */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus-visible {
-    background: var(--o-ui-bg-alias-soft-break);
+    background: var(--o-ui-bg-alias-mid-break);
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
 }
 
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
-    background: var(--o-ui-bg-alias-soft-break);
+    background: var(--o-ui-bg-alias-mid-break);
 }
 
 /* TRIGGER | GHOST | STATE | HOVER */
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-hover,
 .o-ui-select-trigger-ghost:not([disabled]):hover {
-    background: var(--o-ui-bg-alias-soft-break);
+    background: var(--o-ui-bg-alias-mid-break);
 }
 
 /* TRIGGER | GHOST | PLACEHOLDER / VALUE */

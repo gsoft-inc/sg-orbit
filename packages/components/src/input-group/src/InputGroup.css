@@ -78,7 +78,7 @@
     border-radius: var(--o-ui-shape-rounded);
     border: 1px solid var(--o-ui-b-alias-mid-contrast);
     color: var(--o-ui-text-alias-primary);
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
     flex-shrink: 0;
 }
 

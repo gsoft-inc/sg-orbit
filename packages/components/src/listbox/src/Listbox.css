@@ -84,7 +84,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 .o-ui-listbox-option:focus,
 .o-ui-listbox-option-focus,
 .o-ui-listbox-option.o-ui-focus {
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
     outline: none;
 }
 
@@ -104,7 +104,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 /* OPTION | STATE | HOVER */
 .o-ui-listbox-option:not([aria-disabled="true"]):not(.o-ui-listbox-option-no-hover):hover,
 .o-ui-listbox-option-hover:not([aria-disabled="true"]) {
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
 }
 
 /* OPTION | STATE | INVALID */

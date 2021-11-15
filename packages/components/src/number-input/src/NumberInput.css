@@ -79,7 +79,7 @@
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-soft-break);
+    background-color: var(--o-ui-bg-alias-mid-break);
 }
 
 /* SPINNER | DISABLED */

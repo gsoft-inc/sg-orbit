@@ -182,9 +182,9 @@ const Colors = [
 
 const BackgroundColorAliases = [
     "alias-default",
-    "alias-side-nav",
-    "alias-hard-break",
     "alias-soft-break",
+    "alias-hard-break",
+    "alias-mid-break",
     "alias-basic",
     "alias-basic-hover",
     "alias-basic-active",
@@ -257,7 +257,7 @@ const IconColorAliases = [
     "alias-warning",
     "alias-success",
     "alias-static-white",
-    "alias-static-black"
+    "alias-static-neutral-10"
 ] as const;
 
 const TextColorAliases = [
@@ -273,7 +273,7 @@ const TextColorAliases = [
     "alias-warning",
     "alias-success",
     "alias-static-white",
-    "alias-static-black",
+    "alias-static-neutral-10",
     "alias-input-placeholder"
 ] as const;
 

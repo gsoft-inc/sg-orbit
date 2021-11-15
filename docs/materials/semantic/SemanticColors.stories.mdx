@@ -1,4 +1,4 @@
-import { SemanticColorTable, textRenderer, backgroundRenderer, borderRenderer } from "./SemanticColorTable";
+import { SemanticColorTable, textRenderer, backgroundRenderer, borderRenderer, iconRenderer } from "./SemanticColorTable";
 import { Meta } from "@storybook/addon-docs";
 import { Tagline } from "@stories/components";
 import { Div } from "@components/html";
@@ -21,79 +21,104 @@ When used in a Styled System prop there's no need to specify what property it af
 
 ## Text
 
-This affects the CSS `color` property.
+This affects the `color` CSS property.
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
     <SemanticColorTable
         colors={[
-            { shade: "Primary", value: "alias-primary", variable: "--o-ui-text-alias-primary", usage: "Headers", itemRenderer: textRenderer },
+            { shade: "Primary", value: "alias-primary", variable: "--o-ui-text-alias-primary", usage: "Headings", itemRenderer: textRenderer },
             { shade: "Secondary", value: "alias-secondary", variable: "--o-ui-text-alias-secondary", usage: "Body", itemRenderer: textRenderer },
-            { shade: "Tertiary", value: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", usage: "Details", itemRenderer: textRenderer },
+            { shade: "Tertiary", value: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", usage: "Short texts, labels", itemRenderer: textRenderer },
             { shade: "Inactive", value: "alias-inactive", variable: "--o-ui-text-alias-inactive", usage: "Table header, placeholder, disabled state", itemRenderer: textRenderer },
             { shade: "Accent", value: "alias-accent", variable: "--o-ui-text-alias-accent", usage: "", itemRenderer: textRenderer },
-            { shade: "Alert", value: "alias-alert", variable: "--o-ui-text-alias-alert", usage: "", itemRenderer: textRenderer },
-            { shade: "Warning", value: "alias-warning", variable: "--o-ui-text-alias-warning", usage: "", itemRenderer: textRenderer },
-            { shade: "Success", value: "alias-success", variable: "--o-ui-text-alias-success", usage: "", itemRenderer: textRenderer },
-            { shade: "Static Black", value: "alias-static-black", variable: "--o-ui-text-alias-static-black", usage: "Texts that do not change colors depending on theming", itemRenderer: textRenderer },
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-text-alias-alert", usage: "Alert the user of a problem.", itemRenderer: textRenderer },
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-text-alias-warning", usage: "Warn the user about a possible problem.", itemRenderer: textRenderer },
+            { shade: "Success", value: "alias-success", variable: "--o-ui-text-alias-success", usage: "Notify the user about a positive outcome.", itemRenderer: textRenderer },
+            { shade: "Static Neutral", value: "alias-static-neutral-10", variable: "--o-ui-text-alias-static-neutral-10", usage: "Texts that do not change colors depending on theming", itemRenderer: textRenderer },
             { shade: "Static White", value: "alias-static-white", variable: "--o-ui-text-alias-static-white", usage: "Texts that do not change colors depending on theming", itemRenderer: textRenderer }
+        ]}
+    />
+</ThemeProvider>
+
+## Icon
+
+This affects the `fill` CSS property.
+
+<ThemeProvider theme={ShareGateTheme} colorScheme="light">
+    <SemanticColorTable
+        colors={[
+            { shade: "Primary", value: "alias-primary", variable: "--o-ui-text-alias-primary", usage: "Headings", itemRenderer: iconRenderer },
+            { shade: "Secondary", value: "alias-secondary", variable: "--o-ui-text-alias-secondary", usage: "Body", itemRenderer: iconRenderer },
+            { shade: "Tertiary", value: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", usage: "Short texts, labels", itemRenderer: iconRenderer },
+            { shade: "Inactive", value: "alias-inactive", variable: "--o-ui-text-alias-inactive", usage: "Table header, placeholder, disabled state", itemRenderer: iconRenderer },
+            { shade: "Accent", value: "alias-accent", variable: "--o-ui-text-alias-accent", usage: "", itemRenderer: iconRenderer },
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-text-alias-alert", usage: "Alert the user of a problem.", itemRenderer: iconRenderer },
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-text-alias-warning", usage: "Warn the user about a possible problem.", itemRenderer: iconRenderer },
+            { shade: "Success", value: "alias-success", variable: "--o-ui-text-alias-success", usage: "Notify the user about a positive outcome.", itemRenderer: iconRenderer },
+            { shade: "Static Neutral", value: "alias-static-neutral-10", variable: "--o-ui-text-alias-static-neutral-10", usage: "Texts that do not change colors depending on theming", itemRenderer: iconRenderer },
+            { shade: "Static White", value: "alias-static-white", variable: "--o-ui-text-alias-static-white", usage: "Texts that do not change colors depending on theming", itemRenderer: iconRenderer }
         ]}
     />
 </ThemeProvider>
 
 ## Background
 
-This affects the CSS `background-color` property.
+This affects the `background-color`CSS property.
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
     <SemanticColorTable
         colors={[
             { shade: "Default", value: "alias-default", variable: "--o-ui-bg-alias-default", usage: "Default Background", itemRenderer: backgroundRenderer },
-            { shade: "Side Nav", value: "alias-side-nav", variable: "--o-ui-bg-side-nav", usage: "", itemRenderer: backgroundRenderer},
-            { shade: "Soft Break", value: "alias-soft-break", variable: "--o-ui-bg-soft-break", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Hard Break", value: "alias-hard-break", variable: "--o-ui-bg-hard-break", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Hard Break", value: "alias-hard-break", variable: "--o-ui-bg-hard-break", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Basic", value: "alias-basic", variable: "--o-ui-bg-alias-basic", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Basic Transparent", value: "alias-basic-transpaent", variable: "--o-ui-bg-alias-basic-transparent", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Static White", value: "alias-static-white", variable: "--o-ui-bg-alias-static-white", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Accent", value: "alias-accent", variable: "--o-ui-bg-alias-accent", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Accent Faint", value: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Accent Light", value: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Accent Transparent", value: "alias-accent-transparent", variable: "--o-ui-bg-alias-accent-transparent", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Alert", value: "alias-alert", variable: "--o-ui-bg-alias-alert", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Alert Faint", value: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Alert Light", value: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Alert Transparent", value: "alias-alert-transparent", variable: "--o-ui-bg-alias-alert-transparent", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Warning", value: "alias-warning", variable: "--o-ui-bg-alias-warning", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Warning Faint", value: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Warning Light", value: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Success", value: "alias-success", variable: "--o-ui-bg-alias-success", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Success Faint", value: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Success Light", value: "alias-success-light", variable: "--o-ui-bg-alias-success-light", usage: "", itemRenderer: backgroundRenderer },
-            { shade: "Transparent", value: "alias-transparent", variable: "--o-ui-bg-alias-transparent", usage: "", itemRenderer: backgroundRenderer }
+            { shade: "Soft Break", value: "alias-soft-break", variable: "--o-ui-bg-soft-break", usage: "Side nav", itemRenderer: backgroundRenderer},
+            { shade: "Mid Break", value: "alias-mid-break", variable: "--o-ui-bg-mid-break", usage: "Selected Tiles, Zebra tables, Neutral banners, app background ", itemRenderer: backgroundRenderer },
+            { shade: "Hard Break", value: "alias-hard-break", variable: "--o-ui-bg-hard-break", usage: "Toggle (Off)", itemRenderer: backgroundRenderer },
+            { shade: "Basic", value: "alias-basic", variable: "--o-ui-bg-alias-basic", usage: "Basic button", itemRenderer: backgroundRenderer },
+            { shade: "Basic Transparent Hover", value: "alias-basic-transparent-hover", variable: "--o-ui-bg-alias-basic-transparent-hover", usage: "Basic button hover state", itemRenderer: backgroundRenderer },
+            { shade: "Basic Transparent Active", value: "alias-basic-transparent-active", variable: "--o-ui-bg-alias-basic-transparent-active", usage: "Basic button active state", itemRenderer: backgroundRenderer },
+            { shade: "Static White", value: "alias-static-white", variable: "--o-ui-bg-alias-static-white", usage: "Toggle", itemRenderer: backgroundRenderer },
+            { shade: "Accent", value: "alias-accent", variable: "--o-ui-bg-alias-accent", usage: "Accent button/Tabs/Listbox highlight", itemRenderer: backgroundRenderer },
+            { shade: "Accent Faint", value: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", usage: "Banner background", itemRenderer: backgroundRenderer },
+            { shade: "Accent Light", value: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", usage: "Info message background", itemRenderer: backgroundRenderer },
+            { shade: "Accent Transparent Hover", value: "alias-accent-transparent-hover", variable: "--o-ui-bg-alias-accent-transparent-hover", usage: "", itemRenderer: backgroundRenderer },
+            { shade: "Accent Transparent Active", value: "alias-accent-transparent-active", variable: "--o-ui-bg-alias-accent-transparent-active", usage: "", itemRenderer: backgroundRenderer },
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-bg-alias-alert", usage: "Alert the user of a problem.", itemRenderer: backgroundRenderer },
+            { shade: "Alert Faint", value: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", usage: "Banner background", itemRenderer: backgroundRenderer },
+            { shade: "Alert Light", value: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", usage: "Critical message background", itemRenderer: backgroundRenderer },
+            { shade: "Alert Transparent Hover", value: "alias-alert-transparent-hover", variable: "--o-ui-bg-alias-alert-transparent-hover", usage: "", itemRenderer: backgroundRenderer },
+            { shade: "Alert Transparent Active", value: "alias-alert-transparent-active", variable: "--o-ui-bg-alias-alert-transparent-active", usage: "", itemRenderer: backgroundRenderer },
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-bg-alias-warning", usage: "Warn the user about a possible problem.", itemRenderer: backgroundRenderer },
+            { shade: "Warning Faint", value: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", usage: "Banner background", itemRenderer: backgroundRenderer },
+            { shade: "Warning Light", value: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", usage: "Warning message background", itemRenderer: backgroundRenderer },
+            { shade: "Success", value: "alias-success", variable: "--o-ui-bg-alias-success", usage: "Notify the user about a positive outcome.", itemRenderer: backgroundRenderer },
+            { shade: "Success Faint", value: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", usage: "Notify the user about a positive outcome.", itemRenderer: backgroundRenderer },
+            { shade: "Success Light", value: "alias-success-light", variable: "--o-ui-bg-alias-success-light", usage: "Notify the user about a positive outcome.", itemRenderer: backgroundRenderer },
+            { shade: "Transparent", value: "alias-transparent", variable: "--o-ui-bg-alias-transparent", usage: "Ghost/Cross button", itemRenderer: backgroundRenderer }
         ]}
     />
 </ThemeProvider>
 
-## Border
+## Stroke
+
+This affects the `border-color` CSS property.
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
     <SemanticColorTable
         colors={[
-            { shade: "Low Contrast", value: "alias-low-contrast", variable: "o-ui-alias-low-contrast" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Mid Contrast", value: "alias-mid-contrast", variable: "o-ui-alias-mid-contrast" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "High Contrast", value: "alias-high-contrast", variable: "o-ui-alias-high-contrast" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Accent", value: "alias-accent", variable: "o-ui-alias-accent" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Accent Hover", value: "alias-accent-hover", variable: "o-ui-alias-accent-hover" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Accent Active", value: "alias-accent-active", variable: "o-ui-alias-accent-active" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Alert", value: "alias-alert", variable: "o-ui-alias-alert" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Alert Hover", value: "alias-alert-hover", variable: "o-ui-alias-alert-hover" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Alert Active", value: "alias-alert-active", variable: "o-ui-alias-alert-active" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Warning", value: "alias-warning", variable: "o-ui-alias-warning" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Warning Hover", value: "alias-warning-hover", variable: "o-ui-alias-warning-hover" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Warning Active", value: "alias-warning-active", variable: "o-ui-alias-warning-active" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Success", value: "alias-success", variable: "o-ui-alias-success" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Success Hover", value: "alias-success-hover", variable: "o-ui-alias-success-hover" , usage: "x", itemRenderer: borderRenderer},
-            { shade: "Success Active", value: "alias-success-active", variable: "o-ui-alias-success-active", usage: "x", itemRenderer: borderRenderer }
+            { shade: "Low Contrast", value: "alias-low-contrast", variable: "--o-ui-b-alias-low-contrast" , usage: "Dividers/Separating lines, Card/Tile/Tooltip/Popover outlines", itemRenderer: borderRenderer},
+            { shade: "Mid Contrast", value: "alias-mid-contrast", variable: "--o-ui-b-alias-mid-contrast" , usage: "Input/Select/Radio/Checkbox default outlines", itemRenderer: borderRenderer},
+            { shade: "High Contrast", value: "alias-high-contrast", variable: "--o-ui-b-alias-high-contrast" , usage: "Input/Select/Tile outline when in active state, Button Outline (Outlined)", itemRenderer: borderRenderer},
+            { shade: "Accent", value: "alias-accent", variable: "--o-ui-b-alias-accent" , usage: "Button Outline (Outlined)", itemRenderer: borderRenderer},
+            { shade: "Accent Hover", value: "alias-accent-hover", variable: "--o-ui-b-alias-accent-hover" , usage: "Button hover state", itemRenderer: borderRenderer},
+            { shade: "Accent Active", value: "alias-accent-active", variable: "--o-ui-b-alias-accent-active" , usage: "Button active state", itemRenderer: borderRenderer},
+            { shade: "Alert", value: "alias-alert", variable: "--o-ui-b-alias-alert" , usage: "Button Outline (Outlined)", itemRenderer: borderRenderer},
+            { shade: "Alert Hover", value: "alias-alert-hover", variable: "--o-ui-b-alias-alert-hover" , usage: "Button hover state", itemRenderer: borderRenderer},
+            { shade: "Alert Active", value: "alias-alert-active", variable: "--o-ui-b-alias-alert-active" , usage: "Button active state", itemRenderer: borderRenderer},
+            { shade: "Warning", value: "alias-warning", variable: "--o-ui-b-alias-warning" , usage: "Button active state", itemRenderer: borderRenderer},
+            { shade: "Warning Hover", value: "alias-warning-hover", variable: "--o-ui-b-alias-warning-hover" , usage: "Button hover state", itemRenderer: borderRenderer},
+            { shade: "Warning Active", value: "alias-warning-active", variable: "--o-ui-b-alias-warning-active" , usage: "Button active state", itemRenderer: borderRenderer},
+            { shade: "Success", value: "alias-success", variable: "--o-ui-b-alias-success" , usage: "Button Outline (Outlined)", itemRenderer: borderRenderer},
+            { shade: "Success Hover", value: "alias-success-hover", variable: "--o-ui-b-alias-success-hover" , usage: "Button hover state", itemRenderer: borderRenderer},
+            { shade: "Success Active", value: "alias-success-active", variable: "--o-ui-b-alias-success-active", usage: "Button active state", itemRenderer: borderRenderer }
         ]}
     />
 </ThemeProvider>

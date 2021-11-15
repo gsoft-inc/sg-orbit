@@ -38,12 +38,12 @@ stories()
     )
     .add("light", () =>
         <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            <Box padding={4} backgroundColor="alias-soft-break" />
+            <Box padding={4} backgroundColor="alias-mid-break" />
         </ThemeProvider>
     )
     .add("dark", () =>
         <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-            <Box padding={4} backgroundColor="alias-soft-break" />
+            <Box padding={4} backgroundColor="alias-mid-break" />
         </ThemeProvider>
     )
     .add("set color scheme with api", () => {
@@ -61,7 +61,7 @@ stories()
         return (
             <ThemeProvider theme={ShareGateTheme} colorScheme="light">
                 <SwitchColorScheme />
-                <Box padding={4} backgroundColor="alias-soft-break" />
+                <Box padding={4} backgroundColor="alias-mid-break" />
             </ThemeProvider>
         );
     });

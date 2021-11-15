@@ -1,7 +1,7 @@
 .o-ui-date-range-input {
     --o-ui-date-range-input-padding: var(--o-ui-sp-3);
     --o-ui-date-range-input-border-color: var(--o-ui-b-alias-mid-contrast);
-    --o-ui-date-range-input-background-color: var(--o-ui-bg-alias-soft-break);
+    --o-ui-date-range-input-background-color: var(--o-ui-bg-alias-mid-break);
     display: inline-flex;
     align-items: center;
     position: relative;
