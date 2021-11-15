@@ -72,10 +72,10 @@ export function createTextLinkTestSuite(element, stories) {
                 <TextLink variant="primary" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
-        .add("secondary", () =>
+        .add("accent", () =>
             <Inline alignY="end">
-                <TextLink variant="secondary" size="sm" href="#" element={element}>Flight details</TextLink>
-                <TextLink variant="secondary" href="#" element={element}>Flight details</TextLink>
+                <TextLink variant="accent" size="sm" href="#" element={element}>Flight details</TextLink>
+                <TextLink variant="accent" href="#" element={element}>Flight details</TextLink>
             </Inline>
         )
         .add("negative", () =>

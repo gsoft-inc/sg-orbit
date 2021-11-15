@@ -27,10 +27,10 @@ export function createIconLinkTestSuite(element, stories) {
                 <IconLink variant="primary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
-        .add("secondary", () =>
+        .add("accent", () =>
             <Inline alignY="end">
-                <IconLink variant="secondary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink variant="secondary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="accent" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="accent" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("negative", () =>
