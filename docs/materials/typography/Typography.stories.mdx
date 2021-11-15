@@ -1,6 +1,6 @@
 import { Figure, Table, Tagline } from "@stories/components";
 import { Meta } from "@storybook/addon-docs";
-import { Heading, Paragraph, Text } from "@components/typography";
+import { H1, Paragraph, Text } from "@components/typography";
 
 <Meta
     title="Materials/Typography"
@@ -27,9 +27,9 @@ In order to keep consistency and [vertical-rhythm](https://8thlight.com/blog/chr
 
 <Figure url="https://raw.githubusercontent.com/gsoft-inc/sg-orbit/master/docs/materials/typography/assets/vertical-rythm-in-action.png" caption="Vertical rythm in action" width="465" height="87"/>
 
-### Headlines
+### Headings
 
-Headlines are the largest text on the screen, reserved for short, important text or numerals. When you add an headline to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. Luckily, you don't have to remember these as a [Heading](?path=/docs/heading--element-type) compoment is available and should be used.
+Headings are the largest text on the screen, reserved for short, important text or numerals. When you add an heading to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. Luckily, you don't have to remember these as a [Heading](?path=/docs/heading--default-story) compoment is available and should be used.
 
 <Table
     columns={[
@@ -39,18 +39,18 @@ Headlines are the largest text on the screen, reserved for short, important text
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f9", "lh5", "500", <Heading as="h1" fontWeight={5} fontSize={9} lineHeight={5}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
-        ["f8", "lh5", "500", <Heading as="h1" fontWeight={5} fontSize={8} lineHeight={5}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
-        ["f7", "lh4", "500", <Heading as="h1" fontWeight={5} fontSize={7} lineHeight={4}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
-        ["f6", "lh4", "500", <Heading as="h1" fontWeight={5} fontSize={6} lineHeight={4}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
-        ["f5", "lh3", "500", <Heading as="h1" fontWeight={5} fontSize={5} lineHeight={3}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>],
-        ["f4", "lh5", "500", <Heading as="h1" fontWeight={5} fontSize={4} lineHeight={5}>That’s one small step for man,<br/>one giant leap for mankind.</Heading>]
+        ["9", "5", "5", <H1 size="xl">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["8", "5", "5", <H1 size="lg">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["7", "4", "5", <H1 size="md">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["6", "4", "5", <H1 size="sm">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["5", "3", "5", <H1 size="xs">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["4", "5", "5", <H1 size="2xs">That’s one small step for man,<br/>one giant leap for mankind.</H1>]
     ]}
 />
 
-### Body
+### Paragraph
 
-Body text is typically used for long-form writing as it works well for small text sizes. When you add body text to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. A more convenient option is avalaible, which is the [Paragraph](?path=/docs/paragraph--size) component.
+Paragraphs are typically used for long-form writing as it works well for small text sizes. When you add a paragraph to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. A more convenient option is avalaible, which is the [Paragraph](?path=/docs/paragraph--size) component.
 
 <Table
     columns={[
@@ -60,12 +60,12 @@ Body text is typically used for long-form writing as it works well for small tex
         { title: "", headerStyle: { width: "600px" } }
     ]}
     rows={[
-        ["f1", "lh4", "fw4", <Paragraph fontSize={1} lineHeight={4}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
-        ["f2", "lh3", "fw4", <Paragraph fontSize={2} lineHeight={3}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
-        ["f3", "lh5", "fw4", <Paragraph fontSize={3} lineHeight={5}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
-        ["f4", "lh4", "fw4", <Paragraph fontSize={4} lineHeight={4}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
-        ["f5", "lh3", "fw4", <Paragraph fontSize={5} lineHeight={3}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
-        ["f6", "lh2", "fw4", <Paragraph fontSize={6} lineHeight={2}>If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>]
+        ["1", "4", "4", <Paragraph size="xs">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["2", "3", "4", <Paragraph size="sm">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["3", "5", "4", <Paragraph size="md">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["4", "4", "4", <Paragraph size="lg">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["5", "3", "4", <Paragraph size="xl">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["6", "2", "4", <Paragraph size="2xl">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>]
     ]}
 />
 

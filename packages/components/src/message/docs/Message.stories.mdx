@@ -77,7 +77,7 @@ Use an informative message to notify a user of a change that's relevant for them
 
 <Preview>
     <Story name="informative">
-        <Message variant="informative" onDismiss={() => {}}>
+        <Message tone="informative" onDismiss={() => {}}>
             <Content>We offer the safest space travel of the industry!</Content>
             <Button>Book now</Button>
         </Message>
@@ -90,7 +90,7 @@ Use a warning message to help a user avoid an issue.
 
 <Preview>
     <Story name="warning">
-        <Message variant="warning" onDismiss={() => {}}>
+        <Message tone="warning" onDismiss={() => {}}>
             <Content>We are having trouble contacting the email server.</Content>
             <Button>Retry</Button>
         </Message>
@@ -103,7 +103,7 @@ Use a positive message to inform a user that an action has completed successfuly
 
 <Preview>
     <Story name="positive">
-        <Message variant="positive" onDismiss={() => {}}>
+        <Message tone="positive" onDismiss={() => {}}>
             <Content>Your email to <strong>booking@spacetravel.com</strong> has been sent!</Content>
             <Button>Undo</Button>
         </Message>
@@ -116,7 +116,7 @@ Use a negative message to help a user understand a critical issue at the system 
 
 <Preview>
     <Story name="negative">
-        <Message variant="negative" onDismiss={() => {}}>
+        <Message tone="negative" onDismiss={() => {}}>
             <Content>Cannot contact email server.</Content>
             <Button>Retry</Button>
         </Message>
