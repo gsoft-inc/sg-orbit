@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useMemo, useState } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRenderRef } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -39,7 +39,7 @@ export function InnerTransition({
 }: InnerTransitionProps) {
     const [isVisible, setIsVisible] = useState(show);
 
-    const isInitialRenderRef = useIsInitialRenderRef();
+    const isInitialRenderRef = useIsInitialRender();
 
     useEffect(() => {
         if (show) {

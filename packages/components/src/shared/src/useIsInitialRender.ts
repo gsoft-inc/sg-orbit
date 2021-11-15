@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRefState } from "./useRefState";
 
-export function useIsInitialRenderRef() {
+export function useIsInitialRender() {
     const [isInitialRef, setIsInitial] = useRefState(true);
 
     useEffect(() => {

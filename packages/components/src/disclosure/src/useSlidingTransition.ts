@@ -61,7 +61,7 @@ export function useSlidingTransition(isOpen: boolean, ref: RefObject<any>): Slid
     const slideUp = useCallback(() => { dispatch(ActionType.slideUp); }, [dispatch]);
     const completeTransition = useCallback(() => { dispatch(ActionType.completeTransition); }, [dispatch]);
 
-    const isInitialRender = useCommittedRef(useIsInitialRender());
+    const isInitialRender = useCommittedRef(useIsInitialRender().current);
 
     useEffect(() => {
         if (!isInitialRender.current) {
