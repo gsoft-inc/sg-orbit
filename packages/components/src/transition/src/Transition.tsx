@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef, useEffect, useState } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef, useEffect, useMemo, useState } from "react";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useCommittedRef, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -39,7 +39,7 @@ export function InnerTransition({
 }: InnerTransitionProps) {
     const [isVisible, setIsVisible] = useState(show);
 
-    const isInitialRender = useIsInitialRender();
+    const isInitialRender = useCommittedRef(useIsInitialRender());
 
     useEffect(() => {
         if (show) {
@@ -57,6 +57,14 @@ export function InnerTransition({
     const isAnimationDisabled = Transition.disableAnimation;
     const shouldRender = isAnimationDisabled ? show : isVisible;
 
+    const className = useMemo(() => {
+        return show
+            ? isInitialRender.current
+                ? animateFirstRender ? enter : undefined
+                : enter
+            : leave;
+    }, [isInitialRender, animateFirstRender, enter, leave, show]);
+
     if (!shouldRender) {
         return null;
     }
@@ -67,11 +75,7 @@ export function InnerTransition({
                 rest,
                 {
                     as,
-                    className: show
-                        ? isInitialRender
-                            ? animateFirstRender ? enter : undefined
-                            : enter
-                        : leave,
+                    className,
                     onAnimationEnd: !isAnimationDisabled ? handleAnimationEnd : undefined,
                     ref: forwardedRef
                 }
