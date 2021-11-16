@@ -48,7 +48,7 @@ export function useGroupField({
 
     // HACK: We are always rendering the ids on the first render since we can only assert if there are specific children on the second re-render
     // which can break the constraints of some components (like a TextInput).
-    const isInitialRender = useIsInitialRender().current;
+    const isInitialRender = useIsInitialRender();
 
     const labelId = hasLabel || isInitialRender ? `${fieldId}-label` : undefined;
     const inputId = hasLabel || isInitialRender ? `${fieldId}-input` : undefined;

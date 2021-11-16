@@ -8,5 +8,5 @@ export function useIsInitialRender() {
         setIsInitial(false);
     }, [setIsInitial]);
 
-    return isInitialRef;
+    return isInitialRef.current;
 }

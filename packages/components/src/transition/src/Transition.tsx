@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useEffect, useMemo, useState } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useEventCallback, useIsInitialRender } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, isNilOrEmpty, mergeProps, useCommittedRef, useEventCallback, useIsInitialRender } from "../../shared";
 
 const DefaultElement = "div";
 
@@ -39,7 +39,7 @@ export function InnerTransition({
 }: InnerTransitionProps) {
     const [isVisible, setIsVisible] = useState(show);
 
-    const isInitialRenderRef = useIsInitialRender();
+    const isInitialRender = useCommittedRef(useIsInitialRender());
 
     useEffect(() => {
         if (show) {
@@ -59,11 +59,11 @@ export function InnerTransition({
 
     const className = useMemo(() => {
         return show
-            ? isInitialRenderRef.current
+            ? isInitialRender.current
                 ? animateFirstRender ? enter : undefined
                 : enter
             : leave;
-    }, [show, leave, enter, isInitialRenderRef, animateFirstRender]);
+    },[isInitialRender, animateFirstRender, enter, leave, show]);
 
     if (!shouldRender) {
         return null;
@@ -97,3 +97,5 @@ export type TransitionProps = ComponentProps<typeof Transition>;
 // Jest tests requires to disable the animation because "onAnimationEnd" is never fired. I can't figure out why.
 // @ts-ignore
 Transition.disableAnimation = false;
+
+
