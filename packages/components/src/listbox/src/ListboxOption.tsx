@@ -107,7 +107,7 @@ export function InnerListboxOption({
         avatar: (avatarElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-avatar",
-                size: isNil(slotElements.description) ? "2xs" : "md"
+                size: isNil(slotElements.description) ? "2xs" : "sm"
             };
         },
         description: {

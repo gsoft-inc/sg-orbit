@@ -3412,7 +3412,7 @@ Array [
   <div
     style={
       Object {
-        "color": "var(--o-ui-text-alias-inactive)",
+        "color": "var(--o-ui-text-alias-accent)",
       }
     }
   />,
@@ -3420,7 +3420,7 @@ Array [
     className="o-ui-c-active"
     style={
       Object {
-        "--o-ui-c-active": "var(--o-ui-text-alias-inactive)",
+        "--o-ui-c-active": "var(--o-ui-text-alias-accent)",
       }
     }
   />,
@@ -3428,7 +3428,7 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
-        "--o-ui-c-focus": "var(--o-ui-text-alias-inactive)",
+        "--o-ui-c-focus": "var(--o-ui-text-alias-accent)",
       }
     }
   />,
@@ -3436,7 +3436,7 @@ Array [
     className="o-ui-c-hover"
     style={
       Object {
-        "--o-ui-c-hover": "var(--o-ui-text-alias-inactive)",
+        "--o-ui-c-hover": "var(--o-ui-text-alias-accent)",
       }
     }
   />,
@@ -3486,7 +3486,7 @@ Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-icon-alias-inactive)",
+        "fill": "var(--o-ui-icon-alias-accent)",
       }
     }
   />,
@@ -3494,7 +3494,7 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-icon-alias-inactive)",
+        "--o-ui-f-focus": "var(--o-ui-icon-alias-accent)",
       }
     }
   />,
@@ -3502,7 +3502,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-icon-alias-inactive)",
+        "--o-ui-f-hover": "var(--o-ui-icon-alias-accent)",
       }
     }
   />,
@@ -4002,7 +4002,7 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-icon-alias-inactive)",
+        "stroke": "var(--o-ui-icon-alias-accent)",
       }
     }
   />,
@@ -29142,13 +29142,6 @@ Array [
   <div
     style={
       Object {
-        "color": "var(--o-ui-text-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "color": "var(--o-ui-text-alias-accent)",
       }
     }
@@ -29192,13 +29185,6 @@ Array [
     style={
       Object {
         "color": "var(--o-ui-text-alias-static-white)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "color": "var(--o-ui-text-alias-static-neutral-10)",
       }
     }
   />,
@@ -29931,14 +29917,6 @@ Array [
     className="o-ui-c-active"
     style={
       Object {
-        "--o-ui-c-active": "var(--o-ui-text-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-active"
-    style={
-      Object {
         "--o-ui-c-active": "var(--o-ui-text-alias-accent)",
       }
     }
@@ -29988,14 +29966,6 @@ Array [
     style={
       Object {
         "--o-ui-c-active": "var(--o-ui-text-alias-static-white)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-active"
-    style={
-      Object {
-        "--o-ui-c-active": "var(--o-ui-text-alias-static-neutral-10)",
       }
     }
   />,
@@ -30826,14 +30796,6 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
-        "--o-ui-c-focus": "var(--o-ui-text-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-focus"
-    style={
-      Object {
         "--o-ui-c-focus": "var(--o-ui-text-alias-accent)",
       }
     }
@@ -30883,14 +30845,6 @@ Array [
     style={
       Object {
         "--o-ui-c-focus": "var(--o-ui-text-alias-static-white)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-focus"
-    style={
-      Object {
-        "--o-ui-c-focus": "var(--o-ui-text-alias-static-neutral-10)",
       }
     }
   />,
@@ -31721,14 +31675,6 @@ Array [
     className="o-ui-c-hover"
     style={
       Object {
-        "--o-ui-c-hover": "var(--o-ui-text-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-hover"
-    style={
-      Object {
         "--o-ui-c-hover": "var(--o-ui-text-alias-accent)",
       }
     }
@@ -31778,14 +31724,6 @@ Array [
     style={
       Object {
         "--o-ui-c-hover": "var(--o-ui-text-alias-static-white)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-c-hover"
-    style={
-      Object {
-        "--o-ui-c-hover": "var(--o-ui-text-alias-static-neutral-10)",
       }
     }
   />,
@@ -33154,13 +33092,6 @@ Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-icon-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "fill": "var(--o-ui-icon-alias-accent)",
       }
     }
@@ -33210,7 +33141,7 @@ Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-icon-alias-static-neutral-10)",
+        "fill": "var(--o-ui-icon-alias-input-placeholder)",
       }
     }
   />,
@@ -33936,14 +33867,6 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-icon-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-f-focus"
-    style={
-      Object {
         "--o-ui-f-focus": "var(--o-ui-icon-alias-accent)",
       }
     }
@@ -34000,7 +33923,7 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-icon-alias-static-neutral-10)",
+        "--o-ui-f-focus": "var(--o-ui-icon-alias-input-placeholder)",
       }
     }
   />,
@@ -34823,14 +34746,6 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-icon-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    className="o-ui-f-hover"
-    style={
-      Object {
         "--o-ui-f-hover": "var(--o-ui-icon-alias-accent)",
       }
     }
@@ -34887,7 +34802,7 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-icon-alias-static-neutral-10)",
+        "--o-ui-f-hover": "var(--o-ui-icon-alias-input-placeholder)",
       }
     }
   />,
@@ -45395,13 +45310,6 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-icon-alias-inactive)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "stroke": "var(--o-ui-icon-alias-accent)",
       }
     }
@@ -45451,7 +45359,7 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-icon-alias-static-neutral-10)",
+        "stroke": "var(--o-ui-icon-alias-input-placeholder)",
       }
     }
   />,

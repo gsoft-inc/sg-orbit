@@ -25,7 +25,7 @@ stories()
             border="warning-7"
         >
             <Heading border="warning-7">Launch</Heading>
-            <Content border="warning-7">Are you use you want to launch the space shuttle?</Content>
+            <Content border="warning-7">Are you sure you want to launch the space shuttle?</Content>
         </Alert>
     )
     .add("className", () =>
@@ -34,7 +34,7 @@ stories()
             className="border-red"
         >
             <Heading className="border-red">Launch</Heading>
-            <Content className="border-red">Are you use you want to launch the space shuttle?</Content>
+            <Content className="border-red">Are you sure you want to launch the space shuttle?</Content>
         </Alert>
     )
     .add("styles", () =>
@@ -43,6 +43,6 @@ stories()
             style={{ border: "1px solid red" }}
         >
             <Heading style={{ border: "1px solid red" }}>Launch</Heading>
-            <Content style={{ border: "1px solid red" }}>Are you use you want to launch the space shuttle?</Content>
+            <Content style={{ border: "1px solid red" }}>Are you sure you want to launch the space shuttle?</Content>
         </Alert>
     );

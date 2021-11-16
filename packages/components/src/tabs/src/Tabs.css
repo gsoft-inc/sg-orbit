@@ -118,7 +118,7 @@
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--o-ui-b-alias-accent);
+    border-bottom: 2px solid var(--o-ui-bg-alias-accent);
     color: var(--o-ui-text-alias-primary);
 }
 

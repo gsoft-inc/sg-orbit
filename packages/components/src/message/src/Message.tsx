@@ -94,6 +94,7 @@ export function InnerMessage({
             condensed: true,
             inherit: true,
             size: "sm",
+            tone: "basic",
             variant: "ghost"
         },
         content: {

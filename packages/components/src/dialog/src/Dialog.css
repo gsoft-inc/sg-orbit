@@ -127,6 +127,7 @@
 }
 
 .o-ui-dialog-button-group {
+    width: 100%;
     flex-wrap: wrap;
 }
 

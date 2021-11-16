@@ -129,7 +129,7 @@ export interface ColorAliases {
     "icon-alias-primary-hover": AliasValue;
     "icon-alias-secondary": AliasValue;
     "icon-alias-tertiary": AliasValue;
-    "icon-alias-inactive": AliasValue;
+    "icon-alias-faint": AliasValue;
     "icon-alias-accent": AliasValue;
     "icon-alias-accent-hover": AliasValue;
     "icon-alias-alert": AliasValue;
@@ -137,13 +137,13 @@ export interface ColorAliases {
     "icon-alias-warning": AliasValue;
     "icon-alias-success": AliasValue;
     "icon-alias-static-white": AliasValue;
-    "icon-alias-static-neutral-10": AliasValue;
+    "icon-alias-input-placeholder": AliasValue;
     /* Text */
     "text-alias-primary": AliasValue;
     "text-alias-primary-hover": AliasValue;
     "text-alias-secondary": AliasValue;
     "text-alias-tertiary": AliasValue;
-    "text-alias-inactive": AliasValue;
+    "text-alias-faint": AliasValue;
     "text-alias-accent": AliasValue;
     "text-alias-accent-hover": AliasValue;
     "text-alias-alert": AliasValue;
@@ -151,7 +151,6 @@ export interface ColorAliases {
     "text-alias-warning": AliasValue;
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
-    "text-alias-static-neutral-10": AliasValue;
     "text-alias-input-placeholder": AliasValue;
 }
 

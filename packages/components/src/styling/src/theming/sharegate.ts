@@ -82,7 +82,7 @@ export const ShareGateTheme = createTheme({
             "icon-alias-primary-hover": "$black",
             "icon-alias-secondary": "$neutral-8",
             "icon-alias-tertiary": "$neutral-6",
-            "icon-alias-inactive": "$neutral-4",
+            "icon-alias-faint": "$neutral-4",
             "icon-alias-accent": "$purple-6",
             "icon-alias-accent-hover": "$purple-8",
             "icon-alias-alert": "$alert-6",
@@ -90,13 +90,13 @@ export const ShareGateTheme = createTheme({
             "icon-alias-warning": "$warning-5",
             "icon-alias-success": "$success-6",
             "icon-alias-static-white": "$white",
-            "icon-alias-static-neutral-10": "$neutral-10",
+            "icon-alias-input-placeholder": "$neutral-4",
             /* Text */
             "text-alias-primary": "$neutral-10",
             "text-alias-primary-hover": "$black",
             "text-alias-secondary": "$neutral-8",
             "text-alias-tertiary": "$neutral-6",
-            "text-alias-inactive": "$neutral-4",
+            "text-alias-faint": "$neutral-4",
             "text-alias-accent": "$purple-6",
             "text-alias-accent-hover": "$purple-8",
             "text-alias-alert": "$alert-6",
@@ -104,8 +104,7 @@ export const ShareGateTheme = createTheme({
             "text-alias-warning": "$warning-5",
             "text-alias-success": "$success-6",
             "text-alias-static-white": "$white",
-            "text-alias-static-neutral-10": "$neutral-10",
-            "text-alias-input-placeholder": "$text-alias-inactive"
+            "text-alias-input-placeholder": "$neutral-4"
         },
         dark: {
             /* Background */
@@ -125,11 +124,11 @@ export const ShareGateTheme = createTheme({
             "bg-alias-accent": "$purple-6",
             "bg-alias-accent-hover": "$purple-8",
             "bg-alias-accent-active": "$purple-9",
-            "bg-alias-accent-faint": "$purple-8",
+            "bg-alias-accent-faint": "$purple-9",
             "bg-alias-accent-transparent": "$transparent",
             "bg-alias-accent-transparent-hover": "$purple-8",
             "bg-alias-accent-transparent-active": "$purple-9",
-            "bg-alias-accent-light": "$purple-9",
+            "bg-alias-accent-light": "$purple-8",
             "bg-alias-alert": "$alert-6",
             "bg-alias-alert-hover": "$alert-8",
             "bg-alias-alert-active": "$alert-9",
@@ -171,7 +170,7 @@ export const ShareGateTheme = createTheme({
             "icon-alias-primary-hover": "$white",
             "icon-alias-secondary": "$neutral-1",
             "icon-alias-tertiary": "$neutral-2",
-            "icon-alias-inactive": "$neutral-3",
+            "icon-alias-faint": "$neutral-3",
             "icon-alias-accent": "$purple-5",
             "icon-alias-accent-hover": "$purple-8",
             "icon-alias-alert": "$alert-4",
@@ -179,13 +178,13 @@ export const ShareGateTheme = createTheme({
             "icon-alias-warning": "$warning-3",
             "icon-alias-success": "$success-5",
             "icon-alias-static-white": "$white",
-            "icon-alias-static-neutral-10": "$neutral-10",
+            "icon-alias-input-placeholder": "$neutral-3",
             /* Text */
             "text-alias-primary": "$white",
             "text-alias-primary-hover": "$white",
             "text-alias-secondary": "$neutral-1",
             "text-alias-tertiary": "$neutral-2",
-            "text-alias-inactive": "$neutral-3",
+            "text-alias-faint": "$neutral-3",
             "text-alias-accent": "$purple-5",
             "text-alias-accent-hover": "$purple-8",
             "text-alias-alert": "$alert-4",
@@ -193,8 +192,7 @@ export const ShareGateTheme = createTheme({
             "text-alias-warning": "$warning-3",
             "text-alias-success": "$success-5",
             "text-alias-static-white": "$white",
-            "text-alias-static-neutral-10": "$neutral-10",
-            "text-alias-input-placeholder": "$text-alias-inactive"
+            "text-alias-input-placeholder": "$neutral-3"
         }
     }
 });

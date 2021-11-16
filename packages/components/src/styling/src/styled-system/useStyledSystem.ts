@@ -249,7 +249,7 @@ const IconColorAliases = [
     "alias-primary-hover",
     "alias-secondary",
     "alias-tertiary",
-    "alias-inactive",
+    "alias-faint",
     "alias-accent",
     "alias-accent-hover",
     "alias-alert",
@@ -257,7 +257,7 @@ const IconColorAliases = [
     "alias-warning",
     "alias-success",
     "alias-static-white",
-    "alias-static-neutral-10"
+    "alias-input-placeholder"
 ] as const;
 
 const TextColorAliases = [
@@ -265,7 +265,7 @@ const TextColorAliases = [
     "alias-primary-hover",
     "alias-secondary",
     "alias-tertiary",
-    "alias-inactive",
+    "alias-faint",
     "alias-accent",
     "alias-accent-hover",
     "alias-alert",
@@ -273,7 +273,6 @@ const TextColorAliases = [
     "alias-warning",
     "alias-success",
     "alias-static-white",
-    "alias-static-neutral-10",
     "alias-input-placeholder"
 ] as const;
 
