@@ -1,26 +1,26 @@
-import { ColorTable } from "./ColorTable";
+import { ColorPaletteTable } from "./ColorPaletteTable";
 import { Meta } from "@storybook/addon-docs";
 import { Tagline } from "@stories/components";
 import { Div } from "@components/html";
 import { ShareGateTheme,  ThemeProvider } from "@components/styling";
 
 <Meta
-    title="Materials/Colors"
-    id="colors"
+    title="Materials/Colors/Color Palette"
+    id="color-palette"
 />
 
-# Colors
+# Color Palette
 
-<Tagline>Our colors are meant to put forward our brand and to express our personality in a constantly growing market. We use them to differentiate our products and brand visuals from each other.</Tagline>
+<Tagline>Our colors are meant to put forward our brand and to express our personality in a constantly growing market.</Tagline>
 
 ## Brand colors
 
-Those are the core colors of ShareGate. Except for Moonstone (which is the color differentiator for ShareGate brand), you will always find Marine and Sunray present in every product or brand interfaces.
+Those are the core colors of ShareGate.
 
 ### Purple
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "purple-1", variable: "--o-ui-purple-1", color: ShareGateTheme.colors.common.purple[0] },
             { shade: "2", value: "purple-2", variable: "--o-ui-purple-2", color: ShareGateTheme.colors.common.purple[1] },
@@ -39,7 +39,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Neutral
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "neutral-1", variable: "--o-ui-neutral-1", color: ShareGateTheme.colors.common.neutral[0] },
             { shade: "2", value: "neutral-2", variable: "--o-ui-neutral-2", color: ShareGateTheme.colors.common.neutral[1] },
@@ -58,7 +58,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Green
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "green-1", variable: "--o-ui-green-1", color: ShareGateTheme.colors.common.green[0] },
             { shade: "2", value: "green-2", variable: "--o-ui-green-2", color: ShareGateTheme.colors.common.green[1] },
@@ -77,7 +77,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Orange
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "orange-1", variable: "--o-ui-orange-1", color: ShareGateTheme.colors.common.orange[0] },
             { shade: "2", value: "orange-2", variable: "--o-ui-orange-2", color: ShareGateTheme.colors.common.orange[1] },
@@ -96,7 +96,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Alert
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "alert-1", variable: "--o-ui-alert-1", color: ShareGateTheme.colors.common.alert[0] },
             { shade: "2", value: "alert-2", variable: "--o-ui-alert-2", color: ShareGateTheme.colors.common.alert[1] },
@@ -115,7 +115,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Warning
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "warning-1", variable: "--o-ui-warning-1", color: ShareGateTheme.colors.common.warning[0] },
             { shade: "2", value: "warning-2", variable: "--o-ui-warning-2", color: ShareGateTheme.colors.common.warning[1] },
@@ -134,7 +134,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Success
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "1", value: "success-1", variable: "--o-ui-success-1", color: ShareGateTheme.colors.common.success[0] },
             { shade: "2", value: "success-2", variable: "--o-ui-success-2", color: ShareGateTheme.colors.common.success[1] },
@@ -153,7 +153,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### White
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "-", value: "white", variable: "--o-ui-white", color: ShareGateTheme.colors.common.white }
         ]}
@@ -163,7 +163,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Black
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "-", value: "black", variable: "--o-ui-black", color: ShareGateTheme.colors.common.black }
         ]}
@@ -173,7 +173,7 @@ Those are the core colors of ShareGate. Except for Moonstone (which is the color
 ### Gray
 
 <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-    <ColorTable
+    <ColorPaletteTable
         colors={[
             { shade: "-", value: "gray", variable: "--o-ui-gray", color: ShareGateTheme.colors.common.gray }
         ]}

@@ -21,7 +21,7 @@ function toRowValues({ shade, value, variable, color }) {
     ];
 }
 
-export function ColorTable({ colors }) {
+export function ColorPaletteTable({ colors }) {
     return (
         <Table
             columns={[
@@ -36,4 +36,4 @@ export function ColorTable({ colors }) {
     );
 }
 
-ColorTable.propTypes = propTypes;
+ColorPaletteTable.propTypes = propTypes;
