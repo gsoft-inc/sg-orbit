@@ -63,7 +63,7 @@ export function InnerTransition({
                 ? animateFirstRender ? enter : undefined
                 : enter
             : leave;
-    },[isInitialRender, animateFirstRender, enter, leave, show]);
+    }, [isInitialRender, animateFirstRender, enter, leave, show]);
 
     if (!shouldRender) {
         return null;
@@ -97,5 +97,3 @@ export type TransitionProps = ComponentProps<typeof Transition>;
 // Jest tests requires to disable the animation because "onAnimationEnd" is never fired. I can't figure out why.
 // @ts-ignore
 Transition.disableAnimation = false;
-
-
