@@ -49,7 +49,7 @@ export function InnerLozenge({
     as = DefaultElement,
     children,
     variant,
-    tone,
+    tone = "informative",
     forwardedRef,
     size,
     ...rest
