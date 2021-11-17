@@ -11,7 +11,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 .o-ui-menu {
     background-color: var(--o-ui-bg-alias-default);
-    border: var(--o-ui-menu-border-size) solid var(--o-ui-b-alias-low-contrast);
+    border: var(--o-ui-menu-border-size) solid var(--o-ui-b-alias-low-break);
     list-style-type: none;
     padding: 0;
     margin: 0;

@@ -227,9 +227,9 @@ const BackgroundColorAliases = [
 const BorderWidthAndStyle = "1px solid";
 
 const BorderColorAliases = [
-    "alias-low-contrast",
-    "alias-mid-contrast",
-    "alias-high-contrast",
+    "alias-low-break",
+    "alias-mid-break",
+    "alias-high-break",
     "alias-accent",
     "alias-accent-hover",
     "alias-accent-active",

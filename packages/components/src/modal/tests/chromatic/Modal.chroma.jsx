@@ -78,13 +78,13 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
             </Content>
         </Modal>
@@ -98,14 +98,14 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
                 <Paragraph>Thank you for participating.</Paragraph>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
             </Content>
         </Modal>
@@ -141,13 +141,13 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content> It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button tone="basic" variant="outline">Choose</Button>
                 </Card>
             </Content>
         </Modal>

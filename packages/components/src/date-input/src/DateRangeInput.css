@@ -1,6 +1,6 @@
 .o-ui-date-range-input {
     --o-ui-date-range-input-padding: var(--o-ui-sp-3);
-    --o-ui-date-range-input-border-color: var(--o-ui-b-alias-mid-contrast);
+    --o-ui-date-range-input-border-color: var(--o-ui-b-alias-mid-break);
     --o-ui-date-range-input-background-color: var(--o-ui-bg-alias-mid-break);
     display: inline-flex;
     align-items: center;
@@ -45,7 +45,7 @@
 /* STATES | HOVER */
 .o-ui-date-range-input:hover:not(.o-ui-date-range-input-disabled),
 .o-ui-date-range-input-hover:not(.o-ui-date-range-input-disabled) {
-    border-color: var(--o-ui-b-alias-high-contrast);
+    border-color: var(--o-ui-b-alias-high-break);
 }
 
 .o-ui-date-range-input.o-ui-date-range-input-invalid:hover:not(.o-ui-date-range-input-focus):not(.o-ui-date-range-input-disabled) {
@@ -60,7 +60,7 @@
 }
 
 .o-ui-date-range-input-disabled .o-ui-date-range-input-divider {
-    border-left-color: var(--o-ui-b-alias-mid-contrast) !important;
+    border-left-color: var(--o-ui-b-alias-mid-break) !important;
 }
 
 .o-ui-date-range-input .o-ui-date-range-input-date-input:disabled {

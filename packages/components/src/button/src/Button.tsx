@@ -141,7 +141,6 @@ export function InnerButton(props: InnerButtonProps) {
         },
         counter: {
             className: "o-ui-button-counter",
-            color: "inherit",
             disabled,
             pushed: true,
             size: condensed ? condensedTextSize(sizeValue) : sizeValue

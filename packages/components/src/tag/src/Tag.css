@@ -114,7 +114,7 @@ a.o-ui-tag-solid.o-ui-tag-disabled {
 /* OUTLINE */
 .o-ui-tag-outline {
     background-color: var(--o-ui-bg-alias-default);
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-low-contrast) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-low-break) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES */
@@ -124,7 +124,7 @@ a:not([disabled]).o-ui-tag-outline:hover,
 button:not([disabled]).o-ui-tag-outline.o-ui-tag-hover,
 a:not([disabled]).o-ui-tag-outline.o-ui-tag-hover {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-mid-contrast) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-mid-break) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | ACTIVE */
@@ -133,7 +133,7 @@ a:not([disabled]).o-ui-tag-outline:active,
 button:not([disabled]).o-ui-tag-outline.o-ui-tag-active,
 a:not([disabled]).o-ui-tag-outline.o-ui-tag-active {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-high-contrast) inset;
+    box-shadow: 0 0 0 1px var(--o-ui-b-alias-high-break) inset;
 }
 
 /* OUTLINE | AS ANCHOR / BUTTON | STATES | DISABLED */

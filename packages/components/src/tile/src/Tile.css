@@ -1,7 +1,7 @@
 .o-ui-tile {
     width: 100%;
     min-width: 100px;
-    border: 1px solid var(--o-ui-b-alias-low-contrast);
+    border: 1px solid var(--o-ui-b-alias-low-break);
     background-color: var(--o-ui-bg-alias-default);
     padding: 0;
     color: var(--o-ui-text-alias-primary);
@@ -26,7 +26,7 @@
 /* HOVER */
 .o-ui-tile:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]):hover,
 .o-ui-tile-hover:not([disabled]):not([class$="-disabled"]):not([aria-checked="true"]):not([aria-pressed="true"]) {
-    border-color: var(--o-ui-b-alias-mid-contrast);
+    border-color: var(--o-ui-b-alias-mid-break);
     background-color: var(--o-ui-bg-alias-mid-break);
 }
 
@@ -59,14 +59,14 @@
 /* ACTIVE */
 .o-ui-tile:active,
 .o-ui-tile-active:not([disabled]) {
-    border-color: var(--o-ui-b-alias-mid-contrast);
+    border-color: var(--o-ui-b-alias-mid-break);
 }
 
 /* CHECKED */
 .o-ui-tile[aria-checked="true"],
 .o-ui-tile[aria-pressed="true"] {
     background-color: var(--o-ui-bg-alias-mid-break);
-    border-color: var(--o-ui-b-alias-high-contrast);
+    border-color: var(--o-ui-b-alias-high-break);
 }
 
 /* CHECKED | CHECKMARK */

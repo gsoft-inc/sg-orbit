@@ -117,6 +117,7 @@
 /* DIALOG | FOOTER SECTION | FOOTER */
 .o-ui-dialog-footer {
     align-self: center;
+    width: 100%;
 }
 
 /* DIALOG | FOOTER SECTION | BUTTONS */

@@ -3,7 +3,7 @@
     --o-ui-input-padding-with-icon: var(--o-ui-sp-7);
     --o-ui-input-padding-with-button: var(--o-ui-sp-8);
     --o-ui-input-padding-loading: var(--o-ui-sp-8);
-    --o-ui-input-border-color: var(--o-ui-b-alias-mid-contrast);
+    --o-ui-input-border-color: var(--o-ui-b-alias-mid-break);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
     --o-ui-input-background-color: var(--o-ui-bg-alias-mid-break);
 }
@@ -44,7 +44,7 @@
 .o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]) {
-    border-color: var(--o-ui-b-alias-high-contrast);
+    border-color: var(--o-ui-b-alias-high-break);
 }
 
 /* PLACEHOLDER */
@@ -168,8 +168,8 @@
     top: 50%;
     z-index: 1;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-contrast);
-    border-top-color: var(--o-ui-b-alias-mid-contrast);
+    border: 2px solid var(--o-ui-b-alias-low-break);
+    border-top-color: var(--o-ui-b-alias-mid-break);
     transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;
 }

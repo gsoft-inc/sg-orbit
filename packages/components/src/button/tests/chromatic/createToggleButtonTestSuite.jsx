@@ -48,7 +48,7 @@ export function createToggleButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("cicular", () =>
+        .add("circular", () =>
             <Stack>
                 <Inline alignY="end">
                     <ToggleButton size="sm" shape="circular" element={element}>Aa</ToggleButton>

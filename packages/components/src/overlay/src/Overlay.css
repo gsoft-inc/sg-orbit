@@ -1,6 +1,5 @@
 .o-ui {
     --o-ui-overlay-border-offset: 0;
-    --o-ui-overlay-arrow-border-color: var(--o-ui-b-alias-low-contrast);
 }
 
 .o-ui-overlay {
@@ -22,7 +21,19 @@
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-default);
+    box-shadow: var(--o-ui-bs-alias-raised);
+}
+
+.o-ui-overlay-arrow::after {
+    content: "";
+    width: 20px;
+    height: 10px;
+    background-color: var(--o-ui-bg-alias-default);
+    position: absolute;
+    top: 5px;
+    left: -5px;
+    z-index: 10;
 }
 
 /* ARROW | POSITION */
@@ -44,27 +55,29 @@
 
 /* ARROW | BORDER */
 /* BOTTOM ARROW */
-.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-arrow::before {
-    border-top: 1px solid var(--o-ui-overlay-arrow-border-color);
-    border-left: 1px solid var(--o-ui-overlay-arrow-border-color);
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-arrow::after {
+    top: 5px;
 }
 
 /* TOP ARROW */
-.o-ui-overlay[data-popper-placement^="top"] .o-ui-overlay-arrow::before {
-    border-bottom: 1px solid var(--o-ui-overlay-arrow-border-color);
-    border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-overlay-arrow::after {
+    top: -5px;
 }
 
 /* RIGHT ARROW */
-.o-ui-overlay[data-popper-placement^="right"] .o-ui-overlay-arrow::before {
-    border-bottom: 1px solid var(--o-ui-overlay-arrow-border-color);
-    border-left: 1px solid var(--o-ui-overlay-arrow-border-color);
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-overlay-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: 5px;
+    top: -5px;
 }
 
 /* LEFT ARROW */
-.o-ui-overlay[data-popper-placement^="left"] .o-ui-overlay-arrow::before {
-    border-top: 1px solid var(--o-ui-overlay-arrow-border-color);
-    border-right: 1px solid var(--o-ui-overlay-arrow-border-color);
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-overlay-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: -5px;
+    top: -5px;
 }
 
 /* BORDER OFFSET */

@@ -15,13 +15,13 @@
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--o-ui-b-alias-low-contrast);
+    border-bottom: 2px solid var(--o-ui-b-alias-low-break);
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--o-ui-b-alias-low-contrast);
+    border-left: 2px solid var(--o-ui-b-alias-low-break);
 }
 
 /* TAB */

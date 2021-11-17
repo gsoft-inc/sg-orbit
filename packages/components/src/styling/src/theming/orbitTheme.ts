@@ -109,9 +109,9 @@ export interface ColorAliases {
     "bg-alias-transparent": AliasValue;
     "bg-alias-input-selection": AliasValue;
     /* Border */
-    "b-alias-low-contrast": AliasValue;
-    "b-alias-mid-contrast": AliasValue;
-    "b-alias-high-contrast": AliasValue;
+    "b-alias-low-break": AliasValue;
+    "b-alias-mid-break": AliasValue;
+    "b-alias-high-break": AliasValue;
     "b-alias-accent": AliasValue;
     "b-alias-accent-hover": AliasValue;
     "b-alias-accent-active": AliasValue;

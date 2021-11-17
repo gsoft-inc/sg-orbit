@@ -28,7 +28,7 @@ export function createToggleIconButtonTestSuite(element, stories) {
         .add("rounded", () =>
             <Stack>
                 <Inline alignY="end">
-                    <ToggleIconButton size="sm" shape="circular" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
+                    <ToggleIconButton size="sm" shape="rounded" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                     <ToggleIconButton shape="rounded" aria-label="Activate" element={element}><CheckIcon /></ToggleIconButton>
                 </Inline>
                 <Inline alignY="end">

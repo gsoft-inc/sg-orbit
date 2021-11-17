@@ -1,1031 +1,1179 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https:
+//goo.gl/fbAQLP
 
-exports[`breakpoints lg 1`] = `
-Array [
-  <div
-    style={
-      Object {
-        "alignContent": "normal",
-      }
+    exports[`breakpoints lg 1`] = `
+    Array [
+    <div
+    style={;;;
+object {
+    "alignContent":
+    "normal",
     }
-  />,
-  <div
-    style={
-      Object {
-        "alignItems": "normal",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "alignSelf": "normal",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "alignItems":
+    "normal",
     }
-  />,
-  <div
-    style={
-      Object {
-        "aspectRatio": "inherit",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundColor": "var(--o-ui-bg-alias-mid-break)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "alignSelf":
+    "normal",
     }
-  />,
-  <div
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "aspectRatio":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "backgroundColor":
+    "var(--o-ui-bg-alias-mid-break)",
+    }
+    }
+    />,
+    <div
     className="o-ui-bg-active"
-    style={
-      Object {
-        "--o-ui-bg-active": "var(--o-ui-bg-alias-mid-break)",
-      }
+    style={;;;
+object {
+    "--o-ui-bg-active":
+    "var(--o-ui-bg-alias-mid-break)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bg-focus"
-    style={
-      Object {
-        "--o-ui-bg-focus": "var(--o-ui-bg-alias-mid-break)",
-      }
+    style={;;;
+object {
+    "--o-ui-bg-focus":
+    "var(--o-ui-bg-alias-mid-break)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bg-hover"
-    style={
-      Object {
-        "--o-ui-bg-hover": "var(--o-ui-bg-alias-mid-break)",
-      }
+    style={;;;
+object {
+    "--o-ui-bg-hover":
+    "var(--o-ui-bg-alias-mid-break)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundImage": "revert",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundPosition": "right",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "backgroundImage":
+    "revert",
     }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundRepeat": "no-repeat",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "backgroundSize": "3.2em",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "backgroundPosition":
+    "right",
     }
-  />,
-  <div
-    style={
-      Object {
-        "border": "1px solid var(--o-ui-b-alias-accent)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "backgroundRepeat":
+    "no-repeat",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "backgroundSize":
+    "3.2em",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "border":
+    "1px solid var(--o-ui-b-alias-accent)",
+    }
+    }
+    />,
+    <div
     className="o-ui-b-active"
-    style={
-      Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-b-active":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-b-focus"
-    style={
-      Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-b-focus":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-b-hover"
-    style={
-      Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-b-hover":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-accent)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "borderBottom":
+    "1px solid var(--o-ui-b-alias-accent)",
+    }
+    }
+    />,
+    <div
     className="o-ui-bb-active"
-    style={
-      Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bb-active":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bb-focus"
-    style={
-      Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bb-focus":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bb-hover"
-    style={
-      Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bb-hover":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-accent)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "borderLeft":
+    "1px solid var(--o-ui-b-alias-accent)",
+    }
+    }
+    />,
+    <div
     className="o-ui-bl-active"
-    style={
-      Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bl-active":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bl-focus"
-    style={
-      Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bl-focus":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bl-hover"
-    style={
-      Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bl-hover":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-accent)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "borderRight":
+    "1px solid var(--o-ui-b-alias-accent)",
+    }
+    }
+    />,
+    <div
     className="o-ui-br-active"
-    style={
-      Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-br-active":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-br-focus"
-    style={
-      Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-br-focus":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-br-hover"
-    style={
-      Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-br-hover":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-accent)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "borderTop":
+    "1px solid var(--o-ui-b-alias-accent)",
+    }
+    }
+    />,
+    <div
     className="o-ui-bt-active"
-    style={
-      Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bt-active":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bt-focus"
-    style={
-      Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bt-focus":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bt-hover"
-    style={
-      Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-accent)",
-      }
+    style={;;;
+object {
+    "--o-ui-bt-hover":
+    "1px solid var(--o-ui-b-alias-accent)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderRadius": "var(--o-ui-br-3)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-3)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "borderRadius":
+    "var(--o-ui-br-3)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomRightRadius": "var(--o-ui-br-3)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopLeftRadius": "var(--o-ui-br-3)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "borderBottomLeftRadius":
+    "var(--o-ui-br-3)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopRightRadius": "var(--o-ui-br-3)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "bottom": "1rem",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "borderBottomRightRadius":
+    "var(--o-ui-br-3)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "boxShadow": "var(--o-ui-bs-4)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "borderTopLeftRadius":
+    "var(--o-ui-br-3)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "borderTopRightRadius":
+    "var(--o-ui-br-3)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "bottom":
+    "1rem",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "boxShadow":
+    "var(--o-ui-bs-4)",
+    }
+    }
+    />,
+    <div
     className="o-ui-bs-active"
-    style={
-      Object {
-        "--o-ui-bs-active": "var(--o-ui-bs-4)",
-      }
+    style={;;;
+object {
+    "--o-ui-bs-active":
+    "var(--o-ui-bs-4)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bs-focus"
-    style={
-      Object {
-        "--o-ui-bs-focus": "var(--o-ui-bs-4)",
-      }
+    style={;;;
+object {
+    "--o-ui-bs-focus":
+    "var(--o-ui-bs-4)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-bs-hover"
-    style={
-      Object {
-        "--o-ui-bs-hover": "var(--o-ui-bs-4)",
-      }
+    style={;;;
+object {
+    "--o-ui-bs-hover":
+    "var(--o-ui-bs-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "color": "var(--o-ui-text-alias-tertiary)",
-      }
     }
-  />,
-  <div
+    />,
+    <div
+    style={;;;
+object {
+    "color":
+    "var(--o-ui-text-alias-tertiary)",
+    }
+    }
+    />,
+    <div
     className="o-ui-c-active"
-    style={
-      Object {
-        "--o-ui-c-active": "var(--o-ui-text-alias-tertiary)",
-      }
+    style={;;;
+object {
+    "--o-ui-c-active":
+    "var(--o-ui-text-alias-tertiary)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-c-focus"
-    style={
-      Object {
-        "--o-ui-c-focus": "var(--o-ui-text-alias-tertiary)",
-      }
+    style={;;;
+object {
+    "--o-ui-c-focus":
+    "var(--o-ui-text-alias-tertiary)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-c-hover"
-    style={
-      Object {
-        "--o-ui-c-hover": "var(--o-ui-text-alias-tertiary)",
-      }
+    style={;;;
+object {
+    "--o-ui-c-hover":
+    "var(--o-ui-text-alias-tertiary)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "columnGap": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "content": "open-quote",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "columnGap":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "contentVisibility": "inherit",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "cursor": "inherit",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "content":
+    "open-quote",
     }
-  />,
-  <div
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "contentVisibility":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "cursor":
+    "inherit",
+    }
+    }
+    />,
+    <div
     className="o-ui-cs-hover"
-    style={
-      Object {
-        "--o-ui-cs-hover": "inherit",
-      }
+    style={;;;
+object {
+    "--o-ui-cs-hover":
+    "inherit",
     }
-  />,
-  <div
-    style={
-      Object {
-        "display": "flex",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "fill": "var(--o-ui-icon-alias-tertiary)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "display":
+    "flex",
     }
-  />,
-  <div
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "fill":
+    "var(--o-ui-icon-alias-tertiary)",
+    }
+    }
+    />,
+    <div
     className="o-ui-f-focus"
-    style={
-      Object {
-        "--o-ui-f-focus": "var(--o-ui-icon-alias-tertiary)",
-      }
+    style={;;;
+object {
+    "--o-ui-f-focus":
+    "var(--o-ui-icon-alias-tertiary)",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-f-hover"
-    style={
-      Object {
-        "--o-ui-f-hover": "var(--o-ui-icon-alias-tertiary)",
-      }
+    style={;;;
+object {
+    "--o-ui-f-hover":
+    "var(--o-ui-icon-alias-tertiary)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "filter": "inherit",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "flex": "1px",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "filter":
+    "inherit",
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexBasis": "1em",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexDirection": "column-reverse",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flex":
+    "1px",
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexFlow": "column-reverse",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexGrow": "initial",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexBasis":
+    "1em",
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexShrink": "initial",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "flexWrap": "inherit",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexDirection":
+    "column-reverse",
     }
-  />,
-  <div
-    style={
-      Object {
-        "fontSize": "var(--o-ui-fs-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "fontStyle": "oblique 10deg",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexFlow":
+    "column-reverse",
     }
-  />,
-  <div
-    style={
-      Object {
-        "fontVariationSettings": "inherit",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gap": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexGrow":
+    "initial",
     }
-  />,
-  <div
-    style={
-      Object {
-        "grid": "auto-flow dense 40% / [line1] minmax(20em, max-content)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridArea": "4 some-grid-area / 2 another-grid-area",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexShrink":
+    "initial",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridAutoColumns": "var(--o-ui-sz-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridAutoFlow": "row dense",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "flexWrap":
+    "inherit",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridAutoRows": "var(--o-ui-sz-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridColumn": "1 / span 2",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "fontSize":
+    "var(--o-ui-fs-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridColumnEnd": "somegridarea 4",
-      }
     }
-  />,
-  <div />,
-  <div
-    style={
-      Object {
-        "gridColumnStart": "somegridarea 4",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "fontStyle":
+    "oblique 10deg",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridRow": "1 / span 2",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridRowEnd": "somegridarea 4",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "fontVariationSettings":
+    "inherit",
     }
-  />,
-  <div />,
-  <div
-    style={
-      Object {
-        "gridRowStart": "somegridarea 4",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridTemplate": "\\"a a a\\" \\"b b b\\"",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gap":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridTemplateAreas": "inherit",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridTemplateColumns": "var(--o-ui-sz-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "grid":
+    "auto-flow dense 40% / [line1] minmax(20em, max-content)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "gridTemplateRows": "var(--o-ui-sz-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "height": "var(--o-ui-sz-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridArea":
+    "4 some-grid-area / 2 another-grid-area",
     }
-  />,
-  <div
-    style={
-      Object {
-        "justifyContent": "normal",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "justifyItems": "end",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridAutoColumns":
+    "var(--o-ui-sz-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "justifySelf": "end",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "left": "1rem",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridAutoFlow":
+    "row dense",
     }
-  />,
-  <div
-    style={
-      Object {
-        "letterSpacing": ".3px",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "lineHeight": "var(--o-ui-lh-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridAutoRows":
+    "var(--o-ui-sz-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "margin": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginBottom": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridColumn":
+    "1 / span 2",
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginLeft": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginRight": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridColumnEnd":
+    "somegridarea 4",
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginTop": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginLeft": "var(--o-ui-sp-4)",
-        "marginRight": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div />,
+    <div
+    style={;;;
+object {
+    "gridColumnStart":
+    "somegridarea 4",
     }
-  />,
-  <div
-    style={
-      Object {
-        "marginBottom": "var(--o-ui-sp-4)",
-        "marginTop": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "maxHeight": "var(--o-ui-sz-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridRow":
+    "1 / span 2",
     }
-  />,
-  <div
-    style={
-      Object {
-        "maxWidth": "var(--o-ui-sz-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "minHeight": "var(--o-ui-sz-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridRowEnd":
+    "somegridarea 4",
     }
-  />,
-  <div
-    style={
-      Object {
-        "minWidth": "var(--o-ui-sz-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "objectFit": "none",
-      }
+    />,
+    <div />,
+    <div
+    style={;;;
+object {
+    "gridRowStart":
+    "somegridarea 4",
     }
-  />,
-  <div
-    style={
-      Object {
-        "objectPosition": "initial",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "opacity": "initial",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "gridTemplate":
+    "\\"a a a\\" \\"b b b\\"",
     }
-  />,
-  <div
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "gridTemplateAreas":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "gridTemplateColumns":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "gridTemplateRows":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "height":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "justifyContent":
+    "normal",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "justifyItems":
+    "end",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "justifySelf":
+    "end",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "left":
+    "1rem",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "letterSpacing":
+    ".3px",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "lineHeight":
+    "var(--o-ui-lh-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "margin":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "marginBottom":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "marginLeft":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "marginRight":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "marginTop":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+        "marginLeft": "var(--o-ui-sp-4)";;;
+,
+    "marginRight":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+        "marginBottom": "var(--o-ui-sp-4)";;;
+,
+    "marginTop":
+    "var(--o-ui-sp-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "maxHeight":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "maxWidth":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "minHeight":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "minWidth":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "objectFit":
+    "none",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "objectPosition":
+    "initial",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "opacity":
+    "initial",
+    }
+    }
+    />,
+    <div
     className="o-ui-o-active"
-    style={
-      Object {
-        "o-ui-o-active": "initial",
-      }
+    style={;;;
+object {
+    "o-ui-o-active":
+    "initial",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-o-focus"
-    style={
-      Object {
-        "o-ui-o-focus": "initial",
-      }
+    style={;;;
+object {
+    "o-ui-o-focus":
+    "initial",
     }
-  />,
-  <div
+    }
+    />,
+    <div
     className="o-ui-o-hover"
-    style={
-      Object {
-        "o-ui-o-hover": "initial",
-      }
+    style={;;;
+object {
+    "o-ui-o-hover":
+    "initial",
     }
-  />,
-  <div
-    style={
-      Object {
-        "order": "initial",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "outline": "green solid 3px",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "order":
+    "initial",
     }
-  />,
-  <div
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "outline":
+    "green solid 3px",
+    }
+    }
+    />,
+    <div
     className="o-ui-ol-focus"
-    style={
-      Object {
-        "o-ui-ol-focus": "green solid 3px",
-      }
+    style={;;;
+object {
+    "o-ui-ol-focus":
+    "green solid 3px",
     }
-  />,
-  <div
-    style={
-      Object {
-        "overflow": "scroll",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "overflowX": "scroll",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "overflow":
+    "scroll",
     }
-  />,
-  <div
-    style={
-      Object {
-        "overflowY": "scroll",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "padding": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "overflowX":
+    "scroll",
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingBottom": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingLeft": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "overflowY":
+    "scroll",
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingRight": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingTop": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "padding":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingLeft": "var(--o-ui-sp-4)",
-        "paddingRight": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "paddingBottom": "var(--o-ui-sp-4)",
-        "paddingTop": "var(--o-ui-sp-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "paddingBottom":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "pointerEvents": "visibleFill",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "position": "fixed",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "paddingLeft":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "resize": "vertical",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "right": "1rem",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "paddingRight":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "rowGap": "var(--o-ui-sp-4)",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "stroke": "var(--o-ui-icon-alias-tertiary)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "paddingTop":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "textAlign": "right",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "textDecoration": "inherit",
-      }
+    />,
+    <div
+    style={;;;
+object {
+        "paddingLeft": "var(--o-ui-sp-4)";;;
+,
+    "paddingRight":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "textOverflow": "initial",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "textTransform": "lowercase",
-      }
+    />,
+    <div
+    style={;;;
+object {
+        "paddingBottom": "var(--o-ui-sp-4)";;;
+,
+    "paddingTop":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "top": "1rem",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "transform": "perspective(17px)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "pointerEvents":
+    "visibleFill",
     }
-  />,
-  <div
-    style={
-      Object {
-        "transformOrigin": "right bottom 2cm",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "transformStyle": "initial",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "position":
+    "fixed",
     }
-  />,
-  <div
-    verticalALign={
-      Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "visibility": "inherit",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "resize":
+    "vertical",
     }
-  />,
-  <div
-    style={
-      Object {
-        "whiteSpace": "pre-wrap",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "width": "var(--o-ui-sz-4)",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "right":
+    "1rem",
     }
-  />,
-  <div
-    style={
-      Object {
-        "willChange": "transform",
-      }
     }
-  />,
-  <div
-    style={
-      Object {
-        "wordBreak": "inherit",
-      }
+    />,
+    <div
+    style={;;;
+object {
+    "rowGap":
+    "var(--o-ui-sp-4)",
     }
-  />,
-  <div
-    style={
-      Object {
-        "zIndex": "289",
-      }
     }
-  />,
-]
-`;
-
+    />,
+    <div
+    style={;;;
+object {
+    "stroke":
+    "var(--o-ui-icon-alias-tertiary)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "textAlign":
+    "right",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "textDecoration":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "textOverflow":
+    "initial",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "textTransform":
+    "lowercase",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "top":
+    "1rem",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "transform":
+    "perspective(17px)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "transformOrigin":
+    "right bottom 2cm",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "transformStyle":
+    "initial",
+    }
+    }
+    />,
+    <div
+    verticalALign={;;;
+object {
+        "lg": "text-top";;;
+,
+        "md": "super";;;
+,
+        "sm": "sub";;;
+,
+        "xl": "text-bottom";;;
+,
+    "xs":
+    "baseline",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "visibility":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "whiteSpace":
+    "pre-wrap",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "width":
+    "var(--o-ui-sz-4)",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "willChange":
+    "transform",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "wordBreak":
+    "inherit",
+    }
+    }
+    />,
+    <div
+    style={;;;
+object {
+    "zIndex":
+    "289",
+    }
+    }
+    />,
+    ]
+    `;
 exports[`breakpoints md 1`] = `
 Array [
   <div
@@ -1118,7 +1266,7 @@ Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1126,7 +1274,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1134,7 +1282,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1142,14 +1290,14 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1157,7 +1305,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1165,7 +1313,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1173,14 +1321,14 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1188,7 +1336,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1196,7 +1344,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1204,14 +1352,14 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1219,7 +1367,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1227,7 +1375,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1235,14 +1383,14 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1250,7 +1398,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1258,7 +1406,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -1266,7 +1414,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -2051,8 +2199,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`breakpoints sm 1`] = `
 Array [
   <div
@@ -2145,7 +2292,7 @@ Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2153,7 +2300,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2161,7 +2308,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2169,14 +2316,14 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2184,7 +2331,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2192,7 +2339,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2200,14 +2347,14 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2215,7 +2362,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2223,7 +2370,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2231,14 +2378,14 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2246,7 +2393,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2254,7 +2401,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2262,14 +2409,14 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2277,7 +2424,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2285,7 +2432,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -2293,7 +2440,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -3090,8 +3237,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`breakpoints xl 1`] = `
 Array [
   <div
@@ -4116,8 +4262,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`breakpoints xs 1`] = `
 Array [
   <div
@@ -4210,7 +4355,7 @@ Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4218,7 +4363,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4226,7 +4371,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4234,14 +4379,14 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4249,7 +4394,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4257,7 +4402,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4265,14 +4410,14 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4280,7 +4425,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4288,7 +4433,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4296,14 +4441,14 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4311,7 +4456,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4319,7 +4464,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4327,14 +4472,14 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4342,7 +4487,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4350,7 +4495,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -4358,7 +4503,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -5155,8 +5300,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props align content 1`] = `
 Array [
   <div
@@ -5279,8 +5423,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props align items 1`] = `
 Array [
   <div
@@ -5417,8 +5560,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props align self 1`] = `
 Array [
   <div
@@ -5562,8 +5704,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props aspect ratio 1`] = `
 Array [
   <div
@@ -5616,8 +5757,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background color 1`] = `
 Array [
   <div
@@ -6589,8 +6729,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background color/active 1`] = `
 Array [
   <div
@@ -7700,8 +7839,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background color/focus 1`] = `
 Array [
   <div
@@ -8811,8 +8949,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background color/hover 1`] = `
 Array [
   <div
@@ -9922,8 +10059,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background image 1`] = `
 Array [
   <div
@@ -9962,8 +10098,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background position 1`] = `
 Array [
   <div
@@ -10051,8 +10186,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background repeat 1`] = `
 Array [
   <div
@@ -10126,8 +10260,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props background size 1`] = `
 Array [
   <div
@@ -10208,28 +10341,27 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border 1`] = `
 Array [
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "border": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "border": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -11006,28 +11138,27 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom 1`] = `
 Array [
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottom": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderBottom": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -11797,8 +11928,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom left radius 1`] = `
 Array [
   <div
@@ -11958,8 +12088,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom right radius 1`] = `
 Array [
   <div
@@ -12119,15 +12248,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom/active 1`] = `
 Array [
   <div
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -12135,7 +12263,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -12143,7 +12271,7 @@ Array [
     className="o-ui-bb-active"
     style={
       Object {
-        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -13022,15 +13150,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom/focus 1`] = `
 Array [
   <div
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -13038,7 +13165,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -13046,7 +13173,7 @@ Array [
     className="o-ui-bb-focus"
     style={
       Object {
-        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -13925,15 +14052,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border bottom/hover 1`] = `
 Array [
   <div
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -13941,7 +14067,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -13949,7 +14075,7 @@ Array [
     className="o-ui-bb-hover"
     style={
       Object {
-        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bb-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -14828,28 +14954,27 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border left 1`] = `
 Array [
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderLeft": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderLeft": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -15619,15 +15744,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border left/active 1`] = `
 Array [
   <div
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -15635,7 +15759,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -15643,7 +15767,7 @@ Array [
     className="o-ui-bl-active"
     style={
       Object {
-        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -16522,15 +16646,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border left/focus 1`] = `
 Array [
   <div
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -16538,7 +16661,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -16546,7 +16669,7 @@ Array [
     className="o-ui-bl-focus"
     style={
       Object {
-        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -17425,15 +17548,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border left/hover 1`] = `
 Array [
   <div
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -17441,7 +17563,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -17449,7 +17571,7 @@ Array [
     className="o-ui-bl-hover"
     style={
       Object {
-        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bl-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -18328,8 +18450,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border radius 1`] = `
 Array [
   <div
@@ -18496,28 +18617,27 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border right 1`] = `
 Array [
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRight": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderRight": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -19287,15 +19407,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border right/active 1`] = `
 Array [
   <div
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -19303,7 +19422,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -19311,7 +19430,7 @@ Array [
     className="o-ui-br-active"
     style={
       Object {
-        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -20190,15 +20309,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border right/focus 1`] = `
 Array [
   <div
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -20206,7 +20324,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -20214,7 +20332,7 @@ Array [
     className="o-ui-br-focus"
     style={
       Object {
-        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -21093,15 +21211,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border right/hover 1`] = `
 Array [
   <div
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -21109,7 +21226,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -21117,7 +21234,7 @@ Array [
     className="o-ui-br-hover"
     style={
       Object {
-        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-br-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -21996,28 +22113,27 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top 1`] = `
 Array [
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTop": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "borderTop": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -22787,8 +22903,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top left radius 1`] = `
 Array [
   <div
@@ -22948,8 +23063,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top right radius 1`] = `
 Array [
   <div
@@ -23109,15 +23223,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top/active 1`] = `
 Array [
   <div
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -23125,7 +23238,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -23133,7 +23246,7 @@ Array [
     className="o-ui-bt-active"
     style={
       Object {
-        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -24012,15 +24125,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top/focus 1`] = `
 Array [
   <div
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -24028,7 +24140,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -24036,7 +24148,7 @@ Array [
     className="o-ui-bt-focus"
     style={
       Object {
-        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -24915,15 +25027,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border top/hover 1`] = `
 Array [
   <div
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -24931,7 +25042,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -24939,7 +25050,7 @@ Array [
     className="o-ui-bt-hover"
     style={
       Object {
-        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-bt-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -25818,15 +25929,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border/active 1`] = `
 Array [
   <div
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -25834,7 +25944,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -25842,7 +25952,7 @@ Array [
     className="o-ui-b-active"
     style={
       Object {
-        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-active": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -26721,15 +26831,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border/focus 1`] = `
 Array [
   <div
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -26737,7 +26846,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -26745,7 +26854,7 @@ Array [
     className="o-ui-b-focus"
     style={
       Object {
-        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-focus": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -27624,15 +27733,14 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props border/hover 1`] = `
 Array [
   <div
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-low-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-low-break)",
       }
     }
   />,
@@ -27640,7 +27748,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-mid-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-mid-break)",
       }
     }
   />,
@@ -27648,7 +27756,7 @@ Array [
     className="o-ui-b-hover"
     style={
       Object {
-        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-high-contrast)",
+        "--o-ui-b-hover": "1px solid var(--o-ui-b-alias-high-break)",
       }
     }
   />,
@@ -28527,8 +28635,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props bottom 1`] = `
 Array [
   <div
@@ -28653,8 +28760,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props box shadow 1`] = `
 Array [
   <div
@@ -28756,8 +28862,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props box shadow/active 1`] = `
 Array [
   <div
@@ -28873,8 +28978,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props box shadow/focus 1`] = `
 Array [
   <div
@@ -28990,8 +29094,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props box shadow/hover 1`] = `
 Array [
   <div
@@ -29107,8 +29210,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props color 1`] = `
 Array [
   <div
@@ -29877,8 +29979,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props color/active 1`] = `
 Array [
   <div
@@ -30756,8 +30857,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props color/focus 1`] = `
 Array [
   <div
@@ -31635,8 +31735,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props color/hover 1`] = `
 Array [
   <div
@@ -32514,8 +32613,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props column gap 1`] = `
 Array [
   <div
@@ -32731,8 +32829,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props content 1`] = `
 Array [
   <div
@@ -32792,8 +32889,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props content visibility 1`] = `
 Array [
   <div
@@ -32846,8 +32942,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props cursor 1`] = `
 Array [
   <div
@@ -32900,8 +32995,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props cursor/hover 1`] = `
 Array [
   <div
@@ -32961,8 +33055,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props display 1`] = `
 Array [
   <div
@@ -33057,8 +33150,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props fill 1`] = `
 Array [
   <div
@@ -33827,8 +33919,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props fill/focus 1`] = `
 Array [
   <div
@@ -34706,8 +34797,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props fill/hover 1`] = `
 Array [
   <div
@@ -35585,8 +35675,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props filter 1`] = `
 Array [
   <div
@@ -35639,8 +35728,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex 1`] = `
 Array [
   <div
@@ -35814,8 +35902,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex basis 1`] = `
 Array [
   <div
@@ -35982,8 +36069,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex direction 1`] = `
 Array [
   <div
@@ -36043,8 +36129,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex flow 1`] = `
 Array [
   <div
@@ -36146,8 +36231,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex grow 1`] = `
 Array [
   <div
@@ -36193,8 +36277,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex shrink 1`] = `
 Array [
   <div
@@ -36240,8 +36323,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props flex wrap 1`] = `
 Array [
   <div
@@ -36294,8 +36376,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props font size 1`] = `
 Array [
   <div
@@ -36490,8 +36571,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props font style 1`] = `
 Array [
   <div
@@ -36551,8 +36631,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props font weight 1`] = `
 Array [
   <div
@@ -36608,8 +36687,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gap 1`] = `
 Array [
   <div
@@ -36818,8 +36896,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props grid 1`] = `
 Array [
   <div
@@ -36879,8 +36956,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridArea 1`] = `
 Array [
   <div
@@ -36940,8 +37016,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridAutoColumns 1`] = `
 Array [
   <div
@@ -37220,8 +37295,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridAutoFlow 1`] = `
 Array [
   <div
@@ -37288,8 +37362,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridAutoRows 1`] = `
 Array [
   <div
@@ -37568,8 +37641,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridColumn 1`] = `
 Array [
   <div
@@ -37643,8 +37715,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridColumnEnd 1`] = `
 Array [
   <div
@@ -37718,8 +37789,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridColumnSpan 1`] = `
 Array [
   <div
@@ -37737,8 +37807,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridColumnStart 1`] = `
 Array [
   <div
@@ -37812,8 +37881,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridRow 1`] = `
 Array [
   <div
@@ -37887,8 +37955,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridRowEnd 1`] = `
 Array [
   <div
@@ -37962,8 +38029,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridRowSpan 1`] = `
 Array [
   <div
@@ -37981,8 +38047,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridRowStart 1`] = `
 Array [
   <div
@@ -38056,8 +38121,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridTemplate 1`] = `
 Array [
   <div
@@ -38117,8 +38181,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridTemplateAreas 1`] = `
 Array [
   <div
@@ -38171,8 +38234,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridTemplateColumns 1`] = `
 Array [
   <div
@@ -38451,8 +38513,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props gridTemplateRows 1`] = `
 Array [
   <div
@@ -38731,8 +38792,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props height 1`] = `
 Array [
   <div
@@ -39011,8 +39071,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props justify content 1`] = `
 Array [
   <div
@@ -39135,8 +39194,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props justify items 1`] = `
 Array [
   <div
@@ -39273,8 +39331,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props justify self 1`] = `
 Array [
   <div
@@ -39411,8 +39468,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props left 1`] = `
 Array [
   <div
@@ -39537,8 +39593,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props letter spacing 1`] = `
 Array [
   <div
@@ -39598,8 +39653,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props line height 1`] = `
 Array [
   <div
@@ -39766,8 +39820,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin 1`] = `
 Array [
   <div
@@ -39990,8 +40043,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin bottom 1`] = `
 Array [
   <div
@@ -40200,8 +40252,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin left 1`] = `
 Array [
   <div
@@ -40410,8 +40461,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin right 1`] = `
 Array [
   <div
@@ -40620,8 +40670,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin top 1`] = `
 Array [
   <div
@@ -40830,8 +40879,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin x 1`] = `
 Array [
   <div
@@ -41069,8 +41117,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props margin y 1`] = `
 Array [
   <div
@@ -41308,8 +41355,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props max height 1`] = `
 Array [
   <div
@@ -41588,8 +41634,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props max width 1`] = `
 Array [
   <div
@@ -41868,8 +41913,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props min height 1`] = `
 Array [
   <div
@@ -42148,8 +42192,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props min width 1`] = `
 Array [
   <div
@@ -42428,8 +42471,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props object fit 1`] = `
 Array [
   <div
@@ -42496,8 +42538,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props object position 1`] = `
 Array [
   <div
@@ -42543,8 +42584,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props opacity 1`] = `
 Array [
   <div
@@ -42590,8 +42630,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props opacity/active 1`] = `
 Array [
   <div
@@ -42643,8 +42682,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props opacity/focus 1`] = `
 Array [
   <div
@@ -42696,8 +42734,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props opacity/hover 1`] = `
 Array [
   <div
@@ -42749,8 +42786,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props order 1`] = `
 Array [
   <div
@@ -42796,8 +42832,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props outline 1`] = `
 Array [
   <div
@@ -42857,8 +42892,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props outline/focus 1`] = `
 Array [
   <div
@@ -42926,8 +42960,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props overflow 1`] = `
 Array [
   <div
@@ -43001,8 +43034,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props overflow x 1`] = `
 Array [
   <div
@@ -43076,8 +43108,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props overflow y 1`] = `
 Array [
   <div
@@ -43151,8 +43182,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding 1`] = `
 Array [
   <div
@@ -43375,8 +43405,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding bottom 1`] = `
 Array [
   <div
@@ -43585,8 +43614,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding left 1`] = `
 Array [
   <div
@@ -43795,8 +43823,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding right 1`] = `
 Array [
   <div
@@ -44005,8 +44032,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding top 1`] = `
 Array [
   <div
@@ -44215,8 +44241,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding x 1`] = `
 Array [
   <div
@@ -44454,8 +44479,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props padding y 1`] = `
 Array [
   <div
@@ -44693,8 +44717,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props pointer events 1`] = `
 Array [
   <div
@@ -44796,8 +44819,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props position 1`] = `
 Array [
   <div
@@ -44864,8 +44886,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props resize 1`] = `
 Array [
   <div
@@ -44939,8 +44960,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props right 1`] = `
 Array [
   <div
@@ -45065,8 +45085,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props row gap 1`] = `
 Array [
   <div
@@ -45275,8 +45294,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props stroke 1`] = `
 Array [
   <div
@@ -46045,8 +46063,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props text align 1`] = `
 Array [
   <div
@@ -46120,8 +46137,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props text decoration 1`] = `
 Array [
   <div
@@ -46174,8 +46190,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props text overflow 1`] = `
 Array [
   <div
@@ -46221,8 +46236,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props text transform 1`] = `
 Array [
   <div
@@ -46296,8 +46310,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props top 1`] = `
 Array [
   <div
@@ -46422,8 +46435,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props transform 1`] = `
 Array [
   <div
@@ -46623,8 +46635,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props transform origin 1`] = `
 Array [
   <div
@@ -46684,8 +46695,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props transform style 1`] = `
 Array [
   <div
@@ -46731,8 +46741,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props vertical align 1`] = `
 Array [
   <div
@@ -46769,8 +46778,7 @@ Array [
     verticalALign="unset"
   />,
 ]
-`;
-
+`
 exports[`props visibility 1`] = `
 Array [
   <div
@@ -46823,8 +46831,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props white-space 1`] = `
 Array [
   <div
@@ -46898,8 +46905,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props width 1`] = `
 Array [
   <div
@@ -47178,8 +47184,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props will-change 1`] = `
 Array [
   <div
@@ -47253,8 +47258,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props word-break 1`] = `
 Array [
   <div
@@ -47307,8 +47311,7 @@ Array [
     }
   />,
 ]
-`;
-
+`
 exports[`props z-index 1`] = `
 Array [
   <div
@@ -47375,4 +47378,4 @@ Array [
     }
   />,
 ]
-`;
+`
