@@ -1,12 +1,12 @@
 @import "./Button.css";
 
 .o-ui-text-button {
-    --o-ui-text-button-rounded-padding-sm: var(--o-ui-sp-4);
-    --o-ui-text-button-rounded-padding-md: var(--o-ui-sp-5);
-    --o-ui-text-button-pill-padding-sm: var(--o-ui-sp-4);
-    --o-ui-text-button-pill-padding-md: var(--o-ui-sp-5);
-    --o-ui-text-button-pill-padding-ratio-factor: 1.5;
-    --o-ui-text-button-rounded-padding-ratio-factor: 2;
+    --o-ui-text-button-padding-sm: var(--o-ui-sp-4);
+    --o-ui-text-button-padding-md: var(--o-ui-sp-5);
+    --o-ui-text-button-padding-sm: var(--o-ui-sp-4);
+    --o-ui-text-button-padding-md: var(--o-ui-sp-5);
+    --o-ui-text-button-padding-ratio-factor: 1.5;
+    --o-ui-text-button-padding-ratio-factor: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,41 +24,40 @@
 }
 
 /* SIZES */
-/* ROUNDED | SIZES */
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-sm {
-    padding: 0 var(--o-ui-text-button-pill-padding-sm);
+.o-ui-text-button.o-ui-button-sm {
+    padding: 0 var(--o-ui-text-button-padding-sm);
 }
 
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-md {
-    padding: 0 var(--o-ui-text-button-pill-padding-md);
+.o-ui-text-button.o-ui-button-md {
+    padding: 0 var(--o-ui-text-button-padding-md);
 }
 
-/* ROUNDED | CONTENT | ICON | SIZES */
+/* CONTENT | ICON | SIZES */
 /* LEFT */
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-has-start-icon.o-ui-button-sm {
-    padding-left: calc(var(--o-ui-text-button-rounded-padding-sm) / var(--o-ui-text-button-rounded-padding-ratio-factor));
+.o-ui-text-button.o-ui-button-has-start-icon.o-ui-button-sm {
+    padding-left: calc(var(--o-ui-text-button-padding-sm) / var(--o-ui-text-button-padding-ratio-factor));
 }
 
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-has-start-icon.o-ui-button-md {
-    padding-left: calc(var(--o-ui-text-button-rounded-padding-md) / var(--o-ui-text-button-rounded-padding-ratio-factor));
+.o-ui-text-button.o-ui-button-has-start-icon.o-ui-button-md {
+    padding-left: calc(var(--o-ui-text-button-padding-md) / var(--o-ui-text-button-padding-ratio-factor));
 }
 
 /* RIGHT */
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-has-end-icon.o-ui-button-sm {
-    padding-right: calc(var(--o-ui-text-button-rounded-padding-sm) / var(--o-ui-text-button-rounded-padding-ratio-factor));
+.o-ui-text-button.o-ui-button-has-end-icon.o-ui-button-sm {
+    padding-right: calc(var(--o-ui-text-button-padding-sm) / var(--o-ui-text-button-padding-ratio-factor));
 }
 
-.o-ui-text-button.o-ui-button-rounded.o-ui-button-has-end-icon.o-ui-button-md {
-    padding-right: calc(var(--o-ui-text-button-rounded-padding-md) / var(--o-ui-text-button-rounded-padding-ratio-factor));
+.o-ui-text-button.o-ui-button-has-end-icon.o-ui-button-md {
+    padding-right: calc(var(--o-ui-text-button-padding-md) / var(--o-ui-text-button-padding-ratio-factor));
 }
 
 /* PILL SIZES */
 .o-ui-text-button.o-ui-button-pill.o-ui-button-sm {
-    padding: 0 var(--o-ui-text-button-rounded-padding-sm);
+    padding: 0 var(--o-ui-text-button-padding-sm);
 }
 
 .o-ui-text-button.o-ui-button-pill.o-ui-button-md {
-    padding: 0 var(--o-ui-text-button-rounded-padding-md);
+    padding: 0 var(--o-ui-text-button-padding-md);
 }
 
 /* PILL | CONTENT | ICON | SIZES */

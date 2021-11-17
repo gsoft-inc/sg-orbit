@@ -6,15 +6,12 @@ export type ButtonVariant = "solid" | "outline" | "ghost";
 
 export type ButtonTone = "accent" | "basic" | "negative";
 
-export type ButtonShape = "rounded" | "circular";
-
 export interface UseButtonProps extends Partial<InternalProps>, InteractionProps {
     autoFocus?: boolean | number;
     cssModule?: string;
     fluid?: boolean;
     inherit?: boolean;
     loading?: boolean;
-    shape?: ButtonShape;
     size?: Size;
     tone?: ButtonTone;
     type?: "button" | "submit" | "reset";
@@ -40,7 +37,6 @@ export function useButton({
     hover,
     inherit,
     loading,
-    shape = "rounded",
     size,
     tone = "accent",
     type = "button",
@@ -62,7 +58,6 @@ export function useButton({
                 "o-ui-button",
                 variant,
                 tone,
-                shape,
                 inherit && "inherit-style",
                 fluid && "fluid",
                 loading && "loading",

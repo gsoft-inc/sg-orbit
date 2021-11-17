@@ -50,7 +50,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         forwardedRef,
         onChange,
         onCheck,
-        shape,
         tone,
         value,
         variant,
@@ -68,7 +67,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         isCheckable,
         onChange,
         onCheck,
-        shape,
         tone,
         value,
         variant

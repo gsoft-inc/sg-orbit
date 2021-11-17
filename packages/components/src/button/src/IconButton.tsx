@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonShape, ButtonTone, ButtonVariant, useButton } from "./useButton";
+import { ButtonTone, ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import {
@@ -45,10 +45,6 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      */
     loading?: boolean;
     /**
-     * The button shape.
-     */
-    shape?: ButtonShape;
-    /**
      * A button can vary in size.
      */
     size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md">;
@@ -93,7 +89,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         inherit,
         loading,
-        shape = "circular",
         size,
         type,
         variant = "outline",
@@ -118,7 +113,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         inherit,
         loading,
-        shape,
         size: sizeValue,
         tone,
         type,

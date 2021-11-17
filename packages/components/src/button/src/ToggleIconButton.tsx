@@ -46,7 +46,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         defaultChecked,
         forwardedRef,
         onChange,
-        shape = "circular",
         tone,
         value,
         variant,
@@ -63,7 +62,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         forwardedRef,
         isCheckable,
         onChange,
-        shape,
         tone,
         value,
         variant

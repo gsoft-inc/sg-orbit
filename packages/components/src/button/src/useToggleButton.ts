@@ -1,4 +1,4 @@
-import { ButtonShape, ButtonTone, ButtonVariant } from "./useButton";
+import { ButtonTone, ButtonVariant } from "./useButton";
 import { FormEvent, ForwardedRef, MouseEvent } from "react";
 import { isNil, useControllableState, useEventCallback } from "../../shared";
 
@@ -14,7 +14,6 @@ export interface UseToggleButtonProps {
     isCheckable: boolean;
     onChange?: (event: FormEvent<HTMLButtonElement>, isChecked: boolean) => void;
     onCheck?: (event: FormEvent<HTMLButtonElement>, value: string) => void;
-    shape?: ButtonShape;
     tone?: ToggleButtonTone;
     value?: string;
     variant?: ButtonVariant;
@@ -30,7 +29,6 @@ export function useToggleButton({
     isCheckable,
     onChange,
     onCheck,
-    shape,
     tone,
     value,
     variant
@@ -54,7 +52,6 @@ export function useToggleButton({
             active: active || isChecked,
             onClick: handleClick,
             ref: forwardedRef,
-            shape,
             tone: tone as ButtonTone,
             value,
             [isCheckable ? "aria-checked" : "aria-pressed"]: isChecked,

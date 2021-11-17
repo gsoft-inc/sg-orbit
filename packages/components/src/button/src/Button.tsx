@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonShape, ButtonTone, ButtonVariant, useButton } from "./useButton";
+import { ButtonTone, ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
@@ -43,10 +43,6 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
      * A button can show a loading indicator.
      */
     loading?: boolean;
-    /**
-     * The button shape.
-     */
-    shape?: ButtonShape;
     /**
      * A button can vary in size.
      */
@@ -100,7 +96,6 @@ export function InnerButton(props: InnerButtonProps) {
         forwardedRef,
         hover,
         loading,
-        shape,
         size,
         type,
         variant = "solid",
@@ -128,7 +123,6 @@ export function InnerButton(props: InnerButtonProps) {
         hover,
         inherit,
         loading,
-        shape,
         size: sizeValue,
         tone,
         type,
