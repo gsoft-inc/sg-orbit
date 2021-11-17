@@ -307,22 +307,6 @@ export function createButtonTestSuite(element, stories) {
                 </Inline>
             </Stack>
         )
-        .add("circular", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button loading shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button loading shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button condensed shape="circular" element={element}>Aa</Button>
-                </Inline>
-            </Stack>
-        )
         .add("states", () =>
             <Inline>
                 <Stack>

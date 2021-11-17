@@ -81,7 +81,6 @@ export function useInputGroupAddonProps(): [UseInputGroupAddonPropsReturn, boole
 export interface UseInputGroupButtonAddonPropsReturn {
     className?: string;
     disabled?: boolean;
-    shape?: string;
 }
 
 export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsReturn, boolean] {
@@ -89,8 +88,7 @@ export function useInputGroupButtonAddonProps(): [UseInputGroupButtonAddonPropsR
 
     const props = isInInputGroup && {
         className: "o-ui-input-group-addon  o-ui-input-group-button-addon",
-        disabled,
-        shape: "rounded"
+        disabled
     };
 
     return [props || {}, isInInputGroup];

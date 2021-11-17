@@ -16,6 +16,7 @@
     position: relative;
     max-width: max-content;
     width: 100%;
+    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* COUNTER */
@@ -354,27 +355,6 @@ a.o-ui-button {
 .o-ui-button-disabled {
     opacity: var(--o-ui-disabled-opacity);
     cursor: not-allowed;
-}
-
-/* CIRCULAR */
-.o-ui-button-circular {
-    border-radius: var(--o-ui-shape-circular);
-}
-
-/* CIRCULAR | SIZES */
-.o-ui-button-circular.o-ui-button-sm {
-    min-width: var(--o-ui-sz-5);
-    padding: 0 var(--o-ui-sp-1);
-}
-
-.o-ui-button-circular.o-ui-button-md {
-    min-width: var(--o-ui-sz-6);
-    padding: 0 var(--o-ui-sp-1);
-}
-
-/* ROUNDED */
-.o-ui-button-rounded {
-    border-radius: var(--o-ui-shape-rounded);
 }
 
 /* INHERIT */

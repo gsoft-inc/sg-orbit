@@ -28,7 +28,7 @@ stories()
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
-            <ToggleIconButton shape="circular" aria-label="Activate notification">
+            <ToggleIconButton aria-label="Activate notification">
                 <NotificationIcon />
             </ToggleIconButton>
             <RadioGroup>
@@ -45,7 +45,7 @@ stories()
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
-            <ToggleIconButton shape="circular" aria-label="Activate notification">
+            <ToggleIconButton aria-label="Activate notification">
                 <NotificationIcon />
             </ToggleIconButton>
             <RadioGroup>
@@ -92,7 +92,7 @@ stories()
                 <ToggleButton value="2">2</ToggleButton>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
-            <ToggleIconButton shape="circular" aria-label="Activate notification">
+            <ToggleIconButton aria-label="Activate notification">
                 <NotificationIcon />
             </ToggleIconButton>
             <RadioGroup>
@@ -110,7 +110,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -120,7 +120,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -130,7 +130,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -144,7 +144,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -154,7 +154,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -164,7 +164,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
             </Toolbar>
@@ -178,7 +178,7 @@ stories()
                     <ToggleButton value="2">2</ToggleButton>
                     <ToggleButton value="3">3</ToggleButton>
                 </CheckboxGroup>
-                <ToggleIconButton shape="circular" aria-label="Activate notification">
+                <ToggleIconButton aria-label="Activate notification">
                     <NotificationIcon />
                 </ToggleIconButton>
                 <RadioGroup>
