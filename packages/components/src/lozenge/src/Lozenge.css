@@ -15,8 +15,6 @@
 /* HIGHLIGHT */
 .o-ui-lozenge.o-ui-lozenge-highlight {
     background-color: var(--o-ui-bg-alias-accent);
-    /* For the icon */
-    color: var(--o-ui-white);
 }
 
 /* SIZE */
@@ -86,12 +84,6 @@
 
 .o-ui-lozenge.o-ui-lozenge-warning.o-ui-lozenge-highlight {
     background-color: var(--o-ui-bg-alias-warning);
-    /* For the icon */
-    color: var(--o-ui-black);
-}
-
-.o-ui-lozenge.o-ui-lozenge-warning.o-ui-lozenge-highlight .o-ui-lozenge-text {
-    color: var(--o-ui-black);
 }
 
 .o-ui-lozenge.o-ui-lozenge-warning.o-ui-lozenge-highlight .o-ui-lozenge-icon {
