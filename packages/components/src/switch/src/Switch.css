@@ -12,7 +12,6 @@
 /* SWITCH */
 .o-ui-switch .o-ui-switch-control {
     display: inline-block;
-    /* was cloud 200 now 300 because too much similar colors */
     background-color: var(--o-ui-bg-alias-hard-break);
     border-radius: var(--o-ui-shape-pill);
     position: relative;

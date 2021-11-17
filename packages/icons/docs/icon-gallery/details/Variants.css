@@ -4,7 +4,7 @@
     width: 100%;
     padding: 8px;
     border-radius: 4px;
-    background-color: var(--o-ui-moonstone-1);
+    background-color: var(--o-ui-bg-alias-mid-break);
     cursor: pointer;
     border: 0;
     margin-top: var(--o-ui-sp-4);

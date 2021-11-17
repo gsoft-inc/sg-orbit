@@ -10,28 +10,28 @@ import { isNil } from "../../../shared";
 SYNTAX:
 
 // No breakpoint, no pseudo, known value
-<Button backgroundColor="sunray-10">Toto</Button>
+<Button backgroundColor="warning-10">Toto</Button>
 
 // No breakpoint, no pseudo, dynamic value
 <Button backgroundColor="#fff">Toto</Button>
 
 // No breakpoint, pseudo, known value
-<Button backgroundColorHover="sunray-10">Toto</Button>
+<Button backgroundColorHover="warning-10">Toto</Button>
 
 // No breakpoint, pseudo, dynamic value
 <Button backgroundColorHover="#fff">Toto</Button>
 
 // Breakpoint, no pseudo, known value
-<Button backgroundColor={{ s: "sunray-10", md: "accent-10", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, no pseudo, dynamic value
-<Button backgroundColor={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, known value
-<Button backgroundColorHover={{ s: "sunray-10", md: "accent-10", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, dynamic value
-<Button backgroundColorHover={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 */
 
 const GlobalValues = [
@@ -1209,7 +1209,7 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
 }
 
 // Custom handler for borders to allow the following syntax:
-// - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
+// - border="warning-10" -> style="1px solid var(--o-ui-warning-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
 function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
