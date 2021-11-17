@@ -13,7 +13,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon24 />
                     <Icon24 size="lg" />
                     <Icon24 size="xl" />
-                    <Icon24 size="xl" fill="sunray-10" />
+                    <Icon24 size="xl" fill="warning-10" />
                     <Icon24 size="xl" className="fill-red" />
                     <Icon24 size="xl" style={{ fill: "red" }} />
                 </Inline>
@@ -26,7 +26,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                     <Icon32 />
                     <Icon32 size="lg" />
                     <Icon32 size="xl" />
-                    <Icon32 size="xl" fill="sunray-10" />
+                    <Icon32 size="xl" fill="warning-10" />
                     <Icon32 size="xl" className="fill-red" />
                     <Icon32 size="xl" style={{ fill: "red" }} />
                 </Inline>
@@ -38,7 +38,7 @@ export function TestSuite({ icon24: Icon24, icon32: Icon32, multiIcon: MultiIcon
                 <MultiIcon />
                 <MultiIcon size="lg" />
                 <MultiIcon size="xl" />
-                <MultiIcon size="xl" fill="sunray-10" />
+                <MultiIcon size="xl" fill="warning-10" />
                 <MultiIcon size="xl" className="fill-red" />
                 <MultiIcon size="xl" style={{ fill: "red" }} />
             </Inline>

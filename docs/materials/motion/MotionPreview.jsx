@@ -27,7 +27,7 @@ export function MotionPreview() {
     };
 
     return (
-        <Div borderTop="cloud-2" className="o-ui-sb-motion-preview">
+        <Div borderTop="alias-low-break" className="o-ui-sb-motion-preview">
             <H4>Motion Preview</H4>
             <Inline marginBottom={4} alignY="end">
                 <Field>
