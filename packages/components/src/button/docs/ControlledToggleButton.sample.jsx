@@ -11,7 +11,7 @@
             checked={isChecked}
             value="isActive"
             tone={isChecked ? "accent" : "basic"}
-            variant="outline"
+            variant={isChecked ? "solid" : "outline"}
             onChange={handleChange}
         >
             {isChecked ? "On" : "Off"}
