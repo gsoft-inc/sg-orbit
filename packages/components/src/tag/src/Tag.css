@@ -8,8 +8,7 @@
     color: var(--o-ui-text-alias-primary);
     border-radius: var(--o-ui-shape-pill);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
-    width: 100%;
-    max-width: max-content;
+    width: max-content;
     height: max-content;
 }
 

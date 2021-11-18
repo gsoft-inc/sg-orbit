@@ -14,8 +14,7 @@
     border: none;
     text-align: center;
     position: relative;
-    max-width: max-content;
-    width: 100%;
+    width: max-content;
     border-radius: var(--o-ui-shape-rounded);
 }
 
