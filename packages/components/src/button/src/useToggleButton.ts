@@ -19,8 +19,6 @@ export interface UseToggleButtonProps {
     variant?: ButtonVariant;
 }
 
-// The shape is generic since ToggleButton and ToggleIconButton don't allow the same shapes. The output type of useToggleButton
-// must forward the exact shape type as the one received in the parameters.
 export function useToggleButton({
     active,
     checked,
