@@ -20,7 +20,7 @@ export interface InnerFieldMessageProps extends Omit<SharedFieldMessageProps, "f
     /**
      * The style to use.
      */
-    tone: "neutral" | "success" | "error";
+    variant: "neutral" | "success" | "error";
 }
 
 export function getValidationProps(validationState: string) {
@@ -38,7 +38,7 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
     as = FieldMessageDefaultElement,
     children,
     fluid,
-    tone,
+    variant,
     ...rest
 }, ref) => {
     const fluidValue = useResponsiveValue(fluid);
@@ -51,7 +51,7 @@ export const FieldMessage = forwardRef<any, InnerFieldMessageProps>(({
                     as,
                     className: cssModule(
                         "o-ui-field-message",
-                        tone,
+                        variant,
                         fluidValue && "fluid"
                     ),
                     ref
