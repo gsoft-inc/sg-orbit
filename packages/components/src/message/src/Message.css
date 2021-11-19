@@ -37,22 +37,22 @@
     margin-left: var(--o-ui-sp-2);
 }
 
-/* TONE | INFORMATIVE */
+/* VARIANT | INFORMATIVE */
 .o-ui-message-informative {
     background-color: var(--o-ui-bg-alias-accent-light);
 }
 
-/* TONE | WARNING */
+/* VARIANT | WARNING */
 .o-ui-message-warning {
     background-color: var(--o-ui-bg-alias-warning-light);
 }
 
-/* TONE | POSITIVE */
+/* VARIANT | POSITIVE */
 .o-ui-message-positive {
     background-color: var(--o-ui-bg-alias-success-light);
 }
 
-/* TONE | NEGATIVE */
+/* VARIANT | NEGATIVE */
 .o-ui-message-negative {
     background-color: var(--o-ui-bg-alias-alert-light);
 }
