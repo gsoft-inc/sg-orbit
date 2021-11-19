@@ -89,7 +89,6 @@
 .o-ui-card-button-group {
     margin-top: var(--o-ui-sp-6);
     flex-wrap: wrap;
-    width: 100%;
 }
 
 /* ASIDE */

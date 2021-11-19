@@ -67,7 +67,7 @@ a:not([disabled]).o-ui-tag.o-ui-tag-focus:after {
 
 /* FLUID */
 .o-ui-tag-fluid {
-    max-width: 100%;
+    width: 100%;
     text-align: center;
 }
 

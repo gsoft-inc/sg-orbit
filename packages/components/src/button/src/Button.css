@@ -292,7 +292,7 @@ a.o-ui-button {
 
 /* FLUID */
 .o-ui-button-fluid {
-    max-width: 100%;
+    width: 100%;
 }
 
 /* LOADING */
