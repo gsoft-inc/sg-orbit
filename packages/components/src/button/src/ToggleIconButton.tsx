@@ -46,7 +46,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         defaultChecked,
         forwardedRef,
         onChange,
-        tone,
         value,
         variant,
         ...rest
@@ -62,7 +61,6 @@ export function InnerToggleIconButton(props: InnerToggleIconButtonProps) {
         forwardedRef,
         isCheckable,
         onChange,
-        tone,
         value,
         variant
     });

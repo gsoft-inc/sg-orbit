@@ -37,9 +37,8 @@ export function ButtonPresets({
                     // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     size="sm"
-                    tone="basic"
                     value={index.toString()}
-                    variant="outline"
+                    variant="secondary"
                 >
                     {x}
                 </ToggleButton>

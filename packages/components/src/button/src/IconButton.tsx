@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonTone, ButtonVariant, useButton } from "./useButton";
+import { ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
 import { EmbeddedIcon } from "../../icons";
 import {
@@ -49,10 +49,6 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      */
     size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md">;
     /**
-     * The button color to use.
-     */
-    tone?: ButtonTone;
-    /**
      * The icon button type.
      */
     type?: "button" | "submit" | "reset";
@@ -81,7 +77,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        tone = "basic",
         condensed,
         fluid,
         focus,
@@ -91,7 +86,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         loading,
         size,
         type,
-        variant = "outline",
+        variant = "secondary",
         ...rest
     } = mergeProps(
         props,
@@ -114,7 +109,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         inherit,
         loading,
         size: sizeValue,
-        tone,
         type,
         variant
     });

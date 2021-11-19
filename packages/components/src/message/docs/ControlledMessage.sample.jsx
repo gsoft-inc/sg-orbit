@@ -9,8 +9,7 @@
     return (
         <Stack minHeight="110px">
             <Button
-                tone="basic"
-                variant="outline"
+                variant="secondary"
                 onClick={toggleVisibility}
             >
                 {show ? "Hide" : "Show"}

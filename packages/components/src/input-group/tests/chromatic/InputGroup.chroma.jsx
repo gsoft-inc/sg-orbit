@@ -67,70 +67,70 @@ stories()
         <Stack>
             <Inline>
                 <InputGroup>
-                    <Button tone="basic" variant="outline">Trigger</Button>
+                    <Button variant="secondary">Trigger</Button>
                     <TextInput aria-label="Duration" />
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
-                    <Button tone="basic" variant="outline">Trigger</Button>
+                    <Button variant="secondary">Trigger</Button>
                     <TextInput aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button tone="accent">Copy</Button>
+                    <Button variant="primary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button tone="negative">Copy</Button>
+                    <Button variant="negative">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup disabled>
                     <TextInput aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup readOnly>
                     <TextInput aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button active tone="basic" variant="outline">Copy</Button>
+                    <Button active variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button focus tone="basic" variant="outline">Copy</Button>
+                    <Button focus variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button hover tone="basic" variant="outline">Copy</Button>
+                    <Button hover variant="secondary">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button focus hover tone="basic" variant="outline">Copy</Button>
+                    <Button focus hover variant="secondary">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput validationState="invalid" aria-label="Duration" />
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                 </InputGroup>
                 <InputGroup>
-                    <Button tone="basic" variant="outline">Copy</Button>
+                    <Button variant="secondary">Copy</Button>
                     <TextInput validationState="invalid" aria-label="Duration" />
                 </InputGroup>
             </Inline>
@@ -140,70 +140,70 @@ stories()
         <Stack>
             <Inline>
                 <InputGroup>
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                     <TextInput aria-label="Duration" />
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="accent" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="primary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="negative" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="negative" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup disabled>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup readOnly>
                     <TextInput aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton active tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton active variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton focus tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton focus variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton hover tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton hover variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton focus hover tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton focus hover variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput validationState="invalid" aria-label="Duration" />
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
-                    <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                     <TextInput validationState="invalid" aria-label="Duration" />
                 </InputGroup>
             </Inline>
@@ -214,7 +214,7 @@ stories()
             <Inline>
                 <InputGroup>
                     <MenuTrigger>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -225,7 +225,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -239,7 +239,7 @@ stories()
                 <InputGroup>
                     <TextInput aria-label="Duration" />
                     <MenuTrigger>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -250,7 +250,7 @@ stories()
                 <InputGroup>
                     <TextInput aria-label="Duration" />
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -261,7 +261,7 @@ stories()
             </Inline>
             <InputGroup>
                 <MenuTrigger>
-                    <Button tone="basic" variant="outline">Trigger</Button>
+                    <Button variant="secondary">Trigger</Button>
                     <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
@@ -270,7 +270,7 @@ stories()
                 </MenuTrigger>
                 <TextInput aria-label="Duration" />
                 <MenuTrigger>
-                    <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                    <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                     <Menu aria-label="Planets">
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
@@ -281,7 +281,7 @@ stories()
             <Inline>
                 <InputGroup disabled>
                     <MenuTrigger>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -292,7 +292,7 @@ stories()
                 </InputGroup>
                 <InputGroup disabled>
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -304,7 +304,7 @@ stories()
                 <InputGroup disabled>
                     <TextInput aria-label="Planet" />
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -316,7 +316,7 @@ stories()
             <Inline>
                 <InputGroup readOnly>
                     <MenuTrigger>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -327,7 +327,7 @@ stories()
                 </InputGroup>
                 <InputGroup readOnly>
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -339,7 +339,7 @@ stories()
                 <InputGroup readOnly>
                     <TextInput aria-label="Planet" />
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -352,7 +352,7 @@ stories()
                 <InputGroup>
                     <TextInput validationState="invalid" aria-label="Planet" />
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -362,7 +362,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <MenuTrigger>
-                        <IconButton tone="basic" variant="outline" aria-label="Select a planet"><DisclosureArrow /></IconButton>
+                        <IconButton variant="secondary" aria-label="Select a planet"><DisclosureArrow /></IconButton>
                         <Menu aria-label="Planets">
                             <Item key="earth">Earth</Item>
                             <Item key="mars">Mars</Item>
@@ -847,16 +847,16 @@ stories()
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
                         <MenuTrigger>
-                            <Button tone="basic" variant="outline">Trigger</Button>
+                            <Button variant="secondary">Trigger</Button>
                             <Menu aria-label="Planets">
                                 <Item key="earth">Earth</Item>
                                 <Item key="mars">Mars</Item>
@@ -882,16 +882,16 @@ stories()
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <Button tone="basic" variant="outline">Trigger</Button>
+                        <Button variant="secondary">Trigger</Button>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <IconButton tone="basic" variant="outline" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
                         <MenuTrigger>
-                            <Button tone="basic" variant="outline">Trigger</Button>
+                            <Button variant="secondary">Trigger</Button>
                             <Menu aria-label="Planets">
                                 <Item key="earth">Earth</Item>
                                 <Item key="mars">Mars</Item>

@@ -17,7 +17,7 @@ const RouterButton = as(Button, RouterLink);
 
 type RouterButtonProps = ComponentProps<typeof RouterButton>;
 
-expectAssignable<RouterButtonProps>({ variant: "outline", tone: "basic", a: "a", b: false, children: null });
+expectAssignable<RouterButtonProps>({ variant: "secondary", a: "a", b: false, children: null });
 
 // @ts-expect-error
 expectAssignable<RouterButtonProps>({ c: "c", children: null });

@@ -48,7 +48,7 @@ export function MotionPreview() {
                         <Item key="duration-5">800ms</Item>
                     </Select>
                 </Field>
-                <Button tone="accent" onClick={handleClick}>Play this motion</Button>
+                <Button variant="primary" onClick={handleClick}>Play this motion</Button>
             </Inline>
             <Div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`}></Div>
         </Div>

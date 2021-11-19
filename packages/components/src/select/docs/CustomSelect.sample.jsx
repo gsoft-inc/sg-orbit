@@ -13,8 +13,7 @@ function CustomSelect({
             <Button
                 {...rest}
                 {...triggerProps}
-                tone="basic"
-                variant="outline"
+                variant="secondary"
                 width="20%"
             >
                 <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>

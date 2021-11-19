@@ -118,7 +118,7 @@ export function InnerAlert({
             autoFocus={isNil(autoFocusButton) || autoFocusButton === "primary"}
             disabled={primaryButtonDisabled}
             onClick={handlePrimaryButtonClick}
-            tone={variant === "destructive" ? "negative" : "accent"}
+            variant={variant === "destructive" ? "negative" : "primary"}
         >
             {primaryButtonLabel}
         </Button>
@@ -129,8 +129,7 @@ export function InnerAlert({
             autoFocus={autoFocusButton === "secondary"}
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
-            tone="basic"
-            variant="ghost"
+            variant="tertiary"
         >
             {secondaryButtonLabel}
         </Button>
@@ -140,8 +139,7 @@ export function InnerAlert({
         <Button
             autoFocus={autoFocusButton === "cancel"}
             onClick={handleCancelButtonClick}
-            tone="basic"
-            variant="ghost"
+            variant="tertiary"
         >
             {cancelButtonLabel}
         </Button>

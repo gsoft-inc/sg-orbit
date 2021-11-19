@@ -33,8 +33,7 @@ export function MenuPresets({
             <IconButton
                 aria-label="Date presets"
                 ref={presetButtonRef}
-                tone="basic"
-                variant="outline"
+                variant="secondary"
             >
                 <DisclosureArrow />
             </IconButton>

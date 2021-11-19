@@ -2,9 +2,7 @@ import { AriaAttributes } from "react";
 import { HtmlButton } from "../../html";
 import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
-export type ButtonVariant = "solid" | "outline" | "ghost";
-
-export type ButtonTone = "accent" | "basic" | "negative";
+export type ButtonVariant = "primary" | "secondary" | "tertiary" | "negative";
 
 export interface UseButtonProps extends Partial<InternalProps>, InteractionProps {
     autoFocus?: boolean | number;
@@ -13,7 +11,6 @@ export interface UseButtonProps extends Partial<InternalProps>, InteractionProps
     inherit?: boolean;
     loading?: boolean;
     size?: Size;
-    tone?: ButtonTone;
     type?: "button" | "submit" | "reset";
     variant?: ButtonVariant;
 }
@@ -38,9 +35,8 @@ export function useButton({
     inherit,
     loading,
     size,
-    tone = "accent",
     type = "button",
-    variant = "solid"
+    variant = "primary"
 }: UseButtonProps): UseButtonReturn {
     const buttonRef = useMergedRefs(forwardedRef);
 
@@ -57,7 +53,6 @@ export function useButton({
             cssModule(
                 "o-ui-button",
                 variant,
-                tone,
                 inherit && "inherit-style",
                 fluid && "fluid",
                 loading && "loading",

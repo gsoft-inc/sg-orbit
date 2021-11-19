@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ButtonTone, ButtonVariant, useButton } from "./useButton";
+import { ButtonVariant, useButton } from "./useButton";
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
 import {
     InteractionProps,
@@ -48,10 +48,6 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
      */
     size?: ResponsiveProp<"sm" | "md">;
     /**
-     * The button color to use.
-     */
-    tone?: ButtonTone;
-    /**
      * The button type.
      */
     type?: "button" | "submit" | "reset";
@@ -88,7 +84,6 @@ export function InnerButton(props: InnerButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        tone,
         condensed,
         disabled,
         fluid,
@@ -98,7 +93,7 @@ export function InnerButton(props: InnerButtonProps) {
         loading,
         size,
         type,
-        variant = "solid",
+        variant = "primary",
         inherit,
         ...rest
     } = mergeProps(
@@ -124,7 +119,6 @@ export function InnerButton(props: InnerButtonProps) {
         inherit,
         loading,
         size: sizeValue,
-        tone,
         type,
         variant
     });
