@@ -45,7 +45,10 @@ function InnerAsyncImage({
 
         setCanRenderTimeoutId(timeoutId);
 
-        return () => clearTimeout(timeoutId);
+        return () =>{
+            clearTimeout(timeoutId);
+            setCanRenderTimeoutId(null);
+        };
     }, [delay, setCanRenderTimeoutId]);
 
     // Reset when the image "src" change.
@@ -74,6 +77,7 @@ function InnerAsyncImage({
                 setIsLoaded(true);
 
                 if (!isNil(canRenderTimeoutIdRef.current)) {
+                    setCanRenderTimeoutId(null);
                     clearTimeout(canRenderTimeoutIdRef.current);
                 }
             };
@@ -88,7 +92,7 @@ function InnerAsyncImage({
                 disposeImage();
             };
         }
-    }, [src, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef]);
+    }, [src, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef, setCanRenderTimeoutId]);
 
     if (!canRender && !isLoaded) {
         return null;
