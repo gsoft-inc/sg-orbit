@@ -1,6 +1,6 @@
 import { AbstractImageProps, Image as OrbitImage } from "./Image";
 import { ComponentProps, ReactElement, ReactNode, forwardRef, useEffect, useState } from "react";
-import { OmitInternalProps, isNil, mergeProps, slot, useCancellableEffect, useRefState } from "../../shared";
+import { OmitInternalProps, isNil, mergeProps, slot, useRefState } from "../../shared";
 
 const DefaultElement = "img";
 
@@ -38,14 +38,14 @@ function InnerAsyncImage({
         throw new Error("An async image retry count must be equal or greater to 1.");
     }
 
-    useCancellableEffect(isCancelled => {
+    useEffect(() => {
         const timeoutId = setTimeout(() => {
-            if(!isCancelled()) {
-                setCanRender(true);
-            }
+            setCanRender(true);
         }, delay);
 
         setCanRenderTimeoutId(timeoutId);
+
+        return () => clearTimeout(timeoutId);
     }, [delay, setCanRenderTimeoutId]);
 
     // Reset when the image "src" change.
@@ -54,17 +54,16 @@ function InnerAsyncImage({
         setFailureCount(0);
     }, [src]);
 
-    useCancellableEffect(isCancelled => {
+    useEffect(() => {
         if (!isLoaded && failureCount < retryCount) {
             let image = new Image();
+            const timeoutId = canRenderTimeoutIdRef.current;
 
             const disposeImage = () => {
                 if (!isNil(image)) {
                     image.onload = null;
                     image.onerror = null;
-                    if(!isCancelled()) {
-                        image = null;
-                    }
+                    image = null;
                 }
             };
 
@@ -73,25 +72,24 @@ function InnerAsyncImage({
             image.onload = () => {
                 disposeImage();
 
-                if(!isCancelled()) {
-                    setIsLoaded(true);
-                }
+                setIsLoaded(true);
 
-                if (!isNil(canRenderTimeoutIdRef.current)) {
-                    clearTimeout(canRenderTimeoutIdRef.current);
+                if (!isNil(timeoutId)) {
+                    clearTimeout(timeoutId);
                 }
             };
 
             image.onerror = () => {
                 disposeImage();
 
-                if(!isCancelled()) {
-                    setFailureCount(failureCount + 1);
-                }
+                setFailureCount(failureCount + 1);
             };
 
             return () => {
                 disposeImage();
+                if (!isNil(timeoutId)) {
+                    clearTimeout(timeoutId);
+                }
             };
         }
     }, [src, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef]);

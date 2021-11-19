@@ -37,7 +37,6 @@ export * from "./useResizeObserver";
 export * from "./useRefState";
 export * from "./useFocusWithin";
 export * from "./useFontFaceReady";
-export * from "./useCancellableEffect";
 
 // Features
 export * from "./slots";
