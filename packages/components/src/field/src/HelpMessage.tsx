@@ -22,7 +22,7 @@ export function InnerHelpMessage(props: SharedFieldMessageProps) {
         <FieldMessage
             {...rest}
             ref={forwardedRef}
-            tone="neutral"
+            variant="neutral"
         >
             {children}
         </FieldMessage>

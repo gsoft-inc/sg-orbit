@@ -22,7 +22,7 @@ export function InnerValidMessage(props: SharedFieldMessageProps) {
         <FieldMessage
             {...rest}
             ref={forwardedRef}
-            tone="success"
+            variant="success"
         >
             {children}
         </FieldMessage>

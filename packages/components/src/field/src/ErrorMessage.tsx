@@ -22,7 +22,7 @@ export function InnerErrorMessage(props: SharedFieldMessageProps) {
         <FieldMessage
             {...rest}
             ref={forwardedRef}
-            tone="error"
+            variant="error"
         >
             {children}
         </FieldMessage>
