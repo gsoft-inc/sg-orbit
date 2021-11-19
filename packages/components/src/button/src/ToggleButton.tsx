@@ -1,11 +1,11 @@
 import { AbstractButtonProps, Button } from "./Button";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { OmitInternalProps, mergeProps, resolveChildren, useCheckableProps } from "../../shared";
-import { ToggleButtonTone, ToggleButtonVariant, useToggleButton } from "./useToggleButton";
+import { ToggleButtonVariant, useToggleButton } from "./useToggleButton";
 
 const DefaultElement = "button";
 
-export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof DefaultElement>, "onChange" | "tone"> {
+export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof DefaultElement>, "onChange" | "variant"> {
     /**
      * A controlled checked value.
      */
@@ -25,10 +25,6 @@ export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof 
      * @returns {void}
      */
     onChange?: (event: SyntheticEvent, isChecked: boolean) => void;
-    /**
-     * The button color to use.
-     */
-    tone?: ToggleButtonTone;
     /**
      * The value to associate with when in a group.
      */
@@ -50,7 +46,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         forwardedRef,
         onChange,
         onCheck,
-        tone,
         value,
         variant,
         ...rest
@@ -67,7 +62,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         isCheckable,
         onChange,
         onCheck,
-        tone,
         value,
         variant
     });

@@ -95,7 +95,7 @@ stories()
                     <TextInput />
                 </Field>
             </Fieldset>
-            <Button tone="basic" variant="outline">Submit</Button>
+            <Button variant="secondary">Submit</Button>
         </Form>
     )
     .add("zoom", () =>

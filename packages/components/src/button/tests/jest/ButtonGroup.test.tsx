@@ -9,8 +9,8 @@ const Group = forwardRef<HTMLElement, Omit<ButtonGroupProps, "children">>((props
             {...props}
             ref={ref}
         >
-            <Button variant="outline" tone="basic">1</Button>
-            <Button variant="outline" tone="basic">2</Button>
+            <Button variant="secondary">1</Button>
+            <Button variant="secondary">2</Button>
         </ButtonGroup>
     );
 });

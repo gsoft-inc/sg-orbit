@@ -10,8 +10,7 @@
         <ToggleButton
             checked={isChecked}
             value="isActive"
-            tone={isChecked ? "accent" : "basic"}
-            variant="outline"
+            variant={isChecked ? "primary" : "secondary"}
             onChange={handleChange}
         >
             {isChecked ? "On" : "Off"}

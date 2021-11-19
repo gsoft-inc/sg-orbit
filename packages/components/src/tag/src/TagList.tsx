@@ -90,8 +90,7 @@ export function InnerTagList({
             className="o-ui-tag-list-clear-button"
             onClick={onClear}
             size={size}
-            tone="basic"
-            variant="ghost"
+            variant="tertiary"
         >
             Clear all
         </Button>

@@ -10,8 +10,7 @@ test("when autofocus is true, the button is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus
-            tone="basic"
-            variant="outline"
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -27,8 +26,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
         <IconButton
             disabled
             autoFocus
-            tone="basic"
-            variant="outline"
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -43,8 +41,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
     const { getByTestId } = renderWithTheme(
         <IconButton
             autoFocus={10}
-            tone="basic"
-            variant="outline"
+            variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
@@ -66,8 +63,7 @@ test("can focus the button with the focus api", async () => {
 
     renderWithTheme(
         <IconButton
-            tone="basic"
-            variant="outline"
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -90,8 +86,8 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <IconButton tone="basic"
-            variant="outline"
+        <IconButton
+            variant="secondary"
             ref={ref}
             aria-label="Add"
         >
@@ -110,8 +106,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
 
     renderWithTheme(
         <IconButton
-            tone="basic"
-            variant="outline"
+            variant="secondary"
             ref={node => {
                 refNode = node;
             }}
@@ -131,8 +126,8 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <IconButton tone="basic"
-            variant="outline"
+        <IconButton
+            variant="secondary"
             ref={handler}
             aria-label="Add"
         >
