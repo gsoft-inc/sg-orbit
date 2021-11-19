@@ -57,7 +57,6 @@ function InnerAsyncImage({
     useEffect(() => {
         if (!isLoaded && failureCount < retryCount) {
             let image = new Image();
-            const timeoutId = canRenderTimeoutIdRef.current;
 
             const disposeImage = () => {
                 if (!isNil(image)) {
@@ -74,8 +73,8 @@ function InnerAsyncImage({
 
                 setIsLoaded(true);
 
-                if (!isNil(timeoutId)) {
-                    clearTimeout(timeoutId);
+                if (!isNil(canRenderTimeoutIdRef.current)) {
+                    clearTimeout(canRenderTimeoutIdRef.current);
                 }
             };
 
@@ -87,9 +86,6 @@ function InnerAsyncImage({
 
             return () => {
                 disposeImage();
-                if (!isNil(timeoutId)) {
-                    clearTimeout(timeoutId);
-                }
             };
         }
     }, [src, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef]);
