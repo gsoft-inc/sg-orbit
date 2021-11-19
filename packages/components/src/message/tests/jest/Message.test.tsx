@@ -5,33 +5,33 @@ import { waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
-test("when a message tone is \"informative\", role is \"status\"", async () => {
+test("when a message variant is \"informative\", role is \"status\"", async () => {
     const { getByTestId } = renderWithTheme(
-        <Message tone="informative" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="informative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
-test("when a message tone is \"warning\", role is \"alert\"", async () => {
+test("when a message variant is \"warning\", role is \"alert\"", async () => {
     const { getByTestId } = renderWithTheme(
-        <Message tone="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
 });
 
-test("when a message tone is \"positive\", role is \"status\"", async () => {
+test("when a message variant is \"positive\", role is \"status\"", async () => {
     const { getByTestId } = renderWithTheme(
-        <Message tone="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
-test("when a message tone is \"negative\", role is \"alert\"", async () => {
+test("when a message variant is \"negative\", role is \"alert\"", async () => {
     const { getByTestId } = renderWithTheme(
-        <Message tone="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
+        <Message variant="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
     await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
