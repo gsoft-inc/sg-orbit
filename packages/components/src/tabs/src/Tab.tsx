@@ -47,9 +47,9 @@ export function InnerTab({
         },
         lozenge: {
             className: "o-ui-tab-lozenge",
+            highlight: true,
             size: "sm",
-            tone: "informative",
-            variant: "highlight"
+            variant: "informative"
         },
         text: {
             className: "o-ui-tab-text"
