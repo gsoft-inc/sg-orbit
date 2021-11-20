@@ -24,42 +24,10 @@ export function createIconButtonTestSuite(element, stories) {
                     <IconButton loading aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
                 <Inline alignY="end">
-                    <IconButton condenaed size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
+                    <IconButton condensed size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton condensed size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton condensed size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
                     <IconButton condensed aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
-        .add("accent", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <IconButton tone="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton loading tone="accent" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="accent" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="accent" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="accent" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-            </Stack>
-        )
-        .add("negative", () =>
-            <Stack>
-                <Inline verticalAlign="end">
-                    <IconButton tone="negative" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="negative" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="negative" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton tone="negative" aria-label="Add" element={element}><AddIcon /></IconButton>
-                </Inline>
-                <Inline verticalAlign="end">
-                    <IconButton loading tone="negative" size="2xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="negative" size="xs" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="negative" size="sm" aria-label="Add" element={element}><AddIcon /></IconButton>
-                    <IconButton loading tone="negative" aria-label="Add" element={element}><AddIcon /></IconButton>
                 </Inline>
             </Stack>
         )

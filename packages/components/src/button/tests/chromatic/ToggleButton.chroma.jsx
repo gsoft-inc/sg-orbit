@@ -9,21 +9,15 @@ function stories(segment) {
         .build();
 }
 
-createToggleButtonTestSuite(<ToggleButton variant="solid" />, stories("/solid"));
+createToggleButtonTestSuite(<ToggleButton variant="primary" />, stories("/primary"));
 
-createToggleButtonTestSuite(<ToggleButton variant="outline" />, stories("/outline"));
-
-createToggleButtonTestSuite(<ToggleButton variant="ghost" />, stories("/ghost"));
+createToggleButtonTestSuite(<ToggleButton variant="secondary" />, stories("/secondary"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleButton border="warning-7" tone="basic">Cutoff</ToggleButton>
-            <ToggleButton className="bg-red" tone="basic">Cutoff</ToggleButton>
-            <ToggleButton style={{ backgroundColor: "red" }} tone="basic">Cutoff</ToggleButton>
+            <ToggleButton border="warning-6" variant="secondary">Cutoff</ToggleButton>
+            <ToggleButton className="bg-red" variant="secondary">Cutoff</ToggleButton>
+            <ToggleButton style={{ backgroundColor: "red" }} variant="secondary">Cutoff</ToggleButton>
         </Inline>
     );
-
-
-
-
