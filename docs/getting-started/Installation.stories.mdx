@@ -33,7 +33,7 @@ To import Orbit styles add the following import statement to your root styleshee
 
 ### Bootstrap your app
 
-Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/story/styled-system--page#theming) which allow apps to easily provide their foundation values to Orbit.
+Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/story/styled-system--page#theming) which allow apps to provide their specific foundation values to Orbit.
 
 The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a `<ThemeProvider>` at the root of your application.
 
@@ -70,7 +70,7 @@ export const App = () => (
 
 ## Icons
 
-[Orbit icons](?path=/docs/icon-gallery--page) React components depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. To setup `@svgr/webpack` you can use [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) to export the icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
+[Orbit icons](?path=/docs/icon-gallery--page) depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you are not using [Create React App](https://github.com/facebook/create-react-app), you'll have to setup [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) with `@svgr/webpack` to export Orbit icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
 
 ```javascript
 {
