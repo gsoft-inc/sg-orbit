@@ -10,7 +10,7 @@ import { ThemeSpecificationTable } from "./ThemeSpecificationTable";
 
 # Styled System
 
-Orbit styled system is a new way to alter the style of a component by simply passing props to it instead of writing CSS. Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense.
+Orbit styled system is a new way to alter the style of a component by declaring style props instead of writing CSS. Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense.
 
 To help achieve a consistent UI, Orbit [style props](#style-props) are based on scales and values defined in a customizable [theme](#theme).
 
@@ -29,7 +29,7 @@ To help achieve a consistent UI, Orbit [style props](#style-props) are based on 
 
 ## Style props
 
-An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications. Shorthands like `border` and `paddingX` are also provided to helps you save time. An exhaustive list of all the supported props is available in the [props reference](?path=/story/props-reference--page) page.
+An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications. Shorthands like `border` and `paddingX` are also provided to helps you save keystrokes. An exhaustive list of all the supported props is available in the [props reference](?path=/story/props-reference--page) page.
 
 All style props and style values are discovererable with TypeScript intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](#theme) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
 
@@ -61,7 +61,7 @@ Orbit [style props](#style-props) also supports responsive breakpoints. These br
     }}
 />
 
-By passing an object to any style props you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
+By passing an object to any style props, you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
 
 <Preview>
     <Div backgroundColor={{ base: "botanic-2", xs: "marine-2", sm: "beetle-2", md: "primary-2", lg: "cloud-2", xl: "sunray-2" }} width={18} padding={4}>
@@ -131,7 +131,7 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
 
 ## Theme
 
-Instead of harcoding the design values in Orbit like we did before, the Orbit styled system is now powered by the values of a theme object provided by the application.
+Instead of harcoding the foundation values in Orbit like we did in earlier versions, the Orbit styled system is now powered by the values of a theme object provided by the application.
 
 A theme object is a combinaison of design values and design scales. A design scale can be for [typography](?path=/story/typography--page), [spacing](path=/story/spacing--page), [sizing](?path=/story/sizing--page) or even [colors](?path=/story/colors--page). Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some like `fontSizes` are even a mix of both.
 
