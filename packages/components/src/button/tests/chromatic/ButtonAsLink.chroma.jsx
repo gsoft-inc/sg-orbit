@@ -15,7 +15,7 @@ createButtonTestSuite(<ButtonAsLink variant="secondary" />, stories("/secondary"
 
 createButtonTestSuite(<ButtonAsLink variant="tertiary" />, stories("/tertiary"));
 
-createButtonTestSuite(<ButtonAsLink variant="danger" />, stories("/danger"));
+createButtonTestSuite(<ButtonAsLink variant="negative" />, stories("/negative"));
 
 stories()
     .add("styling", () =>

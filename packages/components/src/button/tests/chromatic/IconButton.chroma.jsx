@@ -16,7 +16,7 @@ createIconButtonTestSuite(<IconButton variant="secondary" />, stories("/secondar
 
 createIconButtonTestSuite(<IconButton variant="tertiary" />, stories("/tertiary"));
 
-createIconButtonTestSuite(<IconButton variant="danger" />, stories("/danger"));
+createIconButtonTestSuite(<IconButton variant="negative" />, stories("/negative"));
 
 stories()
     .add("styling", () =>
