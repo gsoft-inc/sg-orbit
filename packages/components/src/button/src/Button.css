@@ -166,21 +166,21 @@ a.o-ui-button {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
-/* DANGER */
-.o-ui-button-danger {
+/* NEGATIVE */
+.o-ui-button-negative {
     background-color: var(--o-ui-bg-alias-alert);
     color: var(--o-ui-text-alias-static-white);
 }
 
-/* DANGER | HOVER */
-.o-ui-button-danger:not([disabled]):not(.o-ui-button-loading):hover,
-.o-ui-button-danger:not([disabled]).o-ui-button-hover {
+/* NEGATIVE | HOVER */
+.o-ui-button-negative:not([disabled]):not(.o-ui-button-loading):hover,
+.o-ui-button-negative:not([disabled]).o-ui-button-hover {
     background-color: var(--o-ui-bg-alias-alert-hover);
 }
 
-/* DANGER | ACTIVE */
-.o-ui-button-danger:not([disabled]):not(.o-ui-button-loading):active,
-.o-ui-button-danger:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
+/* NEGATIVE | ACTIVE */
+.o-ui-button-negative:not([disabled]):not(.o-ui-button-loading):active,
+.o-ui-button-negative:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
     background-color: var(--o-ui-bg-alias-alert-active);
 }
 
