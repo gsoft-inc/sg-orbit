@@ -124,7 +124,7 @@
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--o-ui-bg-alias-accent));
+    border-left: 2px solid var(--o-ui-bg-alias-accent);
 }
 
 /* TAB | FLUID */
