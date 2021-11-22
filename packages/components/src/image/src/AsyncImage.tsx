@@ -45,7 +45,7 @@ function InnerAsyncImage({
 
         setCanRenderTimeoutId(timeoutId);
 
-        return () =>{
+        return () => {
             clearTimeout(timeoutId);
             setCanRenderTimeoutId(null);
         };
@@ -77,8 +77,8 @@ function InnerAsyncImage({
                 setIsLoaded(true);
 
                 if (!isNil(canRenderTimeoutIdRef.current)) {
-                    setCanRenderTimeoutId(null);
                     clearTimeout(canRenderTimeoutIdRef.current);
+                    setCanRenderTimeoutId(null);
                 }
             };
 
