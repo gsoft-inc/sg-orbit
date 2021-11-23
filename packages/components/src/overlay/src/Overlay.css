@@ -34,7 +34,7 @@
     background-color: var(--o-ui-bg-alias-default);
     position: absolute;
     top: calc(var(--o-ui-overlay-arrow-dimension) / 2);
-    left: calc(-1 * var(--o-ui-overlay-arrow-dimension));
+    left: calc(-1 * var(--o-ui-overlay-arrow-dimension) / 2);
     z-index: 10;
 }
 
@@ -58,7 +58,7 @@
 /* ARROW | BORDER */
 /* BOTTOM ARROW */
 .o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-arrow::after {
-    top: calc(var(--o-ui-overlay-arrow-dimension) / 2);
+    top: calc( var(--o-ui-overlay-arrow-dimension) / 2);
 }
 
 /* TOP ARROW */
