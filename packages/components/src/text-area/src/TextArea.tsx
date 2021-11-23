@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useLayoutEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useFontFaceReady } from "../../shared";
+import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -59,6 +59,23 @@ export interface InnerTextAreaProps extends AbstractInputProps<typeof DefaultEle
 
 const pxToInt = (value?: string) => {
     return !isNil(value) ? parseInt(value.replace("px", ""), 10) : 0;
+};
+
+const useFontFaceReady = () => {
+    const [ready, setReady] = useState(false);
+
+    useEffect(() => {
+        let isCancelled = false;
+        const loadFonts = async () => {
+            await document.fonts.ready;
+            if (!isCancelled) { setReady(true); }
+        };
+        loadFonts();
+
+        return () => { isCancelled = true; };
+    }, []);
+
+    return ready;
 };
 
 function useCalculateLineHeight(input: HTMLTextAreaElement) {
