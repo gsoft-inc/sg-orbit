@@ -32,7 +32,7 @@ export function SemanticColorTable({ colors }) {
                 { title: "Name", headerStyle: { width: "150px" } },
                 { title: "Styled System Value", headerStyle: { width: "180px" }, rowClassName: "code f7 o-90" },
                 { title: "CSS Variable", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
-                { title: "Usage", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
+                { title: "Usage", headerStyle: { width: "300px" } },
                 { title: "Light", headerStyle: { width: "100px" } },
                 { title: "Dark", headerStyle: { width: "100px" } }
             ]}
@@ -42,7 +42,7 @@ export function SemanticColorTable({ colors }) {
 }
 
 export function textRenderer(value) {
-    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%"><Span color={value}>Test</Span></Div></Div>
+    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%"><Span color={value}>Moon</Span></Div></Div>
 }
 
 export function backgroundRenderer(value) {

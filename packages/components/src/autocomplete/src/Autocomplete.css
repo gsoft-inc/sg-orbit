@@ -15,4 +15,5 @@
     position: relative;
     cursor: default;
     height: calc(var(--o-ui-sz-5) + 2px);
+    min-width: 100%;
 }
