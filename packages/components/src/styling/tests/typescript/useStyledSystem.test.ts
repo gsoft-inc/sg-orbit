@@ -192,11 +192,11 @@ expectAssignable<BackgroundColorProp>("rgb(255, 255, 128)");
 expectAssignable<BackgroundColorProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BackgroundColorProp>("hsl(50, 33%, 25%)");
 expectAssignable<BackgroundColorProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BackgroundColorProp>("sunray-1");
-expectAssignable<BackgroundColorProp>("alias-1");
+expectAssignable<BackgroundColorProp>("purple-1");
+expectAssignable<BackgroundColorProp>("alias-default");
 expectAssignable<BackgroundColorProp>("currentColor");
 expectAssignable<BackgroundColorProp>("transparent");
-expectAssignable<BackgroundColorProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BackgroundColorProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BackgroundImageProp>("url(dog.gif)");
 expectAssignable<BackgroundImageProp>({ base: "url(dog.gif)", xs: "url(dog.gif)", sm: "url(dog.gif)", md: "url(dog.gif)", lg: "url(dog.gif)", xl: "url(dog.gif)" });
@@ -232,11 +232,11 @@ expectAssignable<BorderProp>("rgb(255, 255, 128)");
 expectAssignable<BorderProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BorderProp>("hsl(50, 33%, 25%)");
 expectAssignable<BorderProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BorderProp>("sunray-1");
-expectAssignable<BorderProp>("alias-1");
+expectAssignable<BorderProp>("purple-1");
+expectAssignable<BorderProp>("alias-low-break");
 expectAssignable<BorderProp>("currentColor");
 expectAssignable<BorderProp>("transparent");
-expectAssignable<BorderProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BorderProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BorderBottomProp>("0");
 expectAssignable<BorderBottomProp>("#fff");
@@ -245,11 +245,11 @@ expectAssignable<BorderBottomProp>("rgb(255, 255, 128)");
 expectAssignable<BorderBottomProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BorderBottomProp>("hsl(50, 33%, 25%)");
 expectAssignable<BorderBottomProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BorderBottomProp>("sunray-1");
-expectAssignable<BorderBottomProp>("alias-1");
+expectAssignable<BorderBottomProp>("purple-1");
+expectAssignable<BorderBottomProp>("alias-low-break");
 expectAssignable<BorderBottomProp>("currentColor");
 expectAssignable<BorderBottomProp>("transparent");
-expectAssignable<BorderBottomProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BorderBottomProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BorderLeftProp>("0");
 expectAssignable<BorderLeftProp>("#fff");
@@ -258,11 +258,11 @@ expectAssignable<BorderLeftProp>("rgb(255, 255, 128)");
 expectAssignable<BorderLeftProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BorderLeftProp>("hsl(50, 33%, 25%)");
 expectAssignable<BorderLeftProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BorderLeftProp>("sunray-1");
-expectAssignable<BorderLeftProp>("alias-1");
+expectAssignable<BorderLeftProp>("purple-1");
+expectAssignable<BorderLeftProp>("alias-low-break");
 expectAssignable<BorderLeftProp>("currentColor");
 expectAssignable<BorderLeftProp>("transparent");
-expectAssignable<BorderLeftProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BorderLeftProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BorderRightProp>("0");
 expectAssignable<BorderRightProp>("#fff");
@@ -271,11 +271,11 @@ expectAssignable<BorderRightProp>("rgb(255, 255, 128)");
 expectAssignable<BorderRightProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BorderRightProp>("hsl(50, 33%, 25%)");
 expectAssignable<BorderRightProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BorderRightProp>("sunray-1");
-expectAssignable<BorderRightProp>("alias-1");
+expectAssignable<BorderRightProp>("purple-1");
+expectAssignable<BorderRightProp>("alias-low-break");
 expectAssignable<BorderRightProp>("currentColor");
 expectAssignable<BorderRightProp>("transparent");
-expectAssignable<BorderRightProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BorderRightProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BorderTopProp>("0");
 expectAssignable<BorderTopProp>("#fff");
@@ -284,11 +284,11 @@ expectAssignable<BorderTopProp>("rgb(255, 255, 128)");
 expectAssignable<BorderTopProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BorderTopProp>("hsl(50, 33%, 25%)");
 expectAssignable<BorderTopProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<BorderTopProp>("sunray-1");
-expectAssignable<BorderTopProp>("alias-1");
+expectAssignable<BorderTopProp>("purple-1");
+expectAssignable<BorderTopProp>("alias-low-break");
 expectAssignable<BorderTopProp>("currentColor");
 expectAssignable<BorderTopProp>("transparent");
-expectAssignable<BorderTopProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<BorderTopProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<BorderRadiusProp>(1);
 expectAssignable<BorderRadiusProp>(2);
@@ -378,11 +378,11 @@ expectAssignable<ColorProp>("rgb(255, 255, 128)");
 expectAssignable<ColorProp>("rgba(255, 255, 128, .5)");
 expectAssignable<ColorProp>("hsl(50, 33%, 25%)");
 expectAssignable<ColorProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<ColorProp>("sunray-1");
-expectAssignable<ColorProp>("alias-1");
+expectAssignable<ColorProp>("purple-1");
+expectAssignable<ColorProp>("alias-primary");
 expectAssignable<ColorProp>("currentColor");
 expectAssignable<ColorProp>("transparent");
-expectAssignable<ColorProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<ColorProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<ColumnGapProp>(1);
 expectAssignable<ColumnGapProp>("1px");
@@ -441,11 +441,11 @@ expectAssignable<FillProp>("rgb(255, 255, 128)");
 expectAssignable<FillProp>("rgba(255, 255, 128, .5)");
 expectAssignable<FillProp>("hsl(50, 33%, 25%)");
 expectAssignable<FillProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<FillProp>("sunray-1");
-expectAssignable<FillProp>("alias-1");
+expectAssignable<FillProp>("purple-1");
+expectAssignable<FillProp>("alias-primary");
 expectAssignable<FillProp>("currentColor");
 expectAssignable<FillProp>("transparent");
-expectAssignable<FillProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<FillProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<FilterProp>("url(\"filters.svg#filter-id\")");
 expectAssignable<FilterProp>("blur(5px)");
@@ -1156,11 +1156,11 @@ expectAssignable<StrokeProp>("rgb(255, 255, 128)");
 expectAssignable<StrokeProp>("rgba(255, 255, 128, .5)");
 expectAssignable<StrokeProp>("hsl(50, 33%, 25%)");
 expectAssignable<StrokeProp>("hsla(50, 33%, 25%, .75)");
-expectAssignable<StrokeProp>("sunray-1");
-expectAssignable<StrokeProp>("alias-1");
+expectAssignable<StrokeProp>("purple-1");
+expectAssignable<StrokeProp>("alias-primary");
 expectAssignable<StrokeProp>("currentColor");
 expectAssignable<StrokeProp>("transparent");
-expectAssignable<StrokeProp>({ base: "sunray-1", xs: "sunray-1", sm: "sunray-1", md: "sunray-1", lg: "sunray-1", xl: "sunray-1" });
+expectAssignable<StrokeProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
 
 expectAssignable<TextAlignProp>("start");
 expectAssignable<TextAlignProp>("end");
@@ -1300,49 +1300,49 @@ expectAssignable<StyledSystemProps>({
     alignItems: "center",
     alignSelf: "center",
     aspectRatio: "1",
-    backgroundColor: "sunray-1",
-    backgroundColorFocus: "sunray-1",
-    backgroundColorHover: "sunray-1",
+    backgroundColor: "purple-1",
+    backgroundColorFocus: "purple-1",
+    backgroundColorHover: "purple-1",
     backgroundImage: "url(cat.png)",
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "auto",
-    border: "sunray-10",
-    borderFocus: "sunray-10",
-    borderHover: "sunray-10",
-    borderBottom: "sunray-10",
-    borderBottomFocus: "sunray-10",
-    borderBottomHover: "sunray-10",
+    border: "purple-10",
+    borderFocus: "purple-10",
+    borderHover: "purple-10",
+    borderBottom: "purple-10",
+    borderBottomFocus: "purple-10",
+    borderBottomHover: "purple-10",
     borderBottomLeftRadius: "2rem",
     borderBottomRightRadius: "2rem",
-    borderLeft: "sunray-10",
-    borderLeftFocus: "sunray-10",
-    borderLeftHover: "sunray-10",
+    borderLeft: "purple-10",
+    borderLeftFocus: "purple-10",
+    borderLeftHover: "purple-10",
     borderRadius: 1,
-    borderRight: "sunray-10",
-    borderRightFocus: "sunray-10",
-    borderRightHover: "sunray-10",
-    borderTop: "sunray-10",
-    borderTopFocus: "sunray-10",
-    borderTopHover: "sunray-10",
+    borderRight: "purple-10",
+    borderRightFocus: "purple-10",
+    borderRightHover: "purple-10",
+    borderTop: "purple-10",
+    borderTopFocus: "purple-10",
+    borderTopHover: "purple-10",
     borderTopLeftRadius: "2rem",
     borderTopRightRadius: "2rem",
     bottom: "1px",
     boxShadow: 1,
     boxShadowFocus: 1,
     boxShadowHover: 1,
-    color: "sunray-1",
-    colorFocus: "sunray-1",
-    colorHover: "sunray-1",
+    color: "purple-1",
+    colorFocus: "purple-1",
+    colorHover: "purple-1",
     columnGap: 1,
     content: "open-quote",
     contentVisibility: "hidden",
     cursor: "crosshair",
     cursorHover: "crosshair",
     display: "block",
-    fill: "sunray-1",
-    fillFocus: "sunray-1",
-    fillHover: "sunray-1",
+    fill: "purple-1",
+    fillFocus: "purple-1",
+    fillHover: "purple-1",
     filter: "blur(5px)",
     flex: "2 2 10%",
     flexBasis: "1px",
@@ -1420,7 +1420,7 @@ expectAssignable<StyledSystemProps>({
     resize: "both",
     right: "1px",
     rowGap: 1,
-    stroke: "sunray-1",
+    stroke: "purple-1",
     textAlign: "center",
     textDecoration: "underline",
     textOverflow: "clip",

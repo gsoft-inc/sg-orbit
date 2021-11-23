@@ -1,6 +1,6 @@
 import { Box } from "@components/box";
-import { DesktopTheme, ThemeProvider } from "@components/styling";
 import { Overlay } from "@components/overlay";
+import { ShareGateTheme, ThemeProvider } from "@components/styling";
 import { augmentElement, mergeProps, useMergedRefs } from "@components/shared";
 import { forwardRef, useState } from "react";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
@@ -19,7 +19,7 @@ function PrimaryBox({ children, ...rest }) {
     return (
         <Box
             {...rest}
-            backgroundColor="primary-6"
+            backgroundColor="accent-6"
             height={9}
             width={9}
         >
@@ -57,7 +57,7 @@ ref) => {
 
 stories()
     .add("inherit theme", () =>
-        <ThemeProvider theme={DesktopTheme} colorScheme="light">
+        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
             <Boundary>
                 <Overlay show>
                     <PrimaryBox />
@@ -67,7 +67,7 @@ stories()
     )
     .add("styled system", () =>
         <Boundary>
-            <Overlay border="sunray-10" show>
+            <Overlay border="warning-7" show>
                 <PrimaryBox />
             </Overlay>
         </Boundary>

@@ -1,7 +1,7 @@
 .o-ui-alert-warning-icon {
-    color: var(--o-ui-icon-alias-warning-2);
+    color: var(--o-ui-icon-alias-warning);
 }
 
 .o-ui-alert-negative-icon {
-    color: var(--o-ui-icon-alias-negative-2);
+    color: var(--o-ui-icon-alias-alert);
 }

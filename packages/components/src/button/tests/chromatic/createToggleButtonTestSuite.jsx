@@ -20,6 +20,18 @@ export function createToggleButtonTestSuite(element, stories) {
                     <Text>Cutoff</Text>
                     <LightbulbIcon />
                 </ToggleButton>
+                <Inline alignY="end">
+                    <ToggleButton size="sm" element={element}>Aa</ToggleButton>
+                    <ToggleButton element={element}>Aa</ToggleButton>
+                </Inline>
+                <Inline alignY="end">
+                    <ToggleButton checked element={element}>Aa</ToggleButton>
+                    <ToggleButton active element={element}>Aa</ToggleButton>
+                    <ToggleButton focus element={element}>Aa</ToggleButton>
+                    <ToggleButton hover element={element}>Aa</ToggleButton>
+                    <ToggleButton focus hover element={element}>Aa</ToggleButton>
+                    <ToggleButton disabled element={element}>Aa</ToggleButton>
+                </Inline>
             </Stack>
         )
         .add("states", () =>
@@ -31,38 +43,6 @@ export function createToggleButtonTestSuite(element, stories) {
                 <ToggleButton focus hover element={element}>Cutoff</ToggleButton>
                 <ToggleButton disabled element={element}>Cutoff</ToggleButton>
             </Inline>
-        )
-        .add("rounded", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <ToggleButton size="sm" shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton shape="rounded" element={element}>Aa</ToggleButton>
-                </Inline>
-                <Inline alignY="end">
-                    <ToggleButton checked shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton active shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton focus shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton hover shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton focus hover shape="rounded" element={element}>Aa</ToggleButton>
-                    <ToggleButton disabled shape="rounded" element={element}>Aa</ToggleButton>
-                </Inline>
-            </Stack>
-        )
-        .add("cicular", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <ToggleButton size="sm" shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton shape="circular" element={element}>Aa</ToggleButton>
-                </Inline>
-                <Inline alignY="end">
-                    <ToggleButton checked shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton active shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton focus shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton hover shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton focus hover shape="circular" element={element}>Aa</ToggleButton>
-                    <ToggleButton disabled shape="circular" element={element}>Aa</ToggleButton>
-                </Inline>
-            </Stack>
         )
         .add("checked", () =>
             <Inline>

@@ -110,7 +110,7 @@ export function InnerMessage({
         <CrossButton
             aria-label="Dismiss"
             className="o-ui-message-dismiss"
-            color="inherit"
+            inherit
             onClick={onDismiss}
             size="sm"
         />

@@ -77,7 +77,7 @@ An icon can vary in size.
     <Story name="size">
         <CheckeredBackground>
             <Inline alignY="center" gap={2}>
-                <Icon src={AzureIcon32} size="2xs" />
+                <Icon fillHover="alias-primary" src={AzureIcon32} size="2xs" />
                 <Icon src={AzureIcon32} size="xs" />
                 <Icon src={AzureIcon32} size="sm" />
                 <Icon src={AzureIcon32} />
@@ -96,9 +96,9 @@ An icon color can be altered with `fill`.
     <Story name="color">
         <CheckeredBackground>
             <Inline alignY="end" gap={2}>
-                <Icon src={AzureIcon32} size="lg" fill="primary-2" />
-                <Icon src={AzureIcon32} size="lg" fill="primary-6" />
-                <Icon src={AzureIcon32} size="lg" fill="primary-10" />
+                <Icon src={AzureIcon32} size="lg" fill="accent-2" />
+                <Icon src={AzureIcon32} size="lg" fill="accent-6" />
+                <Icon src={AzureIcon32} size="lg" fill="accent-10" />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -133,9 +133,9 @@ A multi variants icon support the same props as `<Icon />`.
     <Story name="multi-variants color">
         <CheckeredBackground>
             <Inline alignY="end" gap={2}>
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="primary-2" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="primary-6" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="primary-10" />
+                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-2" />
+                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-6" />
+                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-10" />
             </Inline>
         </CheckeredBackground>
     </Story>

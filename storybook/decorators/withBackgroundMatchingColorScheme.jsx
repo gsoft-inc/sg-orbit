@@ -5,7 +5,7 @@ const StyleElementId = "story-background-color";
 
 const BackgroundColors = {
     light: "#FFFFFF",
-    dark: "hsl(226deg, 20%, 15%)"
+    dark: "#272626"
 };
 
 export function withBackgroundMatchingColorScheme(Story, context) {

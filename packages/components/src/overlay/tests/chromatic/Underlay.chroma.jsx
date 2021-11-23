@@ -16,7 +16,7 @@ stories()
         <Underlay />
     )
     .add("styled system", () =>
-        <Underlay border="sunray-10" />
+        <Underlay border="warning-7" />
     )
     .add("className", () =>
         <Underlay className="border-red" />

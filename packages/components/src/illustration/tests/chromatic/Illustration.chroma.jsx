@@ -20,11 +20,11 @@ stories()
     )
     .add("horizontal", () =>
         <Stack>
-            <Illustration orientation="horizontal" width="700px" height="200px" backgroundColor="primary-2">
+            <Illustration orientation="horizontal" width="700px" height="200px" backgroundColor="accent-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Box width="700px" height="200px">
-                <Illustration orientation="horizontal" backgroundColor="primary-2">
+                <Illustration orientation="horizontal" backgroundColor="accent-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Box>
@@ -32,30 +32,30 @@ stories()
     )
     .add("vertical", () =>
         <Inline>
-            <Illustration orientation="vertical" width="200px" height="500px" backgroundColor="primary-2">
+            <Illustration orientation="vertical" width="200px" height="500px" backgroundColor="accent-2">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Box width="200px" height="500px">
-                <Illustration orientation="vertical" backgroundColor="primary-2">
+                <Illustration orientation="vertical" backgroundColor="accent-2">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Box>
         </Inline>
     )
     .add("straight", () =>
-        <Illustration shape="straight" width="700px" height="200px" backgroundColor="primary-2">
+        <Illustration shape="straight" width="700px" height="200px" backgroundColor="accent-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("rounded", () =>
-        <Illustration shape="rounded" width="700px" height="200px" backgroundColor="primary-2">
+        <Illustration shape="rounded" width="700px" height="200px" backgroundColor="accent-2">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
     )
     .add("color", () =>
         <Stack>
             <Inline>
-                <Illustration backgroundColor="primary-2" width="700px" height="200px">
+                <Illustration backgroundColor="accent-2" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
                 <Illustration backgroundColor="rgb(151, 231, 222)" width="700px" height="200px">
@@ -75,12 +75,12 @@ stories()
     .add("zoom", () =>
         <Stack>
             <Div className="zoom-in">
-                <Illustration border="sunray-10" width="700px" height="200px">
+                <Illustration border="warning-7" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Div>
             <Div className="zoom-out">
-                <Illustration border="sunray-10" width="700px" height="200px">
+                <Illustration border="warning-7" width="700px" height="200px">
                     <Image src={Nasa} alt="Nasa" />
                 </Illustration>
             </Div>
@@ -89,7 +89,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Illustration border="sunray-10" width="700px" height="200px">
+            <Illustration border="warning-7" width="700px" height="200px">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Illustration className="border-red" width="700px" height="200px">

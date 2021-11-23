@@ -91,7 +91,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <Button variant="danger">Copy</Button>
+                    <Button variant="negative">Copy</Button>
                 </InputGroup>
             </Inline>
             <Inline>
@@ -164,7 +164,7 @@ stories()
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="danger" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="negative" aria-label="Icon"><LightbulbIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
@@ -914,7 +914,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <InputGroup border="sunray-10">
+            <InputGroup border="warning-7">
                 <Text>Days</Text>
                 <TextInput aria-label="Duration" />
             </InputGroup>

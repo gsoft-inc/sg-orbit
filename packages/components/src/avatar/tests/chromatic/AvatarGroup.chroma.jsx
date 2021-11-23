@@ -189,7 +189,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <AvatarGroup border="sunray-10">
+            <AvatarGroup border="warning-7">
                 <Avatar name="Sally Ride" />
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>

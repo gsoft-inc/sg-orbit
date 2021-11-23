@@ -39,7 +39,7 @@ stories()
     )
     .add("illustration", () =>
         <Modal>
-            <Illustration color="sunray-1">
+            <Illustration color="warning-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -78,13 +78,13 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
             </Content>
         </Modal>
@@ -98,14 +98,14 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content>It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
                 <Paragraph>Thank you for participating.</Paragraph>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
             </Content>
         </Modal>
@@ -122,7 +122,7 @@ stories()
     )
     .add("fullscreen with illustration (should not render as fullscreen)", () =>
         <Modal fullscreen>
-            <Illustration color="sunray-1">
+            <Illustration color="warning-1">
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -141,19 +141,19 @@ stories()
                     <Image src={SpaceX} alt="SpaceX" />
                     <Heading>Space X</Heading>
                     <Content> It's about believing in the future and thinking that the future will be better than the past.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
                 <Card>
                     <Image src={BlueOrigin} alt="Blue Origin" />
                     <Heading>Blue Origin</Heading>
                     <Content>We're committed to building a road to space so our children can build the future.</Content>
-                    <Button>Choose</Button>
+                    <Button variant="secondary">Choose</Button>
                 </Card>
             </Content>
         </Modal>
     )
     .add("styled system styleProp", () =>
-        <Modal border="sunray-10">
+        <Modal border="warning-7">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>

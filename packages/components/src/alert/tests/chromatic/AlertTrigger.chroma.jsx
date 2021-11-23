@@ -16,7 +16,7 @@ stories()
             <Button variant="secondary">Open</Button>
             <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         </AlertTrigger>
     )
@@ -25,7 +25,7 @@ stories()
             <Button variant="secondary">Open</Button>
             <Alert primaryButtonLabel="Yes">
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         </AlertTrigger>
     );

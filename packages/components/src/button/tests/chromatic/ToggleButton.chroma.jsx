@@ -16,12 +16,8 @@ createToggleButtonTestSuite(<ToggleButton variant="secondary" />, stories("/seco
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleButton border="sunray-10" variant="secondary">Cutoff</ToggleButton>
+            <ToggleButton border="warning-6" variant="secondary">Cutoff</ToggleButton>
             <ToggleButton className="bg-red" variant="secondary">Cutoff</ToggleButton>
             <ToggleButton style={{ backgroundColor: "red" }} variant="secondary">Cutoff</ToggleButton>
         </Inline>
     );
-
-
-
-

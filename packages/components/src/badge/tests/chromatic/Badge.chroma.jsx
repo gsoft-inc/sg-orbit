@@ -15,7 +15,7 @@ function SquareBadge({ children, ...rest }) {
     return (
         <Badge {...rest}>
             {children}
-            <Div backgroundColor="alias-primary-1" width={6} height={6} />
+            <Div backgroundColor="alias-accent" width={6} height={6} />
         </Badge>
     );
 }
@@ -27,7 +27,7 @@ function CircleBadge({ children, ...rest }) {
             overlap="circle"
         >
             {children}
-            <Div backgroundColor="alias-primary-6" borderRadius="100" width={6} height={6} />
+            <Div backgroundColor="alias-accent" borderRadius="100" width={6} height={6} />
         </Badge>
     );
 }
@@ -104,7 +104,7 @@ stories("/count")
     )
     .add("styling", () =>
         <Inline gap={8}>
-            <SquareBadge border="sunray-10">
+            <SquareBadge border="warning-7">
                 <Text>100</Text>
             </SquareBadge>
             <SquareBadge className="border-red">
@@ -130,7 +130,7 @@ stories("/dot")
     )
     .add("styling", () =>
         <Inline>
-            <SquareBadge variant="dot" border="sunray-10" />
+            <SquareBadge variant="dot" border="warning-7" />
             <SquareBadge variant="dot" className="border-red" />
             <SquareBadge variant="dot" style={{ border: "1px solid red" }} />
         </Inline>
@@ -160,7 +160,7 @@ stories("/icon")
     )
     .add("styling", () =>
         <Inline>
-            <SquareBadge border="sunray-10" variant="icon">
+            <SquareBadge border="warning-7" variant="icon">
                 <CheckCircleIcon />
             </SquareBadge>
             <SquareBadge className="border-red" variant="icon">

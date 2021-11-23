@@ -214,54 +214,6 @@ export function createButtonTestSuite(element, stories) {
                 </Div>
             </Stack>
         )
-        .add("rounded", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button shape="rounded" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button loading shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button loading shape="rounded" element={element}>Aa</Button>
-                </Inline>
-                <Inline>
-                    <Button shape="rounded" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button shape="rounded" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Div>
-                    <Button shape="rounded" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Div>
-                <Inline alignY="end">
-                    <Button condensed shape="rounded" size="sm" element={element}>Aa</Button>
-                    <Button condensed shape="rounded" element={element}>Aa</Button>
-                </Inline>
-            </Stack>
-        )
-        .add("circular", () =>
-            <Stack>
-                <Inline alignY="end">
-                    <Button shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button loading shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button loading shape="circular" element={element}>Aa</Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed shape="circular" size="sm" element={element}>Aa</Button>
-                    <Button condensed shape="circular" element={element}>Aa</Button>
-                </Inline>
-            </Stack>
-        )
         .add("states", () =>
             <Inline>
                 <Stack>
@@ -313,10 +265,10 @@ export function createButtonTestSuite(element, stories) {
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">
-                    <Button variant="primary" element={element}>Button</Button>
+                    <Button element={element}>Button</Button>
                 </Div>
                 <Div className="zoom-out'">
-                    <Button variant="primary" element={element}>Button</Button>
+                    <Button element={element}>Button</Button>
                 </Div>
             </Inline>
         );

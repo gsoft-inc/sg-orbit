@@ -20,7 +20,6 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
         ...props,
         className: "o-ui-input-button",
         condensed: true,
-        shape: "circular",
-        variant: "ghost"
+        variant: "tertiary"
     });
 }

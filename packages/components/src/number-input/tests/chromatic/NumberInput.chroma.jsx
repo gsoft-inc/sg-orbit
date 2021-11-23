@@ -68,7 +68,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <NumberInput border="sunray-10" placeholder="Age" />
+            <NumberInput border="warning-7" placeholder="Age" />
             <NumberInput className="border-red" placeholder="Age" />
             <NumberInput style={{ border: "1px solid red" }} placeholder="Age" />
         </Inline>

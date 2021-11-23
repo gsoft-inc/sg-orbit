@@ -57,7 +57,7 @@ createLinkTestSuite(<Link><Card /></Link>, stories("/card"));
 stories()
     .add("styling", () =>
         <Inline>
-            <Link border="sunray-10" href="#">
+            <Link border="warning-7" href="#">
                 <LaunchImage />
             </Link>
             <Link className="border-red" href="#">

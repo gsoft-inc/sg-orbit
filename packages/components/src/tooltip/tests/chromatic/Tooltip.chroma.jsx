@@ -168,7 +168,7 @@ stories()
         </TooltipTrigger>
     )
     .add("tooltip trigger styled system", () =>
-        <TooltipTrigger border="sunray-10" open>
+        <TooltipTrigger border="warning-7" open>
             <Button variant="secondary">Trigger</Button>
             <Tooltip>Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>
@@ -186,7 +186,7 @@ stories()
         </TooltipTrigger>
     )
     .add("tooltip styled system", () =>
-        <TooltipTrigger border="sunray-10" open>
+        <TooltipTrigger border="warning-7" open>
             <Button variant="secondary">Trigger</Button>
             <Tooltip className="border-red">Man must rise above the Earth.</Tooltip>
         </TooltipTrigger>

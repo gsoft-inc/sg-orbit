@@ -34,7 +34,7 @@ function CustomComponent({
             as="button"
             onClick={handleCheck}
             color={isChecked ? "white" : undefined}
-            backgroundColor={isChecked ? "primary-6" : "secondary-6"}
+            backgroundColor={isChecked ? "accent-6" : "neutral-6"}
             aria-checked={isChecked}
         >
             {children}
@@ -132,9 +132,9 @@ stories()
     )
     .add("toggle buttons", () =>
         <CheckboxGroup gap={2} defaultValue={["2"]}>
-            <ToggleButton variant="secondary" shape="circular" value="1">1</ToggleButton>
-            <ToggleButton variant="secondary" shape="circular" value="2">2</ToggleButton>
-            <ToggleButton variant="secondary" shape="circular" value="3">3</ToggleButton>
+            <ToggleButton variant="secondary" value="1">1</ToggleButton>
+            <ToggleButton variant="secondary" value="2">2</ToggleButton>
+            <ToggleButton variant="secondary" value="3">3</ToggleButton>
         </CheckboxGroup>
     )
     .add("custom components", () =>
@@ -160,7 +160,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <CheckboxGroup border="sunray-10">
+            <CheckboxGroup border="warning-7">
                 <Checkbox value="1">1</Checkbox>
                 <Checkbox value="2">2</Checkbox>
                 <Checkbox value="3">3</Checkbox>

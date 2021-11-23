@@ -76,9 +76,9 @@
     padding: 0 var(--o-ui-sp-3);
     min-height: var(--o-ui-sz-6);
     border-radius: var(--o-ui-shape-rounded);
-    border: 1px solid var(--o-ui-b-alias-1);
-    color: var(--o-ui-text-alias-1);
-    background-color: var(--o-ui-bg-alias-3);
+    border: 1px solid var(--o-ui-b-alias-mid-break);
+    color: var(--o-ui-text-alias-primary);
+    background-color: var(--o-ui-bg-alias-mid-break);
     flex-shrink: 0;
 }
 
@@ -88,12 +88,8 @@
 }
 
 /* BUTTON ADDON */
-.o-ui-input-group-button-addon {
+.o-ui-input-group .o-ui-input-group-button-addon {
     box-shadow: 0 0 0 1px var(--o-ui-input-border-color) inset;
-}
-
-.o-ui-input-group-button-addon:not([disabled]):hover {
-    box-shadow: 0 0 0 1px var(--o-ui-b-alias-1-hover) inset;
 }
 
 /* SELECT ADDON */

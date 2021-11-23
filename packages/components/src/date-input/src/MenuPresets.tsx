@@ -33,6 +33,7 @@ export function MenuPresets({
             <IconButton
                 aria-label="Date presets"
                 ref={presetButtonRef}
+                variant="secondary"
             >
                 <DisclosureArrow />
             </IconButton>

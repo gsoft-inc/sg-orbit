@@ -600,3 +600,19 @@ Having disabled "Auto Publish" is also the reason why our script that publish ou
 ### Storybook props Tables
 
 The Storybook props tables somewhow doesn't play well if our types comes from an external packages (even if it's a package in our own mono-repo). Props from the external packages might not be list in the props tables.
+
+### Updating Jest Snapshots
+
+It's straightforward to spot when a snapshot test fails after a bug has been introduced. When that happens, go ahead and fix the issue and make sure your snapshot tests are passing again. 
+
+You can run the command 
+
+```bash
+yarn jest --updateSnapshot -u FILENAME
+```
+
+So if you want to update the useStyledSystem.test.tsx file 
+
+```bash
+yarn jest --updateSnapshot -u useStyledSystem.test.tsx
+```

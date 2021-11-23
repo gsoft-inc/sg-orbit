@@ -19,11 +19,15 @@ import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerLozengeProps extends SlotProps, InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "color" | "backgroundColor"> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Whether or not to add emphasis to the lozenge.
+     */
+    highlight?: boolean;
     /**
      * A lozenge can vary in size.
      */
@@ -31,7 +35,7 @@ export interface InnerLozengeProps extends SlotProps, InternalProps, StyledCompo
     /**
      * The lozenze style to use.
      */
-    variant?: "primary";
+    variant?: "informative" | "warning" | "positive" | "negative";
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -44,8 +48,9 @@ const textSize = createSizeAdapter({
 export function InnerLozenge({
     as = DefaultElement,
     children,
-    variant,
+    variant = "informative",
     forwardedRef,
+    highlight,
     size,
     ...rest
 }: InnerLozengeProps) {
@@ -75,8 +80,9 @@ export function InnerLozenge({
                     as,
                     className: cssModule(
                         "o-ui-lozenge",
-                        variant,
+                        highlight && "highlight",
                         icon && "has-icon",
+                        variant,
                         normalizeSize(sizeValue)
                     ),
                     ref

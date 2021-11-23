@@ -36,7 +36,7 @@ stories()
     })
     .add("styling", () =>
         <Inline>
-            <A border="sunray-10" href="#">Google</A>
+            <A border="warning-7" href="#">Google</A>
             <A className="border-red" href="#">Google</A>
             <A style={{ border: "1px solid red" }} href="#">Google</A>
         </Inline>

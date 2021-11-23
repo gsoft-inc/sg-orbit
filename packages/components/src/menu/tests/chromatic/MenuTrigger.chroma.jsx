@@ -212,7 +212,7 @@ stories()
         );
     })
     .add("styled system", () =>
-        <MenuTrigger border="sunray-10" defaultOpen>
+        <MenuTrigger border="warning-7" defaultOpen>
             <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>

@@ -37,42 +37,22 @@
     margin-left: var(--o-ui-sp-2);
 }
 
-/* TONE | INFORMATIVE */
+/* VARIANT | INFORMATIVE */
 .o-ui-message-informative {
-    background-color: var(--o-ui-bg-alias-info-1);
-    color: var(--o-ui-text-alias-info-1);
+    background-color: var(--o-ui-bg-alias-accent-light);
 }
 
-.o-ui-message-informative .o-ui-message-icon {
-    fill: var(--o-ui-icon-alias-info-1);
-}
-
-/* TONE | WARNING */
+/* VARIANT | WARNING */
 .o-ui-message-warning {
-    background-color: var(--o-ui-bg-alias-warning-2);
-    color: var(--o-ui-text-alias-warning-2);
+    background-color: var(--o-ui-bg-alias-warning-light);
 }
 
-.o-ui-message-warning .o-ui-message-icon {
-    fill: var(--o-ui-icon-alias-warning-2);
-}
-
-/* TONE | POSITIVE */
+/* VARIANT | POSITIVE */
 .o-ui-message-positive {
-    background-color: var(--o-ui-bg-alias-positive-2);
-    color: var(--o-ui-text-alias-positive-2);
+    background-color: var(--o-ui-bg-alias-success-light);
 }
 
-.o-ui-message-positive .o-ui-message-icon {
-    fill: var(--o-ui-icon-alias-positive-2);
-}
-
-/* TONE | NEGATIVE */
+/* VARIANT | NEGATIVE */
 .o-ui-message-negative {
-    background-color: var(--o-ui-bg-alias-negative-2);
-    color: var(--o-ui-text-alias-negative-2);
-}
-
-.o-ui-message-negative .o-ui-message-icon {
-    fill: var(--o-ui-icon-alias-negative-2);
+    background-color: var(--o-ui-bg-alias-alert-light);
 }

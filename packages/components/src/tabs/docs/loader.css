@@ -1,6 +1,6 @@
 .o-ui-sb-loading {
     position: absolute;
-    background-color: var(--o-ui-bg-alias-2);
+    background-color: var(--o-ui-bg-alias-hard-break);
     top: 0;
     left: 0;
     right: 0;
@@ -15,7 +15,7 @@
     top: 50%;
     left: 50%;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-marine-3);
+    border: 2px solid var(--o-ui-alias-low-break);
     border-top-color: var(--o-ui-white);
     animation: o-ui-button-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);

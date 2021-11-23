@@ -15,7 +15,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("primary button disabled", () =>
@@ -25,7 +25,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("secondary button", () =>
@@ -35,7 +35,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("secondary button disabled", () =>
@@ -46,7 +46,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("cancel button", () =>
@@ -56,7 +56,7 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("all 3 buttons", () =>
@@ -67,14 +67,14 @@ export function createTestSuite(element, stories) {
                 element={element}
             >
                 <Heading>Launch</Heading>
-                <Content>Are you use you want to launch the space shuttle?</Content>
+                <Content>Are you sure you want to launch the space shuttle?</Content>
             </Alert>
         )
         .add("zoom in", () =>
             <Div className="zoom-in">
                 <Alert primaryButtonLabel="Yes" element={element}>
                     <Heading>Launch</Heading>
-                    <Content>Are you use you want to launch the space shuttle?</Content>
+                    <Content>Are you sure you want to launch the space shuttle?</Content>
                 </Alert>
             </Div>
         )
@@ -82,7 +82,7 @@ export function createTestSuite(element, stories) {
             <Div className="zoom-out">
                 <Alert primaryButtonLabel="Yes" element={element}>
                     <Heading>Launch</Heading>
-                    <Content>Are you use you want to launch the space shuttle?</Content>
+                    <Content>Are you sure you want to launch the space shuttle?</Content>
                 </Alert>
             </Div>
         );

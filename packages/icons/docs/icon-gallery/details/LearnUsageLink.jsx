@@ -21,7 +21,7 @@ export function LearnUsageLink(props) {
             {...props}
             justifyContent="end"
         >
-            <A href="#dimensions" target="_self" className="o-ui-fs-3 o-ui-text-alias-primary-1" onClick={handleClick}>Learn more about usage</A>
+            <A href="#dimensions" target="_self" className="o-ui-fs-3 o-ui-text-alias-accent" onClick={handleClick}>Learn more about usage</A>
         </Flex>
     );
 }

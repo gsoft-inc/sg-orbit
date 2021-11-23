@@ -1,6 +1,6 @@
-import { ApricotTheme, DesktopTheme, ThemeProvider, useThemeContext } from "@components/styling";
 import { Box } from "@components/box";
 import { Inline } from "@components/layout";
+import { ShareGateTheme, ThemeProvider, useThemeContext } from "@components/styling";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useEffect } from "react";
 
@@ -16,39 +16,34 @@ function stories(segment) {
 function PrimaryColors() {
     return (
         <Inline gap={0}>
-            <Box padding={4} backgroundColor="primary-1" />
-            <Box padding={4} backgroundColor="primary-2" />
-            <Box padding={4} backgroundColor="primary-3" />
-            <Box padding={4} backgroundColor="primary-4" />
-            <Box padding={4} backgroundColor="primary-5" />
-            <Box padding={4} backgroundColor="primary-6" />
-            <Box padding={4} backgroundColor="primary-7" />
-            <Box padding={4} backgroundColor="primary-8" />
-            <Box padding={4} backgroundColor="primary-9" />
-            <Box padding={4} backgroundColor="primary-10" />
+            <Box padding={4} backgroundColor="accent-1" />
+            <Box padding={4} backgroundColor="accent-2" />
+            <Box padding={4} backgroundColor="accent-3" />
+            <Box padding={4} backgroundColor="accent-4" />
+            <Box padding={4} backgroundColor="accent-5" />
+            <Box padding={4} backgroundColor="accent-6" />
+            <Box padding={4} backgroundColor="accent-7" />
+            <Box padding={4} backgroundColor="accent-8" />
+            <Box padding={4} backgroundColor="accent-9" />
+            <Box padding={4} backgroundColor="accent-10" />
         </Inline>
     );
 }
 
 stories()
-    .add("apricot", () =>
-        <ThemeProvider theme={ApricotTheme}>
-            <PrimaryColors />
-        </ThemeProvider>
-    )
-    .add("desktop", () =>
-        <ThemeProvider theme={DesktopTheme}>
+    .add("sharegate", () =>
+        <ThemeProvider theme={ShareGateTheme}>
             <PrimaryColors />
         </ThemeProvider>
     )
     .add("light", () =>
-        <ThemeProvider theme={ApricotTheme} colorScheme="light">
-            <Box padding={4} backgroundColor="alias-2" />
+        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
+            <Box padding={4} backgroundColor="alias-mid-break" />
         </ThemeProvider>
     )
     .add("dark", () =>
-        <ThemeProvider theme={ApricotTheme} colorScheme="dark">
-            <Box padding={4} backgroundColor="alias-2" />
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
+            <Box padding={4} backgroundColor="alias-mid-break" />
         </ThemeProvider>
     )
     .add("set color scheme with api", () => {
@@ -64,9 +59,9 @@ stories()
         };
 
         return (
-            <ThemeProvider theme={ApricotTheme} colorScheme="light">
+            <ThemeProvider theme={ShareGateTheme} colorScheme="light">
                 <SwitchColorScheme />
-                <Box padding={4} backgroundColor="alias-2" />
+                <Box padding={4} backgroundColor="alias-mid-break" />
             </ThemeProvider>
         );
     });

@@ -13,7 +13,7 @@ function stories(segment) {
 stories()
     .add("every single breakpoints", () =>
         <Box
-            backgroundColor={{ base: "sunray-10", xs: "marine-10", sm: "beetle-10", md: "primary-10", lg: "cloud-10", xl: "botanic-10" }}
+            backgroundColor={{ base: "purple-5", xs: "green-5", sm: "alert-5", md: "purple-5", lg: "neutral-5", xl: "green-5" }}
             color="white"
             width={12}
         >
@@ -27,7 +27,7 @@ stories()
     )
     .add("match higher breakpoint", () =>
         <Box
-            backgroundColor={{ base: "sunray-10", sm: "beetle-10" }}
+            backgroundColor={{ base: "purple-3", sm: "alert-3" }}
             color="white"
             width={12}
         >
@@ -41,7 +41,7 @@ stories()
     )
     .add("match base", () =>
         <Box
-            backgroundColor={{ base: "sunray-10" }}
+            backgroundColor={{ base: "purple-8" }}
             color="white"
             width={12}
         >

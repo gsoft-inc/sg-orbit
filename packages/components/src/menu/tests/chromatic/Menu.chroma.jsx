@@ -640,9 +640,9 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Menu border="sunray-10" aria-label="Planets">
+            <Menu border="warning-7" aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item border="warning-7" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Menu>
             <Menu className="border-red" aria-label="Planets">

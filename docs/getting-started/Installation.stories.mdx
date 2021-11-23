@@ -37,17 +37,17 @@ Instead of harcoding the foundation values in Orbit, we choose to implement a [t
 
 The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a `<ThemeProvider>` at the root of your application.
 
-Here's an example of how to bootstrap an app with a pre-constructed ShareGate Apricot theme object:
+Here's an example of how to bootstrap an app with a pre-constructed ShareGate theme object:
 
 ```jsx
-import { createThemeVars, ApricotTheme, ThemeProvider } from "@sharegate/orbit-ui";
+import { createThemeVars, ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
 import { render } from "react-dom";
 import App from "./App";
 
-createThemeVars([ApricotTheme]);
+createThemeVars([ShareGateTheme]);
 
 render(
-    <ThemeProvider theme={ApricotTheme} colorScheme="light">
+    <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <App />
     </ThemeProvider>,
     document.getElementById("root")
@@ -62,8 +62,8 @@ You're all set! You can start building your app with Orbit:
 import { Div, Text } from "@sharegate/orbit-ui";
 
 export const App = () => (
-  <Div backgroundColor="sunray-10">
-    <Text color="cloud-5">Hello World!</Text>
+  <Div backgroundColor="alias-warning">
+    <Text color="alias-primary">Hello World!</Text>
   </Div>
 );
 ```

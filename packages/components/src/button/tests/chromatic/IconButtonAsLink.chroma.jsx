@@ -16,12 +16,12 @@ createIconButtonTestSuite(<IconButtonAsLink variant="secondary" />, stories("/se
 
 createIconButtonTestSuite(<IconButtonAsLink variant="tertiary" />, stories("/tertiary"));
 
-createIconButtonTestSuite(<IconButtonAsLink variant="danger" />, stories("/danger"));
+createIconButtonTestSuite(<IconButtonAsLink variant="negative" />, stories("/negative"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButtonAsLink border="sunray-10" variant="secondary"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink border="warning-6" variant="secondary"><AddIcon /></IconButtonAsLink>
             <IconButtonAsLink className="bg-red" variant="secondary"><AddIcon /></IconButtonAsLink>
             <IconButtonAsLink style={{ backgroundColor: "red" }} variant="secondary"><AddIcon /></IconButtonAsLink>
         </Inline>

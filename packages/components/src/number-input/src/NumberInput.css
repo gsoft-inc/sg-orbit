@@ -49,7 +49,7 @@
     border-left: 1px solid var(--o-ui-input-border-color);
     outline: none;
     cursor: pointer;
-    background-color: var(--o-ui-bg-alias-4);
+    background-color: var(--o-ui-bg-alias-default);
 }
 
 .o-ui-number-input-spinner-increment {
@@ -70,21 +70,16 @@
 }
 
 .o-ui-number-input-spinner .o-ui-icon {
-    fill: var(--o-ui-icon-alias-1);
+    fill: var(--o-ui-icon-alias-primary);
 }
 
 /* SPINNER | ACTIVE */
-.o-ui-number-input-spinner-increment:active:not(:disabled),
-.o-ui-number-input-spinner-decrement:active:not(:disabled),
-.o-ui-number-input-spinner-increment:hover:active:not(:disabled),
-.o-ui-number-input-spinner-decrement:hover:active:not(:disabled) {
-    background-color: var(--o-ui-bg-alias-4-active);
-}
+/* to do in JS */
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-4-hover);
+    background-color: var(--o-ui-bg-alias-mid-break);
 }
 
 /* SPINNER | DISABLED */
@@ -96,35 +91,6 @@
 /* SPINNER | LOADING */
 .o-ui-input-loading .o-ui-number-input-spinner {
     display: none;
-}
-
-/* SPINNER | TRANSPARENT */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement {
-    background-color: var(--o-ui-transparent);
-    border: 0;
-}
-
-/* SPINNER | TRANSPARENT | HOVER */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:hover,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-4-hover);
-}
-
-/* SPINNER | TRANSPARENT | HOVER ACTIVE */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:active:hover,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:active:hover {
-    background-color: var(--o-ui-bg-alias-4-active);
-}
-
-.o-ui-input-transparent .o-ui-number-input-spinner-increment {
-    border: 0;
-}
-
-/* SPINNER | TRANSPARENT | ACTIVE */
-.o-ui-input-transparent .o-ui-number-input-spinner-increment:active,
-.o-ui-input-transparent .o-ui-number-input-spinner-decrement:active {
-    background-color: var(--o-ui-bg-alias-4-active);
 }
 
 /* IN GROUP */

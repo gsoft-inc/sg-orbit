@@ -86,7 +86,11 @@ test("ref is a DOM element", async () => {
     const ref = createRef<HTMLButtonElement>();
 
     renderWithTheme(
-        <IconButton variant="secondary" ref={ref} aria-label="Add">
+        <IconButton
+            variant="secondary"
+            ref={ref}
+            aria-label="Add"
+        >
             <AddIcon />
         </IconButton>
     );
@@ -122,7 +126,11 @@ test("set ref once", async () => {
     const handler = jest.fn();
 
     renderWithTheme(
-        <IconButton variant="secondary" ref={handler} aria-label="Add">
+        <IconButton
+            variant="secondary"
+            ref={handler}
+            aria-label="Add"
+        >
             <AddIcon />
         </IconButton>
     );

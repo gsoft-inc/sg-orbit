@@ -20,7 +20,7 @@
 /* DIALOG */
 .o-ui-dialog {
     position: relative;
-    background-color: var(--o-ui-bg-alias-1);
+    background-color: var(--o-ui-bg-alias-default);
     border-radius: var(--o-ui-shape-rounded);
     display: grid;
     grid-template-areas: "image aside";
@@ -117,6 +117,7 @@
 /* DIALOG | FOOTER SECTION | FOOTER */
 .o-ui-dialog-footer {
     align-self: center;
+    width: 100%;
 }
 
 /* DIALOG | FOOTER SECTION | BUTTONS */
@@ -127,6 +128,7 @@
 }
 
 .o-ui-dialog-button-group {
+    width: 100%;
     flex-wrap: wrap;
 }
 

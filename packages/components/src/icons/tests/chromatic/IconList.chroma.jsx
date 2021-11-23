@@ -33,7 +33,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Icons border="sunray-10" />
+            <Icons border="warning-7" />
             <Icons className="border-red" />
             <Icons style={{ border: "1px solid red" }} />
         </Stack>

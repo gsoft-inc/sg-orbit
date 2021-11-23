@@ -9,7 +9,7 @@ export function CheckeredBackground({ children, ...rest }) {
             {...mergeProps(
                 rest,
                 {
-                    color: "alias-1",
+                    color: "alias-primary",
                     paddingLeft: 2,
                     className: "o-ui-sb-checkered-background-preview"
                 }

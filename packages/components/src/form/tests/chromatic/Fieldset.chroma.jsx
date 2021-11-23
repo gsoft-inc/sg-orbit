@@ -132,7 +132,7 @@ stories()
     )
     .add("styling", () =>
         <Stack>
-            <Fieldset border="sunray-10" label="Shipping Address">
+            <Fieldset border="warning-7" label="Shipping Address">
                 <Inline>
                     <Field>
                         <Label>First name</Label>

@@ -27,20 +27,20 @@ export function createIconLinkTestSuite(element, stories) {
                 <IconLink variant="primary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
-        .add("secondary", () =>
+        .add("accent", () =>
             <Inline alignY="end">
-                <IconLink variant="secondary" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink variant="secondary" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="accent" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="accent" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
-        .add("danger", () =>
+        .add("negative", () =>
             <Inline alignY="end">
-                <IconLink variant="danger" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
-                <IconLink variant="danger" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="negative" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
+                <IconLink variant="negative" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>
         )
         .add("inherit color", () =>
-            <Inline alignY="end" color="alias-primary-1">
+            <Inline alignY="end" color="alias-accent">
                 <IconLink color="inherit" size="sm" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
                 <IconLink color="inherit" aria-label="Add" href="#" element={element}><AddIcon /></IconLink>
             </Inline>

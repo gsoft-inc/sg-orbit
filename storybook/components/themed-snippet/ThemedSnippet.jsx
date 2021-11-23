@@ -3,8 +3,7 @@ import { string } from "prop-types";
 import { useThemedSnippet } from "./useThemedSnippet";
 
 const propTypes = {
-    apricot: string.isRequired,
-    desktop: string.isRequired,
+    sharegate: string.isRequired,
     language: string
 };
 
@@ -12,10 +11,9 @@ const defaultProps = {
     language: "javascript"
 };
 
-export function ThemedSnippet({ apricot, desktop, language, ...rest }) {
+export function ThemedSnippet({ sharegate, language, ...rest }) {
     const code = useThemedSnippet({
-        apricot,
-        desktop
+        sharegate
     });
 
     return (

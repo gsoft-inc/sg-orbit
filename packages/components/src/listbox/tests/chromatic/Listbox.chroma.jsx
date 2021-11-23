@@ -606,9 +606,9 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <Listbox border="sunray-10" aria-label="Planets">
+            <Listbox border="warning-7" aria-label="Planets">
                 <Item key="earth">Earth</Item>
-                <Item border="sunray-10" key="jupiter">Jupiter</Item>
+                <Item border="warning-7" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Listbox>
             <Listbox className="border-red" aria-label="Planets">

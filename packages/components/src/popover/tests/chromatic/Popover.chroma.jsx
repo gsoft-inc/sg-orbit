@@ -46,7 +46,7 @@ stories()
         <Popover>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
-            <Button variant="secondary">Accept</Button>
+            <Button variant="primary">Accept</Button>
         </Popover>
     )
     .add("button group", () =>
@@ -110,7 +110,7 @@ stories()
         </Popover>
     )
     .add("styled system", () =>
-        <Popover border="sunray-10">
+        <Popover border="warning-7">
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
         </Popover>

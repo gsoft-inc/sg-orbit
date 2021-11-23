@@ -10,28 +10,28 @@ import { isNil } from "../../../shared";
 SYNTAX:
 
 // No breakpoint, no pseudo, known value
-<Button backgroundColor="sunray-10">Toto</Button>
+<Button backgroundColor="warning-10">Toto</Button>
 
 // No breakpoint, no pseudo, dynamic value
 <Button backgroundColor="#fff">Toto</Button>
 
 // No breakpoint, pseudo, known value
-<Button backgroundColorHover="sunray-10">Toto</Button>
+<Button backgroundColorHover="warning-10">Toto</Button>
 
 // No breakpoint, pseudo, dynamic value
 <Button backgroundColorHover="#fff">Toto</Button>
 
 // Breakpoint, no pseudo, known value
-<Button backgroundColor={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, no pseudo, dynamic value
-<Button backgroundColor={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, known value
-<Button backgroundColorHover={{ s: "sunray-10", md: "primary-10", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, dynamic value
-<Button backgroundColorHover={{ s: "sunray-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 */
 
 const GlobalValues = [
@@ -41,13 +41,13 @@ const GlobalValues = [
     "unset"
 ];
 
-const ColorExpressionTypes = [
+export const ColorExpressionTypes = [
     "#",
     "rgb",
     "rgba",
     "hsl",
     "hsla"
-];
+] as const;
 
 const SizingScale = [
     1,
@@ -89,50 +89,73 @@ const SpacingScale = [
 const Colors = [
     "white",
     "black",
-    // Marine
-    "marine-1",
-    "marine-2",
-    "marine-3",
-    "marine-4",
-    "marine-5",
-    "marine-6",
-    "marine-7",
-    "marine-8",
-    "marine-9",
-    "marine-10",
-    // Sunray
-    "sunray-1",
-    "sunray-2",
-    "sunray-3",
-    "sunray-4",
-    "sunray-5",
-    "sunray-6",
-    "sunray-7",
-    "sunray-8",
-    "sunray-9",
-    "sunray-10",
-    // Moonstone
-    "moonstone-1",
-    "moonstone-2",
-    "moonstone-3",
-    "moonstone-4",
-    "moonstone-5",
-    "moonstone-6",
-    "moonstone-7",
-    "moonstone-8",
-    "moonstone-9",
-    "moonstone-10",
-    // Cloud
-    "cloud-1",
-    "cloud-2",
-    "cloud-3",
-    "cloud-4",
-    "cloud-5",
-    "cloud-6",
-    "cloud-7",
-    "cloud-8",
-    "cloud-9",
-    "cloud-10",
+    "gray",
+    // Purple
+    "purple-1",
+    "purple-2",
+    "purple-3",
+    "purple-4",
+    "purple-5",
+    "purple-6",
+    "purple-7",
+    "purple-8",
+    "purple-9",
+    "purple-10",
+    // Orange
+    "orange-1",
+    "orange-2",
+    "orange-3",
+    "orange-4",
+    "orange-5",
+    "orange-6",
+    "orange-7",
+    "orange-8",
+    "orange-9",
+    "orange-10",
+    // Green
+    "green-1",
+    "green-2",
+    "green-3",
+    "green-4",
+    "green-5",
+    "green-6",
+    "green-7",
+    "green-8",
+    "green-9",
+    "green-10",
+    // Alert
+    "alert-1",
+    "alert-2",
+    "alert-3",
+    "alert-4",
+    "alert-5",
+    "alert-6",
+    "alert-7",
+    "alert-8",
+    "alert-9",
+    "alert-10",
+    // Warning
+    "warning-1",
+    "warning-2",
+    "warning-3",
+    "warning-4",
+    "warning-5",
+    "warning-6",
+    "warning-7",
+    "warning-8",
+    "warning-9",
+    "warning-10",
+    // Success
+    "success-1",
+    "success-2",
+    "success-3",
+    "success-4",
+    "success-5",
+    "success-6",
+    "success-7",
+    "success-8",
+    "success-9",
+    "success-10",
     // Neutral
     "neutral-1",
     "neutral-2",
@@ -144,129 +167,112 @@ const Colors = [
     "neutral-8",
     "neutral-9",
     "neutral-10",
-    // Neutral dark
-    "neutral-dark-1",
-    "neutral-dark-2",
-    "neutral-dark-3",
-    "neutral-dark-4",
-    "neutral-dark-5",
-    "neutral-dark-6",
-    "neutral-dark-7",
-    "neutral-dark-8",
-    "neutral-dark-9",
-    "neutral-dark-10",
-    // Beetle
-    "beetle-1",
-    "beetle-2",
-    "beetle-3",
-    "beetle-4",
-    "beetle-5",
-    "beetle-6",
-    "beetle-7",
-    "beetle-8",
-    "beetle-9",
-    "beetle-10",
-    // Botanic
-    "botanic-1",
-    "botanic-2",
-    "botanic-3",
-    "botanic-4",
-    "botanic-5",
-    "botanic-6",
-    "botanic-7",
-    "botanic-8",
-    "botanic-9",
-    "botanic-10",
-    // Primary
-    "primary-1",
-    "primary-2",
-    "primary-3",
-    "primary-4",
-    "primary-5",
-    "primary-6",
-    "primary-7",
-    "primary-8",
-    "primary-9",
-    "primary-10"
+    // Accent
+    "accent-1",
+    "accent-2",
+    "accent-3",
+    "accent-4",
+    "accent-5",
+    "accent-6",
+    "accent-7",
+    "accent-8",
+    "accent-9",
+    "accent-10"
 ] as const;
 
 const BackgroundColorAliases = [
-    "alias-1",
-    "alias-2",
-    "alias-3",
-    "alias-4",
-    "alias-5",
-    "alias-6",
-    "alias-info-1",
-    "alias-negative-1",
-    "alias-negative-2",
-    "alias-positive-1",
-    "alias-positive-2",
-    "alias-primary-1",
-    "alias-primary-2",
-    "alias-warning-1",
-    "alias-warning-2"
+    "alias-default",
+    "alias-soft-break",
+    "alias-hard-break",
+    "alias-mid-break",
+    "alias-basic",
+    "alias-basic-hover",
+    "alias-basic-active",
+    "alias-basic-transparent",
+    "alias-basic-transparent-hover",
+    "alias-basic-transparent-active",
+    "alias-static-white",
+    "alias-grey-hover",
+    "alias-grey-active",
+    "alias-accent",
+    "alias-accent-hover",
+    "alias-accent-active",
+    "alias-accent-faint",
+    "alias-accent-light",
+    "alias-accent-transparent",
+    "alias-accent-transparent-hover",
+    "alias-accent-transparent-active",
+    "alias-alert",
+    "alias-alert-hover",
+    "alias-alert-active",
+    "alias-alert-faint",
+    "alias-alert-light",
+    "alias-alert-transparent",
+    "alias-alert-transparent-hover",
+    "alias-alert-transparent-active",
+    "alias-warning",
+    "alias-warning-hover",
+    "alias-warning-active",
+    "alias-warning-faint",
+    "alias-warning-light",
+    "alias-success",
+    "alias-success-hover",
+    "alias-success-active",
+    "alias-success-faint",
+    "alias-success-light",
+    "alias-transparent",
+    "alias-input-selection"
 ] as const;
 
 const BorderWidthAndStyle = "1px solid";
 
 const BorderColorAliases = [
-    "alias-1",
-    "alias-2",
-    "alias-3",
-    "alias-4",
-    "alias-negative-1",
-    "alias-negative-1-translucent",
-    "alias-negative-2",
-    "alias-positive-1",
-    "alias-primary-1",
-    "alias-primary-1-translucent",
-    "alias-warning-1"
+    "alias-low-break",
+    "alias-mid-break",
+    "alias-high-break",
+    "alias-accent",
+    "alias-accent-hover",
+    "alias-accent-active",
+    "alias-alert",
+    "alias-alert-hover",
+    "alias-alert-active",
+    "alias-warning",
+    "alias-warning-hover",
+    "alias-warning-active",
+    "alias-success",
+    "alias-success-hover",
+    "alias-success-active"
 ] as const;
 
 const IconColorAliases = [
-    "alias-1",
-    "alias-2",
-    "alias-info-1",
-    "alias-negative-1",
-    "alias-negative-2",
-    "alias-positive-1",
-    "alias-positive-2",
-    "alias-primary-1",
-    "alias-warning-1",
-    "alias-warning-2"
+    "alias-primary",
+    "alias-primary-hover",
+    "alias-secondary",
+    "alias-tertiary",
+    "alias-faint",
+    "alias-accent",
+    "alias-accent-hover",
+    "alias-alert",
+    "alias-alert-hover",
+    "alias-warning",
+    "alias-success",
+    "alias-static-white",
+    "alias-input-placeholder"
 ] as const;
 
 const TextColorAliases = [
-    "alias-1",
-    "alias-1-hover",
-    "alias-1-active",
-    "alias-2",
-    "alias-2-hover",
-    "alias-2-active",
-    "alias-3",
-    "alias-3-hover",
-    "alias-3-active",
-    "alias-4",
-    "alias-primary-1",
-    "alias-primary-1-hover",
-    "alias-primary-1-active",
-    "alias-negative-1",
-    "alias-negative-1-hover",
-    "alias-negative-1-active",
-    "alias-negative-2",
-    "alias-info-1",
-    "alias-info-1-hover",
-    "alias-info-1-active",
-    "alias-positive-1",
-    "alias-positive-1-hover",
-    "alias-positive-1-active",
-    "alias-positive-2",
-    "alias-warning-1",
-    "alias-warning-1-hover",
-    "alias-warning-1-active",
-    "alias-warning-2",
-    "alias-input-selection",
+    "alias-primary",
+    "alias-primary-hover",
+    "alias-secondary",
+    "alias-tertiary",
+    "alias-faint",
+    "alias-accent",
+    "alias-accent-hover",
+    "alias-alert",
+    "alias-alert-hover",
+    "alias-warning",
+    "alias-success",
+    "alias-static-white",
     "alias-input-placeholder"
 ] as const;
 
@@ -1203,7 +1209,7 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
 }
 
 // Custom handler for borders to allow the following syntax:
-// - border="sunray-10" -> style="1px solid var(--o-ui-sunray-10)"
+// - border="warning-10" -> style="1px solid var(--o-ui-warning-10)"
 // - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
 function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
@@ -1330,8 +1336,8 @@ const PropsHandlers: Record<string, PropHandler<unknown>> = {
     cursorHover: createPseudoHandler("o-ui-cs-hover", "--o-ui-cs-hover"),
     display: createHandler(),
     fill: createHandler(IconColorMapping),
-    fillFocus: createPseudoHandler("o-ui-f-focus", "--o-ui-f-focus", BorderMapping),
-    fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", BorderMapping),
+    fillFocus: createPseudoHandler("o-ui-f-focus", "--o-ui-f-focus", IconColorMapping),
+    fillHover: createPseudoHandler("o-ui-f-hover", "--o-ui-f-hover", IconColorMapping),
     filter: createHandler(),
     flex: createHandler(),
     flexBasis: createHandler(),

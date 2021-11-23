@@ -114,7 +114,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <SearchInput border="sunray-10" aria-label="Label" />
+            <SearchInput border="warning-7" aria-label="Label" />
             <SearchInput className="border-red" aria-label="Label" />
             <SearchInput style={{ border: "1px solid red" }} aria-label="Label" />
         </Inline>

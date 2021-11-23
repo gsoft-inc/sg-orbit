@@ -3,17 +3,16 @@
     --o-ui-input-padding-with-icon: var(--o-ui-sp-7);
     --o-ui-input-padding-with-button: var(--o-ui-sp-8);
     --o-ui-input-padding-loading: var(--o-ui-sp-8);
-    --o-ui-input-border-color: var(--o-ui-b-alias-1);
+    --o-ui-input-border-color: var(--o-ui-b-alias-mid-break);
     --o-ui-input-border-radius: var(--o-ui-shape-rounded);
-    --o-ui-input-focus-color: var(--o-ui-b-alias-primary-1);
-    --o-ui-input-background-color: var(--o-ui-bg-alias-2);
+    --o-ui-input-background-color: var(--o-ui-bg-alias-mid-break);
 }
 
 .o-ui-input {
     display: inline-block;
     position: relative;
     transition: var(--o-ui-focus-ring-transition);
-    color: var(--o-ui-text-alias-1);
+    color: var(--o-ui-text-alias-primary);
     width: var(--o-ui-sz-16);
 }
 
@@ -29,8 +28,8 @@
     padding: 0 var(--o-ui-input-padding);
     border-radius: var(--o-ui-input-border-radius);
     border: 1px solid var(--o-ui-input-border-color);
-    color: var(--o-ui-text-alias-1);
-    background-color: var(--o-ui-bg-alias-1);
+    color: var(--o-ui-text-alias-primary);
+    background-color: var(--o-ui-bg-alias-default);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     width: 100%;
 }
@@ -38,7 +37,6 @@
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
     background-color: var(--o-ui-bg-alias-input-selection);
-    color: var(--o-ui-text-alias-input-selection);
 }
 
 /* STATE | HOVER */
@@ -46,7 +44,7 @@
 .o-ui-input:not(.o-ui-input-focus):hover textarea:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) input:not([disabled]),
 .o-ui-input-hover:not(.o-ui-input-focus) textarea:not([disabled]) {
-    border-color: var(--o-ui-b-alias-1-hover);
+    border-color: var(--o-ui-b-alias-high-break);
 }
 
 /* PLACEHOLDER */
@@ -57,7 +55,7 @@
 
 .o-ui-input input:disabled::placeholder,
 .o-ui-input textarea:disabled::placeholder {
-    color: var(--o-ui-text-alias-info-1);
+    color: var(--o-ui-text-alias-secondary);
 }
 
 /* FLUID */
@@ -73,14 +71,14 @@
 /* INVALID */
 .o-ui-input-invalid input:not([disabled]),
 .o-ui-input-invalid textarea:not([disabled]) {
-    --o-ui-input-border-color: var(--o-ui-b-alias-negative-1);
+    --o-ui-input-border-color: var(--o-ui-b-alias-alert);
 }
 
 /* INVALID | DISABLED */
 .o-ui-input.o-ui-input-invalid input:disabled,
 .o-ui-input.o-ui-input-invalid textarea:disabled {
-    background-color: var(--o-ui-bg-alias-negative-2);
-    --o-ui-input-border-color: var(--o-ui-bg-alias-negative-2);
+    background-color: var(--o-ui-bg-alias-alert-light);
+    --o-ui-input-border-color: var(--o-ui-bg-alias-alert-light);
 }
 
 .o-ui-input.o-ui-input-invalid input:focus-visible,
@@ -94,7 +92,7 @@
 .o-ui-input.o-ui-input-invalid:hover textarea:not([disabled]),
 .o-ui-input-hover.o-ui-input-invalid input:not([disabled]),
 .o-ui-input-hover.o-ui-input-invalid textarea:not([disabled]) {
-    border-color: var(--o-ui-b-alias-negative-1-hover);
+    border-color: var(--o-ui-b-alias-alert-hover);
 }
 
 /* ICON */
@@ -170,8 +168,8 @@
     top: 50%;
     z-index: 1;
     border-radius: 50px;
-    border: 2px solid var(--o-ui-marine-2);
-    border-top-color: var(--o-ui-marine-4);
+    border: 2px solid var(--o-ui-b-alias-low-break);
+    border-top-color: var(--o-ui-b-alias-mid-break);
     transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;
 }

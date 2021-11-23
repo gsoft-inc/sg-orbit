@@ -108,21 +108,21 @@ export function createTagTestSuite(element, stories) {
             <Stack>
                 <Inline alignY="end">
                     <Tag size="sm" element={element}>
-                        <Dot />
+                        <Dot color="alias-accent" />
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag element={element}>
-                        <Dot />
+                        <Dot color="alias-accent" />
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
                 <Tag fluid element={element}>
-                    <Dot />
+                    <Dot color="alias-accent" />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Div width="10%">
                     <Tag fluid element={element}>
-                        <Dot />
+                        <Dot color="alias-accent" />
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Div>
@@ -131,7 +131,7 @@ export function createTagTestSuite(element, stories) {
         .add("alignment", () =>
             <Stack>
                 <Tag fluid size="sm" element={element}>
-                    <Dot />
+                    <Dot color="alias-accent" />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag fluid size="sm" element={element}>
@@ -142,7 +142,7 @@ export function createTagTestSuite(element, stories) {
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag fluid element={element}>
-                    <Dot />
+                    <Dot color="alias-accent" />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag fluid element={element}>
@@ -156,11 +156,11 @@ export function createTagTestSuite(element, stories) {
                     <Stack>
                         <Inline>
                             <Tag fluid size="sm" element={element}>
-                                <Dot />
+                                <Dot color="alias-accent" />
                                 <Text>Falcon 9</Text>
                             </Tag>
                             <Tag fluid element={element}>
-                                <Dot />
+                                <Dot color="alias-accent" />
                                 <Text>Falcon 9</Text>
                             </Tag>
                         </Inline>

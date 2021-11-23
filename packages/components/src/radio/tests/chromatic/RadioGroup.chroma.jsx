@@ -37,7 +37,8 @@ function CustomComponent({
             as="button"
             value={value}
             onClick={handleCheck}
-            className={isChecked ? "white bg-primary-500" : "bg-secondary-500"}
+            color={isChecked?"white": undefined}
+            backgroundColor={isChecked?"accent-6": "neutral-6"}
         >
             {children}
         </Tag>
@@ -123,9 +124,9 @@ stories()
     )
     .add("toggle buttons", () =>
         <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
-            <ToggleButton variant="secondary" shape="circular" value="1">1</ToggleButton>
-            <ToggleButton variant="secondary" shape="circular" value="2">2</ToggleButton>
-            <ToggleButton variant="secondary" shape="circular" value="3">3</ToggleButton>
+            <ToggleButton variant="secondary" value="1">1</ToggleButton>
+            <ToggleButton variant="secondary" value="2">2</ToggleButton>
+            <ToggleButton variant="secondary" value="3">3</ToggleButton>
         </RadioGroup>
     )
     .add("custom components", () =>
@@ -151,7 +152,7 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <RadioGroup border="sunray-10">
+            <RadioGroup border="warning-7">
                 <Radio value="1">1</Radio>
                 <Radio value="2">2</Radio>
                 <Radio value="3">3</Radio>

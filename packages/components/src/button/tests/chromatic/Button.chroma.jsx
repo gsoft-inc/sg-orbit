@@ -10,33 +10,24 @@ function stories(segment) {
         .segment(segment)
         .build();
 }
-
-function SunrayBackground({ button, ...rest }) {
-    console.log(button, rest);
-
+function WarningBackground({ button, ...rest }) {
     return (
-        <Div color="sunray-10" backgroundColor="sunray-1">
+        <Div color="warning-6" backgroundColor="warning-1">
             {cloneElement(button, rest)}
         </Div>
     );
 }
-
 createButtonTestSuite(<Button variant="primary" />, stories("/primary"));
-
 createButtonTestSuite(<Button variant="secondary" />, stories("/secondary"));
-
-createButtonTestSuite(<SunrayBackground button={<Button variant="secondary" inherit />} />, stories("/secondary (inherit)"));
-
+createButtonTestSuite(<WarningBackground button={<Button variant="secondary" inherit />} />, stories("/secondary (inherit)"));
 createButtonTestSuite(<Button variant="tertiary" />, stories("/tertiary"));
-
-createButtonTestSuite(<SunrayBackground button={<Button variant="tertiary" inherit />} />, stories("/tertiary (inherit)"));
-
-createButtonTestSuite(<Button variant="danger" />, stories("/danger"));
+createButtonTestSuite(<WarningBackground button={<Button variant="tertiary" inherit />} />, stories("/tertiary (inherit)"));
+createButtonTestSuite(<Button variant="negative" />, stories("/negative"));
 
 stories()
     .add("styling", () =>
         <Inline>
-            <Button border="sunray-10" variant="secondary">Button</Button>
+            <Button border="warning-6" variant="secondary">Button</Button>
             <Button className="bg-red" variant="secondary">Button</Button>
             <Button style={{ backgroundColor: "red" }} variant="secondary">Button</Button>
         </Inline>

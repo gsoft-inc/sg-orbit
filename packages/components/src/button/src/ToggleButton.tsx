@@ -30,7 +30,7 @@ export interface InnerToggleButtonProps extends Omit<AbstractButtonProps<typeof 
      */
     value?: string;
     /**
-     * The button style to use.
+     * The button variant to use.
      */
     variant?: ToggleButtonVariant;
 }
@@ -46,7 +46,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         forwardedRef,
         onChange,
         onCheck,
-        shape,
         value,
         variant,
         ...rest
@@ -63,7 +62,6 @@ export function InnerToggleButton(props: InnerToggleButtonProps) {
         isCheckable,
         onChange,
         onCheck,
-        shape,
         value,
         variant
     });

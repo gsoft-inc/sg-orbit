@@ -477,7 +477,7 @@ stories()
     .add("styling", () =>
         <Stack>
             <Inline>
-                <Tabs border="sunray-10" aria-label="Planets">
+                <Tabs border="warning-7" aria-label="Planets">
                     <Item>
                         <Header className="border-red">Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -500,7 +500,7 @@ stories()
                 <Tabs aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
-                        <Content border="sunray-10">Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                        <Content border="warning-7">Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
                 <Tabs aria-label="Planets">
