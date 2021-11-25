@@ -201,7 +201,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled {
 }
 
 /* CONTENT | REMOVE BUTTON */
-.o-ui-tag-remove-button {
+.o-ui-tag .o-ui-tag-remove-button {
     margin-left: var(--o-ui-sp-1);
 }
 
