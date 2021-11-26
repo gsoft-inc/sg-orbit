@@ -20,9 +20,9 @@ To help achieve a consistent UI, Orbit [style props](#style-props) are based on 
     fontWeight={3}
     padding={3}
     marginBottom={3}
-    color="white"
+    color="alias-static-white"
     borderRadius={3}
-    backgroundColor="accent-5">
+    backgroundColor="alias-accent">
     Lost in space.
 </Div>
 ```
@@ -34,7 +34,7 @@ An Orbit style property is a mapping of a [CSS property](https://developer.mozil
 All style props and style values are discovererable with TypeScript intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](#theme) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
 
 <Preview>
-    <Div width={18} backgroundColor="purple-2" padding={4} borderRadius={2}>
+    <Div width={18} backgroundColor="alias-accent-light" padding={4} borderRadius={2} maxWidth="100%">
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -64,7 +64,7 @@ Orbit [style props](#style-props) also supports responsive breakpoints. These br
 By passing an object to any style props, you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a sm value will apply from `768px` and up until another higher breakpoint matches.
 
 <Preview>
-    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "accent-2", lg: "neutral-2", xl: "warning-2" }} width={18} padding={4}>
+    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "accent-2", lg: "neutral-2", xl: "warning-2" }} width={18} maxWidth="100%" padding={4}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -72,7 +72,7 @@ By passing an object to any style props, you can specify which style will be app
 Not all breakpoints needs to be set explicitly. In the following example, `base` and `lg` are explicitly set breakpoints. When match, the `xl` breakpoint will implicitly takes the value set by `lg` breakpoints since it is wider than `lg`. Everything below `lg` inherits the `base` color.
 
 <Preview>
-    <Div backgroundColor={{ base: "green-2", lg: "warning-2" }} width={18} padding={4}>
+    <Div backgroundColor={{ base: "alias-success", lg: "alias-warning" }} width={18} maxWidth="100%" padding={4}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -97,7 +97,7 @@ The following pseudo states are supported by some styled props and behaves like 
 />
 
 <Preview>
-    <Div backgroundColorHover="green-2" backgroundColor="warning-2" padding={4} width={18}  borderRadius={2}>
+    <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius={2}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -133,7 +133,7 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
 
 Instead of harcoding the foundation values in Orbit like we did in earlier versions, the Orbit styled system is now powered by the values of a theme object provided by the application.
 
-A theme object is a combinaison of design values and design scales. A design scale can be for [typography](?path=/story/typography--page), [spacing](path=/story/spacing--page), [sizing](?path=/story/sizing--page) or even [colors](?path=/story/colors--page). Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some like `fontSizes` are even a mix of both.
+A theme object is a combinaison of design values and design scales. A design scale can be for [typography](?path=/story/typography--page), [spacing](path=/story/spacing--page), [sizing](?path=/story/sizing--page) or even [colors](?path=/story/color-palette--page). Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some like `fontSizes` are even a mix of both.
 
 ### Specification
 

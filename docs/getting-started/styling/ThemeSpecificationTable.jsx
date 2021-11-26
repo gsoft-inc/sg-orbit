@@ -7,7 +7,7 @@ const propTypes = {
 
 const ScaleLinks = {
     "box-shadow-scale": <Link href="?path=/story/shadows--page">1..4 / alias</Link>,
-    "color-scale": <Link href="?path=/story/colors--page">[color]-[1..10] / alias</Link>,
+    "color-scale": <Link href="?path=/story/color-palette--page">[color]-[1..10] / alias</Link>,
     "sizing-scale": <Link href="?path=/story/sizing--page">1..18</Link>,
     "spacing-scale": <Link href="?path=/story/sizing--page">1..13</Link>,
 }
