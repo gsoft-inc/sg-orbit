@@ -89,7 +89,7 @@
 
 /* BUTTON ADDON */
 .o-ui-input-group .o-ui-input-group-button-addon {
-    box-shadow: 0 0 0 1px var(--o-ui-input-border-color) inset;
+    border: 1px solid var(--o-ui-input-border-color);
 }
 
 /* SELECT ADDON */

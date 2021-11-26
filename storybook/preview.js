@@ -108,15 +108,6 @@ if (isDocs) {
 }
 
 export const globalTypes = {
-    theme: {
-        name: "Theme",
-        description: "Theme for components",
-        defaultValue: ShareGateTheme.name,
-        toolbar: {
-            icon: "photo",
-            items: [ShareGateTheme.name]
-        }
-    },
     colorScheme: {
         name: "ColorScheme",
         description: "Color scheme for components",

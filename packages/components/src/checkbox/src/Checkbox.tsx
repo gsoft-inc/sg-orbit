@@ -3,6 +3,7 @@ import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { Span } from "../../html";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
 import { embeddedIconSize } from "../../icons";
@@ -181,7 +182,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
             )}
         >
             <VisuallyHidden {...inputProps} />
-            <span className="o-ui-checkbox-box" />
+            <Span className="o-ui-checkbox-box" />
             {text}
             {icon}
             {counter}
