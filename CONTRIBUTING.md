@@ -146,7 +146,7 @@ To release, open a terminal at the root of the workspace and execute the followi
 ```bash
 yarn new-version
 yarn release
-yarn push-release <@sharegate/orbit-ui package version>
+yarn push-release <VERSION> (e.g. yarn push-release 22.0.2)
 Release docs
 Release Storybook
 ```
