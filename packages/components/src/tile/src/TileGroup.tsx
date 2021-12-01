@@ -133,6 +133,7 @@ export function InnerTileGroup({
             {...mergeProps(
                 rest,
                 {
+                    alignItems: "stretch",
                     fluid: true,
                     // If you change the gap, also update the tile size gap (currently 16px) below.
                     gap: 4,
