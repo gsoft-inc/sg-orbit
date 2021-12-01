@@ -100,6 +100,10 @@ export class FocusManager {
         return element;
     }
 
+    getVisibileElements(elements: HTMLElement[]) {
+        return elements.filter(x => (x.offsetWidth > 0 && x.offsetHeight > 0));
+    }
+
     focusFirst({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
@@ -141,18 +145,20 @@ export class FocusManager {
     focusNext({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
+        const visibleElements = this.getVisibileElements(elements);
+
         let target;
 
-        if (elements.length > 0) {
+        if (visibleElements.length > 0) {
             let hasLooped = false;
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : elements.indexOf(document.activeElement as HTMLElement);
+                ? visibleElements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
+                : visibleElements.indexOf(document.activeElement as HTMLElement);
 
-            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+            const iterator = new ElementIterator(visibleElements, { from: index !== -1 ? index : undefined });
 
             do {
                 target = iterator.next();
@@ -179,24 +185,26 @@ export class FocusManager {
     focusPrevious({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
+        const visibleElements = this.getVisibileElements(elements);
+
         let target;
 
-        if (elements.length > 0) {
+        if (visibleElements.length > 0) {
             let hasLooped = false;
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : elements.indexOf(document.activeElement as HTMLElement);
+                ? visibleElements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
+                : visibleElements.indexOf(document.activeElement as HTMLElement);
 
-            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
+            const iterator = new ElementIterator(visibleElements, { from: index !== -1 ? index : undefined });
 
             do {
                 target = iterator.previous();
 
                 if (isNil(target)) {
-                    iterator.reset({ from: elements.length });
+                    iterator.reset({ from: visibleElements.length });
                 }
 
                 // If we do a full loop it means there are no focusable elements (probably because of canFocus)
