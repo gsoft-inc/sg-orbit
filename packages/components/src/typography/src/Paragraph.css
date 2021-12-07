@@ -1,5 +1,6 @@
 .o-ui-p {
     font-variation-settings: "wght" 400;
+    overflow-wrap: break-word;
 }
 
 .o-ui-p:last-child {

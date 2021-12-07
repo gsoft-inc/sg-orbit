@@ -34,9 +34,17 @@
     width: 100%;
 }
 
+/* SELECTION */
 .o-ui-input input::selection,
 .o-ui-input textarea::selection {
     background-color: var(--o-ui-bg-alias-input-selection);
+}
+
+/* AUTOFILL */
+.o-ui-input input:-webkit-autofill,
+.o-ui-input textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px var(--o-ui-bg-alias-accent-faint) inset !important;
+    -webkit-text-fill-color: var(--o-ui-text-alias-primary) !important;
 }
 
 /* STATE | HOVER */
