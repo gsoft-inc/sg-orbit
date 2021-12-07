@@ -1,6 +1,7 @@
 .o-ui-heading {
     font-weight: 400;
     font-variation-settings: "wght" 500;
+    overflow-wrap: break-word;
 }
 
 /* SIZE */
