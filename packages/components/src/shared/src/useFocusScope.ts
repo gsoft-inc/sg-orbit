@@ -17,6 +17,12 @@ export class DomScope {
         return this.scopeRef.current;
     }
 
+    getScopeRoot() {
+        if (!this.elements || this.elements.length === 0) { return null; }
+
+        return this.elements[0].parentElement;
+    }
+
     registerChangeHandler(handler: ScopeChangeEventHandler) {
         this.handlersRef.current.push(handler);
     }

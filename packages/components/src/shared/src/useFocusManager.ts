@@ -1,5 +1,6 @@
 import { DomScope } from "./useFocusScope";
 import { FocusTarget } from "./focusTarget";
+import { createFocusableTreeWalker } from "../../shared";
 import { isFunction, isNil } from "./assertions";
 import { useMemo } from "react";
 
@@ -100,23 +101,19 @@ export class FocusManager {
         return element;
     }
 
-    getVisibileElements(elements: HTMLElement[]) {
-        return elements.filter(x => (x.offsetWidth > 0 && x.offsetHeight > 0));
-    }
-
     focusFirst({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
         let target;
+
+        const walker = createFocusableTreeWalker(this.scope.getScopeRoot(), { tabbable: false });
 
         if (elements.length > 0) {
             if (isNil(canFocus)) {
                 target = elements[0];
             }
             else {
-                const iterator = new ElementIterator(elements);
-
-                do { target = iterator.next(); } while (!isNil(target) && !canFocus(target));
+                do { target = walker.nextNode(); } while (!isNil(target) && !canFocus(target));
             }
         }
 
@@ -126,16 +123,18 @@ export class FocusManager {
     focusLast({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
-        let target: HTMLElement;
+        let target;
+
+        const walker = createFocusableTreeWalker(this.scope.getScopeRoot(), { tabbable: false });
 
         if (elements.length > 0) {
             if (isNil(canFocus)) {
                 target = elements[elements.length - 1];
             }
             else {
-                const iterator = new ElementIterator(elements, { from: elements.length });
+                walker.currentNode = elements[elements.length - 1];
 
-                do { target = iterator.previous(); } while (!isNil(target) && !canFocus(target));
+                do { target = walker.previousNode(); } while (!isNil(target) && !canFocus(target));
             }
         }
 
@@ -145,31 +144,33 @@ export class FocusManager {
     focusNext({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
-        const visibleElements = this.getVisibileElements(elements);
-
         let target;
 
-        if (visibleElements.length > 0) {
+        const walker = createFocusableTreeWalker(this.scope.getScopeRoot(), { tabbable: false });
+
+        if (elements.length > 0) {
             let hasLooped = false;
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? visibleElements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : visibleElements.indexOf(document.activeElement as HTMLElement);
+                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
+                : elements.indexOf(document.activeElement as HTMLElement);
 
-            const iterator = new ElementIterator(visibleElements, { from: index !== -1 ? index : undefined });
+            if (index !== -1) {
+                walker.currentNode = elements[index];
+            }
 
             do {
-                target = iterator.next();
+                target = (index === -1 && canFocus(elements[0])) ? elements[0] : walker.nextNode();
 
                 if (isNil(target)) {
-                    iterator.reset();
+                    target = elements[0];
                 }
 
                 // If we do a full loop it means there are no focusable elements (probably because of canFocus)
                 // therefore we should stop looping to prevent an infinite loop.
-                if (iterator.currentIndex === index) {
+                if (target === elements[index]) {
                     hasLooped = true;
                 }
 
@@ -185,31 +186,33 @@ export class FocusManager {
     focusPrevious({ canFocus, ...options }: FocusOptions = {}) {
         const { elements } = this.scope;
 
-        const visibleElements = this.getVisibileElements(elements);
-
         let target;
 
-        if (visibleElements.length > 0) {
+        const walker = createFocusableTreeWalker(this.scope.getScopeRoot(), { tabbable: false });
+
+        if (elements.length > 0) {
             let hasLooped = false;
 
             canFocus = !isNil(canFocus) ? canFocus : () => true;
 
             const index = this.isVirtual
-                ? visibleElements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : visibleElements.indexOf(document.activeElement as HTMLElement);
+                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
+                : elements.indexOf(document.activeElement as HTMLElement);
 
-            const iterator = new ElementIterator(visibleElements, { from: index !== -1 ? index : undefined });
+            if (index !== -1) {
+                walker.currentNode = elements[index];
+            }
 
             do {
-                target = iterator.previous();
+                target = (index === -1 && canFocus(elements[elements.length - 1])) ? elements[elements.length - 1] : walker.previousNode();
 
                 if (isNil(target)) {
-                    iterator.reset({ from: visibleElements.length });
+                    target = elements[elements.length - 1];
                 }
 
                 // If we do a full loop it means there are no focusable elements (probably because of canFocus)
                 // therefore we should stop looping to prevent an infinite loop.
-                if (iterator.currentIndex === index) {
+                if (target === elements[index]) {
                     hasLooped = true;
                 }
 
