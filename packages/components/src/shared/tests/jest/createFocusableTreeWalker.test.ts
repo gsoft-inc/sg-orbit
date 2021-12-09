@@ -1,16 +1,132 @@
 import { createFocusableTreeWalker } from "@components/shared";
 
 test("accept input elements", () => {
-    const input = document.createElement("INPUT");
+    const element = document.createElement("INPUT");
 
     const container = document.createElement("DIV");
-    container.appendChild(input);
+    container.appendChild(element);
 
     const walker = createFocusableTreeWalker(container);
 
-    expect(walker.firstChild()).toBe(input);
+    expect(walker.firstChild()).toBe(element);
 });
 
+test("reject disabled input elements", () => {
+    const element = document.createElement("INPUT");
+    element.setAttribute("disabled", "true");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("accept select elements", () => {
+    const element = document.createElement("SELECT");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("reject disabled select elements", () => {
+    const element = document.createElement("SELECT");
+    element.setAttribute("disabled", "true");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("accept textarea elements", () => {
+    const element = document.createElement("TEXTAREA");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("reject disabled textarea elements", () => {
+    const element = document.createElement("TEXTAREA");
+    element.setAttribute("disabled", "true");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("accept button elements", () => {
+    const element = document.createElement("BUTTON");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("reject disabled button elements", () => {
+    const element = document.createElement("BUTTON");
+    element.setAttribute("disabled", "true");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("accept anchor elements", () => {
+    const element = document.createElement("A");
+    element.setAttribute("href", "https://www.google.com");
+    element.innerHTML = "Google";
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("accept summary elements", () => {
+    const element = document.createElement("SUMMARY");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("accept tabbable elements", () => {
+    const element = document.createElement("DIV");
+    element.setAttribute("tabindex", "1");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
 
 test("reject non focusable elements", () => {
     const element = document.createElement("DIV");

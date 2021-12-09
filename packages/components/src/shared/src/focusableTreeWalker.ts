@@ -23,10 +23,6 @@ const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"]):not([tab
 
 const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
 
-function isContentNode(element: Element) {
-    return element.nodeName !== "#comment";
-}
-
 function isStyleVisible(element: Element) {
     if (!(element instanceof HTMLElement) && !(element instanceof SVGElement)) {
         return false;
@@ -76,8 +72,7 @@ export function isElementVisible(element: Element) {
         return false;
     }
 
-    return isContentNode(element) &&
-        isStyleVisible(element) &&
+    return isStyleVisible(element) &&
         isAttributeVisible(element) &&
         isParentElementVisible(element);
 }

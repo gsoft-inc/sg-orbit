@@ -4,7 +4,7 @@ import { createFocusableTreeWalker, isFocusableElement } from "./focusableTreeWa
 import { isNil } from "./assertions";
 import { useRefState } from "./useRefState";
 
-export type ScopeChangeEventHandler = (newScope: HTMLElement[], previousScope: HTMLElement[]) => void;
+export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousElements: HTMLElement[]) => void;
 
 export class DomScope {
     private scopeRef: RefObject<HTMLElement[]>;
