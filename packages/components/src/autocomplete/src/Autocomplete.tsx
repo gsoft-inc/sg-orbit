@@ -1,7 +1,6 @@
 import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
-import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import {
     Keys,
     OmitInternalProps,
@@ -19,10 +18,12 @@ import {
 import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps, PopupPosition, PopupProps, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { ResponsiveProp, WidthProp } from "../../styling";
-import { SearchInput } from "../../text-input";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
+
+import { HiddenAutocomplete } from "./HiddenAutocomplete";
+import { SearchInput } from "../../text-input";
 import { useDebouncedCallback } from "./useDebouncedCallback";
 import { useDeferredValue } from "./useDeferredValue";
 import { useInputGroupTextInputProps } from "../../input-group";

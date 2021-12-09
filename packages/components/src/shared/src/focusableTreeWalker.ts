@@ -19,7 +19,8 @@ const FocusableElements = [
     "[tabindex]:not([disabled])"
 ];
 
-const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"]):not([tabindex=\"-1\"])";
+// const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"]):not([tabindex=\"-1\"])";
+const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
 
 const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
 
