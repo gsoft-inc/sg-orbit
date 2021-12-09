@@ -61,7 +61,7 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
                 currentNode = walker.nextNode();
             }
 
-            if (isFocusableElement(rootElement)) {
+            if (isFocusableElement(rootElement, { rootElement: rootElement.parentElement })) {
                 scope.unshift(rootElement);
             }
 

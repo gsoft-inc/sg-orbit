@@ -1,6 +1,6 @@
 import { TextLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** External *****
@@ -65,9 +65,7 @@ test("when autofocus is specified with a delay, the link is focused after the de
         </TextLink>
     );
 
-    await waitFor(() => expect(getByTestId("text-link")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("text-link")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("text-link")).toHaveFocus());
 });

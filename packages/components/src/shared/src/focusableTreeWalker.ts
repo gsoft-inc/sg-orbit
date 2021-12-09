@@ -2,28 +2,6 @@
 
 import { isNil } from "@components/shared";
 
-const FocusableElements = [
-    "input:not([disabled]):not([type=hidden])",
-    "select:not([disabled])",
-    "textarea:not([disabled])",
-    "button:not([disabled])",
-    "a[href]",
-    "area[href]",
-    "summary",
-    "iframe",
-    "object",
-    "embed",
-    "audio[controls]",
-    "video[controls]",
-    "[contenteditable]",
-    "[tabindex]:not([disabled])"
-];
-
-// const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"]):not([tabindex=\"-1\"])";
-const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
-
-const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
-
 function isStyleVisible(element: Element) {
     if (!(element instanceof HTMLElement) && !(element instanceof SVGElement)) {
         return false;
@@ -49,7 +27,7 @@ function isStyleVisible(element: Element) {
     return true;
 }
 
-// Even if these attributes are handled by the focusable selector, we still have to validate them for the parent elements.
+// Even if those attributes are handled by the focusable selector, we still have to validate them for the parent elements.
 function isAttributeVisible(element: Element) {
     return !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true";
 }
@@ -80,13 +58,49 @@ function isElementVisible(element: Element, rootElement?: Element) {
         isParentElementVisible(element, rootElement);
 }
 
-export function createFocusableTreeWalker(root: HTMLElement): TreeWalker {
+const FocusableElements = [
+    "input:not([disabled]):not([type=hidden])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    "button:not([disabled])",
+    "a[href]",
+    "area[href]",
+    "summary",
+    "iframe",
+    "object",
+    "embed",
+    "audio[controls]",
+    "video[controls]",
+    "[contenteditable]",
+    "[tabindex]:not([disabled])"
+];
+
+const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
+
+const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
+
+const TabbableExclusions = `${FocusableExclusions}:not([tabindex="-1"])`;
+
+// - A few components like RadioGroup and Listbox implements a roving focus strategy which means some of their "focusable" elements will have a tabindex of "-1".
+//   Those elements have to be in the focus scope since the user can navigate between them with the keyboard arrows.
+// - Other features like useRestoreFocus only want elements which are "currently" focusable in their scope. It wouldn't make sense to restore the focus on an element which doesn't
+//   currently accept focus.
+// - This is why we have the "tabbable" option which allow the caller to specify which focus strategy he want to use for the selection.
+const TabbableSelector = FocusableElements.join(`${TabbableExclusions},`) + TabbableExclusions;
+
+export interface FocusableOptions {
+    tabbable?: boolean;
+}
+
+export type CreateFocusableTreeWalkerOptions = FocusableOptions;
+
+export function createFocusableTreeWalker(root: HTMLElement, { tabbable = false }: CreateFocusableTreeWalkerOptions = {}): TreeWalker {
     const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
         {
             acceptNode(node) {
-                if (isFocusableElement(node as HTMLElement, root)) {
+                if (isFocusableElement(node as HTMLElement, { rootElement: root, tabbable })) {
                     return NodeFilter.FILTER_ACCEPT;
                 }
 
@@ -98,18 +112,12 @@ export function createFocusableTreeWalker(root: HTMLElement): TreeWalker {
     return walker;
 }
 
-export function isFocusableElement(element: HTMLElement, rootElement?: HTMLElement) {
-    return element.matches(FocusableSelector) && isElementVisible(element, rootElement);
+export interface IsFocusableElementOptions extends FocusableOptions {
+    rootElement?: HTMLElement;
 }
 
-// // TODO: rename to iterateAllFocusableElements?
-// // TODO: maybe use createFocusableTreeWalker in focusScope instead and remove this function?!?!
-// // TODO: if it's kept, add Jest tests
-// // TODO: Laurent said the the return snapshot might differ between walkFocusableElements and createFocusableTreeWalker. It might be why FocusScope is still using walkFocusableElements
-// export function walkFocusableElements(root: HTMLElement, onElement: (element: Element, index?: number) => void): void {
-//     if (root.matches(FocusableElementSelector)) {
-//         onElement(root, 0);
-//     }
+export function isFocusableElement(element: HTMLElement, { rootElement, tabbable = false }: IsFocusableElementOptions = {}) {
+    const selector = tabbable ? TabbableSelector : FocusableSelector;
 
-//     root.querySelectorAll(FocusableElementSelector).forEach((x, index) => onElement(x, index + 1));
-// }
+    return element.matches(selector) && isElementVisible(element, rootElement);
+}

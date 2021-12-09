@@ -18,8 +18,6 @@ export function useTrapFocus(focusManager: FocusManager) {
             } else {
                 const element = focusManager.focusNext();
 
-                // console.log("useTrapFocus-focusNext: ", element);
-
                 setFocusedElement(element);
             }
         }
@@ -51,7 +49,8 @@ export function useTrapFocus(focusManager: FocusManager) {
         });
     });
 
-    useDocumentListener("keydown", handleKeyDown, true, false);
+    // Keydown event listener "useCapture" is set to true to ensure a tab key down is catched before the useRestoreFocus tab key down handler.
+    useDocumentListener("keydown", handleKeyDown, true, true);
     useDocumentListener("focusin", handleFocus, true, false);
 
     useEffect(() => {

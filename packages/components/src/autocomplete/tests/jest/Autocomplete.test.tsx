@@ -1,12 +1,13 @@
+import { Field, Label } from "@components/field";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Autocomplete } from "@components/autocomplete";
 import { Button } from "@components/button";
-import { Field, Label } from "@components/field";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -578,9 +579,7 @@ test("when autofocus is specified with a delay, the autocomplete trigger is focu
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("autocomplete")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
 });

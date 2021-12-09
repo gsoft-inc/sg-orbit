@@ -1,7 +1,11 @@
-import { Button } from "@components/button";
-import { Content } from "@components/placeholders";
 import { Heading, Paragraph } from "@components/typography";
 import { Modal, ModalTrigger } from "@components/modal";
+
+import { Button } from "@components/button";
+import { Checkbox } from "@components/checkbox";
+import { Content } from "@components/placeholders";
+import { Disclosure } from "@components/disclosure";
+import { Div } from "@components/html";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
@@ -11,6 +15,28 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <ModalTrigger>
+            <Button variant="secondary">Open</Button>
+            <Modal>
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Button>Button 1</Button>
+                    <Checkbox>Root checkbox</Checkbox>
+                    <Disclosure>
+                        <Button>Open</Button>
+                        <Div>
+                            <Checkbox>Nested checkbox</Checkbox>
+                        </Div>
+                    </Disclosure>
+                    <Button>Button 2</Button>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse. The 57-year old structure was once the largest radio dish telescope in the world, and researchers have used its capabilities to make significant breakthroughs in astronomy. The Arecibo Observatory also served as the dramatic backdrop to films like "Contact" and "Goldeneye."</Paragraph>
+                    <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
+                    <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
+                </Content>
+            </Modal>
+        </ModalTrigger>
+    )
     .add("default", () =>
         <ModalTrigger>
             <Button variant="secondary">Open</Button>

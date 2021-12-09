@@ -1,8 +1,9 @@
+import { act, waitFor } from "@testing-library/react";
+
 import { AddIcon } from "@components/icons";
 import { IconButton } from "@components/button";
-import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
@@ -49,9 +50,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
         </IconButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("button")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("button")).toHaveFocus());
 });

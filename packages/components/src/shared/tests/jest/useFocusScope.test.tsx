@@ -51,7 +51,7 @@ test("the scope includes only focusable elements", async () => {
     await waitFor(() => expect(domScope.elements.length).toBe(2));
 });
 
-test("the scope does not contains non tabbable elements", async () => {
+test("the scope can includes non tabbable elements", async () => {
     let domScope: DomScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
@@ -68,9 +68,9 @@ test("the scope does not contains non tabbable elements", async () => {
     );
 
     await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
     await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(domScope.elements.length).toBe(2));
 });
 
 test("the scope does not includes focusable elements that are not visible", async () => {
