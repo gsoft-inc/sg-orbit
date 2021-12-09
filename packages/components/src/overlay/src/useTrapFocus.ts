@@ -1,4 +1,5 @@
 import { FocusManager, Keys, isNil, useDisposables, useDocumentListener, useEventCallback, useRefState } from "../../shared";
+
 import { useEffect } from "react";
 
 export function useTrapFocus(focusManager: FocusManager) {
@@ -16,6 +17,9 @@ export function useTrapFocus(focusManager: FocusManager) {
                 setFocusedElement(element);
             } else {
                 const element = focusManager.focusNext();
+
+                // console.log("useTrapFocus-focusNext: ", element);
+
                 setFocusedElement(element);
             }
         }

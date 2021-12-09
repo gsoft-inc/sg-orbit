@@ -26,8 +26,13 @@ export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocus
             if (!event.isPropagationStopped()) {
                 const focusedElement = event.target;
 
+                // ************
+                // TODO: Could probably use ElementIterator and the scope instead of createFocusableTreeWalker.
+                // ************
+
                 // Create a DOM tree walker that matches all tabbable elements.
-                const walker = createFocusableTreeWalker(document.body, { tabbable: true });
+                // const walker = createFocusableTreeWalker(document.body, { tabbable: true });
+                const walker = createFocusableTreeWalker(document.body);
                 walker.currentNode = focusedElement as Node;
 
                 const next = () => {
