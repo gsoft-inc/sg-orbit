@@ -249,9 +249,35 @@ test("accept elements with an aria-hidden attribute set to \"false\"", () => {
 test("reject elements with a not visible parent", () => {
     const element = document.createElement("INPUT");
 
+    const parent = document.createElement("DIV");
+    parent.style.display = "none";
+
     const container = document.createElement("DIV");
-    container.style.display = "none";
-    container.appendChild(element);
+
+    parent.appendChild(element);
+    container.appendChild(parent);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("reject elements with a not visible parent a few level higher", () => {
+    const element = document.createElement("INPUT");
+
+    const level1 = document.createElement("DIV");
+    level1.style.display = "none";
+
+    const level2 = document.createElement("DIV");
+
+    const level3 = document.createElement("DIV");
+
+    const container = document.createElement("DIV");
+
+    container.appendChild(level1);
+    level1.appendChild(level2);
+    level2.appendChild(level3);
+    level3.appendChild(element);
 
     const walker = createFocusableTreeWalker(container);
 
@@ -261,8 +287,69 @@ test("reject elements with a not visible parent", () => {
 test("accept elements with a visible parent", () => {
     const element = document.createElement("INPUT");
 
+    const parent = document.createElement("DIV");
+
     const container = document.createElement("DIV");
+
+    parent.appendChild(element);
+    container.appendChild(parent);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("accept elements with a hierarchy of visible parents", () => {
+    const element = document.createElement("INPUT");
+
+    const level1 = document.createElement("DIV");
+
+    const level2 = document.createElement("DIV");
+
+    const level3 = document.createElement("DIV");
+
+    const container = document.createElement("DIV");
+
+    container.appendChild(level1);
+    level1.appendChild(level2);
+    level2.appendChild(level3);
+    level3.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("accept focusable elements even if the root element is not visible", () => {
+    const element = document.createElement("INPUT");
+
+    const container = document.createElement("DIV");
+    container.style.display = "none";
+
     container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
+test("accept focusable elements even if a parent element higher than the root element is not visible", () => {
+    const element = document.createElement("INPUT");
+
+    const level1 = document.createElement("DIV");
+    level1.style.display = "none";
+
+    const level2 = document.createElement("DIV");
+
+    const level3 = document.createElement("DIV");
+
+    const container = document.createElement("DIV");
+
+    level1.appendChild(level2);
+    level2.appendChild(level3);
+    level3.appendChild(element);
+
+    container.appendChild(level2);
 
     const walker = createFocusableTreeWalker(container);
 

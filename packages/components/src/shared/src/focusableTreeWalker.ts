@@ -48,33 +48,35 @@ function isStyleVisible(element: Element) {
     return true;
 }
 
-// Even if these attributes are dealt with in the focusable elements selector, we still must check them for parents elements.
+// Even if these attributes are handled by the focusable selector, we still have to validate them for the parent elements.
 function isAttributeVisible(element: Element) {
-    if (element.hasAttribute("hidden")) {
-        return false;
-    }
+    return !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true";
+}
 
-    if (element.getAttribute("aria-hidden") === "true") {
-        return false;
+function isParentElementVisible(element: Element, rootElement?: Element) {
+    const parentElement = element.parentElement;
+
+    if (!isNil(parentElement)) {
+        // Stop recursion at the root element.
+        // Do not support invisible root element, doesn't make sense for our use cases.
+        if (parentElement !== rootElement) {
+            return isElementVisible(parentElement, rootElement);
+        }
     }
 
     return true;
 }
 
-function isParentElementVisible(element: Element) {
-    return !isNil(element.parentElement)
-        ? isElementVisible(element.parentElement)
-        : true;
-}
-
-export function isElementVisible(element: Element) {
+// The focusable selector doesn't handle elements visibility and the parent elements. Therefore we must validate in JS.
+function isElementVisible(element: Element, rootElement?: Element) {
     if (isNil(element)) {
         return false;
     }
 
-    return isStyleVisible(element) &&
+    return element.nodeName !== "#comment" &&
+        isStyleVisible(element) &&
         isAttributeVisible(element) &&
-        isParentElementVisible(element);
+        isParentElementVisible(element, rootElement);
 }
 
 export function createFocusableTreeWalker(root: HTMLElement): TreeWalker {
@@ -83,7 +85,7 @@ export function createFocusableTreeWalker(root: HTMLElement): TreeWalker {
         NodeFilter.SHOW_ELEMENT,
         {
             acceptNode(node) {
-                if (isFocusableElement(node as HTMLElement)) {
+                if (isFocusableElement(node as HTMLElement, root)) {
                     return NodeFilter.FILTER_ACCEPT;
                 }
 
@@ -95,8 +97,8 @@ export function createFocusableTreeWalker(root: HTMLElement): TreeWalker {
     return walker;
 }
 
-export function isFocusableElement(element: HTMLElement) {
-    return element.matches(FocusableSelector) && isElementVisible(element);
+export function isFocusableElement(element: HTMLElement, rootElement?: HTMLElement) {
+    return element.matches(FocusableSelector) && isElementVisible(element, rootElement);
 }
 
 // // TODO: rename to iterateAllFocusableElements?

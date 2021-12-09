@@ -77,6 +77,28 @@ test("the scope does not includes focusable elements that are not visible", asyn
     let domScope: DomScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
+    const textInputRef = createRef<HTMLInputElement>();
+
+    render(
+        <FocusScope onInitialScope={scope => { domScope = scope; }}>
+            <Div>Decoy 1</Div>
+            <Button ref={buttonRef} hidden>Button</Button>
+            <Div>Decoy 2</Div>
+            <TextInput placeholder="Value" ref={textInputRef} />
+            <Div>Decoy 3</Div>
+        </FocusScope>
+    );
+
+    await waitFor(() => expect(domScope).not.toBeNull());
+    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(domScope.elements.length).toBe(1));
+});
+
+test("the scope does not includes focusable elements with a parent that is not visible", async () => {
+    let domScope: DomScope = null;
+
+    const buttonRef = createRef<HTMLButtonElement>();
     const disclosureButtonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
@@ -145,6 +167,7 @@ test("when the hidden attribute of an element change, the scope is updated", asy
     );
 
     await waitFor(() => expect(domScope).not.toBeNull());
+    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
     await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
     await waitFor(() => expect(domScope.elements.length).toBe(1));
 
@@ -183,6 +206,7 @@ test("when the aria-hidden attribute of an element change, the scope is updated"
     );
 
     await waitFor(() => expect(domScope).not.toBeNull());
+    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
     await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
     await waitFor(() => expect(domScope.elements.length).toBe(1));
 
@@ -221,6 +245,7 @@ test("when the display attribute of an element change, the scope is updated", as
     );
 
     await waitFor(() => expect(domScope).not.toBeNull());
+    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
     await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
     await waitFor(() => expect(domScope.elements.length).toBe(1));
 
@@ -259,6 +284,7 @@ test("when the visibility attribute of an element change, the scope is updated",
     );
 
     await waitFor(() => expect(domScope).not.toBeNull());
+    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
     await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
     await waitFor(() => expect(domScope.elements.length).toBe(1));
 
