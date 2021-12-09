@@ -1,10 +1,11 @@
 import { Content, Header } from "@components/placeholders";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Tabs } from "@components/tabs";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -308,9 +309,7 @@ test("when autofocus is specified with a delay, the first item header is focused
         </Tabs>
     );
 
-    await waitFor(() => expect(getByTestId("header-1")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("header-1")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("header-1")).toHaveFocus());
 });

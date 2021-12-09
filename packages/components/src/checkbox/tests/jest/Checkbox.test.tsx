@@ -1,7 +1,8 @@
-import { Checkbox } from "@components/checkbox";
 import { act, waitFor } from "@testing-library/react";
+
+import { Checkbox } from "@components/checkbox";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -38,9 +39,7 @@ test("when autofocus is specified with a delay, the checkbox is focused after th
         >Milky Way</Checkbox>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
 });

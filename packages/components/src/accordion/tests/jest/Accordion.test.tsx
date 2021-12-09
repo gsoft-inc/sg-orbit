@@ -1,11 +1,12 @@
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Accordion } from "@components/accordion";
 import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
@@ -106,9 +107,7 @@ test("when autofocus is specified with a delay, accordion header is focused afte
         </Accordion>
     );
 
-    await waitFor(() => expect(getByTestId("item-1")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("item-1")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
 });

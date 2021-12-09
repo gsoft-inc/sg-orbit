@@ -1,8 +1,9 @@
-import { DateInput } from "@components/date-input";
 import { Field, Label } from "@components/field";
 import { act, waitFor } from "@testing-library/react";
+
+import { DateInput } from "@components/date-input";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
@@ -284,9 +285,7 @@ test("when autofocus is specified with a de lay, the date input is focused after
         <DateInput autoFocus={10} data-testid="date" />
     );
 
-    await waitFor(() => expect(getByTestId("date")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("date")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("date")).toHaveFocus());
 });

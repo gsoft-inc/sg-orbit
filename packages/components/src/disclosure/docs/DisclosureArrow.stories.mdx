@@ -1,8 +1,8 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { Box } from "@components/box";
 import { Button } from "@components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Disclosure, DisclosureArrow, InnerDisclosureArrow } from "@components/disclosure";
+import { Div } from "@components/html";
 import { Text } from "@components/typography";
 
 <Meta
@@ -32,7 +32,7 @@ When a disclosure arrow is nested in a component implementing a `DisclosureConte
                 <Text>EVE Online</Text>
                 <DisclosureArrow slot="end-icon" />
             </Button>
-            <Box>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Box>
+            <Div>Eve Online is a space-based, persistent world massively multiplayer online role-playing game (MMORPG) developed and published by CCP Games. Players of Eve Online can participate in a number of in-game professions and activities, including mining, piracy, manufacturing, trading, exploration, and combat (both player versus environment and player versus player). The game contains a total of 7,800 star systems that can be visited by players.</Div>
         </Disclosure>
     </Story>
 </Preview>

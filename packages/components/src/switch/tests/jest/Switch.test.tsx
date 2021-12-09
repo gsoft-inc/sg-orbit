@@ -1,7 +1,8 @@
-import { Switch } from "@components/switch";
 import { act, waitFor } from "@testing-library/react";
+
+import { Switch } from "@components/switch";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: HTMLElement) {
@@ -31,9 +32,7 @@ test("when autofocus is specified with a delay, the switch is focused after the 
         <Switch autoFocus={10} data-testid="switch">Engines</Switch>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
 });
