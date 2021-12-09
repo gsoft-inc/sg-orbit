@@ -1,6 +1,6 @@
 // Inspired from: https://github.com/adobe/react-spectrum/blob/main/packages/%40react-aria/focus/src/FocusScope.tsx.
 
-import { isNil } from "@components/shared";
+import { isNil } from "./assertions";
 
 function isStyleVisible(element: Element) {
     if (!(element instanceof HTMLElement) && !(element instanceof SVGElement)) {
