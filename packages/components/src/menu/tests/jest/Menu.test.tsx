@@ -1,11 +1,12 @@
-import { Divider } from "@components/divider";
 import { Item, Section } from "@components/collection";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
+import { Divider } from "@components/divider";
 import { Keys } from "@components/shared";
 import { Menu } from "@components/menu";
 import { Text } from "@components/typography";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -497,9 +498,7 @@ test("when autofocus is specified with a delay, the first menu item is focused a
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("earth-item")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });

@@ -1,4 +1,4 @@
-export * from "./sharegate";
+export * from "./sharegateTheme";
 export * from "./createTheme";
 export * from "./createThemeVars";
 export * from "./orbitTheme";
