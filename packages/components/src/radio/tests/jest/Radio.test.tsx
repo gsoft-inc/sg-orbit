@@ -1,7 +1,8 @@
-import { Radio } from "@components/radio";
 import { act, waitFor } from "@testing-library/react";
+
+import { Radio } from "@components/radio";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -31,9 +32,7 @@ test("when autofocus is specified with a delay, the radio is focused after the d
         <Radio autoFocus={10} value="1" data-testid="radio">1</Radio>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio"))).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getInput(getByTestId("radio"))).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getByTestId("radio"))).toHaveFocus());
 });

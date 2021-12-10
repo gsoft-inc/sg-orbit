@@ -1,10 +1,11 @@
+import { act, waitFor } from "@testing-library/react";
+
 import { CheckableContext } from "@components/shared";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile } from "@components/tile";
-import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -39,9 +40,7 @@ test("when autofocus is specified with a delay, the tile is focused after the de
         </Tile>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("tile")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("tile")).toHaveFocus());
 });

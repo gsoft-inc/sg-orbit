@@ -1,9 +1,10 @@
-import { Keys } from "@components/shared";
 import { Radio, RadioGroup } from "@components/radio";
-import { ToggleButton } from "@components/button";
 import { act, fireEvent, waitFor } from "@testing-library/react";
+
+import { Keys } from "@components/shared";
+import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -186,9 +187,7 @@ test("when autofocus is specified with a delay, the first radio is focused after
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getInput(getByTestId("radio-1"))).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveFocus());
 });

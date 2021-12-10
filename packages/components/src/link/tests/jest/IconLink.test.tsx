@@ -1,7 +1,7 @@
 import { AddIcon } from "@components/icons";
 import { IconLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
@@ -54,9 +54,7 @@ test("when autofocus is specified with a delay, the link is focused after the de
         </IconLink>
     );
 
-    await waitFor(() => expect(getByTestId("icon-link")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("icon-link")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("icon-link")).toHaveFocus());
 });

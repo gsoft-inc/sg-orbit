@@ -1,8 +1,9 @@
 import { Field, Label } from "@components/field";
-import { TextArea } from "@components/text-area";
 import { act, waitFor } from "@testing-library/react";
+
+import { TextArea } from "@components/text-area";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -40,9 +41,7 @@ test("when autofocus is specified with a delay, the input is focused after the d
         <TextArea autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getByTestId("input")).not.toHaveFocus();
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
 });

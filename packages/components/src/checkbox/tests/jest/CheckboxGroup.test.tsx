@@ -1,8 +1,9 @@
 import { Checkbox, CheckboxGroup } from "@components/checkbox";
-import { ToggleButton } from "@components/button";
 import { act, waitFor } from "@testing-library/react";
+
+import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme, waitDelay } from "@jest-utils";
+import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -72,9 +73,7 @@ test("when autofocus is specified with a delay, the first checkbox is focused af
         </CheckboxGroup>
     );
 
-    await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).not.toHaveFocus());
-
-    await waitDelay(10);
+    expect(getInput(getAllByTestId("checkbox")[0])).not.toHaveFocus();
 
     await waitFor(() => expect(getInput(getAllByTestId("checkbox")[0])).toHaveFocus());
 });

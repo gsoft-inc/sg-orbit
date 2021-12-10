@@ -1,4 +1,5 @@
 import { FocusManager, Keys, isNil, useDisposables, useDocumentListener, useEventCallback, useRefState } from "../../shared";
+
 import { useEffect } from "react";
 
 export function useTrapFocus(focusManager: FocusManager) {
@@ -16,6 +17,7 @@ export function useTrapFocus(focusManager: FocusManager) {
                 setFocusedElement(element);
             } else {
                 const element = focusManager.focusNext();
+
                 setFocusedElement(element);
             }
         }
@@ -47,7 +49,8 @@ export function useTrapFocus(focusManager: FocusManager) {
         });
     });
 
-    useDocumentListener("keydown", handleKeyDown, true, false);
+    // Keydown event listener "useCapture" is set to true to ensure a tab key down is catched before the useRestoreFocus tab key down handler.
+    useDocumentListener("keydown", handleKeyDown, true, true);
     useDocumentListener("focusin", handleFocus, true, false);
 
     useEffect(() => {

@@ -1,8 +1,10 @@
 import { RefObject, useCallback, useMemo } from "react";
-import { useRefState } from "./useRefState";
-import { walkFocusableElements } from "./focusableTreeWalker";
+import { createFocusableTreeWalker, isFocusableElement } from "./focusableTreeWalker";
 
-export type ScopeChangeEventHandler = (elements: HTMLElement[], scope: HTMLElement[]) => void;
+import { isNil } from "./assertions";
+import { useRefState } from "./useRefState";
+
+export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousElements: HTMLElement[]) => void;
 
 export class DomScope {
     private scopeRef: RefObject<HTMLElement[]>;
@@ -48,14 +50,25 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
         const parseElements = () => {
             const scope: HTMLElement[] = [];
 
-            walkFocusableElements(rootElement, (x: HTMLElement) => {
-                scope.push(x);
-            });
+            const walker = createFocusableTreeWalker(rootElement);
+
+            // Skip the root element since it's filtered by the tree walker.
+            let currentNode = walker.firstChild();
+
+            while (!isNil(currentNode)) {
+                scope.push(currentNode as HTMLElement);
+
+                currentNode = walker.nextNode();
+            }
+
+            if (isFocusableElement(rootElement, { rootElement: rootElement.parentElement })) {
+                scope.unshift(rootElement);
+            }
 
             setElements(scope);
         };
 
-        // Watch for dynamic elements.
+        // Watch for dynamic elements or visibility changes for an element.
         const mutationObserver = new MutationObserver(() => {
             parseElements();
         });
@@ -65,6 +78,8 @@ export function useFocusScope(): [DomScope, (rootElement: HTMLElement) => void] 
             parseElements();
 
             mutationObserver.observe(rootElement, {
+                attributeFilter: ["style", "class", "hidden", "aria-hidden"],
+                attributes: true,
                 childList: true,
                 subtree: true
             });
