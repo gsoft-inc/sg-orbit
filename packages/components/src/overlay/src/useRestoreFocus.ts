@@ -3,7 +3,7 @@
 // This restore focus hook only works because we use an animation to fade away the overlay. Without an animation, the active element will always be the body which
 // will be out of scope. To fix this, it would probably requires this code to become a React element instead of a React hook.
 
-import { DomScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
+import { FocusScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { KeyboardEvent, useLayoutEffect } from "react";
 
 export interface UseRestoreFocusOptions {
@@ -11,7 +11,7 @@ export interface UseRestoreFocusOptions {
 }
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
-export function useRestoreFocus(scope: DomScope, { isDisabled }: UseRestoreFocusOptions = {}) {
+export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
     const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
     useLayoutEffect(() => {

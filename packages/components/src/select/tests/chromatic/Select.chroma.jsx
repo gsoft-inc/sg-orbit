@@ -1,12 +1,13 @@
+import { Inline, Stack } from "@components/layout";
+import { Select, useSelect } from "@components/select";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { Button } from "@components/button";
 import { Div } from "@components/html";
-import { Inline, Stack } from "@components/layout";
 import { Item } from "@components/collection";
 import { Listbox } from "@components/listbox";
 import { Overlay } from "@components/overlay";
-import { Select, useSelect } from "@components/select";
 import { createTestSuite } from "./createTestSuite";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Select")
@@ -30,6 +31,17 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
 createTestSuite(<Select variant="ghost" />, stories("/ghost"));
 
 stories()
+    .add("test", () =>
+        <>
+            <Button>Before</Button>
+            <Select placeholder="Select a planet" aria-label="Planets">
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </Select>
+            <Button>After</Button>
+        </>
+    )
     .add("conditional rendering", () =>
         <Select defaultOpen placeholder="Select a planet" aria-label="Planets">
             {false && <Item key="earth">Earth</Item>}

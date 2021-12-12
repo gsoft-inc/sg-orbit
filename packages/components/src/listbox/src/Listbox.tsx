@@ -1,4 +1,3 @@
-import { Box } from "../../box";
 import { CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useOnlyCollectionItems, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef, useImperativeHandle, useMemo } from "react";
 import {
@@ -7,6 +6,7 @@ import {
     Keys,
     OmitInternalProps,
     StyledComponentProps,
+    VirtualFocusManager,
     appendEventKey,
     cssModule,
     isEmptyArray,
@@ -24,10 +24,12 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
+import { Box } from "../../box";
 import { ListboxContext } from "./ListboxContext";
 import { ListboxOption } from "./ListboxOption";
 import { ListboxSection } from "./ListboxSection";
-import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
@@ -176,7 +178,7 @@ export function InnerListbox({
     const fluidValue = useResponsiveValue(fluid);
 
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
-    const [searchQueryRef, setSearchQuery] = useRefState("");
+    const [typeaheadQueryRef, setTypeaheadQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -233,10 +235,10 @@ export function InnerListbox({
         }
     });
 
-    const searchDisposables = useDisposables();
+    const typeaheadDisposables = useDisposables();
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
-        searchDisposables.dispose();
+        typeaheadDisposables.dispose();
 
         switch (event.key) {
             case Keys.arrowDown: {
@@ -332,14 +334,15 @@ export function InnerListbox({
                 if (event.key.length === 1) {
                     event.preventDefault();
 
-                    const query = appendEventKey(searchQueryRef.current, event.key);
+                    const query = appendEventKey(typeaheadQueryRef.current, event.key);
 
-                    setSearchQuery(query);
-                    focusManager.search(query);
+                    setTypeaheadQuery(query);
+
+                    focusManager.focusFirstQueryMatch(query);
 
                     // Clear search query.
-                    searchDisposables.setTimeout(() => {
-                        setSearchQuery("");
+                    typeaheadDisposables.setTimeout(() => {
+                        setTypeaheadQuery("");
                     }, 350);
                 }
         }
@@ -419,7 +422,7 @@ export function InnerListbox({
         );
     };
 
-    const activeDescendant = useVirtualFocus ? focusManager.getActiveElement() : null;
+    const activeDescendant = useVirtualFocus ? (focusManager as VirtualFocusManager).getActiveElement() : null;
 
     return (
         <Box
