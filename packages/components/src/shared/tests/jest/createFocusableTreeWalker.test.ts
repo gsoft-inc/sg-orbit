@@ -343,27 +343,3 @@ test("accept focusable elements even if a parent element higher than the root el
 
     expect(walker.firstChild()).toBe(element);
 });
-
-// test("when tabbable is true, reject non tabbable elements", () => {
-//     const element = document.createElement("INPUT");
-//     element.setAttribute("tabindex", "-1");
-
-//     const container = document.createElement("DIV");
-//     container.appendChild(element);
-
-//     const walker = createFocusableTreeWalker(container, { tabbable: true });
-
-//     expect(walker.firstChild()).toBeNull();
-// });
-
-// test("when tabbable is false, accept non tabbable elements", () => {
-//     const element = document.createElement("INPUT");
-//     element.setAttribute("tabindex", "-1");
-
-//     const container = document.createElement("DIV");
-//     container.appendChild(element);
-
-//     const walker = createFocusableTreeWalker(container, { tabbable: false });
-
-//     expect(walker.firstChild()).toBe(element);
-// });

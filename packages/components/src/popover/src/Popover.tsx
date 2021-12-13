@@ -1,4 +1,3 @@
-import { Box } from "../../box";
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {
     InteractionProps,
@@ -16,8 +15,10 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
+import { useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+
+import { Box } from "../../box";
 import { Text } from "../../typography";
-import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 const DefaultElement = "section";
 
@@ -45,6 +46,8 @@ export function InnerPopover({
     const focusManager = useFocusManager(focusScope);
 
     useTrapFocus(focusManager);
+
+    const restoreFocusProps = useRestoreFocus(focusScope);
 
     useAutoFocusChild(focusManager, {
         canFocus: useCallback((element: HTMLElement) => {
@@ -130,7 +133,8 @@ export function InnerPopover({
                     role: "dialog",
                     tabIndex: -1
                 },
-                focusRingProps
+                focusRingProps,
+                restoreFocusProps
             )}
         >
             {headerSectionMarkup}

@@ -10,8 +10,13 @@ export interface UseRestoreFocusOptions {
     isDisabled?: boolean;
 }
 
+function isTabbable(element: HTMLElement) {
+    return element.getAttribute("tabindex") !== "-1";
+}
+
 // Restore focus feature doesn't work when clicking outside, this is by design.
-export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
+// export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
+export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
     const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
     useLayoutEffect(() => {
@@ -26,36 +31,43 @@ export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFoc
             if (!event.isPropagationStopped()) {
                 const focusedElement = event.target;
 
-                // Create a DOM tree walker that matches all tabbable elements.
-                // Thiis is not using the provided scope because we want to focus an element following the trigger.
-                const walker = createFocusableTreeWalker(document.body, { tabbable: true });
+                // Creating a tree walker to find what would be the next logical element to focus regardless if the current component is used in a focus trap setup or not.
+                // We cannot use the scope because the next logical element to focus might be outside the overlay, therefore outside of the scope.
+                // This is important to use a tree walker instead of creating a FocusScope because we are looking for an element at the document body level. Loading all these elements in a scope would be a performance killer.
+                const walker = createFocusableTreeWalker(document.body, { accept: isTabbable });
                 walker.currentNode = focusedElement as Node;
 
                 const next = () => {
                     return event.shiftKey ? walker.previousNode() : walker.nextNode() as HTMLElement;
                 };
 
-                // Find the next tabbable element after the currently focused element.
+                // Try to find the next logical element to focus after the currently focused element.
                 let nextElement = next() as HTMLElement;
 
-                // If there is no next element, or it is outside the current scope, move focus to the
-                // next element after the node to restore to instead.
-                if (isNil(nextElement) || !scope.isInScope(nextElement)) {
+                // If the next logical element to focus is in the scope, we don't have to do anything, we can let the browser do his default tab behavior.
+                if (!focusScope.isInScope(nextElement)) {
                     const elementToRestore = elementToRestoreRef.current;
 
                     if (document.body.contains(elementToRestore)) {
+                        // If we haven't found an element or the element we found is not in the overlay scope, it might be a use case for some custom restore logic.
+                        // Try to find a tabbable element next to the element to restore.
                         walker.currentNode = elementToRestore;
 
                         // Skip over elements within the scope, in case the scope immediately follows the node to restore.
                         do {
                             nextElement = next() as HTMLElement;
-                        } while (nextElement === event.currentTarget || scope.isInScope(nextElement));
+                        } while (nextElement === event.currentTarget || focusScope.isInScope(nextElement));
 
+                        // Must prevent the browser from doing is thing.
                         event.preventDefault();
 
                         if (!isNil(nextElement)) {
+                            // If we found a tabbable element, focus the element and exit.
+                            // This is a scenario were we made sure to restore the tab order instead of focusing the first element available under the overlay.
                             nextElement.focus();
                         } else {
+                            // If we can't find any tabbable element to focus, restore the focus on the overlay trigger element.
+                            // This is the fallback scenario.
                             elementToRestore.focus();
                         }
                     }
@@ -67,7 +79,7 @@ export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFoc
     useLayoutEffect(() => {
         if (!isDisabled) {
             return () => {
-                if (scope.isInScope(document.activeElement as HTMLElement)) {
+                if (focusScope.isInScope(document.activeElement as HTMLElement)) {
                     // Don't move this line inside the frame.
                     // eslint-disable-next-line react-hooks/exhaustive-deps
                     const elementToRestore = elementToRestoreRef.current;
@@ -80,7 +92,7 @@ export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFoc
                 }
             };
         }
-    }, [scope, isDisabled, elementToRestoreRef]);
+    }, [focusScope, isDisabled, elementToRestoreRef]);
 
     return isDisabled ? {} : {
         onKeyDown: handleKeyDown

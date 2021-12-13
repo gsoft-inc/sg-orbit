@@ -1,7 +1,8 @@
 import { FocusEvent, SyntheticEvent, useCallback } from "react";
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
-import { ResponsiveProp } from "../../styling";
 import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useId, useMergedRefs } from "../../shared";
+
+import { ResponsiveProp } from "../../styling";
 import { isTargetParent } from "./isTargetParent";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";

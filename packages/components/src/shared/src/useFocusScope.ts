@@ -4,12 +4,12 @@ import { createFocusableTreeWalker, isFocusableElement } from "./focusableTreeWa
 import { isNil } from "./assertions";
 import { useRefState } from "./useRefState";
 
-export interface IteratorOptions {
+export interface FocusScopeIteratorOptions {
     from?: number;
     tabbableOnly?: boolean;
 }
 
-export interface IterationOptions {
+export interface FocusScopeIterationOptions {
     accept?: (element: HTMLElement) => boolean;
 }
 
@@ -18,7 +18,7 @@ export class FocusScopeIterator {
     private tabbableOnly: boolean;
     private currentIndex: number;
 
-    constructor(scope: FocusScope, { from, tabbableOnly = false }: IteratorOptions = {}) {
+    constructor(scope: FocusScope, { from, tabbableOnly = false }: FocusScopeIteratorOptions = {}) {
         this.scope = scope;
         this.tabbableOnly = tabbableOnly;
         this.currentIndex = from;
@@ -28,7 +28,7 @@ export class FocusScopeIterator {
         return this.tabbableOnly ? element.getAttribute("tabindex") !== "-1" : true;
     }
 
-    firstElement({ accept = () => true }: IterationOptions = {}) {
+    firstElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
         const { elements } = this.scope;
 
         if (elements.length === 0) {
@@ -43,13 +43,15 @@ export class FocusScopeIterator {
             current = elements[++this.currentIndex];
 
             if (!isNil(current)) {
-                if (accept(current) && this.isValid(current)) {
-                    // We found the element, stop the loop.
-                    break;
+                if (this.isValid(current)) {
+                    if (accept(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
                 }
             }
 
-            // Continue to the next one.
+            // Continue to the next element.
             current = null;
 
             // Guard to ensure we don't go in an infinite loop because there are no valid elements.
@@ -62,7 +64,7 @@ export class FocusScopeIterator {
         return current;
     }
 
-    lastElement({ accept = () => true }: IterationOptions = {}) {
+    lastElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
         const { elements } = this.scope;
 
         if (elements.length === 0) {
@@ -77,13 +79,15 @@ export class FocusScopeIterator {
             current = elements[--this.currentIndex];
 
             if (!isNil(current)) {
-                if (accept(current) && this.isValid(current)) {
-                    // We found the element, stop the loop.
-                    break;
+                if (this.isValid(current)) {
+                    if (accept(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
                 }
             }
 
-            // Continue to the next one.
+            // Continue to the next element.
             current = null;
 
             // Guard to ensure we don't go in an infinite loop because there are no valid elements.
@@ -96,7 +100,7 @@ export class FocusScopeIterator {
         return current;
     }
 
-    nextElement({ accept = () => true }: IterationOptions = {}) {
+    nextElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
         const { elements } = this.scope;
 
         if (elements.length === 0) {
@@ -114,13 +118,15 @@ export class FocusScopeIterator {
                 // Hit the end of the loop, reset the index.
                 this.currentIndex = -1;
             } else {
-                if (accept(current) && this.isValid(current)) {
-                    // We found the element, stop the loop.
-                    break;
+                if (this.isValid(current)) {
+                    if (accept(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
                 }
             }
 
-            // Continue to the next one.
+            // Continue to the next element.
             current = null;
 
             // Guard to ensure we don't go in an infinite loop because there are no valid elements.
@@ -133,7 +139,7 @@ export class FocusScopeIterator {
         return current;
     }
 
-    previousElement({ accept = () => true }: IterationOptions = {}) {
+    previousElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
         const { elements } = this.scope;
 
         if (elements.length === 0) {
@@ -152,13 +158,15 @@ export class FocusScopeIterator {
                 this.currentIndex = elements.length;
             }
             else {
-                if (accept(current) && this.isValid(current)) {
-                    // We found the element, stop the loop.
-                    break;
+                if (this.isValid(current)) {
+                    if (accept(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
                 }
             }
 
-            // Continue to the next one.
+            // Continue to the next element.
             current = null;
 
             // Guard to ensure we don't go in an infinite loop because there are no valid elements.
@@ -227,7 +235,6 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
 
             const walker = createFocusableTreeWalker(rootElement);
 
-            // Skip the root element since it's filtered by the tree walker.
             let currentNode = walker.firstChild();
 
             while (!isNil(currentNode)) {
@@ -236,6 +243,7 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
                 currentNode = walker.nextNode();
             }
 
+            // Add the root element if focusable.
             if (isFocusableElement(rootElement, { rootElement: rootElement.parentElement })) {
                 scope.unshift(rootElement);
             }
