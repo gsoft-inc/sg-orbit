@@ -15,7 +15,6 @@ function isTabbable(element: HTMLElement) {
 }
 
 // Restore focus feature doesn't work when clicking outside, this is by design.
-// export function useRestoreFocus(scope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
 export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseRestoreFocusOptions = {}) {
     const [elementToRestoreRef, setElementToRestore] = useRefState<HTMLElement>();
 
@@ -58,16 +57,16 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
                             nextElement = next() as HTMLElement;
                         } while (nextElement === event.currentTarget || focusScope.isInScope(nextElement));
 
-                        // Must prevent the browser from doing is thing.
+                        // Must prevent the browser from doing is thing since we will takeover and handle the tab ourself.
                         event.preventDefault();
 
                         if (!isNil(nextElement)) {
                             // If we found a tabbable element, focus the element and exit.
-                            // This is a scenario were we made sure to restore the tab order instead of focusing the first element available under the overlay.
+                            // This is a scenario were we restored the tab order. Instead of focusing the first element available under the overlay, we focus the element next to the overlay trigger.
                             nextElement.focus();
                         } else {
                             // If we can't find any tabbable element to focus, restore the focus on the overlay trigger element.
-                            // This is the fallback scenario.
+                            // This is also a scenario were we restored the tab order. Instead of focusing the first element available under the overlay, we made sure to focus back to the overlay trigger.
                             elementToRestore.focus();
                         }
                     }

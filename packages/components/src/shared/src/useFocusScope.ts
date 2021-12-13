@@ -184,11 +184,6 @@ export class FocusScopeIterator {
 
 export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousElements: HTMLElement[]) => void;
 
-// ********
-// TODO: add a focus scope root prop -> The root element should probably not be in the scope elements but instead available
-// has a distinct prop
-// ********
-
 export class FocusScope {
     private scopeRef: RefObject<HTMLElement[]>;
     private handlersRef: RefObject<ScopeChangeEventHandler[]>;

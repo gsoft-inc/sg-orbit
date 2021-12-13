@@ -31,17 +31,6 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
 createTestSuite(<Select variant="ghost" />, stories("/ghost"));
 
 stories()
-    .add("test", () =>
-        <>
-            <Button>Before</Button>
-            <Select placeholder="Select a planet" aria-label="Planets">
-                <Item key="earth">Earth</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="saturn">Saturn</Item>
-            </Select>
-            <Button>After</Button>
-        </>
-    )
     .add("conditional rendering", () =>
         <Select defaultOpen placeholder="Select a planet" aria-label="Planets">
             {false && <Item key="earth">Earth</Item>}
