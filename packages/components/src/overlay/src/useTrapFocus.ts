@@ -17,7 +17,6 @@ export function useTrapFocus(focusManager: FocusManager) {
                 setFocusedElement(element);
             } else {
                 const element = focusManager.focusNext();
-
                 setFocusedElement(element);
             }
         }
@@ -54,10 +53,10 @@ export function useTrapFocus(focusManager: FocusManager) {
     useDocumentListener("focusin", handleFocus, true, false);
 
     useEffect(() => {
-        focusManager.elements.forEach(x => x.addEventListener("focusout", handleBlur, false));
+        focusManager.scopeElements.forEach(x => x.addEventListener("focusout", handleBlur, false));
 
         return () => {
-            focusManager.elements.forEach(x => x.removeEventListener("focusout", handleBlur, false));
+            focusManager.scopeElements.forEach(x => x.removeEventListener("focusout", handleBlur, false));
         };
     }, [focusManager, handleBlur]);
 }

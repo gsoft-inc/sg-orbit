@@ -1,4 +1,3 @@
-import { Box } from "../../box";
 import { CollectionDivider, CollectionItem, CollectionNode, CollectionSection, NodeType, useCollection, useScrollableCollection } from "../../collection";
 import { ComponentProps, KeyboardEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
@@ -23,10 +22,12 @@ import {
     useMergedRefs,
     useRefState
 } from "../../shared";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
+import { Box } from "../../box";
 import { MenuContext } from "./MenuContext";
 import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
-import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { ValidationState } from "../../input";
 
 export type SelectionMode = "none" | "single" | "multiple";
@@ -112,7 +113,7 @@ export function InnerMenu({
     const fluidValue = useResponsiveValue(fluid);
 
     const [selectedKeys, setSelectedKeys] = useControllableState(selectedKeysProp, defaultSelectedKeys, []);
-    const [searchQueryRef, setSearchQuery] = useRefState("");
+    const [typeaheadQueryRef, setTypeaheadQuery] = useRefState("");
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -138,10 +139,10 @@ export function InnerMenu({
         }
     });
 
-    const searchDisposables = useDisposables();
+    const typeaheadDisposables = useDisposables();
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
-        searchDisposables.dispose();
+        typeaheadDisposables.dispose();
 
         switch (event.key) {
             case Keys.arrowDown: {
@@ -172,14 +173,14 @@ export function InnerMenu({
                 if (event.key.length === 1) {
                     event.preventDefault();
 
-                    const query = appendEventKey(searchQueryRef.current, event.key);
+                    const query = appendEventKey(typeaheadQueryRef.current, event.key);
 
-                    setSearchQuery(query);
-                    focusManager.search(query);
+                    setTypeaheadQuery(query);
+                    focusManager.focusFirstQueryMatch(query);
 
                     // Clear search query.
-                    searchDisposables.setTimeout(() => {
-                        setSearchQuery("");
+                    typeaheadDisposables.setTimeout(() => {
+                        setTypeaheadQuery("");
                     }, 350);
                 }
         }
