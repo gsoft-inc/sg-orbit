@@ -62,11 +62,11 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
 
                         if (!isNil(nextElement)) {
                             // If we found a tabbable element, focus the element and exit.
-                            // This is a scenario were we restored the tab order. Instead of focusing the first element available under the overlay, we focus the element next to the overlay trigger.
+                            // This is a scenario where we restored the tab order. Instead of focusing the first element available under the overlay, we focus the element next to the overlay trigger.
                             nextElement.focus();
                         } else {
                             // If we can't find any tabbable element to focus, restore the focus on the overlay trigger element.
-                            // This is also a scenario were we restored the tab order. Instead of focusing the first element available under the overlay, we made sure to focus back to the overlay trigger.
+                            // This is also a scenario where we restored the tab order. Instead of focusing the first element available under the overlay, we made sure to focus back to the overlay trigger.
                             elementToRestore.focus();
                         }
                     }
