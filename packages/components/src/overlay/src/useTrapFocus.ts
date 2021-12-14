@@ -25,9 +25,11 @@ export function useTrapFocus(focusManager: FocusManager) {
     // If a focus event occurs outside the scope (e.g. user tabs from browser location bar),
     // restore focus to the previously focused node or the first tabbable element in the active scope.
     const handleFocus = useEventCallback((event: FocusEvent) => {
+        console.log("*** handleFocus");
+
         const target = event.target as HTMLElement;
 
-        if (!focusManager.isInScope(target)) {
+        if (!focusManager.isInScope(target, { includeChildScopes: true })) {
             if (!isNil(focusedElementRef.current)) {
                 focusedElementRef.current.focus();
             } else {
@@ -40,6 +42,8 @@ export function useTrapFocus(focusManager: FocusManager) {
     });
 
     const handleBlur = useEventCallback((event: FocusEvent) => {
+        console.log("*** handleBlur");
+
         // Firefox doesn't shift focus back properly without this.
         disposables.requestAnimationFrame(() => {
             if (!focusManager.isInScope(event.relatedTarget as HTMLElement)) {

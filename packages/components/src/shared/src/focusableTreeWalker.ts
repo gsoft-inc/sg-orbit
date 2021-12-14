@@ -80,19 +80,19 @@ const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
 const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
 
 export interface FocusOptions {
-    accept?: (element: HTMLElement) => boolean;
+    acceptElement?: (element: HTMLElement) => boolean;
 }
 
 export type CreateFocusableTreeWalkerOptions = FocusOptions;
 
-export function createFocusableTreeWalker(root: HTMLElement, { accept = () => true }: CreateFocusableTreeWalkerOptions = {}): TreeWalker {
+export function createFocusableTreeWalker(root: HTMLElement, { acceptElement = () => true }: CreateFocusableTreeWalkerOptions = {}): TreeWalker {
     const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
         {
             acceptNode(node) {
                 if (isFocusableElement(node as HTMLElement, { rootElement: root })) {
-                    if (accept(node as HTMLElement)) {
+                    if (acceptElement(node as HTMLElement)) {
                         return NodeFilter.FILTER_ACCEPT;
                     }
                 }

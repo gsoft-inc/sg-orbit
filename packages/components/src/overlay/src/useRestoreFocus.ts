@@ -33,7 +33,7 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
                 // Creating a tree walker to find what would be the next logical element to focus regardless if the current component is used in a focus trap setup or not.
                 // We cannot use the scope because the next logical element to focus might be outside the overlay, therefore outside of the scope.
                 // This is important to use a tree walker instead of creating a FocusScope because we are looking for an element at the document body level. Loading all these elements in a scope would be a performance killer.
-                const walker = createFocusableTreeWalker(document.body, { accept: isTabbable });
+                const walker = createFocusableTreeWalker(document.body, { acceptElement: isTabbable });
                 walker.currentNode = focusedElement as Node;
 
                 const next = () => {

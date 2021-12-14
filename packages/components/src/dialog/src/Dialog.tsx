@@ -1,6 +1,7 @@
 import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+    FocusScopeContext,
     InteractionProps,
     InternalProps,
     MergedRef,
@@ -275,7 +276,7 @@ export function InnerDialog({
     );
 
     return (
-        <>
+        <FocusScopeContext.Provider value={{ scope: focusScope }}>
             <Underlay zIndex={zIndex} />
             <Div
                 {...mergeProps(
@@ -323,7 +324,7 @@ export function InnerDialog({
                     </Div>
                 </Box>
             </Div>
-        </>
+        </FocusScopeContext.Provider>
     );
 }
 

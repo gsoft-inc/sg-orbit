@@ -15,7 +15,7 @@ export function useCheckableContext(): [CheckableContextType, boolean] {
         return [context, true];
     }
 
-    return [context, false];
+    return [{}, false];
 }
 
 type UseCheckablePropsReturn = Omit<CheckableContextType, "checkedValue"> & {
