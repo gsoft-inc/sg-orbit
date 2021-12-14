@@ -14,7 +14,10 @@ function CustomSelect({
                 {...rest}
                 {...triggerProps}
                 variant="secondary"
-                width="20%"
+                width={{
+                    base: "100%",
+                    sm: "50%"
+                }}
             >
                 <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>
                 <DisclosureArrow
@@ -41,3 +44,4 @@ render(() =>
         <Item key="uranus">Uranus</Item>
     </CustomSelect>
 );
+

@@ -9,6 +9,8 @@
     width: fit-content;
     height: fit-content;
     position: relative;
+    /* Fix for Safari not behaving well with fit-content / absolute positionned item with a border */
+    box-sizing: content-box;
 }
 
 /* ARROW */
@@ -150,10 +152,10 @@
     content: "";
     position: absolute;
     pointer-events: none;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    top: -1px;
+    right: -1px;
+    left: -1px;
+    bottom: -1px;
     border-radius: var(--o-ui-shape-rounded);
     border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
     opacity: 0;

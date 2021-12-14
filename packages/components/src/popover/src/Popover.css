@@ -8,6 +8,7 @@
     max-width: var(--o-ui-sz-16);
     width: 100%;
     position: relative;
+    outline: none;
 }
 
 /* HEADER | SECTION */
