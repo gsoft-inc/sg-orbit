@@ -6,10 +6,9 @@ const CustomTrigger = forwardRef((props, ref) => {
             {...props}
             variant={isOpen ? "primary" : "secondary"}
             aria-label="Email"
-            size="xl"
             ref={ref}
         >
-            <EmailIcon />
+            <CalendarIcon />
         </IconButton>
     );
 });
