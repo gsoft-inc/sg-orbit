@@ -134,7 +134,7 @@ export function InnerDialog({
     role = "dialog",
     size,
     wrapperProps,
-    zIndex = 1,
+    zIndex = 10000,
     ...rest
 }: InnerDialogProps) {
     const sizeValue = useResponsiveValue(size);

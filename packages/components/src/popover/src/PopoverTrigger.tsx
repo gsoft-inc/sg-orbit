@@ -6,13 +6,17 @@ import {
     augmentElement,
     isNil,
     mergeProps,
+    mergeRefs,
     resolveChildren,
+    useControllableState,
+    useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, usePopupAriaProps } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
+import { usePopupTrigger } from "@components/overlay/src/usePopupTrigger";
 
 const DefaultElement = "div";
 
@@ -49,37 +53,51 @@ export function InnerPopoverTrigger({
     forwardedRef,
     id,
     onOpenChange,
-    open,
+    open: openProp,
     position: positionProp = "bottom",
     zIndex = 10000,
     ...rest
 }: InnerPopoverTriggerProps) {
     const positionValue = useResponsiveValue(positionProp);
 
-    const { themeAccessor } = useThemeContext();
+    const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
     const overlayRef = useMergedRefs(forwardedRef);
 
-    const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
-        allowFlip,
-        allowPreventOverflow,
-        boundaryElement: containerElement,
-        defaultOpen,
-        hasArrow: true,
-        hideOnEscape: true,
-        hideOnLeave: false,
-        hideOnOutsideClick: dismissable,
-        id,
-        onOpenChange,
-        open,
-        position: positionValue,
-        restoreFocus: false,
-        trigger: "click"
-    });
+    const { themeAccessor } = useThemeContext();
+
+    // const overlayRef = useMergedRefs(forwardedRef);
+
+    // const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
+    //     allowFlip,
+    //     allowPreventOverflow,
+    //     boundaryElement: containerElement,
+    //     defaultOpen,
+    //     hasArrow: true,
+    //     hideOnEscape: true,
+    //     hideOnLeave: false,
+    //     hideOnOutsideClick: dismissable,
+    //     id,
+    //     onOpenChange,
+    //     open,
+    //     position: positionValue,
+    //     restoreFocus: false,
+    //     trigger: "click"
+    // });
+
+    const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
+        if (isOpen !== newValue) {
+            setIsOpen(newValue);
+
+            if (!isNil(onOpenChange)) {
+                onOpenChange(event, newValue);
+            }
+        }
+    }, [onOpenChange, isOpen, setIsOpen]);
 
     const close = useCallback((event: SyntheticEvent) => {
-        setIsOpen(event, false);
-    }, [setIsOpen]);
+        updateIsOpen(event, false);
+    }, [updateIsOpen]);
 
     const [trigger, popover] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
@@ -87,11 +105,69 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
+    // const triggerProps = useOverlayTrigger(isOpen, {
+    //     hideOnLeave: false,
+    //     // isDisabled: disabled,
+    //     onHide: useEventCallback((event: SyntheticEvent) => {
+    //         // Prevent from closing when the focus goes to an element of the overlay on opening.
+    //         if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
+    //             updateIsOpen(event, false);
+    //         }
+    //     }),
+    //     onShow: useEventCallback((event: SyntheticEvent) => {
+    //         updateIsOpen(event, true);
+    //     })
+    // });
+
+    const triggerProps = usePopupTrigger(isOpen, overlayRef, {
+        hideOnLeave: false,
+        isDisabled: trigger.props.disabled,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            updateIsOpen(event, false);
+        }),
+        onShow: useEventCallback((event: SyntheticEvent) => {
+            updateIsOpen(event, true);
+        })
+    });
+
+    const { arrowRef, overlayRef: overlayPositionRef, triggerRef } = useOverlayPosition({
+        allowFlip,
+        allowPreventOverflow,
+        boundaryElement: containerElement,
+        hasArrow: true,
+        position: positionValue
+    });
+
+    const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(isOpen, "dialog", { id });
+
+    // const triggerMarkup = augmentElement(
+    //     trigger,
+    //     trigger.props.disabled
+    //         ? {}
+    //         : mergeProps(
+    //             {
+    //                 ref: triggerRef
+    //             },
+    //             triggerProps,
+    //             triggerAriaProps
+    //         )
+    // );
+
     const triggerMarkup = augmentElement(
         trigger,
-        // Since we provide a "close" function to the render function we can't provide a "disabled" prop to usePopup. Therefore, we handle disabled manually.
-        trigger.props.disabled ? {} : triggerProps
+        mergeProps(
+            {
+                ref: triggerRef
+            },
+            triggerProps,
+            triggerAriaProps
+        )
     );
+
+    const popoverMarkup = augmentElement(popover, {
+        dismissable,
+        zIndex: zIndex + 1
+    });
 
     return (
         <PopoverTriggerContext.Provider
@@ -108,14 +184,15 @@ export function InnerPopoverTrigger({
                         as,
                         borderOffset: themeAccessor.getSpace(3),
                         className: "o-ui-popover-overlay",
-                        ref: overlayRef,
+                        ref: mergeRefs(overlayRef, overlayPositionRef),
+                        show: isOpen,
                         zIndex
                     },
-                    overlayProps
+                    overlayAriaProps
                 )}
             >
-                {popover}
-                <OverlayArrow {...arrowProps} />
+                {popoverMarkup}
+                <OverlayArrow ref={arrowRef} />
             </Overlay>
         </PopoverTriggerContext.Provider>
     );

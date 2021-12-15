@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import {
     InternalProps,
     OmitInternalProps,
@@ -59,15 +59,15 @@ export function InnerDialogTrigger({
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const dialogRef = useRef();
-
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
-        setIsOpen(newValue);
+        if (isOpen !== newValue) {
+            setIsOpen(newValue);
 
-        if (!isNil(onOpenChange)) {
-            onOpenChange(event, newValue);
+            if (!isNil(onOpenChange)) {
+                onOpenChange(event, newValue);
+            }
         }
-    }, [onOpenChange, setIsOpen]);
+    }, [onOpenChange, isOpen, setIsOpen]);
 
     const open = useCallback((event: SyntheticEvent) => {
         updateIsOpen(event, true);
@@ -97,7 +97,6 @@ export function InnerDialogTrigger({
 
     const dialogMarkup = augmentElement(dialog, {
         dismissable,
-        ref: dialogRef,
         zIndex: zIndex + 1
     });
 

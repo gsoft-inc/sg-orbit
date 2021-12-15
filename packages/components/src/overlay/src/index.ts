@@ -8,6 +8,8 @@ export * from "./useOverlayFocusRing";
 export * from "./useRestoreFocus";
 export * from "./useTrapFocus";
 export * from "./usePopup";
+export * from "./usePopupAriaProps";
+export * from "./usePopupLightDismiss";
 export * from "./useTriggerWidth";
 export * from "./isTargetParent";
 export * from "./isDevtoolsBlurEvent";

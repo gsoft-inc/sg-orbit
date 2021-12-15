@@ -30,8 +30,8 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
             if (!event.isPropagationStopped()) {
                 const currentActiveElement = event.target;
 
-                // When there are multiple overlay scopes (like a select in modal), we must ensure the right restore focus handle the event, we don't want parent restore
-                // focus to interfer with the restore focus of nested overlay components.
+                // When there are multiple overlay scopes (like a select in modal), we must ensure the right restore focus handle the event. We don't want nested overlay components
+                // restore focus to be prevented by their parent.
                 // E.g. we don't want the modal restore focus to handle the select restore focus.
                 if (focusScope.isInScope(currentActiveElement as HTMLElement)) {
                     // Creating a tree walker to find what would be the next logical element to focus regardless if the current component is used in a focus trap setup or not.

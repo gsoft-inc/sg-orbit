@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {
     FocusScopeContext,
     InteractionProps,
@@ -16,10 +16,11 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
-import { useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { Box } from "../../box";
 import { Text } from "../../typography";
+import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "section";
 
@@ -28,6 +29,14 @@ export interface InnerPopoverProps extends InternalProps, InteractionProps, Styl
      * React children.
      */
     children: ReactNode;
+    /**
+     * Whether or not the popover should close on outside interactions.
+     */
+    dismissable?: boolean;
+    /**
+     * The z-index of the dialog.
+     */
+    zIndex?: number;
 }
 
 export function InnerPopover({
@@ -35,14 +44,18 @@ export function InnerPopover({
     "aria-labelledby": ariaLabelledBy,
     as = DefaultElement,
     children,
+    dismissable = true,
     focus,
     forwardedRef,
     id,
+    zIndex = 10000,
     ...rest
 }: InnerPopoverProps) {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
+
+    const { close, isOpen } = usePopoverTriggerContext();
 
     const focusManager = useFocusManager(focusScope);
 
@@ -66,6 +79,15 @@ export function InnerPopover({
         }, [popoverRef]),
         onNotFound: useEventCallback(() => {
             popoverRef.current?.focus();
+        })
+    });
+
+    const overlayDismissProps = useOverlayLightDismiss(popoverRef, focusScope, {
+        hideOnEscape: isOpen,
+        hideOnLeave: false,
+        hideOnOutsideClick: isOpen && dismissable,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            close(event);
         })
     });
 
@@ -133,8 +155,10 @@ export function InnerPopover({
                         id,
                         ref: popoverRef,
                         role: "dialog",
-                        tabIndex: -1
+                        tabIndex: -1,
+                        zIndex
                     },
+                    overlayDismissProps,
                     focusRingProps,
                     restoreFocusProps
                 )}
