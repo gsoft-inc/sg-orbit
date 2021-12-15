@@ -27,7 +27,7 @@ export interface FocusManager {
     focusNext: (options?: FocusManagerMethodOptions) => HTMLElement;
     focusPrevious: (options?: FocusManagerMethodOptions) => HTMLElement;
     focusTarget: (key: string, options?: FocusManagerMethodOptions) => HTMLElement;
-    isInScope: (element: HTMLElement, options: { includeChildScopes?: boolean }) => boolean;
+    isInScope: (element: HTMLElement, options?: { includeChildScopes?: boolean }) => boolean;
     scopeElements: HTMLElement[];
 }
 
@@ -46,7 +46,7 @@ abstract class FocusManagerBase {
         return this.scope.elements;
     }
 
-    isInScope(element: HTMLElement, options: { includeChildScopes?: boolean }) {
+    isInScope(element: HTMLElement, options?: { includeChildScopes?: boolean }) {
         return this.scope.isInScope(element, options);
     }
 

@@ -1,5 +1,5 @@
 import { Box, BoxProps } from "../../box";
-import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, ElementType, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
     FocusScopeContext,
     InteractionProps,
@@ -23,7 +23,7 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
@@ -145,7 +145,7 @@ export function InnerDialog({
     const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close } = useDialogTriggerContext();
+    const { close, isOpen } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
@@ -186,6 +186,15 @@ export function InnerDialog({
     });
 
     const focusRingProps = useOverlayFocusRing({ focus });
+
+    const overlayDismissProps = useOverlayLightDismiss(dialogRef, focusScope, {
+        hideOnEscape: isOpen,
+        hideOnLeave: false,
+        hideOnOutsideClick: isOpen && dismissable,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            close(event);
+        })
+    });
 
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         if (!isNil(close)) {
@@ -310,6 +319,7 @@ export function InnerDialog({
                             role,
                             tabIndex: -1
                         },
+                        overlayDismissProps,
                         focusRingProps,
                         restoreFocusProps
                     )}

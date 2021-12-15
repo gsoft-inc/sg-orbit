@@ -1,5 +1,4 @@
 import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
-import { DialogTriggerContext } from "./DialogTriggerContext";
 import {
     InternalProps,
     OmitInternalProps,
@@ -11,7 +10,9 @@ import {
     useControllableState,
     useEventCallback
 } from "../../shared";
-import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
+import { Overlay, useOverlayTrigger } from "../../overlay";
+
+import { DialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "div";
 
@@ -92,15 +93,6 @@ export function InnerDialogTrigger({
         })
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(dialogRef, {
-        hideOnEscape: isOpen,
-        hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
-        })
-    });
-
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const dialogMarkup = augmentElement(dialog, {
@@ -125,8 +117,7 @@ export function InnerDialogTrigger({
                         ref: forwardedRef,
                         show: isOpen,
                         zIndex
-                    },
-                    overlayDismissProps
+                    }
                 )}
             >
                 {dialogMarkup}

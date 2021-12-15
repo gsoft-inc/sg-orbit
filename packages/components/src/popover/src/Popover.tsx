@@ -1,5 +1,6 @@
 import { ComponentProps, ReactNode, cloneElement, forwardRef, useCallback, useMemo } from "react";
 import {
+    FocusScopeContext,
     InteractionProps,
     InternalProps,
     OmitInternalProps,
@@ -120,27 +121,29 @@ export function InnerPopover({
     );
 
     return (
-        <Box
-            {...mergeProps(
-                rest,
-                {
-                    "aria-label": ariaLabel,
-                    "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
-                    as,
-                    className: "o-ui-popover",
-                    id,
-                    ref: popoverRef,
-                    role: "dialog",
-                    tabIndex: -1
-                },
-                focusRingProps,
-                restoreFocusProps
-            )}
-        >
-            {headerSectionMarkup}
-            {content}
-            {footerSectionMarkup}
-        </Box>
+        <FocusScopeContext.Provider value={{ scope: focusScope }}>
+            <Box
+                {...mergeProps(
+                    rest,
+                    {
+                        "aria-label": ariaLabel,
+                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
+                        as,
+                        className: "o-ui-popover",
+                        id,
+                        ref: popoverRef,
+                        role: "dialog",
+                        tabIndex: -1
+                    },
+                    focusRingProps,
+                    restoreFocusProps
+                )}
+            >
+                {headerSectionMarkup}
+                {content}
+                {footerSectionMarkup}
+            </Box>
+        </FocusScopeContext.Provider>
     );
 }
 

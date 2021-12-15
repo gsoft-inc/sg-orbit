@@ -1,8 +1,9 @@
 import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, isNil, useEventCallback, useFocusWithin } from "../../shared";
+import { FocusScope, Keys, isNil, useEventCallback, useFocusWithin } from "../../shared";
+
+import { OverlayTrigger } from "./useOverlayTrigger";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { useInteractOutside } from "./useInteractOutside";
-import type { OverlayTrigger } from "./useOverlayTrigger";
 
 export interface UseOverlayLightDismissOptions {
     hideOnEscape?: boolean;
@@ -12,7 +13,7 @@ export interface UseOverlayLightDismissOptions {
     trigger?: OverlayTrigger;
 }
 
-export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
+export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, focusScope: FocusScope, {
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick,
@@ -35,6 +36,11 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     });
 
     const handleBlur = useEventCallback((event: FocusEvent) => {
+        // *******************
+        // *******************
+        // TODO: Can I remove this?!?!
+        // *******************
+        // *******************
         if (!isDevToolsBlurEvent(overlayRef)) {
             hide(event);
         }
@@ -48,7 +54,7 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         hide(event);
     });
 
-    useInteractOutside(overlayRef, {
+    useInteractOutside(focusScope, {
         isDisabled: !hideOnOutsideClick,
         onInteractOutside: handleInteractOutside
     });
