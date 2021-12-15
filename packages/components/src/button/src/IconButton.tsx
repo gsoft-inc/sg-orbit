@@ -153,4 +153,4 @@ export const embedIconButton = createEmbeddableAdapter({
 
 ///////////
 
-export const IconButtonAsLink = as(IconButton, "a");
+export const IconButtonAsLink = slot("button", as(IconButton, "a"));

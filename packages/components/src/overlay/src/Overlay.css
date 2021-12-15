@@ -9,6 +9,8 @@
     width: fit-content;
     height: fit-content;
     position: relative;
+    /* Fix for Safari not behaving well with fit-content / absolute positionned item with a border */
+    box-sizing: content-box;
 }
 
 /* ARROW */

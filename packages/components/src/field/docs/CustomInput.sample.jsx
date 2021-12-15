@@ -6,7 +6,10 @@ function CustomInput(props) {
             {...props}
             {...fieldProps}
             type="text"
-            width="20%"
+            width={{
+                base: "50%",
+                sm: "20%"
+            }}
             border={validationState === "invalid" ? "alias-alert" : "black"}
         />
     );
