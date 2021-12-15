@@ -1,261 +1,217 @@
-import { DomScope } from "./useFocusScope";
-import { FocusTarget } from "./focusTarget";
+import { FocusScope, FocusScopeIterator } from "./useFocusScope";
 import { isFunction, isNil } from "./assertions";
+
+import { FocusTarget } from "./focusTarget";
 import { useMemo } from "react";
 
-export const VirtualFocusCssClass = "o-ui-focus";
-
-export class ElementIterator<T> {
-    private elements;
-    private index;
-
-    constructor(elements: T[], { from = -1 } = {}) {
-        this.elements = elements;
-        this.index = from;
-    }
-
-    next() {
-        if (this.index < this.elements.length - 1) {
-            return this.elements[++this.index];
-        }
-
-        return null;
-    }
-
-    previous() {
-        if (this.index > 0) {
-            return this.elements[--this.index];
-        }
-
-        return null;
-    }
-
-    reset({ from = -1 } = {}) {
-        this.index = from;
-    }
-
-    get currentIndex() {
-        return this.index;
-    }
-}
-
 export interface FocusManagerOptions {
-    isVirtual?: boolean;
     keyProp?: string;
-    onFocus?: (activeElement: HTMLElement, options: Omit<FocusManagerOptions, "onFocus">) => void;
+    onFocus?: (targetElement: HTMLElement) => void;
 }
 
-export interface FocusOptions {
+export interface FocusManagerHandlers {
+    onFocus?: (targetElement: HTMLElement) => void;
+    onNotFound?: () => void;
+}
+
+export interface FocusMethodOptions extends FocusManagerHandlers {
     canFocus?: (element: HTMLElement) => boolean;
-    onFocus?: (activeElement: HTMLElement, options: Omit<FocusManagerOptions, "onFocus">) => void;
-    onNotFound?: (options: Omit<FocusManagerOptions, "onFocus">) => void;
+    tabbableOnly?: boolean;
 }
 
-export class FocusManager {
-    private scope;
-    private isVirtual;
-    private keyProp;
-    private onFocus;
+export interface FocusManager {
+    focusFirst: (options?: FocusMethodOptions) => HTMLElement;
+    focusFirstQueryMatch: (query: string, handlers?: FocusManagerHandlers) => HTMLElement;
+    focusKey: (key: string, handlers?: FocusManagerHandlers) => HTMLElement;
+    focusLast: (options?: FocusMethodOptions) => HTMLElement;
+    focusNext: (options?: FocusMethodOptions) => HTMLElement;
+    focusPrevious: (options?: FocusMethodOptions) => HTMLElement;
+    focusTarget: (key: string, options?: FocusMethodOptions) => HTMLElement;
+    isInScope: (element: HTMLElement) => boolean;
+    scopeElements: HTMLElement[];
+}
 
-    constructor(scope: DomScope, { isVirtual = false, keyProp, onFocus }: FocusManagerOptions = {}) {
+abstract class FocusManagerBase {
+    protected scope: FocusScope;
+    protected keyProp: string;
+    protected onFocus: (element: HTMLElement) => void;
+
+    constructor(scope: FocusScope, { keyProp, onFocus }: FocusManagerOptions = {}) {
         this.scope = scope;
-        this.isVirtual = isVirtual;
         this.keyProp = keyProp;
         this.onFocus = onFocus;
     }
 
-    get elements() {
+    get scopeElements() {
         return this.scope.elements;
     }
 
-    private focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusOptions = {}) {
-        if (!isNil(element)) {
-            if (this.isVirtual) {
-                const { elements } = this.scope;
+    isInScope(element: HTMLElement) {
+        return this.scope.isInScope(element);
+    }
 
-                elements.forEach(x => {
-                    if (x.classList.contains(VirtualFocusCssClass)) {
-                        x.classList.remove(VirtualFocusCssClass);
-                    }
-                });
+    protected abstract getActiveElementIndex();
 
-                element.classList.add(VirtualFocusCssClass);
-            } else {
-                if (isFunction(element.focus)) {
-                    element.focus();
+    protected abstract focusElement(element: HTMLElement, handlers: FocusManagerHandlers);
 
-                    [onFocus, this.onFocus].forEach(handler => {
-                        if (!isNil(handler)) {
-                            handler(element, { isVirtual: this.isVirtual, keyProp: this.keyProp });
-                        }
-                    });
-                }
-            }
-        } else {
-            if (!isNil(onNotFound)) {
-                onNotFound({ isVirtual: this.isVirtual, keyProp: this.keyProp });
-            }
-        }
+    focusFirst({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+        const iterator = new FocusScopeIterator(this.scope, { tabbableOnly });
+
+        const element = iterator.firstElement({ accept: canFocus });
+
+        this.focusElement(element, options);
 
         return element;
     }
 
-    focusFirst({ canFocus, ...options }: FocusOptions = {}) {
-        const { elements } = this.scope;
+    focusLast({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+        const iterator = new FocusScopeIterator(this.scope, { tabbableOnly });
 
-        let target;
+        const element = iterator.lastElement({ accept: canFocus });
 
-        if (elements.length > 0) {
-            if (isNil(canFocus)) {
-                target = elements[0];
-            }
-            else {
-                const iterator = new ElementIterator(elements);
+        this.focusElement(element, options);
 
-                do { target = iterator.next(); } while (!isNil(target) && !canFocus(target));
-            }
-        }
-
-        return this.focusElement(target, options);
+        return element;
     }
 
-    focusLast({ canFocus, ...options }: FocusOptions = {}) {
-        const { elements } = this.scope;
+    focusNext({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+        const from = this.getActiveElementIndex();
 
-        let target: HTMLElement;
+        const iterator = new FocusScopeIterator(this.scope, { from: from !== -1 ? from : undefined, tabbableOnly });
 
-        if (elements.length > 0) {
-            if (isNil(canFocus)) {
-                target = elements[elements.length - 1];
-            }
-            else {
-                const iterator = new ElementIterator(elements, { from: elements.length });
+        const element = iterator.nextElement({ accept: canFocus });
 
-                do { target = iterator.previous(); } while (!isNil(target) && !canFocus(target));
-            }
-        }
+        this.focusElement(element, options);
 
-        return this.focusElement(target, options);
+        return element;
     }
 
-    focusNext({ canFocus, ...options }: FocusOptions = {}) {
-        const { elements } = this.scope;
+    focusPrevious({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+        const from = this.getActiveElementIndex();
 
-        let target;
+        const iterator = new FocusScopeIterator(this.scope, { from: from !== -1 ? from : undefined, tabbableOnly });
 
-        if (elements.length > 0) {
-            let hasLooped = false;
+        const element = iterator.previousElement({ accept: canFocus });
 
-            canFocus = !isNil(canFocus) ? canFocus : () => true;
+        this.focusElement(element, options);
 
-            const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : elements.indexOf(document.activeElement as HTMLElement);
-
-            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
-
-            do {
-                target = iterator.next();
-
-                if (isNil(target)) {
-                    iterator.reset();
-                }
-
-                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
-                // therefore we should stop looping to prevent an infinite loop.
-                if (iterator.currentIndex === index) {
-                    hasLooped = true;
-                }
-
-                if (!isNil(target) && !canFocus(target)) {
-                    target = null;
-                }
-            } while (isNil(target) && !hasLooped);
-        }
-
-        return this.focusElement(target, options);
+        return element;
     }
 
-    focusPrevious({ canFocus, ...options }: FocusOptions = {}) {
-        const { elements } = this.scope;
-
-        let target;
-
-        if (elements.length > 0) {
-            let hasLooped = false;
-
-            canFocus = !isNil(canFocus) ? canFocus : () => true;
-
-            const index = this.isVirtual
-                ? elements.findIndex(x => x.classList.contains(VirtualFocusCssClass))
-                : elements.indexOf(document.activeElement as HTMLElement);
-
-            const iterator = new ElementIterator(elements, { from: index !== -1 ? index : undefined });
-
-            do {
-                target = iterator.previous();
-
-                if (isNil(target)) {
-                    iterator.reset({ from: elements.length });
-                }
-
-                // If we do a full loop it means there are no focusable elements (probably because of canFocus)
-                // therefore we should stop looping to prevent an infinite loop.
-                if (iterator.currentIndex === index) {
-                    hasLooped = true;
-                }
-
-                if (!isNil(target) && !canFocus(target)) {
-                    target = null;
-                }
-            } while (isNil(target) && !hasLooped);
-        }
-
-        return this.focusElement(target, options);
-    }
-
-    focusKey(key: string, options?: FocusOptions) {
+    focusKey(key: string, handlers?: FocusManagerHandlers) {
         const { elements } = this.scope;
 
         if (isNil(this.keyProp)) {
             throw new Error("\"focusKey\" cannot be called without providing a `keyProp` to the FocusManager.");
         }
 
-        return this.focusElement(elements.find(x => x.getAttribute(this.keyProp) === key?.toString()), options);
+        const element = elements.find((x: HTMLElement) => x.getAttribute(this.keyProp) === key?.toString());
+
+        this.focusElement(element, handlers);
+
+        return element;
     }
 
-    focusTarget(target: string, options?: FocusOptions) {
+    focusTarget(target: string, options?: FocusMethodOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);
             case FocusTarget.last:
                 return this.focusLast(options);
-            default:
-                return this.focusKey(target, options);
         }
+
+        return this.focusKey(target, options);
     }
 
-    search(query: string, options?: FocusOptions) {
+    focusFirstQueryMatch(query: string, options?: FocusManagerHandlers) {
         const { elements } = this.scope;
 
-        return this.focusElement(elements.find(x => x.textContent?.toLowerCase().startsWith(query)), options);
-    }
+        const element = elements.find((x: HTMLElement) => x.textContent?.toLowerCase().startsWith(query));
 
-    isInScope(element: HTMLElement) {
-        return !isNil(element) && this.scope.isInScope(element as HTMLElement);
-    }
+        this.focusElement(element, options);
 
-    getActiveElement() {
-        if (this.isVirtual) {
-            const { elements } = this.scope;
-
-            return elements.find(x => x.classList.contains(VirtualFocusCssClass));
-        }
-
-        return document.activeElement;
+        return element;
     }
 }
 
-export function useFocusManager(scope: DomScope, { isVirtual, keyProp, onFocus }: FocusManagerOptions = {}) {
-    return useMemo(() => new FocusManager(scope, { isVirtual, keyProp, onFocus }), [scope, isVirtual, keyProp, onFocus]);
+export class DomFocusManager extends FocusManagerBase implements FocusManager {
+    protected getActiveElementIndex() {
+        const { elements } = this.scope;
+
+        return elements.indexOf(document.activeElement as HTMLElement);
+    }
+
+    protected focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
+        if (!isNil(element)) {
+            if (isFunction(element.focus)) {
+                element.focus();
+
+                [onFocus, this.onFocus].forEach(x => {
+                    if (!isNil(x)) {
+                        x(element);
+                    }
+                });
+            }
+        } else {
+            if (!isNil(onNotFound)) {
+                onNotFound();
+            }
+        }
+    }
+}
+
+export const VirtualFocusCssClass = "o-ui-focus";
+
+export class VirtualFocusManager extends FocusManagerBase implements FocusManager {
+    protected getActiveElementIndex() {
+        const { elements } = this.scope;
+
+        return elements.findIndex((x: HTMLElement) => x.classList.contains(VirtualFocusCssClass));
+    }
+
+    protected focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
+        if (!isNil(element)) {
+            const { elements } = this.scope;
+
+            elements.forEach((x: HTMLElement) => {
+                if (x.classList.contains(VirtualFocusCssClass)) {
+                    x.classList.remove(VirtualFocusCssClass);
+                }
+            });
+
+            element.classList.add(VirtualFocusCssClass);
+
+            [onFocus, this.onFocus].forEach(handler => {
+                if (!isNil(handler)) {
+                    handler(element);
+                }
+            });
+        } else {
+            if (!isNil(onNotFound)) {
+                onNotFound();
+            }
+        }
+    }
+
+    getActiveElement() {
+        const { elements } = this.scope;
+
+        return elements.find((x: HTMLElement) => x.classList.contains(VirtualFocusCssClass));
+    }
+}
+
+////////////////////////////////////////////////
+
+export interface UseFocusManagerOptions extends FocusManagerOptions {
+    isVirtual?: boolean;
+}
+
+export function useFocusManager(scope: FocusScope, { isVirtual = false, keyProp, onFocus }: UseFocusManagerOptions = {}) {
+    return useMemo(() => {
+        const options: FocusManagerOptions = { keyProp, onFocus };
+
+        return isVirtual
+            ? new VirtualFocusManager(scope, options)
+            : new DomFocusManager(scope, options);
+    }, [scope, isVirtual, keyProp, onFocus]);
 }

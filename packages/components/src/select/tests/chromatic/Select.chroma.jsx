@@ -1,12 +1,13 @@
+import { Inline, Stack } from "@components/layout";
+import { Select, useSelect } from "@components/select";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { Button } from "@components/button";
 import { Div } from "@components/html";
-import { Inline, Stack } from "@components/layout";
 import { Item } from "@components/collection";
 import { Listbox } from "@components/listbox";
 import { Overlay } from "@components/overlay";
-import { Select, useSelect } from "@components/select";
 import { createTestSuite } from "./createTestSuite";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Select")

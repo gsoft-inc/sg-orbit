@@ -1,6 +1,7 @@
-import { FocusManager, FocusOptions } from "./useFocusManager";
-import { FocusTarget } from "./focusTarget";
+import { FocusManager, FocusMethodOptions } from "./useFocusManager";
 import { RefObject, useLayoutEffect } from "react";
+
+import { FocusTarget } from "./focusTarget";
 import { createDisposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
 import { useEventCallback } from "./useEventCallback";
@@ -47,7 +48,7 @@ export function useAutoFocus(targetRef: RefObject<HTMLElement>, { delay, isDisab
     });
 }
 
-export interface AutoFocusChildOptions extends FocusOptions {
+export interface AutoFocusChildOptions extends FocusMethodOptions {
     delay?: number;
     isDisabled?: boolean;
     target?: string;

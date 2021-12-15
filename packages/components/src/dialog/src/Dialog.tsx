@@ -1,7 +1,5 @@
 import { Box, BoxProps } from "../../box";
 import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { CrossButton } from "../../button";
-import { Div } from "../../html";
 import {
     InteractionProps,
     InternalProps,
@@ -24,8 +22,11 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Text } from "../../typography";
 import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+
+import { CrossButton } from "../../button";
+import { Div } from "../../html";
+import { Text } from "../../typography";
 import { useDialogTriggerContext } from "./DialogTriggerContext";
 
 export type AbstractDialogProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "role" | "zIndex"> & {

@@ -10,8 +10,9 @@ import {
     useMergedRefs
 } from "../../shared";
 import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
-import { PopoverTriggerContext } from "./PopoverTriggerContext";
 import { useResponsiveValue, useThemeContext } from "../../styling";
+
+import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "div";
 
@@ -72,7 +73,7 @@ export function InnerPopoverTrigger({
         onOpenChange,
         open,
         position: positionValue,
-        restoreFocus: true,
+        restoreFocus: false,
         trigger: "click"
     });
 

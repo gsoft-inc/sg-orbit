@@ -79,29 +79,22 @@ const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
 
 const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
 
-const TabbableExclusions = `${FocusableExclusions}:not([tabindex="-1"])`;
-
-// - A few components like RadioGroup and Listbox implements a roving focus strategy which means some of their "focusable" elements will have a tabindex of "-1".
-//   Those elements have to be in the focus scope since the user can navigate between them with the keyboard arrows.
-// - Other features like useRestoreFocus only want elements which are "currently" focusable in their scope. It wouldn't make sense to restore the focus on an element which doesn't
-//   currently accept focus.
-// - This is why we have the "tabbable" option which allow the caller to specify which focus strategy he want to use for the selection.
-const TabbableSelector = FocusableElements.join(`${TabbableExclusions},`) + TabbableExclusions;
-
-export interface FocusableOptions {
-    tabbable?: boolean;
+export interface FocusOptions {
+    accept?: (element: HTMLElement) => boolean;
 }
 
-export type CreateFocusableTreeWalkerOptions = FocusableOptions;
+export type CreateFocusableTreeWalkerOptions = FocusOptions;
 
-export function createFocusableTreeWalker(root: HTMLElement, { tabbable = false }: CreateFocusableTreeWalkerOptions = {}): TreeWalker {
+export function createFocusableTreeWalker(root: HTMLElement, { accept = () => true }: CreateFocusableTreeWalkerOptions = {}): TreeWalker {
     const walker = document.createTreeWalker(
         root,
         NodeFilter.SHOW_ELEMENT,
         {
             acceptNode(node) {
-                if (isFocusableElement(node as HTMLElement, { rootElement: root, tabbable })) {
-                    return NodeFilter.FILTER_ACCEPT;
+                if (isFocusableElement(node as HTMLElement, { rootElement: root })) {
+                    if (accept(node as HTMLElement)) {
+                        return NodeFilter.FILTER_ACCEPT;
+                    }
                 }
 
                 return NodeFilter.FILTER_SKIP;
@@ -112,12 +105,10 @@ export function createFocusableTreeWalker(root: HTMLElement, { tabbable = false 
     return walker;
 }
 
-export interface IsFocusableElementOptions extends FocusableOptions {
+export interface IsFocusableElementOptions {
     rootElement?: HTMLElement;
 }
 
-export function isFocusableElement(element: HTMLElement, { rootElement, tabbable = false }: IsFocusableElementOptions = {}) {
-    const selector = tabbable ? TabbableSelector : FocusableSelector;
-
-    return element.matches(selector) && isElementVisible(element, rootElement);
+export function isFocusableElement(element: HTMLElement, { rootElement }: IsFocusableElementOptions = {}) {
+    return element.matches(FocusableSelector) && isElementVisible(element, rootElement);
 }

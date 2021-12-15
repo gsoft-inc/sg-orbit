@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import { DomScope, FocusManager } from "@components/shared";
+import { DomFocusManager, FocusScope, VirtualFocusManager } from "@components/shared";
 import { MutableRefObject, createRef } from "react";
 
-class Scope extends DomScope {
+class Scope extends FocusScope {
     constructor(elements: HTMLElement[]) {
         const elementRef = createRef<HTMLElement[]>() as MutableRefObject<HTMLElement[]>;
         elementRef.current = elements;
@@ -55,7 +55,7 @@ describe("focusFirst", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusFirst();
 
         expect(elements[0]).toHaveFocus();
@@ -72,17 +72,17 @@ describe("focusFirst", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusFirst({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[0]);
     });
 
     test("call onNotFound when the scope is empty", () => {
         const onNotFound = jest.fn();
 
-        const focusManager = new FocusManager(new Scope([]));
+        const focusManager = new DomFocusManager(new Scope([]));
         focusManager.focusFirst({ onNotFound });
 
         expect(onNotFound).toHaveBeenCalledTimes(1);
@@ -97,7 +97,7 @@ describe("focusFirst", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusFirst({
             canFocus: () => true
@@ -115,7 +115,7 @@ describe("focusFirst", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusFirst({
             canFocus: x => x !== elements[0] && x !== elements[1]
@@ -135,7 +135,7 @@ describe("focusFirst", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusFirst({
             canFocus: () => false,
@@ -156,7 +156,7 @@ describe("focusLast", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusLast();
 
         expect(elements[elements.length - 1]).toHaveFocus();
@@ -173,17 +173,17 @@ describe("focusLast", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusLast({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[elements.length - 1], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[elements.length - 1]);
     });
 
     test("call onNotFound when the scope is empty", () => {
         const onNotFound = jest.fn();
 
-        const focusManager = new FocusManager(new Scope([]));
+        const focusManager = new DomFocusManager(new Scope([]));
         focusManager.focusLast({ onNotFound });
 
         expect(onNotFound).toHaveBeenCalledTimes(1);
@@ -198,7 +198,7 @@ describe("focusLast", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusLast({
             canFocus: () => true
@@ -216,7 +216,7 @@ describe("focusLast", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusLast({
             canFocus: x => x !== elements[0] && x !== elements[2]
@@ -236,7 +236,7 @@ describe("focusLast", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusLast({
             canFocus: () => false,
@@ -250,16 +250,16 @@ describe("focusLast", () => {
 describe("focusNext", () => {
     test("can focus the next element", () => {
         const elements = [
-            createInput(),
-            createInput(),
-            createInput()
+            createInput({ id: "el-1" }),
+            createInput({ id: "el-2" }),
+            createInput({ id: "el-3" })
         ];
 
         appendToDom(...elements);
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusNext();
 
         expect(elements[1]).toHaveFocus();
@@ -278,7 +278,7 @@ describe("focusNext", () => {
 
         outOfScope.focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusNext();
 
         expect(elements[0]).toHaveFocus();
@@ -295,7 +295,7 @@ describe("focusNext", () => {
 
         elements[elements.length - 1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusNext();
 
         expect(elements[0]).toHaveFocus();
@@ -314,17 +314,17 @@ describe("focusNext", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusNext({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[1], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[1]);
     });
 
     test("call onNotFound when the scope is empty", () => {
         const onNotFound = jest.fn();
 
-        const focusManager = new FocusManager(new Scope([]));
+        const focusManager = new DomFocusManager(new Scope([]));
         focusManager.focusNext({ onNotFound });
 
         expect(onNotFound).toHaveBeenCalledTimes(1);
@@ -341,7 +341,7 @@ describe("focusNext", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusNext({
             canFocus: () => true
@@ -361,7 +361,7 @@ describe("focusNext", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusNext({
             canFocus: x => x !== elements[1]
@@ -383,7 +383,7 @@ describe("focusNext", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusNext({
             canFocus: () => false,
@@ -404,7 +404,7 @@ describe("focusNext", () => {
 
         elements[1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusNext({
             canFocus: x => x !== elements[elements.length - 1]
@@ -426,7 +426,7 @@ describe("focusPrevious", () => {
 
         elements[1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
         expect(elements[0]).toHaveFocus();
@@ -445,7 +445,7 @@ describe("focusPrevious", () => {
 
         outOfScope.focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
         expect(elements[elements.length - 1]).toHaveFocus();
@@ -462,7 +462,7 @@ describe("focusPrevious", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusPrevious();
 
         expect(elements[elements.length - 1]).toHaveFocus();
@@ -481,17 +481,17 @@ describe("focusPrevious", () => {
 
         elements[1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
         focusManager.focusPrevious({ onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[0]);
     });
 
     test("call onNotFound when the scope is empty", () => {
         const onNotFound = jest.fn();
 
-        const focusManager = new FocusManager(new Scope([]));
+        const focusManager = new DomFocusManager(new Scope([]));
         focusManager.focusPrevious({ onNotFound });
 
         expect(onNotFound).toHaveBeenCalledTimes(1);
@@ -508,7 +508,7 @@ describe("focusPrevious", () => {
 
         elements[1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusPrevious({
             canFocus: () => true
@@ -528,7 +528,7 @@ describe("focusPrevious", () => {
 
         elements[elements.length - 1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusPrevious({
             canFocus: x => x !== elements[1]
@@ -550,7 +550,7 @@ describe("focusPrevious", () => {
 
         elements[0].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusPrevious({
             canFocus: () => false,
@@ -571,7 +571,7 @@ describe("focusPrevious", () => {
 
         elements[1].focus();
 
-        const focusManager = new FocusManager(new Scope(elements));
+        const focusManager = new DomFocusManager(new Scope(elements));
 
         focusManager.focusPrevious({
             canFocus: x => x !== elements[0]
@@ -593,7 +593,7 @@ describe("focusKey", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { keyProp: Key });
+        const focusManager = new DomFocusManager(new Scope(elements), { keyProp: Key });
         focusManager.focusKey("1");
 
         expect(elements[1]).toHaveFocus();
@@ -612,11 +612,11 @@ describe("focusKey", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { keyProp: Key });
+        const focusManager = new DomFocusManager(new Scope(elements), { keyProp: Key });
         focusManager.focusKey("1", { onFocus });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[1], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[1]);
     });
 
     test("call onNotFound when no elements match the key", () => {
@@ -632,7 +632,7 @@ describe("focusKey", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { keyProp: Key });
+        const focusManager = new DomFocusManager(new Scope(elements), { keyProp: Key });
         focusManager.focusKey("10", { onNotFound });
 
         expect(onNotFound).toHaveBeenCalledTimes(1);
@@ -649,7 +649,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope(elements));
         focusManager.focusFirst();
 
         expect(elements[0]).toHaveClass("o-ui-focus");
@@ -666,7 +666,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope(elements));
         focusManager.focusLast();
         focusManager.focusFirst();
 
@@ -684,7 +684,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope(elements));
         focusManager.focusFirst();
 
         expect(elements[0]).not.toHaveFocus();
@@ -699,7 +699,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope(elements));
         focusManager.focusNext();
         focusManager.focusNext();
 
@@ -715,7 +715,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope(elements));
         focusManager.focusNext();
         focusManager.focusNext();
 
@@ -732,7 +732,7 @@ describe("virtual focus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope([elements[1], elements[2], elements[3]]), { isVirtual: true });
+        const focusManager = new VirtualFocusManager(new Scope([elements[1], elements[2], elements[3]]));
 
         expect(focusManager.isInScope(elements[1])).toBeTruthy();
         expect(focusManager.isInScope(elements[0])).toBeFalsy();
@@ -751,11 +751,11 @@ describe("global onFocus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { onFocus });
+        const focusManager = new DomFocusManager(new Scope(elements), { onFocus });
         focusManager.focusFirst();
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[0]);
     });
 
     test("call global onFocus when a function specific onFocus is specified", () => {
@@ -769,10 +769,10 @@ describe("global onFocus", () => {
 
         appendToDom(...elements);
 
-        const focusManager = new FocusManager(new Scope(elements), { onFocus });
+        const focusManager = new DomFocusManager(new Scope(elements), { onFocus });
         focusManager.focusFirst({ onFocus: () => { } });
 
         expect(onFocus).toHaveBeenCalledTimes(1);
-        expect(onFocus).toHaveBeenCalledWith(elements[0], expect.anything());
+        expect(onFocus).toHaveBeenCalledWith(elements[0]);
     });
 });
