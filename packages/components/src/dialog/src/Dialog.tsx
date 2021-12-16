@@ -187,7 +187,7 @@ export function InnerDialog({
 
     const focusRingProps = useOverlayFocusRing({ focus });
 
-    const overlayDismissProps = useOverlayLightDismiss(dialogRef, focusScope, {
+    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
         hideOnEscape: isOpen,
         hideOnLeave: false,
         hideOnOutsideClick: isOpen && dismissable,

@@ -12,11 +12,10 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, usePopupAriaProps } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, usePopupAriaProps, usePopupTrigger } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
-import { usePopupTrigger } from "@components/overlay/src/usePopupTrigger";
 
 const DefaultElement = "div";
 
@@ -66,25 +65,6 @@ export function InnerPopoverTrigger({
 
     const { themeAccessor } = useThemeContext();
 
-    // const overlayRef = useMergedRefs(forwardedRef);
-
-    // const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
-    //     allowFlip,
-    //     allowPreventOverflow,
-    //     boundaryElement: containerElement,
-    //     defaultOpen,
-    //     hasArrow: true,
-    //     hideOnEscape: true,
-    //     hideOnLeave: false,
-    //     hideOnOutsideClick: dismissable,
-    //     id,
-    //     onOpenChange,
-    //     open,
-    //     position: positionValue,
-    //     restoreFocus: false,
-    //     trigger: "click"
-    // });
-
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
             setIsOpen(newValue);
@@ -104,20 +84,6 @@ export function InnerPopoverTrigger({
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");
     }
-
-    // const triggerProps = useOverlayTrigger(isOpen, {
-    //     hideOnLeave: false,
-    //     // isDisabled: disabled,
-    //     onHide: useEventCallback((event: SyntheticEvent) => {
-    //         // Prevent from closing when the focus goes to an element of the overlay on opening.
-    //         if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
-    //             updateIsOpen(event, false);
-    //         }
-    //     }),
-    //     onShow: useEventCallback((event: SyntheticEvent) => {
-    //         updateIsOpen(event, true);
-    //     })
-    // });
 
     const triggerProps = usePopupTrigger(isOpen, overlayRef, {
         hideOnLeave: false,
@@ -139,19 +105,6 @@ export function InnerPopoverTrigger({
     });
 
     const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(isOpen, "dialog", { id });
-
-    // const triggerMarkup = augmentElement(
-    //     trigger,
-    //     trigger.props.disabled
-    //         ? {}
-    //         : mergeProps(
-    //             {
-    //                 ref: triggerRef
-    //             },
-    //             triggerProps,
-    //             triggerAriaProps
-    //         )
-    // );
 
     const triggerMarkup = augmentElement(
         trigger,
@@ -192,7 +145,10 @@ export function InnerPopoverTrigger({
                 )}
             >
                 {popoverMarkup}
-                <OverlayArrow ref={arrowRef} />
+                <OverlayArrow
+                    ref={arrowRef}
+                    zIndex={zIndex + 100}
+                />
             </Overlay>
         </PopoverTriggerContext.Provider>
     );

@@ -9,6 +9,7 @@ export * from "./useRestoreFocus";
 export * from "./useTrapFocus";
 export * from "./usePopup";
 export * from "./usePopupAriaProps";
+export * from "./usePopupTrigger";
 export * from "./usePopupLightDismiss";
 export * from "./useTriggerWidth";
 export * from "./isTargetParent";

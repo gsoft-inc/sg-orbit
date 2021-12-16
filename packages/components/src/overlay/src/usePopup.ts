@@ -111,21 +111,6 @@ export function usePopup(type: PopupType, {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    // const triggerProps = useOverlayTrigger(isOpen, {
-    //     hideOnLeave,
-    //     isDisabled: disabled,
-    //     onHide: useEventCallback((event: SyntheticEvent) => {
-    //         // Prevent from closing when the focus goes to an element of the overlay on opening.
-    //         if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
-    //             updateIsOpen(event, false);
-    //         }
-    //     }),
-    //     onShow: useEventCallback((event: SyntheticEvent) => {
-    //         updateIsOpen(event, true);
-    //     }),
-    //     trigger
-    // });
-
     const triggerProps = usePopupTrigger(isOpen, overlayRef, {
         hideOnLeave,
         isDisabled: disabled,
@@ -147,7 +132,7 @@ export function usePopup(type: PopupType, {
         position
     });
 
-    const overlayDismissProps = usePopupLightDismiss(triggerRef, overlayRef, focusScope, {
+    const overlayDismissProps = usePopupLightDismiss(triggerRef, focusScope, {
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,

@@ -1,9 +1,11 @@
 import { Heading, Paragraph } from "@components/typography";
 import { Modal, ModalTrigger } from "@components/modal";
 import { Radio, RadioGroup } from "@components/radio";
+import { subMonths, subWeeks } from "date-fns";
 
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
+import { DateRangeInput } from "@components/date-input";
 import { Item } from "@components/collection";
 import { Select } from "@components/select";
 import { storiesOfBuilder } from "@stories/utils";
@@ -27,6 +29,15 @@ stories()
                         <Item key="saturn">Saturn</Item>
                     </Select>
                     <Button>Button</Button>
+                    <DateRangeInput
+                        presets={[
+                            { text: "Last week", startDate: subWeeks(new Date(), 1), endDate: new Date() },
+                            { text: "Last month", startDate: subMonths(new Date(), 1), endDate: new Date() },
+                            { text: "Last 3 months", startDate: subMonths(new Date(), 3), endDate: new Date() },
+                            { text: "Last 6 months", startDate: subMonths(new Date(), 6), endDate: new Date() }
+                        ]}
+                        presetsVariant="compact"
+                    />
                     <RadioGroup>
                         <Radio>Radio 1</Radio>
                         <Radio>Radio 2</Radio>

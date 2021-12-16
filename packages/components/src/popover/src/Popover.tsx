@@ -82,7 +82,7 @@ export function InnerPopover({
         })
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(popoverRef, focusScope, {
+    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
         hideOnEscape: isOpen,
         hideOnLeave: false,
         hideOnOutsideClick: isOpen && dismissable,

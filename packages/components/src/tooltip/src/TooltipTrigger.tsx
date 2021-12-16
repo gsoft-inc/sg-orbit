@@ -1,7 +1,6 @@
 import "./Tooltip.css";
 
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { Div } from "../../html";
 import {
     InternalProps,
     OmitInternalProps,
@@ -15,9 +14,11 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayLightDismiss, useOverlayPosition, useOverlayTrigger } from "../../overlay";
-import { TooltipTriggerContext } from "./TooltipTriggerContext";
+import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayPosition, useOverlayTrigger } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
+
+import { Div } from "../../html";
+import { TooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
@@ -108,6 +109,10 @@ export function InnerTooltipTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
+    const close = useCallback((event: SyntheticEvent) => {
+        updateIsOpen(event, false);
+    }, [updateIsOpen]);
+
     const { arrowRef, overlayRef: overlayPositionRef, triggerRef } = useOverlayPosition({
         allowFlip,
         allowPreventOverflow,
@@ -129,19 +134,6 @@ export function InnerTooltipTrigger({
         }),
         onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
-        }),
-        trigger: "hover"
-    });
-
-    const overlayDismissProps = useOverlayLightDismiss(overlayRef, {
-        hideOnEscape: true,
-        hideOnLeave: true,
-        hideOnOutsideClick: false,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            // Ignore events related to the trigger.
-            if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerRef.current) {
-                updateIsOpen(event, false);
-            }
         }),
         trigger: "hover"
     });
@@ -175,6 +167,7 @@ export function InnerTooltipTrigger({
     return (
         <TooltipTriggerContext.Provider
             value={{
+                close,
                 isOpen
             }}
         >
@@ -188,12 +181,14 @@ export function InnerTooltipTrigger({
                         ref: overlayRef,
                         show: isOpen,
                         zIndex
-                    },
-                    overlayDismissProps
+                    }
                 )}
             >
                 {tooltipMarkup}
-                <OverlayArrow ref={arrowRef} />
+                <OverlayArrow
+                    ref={arrowRef}
+                    zIndex={zIndex + 100}
+                />
             </Overlay>
         </TooltipTriggerContext.Provider>
     );
