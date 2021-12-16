@@ -1,11 +1,14 @@
-import { FocusScope, isFunction, useFocusScope, useMergedRefs } from "@components/shared";
+import { FocusScope, FocusScopeContext, isFunction, useFocusScope, useMergedRefs } from "@components/shared";
 import { ReactNode, createRef, forwardRef } from "react";
 import { render, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Disclosure } from "@components/disclosure";
 import { Div } from "@components/html";
+import { Item } from "@components/collection";
+import { Select } from "@components/select";
 import { TextInput } from "@components/text-input";
+import { renderWithTheme } from "@jest-utils";
 
 interface FocusScopeProps {
     tabIndex?: number;
@@ -29,14 +32,32 @@ const Container = forwardRef(({ children, onInitialScope, ...props }: FocusScope
     );
 });
 
+const ScopedContainer = forwardRef(({ children, onInitialScope, ...props }: FocusScopeProps, ref) => {
+    const [focusScope, focusScopeRef] = useFocusScope();
+
+    const containerRef = useMergedRefs(focusScopeRef, ref);
+
+    if (isFunction(onInitialScope)) {
+        onInitialScope(focusScope);
+    }
+
+    return (
+        <Div ref={containerRef} {...props}>
+            <FocusScopeContext.Provider value={{ scope: focusScope }}>
+                {children}
+            </FocusScopeContext.Provider>
+        </Div>
+    );
+});
+
 test("the scope includes only focusable elements", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
     render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef}>Button</Button>
             <Div>Decoy 2</Div>
@@ -45,20 +66,20 @@ test("the scope includes only focusable elements", async () => {
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(2));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(2));
 });
 
 test("the scope can includes non tabbable elements", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
     render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button tabIndex={-1} ref={buttonRef}>Button</Button>
             <Div>Decoy 2</Div>
@@ -67,20 +88,20 @@ test("the scope can includes non tabbable elements", async () => {
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(2));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(2));
 });
 
 test("the scope does not includes focusable elements that are not visible", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
     render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} hidden>Button</Button>
             <Div>Decoy 2</Div>
@@ -89,21 +110,21 @@ test("the scope does not includes focusable elements that are not visible", asyn
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(1));
 });
 
 test("the scope does not includes focusable elements with a parent that is not visible", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const buttonRef = createRef<HTMLButtonElement>();
     const disclosureButtonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
     render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef}>Button</Button>
             <Div>Decoy 2</Div>
@@ -117,22 +138,22 @@ test("the scope does not includes focusable elements with a parent that is not v
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(disclosureButtonRef.current));
-    await waitFor(() => expect(domScope.elements).not.toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(2));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(disclosureButtonRef.current));
+    await waitFor(() => expect(focusScope.elements).not.toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(2));
 });
 
 test("when the root element is focusable, the scope includes the root element", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const rootRef = createRef<HTMLDivElement>();
     const buttonRef = createRef<HTMLButtonElement>();
     const textInputRef = createRef<HTMLInputElement>();
 
     render(
-        <Container tabIndex={1} ref={rootRef} onInitialScope={scope => { domScope = scope; }}>
+        <Container tabIndex={1} ref={rootRef} onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef}>Button</Button>
             <Div>Decoy 2</Div>
@@ -141,15 +162,15 @@ test("when the root element is focusable, the scope includes the root element", 
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).toContain(rootRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(3));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).toContain(rootRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(3));
 });
 
 test("when the hidden attribute of an element change, the scope is updated", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const onScopeChange = jest.fn();
 
@@ -157,7 +178,7 @@ test("when the hidden attribute of an element change, the scope is updated", asy
     const textInputRef = createRef<HTMLInputElement>();
 
     const { rerender } = render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} hidden>Button</Button>
             <Div>Decoy 2</Div>
@@ -166,12 +187,12 @@ test("when the hidden attribute of an element change, the scope is updated", asy
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(1));
 
-    domScope.registerChangeHandler(onScopeChange);
+    focusScope.registerChangeHandler(onScopeChange);
 
     rerender(
         <Container>
@@ -188,7 +209,7 @@ test("when the hidden attribute of an element change, the scope is updated", asy
 });
 
 test("when the aria-hidden attribute of an element change, the scope is updated", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const onScopeChange = jest.fn();
 
@@ -196,7 +217,7 @@ test("when the aria-hidden attribute of an element change, the scope is updated"
     const textInputRef = createRef<HTMLInputElement>();
 
     const { rerender } = render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} aria-hidden="true">Button</Button>
             <Div>Decoy 2</Div>
@@ -205,12 +226,12 @@ test("when the aria-hidden attribute of an element change, the scope is updated"
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(1));
 
-    domScope.registerChangeHandler(onScopeChange);
+    focusScope.registerChangeHandler(onScopeChange);
 
     rerender(
         <Container>
@@ -227,7 +248,7 @@ test("when the aria-hidden attribute of an element change, the scope is updated"
 });
 
 test("when the display attribute of an element change, the scope is updated", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const onScopeChange = jest.fn();
 
@@ -235,7 +256,7 @@ test("when the display attribute of an element change, the scope is updated", as
     const textInputRef = createRef<HTMLInputElement>();
 
     const { rerender } = render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} style={{ display: "none" }}>Button</Button>
             <Div>Decoy 2</Div>
@@ -244,12 +265,12 @@ test("when the display attribute of an element change, the scope is updated", as
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(1));
 
-    domScope.registerChangeHandler(onScopeChange);
+    focusScope.registerChangeHandler(onScopeChange);
 
     rerender(
         <Container>
@@ -266,7 +287,7 @@ test("when the display attribute of an element change, the scope is updated", as
 });
 
 test("when the visibility attribute of an element change, the scope is updated", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const onScopeChange = jest.fn();
 
@@ -274,7 +295,7 @@ test("when the visibility attribute of an element change, the scope is updated",
     const textInputRef = createRef<HTMLInputElement>();
 
     const { rerender } = render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} style={{ visibility: "hidden" }}>Button</Button>
             <Div>Decoy 2</Div>
@@ -283,12 +304,12 @@ test("when the visibility attribute of an element change, the scope is updated",
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(1));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(1));
 
-    domScope.registerChangeHandler(onScopeChange);
+    focusScope.registerChangeHandler(onScopeChange);
 
     rerender(
         <Container>
@@ -305,7 +326,7 @@ test("when the visibility attribute of an element change, the scope is updated",
 });
 
 test("when the class attribute of an element change, the scope is updated", async () => {
-    let domScope: FocusScope = null;
+    let focusScope: FocusScope = null;
 
     const onScopeChange = jest.fn();
 
@@ -313,7 +334,7 @@ test("when the class attribute of an element change, the scope is updated", asyn
     const textInputRef = createRef<HTMLInputElement>();
 
     const { rerender } = render(
-        <Container onInitialScope={scope => { domScope = scope; }}>
+        <Container onInitialScope={scope => { focusScope = scope; }}>
             <Div>Decoy 1</Div>
             <Button ref={buttonRef} className="hidden">Button</Button>
             <Div>Decoy 2</Div>
@@ -322,12 +343,12 @@ test("when the class attribute of an element change, the scope is updated", asyn
         </Container>
     );
 
-    await waitFor(() => expect(domScope).not.toBeNull());
-    await waitFor(() => expect(domScope.elements).toContain(buttonRef.current));
-    await waitFor(() => expect(domScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(domScope.elements.length).toBe(2));
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.elements).toContain(buttonRef.current));
+    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
+    await waitFor(() => expect(focusScope.elements.length).toBe(2));
 
-    domScope.registerChangeHandler(onScopeChange);
+    focusScope.registerChangeHandler(onScopeChange);
 
     rerender(
         <Container>
@@ -341,4 +362,51 @@ test("when the class attribute of an element change, the scope is updated", asyn
 
     await waitFor(() => expect(onScopeChange).toHaveBeenCalledTimes(1));
     await waitFor(() => expect(onScopeChange).toHaveBeenCalledWith([buttonRef.current, textInputRef.current], expect.anything()));
+});
+
+test("when a nested overlay component is defined, register it's scope as a child scope", async () => {
+    let focusScope: FocusScope = null;
+
+    const itemRef = createRef<HTMLDivElement>();
+
+    renderWithTheme(
+        <ScopedContainer onInitialScope={scope => { focusScope = scope; }}>
+            <Div>Decoy 1</Div>
+            <Select defaultOpen>
+                <Item id="item-1">Item 1</Item>
+                <Item id="item-2" ref={itemRef}>Item 2</Item>
+                <Item id="item-3">Item 3</Item>
+            </Select>
+            <Div>Decoy 2</Div>
+        </ScopedContainer>
+    );
+
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.isInScope(itemRef.current, { includeChildScopes: true })).toBeTruthy());
+});
+
+test("when a nested overlay component is defined, remove it's child scope on unmount", async () => {
+    let focusScope: FocusScope = null;
+
+    const itemRef = createRef<HTMLDivElement>();
+
+    const { unmount } = renderWithTheme(
+        <ScopedContainer onInitialScope={scope => { focusScope = scope; }}>
+            <Div>Decoy 1</Div>
+            <Select defaultOpen>
+                <Item id="item-1">Item 1</Item>
+                <Item id="item-2" ref={itemRef}>Item 2</Item>
+                <Item id="item-3">Item 3</Item>
+            </Select>
+            <Div>Decoy 2</Div>
+        </ScopedContainer>
+    );
+
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.isInScope(itemRef.current, { includeChildScopes: true })).toBeTruthy());
+
+    unmount();
+
+    await waitFor(() => expect(focusScope).not.toBeNull());
+    await waitFor(() => expect(focusScope.isInScope(itemRef.current, { includeChildScopes: true })).toBeFalsy());
 });

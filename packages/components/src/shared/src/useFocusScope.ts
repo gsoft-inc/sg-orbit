@@ -9,7 +9,7 @@ export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousEleme
 export class FocusScope {
     private scopeRef: RefObject<HTMLElement[]>;
     private handlersRef: RefObject<ScopeChangeEventHandler[]>;
-    private childScopes: Set<FocusScope>;
+    childScopes: Set<FocusScope>;
 
     constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ScopeChangeEventHandler[]>) {
         this.scopeRef = scopeRef;
@@ -58,15 +58,15 @@ export interface FocusScopeContextType {
     scope?: FocusScope;
 }
 
-// Use a focus scope context if you need to manage a hierarchy of focus scopes.
+// Use a FocusScopeContext if you need to manage a hierarchy of focus scopes.
 // For example, a modal component could contains other overlay components like a select or an autocomplete.
 // These overlay components contained by the modal are all rendered with Portal and therefore aren't included in the focus scope of the modal.
-// Focusing them will result in unwanted behavior like closing the modal when any of these child overlay components receive focus.
+// Focusing them will result in unwanted behaviors like closing the modal when any of these child overlay components receive focus.
 // To fix this, we use a FocusScopeContext. All the different hooks which manage the focus will detect the existence of a FocusScopeContext and will automatically
-// registered their scope (the scoped of the overlay componented contained in the modal) to their parent scope scopes.
-// This will create a hierarchy of scope.
-// By knowing the hierarchy of scope a component like a modal will be able to understand the focus have been moved to an element included in one of his child scopes and
-// therefore will not close or behave unexpectedly.
+// registered their scope (the scope of the overlay componented contained in the modal) to their parent scope.
+// This will create a hierarchy of scopes.
+// By knowing the hierarchy of scopes, a component like a modal will be able to understand the focus have been moved to an element included in one of his nested overlay components
+// and therefore will behave expectedly.
 export const FocusScopeContext = createContext<FocusScopeContextType>(undefined);
 
 export function useFocusScopeContext(): [FocusScopeContextType, boolean] {
