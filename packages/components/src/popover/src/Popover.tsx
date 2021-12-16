@@ -79,7 +79,8 @@ export function InnerPopover({
         }, [popoverRef]),
         onNotFound: useEventCallback(() => {
             popoverRef.current?.focus();
-        })
+        }),
+        tabbableOnly: true
     });
 
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {

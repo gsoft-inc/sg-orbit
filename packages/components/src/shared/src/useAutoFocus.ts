@@ -54,14 +54,14 @@ export interface AutoFocusChildOptions extends FocusManagerMethodOptions {
     target?: string;
 }
 
-export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound }: AutoFocusChildOptions = {}) {
+export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound, ...otherOptions }: AutoFocusChildOptions = {}) {
     useAbstractAutoFocus({
         delay,
         isDisabled: isDisabled,
         onFocus: useEventCallback(() => {
             // Do not autofocus another child if there is already one focused.
             if (!focusManager.isInScope(document.activeElement as HTMLElement)) {
-                focusManager.focusTarget(target, { canFocus, onFocus, onNotFound });
+                focusManager.focusTarget(target, { canFocus, onFocus, onNotFound, ...otherOptions });
             }
         })
     });

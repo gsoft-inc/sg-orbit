@@ -110,12 +110,11 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     ];
 }
 
+// Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
 function isElementInViewport(element: HTMLElement) {
     const clientRect = element.getBoundingClientRect();
 
     return (
-        clientRect.top >= 0 &&
-        clientRect.left >= 0 &&
         clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         clientRect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
@@ -182,7 +181,8 @@ export function InnerDialog({
         }, [dialogRef, dismissButtonRef]),
         onNotFound: useEventCallback(() => {
             dialogRef.current?.focus();
-        })
+        }),
+        tabbableOnly: true
     });
 
     const focusRingProps = useOverlayFocusRing({ focus });

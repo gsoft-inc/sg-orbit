@@ -26,7 +26,7 @@ stories()
             <Modal>
                 <Heading>Iconic Arecibo Observatory collapses</Heading>
                 <Content>
-                    <Select placeholder="Select a planet" aria-label="Planets">
+                    <Select placeholder="Select a planet" aria-label="Planets" tabIndex={0}>
                         <Item key="earth">Earth</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
