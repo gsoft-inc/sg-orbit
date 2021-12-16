@@ -1,9 +1,10 @@
+import { Menu, MenuTrigger } from "@components/menu";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
-import { Menu, MenuTrigger } from "@components/menu";
 import { Transition } from "@components/transition";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -314,8 +315,6 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
     await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
 });
 
-
-
 // ***** Aria *****
 
 test("a menu trigger have an aria-haspopup attribute", async () => {
@@ -442,7 +441,7 @@ test("call onOpenChange when the menu close", async () => {
         >
             <Button data-testid="trigger">Trigger</Button>
             <Menu data-testid="menu">
-                <Item key="earth">Earth</Item>
+                <Item key="earth" data-testid="earth-item">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
             </Menu>
@@ -450,11 +449,11 @@ test("call onOpenChange when the menu close", async () => {
     );
 
     act(() => {
-        getByTestId("menu").focus();
+        getByTestId("earth-item").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("menu"), { key: Keys.esc });
+        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.esc });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

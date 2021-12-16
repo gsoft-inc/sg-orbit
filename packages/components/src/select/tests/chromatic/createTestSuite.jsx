@@ -1,7 +1,8 @@
-import { Div } from "@components/html";
 import { GroupIcon, NotificationIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Item, Section } from "@components/collection";
+
+import { Div } from "@components/html";
 import { Text } from "@components/typography";
 import { cloneElement } from "react";
 import { paramsBuilder } from "@stories/utils";

@@ -1,10 +1,11 @@
-import { Button } from "@components/button";
 import { Field, Label } from "@components/field";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
+import { Button } from "@components/button";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -161,10 +162,7 @@ test("selecting an option focus the trigger", async () => {
     Transition.disableAnimation = false;
 
     const { getByTestId, queryByTestId } = renderWithTheme(
-        <Select
-            overlayProps={{ "data-testid": "overlay" }}
-            data-testid="select"
-        >
+        <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -408,7 +406,6 @@ test("call onOpenChange when the select open", async () => {
     const { getByTestId } = renderWithTheme(
         <Select
             onOpenChange={handler}
-            overlayProps={{ "data-testid": "overlay" }}
             data-testid="select"
         >
             <Item key="earth">Earth</Item>
@@ -432,21 +429,20 @@ test("call onOpenChange when the select close", async () => {
         <Select
             onOpenChange={handler}
             defaultOpen
-            overlayProps={{ "data-testid": "overlay" }}
             data-testid="select"
         >
-            <Item key="earth">Earth</Item>
+            <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
     );
 
     act(() => {
-        getByTestId("overlay").focus();
+        getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.esc });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

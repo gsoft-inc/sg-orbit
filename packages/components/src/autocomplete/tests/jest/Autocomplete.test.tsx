@@ -407,7 +407,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"));
+    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"), { timeout: 500 });
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
