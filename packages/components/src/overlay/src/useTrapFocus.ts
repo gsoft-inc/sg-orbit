@@ -18,10 +18,10 @@ export function useTrapFocus(focusManager: FocusManager) {
                 event.stopPropagation();
 
                 if (event.shiftKey) {
-                    const element = focusManager.focusPrevious();
+                    const element = focusManager.focusPrevious({ tabbableOnly: true });
                     setFocusedElement(element);
                 } else {
-                    const element = focusManager.focusNext();
+                    const element = focusManager.focusNext({ tabbableOnly: true });
                     setFocusedElement(element);
                 }
             }
@@ -37,7 +37,7 @@ export function useTrapFocus(focusManager: FocusManager) {
             if (!isNil(focusedElementRef.current)) {
                 focusedElementRef.current.focus();
             } else {
-                const element = focusManager.focusFirst();
+                const element = focusManager.focusFirst({ tabbableOnly: true });
                 setFocusedElement(element);
             }
         } else {
