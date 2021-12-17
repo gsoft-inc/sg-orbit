@@ -48,7 +48,7 @@ function CustomComponent({
 
 stories()
     .add("default", () =>
-        <RadioGroup onChange={() => { console.log("Changed!"); }}>
+        <RadioGroup>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
