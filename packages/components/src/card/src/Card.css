@@ -182,6 +182,11 @@
     width: 8rem;
 }
 
+.o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration,
+.o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-image {
+    width: 8rem;
+}
+
 /* IMAGE | VERTICAL */
 .o-ui-card-vertical > .o-ui-card-illustration,
 .o-ui-card-vertical > .o-ui-card-image {

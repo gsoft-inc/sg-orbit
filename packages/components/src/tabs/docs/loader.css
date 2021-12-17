@@ -17,6 +17,15 @@
     border-radius: 50px;
     border: 2px solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-white);
-    animation: o-ui-button-spinner 1s linear infinite;
+    animation: o-ui-sb-spinner 1s linear infinite;
     transform: translate(-50%, -50%) rotate(0deg);
+}
+
+@keyframes o-ui-sb-spinner {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
