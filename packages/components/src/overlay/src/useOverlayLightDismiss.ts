@@ -1,8 +1,9 @@
-import { FocusEvent, KeyboardEvent, MouseEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, isNil, useEventCallback, useFocusWithin } from "../../shared";
+import { FocusEvent, KeyboardEvent, MouseEvent, SyntheticEvent } from "react";
+import { FocusScope, Keys, isNil, useEventCallback, useFocusWithin } from "../../shared";
+
+import { OverlayTrigger } from "./useOverlayTrigger";
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { useInteractOutside } from "./useInteractOutside";
-import type { OverlayTrigger } from "./useOverlayTrigger";
 
 export interface UseOverlayLightDismissOptions {
     hideOnEscape?: boolean;
@@ -12,7 +13,7 @@ export interface UseOverlayLightDismissOptions {
     trigger?: OverlayTrigger;
 }
 
-export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
+export function useOverlayLightDismiss(focusScope: FocusScope, {
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick,
@@ -28,14 +29,21 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.esc) {
             if (hideOnEscape) {
-                event.preventDefault();
-                hide(event);
+                const currentActiveElement = event.target;
+
+                // When there are multiple overlay scopes (like a select in modal), we must ensure the esc keydown event is handled by the right component.
+                // We don't want nested all overlay components to close because a nested overlay component esc keydown event happended.
+                // E.g. we don't want the modal to close because an esc keydown event happened for the select.
+                if (focusScope.isInScope(currentActiveElement as HTMLElement)) {
+                    event.preventDefault();
+                    hide(event);
+                }
             }
         }
     });
 
     const handleBlur = useEventCallback((event: FocusEvent) => {
-        if (!isDevToolsBlurEvent(overlayRef)) {
+        if (!isDevToolsBlurEvent(focusScope)) {
             hide(event);
         }
     });
@@ -48,7 +56,7 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
         hide(event);
     });
 
-    useInteractOutside(overlayRef, {
+    useInteractOutside(focusScope, {
         isDisabled: !hideOnOutsideClick,
         onInteractOutside: handleInteractOutside
     });
@@ -74,23 +82,3 @@ export function useOverlayLightDismiss(overlayRef: RefObject<HTMLElement>, {
             return {};
     }
 }
-
-// This code aims to solve a bug on Chrome and Edge where no blur event will happen when the focused element becomes disable and that element lose the focus.
-// More info at: https://allyjs.io/tutorials/mutating-active-element.html
-// **** if using, try switching setTimeout for requestAnimationFrame ideally with useDisposable
-// const handleDocumentBlur = useEventCallback(() => {
-//     setTimeout(() => {
-//         if (!isNil(document.activeElement) && document.activeElement.nodeName === "BODY") {
-//             if (!isNil(activeElementRef.current) && activeElementRef.current.disabled) {
-//                 setFocusPopper(() => {
-//                     const containerElement = containerRef.current;
-
-//                     if (!isNil(containerElement)) {
-//                         containerElement.focus();
-//                     }
-//                 });
-//             }
-//         }
-//     }, 0);
-// });
-// useDocumentListener("blur", handleDocumentBlur, !isDisabled && isFocusWithin.current, true);

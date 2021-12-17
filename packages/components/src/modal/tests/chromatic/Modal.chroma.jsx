@@ -1,9 +1,10 @@
 import { Apollo11Poster, BlueOrigin, Nasa, SpaceX } from "./assets";
+import { Heading, Paragraph } from "@components/typography";
+
 import { Button } from "@components/button";
 import { Card } from "@components/card";
 import { Content } from "@components/placeholders";
 import { Div } from "@components/html";
-import { Heading, Paragraph } from "@components/typography";
 import { Illustration } from "@components/illustration";
 import { Image } from "@components/image";
 import { Modal } from "@components/modal";

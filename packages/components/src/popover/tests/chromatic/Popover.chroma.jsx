@@ -1,7 +1,9 @@
 import { Button, ButtonGroup } from "@components/button";
 import { Content, Footer } from "@components/placeholders";
-import { Div } from "@components/html";
 import { Field, Label } from "@components/field";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
+import { Div } from "@components/html";
 import { Form } from "@components/form";
 import { Heading } from "@components/typography";
 import { Image } from "@components/image";
@@ -9,7 +11,6 @@ import { Launch } from "./assets";
 import { Popover } from "@components/popover";
 import { TextInput } from "@components/text-input";
 import { TextLink } from "@components/link";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Popover")
@@ -23,20 +24,20 @@ stories()
     .add("default", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
     )
     .add("text footer", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <Footer>Step 2/4</Footer>
         </Popover>
     )
     .add("link footer", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <Footer>
                 <TextLink href="https://www.google.com" external>Step 2/4</TextLink>
             </Footer>
@@ -45,14 +46,14 @@ stories()
     .add("button", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <Button variant="primary">Accept</Button>
         </Popover>
     )
     .add("button group", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <ButtonGroup>
                 <Button variant="secondary">Cancel</Button>
                 <Button variant="primary">Accept</Button>
@@ -62,7 +63,7 @@ stories()
     .add("all slots", () =>
         <Popover>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             <Footer>Step 2/4</Footer>
             <ButtonGroup>
                 <Button variant="secondary">Cancel</Button>
@@ -106,26 +107,26 @@ stories()
     .add("focused", () =>
         <Popover focus>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
     )
     .add("styled system", () =>
         <Popover border="warning-7">
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
     )
     .add("className", () =>
         <Popover className="border-red">
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
     )
     .add("zoom in", () =>
         <Div className="zoom-in">
             <Popover>
                 <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
             </Popover>
         </Div>
     )
@@ -133,13 +134,13 @@ stories()
         <Div className="zoom-out">
             <Popover>
                 <Heading>Space News</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
             </Popover>
         </Div>
     )
     .add("style", () =>
         <Popover style={{ border: "1px solid red" }}>
             <Heading>Space News</Heading>
-            <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
     );

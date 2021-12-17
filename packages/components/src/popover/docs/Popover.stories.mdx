@@ -39,7 +39,7 @@ A default popover must have an heading and a content.
             <Button variant="secondary">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
     </Story>
@@ -70,7 +70,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
             <Button variant="secondary">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 <ButtonGroup>
                     <Button variant="secondary">Next</Button>
                     <Button variant="primary">Got it</Button>
@@ -90,7 +90,7 @@ A popper can have footer text.
             <Button variant="secondary">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                 <Button variant="primary">Got it</Button>
                 <Footer>All right reserved.</Footer>
             </Popover>
@@ -108,7 +108,7 @@ A popover can open at different positions.
             <Button variant="secondary">Trigger</Button>
             <Popover>
                 <Heading>WikiSpace</Heading>
-                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
             </Popover>
         </PopoverTrigger>
     </Story>
@@ -134,11 +134,27 @@ A call to action can dismiss the popover by calling a `close` function which can
                     <Button variant="secondary">Trigger</Button>
                     <Popover>
                         <Heading>WikiSpace</Heading>
-                        <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+                        <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
                         <Button onClick={close} variant="secondary">Close</Button>
                     </Popover>
                 </>
             )}
+        </PopoverTrigger>
+    </Story>
+</Preview>
+
+### Disabled trigger
+
+A popover will not open when it's trigger is disabled.
+
+<Preview>
+    <Story name="disabled trigger">
+        <PopoverTrigger>
+            <Button disabled variant="secondary">Trigger</Button>
+            <Popover>
+                <Heading>WikiSpace</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
+            </Popover>
         </PopoverTrigger>
     </Story>
 </Preview>

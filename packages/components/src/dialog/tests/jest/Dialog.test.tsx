@@ -1,8 +1,9 @@
-import { Button } from "@components/button";
 import { Content, Footer, Header } from "@components/placeholders";
+import { act, waitFor } from "@testing-library/react";
+
+import { Button } from "@components/button";
 import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
-import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -68,8 +69,8 @@ test("do not autofocus an anchor element", async () => {
     await waitFor(() => expect(getByTestId("dialog")).toHaveFocus());
 });
 
-test("tabbing the last focusable element of the dialog will move the focus to the dialog element", async () => {
-    const { getByTestId } = renderWithTheme(
+test("when dismissable is true, tabbing the last focusable element of the dialog will move the focus to the dismiss button", async () => {
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -87,7 +88,7 @@ test("tabbing the last focusable element of the dialog will move the focus to th
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveFocus());
+    await waitFor(() => expect(getByLabelText("Dismiss")).toHaveFocus());
 });
 
 // ***** Aria *****

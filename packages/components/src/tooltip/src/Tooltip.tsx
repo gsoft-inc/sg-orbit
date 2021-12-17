@@ -1,6 +1,9 @@
-import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback, useFocusScope, useMergedRefs } from "../../shared";
+
 import { Text } from "../../typography";
+import { useOverlayLightDismiss } from "../../overlay";
+import { useTooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
@@ -17,6 +20,26 @@ export function InnerTooltip({
     forwardedRef,
     ...rest
 }: InnerTooltipProps) {
+    const { close } = useTooltipTriggerContext();
+
+    const [focusScope, setFocusRef] = useFocusScope();
+
+    const tooltipRef = useMergedRefs(forwardedRef, setFocusRef);
+
+    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
+        hideOnEscape: true,
+        hideOnLeave: true,
+        hideOnOutsideClick: false,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            close(event);
+            // Ignore events related to the trigger.
+            // if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerRef.current) {
+            //     close(event);
+            // }
+        }),
+        trigger: "hover"
+    });
+
     return (
         <Text
             {...mergeProps(
@@ -24,9 +47,10 @@ export function InnerTooltip({
                 {
                     as,
                     className: "o-ui-tooltip",
-                    ref: forwardedRef,
+                    ref: tooltipRef,
                     role: "tooltip"
-                }
+                },
+                overlayDismissProps
             )}
         >
             {children}

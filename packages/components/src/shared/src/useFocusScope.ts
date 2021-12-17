@@ -1,196 +1,20 @@
-import { RefObject, useCallback, useMemo } from "react";
+import { RefObject, createContext, useCallback, useContext, useEffect, useMemo } from "react";
 import { createFocusableTreeWalker, isFocusableElement } from "./focusableTreeWalker";
 
 import { isNil } from "./assertions";
 import { useRefState } from "./useRefState";
-
-export interface FocusScopeIteratorOptions {
-    from?: number;
-    tabbableOnly?: boolean;
-}
-
-export interface FocusScopeIterationOptions {
-    accept?: (element: HTMLElement) => boolean;
-}
-
-export class FocusScopeIterator {
-    private scope: FocusScope;
-    private tabbableOnly: boolean;
-    private currentIndex: number;
-
-    constructor(scope: FocusScope, { from, tabbableOnly = false }: FocusScopeIteratorOptions = {}) {
-        this.scope = scope;
-        this.tabbableOnly = tabbableOnly;
-        this.currentIndex = from;
-    }
-
-    private isValid(element: HTMLElement) {
-        return this.tabbableOnly ? element.getAttribute("tabindex") !== "-1" : true;
-    }
-
-    firstElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
-
-        if (elements.length === 0) {
-            return null;
-        }
-
-        this.currentIndex = -1;
-
-        let current;
-
-        do {
-            current = elements[++this.currentIndex];
-
-            if (!isNil(current)) {
-                if (this.isValid(current)) {
-                    if (accept(current)) {
-                        // We found the element, stop the loop.
-                        break;
-                    }
-                }
-            }
-
-            // Continue to the next element.
-            current = null;
-
-            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
-            // Ex. We only want tabbable elements but there are none in the current scope.
-            if (this.currentIndex > elements.length - 1) {
-                break;
-            }
-        } while (isNil(current));
-
-        return current;
-    }
-
-    lastElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
-
-        if (elements.length === 0) {
-            return null;
-        }
-
-        this.currentIndex = elements.length;
-
-        let current;
-
-        do {
-            current = elements[--this.currentIndex];
-
-            if (!isNil(current)) {
-                if (this.isValid(current)) {
-                    if (accept(current)) {
-                        // We found the element, stop the loop.
-                        break;
-                    }
-                }
-            }
-
-            // Continue to the next element.
-            current = null;
-
-            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
-            // Ex. We only want tabbable elements but there are none in the current scope.
-            if (this.currentIndex < 0) {
-                break;
-            }
-        } while (isNil(current));
-
-        return current;
-    }
-
-    nextElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
-
-        if (elements.length === 0) {
-            return null;
-        }
-
-        const startingIndex = this.currentIndex = this.currentIndex ?? -1;
-
-        let current;
-
-        do {
-            current = elements[++this.currentIndex];
-
-            if (isNil(current)) {
-                // Hit the end of the loop, reset the index.
-                this.currentIndex = -1;
-            } else {
-                if (this.isValid(current)) {
-                    if (accept(current)) {
-                        // We found the element, stop the loop.
-                        break;
-                    }
-                }
-            }
-
-            // Continue to the next element.
-            current = null;
-
-            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
-            // Ex. We only want tabbable elements but there are none in the current scope.
-            if (startingIndex === this.currentIndex) {
-                break;
-            }
-        } while (isNil(current));
-
-        return current;
-    }
-
-    previousElement({ accept = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
-
-        if (elements.length === 0) {
-            return null;
-        }
-
-        const startingIndex = this.currentIndex = this.currentIndex ?? elements.length;
-
-        let current;
-
-        do {
-            current = elements[--this.currentIndex];
-
-            if (isNil(current)) {
-                // Hit the end of the loop, reset the index.
-                this.currentIndex = elements.length;
-            }
-            else {
-                if (this.isValid(current)) {
-                    if (accept(current)) {
-                        // We found the element, stop the loop.
-                        break;
-                    }
-                }
-            }
-
-            // Continue to the next element.
-            current = null;
-
-            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
-            // Ex. We only want tabbable elements but there are none in the current scope.
-            if (startingIndex === this.currentIndex) {
-                break;
-            }
-        } while (isNil(current));
-
-        return current;
-    }
-}
-
-////////////////////
 
 export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousElements: HTMLElement[]) => void;
 
 export class FocusScope {
     private scopeRef: RefObject<HTMLElement[]>;
     private handlersRef: RefObject<ScopeChangeEventHandler[]>;
+    childScopes: Set<FocusScope>;
 
     constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ScopeChangeEventHandler[]>) {
         this.scopeRef = scopeRef;
         this.handlersRef = handlersRef;
+        this.childScopes = new Set();
     }
 
     get elements() {
@@ -207,9 +31,52 @@ export class FocusScope {
         handlers.splice(handlers.indexOf(handler), 1);
     }
 
-    isInScope(element: HTMLElement) {
-        return !isNil(element) && this.elements.some(x => x.contains(element));
+    registerChildScope(scope: FocusScope) {
+        this.childScopes.add(scope);
     }
+
+    removeChildScope(scope: FocusScope) {
+        return this.childScopes.delete(scope);
+    }
+
+    isInScope(element: HTMLElement, { includeChildScopes = false }: { includeChildScopes?: boolean } = {}) {
+        if (isNil(element)) {
+            return false;
+        }
+
+        const hasElement = this.elements.some(x => x.contains(element));
+
+        if (includeChildScopes && !hasElement) {
+            return Array.from(this.childScopes).some(x => x.isInScope(element));
+        }
+
+        return hasElement;
+    }
+}
+
+export interface FocusScopeContextType {
+    scope?: FocusScope;
+}
+
+// Use a FocusScopeContext if you need to manage a hierarchy of focus scopes.
+// For example, a modal component could contains other overlay components like a select or an autocomplete.
+// These overlay components contained by the modal are all rendered with Portal and therefore aren't included in the focus scope of the modal.
+// Focusing them will result in unwanted behaviors like closing the modal when any of these child overlay components receive focus.
+// To fix this, we use a FocusScopeContext. All the different hooks which manage the focus will detect the existence of a FocusScopeContext and will automatically
+// registered their scope (the scope of the overlay componented contained in the modal) to their parent scope.
+// This will create a hierarchy of scopes.
+// By knowing the hierarchy of scopes, a component like a modal will be able to understand the focus have been moved to an element included in one of his nested overlay components
+// and therefore will behave expectedly.
+export const FocusScopeContext = createContext<FocusScopeContextType>(undefined);
+
+export function useFocusScopeContext(): [FocusScopeContextType, boolean] {
+    const context = useContext(FocusScopeContext);
+
+    if (!isNil(context)) {
+        return [context, true];
+    }
+
+    return [{}, false];
 }
 
 export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void] {
@@ -271,5 +138,196 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
 
     const scope = useMemo(() => new FocusScope(scopeRef, handlersRef), [scopeRef, handlersRef]);
 
+    const [{ scope: parentScope }] = useFocusScopeContext();
+
+    // Support focus hierarchy for dialog components.
+    // The main use case is a component like a Select in a modal component.
+    useEffect(() => {
+        if (!isNil(parentScope)) {
+            parentScope.registerChildScope(scope);
+
+            return () => {
+                parentScope.removeChildScope(scope);
+            };
+        }
+    }, [scope, parentScope]);
+
     return [scope, setRef];
+}
+
+////////////////////
+
+export interface FocusScopeIteratorOptions {
+    from?: number;
+    tabbableOnly?: boolean;
+}
+
+export interface FocusScopeIterationOptions {
+    acceptElement?: (element: HTMLElement) => boolean;
+}
+
+export class FocusScopeIterator {
+    private scope: FocusScope;
+    private tabbableOnly: boolean;
+    private currentIndex: number;
+
+    constructor(scope: FocusScope, { from, tabbableOnly = false }: FocusScopeIteratorOptions = {}) {
+        this.scope = scope;
+        this.tabbableOnly = tabbableOnly;
+        this.currentIndex = from;
+    }
+
+    private isValid(element: HTMLElement) {
+        return this.tabbableOnly ? element.getAttribute("tabindex") !== "-1" : true;
+    }
+
+    firstElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
+        const { elements } = this.scope;
+
+        if (elements.length === 0) {
+            return null;
+        }
+
+        this.currentIndex = -1;
+
+        let current;
+
+        do {
+            current = elements[++this.currentIndex];
+
+            if (!isNil(current)) {
+                if (this.isValid(current)) {
+                    if (acceptElement(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
+                }
+            }
+
+            // Continue to the next element.
+            current = null;
+
+            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
+            // Ex. We only want tabbable elements but there are none in the current scope.
+            if (this.currentIndex > elements.length - 1) {
+                break;
+            }
+        } while (isNil(current));
+
+        return current;
+    }
+
+    lastElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
+        const { elements } = this.scope;
+
+        if (elements.length === 0) {
+            return null;
+        }
+
+        this.currentIndex = elements.length;
+
+        let current;
+
+        do {
+            current = elements[--this.currentIndex];
+
+            if (!isNil(current)) {
+                if (this.isValid(current)) {
+                    if (acceptElement(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
+                }
+            }
+
+            // Continue to the next element.
+            current = null;
+
+            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
+            // Ex. We only want tabbable elements but there are none in the current scope.
+            if (this.currentIndex < 0) {
+                break;
+            }
+        } while (isNil(current));
+
+        return current;
+    }
+
+    nextElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
+        const { elements } = this.scope;
+
+        if (elements.length === 0) {
+            return null;
+        }
+
+        const startingIndex = this.currentIndex = this.currentIndex ?? -1;
+
+        let current;
+
+        do {
+            current = elements[++this.currentIndex];
+
+            if (isNil(current)) {
+                // Hit the end of the loop, reset the index.
+                this.currentIndex = -1;
+            } else {
+                if (this.isValid(current)) {
+                    if (acceptElement(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
+                }
+            }
+
+            // Continue to the next element.
+            current = null;
+
+            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
+            // Ex. We only want tabbable elements but there are none in the current scope.
+            if (startingIndex === this.currentIndex) {
+                break;
+            }
+        } while (isNil(current));
+
+        return current;
+    }
+
+    previousElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
+        const { elements } = this.scope;
+
+        if (elements.length === 0) {
+            return null;
+        }
+
+        const startingIndex = this.currentIndex = this.currentIndex ?? elements.length;
+
+        let current;
+
+        do {
+            current = elements[--this.currentIndex];
+
+            if (isNil(current)) {
+                // Hit the end of the loop, reset the index.
+                this.currentIndex = elements.length;
+            } else {
+                if (this.isValid(current)) {
+                    if (acceptElement(current)) {
+                        // We found the element, stop the loop.
+                        break;
+                    }
+                }
+            }
+
+            // Continue to the next element.
+            current = null;
+
+            // Guard to ensure we don't go in an infinite loop because there are no valid elements.
+            // Ex. We only want tabbable elements but there are none in the current scope.
+            if (startingIndex === this.currentIndex) {
+                break;
+            }
+        } while (isNil(current));
+
+        return current;
+    }
 }

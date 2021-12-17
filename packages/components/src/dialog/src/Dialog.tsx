@@ -1,6 +1,7 @@
 import { Box, BoxProps } from "../../box";
-import { ComponentProps, ElementType, MouseEvent, ReactNode, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { ComponentProps, ElementType, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
+    FocusScopeContext,
     InteractionProps,
     InternalProps,
     MergedRef,
@@ -22,7 +23,7 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Underlay, useOverlayFocusRing, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
@@ -109,12 +110,11 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     ];
 }
 
+// Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
 function isElementInViewport(element: HTMLElement) {
     const clientRect = element.getBoundingClientRect();
 
     return (
-        clientRect.top >= 0 &&
-        clientRect.left >= 0 &&
         clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
         clientRect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
@@ -133,7 +133,7 @@ export function InnerDialog({
     role = "dialog",
     size,
     wrapperProps,
-    zIndex = 1,
+    zIndex = 10000,
     ...rest
 }: InnerDialogProps) {
     const sizeValue = useResponsiveValue(size);
@@ -144,7 +144,7 @@ export function InnerDialog({
     const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close } = useDialogTriggerContext();
+    const { close, isOpen } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
@@ -181,10 +181,20 @@ export function InnerDialog({
         }, [dialogRef, dismissButtonRef]),
         onNotFound: useEventCallback(() => {
             dialogRef.current?.focus();
-        })
+        }),
+        tabbableOnly: true
     });
 
     const focusRingProps = useOverlayFocusRing({ focus });
+
+    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
+        hideOnEscape: isOpen,
+        hideOnLeave: false,
+        hideOnOutsideClick: isOpen && dismissable,
+        onHide: useEventCallback((event: SyntheticEvent) => {
+            close(event);
+        })
+    });
 
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         if (!isNil(close)) {
@@ -275,7 +285,7 @@ export function InnerDialog({
     );
 
     return (
-        <>
+        <FocusScopeContext.Provider value={{ scope: focusScope }}>
             <Underlay zIndex={zIndex} />
             <Div
                 {...mergeProps(
@@ -309,6 +319,7 @@ export function InnerDialog({
                             role,
                             tabIndex: -1
                         },
+                        overlayDismissProps,
                         focusRingProps,
                         restoreFocusProps
                     )}
@@ -323,7 +334,7 @@ export function InnerDialog({
                     </Div>
                 </Box>
             </Div>
-        </>
+        </FocusScopeContext.Provider>
     );
 }
 

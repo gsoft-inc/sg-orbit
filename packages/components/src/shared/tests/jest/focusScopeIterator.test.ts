@@ -45,7 +45,7 @@ describe("firstElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.firstElement({ accept: () => true });
+        const element = iterator.firstElement({ acceptElement: () => true });
 
         expect(element).toBe(elements[0]);
     });
@@ -59,7 +59,7 @@ describe("firstElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.firstElement({ accept: x => x !== elements[0] });
+        const element = iterator.firstElement({ acceptElement: x => x !== elements[0] });
 
         expect(element).toBe(elements[1]);
     });
@@ -73,7 +73,7 @@ describe("firstElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.firstElement({ accept: x => x !== elements[0] && x !== elements[1] });
+        const element = iterator.firstElement({ acceptElement: x => x !== elements[0] && x !== elements[1] });
 
         expect(element).toBe(elements[2]);
     });
@@ -87,7 +87,7 @@ describe("firstElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.firstElement({ accept: () => false });
+        const element = iterator.firstElement({ acceptElement: () => false });
 
         expect(element).toBeNull();
     });
@@ -209,7 +209,7 @@ describe("lastElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.lastElement({ accept: () => true });
+        const element = iterator.lastElement({ acceptElement: () => true });
 
         expect(element).toBe(elements[2]);
     });
@@ -223,7 +223,7 @@ describe("lastElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.lastElement({ accept: x => x !== elements[2] });
+        const element = iterator.lastElement({ acceptElement: x => x !== elements[2] });
 
         expect(element).toBe(elements[1]);
     });
@@ -237,7 +237,7 @@ describe("lastElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.lastElement({ accept: x => x !== elements[1] && x !== elements[2] });
+        const element = iterator.lastElement({ acceptElement: x => x !== elements[1] && x !== elements[2] });
 
         expect(element).toBe(elements[0]);
     });
@@ -251,7 +251,7 @@ describe("lastElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.lastElement({ accept: () => false });
+        const element = iterator.lastElement({ acceptElement: () => false });
 
         expect(element).toBeNull();
     });
@@ -417,7 +417,7 @@ describe("nextElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.nextElement({ accept: () => true });
+        const element = iterator.nextElement({ acceptElement: () => true });
 
         expect(element).toBe(elements[0]);
     });
@@ -431,7 +431,7 @@ describe("nextElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.nextElement({ accept: x => x !== elements[0] });
+        const element = iterator.nextElement({ acceptElement: x => x !== elements[0] });
 
         expect(element).toBe(elements[1]);
     });
@@ -445,7 +445,7 @@ describe("nextElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.nextElement({ accept: x => x !== elements[0] && x !== elements[1] });
+        const element = iterator.nextElement({ acceptElement: x => x !== elements[0] && x !== elements[1] });
 
         expect(element).toBe(elements[2]);
     });
@@ -459,7 +459,7 @@ describe("nextElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.nextElement({ accept: () => false });
+        const element = iterator.nextElement({ acceptElement: () => false });
 
         expect(element).toBeNull();
     });
@@ -639,7 +639,7 @@ describe("previousElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.previousElement({ accept: () => true });
+        const element = iterator.previousElement({ acceptElement: () => true });
 
         expect(element).toBe(elements[2]);
     });
@@ -653,7 +653,7 @@ describe("previousElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.previousElement({ accept: x => x !== elements[2] });
+        const element = iterator.previousElement({ acceptElement: x => x !== elements[2] });
 
         expect(element).toBe(elements[1]);
     });
@@ -667,7 +667,7 @@ describe("previousElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.previousElement({ accept: x => x !== elements[1] && x !== elements[2] });
+        const element = iterator.previousElement({ acceptElement: x => x !== elements[1] && x !== elements[2] });
 
         expect(element).toBe(elements[0]);
     });
@@ -681,7 +681,7 @@ describe("previousElement", () => {
 
         const iterator = new FocusScopeIterator(new Scope(elements));
 
-        const element = iterator.previousElement({ accept: () => false });
+        const element = iterator.previousElement({ acceptElement: () => false });
 
         expect(element).toBeNull();
     });
@@ -834,31 +834,31 @@ test("next + next + first + next + last + next with an accept function invalidat
         createInput()
     ];
 
-    const accept = (x: HTMLElement) => x !== elements[0];
+    const acceptElement = (x: HTMLElement) => x !== elements[0];
 
     const iterator = new FocusScopeIterator(new Scope(elements));
 
-    const element1 = iterator.nextElement({ accept });
+    const element1 = iterator.nextElement({ acceptElement });
 
     expect(element1).toBe(elements[1]);
 
-    const element2 = iterator.nextElement({ accept });
+    const element2 = iterator.nextElement({ acceptElement });
 
     expect(element2).toBe(elements[2]);
 
-    const element3 = iterator.firstElement({ accept });
+    const element3 = iterator.firstElement({ acceptElement });
 
     expect(element3).toBe(elements[1]);
 
-    const element4 = iterator.nextElement({ accept });
+    const element4 = iterator.nextElement({ acceptElement });
 
     expect(element4).toBe(elements[2]);
 
-    const element5 = iterator.lastElement({ accept });
+    const element5 = iterator.lastElement({ acceptElement });
 
     expect(element5).toBe(elements[2]);
 
-    const element6 = iterator.nextElement({ accept });
+    const element6 = iterator.nextElement({ acceptElement });
 
     expect(element6).toBe(elements[1]);
 });
@@ -870,31 +870,31 @@ test("next + next + first + next + last + next with an accept function invalidat
         createInput()
     ];
 
-    const accept = (x: HTMLElement) => x !== elements[2];
+    const acceptElement = (x: HTMLElement) => x !== elements[2];
 
     const iterator = new FocusScopeIterator(new Scope(elements));
 
-    const element1 = iterator.nextElement({ accept });
+    const element1 = iterator.nextElement({ acceptElement });
 
     expect(element1).toBe(elements[0]);
 
-    const element2 = iterator.nextElement({ accept });
+    const element2 = iterator.nextElement({ acceptElement });
 
     expect(element2).toBe(elements[1]);
 
-    const element3 = iterator.firstElement({ accept });
+    const element3 = iterator.firstElement({ acceptElement });
 
     expect(element3).toBe(elements[0]);
 
-    const element4 = iterator.nextElement({ accept });
+    const element4 = iterator.nextElement({ acceptElement });
 
     expect(element4).toBe(elements[1]);
 
-    const element5 = iterator.lastElement({ accept });
+    const element5 = iterator.lastElement({ acceptElement });
 
     expect(element5).toBe(elements[1]);
 
-    const element6 = iterator.nextElement({ accept });
+    const element6 = iterator.nextElement({ acceptElement });
 
     expect(element6).toBe(elements[0]);
 });
@@ -940,31 +940,31 @@ test("previous + previous + first + previous + last + previous with an accept fu
         createInput()
     ];
 
-    const accept = (x: HTMLElement) => x !== elements[2];
+    const acceptElement = (x: HTMLElement) => x !== elements[2];
 
     const iterator = new FocusScopeIterator(new Scope(elements));
 
-    const element1 = iterator.previousElement({ accept });
+    const element1 = iterator.previousElement({ acceptElement });
 
     expect(element1).toBe(elements[1]);
 
-    const element2 = iterator.previousElement({ accept });
+    const element2 = iterator.previousElement({ acceptElement });
 
     expect(element2).toBe(elements[0]);
 
-    const element3 = iterator.firstElement({ accept });
+    const element3 = iterator.firstElement({ acceptElement });
 
     expect(element3).toBe(elements[0]);
 
-    const element4 = iterator.previousElement({ accept });
+    const element4 = iterator.previousElement({ acceptElement });
 
     expect(element4).toBe(elements[1]);
 
-    const element5 = iterator.lastElement({ accept });
+    const element5 = iterator.lastElement({ acceptElement });
 
     expect(element5).toBe(elements[1]);
 
-    const element6 = iterator.previousElement({ accept });
+    const element6 = iterator.previousElement({ acceptElement });
 
     expect(element6).toBe(elements[0]);
 });
@@ -976,35 +976,31 @@ test("previous + previous + first + previous + last + previous with an accept fu
         createInput()
     ];
 
-    const accept = (x: HTMLElement) => x !== elements[0];
+    const acceptElement = (x: HTMLElement) => x !== elements[0];
 
     const iterator = new FocusScopeIterator(new Scope(elements));
 
-    const element1 = iterator.previousElement({ accept });
+    const element1 = iterator.previousElement({ acceptElement });
 
     expect(element1).toBe(elements[2]);
 
-    const element2 = iterator.previousElement({ accept });
+    const element2 = iterator.previousElement({ acceptElement });
 
     expect(element2).toBe(elements[1]);
 
-    const element3 = iterator.firstElement({ accept });
+    const element3 = iterator.firstElement({ acceptElement });
 
     expect(element3).toBe(elements[1]);
 
-    const element4 = iterator.previousElement({ accept });
+    const element4 = iterator.previousElement({ acceptElement });
 
     expect(element4).toBe(elements[2]);
 
-    const element5 = iterator.lastElement({ accept });
+    const element5 = iterator.lastElement({ acceptElement });
 
     expect(element5).toBe(elements[2]);
 
-    const element6 = iterator.previousElement({ accept });
+    const element6 = iterator.previousElement({ acceptElement });
 
     expect(element6).toBe(elements[1]);
 });
-
-// describe("tabbable only", () => {
-
-// });

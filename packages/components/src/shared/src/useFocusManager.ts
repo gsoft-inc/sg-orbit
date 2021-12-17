@@ -14,20 +14,20 @@ export interface FocusManagerHandlers {
     onNotFound?: () => void;
 }
 
-export interface FocusMethodOptions extends FocusManagerHandlers {
+export interface FocusManagerMethodOptions extends FocusManagerHandlers {
     canFocus?: (element: HTMLElement) => boolean;
     tabbableOnly?: boolean;
 }
 
 export interface FocusManager {
-    focusFirst: (options?: FocusMethodOptions) => HTMLElement;
+    focusFirst: (options?: FocusManagerMethodOptions) => HTMLElement;
     focusFirstQueryMatch: (query: string, handlers?: FocusManagerHandlers) => HTMLElement;
     focusKey: (key: string, handlers?: FocusManagerHandlers) => HTMLElement;
-    focusLast: (options?: FocusMethodOptions) => HTMLElement;
-    focusNext: (options?: FocusMethodOptions) => HTMLElement;
-    focusPrevious: (options?: FocusMethodOptions) => HTMLElement;
-    focusTarget: (key: string, options?: FocusMethodOptions) => HTMLElement;
-    isInScope: (element: HTMLElement) => boolean;
+    focusLast: (options?: FocusManagerMethodOptions) => HTMLElement;
+    focusNext: (options?: FocusManagerMethodOptions) => HTMLElement;
+    focusPrevious: (options?: FocusManagerMethodOptions) => HTMLElement;
+    focusTarget: (key: string, options?: FocusManagerMethodOptions) => HTMLElement;
+    isInScope: (element: HTMLElement, options?: { includeChildScopes?: boolean }) => boolean;
     scopeElements: HTMLElement[];
 }
 
@@ -46,52 +46,52 @@ abstract class FocusManagerBase {
         return this.scope.elements;
     }
 
-    isInScope(element: HTMLElement) {
-        return this.scope.isInScope(element);
+    isInScope(element: HTMLElement, options?: { includeChildScopes?: boolean }) {
+        return this.scope.isInScope(element, options);
     }
 
     protected abstract getActiveElementIndex();
 
     protected abstract focusElement(element: HTMLElement, handlers: FocusManagerHandlers);
 
-    focusFirst({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+    focusFirst({ canFocus, tabbableOnly, ...options }: FocusManagerMethodOptions = {}) {
         const iterator = new FocusScopeIterator(this.scope, { tabbableOnly });
 
-        const element = iterator.firstElement({ accept: canFocus });
+        const element = iterator.firstElement({ acceptElement: canFocus });
 
         this.focusElement(element, options);
 
         return element;
     }
 
-    focusLast({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+    focusLast({ canFocus, tabbableOnly, ...options }: FocusManagerMethodOptions = {}) {
         const iterator = new FocusScopeIterator(this.scope, { tabbableOnly });
 
-        const element = iterator.lastElement({ accept: canFocus });
+        const element = iterator.lastElement({ acceptElement: canFocus });
 
         this.focusElement(element, options);
 
         return element;
     }
 
-    focusNext({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+    focusNext({ canFocus, tabbableOnly, ...options }: FocusManagerMethodOptions = {}) {
         const from = this.getActiveElementIndex();
 
         const iterator = new FocusScopeIterator(this.scope, { from: from !== -1 ? from : undefined, tabbableOnly });
 
-        const element = iterator.nextElement({ accept: canFocus });
+        const element = iterator.nextElement({ acceptElement: canFocus });
 
         this.focusElement(element, options);
 
         return element;
     }
 
-    focusPrevious({ canFocus, tabbableOnly, ...options }: FocusMethodOptions = {}) {
+    focusPrevious({ canFocus, tabbableOnly, ...options }: FocusManagerMethodOptions = {}) {
         const from = this.getActiveElementIndex();
 
         const iterator = new FocusScopeIterator(this.scope, { from: from !== -1 ? from : undefined, tabbableOnly });
 
-        const element = iterator.previousElement({ accept: canFocus });
+        const element = iterator.previousElement({ acceptElement: canFocus });
 
         this.focusElement(element, options);
 
@@ -112,7 +112,7 @@ abstract class FocusManagerBase {
         return element;
     }
 
-    focusTarget(target: string, options?: FocusMethodOptions) {
+    focusTarget(target: string, options?: FocusManagerMethodOptions) {
         switch (target) {
             case FocusTarget.first:
                 return this.focusFirst(options);

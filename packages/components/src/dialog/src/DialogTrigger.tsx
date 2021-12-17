@@ -1,5 +1,4 @@
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback, useRef } from "react";
-import { DialogTriggerContext } from "./DialogTriggerContext";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import {
     InternalProps,
     OmitInternalProps,
@@ -11,7 +10,9 @@ import {
     useControllableState,
     useEventCallback
 } from "../../shared";
-import { Overlay, useOverlayLightDismiss, useOverlayTrigger } from "../../overlay";
+import { Overlay, useOverlayTrigger } from "../../overlay";
+
+import { DialogTriggerContext } from "./DialogTriggerContext";
 
 const DefaultElement = "div";
 
@@ -58,15 +59,15 @@ export function InnerDialogTrigger({
 }: InnerDialogTriggerProps) {
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const dialogRef = useRef();
-
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
-        setIsOpen(newValue);
+        if (isOpen !== newValue) {
+            setIsOpen(newValue);
 
-        if (!isNil(onOpenChange)) {
-            onOpenChange(event, newValue);
+            if (!isNil(onOpenChange)) {
+                onOpenChange(event, newValue);
+            }
         }
-    }, [onOpenChange, setIsOpen]);
+    }, [onOpenChange, isOpen, setIsOpen]);
 
     const open = useCallback((event: SyntheticEvent) => {
         updateIsOpen(event, true);
@@ -92,20 +93,10 @@ export function InnerDialogTrigger({
         })
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(dialogRef, {
-        hideOnEscape: isOpen,
-        hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
-        })
-    });
-
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const dialogMarkup = augmentElement(dialog, {
         dismissable,
-        ref: dialogRef,
         zIndex: zIndex + 1
     });
 
@@ -125,8 +116,7 @@ export function InnerDialogTrigger({
                         ref: forwardedRef,
                         show: isOpen,
                         zIndex
-                    },
-                    overlayDismissProps
+                    }
                 )}
             >
                 {dialogMarkup}

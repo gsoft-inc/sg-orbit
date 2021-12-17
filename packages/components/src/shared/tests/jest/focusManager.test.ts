@@ -639,6 +639,108 @@ describe("focusKey", () => {
     });
 });
 
+describe("isInScope", () => {
+    test("return true when an element is in scope", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new DomFocusManager(new Scope([elements[1], elements[2], elements[3]]));
+
+        expect(focusManager.isInScope(elements[1])).toBeTruthy();
+    });
+
+    test("return false when an element is not in scope", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const focusManager = new DomFocusManager(new Scope([elements[1], elements[2], elements[3]]));
+
+        expect(focusManager.isInScope(elements[0])).toBeFalsy();
+    });
+
+    test("when child scopes are included, return true when an element is in a child scope", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const parentScope = new Scope([elements[0], elements[1]]);
+        const childScope1 = new Scope([elements[2]]);
+        const childScope2 = new Scope([elements[3]]);
+
+        parentScope.registerChildScope(childScope1);
+        parentScope.registerChildScope(childScope2);
+
+        const focusManager = new DomFocusManager(parentScope);
+
+        expect(focusManager.isInScope(elements[0], { includeChildScopes: true })).toBeTruthy();
+        expect(focusManager.isInScope(elements[2], { includeChildScopes: true })).toBeTruthy();
+        expect(focusManager.isInScope(elements[3], { includeChildScopes: true })).toBeTruthy();
+    });
+
+    test("when child scopes are included, return false when an element in not in the current scope or any child scopes", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const parentScope = new Scope([elements[1]]);
+        const childScope1 = new Scope([elements[2]]);
+        const childScope2 = new Scope([elements[3]]);
+
+        parentScope.registerChildScope(childScope1);
+        parentScope.registerChildScope(childScope2);
+
+        const focusManager = new DomFocusManager(parentScope);
+
+        expect(focusManager.isInScope(elements[0], { includeChildScopes: true })).toBeFalsy();
+    });
+
+    test("when child scopes are not included, return false when an element is in a child scope", () => {
+        const elements = [
+            createInput(),
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        appendToDom(...elements);
+
+        const parentScope = new Scope([elements[0], elements[1]]);
+        const childScope1 = new Scope([elements[2]]);
+        const childScope2 = new Scope([elements[3]]);
+
+        parentScope.registerChildScope(childScope1);
+        parentScope.registerChildScope(childScope2);
+
+        const focusManager = new DomFocusManager(parentScope);
+
+        expect(focusManager.isInScope(elements[0])).toBeTruthy();
+        expect(focusManager.isInScope(elements[2])).toBeFalsy();
+        expect(focusManager.isInScope(elements[3])).toBeFalsy();
+    });
+});
+
 describe("virtual focus", () => {
     test("add focus CSS class to the focused element", () => {
         const elements = [

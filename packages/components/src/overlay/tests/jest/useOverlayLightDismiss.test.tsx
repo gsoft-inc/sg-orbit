@@ -1,8 +1,9 @@
-import { ComponentProps, useRef } from "react";
-import { Div } from "@components/html";
-import { Keys, mergeProps } from "@components/shared";
+import { Keys, mergeProps, useFocusScope, useMergedRefs } from "@components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@components/overlay";
 import { act, fireEvent, waitFor } from "@testing-library/react";
+
+import { ComponentProps } from "react";
+import { Div } from "@components/html";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
@@ -16,9 +17,11 @@ function Overlay({
     hideOnOutsideClick = true,
     ...rest
 }: OverlayProps) {
-    const overlayRef = useRef();
+    const [focusScope, setFocusRef] = useFocusScope();
 
-    const lightDismissProps = useOverlayLightDismiss(overlayRef, {
+    const overlayRef = useMergedRefs(setFocusRef);
+
+    const lightDismissProps = useOverlayLightDismiss(focusScope, {
         trigger,
         onHide,
         hideOnEscape,

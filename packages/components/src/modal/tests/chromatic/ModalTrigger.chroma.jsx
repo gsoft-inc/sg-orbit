@@ -1,7 +1,8 @@
-import { Button } from "@components/button";
-import { Content } from "@components/placeholders";
 import { Heading, Paragraph } from "@components/typography";
 import { Modal, ModalTrigger } from "@components/modal";
+
+import { Button } from "@components/button";
+import { Content } from "@components/placeholders";
 import { storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {

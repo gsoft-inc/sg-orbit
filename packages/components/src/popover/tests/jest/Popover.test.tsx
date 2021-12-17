@@ -1,10 +1,11 @@
-import { Button } from "@components/button";
 import { Content, Footer } from "@components/placeholders";
+import { act, waitFor } from "@testing-library/react";
+
+import { Button } from "@components/button";
 import { Heading } from "@components/typography";
 import { HtmlInput } from "@components/html";
 import { Popover } from "@components/popover";
 import { TextLink } from "@components/link";
-import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -67,26 +68,27 @@ test("do not autofocus an anchor element", async () => {
     await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
 });
 
-test("tabbing the last focusable element of the popover will move the focus to the popover element", async () => {
+test("tabbing the last focusable element of the popover will move the focus to the first focusable element", async () => {
     const { getByTestId } = renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
                 This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.
-                <HtmlInput type="text" data-testid="focusable-element" />
+                <HtmlInput type="text" data-testid="first-focusable-element" />
+                <HtmlInput type="text" data-testid="last-focusable-element" />
             </Content>
         </Popover>
     );
 
     act(() => {
-        getByTestId("focusable-element").focus();
+        getByTestId("last-focusable-element").focus();
     });
 
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
+    await waitFor(() => expect(getByTestId("first-focusable-element")).toHaveFocus());
 });
 
 // ***** Aria *****

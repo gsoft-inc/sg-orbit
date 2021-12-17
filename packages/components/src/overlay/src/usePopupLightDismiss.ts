@@ -1,10 +1,11 @@
 import { FocusEvent, KeyboardEvent, RefObject, SyntheticEvent } from "react";
-import { Keys, isNil, mergeProps, useEventCallback, useRefState } from "../../shared";
+import { FocusScope, Keys, isNil, mergeProps, useEventCallback, useRefState } from "../../shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "./useOverlayLightDismiss";
+
 import { isDevToolsBlurEvent } from "./isDevtoolsBlurEvent";
 import { isTargetParent } from "./isTargetParent";
 
-export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlayRef: RefObject<HTMLElement>, {
+export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusScope: FocusScope, {
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick,
@@ -32,7 +33,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
         }
     });
 
-    const props = useOverlayLightDismiss(overlayRef, {
+    const props = useOverlayLightDismiss(focusScope, {
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
@@ -52,7 +53,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, overlay
                     // Sad hack, I am not sure why but keydown event occurs after blur event.
                     setTimeout(() => {
                         if (!isHandled.current) {
-                            if (!isDevToolsBlurEvent(overlayRef)) {
+                            if (!isDevToolsBlurEvent(focusScope)) {
                                 // Ignore events related to the trigger to prevent double toggle.
                                 if ((event as FocusEvent).relatedTarget !== triggerRef.current) {
                                     hide(event);
