@@ -233,6 +233,31 @@ test("call onChange when a radio is selected", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
+test("call onChange when a radio is selected with the keyboard arrows", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = renderWithTheme(
+        <RadioGroup
+            onChange={handler}
+        >
+            <Radio value="1" data-testid="radio-1">1</Radio>
+            <Radio value="2">2</Radio>
+            <Radio value="3">3</Radio>
+        </RadioGroup>
+    );
+
+    act(() => {
+        getInput(getByTestId("radio-1")).focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowRight });
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "2"));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
 test("call the radio onValueChange handler when a radio is selected", async () => {
     const handler = jest.fn();
 
