@@ -2,10 +2,7 @@ function ColorSchemePicker() {
     const { colorScheme, setColorScheme } = useThemeContext();
 
     return (
-        <Inline
-            gap={1}
-            backgroundColor="alias-default"
-        >
+        <Inline gap={1}>
             <Text marginRight={2}>Color Scheme: </Text>
             <TextLink
                 onClick={() => setColorScheme("light")}
@@ -27,8 +24,8 @@ function ColorSchemePicker() {
 render(() => {
     return (
         <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
-            <Stack>
-                <Button variant="primary">Cutoff</Button>
+            <Stack backgroundColor="alias-default">
+                <Button variant="secondary">Cutoff</Button>
                 <ColorSchemePicker />
             </Stack>
         </ThemeProvider>

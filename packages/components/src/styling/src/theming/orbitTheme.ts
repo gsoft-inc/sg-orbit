@@ -1,6 +1,6 @@
 import { ConditionalKeys, FixedLengthArray } from "type-fest";
-import { Property } from "csstype";
-import type { ColorExpressionTypes } from "../styled-system";
+
+import { CssColor } from "../styled-system";
 
 export interface ColorSchemeSection<C, L, D> {
     common?: Partial<C>;
@@ -62,8 +62,7 @@ export interface ColorPaletteSection {
 type AliasValue =
     `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` | // any color in palette $accent-5
     `$${ConditionalKeys<ColorPaletteSection, string>}` | // any static colors $white $black
-    `${typeof ColorExpressionTypes[number]}${string}` | // strings starting with hsl(a), rgb(a), #
-    Property.Color; // basic colors
+    CssColor; // hsl(a), rgb(a), #, etc...
 
 export interface ColorAliases {
     /* Background */

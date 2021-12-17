@@ -34,7 +34,7 @@ A default theme provider.
 <Preview scope={{ ShareGateTheme }}>
     <Story name="default">
         <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            <Button variant="primary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
         </ThemeProvider>
     </Story>
 </Preview>
@@ -48,7 +48,7 @@ To enable this feature, you must pass the `system` value to `colorScheme` and an
 <Preview>
     <Story name="system">
         <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
-            <Button variant="primary">Cutoff</Button>
+            <Button variant="secondary">Cutoff</Button>
         </ThemeProvider>
     </Story>
 </Preview>
@@ -58,6 +58,12 @@ To enable this feature, you must pass the `system` value to `colorScheme` and an
 The closest `ThemeContext` can be accessed with the `useThemeContext` hook. Once you have an hold on the context, you can access is values and update the `colorScheme`.
 
 <Preview filePath="/styling/docs/theme-provider/ColorSchemePicker" />
+
+### Custom color
+
+Some features requires the usage of custom colors. Those colors aren't like Orbit's aliases and will not support multiple color schemes (dark mode) out of the box. To help with that, Orbit offer the `useColorValue` hook.
+
+<Preview filePath="/styling/docs/theme-provider/CustomColorHook" />
 
 ## API
 
