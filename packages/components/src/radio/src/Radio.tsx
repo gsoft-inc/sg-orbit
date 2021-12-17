@@ -1,5 +1,3 @@
-import { AbstractInputProps } from "../../input";
-import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useImperativeHandle, useMemo, useRef } from "react";
 import {
     OmitInternalProps,
@@ -16,6 +14,9 @@ import {
     useForwardInputApi,
     useSlots
 } from "../../shared";
+
+import { AbstractInputProps } from "../../input";
+import { Box } from "../../box";
 import { Span } from "../../html";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";

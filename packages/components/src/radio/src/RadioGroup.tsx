@@ -18,7 +18,8 @@ import {
     useKeyedRovingFocus,
     useMergedRefs
 } from "../../shared";
-import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, SyntheticEvent, forwardRef, useCallback } from "react";
+
 import { Group } from "../../group";
 import { useFieldInputProps } from "../../field";
 import { useResponsiveValue } from "../../styling";
@@ -83,13 +84,21 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
 
     const groupRef = useMergedRefs(setFocusRef, forwardedRef);
 
+    const setNewValue = useCallback((event, newValue) => {
+        if (!isNil(onChange)) {
+            onChange(event, newValue);
+        }
+
+        setCheckedValue(newValue);
+    }, [setCheckedValue, onChange]);
+
     const handleArrowSelect = useEventCallback((event, element) => {
         // When a number value is provided it's converted to a string when a new value is selected using the keyboard arrows.
         const newValue = element.dataset.type === "number"
             ? parseInt(element.value)
             : element.value;
 
-        setCheckedValue(newValue);
+        setNewValue(event, newValue);
     });
 
     const focusManager = useFocusManager(focusScope, { keyProp: RadioKeyProp });
@@ -120,11 +129,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     });
 
     const handleCheck = useEventCallback((event: SyntheticEvent, newValue: string) => {
-        if (!isNil(onChange)) {
-            onChange(event, newValue);
-        }
-
-        setCheckedValue(newValue);
+        setNewValue(event, newValue);
     });
 
     const groupName = useId(name, "radio-group");

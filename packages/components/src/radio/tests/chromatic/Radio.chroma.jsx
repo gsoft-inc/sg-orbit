@@ -1,7 +1,8 @@
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { Inline } from "@components/layout";
 import { Radio } from "@components/radio";
 import { createRadioTestSuite } from "./createRadioTestSuite";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Radio")
