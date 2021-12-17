@@ -1,11 +1,15 @@
-import { Button } from "@components/button";
-import { Content } from "@components/placeholders";
 import { Dialog, DialogProps, DialogTrigger, useDialogTriggerContext } from "@components/dialog";
-import { Heading } from "@components/typography";
-import { Keys } from "@components/shared";
-import { Transition } from "@components/transition";
+import { Heading, Paragraph } from "@components/typography";
+import { Radio, RadioGroup } from "@components/radio";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 import { createRef, forwardRef } from "react";
+
+import { Button } from "@components/button";
+import { Content } from "@components/placeholders";
+import { Item } from "@components/collection";
+import { Keys } from "@components/shared";
+import { Select } from "@components/select";
+import { Transition } from "@components/transition";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
@@ -13,6 +17,10 @@ beforeAll(() => {
     // @ts-ignore
     Transition.disableAnimation = true;
 });
+
+function getRadioInput(element: Element) {
+    return element.querySelector("input") as HTMLInputElement;
+}
 
 // ***** Behaviors *****
 
@@ -411,4 +419,224 @@ test("set ref once", async () => {
     );
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+// ***** Nested overlay components *****
+
+test("when a dialog contains a select component, focusing an option do not close the dialog", async () => {
+    const { getByTestId, queryByTestId } = renderWithTheme(
+        <DialogTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Dialog data-testid="dialog">
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Select
+                        data-testid="select"
+                        overlayProps={{ "data-testid": "select-overlay" }}
+                    >
+                        <Item key="1">Option 1</Item>
+                        <Item data-testid="option-2" key="2">Option 2</Item>
+                        <Item key="3">Option 3</Item>
+                    </Select>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Paragraph>
+                </Content>
+            </Dialog>
+        </DialogTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
+
+    act(() => {
+        getByTestId("option-2").focus();
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+});
+
+test("when a dialog contains a select component, selecting an option do not close the dialog", async () => {
+    const { getByTestId, queryByTestId } = renderWithTheme(
+        <DialogTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Dialog data-testid="dialog">
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Select
+                        data-testid="select"
+                        overlayProps={{ "data-testid": "select-overlay" }}
+                    >
+                        <Item key="1">Option 1</Item>
+                        <Item data-testid="option-2" key="2">Option 2</Item>
+                        <Item key="3">Option 3</Item>
+                    </Select>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Paragraph>
+                </Content>
+            </Dialog>
+        </DialogTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByTestId("option-2"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+});
+
+test("when a dialog contains a select, closing the select with an esc keydown do not close the dialog", async () => {
+    const { getByTestId, queryByTestId } = renderWithTheme(
+        <DialogTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Dialog data-testid="dialog">
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Select
+                        data-testid="select"
+                        overlayProps={{ "data-testid": "select-overlay" }}
+                    >
+                        <Item key="1">Option 1</Item>
+                        <Item data-testid="option-2" key="2">Option 2</Item>
+                        <Item key="3">Option 3</Item>
+                    </Select>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Paragraph>
+                </Content>
+            </Dialog>
+        </DialogTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
+
+    act(() => {
+        getByTestId("option-2").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("option-2"), { key: Keys.esc });
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+});
+
+test("when a dialog contains a select, closing the select with a tab keydown select the next focusable element of the dialog", async () => {
+    const { getByTestId, queryByTestId } = renderWithTheme(
+        <DialogTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Dialog data-testid="dialog">
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Select
+                        data-testid="select"
+                        overlayProps={{ "data-testid": "select-overlay" }}
+                    >
+                        <Item key="1">Option 1</Item>
+                        <Item data-testid="option-2" key="2">Option 2</Item>
+                        <Item key="3">Option 3</Item>
+                    </Select>
+                    <Button data-testid="button">Button</Button>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Paragraph>
+                </Content>
+            </Dialog>
+        </DialogTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+
+    act(() => {
+        userEvent.click(getByTestId("select"));
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
+
+    act(() => {
+        getByTestId("option-2").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("option-2"), { key: Keys.tab });
+    });
+
+    await waitFor(() => expect(queryByTestId("select-overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+});
+
+test("when a dialog contains a radio group, only the first radio of the group is focused with tabbulation", async () => {
+    const { getByTestId, queryByTestId } = renderWithTheme(
+        <DialogTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Dialog data-testid="dialog">
+                <Heading>Iconic Arecibo Observatory collapses</Heading>
+                <Content>
+                    <Button data-testid="button-1">Button 1</Button>
+                    <RadioGroup>
+                        <Radio data-testid="radio-1" value="1">1</Radio>
+                        <Radio value="2">2</Radio>
+                        <Radio value="3">3</Radio>
+                    </RadioGroup>
+                    <Button data-testid="button-2">Button 1</Button>
+                    <Paragraph>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Paragraph>
+                </Content>
+            </Dialog>
+        </DialogTrigger>
+    );
+
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+
+    act(() => {
+        getByTestId("button-1").focus();
+    });
+
+    await waitFor(() => expect(queryByTestId("button-1")).toHaveFocus());
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("button-1"), { key: Keys.tab });
+    });
+
+    await waitFor(() => expect(getRadioInput(queryByTestId("radio-1"))).toHaveFocus());
+
+    act(() => {
+        fireEvent.keyDown(getRadioInput(getByTestId("radio-1")), { key: Keys.tab });
+    });
+
+    await waitFor(() => expect(queryByTestId("button-2")).toHaveFocus());
 });
