@@ -144,7 +144,7 @@ export function InnerDialog({
     const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close, isOpen } = useDialogTriggerContext();
+    const { close } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
@@ -188,9 +188,9 @@ export function InnerDialog({
     const focusRingProps = useOverlayFocusRing({ focus });
 
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {
-        hideOnEscape: isOpen,
+        hideOnEscape: true,
         hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable,
+        hideOnOutsideClick: dismissable,
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
         })
