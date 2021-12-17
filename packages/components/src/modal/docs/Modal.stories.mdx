@@ -262,6 +262,15 @@ The `open` state can be handled in controlled mode.
 
 <Preview filePath="/modal/docs/ControlledModal" />
 
+### Custom trigger
+
+You don't have to use a `ModalTrigger` component if it doesn't fit your needs. A modal component can be used on it's own with any custom trigger which follow a few rules:
+
+- The custom trigger provide a valid `<DialogTriggerContext>` with a `close` function.
+- The custom trigger is responsible of show/hide the modal. This is usually done in combination with an [overlay](?path=/docs/overlay--page) component.
+
+<Preview filePath="/modal/docs/CustomTrigger" />
+
 ## API
 
 ### ModalTrigger
