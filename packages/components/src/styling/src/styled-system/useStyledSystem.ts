@@ -392,10 +392,15 @@ export const TextColorMapping = {
     ...ColorMapping
 };
 
-// Custom CSS color type to use instead of Property.Color to offer less useless values in intellisense and doesn't show too many
-// values in props docs.
+// Custom CSS color type to use instead of Property.Color to offer less useless values in intellisense and
+// stop showing too many values in props docs.
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type CssColor = Globals | "currentcolor" | (string & {});
+
+// Custom fill type to use instead of Property.Fill to offer less useless values in intellisense and
+// stop showing too many values in props docs.
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Fill = Globals | "child" | "context-fill" | "context-stroke" | "none" | (string & {});
 
 export type BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor;
 export type BorderValue = keyof typeof BorderMapping | Property.Border;
@@ -403,7 +408,7 @@ export type BorderRadiusValue = keyof typeof BorderRadiusMapping | Property.Bord
 export type BoxShadowValue = keyof typeof BoxShadowMapping | Property.BoxShadow;
 export type ColorValue = keyof typeof TextColorMapping | CssColor;
 export type ColumnGapValue = keyof typeof SpacingMapping | Property.ColumnGap;
-export type FillValue = keyof typeof IconColorMapping | Property.Fill;
+export type FillValue = keyof typeof IconColorMapping | Fill;
 export type FontSizeValue = keyof typeof FontSizeMapping | Property.FontSize;
 export type FontWeightValue = keyof typeof FontWeightMapping | typeof GlobalValues[number];
 export type GapValue = keyof typeof SpacingMapping | Property.Gap;
