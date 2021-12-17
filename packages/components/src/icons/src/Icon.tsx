@@ -1,7 +1,8 @@
-import { Box } from "../../box";
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot } from "../../shared";
 import { ResponsiveProp, StyledSystemProps, useResponsiveValue, useStyleProps } from "../../styling";
+
+import { Box } from "../../box";
 
 export type IconSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
 

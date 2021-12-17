@@ -1,12 +1,13 @@
-import { Counter } from "@components/counter";
-import { Div } from "@components/html";
 import { Field, HelpMessage, Label } from "@components/field";
 import { Inline, Stack } from "@components/layout";
 import { Radio, RadioGroup } from "@components/radio";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
+import { Counter } from "@components/counter";
+import { Div } from "@components/html";
 import { Tag } from "@components/tag";
 import { Text } from "@components/typography";
 import { ToggleButton } from "@components/button";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useCallback } from "react";
 import { useCheckableProps } from "@components/shared";
 
@@ -47,7 +48,7 @@ function CustomComponent({
 
 stories()
     .add("default", () =>
-        <RadioGroup>
+        <RadioGroup onChange={() => { console.log("Changed!"); }}>
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
