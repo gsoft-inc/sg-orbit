@@ -18,6 +18,7 @@ function CustomComponent({ value, children, ...rest }) {
             paddingY={2}
             border="none"
             borderRadius="80px"
+            fontSize={3}
             value={value}
             onClick={handleCheck}
             color={isChecked ? "white" : undefined}
