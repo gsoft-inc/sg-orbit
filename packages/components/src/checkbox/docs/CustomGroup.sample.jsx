@@ -1,3 +1,5 @@
+const TagButton = as(Tag, "button");
+
 function CustomComponent({
     value,
     children,
@@ -10,10 +12,9 @@ function CustomComponent({
     }, [value, onCheck]);
 
     return (
-        <Tag
+        <TagButton
             {...rest}
             {...checkableProps}
-            as="button"
             value={value}
             onClick={handleCheck}
             color={isChecked ? "white" : undefined}
@@ -21,7 +22,7 @@ function CustomComponent({
             aria-checked={isChecked}
         >
             {children}
-        </Tag>
+        </TagButton>
     );
 }
 
