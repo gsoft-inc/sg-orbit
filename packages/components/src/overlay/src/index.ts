@@ -14,3 +14,4 @@ export * from "./usePopupLightDismiss";
 export * from "./useTriggerWidth";
 export * from "./isTargetParent";
 export * from "./isDevtoolsBlurEvent";
+export * from "./isElementInViewport";

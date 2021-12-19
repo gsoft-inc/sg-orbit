@@ -6,6 +6,8 @@
 import { FocusScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useRefState } from "../../shared";
 import { KeyboardEvent, useLayoutEffect } from "react";
 
+import { isElementInViewport } from "./isElementInViewport";
+
 export interface UseRestoreFocusOptions {
     isDisabled?: boolean;
 }
@@ -90,7 +92,9 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
 
                     requestAnimationFrame(() => {
                         if (document.body.contains(elementToRestore)) {
-                            elementToRestore.focus();
+                            if (isElementInViewport(elementToRestore)) {
+                                elementToRestore.focus();
+                            }
                         }
                     });
                 }
