@@ -1,11 +1,7 @@
-import { FocusManager, Keys, isNil, useDisposables, useDocumentListener, useEventCallback, useRefState } from "../../shared";
-
-import { useEffect } from "react";
+import { FocusManager, Keys, isNil, useDocumentListener, useEventCallback, useRefState } from "../../shared";
 
 export function useTrapFocus(focusManager: FocusManager) {
     const [focusedElementRef, setFocusedElement] = useRefState<HTMLElement>();
-
-    const disposables = useDisposables();
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
@@ -45,24 +41,7 @@ export function useTrapFocus(focusManager: FocusManager) {
         }
     });
 
-    const handleBlur = useEventCallback((event: FocusEvent) => {
-        // Firefox doesn't shift focus back properly without this.
-        disposables.requestAnimationFrame(() => {
-            if (!focusManager.isInScope(event.relatedTarget as HTMLElement)) {
-                focusedElementRef.current.focus();
-            }
-        });
-    });
-
     // Keydown event listener "useCapture" is set to true to ensure a tab key down is catched before the useRestoreFocus tab key down handler.
     useDocumentListener("keydown", handleKeyDown, true, true);
     useDocumentListener("focusin", handleFocus, true, false);
-
-    useEffect(() => {
-        focusManager.scopeElements.forEach(x => x.addEventListener("focusout", handleBlur, false));
-
-        return () => {
-            focusManager.scopeElements.forEach(x => x.removeEventListener("focusout", handleBlur, false));
-        };
-    }, [focusManager, handleBlur]);
 }

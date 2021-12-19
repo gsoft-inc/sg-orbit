@@ -23,7 +23,7 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Underlay, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, isElementInViewport, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
@@ -110,16 +110,6 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     ];
 }
 
-// Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
-function isElementInViewport(element: HTMLElement) {
-    const clientRect = element.getBoundingClientRect();
-
-    return (
-        clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        clientRect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
 export function InnerDialog({
     "aria-describedby": ariaDescribedBy,
     "aria-label": ariaLabel,
@@ -173,6 +163,7 @@ export function InnerDialog({
                 return false;
             }
 
+            // Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
             if (!isElementInViewport(element)) {
                 return false;
             }
