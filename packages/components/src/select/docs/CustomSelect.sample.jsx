@@ -16,7 +16,7 @@ function CustomSelect({
                 variant="secondary"
                 width={{
                     base: "100%",
-                    sm: "50%"
+                    sm: "320px"
                 }}
             >
                 <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>

@@ -1,9 +1,10 @@
 import { Content, Footer, Header } from "@components/placeholders";
-import { act, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
+import { Keys } from "@components/shared";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -191,6 +192,62 @@ test("when no aria-describedby attributes is provided, the dialog aria-described
     );
 
     await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
+});
+
+// ***** Api *****
+
+test("call onClose when the dismiss button is clicked", async () => {
+    const handler = jest.fn();
+
+    const { getByLabelText } = renderWithTheme(
+        <Dialog onClose={handler}>
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Dialog>
+    );
+
+    act(() => {
+        userEvent.click(getByLabelText("Dismiss"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("call onClose on esc keypress", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = renderWithTheme(
+        <Dialog onClose={handler} data-testid="dialog">
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Dialog>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("call onClose on outside click", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <Dialog onClose={handler}>
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Dialog>
+    );
+
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Ref *****

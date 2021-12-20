@@ -1,4 +1,4 @@
-const TagButton = as(Box, "button");
+const TagButton = as(Tag, "button");
 
 function CustomComponent({ value, children, ...rest }) {
     const [{ checked: isChecked, onCheck, ...checkableProps }] = useCheckableProps({ value });
@@ -14,14 +14,10 @@ function CustomComponent({ value, children, ...rest }) {
         <TagButton
             {...rest}
             {...checkableProps}
-            paddingX={4}
-            paddingY={2}
-            border="none"
-            borderRadius="80px"
             value={value}
             onClick={handleCheck}
             color={isChecked ? "white" : undefined}
-            backgroundColor={isChecked ? "alias-accent" : "alias-warning-faint"}
+            backgroundColor={isChecked ? "alias-accent" : "alias-warning-light"}
             aria-checked={isChecked}
         >
             {children}

@@ -44,11 +44,11 @@ To use an implicit slot, declare a component having a default slot as a children
 
 You can define an implicit slot on a custom component by using the `slot` function.
 
-```js
+```jsx
 import { slot } from "@sharegate/orbit-ui";
 
 export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => (
-    <Box>A custom component</Box>
+    <Div>A custom component</Div>
 ));
 ```
 
@@ -63,13 +63,13 @@ An explicit slot is defined by specifying the `slot` prop on a component declara
 </Button>
 ```
 
-For native HTML elements, instead of specifying an explicit slot directly on the native element, we do recommend you use the [`<Box>`](?path=/docs/box--default-story) component to prevent rendering a `slot` attribute on the element.
+For native HTML elements, instead of specifying an explicit slot directly on the native element, we do recommend you use [Orbit HTML elements](?path=/docs/html-anchor--example).
 
 ```jsx
 <Card>
     <H1>SpaceX delays launch of South Korean military satellite</H1>
-    <Box slot="content">SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.</Box>
-    <Box slot="footer">Copyright @2021</Box>
+    <Div slot="content">SpaceX postponed the upcoming launch of a South Korean military satellite Monday (July 13), due to hardware issues with the Falcon 9 rocket.</Div>
+    <Div slot="footer">Copyright @2021</Div>
 </Card>
 ```
 

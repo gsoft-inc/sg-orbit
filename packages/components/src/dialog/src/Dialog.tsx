@@ -23,7 +23,7 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Underlay, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, isElementInViewport, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
@@ -39,6 +39,12 @@ export type AbstractDialogProps<T extends ElementType> = InternalProps & Interac
      * Whether or not the dialog should close on outside interactions.
      */
     dismissable?: boolean;
+    /**
+     * Called when a closing event happenened.
+     * @param {SyntheticEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onClose?: (event: SyntheticEvent) => void;
     /**
      * Additional props to render on the wrapper element.
      */
@@ -110,16 +116,6 @@ function useElementHasVerticalScrollbar(): [MergedRef<HTMLElement>, boolean] {
     ];
 }
 
-// Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
-function isElementInViewport(element: HTMLElement) {
-    const clientRect = element.getBoundingClientRect();
-
-    return (
-        clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        clientRect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
 export function InnerDialog({
     "aria-describedby": ariaDescribedBy,
     "aria-label": ariaLabel,
@@ -130,6 +126,7 @@ export function InnerDialog({
     focus,
     forwardedRef,
     id,
+    onClose,
     role = "dialog",
     size,
     wrapperProps,
@@ -144,11 +141,21 @@ export function InnerDialog({
     const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close, isOpen } = useDialogTriggerContext();
+    const { close: triggerClose } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
     const [hasVerticalScrollbarRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
+
+    const close = useCallback(event => {
+        if (!isNil(triggerClose)) {
+            triggerClose(event);
+        }
+
+        if (!isNil(onClose)) {
+            onClose(event);
+        }
+    }, [onClose, triggerClose]);
 
     const focusManager = useFocusManager(focusScope);
 
@@ -173,6 +180,7 @@ export function InnerDialog({
                 return false;
             }
 
+            // Make sure the autofocus element is in the current viewport to prevent from scrolling down on open.
             if (!isElementInViewport(element)) {
                 return false;
             }
@@ -188,18 +196,16 @@ export function InnerDialog({
     const focusRingProps = useOverlayFocusRing({ focus });
 
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {
-        hideOnEscape: isOpen,
+        hideOnEscape: true,
         hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable,
+        hideOnOutsideClick: dismissable,
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
         })
     });
 
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
-        if (!isNil(close)) {
-            close(event);
-        }
+        close(event);
     });
 
     const dialogId = useId(id, "o-ui-dialog");

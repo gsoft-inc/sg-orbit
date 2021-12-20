@@ -1,9 +1,10 @@
 import { BorderRadiusPrefix, BoxShadowPrefix, ColorPrefix, FontSizePrefix, FontWeightPrefix, LineHeightPrefix, SizingPrefix, SpacePrefix, normalizeVariable } from "../theming";
 import { Breakpoint, useMatchedBreakpoints } from "../BreakpointProvider";
 import { CSSProperties, useMemo } from "react";
-import { LiteralUnion } from "type-fest";
-import { Property } from "csstype";
+import { Globals, Property } from "csstype";
 import { ResponsiveProp, parseResponsiveValue } from "../useResponsiveValue";
+
+import { LiteralUnion } from "type-fest";
 import { isNil } from "../../../shared";
 
 /*
@@ -86,7 +87,7 @@ const SpacingScale = [
     13
 ] as const;
 
-const Colors = [
+const OrbitColors = [
     "white",
     "black",
     "gray",
@@ -354,7 +355,7 @@ export const SpacingMapping = createValuesMapping(SpacingScale, createPrefixedVa
 
 export const SizingMapping = createValuesMapping(SizingScale, createPrefixedValueTemplate(SizingPrefix));
 
-export const ColorMapping = createValuesMapping(Colors, createPrefixedValueTemplate(ColorPrefix));
+export const ColorMapping = createValuesMapping(OrbitColors, createPrefixedValueTemplate(ColorPrefix));
 
 export const BackgroundColorMapping = {
     ...createValuesMapping(BackgroundColorAliases, createPrefixedValueTemplate(composePrefixes(ColorPrefix, "bg"))),
@@ -363,7 +364,7 @@ export const BackgroundColorMapping = {
 
 export const BorderMapping = {
     ...createValuesMapping(BorderColorAliases, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, composePrefixes(ColorPrefix, "b"))})`),
-    ...createValuesMapping(Colors, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
+    ...createValuesMapping(OrbitColors, value => `${BorderWidthAndStyle} var(${normalizeVariable(value, ColorPrefix)})`)
 };
 
 export const BorderRadiusMapping = createValuesMapping(BorderRadiusScale, createPrefixedValueTemplate(BorderRadiusPrefix));
@@ -391,13 +392,23 @@ export const TextColorMapping = {
     ...ColorMapping
 };
 
-export type BackgroundColorValue = keyof typeof BackgroundColorMapping | Property.BackgroundColor;
+// Custom CSS color type to use instead of Property.Color to offer less useless values in intellisense and
+// stop showing too many values in props docs.
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type CssColor = Globals | "currentcolor" | (string & {});
+
+// Custom fill type to use instead of Property.Fill to offer less useless values in intellisense and
+// stop showing too many values in props docs.
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type Fill = Globals | "child" | "context-fill" | "context-stroke" | "none" | (string & {});
+
+export type BackgroundColorValue = keyof typeof BackgroundColorMapping | CssColor;
 export type BorderValue = keyof typeof BorderMapping | Property.Border;
 export type BorderRadiusValue = keyof typeof BorderRadiusMapping | Property.BorderRadius;
 export type BoxShadowValue = keyof typeof BoxShadowMapping | Property.BoxShadow;
-export type ColorValue = keyof typeof TextColorMapping | Property.Color;
+export type ColorValue = keyof typeof TextColorMapping | CssColor;
 export type ColumnGapValue = keyof typeof SpacingMapping | Property.ColumnGap;
-export type FillValue = keyof typeof IconColorMapping | Property.Fill;
+export type FillValue = keyof typeof IconColorMapping | Fill;
 export type FontSizeValue = keyof typeof FontSizeMapping | Property.FontSize;
 export type FontWeightValue = keyof typeof FontWeightMapping | typeof GlobalValues[number];
 export type GapValue = keyof typeof SpacingMapping | Property.Gap;

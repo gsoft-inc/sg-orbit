@@ -1,12 +1,13 @@
-import { Counter } from "@components/counter";
-import { Div } from "@components/html";
 import { Field, HelpMessage, Label } from "@components/field";
 import { Inline, Stack } from "@components/layout";
 import { Radio, RadioGroup } from "@components/radio";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
+import { Counter } from "@components/counter";
+import { Div } from "@components/html";
 import { Tag } from "@components/tag";
 import { Text } from "@components/typography";
 import { ToggleButton } from "@components/button";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useCallback } from "react";
 import { useCheckableProps } from "@components/shared";
 
@@ -37,8 +38,8 @@ function CustomComponent({
             as="button"
             value={value}
             onClick={handleCheck}
-            color={isChecked?"white": undefined}
-            backgroundColor={isChecked?"accent-6": "neutral-6"}
+            color={isChecked ? "white" : undefined}
+            backgroundColor={isChecked ? "accent-6" : "neutral-6"}
         >
             {children}
         </Tag>

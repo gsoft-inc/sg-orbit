@@ -1,9 +1,10 @@
 import { Content, Footer } from "@components/placeholders";
-import { act, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Heading } from "@components/typography";
 import { HtmlInput } from "@components/html";
+import { Keys } from "@components/shared";
 import { Popover } from "@components/popover";
 import { TextLink } from "@components/link";
 import { createRef } from "react";
@@ -136,6 +137,44 @@ test("when no aria-label or aria-labelledby attributes are provided, the popover
     );
 
     await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("aria-labelledby", "heading-1"));
+});
+
+// ***** Api *****
+
+test("call onClose on esc keypress", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = renderWithTheme(
+        <Popover onClose={handler} data-testid="popover">
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Popover>
+    );
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("popover"), { key: Keys.esc });
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("call onClose on outside click", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <Popover onClose={handler}>
+            <Heading>Iconic Arecibo Observatory collapses</Heading>
+            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
+        </Popover>
+    );
+
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****
