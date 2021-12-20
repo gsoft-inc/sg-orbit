@@ -34,6 +34,12 @@ export interface InnerPopoverProps extends InternalProps, InteractionProps, Styl
      */
     dismissable?: boolean;
     /**
+     * Called when a closing event happenened.
+     * @param {SyntheticEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onClose?: (event: SyntheticEvent) => void;
+    /**
      * The z-index of the dialog.
      */
     zIndex?: number;
@@ -48,6 +54,7 @@ export function InnerPopover({
     focus,
     forwardedRef,
     id,
+    onClose,
     zIndex = 10000,
     ...rest
 }: InnerPopoverProps) {
@@ -55,7 +62,17 @@ export function InnerPopover({
 
     const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
 
-    const { close, isOpen } = usePopoverTriggerContext();
+    const { close: triggerClose, isOpen } = usePopoverTriggerContext();
+
+    const close = useCallback(event => {
+        if (!isNil(triggerClose)) {
+            triggerClose(event);
+        }
+
+        if (!isNil(onClose)) {
+            onClose(event);
+        }
+    }, [onClose, triggerClose]);
 
     const focusManager = useFocusManager(focusScope);
 
@@ -84,9 +101,9 @@ export function InnerPopover({
     });
 
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {
-        hideOnEscape: isOpen,
+        hideOnEscape: true,
         hideOnLeave: false,
-        hideOnOutsideClick: isOpen && dismissable,
+        hideOnOutsideClick: dismissable,
         onHide: useEventCallback((event: SyntheticEvent) => {
             close(event);
         })
