@@ -62,7 +62,7 @@ export function InnerPopover({
 
     const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
 
-    const { close: triggerClose, isOpen } = usePopoverTriggerContext();
+    const { close: triggerClose } = usePopoverTriggerContext();
 
     const close = useCallback(event => {
         if (!isNil(triggerClose)) {
