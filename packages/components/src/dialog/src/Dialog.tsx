@@ -40,6 +40,12 @@ export type AbstractDialogProps<T extends ElementType> = InternalProps & Interac
      */
     dismissable?: boolean;
     /**
+     * Called when a closing event happenened.
+     * @param {SyntheticEvent} event - React's original synthetic event.
+     * @returns {void}
+     */
+    onClose?: (event: SyntheticEvent) => void;
+    /**
      * Additional props to render on the wrapper element.
      */
     wrapperProps?: Partial<BoxProps>;
@@ -120,6 +126,7 @@ export function InnerDialog({
     focus,
     forwardedRef,
     id,
+    onClose,
     role = "dialog",
     size,
     wrapperProps,
@@ -134,11 +141,21 @@ export function InnerDialog({
     const dialogRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close } = useDialogTriggerContext();
+    const { close: triggerClose } = useDialogTriggerContext();
 
     useHideBodyScrollbar();
 
     const [hasVerticalScrollbarRef, wrapperHasVerticalScrollbar] = useElementHasVerticalScrollbar();
+
+    const close = useCallback(event => {
+        if (!isNil(triggerClose)) {
+            triggerClose(event);
+        }
+
+        if (!isNil(onClose)) {
+            onClose(event);
+        }
+    }, [onClose, triggerClose]);
 
     const focusManager = useFocusManager(focusScope);
 
@@ -188,9 +205,7 @@ export function InnerDialog({
     });
 
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
-        if (!isNil(close)) {
-            close(event);
-        }
+        close(event);
     });
 
     const dialogId = useId(id, "o-ui-dialog");
