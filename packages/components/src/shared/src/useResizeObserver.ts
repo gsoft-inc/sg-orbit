@@ -1,4 +1,4 @@
-// Strongly inspired by https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
+// Inspired from https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
 
 import { RefCallback, useCallback, useRef } from "react";
 import { isFunction, isNil } from "./assertions";

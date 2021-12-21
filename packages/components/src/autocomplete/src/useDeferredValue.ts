@@ -1,5 +1,6 @@
-import { useDisposables } from "../../shared";
 import { useEffect, useState } from "react";
+
+import { useDisposables } from "../../shared";
 
 export function useDeferredValue<T>(value: T, delay?: number, defaultValue?: T) {
     const [deferredValue, setDeferredValue] = useState(defaultValue);
@@ -8,10 +9,6 @@ export function useDeferredValue<T>(value: T, delay?: number, defaultValue?: T) 
 
     useEffect(() => {
         disposables.dispose();
-
-        // setTimeout(() => {
-        //     setDeferredValue(value);
-        // }, delay);
 
         disposables.setTimeout(() => {
             setDeferredValue(value);

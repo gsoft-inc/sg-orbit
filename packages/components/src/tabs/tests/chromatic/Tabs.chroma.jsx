@@ -1,12 +1,13 @@
 import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@components/icons";
 import { Content, Header } from "@components/placeholders";
-import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
+import { Tab, TabPanel, Tabs, useTabsContext } from "@components/tabs";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
+import { Div } from "@components/html";
 import { Item } from "@components/collection";
 import { Lozenge } from "@components/lozenge";
-import { Tab, TabPanel, Tabs, useTabsContext } from "@components/tabs";
 import { Text } from "@components/typography";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/Tabs")
@@ -18,6 +19,44 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <Div minWidth="100px" width="800px" height="300px" padding="10px" resize="horizontal" overflow="auto" border="alias-low-break">
+            <Tabs aria-label="Planets">
+                <Item>
+                    <Header>Mars</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Jupiter</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus 2</Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus 3 </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus 4 </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus5 </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus6 </Header>
+                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+            </Tabs>
+        </Div>
+    )
     .add("default", () =>
         <Tabs aria-label="Planets">
             <Item>

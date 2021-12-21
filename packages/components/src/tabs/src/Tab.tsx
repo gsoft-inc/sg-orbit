@@ -1,6 +1,7 @@
-import { Box } from "../../box";
 import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+
+import { Box } from "../../box";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
@@ -46,6 +47,7 @@ export function InnerTab({
             size: "sm"
         },
         lozenge: {
+            "aria-hidden": true,
             className: "o-ui-tab-lozenge",
             highlight: true,
             size: "sm",

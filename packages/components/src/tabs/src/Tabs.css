@@ -16,6 +16,7 @@
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
     border-bottom: 2px solid var(--o-ui-b-alias-low-break);
+    overflow: hidden;
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
@@ -35,13 +36,13 @@
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: max-content;
-    min-width: var(--o-ui-sz-11);
+    /* min-width: var(--o-ui-sz-11); */
     height: max-content;
     min-height: var(--o-ui-sz-7);
     cursor: pointer;
     color: var(--o-ui-text-alias-secondary);
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .o-ui-tabs-horizontal .o-ui-tab:last-child {
@@ -140,9 +141,9 @@
 
 /* TAB | TEXT */
 .o-ui-tab-text {
-    overflow: hidden;
+    /* overflow: hidden; */
     white-space: nowrap;
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis; */
 }
 
 .o-ui-tab .o-ui-tab-text {
