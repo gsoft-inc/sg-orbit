@@ -25,7 +25,6 @@ import { Tab, TabKeyProp } from "./Tab";
 
 import { Box } from "../../box";
 import { TabType } from "./useTabsItems";
-import { VisuallyHidden } from "../../visually-hidden";
 import { match } from "./match";
 import { useDebouncedCallback } from "use-debounce";
 import { useTabsContext } from "./TabsContext";
@@ -132,7 +131,7 @@ function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs?: TabTyp
                 const tabListRect = tabListElement.getBoundingClientRect();
                 const tabListThreshold = tabListRect.right - CollapsedTabsTriggerWidth;
 
-                const tabElements = tabListElement.querySelectorAll("[role=\"tab\"]:not([hidden])");
+                const tabElements = tabListElement.querySelectorAll("[role=\"tab\"]");
 
                 const visibleCount = tabElements.length;
 
