@@ -1,4 +1,4 @@
-import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 
 import { Box } from "../../box";
@@ -15,6 +15,10 @@ export interface InnerTabProps extends InternalProps, InteractionProps, StyledCo
      * React children.
      */
     children: ReactNode;
+    /**
+     * Called when the tab is selected.
+     */
+    onSelect: (event: SyntheticEvent, key: string) => void;
     /**
      * Whether or not the tab is selected.
      */
@@ -33,10 +37,11 @@ export function InnerTab({
     focus,
     forwardedRef,
     hover,
+    onSelect,
     tab: { key, panelId, tabId },
     ...rest
 }: InnerTabProps) {
-    const { isManual, onSelect, selectedKey } = useTabsContext();
+    const { isManual, selectedKey } = useTabsContext();
 
     const { icon, lozenge, text } = useSlots(children, useMemo(() => ({
         _: {
