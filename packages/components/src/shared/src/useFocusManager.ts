@@ -52,7 +52,7 @@ abstract class FocusManagerBase {
 
     protected abstract getActiveElementIndex();
 
-    protected abstract focusElement(element: HTMLElement, handlers: FocusManagerHandlers);
+    abstract focusElement(element: HTMLElement, handlers: FocusManagerHandlers);
 
     focusFirst({ canFocus, tabbableOnly, ...options }: FocusManagerMethodOptions = {}) {
         const iterator = new FocusScopeIterator(this.scope, { tabbableOnly });
@@ -141,7 +141,7 @@ export class DomFocusManager extends FocusManagerBase implements FocusManager {
         return elements.indexOf(document.activeElement as HTMLElement);
     }
 
-    protected focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
+    focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
         if (!isNil(element)) {
             if (isFunction(element.focus)) {
                 element.focus();
@@ -169,7 +169,7 @@ export class VirtualFocusManager extends FocusManagerBase implements FocusManage
         return elements.findIndex((x: HTMLElement) => x.classList.contains(VirtualFocusCssClass));
     }
 
-    protected focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
+    focusElement(element: HTMLElement, { onFocus, onNotFound }: FocusManagerHandlers = {}) {
         if (!isNil(element)) {
             const { elements } = this.scope;
 

@@ -16,7 +16,8 @@
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
     border-bottom: 2px solid var(--o-ui-b-alias-low-break);
-    overflow: hidden;
+    /* overflow-y: hidden; */
+    /* overflow: hidden; */
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
@@ -35,9 +36,10 @@
     padding: calc(var(--o-ui-sp-3) + 1px);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
-    width: max-content;
+    /* width: max-content; */
     /* min-width: var(--o-ui-sz-11); */
-    height: max-content;
+    min-width: max-content;
+    /* height: max-content; */
     min-height: var(--o-ui-sz-7);
     cursor: pointer;
     color: var(--o-ui-text-alias-secondary);
@@ -189,4 +191,9 @@
 .o-ui-tabs-fluid .o-ui-tab-panel {
     width: 100%;
     height: 100%;
+}
+
+/* COLLAPSIBLE TABS */
+.o-ui-collapsed-tabs {
+    background-color: #fff;
 }

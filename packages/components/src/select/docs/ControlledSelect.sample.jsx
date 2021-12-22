@@ -19,7 +19,6 @@
             placeholder="Planets"
             onSelectionChange={handleSelectionChange}
             onOpenChange={handleOpenChange}
-            aria-label="Planets"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>

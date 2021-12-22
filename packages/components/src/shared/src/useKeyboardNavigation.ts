@@ -1,11 +1,13 @@
 import { KeyboardEvent, KeyboardEventHandler } from "react";
+
+import { FocusManager } from "./useFocusManager";
 import { Keys } from "./keys";
 import { isNil } from "./assertions";
 import { useEventCallback } from "./useEventCallback";
-import type { FocusManager } from "./useFocusManager";
 
 export interface KeyboardNavigationOptions {
-    onSelect?: (event: KeyboardEvent, element: Element) => void;
+    onCanSelect?: (event: KeyboardEvent, element: Element, key: Keys) => boolean;
+    onSelect?: (event: KeyboardEvent, element: Element, key: Keys) => void;
 }
 
 export interface KeyboardNavigationBindings {
@@ -15,28 +17,30 @@ export interface KeyboardNavigationBindings {
     previous?: Keys[];
 }
 
-export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onSelect }: KeyboardNavigationOptions = {}) {
+export function useKeyboardNavigation(focusManager: FocusManager, { previous = [], next = [], first = [], last = [] }: KeyboardNavigationBindings, { onCanSelect, onSelect }: KeyboardNavigationOptions = {}) {
     const handleKeyDown: KeyboardEventHandler = useEventCallback((event: KeyboardEvent) => {
         const key = event.key as Keys;
 
-        const handleFocus = (element: HTMLElement) => {
-            if (!isNil(onSelect)) {
-                onSelect(event, element);
-            }
+        const handleCanFocus = isNil(onCanSelect) ? undefined : (element: HTMLElement) => {
+            return onCanSelect(event, element, key);
+        };
+
+        const handleFocus = isNil(onSelect) ? undefined : (element: HTMLElement) => {
+            onSelect(event, element, key);
         };
 
         if (previous.includes(key)) {
             event.preventDefault();
-            focusManager.focusPrevious({ onFocus: handleFocus });
+            focusManager.focusPrevious({ canFocus: handleCanFocus, onFocus: handleFocus });
         } else if (next.includes(key)) {
             event.preventDefault();
-            focusManager.focusNext({ onFocus: handleFocus });
+            focusManager.focusNext({ canFocus: handleCanFocus, onFocus: handleFocus });
         } else if (first.includes(key)) {
             event.preventDefault();
-            focusManager.focusFirst({ onFocus: handleFocus });
+            focusManager.focusFirst({ canFocus: handleCanFocus, onFocus: handleFocus });
         } else if (last.includes(key)) {
             event.preventDefault();
-            focusManager.focusLast({ onFocus: handleFocus });
+            focusManager.focusLast({ canFocus: handleCanFocus, onFocus: handleFocus });
         }
     });
 

@@ -1,11 +1,12 @@
-import { AbstractInputProps } from "../../input";
 import { ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { DisclosureArrow } from "../../disclosure";
-import { HiddenSelect } from "./HiddenSelect";
-import { Listbox } from "../../listbox";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeProps } from "../../shared";
 import { Overlay, OverlayProps, PopupAlignmentProp, PopupDirectionProp } from "../../overlay";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
+import { AbstractInputProps } from "../../input";
+import { DisclosureArrow } from "../../disclosure";
+import { HiddenSelect } from "./HiddenSelect";
+import { Listbox } from "../../listbox";
 import { Span } from "../../html";
 import { Text } from "../../typography";
 import { useFieldInputProps } from "../../field";
@@ -156,7 +157,7 @@ export function InnerSelect(props: InnerSelectProps) {
     const alignValue = useResponsiveValue(align);
     const directionValue = useResponsiveValue(direction);
 
-    const { isOpen, listboxProps, overlayProps, selectedItem, selectedKey, triggerProps } = useSelect(children, {
+    const { isOpen, listboxProps, overlayProps, selectedItem, selectedKey, triggerProps, valueProps } = useSelect(children, {
         align: alignValue,
         allowFlip,
         allowPreventOverflow,
@@ -203,10 +204,12 @@ export function InnerSelect(props: InnerSelectProps) {
 
     const valueMarkup = isNil(selectedItem)
         ? placeholder && (
-            <Text className="o-ui-select-placeholder">{placeholder}</Text>
+            <Text {...mergeProps({ className: "o-ui-select-placeholder" }, valueProps )}>
+                {placeholder}
+            </Text>
         )
         : (
-            <Span className="o-ui-select-value">
+            <Span {...mergeProps({ className: "o-ui-select-value" }, valueProps)}>
                 {selectedIconMarkup}
                 {selectedTextMarkup}
                 {selectedEndIconMarkup}

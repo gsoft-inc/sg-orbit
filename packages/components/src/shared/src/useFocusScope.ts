@@ -21,6 +21,10 @@ export class FocusScope {
         return this.scopeRef.current;
     }
 
+    get length() {
+        return this.scopeRef.current.length;
+    }
+
     registerChangeHandler(handler: ScopeChangeEventHandler) {
         this.handlersRef.current.push(handler);
     }
@@ -51,6 +55,14 @@ export class FocusScope {
         }
 
         return hasElement;
+    }
+
+    isFirstElement(element: HTMLElement) {
+        return this.elements[0] === element;
+    }
+
+    isLastElement(element: HTMLElement) {
+        return this.elements[this.elements.length - 1] === element;
     }
 }
 

@@ -22,6 +22,10 @@ import { Tooltip, TooltipTrigger } from "@components/tooltip";
     githubPath="/packages/components/src/select/src"
 />
 
+## Accessibility
+
+If you choose to provide an `aria-label` attribute, please make sure you update the value to match the selected value otherwise screen readers won't be able to anounce the selected value.
+
 ## Usage
 
 ### Default
@@ -30,7 +34,7 @@ A default select.
 
 <Preview>
     <Story name="default">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -48,7 +52,7 @@ A select items can be group by sections.
 
 <Preview>
     <Story name="sections">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Section title="Visited">
                 <Item key="earth">Earth</Item>
                 <Item key="mars">Mars</Item>
@@ -70,7 +74,7 @@ A select item can have [icons](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="item icon">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">
                 <NotificationIcon />
                 <Text>Earth</Text>
@@ -93,7 +97,7 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
 
 <Preview>
     <Story name="item end icon">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
@@ -124,7 +128,7 @@ A select item can have a description.
 
 <Preview>
     <Story name="item description">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
@@ -145,7 +149,7 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
 
 <Preview>
     <Story name="item description + icon">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">
                 <NotificationIcon />
                 <Text>Earth</Text>
@@ -169,7 +173,7 @@ A description can be paired with an [avatar](?path=/docs/avatar--default-story).
 
 <Preview>
     <Story name="item description + avatar">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item key="earth">
                 <Avatar name="Earth" />
                 <Text>Earth</Text>
@@ -195,7 +199,7 @@ A select can have a basic tooltip.
 
 <Preview>
     <Story name="item tooltip">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <TooltipTrigger>
                 <Item key="earth">Earth</Item>
                 <Tooltip>Home sweet home!</Tooltip>
@@ -218,7 +222,7 @@ A select item can be disabled.
 
 <Preview>
     <Story name="disabled item">
-        <Select placeholder="Planets" aria-label="Planets">
+        <Select placeholder="Planets">
             <Item disabled key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -236,7 +240,7 @@ A select trigger can have an icon.
 
 <Preview>
     <Story name="trigger icon">
-        <Select icon={<MagnifierIcon />} placeholder="Planets" aria-label="Planets">
+        <Select icon={<MagnifierIcon />} placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -252,7 +256,7 @@ A select trigger can have an icon.
 
 <Preview>
     <Story name="disabled">
-        <Select disabled placeholder="Planets" aria-label="Planets">
+        <Select disabled placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -268,7 +272,7 @@ A select trigger can have an icon.
 
 <Preview>
     <Story name="readonly">
-        <Select readOnly placeholder="Planets" aria-label="Planets">
+        <Select readOnly placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -286,7 +290,7 @@ A select can take the width of it's container.
 
 <Preview>
     <Story name="fluid">
-        <Select fluid placeholder="Planets" aria-label="Planets">
+        <Select fluid placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -313,7 +317,7 @@ A select can be part of a form. To submit the value of a select, make sure you s
 <Preview>
     <Story name="form">
         <form>
-            <Select name="planet" placeholder="Planets" aria-label="Planets">
+            <Select name="planet" placeholder="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
@@ -352,7 +356,7 @@ A select can be more discrete.
 
 <Preview>
     <Story name="ghost">
-        <Select variant="ghost" placeholder="Planets" aria-label="Planets">
+        <Select variant="ghost" placeholder="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>

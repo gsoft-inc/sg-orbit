@@ -29,7 +29,8 @@ function isStyleVisible(element: Element) {
 
 // Even if those attributes are handled by the focusable selector, we still have to validate them for the parent elements.
 function isAttributeVisible(element: Element) {
-    return !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true";
+    // return !element.hasAttribute("hidden") && element.getAttribute("aria-hidden") !== "true";
+    return !element.hasAttribute("hidden");
 }
 
 function isParentElementVisible(element: Element, rootElement?: Element) {
@@ -75,7 +76,8 @@ const FocusableElements = [
     "[tabindex]:not([disabled])"
 ];
 
-const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
+// const FocusableExclusions = ":not([hidden]):not([aria-hidden=\"true\"])";
+const FocusableExclusions = ":not([hidden])";
 
 const FocusableSelector = FocusableElements.join(`${FocusableExclusions},`) + FocusableExclusions;
 

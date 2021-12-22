@@ -22,7 +22,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusSc
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         if (event.key === Keys.tab) {
-            // When the popup doesn't have any focusable siblings, tabbing out from the overlay the focus will go back to the trigger.
+            // When the popup doesn't have any focusable siblings, tabbing out from the overlay will move the focus back to the trigger.
             // Without this hack, the overlay would not close because we have code which prevent the overlay from closing when the focus move to the trigger.
             // This code specifically handle "tabs" to force close the overlay.
             setIsHandled(true);

@@ -100,6 +100,8 @@ export function InnerPopover({
         tabbableOnly: true
     });
 
+    // Could use usePopupLightDismiss instead but we don't have access to a trigger ref.
+    // A trigger ref could be provided from the context but then, this component would be unusable without a context, which is not what we want.
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {
         hideOnEscape: true,
         hideOnLeave: false,

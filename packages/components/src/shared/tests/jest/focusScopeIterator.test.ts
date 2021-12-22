@@ -408,7 +408,7 @@ describe("nextElement", () => {
         expect(element4).toBe(elements[0]);
     });
 
-    test("when an accept function is provided return true for the next element, return the next element", () => {
+    test("when an accept function is provided and return true for the next element, return the next element", () => {
         const elements = [
             createInput(),
             createInput(),

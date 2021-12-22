@@ -24,35 +24,61 @@ stories()
             <Tabs aria-label="Planets">
                 <Item>
                     <Header>Mars</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>1 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Jupiter</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>2 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>3 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus 2</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>4 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus 3 </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>5 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus 4 </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>6 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus5 </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>7 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
                 <Item>
                     <Header>Venus6 </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                    <Content>8 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+            </Tabs>
+        </Div>
+    )
+    .add("test fluid", () =>
+        <Div minWidth="100px" width="800px" height="300px" padding="10px" resize="horizontal" overflow="auto" border="alias-low-break">
+            <Tabs aria-label="Planets" fluid>
+                <Item>
+                    <Header>Mars</Header>
+                    <Content>1 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Jupiter</Header>
+                    <Content>2 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus</Header>
+                    <Content>3 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus 2</Header>
+                    <Content>4 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
+                </Item>
+                <Item>
+                    <Header>Venus 3 </Header>
+                    <Content>5 Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System (in adherence with the IAU's controversial 2006 definition of planet)</Content>
                 </Item>
             </Tabs>
         </Div>

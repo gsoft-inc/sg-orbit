@@ -158,11 +158,11 @@ export function InnerListbox({
     as = DefaultElement,
     autoFocus,
     children,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     defaultFocusTarget,
     defaultSelectedKeys,
     fluid,
     focusOnHover,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     forwardedRef,
     id,
     nodes: nodesProp,
