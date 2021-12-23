@@ -233,7 +233,7 @@ function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: TabType
     };
 }
 
-interface CollapsedTabsProps {
+interface CollapsedTabsProps extends Omit<StyledComponentProps<"button">, "onSelect"> {
     defaultFocusTarget: string;
     onOpenChange: (event: SyntheticEvent, isOpen: boolean, options?: { focusTarget?: string }) => void;
     onSelect: (event: SyntheticEvent, key: string) => void;
@@ -252,6 +252,8 @@ const CollapsedTabs = forwardRef(({
     ...rest
 }: CollapsedTabsProps,
 ref) => {
+    const { selectedKey } = useTabsContext();
+
     const [focusScope, setFocusRef] = useFocusScope();
 
     const focusManager = useFocusManager(focusScope);
@@ -259,7 +261,7 @@ ref) => {
     const triggerProps = useOverlayTrigger(open, {
         hideOnLeave: false,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            onOpenChange(event, false);
+            onOpenChange(event, false, { focusTarget: selectedKey });
         }),
         onShow: useEventCallback((event: SyntheticEvent) => {
             onOpenChange(event, true);
@@ -281,7 +283,7 @@ ref) => {
         hideOnLeave: true,
         hideOnOutsideClick: false,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            onOpenChange(event, false);
+            onOpenChange(event, false, { focusTarget: selectedKey });
         })
     });
 
@@ -292,7 +294,7 @@ ref) => {
 
     const handleTabSelect = useEventCallback((event: SyntheticEvent, key: string) => {
         onSelect(event, key);
-        onOpenChange(event, false, { focusTarget: key });
+        onOpenChange(event, false, { focusTarget: selectedKey });
     });
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
@@ -415,13 +417,13 @@ export function InnerTabList({
 }: InnerTabListProps) {
     const { isCollapsible, isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [popupFocusTargetRef, setPopupFocusTarget] = useRefState<FocusTarget>(FocusTarget.first);
+    const [isCollapsedTabsOpen, setIsCollapsedTabsOpen] = useState(false);
+    const [collapsedTabsFocusTargetRef, setCollapsedTabsFocusTarget] = useRefState<FocusTarget>(FocusTarget.first);
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const tabListRef = useMergedRefs(setFocusRef, forwardedRef);
-    const popupTriggerRef = useRef();
+    const collapsedTabsRef = useRef();
 
     const focusManager = useFocusManager(focusScope, { keyProp: TabKeyProp });
 
@@ -433,20 +435,20 @@ export function InnerTabList({
         target: selectedKey
     });
 
-    const updateIsPopupOpen = useCallback((newValue: boolean) => {
-        if (isPopupOpen !== newValue) {
-            setIsPopupOpen(newValue);
+    const updateIsCollapsedTabsOpen = useCallback((newValue: boolean) => {
+        if (isCollapsedTabsOpen !== newValue) {
+            setIsCollapsedTabsOpen(newValue);
         }
-    }, [isPopupOpen, setIsPopupOpen]);
+    }, [isCollapsedTabsOpen, setIsCollapsedTabsOpen]);
 
-    const openPopup = useCallback((focusTarget: FocusTarget) => {
-        setPopupFocusTarget(focusTarget);
-        updateIsPopupOpen(true);
-    }, [setPopupFocusTarget, updateIsPopupOpen]);
+    const openCollapsedTabs = useCallback((focusTarget: FocusTarget) => {
+        setCollapsedTabsFocusTarget(focusTarget);
+        updateIsCollapsedTabsOpen(true);
+    }, [setCollapsedTabsFocusTarget, updateIsCollapsedTabsOpen]);
 
-    const closePopup = useCallback(() => {
-        updateIsPopupOpen(false);
-    }, [updateIsPopupOpen]);
+    const closeCollapsedTabs = useCallback(() => {
+        updateIsCollapsedTabsOpen(false);
+    }, [updateIsCollapsedTabsOpen]);
 
     const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabListRef, tabs, selectedKey, {
         isDisabled: !isCollapsible && orientation !== "horizontal"
@@ -466,30 +468,30 @@ export function InnerTabList({
     });
 
     // Using the "canSelect" filter to open the popup. This is a small hack to reuse the "focusManager" and the "useKeyboardNavigation".
-    const handleKeyboardCanSelect = useCallback((event: KeyboardEvent, element: HTMLElement, key: Keys) => {
+    const handleKeyboardPreSelect = useCallback((event: KeyboardEvent, element: HTMLElement, key: Keys) => {
         switch (key) {
             case Keys.arrowLeft: {
-                if (element === popupTriggerRef.current) {
+                if (element === collapsedTabsRef.current) {
                     // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the last collapsed tab.
-                    openPopup(FocusTarget.last);
+                    openCollapsedTabs(FocusTarget.last);
 
                     return false;
                 }
                 break;
             }
             case Keys.arrowRight: {
-                if (element === popupTriggerRef.current) {
+                if (element === collapsedTabsRef.current) {
                     // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the first collapsed tab.
-                    openPopup(FocusTarget.first);
+                    openCollapsedTabs(FocusTarget.first);
 
                     return false;
                 }
                 break;
             }
             case Keys.end: {
-                if (element === popupTriggerRef.current) {
+                if (element === collapsedTabsRef.current) {
                     // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the first collapsed tab.
-                    openPopup(FocusTarget.last);
+                    openCollapsedTabs(FocusTarget.last);
 
                     return false;
                 }
@@ -498,33 +500,30 @@ export function InnerTabList({
         }
 
         return true;
-    }, [openPopup]);
+    }, [openCollapsedTabs]);
 
     const handleKeyboardSelect = useEventCallback((event: KeyboardEvent, element: HTMLElement) => {
         selectTab(event, element?.getAttribute(TabKeyProp));
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation], {
-        // Only horizontal orientation support collapsing tabs.
-        onCanSelect: orientation === "horizontal" ? handleKeyboardCanSelect : undefined,
+        // Only support collapsing tabs when orientation is horizontal.
+        onCanSelect: orientation === "horizontal" ? handleKeyboardPreSelect : undefined,
         onSelect: canAutoActivate ? handleKeyboardSelect : undefined
     });
 
-    const handlePopupOpenChange = useEventCallback((event: SyntheticEvent, isOpen: boolean, { focusTarget }: { focusTarget?: string } = {}) => {
+    const handleCollapsedTabsOpenChange = useEventCallback((event: SyntheticEvent, isOpen: boolean, { focusTarget }: { focusTarget?: string } = {}) => {
         if (isOpen) {
-            openPopup(FocusTarget.first);
+            openCollapsedTabs(FocusTarget.first);
         } else {
-            closePopup();
+            closeCollapsedTabs();
         }
 
         if (!isNil(focusTarget)) {
             let element: HTMLElement;
 
             if (focusTarget !== FocusTarget.last) {
-                // Hack to focus the selected tab after the re-render occurs and the tab is now visible.
-                requestAnimationFrame(() => {
-                    element = focusManager.focusTarget(focusTarget);
-                });
+                element = focusManager.focusTarget(focusTarget);
             } else {
                 // The last element is the collapsible tabs trigger, skip it.
                 element = focusScope.elements[focusScope.length - 2];
@@ -532,6 +531,10 @@ export function InnerTabList({
                 focusManager.focusElement(element);
             }
         }
+    });
+
+    const handleCollapsedTabsSelect = useEventCallback((event: SyntheticEvent, key: string) => {
+        selectTab(event, key);
     });
 
     const popupOverlayId = useId(undefined, "o-ui-collapsed-tabs");
@@ -542,7 +545,7 @@ export function InnerTabList({
                 rest,
                 {
                     "aria-orientation": orientation,
-                    "aria-owns": isPopupOpen ? popupOverlayId : undefined,
+                    "aria-owns": isCollapsedTabsOpen ? popupOverlayId : undefined,
                     "aria-setsize": tabs.length,
                     as,
                     className: "o-ui-tab-list",
@@ -574,12 +577,12 @@ export function InnerTabList({
             )}
             {collapsedTabs.length > 0 && (
                 <CollapsedTabs
-                    defaultFocusTarget={popupFocusTargetRef.current}
-                    onOpenChange={handlePopupOpenChange}
-                    onSelect={handleTabSelect}
-                    open={isPopupOpen}
+                    defaultFocusTarget={collapsedTabsFocusTargetRef.current}
+                    onOpenChange={handleCollapsedTabsOpenChange}
+                    onSelect={handleCollapsedTabsSelect}
+                    open={isCollapsedTabsOpen}
                     overlayProps={{ id: popupOverlayId }}
-                    ref={popupTriggerRef}
+                    ref={collapsedTabsRef}
                     tabs={collapsedTabs}
                 />
             )}

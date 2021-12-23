@@ -10,7 +10,7 @@ export const TabKeyProp = "data-o-ui-key";
 
 const DefaultElement = "button";
 
-export interface InnerTabProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerTabProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onSelect"> {
     /**
      * React children.
      */
