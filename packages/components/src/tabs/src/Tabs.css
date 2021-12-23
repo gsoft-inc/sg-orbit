@@ -113,6 +113,7 @@
 .o-ui-tab:not([disabled]):hover,
 .o-ui-tab-hover:not([disabled]) {
     color: var(--o-ui-text-alias-primary);
+    border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
 }
 
 /* TAB | STATE | SELECTED */
@@ -219,7 +220,7 @@
 
 /* COLLAPSIBLE TABS | TRIGGER | OPEN */
 .o-ui-tablist-trigger[aria-expanded="true"] {
-    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* COLLAPSIBLE TABS | TRIGGER | HOVER */
@@ -239,4 +240,5 @@
 /* COLLAPSIBLE TABS | TABS */
 .o-ui-collapsed-tabs .o-ui-tab:hover {
     background-color: var(--o-ui-bg-alias-mid-break);
+    border-bottom: 0;
 }
