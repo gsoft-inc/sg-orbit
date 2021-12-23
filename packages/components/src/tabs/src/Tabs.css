@@ -11,6 +11,7 @@
 /* TAB LIST */
 .o-ui-tab-list {
     display: flex;
+    gap: var(--o-ui-sp-2);
 }
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
@@ -47,10 +48,6 @@
     /* overflow: hidden; */
 }
 
-.o-ui-tabs-horizontal .o-ui-tab:last-child {
-    margin-right: 0;
-}
-
 /* TAB | WITH ICON */
 .o-ui-tab-has-icon {
     padding-left: calc(0.5rem + 1px);
@@ -71,13 +68,13 @@
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
-.o-ui-tabs-horizontal .o-ui-tab::before {
+.o-ui-tabs-horizontal .o-ui-tab::before,
+.o-ui-collapsed-tabs .o-ui-tab::before {
     left: 0;
     right: 0;
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    margin-right: var(--o-ui-sp-3);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
 }
@@ -133,7 +130,11 @@
 /* TAB | FLUID */
 /* TAB | FLUID | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab {
-    width: 100%;
+    flex-grow: 1;
+}
+
+.o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab:hover {
+    border-bottom: 2px solid var(--o-ui-bg-alias-hard-break);
 }
 
 /* TAB | FLUID | ORIENTATION | VERTICAL */
@@ -150,6 +151,7 @@
 
 .o-ui-tab .o-ui-tab-text {
     color: inherit;
+    line-height: 1;
 }
 
 .o-ui-tab .o-ui-tab-icon {
@@ -195,5 +197,38 @@
 
 /* COLLAPSIBLE TABS */
 .o-ui-collapsed-tabs {
-    background-color: #fff;
+    background-color: var(--o-ui-bg-alias-default);
+    border: 1px solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-shape-rounded);
+    margin-top: var(--o-ui-sp-2);
+}
+
+/* COLLAPSIBLE TABS | TRIGGER */
+.o-ui-tabs .o-ui-tablist-trigger {
+    border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: var(--o-ui-shape-rounded);
+    color: var(--o-ui-text-alias-secondary);
+    font-size: var(--o-ui-fs-3);
+    position: relative;
+    margin-bottom: -2px;
+    padding: var(--o-ui-text-button-padding-md);
+}
+
+/* COLLAPSIBLE TABS | TRIGGER | HOVER */
+.o-ui-tablist-trigger:not([disabled]):hover {
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+}
+
+/* COLLAPSIBLE TABS | TABS */
+.o-ui-collapsed-tabs .o-ui-tab {
+    padding-left: var(--o-ui-sp-5);
+    padding-right: var(--o-ui-sp-5);
+    text-align: left;
+    width: 100%;
+}
+
+/* COLLAPSIBLE TABS | TABS */
+.o-ui-collapsed-tabs .o-ui-tab:hover {
+    background-color: var(--o-ui-bg-alias-mid-break);
 }

@@ -62,7 +62,7 @@ TODO:
     - improvement, should set an aria-posinset="1" on every tab element
 */
 
-const CollapsedTabsTriggerWidth = 50;
+const CollapsedTabsTriggerWidth = "48";
 
 type ResizingState = "expanding" | "collapsing" | "none";
 
@@ -229,7 +229,7 @@ const CollapsedTabs = forwardRef(({
     tabs,
     ...rest
 }: CollapsedTabsProps,
-ref) => {
+    ref) => {
     const [focusScope, setFocusRef] = useFocusScope();
 
     const focusManager = useFocusManager(focusScope);
@@ -318,6 +318,7 @@ ref) => {
                     rest,
                     {
                         "aria-hidden": true,
+                        className: "o-ui-tablist-trigger",
                         ref: triggerRef,
                         type: "button" as const,
                         width: `${CollapsedTabsTriggerWidth}px`
