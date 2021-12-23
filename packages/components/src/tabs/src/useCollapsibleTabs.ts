@@ -1,5 +1,5 @@
 import { RefObject, useLayoutEffect, useMemo, useReducer } from "react";
-import { arrayify, isNil, match, useEventCallback, useRefState, useResizeObserver } from "../../shared";
+import { arrayify, isNil, match, useRefState, useResizeObserver } from "../../shared";
 
 import { TabType } from "./useTabsItems";
 import { useThrottledCallback } from "use-debounce";
