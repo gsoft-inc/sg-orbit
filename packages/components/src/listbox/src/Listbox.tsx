@@ -473,7 +473,7 @@ export function InnerListbox({
 }
 
 export type ListboxElement = HTMLElement & {
-    focusManager?: FocusManager;
+    focusManager: FocusManager;
 };
 
 InnerListbox.defaultElement = DefaultElement;

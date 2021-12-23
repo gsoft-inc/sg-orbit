@@ -1,7 +1,5 @@
 import { RefObject, useCallback, useEffect, useReducer } from "react";
-import { isNil, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
-
-import { match } from "./match";
+import { isNil, match, useCommittedRef, useDisposables, useIsInitialRender } from "../../shared";
 
 type ActionType = "slideDown" | "slideUp" | "completeTransition";
 
