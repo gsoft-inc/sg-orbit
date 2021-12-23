@@ -1,8 +1,7 @@
 import { RefObject, useLayoutEffect, useMemo, useReducer } from "react";
-import { arrayify, isNil, match, useRefState, useResizeObserver } from "../../shared";
+import { arrayify, isNil, match, useEventCallback, useRefState, useResizeObserver } from "../../shared";
 
 import { TabType } from "./useTabsItems";
-import { useDebouncedCallback } from "use-debounce";
 
 export const CollapsedTabsTriggerWidth = 50;
 
@@ -108,7 +107,8 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
         });
     }, [resizingState, tabListRef]);
 
-    const handleResize = useDebouncedCallback(entry => {
+    // Not using a debounce because it cause a flickr at the initial rendering.
+    const handleResize = useEventCallback(entry => {
         const newWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
 
         const lastWidth = tabListWidthRef.current;
@@ -124,7 +124,7 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
         }
 
         setTabListWidth(newWidth);
-    }, 15);
+    });
 
     const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });
 
@@ -152,8 +152,8 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
                 }
             }
 
-            // We want the selected tab to always be visible. If the selected tab is in the collapsed tabs, switch it with
-            // the last visible tab.
+            // We want the selected tab to always be visible. If the selected tab is in the collapsed tabs,
+            // switch it with the last visible tab.
             if (!isNil(selectedTab)) {
                 const lastTab = visible.pop();
 

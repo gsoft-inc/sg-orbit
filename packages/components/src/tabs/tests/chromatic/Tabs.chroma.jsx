@@ -84,7 +84,7 @@ stories()
         </Div>
     )
     .add("test lozenge+icon", () =>
-        <Div minWidth="100px" width="800px" height="300px" padding="10px" resize="horizontal" overflow="auto" border="alias-low-break">
+        <Div minWidth="100px" width="600px" height="300px" padding="10px" resize="horizontal" overflow="auto" border="alias-low-break">
             <Tabs aria-label="Planets">
                 <Item>
                     <Header>
