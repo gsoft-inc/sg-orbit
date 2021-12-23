@@ -38,7 +38,7 @@ export const CollapsedTabs = forwardRef(({
     overlayProps: { id: overlayId, ...overlayProps } = {},
     ...rest
 }: CollapsedTabsProps,
-ref) => {
+    ref) => {
     const { selectedKey } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -150,6 +150,7 @@ ref) => {
                     rest,
                     {
                         "aria-hidden": true,
+                        className: "o-ui-tablist-trigger",
                         ref: triggerRef,
                         type: "button" as const,
                         width: `${CollapsedTabsTriggerWidth}px`

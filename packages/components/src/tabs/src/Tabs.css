@@ -17,6 +17,7 @@
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
     border-bottom: 2px solid var(--o-ui-b-alias-low-break);
+    align-items: center;
     /* overflow: hidden; */
 }
 
@@ -69,8 +70,8 @@
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab::before,
 .o-ui-collapsed-tabs .o-ui-tab::before {
-    left: 0;
-    right: 0;
+    left: 8px;
+    right: 8px;
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
@@ -130,6 +131,7 @@
 /* TAB | FLUID | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab {
     flex-grow: 1;
+    flex-shrink: 1;
 }
 
 .o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab:hover {
@@ -199,19 +201,25 @@
     background-color: var(--o-ui-bg-alias-default);
     border: 1px solid var(--o-ui-b-alias-low-break);
     border-radius: var(--o-ui-shape-rounded);
+    box-shadow: var(--o-ui-bs-alias-lifted);
     margin-top: var(--o-ui-sp-2);
 }
 
 /* COLLAPSIBLE TABS | TRIGGER */
 .o-ui-tabs .o-ui-tablist-trigger {
     border: none;
-    border-bottom: 2px solid transparent;
     border-radius: var(--o-ui-shape-rounded);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
     position: relative;
-    margin-bottom: -2px;
     padding: var(--o-ui-text-button-padding-md);
+    height: var(--o-ui-sp-7);
+    flex-shrink: 0;
+}
+
+/* COLLAPSIBLE TABS | TRIGGER | OPEN */
+.o-ui-tablist-trigger[aria-expanded="true"] {
+    background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
 /* COLLAPSIBLE TABS | TRIGGER | HOVER */
@@ -222,9 +230,10 @@
 /* COLLAPSIBLE TABS | TABS */
 .o-ui-collapsed-tabs .o-ui-tab {
     padding-left: var(--o-ui-sp-5);
-    padding-right: var(--o-ui-sp-5);
-    text-align: left;
+    padding-right: var(--o-ui-sp-8);
+    justify-content: start;
     width: 100%;
+    min-height: var(--o-ui-sz-6);
 }
 
 /* COLLAPSIBLE TABS | TABS */

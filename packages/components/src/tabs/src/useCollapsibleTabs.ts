@@ -4,7 +4,7 @@ import { arrayify, isNil, match, useRefState, useResizeObserver } from "../../sh
 import { TabType } from "./useTabsItems";
 import { useThrottledCallback } from "use-debounce";
 
-export const CollapsedTabsTriggerWidth = 50;
+export const CollapsedTabsTriggerWidth = 48;
 
 type ResizingState = "expanding" | "collapsing" | "none";
 
