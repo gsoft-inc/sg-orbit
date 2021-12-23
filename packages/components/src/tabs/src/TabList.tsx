@@ -294,7 +294,7 @@ ref) => {
 
     const handleTabSelect = useEventCallback((event: SyntheticEvent, key: string) => {
         onSelect(event, key);
-        onOpenChange(event, false, { focusTarget: selectedKey });
+        onOpenChange(event, false, { focusTarget: key });
     });
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
@@ -418,7 +418,7 @@ export function InnerTabList({
     const { isCollapsible, isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
     const [isCollapsedTabsOpen, setIsCollapsedTabsOpen] = useState(false);
-    const [collapsedTabsFocusTargetRef, setCollapsedTabsFocusTarget] = useRefState<FocusTarget>(FocusTarget.first);
+    const [collapsedTabsFocusTargetRef, setCollapsedTabsFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -435,20 +435,25 @@ export function InnerTabList({
         target: selectedKey
     });
 
-    const updateIsCollapsedTabsOpen = useCallback((newValue: boolean) => {
-        if (isCollapsedTabsOpen !== newValue) {
-            setIsCollapsedTabsOpen(newValue);
+    const openCollapsedTabs = useCallback((focusTarget: string) => {
+        if (!isCollapsedTabsOpen) {
+            setCollapsedTabsFocusTarget(focusTarget);
+            setIsCollapsedTabsOpen(true);
         }
-    }, [isCollapsedTabsOpen, setIsCollapsedTabsOpen]);
+    }, [isCollapsedTabsOpen, setCollapsedTabsFocusTarget, setIsCollapsedTabsOpen]);
 
-    const openCollapsedTabs = useCallback((focusTarget: FocusTarget) => {
-        setCollapsedTabsFocusTarget(focusTarget);
-        updateIsCollapsedTabsOpen(true);
-    }, [setCollapsedTabsFocusTarget, updateIsCollapsedTabsOpen]);
+    const closeCollapsedTabs = useCallback((focusTarget: string) => {
+        if (isCollapsedTabsOpen) {
+            setIsCollapsedTabsOpen(false);
 
-    const closeCollapsedTabs = useCallback(() => {
-        updateIsCollapsedTabsOpen(false);
-    }, [updateIsCollapsedTabsOpen]);
+            if (!isNil(focusTarget)) {
+                // Wait until the selected tab is rendered if he wasn't visible before.
+                requestAnimationFrame(() => {
+                    focusManager.focusTarget(focusTarget);
+                });
+            }
+        }
+    }, [focusManager, isCollapsedTabsOpen, setIsCollapsedTabsOpen]);
 
     const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabListRef, tabs, selectedKey, {
         isDisabled: !isCollapsible && orientation !== "horizontal"
@@ -516,20 +521,16 @@ export function InnerTabList({
         if (isOpen) {
             openCollapsedTabs(FocusTarget.first);
         } else {
-            closeCollapsedTabs();
-        }
+            if (!isNil(focusTarget)) {
+                if (focusTarget === FocusTarget.last) {
+                    // The last element is the collapsible tabs trigger, skip it.
+                    const element = focusScope.elements[focusScope.length - 2];
 
-        if (!isNil(focusTarget)) {
-            let element: HTMLElement;
-
-            if (focusTarget !== FocusTarget.last) {
-                element = focusManager.focusTarget(focusTarget);
-            } else {
-                // The last element is the collapsible tabs trigger, skip it.
-                element = focusScope.elements[focusScope.length - 2];
-
-                focusManager.focusElement(element);
+                    focusTarget = element?.getAttribute(TabKeyProp);
+                }
             }
+
+            closeCollapsedTabs(focusTarget);
         }
     });
 
