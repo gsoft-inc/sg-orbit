@@ -742,7 +742,7 @@ test("when autofocus is true and there are multiple default keys, the listbox op
 
 test("when autofocus is true and the default focus target is \"first\", the listbox first option is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Listbox defaultFocusTarget="first" autoFocus>
+        <Listbox autoFocusTarget="first" autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -754,7 +754,7 @@ test("when autofocus is true and the default focus target is \"first\", the list
 
 test("when autofocus is true and the default focus target is \"last\", the listbox last option is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Listbox defaultFocusTarget="last" autoFocus>
+        <Listbox autoFocusTarget="last" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -766,7 +766,7 @@ test("when autofocus is true and the default focus target is \"last\", the listb
 
 test("when autofocus is true and the default focus target match an option key, the listbox option matching the key is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Listbox defaultFocusTarget="jupiter" autoFocus>
+        <Listbox autoFocusTarget="jupiter" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
             <Item key="mars">Mars</Item>

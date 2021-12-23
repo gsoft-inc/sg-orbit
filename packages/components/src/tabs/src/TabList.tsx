@@ -1,12 +1,10 @@
-import { ComponentProps, ForwardedRef, KeyboardEvent, RefObject, SyntheticEvent, forwardRef, useCallback, useLayoutEffect, useMemo, useReducer, useRef, useState } from "react";
-import { Div, HtmlButton } from "../../html";
+import { ComponentProps, ForwardedRef, KeyboardEvent, SyntheticEvent, forwardRef, useCallback, useRef, useState } from "react";
 import {
     FocusTarget,
     InternalProps,
     Keys,
     OmitInternalProps,
     StyledComponentProps,
-    arrayify,
     isNil,
     isNumber,
     mergeProps,
@@ -14,20 +12,29 @@ import {
     useEventCallback,
     useFocusManager,
     useFocusScope,
+    useId,
     useKeyboardNavigation,
     useKeyedRovingFocus,
     useMergedRefs,
-    useRefState,
-    useResizeObserver
+    useRefState
 } from "../../shared";
-import { Overlay, useOverlayPosition, useOverlayTrigger, usePopupAriaProps, usePopupLightDismiss } from "../../overlay";
 import { Tab, TabKeyProp } from "./Tab";
 
 import { Box } from "../../box";
+import { CollapsedTabs } from "./CollapsedTabs";
 import { TabType } from "./useTabsItems";
-import { match } from "./match";
-import { useDebouncedCallback } from "use-debounce";
+import { useCollapsibleTabs } from "./useCollapsibleTabs";
 import { useTabsContext } from "./TabsContext";
+
+/*
+TODO:
+    - dynamic elements -> use mutation observer on tablist to recompute tabs on change -> should be ok since the hooks take tabs
+        -> make sure the tabs array received does not mutate on every render
+
+    - move "match" to shared
+    - fonctionne quand est fluid?!?!
+    - improvement, should set an aria-posinset="1" on every tab element
+*/
 
 const NavigationKeyBinding = {
     horizontal: {
@@ -52,332 +59,6 @@ export interface InnerTabListProps extends InternalProps, StyledComponentProps<t
     tabs?: TabType[];
 }
 
-/*
-TODO:
-    - dynamic elements -> use mutation observer on tablist to recompute tabs on change -> should be ok since the hooks take tabs
-        -> make sure the tabs array received does not mutate on every render
-
-    - move "match" to shared
-    - fonctionne quand est fluid?!?!
-    - improvement, should set an aria-posinset="1" on every tab element
-*/
-
-const CollapsedTabsTriggerWidth = "48";
-
-type ResizingState = "expanding" | "collapsing" | "none";
-
-type ResizeActionType = "initialize" | "collapse" | "incrementCollapsedCount" | "completeCollapse" | "expand" | "continueExpandAfterRerender";
-
-interface ResizeAction<T = number> {
-    payload?: T;
-    type: ResizeActionType;
-}
-
-export interface CollapsibleTabsState {
-    collapsedCount: number;
-    resizingState: ResizingState;
-}
-
-function collapsibleTabsReducer(state: CollapsibleTabsState, action: ResizeAction) {
-    return match<ResizeActionType, CollapsibleTabsState>(action.type, {
-        "collapse": () => ({
-            collapsedCount: state.collapsedCount,
-            resizingState: "collapsing"
-        }),
-        "completeCollapse": () => ({
-            collapsedCount: state.collapsedCount,
-            resizingState: "none"
-        }),
-        // The strategy to expand is to render all the tabs then remove those which doesn't fit.
-        // This means that it requires 2 re-render to complete.
-        // The first one will rednder all the tabs to their max-content witdh by setting the collapsed count to 0.
-        // The second one (which is this one) will collapse the overflowing tabs, starting from the end.
-        "continueExpandAfterRerender": () => ({
-            collapsedCount: 0,
-            resizingState: "collapsing"
-        }),
-        "expand": () => ({
-            collapsedCount: 0,
-            resizingState: "expanding"
-        }),
-        "incrementCollapsedCount": () => ({
-            collapsedCount: state.collapsedCount + (action.payload as number),
-            resizingState: "none"
-        }),
-        "initialize": () => ({
-            collapsedCount: 0,
-            resizingState: "collapsing"
-        })
-    });
-}
-
-interface UseCollapsibleTabsOptions {
-    isDisabled?: boolean;
-}
-
-function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs?: TabType[], { isDisabled }: UseCollapsibleTabsOptions = {}) {
-    const [{ collapsedCount, resizingState }, dispatch] = useReducer(collapsibleTabsReducer, {
-        collapsedCount: 0,
-        resizingState: "none"
-    });
-
-    const [tabListWidthRef, setTabListWidth] = useRefState();
-
-    useLayoutEffect(() => {
-        match(resizingState, {
-            "collapsing": () => {
-                const tabListElement = tabListRef.current;
-
-                const tabListRect = tabListElement.getBoundingClientRect();
-                const tabListThreshold = tabListRect.right - CollapsedTabsTriggerWidth;
-
-                const tabElements = tabListElement.querySelectorAll("[role=\"tab\"]");
-
-                const visibleCount = tabElements.length;
-
-                if (visibleCount > 1) {
-                    let toCollapse = 0;
-
-                    do {
-                        const element = tabElements[tabElements.length - (1 + toCollapse)];
-                        const elementRect = element.getBoundingClientRect();
-
-                        // Considered as overflowing if the current tab end after the width of the tab list element.
-                        if (tabListThreshold < elementRect.right) {
-                            toCollapse += 1;
-                        } else {
-                            break;
-                        }
-                    } while (visibleCount - toCollapse > 1);
-
-                    if (toCollapse > 0) {
-                        dispatch({ payload: toCollapse, type: "incrementCollapsedCount" });
-                    }
-                }
-
-                dispatch({ type: "completeCollapse" });
-            },
-            "expanding": () => {
-                dispatch({ type: "continueExpandAfterRerender" });
-            },
-            "none": () => {
-                // nothing to do...
-            }
-        });
-    }, [resizingState, tabListRef]);
-
-    const handleResize = useDebouncedCallback(entry => {
-        const newWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
-
-        const lastWidth = tabListWidthRef.current;
-
-        if (resizingState === "none") {
-            if (!isNil(lastWidth)) {
-                if (newWidth > lastWidth) {
-                    dispatch({ type: "expand" });
-                } else if (newWidth < lastWidth) {
-                    dispatch({ type: "collapse" });
-                }
-            } else {
-                dispatch({ type: "initialize" });
-            }
-        }
-
-        setTabListWidth(newWidth);
-    }, 15);
-
-    const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });
-
-    // Partition the tabs between "visible" and "collapsed" based on the collapsed count.
-    const [collapsedTabs, visibleTabs] = useMemo(() => {
-        if (collapsedCount > 0) {
-            const collapsed = [];
-            const visible = [...tabs];
-
-            for (let i = 0; i < collapsedCount; i += 1) {
-                const tab = visible.pop();
-
-                collapsed.push(tab);
-            }
-
-            return [collapsed.reverse(), visible];
-        }
-
-        return [[], tabs];
-    }, [collapsedCount, tabs]);
-
-    return {
-        collapsedTabs,
-        collapsibleTabsRef: resizeRef,
-        visibleTabs
-    };
-}
-
-interface CollapsedTabsProps {
-    defaultFocusTarget: string;
-    onOpenChange: (event: SyntheticEvent, isOpen: boolean, options?: { focusTarget?: string }) => void;
-    onSelect: (event: SyntheticEvent, tabElement: HTMLElement) => void;
-    open: boolean;
-    tabs: TabType[];
-}
-
-const CollapsedTabs = forwardRef(({
-    defaultFocusTarget,
-    onOpenChange,
-    onSelect,
-    open,
-    tabs,
-    ...rest
-}: CollapsedTabsProps,
-    ref) => {
-    const [focusScope, setFocusRef] = useFocusScope();
-
-    const focusManager = useFocusManager(focusScope);
-
-    const triggerProps = useOverlayTrigger(open, {
-        hideOnLeave: false,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            onOpenChange(event, false);
-        }),
-        onShow: useEventCallback((event: SyntheticEvent) => {
-            onOpenChange(event, true);
-        })
-    });
-
-    const { overlayRef: overlayPositionRef, triggerRef: overlayPositionTriggerRef } = useOverlayPosition({
-        allowFlip: true,
-        allowPreventOverflow: true,
-        position: "bottom"
-    });
-
-    const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(open, "dialog", { id: "toto" });
-
-    const triggerRef = useMergedRefs(overlayPositionTriggerRef, ref);
-
-    const overlayDismissProps = usePopupLightDismiss(triggerRef as RefObject<HTMLElement>, focusScope, {
-        hideOnEscape: true,
-        hideOnLeave: true,
-        hideOnOutsideClick: true,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            onOpenChange(event, false);
-        })
-    });
-
-    useAutoFocusChild(focusManager, {
-        isDisabled: !open,
-        onFocus: useEventCallback((element: HTMLElement) => {
-            // TODO: shouldn't be undefined
-            onSelect(undefined, element);
-        }),
-        target: defaultFocusTarget
-    });
-
-    // TODO: Should also support home/end
-    const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
-        switch (event.key) {
-            case Keys.arrowRight: {
-                event.preventDefault();
-
-                // Prevents the tab list keydown handler from executing.
-                event.stopPropagation();
-
-                if (focusScope.isLastElement(document.activeElement as HTMLElement)) {
-                    onOpenChange(event, false, { focusTarget: FocusTarget.first });
-                } else {
-                    const element = focusManager.focusNext();
-
-                    onSelect(event, element);
-                }
-                break;
-            }
-            case Keys.arrowLeft: {
-                event.preventDefault();
-
-                // Prevents the tab list keydown handler from executing.
-                event.stopPropagation();
-
-                if (focusScope.isFirstElement(document.activeElement as HTMLElement)) {
-                    onOpenChange(event, false, { focusTarget: FocusTarget.last });
-                } else {
-                    const element = focusManager.focusPrevious();
-
-                    onSelect(event, element);
-                }
-                break;
-            }
-        }
-    });
-
-    // Not using any aria attributes because it does work better with screen readers.
-    // Without aria attributes the screen reader will not anounce the dialog. Therefore, when using they arrow keys, it feels like a infinite list of tabs instead
-    // of a few visible tabs with a dialog with the remaining tabs.
-    return (
-        <>
-            <HtmlButton
-                {...mergeProps(
-                    rest,
-                    {
-                        "aria-hidden": true,
-                        className: "o-ui-tablist-trigger",
-                        ref: triggerRef,
-                        type: "button" as const,
-                        width: `${CollapsedTabsTriggerWidth}px`
-                    },
-                    triggerProps,
-                    triggerAriaProps
-                )}
-            >
-                +{tabs.length}
-            </HtmlButton>
-            <Overlay
-                {...mergeProps(
-                    {
-                        ref: overlayPositionRef,
-                        show: open,
-                        zIndex: 10000
-                    }
-                )}
-            >
-                <Div
-                    {...mergeProps(
-                        {
-                            className: "o-ui-collapsed-tabs",
-                            onKeyDown: handleKeyDown,
-                            ref: setFocusRef
-                        },
-                        overlayDismissProps,
-                        overlayAriaProps
-                    )}
-                >
-                    {tabs.map(({
-                        elementType: ElementType = Tab,
-                        key,
-                        panelId,
-                        props,
-                        ref: tabRef,
-                        tabId
-                    }) =>
-                        <ElementType
-                            {...props}
-                            key={key}
-                            ref={tabRef}
-                            tab={{
-                                key,
-                                panelId,
-                                tabId
-                            }}
-                        />
-                    )}
-                </Div>
-            </Overlay>
-        </>
-    );
-});
-
-// TODO: Maybe instead of use the CollapsedTabs as a controlled component instead CollapsedTabs could use an imperative ref and offer
-// open(focusTarget)
-// close()
-
 export function InnerTabList({
     as = DefaultElement,
     autoFocus,
@@ -387,13 +68,13 @@ export function InnerTabList({
 }: InnerTabListProps) {
     const { isCollapsible, isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [popupFocusTargetRef, setPopupFocusTarget] = useRefState<FocusTarget>(FocusTarget.first);
+    const [isCollapsedTabsOpen, setIsCollapsedTabsOpen] = useState(false);
+    const [collapsedTabsFocusTargetRef, setCollapsedTabsFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const [focusScope, setFocusRef] = useFocusScope();
 
     const tabListRef = useMergedRefs(setFocusRef, forwardedRef);
-    const popupTriggerRef = useRef();
+    const collapsedTabsRef = useRef();
 
     const focusManager = useFocusManager(focusScope, { keyProp: TabKeyProp });
 
@@ -405,46 +86,57 @@ export function InnerTabList({
         target: selectedKey
     });
 
-    const updateIsPopupOpen = useCallback((newValue: boolean) => {
-        if (isPopupOpen !== newValue) {
-            setIsPopupOpen(newValue);
-        }
-    }, [isPopupOpen, setIsPopupOpen]);
+    const openCollapsedTabs = useCallback((focusTarget: string) => {
+        setCollapsedTabsFocusTarget(focusTarget);
+        setIsCollapsedTabsOpen(true);
+    }, [setCollapsedTabsFocusTarget, setIsCollapsedTabsOpen]);
 
-    const openPopup = useCallback((focusTarget: FocusTarget) => {
-        setPopupFocusTarget(focusTarget);
-        updateIsPopupOpen(true);
-    }, [setPopupFocusTarget, updateIsPopupOpen]);
+    const closeCollapsedTabs = useCallback(() => {
+        setIsCollapsedTabsOpen(false);
+    }, [setIsCollapsedTabsOpen]);
 
-    const closePopup = useCallback(() => {
-        updateIsPopupOpen(false);
-    }, [updateIsPopupOpen]);
-
-    const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabListRef, tabs, {
-        isDisabled: !isCollapsible && orientation !== "horizontal"
+    const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabListRef, tabs, selectedKey, {
+        isDisabled: !isCollapsible || orientation === "vertical"
     });
 
-    const selectTab = useCallback((event: SyntheticEvent, tabElement: HTMLElement) => {
-        if (!isManual && !isNil(tabElement)) {
-            onSelect(event, tabElement.getAttribute(TabKeyProp));
-        }
-    }, [isManual, onSelect]);
+    // When there are collapsed tabs, only manual activation is supported, until the collapsed tabs selection is improved.
+    const canAutoActivate = !isManual && collapsedTabs.length === 0;
 
-    const handleKeyboardCanSelect = useCallback((event: KeyboardEvent, element: HTMLElement, key: Keys) => {
+    const selectTab = useCallback((event: SyntheticEvent, key: string) => {
+        if (!isNil(key)) {
+            onSelect(event, key);
+        }
+    }, [onSelect]);
+
+    const handleTabSelect = useEventCallback((event: SyntheticEvent, key: string) => {
+        selectTab(event, key);
+    });
+
+    // Using the "canSelect" filter to open the popup. This is a small hack to reuse the "focusManager" and the "useKeyboardNavigation".
+    const handleKeyboardPreSelect = useCallback((event: KeyboardEvent, element: HTMLElement, key: Keys) => {
         switch (key) {
             case Keys.arrowLeft: {
-                if (element === popupTriggerRef.current) {
+                if (element === collapsedTabsRef.current) {
                     // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the last collapsed tab.
-                    openPopup(FocusTarget.last);
+                    openCollapsedTabs(FocusTarget.last);
 
                     return false;
                 }
                 break;
             }
             case Keys.arrowRight: {
-                if (element === popupTriggerRef.current) {
+                if (element === collapsedTabsRef.current) {
                     // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the first collapsed tab.
-                    openPopup(FocusTarget.first);
+                    openCollapsedTabs(FocusTarget.first);
+
+                    return false;
+                }
+                break;
+            }
+            case Keys.end: {
+                if (element === collapsedTabsRef.current) {
+                    // When we hit the collapsed tabs popup trigger, instead of focusing the trigger, open the popup to navigate to the first collapsed tab.
+                    openCollapsedTabs(FocusTarget.last);
 
                     return false;
                 }
@@ -453,44 +145,46 @@ export function InnerTabList({
         }
 
         return true;
-    }, [openPopup]);
+    }, [openCollapsedTabs]);
 
     const handleKeyboardSelect = useEventCallback((event: KeyboardEvent, element: HTMLElement) => {
-        selectTab(event, element);
+        selectTab(event, element?.getAttribute(TabKeyProp));
     });
 
     const navigationProps = useKeyboardNavigation(focusManager, NavigationKeyBinding[orientation], {
-        // Only horizontal orientation support collapsing tabs.
-        onCanSelect: orientation === "horizontal" ? handleKeyboardCanSelect : undefined,
-        onSelect: !isManual ? handleKeyboardSelect : undefined
+        onCanSelect: collapsedTabs.length !== 0 ? handleKeyboardPreSelect : undefined,
+        onSelect: canAutoActivate ? handleKeyboardSelect : undefined
     });
 
-    const handlePopupOpenChange = useEventCallback((event: SyntheticEvent, isOpen: boolean, { focusTarget }: { focusTarget?: string } = {}) => {
+    const handleCollapsedTabsOpenChange = useEventCallback((event: SyntheticEvent, isOpen: boolean, { focusTarget }: { focusTarget?: string } = {}) => {
         if (isOpen) {
-            openPopup(FocusTarget.first);
+            openCollapsedTabs(FocusTarget.first);
         } else {
-            closePopup();
+            closeCollapsedTabs();
         }
 
         if (!isNil(focusTarget)) {
-            let element;
-
             if (focusTarget !== FocusTarget.last) {
-                element = focusManager.focusTarget(focusTarget);
+                focusManager.focusTarget(focusTarget);
             } else {
-                // The last element is the collapsible tabs trigger instead of a tab, skip it.
-                element = focusScope.elements[focusScope.length - 2];
+                // The last element is the collapsible tabs trigger, skip it.
+                const element = focusScope.elements[focusScope.length - 2];
 
                 focusManager.focusElement(element);
             }
-
-            selectTab(event, element);
         }
     });
 
-    const handleSelectCollapsedTab = useEventCallback((event: SyntheticEvent, tabElement: HTMLElement) => {
-        selectTab(event, tabElement);
+    const handleCollapsedTabsSelect = useEventCallback((event: SyntheticEvent, key: string) => {
+        selectTab(event, key);
+
+        // HACK: If the newly selected tab wasn't visible, it requires a re-render so we must wait.
+        requestAnimationFrame(() => {
+            focusManager.focusTarget(key);
+        });
     });
+
+    const popupOverlayId = useId(undefined, "o-ui-collapsed-tabs");
 
     return (
         <Box
@@ -498,7 +192,7 @@ export function InnerTabList({
                 rest,
                 {
                     "aria-orientation": orientation,
-                    "aria-owns": "toto",
+                    "aria-owns": isCollapsedTabsOpen ? popupOverlayId : undefined,
                     "aria-setsize": tabs.length,
                     as,
                     className: "o-ui-tab-list",
@@ -515,10 +209,12 @@ export function InnerTabList({
                 props,
                 ref,
                 tabId
-            }) =>
+            }, index) =>
                 <ElementType
                     {...props}
+                    aria-posinset={index + 1}
                     key={key}
+                    onSelect={handleTabSelect}
                     ref={ref}
                     tab={{
                         key,
@@ -529,11 +225,13 @@ export function InnerTabList({
             )}
             {collapsedTabs.length > 0 && (
                 <CollapsedTabs
-                    defaultFocusTarget={popupFocusTargetRef.current}
-                    onOpenChange={handlePopupOpenChange}
-                    onSelect={handleSelectCollapsedTab}
-                    open={isPopupOpen}
-                    ref={popupTriggerRef}
+                    autoFocusTarget={collapsedTabsFocusTargetRef.current}
+                    initialIndex={visibleTabs.length}
+                    onOpenChange={handleCollapsedTabsOpenChange}
+                    onSelect={handleCollapsedTabsSelect}
+                    open={isCollapsedTabsOpen}
+                    overlayProps={{ id: popupOverlayId }}
+                    ref={collapsedTabsRef}
                     tabs={collapsedTabs}
                 />
             )}
@@ -546,6 +244,5 @@ export const TabList = forwardRef<any, OmitInternalProps<InnerTabListProps>>((pr
 ));
 
 export type TabListProps = ComponentProps<typeof TabList>;
-
 
 

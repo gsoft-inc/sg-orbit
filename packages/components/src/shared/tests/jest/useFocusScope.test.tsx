@@ -208,45 +208,6 @@ test("when the hidden attribute of an element change, the scope is updated", asy
     await waitFor(() => expect(onScopeChange).toHaveBeenCalledWith([buttonRef.current, textInputRef.current], expect.anything()));
 });
 
-test("when the aria-hidden attribute of an element change, the scope is updated", async () => {
-    let focusScope: FocusScope = null;
-
-    const onScopeChange = jest.fn();
-
-    const buttonRef = createRef<HTMLButtonElement>();
-    const textInputRef = createRef<HTMLInputElement>();
-
-    const { rerender } = render(
-        <Container onInitialScope={scope => { focusScope = scope; }}>
-            <Div>Decoy 1</Div>
-            <Button ref={buttonRef} aria-hidden="true">Button</Button>
-            <Div>Decoy 2</Div>
-            <TextInput placeholder="Value" ref={textInputRef} />
-            <Div>Decoy 3</Div>
-        </Container>
-    );
-
-    await waitFor(() => expect(focusScope).not.toBeNull());
-    await waitFor(() => expect(focusScope.elements).not.toContain(buttonRef.current));
-    await waitFor(() => expect(focusScope.elements).toContain(textInputRef.current));
-    await waitFor(() => expect(focusScope.elements.length).toBe(1));
-
-    focusScope.registerChangeHandler(onScopeChange);
-
-    rerender(
-        <Container>
-            <Div>Decoy 1</Div>
-            <Button ref={buttonRef}>Button</Button>
-            <Div>Decoy 2</Div>
-            <TextInput placeholder="Value" ref={textInputRef} />
-            <Div>Decoy 3</Div>
-        </Container>
-    );
-
-    await waitFor(() => expect(onScopeChange).toHaveBeenCalledTimes(1));
-    await waitFor(() => expect(onScopeChange).toHaveBeenCalledWith([buttonRef.current, textInputRef.current], expect.anything()));
-});
-
 test("when the display attribute of an element change, the scope is updated", async () => {
     let focusScope: FocusScope = null;
 

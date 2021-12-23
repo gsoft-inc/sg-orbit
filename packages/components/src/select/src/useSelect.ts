@@ -173,7 +173,7 @@ export function useSelect(children: ReactNode, {
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
-            defaultFocusTarget: focusTargetRef.current,
+            autoFocusTarget: focusTargetRef.current,
             fluid: true,
             focusOnHover: true,
             nodes,

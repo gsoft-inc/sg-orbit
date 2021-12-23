@@ -86,7 +86,6 @@ export function InnerTabs({
 
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, newKey);
-
             }
         }
     });

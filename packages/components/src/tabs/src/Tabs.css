@@ -17,7 +17,6 @@
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
     border-bottom: 2px solid var(--o-ui-b-alias-low-break);
-    /* overflow-y: hidden; */
     /* overflow: hidden; */
 }
 

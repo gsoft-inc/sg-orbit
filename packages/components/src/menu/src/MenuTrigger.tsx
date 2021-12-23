@@ -1,5 +1,4 @@
 import { Children, ComponentProps, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { DisclosureContext } from "../../disclosure";
 import {
     FocusTarget,
     InternalProps,
@@ -15,8 +14,10 @@ import {
     useId,
     useRefState
 } from "../../shared";
-import { MenuTriggerContext } from "./MenuTriggerContext";
 import { Overlay, PopupPosition, PopupProps, usePopup } from "../../overlay";
+
+import { DisclosureContext } from "../../disclosure";
+import { MenuTriggerContext } from "./MenuTriggerContext";
 import { useInputGroupMenuAddonProps } from "../../input-group";
 
 const DefaultElement = "div";
@@ -135,7 +136,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,
-        defaultFocusTarget: focusTargetRef.current,
+        autoFocusTarget: focusTargetRef.current,
         onSelectionChange: handleSelectionChange
     });
 
