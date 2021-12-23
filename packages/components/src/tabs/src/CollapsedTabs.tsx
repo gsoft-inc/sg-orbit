@@ -19,7 +19,7 @@ import { TabType } from "./useTabsItems";
 import { useTabsContext } from "./TabsContext";
 
 export interface CollapsedTabsProps extends Omit<StyledComponentProps<"button">, "onSelect"> {
-    defaultFocusTarget: string;
+    autoFocusTarget: string;
     initialIndex: number;
     onOpenChange: (event: SyntheticEvent, isOpen: boolean, options?: { focusTarget?: string }) => void;
     onSelect: (event: SyntheticEvent, key: string) => void;
@@ -29,7 +29,7 @@ export interface CollapsedTabsProps extends Omit<StyledComponentProps<"button">,
 }
 
 export const CollapsedTabs = forwardRef(({
-    defaultFocusTarget,
+    autoFocusTarget,
     initialIndex,
     onOpenChange,
     onSelect,
@@ -88,7 +88,7 @@ ref) => {
 
     useAutoFocusChild(focusManager, {
         isDisabled: !openProp,
-        target: defaultFocusTarget
+        target: autoFocusTarget
     });
 
     const handleTabSelect = useEventCallback((event: SyntheticEvent, key: string) => {

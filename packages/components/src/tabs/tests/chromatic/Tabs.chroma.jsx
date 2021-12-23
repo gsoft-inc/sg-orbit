@@ -287,46 +287,46 @@ stories()
             </Item>
         </Tabs>
     )
-    .add("tab overflow", () =>
-        <Stack>
-            <Tabs width={14} aria-label="Planets">
-                <Item>
-                    <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                </Item>
-                <Item>
-                    <Header>Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-            </Tabs>
-            <Tabs width={14} aria-label="Planets">
-                <Item>
-                    <Header>
-                        <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                        <Lozenge>New</Lozenge>
-                    </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                </Item>
-                <Item>
-                    <Header>Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-            </Tabs>
-            <Tabs width={14} aria-label="Planets">
-                <Item>
-                    <Header>
-                        <NotificationIcon />
-                        <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
-                    </Header>
-                    <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
-                </Item>
-                <Item>
-                    <Header>Jupiter</Header>
-                    <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
-                </Item>
-            </Tabs>
-        </Stack>
-    )
+    // .add("tab overflow", () =>
+    //     <Stack>
+    //         <Tabs width={14} aria-label="Planets">
+    //             <Item>
+    //                 <Header>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Header>
+    //                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+    //             </Item>
+    //             <Item>
+    //                 <Header>Jupiter</Header>
+    //                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+    //             </Item>
+    //         </Tabs>
+    //         <Tabs width={14} aria-label="Planets">
+    //             <Item>
+    //                 <Header>
+    //                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+    //                     <Lozenge>New</Lozenge>
+    //                 </Header>
+    //                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+    //             </Item>
+    //             <Item>
+    //                 <Header>Jupiter</Header>
+    //                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+    //             </Item>
+    //         </Tabs>
+    //         <Tabs width={14} aria-label="Planets">
+    //             <Item>
+    //                 <Header>
+    //                     <NotificationIcon />
+    //                     <Text>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Text>
+    //                 </Header>
+    //                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+    //             </Item>
+    //             <Item>
+    //                 <Header>Jupiter</Header>
+    //                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
+    //             </Item>
+    //         </Tabs>
+    //     </Stack>
+    // )
     .add("tab as div", () =>
         <Tabs aria-label="Planets">
             <Item>
@@ -434,6 +434,80 @@ stories()
                 <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
             </Item>
         </Tabs>
+    )
+    .add("overflow", () =>
+        <Div width="300px">
+            <Tabs aria-label="Planets">
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.</Content>
+                </Item>
+                <Item key="earth">
+                    <Header>
+                        <Text>Earth</Text>
+                        <Lozenge>Home</Lozenge>
+                    </Header>
+                    <Content>Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.</Content>
+                </Item>
+                <Item key="saturn">
+                    <Header>Saturn</Header>
+                    <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
+                </Item>
+                <Item key="uranus">
+                    <Header>Uranus</Header>
+                    <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
+                </Item>
+                <Item key="neptune">
+                    <Header>Neptune</Header>
+                    <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
+                </Item>
+            </Tabs>
+        </Div>
+    )
+    .add("overflow without collapsible tabs", () =>
+        <Div width="300px">
+            <Tabs collapsible={false} aria-label="Planets">
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.</Content>
+                </Item>
+                <Item key="earth">
+                    <Header>
+                        <Text>Earth</Text>
+                        <Lozenge>Home</Lozenge>
+                    </Header>
+                    <Content>Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.</Content>
+                </Item>
+                <Item key="saturn">
+                    <Header>Saturn</Header>
+                    <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
+                </Item>
+                <Item key="uranus">
+                    <Header>Uranus</Header>
+                    <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
+                </Item>
+                <Item key="neptune">
+                    <Header>Neptune</Header>
+                    <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
+                </Item>
+            </Tabs>
+        </Div>
     )
     .add("dynamic tabs", () =>
         <Tabs aria-label="Planets">

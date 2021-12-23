@@ -225,7 +225,7 @@ export function InnerTabList({
             )}
             {collapsedTabs.length > 0 && (
                 <CollapsedTabs
-                    defaultFocusTarget={collapsedTabsFocusTargetRef.current}
+                    autoFocusTarget={collapsedTabsFocusTargetRef.current}
                     initialIndex={visibleTabs.length}
                     onOpenChange={handleCollapsedTabsOpenChange}
                     onSelect={handleCollapsedTabsSelect}

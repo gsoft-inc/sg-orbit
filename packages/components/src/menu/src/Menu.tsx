@@ -42,13 +42,13 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
      */
     autoFocus?: boolean | number;
     /**
+     * Default focus target when enabling autofocus.
+     */
+    autoFocusTarget?: string;
+    /**
      * React children.
      */
     children: ReactNode;
-    /**
-     * Default focus target when enabling autofocus.
-     */
-    defaultFocusTarget?: string;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
@@ -98,7 +98,7 @@ export function InnerMenu({
     as = DefaultElement,
     autoFocus,
     children,
-    defaultFocusTarget,
+    autoFocusTarget,
     defaultSelectedKeys,
     fluid,
     forwardedRef,
@@ -193,7 +193,7 @@ export function InnerMenu({
     useAutoFocusChild(focusManager, {
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        target: selectedKeys[0] ?? defaultFocusTarget
+        target: selectedKeys[0] ?? autoFocusTarget
     });
 
     const nodes = useCollectionNodes(children, nodesProp);

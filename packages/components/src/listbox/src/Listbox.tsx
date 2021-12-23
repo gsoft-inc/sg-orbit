@@ -44,9 +44,9 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
      */
     autoFocus?: boolean | number;
     /**
-     * Default focus target when enabling autofocus.
+     * Default focus target on autofocus.
      */
-    defaultFocusTarget?: string;
+    autoFocusTarget?: string;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
@@ -159,7 +159,7 @@ export function InnerListbox({
     autoFocus,
     children,
     // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
-    defaultFocusTarget,
+    autoFocusTarget,
     defaultSelectedKeys,
     fluid,
     focusOnHover,
@@ -356,7 +356,7 @@ export function InnerListbox({
     useAutoFocusChild(focusManager, {
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget
+        target: selectionManager.selectedKeys[0] ?? autoFocusTarget
     });
 
     const scrollableProps = useScrollableCollection(containerRef, nodes, {

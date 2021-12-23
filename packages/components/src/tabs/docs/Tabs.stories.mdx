@@ -3,6 +3,7 @@ import "./loader.css";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Header, InnerContent, InnerHeader } from "@components/placeholders";
+import { Div } from "@components/html";
 import { InnerItem, Item } from "@components/collection";
 import { InnerTab, InnerTabPanel, InnerTabs, Tabs } from "@components/tabs";
 import { Lozenge } from "@components/lozenge";
@@ -205,6 +206,74 @@ A tabs component can split the width of it's container equally between his tabs.
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>
+    </Story>
+</Preview>
+
+### Collapsible
+
+A tabs component can handle horizontal overflow by rendering the overflowing tabs in a popup.
+
+<Preview>
+    <Story name="collapsible">
+        <Div width="800px" overflow="auto">
+            <Tabs aria-label="Planets">
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.</Content>
+                </Item>
+                <Item key="earth">
+                    <Header>
+                        <Text>Earth</Text>
+                        <Lozenge>Home</Lozenge>
+                    </Header>
+                    <Content>Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.</Content>
+                </Item>
+                <Item key="saturn">
+                    <Header>Saturn</Header>
+                    <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
+                </Item>
+                <Item key="uranus">
+                    <Header>Uranus</Header>
+                    <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
+                </Item>
+                <Item key="neptune">
+                    <Header>Neptune</Header>
+                    <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
+                </Item>
+                <Item key="pluto">
+                    <Header>Pluto</Header>
+                    <Content>Pluto is a complex world of ice mountains and frozen plains. Once considered the ninth planet, Pluto is the largest member of the Kuiper Belt and the best known of a new class of worlds called dwarf planets.</Content>
+                </Item>
+                <Item key="ceres">
+                    <Header>Ceres</Header>
+                    <Content>Ceres makes up almost a third of the asteroid belt's total mass, but it is still far smaller than Earth's Moon. Ceres is heavily cratered with large amounts of ice underground.</Content>
+                </Item>
+                <Item key="makemake">
+                    <Header>Makemake</Header>
+                    <Content>It takes 310 Earth years for Makemake to complete one orbit around our Sun.</Content>
+                </Item>
+                <Item key="haumea">
+                    <Header>Haumea</Header>
+                    <Content>Haumea is one of the fastest rotating large objects in our solar system.</Content>
+                </Item>
+                <Item key="eris">
+                    <Header>Eris</Header>
+                    <Content>Eris is one of the largest known dwarf planets in our solar system. It's about the same size as Pluto, but it is three times farther from the Sun. One orbit takes about 557 years.</Content>
+                </Item>
+                <Item key="planet-x">
+                    <Header>Planet X</Header>
+                    <Content>Caltech researchers have found evidence suggesting there may be a "Planet X" deep in the solar system.</Content>
+                </Item>
+            </Tabs>
+        </Div>
     </Story>
 </Preview>
 

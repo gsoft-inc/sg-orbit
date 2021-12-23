@@ -2,6 +2,7 @@ import { RefObject, useLayoutEffect, useMemo, useReducer } from "react";
 import { arrayify, isNil, match, useEventCallback, useRefState, useResizeObserver } from "../../shared";
 
 import { TabType } from "./useTabsItems";
+import { useThrottledCallback } from "use-debounce";
 
 export const CollapsedTabsTriggerWidth = 50;
 
@@ -107,8 +108,7 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
         });
     }, [resizingState, tabListRef]);
 
-    // Not using a debounce because it cause a flickr at the initial rendering.
-    const handleResize = useEventCallback(entry => {
+    const handleResize = useThrottledCallback(entry => {
         const newWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
 
         const lastWidth = tabListWidthRef.current;
@@ -124,7 +124,7 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
         }
 
         setTabListWidth(newWidth);
-    });
+    }, 100);
 
     const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });
 
