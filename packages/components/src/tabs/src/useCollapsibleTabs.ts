@@ -71,7 +71,7 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
                 const tabListElement = tabListRef.current;
 
                 const tabListRect = tabListElement.getBoundingClientRect();
-                const tabListThreshold = tabListRect.right - CollapsedTabsTriggerWidth;
+                const tabListLimit = tabListRect.right - CollapsedTabsTriggerWidth;
 
                 const tabElements = tabListElement.querySelectorAll("[role=\"tab\"]");
 
@@ -85,7 +85,7 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
                         const elementRect = element.getBoundingClientRect();
 
                         // Considered as overflowing if the current tab end after the width of the tab list element.
-                        if (tabListThreshold < elementRect.right) {
+                        if (tabListLimit < elementRect.right) {
                             toCollapse += 1;
                         } else {
                             break;
@@ -109,21 +109,21 @@ export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: 
     }, [resizingState, tabListRef]);
 
     const handleResize = useThrottledCallback(entry => {
-        const newWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
+        const availableWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
 
         const lastWidth = tabListWidthRef.current;
 
         if (resizingState === "none") {
             if (!isNil(lastWidth)) {
-                if (newWidth !== lastWidth) {
-                    dispatch({ type: newWidth > lastWidth ? "expand" : "collapse" });
+                if (availableWidth !== lastWidth) {
+                    dispatch({ type: availableWidth > lastWidth ? "expand" : "collapse" });
                 }
             } else {
                 dispatch({ type: "initialize" });
             }
         }
 
-        setTabListWidth(newWidth);
+        setTabListWidth(availableWidth);
     }, 100);
 
     const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });

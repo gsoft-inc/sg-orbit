@@ -114,7 +114,7 @@ export function InnerDisclosure({
     const contentMarkup = augmentElement(content, {
         "aria-hidden": !isOpen,
         className: "o-ui-disclosure-content-inner",
-        hidden: !isOpen,
+        // hidden: !isOpen,
         id: contentId
     });
 

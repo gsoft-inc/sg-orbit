@@ -38,7 +38,7 @@ export const CollapsedTabs = forwardRef(({
     overlayProps: { id: overlayId, ...overlayProps } = {},
     ...rest
 }: CollapsedTabsProps,
-    ref) => {
+ref) => {
     const { selectedKey } = useTabsContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
@@ -70,7 +70,7 @@ export const CollapsedTabs = forwardRef(({
     const { overlayRef: overlayPositionRef, triggerRef: overlayPositionTriggerRef } = useOverlayPosition({
         allowFlip: true,
         allowPreventOverflow: true,
-        position: "bottom"
+        position: "bottom-end"
     });
 
     const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(openProp, "dialog", { id: overlayId });
@@ -98,6 +98,7 @@ export const CollapsedTabs = forwardRef(({
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
         switch (event.key) {
+            case Keys.arrowDown:
             case Keys.arrowRight: {
                 event.preventDefault();
                 event.stopPropagation();
@@ -109,6 +110,7 @@ export const CollapsedTabs = forwardRef(({
                 }
                 break;
             }
+            case Keys.arrowUp:
             case Keys.arrowLeft: {
                 event.preventDefault();
                 event.stopPropagation();
@@ -134,10 +136,6 @@ export const CollapsedTabs = forwardRef(({
                 focusManager.focusLast();
                 break;
             }
-            case Keys.arrowUp:
-            case Keys.arrowDown:
-                event.preventDefault();
-                break;
         }
     });
 
