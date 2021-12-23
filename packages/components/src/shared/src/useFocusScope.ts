@@ -135,7 +135,7 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
             parseElements();
 
             mutationObserver.observe(rootElement, {
-                attributeFilter: ["style", "class", "hidden", "aria-hidden"],
+                attributeFilter: ["style", "class", "hidden"],
                 attributes: true,
                 childList: true,
                 subtree: true
