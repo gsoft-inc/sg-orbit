@@ -325,7 +325,7 @@ test("when the class attribute of an element change, the scope is updated", asyn
     await waitFor(() => expect(onScopeChange).toHaveBeenCalledWith([buttonRef.current, textInputRef.current], expect.anything()));
 });
 
-test("when a nested overlay component is defined and \"includeChildScopes\" is true, isInScope return true for an element of the nested overlay component", async () => {
+test("when a nested overlay component is defined and the child scopes are included, isInScope return true for an element of the nested overlay component", async () => {
     let focusScope: FocusScope = null;
 
     const itemRef = createRef<HTMLDivElement>();
@@ -346,7 +346,7 @@ test("when a nested overlay component is defined and \"includeChildScopes\" is t
     await waitFor(() => expect(focusScope.isInScope(itemRef.current, { includeChildScopes: true })).toBeTruthy());
 });
 
-test("when a nested overlay component is defined and \"includeChildScopes\" is false, isInScope return false for an element of the nested overlay component", async () => {
+test("when a nested overlay component is defined and the child scopes are not included, isInScope return false for an element of the nested overlay component", async () => {
     let focusScope: FocusScope = null;
 
     const itemRef = createRef<HTMLDivElement>();
@@ -367,7 +367,7 @@ test("when a nested overlay component is defined and \"includeChildScopes\" is f
     await waitFor(() => expect(focusScope.isInScope(itemRef.current, { includeChildScopes: false })).toBeFalsy());
 });
 
-test("when a nested overlay component is defined and \"includeChildScopes\" is true, getElements return the elements of the nested overlay component", async () => {
+test("when a nested overlay component is defined and the child scopes are included, getElements return the elements of the nested overlay component", async () => {
     let focusScope: FocusScope = null;
 
     renderWithTheme(
@@ -386,7 +386,7 @@ test("when a nested overlay component is defined and \"includeChildScopes\" is t
     await waitFor(() => expect(focusScope.getElements({ includeChildScopes: true })).toHaveLength(4));
 });
 
-test("when a nested overlay component is defined and \"includeChildScopes\" is false, getElements does not return the elements of the nested overlay component", async () => {
+test("when a nested overlay component is defined and the child scopes are not included, getElements does not return the elements of the nested overlay component", async () => {
     let focusScope: FocusScope = null;
 
     renderWithTheme(

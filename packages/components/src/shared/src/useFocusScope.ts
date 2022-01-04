@@ -21,24 +21,6 @@ export class FocusScope {
         this.childScopes = new Set();
     }
 
-    getElements({ includeChildScopes = false }: ChildScopesOptions = {}) {
-        if (!includeChildScopes || this.childScopes.size === 0) {
-            return this.scopeRef.current;
-        }
-
-        const elements = new Set(this.scopeRef.current);
-
-        this.childScopes.forEach(x => {
-            const children = x.getElements({ includeChildScopes: true });
-
-            children.forEach(y => {
-                elements.add(y);
-            });
-        });
-
-        return Array.from(elements);
-    }
-
     registerChangeHandler(handler: ScopeChangeEventHandler) {
         this.handlersRef.current.push(handler);
     }
@@ -57,18 +39,30 @@ export class FocusScope {
         return this.childScopes.delete(scope);
     }
 
+    getElements({ includeChildScopes = false }: ChildScopesOptions = {}) {
+        if (!includeChildScopes || this.childScopes.size === 0) {
+            return this.scopeRef.current;
+        }
+
+        const elements = new Set(this.scopeRef.current);
+
+        this.childScopes.forEach(x => {
+            const children = x.getElements({ includeChildScopes: true });
+
+            children.forEach(y => {
+                elements.add(y);
+            });
+        });
+
+        return Array.from(elements);
+    }
+
     isInScope(element: HTMLElement, { includeChildScopes = false }: ChildScopesOptions = {}) {
         if (isNil(element)) {
             return false;
         }
 
-        const hasElement = this.getElements().some(x => x.contains(element));
-
-        if (includeChildScopes && !hasElement) {
-            return Array.from(this.childScopes).some(x => x.isInScope(element));
-        }
-
-        return hasElement;
+        return this.getElements({ includeChildScopes }).some(x => x.contains(element));
     }
 }
 
