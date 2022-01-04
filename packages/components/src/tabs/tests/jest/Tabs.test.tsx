@@ -1,6 +1,7 @@
 import { Content, Header } from "@components/placeholders";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 
+import { Div } from "@components/html";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Tabs } from "@components/tabs";
@@ -68,7 +69,7 @@ test("a disabled tab is not tabbable", async () => {
 test("when manual, focusing a tab doesn't change the active tab", async () => {
     const { getByTestId } = renderWithTheme(
         <Tabs manual aria-label="Tabs">
-            <Item>
+            <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
             </Item>
@@ -80,7 +81,11 @@ test("when manual, focusing a tab doesn't change the active tab", async () => {
     );
 
     act(() => {
-        getByTestId("tab-2").focus();
+        getByTestId("tab-1").focus();
+    });
+
+    act(() => {
+        fireEvent.keyDown(getByTestId("tab-1"), { key: Keys.arrowRight });
     });
 
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));

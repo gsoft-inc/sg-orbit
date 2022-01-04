@@ -229,10 +229,12 @@ export function InnerTabList({
         popoverTriggerWidth: PopoverTriggerWidth
     });
 
+    const hasCollapsedTabs = collapsedTabs.length > 0;
+
     const tabListRef = useMergedRefs(setFocusRef, collapsibleTabsRef, forwardedRef);
 
     // When there are collapsed tabs, only manual activation is supported for now.
-    const canAutoActivate = !isManual && collapsedTabs.length === 0;
+    const canAutoActivate = !isManual && !hasCollapsedTabs;
 
     const selectTab = useCallback((event: SyntheticEvent, key: string) => {
         if (!isNil(key)) {
@@ -318,7 +320,7 @@ export function InnerTabList({
         })
     };
 
-    const navigationProps = collapsedTabs.length > 0
+    const navigationProps = hasCollapsedTabs
         ? collapsibleNavigationProps
         : nonCollapsibleNavigationProps;
 
@@ -375,8 +377,8 @@ export function InnerTabList({
                 }, index) =>
                     <ElementType
                         {...props}
-                        aria-posinset={getTabPosition(index)}
-                        aria-setsize={tabs.length}
+                        aria-posinset={hasCollapsedTabs ? getTabPosition(index) : undefined}
+                        aria-setsize={hasCollapsedTabs ? tabs.length : undefined}
                         key={key}
                         onSelect={handleTabSelect}
                         ref={ref}
@@ -387,7 +389,7 @@ export function InnerTabList({
                         }}
                     />
                 )}
-                {collapsedTabs.length > 0 && (
+                {hasCollapsedTabs && (
                     <TabListPopover
                         autoFocusTarget={popoverAutoFocusTargetRef.current}
                         containerElement={tabListRef.current}
@@ -401,17 +403,20 @@ export function InnerTabList({
                         tabs={collapsedTabs}
                     />
                 )}
-                {/* Rendering hidden tabs to allow the useCollapsibleTabs to calculate the size and divide the tabs into visible/collapsed buckets. */}
+                {/* Rendering hidden tabs to allow the useCollapsibleTabs hook to calculate the actual size of all the tabs and divide them into visible/collapsed buckets. */}
                 <Div aria-hidden="true" className="o-ui-tab-list-hidden-tabs">
                     {tabs.map(({
                         elementType: ElementType = Tab,
                         key,
-                        props
+                        // HACK: removing data-testid prop otherwise the test id will be rendered on the hidden element which will break the Jest tests.
+                        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                        props: { "data-testid": testId, ...props } = {}
                     }) =>
                         <ElementType
                             {...props}
                             className="o-ui-tab-list-hidden-tab"
                             data-o-ui-type="hidden-tab"
+                            disabled
                             key={key}
                             role="none"
                             tab={{
