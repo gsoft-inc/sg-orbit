@@ -40,7 +40,7 @@
 
 /* TAB LIST | POPOVER | TRIGGER | OPEN */
 .o-ui-tab-list-popover-trigger[aria-expanded="true"] {
-    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* TAB LIST | POPOVER | TRIGGER | HOVER */
@@ -67,8 +67,9 @@
 }
 
 /* TAB LIST | POPOVER | TAB */
-.o-ui-tab-list-popover .o-ui-tab:hover {
+.o-ui-tab-list-popover .o-ui-tab:not([disabled]):hover {
     background-color: var(--o-ui-bg-alias-mid-break);
+    border-bottom: 0;
 }
 
 /* TAB LIST | POPOVER | FOCUS */
@@ -167,6 +168,7 @@
 .o-ui-tab:not([disabled]):hover,
 .o-ui-tab-hover:not([disabled]) {
     color: var(--o-ui-text-alias-primary);
+    border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
 }
 
 /* TAB | STATE | SELECTED */
