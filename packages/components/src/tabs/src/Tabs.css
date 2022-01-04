@@ -85,6 +85,11 @@
     left: 0;
     opacity: 0;
     pointer-events: none;
+    z-index: -9999;
+}
+
+.o-ui-tab-list-hidden-tab {
+    width: max-content;
 }
 
 /* TAB */
@@ -135,7 +140,7 @@
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | VERTICAL */
-.o-ui-tabs-vertical .o-ui-tab::before{
+.o-ui-tabs-vertical .o-ui-tab::before {
     left: 1px;
     right: 0;
 }

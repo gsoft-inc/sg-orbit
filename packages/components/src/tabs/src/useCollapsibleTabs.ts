@@ -41,7 +41,7 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
         const containerElement = elementRef.current;
 
         const availableWidth = containerElement.offsetWidth - popoverTriggerWidth;
-        const tabElements = containerElement.querySelectorAll<HTMLElement>("[data-o-ui-type=\"tab\"]");
+        const tabElements = containerElement.querySelectorAll<HTMLElement>("[data-o-ui-type=\"hidden-tab\"]");
 
         let i = 0;
         let currentWidth = 0;

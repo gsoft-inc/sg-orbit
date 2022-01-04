@@ -377,7 +377,6 @@ export function InnerTabList({
                         {...props}
                         aria-posinset={getTabPosition(index)}
                         aria-setsize={tabs.length}
-                        data-o-ui-type="tab"
                         key={key}
                         onSelect={handleTabSelect}
                         ref={ref}
@@ -389,44 +388,43 @@ export function InnerTabList({
                     />
                 )}
                 {collapsedTabs.length > 0 && (
-                    <>
-                        <TabListPopover
-                            autoFocusTarget={popoverAutoFocusTargetRef.current}
-                            containerElement={tabListRef.current}
-                            getTabPosition={(tabIndex: number) => getTabPosition(tabIndex, visibleTabs.length)}
-                            onClose={handlePopoverClose}
-                            onOpen={handlePopoverOpen}
-                            onSelect={handlePopoverTabSelect}
-                            open={isPopoverOpen}
-                            overlayProps={{ id: popoverId }}
-                            setSize={tabs.length}
-                            tabs={collapsedTabs}
-                        />
-                        {/* Rendering hidden tabs to allow the useCollapsibleTabs to calculate the size and divide the tabs into visible/collapsed buckets. */}
-                        <Div aria-hidden="true" className="o-ui-tab-list-hidden-tabs">
-                            {collapsedTabs.map(({
-                                elementType: ElementType = Tab,
-                                key,
-                                panelId,
-                                props,
-                                tabId
-                            }) =>
-                                <ElementType
-                                    {...props}
-                                    data-o-ui-type="tab"
-                                    disabled
-                                    key={key}
-                                    role="none"
-                                    tab={{
-                                        key,
-                                        panelId,
-                                        tabId
-                                    }}
-                                />
-                            )}
-                        </Div>
-                    </>
+                    <TabListPopover
+                        autoFocusTarget={popoverAutoFocusTargetRef.current}
+                        containerElement={tabListRef.current}
+                        getTabPosition={(tabIndex: number) => getTabPosition(tabIndex, visibleTabs.length)}
+                        onClose={handlePopoverClose}
+                        onOpen={handlePopoverOpen}
+                        onSelect={handlePopoverTabSelect}
+                        open={isPopoverOpen}
+                        overlayProps={{ id: popoverId }}
+                        setSize={tabs.length}
+                        tabs={collapsedTabs}
+                    />
                 )}
+                {/* Rendering hidden tabs to allow the useCollapsibleTabs to calculate the size and divide the tabs into visible/collapsed buckets. */}
+                <Div aria-hidden="true" className="o-ui-tab-list-hidden-tabs">
+                    {tabs.map(({
+                        elementType: ElementType = Tab,
+                        key,
+                        panelId,
+                        props,
+                        tabId
+                    }) =>
+                        <ElementType
+                            {...props}
+                            className="o-ui-tab-list-hidden-tab"
+                            data-o-ui-type="hidden-tab"
+                            disabled
+                            key={key}
+                            role="none"
+                            tab={{
+                                key,
+                                panelId: `${panelId}-hidden`,
+                                tabId: `${tabId}-hidden`
+                            }}
+                        />
+                    )}
+                </Div>
             </FocusScopeContext.Provider>
         </Box>
     );
