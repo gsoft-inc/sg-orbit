@@ -1,10 +1,9 @@
-import { FocusManager, FocusManagerMethodOptions } from "./useFocusManager";
-import { RefObject, useLayoutEffect } from "react";
+import { FocusManager, FocusManagerHandlers, FocusManagerIterationOptions, FocusManagerScopeOptions } from "./useFocusManager";
+import { RefObject, useCallback, useEffect } from "react";
 
 import { FocusTarget } from "./focusTarget";
 import { createDisposables } from "./useDisposables";
 import { useChainedEventCallback } from "./useChainedEventCallback";
-import { useEventCallback } from "./useEventCallback";
 
 export interface AbstractAutoFocusOptions {
     delay?: number;
@@ -13,7 +12,7 @@ export interface AbstractAutoFocusOptions {
 }
 
 function useAbstractAutoFocus({ delay, isDisabled, onFocus }: AbstractAutoFocusOptions) {
-    useLayoutEffect(() => {
+    useEffect(() => {
         const disposables = createDisposables();
 
         if (!isDisabled) {
@@ -48,22 +47,22 @@ export function useAutoFocus(targetRef: RefObject<HTMLElement>, { delay, isDisab
     });
 }
 
-export interface AutoFocusChildOptions extends FocusManagerMethodOptions {
+export interface AutoFocusChildOptions extends FocusManagerScopeOptions, FocusManagerIterationOptions, FocusManagerHandlers {
     delay?: number;
     isDisabled?: boolean;
     target?: string;
 }
 
-export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound, ...otherOptions }: AutoFocusChildOptions = {}) {
+export function useAutoFocusChild(focusManager: FocusManager, { target = FocusTarget.first, isDisabled, delay, canFocus, onFocus, onNotFound, tabbableOnly }: AutoFocusChildOptions = {}) {
     useAbstractAutoFocus({
         delay,
-        isDisabled: isDisabled,
-        onFocus: useEventCallback(() => {
+        isDisabled,
+        onFocus: useCallback(() => {
             // Do not autofocus another child if there is already one focused.
             if (!focusManager.isInScope(document.activeElement as HTMLElement)) {
-                focusManager.focusTarget(target, { canFocus, onFocus, onNotFound, ...otherOptions });
+                focusManager.focusTarget(target, { canFocus, onFocus, onNotFound, tabbableOnly });
             }
-        })
+        }, [canFocus, focusManager, onFocus, onNotFound, tabbableOnly, target])
     });
 }
 

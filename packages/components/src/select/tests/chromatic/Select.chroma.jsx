@@ -30,6 +30,7 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
 
 createTestSuite(<Select variant="ghost" />, stories("/ghost"));
 
+
 stories()
     .add("conditional rendering", () =>
         <Select defaultOpen placeholder="Select a planet" aria-label="Planets">

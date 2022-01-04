@@ -283,6 +283,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
+
                 break;
             case Keys.arrowUp:
                 if (isOpen) {
@@ -295,6 +296,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
+
                 break;
             case Keys.home:
                 if (isOpen) {
@@ -307,6 +309,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
+
                 break;
             case Keys.end:
                 if (isOpen) {
@@ -319,6 +322,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
+
                 break;
             case Keys.esc:
                 if (isOpen) {
@@ -328,6 +332,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
                     close(event);
                 }
+
                 break;
             case Keys.enter:
                 if (isOpen) {
@@ -337,6 +342,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         selectItem(event, focusedItem.key);
                     }
                 }
+
                 break;
         }
     });

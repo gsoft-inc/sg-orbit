@@ -1,31 +1,38 @@
 // Inspired from https://github.com/react-restart/hooks/blob/master/src/useResizeObserver.ts.
 
-import { RefCallback, useCallback, useRef } from "react";
+import { RefCallback, RefObject, useCallback, useRef } from "react";
 import { isFunction, isNil } from "./assertions";
 
-const handlersMap = new WeakMap<Element, (entry: ResizeObserverEntry) => void>();
+interface MapValue {
+    elementRef: RefObject<HTMLElement>;
+    handler: (entry: ResizeObserverEntry, elementRef: RefObject<HTMLElement>) => void;
+}
+
+const handlersMap = new WeakMap<Element, MapValue>();
 
 let observer: ResizeObserver;
 
 function getResizeObserver() {
-    return (observer =
-        observer || new ResizeObserver((entries: ResizeObserverEntry[]) => {
-            entries.forEach(entry => {
-                const handler = handlersMap.get(entry.target);
+    return (observer = observer || new ResizeObserver((entries: ResizeObserverEntry[]) => {
+        entries.forEach(entry => {
+            const mapValue = handlersMap.get(entry.target);
+
+            if (!isNil(mapValue)) {
+                const { elementRef, handler } = mapValue;
 
                 if (isFunction(handler)) {
-                    handler(entry);
+                    handler(entry, elementRef);
                 }
-            });
-        })
-    );
+            }
+        });
+    }));
 }
 
 interface UseResizeObserverOptions extends ResizeObserverOptions {
     isDisabled?: boolean;
 }
 
-export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void, { box, isDisabled }: UseResizeObserverOptions = {}): RefCallback<HTMLElement> => {
+export const useResizeObserver = (onResize: (entry: ResizeObserverEntry, elementRef: RefObject<HTMLElement>) => void, { box, isDisabled }: UseResizeObserverOptions = {}): RefCallback<HTMLElement> => {
     const elementRef = useRef<HTMLElement>(null);
 
     const dispose = useCallback(() => {
@@ -51,7 +58,10 @@ export const useResizeObserver = (onResize: (entry: ResizeObserverEntry) => void
 
                 getResizeObserver().observe(element, { box });
 
-                handlersMap.set(element, onResize);
+                handlersMap.set(element, {
+                    elementRef: elementRef,
+                    handler: onResize
+                });
             }
         }
     });

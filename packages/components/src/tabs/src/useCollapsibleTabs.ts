@@ -1,171 +1,69 @@
-import { RefObject, useLayoutEffect, useMemo, useReducer } from "react";
-import { arrayify, isNil, match, useRefState, useResizeObserver } from "../../shared";
+// Inspired by: https://codesandbox.io/s/ariakit-collapsible-tab-835t8?file=/src/tab-popover.tsx
+
+import { RefObject, useCallback, useLayoutEffect, useState } from "react";
+import { isNil, useResizeObserver } from "../../shared";
 
 import { TabType } from "./useTabsItems";
-import { useThrottledCallback } from "use-debounce";
-
-export const CollapsedTabsTriggerWidth = 48;
-
-type ResizingState = "expanding" | "collapsing" | "none";
-
-type ActionType = "initialize" | "collapse" | "incrementCollapsedCount" | "completeCollapse" | "expand" | "continueExpandAfterRerender";
-
-interface Action<T = number> {
-    payload?: T;
-    type: ActionType;
-}
-
-interface State {
-    collapsedCount: number;
-    resizingState: ResizingState;
-}
-
-function collapsibleTabsReducer(state: State, action: Action) {
-    return match<ActionType, State>(action.type, {
-        "collapse": () => ({
-            collapsedCount: state.collapsedCount,
-            resizingState: "collapsing"
-        }),
-        "completeCollapse": () => ({
-            collapsedCount: state.collapsedCount,
-            resizingState: "none"
-        }),
-        // The strategy to expand is to render all the tabs then remove those which doesn't fit.
-        // This means that it requires 2 re-render to complete.
-        // The first one will rednder all the tabs to their max-content witdh by setting the collapsed count to 0.
-        // The second one (which is this one) will collapse the overflowing tabs, starting from the end.
-        "continueExpandAfterRerender": () => ({
-            collapsedCount: 0,
-            resizingState: "collapsing"
-        }),
-        "expand": () => ({
-            collapsedCount: 0,
-            resizingState: "expanding"
-        }),
-        "incrementCollapsedCount": () => ({
-            collapsedCount: state.collapsedCount + (action.payload as number),
-            resizingState: "none"
-        }),
-        "initialize": () => ({
-            collapsedCount: 0,
-            resizingState: "collapsing"
-        })
-    });
-}
 
 export interface UseCollapsibleTabsOptions {
+    gap?: number;
     isDisabled?: boolean;
+    popoverTriggerWidth?: number;
 }
 
-export function useCollapsibleTabs(tabListRef: RefObject<HTMLDivElement>, tabs: TabType[], selectedKey: string, { isDisabled }: UseCollapsibleTabsOptions = {}) {
-    const [{ collapsedCount, resizingState }, dispatch] = useReducer(collapsibleTabsReducer, {
-        collapsedCount: 0,
-        resizingState: "none"
-    });
+const MinVisibleItems = 1;
 
-    const [tabListWidthRef, setTabListWidth] = useRefState();
+export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, isDisabled, popoverTriggerWidth }: UseCollapsibleTabsOptions = {}) {
+    const [limit, setLimit] = useState(Infinity);
+    const [visibleTabs, setVisibleTabs] = useState(tabs);
+    const [collapsedTabs, setCollapsedTabs] = useState<TabType[]>([]);
 
     useLayoutEffect(() => {
-        match(resizingState, {
-            "collapsing": () => {
-                const tabListElement = tabListRef.current;
+        const newVisibleTabs = tabs.slice(0, limit);
+        let newCollapsedTabs = tabs.slice(limit);
 
-                const tabListRect = tabListElement.getBoundingClientRect();
-                const tabListLimit = tabListRect.right - CollapsedTabsTriggerWidth;
+        const selectedTab = newCollapsedTabs.find(x => x.key === selectedKey);
 
-                const tabElements = tabListElement.querySelectorAll("[role=\"tab\"]");
+        if (!isNil(selectedTab)) {
+            const lastVisibleTab = newVisibleTabs.pop();
 
-                const visibleCount = tabElements.length;
+            newCollapsedTabs = newCollapsedTabs.filter(item => item.key !== selectedKey);
+            newCollapsedTabs.unshift(lastVisibleTab);
 
-                if (visibleCount > 1) {
-                    let toCollapse = 0;
-
-                    do {
-                        const element = tabElements[tabElements.length - (1 + toCollapse)];
-                        const elementRect = element.getBoundingClientRect();
-
-                        // Considered as overflowing if the current tab end after the width of the tab list element.
-                        if (tabListLimit < elementRect.right) {
-                            toCollapse += 1;
-                        } else {
-                            break;
-                        }
-                    } while (visibleCount - toCollapse > 1);
-
-                    if (toCollapse > 0) {
-                        dispatch({ payload: toCollapse, type: "incrementCollapsedCount" });
-                    }
-                }
-
-                dispatch({ type: "completeCollapse" });
-            },
-            "expanding": () => {
-                dispatch({ type: "continueExpandAfterRerender" });
-            },
-            "none": () => {
-                // nothing to do...
-            }
-        });
-    }, [resizingState, tabListRef]);
-
-    const handleResize = useThrottledCallback(entry => {
-        const availableWidth = arrayify(entry.borderBoxSize)[0].inlineSize;
-
-        const lastWidth = tabListWidthRef.current;
-
-        if (resizingState === "none") {
-            if (!isNil(lastWidth)) {
-                if (availableWidth !== lastWidth) {
-                    dispatch({ type: availableWidth > lastWidth ? "expand" : "collapse" });
-                }
-            } else {
-                dispatch({ type: "initialize" });
-            }
+            newVisibleTabs.push(selectedTab);
         }
 
-        setTabListWidth(availableWidth);
-    }, 100);
+        setVisibleTabs(newVisibleTabs);
+        setCollapsedTabs(newCollapsedTabs);
+    }, [tabs, limit, selectedKey]);
+
+    const handleResize = useCallback((entry, elementRef: RefObject<HTMLElement>) => {
+        const containerElement = elementRef.current;
+
+        const availableWidth = containerElement.offsetWidth - popoverTriggerWidth;
+        const tabElements = containerElement.querySelectorAll<HTMLElement>("[data-o-ui-type=\"tab\"]");
+
+        let i = 0;
+        let currentWidth = 0;
+
+        while (i < tabElements.length) {
+            const element = tabElements[i];
+
+            if (element) {
+                currentWidth += element.offsetWidth + gap;
+
+                if (currentWidth > availableWidth) {
+                    break;
+                }
+            }
+
+            i++;
+        }
+
+        setLimit(Math.max(MinVisibleItems, i));
+    }, [gap, popoverTriggerWidth]);
 
     const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });
-
-    // Partition the tabs between "visible" and "collapsed" based on the collapsed count.
-    const [collapsedTabs, visibleTabs] = useMemo(() => {
-        if (collapsedCount > 0) {
-            const visible = [];
-            const collapsed = [];
-
-            const visibleCount = tabs.length - collapsedCount;
-
-            for (let i = 0; i < visibleCount; i += 1) {
-                visible.push(tabs[i]);
-            }
-
-            let selectedTab;
-
-            for (let i = 0; i < collapsedCount; i += 1) {
-                const tab = tabs[visibleCount + i];
-
-                if (tab.key === selectedKey) {
-                    selectedTab = tab;
-                } else {
-                    collapsed.push(tab);
-                }
-            }
-
-            // We want the selected tab to always be visible. If the selected tab is in the collapsed tabs,
-            // switch it with the last visible tab.
-            if (!isNil(selectedTab)) {
-                const lastTab = visible.pop();
-
-                visible.push(selectedTab);
-                collapsed.unshift(lastTab);
-            }
-
-            return [collapsed, visible];
-        }
-
-        return [[], tabs];
-    }, [collapsedCount, tabs, selectedKey]);
 
     return {
         collapsedTabs,
