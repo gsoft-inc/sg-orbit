@@ -198,7 +198,7 @@ export function InnerTabList({
     tabs,
     ...rest
 }: InnerTabListProps) {
-    const { isCollapsible, isManual, onSelect, orientation, selectedKey } = useTabsContext();
+    const { isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [popoverAutoFocusTargetRef, setPopoverAutoFocusTarget] = useRefState(selectedKey);
@@ -225,7 +225,7 @@ export function InnerTabList({
 
     const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabs, selectedKey, {
         gap: TabGap,
-        isDisabled: !isCollapsible || orientation === "vertical",
+        isDisabled: orientation === "vertical",
         popoverTriggerWidth: PopoverTriggerWidth
     });
 
@@ -406,21 +406,18 @@ export function InnerTabList({
                     {tabs.map(({
                         elementType: ElementType = Tab,
                         key,
-                        panelId,
-                        props,
-                        tabId
+                        props
                     }) =>
                         <ElementType
                             {...props}
                             className="o-ui-tab-list-hidden-tab"
                             data-o-ui-type="hidden-tab"
-                            disabled
                             key={key}
                             role="none"
                             tab={{
-                                key,
-                                panelId: `${panelId}-hidden`,
-                                tabId: `${tabId}-hidden`
+                                key: undefined,
+                                panelId: undefined,
+                                tabId: undefined
                             }}
                         />
                     )}

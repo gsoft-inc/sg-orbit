@@ -1,5 +1,5 @@
 import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
 
 import { Box } from "../../box";
 import { TabType } from "./useTabsItems";
@@ -38,6 +38,7 @@ export function InnerTab({
     forwardedRef,
     hover,
     onSelect,
+    role,
     tab: { key, panelId, tabId },
     ...rest
 }: InnerTabProps) {
@@ -107,7 +108,9 @@ export function InnerTab({
                     onKeyDown: isManual ? handleKeyDown : undefined,
                     onKeyUp: isManual ? handleKeyUp : undefined,
                     ref: forwardedRef,
-                    role: "tab"
+                    role: !isNil(role)
+                        ? role !== "none" ? role : undefined
+                        : "tab"
                 }
             )}
         >
