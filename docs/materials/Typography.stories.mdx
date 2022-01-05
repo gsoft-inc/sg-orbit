@@ -1,0 +1,121 @@
+import { Figure, Table, Tagline } from "@stories/components";
+import { Meta } from "@storybook/addon-docs";
+import { H1, Paragraph, Text } from "@components/typography";
+
+<Meta
+    title="Materials/Typography"
+    id="typography"
+/>
+
+# Typography
+
+In order to keep consistency and [vertical-rhythm](https://8thlight.com/blog/chris-peak/2012/12/30/vertical-rhythm.html) both titles and body copy should adopt a rational combination of *font-size*, *line-height* and *font-weight*. Enforcing strict heights to everything makes it easy to align two adjacent elements. Think of vertical rythmh as lines in your lined paper at school.
+
+## Headings
+
+Headings are the largest text on the screen, reserved for short, important text or numerals. When you add an heading to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. Luckily, you don't have to remember these as a [Heading](?path=/docs/heading--default-story) compoment is available and should be used.
+
+<Table
+    columns={[
+        { title: "Font Size", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "Line Height", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "Font Weight", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "600px" } }
+    ]}
+    rows={[
+        ["9", "5", "5", <H1 size="xl">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["8", "5", "5", <H1 size="lg">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["7", "4", "5", <H1 size="md">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["6", "4", "5", <H1 size="sm">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["5", "3", "5", <H1 size="xs">That’s one small step for man,<br/>one giant leap for mankind.</H1>],
+        ["4", "5", "5", <H1 size="2xs">That’s one small step for man,<br/>one giant leap for mankind.</H1>]
+    ]}
+/>
+
+## Paragraph
+
+Paragraphs are typically used for long-form writing as it works well for small text sizes. When you add a paragraph to a page, **you must use the following combination of *font-size*, *line-height* and *font-weight***. A more convenient option is avalaible, which is the [Paragraph](?path=/docs/paragraph--size) component.
+
+<Table
+    columns={[
+        { title: "Font Size", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "Line Height", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "Font Weight", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "600px" } }
+    ]}
+    rows={[
+        ["1", "4", "4", <Paragraph size="xs">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["2", "3", "4", <Paragraph size="sm">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["3", "5", "4", <Paragraph size="md">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["4", "4", "4", <Paragraph size="lg">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["5", "3", "4", <Paragraph size="xl">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>],
+        ["6", "2", "4", <Paragraph size="2xl">If two pieces of the same type of metal touch <br/> in space they will permanently bond.</Paragraph>]
+    ]}
+/>
+
+## Values
+
+### Type scale
+
+A simple ratio-based scale with 9 options. Font sizes are designed to work in combination with line-height values so as to result in more sensible numbers wherever possible.
+
+<Table
+    columns={[
+        { title: "Prop Value", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "CSS Variable", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "600px" } }
+    ]}
+    rows={[
+        ["1", "--o-ui-fs-1", "0.625rem (10px)", <Text fontSize="1">Halleys Comet</Text>],
+        ["2", "--o-ui-fs-2", "0.75rem (12px)", <Text fontSize="2">Halleys Comet</Text>],
+        ["3", "--o-ui-fs-3", "0.875rem (14px)", <Text fontSize="3">Halleys Comet</Text>],
+        ["4", "--o-ui-fs-4", "1.rem (16px)", <Text fontSize="4">Halleys Comet</Text>],
+        ["5", "--o-ui-fs-5", "1.125rem (18px)", <Text fontSize="5">Halleys Comet</Text>],
+        ["6", "--o-ui-fs-6", "1.375rem (22px) ", <Text fontSize="6">Halleys Comet</Text>],
+        ["7", "--o-ui-fs-7", "1.75rem (28px)", <Text fontSize="7">Halleys Comet</Text>],
+        ["8", "--o-ui-fs-8", "2rem (32px)", <Text fontSize="8">Halleys Comet</Text>],
+        ["9", "--o-ui-fs-9", "2.5rem (40px)", <Text fontSize="9">Halleys Comet</Text>],
+        ["headline", "--o-ui-fs-headline", "3.75rem (60px)", <Text fontSize="headline">Halleys Comet</Text>],
+        ["subheadline", "--o-ui-fs-subheadline", "5rem (80px)", <Text fontSize="subheadline">Halleys Comet</Text>]
+    ]}
+/>
+
+### Line Height
+
+Also known as leading, line height controls the amount of space between baselines in a block of text. A text's line height is proportional to its type size.
+
+<Table
+    columns={[
+        { title: "Prop Value", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "CSS Variable", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "160px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "500px" } }
+    ]}
+    rows={[
+        ["1", "--o-ui-lh-1", "1", <Paragraph lineHeight={1}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["2", "--o-ui-lh-2", "1.2", <Paragraph lineHeight={2}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["3", "--o-ui-lh-3", "1.25", <Paragraph lineHeight={3}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["4", "--o-ui-lh-4", "1.333", <Paragraph lineHeight={4}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["5", "--o-ui-lh-5", "1.454595", <Paragraph lineHeight={5}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>],
+        ["6", "--o-ui-lh-6", "1.5", <Paragraph lineHeight={6}>If two pieces of the same type of metal touch <br/>  in space they will permanently bond.</Paragraph>]
+    ]}
+/>
+
+### Font Weight
+
+Weight refers to the relative thickness of a font's stroke. A typeface can come in many weights; and four to six weights is a typical number available for a typeface. Varying the font-weight of different pieces of text can help create contrast between pieces of information.
+
+<Table
+    columns={[
+        { title: "Prop Value", headerStyle: { width: "140px" }, rowClassName: "code" },
+        { title: "CSS Variable", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "160px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "360px" } }
+    ]}
+    rows={[
+        ["1", "--o-ui-fw-1", "400", <Paragraph fontSize="5" fontWeight="1">Space Flight Program</Paragraph>],
+        ["2", "--o-ui-fw-2", "500", <Paragraph fontSize="5" fontWeight="2">Space Flight Program</Paragraph>],
+        ["3", "--o-ui-fw-3", "600", <Paragraph fontSize="5" fontWeight="3">Space Flight Program</Paragraph>]
+    ]}
+/>

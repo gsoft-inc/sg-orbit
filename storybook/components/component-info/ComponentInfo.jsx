@@ -1,9 +1,10 @@
 import "./ComponentInfo.css";
 
-import { Div } from "@components/html";
 import { ExternalLink, GithubLink, Link, useThemedSnippet } from "@stories/components";
 import { arrayOf, bool, oneOfType, shape, string } from "prop-types";
 import { cssModule, mergeClasses } from "@components/shared";
+
+import { Div } from "@components/html";
 
 const propTypes = {
     usage: oneOfType([
@@ -20,7 +21,7 @@ const propTypes = {
 };
 
 const ExtendLinks = {
-    "styled-component": <Link href="?path=/story/props-reference--page">StyleProps</Link>,
+    "styled-component": <Link href="?path=/docs/style-props--page#reference">StyleProps</Link>,
     "a": <Link href="?path=/docs/html-anchor--example">A</Link>,
     "button": <Link href="?path=/docs/html-button--example">Button</Link>,
     "div": <Link href="?path=/docs/html-div--example">Div</Link>,

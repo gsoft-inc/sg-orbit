@@ -3,23 +3,23 @@ import { createTheme } from "./createTheme";
 export const ShareGateTheme = createTheme({
     name: "sharegate",
     colors: {
-        white: "#FFF",
+        white: "#fff",
         black: "#000",
-        gray: "#F9F9F9",
+        gray: "#f9f9f9",
         accent: [
             "#eef3fd",
             "#dbe6fd",
             "#b6c2ef",
-            "#95A9F5",
-            "#7689FD",
-            "#5D65F6",
-            "#4B11FD",
-            "#362AAE",
-            "#1F2151",
-            "#0D0F1F"
+            "#95a9f5",
+            "#7689fd",
+            "#5D65f6",
+            "#4B11fd",
+            "#362aae",
+            "#1f2151",
+            "#0d0f1f"
         ],
         light: {
-            /* Background */
+            // Background
             "bg-alias-default": "$white",
             "bg-alias-soft-break": "$gray",
             "bg-alias-mid-break": "$neutral-1",
@@ -61,7 +61,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-3",
-            /* Border */
+            // Border
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
             "b-alias-high-break": "$neutral-6",
@@ -77,7 +77,7 @@ export const ShareGateTheme = createTheme({
             "b-alias-success": "$success-4",
             "b-alias-success-hover": "$success-8",
             "b-alias-success-active": "$success-9",
-            /* Icon */
+            // Icon
             "icon-alias-primary": "$neutral-10",
             "icon-alias-primary-hover": "$black",
             "icon-alias-secondary": "$neutral-8",
@@ -91,7 +91,7 @@ export const ShareGateTheme = createTheme({
             "icon-alias-success": "$success-6",
             "icon-alias-static-white": "$white",
             "icon-alias-input-placeholder": "$neutral-4",
-            /* Text */
+            // Text
             "text-alias-primary": "$neutral-10",
             "text-alias-primary-hover": "$black",
             "text-alias-secondary": "$neutral-8",
@@ -107,7 +107,7 @@ export const ShareGateTheme = createTheme({
             "text-alias-input-placeholder": "$neutral-4"
         },
         dark: {
-            /* Background */
+            // Background
             "bg-alias-default": "$neutral-9",
             "bg-alias-soft-break": "$neutral-10",
             "bg-alias-hard-break": "$neutral-6",
@@ -149,7 +149,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-5",
-            /* Border */
+            // Border
             "b-alias-low-break": "$neutral-8",
             "b-alias-mid-break": "$neutral-7",
             "b-alias-high-break": "$neutral-5",
@@ -165,7 +165,7 @@ export const ShareGateTheme = createTheme({
             "b-alias-success": "$success-6",
             "b-alias-success-hover": "$success-7",
             "b-alias-success-active": "$success-8",
-            /* Icon */
+            // Icon
             "icon-alias-primary": "$white",
             "icon-alias-primary-hover": "$white",
             "icon-alias-secondary": "$neutral-1",
@@ -179,7 +179,7 @@ export const ShareGateTheme = createTheme({
             "icon-alias-success": "$success-5",
             "icon-alias-static-white": "$white",
             "icon-alias-input-placeholder": "$neutral-3",
-            /* Text */
+            // Text
             "text-alias-primary": "$white",
             "text-alias-primary-hover": "$white",
             "text-alias-secondary": "$neutral-1",

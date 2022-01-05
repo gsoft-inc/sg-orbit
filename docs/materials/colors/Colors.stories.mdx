@@ -1,0 +1,270 @@
+import { SemanticColorTable, textRenderer, backgroundRenderer, borderRenderer, iconRenderer } from "./SemanticColorTable";
+import { Meta } from "@storybook/addon-docs";
+import { Div } from "@components/html";
+import { ShareGateTheme,  ThemeProvider } from "@components/styling"
+import { ColorPaletteTable } from "./ColorPaletteTable";
+
+<Meta
+    title="Materials/Colors"
+    id="colors"
+/>
+
+# Colors
+
+ShareGate colors are meant to put forward our brand and to express our personality in a constantly growing market.
+
+Any of the following colors value can be used in two ways, either as a [style prop](?path=/docs/style-props--page):
+
+```jsx
+<Div backgroundColor="alias-accent" color="purple-1">To the moon!</Div>
+```
+
+or as a CSS variable:
+
+```css
+.container {
+    background-color: var(--o-ui-bg-alias-accent);
+    color: var(--o-ui-purple-1);
+}
+```
+
+## Semantic colors
+
+Semantic colors, also known as *aliases* are colors with meaningful names representing the general realm of their usage. They provide an additional layer of abstraction on top of the [color palettes](#color-palettes) which allow Orbit to seamlessly support multiple [color schemes](?path=/docs/color-schemes--page).
+
+This means that every semantic color map to a value of an Orbit [color palette](#color-palettes). The value might vary depending of the active color scheme.
+
+The following tables shows a list of the available semantic colors prop organized by categories.
+
+### Text
+
+<SemanticColorTable
+    colors={[
+        { value: "alias-primary", variable: "--o-ui-text-alias-primary", itemRenderer: textRenderer },
+        { value: "alias-secondary", variable: "--o-ui-text-alias-secondary", itemRenderer: textRenderer },
+        { value: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", itemRenderer: textRenderer },
+        { value: "alias-faint", variable: "--o-ui-text-alias-faint", itemRenderer: textRenderer },
+        { value: "alias-accent", variable: "--o-ui-text-alias-accent", itemRenderer: textRenderer },
+        { value: "alias-alert", variable: "--o-ui-text-alias-alert", itemRenderer: textRenderer },
+        { value: "alias-warning", variable: "--o-ui-text-alias-warning", itemRenderer: textRenderer },
+        { value: "alias-success", variable: "--o-ui-text-alias-success", itemRenderer: textRenderer },
+        { value: "alias-static-white", variable: "--o-ui-text-alias-static-white", itemRenderer: textRenderer }
+    ]}
+/>
+
+### Icon
+
+<SemanticColorTable
+    colors={[
+        { value: "alias-primary", variable: "--o-ui-icon-alias-primary", itemRenderer: iconRenderer },
+        { value: "alias-secondary", variable: "--o-ui-icon-alias-secondary", itemRenderer: iconRenderer },
+        { value: "alias-tertiary", variable: "--o-ui-icon-alias-tertiary", itemRenderer: iconRenderer },
+        { value: "alias-faint", variable: "--o-ui-icon-alias-faint", itemRenderer: iconRenderer },
+        { value: "alias-accent", variable: "--o-ui-icon-alias-accent", itemRenderer: iconRenderer },
+        { value: "alias-alert", variable: "--o-ui-icon-alias-alert", itemRenderer: iconRenderer },
+        { value: "alias-warning", variable: "--o-ui-icon-alias-warning", itemRenderer: iconRenderer },
+        { value: "alias-success", variable: "--o-ui-icon-alias-success", itemRenderer: iconRenderer },
+        { value: "alias-static-white", variable: "--o-ui-icon-alias-static-white", itemRenderer: iconRenderer }
+    ]}
+/>
+
+### Background
+
+<SemanticColorTable
+    colors={[
+        { value: "alias-default", variable: "--o-ui-bg-alias-default", itemRenderer: backgroundRenderer },
+        { value: "alias-soft-break", variable: "--o-ui-bg-soft-break", itemRenderer: backgroundRenderer},
+        { value: "alias-mid-break", variable: "--o-ui-bg-mid-break", itemRenderer: backgroundRenderer },
+        { value: "alias-hard-break", variable: "--o-ui-bg-hard-break", itemRenderer: backgroundRenderer },
+        { value: "alias-basic", variable: "--o-ui-bg-alias-basic", itemRenderer: backgroundRenderer },
+        { value: "alias-basic-transparent-hover", variable: "--o-ui-bg-alias-basic-transparent-hover", itemRenderer: backgroundRenderer },
+        { value: "alias-basic-transparent-active", variable: "--o-ui-bg-alias-basic-transparent-active", itemRenderer: backgroundRenderer },
+        { value: "alias-static-white", variable: "--o-ui-bg-alias-static-white", itemRenderer: backgroundRenderer },
+        { value: "alias-accent", variable: "--o-ui-bg-alias-accent", itemRenderer: backgroundRenderer },
+        { value: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", itemRenderer: backgroundRenderer },
+        { value: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", itemRenderer: backgroundRenderer },
+        { value: "alias-accent-transparent-hover", variable: "--o-ui-bg-alias-accent-transparent-hover", itemRenderer: backgroundRenderer },
+        { value: "alias-accent-transparent-active", variable: "--o-ui-bg-alias-accent-transparent-active", itemRenderer: backgroundRenderer },
+        { value: "alias-alert", variable: "--o-ui-bg-alias-alert", itemRenderer: backgroundRenderer },
+        { value: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", itemRenderer: backgroundRenderer },
+        { value: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", itemRenderer: backgroundRenderer },
+        { value: "alias-alert-transparent-hover", variable: "--o-ui-bg-alias-alert-transparent-hover", itemRenderer: backgroundRenderer },
+        { value: "alias-alert-transparent-active", variable: "--o-ui-bg-alias-alert-transparent-active", itemRenderer: backgroundRenderer },
+        { value: "alias-warning", variable: "--o-ui-bg-alias-warning", itemRenderer: backgroundRenderer },
+        { value: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", itemRenderer: backgroundRenderer },
+        { value: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", itemRenderer: backgroundRenderer },
+        { value: "alias-success", variable: "--o-ui-bg-alias-success", itemRenderer: backgroundRenderer },
+        { value: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", itemRenderer: backgroundRenderer },
+        { value: "alias-success-light", variable: "--o-ui-bg-alias-success-light", itemRenderer: backgroundRenderer },
+        { value: "alias-transparent", variable: "--o-ui-bg-alias-transparent", itemRenderer: backgroundRenderer }
+    ]}
+/>
+
+### Stroke
+
+<SemanticColorTable
+    colors={[
+        { value: "alias-low-break", variable: "--o-ui-b-alias-low-break", itemRenderer: borderRenderer},
+        { value: "alias-mid-break", variable: "--o-ui-b-alias-mid-break", itemRenderer: borderRenderer},
+        { value: "alias-high-break", variable: "--o-ui-b-alias-high-break", itemRenderer: borderRenderer},
+        { value: "alias-accent", variable: "--o-ui-b-alias-accent" , itemRenderer: borderRenderer},
+        { value: "alias-accent-hover", variable: "--o-ui-b-alias-acent-hover", itemRenderer: borderRenderer},
+        { value: "alias-accent-active", variable: "--o-ui-b-alias-accent-active", itemRenderer: borderRenderer},
+        { value: "alias-alert", variable: "--o-ui-b-alias-alert", itemRenderer: borderRenderer},
+        { value: "alias-alert-hover", variable: "--o-ui-b-alias-alert-hover", itemRenderer: borderRenderer},
+        { value: "alias-alert-active", variable: "--o-ui-b-alias-alert-active", itemRenderer: borderRenderer},
+        { value: "alias-warning", variable: "--o-ui-b-alias-warning", itemRenderer: borderRenderer},
+        { value: "alias-warning-hover", variable: "--o-ui-b-alias-warning-hover", itemRenderer: borderRenderer},
+        { value: "alias-warning-active", variable: "--o-ui-b-alias-warning-active", itemRenderer: borderRenderer},
+        { value: "alias-success", variable: "--o-ui-b-alias-success", itemRenderer: borderRenderer},
+        { value: "alias-success-hover", variable: "--o-ui-b-alias-success-hover", itemRenderer: borderRenderer},
+        { value: "alias-success-active", variable: "--o-ui-b-alias-success-active", itemRenderer: borderRenderer }
+    ]}
+/>
+
+## Color palettes
+
+> To ensure a consistency betweens ShareGate apps and improve maintability, an app should **only** use [semantic colors](#semantic-colors).
+
+### Purple
+
+<ColorPaletteTable
+    colors={[
+        { value: "purple-1", variable: "--o-ui-purple-1", color: ShareGateTheme.colors.common.purple[0] },
+        { value: "purple-2", variable: "--o-ui-purple-2", color: ShareGateTheme.colors.common.purple[1] },
+        { value: "purple-3", variable: "--o-ui-purple-3", color: ShareGateTheme.colors.common.purple[2] },
+        { value: "purple-4", variable: "--o-ui-purple-4", color: ShareGateTheme.colors.common.purple[3] },
+        { value: "purple-5", variable: "--o-ui-purple-5", color: ShareGateTheme.colors.common.purple[4] },
+        { value: "purple-6", variable: "--o-ui-purple-6", color: ShareGateTheme.colors.common.purple[5] },
+        { value: "purple-7", variable: "--o-ui-purple-7", color: ShareGateTheme.colors.common.purple[6] },
+        { value: "purple-8", variable: "--o-ui-purple-8", color: ShareGateTheme.colors.common.purple[7] },
+        { value: "purple-9", variable: "--o-ui-purple-9", color: ShareGateTheme.colors.common.purple[8] },
+        { value: "purple-10", variable: "--o-ui-purple-10", color: ShareGateTheme.colors.common.purple[9] }
+    ]}
+/>
+
+### Neutral
+
+<ColorPaletteTable
+    colors={[
+        { value: "neutral-1", variable: "--o-ui-neutral-1", color: ShareGateTheme.colors.common.neutral[0] },
+        { value: "neutral-2", variable: "--o-ui-neutral-2", color: ShareGateTheme.colors.common.neutral[1] },
+        { value: "neutral-3", variable: "--o-ui-neutral-3", color: ShareGateTheme.colors.common.neutral[2] },
+        { value: "neutral-4", variable: "--o-ui-neutral-4", color: ShareGateTheme.colors.common.neutral[3] },
+        { value: "neutral-5", variable: "--o-ui-neutral-5", color: ShareGateTheme.colors.common.neutral[4] },
+        { value: "neutral-6", variable: "--o-ui-neutral-6", color: ShareGateTheme.colors.common.neutral[5] },
+        { value: "neutral-7", variable: "--o-ui-neutral-7", color: ShareGateTheme.colors.common.neutral[6] },
+        { value: "neutral-8", variable: "--o-ui-neutral-8", color: ShareGateTheme.colors.common.neutral[7] },
+        { value: "neutral-9", variable: "--o-ui-neutral-9", color: ShareGateTheme.colors.common.neutral[8] },
+        { value: "neutral-10", variable: "--o-ui-neutral-10", color: ShareGateTheme.colors.common.neutral[9] }
+    ]}
+/>
+
+### Green
+
+<ColorPaletteTable
+    colors={[
+        { value: "green-1", variable: "--o-ui-green-1", color: ShareGateTheme.colors.common.green[0] },
+        { value: "green-2", variable: "--o-ui-green-2", color: ShareGateTheme.colors.common.green[1] },
+        { value: "green-3", variable: "--o-ui-green-3", color: ShareGateTheme.colors.common.green[2] },
+        { value: "green-4", variable: "--o-ui-green-4", color: ShareGateTheme.colors.common.green[3] },
+        { value: "green-5", variable: "--o-ui-green-5", color: ShareGateTheme.colors.common.green[4] },
+        { value: "green-6", variable: "--o-ui-green-6", color: ShareGateTheme.colors.common.green[5] },
+        { value: "green-7", variable: "--o-ui-green-7", color: ShareGateTheme.colors.common.green[6] },
+        { value: "green-8", variable: "--o-ui-green-8", color: ShareGateTheme.colors.common.green[7] },
+        { value: "green-9", variable: "--o-ui-green-9", color: ShareGateTheme.colors.common.green[8] },
+        { value: "green-10", variable: "--o-ui-green-10", color: ShareGateTheme.colors.common.green[9] }
+    ]}
+/>
+
+### Orange
+
+<ColorPaletteTable
+    colors={[
+        { value: "orange-1", variable: "--o-ui-orange-1", color: ShareGateTheme.colors.common.orange[0] },
+        { value: "orange-2", variable: "--o-ui-orange-2", color: ShareGateTheme.colors.common.orange[1] },
+        { value: "orange-3", variable: "--o-ui-orange-3", color: ShareGateTheme.colors.common.orange[2] },
+        { value: "orange-4", variable: "--o-ui-orange-4", color: ShareGateTheme.colors.common.orange[3] },
+        { value: "orange-5", variable: "--o-ui-orange-5", color: ShareGateTheme.colors.common.orange[4] },
+        { value: "orange-6", variable: "--o-ui-orange-6", color: ShareGateTheme.colors.common.orange[5] },
+        { value: "orange-7", variable: "--o-ui-orange-7", color: ShareGateTheme.colors.common.orange[6] },
+        { value: "orange-8", variable: "--o-ui-orange-8", color: ShareGateTheme.colors.common.orange[7] },
+        { value: "orange-9", variable: "--o-ui-orange-9", color: ShareGateTheme.colors.common.orange[8] },
+        { value: "orange-10", variable: "--o-ui-orange-10", color: ShareGateTheme.colors.common.orange[9] }
+    ]}
+/>
+
+### Alert
+
+<ColorPaletteTable
+    colors={[
+        { value: "alert-1", variable: "--o-ui-alert-1", color: ShareGateTheme.colors.common.alert[0] },
+        { value: "alert-2", variable: "--o-ui-alert-2", color: ShareGateTheme.colors.common.alert[1] },
+        { value: "alert-3", variable: "--o-ui-alert-3", color: ShareGateTheme.colors.common.alert[2] },
+        { value: "alert-4", variable: "--o-ui-alert-4", color: ShareGateTheme.colors.common.alert[3] },
+        { value: "alert-5", variable: "--o-ui-alert-5", color: ShareGateTheme.colors.common.alert[4] },
+        { value: "alert-6", variable: "--o-ui-alert-6", color: ShareGateTheme.colors.common.alert[5] },
+        { value: "alert-7", variable: "--o-ui-alert-7", color: ShareGateTheme.colors.common.alert[6] },
+        { value: "alert-8", variable: "--o-ui-alert-8", color: ShareGateTheme.colors.common.alert[7] },
+        { value: "alert-9", variable: "--o-ui-alert-9", color: ShareGateTheme.colors.common.alert[8] },
+        { value: "alert-10", variable: "--o-ui-alert-10", color: ShareGateTheme.colors.common.alert[9] }
+    ]}
+/>
+
+### Warning
+
+<ColorPaletteTable
+    colors={[
+        { value: "warning-1", variable: "--o-ui-warning-1", color: ShareGateTheme.colors.common.warning[0] },
+        { value: "warning-2", variable: "--o-ui-warning-2", color: ShareGateTheme.colors.common.warning[1] },
+        { value: "warning-3", variable: "--o-ui-warning-3", color: ShareGateTheme.colors.common.warning[2] },
+        { value: "warning-4", variable: "--o-ui-warning-4", color: ShareGateTheme.colors.common.warning[3] },
+        { value: "warning-5", variable: "--o-ui-warning-5", color: ShareGateTheme.colors.common.warning[4] },
+        { value: "warning-6", variable: "--o-ui-warning-6", color: ShareGateTheme.colors.common.warning[5] },
+        { value: "warning-7", variable: "--o-ui-warning-7", color: ShareGateTheme.colors.common.warning[6] },
+        { value: "warning-8", variable: "--o-ui-warning-8", color: ShareGateTheme.colors.common.warning[7] },
+        { value: "warning-9", variable: "--o-ui-warning-9", color: ShareGateTheme.colors.common.warning[8] },
+        {  value: "warning-10", variable: "--o-ui-warning-10", color: ShareGateTheme.colors.common.warning[9] }
+    ]}
+/>
+
+### Success
+
+<ColorPaletteTable
+    colors={[
+        { value: "success-1", variable: "--o-ui-success-1", color: ShareGateTheme.colors.common.success[0] },
+        { value: "success-2", variable: "--o-ui-success-2", color: ShareGateTheme.colors.common.success[1] },
+        { value: "success-3", variable: "--o-ui-success-3", color: ShareGateTheme.colors.common.success[2] },
+        { value: "success-4", variable: "--o-ui-success-4", color: ShareGateTheme.colors.common.success[3] },
+        { value: "success-5", variable: "--o-ui-success-5", color: ShareGateTheme.colors.common.success[4] },
+        { value: "success-6", variable: "--o-ui-success-6", color: ShareGateTheme.colors.common.success[5] },
+        { value: "success-7", variable: "--o-ui-success-7", color: ShareGateTheme.colors.common.success[6] },
+        { value: "success-8", variable: "--o-ui-success-8", color: ShareGateTheme.colors.common.success[7] },
+        { value: "success-9", variable: "--o-ui-success-9", color: ShareGateTheme.colors.common.success[8] },
+        { value: "success-10", variable: "--o-ui-success-10", color: ShareGateTheme.colors.common.success[9] }
+    ]}
+/>
+
+### White
+
+<ColorPaletteTable
+    colors={[
+        { value: "white", variable: "--o-ui-white", color: ShareGateTheme.colors.common.white }
+    ]}
+/>
+
+### Black
+
+<ColorPaletteTable
+    colors={[
+        { value: "black", variable: "--o-ui-black", color: ShareGateTheme.colors.common.black }
+    ]}
+/>
+
+### Gray
+
+<ColorPaletteTable
+    colors={[
+        { value: "gray", variable: "--o-ui-gray", color: ShareGateTheme.colors.common.gray }
+    ]}
+/>

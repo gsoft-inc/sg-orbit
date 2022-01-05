@@ -1,0 +1,46 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta
+    title="Features/Color Schemes"
+    id="color-schemes"
+/>
+
+# Color schemes
+
+Orbit supports multiple color schemes within a theme, including *light* and *dark* mode. By default, Orbit components and [semantic colors](?path=/story/colors--page#semantic-colors) support both *light* and *dark* color schemes.
+
+A color scheme could either be specified explicitly to a [theme provider](?path=/story/theme-provider--default-story) component with the `light` or `dark` values:
+
+```jsx
+<ThemeProvider theme={ShareGateTheme} colorScheme="dark">
+    <Button variant="secondary">Cutoff</Button>
+</ThemeProvider>
+```
+
+or rely on the operating system setting by providing the `system` value:
+
+```jsx
+<ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
+    <Button variant="secondary">Cutoff</Button>
+</ThemeProvider>
+```
+
+When the `system` value is provided, an additional *fallback* color scheme must be provided to `defaultColorScheme` in case the theme provider can't access the user setting.
+
+## useColorSchemeValue
+
+Some features requires the usage of custom colors. Those colors aren't like Orbit [semantic colors](?path=/story/colors--page#semantic-colors) and will not support color schemes out of the box. To help with that, Orbit offer the `useColorSchemeValue` hook.
+
+```jsx
+const color = useColorSchemeValue("#fff", "#000");
+const backgroundColor = useColorSchemeValue("#ff9048", "#fee2bb");
+
+return (
+    <Button
+        color={color}
+        backgroundColor={backgroundColor}
+    >
+        Cutoff
+    </Button>
+);
+```

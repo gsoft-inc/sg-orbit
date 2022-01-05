@@ -1,4 +1,4 @@
-import { Table, Link } from "@stories/components";
+import { Link, Table } from "@stories/components";
 import { array, arrayOf } from "prop-types";
 
 const propTypes = {
