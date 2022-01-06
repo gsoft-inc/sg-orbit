@@ -1,7 +1,6 @@
 import { Content, Header } from "@components/placeholders";
 import { act, fireEvent, waitFor } from "@testing-library/react";
 
-import { Div } from "@components/html";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Tabs } from "@components/tabs";
