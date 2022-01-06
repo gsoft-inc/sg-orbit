@@ -147,7 +147,6 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    gap: var(--o-ui-sp-2);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
@@ -259,50 +258,4 @@
 .o-ui-tabs-fluid .o-ui-tab-panel {
     width: 100%;
     height: 100%;
-}
-
-/* COLLAPSIBLE TABS */
-.o-ui-collapsed-tabs {
-    background-color: var(--o-ui-bg-alias-default);
-    border: 1px solid var(--o-ui-b-alias-low-break);
-    border-radius: var(--o-ui-shape-rounded);
-    box-shadow: var(--o-ui-bs-alias-lifted);
-    margin-top: var(--o-ui-sp-2);
-}
-
-/* COLLAPSIBLE TABS | TRIGGER */
-.o-ui-tabs .o-ui-tablist-trigger {
-    border-radius: var(--o-ui-shape-rounded);
-    color: var(--o-ui-text-alias-secondary);
-    font-size: var(--o-ui-fs-3);
-    position: relative;
-    padding: var(--o-ui-text-button-padding-md);
-    height: var(--o-ui-sp-7);
-    flex-shrink: 0;
-    border: 1px solid var(--o-ui-b-alias-high-break);
-}
-
-/* COLLAPSIBLE TABS | TRIGGER | OPEN */
-.o-ui-tablist-trigger[aria-expanded="true"] {
-    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
-}
-
-/* COLLAPSIBLE TABS | TRIGGER | HOVER */
-.o-ui-tablist-trigger:not([disabled]):hover {
-    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
-}
-
-/* COLLAPSIBLE TABS | TABS */
-.o-ui-collapsed-tabs .o-ui-tab {
-    padding-left: calc(var(--o-ui-sp-3) + 1px);
-    padding-right: var(--o-ui-sp-8);
-    justify-content: start;
-    width: 100%;
-    min-height: var(--o-ui-sz-7);
-}
-
-/* COLLAPSIBLE TABS | TABS */
-.o-ui-collapsed-tabs .o-ui-tab:hover {
-    background-color: var(--o-ui-bg-alias-mid-break);
-    border-bottom: 0;
 }
