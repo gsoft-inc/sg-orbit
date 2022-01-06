@@ -1,7 +1,6 @@
-import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { Button } from "@components/button";
-import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { ShareGateTheme, ThemeProvider } from "@components/styling"
+import { ArgsTable, Meta } from "@storybook/addon-docs";
+import { ComponentInfo, Tagline } from "@stories/components";
+import { ThemeProvider } from "@components/styling"
 
 <Meta
     title="Components/ThemeProvider"
@@ -10,60 +9,24 @@ import { ShareGateTheme, ThemeProvider } from "@components/styling"
 
 # ThemeProvider
 
-<Tagline>Container for Orbit applications used to define the theme and color scheme to use.</Tagline>
+<Tagline>Container used to define the theme and color scheme to use.</Tagline>
 
 <ComponentInfo
-    usage={"import { ThemeProvider, ThemeContext, useThemeContext } from \"@sharegate/orbit-ui\";"}
+    usage={"import { ThemeProvider, ThemeContext, useThemeContext, ColorSchemeContext, useColorSchemeContext } from \"@sharegate/orbit-ui\";"}
     githubPath="/packages/components/src/styling/src"
 />
 
 ## Usage
 
-Orbit components rely on the `ThemeProvider` to define the theme and color scheme they need to render accurately. We do recommended you declare a `ThemeProvider` at the root of your application but if you prefer, you can declare them as needed instead.
+Orbit components rely on the `ThemeProvider` to define the theme and color scheme they need to render accurately. We do recommended you declare a theme provider at the root of your application but if you prefer, you can declare them as needed instead.
 
-You can access or update the current color scheme from any React components by using the `useThemeContext` hook.
+> For more information, view the [theming](?path=/docs/theming--page) and [color schemes](?path=/docs/color-schemes--page) sections.
 
 ```jsx
-const { colorScheme, setColorScheme, themeAccessor, theme } = useThemeContext();
+<ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
+    <Button variant="secondary">Cutoff</Button>
+</ThemeProvider>
 ```
-
-### Default
-
-A default theme provider.
-
-<Preview scope={{ ShareGateTheme }}>
-    <Story name="default">
-        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            <Button variant="secondary">Cutoff</Button>
-        </ThemeProvider>
-    </Story>
-</Preview>
-
-### User setting
-
-A theme provider can select a color scheme according to the user's operating system setting.
-
-To enable this feature, you must pass the `system` value to `colorScheme` and an additional *fallback* color scheme to `defaultColorScheme` in case the theme provider can't access the user setting.
-
-<Preview>
-    <Story name="system">
-        <ThemeProvider theme={ShareGateTheme} colorScheme="system" defaultColorScheme="light">
-            <Button variant="secondary">Cutoff</Button>
-        </ThemeProvider>
-    </Story>
-</Preview>
-
-### Context
-
-The closest `ThemeContext` can be accessed with the `useThemeContext` hook. Once you have an hold on the context, you can access is values and update the `colorScheme`.
-
-<Preview filePath="/styling/docs/theme-provider/ColorSchemePicker" />
-
-### Custom color
-
-Some features requires the usage of custom colors. Those colors aren't like Orbit's aliases and will not support multiple color schemes (dark mode) out of the box. To help with that, Orbit offer the `useColorValue` hook.
-
-<Preview filePath="/styling/docs/theme-provider/CustomColorHook" />
 
 ## API
 

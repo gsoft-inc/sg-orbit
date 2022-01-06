@@ -2,9 +2,7 @@
     const [isOpen, setIsOpen] = useState(false);
 
     const handleSelectionChange = useCallback((event, keys) => {
-        if (keys.includes("launch")) {
-            setIsOpen(true);
-        }
+        setIsOpen(true);
     }, [setIsOpen]);
 
     const handleModalClose = useCallback(() => {

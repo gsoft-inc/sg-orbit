@@ -1,20 +1,99 @@
-import { GithubLink } from "@stories/components";
 import { Table } from "@stories/components";
 import { Meta } from "@storybook/addon-docs";
-import { paramsBuilder } from "@stories/utils";
 import { Div } from "@components/html";
 import { Preview } from "@stories/components";
 import { Paragraph } from "@components/typography";
 import { PropsReferenceTable } from "./PropsReferenceTable";
 
 <Meta
-    title="Getting Started/Styling/Props Reference"
-    id="props-reference"
+    title="Features/Style Props"
+    id="style-props"
 />
 
-# Props Reference
+# Style props
 
-Orbit styled system is organized into categories of style props. Each function provides the following props and maps to scales defined in a theme.
+An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications.
+
+Shorthands like `border` and `paddingX` are also provided to helps you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
+
+```jsx
+<Div
+    fontSize={6}
+    fontWeight={3}
+    padding={3}
+    marginBottom={3}
+    color="alias-static-white"
+    borderRadius={3}
+    backgroundColor="alias-accent">
+    Lost in space.
+</Div>
+```
+
+Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](?path=/docs/theming--page) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
+
+To help achieve a consistent UI, Orbit style props are based on scales and values defined in a customizable [theme](?path=/docs/theming--page).
+
+<Preview>
+    <Div width={18} backgroundColor="alias-accent-light" padding={4} borderRadius={2} maxWidth="100%">
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+## Pseudo state
+
+The following pseudo states are supported by some style props and behaves like their pseudo CSS counterparts.
+
+<Table
+    columns={[
+        { title: "Suffix", headerStyle: { width: "100px" } },
+        { title: "Pseudo state", headerStyle: { width: "250px" } } ]}
+    rows={[
+        ["Active", ":active"],
+        ["Hover", ":hover"],
+        ["Focus", ":focus"]
+    ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
+/>
+
+<Preview>
+    <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius={2}>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+Not all style props supports pseudo state. Find out which props support pseudo state in the [reference](#reference) section.
+
+## HTML elements
+
+You might wonder how will you use Orbit style props on your HTML elements?
+
+Orbit provides a set of HTML element components already setup with Orbit styled system. You should always prefer these components to native HTML elements.
+
+[`<A>`](?path=/docs/html-anchor--example), [`<Address>`](?path=/docs/html-address--example), [`<Article>`](?path=/docs/html-article--page), [`<Aside>`](?path=/docs/html-aside--page), [`<Button>`](?path=/docs/html-button--example), [`<Div>`](?path=/docs/html-div--example), [`<Footer>`](?path=/docs/html-footer--page), [`<Header>`](?path=/docs/html-header--page), [`<Img>`](?path=/docs/html-img--example), [`<Input>`](?path=/docs/html-input--example), [`<List>`](?path=/docs/html-list--example), [`<Main>`](?path=/docs/html-main--page), [`<Nav>`](?path=/docs/html-nav--page), [`<Section>`](?path=/docs/html-section--page), [`<Span>`](?path=/docs/html-span--example), [`<Table>`](?path=/docs/html-table--example)
+
+For text elements, when applicable, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph`](?path=/docs/paragraph--size) component.
+
+## Layout containers
+
+To make it easier for you, Orbit also provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
+
+When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component over a [`<Div>`](?path=/docs/html-div--example) component.
+
+```jsx
+<Grid templateColumns="1fr 1fr" gap={2} height={10}>
+    <Div backgroundColor="accent-5" />
+    <Div backgroundColor="alert-5" />
+    <Div backgroundColor="green-5" />
+    <Div backgroundColor="neutral-5" />
+</Grid>
+```
+
+## Reference
+
+The following tables shows a list of every available style props organized by categories.
 
 ### Space
 
@@ -67,7 +146,7 @@ Orbit styled system is organized into categories of style props. Each function p
 
 ```jsx
 <Header letterSpacing="0.3rem">
-    Hello!
+    Halleys Comet
 </Header>
 ```
 
@@ -272,3 +351,4 @@ Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an 
         ["willChange", "will-change", "none", "none", "breakpoint"]
     ]}
 />
+

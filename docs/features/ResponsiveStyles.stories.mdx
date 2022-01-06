@@ -1,0 +1,56 @@
+import { Meta } from "@storybook/addon-docs";
+import { Table } from "@stories/components";
+import { Preview } from "@stories/components";
+
+<Meta
+    title="Features/Responsive Styles"
+    id="responsive-styles"
+/>
+
+# Responsive styles
+
+Orbit [style props](?path=/docs/style-props--page) supports responsive breakpoints. These breakpoints are documented below and behaves like their CSS media query counterparts.
+
+<Table
+    columns={[
+        { title: "Size", headerStyle: { width: "75px" }, rowClassName: "code" },
+        { title: "Media query", headerStyle: { width: "200px" }, rowClassName: "code" }
+    ]}
+    rows={[
+        ["xs", "min-width: 640px"],
+        ["sm", "min-width: 768px"],
+        ["md", "min-width: 1024px"],
+        ["lg", "min-width: 1280px"],
+        ["xl", "min-width: 1536px"]
+    ]}
+    style={{
+        marginTop: "24px",
+        marginBottom: "24px"
+    }}
+/>
+
+By passing an object to any style props, you can specify which style will be applied at different breakpoints. These rules are on a `min-width` basis meaning that a `sm` value will apply from `768px` and up until another higher breakpoint matches.
+
+<Preview>
+    <Div backgroundColor={{ base: "green-2", xs: "purple-2", sm: "green-2", md: "accent-2", lg: "neutral-2", xl: "warning-2" }} width={18} maxWidth="100%" padding={4}>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+Not all breakpoints needs to be set explicitly. In the following example, `base` and `lg` are explicitly set breakpoints. When match, the `xl` breakpoint will implicitly takes the value set by `lg` breakpoints since it is wider than `lg`. Everything below `lg` inherits the `base` color.
+
+<Preview>
+    <Div backgroundColor={{ base: "alias-success", lg: "alias-warning" }} width={18} maxWidth="100%" padding={4}>
+        <Paragraph fontSize={4}>Lost in space.</Paragraph>
+    </Div>
+</Preview>
+
+### useResponsiveValue
+
+Sometimes you have to resolve a responsive value in your React code. Orbit helps you with that by providing the `useResponsiveValue` hook.
+
+```jsx
+import { useResponsiveValue } from "@sharegate/orbit-ui";
+
+const fluidValue = useResponsiveValue({ base: true, lg: false });
+```

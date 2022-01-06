@@ -9,15 +9,15 @@ import { Div } from "@components/html";
 
 # Shadows
 
-<Tagline>Shadows are used to make content appear elevated.</Tagline>
+CSS shadows are made using a system of 6 layers in order to provide silky smooth shadows. The shadows values can be previewed and altered on [shadows.brumm.af](https://shadows.brumm.af/).
 
 ## Values
 
 <Table
     columns={[
-        { title: "Scale", headerStyle: { width: "100px" } },
-        { title: "Variable", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
-        { title: "Sample", headerStyle: { width: "350px" } } ]}
+        { title: "Prop Value", headerStyle: { width: "100px" }, rowClassName: "code" },
+        { title: "CSS Variable", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "", headerStyle: { width: "350px" } } ]}
     rows={[
         ["1", "--o-ui-bs-1", <Div boxShadow={1} borderRadius={2} backgroundColor="alias-static-white" height={9} margin={3}></Div>],
         ["2", "--o-ui-bs-2", <Div boxShadow={2} borderRadius={2} backgroundColor="alias-static-white" height={9} margin={3}></Div>],
@@ -26,8 +26,6 @@ import { Div } from "@components/html";
     ]}
     rowClassName="background-1"
 />
-
-CSS shadows are made using a system of 6 layers in order to provide silky smooth shadows. The shadows values can be previewed and altered on [shadows.brumm.af](https://shadows.brumm.af/).
 
 #### Shadow 1
 

@@ -53,13 +53,13 @@ const ShareGateColors: Partial<ColorPaletteSection> = {
         "#eef3fd",
         "#dbe6fd",
         "#b6c2ef",
-        "#95A9F5",
-        "#7689FD",
-        "#5D65F6",
-        "#4B11FD",
-        "#362AAE",
-        "#1F2151",
-        "#0D0F1F"
+        "#95a9f5",
+        "#7689fd",
+        "#5d65f6",
+        "#4b11fd",
+        "#362aae",
+        "#1f2151",
+        "#0d0f1f"
     ],
     success: [
         "#e3f8ec",

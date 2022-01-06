@@ -1,60 +1,60 @@
-import { Table } from "@stories/components";
-import { Span, Div } from "@components/html";
-import { func, arrayOf, shape, string } from "prop-types";
 import { ShareGateTheme, ThemeProvider } from "@components/styling";
-import { EmailIcon } from "@components/icons";
+import { arrayOf, func, shape, string } from "prop-types";
+
+import { Div } from "@components/html";
+import { DocsContext } from "@storybook/addon-docs";
+import { InfoIcon } from "@components/icons";
+import { Table } from "@stories/components";
+import { Text } from "@components/typography";
+import { useContext } from "react";
 
 const propTypes = {
     colors: arrayOf(shape({
-        shade: string.isRequired,
         value: string.isRequired,
         variable: string.isRequired,
         itemRenderer: func.isRequired
     })).isRequired
 };
 
-export function SemanticColorTable({ colors }) {
+function toRowValues({ value, variable, itemRenderer }) {
+    return [
+        value,
+        variable,
+        itemRenderer(value),
+    ];
+}
 
-    function toRowValues({ shade, value, variable, usage, itemRenderer }) {
-        return [
-            shade,
-            value,
-            variable,
-            usage,
-            <ThemeProvider theme={ShareGateTheme} colorScheme="light"><Div height={6} backgroundColor="alias-default">{itemRenderer(value)}</Div></ThemeProvider>,
-            <ThemeProvider theme={ShareGateTheme} colorScheme="dark"><Div height={6} backgroundColor="alias-default">{itemRenderer(value)}</Div></ThemeProvider>
-        ];
-    }
+export function SemanticColorTable({ colors }) {
+    const docsContext = useContext(DocsContext);
 
     return (
-        <Table
-            columns={[
-                { title: "Name", headerStyle: { width: "150px" } },
-                { title: "Styled System Value", headerStyle: { width: "180px" }, rowClassName: "code f7 o-90" },
-                { title: "CSS Variable", headerStyle: { width: "300px" }, rowClassName: "code f7 o-90" },
-                { title: "Usage", headerStyle: { width: "300px" } },
-                { title: "Light", headerStyle: { width: "100px" } },
-                { title: "Dark", headerStyle: { width: "100px" } }
-            ]}
-            rows={colors.map(x => toRowValues(x))}
-        />
+        <ThemeProvider theme={ShareGateTheme} colorScheme={docsContext.globals.colorScheme}>
+            <Table
+                columns={[
+                    { title: "Prop Value", headerStyle: { width: "325px" }, rowClassName: "code" },
+                    { title: "CSS Variable", headerStyle: { width: "325px" }, rowClassName: "code" },
+                    { title: "", headerStyle: { width: "300px" }, rowStyle: { backgroundColor: "var(--o-ui-bg-alias-default)" } },
+                ]}
+                rows={colors.map(x => toRowValues(x))}
+            />
+        </ThemeProvider>
     );
 }
 
 export function textRenderer(value) {
-    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%"><Span color={value}>Moon</Span></Div></Div>
+    return <Div height={6} display="flex" alignItems="center" justifyContent="center"><Text color={value} size="lg">Moon</Text></Div>
 }
 
 export function backgroundRenderer(value) {
-    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%" backgroundColor={value}></Div></Div>
+    return <Div height={6} backgroundColor={value}></Div>
 }
 
 export function borderRenderer(value) {
-    return <Div padding={2} height="100%" width="100%"><Div height="100%" width="100%" border={value}></Div></Div>
+    return <Div height={6} border={value}></Div>
 }
 
 export function iconRenderer(value) {
-    return <Div padding={2} height="100%" width="100%"><EmailIcon fill={value}/></Div>
+    return <Div height={6} display="flex" alignItems="center" justifyContent="center"><InfoIcon fill={value} size="lg" /></Div>
 }
 
 SemanticColorTable.propTypes = propTypes;

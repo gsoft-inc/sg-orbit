@@ -75,6 +75,10 @@ export function InnerPopoverTrigger({
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
+    const open = useCallback((event: SyntheticEvent) => {
+        updateIsOpen(event, true);
+    }, [updateIsOpen]);
+
     const close = useCallback((event: SyntheticEvent) => {
         updateIsOpen(event, false);
     }, [updateIsOpen]);
@@ -89,10 +93,10 @@ export function InnerPopoverTrigger({
         hideOnLeave: false,
         isDisabled: trigger.props.disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
+            close(event);
         }),
         onShow: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, true);
+            open(event);
         })
     });
 

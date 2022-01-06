@@ -1,4 +1,4 @@
-import { Table, Link } from "@stories/components";
+import { Link, Table } from "@stories/components";
 import { array, arrayOf } from "prop-types";
 
 const propTypes = {
@@ -30,7 +30,7 @@ export function ThemeSpecificationTable({ rows, ...rest }) {
             {...rest}
             columns={[
                 { title: "Theme key", headerStyle: { width: "150px" }, rowClassName: "code"},
-                { title: "CSS properties", headerStyle: { width: "650px" }, rowClassName: "code"},
+                { title: "CSS properties", headerStyle: { width: "850px" }, rowClassName: "code"},
                 { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code"}
             ]}
             rows={rows.map(x => toRowValues(x))}
