@@ -11,7 +11,7 @@
 /* TAB LIST */
 .o-ui-tab-list {
     display: flex;
-    gap: var(--o-ui-sp-2);
+    /* gap: var(--o-ui-sp-2); */
 }
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
@@ -113,6 +113,10 @@
 .o-ui-tab:not([disabled]):hover,
 .o-ui-tab-hover:not([disabled]) {
     color: var(--o-ui-text-alias-primary);
+}
+
+.o-ui-tabs-horizontal .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
+.o-ui-tabs-horizontal .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
     border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
 }
 
@@ -133,10 +137,6 @@
 .o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab {
     flex-grow: 1;
     flex-shrink: 1;
-}
-
-.o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab:hover {
-    border-bottom: 2px solid var(--o-ui-bg-alias-hard-break);
 }
 
 /* TAB | FLUID | ORIENTATION | VERTICAL */
@@ -208,7 +208,6 @@
 
 /* COLLAPSIBLE TABS | TRIGGER */
 .o-ui-tabs .o-ui-tablist-trigger {
-    border: none;
     border-radius: var(--o-ui-shape-rounded);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
@@ -216,6 +215,7 @@
     padding: var(--o-ui-text-button-padding-md);
     height: var(--o-ui-sp-7);
     flex-shrink: 0;
+    border: 1px solid var(--o-ui-b-alias-high-break);
 }
 
 /* COLLAPSIBLE TABS | TRIGGER | OPEN */
