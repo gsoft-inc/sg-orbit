@@ -1053,7 +1053,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
 // ***** Refs *****
 
 test("ref is a DOM element", async () => {
-    const ref = createRef<HTMLElement>();
+    const ref = createRef<ListboxElement>();
 
     renderWithTheme(
         <Listbox ref={ref} />
