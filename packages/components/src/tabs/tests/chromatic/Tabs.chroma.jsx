@@ -338,15 +338,25 @@ stories()
                     <Content>Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.</Content>
                 </Item>
                 <Item key="saturn">
-                    <Header>Saturn</Header>
+                    <Header>
+                        <NotificationIcon />
+                        <Text>Saturn</Text>
+                    </Header>
                     <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
                 </Item>
                 <Item key="uranus">
-                    <Header>Uranus</Header>
+                    <Header>
+                        <Text>Uranus</Text>
+                        <NotificationIcon />
+                    </Header>
                     <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
                 </Item>
                 <Item key="neptune">
-                    <Header>Neptune</Header>
+                    <Header>
+                        <NotificationIcon />
+                        <Text>Neptune</Text>
+                        <Lozenge>New</Lozenge>
+                    </Header>
                     <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
                 </Item>
             </Tabs>

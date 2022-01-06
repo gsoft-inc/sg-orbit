@@ -233,9 +233,6 @@ export function InnerTabList({
 
     const tabListRef = useMergedRefs(setFocusRef, collapsibleTabsRef, forwardedRef);
 
-    // When there are collapsed tabs, only manual activation is supported for now.
-    const canAutoActivate = !isManual && !hasCollapsedTabs;
-
     const selectTab = useCallback((event: SyntheticEvent, key: string) => {
         if (!isNil(key)) {
             onSelect(event, key);
@@ -247,13 +244,11 @@ export function InnerTabList({
     });
 
     const handleAutoActivationSelect = useEventCallback((event: KeyboardEvent, element: HTMLElement) => {
-        if (canAutoActivate) {
-            selectTab(event, element?.getAttribute(TabKeyProp));
-        }
+        selectTab(event, element?.getAttribute(TabKeyProp));
     });
 
     const nonCollapsibleNavigationProps = useKeyboardNavigation(focusManager, NonCollapsibleNavigationKeyBinding[orientation], {
-        onSelect: canAutoActivate ? handleAutoActivationSelect : undefined
+        onSelect: !isManual ? handleAutoActivationSelect : undefined
     });
 
     const collapsibleNavigationProps = {
@@ -275,7 +270,15 @@ export function InnerTabList({
                         setPopoverAutoFocusTarget(collapsedTabs[0].key);
                         openPopover();
                     } else {
-                        focusManager.focusNext({ includeChildScopes: true });
+                        const nextElement = focusManager.focusNext({ includeChildScopes: true });
+
+                        if (!isManual) {
+                            const tabKey = nextElement?.getAttribute(TabKeyProp);
+
+                            if (visibleTabs.some(x => x.key === tabKey)) {
+                                selectTab(event, tabKey);
+                            }
+                        }
                     }
 
                     break;
@@ -296,7 +299,15 @@ export function InnerTabList({
                         setPopoverAutoFocusTarget(collapsedTabs[collapsedTabs.length - 1].key);
                         openPopover();
                     } else {
-                        focusManager.focusPrevious({ includeChildScopes: true });
+                        const previousElement = focusManager.focusPrevious({ includeChildScopes: true });
+
+                        if (!isManual) {
+                            const tabKey = previousElement?.getAttribute(TabKeyProp);
+
+                            if (visibleTabs.some(x => x.key === tabKey)) {
+                                selectTab(event, tabKey);
+                            }
+                        }
                     }
 
                     break;
@@ -304,7 +315,15 @@ export function InnerTabList({
                 case Keys.home: {
                     event.preventDefault();
 
-                    focusManager.focusFirst({ includeChildScopes: true });
+                    const firstElement = focusManager.focusFirst({ includeChildScopes: true });
+
+                    if (!isManual) {
+                        const tabKey = firstElement?.getAttribute(TabKeyProp);
+
+                        if (visibleTabs.some(x => x.key === tabKey)) {
+                            selectTab(event, tabKey);
+                        }
+                    }
 
                     break;
                 }
