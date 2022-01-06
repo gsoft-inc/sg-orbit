@@ -5,7 +5,6 @@ export * from "./focusTarget";
 // Utils
 export * from "./assertions";
 export * from "./size";
-export * from "./match";
 export * from "./mergeProps";
 export * from "./mergeClasses";
 export * from "./cssModule";

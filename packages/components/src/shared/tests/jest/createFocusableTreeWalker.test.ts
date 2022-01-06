@@ -210,6 +210,30 @@ test("reject elements with hidden attribute", () => {
     expect(walker.firstChild()).toBeNull();
 });
 
+test("reject elements with an aria-hidden attribute set to \"true\"", () => {
+    const element = document.createElement("INPUT");
+    element.setAttribute("aria-hidden", "true");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBeNull();
+});
+
+test("accept elements with an aria-hidden attribute set to \"false\"", () => {
+    const element = document.createElement("INPUT");
+    element.setAttribute("aria-hidden", "false");
+
+    const container = document.createElement("DIV");
+    container.appendChild(element);
+
+    const walker = createFocusableTreeWalker(container);
+
+    expect(walker.firstChild()).toBe(element);
+});
+
 test("reject elements with a not visible parent", () => {
     const element = document.createElement("INPUT");
 

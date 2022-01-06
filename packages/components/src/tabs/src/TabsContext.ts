@@ -3,7 +3,6 @@ import { SyntheticEvent, createContext, useContext } from "react";
 export type TabsOrientation = "horizontal" | "vertical";
 
 export interface TabsContextType {
-    isCollapsible?: boolean;
     isManual?: boolean;
     onSelect?: (event: SyntheticEvent, key: string) => void;
     orientation?: TabsOrientation;

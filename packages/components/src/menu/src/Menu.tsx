@@ -86,6 +86,10 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     validationState?: ValidationState;
 }
 
+const MenuItemHeight = 32;
+
+const MenuBorderSize = 1;
+
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
@@ -147,26 +151,36 @@ export function InnerMenu({
         switch (event.key) {
             case Keys.arrowDown: {
                 event.preventDefault();
+
                 focusManager.focusNext();
+
                 break;
             }
             case Keys.arrowUp: {
                 event.preventDefault();
+
                 focusManager.focusPrevious();
+
                 break;
             }
             case Keys.home:
                 event.preventDefault();
+
                 focusManager.focusFirst();
+
                 break;
             case Keys.end:
                 event.preventDefault();
+
                 focusManager.focusLast();
+
                 break;
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
+
                 handleSelectItem(event, document.activeElement.getAttribute(ItemKeyProp));
+
                 break;
             // eslint-disable-next-line no-fallthrough
             default:
@@ -201,11 +215,9 @@ export function InnerMenu({
     const scrollableProps = useScrollableCollection(containerRef, nodes, {
         disabled: selectionMode === "none",
         dividerSelector: ".o-ui-menu-divider",
-        // A menu have a border-size of 1px
         itemSelector: ".o-ui-menu-item",
-        maxHeight: 12 * 32,
-        // 32px is the default menu item height.
-        paddingHeight: 2 * 1,
+        maxHeight: 12 * MenuItemHeight,
+        paddingHeight: 2 * MenuBorderSize,
         sectionSelector: ".o-ui-menu-section-title"
     });
 

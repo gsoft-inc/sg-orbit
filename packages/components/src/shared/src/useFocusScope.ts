@@ -4,25 +4,21 @@ import { createFocusableTreeWalker, isFocusableElement } from "./focusableTreeWa
 import { isNil } from "./assertions";
 import { useRefState } from "./useRefState";
 
+export interface ChildScopesOptions {
+    includeChildScopes?: boolean;
+}
+
 export type ScopeChangeEventHandler = (newElements: HTMLElement[], previousElements: HTMLElement[]) => void;
 
 export class FocusScope {
     private scopeRef: RefObject<HTMLElement[]>;
     private handlersRef: RefObject<ScopeChangeEventHandler[]>;
-    childScopes: Set<FocusScope>;
+    private childScopes: Set<FocusScope>;
 
     constructor(scopeRef: RefObject<HTMLElement[]>, handlersRef: RefObject<ScopeChangeEventHandler[]>) {
         this.scopeRef = scopeRef;
         this.handlersRef = handlersRef;
         this.childScopes = new Set();
-    }
-
-    get elements() {
-        return this.scopeRef.current;
-    }
-
-    get length() {
-        return this.scopeRef.current.length;
     }
 
     registerChangeHandler(handler: ScopeChangeEventHandler) {
@@ -43,26 +39,30 @@ export class FocusScope {
         return this.childScopes.delete(scope);
     }
 
-    isInScope(element: HTMLElement, { includeChildScopes = false }: { includeChildScopes?: boolean } = {}) {
+    getElements({ includeChildScopes = false }: ChildScopesOptions = {}) {
+        if (!includeChildScopes || this.childScopes.size === 0) {
+            return this.scopeRef.current;
+        }
+
+        const elements = new Set(this.scopeRef.current);
+
+        this.childScopes.forEach(x => {
+            const children = x.getElements({ includeChildScopes: true });
+
+            children.forEach(y => {
+                elements.add(y);
+            });
+        });
+
+        return Array.from(elements);
+    }
+
+    isInScope(element: HTMLElement, { includeChildScopes = false }: ChildScopesOptions = {}) {
         if (isNil(element)) {
             return false;
         }
 
-        const hasElement = this.elements.some(x => x.contains(element));
-
-        if (includeChildScopes && !hasElement) {
-            return Array.from(this.childScopes).some(x => x.isInScope(element));
-        }
-
-        return hasElement;
-    }
-
-    isFirstElement(element: HTMLElement) {
-        return this.elements[0] === element;
-    }
-
-    isLastElement(element: HTMLElement) {
-        return this.elements[this.elements.length - 1] === element;
+        return this.getElements({ includeChildScopes }).some(x => x.contains(element));
     }
 }
 
@@ -142,9 +142,6 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
             });
         } else {
             mutationObserver.disconnect();
-            // HACK: It's probably not a good idea to comment this cleanup code but it's currently the only way
-            // for restore focus to work.
-            // setElements([]);
         }
     }, [scopeRef, setScope, handlersRef]);
 
@@ -169,7 +166,7 @@ export function useFocusScope(): [FocusScope, (rootElement: HTMLElement) => void
 
 ////////////////////
 
-export interface FocusScopeIteratorOptions {
+export interface FocusScopeIteratorOptions extends ChildScopesOptions {
     from?: number;
     tabbableOnly?: boolean;
 }
@@ -179,14 +176,16 @@ export interface FocusScopeIterationOptions {
 }
 
 export class FocusScopeIterator {
+    private currentIndex: number;
+    private includeChildScopes: boolean;
     private scope: FocusScope;
     private tabbableOnly: boolean;
-    private currentIndex: number;
 
-    constructor(scope: FocusScope, { from, tabbableOnly = false }: FocusScopeIteratorOptions = {}) {
+    constructor(scope: FocusScope, { from, includeChildScopes, tabbableOnly = false }: FocusScopeIteratorOptions = {}) {
+        this.currentIndex = from;
+        this.includeChildScopes = includeChildScopes;
         this.scope = scope;
         this.tabbableOnly = tabbableOnly;
-        this.currentIndex = from;
     }
 
     private isValid(element: HTMLElement) {
@@ -194,7 +193,7 @@ export class FocusScopeIterator {
     }
 
     firstElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
+        const elements = this.scope.getElements({ includeChildScopes: this.includeChildScopes });
 
         if (elements.length === 0) {
             return null;
@@ -202,7 +201,7 @@ export class FocusScopeIterator {
 
         this.currentIndex = -1;
 
-        let current;
+        let current: HTMLElement;
 
         do {
             current = elements[++this.currentIndex];
@@ -230,7 +229,7 @@ export class FocusScopeIterator {
     }
 
     lastElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
+        const elements = this.scope.getElements({ includeChildScopes: this.includeChildScopes });
 
         if (elements.length === 0) {
             return null;
@@ -238,7 +237,7 @@ export class FocusScopeIterator {
 
         this.currentIndex = elements.length;
 
-        let current;
+        let current: HTMLElement;
 
         do {
             current = elements[--this.currentIndex];
@@ -266,7 +265,7 @@ export class FocusScopeIterator {
     }
 
     nextElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
+        const elements = this.scope.getElements({ includeChildScopes: this.includeChildScopes });
 
         if (elements.length === 0) {
             return null;
@@ -274,7 +273,7 @@ export class FocusScopeIterator {
 
         const startingIndex = this.currentIndex = this.currentIndex ?? -1;
 
-        let current;
+        let current: HTMLElement;
 
         do {
             current = elements[++this.currentIndex];
@@ -305,7 +304,7 @@ export class FocusScopeIterator {
     }
 
     previousElement({ acceptElement = () => true }: FocusScopeIterationOptions = {}) {
-        const { elements } = this.scope;
+        const elements = this.scope.getElements({ includeChildScopes: this.includeChildScopes });
 
         if (elements.length === 0) {
             return null;
@@ -313,7 +312,7 @@ export class FocusScopeIterator {
 
         const startingIndex = this.currentIndex = this.currentIndex ?? elements.length;
 
-        let current;
+        let current: HTMLElement;
 
         do {
             current = elements[--this.currentIndex];

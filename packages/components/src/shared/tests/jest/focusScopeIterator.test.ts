@@ -183,6 +183,63 @@ describe("firstElement", () => {
 
         expect(element).toBeNull();
     });
+
+    test("when the child scopes are included and the first element is in the parent scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.firstElement();
+
+        expect(element).toBe(parentElements[0]);
+    });
+
+    test("when the child scopes are included and the first element is in a child scope, return the element", () => {
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope([]);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.firstElement();
+
+        expect(element).toBe(childElements[0]);
+    });
+
+    test("when the child scopes are included and both are empty, return null", () => {
+        const parentScope = new Scope([]);
+        const childScope = new Scope([]);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.firstElement();
+
+        expect(element).toBeNull();
+    });
 });
 
 describe("lastElement", () => {
@@ -342,6 +399,63 @@ describe("lastElement", () => {
 
     test("when the scope is empty, return null", () => {
         const iterator = new FocusScopeIterator(new Scope([]));
+
+        const element = iterator.lastElement();
+
+        expect(element).toBeNull();
+    });
+
+    test("when the child scopes are included and the last element is in the parent scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope([]);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.lastElement();
+
+        expect(element).toBe(parentElements[2]);
+    });
+
+    test("when the child scopes are included and the last element is in a child scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.lastElement();
+
+        expect(element).toBe(childElements[2]);
+    });
+
+    test("when the child scopes are included and both are empty, return null", () => {
+        const parentScope = new Scope([]);
+        const childScope = new Scope([]);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
 
         const element = iterator.lastElement();
 
@@ -569,6 +683,69 @@ describe("nextElement", () => {
 
         expect(element).toBeNull();
     });
+
+    test("when the child scopes are included and the next element is in the parent scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true, from: 1 });
+
+        const element = iterator.nextElement();
+
+        expect(element).toBe(parentElements[2]);
+    });
+
+    test("when the child scopes are included and the next element is in a child scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true, from: 2 });
+
+        const element = iterator.nextElement();
+
+        expect(element).toBe(childElements[0]);
+    });
+
+    test("when the child scopes are included and both are empty, return null", () => {
+        const parentScope = new Scope([]);
+        const childScope = new Scope([]);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
+
+        const element = iterator.nextElement();
+
+        expect(element).toBeNull();
+    });
 });
 
 describe("previousElement", () => {
@@ -786,6 +963,69 @@ describe("previousElement", () => {
 
     test("when the scope is empty, return null", () => {
         const iterator = new FocusScopeIterator(new Scope([]));
+
+        const element = iterator.previousElement();
+
+        expect(element).toBeNull();
+    });
+
+    test("when the child scopes are included and the previous element is in the parent scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true, from: 1 });
+
+        const element = iterator.previousElement();
+
+        expect(element).toBe(parentElements[0]);
+    });
+
+    test("when the child scopes are included and the previous element is in a child scope, return the element", () => {
+        const parentElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const childElements = [
+            createInput(),
+            createInput(),
+            createInput()
+        ];
+
+        const parentScope = new Scope(parentElements);
+        const childScope = new Scope(childElements);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true, from: 0 });
+
+        const element = iterator.previousElement();
+
+        expect(element).toBe(childElements[2]);
+    });
+
+    test("when the child scopes are included and both are empty, return null", () => {
+        const parentScope = new Scope([]);
+        const childScope = new Scope([]);
+
+        parentScope.registerChildScope(childScope);
+
+        const iterator = new FocusScopeIterator(parentScope, { includeChildScopes: true });
 
         const element = iterator.previousElement();
 
