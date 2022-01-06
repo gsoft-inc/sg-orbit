@@ -6,7 +6,6 @@ import {
     augmentElement,
     isNil,
     mergeProps,
-    mergeRefs,
     resolveChildren,
     useControllableState,
     useEventCallback,
@@ -60,8 +59,6 @@ export function InnerPopoverTrigger({
     const positionValue = useResponsiveValue(positionProp);
 
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
-
-    const overlayRef = useMergedRefs(forwardedRef);
 
     const { themeAccessor } = useThemeContext();
 
@@ -141,8 +138,7 @@ export function InnerPopoverTrigger({
                     {
                         as,
                         borderOffset: themeAccessor.getSpace(3),
-                        className: "o-ui-popover-overlay",
-                        ref: mergeRefs(overlayRef, overlayPositionRef),
+                        ref: useMergedRefs(overlayPositionRef, forwardedRef),
                         show: isOpen,
                         zIndex
                     },

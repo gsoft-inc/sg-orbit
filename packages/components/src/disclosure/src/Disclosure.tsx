@@ -1,5 +1,4 @@
 import { Children, ComponentProps, KeyboardEvent, MouseEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
-import { DisclosureContext } from "./DisclosureContext";
 import {
     InternalProps,
     Keys,
@@ -15,6 +14,8 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
+
+import { DisclosureContext } from "./DisclosureContext";
 import { Text } from "../../typography";
 import { useSlidingTransition } from "./useSlidingTransition";
 

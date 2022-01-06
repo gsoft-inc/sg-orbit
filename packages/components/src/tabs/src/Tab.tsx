@@ -1,6 +1,7 @@
+import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
+import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
+
 import { Box } from "../../box";
-import { ComponentProps, KeyboardEvent, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
-import { InteractionProps, InternalProps, Keys, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useEventCallback, useSlots } from "../../shared";
 import { TabType } from "./useTabsItems";
 import { Text } from "../../typography";
 import { useTabsContext } from "./TabsContext";
@@ -9,11 +10,15 @@ export const TabKeyProp = "data-o-ui-key";
 
 const DefaultElement = "button";
 
-export interface InnerTabProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerTabProps extends InternalProps, InteractionProps, Omit<StyledComponentProps<typeof DefaultElement>, "onSelect"> {
     /**
      * React children.
      */
     children: ReactNode;
+    /**
+     * Called when the tab is selected.
+     */
+    onSelect: (event: SyntheticEvent, key: string) => void;
     /**
      * Whether or not the tab is selected.
      */
@@ -32,10 +37,12 @@ export function InnerTab({
     focus,
     forwardedRef,
     hover,
+    onSelect,
+    role,
     tab: { key, panelId, tabId },
     ...rest
 }: InnerTabProps) {
-    const { isManual, onSelect, selectedKey } = useTabsContext();
+    const { isManual, selectedKey } = useTabsContext();
 
     const { icon, lozenge, text } = useSlots(children, useMemo(() => ({
         _: {
@@ -46,6 +53,7 @@ export function InnerTab({
             size: "sm"
         },
         lozenge: {
+            "aria-hidden": true,
             className: "o-ui-tab-lozenge",
             highlight: true,
             size: "sm",
@@ -100,7 +108,9 @@ export function InnerTab({
                     onKeyDown: isManual ? handleKeyDown : undefined,
                     onKeyUp: isManual ? handleKeyUp : undefined,
                     ref: forwardedRef,
-                    role: "tab"
+                    role: !isNil(role)
+                        ? role !== "none" ? role : undefined
+                        : "tab"
                 }
             )}
         >

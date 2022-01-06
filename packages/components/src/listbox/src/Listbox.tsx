@@ -44,9 +44,9 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
      */
     autoFocus?: boolean | number;
     /**
-     * Default focus target when enabling autofocus.
+     * Default focus target on autofocus.
      */
-    defaultFocusTarget?: string;
+    autoFocusTarget?: string;
     /**
      * The initial value of `selectedKeys` when uncontrolled.
      */
@@ -103,6 +103,10 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     validationState?: ValidationState;
 }
 
+const ListboxItemHeight = 32;
+
+const ListboxBorderSize = 1;
+
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
@@ -158,11 +162,11 @@ export function InnerListbox({
     as = DefaultElement,
     autoFocus,
     children,
-    defaultFocusTarget,
+    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
+    autoFocusTarget,
     defaultSelectedKeys,
     fluid,
     focusOnHover,
-    // TODO: Could it be removed now that useImperativeHandle expose the focus? If yes, also remove from Menu (which might not event need the useImperativeHandle)
     forwardedRef,
     id,
     nodes: nodesProp,
@@ -279,6 +283,7 @@ export function InnerListbox({
                 if (useVirtualFocus && !isNil(onFocusChange)) {
                     onFocusChange(event, key, activeElement);
                 }
+
                 break;
             }
             case Keys.home: {
@@ -289,6 +294,7 @@ export function InnerListbox({
                 if (useVirtualFocus && !isNil(onFocusChange)) {
                     onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
+
                 break;
             }
             case Keys.end: {
@@ -299,11 +305,14 @@ export function InnerListbox({
                 if (useVirtualFocus && !isNil(onFocusChange)) {
                     onFocusChange(event, activeElement.getAttribute(OptionKeyProp), activeElement);
                 }
+
                 break;
             }
             case Keys.enter: {
                 event.preventDefault();
+
                 handleSelectOption(event, document.activeElement.getAttribute(OptionKeyProp));
+
                 break;
             }
             case Keys.space: {
@@ -327,6 +336,7 @@ export function InnerListbox({
 
                     updateSelectedKeys(event, newKeys);
                 }
+
                 break;
             }
             // eslint-disable-next-line no-fallthrough
@@ -356,15 +366,13 @@ export function InnerListbox({
     useAutoFocusChild(focusManager, {
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus,
-        target: selectionManager.selectedKeys[0] ?? defaultFocusTarget
+        target: selectionManager.selectedKeys[0] ?? autoFocusTarget
     });
 
     const scrollableProps = useScrollableCollection(containerRef, nodes, {
-        // A listbox have a border-size of 1px
         itemSelector: ".o-ui-listbox-option",
-        maxHeight: 12 * 32 + 2 * 1,
-        // 32px is the default listbox option height.
-        paddingHeight: 2 * 1,
+        maxHeight: 12 * ListboxItemHeight + 2 * ListboxItemHeight,
+        paddingHeight: 2 * ListboxBorderSize,
         sectionSelector: ".o-ui-listbox-section"
     });
 
@@ -473,7 +481,7 @@ export function InnerListbox({
 }
 
 export type ListboxElement = HTMLElement & {
-    focusManager?: FocusManager;
+    focusManager: FocusManager;
 };
 
 InnerListbox.defaultElement = DefaultElement;

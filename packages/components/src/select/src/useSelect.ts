@@ -15,10 +15,11 @@ import {
     useRefState
 } from "../../shared";
 import { KeyboardEvent, ReactNode, Ref, SyntheticEvent, useCallback, useMemo } from "react";
-import { OptionKeyProp } from "../../listbox";
 import { OverlayProps, PopupAlignment, PopupDirection, PopupPosition, usePopup, useTriggerWidth } from "../../overlay";
-import { ValidationState } from "../../input";
 import { useCollection, useOnlyCollectionItems } from "../../collection";
+
+import { OptionKeyProp } from "../../listbox";
+import { ValidationState } from "../../input";
 
 export interface UseSelectProps {
     align?: PopupAlignment;
@@ -90,6 +91,7 @@ export function useSelect(children: ReactNode, {
         disabled: disabled || readOnly,
         hideOnEscape: true,
         hideOnLeave: true,
+        hideOnOutsideClick: false,
         id: menuId,
         keyProp: OptionKeyProp,
         offset: [0, 4],
@@ -158,6 +160,7 @@ export function useSelect(children: ReactNode, {
     const { avatar, "end-icon": endIcon, icon, stringValue, text } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
 
     const triggerId = useId(id, "o-ui-select-trigger");
+    const valueId = useId(id, "o-ui-select-value");
 
     return {
         close,
@@ -170,7 +173,7 @@ export function useSelect(children: ReactNode, {
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
-            defaultFocusTarget: focusTargetRef.current,
+            autoFocusTarget: focusTargetRef.current,
             fluid: true,
             focusOnHover: true,
             nodes,
@@ -199,13 +202,18 @@ export function useSelect(children: ReactNode, {
             {
                 "aria-describedby": ariaDescribedBy,
                 "aria-label": ariaLabel,
-                "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy : undefined,
+                "aria-labelledby": isNil(ariaLabel)
+                    ? isNil(ariaLabelledBy) ? valueId : `${ariaLabelledBy} ${valueId}`
+                    : undefined,
                 disabled,
                 id: triggerId,
                 onKeyDown: !isOpen ? handleTriggerKeyDown : undefined,
                 ref: triggerRef
             },
             triggerProps
-        )
+        ),
+        valueProps: {
+            id: valueId
+        }
     };
 }

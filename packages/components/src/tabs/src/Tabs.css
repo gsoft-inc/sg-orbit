@@ -11,17 +11,85 @@
 /* TAB LIST */
 .o-ui-tab-list {
     display: flex;
+    gap: var(--o-ui-sp-2);
 }
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
     border-bottom: 2px solid var(--o-ui-b-alias-low-break);
+    align-items: center;
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
     border-left: 2px solid var(--o-ui-b-alias-low-break);
+}
+
+/* TAB LIST | POPOVER | TRIGGER */
+.o-ui-tab-list-popover-trigger {
+    border: none;
+    border-radius: var(--o-ui-shape-rounded);
+    color: var(--o-ui-text-alias-secondary);
+    font-size: var(--o-ui-fs-3);
+    position: relative;
+    padding: var(--o-ui-text-button-padding-md);
+    height: var(--o-ui-sp-7);
+    flex-shrink: 0;
+}
+
+/* TAB LIST | POPOVER | TRIGGER | OPEN */
+.o-ui-tab-list-popover-trigger[aria-expanded="true"] {
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+}
+
+/* TAB LIST | POPOVER | TRIGGER | HOVER */
+.o-ui-tab-list-popover-trigger:not([disabled]):hover {
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+}
+
+/* TAB LIST | POPOVER */
+.o-ui-tab-list-popover {
+    background-color: var(--o-ui-bg-alias-default);
+    border: 1px solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-shape-rounded);
+    box-shadow: var(--o-ui-bs-alias-lifted);
+    margin-top: var(--o-ui-sp-2);
+}
+
+/* TAB LIST | POPOVER | TAB */
+.o-ui-tab-list-popover .o-ui-tab {
+    padding-left: calc(var(--o-ui-sp-3) + 1px);
+    padding-right: var(--o-ui-sp-8);
+    justify-content: start;
+    width: 100%;
+    min-height: var(--o-ui-sz-7);
+}
+
+/* TAB LIST | POPOVER | TAB */
+.o-ui-tab-list-popover .o-ui-tab:not([disabled]):hover {
+    background-color: var(--o-ui-bg-alias-mid-break);
+    border-bottom: 0;
+}
+
+/* TAB LIST | POPOVER | FOCUS */
+.o-ui-tab-list-popover .o-ui-tab::before {
+    left: 8px;
+    right: 8px;
+}
+
+/* TAB LIST | HIDDEN TABS */
+.o-ui-tab-list-hidden-tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: -9999;
+}
+
+.o-ui-tab-list-hidden-tab {
+    width: max-content;
 }
 
 /* TAB */
@@ -34,22 +102,16 @@
     padding: calc(var(--o-ui-sp-3) + 1px);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
-    width: max-content;
-    min-width: var(--o-ui-sz-11);
-    height: max-content;
+    min-width: max-content;
     min-height: var(--o-ui-sz-7);
     cursor: pointer;
     color: var(--o-ui-text-alias-secondary);
     position: relative;
-    overflow: hidden;
-}
-
-.o-ui-tabs-horizontal .o-ui-tab:last-child {
-    margin-right: 0;
 }
 
 /* TAB | WITH ICON */
-.o-ui-tab-has-icon {
+.o-ui-tab-has-icon,
+.o-ui-tab-list-popover .o-ui-tab-has-icon {
     padding-left: calc(0.5rem + 1px);
 }
 
@@ -69,24 +131,22 @@
 
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab::before {
-    left: 0;
-    right: 0;
+    left: 8px;
+    right: 8px;
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    margin-right: var(--o-ui-sp-3);
     border-bottom: 2px solid transparent;
     margin-bottom: -2px;
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | VERTICAL */
-.o-ui-tabs-vertical .o-ui-tab::before{
+.o-ui-tabs-vertical .o-ui-tab::before {
     left: 1px;
     right: 0;
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    margin-bottom: var(--o-ui-sp-3);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
@@ -115,6 +175,16 @@
     color: var(--o-ui-text-alias-primary);
 }
 
+.o-ui-tabs-horizontal .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
+.o-ui-tabs-horizontal .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
+    border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
+}
+
+.o-ui-tabs-vertical .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
+.o-ui-tabs-vertical .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
+    border-left: 2px solid var(--o-ui-b-alias-mid-break);
+}
+
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
@@ -130,7 +200,8 @@
 /* TAB | FLUID */
 /* TAB | FLUID | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-fluid.o-ui-tabs-horizontal .o-ui-tab {
-    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
 }
 
 /* TAB | FLUID | ORIENTATION | VERTICAL */
@@ -140,13 +211,12 @@
 
 /* TAB | TEXT */
 .o-ui-tab-text {
-    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .o-ui-tab .o-ui-tab-text {
     color: inherit;
+    line-height: 1;
 }
 
 .o-ui-tab .o-ui-tab-icon {

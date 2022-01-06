@@ -1,12 +1,9 @@
 function CustomSelect({
     placeholder,
-    "aria-label": ariaLabel,
     children,
     ...rest
 }) {
-    const { selectedItem, isOpen, triggerProps, overlayProps, listboxProps } = useSelect(children, {
-        ariaLabel
-    });
+    const { selectedItem, isOpen, triggerProps, overlayProps, listboxProps, valueProps } = useSelect(children);
 
     return (
         <>
@@ -19,7 +16,9 @@ function CustomSelect({
                     sm: "320px"
                 }}
             >
-                <Text>{!isNil(selectedItem) ? selectedItem.text : placeholder}</Text>
+                <Text {...valueProps}>
+                    {!isNil(selectedItem) ? selectedItem.text : placeholder}
+                </Text>
                 <DisclosureArrow
                     open={isOpen}
                     slot="end-icon"
@@ -34,7 +33,7 @@ function CustomSelect({
 }
 
 render(() =>
-    <CustomSelect placeholder="Select a planet" aria-label="Planets">
+    <CustomSelect placeholder="Select a planet">
         <Item key="earth">Earth</Item>
         <Item key="jupiter">Jupiter</Item>
         <Item key="mars">Mars</Item>
