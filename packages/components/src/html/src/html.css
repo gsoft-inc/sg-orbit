@@ -183,3 +183,8 @@
 .o-ui-html-th {
     font-weight: inherit;
 }
+
+/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
+.o-ui-html-button > * {
+    pointer-events: none;
+}

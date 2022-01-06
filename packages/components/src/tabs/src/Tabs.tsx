@@ -1,10 +1,11 @@
-import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { TabsContext, TabsOrientation } from "./TabsContext";
+
+import { Box } from "../../box";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
-import { TabsContext, TabsOrientation } from "./TabsContext";
 import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
@@ -80,7 +81,6 @@ export function InnerTabs({
 
             if (!isNil(onSelectionChange)) {
                 onSelectionChange(event, newKey);
-
             }
         }
     });

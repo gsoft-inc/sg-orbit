@@ -11,7 +11,6 @@
             validationState={isValid ? "valid" : "invalid"}
             placeholder="Planets"
             onSelectionChange={handleSelectionChange}
-            aria-label="Planets"
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>

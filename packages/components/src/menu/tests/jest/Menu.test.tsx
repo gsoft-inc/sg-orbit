@@ -455,7 +455,7 @@ test("when autofocus is true and there are multiple default keys, the menu item 
 
 test("when autofocus is true and the default focus target is \"first\", the menu first item is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Menu defaultFocusTarget="first" autoFocus>
+        <Menu autoFocusTarget="first" autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
@@ -467,7 +467,7 @@ test("when autofocus is true and the default focus target is \"first\", the menu
 
 test("when autofocus is true and the default focus target is \"last\", the menu last item is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Menu defaultFocusTarget="last" autoFocus>
+        <Menu autoFocusTarget="last" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars" data-testid="mars-item">Mars</Item>
@@ -479,7 +479,7 @@ test("when autofocus is true and the default focus target is \"last\", the menu 
 
 test("when autofocus is true and the default focus target match an item key, the menu item matching the key is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Menu defaultFocusTarget="jupiter" autoFocus>
+        <Menu autoFocusTarget="jupiter" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
             <Item key="mars">Mars</Item>

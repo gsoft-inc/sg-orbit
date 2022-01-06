@@ -1,11 +1,11 @@
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
 import { PopupType, usePopupAriaProps } from "./usePopupAriaProps";
 import { SyntheticEvent, useCallback } from "react";
-import { isNil, mergeProps, mergeRefs, useControllableState, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
+import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
 
 import { ResponsiveProp } from "../../styling";
+import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
-import { usePopupTrigger } from "./usePopupTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export type PopupAlignment = "start" | "end";
@@ -99,8 +99,6 @@ export function usePopup(type: PopupType, {
 
     const [focusScope, setFocusRef] = useFocusScope();
 
-    const overlayRef = useMergedRefs(setFocusRef);
-
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
             setIsOpen(newValue);
@@ -111,7 +109,7 @@ export function usePopup(type: PopupType, {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = usePopupTrigger(isOpen, overlayRef, {
+    const triggerProps = useOverlayTrigger(isOpen, {
         hideOnLeave,
         isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
@@ -156,7 +154,7 @@ export function usePopup(type: PopupType, {
         isOpen,
         overlayProps: mergeProps(
             {
-                ref: mergeRefs(overlayRef, overlayPositionRef),
+                ref: useMergedRefs(overlayPositionRef, setFocusRef),
                 show: isOpen
             },
             overlayDismissProps,

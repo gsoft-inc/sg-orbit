@@ -6,13 +6,12 @@ import {
     augmentElement,
     isNil,
     mergeProps,
-    mergeRefs,
     resolveChildren,
     useControllableState,
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, usePopupAriaProps, usePopupTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, useOverlayTrigger, usePopupAriaProps } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
@@ -61,8 +60,6 @@ export function InnerPopoverTrigger({
 
     const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
 
-    const overlayRef = useMergedRefs(forwardedRef);
-
     const { themeAccessor } = useThemeContext();
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
@@ -89,7 +86,7 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const triggerProps = usePopupTrigger(isOpen, overlayRef, {
+    const triggerProps = useOverlayTrigger(isOpen, {
         hideOnLeave: false,
         isDisabled: trigger.props.disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
@@ -140,8 +137,7 @@ export function InnerPopoverTrigger({
                     {
                         as,
                         borderOffset: themeAccessor.getSpace(3),
-                        className: "o-ui-popover-overlay",
-                        ref: mergeRefs(overlayRef, overlayPositionRef),
+                        ref: useMergedRefs(overlayPositionRef, forwardedRef),
                         show: isOpen,
                         zIndex
                     },

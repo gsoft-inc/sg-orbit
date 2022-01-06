@@ -3,11 +3,15 @@ import type { FocusScope, ScopeChangeEventHandler } from "./useFocusScope";
 import { isNil } from "./assertions";
 import { useLayoutEffect } from "react";
 
-export function useRovingFocus(scope: FocusScope, { isDisabled = false } = {}) {
+export interface UseRovingFocusOptions {
+    isDisabled?: boolean;
+}
+
+export function useRovingFocus(scope: FocusScope, { isDisabled = false }: UseRovingFocusOptions = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
             const handleFocus = (event: FocusEvent) => {
-                scope.elements.forEach(x => {
+                scope.getElements().forEach(x => {
                     if (x.tabIndex === 0) {
                         x.tabIndex = -1;
                     }
@@ -27,7 +31,7 @@ export function useRovingFocus(scope: FocusScope, { isDisabled = false } = {}) {
             };
 
             const initializeElements = () => {
-                scope.elements.forEach((x, index) => {
+                scope.getElements().forEach((x, index) => {
                     registerElement(x, index === 0);
                 });
             };
@@ -48,17 +52,21 @@ export function useRovingFocus(scope: FocusScope, { isDisabled = false } = {}) {
             scope.registerChangeHandler(onChange);
 
             return () => {
-                scope.elements.forEach(disposeElement);
+                scope.getElements().forEach(disposeElement);
                 scope.removeChangeHandler(onChange);
             };
         }
     }, [scope, isDisabled]);
 }
 
+export interface UseKeyedRovingFocusOptions extends UseRovingFocusOptions {
+    keyProp?: string;
+}
+
 /*
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
-export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { isDisabled = false, keyProp = "value" } = {}) {
+export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { isDisabled = false, keyProp = "value" }: UseKeyedRovingFocusOptions = {}) {
     useLayoutEffect(() => {
         if (!isDisabled) {
             const setTabIndexes = (elements: HTMLElement[]) => {
@@ -79,7 +87,7 @@ export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { isD
             };
 
             const initializeElements = () => {
-                setTabIndexes(scope.elements);
+                setTabIndexes(scope.getElements());
             };
 
             initializeElements();
