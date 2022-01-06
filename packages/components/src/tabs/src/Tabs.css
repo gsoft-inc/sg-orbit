@@ -59,11 +59,11 @@
 
 /* TAB LIST | POPOVER | TAB */
 .o-ui-tab-list-popover .o-ui-tab {
-    padding-left: var(--o-ui-sp-5);
+    padding-left: calc(var(--o-ui-sp-3) + 1px);
     padding-right: var(--o-ui-sp-8);
     justify-content: start;
     width: 100%;
-    min-height: var(--o-ui-sz-6);
+    min-height: var(--o-ui-sz-7);
 }
 
 /* TAB LIST | POPOVER | TAB */
@@ -110,7 +110,8 @@
 }
 
 /* TAB | WITH ICON */
-.o-ui-tab-has-icon {
+.o-ui-tab-has-icon,
+.o-ui-tab-list-popover .o-ui-tab-has-icon {
     padding-left: calc(0.5rem + 1px);
 }
 
@@ -146,7 +147,7 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    margin-bottom: var(--o-ui-sp-3);
+    gap: var(--o-ui-sp-2);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
@@ -178,6 +179,11 @@
 .o-ui-tabs-horizontal .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
 .o-ui-tabs-horizontal .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
     border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
+}
+
+.o-ui-tabs-vertical .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
+.o-ui-tabs-vertical .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
+    border-left: 2px solid var(--o-ui-b-alias-mid-break);
 }
 
 /* TAB | STATE | SELECTED */
@@ -288,11 +294,11 @@
 
 /* COLLAPSIBLE TABS | TABS */
 .o-ui-collapsed-tabs .o-ui-tab {
-    padding-left: var(--o-ui-sp-5);
+    padding-left: calc(var(--o-ui-sp-3) + 1px);
     padding-right: var(--o-ui-sp-8);
     justify-content: start;
     width: 100%;
-    min-height: var(--o-ui-sz-6);
+    min-height: var(--o-ui-sz-7);
 }
 
 /* COLLAPSIBLE TABS | TABS */
