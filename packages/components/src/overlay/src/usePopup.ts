@@ -4,8 +4,8 @@ import { SyntheticEvent, useCallback } from "react";
 import { isNil, mergeProps, mergeRefs, useControllableState, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
 
 import { ResponsiveProp } from "../../styling";
+import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
-import { usePopupTrigger } from "./usePopupTrigger";
 import { useRestoreFocus } from "./useRestoreFocus";
 
 export type PopupAlignment = "start" | "end";
@@ -111,7 +111,7 @@ export function usePopup(type: PopupType, {
         }
     }, [onOpenChange, isOpen, setIsOpen]);
 
-    const triggerProps = usePopupTrigger(isOpen, overlayRef, {
+    const triggerProps = useOverlayTrigger(isOpen, {
         hideOnLeave,
         isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {

@@ -12,7 +12,7 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, usePopupAriaProps, usePopupTrigger } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, useOverlayTrigger, usePopupAriaProps } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
@@ -89,7 +89,7 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const triggerProps = usePopupTrigger(isOpen, overlayRef, {
+    const triggerProps = useOverlayTrigger(isOpen, {
         hideOnLeave: false,
         isDisabled: trigger.props.disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
@@ -130,7 +130,8 @@ export function InnerPopoverTrigger({
         <PopoverTriggerContext.Provider
             value={{
                 close,
-                isOpen
+                isOpen,
+                triggerRef
             }}
         >
             {triggerMarkup}

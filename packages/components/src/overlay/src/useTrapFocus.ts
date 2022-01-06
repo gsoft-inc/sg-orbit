@@ -7,7 +7,7 @@ export function useTrapFocus(focusManager: FocusManager) {
         if (event.key === Keys.tab) {
             const currentActiveElement = event.target;
 
-            // When there are multiple overlay scopes (like a select in modal), we must ensure focus trap doesn't interfer with nested overlay components.
+            // When there are multiple overlay scopes (like a select in a modal), we must ensure focus trap doesn't interfer with nested overlay components.
             // E.g. we don't want the modal focus trap to prevent any focus behavior of the select component.
             if (focusManager.isInScope(currentActiveElement as HTMLElement)) {
                 event.preventDefault();
@@ -41,7 +41,7 @@ export function useTrapFocus(focusManager: FocusManager) {
         }
     });
 
-    // Keydown event listener "useCapture" is set to true to ensure a tab key down is catched before the useRestoreFocus tab key down handler.
+    // Using the capture phrase for the keydown event listener to ensure this hook catch a tab keydown event before the useRestoreFocus hook keydown handler.
     useDocumentListener("keydown", handleKeyDown, true, { capture: true });
     useDocumentListener("focusin", handleFocus, true);
 }

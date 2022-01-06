@@ -16,7 +16,7 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
-import { useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { useOverlayFocusRing, usePopupLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { Box } from "../../box";
 import { Text } from "../../typography";
@@ -62,7 +62,7 @@ export function InnerPopover({
 
     const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
 
-    const { close: triggerClose } = usePopoverTriggerContext();
+    const { close: triggerClose, triggerRef } = usePopoverTriggerContext();
 
     const close = useCallback(event => {
         if (!isNil(triggerClose)) {
@@ -100,7 +100,7 @@ export function InnerPopover({
         tabbableOnly: true
     });
 
-    const overlayDismissProps = useOverlayLightDismiss(focusScope, {
+    const overlayDismissProps = usePopupLightDismiss(triggerRef, focusScope, {
         hideOnEscape: true,
         hideOnLeave: false,
         hideOnOutsideClick: dismissable,

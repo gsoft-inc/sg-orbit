@@ -1,12 +1,11 @@
 import { isNil } from "./assertions";
-import { useId as useAutoId } from "@reach/auto-id";
+import { useMemo } from "react";
 
-// This utility will initially trigger a re-render.
+let id = 0;
+
 export function useId(userId?: string, prefix?: string) {
-    const uuid = useAutoId();
+    const [uuid] = useMemo(() => (++id).toString(), []);
 
-    // Unfortunatelly, providing a user id to useAutoId, doesn't always works, sometimes the user id is ignored.
-    // To fix this, we handle it manually.
     if (!isNil(userId)) {
         return userId;
     }
