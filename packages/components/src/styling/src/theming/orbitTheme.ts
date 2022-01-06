@@ -60,12 +60,15 @@ export interface ColorPaletteSection {
 }
 
 type AliasValue =
-    `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` | // any color in palette $accent-5
-    `$${ConditionalKeys<ColorPaletteSection, string>}` | // any static colors $white $black
-    CssColor; // hsl(a), rgb(a), #, etc...
+    // Any color in palette $accent-5
+    `$${ConditionalKeys<ColorPaletteSection, ColorPalette>}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}` |
+    // Any static colors $white $black
+    `$${ConditionalKeys<ColorPaletteSection, string>}` |
+    // hsl(a), rgb(a), #, etc...
+    CssColor;
 
 export interface ColorAliases {
-    /* Background */
+    // Background
     "bg-alias-default": AliasValue;
     "bg-alias-soft-break": AliasValue;
     "bg-alias-mid-break": AliasValue;
@@ -107,7 +110,7 @@ export interface ColorAliases {
     "bg-alias-success-light": AliasValue;
     "bg-alias-transparent": AliasValue;
     "bg-alias-input-selection": AliasValue;
-    /* Border */
+    // Border
     "b-alias-low-break": AliasValue;
     "b-alias-mid-break": AliasValue;
     "b-alias-high-break": AliasValue;
@@ -123,7 +126,7 @@ export interface ColorAliases {
     "b-alias-success": AliasValue;
     "b-alias-success-hover": AliasValue;
     "b-alias-success-active": AliasValue;
-    /* Icon */
+    // Icon
     "icon-alias-primary": AliasValue;
     "icon-alias-primary-hover": AliasValue;
     "icon-alias-secondary": AliasValue;
@@ -137,7 +140,7 @@ export interface ColorAliases {
     "icon-alias-success": AliasValue;
     "icon-alias-static-white": AliasValue;
     "icon-alias-input-placeholder": AliasValue;
-    /* Text */
+    // Text
     "text-alias-primary": AliasValue;
     "text-alias-primary-hover": AliasValue;
     "text-alias-secondary": AliasValue;

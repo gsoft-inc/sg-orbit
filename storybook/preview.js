@@ -1,15 +1,17 @@
-import { Code } from "@stories/mdx";
-import { ShareGateTheme, createThemeVars } from "@components/styling";
-import { Themes } from "./styles/themes";
-import { isChromatic, isDocs } from "./env";
-import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
-
 /* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@css/normalize.css";
 import "@components/index.css";
+import "./styles";
+
+import { ShareGateTheme, createThemeVars } from "@components/styling";
+import { isChromatic, isDocs } from "./env";
+import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
+
+import { Code } from "@stories/mdx";
+import { Themes } from "./styles/themes";
+
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
-import "./styles";
 
 createThemeVars([ShareGateTheme]);
 
@@ -25,19 +27,30 @@ export const parameters = {
             order: [
                 "Getting Started", [
                     "Installation",
-                    "Styling",
-                    ["Styled System", "Props Reference"],
-                    "Slots",
-                    "As",
-                    "Supported Platforms",
+                    "Platforms",
                     "Contributing"
                 ],
-                "Materials", ["Colors", "Semantic Colors", "Icons", "Shadows", "Spacing", "Sizing", "Typography", "Motion"],
+                "Features", [
+                    "Style Props",
+                    "Responsive Styles",
+                    "Theming",
+                    "Color Schemes",
+                    "Slots",
+                    "As"
+                ],
+                "Materials", [
+                    "Colors",
+                    "Shadows",
+                    "Spacing",
+                    "Sizing",
+                    "Typography",
+                    "Icons",
+                    "Motion"
+                ],
                 "Layout",
                 "Components",
                 "Content",
                 "Placeholders",
-                "Collection",
                 "Html elements",
                 "Chromatic"
             ]
@@ -113,7 +126,7 @@ export const globalTypes = {
         description: "Color scheme for components",
         defaultValue: "light",
         toolbar: {
-            icon: "mirror",
+            title: "Color Scheme",
             items: ["light", "dark"]
         }
     }

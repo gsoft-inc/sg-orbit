@@ -1,6 +1,7 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
-import { ThemeProvider, useThemeContext } from "../../styling";
+import { ThemeProvider, useColorSchemeContext, useThemeContext } from "../../styling";
+
 import { Transition } from "../../transition";
 import { createPortal } from "react-dom";
 
@@ -41,7 +42,8 @@ export function InnerOverlay({
     ...rest
 }: InnerOverlayProps): JSX.Element {
     // Since the overlay is rendered through a portal it might not be embedded in the theme DOM element.
-    const { colorScheme, theme } = useThemeContext();
+    const { colorScheme } = useColorSchemeContext();
+    const { theme } = useThemeContext();
 
     const content = (
         <Transition

@@ -5,6 +5,7 @@ import { getColorSchemeClassName, getThemeClassName } from "./createThemeVars";
 
 import { Box } from "../../../box";
 import { BreakpointProvider } from "../BreakpointProvider";
+import { ColorSchemeContext } from "../ColorSchemeContext";
 import { OrbitTheme } from "./orbitTheme";
 import { ThemeContext } from "./ThemeContext";
 
@@ -50,30 +51,31 @@ export function ThemeProvider({
     }, [setRemoteColorScheme]);
 
     return (
-        <ThemeContext.Provider
-            value={{
-                colorScheme: computedColorScheme,
-                setColorScheme,
-                theme
-            }}
-        >
-            <BreakpointProvider>
-                <Box
-                    {...mergeProps(
-                        rest,
-                        {
-                            as,
-                            className: mergeClasses(
-                                "o-ui",
-                                getThemeClassName(theme.name),
-                                getColorSchemeClassName(theme.name, computedColorScheme)
-                            )
-                        }
-                    )}
-                >
-                    {children}
-                </Box>
-            </BreakpointProvider>
+        <ThemeContext.Provider value={{ theme }}>
+            <ColorSchemeContext.Provider
+                value={{
+                    colorScheme: computedColorScheme,
+                    setColorScheme
+                }}
+            >
+                <BreakpointProvider>
+                    <Box
+                        {...mergeProps(
+                            rest,
+                            {
+                                as,
+                                className: mergeClasses(
+                                    "o-ui",
+                                    getThemeClassName(theme.name),
+                                    getColorSchemeClassName(theme.name, computedColorScheme)
+                                )
+                            }
+                        )}
+                    >
+                        {children}
+                    </Box>
+                </BreakpointProvider>
+            </ColorSchemeContext.Provider>
         </ThemeContext.Provider>
     );
 }

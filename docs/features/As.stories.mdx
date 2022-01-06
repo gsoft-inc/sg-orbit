@@ -1,9 +1,7 @@
-import { GithubLink } from "@stories/components";
 import { Meta } from "@storybook/addon-docs";
-import { paramsBuilder } from "@stories/utils";
 
 <Meta
-    title="Getting Started/As"
+    title="Features/As"
     id="as"
 />
 
@@ -15,7 +13,7 @@ Since we introduced TypeScript, the `as` prop has proven to be difficult. Dynami
 
 To mitigate the problem, we choose to deprecate the `as` prop in favor of an `as(baseComponent, asComponent)` function. The `as()` function return a new component which render the provided `baseComponent` with `asComponent` as the underlying type and merge the typings of both components.
 
-To specify a new underlying type.
+To specify a new underlying type:
 
 ```jsx
 import { as, TextLink } from "@sharegate/orbit-ui";
@@ -25,7 +23,7 @@ const TextLinkAsButton = as(TextLink, "button");
 <TextLinkAsButton onClick={() => window.location.href = "/home"}>Home</TextLinkAsButton>
 ```
 
-To integrate with a third party.
+To integrate with a third party:
 
 ```jsx
 import { as, TextLink } from "@sharegate/orbit-ui";

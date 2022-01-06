@@ -1,9 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 
 import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
+import { isPlainObject, isString, mergeClasses } from "@components/shared";
+
 import { components } from "@storybook/components";
 import { isElement } from "react-is";
-import { isPlainObject, isString, mergeClasses } from "@components/shared";
 
 const MdxTable = components.table;
 
@@ -83,7 +84,7 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
         );
 
         if (isString(value) || isElement(value)) {
-            return <td className={defaultClasses} key={index}>{value}</td>;
+            return <td className={defaultClasses} style={columns[index].rowStyle} key={index}>{value}</td>;
         }
 
         const extraClasses = mergeClasses(

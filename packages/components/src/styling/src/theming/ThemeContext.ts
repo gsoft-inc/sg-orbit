@@ -1,11 +1,9 @@
-import { ColorScheme } from "../useColorScheme";
-import { OrbitTheme } from "./orbitTheme";
-import { ThemeAccessor } from "./themeAccessor";
 import { createContext, useContext } from "react";
 
+import { OrbitTheme } from "./orbitTheme";
+import { ThemeAccessor } from "./themeAccessor";
+
 export interface ThemeContextType {
-    colorScheme?: ColorScheme;
-    setColorScheme?: (newColorScheme: ColorScheme) => void;
     theme?: OrbitTheme;
 }
 

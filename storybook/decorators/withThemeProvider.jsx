@@ -7,9 +7,8 @@ export function withThemeProvider(Story, context) {
 
     return (
         <ThemeProvider
-            theme={globals.theme === "sharegate" ? ShareGateTheme : ShareGateTheme}
-            colorScheme={globals.colorScheme ?? "system"}
-            defaultColorScheme="light"
+            theme={ShareGateTheme}
+            colorScheme={globals.colorScheme}
             // min-height ensure popup components renders correctly in chromatic tests.
             height={viewMode === "story" || isChromatic ? "600px" : undefined}
         >

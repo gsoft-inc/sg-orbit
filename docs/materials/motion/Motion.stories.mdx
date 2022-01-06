@@ -9,12 +9,7 @@ import { Table, Tagline } from "@stories/components";
 
 # Motion
 
-<Tagline>Motion is a way to convey a message without telling a word, from giving a visual hint to a user about what just happened to rewarding him.</Tagline>
-
-## Usage
-
 Our motion utilities consists of two set of values, *durations* as well as *easings*. Both variables can be combined in transition as well in CSS animations to set the tone of an animation/transition(animation is used interchangeably with transition from now on).
-
 
 Durations and easings can be refered to in CSS [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well as in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) declarations.
 
@@ -45,14 +40,14 @@ In animation declaration :
 }
 ```
 
-### Duration
+## Duration
 
 Orbit exposes 5 [durations](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration), they help convey a message and makes animations smooth and responsive.
 
 <Table
     columns={[
-        { title: "Duration", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
-        { title: "Value", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" }
+        { title: "Duration", headerStyle: { width: "180px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "180px" }, rowClassName: "code" }
     ]}
     rows={[
         ["t1", "100ms"],
@@ -63,26 +58,26 @@ Orbit exposes 5 [durations](https://developer.mozilla.org/en-US/docs/Web/CSS/tra
     ]}
 />
 
-### Easings
+## Easings
 
 [Easings](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) denotes a mathematical function that describes the rate at which a numerical value changes. They adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides 3 pre-defined easings, each having their use.
 
-#### Productive
+### Productive
 
 Used in animations that are not in the way, they quickly change from one state to another.
 
-#### Focus
+### Focus
 
 Used in animations that are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
 
-#### Expressive
+### Expressive
 
 Used in animations that are meant to give a sense of completeness or resolution to the user. Use them wisely.
 
 <Table
     columns={[
-        { title: "Easing", headerStyle: { width: "200px" }, rowClassName: "code f7 o-90" },
-        { title: "Value", headerStyle: { width: "400px" }, rowClassName: "code f7 o-90" }
+        { title: "Easing", headerStyle: { width: "200px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "400px" }, rowClassName: "code" }
     ]}
     rows={[
         ["productive", "cubic-bezier(0.22, 0.61, 0.36, 1)"],
@@ -101,15 +96,15 @@ Durations and easings are exposed through CSS Custom Properties(aka variables).
 
 <Table
     columns={[
-        { title: "Value", headerStyle: { width: "150px" }, rowClassName: "code f7 o-90" },
-        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" }
+        { title: "CSS Variable", headerStyle: { width: "250px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "150px" }, rowClassName: "code" }
     ]}
     rows={[
-        ["100ms", "--o-ui-easing-duration-1"],
-        ["200ms", "--o-ui-easing-duration-2"],
-        ["300ms", "--o-ui-easing-duration-3"],
-        ["500ms", "--o-ui-easing-duration-4"],
-        ["800ms", "--o-ui-easing-duration-5"]
+        ["--o-ui-easing-duration-1", "100ms"],
+        ["--o-ui-easing-duration-2", "200ms"],
+        ["--o-ui-easing-duration-3", "300ms"],
+        ["--o-ui-easing-duration-4", "500ms"],
+        ["--o-ui-easing-duration-5", "800ms"]
     ]}
 />
 
@@ -117,14 +112,16 @@ Durations and easings are exposed through CSS Custom Properties(aka variables).
 
 <Table
     columns={[
-        { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code f7 o-90" },
-        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code f7 o-90" }
+        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code" },
+        { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code" }
     ]}
     rows={[
-        ["cubic-bezier(0.46, 0.03, 0.52, 0.96)", "--o-ui-easing-focus"],
-        ["cubic-bezier(0.22, 0.61, 0.36, 1)", "--o-ui-easing-productive"],
-        ["cubic-bezier(0.58, 0.01, 0.15, 1.5)", "--o-ui-easing-expressive"]
+        ["--o-ui-easing-focus", "cubic-bezier(0.46, 0.03, 0.52, 0.96)"],
+        ["--o-ui-easing-productive", "cubic-bezier(0.22, 0.61, 0.36, 1)"],
+        ["--o-ui-easing-expressive", "cubic-bezier(0.58, 0.01, 0.15, 1.5)"]
     ]}
 />
+
+## Playground
 
 <MotionPreview />
