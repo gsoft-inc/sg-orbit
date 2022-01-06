@@ -147,7 +147,6 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    gap: var(--o-ui-sp-2);
     border-left: 2px solid transparent;
     margin-left: -2px;
     width: 100%;
