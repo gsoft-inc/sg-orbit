@@ -44,3 +44,13 @@ Not all breakpoints needs to be set explicitly. In the following example, `base`
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
+
+### useResponsiveValue
+
+Sometimes you have to resolve a responsive value in your React code. Orbit helps you with that by providing the `useResponsiveValue` hook.
+
+```jsx
+import { useResponsiveValue } from "@sharegate/orbit-ui";
+
+const fluidValue = useResponsiveValue({ base: true, lg: false });
+```

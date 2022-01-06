@@ -1,7 +1,8 @@
+import { ShareGateTheme, ThemeProvider, useColorSchemeContext } from "@components/styling";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { Box } from "@components/box";
 import { Inline } from "@components/layout";
-import { ShareGateTheme, ThemeProvider, useThemeContext } from "@components/styling";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 import { useEffect } from "react";
 
 function stories(segment) {
@@ -48,7 +49,7 @@ stories()
     )
     .add("set color scheme with api", () => {
         const SwitchColorScheme = () => {
-            const { setColorScheme } = useThemeContext();
+            const { setColorScheme } = useColorSchemeContext();
 
             useEffect(() => {
                 setColorScheme("dark");

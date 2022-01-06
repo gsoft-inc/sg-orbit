@@ -1,21 +1,23 @@
 import "./Preview.css";
 
-import { Box } from "@components/box";
 import { CodeTheme, useFormattedCode } from "@stories/components";
 import { Div, Span } from "@components/html";
 import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
-import { KnownScope } from "./scopes";
 import { applyHooks, defaultDecorateStory } from "@storybook/client-api";
 import { as, isNil } from "@components/shared";
-import { object, string } from "prop-types";
+import { bool, object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
 import { useContext, useState } from "react";
+
+import { Box } from "@components/box";
+import { KnownScope } from "./scopes";
 
 const propTypes = {
     filePath: string,
     language: string,
-    scope: object
+    scope: object,
+    features: bool
 };
 
 const StyledJarlePreview = as(Box, JarlePreview);
@@ -70,14 +72,21 @@ function DecoratedLivePreview({ ...rest }) {
         : <StyledJarlePreview {...rest} />;
 }
 
-function FilePreview({ filePath, language, scope, noInline, ...rest }) {
+function FilePreview({ filePath, language, scope, features = false, noInline, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
-            .then(module => {
-                setCode(module.default);
-            });
+        if (!features) {
+            import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
+                .then(module => {
+                    setCode(module.default);
+                });
+        } else {
+            import(/* webpackMode: "eager" */ `!!raw-loader!@root/docs/features/${filePath}.sample.jsx`)
+                .then(module => {
+                    setCode(module.default);
+                });
+        }
 
         return null;
     }
