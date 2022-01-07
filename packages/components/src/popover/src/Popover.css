@@ -47,3 +47,10 @@
     grid-area: button;
     justify-self: end;
 }
+
+/* DISMISS BUTTON */
+.o-ui-popover .o-ui-popover-dismiss-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
