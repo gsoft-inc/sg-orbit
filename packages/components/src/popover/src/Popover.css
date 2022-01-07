@@ -1,7 +1,7 @@
 .o-ui-popover {
     background-color: var(--o-ui-bg-alias-default);
     padding: var(--o-ui-sp-6);
-    padding-top: var(--o-ui-sp-8);
+    padding-top: var(--o-ui-sp-6);
     border-radius: var(--o-ui-shape-rounded);
     box-shadow: var(--o-ui-bs-alias-raised);
     /* Must keep a max width. */
@@ -51,6 +51,6 @@
 /* DISMISS BUTTON */
 .o-ui-popover .o-ui-popover-dismiss-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: .25rem;
+    right: .25rem;
 }
