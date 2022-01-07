@@ -16,11 +16,11 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
+import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 import { Box } from "../../box";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
-import { useOverlayFocusRing } from "../../overlay";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 
 const DefaultElement = "section";
@@ -77,6 +77,8 @@ export function InnerPopover({
     }, [onClose, triggerClose]);
 
     const focusManager = useFocusManager(focusScope);
+
+    useTrapFocus(focusManager);
 
     useAutoFocusChild(focusManager, {
         canFocus: useCallback((element: HTMLElement) => {
@@ -147,7 +149,7 @@ export function InnerPopover({
     const dismissButtonMarkup = dismissable && (
         <CrossButton
             aria-label="Dismiss"
-            className="o-ui-dialog-dismiss-button"
+            className="o-ui-popover-dismiss-button"
             condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}

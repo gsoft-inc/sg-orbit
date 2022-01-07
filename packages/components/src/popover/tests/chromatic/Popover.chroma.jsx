@@ -21,6 +21,17 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <>
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>
+                    SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.
+                    <TextInput />
+                </Content>
+            </Popover>
+        </>
+    )
     .add("default", () =>
         <Popover>
             <Heading>Space News</Heading>

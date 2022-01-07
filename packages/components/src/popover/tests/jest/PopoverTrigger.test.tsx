@@ -1,9 +1,11 @@
+import { Popover, PopoverTrigger } from "@components/popover";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
-import { Popover, PopoverTrigger } from "@components/popover";
+import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -114,7 +116,7 @@ test("call onOpenChange when the popover appears", async () => {
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
-test("call onOpenChange when the popover disappear", async () => {
+test("call onOpenChange on esc keypress", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
@@ -128,15 +130,32 @@ test("call onOpenChange when the popover disappear", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        fireEvent.keyDown(getByTestId("popover"), { key: Keys.esc });
     });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("call onOpenChange on outside click", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <PopoverTrigger onOpenChange={handler}>
+            <Button data-testid="trigger">Trigger</Button>
+            <Popover data-testid="popover">
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world’s most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </PopoverTrigger>
+    );
 
     act(() => {
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), false));
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
 
 // ***** Refs *****

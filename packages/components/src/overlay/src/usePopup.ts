@@ -73,7 +73,6 @@ export interface UsePopupOptions {
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     open?: boolean | null;
     position?: PopupPosition;
-    trapFocus?: boolean;
     trigger?: PopupTrigger;
 }
 
@@ -93,7 +92,6 @@ export function usePopup(type: PopupType, {
     onOpenChange,
     open,
     position,
-    trapFocus,
     trigger = "click"
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -146,8 +144,6 @@ export function usePopup(type: PopupType, {
 
     const focusManager = useFocusManager(focusScope, { keyProp });
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isOpen });
-
-    useTrapFocus(focusManager, { isDisabled: !trapFocus || !isOpen });
 
     return {
         arrowProps: !hasArrow ? {} : {
