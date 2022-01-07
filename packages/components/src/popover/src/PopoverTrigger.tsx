@@ -77,7 +77,6 @@ export function InnerPopoverTrigger({
         onOpenChange,
         open,
         position: positionValue,
-        trapFocus: true,
         trigger: "click"
     });
 
