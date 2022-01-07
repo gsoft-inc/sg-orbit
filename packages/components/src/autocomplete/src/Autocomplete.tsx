@@ -176,12 +176,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         disabled: disabled || readOnly,
         hideOnEscape: true,
         hideOnLeave: true,
+        hideOnOutsideClick: false,
         id: menuId,
         offset: [0, 4],
         onOpenChange,
         open: openProp,
         position: `${direction}-${align}` as PopupPosition,
-        restoreFocus: true,
         // An autocomplete take care of his own trigger logic.
         trigger: "none"
     });
@@ -283,7 +283,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
-
                 break;
             case Keys.arrowUp:
                 if (isOpen) {
@@ -296,7 +295,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
-
                 break;
             case Keys.home:
                 if (isOpen) {
@@ -309,7 +307,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
-
                 break;
             case Keys.end:
                 if (isOpen) {
@@ -322,7 +319,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         key: activeElement.getAttribute(OptionKeyProp)
                     });
                 }
-
                 break;
             case Keys.esc:
                 if (isOpen) {
@@ -332,7 +328,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
                     close(event);
                 }
-
                 break;
             case Keys.enter:
                 if (isOpen) {
@@ -342,7 +337,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         selectItem(event, focusedItem.key);
                     }
                 }
-
                 break;
         }
     });

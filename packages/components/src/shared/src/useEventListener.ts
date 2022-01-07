@@ -1,7 +1,7 @@
 import { isFunction, isNil } from "./assertions";
 import { useCallback, useEffect } from "react";
 
-export function useEventListener(eventTarget: EventTarget | (() => EventTarget), eventName: string, listener: EventListenerOrEventListenerObject | null, active = true, options?: boolean | EventListenerOptions) {
+export function useEventListener(eventTarget: EventTarget | (() => EventTarget), eventName: string, listener: EventListenerOrEventListenerObject | null, active = true, options?: EventListenerOptions) {
     useEffect(() => {
         const target = isFunction(eventTarget) ? eventTarget() : eventTarget;
 
@@ -19,13 +19,13 @@ export function useEventListener(eventTarget: EventTarget | (() => EventTarget),
     }, [eventTarget, eventName, listener, active, options]);
 }
 
-export function useDocumentListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: boolean | EventListenerOptions) {
+export function useDocumentListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: EventListenerOptions) {
     const documentTarget = useCallback(() => document, []);
 
     useEventListener(documentTarget, eventName, listener, active, options);
 }
 
-export function useWindowListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: boolean | EventListenerOptions) {
+export function useWindowListener(eventName: string, listener: EventListenerOrEventListenerObject | null, active?: boolean, options?: EventListenerOptions) {
     const documentTarget = useCallback(() => window, []);
 
     useEventListener(documentTarget, eventName, listener, active, options);

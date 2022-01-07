@@ -37,6 +37,15 @@ stories()
             </Popover>
         </PopoverTrigger>
     )
+    .add("not dismissable", () =>
+        <PopoverTrigger defaultOpen dismissable={false}>
+            <Button variant="secondary">Toggle</Button>
+            <Popover>
+                <Heading>Space News</Heading>
+                <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
+            </Popover>
+        </PopoverTrigger>
+    )
     .add("position", () =>
         <PopoverTrigger position={{ md: "top", lg: "top" }}>
             <Button variant="secondary">Toggle</Button>

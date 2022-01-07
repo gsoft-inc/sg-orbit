@@ -1,8 +1,9 @@
+import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
+import { act, fireEvent, waitFor } from "@testing-library/react";
+
 import { Button } from "@components/button";
 import { Keys } from "@components/shared";
-import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
 import { Transition } from "@components/transition";
-import { act, fireEvent, waitFor } from "@testing-library/react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
@@ -19,7 +20,6 @@ function Popup({
     hideOnEscape = true,
     hideOnLeave = true,
     hideOnOutsideClick = true,
-    restoreFocus = false,
     trigger,
     disabled,
     "data-triggertestid": triggerTestId,
@@ -33,7 +33,7 @@ function Popup({
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
-        restoreFocus,
+
         trigger,
         disabled
     });
@@ -420,13 +420,12 @@ describe("\"none\" trigger", () => {
     });
 });
 
-test("when restoreFocus is true, closing the popup with esc keypress return the focus to the trigger", async () => {
+test("closing the popup with esc keypress return the focus to the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
     const { getByTestId } = renderWithTheme(
         <Popup
-            restoreFocus
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
         />
@@ -565,5 +564,23 @@ test("call onOpenChange when the popup close", async () => {
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
+
+test("when closed, do not call onOpenChange on outside click", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <Popup
+            onOpenChange={handler}
+            data-triggertestid="trigger"
+            data-overlaytestid="overlay"
+        />
+    );
+
+    act(() => {
+        userEvent.click(document.body);
+    });
+
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 

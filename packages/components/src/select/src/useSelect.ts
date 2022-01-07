@@ -98,7 +98,6 @@ export function useSelect(children: ReactNode, {
         onOpenChange: handleOpenChange,
         open: openProp,
         position: `${direction}-${align}` as PopupPosition,
-        restoreFocus: true,
         trigger: "click"
     });
 

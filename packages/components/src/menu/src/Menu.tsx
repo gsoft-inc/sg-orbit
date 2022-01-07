@@ -151,36 +151,26 @@ export function InnerMenu({
         switch (event.key) {
             case Keys.arrowDown: {
                 event.preventDefault();
-
                 focusManager.focusNext();
-
                 break;
             }
             case Keys.arrowUp: {
                 event.preventDefault();
-
                 focusManager.focusPrevious();
-
                 break;
             }
             case Keys.home:
                 event.preventDefault();
-
                 focusManager.focusFirst();
-
                 break;
             case Keys.end:
                 event.preventDefault();
-
                 focusManager.focusLast();
-
                 break;
             case Keys.enter:
             case Keys.space:
                 event.preventDefault();
-
                 handleSelectItem(event, document.activeElement.getAttribute(ItemKeyProp));
-
                 break;
             // eslint-disable-next-line no-fallthrough
             default:

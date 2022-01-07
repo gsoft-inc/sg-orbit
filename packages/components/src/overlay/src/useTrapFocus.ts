@@ -1,6 +1,10 @@
 import { FocusManager, Keys, isNil, useDocumentListener, useEventCallback, useRefState } from "../../shared";
 
-export function useTrapFocus(focusManager: FocusManager) {
+export interface UseTrapFocusOptions {
+    isDisabled?: boolean;
+}
+
+export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrapFocusOptions = {}) {
     const [focusedElementRef, setFocusedElement] = useRefState<HTMLElement>();
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
@@ -42,6 +46,6 @@ export function useTrapFocus(focusManager: FocusManager) {
     });
 
     // Using the capture phrase for the keydown event listener to ensure this hook catch a tab keydown event before the useRestoreFocus hook keydown handler.
-    useDocumentListener("keydown", handleKeyDown, true, { capture: true });
-    useDocumentListener("focusin", handleFocus, true);
+    useDocumentListener("keydown", handleKeyDown, !isDisabled, { capture: true });
+    useDocumentListener("focusin", handleFocus, !isDisabled);
 }

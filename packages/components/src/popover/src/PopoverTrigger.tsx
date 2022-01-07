@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
 import {
     InternalProps,
     OmitInternalProps,
@@ -6,12 +6,9 @@ import {
     augmentElement,
     isNil,
     mergeProps,
-    resolveChildren,
-    useControllableState,
-    useEventCallback,
-    useMergedRefs
+    resolveChildren
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, useOverlayPosition, useOverlayTrigger, usePopupAriaProps } from "../../overlay";
+import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
 import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
@@ -51,34 +48,14 @@ export function InnerPopoverTrigger({
     forwardedRef,
     id,
     onOpenChange,
-    open: openProp,
+    open,
     position: positionProp = "bottom",
     zIndex = 10000,
     ...rest
 }: InnerPopoverTriggerProps) {
     const positionValue = useResponsiveValue(positionProp);
 
-    const [isOpen, setIsOpen] = useControllableState(openProp, defaultOpen, false);
-
     const { themeAccessor } = useThemeContext();
-
-    const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
-        if (isOpen !== newValue) {
-            setIsOpen(newValue);
-
-            if (!isNil(onOpenChange)) {
-                onOpenChange(event, newValue);
-            }
-        }
-    }, [onOpenChange, isOpen, setIsOpen]);
-
-    const open = useCallback((event: SyntheticEvent) => {
-        updateIsOpen(event, true);
-    }, [updateIsOpen]);
-
-    const close = useCallback((event: SyntheticEvent) => {
-        updateIsOpen(event, false);
-    }, [updateIsOpen]);
 
     const [trigger, popover] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
 
@@ -86,37 +63,25 @@ export function InnerPopoverTrigger({
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const triggerProps = useOverlayTrigger(isOpen, {
-        hideOnLeave: false,
-        isDisabled: trigger.props.disabled,
-        onHide: useEventCallback((event: SyntheticEvent) => {
-            close(event);
-        }),
-        onShow: useEventCallback((event: SyntheticEvent) => {
-            open(event);
-        })
-    });
-
-    const { arrowRef, overlayRef: overlayPositionRef, triggerRef } = useOverlayPosition({
+    const { arrowProps, isOpen, overlayProps, triggerProps } = usePopup("dialog", {
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
+        defaultOpen,
+        disabled: trigger.props.disabled,
         hasArrow: true,
-        position: positionValue
+        hideOnEscape: true,
+        hideOnLeave: dismissable,
+        hideOnOutsideClick: false,
+        id,
+        onOpenChange,
+        open,
+        position: positionValue,
+        trapFocus: true,
+        trigger: "click"
     });
 
-    const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(isOpen, "dialog", { id });
-
-    const triggerMarkup = augmentElement(
-        trigger,
-        mergeProps(
-            {
-                ref: triggerRef
-            },
-            triggerProps,
-            triggerAriaProps
-        )
-    );
+    const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const popoverMarkup = augmentElement(popover, {
         dismissable,
@@ -127,8 +92,7 @@ export function InnerPopoverTrigger({
         <PopoverTriggerContext.Provider
             value={{
                 close,
-                isOpen,
-                triggerRef
+                isOpen
             }}
         >
             {triggerMarkup}
@@ -138,17 +102,21 @@ export function InnerPopoverTrigger({
                     {
                         as,
                         borderOffset: themeAccessor.getSpace(3),
-                        ref: useMergedRefs(overlayPositionRef, forwardedRef),
+                        ref: forwardedRef,
                         show: isOpen,
                         zIndex
                     },
-                    overlayAriaProps
+                    overlayProps
                 )}
             >
                 {popoverMarkup}
                 <OverlayArrow
-                    ref={arrowRef}
-                    zIndex={zIndex + 100}
+                    {...mergeProps(
+                        {
+                            zIndex: zIndex + 100
+                        },
+                        arrowProps
+                    )}
                 />
             </Overlay>
         </PopoverTriggerContext.Provider>
@@ -162,3 +130,4 @@ export const PopoverTrigger = forwardRef<any, OmitInternalProps<InnerPopoverTrig
 ));
 
 export type PopoverTriggerProps = ComponentProps<typeof PopoverTrigger>;
+

@@ -7,6 +7,7 @@ import { ResponsiveProp } from "../../styling";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
+import { useTrapFocus } from "./useTrapFocus";
 
 export type PopupAlignment = "start" | "end";
 export type PopupDirection = "top" | "bottom";
@@ -72,7 +73,7 @@ export interface UsePopupOptions {
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     open?: boolean | null;
     position?: PopupPosition;
-    restoreFocus?: boolean;
+    trapFocus?: boolean;
     trigger?: PopupTrigger;
 }
 
@@ -92,7 +93,7 @@ export function usePopup(type: PopupType, {
     onOpenChange,
     open,
     position,
-    restoreFocus = true,
+    trapFocus,
     trigger = "click"
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -134,6 +135,7 @@ export function usePopup(type: PopupType, {
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
+        isDisabled: disabled || !isOpen,
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
@@ -143,7 +145,9 @@ export function usePopup(type: PopupType, {
     const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(isOpen, type, { id });
 
     const focusManager = useFocusManager(focusScope, { keyProp });
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isOpen });
+
+    useTrapFocus(focusManager, { isDisabled: !trapFocus || !isOpen });
 
     return {
         arrowProps: !hasArrow ? {} : {
@@ -165,7 +169,7 @@ export function usePopup(type: PopupType, {
         triggerProps: mergeProps(
             {
                 ref: triggerRef,
-                tabIndex: !restoreFocus && isOpen ? -1 : undefined
+                tabIndex: isOpen ? -1 : undefined
             },
             triggerProps,
             triggerAriaProps
