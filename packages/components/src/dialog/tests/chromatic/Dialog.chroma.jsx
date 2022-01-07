@@ -1,11 +1,12 @@
 import { Apollo11Poster, Nasa, TheMartianPoster } from "./assets";
+import { Footer, Header } from "@components/placeholders";
+import { Heading, Paragraph } from "@components/typography";
+
 import { Button } from "@components/button";
 import { ButtonGroup } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Dialog } from "@components/dialog";
 import { Div } from "@components/html";
-import { Footer, Header } from "@components/placeholders";
-import { Heading, Paragraph } from "@components/typography";
 import { Illustration } from "@components/illustration";
 import { Image } from "@components";
 import { TextLink } from "@components/link";
@@ -326,10 +327,6 @@ stories()
                 <Paragraph>Nulla mollis mauris ut cursus maximus. Suspendisse vitae condimentum turpis, at posuere purus. Fusce viverra justo non turpis gravida, maximus vulputate velit tincidunt. Integer volutpat pulvinar diam, at auctor felis consequat non. Nam ultrices, felis id maximus cursus, nulla quam aliquet turpis, nec feugiat magna urna sit amet nibh. Aenean quis sollicitudin nibh, sit amet feugiat dui. Phasellus maximus luctus arcu in aliquam. Ut a tortor quis justo ullamcorper euismod at sit amet leo. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam malesuada neque ac pulvinar malesuada.</Paragraph>
             </Content>
             <Footer>02 December 2020</Footer>
-            <ButtonGroup>
-                <Button variant="secondary">Close</Button>
-                <Button variant="primary">Next</Button>
-            </ButtonGroup>
         </Dialog>
     )
     .add("scrolling", () =>

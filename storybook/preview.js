@@ -31,10 +31,10 @@ export const parameters = {
                     "Contributing"
                 ],
                 "Features", [
-                    "Style Props",
-                    "Responsive Styles",
+                    "Style props",
+                    "Responsive styles",
                     "Theming",
-                    "Color Schemes",
+                    "Color schemes",
                     "Slots",
                     "As"
                 ],
