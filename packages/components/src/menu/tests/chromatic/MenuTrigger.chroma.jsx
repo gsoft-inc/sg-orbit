@@ -1,13 +1,14 @@
 import { Button, IconButton } from "@components/button";
+import { Item, Section } from "@components/collection";
+import { Menu, MenuTrigger } from "@components/menu";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { DisclosureArrow } from "@components/disclosure";
 import { Divider } from "@components/divider";
 import { HtmlButton } from "@components/html";
-import { Item, Section } from "@components/collection";
-import { Menu, MenuTrigger } from "@components/menu";
 import { Text } from "@components/typography";
 import { VerticalDotsIcon } from "@components/icons";
 import { forwardRef } from "react";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/MenuTrigger")
@@ -211,6 +212,22 @@ stories()
             </MenuTrigger>
         );
     })
+    .add("functional content", () =>
+        <MenuTrigger defaultOpen>
+            {() => {
+                return (
+                    <>
+                        <Button variant="secondary">Trigger</Button>
+                        <Menu>
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </>
+                );
+            }}
+        </MenuTrigger>
+    )
     .add("styled system", () =>
         <MenuTrigger border="warning-7" defaultOpen>
             <Button variant="secondary">Trigger</Button>

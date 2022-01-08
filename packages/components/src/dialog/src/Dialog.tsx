@@ -195,8 +195,11 @@ export function InnerDialog({
 
     const focusRingProps = useOverlayFocusRing({ focus });
 
+    // For convenience (well and because a popup light dismiss need a trigger ref), the other overlay components are calling their light dismiss hook in the trigger.
+    // A dialog is different because it could be used without Orbit trigger. For example, an app could show a dialog trigger by a Redux event.
+    // In this use case, we still want the app to benefit from Orbit light dismiss features, therefore we moved the light dismiss in the dialog component.
     const overlayDismissProps = useOverlayLightDismiss(focusScope, {
-        hideOnEscape: true,
+        hideOnEscape: dismissable,
         hideOnLeave: false,
         hideOnOutsideClick: dismissable,
         onHide: useEventCallback((event: SyntheticEvent) => {

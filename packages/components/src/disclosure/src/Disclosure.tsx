@@ -71,7 +71,7 @@ export function InnerDisclosure({
         }
     }, [isOpen, toggle]);
 
-    const [trigger, content] = Children.toArray(resolveChildren(children, { close })) as ReactElement[];
+    const [trigger, content] = Children.toArray(resolveChildren(children)) as ReactElement[];
 
     if (isNil(trigger) || isNil(content)) {
         throw new Error("A disclosure component must have a trigger and a content element.");

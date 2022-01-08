@@ -1,4 +1,4 @@
-import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { Children, ComponentProps, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import {
     InternalProps,
     OmitInternalProps,
@@ -57,28 +57,33 @@ export function InnerPopoverTrigger({
 
     const { themeAccessor } = useThemeContext();
 
-    const [trigger, popover] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
+    const [trigger, popover] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(popover)) {
         throw new Error("A popover trigger must have exactly 2 children.");
     }
 
-    const { arrowProps, isOpen, overlayProps, triggerProps } = usePopup("dialog", {
+    const { arrowProps, isOpen, overlayProps, setIsOpen, triggerProps } = usePopup("dialog", {
         allowFlip,
         allowPreventOverflow,
         boundaryElement: containerElement,
         defaultOpen,
         disabled: trigger.props.disabled,
         hasArrow: true,
-        hideOnEscape: true,
+        hideOnEscape: dismissable,
         hideOnLeave: dismissable,
         hideOnOutsideClick: false,
+        hideOnTriggerClick: dismissable,
         id,
         onOpenChange,
         open,
         position: positionValue,
         trigger: "click"
     });
+
+    const close = useCallback((event: SyntheticEvent) => {
+        setIsOpen(event, false);
+    }, [setIsOpen]);
 
     const triggerMarkup = augmentElement(trigger, triggerProps);
 

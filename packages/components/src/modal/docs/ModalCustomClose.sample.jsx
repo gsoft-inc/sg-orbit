@@ -1,4 +1,4 @@
-const ApolloModal = forwardRef(({ children, ...rest }, ref) => {
+const CustomCloseModal = forwardRef(({ children, ...rest }, ref) => {
     const { close } = useModalTriggerContext();
 
     return (
@@ -23,9 +23,9 @@ const ApolloModal = forwardRef(({ children, ...rest }, ref) => {
 
 render(() => {
     return (
-        <ModalTrigger>
-            <Button variant="secondary">Open</Button>
-            <ApolloModal />
+        <ModalTrigger dismissable={false}>
+            <Button variant="secondary">Trigger</Button>
+            <CustomCloseModal />
         </ModalTrigger>
     );
 });

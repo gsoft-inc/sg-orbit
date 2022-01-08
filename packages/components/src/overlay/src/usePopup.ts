@@ -7,7 +7,6 @@ import { ResponsiveProp } from "../../styling";
 import { useOverlayTrigger } from "./useOverlayTrigger";
 import { usePopupLightDismiss } from "./usePopupLightDismiss";
 import { useRestoreFocus } from "./useRestoreFocus";
-import { useTrapFocus } from "./useTrapFocus";
 
 export type PopupAlignment = "start" | "end";
 export type PopupDirection = "top" | "bottom";
@@ -67,6 +66,7 @@ export interface UsePopupOptions {
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
     hideOnOutsideClick?: boolean;
+    hideOnTriggerClick?: boolean;
     id?: string;
     keyProp?: string;
     offset?: number[];
@@ -86,6 +86,7 @@ export function usePopup(type: PopupType, {
     hideOnEscape = true,
     hideOnLeave = true,
     hideOnOutsideClick,
+    hideOnTriggerClick = true,
     id,
     keyProp,
     offset,
@@ -112,7 +113,9 @@ export function usePopup(type: PopupType, {
         hideOnLeave,
         isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
+            if (hideOnTriggerClick) {
+                updateIsOpen(event, false);
+            }
         }),
         onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);

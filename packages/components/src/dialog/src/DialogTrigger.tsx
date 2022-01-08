@@ -77,7 +77,7 @@ export function InnerDialogTrigger({
         updateIsOpen(event, false);
     }, [updateIsOpen]);
 
-    const [trigger, dialog] = Children.toArray(resolveChildren(children, { close })) as [ReactElement, ReactElement];
+    const [trigger, dialog] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(dialog)) {
         throw new Error("A dialog trigger must have exactly 2 children.");

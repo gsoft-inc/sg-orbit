@@ -130,6 +130,8 @@ test("selecting an option close the menu", async () => {
         userEvent.click(getByTestId("select"));
     });
 
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+
     act(() => {
         userEvent.click(getByTestId("earth-option"));
     });
@@ -139,7 +141,10 @@ test("selecting an option close the menu", async () => {
 
 test("selecting an option update the trigger selected value text", async () => {
     const { getByTestId } = renderWithTheme(
-        <Select data-testid="select">
+        <Select
+            data-testid="select"
+            overlayProps={{ "data-testid": "overlay" }}
+        >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -149,6 +154,8 @@ test("selecting an option update the trigger selected value text", async () => {
     act(() => {
         userEvent.click(getByTestId("select"));
     });
+
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -162,7 +169,10 @@ test("selecting an option focus the trigger", async () => {
     Transition.disableAnimation = false;
 
     const { getByTestId, queryByTestId } = renderWithTheme(
-        <Select data-testid="select">
+        <Select
+            data-testid="select"
+            overlayProps={{ "data-testid": "overlay" }}
+        >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -172,6 +182,8 @@ test("selecting an option focus the trigger", async () => {
     act(() => {
         userEvent.click(getByTestId("select"));
     });
+
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -254,10 +266,7 @@ test("when in a field, clicking on the field label open the select and focus the
     const { getByTestId } = renderWithTheme(
         <Field>
             <Label data-testid="label">Select</Label>
-            <Select
-                overlayProps={{ "data-testid": "overlay" }}
-                data-testid="select"
-            >
+            <Select data-testid="select">
                 <Item key="earth" data-testid="earth-option">Earth</Item>
                 <Item key="mars">Mars</Item>
                 <Item key="saturn">Saturn</Item>
@@ -268,8 +277,6 @@ test("when in a field, clicking on the field label open the select and focus the
     act(() => {
         userEvent.click(getByTestId("label"));
     });
-
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
@@ -430,12 +437,15 @@ test("call onOpenChange when the select close", async () => {
             onOpenChange={handler}
             defaultOpen
             data-testid="select"
+            overlayProps={{ "data-testid": "overlay" }}
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
     );
+
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
         getByTestId("earth-option").focus();
@@ -456,12 +466,15 @@ test("call onSelectionChange when an option is selected", async () => {
         <Select
             onSelectionChange={handler}
             defaultOpen
+            overlayProps={{ "data-testid": "overlay" }}
         >
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Select>
     );
+
+    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));

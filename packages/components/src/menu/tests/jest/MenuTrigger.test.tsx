@@ -147,6 +147,8 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
         userEvent.click(getByTestId("trigger"));
     });
 
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+
     act(() => {
         userEvent.click(getByTestId("earth-item"));
     });
@@ -170,6 +172,8 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
         userEvent.click(getByTestId("trigger"));
     });
 
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+
     act(() => {
         userEvent.click(getByTestId("earth-item"));
     });
@@ -192,6 +196,8 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
     act(() => {
         userEvent.click(getByTestId("trigger"));
     });
+
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -219,6 +225,8 @@ test("selecting an item focus the trigger", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+
     act(() => {
         userEvent.click(getByTestId("earth-item"));
     });
@@ -237,6 +245,8 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
             </Menu>
         </MenuTrigger>
     );
+
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -427,6 +437,8 @@ test("call onOpenChange when the menu open", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -447,6 +459,8 @@ test("call onOpenChange when the menu close", async () => {
             </Menu>
         </MenuTrigger>
     );
+
+    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
     act(() => {
         getByTestId("earth-item").focus();

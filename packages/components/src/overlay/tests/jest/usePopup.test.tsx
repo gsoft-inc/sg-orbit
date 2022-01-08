@@ -20,6 +20,7 @@ function Popup({
     hideOnEscape = true,
     hideOnLeave = true,
     hideOnOutsideClick = true,
+    hideOnTriggerClick = true,
     trigger,
     disabled,
     "data-triggertestid": triggerTestId,
@@ -33,7 +34,7 @@ function Popup({
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
-
+        hideOnTriggerClick,
         trigger,
         disabled
     });
@@ -186,6 +187,29 @@ describe("\"click\" trigger", () => {
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    });
+
+    test("when opened and hideOnTriggerClick is false, do not close on trigger click", async () => {
+        const { getByTestId, queryByTestId } = renderWithTheme(
+            <Popup
+                hideOnTriggerClick={false}
+                trigger="click"
+                data-triggertestid="trigger"
+                data-overlaytestid="overlay"
+            />
+        );
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
+
+        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+
+        act(() => {
+            userEvent.click(getByTestId("trigger"));
+        });
+
+        await waitFor(() => expect(queryByTestId("overlay")).toBeInTheDocument());
     });
 
     test("when opened, close on esc keypress", async () => {
