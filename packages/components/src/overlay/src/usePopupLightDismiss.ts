@@ -9,6 +9,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusSc
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick,
+    isDisabled,
     onHide,
     trigger
 }: UseOverlayLightDismissOptions = {}) {
@@ -37,8 +38,11 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusSc
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
+        isDisabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
             switch (event.type) {
+                // Without mouseup closing the menu with the trigger will cause a double toggle.
+                case "mouseup":
                 case "click": {
                     // Ignore events related to the trigger to prevent double toggle.
                     //
@@ -47,6 +51,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusSc
                     if (!isTargetParent(event.target, triggerRef)) {
                         hide(event);
                     }
+
                     break;
                 }
                 case "blur": {
@@ -63,6 +68,7 @@ export function usePopupLightDismiss(triggerRef: RefObject<HTMLElement>, focusSc
 
                         setIsHandled(false);
                     }, 0);
+
                     break;
                 }
                 default: {

@@ -15,6 +15,7 @@ function Overlay({
     hideOnEscape = true,
     hideOnLeave = true,
     hideOnOutsideClick = true,
+    isDisabled,
     ...rest
 }: OverlayProps) {
     const [focusScope, setFocusRef] = useFocusScope();
@@ -22,6 +23,7 @@ function Overlay({
     const overlayRef = useMergedRefs(setFocusRef);
 
     const lightDismissProps = useOverlayLightDismiss(focusScope, {
+        isDisabled,
         trigger,
         onHide,
         hideOnEscape,
@@ -33,10 +35,12 @@ function Overlay({
         <Div
             {...mergeProps(
                 rest,
+                {
+                    tabIndex: -1,
+                    ref: overlayRef
+                },
                 lightDismissProps
             )}
-            tabIndex={-1}
-            ref={overlayRef}
         >
             Overlay
         </Div>
@@ -180,6 +184,78 @@ describe("\"click\" trigger", () => {
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
+
+    test("when disabled, outside interaction do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <Overlay
+                isDisabled
+                onHide={handler}
+                trigger="click"
+                data-testid="overlay"
+            />
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
+
+    test("when disabled, focus interaction do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <>
+                <button type="button" data-testid="focusable-element">Focusable element</button>
+                <Overlay
+                    isDisabled
+                    onHide={handler}
+                    trigger="click"
+                    data-testid="overlay"
+                />
+            </>
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            getByTestId("focusable-element").focus();
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
+
+    test("when disabled, keydown event do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <Overlay
+                isDisabled
+                onHide={handler}
+                trigger="click"
+                data-testid="overlay"
+            />
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
 });
 
 describe("\"hover\" trigger", () => {
@@ -304,6 +380,78 @@ describe("\"hover\" trigger", () => {
 
         act(() => {
             userEvent.click(getByTestId("overlay"));
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
+
+    test("when disabled, outside interaction do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <Overlay
+                isDisabled
+                onHide={handler}
+                trigger="hover"
+                data-testid="overlay"
+            />
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
+
+    test("when disabled, focus interaction do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <>
+                <button type="button" data-testid="focusable-element">Focusable element</button>
+                <Overlay
+                    isDisabled
+                    onHide={handler}
+                    trigger="hover"
+                    data-testid="overlay"
+                />
+            </>
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            getByTestId("focusable-element").focus();
+        });
+
+        await waitFor(() => expect(handler).not.toHaveBeenCalled());
+    });
+
+    test("when disabled, keydown event do not call onHide", async () => {
+        const handler = jest.fn();
+
+        const { getByTestId } = renderWithTheme(
+            <Overlay
+                isDisabled
+                onHide={handler}
+                trigger="hover"
+                data-testid="overlay"
+            />
+        );
+
+        act(() => {
+            getByTestId("overlay").focus();
+        });
+
+        act(() => {
+            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());

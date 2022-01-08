@@ -16,5 +16,7 @@ export function useInteractOutside(focusScope: FocusScope, { isDisabled, onInter
         }
     });
 
-    useDocumentListener("click", handleDocumentClick, !isDisabled);
+    // Cannot use "click" because of the following React issue so we fallback to "mouseup".
+    // https://github.com/facebook/react/issues/23074
+    useDocumentListener("mouseup", handleDocumentClick, !isDisabled);
 }

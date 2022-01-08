@@ -1,8 +1,9 @@
+import { Disclosure, useDisclosureContext } from "@components/disclosure";
+import { Flex, Stack } from "@components/layout";
+
 import { ArrowIcon } from "@components/icons";
 import { Button } from "@components/button";
-import { Disclosure, useDisclosureContext } from "@components/disclosure";
 import { Div } from "@components/html";
-import { Flex, Stack } from "@components/layout";
 import { TextLinkAsButton } from "@components/link";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -68,5 +69,17 @@ stories()
         <Disclosure>
             <TextLinkAsButton>Mars</TextLinkAsButton>
             <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+        </Disclosure>
+    )
+    .add("functional content", () =>
+        <Disclosure defaultOpen>
+            {() => {
+                return (
+                    <>
+                        <Button variant="secondary">Mars</Button>
+                        <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
+                    </>
+                );
+            }}
         </Disclosure>
     );

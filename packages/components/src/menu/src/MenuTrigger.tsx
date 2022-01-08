@@ -80,13 +80,12 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         disabled: disabled || readOnly || trigger.props.disabled,
         hideOnEscape: true,
         hideOnLeave: true,
-        hideOnOutsideClick: true,
+        hideOnOutsideClick: false,
         id,
         offset: [0, 4],
         onOpenChange: handleOpenChange,
         open: openProp,
         position: `${direction}-${align}` as PopupPosition,
-        restoreFocus: true,
         trigger: "click"
     });
 

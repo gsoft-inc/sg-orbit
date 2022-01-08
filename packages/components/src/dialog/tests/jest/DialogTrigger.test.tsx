@@ -39,7 +39,7 @@ test("when dismissable is true, close the dialog on dismiss button click", async
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         userEvent.click(getByLabelText("Dismiss"));
@@ -63,7 +63,7 @@ test("when dismissable is true, close the dialog on outside click", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         userEvent.click(document.body);
@@ -87,7 +87,7 @@ test("when dismissable is true, close the dialog on esc keypress", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
@@ -111,7 +111,7 @@ test("when dismissable is false, do not close the dialog on outside click", asyn
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         userEvent.click(document.body);
@@ -120,7 +120,7 @@ test("when dismissable is false, do not close the dialog on outside click", asyn
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
 });
 
-test("when dismissable is false, close the dialog on esc keypress", async () => {
+test("when dismissable is false, do not close the dialog on esc keypress", async () => {
     const { getByTestId, queryByTestId } = renderWithTheme(
         <DialogTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
@@ -135,44 +135,13 @@ test("when dismissable is false, close the dialog on esc keypress", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
-});
-
-test("when the render props close function is called, close the dialog", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
-        <DialogTrigger>
-            {({ close }: { close: () => void }) => {
-                return (
-                    <>
-                        <Button data-testid="trigger">Trigger</Button>
-                        <Dialog data-testid="dialog">
-                            <Heading>Iconic Arecibo Observatory collapses</Heading>
-                            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
-                            <Button onClick={close} data-testid="close-btn">Close</Button>
-                        </Dialog>
-                    </>
-                );
-            }}
-        </DialogTrigger>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
-
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
-
-    act(() => {
-        userEvent.click(getByTestId("close-btn"));
-    });
-
-    await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
 });
 
 test("when the context close function is called, close the dialog", async () => {
@@ -203,7 +172,7 @@ test("when the context close function is called, close the dialog", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("close-btn")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("close-btn"));
@@ -231,7 +200,7 @@ test("when the dialog open, call onOpenChange", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -254,7 +223,7 @@ test("call onOpenChange when the dismiss button is clicked", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         userEvent.click(getByLabelText("Dismiss"));
@@ -283,7 +252,7 @@ test("call onOpenChange on outside click", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         userEvent.click(document.body);
@@ -312,46 +281,10 @@ test("call onOpenChange on esc keypress", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
+    await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
     act(() => {
         fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
-    });
-
-    await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
-
-    await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), false));
-    await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
-});
-
-test("call onOpenChange when the close function is called", async () => {
-    const handler = jest.fn();
-
-    const { getByTestId, queryByTestId } = renderWithTheme(
-        <DialogTrigger onOpenChange={handler}>
-            {({ close }: { close: () => void }) => {
-                return (
-                    <>
-                        <Button data-testid="trigger">Trigger</Button>
-                        <Dialog data-testid="dialog">
-                            <Heading>Iconic Arecibo Observatory collapses</Heading>
-                            <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
-                            <Button onClick={close} data-testid="close-btn">Close</Button>
-                        </Dialog>
-                    </>
-                );
-            }}
-        </DialogTrigger>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
-
-    await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
-
-    act(() => {
-        userEvent.click(getByTestId("close-btn"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());

@@ -1,16 +1,12 @@
 import { Inline, Stack } from "@components/layout";
-// import { Popover, PopoverTrigger } from "@components/popover";
 import { Select, useSelect } from "@components/select";
 import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 import { Button } from "@components/button";
-// import { Content } from "@components/placeholders";
 import { Div } from "@components/html";
-// import { Heading } from "@components/typography";
 import { Item } from "@components/collection";
 import { Listbox } from "@components/listbox";
 import { Overlay } from "@components/overlay";
-// import { TextInput } from "@components/text-input";
 import { createTestSuite } from "./createTestSuite";
 
 function stories(segment) {
@@ -34,56 +30,7 @@ createTestSuite(<Select variant="outline" />, stories("/outline"))
 
 createTestSuite(<Select variant="ghost" />, stories("/ghost"));
 
-/*
-Why a Popover doesn't need to use usePopupLightdismiss but a Select have to!?!?
-    -> doesn't make sense
-*/
-
-/*
-Why does a dialog trigger need a stopPropaggation but the others doesn't?!?!
-*/
-
 stories()
-    // .add("test", () =>
-    //     <>
-    //         <Button>Before</Button>
-    //         <Select placeholder="Select a planet" aria-label="Planets">
-    //             <Item key="earth">Earth</Item>
-    //             <Item key="mars">Mars</Item>
-    //             <Item key="saturn">Saturn</Item>
-    //         </Select>
-    //         <Button>After</Button>
-    //     </>
-    // )
-    // .add("test 2", () =>
-    //     <Select placeholder="Select a planet" aria-label="Planets">
-    //         <Item key="earth">Earth</Item>
-    //         <Item key="mars">Mars</Item>
-    //         <Item key="saturn">Saturn</Item>
-    //     </Select>
-    // )
-    // // This one is weird, tabbing out from the textinput should close the popover.
-    // .add("test 3", () =>
-    //     <PopoverTrigger>
-    //         <Button>Open</Button>
-    //         <Popover>
-    //             <Heading>Space News</Heading>
-    //             <Content>
-    //                 SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.
-    //                 <TextInput />
-    //             </Content>
-    //         </Popover>
-    //     </PopoverTrigger>
-    // )
-    // .add("test 4", () =>
-    //     <PopoverTrigger>
-    //         <Button>Open</Button>
-    //         <Popover>
-    //             <Heading>Space News</Heading>
-    //             <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    //         </Popover>
-    //     </PopoverTrigger>
-    // )
     .add("conditional rendering", () =>
         <Select defaultOpen placeholder="Select a planet" aria-label="Planets">
             {false && <Item key="earth">Earth</Item>}

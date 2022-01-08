@@ -310,9 +310,7 @@ export function InnerListbox({
             }
             case Keys.enter: {
                 event.preventDefault();
-
                 handleSelectOption(event, document.activeElement.getAttribute(OptionKeyProp));
-
                 break;
             }
             case Keys.space: {

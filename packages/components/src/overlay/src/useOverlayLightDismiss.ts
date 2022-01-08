@@ -9,6 +9,7 @@ export interface UseOverlayLightDismissOptions {
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
     hideOnOutsideClick?: boolean | ((event: MouseEvent) => void);
+    isDisabled?: boolean;
     onHide?: (event: SyntheticEvent) => void;
     trigger?: OverlayTrigger;
 }
@@ -17,6 +18,7 @@ export function useOverlayLightDismiss(focusScope: FocusScope, {
     hideOnEscape,
     hideOnLeave,
     hideOnOutsideClick,
+    isDisabled,
     onHide,
     trigger = "click"
 }: UseOverlayLightDismissOptions = {}) {
@@ -57,14 +59,18 @@ export function useOverlayLightDismiss(focusScope: FocusScope, {
     });
 
     useInteractOutside(focusScope, {
-        isDisabled: !hideOnOutsideClick,
+        isDisabled: isDisabled || !hideOnOutsideClick,
         onInteractOutside: handleInteractOutside
     });
 
     const focusWithinProps = useFocusWithin({
-        isDisabled: !hideOnLeave,
+        isDisabled: isDisabled || !hideOnLeave,
         onBlur: handleBlur
     });
+
+    if (isDisabled) {
+        return {};
+    }
 
     switch (trigger) {
         case "click":

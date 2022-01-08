@@ -66,13 +66,13 @@ export interface UsePopupOptions {
     hideOnEscape?: boolean;
     hideOnLeave?: boolean;
     hideOnOutsideClick?: boolean;
+    hideOnTriggerClick?: boolean;
     id?: string;
     keyProp?: string;
     offset?: number[];
     onOpenChange?: (event: SyntheticEvent, newValue: boolean) => void;
     open?: boolean | null;
     position?: PopupPosition;
-    restoreFocus?: boolean;
     trigger?: PopupTrigger;
 }
 
@@ -86,13 +86,13 @@ export function usePopup(type: PopupType, {
     hideOnEscape = true,
     hideOnLeave = true,
     hideOnOutsideClick,
+    hideOnTriggerClick = true,
     id,
     keyProp,
     offset,
     onOpenChange,
     open,
     position,
-    restoreFocus = true,
     trigger = "click"
 }: UsePopupOptions = {}) {
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
@@ -113,7 +113,9 @@ export function usePopup(type: PopupType, {
         hideOnLeave,
         isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            updateIsOpen(event, false);
+            if (hideOnTriggerClick) {
+                updateIsOpen(event, false);
+            }
         }),
         onShow: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, true);
@@ -134,6 +136,7 @@ export function usePopup(type: PopupType, {
         hideOnEscape,
         hideOnLeave,
         hideOnOutsideClick,
+        isDisabled: disabled || !isOpen,
         onHide: useEventCallback((event: SyntheticEvent) => {
             updateIsOpen(event, false);
         }),
@@ -143,7 +146,7 @@ export function usePopup(type: PopupType, {
     const { overlayProps: overlayAriaProps, triggerProps: triggerAriaProps } = usePopupAriaProps(isOpen, type, { id });
 
     const focusManager = useFocusManager(focusScope, { keyProp });
-    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !restoreFocus || !isOpen });
+    const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isOpen });
 
     return {
         arrowProps: !hasArrow ? {} : {
@@ -165,7 +168,7 @@ export function usePopup(type: PopupType, {
         triggerProps: mergeProps(
             {
                 ref: triggerRef,
-                tabIndex: !restoreFocus && isOpen ? -1 : undefined
+                tabIndex: isOpen ? -1 : undefined
             },
             triggerProps,
             triggerAriaProps
