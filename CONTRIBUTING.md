@@ -29,7 +29,7 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally the website and Storybook are not managed by the monorepo tooling since it's not meant to be published as an npm package. The website can be found in the [website](/website) directory and Storybook can be found in the [storybook](/storybook) directory.
+Exceptionally the website and Storybook are not managed by the monorepo tooling because it's not meant to be published as an npm package. The website can be found in the [website](/website) directory and Storybook can be found in the [storybook](/storybook) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
@@ -44,13 +44,13 @@ For more information, read the following Lerna commands documentation:
 - [version](https://github.com/lerna/lerna/tree/master/commands/version)
 - [publish](https://github.com/lerna/lerna/tree/master/commands/publish)
 
-This monorepo is configured to release the packages independently. The decision to release or not a package is automatically based on wether the code of the package has changed or not.
+This monorepo is configured to release the packages independently. The decision to release or not a package is based on whether or not the code of the package has changed.
 
 ### Yarn workspace
 
-As mentionned, this monorepo is using Yarn workspace feature to handle the installation of the npm dependencies and manage the packages inter-dependencies.
+This monorepo is using Yarn workspace feature to handle the installation of the npm dependencies and manage the packages inter-dependencies.
 
-It's also important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there might not be a *node_modules* directory nested in the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
+It's important to note that Yarn workspace will **hoist** the npm dependencies at the root of the workspace. This means that there might not be a *node_modules* directory nested in the packages directories. The npm dependencies are installed in a *node_modules* directory at the root of the workspace and a single *yarn.lock* file is generated at the root of the workspace.
 
 Since Storybook is not handled by the monorepo tooling, the [storybook](/storybook) directory will contain a *node_modules* directory and a *yarn.lock* file.
 

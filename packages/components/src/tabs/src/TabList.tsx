@@ -27,7 +27,7 @@ import { TabType } from "./useTabsItems";
 import { useCollapsibleTabs } from "./useCollapsibleTabs";
 import { useTabsContext } from "./TabsContext";
 
-const TabGap = 12;
+const TabGap = 8;
 const PopoverTriggerWidth = 48;
 
 interface TabListPopoverProps extends Omit<StyledComponentProps<"button">, "onSelect"> {
@@ -223,7 +223,7 @@ export function InnerTabList({
         target: selectedKey
     });
 
-    const { collapsedTabs, collapsibleTabsRef, visibleTabs } = useCollapsibleTabs(tabs, selectedKey, {
+    const { collapsedTabs, collapsibleTabsRef, hiddenTabs, visibleTabs } = useCollapsibleTabs(tabs, selectedKey, {
         gap: TabGap,
         isDisabled: orientation === "vertical",
         popoverTriggerWidth: PopoverTriggerWidth
@@ -424,7 +424,7 @@ export function InnerTabList({
                 )}
                 {/* Rendering hidden tabs to allow the useCollapsibleTabs hook to calculate the actual size of all the tabs and divide them into visible/collapsed buckets. */}
                 <Div aria-hidden="true" className="o-ui-tab-list-hidden-tabs">
-                    {tabs.map(({
+                    {hiddenTabs.map(({
                         elementType: ElementType = Tab,
                         key,
                         // HACK: removing data-testid prop otherwise the test id will be rendered on the hidden element which will break the Jest tests.

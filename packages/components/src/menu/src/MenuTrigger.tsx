@@ -58,12 +58,12 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         inputGroupProps
     );
 
-    const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
+    const [autoFocusTargetRef, setAutoFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const handleOpenChange = useChainedEventCallback(onOpenChange, (event: SyntheticEvent, isVisible: boolean) => {
         // When the menu is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
-            setFocusTarget(FocusTarget.first);
+            setAutoFocusTarget(FocusTarget.first);
         }
     });
 
@@ -90,14 +90,14 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
     });
 
     const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
-        setFocusTarget(focusTarget);
+        setAutoFocusTarget(focusTarget);
         setIsOpen(event, true);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen, setAutoFocusTarget]);
 
     const close = useCallback((event: SyntheticEvent) => {
-        setFocusTarget(null);
+        setAutoFocusTarget(null);
         setIsOpen(event, false);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen, setAutoFocusTarget]);
 
     // Open the menu on up & down arrow keydown.
     const handleTriggerKeyDown = useEventCallback((event: KeyboardEvent) => {
@@ -135,7 +135,7 @@ export function InnerMenuTrigger(props: InnerMenuTriggerProps) {
         // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
         // a value because the menu re-render before the exit animation is done.
         autoFocus: isOpen,
-        autoFocusTarget: focusTargetRef.current,
+        autoFocusTarget: autoFocusTargetRef.current,
         onSelectionChange: handleSelectionChange
     });
 
