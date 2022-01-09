@@ -80,6 +80,7 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
     }, [tabs, limit, selectedKey]);
 
     const handleResize = useCallback(() => {
+        // The initial selected key already trigger a resize, this flag prevent from computing the limit twice at initial render.
         if (isInitialResizeRef.current) {
             setIsInitialResize(false);
         } else {
