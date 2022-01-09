@@ -69,12 +69,12 @@ export function useSelect(children: ReactNode, {
     validationState
 }: UseSelectOptions = {}) {
     const [selectedKey, setSelectedKey] = useControllableState(selectedKeyProp, defaultSelectedKey, null);
-    const [focusTargetRef, setFocusTarget] = useRefState<string>(FocusTarget.first);
+    const [autoFocusTargetRef, setAutoFocusTarget] = useRefState<string>(FocusTarget.first);
 
     const handleOpenChange = useChainedEventCallback(onOpenChange, (event: SyntheticEvent, isVisible: boolean) => {
         // When the select is closed because of a blur or outside click event, reset the focus target.
         if (!isVisible) {
-            setFocusTarget(FocusTarget.first);
+            setAutoFocusTarget(FocusTarget.first);
         }
     });
 
@@ -118,9 +118,9 @@ export function useSelect(children: ReactNode, {
     }, [selectedKey, setSelectedKey, onSelectionChange]);
 
     const open = useCallback((event: SyntheticEvent, focusTarget: string) => {
-        setFocusTarget(focusTarget);
+        setAutoFocusTarget(focusTarget);
         setIsOpen(event, true);
-    }, [setIsOpen, setFocusTarget]);
+    }, [setIsOpen, setAutoFocusTarget]);
 
     const close = useCallback((event: SyntheticEvent) => {
         setIsOpen(event, false);
@@ -172,7 +172,7 @@ export function useSelect(children: ReactNode, {
             // Must be conditional to isOpen otherwise it will steal the focus from the trigger when selecting
             // a value because the listbox re-render before the exit animation is done.
             autoFocus: isOpen,
-            autoFocusTarget: focusTargetRef.current,
+            autoFocusTarget: autoFocusTargetRef.current,
             fluid: true,
             focusOnHover: true,
             nodes,

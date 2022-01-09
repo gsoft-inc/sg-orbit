@@ -1,6 +1,6 @@
 // Inspired by: https://codesandbox.io/s/ariakit-collapsible-tab-835t8?file=/src/tab-popover.tsx
 
-import { isNil, useMergedRefs, useRefState, useResizeObserver } from "../../shared";
+import { createDisposables, isNil, useMergedRefs, useRefState, useResizeObserver } from "../../shared";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import { TabType } from "./useTabsItems";
@@ -51,15 +51,6 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
         setLimit(Math.max(MinVisibleItems, i));
     }, [gap, popoverTriggerWidth]);
 
-    // Since a selected collapsed tab is promoted to visible tabs we must recompute the limit when the selectedKey change
-    // because the newly selected tab could be larger than the available space.
-    useEffect(() => {
-        // Must wait for the hidden tabs to be refreshed.
-        requestAnimationFrame(() => {
-            computeLimit();
-        });
-    }, [selectedKey, computeLimit]);
-
     useLayoutEffect(() => {
         const newVisibleTabs = tabs.slice(0, limit);
         let newCollapsedTabs = tabs.slice(limit);
@@ -79,7 +70,25 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
         setCollapsedTabs(newCollapsedTabs);
     }, [tabs, limit, selectedKey]);
 
-    const handleResize = useCallback(() => {
+    // Since a selected collapsed tab is promoted to visible tabs we must recompute the limit when the selectedKey change
+    // because the newly selected tab could be larger than the available space.
+    useEffect(() => {
+        const disposables = createDisposables();
+
+        if (!isDisabled) {
+            // Must wait for the hidden tabs to be refreshed.
+            disposables.nextFrame(() => {
+                computeLimit();
+            });
+        }
+
+        return () => {
+            disposables.dispose();
+        };
+    }, [isDisabled, selectedKey, computeLimit]);
+
+    // Recompute the limit when the screen size change.
+    const handleObserverResize = useCallback(() => {
         // The initial selected key already trigger a resize, this flag prevent from computing the limit twice at initial render.
         if (isInitialResizeRef.current) {
             setIsInitialResize(false);
@@ -88,7 +97,7 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
         }
     }, [computeLimit, isInitialResizeRef, setIsInitialResize]);
 
-    const resizeRef = useResizeObserver(handleResize, { isDisabled: isDisabled || tabs?.length < 2 });
+    const resizeRef = useResizeObserver(handleObserverResize, { isDisabled: isDisabled || tabs?.length < 2 });
 
     return {
         collapsedTabs,
