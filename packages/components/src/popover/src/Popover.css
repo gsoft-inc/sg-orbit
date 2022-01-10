@@ -54,3 +54,8 @@
     top: 1rem;
     right: 1rem;
 }
+
+/* NOT DISMISSABLE */
+.o-ui-popover-not-dismissable {
+    padding-top: var(--o-ui-sp-6);
+}

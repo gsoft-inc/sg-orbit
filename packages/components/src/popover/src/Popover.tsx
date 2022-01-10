@@ -183,7 +183,7 @@ export function InnerPopover({
                         as,
                         className: cssModule(
                             "o-ui-popover",
-                            dismissable && "dismissable"
+                            !dismissable && "not-dismissable"
                         ),
                         id,
                         ref: popoverRef,
