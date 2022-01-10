@@ -5,6 +5,7 @@ import {
     InternalProps,
     OmitInternalProps,
     StyledComponentProps,
+    cssModule,
     isNil,
     isString,
     mergeProps,
@@ -180,7 +181,10 @@ export function InnerPopover({
                         "aria-label": ariaLabel,
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                         as,
-                        className: "o-ui-popover",
+                        className: cssModule(
+                            "o-ui-popover",
+                            dismissable && "dismissable"
+                        ),
                         id,
                         ref: popoverRef,
                         role: "dialog",
@@ -206,4 +210,3 @@ export const Popover = forwardRef<any, OmitInternalProps<InnerPopoverProps>>((pr
 ));
 
 export type PopoverProps = ComponentProps<typeof Popover>;
-
