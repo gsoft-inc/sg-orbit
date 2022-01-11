@@ -11,6 +11,10 @@ In a terminal, use the followings commands
 - Then type `npx --yes npm-check-updates -u` to bump the versions in the `package.json` file
 - Install the new packages with `yarn update`
 
+## @svgr/webpack
+
+Cannot update `@svgr/webpack` to version 6 until Storybook have been updated to use webpack@5.
+
 ## ESLint
 
 Cannot update `eslint` to version 8. We get the following error when opening an MDX file.
@@ -27,9 +31,12 @@ Cannot update `eslint` to version 8. We get the following error when opening an 
     at require (internal/modules/cjs/helpers.js:88:18)
     at Object.<anonymous> (C:\Dev\gsoft\sg-orbit\node_modules\eslint-plugin-mdx\lib\rules\no-unused-expressions.js:7:57)
 
-## Meow
+## Meow & Chalk
 
 Cannot update `meow` to version 10.
+Cannot update `charlk` to version 5.
+
+FYI: I think this problem is solvable on our side and should be investigated.
 
 Error [ERR_REQUIRE_ESM]: Must use import to load ES Module: C:\Dev\gsoft\sg-orbit\node_modules\meow\index.js
 require() of ES modules is not supported.
