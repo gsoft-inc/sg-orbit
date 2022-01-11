@@ -60,11 +60,11 @@ function CodeEditor({
 function DecoratedLivePreview({ ...rest }) {
     const docsContext = useContext(DocsContext);
 
-    const decorators = docsContext.storyStore._globalMetadata.decorators;
+    const storyStore = window.__STORYBOOK_STORY_STORE__;
 
-    // "applyHooks" is required otherwise we get: "Error: Storybook preview hooks can only be called inside decorators and story functions."
-    // it is because decorators contains a few decorators which are not compatible with how this preview block works.
-    // Removing these decorators, when possible should do the trick.
+    const decorators = storyStore.projectAnnotations.decorators;
+
+    // Decorators must be applied otherwise functionnalities like the color schemes switcher won't work.
     const decorateStory = applyHooks(defaultDecorateStory);
 
     return decorators
@@ -121,9 +121,9 @@ function MdxSourcePreview({ mdxSource, language, scope, noInline, ...rest }) {
     );
 }
 
-function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentMeta }) {
+function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentAnnotations }) {
     return toId(
-        mdxComponentMeta.id || mdxComponentMeta.title,
+        mdxComponentAnnotations.id || mdxComponentAnnotations.title,
         storyNameFromExport(mdxStoryNameToKey[storyName])
     );
 }
