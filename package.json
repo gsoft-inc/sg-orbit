@@ -88,7 +88,7 @@
     "@sharegate/eslint-config-recommended": "1.1.1",
     "@sharegate/eslint-config-sort-imports": "1.0.3",
     "@sharegate/eslint-config-typescript": "1.7.0",
-    "@sharegate/stylelint-config-recommended": "3.0.0",
+    "@sharegate/stylelint-config-recommended": "2.1.1",
     "@storybook/addon-essentials": "6.4.10",
     "@storybook/react": "6.4.10",
     "@storybook/addon-a11y": "6.4.10",
@@ -136,7 +136,7 @@
     "rimraf": "3.0.2",
     "serve": "13.0.2",
     "shelljs": "0.8.5",
-    "stylelint": "14.2.0",
+    "stylelint": "13.13.1",
     "type-fest": "2.9.0",
     "typescript": "4.5.4",
     "webpack-filter-warnings-plugin": "1.2.1"
