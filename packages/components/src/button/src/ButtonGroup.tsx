@@ -39,6 +39,7 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
         children,
         disabled,
         fluid,
+        wrap = true,
         forwardedRef,
         orientation = "horizontal",
         size,
@@ -66,7 +67,8 @@ export function InnerButtonGroup(props: InnerButtonGroupProps) {
                     gap: Gap[orientationValue][normalizeSize(sizeValue)],
                     orientation,
                     ref: forwardedRef,
-                    role: !isInField ? "group" : undefined
+                    role: !isInField ? "group" : undefined,
+                    wrap
                 }
             )}
         >
