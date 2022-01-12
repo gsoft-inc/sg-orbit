@@ -124,7 +124,8 @@ export function InnerMessage({
                     as,
                     className: cssModule(
                         "o-ui-message",
-                        variant
+                        variant,
+                        onDismiss && "dismissable"
                     ),
                     enter: "o-ui-fade-in",
                     leave: "o-ui-fade-out",

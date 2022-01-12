@@ -15,6 +15,7 @@
 /* HEADER */
 .o-ui-accordion .o-ui-accordion-header {
     margin-bottom: 0;
+    font-variation-settings: "wght" 500;
 }
 
 /* HEADER BORDERLESS */
