@@ -39,9 +39,13 @@ To help achieve a consistent UI, Orbit style props are based on scales and value
     </Div>
 </Preview>
 
-## Pseudo state
+## Pseudo-classes
 
-The following pseudo states are supported by some style props and behaves like their pseudo CSS counterparts.
+Style props doesn't support every CSS pseudo-classes. [Location pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [input pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#the_input_pseudo-classes), [tree-structural pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), `::before` and `::after` are not supported and will most likely never be.
+
+When a CSS pseudo-classes is not supported by Orbit style props, we recommend that you use CSS classes instead.
+
+The following user action pseudo-classes are supported by some style props and behaves like their pseudo CSS counterparts:
 
 <Table
     columns={[
@@ -64,7 +68,7 @@ The following pseudo states are supported by some style props and behaves like t
     </Div>
 </Preview>
 
-> Not all style props supports pseudo state. Find out which props support pseudo state in the [reference](#reference) section.
+> Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the [reference](#reference) section.
 
 ## HTML elements
 
