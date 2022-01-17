@@ -64,7 +64,7 @@ The following pseudo states are supported by some style props and behaves like t
     </Div>
 </Preview>
 
-Not all style props supports pseudo state. Find out which props support pseudo state in the [reference](#reference) section.
+> Not all style props supports pseudo state. Find out which props support pseudo state in the [reference](#reference) section.
 
 ## HTML elements
 
@@ -78,7 +78,7 @@ For text elements, when applicable, prefer a [`<Text>`](?path=/docs/text--size) 
 
 ## Layout containers
 
-To make it easier for you, Orbit also provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
+To faciliate layouts, Orbit provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
 
 When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component over a [`<Div>`](?path=/docs/html-div--example) component.
 
@@ -89,6 +89,48 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
     <Div backgroundColor="green-5" />
     <Div backgroundColor="neutral-5" />
 </Grid>
+```
+
+## Custom components
+
+Any component can accept style props. To accept style props, the component interface must extends the `StyledComponentProps` interface and either forward all the style props to an Orbit components or call the `useStyledSystem` hook.
+
+Passing the style props to an Orbit component:
+
+```jsx
+import { HtmlButton, StyledComponentProps } from "@sharegate/orbit-ui";
+
+interface CustomButtonProps extends StyledComponentProps {
+    onClick: () => void;
+}
+
+function CustomButton(props: CustomButtonProps) {
+    return (
+        <HtmlButton {...props} />
+    );
+}
+```
+
+Using the `useStyledSystem` hook:
+
+```jsx
+import { StyledComponentProps, useStyledSystem } from "@sharegate/orbit-ui";
+
+interface CustomButtonProps extends StyledComponentProps {
+    onClick: () => void;
+}
+
+function CustomButton({ onClick, ...rest }: CustomButtonProps) {
+    const styledSystemProps = useStyledSystem(rest);
+
+    return (
+        <button
+            {...rest}
+            onClick={onClick}
+            {...styledSystemProps}
+        />
+    );
+}
 ```
 
 ## Reference

@@ -11,7 +11,7 @@ export function useStyleContext() {
     return useContext(StyleContext);
 }
 
-// Do not remove the TS return type otherwise it will infer to any[] and do not emit any warnings.
+// Do not remove the TS return type otherwise it will infer to any[] and won't emit any warnings.
 export function useStyleProps<TReturn>(key: string): [TReturn, boolean] {
     const context = useStyleContext();
 
