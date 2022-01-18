@@ -83,7 +83,7 @@
     "@babel/preset-env": "7.16.8",
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
-    "@sharegate/browserslist-config-recommended": "1.0.1",
+    "@sharegate/browserslist-config-recommended": "2.0.0",
     "@sharegate/eslint-config-react": "2.1.0",
     "@sharegate/eslint-config-recommended": "1.1.1",
     "@sharegate/eslint-config-sort-imports": "1.0.3",
