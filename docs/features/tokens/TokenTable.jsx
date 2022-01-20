@@ -34,6 +34,7 @@ export function TokenTable({ colors }) {
     return (
         <ThemeProvider theme={ShareGateTheme} colorScheme={docsContext.globals.colorScheme}>
             <Table
+                className="token-table"
                 columns={[
                     { title: "Token", headerStyle: { width: "240px" }, rowClassName: "code" },
                     { title: "CSS Variable", headerStyle: { width: "350px" }, rowClassName: "code" },
@@ -47,17 +48,16 @@ export function TokenTable({ colors }) {
     );
 }
 
-
 export function backgroundRenderer(token) {
-    return <Div height={6} borderRadius={2} backgroundColor={token}></Div>
+    return <Div height={6} backgroundColor={token}></Div>
 }
 
 export function borderRenderer(token) {
-    return <Div height={6} border={token}></Div>
+    return <Div padding={2}><Div height={6} border={token}></Div></Div>
 }
 
 export function boxShadowRenderer(token) {
-    return <Div height={6} boxShadow={token} marginY={3}></Div>
+    return <Div paddingRight={4}><Div boxShadow={token} marginY={3} height={6}></Div></Div>
 }
 
 export function fontSizeRenderer(token) {
@@ -69,7 +69,11 @@ export function fontWeightRenderer(token) {
 }
 
 export function iconRenderer(token) {
-    return <Div height={6} display="flex" alignItems="center" justifyContent="start"><InfoIcon fill={token} size="lg" /></Div>
+    if (token === "alias-static-white") {
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#000"><InfoIcon fill={token} size="lg" /></Div>
+    } else {
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start"><InfoIcon fill={token} size="lg" /></Div>
+    }
 }
 
 export function lineHeightRenderer(token) {
@@ -77,7 +81,11 @@ export function lineHeightRenderer(token) {
 }
 
 export function radiiRenderer(token) {
-    return <Div height={4} width={6} borderRadius={token} border="alias-accent"></Div>
+    if (token === "circular") {
+        return <Div height={4} width={4} borderRadius={token} border="alias-accent"></Div>
+    } else {
+        return <Div height={4} width={8} borderRadius={token} border="alias-accent"></Div>
+    }
 }
 
 export function sizingRenderer(token) {
@@ -89,7 +97,11 @@ export function spacingRenderer(token) {
 }
 
 export function textRenderer(token) {
-    return <Div height={6} display="flex" alignItems="center" justifyContent="start"><Text color={token} size="lg">Moon</Text></Div>
+    if (token === "alias-static-white") {
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#000"><Text marginLeft={1} color={token} size="lg">Moon</Text></Div>
+    } else {
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start"><Text marginLeft={1} color={token} size="lg">Moon</Text></Div>
+    }
 }
 
 TokenTable.propTypes = propTypes;

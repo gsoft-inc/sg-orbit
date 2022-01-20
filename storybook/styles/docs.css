@@ -418,3 +418,8 @@
         transform: translate(-50%, -50%) rotate(360deg);
     }
 }
+
+/* Token Specific Styles */
+.token-table tr td:last-child {
+    padding: 0 0 0 13px !important;
+}
