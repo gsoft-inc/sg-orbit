@@ -1,7 +1,7 @@
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { Children, ComponentProps, ReactNode, forwardRef } from "react";
-import { Div } from "../../html";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps } from "../../shared";
+
 import { StyleProvider } from "../../styling";
 
 const DefaultElement = "div";
@@ -19,6 +19,10 @@ export interface InnerBadgeProps extends InternalProps, StyledComponentProps<typ
      * The style to use.
      */
     variant?: "count" | "dot" | "icon";
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
 }
 
 export function InnerBadge({
@@ -27,6 +31,7 @@ export function InnerBadge({
     forwardedRef,
     overlap,
     variant = "count",
+    wrapperProps: { as: wrapperAs = "div", ...wrapperProps } = {},
     ...rest
 }: InnerBadgeProps) {
     // Not using slots because the overlapped content could also be an icon and thinks get complicated.
@@ -40,15 +45,14 @@ export function InnerBadge({
     return (
         <Box
             {...mergeProps(
-                rest,
+                wrapperProps,
                 {
-                    as,
+                    as: wrapperAs,
                     className: cssModule(
                         "o-ui-badge",
                         variant,
                         overlap && `over-${overlap}`
-                    ),
-                    ref: forwardedRef
+                    )
                 }
             )}
         >
@@ -59,9 +63,18 @@ export function InnerBadge({
                     }
                 }}
             >
-                <Div className="o-ui-badge-anchor">
+                <Box
+                    {...mergeProps(
+                        rest,
+                        {
+                            as,
+                            className: "o-ui-badge-anchor",
+                            ref: forwardedRef
+                        }
+                    )}
+                >
                     {badgeContent}
-                </Div>
+                </Box>
             </StyleProvider>
             {overlappedElement}
         </Box>
