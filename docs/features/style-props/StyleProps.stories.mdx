@@ -39,9 +39,13 @@ To help achieve a consistent UI, Orbit style props are based on scales and value
     </Div>
 </Preview>
 
-## Pseudo state
+## Pseudo-classes
 
-The following pseudo states are supported by some style props and behaves like their pseudo CSS counterparts.
+Style props doesn't support every CSS pseudo-classes. [Location pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [input pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#the_input_pseudo-classes), [tree-structural pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), `::before` and `::after` are not supported and will most likely never be.
+
+When a CSS pseudo-classes is not supported by Orbit style props, we recommend that you use CSS classes instead.
+
+The following user action pseudo-classes are supported by some style props and behaves like their pseudo CSS counterparts:
 
 <Table
     columns={[
@@ -58,13 +62,13 @@ The following pseudo states are supported by some style props and behaves like t
     }}
 />
 
+> Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the [reference](#reference) section.
+
 <Preview>
     <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius={2}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
-
-Not all style props supports pseudo state. Find out which props support pseudo state in the [reference](#reference) section.
 
 ## HTML elements
 
@@ -74,11 +78,11 @@ Orbit provides a set of HTML element components already setup with Orbit styled 
 
 [`<A>`](?path=/docs/html-anchor--example), [`<Address>`](?path=/docs/html-address--example), [`<Article>`](?path=/docs/html-article--page), [`<Aside>`](?path=/docs/html-aside--page), [`<Button>`](?path=/docs/html-button--example), [`<Div>`](?path=/docs/html-div--example), [`<Footer>`](?path=/docs/html-footer--page), [`<Header>`](?path=/docs/html-header--page), [`<Img>`](?path=/docs/html-img--example), [`<Input>`](?path=/docs/html-input--example), [`<List>`](?path=/docs/html-list--example), [`<Main>`](?path=/docs/html-main--page), [`<Nav>`](?path=/docs/html-nav--page), [`<Section>`](?path=/docs/html-section--page), [`<Span>`](?path=/docs/html-span--example), [`<Table>`](?path=/docs/html-table--example)
 
-For text elements, when applicable, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph`](?path=/docs/paragraph--size) component.
+For text elements, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph>`](?path=/docs/paragraph--size) component to a `<Span>` or a `<Div>`.
 
 ## Layout containers
 
-To make it easier for you, Orbit also provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
+To faciliate layouts, Orbit provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
 
 When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component over a [`<Div>`](?path=/docs/html-div--example) component.
 
@@ -89,6 +93,48 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
     <Div backgroundColor="green-5" />
     <Div backgroundColor="neutral-5" />
 </Grid>
+```
+
+## Custom components
+
+Any component can accept style props. To accept style props, the component interface must extends the `StyledComponentProps` interface and either forward all the style props to an Orbit components or call the `useStyledSystem` hook.
+
+Passing the style props to an Orbit component:
+
+```jsx
+import { HtmlButton, StyledComponentProps } from "@sharegate/orbit-ui";
+
+interface CustomButtonProps extends StyledComponentProps {
+    onClick: () => void;
+}
+
+function CustomButton(props: CustomButtonProps) {
+    return (
+        <HtmlButton {...props} />
+    );
+}
+```
+
+Using the `useStyledSystem` hook:
+
+```jsx
+import { StyledComponentProps, useStyledSystem } from "@sharegate/orbit-ui";
+
+interface CustomButtonProps extends StyledComponentProps {
+    onClick: () => void;
+}
+
+function CustomButton({ onClick, ...rest }: CustomButtonProps) {
+    const styledSystemProps = useStyledSystem(rest);
+
+    return (
+        <button
+            {...rest}
+            onClick={onClick}
+            {...styledSystemProps}
+        />
+    );
+}
 ```
 
 ## Reference

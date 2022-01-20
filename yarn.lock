@@ -2990,10 +2990,10 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@sharegate/browserslist-config-recommended@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@sharegate/browserslist-config-recommended/-/browserslist-config-recommended-1.0.1.tgz#85ce7316d8fc55094a9748965c3cbc16b635dd6f"
-  integrity sha512-oJ7h2P+oRvg1EyJjpEv9Q+s/m3zhuGqv6KJI+eP3kPmf3LRqiU/7SQ7OevmqcgmBVR2p2ZQkaH0xnBtm7dIcBQ==
+"@sharegate/browserslist-config-recommended@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/browserslist-config-recommended/-/browserslist-config-recommended-2.0.0.tgz#721957ea4d553e6dc3ce4071774e57f11626c905"
+  integrity sha512-JDqp52vddllEg4sj0bXMZJE+anYW8nv8myD7GX/e0mx2APp0+jDMMLqWyhzZZRnWGU3B9ZVtLBXjn5mLfbvPpw==
 
 "@sharegate/eslint-config-react@2.1.0":
   version "2.1.0"

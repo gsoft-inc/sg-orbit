@@ -1,5 +1,6 @@
-import { Badge } from "@components/badge";
 import { CheckCircleIcon, EmailIcon } from "@components/icons";
+
+import { Badge } from "@components/badge";
 import { Div } from "@components/html";
 import { Inline } from "@components/layout";
 import { Text } from "@components/typography";
@@ -27,7 +28,7 @@ function CircleBadge({ children, ...rest }) {
             overlap="circle"
         >
             {children}
-            <Div backgroundColor="alias-accent" borderRadius="100" width={6} height={6} />
+            <Div backgroundColor="alias-accent" borderRadius="100px" width={6} height={6} />
         </Badge>
     );
 }

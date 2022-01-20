@@ -4,6 +4,7 @@ import { Overlay, OverlayProps, PopupAlignmentProp, PopupDirectionProp } from ".
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 import { AbstractInputProps } from "../../input";
+import { Box } from "../../box";
 import { DisclosureArrow } from "../../disclosure";
 import { HiddenSelect } from "./HiddenSelect";
 import { Listbox } from "../../listbox";
@@ -121,7 +122,7 @@ export function InnerSelect(props: InnerSelectProps) {
         "aria-describedby": ariaDescribedBy,
         "aria-label": ariaLabel,
         "aria-labelledby": ariaLabelledBy,
-        as: TriggerType = DefaultElement,
+        as = DefaultElement,
         autoFocus,
         children,
         defaultOpen,
@@ -225,10 +226,11 @@ export function InnerSelect(props: InnerSelectProps) {
                 selectedKey={selectedKey}
                 validationState={validationState}
             />
-            <TriggerType
+            <Box
                 {...mergeProps(
                     rest,
                     {
+                        as,
                         className: cssModule(
                             "o-ui-select-trigger",
                             variant,
@@ -249,7 +251,7 @@ export function InnerSelect(props: InnerSelectProps) {
                     open={isOpen}
                     size="sm"
                 />
-            </TriggerType>
+            </Box>
             <Overlay
                 {...overlayProps}
                 zIndex={zIndex}
