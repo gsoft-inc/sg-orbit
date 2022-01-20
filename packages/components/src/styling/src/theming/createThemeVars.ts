@@ -131,7 +131,7 @@ export function createThemeVars(themes: OrbitTheme[]) {
         appendJsonObject((theme.fontSizes as unknown) as JsonObject, FontSizePrefix, common);
         appendArray(theme.fontWeights, FontWeightPrefix, common);
         appendArray(theme.lineHeights, LineHeightPrefix, common);
-        appendArray(theme.borderRadii, BorderRadiusPrefix, common);
+        appendJsonObject((theme.borderRadii as unknown) as JsonObject, BorderRadiusPrefix, common);
         appendColorSchemes(theme.boxShadows, BoxShadowPrefix, { common, dark, light });
         appendColorSchemes(theme.colors, ColorPrefix, { common, dark, light });
 
