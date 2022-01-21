@@ -12,21 +12,25 @@ import { Table } from "@stories/components";
 
 # Tokens
 
-Tokens are Orbit's reusable values, providing a common language between developers and designers. These can be used as `CSS` variables or [Style Props](/docs/style-props--page) values.
+Tokens are Orbit's reusable values, providing a common language between developers and designers.
 
 Aliased tokens are named for their use case, rather than their value. For example `alias-alert` is named to indicate the appropriate background color for an error message background, as opposed to `red-5` which is less specific and could be used in a number of ways depending on context.
 
 This makes their intended use clear and intentional, and allows us to develop a scalable and consistent visual language while also being the building block of Orbit's [theming](/docs/theming--page).
 
-### Usage
+> In Orbit, **1 rem unit = 16 pixels**.
 
-#### As Style Props
+## Usage
+
+Tokens can be used as `CSS` variables or [Style Props](/docs/style-props--page) values.
+
+Style Props
 
 ```jsx
     <Div backgroundColor="alias-default">...</Div>
 ```
 
-#### As CSS Variable
+CSS Variable
 
 ```css
     .item {

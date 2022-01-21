@@ -2,6 +2,7 @@ import { ShareGateTheme, ThemeProvider } from "@components/styling";
 import { arrayOf, func, shape, string } from "prop-types";
 
 import { Div, Span } from "@components/html";
+import { Flex } from "@components/layout";
 import { DocsContext } from "@storybook/addon-docs";
 import { InfoIcon } from "@components/icons";
 import { Table } from "@stories/components";
@@ -19,11 +20,14 @@ const propTypes = {
 };
 
 function toRowValues({ token, variable, valueLight, valueDark, itemRenderer }) {
+    const docsContext = useContext(DocsContext);
+    const scheme = docsContext.globals.colorScheme;
+    const value = scheme === "light" ? valueLight : valueDark;
+
     return [
         token,
         variable,
-        valueLight,
-        valueDark,
+        value,
         itemRenderer(token)
     ];
 }
@@ -36,11 +40,10 @@ export function TokenTable({ colors }) {
             <Table
                 className="token-table"
                 columns={[
-                    { title: "Token", headerStyle: { width: "240px" }, rowClassName: "code" },
+                    { title: "Token", headerStyle: { width: "325px" }, rowClassName: "code" },
                     { title: "CSS Variable", headerStyle: { width: "350px" }, rowClassName: "code" },
-                    { title: "Value (Light)", headerStyle: { width: "175px" }, rowClassName: "code" },
-                    { title: "Value (Dark)", headerStyle: { width: "175px" }, rowClassName: "code" },
-                    { title: "Example", headerStyle: { width: "200px" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-default)" } },
+                    { title: "Value", headerStyle: { width: "225px" }, rowClassName: "code" },
+                    { title: "Example", headerStyle: { width: "275px" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-default)" } },
                 ]}
                 rows={colors.map(x => toRowValues(x))}
             />
@@ -61,23 +64,23 @@ export function boxShadowRenderer(token) {
 }
 
 export function fontSizeRenderer(token) {
-    return <Div height={12} display="flex" alignItems="center" justifyContent="start"><Text fontSize={token}>Ag</Text></Div>
+    return <Div height={12} display="flex" alignItems="center" justifyContent="start"><Text fontSize={token} lineHeight={1}>Ag</Text></Div>
 }
 
 export function fontWeightRenderer(token) {
-    return <Div height={5} fontSize={6} fontWeight={token}>Ag</Div>
+    return <Flex height={5} alignItems="center"><Text fontWeight={token} fontSize={6} lineHeight={1}>Ag</Text></Flex>
 }
 
 export function iconRenderer(token) {
     if (token === "alias-static-white") {
-        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#000"><InfoIcon fill={token} size="lg" /></Div>
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#272626"><InfoIcon fill={token} size="lg" /></Div>
     } else {
         return <Div height={6} display="flex" alignItems="center" justifyContent="start"><InfoIcon fill={token} size="lg" /></Div>
     }
 }
 
 export function lineHeightRenderer(token) {
-    return <Div display="inline-block" paddingX={2} border="alias-accent" lineHeight={token} borderRadius={2}><Span lineHeight={token}>Ag</Span></Div>
+    return <Div display="inline-block" paddingX={2} lineHeight={token} borderRadius={2}><Span lineHeight={token}>Ag</Span></Div>
 }
 
 export function radiiRenderer(token) {
@@ -98,7 +101,7 @@ export function spacingRenderer(token) {
 
 export function textRenderer(token) {
     if (token === "alias-static-white") {
-        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#000"><Text marginLeft={1} color={token} size="lg">Moon</Text></Div>
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#272626"><Text marginLeft={1} color={token} size="lg">Moon</Text></Div>
     } else {
         return <Div height={6} display="flex" alignItems="center" justifyContent="start"><Text marginLeft={1} color={token} size="lg">Moon</Text></Div>
     }
