@@ -25,6 +25,10 @@ export interface InnerTabsProps extends InternalProps, StyledComponentProps<type
      */
     children: ReactNode;
     /**
+     * Whether or not the tabs could collapsed to fit into the available space.
+     */
+    collapsible?: boolean;
+    /**
      * The initial value of `selectedKey` when uncontrolled.
      */
     defaultSelectedKey?: string;
@@ -58,6 +62,7 @@ export function InnerTabs({
     "aria-label": ariaLabel,
     autoFocus,
     children,
+    collapsible = true,
     defaultSelectedKey,
     fluid,
     forwardedRef,
@@ -118,6 +123,7 @@ export function InnerTabs({
         >
             <TabsContext.Provider
                 value={{
+                    isCollapsible: collapsible,
                     isManual: manual,
                     onSelect: handleSelect,
                     orientation: orientationValue,
