@@ -36,7 +36,7 @@ A story must:
 - Be located in the `Components` top level section of the Storybook navigation menu.
 - The second level segment must be the capitalized name of the component.
 
-Here's an exemple for the date range picker component:
+Here's an exemple for the button component:
 
 ```jsx
 // Button.stories.mdx
