@@ -399,6 +399,43 @@ stories()
             </Tabs>
         </Div>
     )
+    .add("overflow + not collapsible", () =>
+        <Div width="300px">
+            <Tabs aria-label="Planets" collapsible={false}>
+                <Item key="mars">
+                    <Header>Mars</Header>
+                    <Content>Mars is a dusty, cold, desert world with a very thin atmosphere. There is strong evidence Mars was—billions of years ago—wetter and warmer, with a thicker atmosphere.</Content>
+                </Item>
+                <Item key="jupiter">
+                    <Header>Jupiter</Header>
+                    <Content>Jupiter is more than twice as massive than the other planets of our solar system combined. The giant planet's Great Red spot is a centuries-old storm bigger than Earth.</Content>
+                </Item>
+                <Item key="venus">
+                    <Header>Venus</Header>
+                    <Content>Venus spins slowly in the opposite direction from most planets. A thick atmosphere traps heat in a runaway greenhouse effect, making it the hottest planet in our solar system.</Content>
+                </Item>
+                <Item key="earth">
+                    <Header>
+                        <Text>Earth</Text>
+                        <Lozenge>Home</Lozenge>
+                    </Header>
+                    <Content>Earth—our home planet—is the only place we know of so far that’s inhabited by living things. It's also the only planet in our solar system with liquid water on the surface.</Content>
+                </Item>
+                <Item key="saturn">
+                    <Header>Saturn</Header>
+                    <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
+                </Item>
+                <Item key="uranus">
+                    <Header>Uranus</Header>
+                    <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
+                </Item>
+                <Item key="neptune">
+                    <Header>Neptune</Header>
+                    <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
+                </Item>
+            </Tabs>
+        </Div>
+    )
     .add("dynamic tabs", () =>
         <Tabs aria-label="Planets">
             {["1", "2", "3"].map(x => (

@@ -8,11 +8,17 @@ import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
+// It's very hard to setup jest with a specific width & height to be able to test collapsed tabs because jsdom doesn't support layout.
+// This means that all DOM elements measurements will always return 0 (except for window which will be 1024x768).
+
+// The tests for non collapsed tabs are also inconsistent. Sometimes, tabs are collapsed when they should not. Not sure why.
+// Therefore, a "collapsible" prop have been introduce to disable collapsing for tests.
+
 // ***** Behaviors *****
 
 test("first tab is tabbable", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -30,7 +36,7 @@ test("first tab is tabbable", async () => {
 
 test("selected tab is tabbable", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs defaultSelectedKey="tab-2" aria-label="Tabs" width="500px">
+        <Tabs defaultSelectedKey="tab-2" aria-label="Tabs" collapsible={false}>
             <Item key="tab-1" data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -48,7 +54,7 @@ test("selected tab is tabbable", async () => {
 
 test("a disabled tab is not tabbable", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item disabled data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -67,7 +73,7 @@ test("a disabled tab is not tabbable", async () => {
 
 test("when manual, focusing a tab doesn't change the active tab", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs manual aria-label="Tabs" width="500px">
+        <Tabs manual aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -92,7 +98,7 @@ test("when manual, focusing a tab doesn't change the active tab", async () => {
 
 test("when manual, spacebar keypress makes a tab active", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs manual aria-label="Tabs" width="500px">
+        <Tabs manual aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -113,7 +119,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
 
 test("when manual, enter keypress makes a tab active", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs manual aria-label="Tabs" width="500px">
+        <Tabs manual aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -134,7 +140,7 @@ test("when manual, enter keypress makes a tab active", async () => {
 
 test("when horizontal, right arrow keypress select the next tab", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -163,7 +169,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
 
 test("when horizontal, left arrow keypress select the next tab", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -192,7 +198,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
 
 test("when vertical, down arrow keypress select the next tab", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs orientation="vertical" aria-label="Tabs" width="500px">
+        <Tabs orientation="vertical" aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -221,7 +227,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
 
 test("when vertical, up arrow keypress select the next tab", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs orientation="vertical" aria-label="Tabs" width="500px">
+        <Tabs orientation="vertical" aria-label="Tabs" collapsible={false}>
             <Item data-testid="tab-1">
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -250,7 +256,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
 
 test("when autofocus is true, the first item header is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs autoFocus aria-label="Tabs" width="500px">
+        <Tabs autoFocus aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header-1">Header 1</Header>
                 <Content>Content 1</Content>
@@ -267,7 +273,7 @@ test("when autofocus is true, the first item header is focused on render", async
 
 test("when autofocus is true and the first item is disabled, the next item header is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs autoFocus aria-label="Tabs" width="500px">
+        <Tabs autoFocus aria-label="Tabs" collapsible={false}>
             <Item disabled>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -284,7 +290,7 @@ test("when autofocus is true and the first item is disabled, the next item heade
 
 test("when autofocus is true and there is a selected key, the header of the item matching the selected key is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs defaultSelectedKey="header-2" autoFocus aria-label="Tabs" width="500px">
+        <Tabs defaultSelectedKey="header-2" autoFocus aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -301,7 +307,7 @@ test("when autofocus is true and there is a selected key, the header of the item
 
 test("when autofocus is specified with a delay, the first item header is focused after the delay", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs autoFocus aria-label="Tabs" width="500px">
+        <Tabs autoFocus aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header-1">Header 1</Header>
                 <Content>Content 1</Content>
@@ -322,7 +328,7 @@ test("when autofocus is specified with a delay, the first item header is focused
 
 test("when an id is provided, the tab id attribute match the provided id", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs id="foo" aria-label="Tabs" data-testid="tabs" width="500px">
+        <Tabs id="foo" aria-label="Tabs" data-testid="tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -335,7 +341,7 @@ test("when an id is provided, the tab id attribute match the provided id", async
 
 test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs id="foo" aria-label="Tabs" width="500px">
+        <Tabs id="foo" aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
@@ -354,7 +360,7 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
 
 test("when an header id is provided, it is assigned to the tab id", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header id="tab-header" data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
@@ -371,7 +377,7 @@ test("when an header id is provided, it is assigned to the tab id", async () => 
 
 test("when a content id is provided, it is assigned to the content id", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content id="tab-content" data-testid="content">Content 1</Content>
@@ -388,7 +394,7 @@ test("when a content id is provided, it is assigned to the content id", async ()
 
 test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
@@ -407,7 +413,7 @@ test("when the root id is auto generated, it is used to compose the tab and pane
 
 test("when the header id is auto generated, it is assigned to the tab id", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
@@ -424,7 +430,7 @@ test("when the header id is auto generated, it is assigned to the tab id", async
 
 test("when the content id is auto generated, it is assigned to the tab id", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content data-testid="content">Content 1</Content>
@@ -441,7 +447,7 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
 
 test("a tab headers container have the \"tablist\" role", async () => {
     const { getByRole } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -454,7 +460,7 @@ test("a tab headers container have the \"tablist\" role", async () => {
 
 test("a tab header have the \"tab\" role", async () => {
     const { getByTestId } = renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
                 <Content>Content 1</Content>
@@ -471,7 +477,7 @@ test("call onSelectionChange when the active tab change", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <Tabs onSelectionChange={handler} aria-label="Tabs" width="500px">
+        <Tabs onSelectionChange={handler} aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -495,7 +501,7 @@ test("call onSelectionChange once when a tab is clicked", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <Tabs onSelectionChange={handler} aria-label="Tabs" width="500px">
+        <Tabs onSelectionChange={handler} aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -518,7 +524,7 @@ test("dont' call onSelectionChange when the active tab is clicked", async () => 
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <Tabs onSelectionChange={handler} aria-label="Tabs" width="500px">
+        <Tabs onSelectionChange={handler} aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -547,7 +553,7 @@ test("dont call onSelectionChange when a tab is disabled", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <Tabs onSelectionChange={handler} aria-label="Tabs" width="500px">
+        <Tabs onSelectionChange={handler} aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
                 <Content>Content 1</Content>
@@ -572,7 +578,7 @@ test("header ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
     renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header ref={ref}>Header</Header>
                 <Content>Content</Content>
@@ -590,7 +596,7 @@ test("content ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
     renderWithTheme(
-        <Tabs aria-label="Tabs" width="500px">
+        <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header</Header>
                 <Content ref={ref}>Content</Content>
