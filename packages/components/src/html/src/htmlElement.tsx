@@ -9,7 +9,7 @@ export type HtmlElementProps<T extends ElementType> = SlotProps & StyledComponen
 };
 
 // Not using Box otherwise it adds too many layers of components since these HTML elements components are also used in Orbit own components.
-export function htmlElement<T extends ElementType>(name: string, elementType: T, className?: string) {
+export function htmlElement<T extends ElementType>(name: string, elementType: T) {
     return forwardRef<ElementRef<T>, HtmlElementProps<T>>((props, ref) => {
         const [styleProps] = useStyleProps<HtmlElementProps<T>>(name);
 
@@ -31,7 +31,7 @@ export function htmlElement<T extends ElementType>(name: string, elementType: T,
                 {...mergeProps(
                     rest,
                     {
-                        className,
+                        className: "o-ui-element",
                         ref
                     }
                 )}
