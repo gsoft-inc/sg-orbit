@@ -4,36 +4,36 @@
     box-sizing: border-box;
 }
 
-ul.o-ui-element {
+ul:where(.o-ui-element) {
     margin: 0;
     list-style: none;
     padding: 0;
 }
 
-ol.o-ui-element {
+ol:where(.o-ui-element) {
     margin: 0;
     list-style: none;
     padding: 0;
 }
 
-button.o-ui-element {
+button:where(.o-ui-element) {
     background-color: transparent;
     background-image: none;
     cursor: pointer;
 }
 
-table.o-ui-element {
+table:where(.o-ui-element) {
     border-collapse: collapse;
 }
 
-a.o-ui-element {
+a:where(.o-ui-element) {
     color: inherit;
     text-decoration: inherit;
 }
 
-button.o-ui-element,
-input.o-ui-element,
-textarea.o-ui-element {
+button:where(.o-ui-element),
+input:where(.o-ui-element),
+textarea:where(.o-ui-element) {
     padding: 0;
     line-height: inherit;
     color: inherit;
@@ -41,57 +41,57 @@ textarea.o-ui-element {
     font-size: 100%;
 }
 
-textarea.o-ui-element {
+textarea:where(.o-ui-element) {
     resize: vertical;
 }
 
-input.o-ui-element::placeholder,
-textarea.o-ui-element::placeholder {
+input:where(.o-ui-element)::placeholder,
+textarea:where(.o-ui-element)::placeholder {
     opacity: 1;
     color: #A1A1AA;
 }
 
 /* Removing Edge input field decoration. */
-input[type="text"].o-ui-element::-ms-clear,
-input[type="text"].o-ui-element::-ms-reveal {
+input[type="text"]:where(.o-ui-element)::-ms-clear,
+input[type="text"]:where(.o-ui-element)::-ms-reveal {
     display: none;
     width: 0;
     height: 0;
 }
 
-img.o-ui-element {
+img:where(.o-ui-element) {
     display: block;
     vertical-align: middle;
     max-width: 100%;
     height: auto;
 }
 
-p.o-ui-element,
-h1.o-ui-element,
-h2.o-ui-element,
-h3.o-ui-element,
-h4.o-ui-element,
-h5.o-ui-element,
-h6.o-ui-element {
+p:where(.o-ui-element),
+h1:where(.o-ui-element),
+h2:where(.o-ui-element),
+h3:where(.o-ui-element),
+h4:where(.o-ui-element),
+h5:where(.o-ui-element),
+h6:where(.o-ui-element) {
     margin: 0;
 }
 
-h1.o-ui-element,
-h2.o-ui-element,
-h3.o-ui-element,
-h4.o-ui-element,
-h5.o-ui-element,
-h6.o-ui-element {
+h1:where(.o-ui-element),
+h2:where(.o-ui-element),
+h3:where(.o-ui-element),
+h4:where(.o-ui-element),
+h5:where(.o-ui-element),
+h6:where(.o-ui-element) {
     margin: 0;
     font-size: inherit;
     font-weight: inherit;
 }
 
-th.o-ui-element {
+th:where(.o-ui-element) {
     font-weight: inherit;
 }
 
 /* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
-button.o-ui-element > * {
+button:where(.o-ui-element) > * {
     pointer-events: none;
 }
