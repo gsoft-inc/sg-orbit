@@ -213,5 +213,5 @@ export function createTheme({
             light,
             dark
         }
-    } ;
+    };
 }
