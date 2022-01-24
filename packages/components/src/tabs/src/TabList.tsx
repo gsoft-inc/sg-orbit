@@ -198,7 +198,7 @@ export function InnerTabList({
     tabs,
     ...rest
 }: InnerTabListProps) {
-    const { isManual, onSelect, orientation, selectedKey } = useTabsContext();
+    const { isCollapsible, isManual, onSelect, orientation, selectedKey } = useTabsContext();
 
     const [isPopoverOpen, setIsPopoverOpen] = useState(false);
     const [popoverAutoFocusTargetRef, setPopoverAutoFocusTarget] = useRefState(selectedKey);
@@ -225,7 +225,7 @@ export function InnerTabList({
 
     const { collapsedTabs, collapsibleTabsRef, hiddenTabs, visibleTabs } = useCollapsibleTabs(tabs, selectedKey, {
         gap: TabGap,
-        isDisabled: orientation === "vertical",
+        isDisabled: !isCollapsible || orientation === "vertical",
         popoverTriggerWidth: PopoverTriggerWidth
     });
 
