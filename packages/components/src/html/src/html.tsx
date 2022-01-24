@@ -1,31 +1,32 @@
 import { ComponentProps, ElementType } from "react";
+
 import { htmlElement } from "./htmlElement";
 import { isNil } from "../../shared";
 
 // Sectioning & Content sectioning
 
-export const Address = htmlElement("html-address", "address", "o-ui-html-address");
+export const Address = htmlElement("html-address", "address");
 
-export const Article = htmlElement("html-article", "article", "o-ui-html-article");
+export const Article = htmlElement("html-article", "article");
 
-export const Aside = htmlElement("html-aside", "aside", "o-ui-html-aside");
+export const Aside = htmlElement("html-aside", "aside");
 
-export const HtmlFooter = htmlElement("html-footer", "footer", "o-ui-html-footer");
+export const HtmlFooter = htmlElement("html-footer", "footer");
 
-export const HtmlH1 = htmlElement("html-h1", "h1", "o-ui-html-h1");
-export const HtmlH2 = htmlElement("html-h2", "h2", "o-ui-html-h2");
-export const HtmlH3 = htmlElement("html-h3", "h3", "o-ui-html-h3");
-export const HtmlH4 = htmlElement("html-h4", "h4", "o-ui-html-h4");
-export const HtmlH5 = htmlElement("html-h5", "h5", "o-ui-html-h5");
-export const HtmlH6 = htmlElement("html-h6", "h6", "o-ui-html-h6");
+export const HtmlH1 = htmlElement("html-h1", "h1");
+export const HtmlH2 = htmlElement("html-h2", "h2");
+export const HtmlH3 = htmlElement("html-h3", "h3");
+export const HtmlH4 = htmlElement("html-h4", "h4");
+export const HtmlH5 = htmlElement("html-h5", "h5");
+export const HtmlH6 = htmlElement("html-h6", "h6");
 
-export const HtmlHeader = htmlElement("html-header", "header", "o-ui-html-header");
+export const HtmlHeader = htmlElement("html-header", "header");
 
-export const Main = htmlElement("html-main", "main", "o-ui-html-main");
+export const Main = htmlElement("html-main", "main");
 
-export const Nav = htmlElement("html-nav", "nav", "o-ui-html-nav");
+export const Nav = htmlElement("html-nav", "nav");
 
-export const HtmlSection = htmlElement("html-section", "section", "o-ui-html-section");
+export const HtmlSection = htmlElement("html-section", "section");
 
 export type AddressProps = ComponentProps<typeof Address>;
 export type ArticleProps = ComponentProps<typeof Article>;
@@ -44,13 +45,13 @@ export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
 
 // Text content
 
-export const Div = htmlElement("html-div", "div", "o-ui-html-div");
+export const Div = htmlElement("html-div", "div");
 
-export const HtmlParagraph = htmlElement("html-p", "p", "o-ui-html-p");
+export const HtmlParagraph = htmlElement("html-p", "p");
 
-export const OL = htmlElement("html-ol", "ol", "o-ui-html-ol");
-export const UL = htmlElement("html-ul", "ul", "o-ui-html-ul");
-export const LI = htmlElement("html-li", "li", "o-ui-html-li");
+export const OL = htmlElement("html-ol", "ol");
+export const UL = htmlElement("html-ul", "ul");
+export const LI = htmlElement("html-li", "li");
 
 export type DivProps = ComponentProps<typeof Div>;
 export type HtmlParagraphProps = ComponentProps<typeof HtmlParagraph>;
@@ -60,30 +61,30 @@ export type LIProps = ComponentProps<typeof LI>;
 
 // Inline text semantics
 
-export const A = htmlElement("html-a", "a", "o-ui-html-a");
+export const A = htmlElement("html-a", "a");
 
-export const Span = htmlElement("html-span", "span", "o-ui-html-span");
+export const Span = htmlElement("html-span", "span");
 
 export type AProps = ComponentProps<typeof A>;
 export type SpanProps = ComponentProps<typeof Span>;
 
 // Image and multimedia
 
-export const Img = htmlElement("html-img", "img", "o-ui-html-img");
+export const Img = htmlElement("html-img", "img");
 
 export type ImgProps = ComponentProps<typeof Img>;
 
 // Table content
 
-export const Table = htmlElement("html-table", "table", "o-ui-html-table");
+export const Table = htmlElement("html-table", "table");
 
-export const THead = htmlElement("html-thead", "thead", "o-ui-html-thead");
-export const TBody = htmlElement("html-tbody", "tbody", "o-ui-html-tbody");
-export const TFoot = htmlElement("html-tfoot", "tfoot", "o-ui-html-tfoot");
+export const THead = htmlElement("html-thead", "thead");
+export const TBody = htmlElement("html-tbody", "tbody");
+export const TFoot = htmlElement("html-tfoot", "tfoot");
 
-export const TH = htmlElement("html-th", "th", "o-ui-html-th");
-export const TR = htmlElement("html-tr", "tr", "o-ui-html-tr");
-export const TD = htmlElement("html-td", "td", "o-ui-html-td");
+export const TH = htmlElement("html-th", "th");
+export const TR = htmlElement("html-tr", "tr");
+export const TD = htmlElement("html-td", "td");
 
 export type TableProps = ComponentProps<typeof Table>;
 export type THeadProps = ComponentProps<typeof THead>;
@@ -95,15 +96,15 @@ export type TDProps = ComponentProps<typeof TD>;
 
 // Forms
 
-export const HtmlButton = htmlElement("html-button", "button", "o-ui-html-button");
+export const HtmlButton = htmlElement("html-button", "button");
 
-export const HtmlForm = htmlElement("html-form", "form", "o-ui-html-form");
+export const HtmlForm = htmlElement("html-form", "form");
 
-export const HtmlInput = htmlElement("html-input", "input", "o-ui-html-input");
+export const HtmlInput = htmlElement("html-input", "input");
 
-export const HtmlLabel = htmlElement("html-label", "label", "o-ui-html-label");
+export const HtmlLabel = htmlElement("html-label", "label");
 
-export const HtmlTextArea = htmlElement("html-textarea", "textarea", "o-ui-html-textarea");
+export const HtmlTextArea = htmlElement("html-textarea", "textarea");
 
 export type HtmlButtonProps = ComponentProps<typeof HtmlButton>;
 export type HtmlFormProps = ComponentProps<typeof HtmlForm>;
