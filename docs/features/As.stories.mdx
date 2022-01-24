@@ -29,7 +29,7 @@ To integrate with a third party:
 import { as, TextLink } from "@sharegate/orbit-ui";
 import { Link as ReactRouterLink } from "react-router-dom";
 
-const RouterTextLink = as(TextLink, ReactRouterLink);
+const RouterTextLink = as(TextLink, ReactRouterLink, { normalizeStyles: true });
 
 <RouterTextLink to="/home">Home</RouterTextLink>
 ```
