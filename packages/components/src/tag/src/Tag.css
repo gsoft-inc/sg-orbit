@@ -6,7 +6,7 @@
     align-items: center;
     line-height: var(--o-ui-lh-1);
     color: var(--o-ui-text-alias-primary);
-    border-radius: var(--o-ui-shape-pill);
+    border-radius: var(--o-ui-br-pill);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: max-content;
     height: max-content;

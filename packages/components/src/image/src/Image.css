@@ -1,11 +1,11 @@
 /* SHAPE | ROUNDED */
 .o-ui-image-rounded {
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
 }
 
 /* SHAPE | CIRCULAR */
 .o-ui-image-circular {
-    border-radius: var(--o-ui-shape-circular);
+    border-radius: var(--o-ui-br-circular);
 }
 
 /* DARK MODE */

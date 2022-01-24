@@ -4,7 +4,7 @@
     --o-ui-input-padding-with-button: var(--o-ui-sp-8);
     --o-ui-input-padding-loading: var(--o-ui-sp-8);
     --o-ui-input-border-color: var(--o-ui-b-alias-mid-break);
-    --o-ui-input-border-radius: var(--o-ui-shape-rounded);
+    --o-ui-input-border-radius: var(--o-ui-br-rounded);
     --o-ui-input-background-color: var(--o-ui-bg-alias-mid-break);
 }
 

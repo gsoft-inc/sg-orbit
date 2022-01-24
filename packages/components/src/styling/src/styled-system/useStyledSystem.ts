@@ -278,12 +278,13 @@ const TextColorAliases = [
 ] as const;
 
 const BorderRadiusScale = [
-    0,
     1,
     2,
     3,
     4,
-    "pill"
+    "pill",
+    "rounded",
+    "circular"
 ] as const;
 
 const BoxShadowScale = [
@@ -310,8 +311,8 @@ const FontSizeScale = [
     7,
     8,
     9,
-    "headline",
-    "subheadline"
+    10,
+    11
 ] as const;
 
 const FontWeightScale = [
