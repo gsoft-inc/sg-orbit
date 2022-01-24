@@ -29,7 +29,7 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally the website and Storybook are not managed by the monorepo tooling because it's not meant to be published as an npm package. The website can be found in the [website](/website) directory and Storybook can be found in the [storybook](/storybook) directory.
+Exceptionally Storybook is not managed by the monorepo tooling because it's not meant to be published as an npm package. Storybook can be found in the [storybook](/storybook) directory.
 
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
