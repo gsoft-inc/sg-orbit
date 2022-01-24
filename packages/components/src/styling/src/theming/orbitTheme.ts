@@ -22,8 +22,8 @@ export interface FontSizeValues {
     7: string;
     8: string;
     9: string;
-    "subheadline": string;
-    "headline": string;
+    10: string;
+    11: string;
 }
 
 export type FontWeightValues = FixedLengthArray<string, 3>;
@@ -39,7 +39,15 @@ export interface BoxShadowAliases {
     "alias-floating": string;
 }
 
-export type BorderRadiusValues = FixedLengthArray<string, 4>;
+export interface BorderRadiusValues {
+    1: string;
+    2: string;
+    3: string;
+    4: string;
+    "rounded": string;
+    "pill": string;
+    "circular": string;
+}
 
 export type BoxShadowColorSchemes = ColorSchemeSection<BoxShadowAliases, BoxShadowValues, BoxShadowValues>;
 

@@ -247,35 +247,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-3)",
+        "borderRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-3)",
+        "borderBottomLeftRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-3)",
+        "borderBottomRightRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-3)",
+        "borderTopLeftRadius": "var(--o-ui-br-4)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-3)",
+        "borderTopRightRadius": "var(--o-ui-br-4)",
       }
     }
   />,
@@ -1273,35 +1273,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-2)",
+        "borderRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-2)",
+        "borderBottomLeftRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-2)",
+        "borderBottomRightRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-2)",
+        "borderTopLeftRadius": "var(--o-ui-br-3)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-2)",
+        "borderTopRightRadius": "var(--o-ui-br-3)",
       }
     }
   />,
@@ -2300,35 +2300,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-1)",
+        "borderRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-1)",
+        "borderBottomLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-1)",
+        "borderBottomRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-1)",
+        "borderTopLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-1)",
+        "borderTopRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -3339,35 +3339,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-4)",
+        "borderRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-4)",
+        "borderBottomLeftRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-4)",
+        "borderBottomRightRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-4)",
+        "borderTopLeftRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-4)",
+        "borderTopRightRadius": "var(--o-ui-br-pill)",
       }
     }
   />,
@@ -4365,35 +4365,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-0)",
+        "borderRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-0)",
+        "borderBottomLeftRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-0)",
+        "borderBottomRightRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-0)",
+        "borderTopLeftRadius": "var(--o-ui-br-1)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-0)",
+        "borderTopRightRadius": "var(--o-ui-br-1)",
       }
     }
   />,
@@ -11804,13 +11804,6 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-0)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderBottomLeftRadius": "var(--o-ui-br-1)",
       }
     }
@@ -11840,6 +11833,20 @@ Array [
     style={
       Object {
         "borderBottomLeftRadius": "var(--o-ui-br-pill)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "var(--o-ui-br-rounded)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": "var(--o-ui-br-circular)",
       }
     }
   />,
@@ -11965,13 +11972,6 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-0)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderBottomRightRadius": "var(--o-ui-br-1)",
       }
     }
@@ -12001,6 +12001,20 @@ Array [
     style={
       Object {
         "borderBottomRightRadius": "var(--o-ui-br-pill)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "var(--o-ui-br-rounded)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": "var(--o-ui-br-circular)",
       }
     }
   />,
@@ -18335,13 +18349,6 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-0)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderRadius": "var(--o-ui-br-1)",
       }
     }
@@ -18371,6 +18378,20 @@ Array [
     style={
       Object {
         "borderRadius": "var(--o-ui-br-pill)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "var(--o-ui-br-rounded)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderRadius": "var(--o-ui-br-circular)",
       }
     }
   />,
@@ -22794,13 +22815,6 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-0)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderTopLeftRadius": "var(--o-ui-br-1)",
       }
     }
@@ -22830,6 +22844,20 @@ Array [
     style={
       Object {
         "borderTopLeftRadius": "var(--o-ui-br-pill)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "var(--o-ui-br-rounded)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": "var(--o-ui-br-circular)",
       }
     }
   />,
@@ -22955,13 +22983,6 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-0)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderTopRightRadius": "var(--o-ui-br-1)",
       }
     }
@@ -22991,6 +23012,20 @@ Array [
     style={
       Object {
         "borderTopRightRadius": "var(--o-ui-br-pill)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "var(--o-ui-br-rounded)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": "var(--o-ui-br-circular)",
       }
     }
   />,
@@ -36418,14 +36453,14 @@ Array [
   <div
     style={
       Object {
-        "fontSize": "var(--o-ui-fs-headline)",
+        "fontSize": "var(--o-ui-fs-10)",
       }
     }
   />,
   <div
     style={
       Object {
-        "fontSize": "var(--o-ui-fs-subheadline)",
+        "fontSize": "var(--o-ui-fs-11)",
       }
     }
   />,

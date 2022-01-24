@@ -15,7 +15,7 @@
     text-align: center;
     position: relative;
     width: max-content;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
 }
 
 /* COUNTER */

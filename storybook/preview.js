@@ -39,11 +39,6 @@ export const parameters = {
                     "As"
                 ],
                 "Materials", [
-                    "Colors",
-                    "Shadows",
-                    "Spacing",
-                    "Sizing",
-                    "Typography",
                     "Icons",
                     "Motion"
                 ],

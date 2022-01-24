@@ -156,7 +156,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
     opacity: 0;
 }
