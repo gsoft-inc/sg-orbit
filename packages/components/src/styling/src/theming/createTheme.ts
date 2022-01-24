@@ -87,7 +87,7 @@ const ShareGateColors: Partial<ColorPaletteSection> = {
     ],
     alert: [
         "#fbf1f1",
-        "#fadfdf ",
+        "#fadfdf",
         "#fdb0af",
         "#f88f8d",
         "#eb6a64",
@@ -112,12 +112,20 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
         7: "1.75rem",
         8: "2rem",
         9: "2.5rem",
-        "subheadline": "3.75rem",
-        "headline": "5rem"
+        10: "3.75rem",
+        11: "5rem"
     },
     fontWeights: ["400", "500", "600"],
     lineHeights: [1, 1.2, 1.25, 1.3333333, 1.454595, 1.5],
-    borderRadii: [".125rem", ".25rem", ".5rem", "1rem"],
+    borderRadii: {
+        1: ".125rem",
+        2: ".25rem",
+        3: ".5rem",
+        4: "1rem",
+        "pill": "999px",
+        "circular": "100%",
+        "rounded": ".25rem"
+    },
     boxShadows: {
         common: {
             "alias-skim": "$bs-1",

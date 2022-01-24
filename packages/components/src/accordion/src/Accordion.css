@@ -115,7 +115,7 @@
     content: "";
     position: absolute;
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     pointer-events: none;
     transition: var(--o-ui-focus-ring-transition);
 }

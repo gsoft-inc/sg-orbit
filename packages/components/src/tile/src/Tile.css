@@ -5,7 +5,7 @@
     background-color: var(--o-ui-bg-alias-default);
     padding: 0;
     color: var(--o-ui-text-alias-primary);
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     display: grid;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
@@ -76,7 +76,7 @@
     position: absolute;
     right: 8px;
     bottom: 8px;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     width: 24px;
     height: 24px;
     display: flex;

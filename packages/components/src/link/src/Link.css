@@ -38,7 +38,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring);
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -93,7 +93,7 @@
 .o-ui-text-link:focus-visible,
 .o-ui-text-link.o-ui-link-focus {
     outline: none;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
 }
 
 .o-ui-text-link:focus-visible:after,
@@ -214,16 +214,16 @@ button.o-ui-link-hover {
 
 /* SHAPE | ROUNDED */
 .o-ui-link-rounded {
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
 }
 
 /* SHAPE | CIRCULAR */
 .o-ui-link-circular {
-    border-radius: var(--o-ui-shape-circular);
+    border-radius: var(--o-ui-br-circular);
 }
 
 .o-ui-link.o-ui-link-circular:after {
-    border-radius: var(--o-ui-shape-circular);
+    border-radius: var(--o-ui-br-circular);
 }
 
 /* SHAPE | BOX */
@@ -238,5 +238,5 @@ button.o-ui-link-hover {
 
 /* ICON LINK */
 .o-ui-icon-link {
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
 }
