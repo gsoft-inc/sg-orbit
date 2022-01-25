@@ -1,3 +1,7 @@
+.o-ui-image {
+    opacity: var(--o-ui-image-alias-opacity);
+}
+
 /* SHAPE | ROUNDED */
 .o-ui-image-rounded {
     border-radius: var(--o-ui-br-rounded);
@@ -6,9 +10,4 @@
 /* SHAPE | CIRCULAR */
 .o-ui-image-circular {
     border-radius: var(--o-ui-br-circular);
-}
-
-/* DARK MODE */
-.o-ui-shargate-dark .o-ui-image {
-    opacity: 0.75;
 }

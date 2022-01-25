@@ -30,7 +30,7 @@ a.o-ui-tag:after {
     bottom: 0;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
     border-radius: inherit;
     transition: var(--o-ui-focus-ring-transition);
 }

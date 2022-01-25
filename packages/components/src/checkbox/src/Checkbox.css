@@ -39,7 +39,7 @@
     bottom: -1px;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
     border-radius: var(--o-ui-br-rounded);
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -177,7 +177,7 @@
 .o-ui-checkbox-checked.o-ui-checkbox-hover input[type="checkbox"]:not([disabled]):focus-visible + .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-focus:hover .o-ui-checkbox-box:before,
 .o-ui-checkbox-checked:not(.o-ui-checkbox-disabled).o-ui-checkbox-focus.o-ui-checkbox-hover .o-ui-checkbox-box:before {
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring);
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* SIZING */

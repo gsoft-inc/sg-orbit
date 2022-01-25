@@ -105,8 +105,10 @@ export const ShareGateTheme = createTheme({
             "text-alias-success": "$success-6",
             "text-alias-static-white": "$white",
             "text-alias-input-placeholder": "$neutral-4",
+            // Image
+            "image-alias-opacity": "1",
             // Focus
-            "focus-ring": "rgba(31, 115, 183, .35)"
+            "focus-ring-color-alias-default": "rgba(31, 115, 183, .35)"
         },
         dark: {
             // Background
@@ -195,8 +197,10 @@ export const ShareGateTheme = createTheme({
             "text-alias-success": "$success-5",
             "text-alias-static-white": "$white",
             "text-alias-input-placeholder": "$neutral-3",
+            // Image
+            "image-alias-opacity": "0.75",
             // Focus
-            "focus-ring": "rgba(53, 144, 221, .35)"
+            "focus-ring-color-alias-default": "rgba(53, 144, 221, .35)"
         }
     }
 });

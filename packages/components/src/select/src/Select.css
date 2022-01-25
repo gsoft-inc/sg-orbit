@@ -49,7 +49,7 @@
 .o-ui-select-trigger-ghost:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-ghost:not([disabled]):focus-visible {
     background: var(--o-ui-bg-alias-mid-break);
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
 }
 
 .o-ui-select-trigger-ghost:not([disabled])[aria-expanded="true"] {
@@ -105,12 +105,12 @@
 /* TRIGGER | OUTLINE | STATE | FOCUS */
 .o-ui-select-trigger-outline:not([disabled]).o-ui-select-trigger-focus,
 .o-ui-select-trigger-outline:not([disabled]):focus-visible:not(:hover) {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* TRIGGER | OUTLINE | STATE | FOCUS && HOVER */
 .o-ui-select-trigger-outline:not([disabled]):hover:focus-visible {
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* TRIGGER | OUTLINE | STATE | INVALID | FOCUS && HOVER */
