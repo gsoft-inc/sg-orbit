@@ -24,7 +24,6 @@ export interface FocusManagerIterationOptions {
 }
 
 export interface FocusManager {
-    addTrapFocusToList: (element: HTMLElement) => void;
     focusFirst: (options?: FocusManagerScopeOptions & FocusManagerIterationOptions & FocusManagerHandlers) => HTMLElement;
     focusFirstQueryMatch: (query: string, handlers?: FocusManagerScopeOptions & FocusManagerHandlers) => HTMLElement;
     focusKey: (key: string, options?: FocusManagerScopeOptions & FocusManagerHandlers) => HTMLElement;
@@ -34,20 +33,17 @@ export interface FocusManager {
     focusTarget: (key: string, options?: FocusManagerScopeOptions & FocusManagerIterationOptions & FocusManagerHandlers) => HTMLElement;
     getActiveElementIndex: (options?: FocusManagerScopeOptions) => number;
     isInScope: (element: HTMLElement, options?: FocusManagerScopeOptions) => boolean;
-    trapFocusList: HTMLElement[];
 }
 
 abstract class FocusManagerBase {
     protected scope: FocusScope;
     protected keyProp: string;
     protected onFocus: (element: HTMLElement) => void;
-    trapFocusList: HTMLElement[];
 
     constructor(scope: FocusScope, { keyProp, onFocus }: FocusManagerOptions = {}) {
         this.scope = scope;
         this.keyProp = keyProp;
         this.onFocus = onFocus;
-        this.trapFocusList = [];
     }
 
     isInScope(element: HTMLElement, options?: FocusManagerScopeOptions) {
@@ -57,10 +53,6 @@ abstract class FocusManagerBase {
     abstract getActiveElementIndex(options?: FocusManagerScopeOptions);
 
     abstract focusElement(element: HTMLElement, handlers: FocusManagerHandlers);
-
-    addTrapFocusToList(element: HTMLElement) {
-        this.trapFocusList.push(element);
-    }
 
     focusFirst({ canFocus, onFocus, onNotFound, ...scopeOptions }: FocusManagerScopeOptions & FocusManagerIterationOptions & FocusManagerHandlers = {}) {
         const iterator = new FocusScopeIterator(this.scope, scopeOptions);

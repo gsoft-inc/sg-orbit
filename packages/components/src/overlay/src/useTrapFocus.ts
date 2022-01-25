@@ -8,7 +8,6 @@ export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrap
     const [focusedElementRef, setFocusedElement] = useRefState<HTMLElement>();
 
     const handleKeyDown = useEventCallback((event: KeyboardEvent) => {
-        if (focusManager.trapFocusList.length > 0) { return; }
         if (event.key === Keys.tab) {
             const currentActiveElement = event.target;
 
@@ -21,11 +20,9 @@ export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrap
                 if (event.shiftKey) {
                     const element = focusManager.focusPrevious({ tabbableOnly: true });
                     setFocusedElement(element);
-                    focusManager.addTrapFocusToList(element);
                 } else {
                     const element = focusManager.focusNext({ tabbableOnly: true });
                     setFocusedElement(element);
-                    focusManager.addTrapFocusToList(element);
                 }
             }
         }
@@ -34,20 +31,19 @@ export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrap
     // If a focus event occurs outside the scope (e.g. user tabs from browser location bar),
     // restore focus to the previously focused node or the first tabbable element in the active scope.
     const handleFocus = useEventCallback((event: FocusEvent) => {
-        if (focusManager.trapFocusList.length > 0) { return; }
-        const target = event.target as HTMLElement;
+        if (isNil(event.relatedTarget)) {
+            const target = event.target as HTMLElement;
 
-        if (!focusManager.isInScope(target, { includeChildScopes: true })) {
-            if (!isNil(focusedElementRef.current)) {
-                focusedElementRef.current.focus();
+            if (!focusManager.isInScope(target, { includeChildScopes: true })) {
+                if (!isNil(focusedElementRef.current)) {
+                    focusedElementRef.current.focus();
+                } else {
+                    const element = focusManager.focusFirst({ tabbableOnly: true });
+                    setFocusedElement(element);
+                }
             } else {
-                const element = focusManager.focusFirst({ tabbableOnly: true });
-                setFocusedElement(element);
-                focusManager.addTrapFocusToList(element);
+                setFocusedElement(target);
             }
-        } else {
-            setFocusedElement(target);
-            focusManager.addTrapFocusToList(target);
         }
     });
 
