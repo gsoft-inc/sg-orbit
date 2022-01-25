@@ -162,8 +162,6 @@ export interface ColorAliases {
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
     "text-alias-input-placeholder": AliasValue;
-    // Image
-    "image-alias-opacity": AliasValue;
     // Focus
     "focus-ring-color-alias-default": AliasValue;
 }

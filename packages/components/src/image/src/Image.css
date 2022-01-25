@@ -1,5 +1,5 @@
-.o-ui-image {
-    opacity: var(--o-ui-image-alias-opacity);
+.o-ui-dark .o-ui-image {
+    opacity: 0.75;
 }
 
 /* SHAPE | ROUNDED */

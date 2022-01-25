@@ -20,7 +20,7 @@ export function getThemeClassName(themeName: string) {
 }
 
 export function getColorSchemeClassName(themeName: string, colorScheme: ColorScheme) {
-    return `o-ui-${themeName}-${colorScheme}`;
+    return `o-ui-${themeName}-${colorScheme} o-ui-${colorScheme} `;
 }
 
 function augmentPrefix(current: string, newPart: string) {
