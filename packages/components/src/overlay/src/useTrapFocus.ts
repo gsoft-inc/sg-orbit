@@ -47,7 +47,6 @@ export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrap
         }
     });
 
-
     // Using the capture phrase for the keydown event listener to ensure this hook catch a tab keydown event before the useRestoreFocus hook keydown handler.
     useDocumentListener("keydown", handleKeyDown, !isDisabled, { capture: true });
     useDocumentListener("focusin", handleFocus, !isDisabled);
