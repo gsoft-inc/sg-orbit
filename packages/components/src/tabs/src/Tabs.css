@@ -29,7 +29,7 @@
 /* TAB LIST | POPOVER | TRIGGER */
 .o-ui-tab-list-popover-trigger {
     border: none;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
     position: relative;
@@ -52,7 +52,7 @@
 .o-ui-tab-list-popover {
     background-color: var(--o-ui-bg-alias-default);
     border: 1px solid var(--o-ui-b-alias-low-break);
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     box-shadow: var(--o-ui-bs-alias-lifted);
     margin-top: var(--o-ui-sp-2);
 }
@@ -123,7 +123,7 @@
     transform: translateY(-50%);
     bottom: calc(0.5rem - 2px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     pointer-events: none;
     height: calc(var(--o-ui-sz-3) + 0.25rem);
     transition: var(--o-ui-focus-ring-transition);
@@ -166,7 +166,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:not([disabled]):focus-visible:before,
 .o-ui-tab-focus:not([disabled]):before {
-    border-color: var(--o-ui-focus-ring-color);
+    border-color: var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* TAB | STATE | HOVER */

@@ -36,7 +36,7 @@ A story must:
 - Be located in the `Components` top level section of the Storybook navigation menu.
 - The second level segment must be the capitalized name of the component.
 
-Here's an exemple for the date range picker component:
+Here's an exemple for the button component:
 
 ```jsx
 // Button.stories.mdx
@@ -244,13 +244,15 @@ The following usage should be possible for all components:
 
 A component should always accept a `ref` prop and apply it to the root element of the component.
 
+> If the component have a wrapper element, like the text input component, the ref could instead be rendered on the input element. When the ref is not rendered on the root element, add a `wrapperProps` prop which accept a ref for the wrapper element.
+
 ### Developer experience
 
 #### Props and Typings
 
-Every component and functions should provide static typings with [TypeScript](https://www.typescriptlang.org/). For most required props, instead of defining the prop as required, you should instead provide a default value.
+Every component and functions should provide static typings with [TypeScript](https://www.typescriptlang.org/).
 
-### Naming
+### Component props naming
 
 #### Event handlers props
 

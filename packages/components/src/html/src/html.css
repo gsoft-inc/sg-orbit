@@ -1,132 +1,39 @@
-.o-ui-html-address,
-.o-ui-html-address::after,
-.o-ui-html-address::before,
-.o-ui-html-article,
-.o-ui-html-article::after,
-.o-ui-html-article::before,
-.o-ui-html-aside,
-.o-ui-html-aside::after,
-.o-ui-html-aside::before,
-.o-ui-html-footer,
-.o-ui-html-footer::after,
-.o-ui-html-footer::before,
-.o-ui-html-header,
-.o-ui-html-header::after,
-.o-ui-html-header::before,
-.o-ui-html-main,
-.o-ui-html-main::after,
-.o-ui-html-main::before,
-.o-ui-html-nav,
-.o-ui-html-nav::after,
-.o-ui-html-nav::before,
-.o-ui-html-section,
-.o-ui-html-section::after,
-.o-ui-html-section::before,
-.o-ui-html-div,
-.o-ui-html-div::after,
-.o-ui-html-div::before,
-.o-ui-html-ul,
-.o-ui-html-ul::after,
-.o-ui-html-ul::before,
-.o-ui-html-ol,
-.o-ui-html-ol::after,
-.o-ui-html-ol::before,
-.o-ui-html-li,
-.o-ui-html-li::after,
-.o-ui-html-li::before,
-.o-ui-html-a,
-.o-ui-html-a::after,
-.o-ui-html-a::before,
-.o-ui-html-span,
-.o-ui-html-span::after,
-.o-ui-html-span::before,
-.o-ui-html-table,
-.o-ui-html-table::after,
-.o-ui-html-table::before,
-.o-ui-html-thead,
-.o-ui-html-thead::after,
-.o-ui-html-thead::before,
-.o-ui-html-tbody,
-.o-ui-html-tbody::after,
-.o-ui-html-tbody::before,
-.o-ui-html-tfoot,
-.o-ui-html-tfoot::after,
-.o-ui-html-tfoot::before,
-.o-ui-html-th,
-.o-ui-html-th::after,
-.o-ui-html-th::before,
-.o-ui-html-tr,
-.o-ui-html-tr::after,
-.o-ui-html-tr::before,
-.o-ui-html-td,
-.o-ui-html-td::after,
-.o-ui-html-td::before,
-.o-ui-html-button,
-.o-ui-html-button::after,
-.o-ui-html-button::before,
-.o-ui-html-input,
-.o-ui-html-input::after,
-.o-ui-html-input::before,
-.o-ui-html-label,
-.o-ui-html-label::after,
-.o-ui-html-label::before,
-.o-ui-html-textarea,
-.o-ui-html-textarea::after,
-.o-ui-html-textarea::before,
-.o-ui-html-p,
-.o-ui-html-p::after,
-.o-ui-html-p::before,
-.o-ui-html-h1,
-.o-ui-html-h1::after,
-.o-ui-html-h1::before,
-.o-ui-html-h2,
-.o-ui-html-h2::after,
-.o-ui-html-h2::before,
-.o-ui-html-h3,
-.o-ui-html-h3::after,
-.o-ui-html-h3::before,
-.o-ui-html-h4,
-.o-ui-html-h4::after,
-.o-ui-html-h4::before,
-.o-ui-html-h5,
-.o-ui-html-h5::after,
-.o-ui-html-h5::before,
-.o-ui-html-h6,
-.o-ui-html-h6::after,
-.o-ui-html-h6::before {
+.o-ui-element,
+.o-ui-element::after,
+.o-ui-element::before {
     box-sizing: border-box;
 }
 
-.o-ui-html-ul {
+ul:where(.o-ui-element) {
     margin: 0;
     list-style: none;
     padding: 0;
 }
 
-.o-ui-html-ol {
+ol:where(.o-ui-element) {
     margin: 0;
     list-style: none;
     padding: 0;
 }
 
-.o-ui-html-button {
+button:where(.o-ui-element) {
     background-color: transparent;
     background-image: none;
     cursor: pointer;
 }
 
-.o-ui-html-table {
+table:where(.o-ui-element) {
     border-collapse: collapse;
 }
 
-.o-ui-html-a {
+a:where(.o-ui-element) {
     color: inherit;
     text-decoration: inherit;
 }
 
-.o-ui-html-button,
-.o-ui-html-input,
-.o-ui-html-textarea {
+button:where(.o-ui-element),
+input:where(.o-ui-element),
+textarea:where(.o-ui-element) {
     padding: 0;
     line-height: inherit;
     color: inherit;
@@ -134,57 +41,57 @@
     font-size: 100%;
 }
 
-.o-ui-html-textarea {
+textarea:where(.o-ui-element) {
     resize: vertical;
 }
 
-.o-ui-html-input::placeholder,
-.o-ui-html-textarea::placeholder {
+input:where(.o-ui-element)::placeholder,
+textarea:where(.o-ui-element)::placeholder {
     opacity: 1;
     color: #A1A1AA;
 }
 
 /* Removing Edge input field decoration. */
-.o-ui-html-input[type="text"]::-ms-clear,
-.o-ui-html-input[type="text"]::-ms-reveal {
+input[type="text"]:where(.o-ui-element)::-ms-clear,
+input[type="text"]:where(.o-ui-element)::-ms-reveal {
     display: none;
     width: 0;
     height: 0;
 }
 
-.o-ui-html-img {
+img:where(.o-ui-element) {
     display: block;
     vertical-align: middle;
     max-width: 100%;
     height: auto;
 }
 
-.o-ui-html-p,
-.o-ui-html-h1,
-.o-ui-html-h2,
-.o-ui-html-h3,
-.o-ui-html-h4,
-.o-ui-html-h5,
-.o-ui-html-h6 {
+p:where(.o-ui-element),
+h1:where(.o-ui-element),
+h2:where(.o-ui-element),
+h3:where(.o-ui-element),
+h4:where(.o-ui-element),
+h5:where(.o-ui-element),
+h6:where(.o-ui-element) {
     margin: 0;
 }
 
-.o-ui-html-h1,
-.o-ui-html-h2,
-.o-ui-html-h3,
-.o-ui-html-h4,
-.o-ui-html-h5,
-.o-ui-html-h6 {
+h1:where(.o-ui-element),
+h2:where(.o-ui-element),
+h3:where(.o-ui-element),
+h4:where(.o-ui-element),
+h5:where(.o-ui-element),
+h6:where(.o-ui-element) {
     margin: 0;
     font-size: inherit;
     font-weight: inherit;
 }
 
-.o-ui-html-th {
+th:where(.o-ui-element) {
     font-weight: inherit;
 }
 
 /* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
-.o-ui-html-button > * {
+button:where(.o-ui-element) > * {
     pointer-events: none;
 }

@@ -66,6 +66,7 @@ export function ThemeProvider({
                                 as,
                                 className: mergeClasses(
                                     "o-ui",
+                                    `o-ui-${computedColorScheme}`,
                                     getThemeClassName(theme.name),
                                     getColorSchemeClassName(theme.name, computedColorScheme)
                                 )

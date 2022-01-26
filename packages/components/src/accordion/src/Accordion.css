@@ -115,7 +115,7 @@
     content: "";
     position: absolute;
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-shape-rounded);
+    border-radius: var(--o-ui-br-rounded);
     pointer-events: none;
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -144,7 +144,7 @@
 
 .o-ui-accordion-trigger:focus-visible::before,
 .o-ui-accordion-trigger:not([disabled]).o-ui-accordion-trigger-focus::before {
-    border-color: var(--o-ui-focus-ring-color);
+    border-color: var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* BORDERED | FIRST ITEM | BORDER RADIUS */

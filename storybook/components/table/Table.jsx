@@ -102,7 +102,7 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
 
     return (
         <TableRaw {...rest}>
-            <thead>
+            <thead className="thead">
                 <tr>
                     {columns.map((x, index) => renderHeader(x, index))}
                 </tr>

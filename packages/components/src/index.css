@@ -1,9 +1,4 @@
 .o-ui {
-    /* SHAPES */
-    --o-ui-shape-pill: 999px;
-    --o-ui-shape-circular: 100%;
-    --o-ui-shape-rounded: var(--o-ui-sp-1);
-
     /* STATES | DISABLED */
     --o-ui-disabled-opacity: 0.4;
 
@@ -11,12 +6,12 @@
     --o-ui-focus-ring-thickness-sm: 1px;
     --o-ui-focus-ring-thickness-md: 3px;
     --o-ui-focus-ring-thickness-lg: 5px;
-    --o-ui-focus-ring-color: rgba(31, 115, 183, .35);
-    --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
-    --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color);
+
+    --o-ui-focus-ring-inset-sm: 0 0 0 var(--o-ui-focus-ring-thickness-sm) var(--o-ui-focus-ring-color-alias-default);
+    --o-ui-focus-ring-inset-md: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
+    --o-ui-focus-ring-inset-lg: 0 0 0 var(--o-ui-focus-ring-thickness-lg) var(--o-ui-focus-ring-color-alias-default);
     --o-ui-focus-ring-outset-inner-offset: 1px;
-    --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color);
+    --o-ui-focus-ring-outset: 0 0 0 var(--o-ui-focus-ring-outset-outer-offset) var(--o-ui-white), 0 0 0 calc(2px + var(o-ui-focus-ring-outset-outer-offset)) var(--o-ui-focus-ring-color-alias-default);
     --o-ui-focus-ring-transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
 
     /* TRANSITIONS | TIMING */
@@ -35,6 +30,7 @@
     color: var(--o-ui-text-alias-primary);
 }
 
+/* ANIMATIONS */
 .o-ui-fade-in {
     animation: o-ui-fade-in-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }

@@ -1,6 +1,6 @@
 .o-ui {
     --o-ui-overlay-border-offset: 0;
-    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color);
+    --o-ui-overlay-arrow-border-color: var(--o-ui-focus-ring-color-alias-default);
     --o-ui-overlay-arrow-dimension: 10px;
 }
 
@@ -156,8 +156,8 @@
     right: 0;
     left: 0;
     bottom: 0;
-    border-radius: var(--o-ui-shape-rounded);
-    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color);
+    border-radius: var(--o-ui-br-rounded);
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color-alias-default);
     opacity: 0;
 }
 
