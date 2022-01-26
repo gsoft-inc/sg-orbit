@@ -26,8 +26,8 @@
 
 /* COUNT */
 .o-ui-badge-count .o-ui-badge-anchor {
-    background-color: var(--o-ui-bg-alias-hard-break);
-    color: var(--o-ui-text-alias-primary);
+    background-color: var(--o-ui-bg-alias-accent);
+    color: var(--o-ui-text-alias-static-white);
     border-radius: var(--o-ui-br-pill);
     display: flex;
     align-items: center;
@@ -39,7 +39,7 @@
 
 /* DOT */
 .o-ui-badge-dot .o-ui-badge-anchor {
-    background-color: var(--o-ui-bg-alias-hard-break);
+    background-color: var(--o-ui-bg-alias-accent);
     border-radius: var(--o-ui-br-pill);
     min-width: 0.5em;
     min-height: 0.5em;

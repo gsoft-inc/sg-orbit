@@ -166,7 +166,7 @@
 /* TAB | STATE | FOCUS */
 .o-ui-tab:not([disabled]):focus-visible:before,
 .o-ui-tab-focus:not([disabled]):before {
-    border-color: var(--o-ui-focus-ring-color);
+    border-color: var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* TAB | STATE | HOVER */

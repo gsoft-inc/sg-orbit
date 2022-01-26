@@ -94,7 +94,7 @@
     bottom: 0;
     display: block;
     position: absolute;
-    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color);
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
     border-radius: var(--o-ui-br-pill);
     transition: var(--o-ui-focus-ring-transition);
 }

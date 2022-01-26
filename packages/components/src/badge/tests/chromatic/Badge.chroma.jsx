@@ -16,7 +16,7 @@ function SquareBadge({ children, ...rest }) {
     return (
         <Badge {...rest}>
             {children}
-            <Div backgroundColor="alias-accent" width={6} height={6} />
+            <Div backgroundColor="alias-accent-light" width={6} height={6} />
         </Badge>
     );
 }
@@ -28,7 +28,7 @@ function CircleBadge({ children, ...rest }) {
             overlap="circle"
         >
             {children}
-            <Div backgroundColor="alias-accent" borderRadius="100px" width={6} height={6} />
+            <Div backgroundColor="alias-accent-light" borderRadius="100px" width={6} height={6} />
         </Badge>
     );
 }

@@ -162,6 +162,8 @@ export interface ColorAliases {
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
     "text-alias-input-placeholder": AliasValue;
+    // Focus
+    "focus-ring-color-alias-default": AliasValue;
 }
 
 export type ColorColorSchemes = ColorSchemeSection<ColorPaletteSection, ColorAliases, ColorAliases>;

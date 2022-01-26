@@ -8,7 +8,7 @@ import { Preview } from "@stories/components";
 
 # Color schemes
 
-Orbit supports *light* and *dark* color schemes within a theme and offers out of the box color schemes support for all components and [semantic colors](?path=/story/colors--page#semantic-colors).
+Orbit supports *light* and *dark* color schemes within a theme and offers out of the box color schemes support for all components and [tokens](?path=/story/tokens--page), where it makes sense.
 
 ## Apply a color scheme
 
@@ -42,7 +42,7 @@ The `ColorSchemeContext` of the closest [theme provider](?path=/story/theme-prov
 
 ### useColorSchemeValue
 
-Some features requires the usage of custom colors. Those colors aren't like Orbit [semantic colors](?path=/story/colors--page#semantic-colors) and will not support color schemes out of the box.
+Some features requires the usage of custom colors. Those colors aren't like Orbit [tokens](?path=/story/tokens--page) and will not support color schemes out of the box.
 
 To help with that, Orbit offer the `useColorSchemeValue` hook which will return the value matching the current color scheme of the closest [theme provider](?path=/story/theme-provider--default-story).
 

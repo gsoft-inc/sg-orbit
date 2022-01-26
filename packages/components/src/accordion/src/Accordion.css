@@ -144,7 +144,7 @@
 
 .o-ui-accordion-trigger:focus-visible::before,
 .o-ui-accordion-trigger:not([disabled]).o-ui-accordion-trigger-focus::before {
-    border-color: var(--o-ui-focus-ring-color);
+    border-color: var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* BORDERED | FIRST ITEM | BORDER RADIUS */
