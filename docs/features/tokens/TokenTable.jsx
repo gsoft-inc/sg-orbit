@@ -63,6 +63,14 @@ export function boxShadowRenderer(token) {
     return <Div paddingRight={4}><Div boxShadow={token} marginY={3} height={6}></Div></Div>
 }
 
+export function durationRenderer(token) {
+    return <Div paddingRight={4}><Div marginY={3} height={6}></Div></Div>
+}
+
+export function easingRenderer(token) {
+    return <Div paddingRight={4}><Div marginY={3} height={6}></Div></Div>
+}
+
 export function fontSizeRenderer(token) {
     return <Div height={12} display="flex" alignItems="center" justifyContent="start"><Text fontSize={token} lineHeight={1}>Ag</Text></Div>
 }

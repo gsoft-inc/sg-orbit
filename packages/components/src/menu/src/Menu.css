@@ -88,16 +88,20 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     background-color: var(--o-ui-bg-alias-mid-break);
 }
 
-/* OPTION | STATE | FOCUS | WITH SELECTION */
-.o-ui-menu-with-selection .o-ui-menu-item:focus:after,
-.o-ui-menu-with-selection .o-ui-menu-item-focus:after {
+/* FOCUS */
+.o-ui-menu-item::after {
     content: "";
     display: block;
     position: absolute;
     left: 0;
-    height: var(--o-ui-menu-item-height);
+    height: 100%;
     width: 2px;
-    background-color: var(--o-ui-b-alias-accent);
+    opacity: 0;
+    background-color: var(--o-ui-focus-ring-color-alias-default);
+}
+
+.o-ui-menu-item:focus::after {
+    opacity: 1;
 }
 
 /* ITEM | STATE | ACTIVE */
@@ -127,12 +131,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     background-color: var(--o-ui-text-alias-alert);
 }
 
-/* ITEM | STATE | INVALID | FOCUS | WITH SELECTION */
-.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item:focus:after,
-.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item-focus:after {
-    background-color: var(--o-ui-text-alias-alert);
-}
-
 /* ITEM | DESCRIPTION */
 .o-ui-menu-item-description {
     grid-area: description;
@@ -149,6 +147,11 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     overflow: hidden;
     text-overflow: ellipsis;
     grid-area: label;
+}
+
+/* Line-Height should take precense over text line height */
+.o-ui-menu .o-ui-menu-item-label {
+    line-height: var(--o-ui-lh-2);
 }
 
 /* SECTION */

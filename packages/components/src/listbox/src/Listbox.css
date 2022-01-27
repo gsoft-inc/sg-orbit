@@ -98,7 +98,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     left: 0;
     height: var(--o-ui-listbox-option-height);
     width: 2px;
-    background-color: var(--o-ui-b-alias-accent);
+    background-color: var(--o-ui-focus-ring-color-alias-default);
 }
 
 /* OPTION | STATE | HOVER */

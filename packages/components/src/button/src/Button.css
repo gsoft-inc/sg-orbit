@@ -50,7 +50,7 @@
 }
 
 /* TEXT */
-.o-ui-button-text {
+.o-ui-button .o-ui-button-text {
     flex-grow: 1;
     line-height: 1;
 }
@@ -304,8 +304,12 @@ a.o-ui-button {
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
-.o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic  {
-    background-color: currentColor;
+.o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
+.o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
+.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
+.o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
+.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic  {
+    background-color: rgba(0, 0, 0, 0.15);
     color: inherit;
     border: 1px solid currentColor;
 }
@@ -318,7 +322,7 @@ a.o-ui-button {
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-start-icon,
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-counter,
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-counter {
-    color: var(--o-ui-white);
+    color: inherit;
 }
 
 /* INHERIT | SECONDARY | LOADING */

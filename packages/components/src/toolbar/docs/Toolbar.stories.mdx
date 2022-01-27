@@ -128,7 +128,11 @@ Toolbar controls can wrap on multiple lines.
 
 <Preview>
     <Story name="wrap">
-        <Div width="700px">
+        <Div width={{
+            base: "200px",
+            sm: "700px"
+        }}
+        >
             <Toolbar wrap>
                 <TextInput placeholder="Destination" />
                 <RadioGroup>
