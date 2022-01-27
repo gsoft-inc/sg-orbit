@@ -31,17 +31,21 @@ export function useTrapFocus(focusManager: FocusManager, { isDisabled }: UseTrap
     // If a focus event occurs outside the scope (e.g. user tabs from browser location bar),
     // restore focus to the previously focused node or the first tabbable element in the active scope.
     const handleFocus = useEventCallback((event: FocusEvent) => {
-        const target = event.target as HTMLElement;
+        // When then focus was previously outside of the viewport (like the browser localtion bar),
+        // the relatedTarget (aka the previously focused element) will be null.
+        if (isNil(event.relatedTarget)) {
+            const target = event.target as HTMLElement;
 
-        if (!focusManager.isInScope(target, { includeChildScopes: true })) {
-            if (!isNil(focusedElementRef.current)) {
-                focusedElementRef.current.focus();
+            if (!focusManager.isInScope(target, { includeChildScopes: true })) {
+                if (!isNil(focusedElementRef.current)) {
+                    focusedElementRef.current.focus();
+                } else {
+                    const element = focusManager.focusFirst({ tabbableOnly: true });
+                    setFocusedElement(element);
+                }
             } else {
-                const element = focusManager.focusFirst({ tabbableOnly: true });
-                setFocusedElement(element);
+                setFocusedElement(target);
             }
-        } else {
-            setFocusedElement(target);
         }
     });
 

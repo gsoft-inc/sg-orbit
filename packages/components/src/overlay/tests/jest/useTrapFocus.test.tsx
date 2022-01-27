@@ -103,30 +103,6 @@ test("move the focus to the previous element of the scope on shift + tab keypres
     await waitFor(() => expect(getByTestId("button-4")).toHaveFocus());
 });
 
-test("when an element of the scope is focused, clicking an element outside of the scope will focus back the last focused element", async () => {
-    const { getByTestId } = renderWithTheme(
-        <>
-            <Button data-testid="button-1">1</Button>
-            <Trap>
-                <Button>2</Button>
-                <Button data-testid="button-3">3</Button>
-                <Button>4</Button>
-            </Trap>
-            <Button>5</Button>
-        </>
-    );
-
-    act(() => {
-        userEvent.click(getByTestId("button-3"));
-    });
-
-    act(() => {
-        userEvent.click(getByTestId("button-1"));
-    });
-
-    await waitFor(() => expect(getByTestId("button-3")).toHaveFocus());
-});
-
 test("when no element of the scope is focused, clicking an element outside of the scope will focus the first focusable element of the scope", async () => {
     const { getByTestId } = renderWithTheme(
         <>
