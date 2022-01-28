@@ -393,8 +393,3 @@ a.o-ui-button {
 .o-ui-button-hover:not([disabled]).o-ui-button-primary .o-ui-button-counter {
     opacity: 1;
 }
-
-/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
-.o-ui-button > * {
-    pointer-events: none;
-}
