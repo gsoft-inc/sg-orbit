@@ -7,8 +7,10 @@
 /* SHARED */
 .o-ui-button {
     padding: 0;
-    line-height: var(--o-ui-lh-1);
+    background-color: transparent;
+    background-image: none;
     cursor: pointer;
+    line-height: var(--o-ui-lh-1);
     font-variation-settings: "wght" 500;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     border: none;
@@ -16,6 +18,14 @@
     position: relative;
     width: max-content;
     border-radius: var(--o-ui-br-rounded);
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
+.o-ui-button > * {
+    pointer-events: none;
 }
 
 /* COUNTER */

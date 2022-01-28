@@ -4,6 +4,7 @@
 
 .o-ui-sb-component-info-compact {
     margin: var(--o-ui-sp-4) 0;
+    overflow-x: auto;
 }
 
 .o-ui-sb-component-info-item {

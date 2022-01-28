@@ -1,9 +1,11 @@
 /* TRIGGER */
 .o-ui-select-trigger {
     outline: none;
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
     appearance: none;
     border: none;
-    background: none;
     color: var(--o-ui-text-alias-primary);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     display: inline-flex;
@@ -13,6 +15,14 @@
     overflow: hidden;
     padding: 0 var(--o-ui-sp-3) 0;
     border-radius: var(--o-ui-br-rounded);
+    line-height: inherit;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
+.o-ui-select-trigger > * {
+    pointer-events: none;
 }
 
 /* TRIGGER | FLUID */

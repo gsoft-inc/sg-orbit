@@ -1,11 +1,11 @@
 .o-ui-link {
     outline: none;
+    color: inherit;
     display: inline-block;
     border: none;
     background-color: var(--o-ui-transparent);
     padding: 0;
     position: relative;
-    color: inherit;
     /* direct text is responsible of setting the text decoration style */
     text-decoration: none;
 }

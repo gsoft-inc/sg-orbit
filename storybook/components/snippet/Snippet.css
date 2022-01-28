@@ -7,5 +7,10 @@
     padding: var(--o-ui-sp-5) !important;
     font-size: 15px;
     border-radius: 4px;
+    overflow-x: auto;
     margin: 0;
+}
+
+.o-ui-sb-snippet .token-line {
+    overflow-x: auto;
 }

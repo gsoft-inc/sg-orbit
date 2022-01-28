@@ -44,6 +44,8 @@
     font-weight: inherit;
     position: relative;
     padding: 0 var(--o-ui-sp-2);
+    font-family: inherit;
+    font-size: 100%;
 }
 
 /* TRIGGER | BORDERED */
