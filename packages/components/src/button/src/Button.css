@@ -60,7 +60,7 @@
 }
 
 /* TEXT */
-.o-ui-button .o-ui-button-text {
+.o-ui-button-text {
     flex-grow: 1;
     line-height: 1;
 }

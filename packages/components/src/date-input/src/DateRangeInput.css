@@ -78,6 +78,7 @@
 .o-ui-date-range-input-date-input {
     font-size: var(--o-ui-fs-3);
     color: var(--o-ui-text-alias-primary);
+    padding: 0;
     padding-left: var(--o-ui-sp-1);
     border: none;
     outline: none;
