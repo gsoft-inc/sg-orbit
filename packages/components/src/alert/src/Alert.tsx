@@ -135,12 +135,13 @@ export function InnerAlert({
         </Button>
     );
 
-    // Markup qui switce comme buttonsmarkup si y a un cancel et un secondary ou juste un cancel Switch de variant
+    const cancelButtonVariant = !isNilOrEmpty(secondaryButtonLabel) ? "tertiary" : "secondary";
+
     const cancelButtonMarkup = !isNilOrEmpty(cancelButtonLabel) && (
         <Button
             autoFocus={autoFocusButton === "cancel"}
             onClick={handleCancelButtonClick}
-            variant="secondary"
+            variant={cancelButtonVariant}
         >
             {cancelButtonLabel}
         </Button>
