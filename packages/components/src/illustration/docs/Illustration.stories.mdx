@@ -14,7 +14,7 @@ import { Planet } from "./assets";
 
 # Illustration
 
-<Tagline>Use an illustration to compose an image with a background color, some text or wathever else you need.</Tagline>
+<Tagline>Use an illustration to compose an image with a background color.</Tagline>
 
 <ComponentInfo
     usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
@@ -31,8 +31,6 @@ An illustration can render horizontally.
     <Story name="horizontal">
         <Illustration>
             <SvgImage src={NoResults} stroke="alias-primary" />
-            <Heading>Can't find "Saturn"</Heading>
-            <Content>Please try another search</Content>
         </Illustration>
     </Story>
 </Preview>
@@ -67,7 +65,7 @@ An illustration can have a `rounded` shape.
 
 <ComponentInfo
     usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
-    slots={["image", "heading", "content"]}
+    slots={["image"]}
     inherits={[InnerIllustration.defaultElement, "styled-component"]}
     compact
 />

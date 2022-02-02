@@ -1,0 +1,44 @@
+.o-ui-illustrated-message {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    /* Important for image size when the illustrated message is fluid. */
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* IMAGE */
+.o-ui-illustrated-message-image {
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* ORIENTATION */
+.o-ui-illustrated-message-horizontal {
+    flex-direction: row;
+}
+
+.o-ui-illustrated-message-vertical {
+    flex-direction: column;
+    text-align: center;
+}
+
+/* SHAPES */
+.o-ui-illustrated-message-rounded {
+    border-radius: var(--o-ui-br-rounded);
+}
+
+/* CONTENT */
+.o-ui-illustrated-message-horizontal .o-ui-illustrated-message-heading,
+.o-ui-illustrated-message-horizontal .o-ui-illustrated-message-content {
+    margin-left: var(--o-ui-sp-8);
+}
+
+.o-ui-illustrated-message-heading {
+    margin-bottom: 0;
+}
+
+.o-ui-illustrated-message-content {
+    margin-top: var(--o-ui-sp-2);
+}

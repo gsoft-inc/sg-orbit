@@ -1,0 +1,79 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@components/placeholders";
+import { Heading } from "@components/typography";
+import { IllustratedMessage, InnerIllustratedMessage } from "@components/illustrated-message";
+import { Image, SvgImage } from "@components/image";
+import { ReactComponent as NoResults } from "./assets/no-results.svg";
+import { Planet } from "./assets";
+
+<Meta
+    title="Components/IllustratedMessage"
+    id="illustrated-message"
+/>
+
+# IllustratedMessage
+
+<Tagline>Use an illustrated message to compose an image with a background color, some text or wathever else you need.</Tagline>
+
+<ComponentInfo
+    usage={"import { IllustratedMessage } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/illustrated-message/src"
+/>
+
+## Usage
+
+### Horizontal
+
+An illustrated message can render horizontally.
+
+<Preview scope={{ NoResults }}>
+    <Story name="horizontal">
+        <IllustratedMessage>
+            <SvgImage src={NoResults} stroke="alias-primary" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </IllustratedMessage>
+    </Story>
+</Preview>
+
+### Vertical
+
+An illustrated-message can render vertically.
+
+<Preview scope={{ Planet }}>
+    <Story name="vertical">
+        <IllustratedMessage orientation="vertical" backgroundColor="#998BAF" width={14} padding={4}>
+            <Image src={Planet} alt="Planet over another planet" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </IllustratedMessage>
+    </Story>
+</Preview>
+
+### Shape
+
+An illustrated-message can have a `rounded` shape.
+
+<Preview scope={{ Planet }}>
+    <Story name="shape">
+        <IllustratedMessage shape="rounded" backgroundColor="#998BAF" height={14} padding={4}>
+            <Image src={Planet} alt="Planet over another planet" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search</Content>
+        </IllustratedMessage>
+    </Story>
+</Preview>
+
+## API
+
+### IllustratedMessage
+
+<ComponentInfo
+    usage={"import { IllustratedMessage } from \"@sharegate/orbit-ui\";"}
+    slots={["image", "heading", "content"]}
+    inherits={[InnerIllustratedMessage.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerIllustratedMessage} sort="alpha" />

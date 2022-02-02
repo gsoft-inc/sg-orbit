@@ -85,6 +85,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./field/index.css";
 @import "./form/index.css";
 @import "./icons/index.css";
+@import "./illustrated-message/index.css";
 @import "./illustration/index.css";
 @import "./image/index.css";
 @import "./input-group/index.css";
