@@ -1,4 +1,4 @@
-import { TokenTable, textRenderer, fontSizeRenderer, backgroundRenderer, borderRenderer, iconRenderer, lineHeightRenderer, boxShadowRenderer, radiiRenderer, sizingRenderer, spacingRenderer, fontWeightRenderer } from "./TokenTable";
+import { TokenTable, textRenderer, fontSizeRenderer, backgroundRenderer, borderRenderer, durationRenderer, easingRenderer, iconRenderer, lineHeightRenderer, boxShadowRenderer, radiiRenderer, sizingRenderer, spacingRenderer, fontWeightRenderer } from "./TokenTable";
 import { Meta } from "@storybook/addon-docs";
 import { Div } from "@components/html";
 import { ShareGateTheme,  ThemeProvider } from "@components/styling"
@@ -100,6 +100,30 @@ CSS Variable:
         { token: "alias-lifted", variable: "--o-ui-bs-alias-lifted", valueLight: "bs-2", valueDark: "bs-2" , itemRenderer: boxShadowRenderer},
         { token: "alias-raised", variable: "--o-ui-bs-alias-raised", valueLight: "bs-3", valueDark: "bs-3", itemRenderer: boxShadowRenderer},
         { token: "alias-floating", variable: "--o-ui-bs-alias-floated" , valueLight: "bs-4", valueDark: "bs-4", itemRenderer: boxShadowRenderer}
+    ]}
+/>
+
+## Durations
+
+<TokenTable
+    colors={[
+        { token: "N/A", variable: "--o-ui-easing-duration-1", valueLight: "100ms", valueDark: "100ms", itemRenderer: durationRenderer},
+        { token: "N/A", variable: "--o-ui-easing-duration-2", valueLight: "200ms", valueDark: "200ms" , itemRenderer: durationRenderer},
+        { token: "N/A", variable: "--o-ui-easing-duration-3", valueLight: "300ms", valueDark: "300ms", itemRenderer: durationRenderer},
+        { token: "N/A", variable: "--o-ui-easing-duration-4" , valueLight: "500ms", valueDark: "500ms", itemRenderer: durationRenderer},
+        { token: "N/A", variable: "--o-ui-easing-duration-5" , valueLight: "800ms", valueDark: "800ms", itemRenderer: durationRenderer}
+    ]}
+/>
+
+## Easings
+
+> Only usable as `CSS` variables
+
+<TokenTable
+    colors={[
+        { token: "N/A", variable: "--o-ui-easing-focus", valueLight: "cubic-bezier(0.46, 0.03, 0.52, 0.96)", valueDark: "cubic-bezier(0.46, 0.03, 0.52, 0.96)", itemRenderer: easingRenderer},
+        { token: "N/A", variable: "--o-ui-easing-productive", valueLight: "cubic-bezier(0.22, 0.61, 0.36, 1)", valueDark: "cubic-bezier(0.22, 0.61, 0.36, 1)" , itemRenderer: easingRenderer},
+        { token: "N/A", variable: "--o-ui-easing-expressive", valueLight: "cubic-bezier(0.58, 0.01, 0.15, 1.5)", valueDark: "cubic-bezier(0.58, 0.01, 0.15, 1.5)", itemRenderer: easingRenderer}
     ]}
 />
 

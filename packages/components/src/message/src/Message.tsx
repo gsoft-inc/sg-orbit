@@ -94,7 +94,7 @@ export function InnerMessage({
             condensed: true,
             inherit: true,
             size: "sm",
-            variant: "tertiary"
+            variant: "secondary"
         },
         content: {
             as: MessageContent,

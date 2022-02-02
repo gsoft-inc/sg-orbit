@@ -95,18 +95,24 @@
 /* TAB */
 .o-ui-tab {
     outline: none;
+    background-color: transparent;
+    background-image: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
     padding: calc(var(--o-ui-sp-3) + 1px);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     min-width: max-content;
     min-height: var(--o-ui-sz-7);
-    cursor: pointer;
     color: var(--o-ui-text-alias-secondary);
     position: relative;
+}
+
+/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
+.o-ui-tab > * {
+    pointer-events: none;
 }
 
 /* TAB | WITH ICON */

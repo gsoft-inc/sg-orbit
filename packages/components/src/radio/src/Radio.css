@@ -33,7 +33,7 @@
 
 /* CONTENT | LABEL */
 .o-ui-radio-label {
-    line-height: var(--o-ui-lh-1);
+    line-height: var(--o-ui-lh-2);
     margin-left: var(--o-ui-sp-2);
     overflow: hidden;
     white-space: nowrap;

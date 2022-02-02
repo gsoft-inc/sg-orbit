@@ -7,8 +7,10 @@
 /* SHARED */
 .o-ui-button {
     padding: 0;
-    line-height: var(--o-ui-lh-1);
+    background-color: transparent;
+    background-image: none;
     cursor: pointer;
+    line-height: var(--o-ui-lh-1);
     font-variation-settings: "wght" 500;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     border: none;
@@ -16,6 +18,14 @@
     position: relative;
     width: max-content;
     border-radius: var(--o-ui-br-rounded);
+    color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+}
+
+/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
+.o-ui-button > * {
+    pointer-events: none;
 }
 
 /* COUNTER */
@@ -304,8 +314,12 @@ a.o-ui-button {
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
-.o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic  {
-    background-color: currentColor;
+.o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
+.o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
+.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
+.o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
+.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic  {
+    background-color: rgba(0, 0, 0, 0.15);
     color: inherit;
     border: 1px solid currentColor;
 }
@@ -318,7 +332,7 @@ a.o-ui-button {
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-start-icon,
 .o-ui-button-active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-counter,
 .o-ui-button:active:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary .o-ui-button-counter {
-    color: var(--o-ui-white);
+    color: inherit;
 }
 
 /* INHERIT | SECONDARY | LOADING */
@@ -378,9 +392,4 @@ a.o-ui-button {
 .o-ui-button:hover.o-ui-button-primary .o-ui-button-counter,
 .o-ui-button-hover:not([disabled]).o-ui-button-primary .o-ui-button-counter {
     opacity: 1;
-}
-
-/* View https://css-tricks.com/slightly-careful-sub-elements-clickable-things */
-.o-ui-button > * {
-    pointer-events: none;
 }

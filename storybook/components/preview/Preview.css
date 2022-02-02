@@ -33,6 +33,7 @@
 /* SOURCE | EDITOR */
 .o-ui-sb-preview-editor {
     font-size: 15px;
+    overflow-x: auto;
 }
 
 .o-ui-sb-preview-editor .npm__react-simple-code-editor__textarea,

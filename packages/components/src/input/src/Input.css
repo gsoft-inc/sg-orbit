@@ -22,6 +22,15 @@
     min-height: var(--o-ui-sz-6);
 }
 
+/* MS EDGE FIX */
+/* Removing Edge input field decoration. */
+.o-ui-input[type="text"]::-ms-clear,
+.o-ui-input[type="text"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
 .o-ui-input input,
 .o-ui-input textarea {
     font-size: var(--o-ui-fs-3);
@@ -32,6 +41,9 @@
     background-color: var(--o-ui-bg-alias-default);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     width: 100%;
+    line-height: inherit;
+    font-family: inherit;
+
 }
 
 /* SELECTION */
@@ -59,6 +71,7 @@
 .o-ui-input input::placeholder,
 .o-ui-input textarea::placeholder {
     color: var(--o-ui-text-alias-input-placeholder);
+    opacity: 1;
 }
 
 .o-ui-input input:disabled::placeholder,

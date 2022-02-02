@@ -129,17 +129,18 @@ export function InnerAlert({
             autoFocus={autoFocusButton === "secondary"}
             disabled={secondaryButtonDisabled}
             onClick={handleSecondaryButtonClick}
-            variant="tertiary"
+            variant="secondary"
         >
             {secondaryButtonLabel}
         </Button>
     );
 
+
     const cancelButtonMarkup = !isNilOrEmpty(cancelButtonLabel) && (
         <Button
             autoFocus={autoFocusButton === "cancel"}
             onClick={handleCancelButtonClick}
-            variant="tertiary"
+            variant="secondary"
         >
             {cancelButtonLabel}
         </Button>
