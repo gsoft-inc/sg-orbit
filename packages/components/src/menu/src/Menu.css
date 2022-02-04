@@ -149,11 +149,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     grid-area: label;
 }
 
-/* Line-Height should take precedence over text line height */
-.o-ui-menu .o-ui-menu-item-label {
-    line-height: var(--o-ui-lh-1);
-}
-
 /* SECTION */
 .o-ui-menu-section-title {
     cursor: default;
