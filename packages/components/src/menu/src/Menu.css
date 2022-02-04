@@ -184,5 +184,9 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-sp-2);
     grid-area: aside;
+    align-self: center;
+}
+
+.o-ui-menu-item-has-description .o-ui-menu-item-option-avatar {
     align-self: start;
 }
