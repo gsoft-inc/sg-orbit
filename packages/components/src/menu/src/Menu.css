@@ -30,8 +30,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     list-style: none;
     padding-right: var(--o-ui-sp-8);
     padding-left: var(--o-ui-sp-3);
-    padding-top: var(--o-ui-sp-2);
-    padding-bottom: var(--o-ui-sp-2);
+    padding-top: 0;
+    padding-bottom: 0;
     margin: 0;
     display: flex;
     align-items: center;
@@ -43,6 +43,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item.o-ui-menu-item-has-description {
     --o-ui-menu-item-height: var(--o-ui-sz-7);
     display: grid;
+    padding-top: var(--o-ui-sp-2);
+    padding-bottom: var(--o-ui-sp-2);
     overflow-x: hidden;
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
@@ -149,11 +151,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     grid-area: label;
 }
 
-/* Line-Height should take precedence over text line height */
-.o-ui-menu .o-ui-menu-item-label {
-    line-height: var(--o-ui-lh-1);
-}
-
 /* SECTION */
 .o-ui-menu-section-title {
     cursor: default;
@@ -187,5 +184,9 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-sp-2);
     grid-area: aside;
+    align-self: center;
+}
+
+.o-ui-menu-item-has-description .o-ui-menu-item-option-avatar {
     align-self: start;
 }
