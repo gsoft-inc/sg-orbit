@@ -144,7 +144,7 @@ export function InnerButton(props: InnerButtonProps) {
         text: {
             "aria-hidden": loading,
             className: "o-ui-button-text",
-            size: condensed ? condensedTextSize(sizeValue) : sizeValue
+            size: condensed ? condensedTextSize(sizeValue) : "md"
         }
     }), [sizeValue, disabled, condensed, loading]));
 

@@ -81,7 +81,7 @@ export function InnerTag({
         text: {
             className: "o-ui-tag-text",
             color: "inherit",
-            size: sizeValue
+            size: "md"
         }
     }), [sizeValue, disabled]));
 
