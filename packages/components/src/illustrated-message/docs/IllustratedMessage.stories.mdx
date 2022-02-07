@@ -30,7 +30,7 @@ An illustrated message can render horizontally.
 <Preview scope={{ NoResults }}>
     <Story name="horizontal">
         <IllustratedMessage>
-            <SvgImage src={NoResults} stroke="alias-primary" />
+            <SvgImage src={NoResults} aria-label="Galaxy" stroke="alias-primary" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
         </IllustratedMessage>
@@ -43,7 +43,7 @@ An illustrated-message can render vertically.
 
 <Preview scope={{ Planet }}>
     <Story name="vertical">
-        <IllustratedMessage orientation="vertical" backgroundColor="#998BAF" width={14} padding={4}>
+        <IllustratedMessage orientation="vertical" backgroundColor="alias-hard-break" width={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
@@ -57,7 +57,7 @@ An illustrated-message can have a `rounded` shape.
 
 <Preview scope={{ Planet }}>
     <Story name="shape">
-        <IllustratedMessage shape="rounded" backgroundColor="#998BAF" height={14} padding={4}>
+        <IllustratedMessage shape="rounded" backgroundColor="alias-hard-break" height={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
             <Heading>Can't find "Saturn"</Heading>
             <Content>Please try another search</Content>
