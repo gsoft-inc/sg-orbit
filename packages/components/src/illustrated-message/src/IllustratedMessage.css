@@ -16,7 +16,7 @@
 /* ORIENTATION */
 .o-ui-illustrated-message-horizontal {
     flex-direction: row;
-    max-width: 864px;
+    max-width: 824px;
 }
 
 .o-ui-illustrated-message-vertical {
