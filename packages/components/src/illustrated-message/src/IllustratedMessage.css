@@ -1,7 +1,6 @@
 .o-ui-illustrated-message {
     display: flex;
     align-items: center;
-    justify-content: start;
     /* Important for image size when the illustrated message is fluid. */
     max-height: 100%;
     max-width: 100%;
@@ -17,6 +16,7 @@
 /* ORIENTATION */
 .o-ui-illustrated-message-horizontal {
     flex-direction: row;
+    max-width: 864px;
 }
 
 .o-ui-illustrated-message-vertical {
