@@ -158,8 +158,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="start">
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="secondary">Submit</Button>
+                    <Button variant="secondary">Reset</Button>
+                    <Button>Submit</Button>
                 </ButtonGroup>
             </Form>
             <Form>
@@ -168,8 +168,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="center">
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="secondary">Submit</Button>
+                    <Button variant="secondary">Reset</Button>
+                    <Button>Submit</Button>
                 </ButtonGroup>
             </Form>
             <Form>
@@ -178,8 +178,8 @@ stories()
                     <TextInput />
                 </Field>
                 <ButtonGroup align="end">
-                    <Button variant="tertiary">Reset</Button>
-                    <Button variant="secondary">Submit</Button>
+                    <Button variant="secondary">Reset</Button>
+                    <Button>Submit</Button>
                 </ButtonGroup>
             </Form>
         </Inline>

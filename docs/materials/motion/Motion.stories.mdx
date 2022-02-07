@@ -9,9 +9,7 @@ import { Table, Tagline } from "@stories/components";
 
 # Motion
 
-Our motion utilities consists of two set of values, *durations* as well as *easings*. Both variables can be combined in transition as well in CSS animations to set the tone of an animation/transition(animation is used interchangeably with transition from now on).
-
-Durations and easings can be refered to in CSS [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well as in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) declarations.
+Our motion utilities consists of two set of values, *durations* and *easings*. Both variables can be combined in [transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions) as well in CSS [animations](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations) to set the tone of an animation/transition (animation is used interchangeably with transition from now on).
 
 In transition declaration :
 
@@ -42,7 +40,7 @@ In animation declaration :
 
 ## Duration
 
-Orbit exposes 5 [durations](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration), they help convey a message and makes animations smooth and responsive.
+Orbit exposes 5 [durations](?path=/docs/tokens--page#durations), they help convey a message and makes animations smooth and responsive.
 
 <Table
     columns={[
@@ -60,67 +58,25 @@ Orbit exposes 5 [durations](https://developer.mozilla.org/en-US/docs/Web/CSS/tra
 
 ## Easings
 
-[Easings](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) denotes a mathematical function that describes the rate at which a numerical value changes. They adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides 3 pre-defined easings, each having their use.
+[Easings](https://developer.mozilla.org/en-US/docs/Web/CSS/easing-function) denotes a mathematical function that describes the rate at which a numerical value changes. They adds life to motion, providing natural rests, they set the mood of an animation. Orbit provides [3 pre-defined easings](/docs/tokens--page#easings), each having their use.
 
 ### Productive
 
 Used in animations that are not in the way, they quickly change from one state to another.
 
+<code>cubic-bezier(0.22, 0.61, 0.36, 1)</code>
+
 ### Focus
 
 Used in animations that are designed to draw the user’s attention on what changed, in order to let them move on with their next task.
+
+<code>cubic-bezier(0.46, 0.03, 0.52, 0.96)</code>
 
 ### Expressive
 
 Used in animations that are meant to give a sense of completeness or resolution to the user. Use them wisely.
 
-<Table
-    columns={[
-        { title: "Easing", headerStyle: { width: "200px" }, rowClassName: "code" },
-        { title: "Value", headerStyle: { width: "400px" }, rowClassName: "code" }
-    ]}
-    rows={[
-        ["productive", "cubic-bezier(0.22, 0.61, 0.36, 1)"],
-        ["focus", "cubic-bezier(0.46, 0.03, 0.52, 0.96)"],
-        ["expressive", "cubic-bezier(0.72, -0.66, 0.15, 1.5)"]
-    ]}
-/>
-
-## Utilities
-
-### Variables
-
-Durations and easings are exposed through CSS Custom Properties(aka variables).
-
-### Durations
-
-<Table
-    columns={[
-        { title: "CSS Variable", headerStyle: { width: "250px" }, rowClassName: "code" },
-        { title: "Value", headerStyle: { width: "150px" }, rowClassName: "code" }
-    ]}
-    rows={[
-        ["--o-ui-easing-duration-1", "100ms"],
-        ["--o-ui-easing-duration-2", "200ms"],
-        ["--o-ui-easing-duration-3", "300ms"],
-        ["--o-ui-easing-duration-4", "500ms"],
-        ["--o-ui-easing-duration-5", "800ms"]
-    ]}
-/>
-
-### Easings
-
-<Table
-    columns={[
-        { title: "Variable", headerStyle: { width: "250px" }, rowClassName: "code" },
-        { title: "Value", headerStyle: { width: "350px" }, rowClassName: "code" }
-    ]}
-    rows={[
-        ["--o-ui-easing-focus", "cubic-bezier(0.46, 0.03, 0.52, 0.96)"],
-        ["--o-ui-easing-productive", "cubic-bezier(0.22, 0.61, 0.36, 1)"],
-        ["--o-ui-easing-expressive", "cubic-bezier(0.58, 0.01, 0.15, 1.5)"]
-    ]}
-/>
+<code>cubic-bezier(0.72, -0.66, 0.15, 1.5)</code>
 
 ## Playground
 

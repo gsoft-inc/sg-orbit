@@ -1,50 +1,50 @@
 /* SIZE */
-.o-ui-text-xs {
+:where(.o-ui-text-xs) {
     font-size: var(--o-ui-fs-1);
     line-height: var(--o-ui-lh-2);
 }
 
-.o-ui-text-sm {
+:where(.o-ui-text-sm) {
     font-size: var(--o-ui-fs-2);
     line-height: var(--o-ui-lh-4);
 }
 
-.o-ui-text-md {
+:where(.o-ui-text-md) {
     font-size: var(--o-ui-fs-3);
     line-height: var(--o-ui-lh-5);
 }
 
-.o-ui-text-lg {
+:where(.o-ui-text-lg) {
     font-size: var(--o-ui-fs-4);
     line-height: var(--o-ui-lh-6);
 }
 
-.o-ui-text-xl {
+:where(.o-ui-text-xl) {
     font-size: var(--o-ui-fs-5);
     line-height: var(--o-ui-lh-4);
 }
 
-.o-ui-text-2xl {
+:where(.o-ui-text-2xl) {
     font-size: var(--o-ui-fs-6);
     line-height: var(--o-ui-lh-5);
 }
 
-.o-ui-text-3xl {
+:where(.o-ui-text-3xl) {
     font-size: var(--o-ui-fs-7);
     line-height: var(--o-ui-lh-5);
 }
 
-.o-ui-text-4xl {
+:where(.o-ui-text-4xl) {
     font-size: var(--o-ui-fs-8);
     line-height: var(--o-ui-lh-3);
 }
 
-.o-ui-text-5xl {
+:where(.o-ui-text-5xl) {
     font-size: var(--o-ui-fs-9);
     line-height: var(--o-ui-lh-2);
 }
 
-.o-ui-text-inherit-size {
+:where(.o-ui-text-inherit-size) {
     font-size: inherit;
     line-height: inherit;
     font-weight: inherit;

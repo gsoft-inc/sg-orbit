@@ -30,8 +30,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     list-style: none;
     padding-right: var(--o-ui-sp-8);
     padding-left: var(--o-ui-sp-3);
-    padding-top: var(--o-ui-sp-2);
-    padding-bottom: var(--o-ui-sp-2);
+    padding-top: 0;
+    padding-bottom: 0;
     margin: 0;
     display: flex;
     align-items: center;
@@ -43,6 +43,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item.o-ui-menu-item-has-description {
     --o-ui-menu-item-height: var(--o-ui-sz-7);
     display: grid;
+    padding-top: var(--o-ui-sp-2);
+    padding-bottom: var(--o-ui-sp-2);
     overflow-x: hidden;
     grid-template-columns: max-content 1fr;
     grid-template-rows: max-content max-content;
@@ -88,16 +90,20 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     background-color: var(--o-ui-bg-alias-mid-break);
 }
 
-/* OPTION | STATE | FOCUS | WITH SELECTION */
-.o-ui-menu-with-selection .o-ui-menu-item:focus:after,
-.o-ui-menu-with-selection .o-ui-menu-item-focus:after {
+/* FOCUS */
+.o-ui-menu-item::after {
     content: "";
     display: block;
     position: absolute;
     left: 0;
-    height: var(--o-ui-menu-item-height);
+    height: 100%;
     width: 2px;
-    background-color: var(--o-ui-b-alias-accent);
+    opacity: 0;
+    background-color: var(--o-ui-focus-ring-color-alias-default);
+}
+
+.o-ui-menu-item:focus::after {
+    opacity: 1;
 }
 
 /* ITEM | STATE | ACTIVE */
@@ -124,12 +130,6 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 .o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
-    background-color: var(--o-ui-text-alias-alert);
-}
-
-/* ITEM | STATE | INVALID | FOCUS | WITH SELECTION */
-.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item:focus:after,
-.o-ui-menu-with-selection.o-ui-menu-invalid .o-ui-menu-item-focus:after {
     background-color: var(--o-ui-text-alias-alert);
 }
 
@@ -184,5 +184,9 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui-menu-item-option-avatar {
     margin-right: var(--o-ui-sp-2);
     grid-area: aside;
+    align-self: center;
+}
+
+.o-ui-menu-item-has-description .o-ui-menu-item-option-avatar {
     align-self: start;
 }

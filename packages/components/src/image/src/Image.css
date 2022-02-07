@@ -1,5 +1,8 @@
-.o-ui-dark .o-ui-image {
-    opacity: 0.75;
+.o-ui-image {
+    display: block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
 }
 
 /* SHAPE | ROUNDED */
@@ -10,4 +13,9 @@
 /* SHAPE | CIRCULAR */
 .o-ui-image-circular {
     border-radius: var(--o-ui-br-circular);
+}
+
+/* COLOR SCHEME */
+.o-ui-dark .o-ui-image {
+    opacity: 0.75;
 }
