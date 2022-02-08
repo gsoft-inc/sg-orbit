@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { Flex } from "../../layout";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
@@ -16,18 +16,13 @@ export interface InnerIllustratedMessageProps extends SlotProps, InternalProps, 
      * The orientation of the illustrated message.
      */
     orientation?: ResponsiveProp<"horizontal" | "vertical">;
-    /**
-     * The illustrated message shape.
-     */
-    shape?: "straight" | "rounded";
 }
 
 export function InnerIllustratedMessage({
     as = DefaultElement,
     children,
     forwardedRef,
-    orientation = "horizontal",
-    shape = "straight",
+    orientation = "vertical",
     ...rest
 }: InnerIllustratedMessageProps) {
     const orientationValue = useResponsiveValue(orientation);
@@ -58,8 +53,7 @@ export function InnerIllustratedMessage({
                     as,
                     className: cssModule(
                         "o-ui-illustrated-message",
-                        orientationValue,
-                        shape
+                        orientationValue
                     ),
                     ref: forwardedRef
                 }
@@ -76,8 +70,8 @@ export function InnerIllustratedMessage({
 
 InnerIllustratedMessage.defaultElement = DefaultElement;
 
-export const IllustratedMessage = slot("IllustratedMessage", forwardRef<any, OmitInternalProps<InnerIllustratedMessageProps>>((props, ref) => (
+export const IllustratedMessage = forwardRef<any, OmitInternalProps<InnerIllustratedMessageProps>>((props, ref) => (
     <InnerIllustratedMessage {...props} forwardedRef={ref} />
-)));
+));
 
 export type IllustratedMessageProps = ComponentProps<typeof IllustratedMessage>;
