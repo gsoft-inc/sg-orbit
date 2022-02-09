@@ -26,7 +26,7 @@ An illustration renders horizontally by default.
 
 <Preview scope={{ Planet }}>
     <Story name="default">
-        <Illustration>
+        <Illustration backgroundColor="alias-accent-light">
             <Image src={Planet} stroke="alias-primary" />
         </Illustration>
     </Story>
@@ -38,7 +38,7 @@ An illustration can render vertically.
 
 <Preview scope={{ Planet }} height={18}>
     <Story name="vertical">
-        <Illustration orientation="vertical" backgroundColor="alias-accent-faint" width={14} padding={4}>
+        <Illustration orientation="vertical" backgroundColor="alias-accent-light" width={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
@@ -50,7 +50,7 @@ An illustration can have a `rounded` shape.
 
 <Preview scope={{ Planet }}>
     <Story name="shape">
-        <Illustration shape="rounded" backgroundColor="alias-accent-faint" height={14} padding={4}>
+        <Illustration shape="rounded" backgroundColor="alias-accent-light" height={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
