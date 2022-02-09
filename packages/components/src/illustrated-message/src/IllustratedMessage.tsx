@@ -1,13 +1,13 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { Flex } from "../../layout";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 
 const DefaultElement = "div";
 
-export interface InnerIllustratedMessageProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
+export interface InnerIllustratedMessageProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */
