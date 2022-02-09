@@ -3,9 +3,8 @@ import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { IllustratedMessage, InnerIllustratedMessage } from "@components/illustrated-message";
-import { Image, SvgImage } from "@components/image";
-import { ReactComponent as NoResults } from "./assets";
-import { Planet } from "./assets";
+import { NoResults } from "./assets";
+import { SvgImage } from "@components/image";
 
 <Meta
     title="Components/IllustratedMessage"
@@ -23,16 +22,16 @@ import { Planet } from "./assets";
 
 ## Usage
 
-### Vertical
+### Default
 
-An illustrated-message can render vertically.
+An illustrated-message renders vertically by default.
 
-<Preview scope={{ Planet }}>
-    <Story name="vertical">
-        <IllustratedMessage orientation="vertical" width={14} padding={4}>
-            <Image src={Planet} alt="Planet over another planet" />
+<Preview scope={{ NoResults }}>
+    <Story name="default">
+        <IllustratedMessage width={14} padding={4}>
+            <SvgImage src={NoResults} aria-label="Galaxy" stroke="alias-primary" />
             <Heading>Can't find "Saturn"</Heading>
-            <Content>Please try another search</Content>
+            <Content>Please try another search term.</Content>
         </IllustratedMessage>
     </Story>
 </Preview>
@@ -43,10 +42,10 @@ An illustrated message can render horizontally.
 
 <Preview scope={{ NoResults }}>
     <Story name="horizontal">
-        <IllustratedMessage>
+        <IllustratedMessage orientation="horizontal">
             <SvgImage src={NoResults} aria-label="Galaxy" stroke="alias-primary" />
             <Heading>Can't find "Saturn"</Heading>
-            <Content>Please try another search</Content>
+            <Content>Please try another search term.</Content>
         </IllustratedMessage>
     </Story>
 </Preview>

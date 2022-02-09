@@ -11,6 +11,7 @@
     overflow: hidden;
     max-width: 100%;
     max-height: 100%;
+    height: auto;
     flex-shrink: 0;
 }
 
@@ -26,11 +27,6 @@
     flex-direction: column;
     text-align: center;
     gap: var(--o-ui-sp-4);
-}
-
-/* SHAPES */
-.o-ui-illustrated-message-rounded {
-    border-radius: var(--o-ui-br-rounded);
 }
 
 /* HEADING */

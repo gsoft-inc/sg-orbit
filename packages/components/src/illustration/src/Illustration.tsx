@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot, useSlots } from "../../shared";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, augmentElement, cssModule, mergeProps, slot, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 const DefaultElement = "div";
@@ -39,6 +39,10 @@ export function InnerIllustration({
         }
     }), []));
 
+    const imageMarkup = augmentElement(image, {
+        className: "o-ui-illustration-image"
+    });
+
     return (
         <Box
             {...mergeProps(
@@ -54,7 +58,7 @@ export function InnerIllustration({
                 }
             )}
         >
-            {image}
+            {imageMarkup}
         </Box>
     );
 }
