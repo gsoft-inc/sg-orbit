@@ -1,6 +1,6 @@
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef, useMemo, ReactElement } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, augmentElement, cssModule, mergeProps, slot, useSlots } from "../../shared";
+import { ComponentProps, ReactElement, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, augmentElement, cssModule, mergeProps, slot } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 const DefaultElement = "div";
