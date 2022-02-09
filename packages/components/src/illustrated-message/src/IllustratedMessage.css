@@ -18,9 +18,9 @@
 /* ORIENTATION */
 .o-ui-illustrated-message-horizontal {
     flex-direction: row;
-    max-width: 52rem;
     height: 100%;
     gap: var(--o-ui-sp-8);
+    justify-content: center;
 }
 
 .o-ui-illustrated-message-vertical {
