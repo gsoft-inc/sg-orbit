@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
+import { ComponentProps, ReactNode, forwardRef, useMemo, ReactElement } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, augmentElement, cssModule, mergeProps, slot, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
@@ -30,16 +30,7 @@ export function InnerIllustration({
 }: InnerIllustrationProps) {
     const orientationValue = useResponsiveValue(orientation);
 
-    const { image } = useSlots(children, useMemo(() => ({
-        _: {
-            required: ["image"]
-        },
-        image: {
-            className: "o-ui-illustration-image"
-        }
-    }), []));
-
-    const imageMarkup = augmentElement(image, {
+    const imageMarkup = augmentElement(children as ReactElement, {
         className: "o-ui-illustration-image"
     });
 
