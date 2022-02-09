@@ -1,10 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Content } from "@components/placeholders";
-import { Heading } from "@components/typography";
 import { Illustration, InnerIllustration } from "@components/illustration";
-import { Image, SvgImage } from "@components/image";
-import { ReactComponent as NoResults } from "./assets/no-results.svg";
+import { Image } from "@components/image";
 import { Planet } from "./assets";
 
 <Meta
@@ -14,7 +11,7 @@ import { Planet } from "./assets";
 
 # Illustration
 
-<Tagline>Use an illustration to compose an image with a background color, some text or wathever else you need.</Tagline>
+<Tagline>Use an illustration to compose an image with a background color.</Tagline>
 
 <ComponentInfo
     usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
@@ -23,16 +20,14 @@ import { Planet } from "./assets";
 
 ## Usage
 
-### Horizontal
+### Default
 
-An illustration can render horizontally.
+An illustration renders horizontally by default.
 
-<Preview scope={{ NoResults }}>
-    <Story name="horizontal">
-        <Illustration>
-            <SvgImage src={NoResults} stroke="alias-primary" />
-            <Heading>Can't find "Saturn"</Heading>
-            <Content>Please try another search</Content>
+<Preview scope={{ Planet }}>
+    <Story name="default">
+        <Illustration backgroundColor="alias-accent-light">
+            <Image src={Planet} stroke="alias-primary" />
         </Illustration>
     </Story>
 </Preview>
@@ -43,7 +38,7 @@ An illustration can render vertically.
 
 <Preview scope={{ Planet }} height={18}>
     <Story name="vertical">
-        <Illustration orientation="vertical" backgroundColor="#998BAF" width={14} padding={4}>
+        <Illustration orientation="vertical" backgroundColor="alias-accent-light" width={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
@@ -55,7 +50,7 @@ An illustration can have a `rounded` shape.
 
 <Preview scope={{ Planet }}>
     <Story name="shape">
-        <Illustration shape="rounded" backgroundColor="#998BAF" height={14} padding={4}>
+        <Illustration shape="rounded" backgroundColor="alias-accent-light" height={14} padding={4}>
             <Image src={Planet} alt="Planet over another planet" />
         </Illustration>
     </Story>
@@ -67,7 +62,7 @@ An illustration can have a `rounded` shape.
 
 <ComponentInfo
     usage={"import { Illustration } from \"@sharegate/orbit-ui\";"}
-    slots={["image", "heading", "content"]}
+    slots={["image"]}
     inherits={[InnerIllustration.defaultElement, "styled-component"]}
     compact
 />

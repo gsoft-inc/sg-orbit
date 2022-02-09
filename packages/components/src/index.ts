@@ -19,6 +19,7 @@ export * from "./form";
 export * from "./group";
 export * from "./html";
 export * from "./icons";
+export * from "./illustrated-message";
 export * from "./illustration";
 export * from "./image";
 export * from "./input";
