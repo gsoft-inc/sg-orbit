@@ -1,10 +1,10 @@
 @import "./Button.css";
 
 .o-ui-text-button {
-    --o-ui-text-button-padding-sm: var(--o-ui-sp-4);
-    --o-ui-text-button-padding-md: var(--o-ui-sp-5);
-    --o-ui-text-button-padding-sm: var(--o-ui-sp-4);
-    --o-ui-text-button-padding-md: var(--o-ui-sp-5);
+    --o-ui-text-button-padding-sm: var(--o-ui-sp-3);
+    --o-ui-text-button-padding-md: var(--o-ui-sp-4);
+    --o-ui-text-button-padding-sm: var(--o-ui-sp-3);
+    --o-ui-text-button-padding-md: var(--o-ui-sp-4);
     --o-ui-text-button-padding-ratio-factor: 1.5;
     --o-ui-text-button-padding-ratio-factor: 2;
     display: flex;
