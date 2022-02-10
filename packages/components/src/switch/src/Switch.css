@@ -134,6 +134,7 @@
 }
 
 .o-ui-switch-md .o-ui-switch-control::before {
+    left: 0;
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
 }
