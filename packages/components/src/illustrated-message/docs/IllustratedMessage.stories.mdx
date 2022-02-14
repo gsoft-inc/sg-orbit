@@ -1,0 +1,64 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Content } from "@components/placeholders";
+import { Heading } from "@components/typography";
+import { IllustratedMessage, InnerIllustratedMessage } from "@components/illustrated-message";
+import { NoResults } from "./assets";
+import { SvgImage } from "@components/image";
+
+<Meta
+    title="Components/IllustratedMessage"
+    id="illustrated-message"
+/>
+
+# IllustratedMessage
+
+<Tagline>An illustrated message display an image and a message, usually for an empty state or an error page.</Tagline>
+
+<ComponentInfo
+    usage={"import { IllustratedMessage } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/illustrated-message/src"
+/>
+
+## Usage
+
+### Default
+
+An illustrated message renders vertically by default.
+
+<Preview scope={{ NoResults }}>
+    <Story name="default">
+        <IllustratedMessage>
+            <SvgImage src={NoResults} aria-label="Galaxy" stroke="alias-primary" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search term.</Content>
+        </IllustratedMessage>
+    </Story>
+</Preview>
+
+### Horizontal
+
+An illustrated message can render horizontally.
+
+<Preview scope={{ NoResults }}>
+    <Story name="horizontal">
+        <IllustratedMessage orientation="horizontal">
+            <SvgImage src={NoResults} aria-label="Galaxy" stroke="alias-primary" />
+            <Heading>Can't find "Saturn"</Heading>
+            <Content>Please try another search term.</Content>
+        </IllustratedMessage>
+    </Story>
+</Preview>
+
+## API
+
+### IllustratedMessage
+
+<ComponentInfo
+    usage={"import { IllustratedMessage } from \"@sharegate/orbit-ui\";"}
+    slots={["image", "heading", "content"]}
+    inherits={[InnerIllustratedMessage.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerIllustratedMessage} sort="alpha" />
