@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, useMemo } from "react";
 import { CrossButton, embedIconButton } from "../../button";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { embeddedIconSize } from "../../icons";
@@ -36,6 +36,14 @@ export interface InnerTagProps extends InternalProps, InteractionProps, StyledCo
      */
     variant?: "solid" | "outline";
 }
+
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const textSize = createSizeAdapter({
+    "sm": "md",
+    "md": "md"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
 
 export function InnerTag({
     active,
@@ -81,7 +89,7 @@ export function InnerTag({
         text: {
             className: "o-ui-tag-text",
             color: "inherit",
-            size: sizeValue
+            size: textSize(sizeValue)
         }
     }), [sizeValue, disabled]));
 

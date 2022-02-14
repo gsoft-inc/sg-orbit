@@ -63,8 +63,7 @@ function TagItem({
                 {
                     className: "o-ui-tag-list-item",
                     onRemove: !readOnly ? handleRemove : undefined,
-                    size,
-                    variant: "outline"
+                    size
                 }
             )}
         >

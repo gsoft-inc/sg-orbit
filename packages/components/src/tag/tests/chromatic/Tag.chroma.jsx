@@ -21,4 +21,3 @@ stories()
             <Tag style={{ backgroundColor: "red" }}>Falcon 9</Tag>
         </Inline>
     );
-

@@ -73,6 +73,13 @@ const condensedTextSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const textSize = createSizeAdapter({
+    "sm": "md",
+    "md": "md"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
 export function InnerButton(props: InnerButtonProps) {
     const [formProps] = useFormButton();
     const [toolbarProps] = useToolbarProps();
@@ -144,7 +151,7 @@ export function InnerButton(props: InnerButtonProps) {
         text: {
             "aria-hidden": loading,
             className: "o-ui-button-text",
-            size: condensed ? condensedTextSize(sizeValue) : sizeValue
+            size: condensed ? condensedTextSize(sizeValue) : textSize(sizeValue)
         }
     }), [sizeValue, disabled, condensed, loading]));
 
