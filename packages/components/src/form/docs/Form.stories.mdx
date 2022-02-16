@@ -37,7 +37,13 @@ A form can stack fields vertically.
 
 <Preview>
     <Story name="vertical layout">
-        <Form fluid width="25%">
+        <Form fluid
+            width={{
+                base: "100%",
+                sm: "50%",
+                md: "25%"
+            }}
+        >
             <Field required>
                 <Label>Username</Label>
                 <TextInput placeholder="john@spacex.com" />
@@ -147,7 +153,12 @@ Form fields can be grouped together within fieldsets.
     <Story name="fieldset">
         <Form>
             <Fieldset label="Shipping Address">
-                <Inline>
+                <Grid
+                    templateColumns={{
+                        base: "1fr",
+                        sm: repeat(2, "1fr")
+                    }}
+                >
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -156,8 +167,13 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Inline>
-                <Inline>
+                </Grid>
+                <Grid
+                    templateColumns={{
+                        base: "1fr",
+                        sm: repeat(2, "1fr")
+                    }}
+                >
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -166,14 +182,19 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Inline>
+                </Grid>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
                 </Field>
             </Fieldset>
             <Fieldset label="Billing Address">
-                <Inline>
+                <Grid
+                    templateColumns={{
+                        base: "1fr",
+                        sm: repeat(2, "1fr")
+                    }}
+                >
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -182,8 +203,13 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Inline>
-                <Inline>
+                </Grid>
+                <Grid
+                    templateColumns={{
+                        base: "1fr",
+                        sm: repeat(2, "1fr")
+                    }}
+                >
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -192,7 +218,7 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Inline>
+                </Grid>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />

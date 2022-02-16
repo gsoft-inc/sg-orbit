@@ -1,10 +1,7 @@
 .o-ui-form {
     width: max-content;
-}
-
-/* FIELD */
-.o-ui-form .o-ui-field {
-    margin-bottom: var(--o-ui-sp-5);
+    display: grid;
+    gap: var(--o-ui-sp-5);
 }
 
 /* FLUID */
@@ -17,11 +14,6 @@
     padding: 0;
     margin: 0;
     border: none;
-    margin-bottom: var(--o-ui-sp-6);
-}
-
-.o-ui-fieldset:last-of-type {
-    margin-bottom: var(--o-ui-sp-5);
 }
 
 .o-ui-fieldset-label {
@@ -33,6 +25,8 @@
     margin-bottom: var(--o-ui-sp-3);
 }
 
-.o-ui-fieldset .o-ui-form-field:last-child {
-    margin-bottom: 0;
+.o-ui-fieldset-fields {
+    display: grid;
+    width: 100%;
+    gap: var(--o-ui-sp-5);
 }
