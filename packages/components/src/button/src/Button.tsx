@@ -17,7 +17,6 @@ import {
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -77,6 +76,13 @@ const condensedTextSize = createSizeAdapter({
 const textSize = createSizeAdapter({
     "sm": "md",
     "md": "md"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const iconSize = createSizeAdapter({
+    "sm": "sm",
+    "md": "sm"
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
@@ -142,11 +148,11 @@ export function InnerButton(props: InnerButtonProps) {
         },
         "end-icon": {
             className: "o-ui-button-end-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            size: condensed ? sizeValue : iconSize(sizeValue)
         },
         icon: {
             className: "o-ui-button-icon o-ui-button-start-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            size: condensed ? sizeValue : iconSize(sizeValue)
         },
         text: {
             "aria-hidden": loading,

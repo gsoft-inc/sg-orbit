@@ -4,7 +4,6 @@ import { CrossButton, embedIconButton } from "../../button";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
@@ -44,6 +43,12 @@ const textSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const iconSize = createSizeAdapter({
+    "sm": "sm",
+    "md": "sm"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
 export function InnerTag({
     active,
@@ -80,11 +85,11 @@ export function InnerTag({
         },
         "end-icon": {
             className: "o-ui-tag-end-icon",
-            size: embeddedIconSize(sizeValue)
+            size: iconSize(sizeValue)
         },
         icon: {
             className: "o-ui-tag-start-icon",
-            size: embeddedIconSize(sizeValue)
+            size: iconSize(sizeValue)
         },
         text: {
             className: "o-ui-tag-text",
