@@ -88,7 +88,7 @@ stories()
                 </Field>
                 <Button variant="secondary">Submit</Button>
             </Form>
-            <Form disabled alignSelf="end">
+            <Form disabled alignSelf="start">
                 <Field>
                     <Label>FullName</Label>
                     <TextInput />

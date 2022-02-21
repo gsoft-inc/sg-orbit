@@ -46,9 +46,7 @@ export function InnerFieldset({
             >
                 {label}
             </span>
-            <Box className="o-ui-fieldset-fields">
-                {children}
-            </Box>
+            {children}
         </Box>
     );
 }
