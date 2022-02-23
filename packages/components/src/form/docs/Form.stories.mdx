@@ -4,7 +4,7 @@ import { Checkbox } from "@components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@components/field";
 import { Fieldset, Form, InnerFieldset, InnerForm } from "@components/form";
-import { Grid, Inline, repeat } from "@components/layout";
+import { Flex, Grid, Inline, repeat } from "@components/layout";
 import { PasswordInput, TextInput } from "@components/text-input";
 
 <Meta
@@ -147,10 +147,10 @@ Form fields can be grouped together within fieldsets.
     <Story name="fieldset">
         <Form>
             <Fieldset label="Shipping Address">
-                <Grid
-                    templateColumns={{
-                        base: "1fr",
-                        sm: repeat(2, "1fr")
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
                     }}
                 >
                     <Field required>
@@ -161,11 +161,11 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Grid>
-                <Grid
-                    templateColumns={{
-                        base: "1fr",
-                        sm: repeat(2, "1fr")
+                </Flex>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
                     }}
                 >
                     <Field required>
@@ -176,17 +176,17 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Grid>
+                </Flex>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
                 </Field>
             </Fieldset>
             <Fieldset label="Billing Address">
-                <Grid
-                    templateColumns={{
-                        base: "1fr",
-                        sm: repeat(2, "1fr")
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
                     }}
                 >
                     <Field required>
@@ -197,11 +197,11 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Grid>
-                <Grid
-                    templateColumns={{
-                        base: "1fr",
-                        sm: repeat(2, "1fr")
+                </Flex>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
                     }}
                 >
                     <Field required>
@@ -212,7 +212,7 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Grid>
+                </Flex>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
