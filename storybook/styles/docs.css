@@ -419,3 +419,13 @@
 .token-table tr td:last-child {
     padding: 0 0 0 13px !important;
 }
+
+/* HACK OVERRIDES - INPUT */
+@media screen and (max-width: 420px) {
+    .sbdocs .o-ui .o-ui-input {
+        width: 100%;
+    }
+    .sbdocs .o-ui .o-ui-form {
+        width: 100%;
+    }
+}

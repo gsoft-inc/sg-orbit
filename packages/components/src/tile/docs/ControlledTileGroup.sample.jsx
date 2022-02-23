@@ -11,7 +11,11 @@
             value={value}
             selectionMode="multiple"
             onChange={handleChange}
-            rowSize={3}
+            rowSize={{
+                base: "1",
+                md: "2",
+                lg: "3"
+            }}
         >
             <Tile value="buy">
                 <Heading>Buy a ticket</Heading>

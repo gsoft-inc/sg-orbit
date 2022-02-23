@@ -4,7 +4,7 @@ import { Checkbox } from "@components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Field, HelpMessage, Label } from "@components/field";
 import { Fieldset, Form, InnerFieldset, InnerForm } from "@components/form";
-import { Grid, Inline, repeat } from "@components/layout";
+import { Flex, Grid, Inline, repeat } from "@components/layout";
 import { PasswordInput, TextInput } from "@components/text-input";
 
 <Meta
@@ -37,7 +37,7 @@ A form can stack fields vertically.
 
 <Preview>
     <Story name="vertical layout">
-        <Form fluid width="25%">
+        <Form>
             <Field required>
                 <Label>Username</Label>
                 <TextInput placeholder="john@spacex.com" />
@@ -147,7 +147,12 @@ Form fields can be grouped together within fieldsets.
     <Story name="fieldset">
         <Form>
             <Fieldset label="Shipping Address">
-                <Inline>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
+                    }}
+                >
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -156,8 +161,13 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Inline>
-                <Inline>
+                </Flex>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
+                    }}
+                >
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -166,14 +176,19 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Inline>
+                </Flex>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />
                 </Field>
             </Fieldset>
             <Fieldset label="Billing Address">
-                <Inline>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
+                    }}
+                >
                     <Field required>
                         <Label>First name</Label>
                         <TextInput />
@@ -182,8 +197,13 @@ Form fields can be grouped together within fieldsets.
                         <Label>Last name</Label>
                         <TextInput />
                     </Field>
-                </Inline>
-                <Inline>
+                </Flex>
+                <Flex
+                    flexDirection={{
+                        base: "column",
+                        sm: "row"
+                    }}
+                >
                     <Field required>
                         <Label>Address</Label>
                         <TextInput />
@@ -192,7 +212,7 @@ Form fields can be grouped together within fieldsets.
                         <Label>Appartment</Label>
                         <TextInput />
                     </Field>
-                </Inline>
+                </Flex>
                 <Field required>
                     <Label>Postal code</Label>
                     <TextInput />

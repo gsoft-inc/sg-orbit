@@ -44,7 +44,6 @@ const textSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
-
 export function InnerTag({
     active,
     as = DefaultElement,

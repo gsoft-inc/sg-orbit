@@ -151,7 +151,7 @@ export function InnerGrid({
         : undefined;
 
     // Specialized defaults when a Grid is used in a form.
-    const formProps = isInFormContext ? { gap: 4 as const } : {};
+    const formProps = isInFormContext ? { columnGap: 4 as const } : {};
 
     return (
         <Box

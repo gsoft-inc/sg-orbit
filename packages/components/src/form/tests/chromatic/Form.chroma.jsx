@@ -75,7 +75,7 @@ stories()
         </Inline>
     )
     .add("disabled", () =>
-        <Inline gap={13}>
+        <Inline alignY="end" gap={13}>
             <Form disabled>
                 <Field>
                     <Label>FullName</Label>

@@ -96,7 +96,7 @@ A tile can render horizontally.
 
 <Preview scope={{ SpacePortrait, Planet }}>
     <Story name="orientation">
-        <Inline wrap={false}>
+        <Inline wrap={{ base: true, md: false }}>
             <Tile orientation="horizontal">
                 <Image src={SpacePortrait} alt="Space Portrait" />
                 <Heading>Buy a ticket</Heading>
@@ -220,7 +220,12 @@ A tile group can have multiple tiles on the same row.
 
 <Preview>
     <Story name="row size">
-        <TileGroup rowSize={3}>
+        <TileGroup rowSize={{
+            base: "1",
+            md: "2",
+            lg: "3"
+        }}
+        >
             <TileLink href="https://www.virgingalactic.com">
                 <Heading>Buy a ticket</Heading>
                 <Content>Purchase a ticket for any of our space travel adventure.</Content>

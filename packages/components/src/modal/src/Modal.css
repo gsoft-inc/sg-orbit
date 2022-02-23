@@ -2,7 +2,7 @@
 .o-ui-modal-choice-container {
     display: grid;
     align-items: stretch;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(var(--o-ui-sz-15), 1fr));
     gap: var(--o-ui-sp-7);
 }
 

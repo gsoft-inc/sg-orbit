@@ -151,7 +151,7 @@ export function InnerFlex(props: InnerFlexProps) {
         ...rest
     } = mergeProps(
         // Defaults when a Flex is used in a form. These defaults are placed before "props" to ensure they have precedence.
-        isInFormContext ? { gap: 4 as const, wrap: false } : {} as Record<string, any>,
+        isInFormContext ? { columnGap: 4 as const, wrap: false } : {} as Record<string, any>,
         props,
         omitProps(formProps, ["disabled"])
     );
