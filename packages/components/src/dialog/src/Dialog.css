@@ -51,8 +51,8 @@
 }
 
 .o-ui-dialog-fullscreen {
-    width: calc(100% - (2 * var(--o-ui-sz-6)));
-    min-height: calc(100% - (2 * var(--o-ui-sz-6)));
+    width: 100%;
+    min-height: 100%;
 }
 
 /* DIALOG | IMAGE & ILLUSTRATION */
