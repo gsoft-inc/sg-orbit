@@ -1,14 +1,15 @@
 // These hooks are a "temporary" solution until CSS Selector 4 (and :has with complex combinators) is available.
 
-import { RefObject, useLayoutEffect, useState } from "react";
+import { RefObject, useState } from "react";
 import { isNil } from "./assertions";
+import { useSafeLayoutEffect } from "./useSafeLayoutEffect";
 
 export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>) {
     const [result, setResult] = useState(false);
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useLayoutEffect(() => {
+    useSafeLayoutEffect(() => {
         if (!isNil(rootRef.current)) {
             setResult(!isNil(rootRef.current.querySelector(`:scope > ${querySelector}`)));
         }
@@ -26,7 +27,7 @@ export function useHasChildren(querySelectors: Record<string, string>, rootRef: 
 
     // No deps since it must be evaluated on every render to handled dynamically rendered elements.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    useLayoutEffect(() => {
+    useSafeLayoutEffect(() => {
         const element = rootRef.current;
 
         if (!isNil(element)) {
