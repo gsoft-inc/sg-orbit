@@ -17,12 +17,12 @@ export interface UseOverlayPositionOptions {
 }
 
 export function useOverlayPosition({
-    position = "bottom",
-    offset,
     allowFlip = false,
     allowPreventOverflow = false,
-    boundaryElement = document.body,
-    hasArrow = false
+    boundaryElement,
+    hasArrow = false,
+    offset,
+    position = "bottom"
 }: UseOverlayPositionOptions = {}) {
     const [triggerRef, setTriggerElement] = useRefState<HTMLElement>();
     const [overlayRef, setOverlayElement] = useRefState<HTMLElement>();
@@ -45,7 +45,7 @@ export function useOverlayPosition({
             enabled: allowFlip,
             name: "flip",
             options: {
-                boundary: boundaryElement
+                boundary: boundaryElement ?? document.body
             }
         });
 
@@ -53,7 +53,7 @@ export function useOverlayPosition({
             enabled: allowPreventOverflow,
             name: "preventOverflow",
             options: {
-                boundary: boundaryElement
+                boundary: boundaryElement ?? document.body
             }
         });
 
