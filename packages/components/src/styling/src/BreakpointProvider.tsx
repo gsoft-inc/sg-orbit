@@ -1,6 +1,6 @@
-import { ReactNode, createContext, useCallback, useContext, useEffect, useState } from "react";
+import { ReactNode, createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { isFunction } from "../../shared";
 import { isNil } from "../../shared";
-import { supportsMatchMedia } from "./useMediaQuery";
 import { useDebouncedCallback } from "use-debounce";
 
 /* eslint-disable sort-keys-fix/sort-keys-fix */
@@ -37,6 +37,8 @@ export function BreakpointProvider({
     children,
     unsupportedMatchMediaBreakpoint = "lg"
 }: BreakpointProvider) {
+    // Ensure that matchMedia function exists. In a jest environement or in SSR, this function is not available.
+    const supportsMatchMedia = typeof window !== "undefined" && typeof window.matchMedia === "function";
     // Took from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/BreakpointProvider.tsx
     // Our breakpoints strategy have been inspired by how Tailwind does it https://tailwindcss.com/docs/responsive-design.
     const getBreakpointHandler = useCallback((): Breakpoint[] => {
@@ -53,7 +55,7 @@ export function BreakpointProvider({
         }
 
         return [unsupportedMatchMediaBreakpoint];
-    }, [unsupportedMatchMediaBreakpoint]);
+    }, [unsupportedMatchMediaBreakpoint, supportsMatchMedia]);
 
     const [matchedBreakpoints, setMatchedBreakpoints] = useState<Breakpoint[]>(getBreakpointHandler);
 
@@ -62,12 +64,16 @@ export function BreakpointProvider({
     }, 50);
 
     useEffect(() => {
+        if (!supportsMatchMedia) {
+            return;
+        }
+
         window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [handleResize]);
+    }, [handleResize, supportsMatchMedia]);
 
     return (
         <BreakpointContext.Provider value={{ matchedBreakpoints }}>
