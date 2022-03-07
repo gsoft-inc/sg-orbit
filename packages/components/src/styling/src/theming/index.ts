@@ -6,4 +6,3 @@ export * from "./themeAccessor";
 export * from "./ThemeContext";
 export * from "./ThemeProvider";
 export * from "./useThemeComputedStyle";
-export * from "./ThemeVariablesProvider";

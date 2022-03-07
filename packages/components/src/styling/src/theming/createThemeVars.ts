@@ -102,16 +102,6 @@ function appendColorSchemes<C, L, D>(
     }
 }
 
-export const SpacePrefix = "sp";
-export const SizingPrefix = "sz";
-export const FontSizePrefix = "fs";
-export const FontWeightPrefix = "fw";
-export const LineHeightPrefix = "lh";
-export const BorderRadiusPrefix = "br";
-export const BoxShadowPrefix = "bs";
-export const ColorPrefix = null;
-
-// TODO AA: Remove this, update documentation, and release in a version with breaking changes
 function renderBucket(scope: string, bucket: VarsBucket) {
     const element = document.createElement("style");
 
@@ -121,19 +111,17 @@ function renderBucket(scope: string, bucket: VarsBucket) {
     document.head.appendChild(element);
 }
 
+export const SpacePrefix = "sp";
+export const SizingPrefix = "sz";
+export const FontSizePrefix = "fs";
+export const FontWeightPrefix = "fw";
+export const LineHeightPrefix = "lh";
+export const BorderRadiusPrefix = "br";
+export const BoxShadowPrefix = "bs";
+export const ColorPrefix = null;
+
 export function createThemeVars(themes: OrbitTheme[]) {
-    toThemeVars(themes).forEach(x =>
-        renderBucket(getThemeClassName(x.scope), x.bucket)
-    );
-}
-
-export interface ThemeBucket {
-    scope: string;
-    bucket: VarsBucket;
-}
-
-export function toThemeVars(themes: OrbitTheme[]): ThemeBucket[] {
-    return themes.map(theme => {
+    themes.forEach(theme => {
         const common: VarsBucket = [];
         const light: VarsBucket = [];
         const dark: VarsBucket = [];
@@ -147,19 +135,8 @@ export function toThemeVars(themes: OrbitTheme[]): ThemeBucket[] {
         appendColorSchemes(theme.boxShadows, BoxShadowPrefix, { common, dark, light });
         appendColorSchemes(theme.colors, ColorPrefix, { common, dark, light });
 
-        return [
-            {
-                scope: getThemeClassName(theme.name),
-                bucket: common
-            },
-            {
-                scope: getColorSchemeClassName(theme.name, "light"),
-                bucket: light
-            },
-            {
-                scope: getColorSchemeClassName(theme.name, "dark"),
-                bucket: dark
-            }
-        ];
-    }).flat();
+        renderBucket(getThemeClassName(theme.name), common);
+        renderBucket(getColorSchemeClassName(theme.name, "light"), light);
+        renderBucket(getColorSchemeClassName(theme.name, "dark"), dark);
+    });
 }
