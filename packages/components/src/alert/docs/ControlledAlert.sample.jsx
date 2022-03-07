@@ -25,7 +25,7 @@
                 onCancelButtonClick={handleClose}
             >
                 <Heading>Autopilot</Heading>
-                <Content>Are you use sure you want to engage autopilot?</Content>
+                <Content>Are you sure you want to engage autopilot?</Content>
             </Alert>
         </AlertTrigger>
     );

@@ -302,7 +302,8 @@ export function InnerDialog({
                     {
                         className: cssModule(
                             "o-ui-dialog-wrapper",
-                            wrapperHasVerticalScrollbar && "scrolling"
+                            wrapperHasVerticalScrollbar && "scrolling",
+                            size === "fullscreen" && "fullscreen"
                         ),
                         ref: useMergedRefs(wrapperRef, hasVerticalScrollbarRef),
                         zIndex: zIndex + 1

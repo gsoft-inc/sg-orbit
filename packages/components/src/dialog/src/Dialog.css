@@ -17,6 +17,10 @@
     align-items: flex-start;
 }
 
+.o-ui-dialog-wrapper-fullscreen {
+    padding: 0;
+}
+
 /* DIALOG */
 .o-ui-dialog {
     position: relative;
@@ -53,6 +57,7 @@
 .o-ui-dialog-fullscreen {
     width: 100%;
     min-height: 100%;
+    border-radius: 0;
 }
 
 /* DIALOG | IMAGE & ILLUSTRATION */
