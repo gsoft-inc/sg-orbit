@@ -1,7 +1,7 @@
 import { ColorScheme } from "../useColorScheme";
 import { ColorSchemeSection, OrbitTheme } from "./orbitTheme";
 import { Entry, JsonObject, JsonValue } from "type-fest";
-import { isArray, isNil, isNumber, isString } from "../../../shared";
+import { isArray, isBrowser, isNil, isNumber, isString } from "../../../shared";
 
 type VarsBucket = string[];
 
@@ -103,12 +103,14 @@ function appendColorSchemes<C, L, D>(
 }
 
 function renderBucket(scope: string, bucket: VarsBucket) {
-    const element = document.createElement("style");
+    if(isBrowser) {
+        const element = document.createElement("style");
 
-    element.setAttribute("id", scope);
-    element.innerText = `.o-ui.${scope} { ${bucket.join(" ")} }`;
+        element.setAttribute("id", scope);
+        element.innerText = `.o-ui.${scope} { ${bucket.join(" ")} }`;
 
-    document.head.appendChild(element);
+        document.head.appendChild(element);
+    }
 }
 
 export const SpacePrefix = "sp";
