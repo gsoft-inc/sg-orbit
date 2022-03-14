@@ -161,8 +161,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         }, [setQuery])
     });
 
-    const triggerWrapperRef = useRef();
-
     const {
         focusScope,
         isOpen,
@@ -187,9 +185,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     });
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth();
+    const triggerWrapperRef = useMergedRefs(useRef<HTMLElement>(null), triggerWidthRef);
 
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef, triggerWidthRef);
+    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
@@ -262,7 +261,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(focusScope)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
-                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayRef)) {
+                if (!isTargetParent(event.relatedTarget, triggerWrapperRef) && !isTargetParent(event.relatedTarget, overlayRef)) {
                     close(event);
                     reset();
                 }

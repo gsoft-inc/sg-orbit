@@ -107,7 +107,7 @@
 /* DIALOG | HEADER SECTION | HEADER */
 .o-ui-dialog-header {
     align-self: center;
-    max-width: var(--o-ui-sz-15);
+    max-width: var(--o-ui-sz-14);
     flex-shrink: 0;
 }
 

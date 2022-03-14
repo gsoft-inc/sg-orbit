@@ -116,7 +116,8 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     type: "search" as const,
                     value: inputValue,
                     wrapperProps: mergeProps(wrapperProps ?? {}, {
-                        className: "o-ui-search-input"
+                        className: "o-ui-search-input",
+                        ref: inputRef
                     })
                 }
             )}

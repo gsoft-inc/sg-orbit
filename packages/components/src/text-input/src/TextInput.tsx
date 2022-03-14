@@ -3,7 +3,7 @@ import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
-import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -139,18 +139,20 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
+    const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
+
     const content = (
         <>
             {iconMarkup}
             <Box
                 {...mergeProps(
-                    rest,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
                         as
                     },
-                    inputProps
+                    inputProps,
+                    inputPropsToForward
                 )}
             />
             {/* Otherwise an input button will receive an addon className */}
@@ -173,7 +175,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
                         buttonMarkup && "has-button"
                     )
                 },
-                wrapperProps
+                wrapperProps,
+                { className, style }
             )}
         >
             {content}

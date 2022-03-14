@@ -17,7 +17,7 @@ import {
     useFocusWithin,
     useRefState
 } from "../../shared";
-import { ResponsiveProp, useResponsiveValue } from "../../styling";
+import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -341,12 +341,14 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
+    const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
+
     const content = (
         <>
             {iconMarkup}
             <Box
                 {...mergeProps(
-                    rest,
+                    inputPropsToForward,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
@@ -379,6 +381,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                         cssModule(
                             "o-ui-input",
                             iconMarkup && "has-icon",
+                            disabled && "disabled",
                             isInGroup && "in-group"
                         ),
                         cssModule(
@@ -387,7 +390,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                         )
                     )
                 },
-                focusWithinProps
+                focusWithinProps,
+                { className, style }
             )}
         >
             {content}
