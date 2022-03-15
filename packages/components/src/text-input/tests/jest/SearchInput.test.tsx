@@ -82,6 +82,8 @@ test("can focus the input with the focus api", async () => {
         refNode.focus();
     });
 
+    console.log(refNode);
+
     await waitFor(() => expect(refNode).toHaveFocus());
 });
 
