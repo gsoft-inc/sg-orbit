@@ -1,8 +1,8 @@
 import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ReactElement, RefObject, forwardRef, useState } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -52,6 +52,22 @@ export interface InnerTextInputProps extends AbstractTextInputProps<typeof Defau
      * The type of the input.
      */
     type?: "text" | "password" | "search" | "url" | "tel" | "email";
+}
+
+function useHasFocus() {
+    const [hasFocus, setHasFocus] = useState(false);
+
+    return {
+        hasFocus,
+        inputProps: {
+            onBlur: useEventCallback(() => {
+                setHasFocus(false);
+            }),
+            onFocus: useEventCallback(() => {
+                setHasFocus(true);
+            })
+        }
+    };
 }
 
 export function InnerTextInput(props: InnerTextInputProps) {
@@ -115,7 +131,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         }
     });
 
-    const { inputProps, wrapperProps } = useInput({
+    const { inputProps, inputRef, wrapperProps } = useInput({
         active,
         autoFocus,
         cssModule: "o-ui-text-input",
@@ -141,6 +157,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
 
+    const { hasFocus, inputProps: inputFocusProps } = useHasFocus(inputRef);
+
     const content = (
         <>
             {iconMarkup}
@@ -152,7 +170,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
                         as
                     },
                     inputProps,
-                    inputPropsToForward
+                    inputPropsToForward,
+                    inputFocusProps
                 )}
             />
             {/* Otherwise an input button will receive an addon className */}
@@ -172,7 +191,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
                         "o-ui-input",
                         iconMarkup && "has-icon",
                         disabled && "disabled",
-                        buttonMarkup && "has-button"
+                        buttonMarkup && "has-button",
+                        hasFocus && "has-focus"
                     )
                 },
                 wrapperProps,
