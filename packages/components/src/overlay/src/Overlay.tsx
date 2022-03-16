@@ -78,7 +78,7 @@ export function InnerOverlay({
 
     const host = containerElement ?? (isBrowser ? document.body : undefined);
 
-    if (host) {
+    if (host && isBrowser) {
         return createPortal(content, host);
     }
 
