@@ -45,13 +45,42 @@
 .o-ui-text-area textarea,
 .o-ui-number-input {
     font-size: var(--o-ui-fs-3);
-    padding: 0 var(--o-ui-input-padding);
+    padding: 0;
     border-radius: var(--o-ui-input-border-radius);
     border: 1px solid var(--o-ui-input-border-color);
     background-color: var(--o-ui-bg-alias-default);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     line-height: inherit;
     font-family: inherit;
+}
+
+.o-ui-text-input input,
+.o-ui-text-area textarea,
+.o-ui-number-input input {
+    padding: 0 var(--o-ui-input-padding);
+}
+
+.o-ui-text-input input,
+.o-ui-text-area textarea {
+    border-radius: var(--o-ui-input-border-radius);
+}
+
+.o-ui-number-input input {
+    border-top-left-radius: var(--o-ui-input-border-radius);
+    border-bottom-left-radius: var(--o-ui-input-border-radius);
+}
+
+.o-ui-text-input.o-ui-input-has-button input {
+    padding-right: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.o-ui-text-input.o-ui-input-has-icon input,
+.o-ui-number-input.o-ui-input-has-icon input {
+    padding-left: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 /* SELECTION */

@@ -5,7 +5,7 @@
 .o-ui-number-input {
     /* 150px @ 16px */
     width: 9.365rem;
-    padding-right: calc(var(--o-ui-spinner-width) + 2px);
+    padding-right: var(--o-ui-spinner-width);
 
 }
 
