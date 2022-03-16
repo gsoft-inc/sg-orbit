@@ -101,8 +101,6 @@ test("can focus the input with the focus api", async () => {
         />
     );
 
-    console.log(refNode);
-
     act(() => {
         refNode.focus();
     });

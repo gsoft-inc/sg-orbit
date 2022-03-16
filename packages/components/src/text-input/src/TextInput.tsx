@@ -1,6 +1,6 @@
 import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ReactElement, RefObject, forwardRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef, useState } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
@@ -131,7 +131,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         }
     });
 
-    const { inputProps, inputRef, wrapperProps } = useInput({
+    const { inputProps, wrapperProps } = useInput({
         active,
         autoFocus,
         cssModule: "o-ui-text-input",
@@ -157,7 +157,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
 
-    const { hasFocus, inputProps: inputFocusProps } = useHasFocus(inputRef);
+    const { hasFocus, inputProps: inputFocusProps } = useHasFocus();
 
     const content = (
         <>

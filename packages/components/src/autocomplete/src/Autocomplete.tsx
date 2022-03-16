@@ -185,10 +185,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     });
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth();
-    const triggerWrapperRef = useMergedRefs(useRef<HTMLElement>(null), triggerWidthRef);
+    const triggerWrapperRef = useMergedRefs(useRef<HTMLElement>(null), triggerWidthRef, popupTriggerRef);
 
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef);
+    const triggerRef = useMergedRefs(forwardedRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
@@ -461,4 +461,3 @@ export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<Inner
 ));
 
 export type AutocompleteProps = ComponentProps<typeof Autocomplete>;
-
