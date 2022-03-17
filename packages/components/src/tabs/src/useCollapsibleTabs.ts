@@ -1,6 +1,6 @@
 // Inspired by: https://codesandbox.io/s/ariakit-collapsible-tab-835t8?file=/src/tab-popover.tsx
 
-import { createDisposables,isNil, useMergedRefs, useRefState, useResizeObserver, useSafeLayoutEffect } from "../../shared";
+import { createDisposables,isNil, useIsomorphicLayoutEffect, useMergedRefs, useRefState, useResizeObserver } from "../../shared";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { TabType } from "./useTabsItems";
@@ -51,7 +51,7 @@ export function useCollapsibleTabs(tabs: TabType[], selectedKey: string, { gap, 
         setLimit(Math.max(MinVisibleItems, i));
     }, [gap, popoverTriggerWidth]);
 
-    useSafeLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         const newVisibleTabs = tabs.slice(0, limit);
         let newCollapsedTabs = tabs.slice(limit);
 

@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useSafeLayoutEffect } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -198,7 +198,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         setRows(newRows);
     }, [inputRef, lineHeight, maxRows]);
 
-    useSafeLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         adjustRows();
     }, [adjustRows, inputValue]);
 

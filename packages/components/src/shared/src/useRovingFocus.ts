@@ -1,14 +1,14 @@
 import type { FocusScope, ScopeChangeEventHandler } from "./useFocusScope";
 
 import { isNil } from "./assertions";
-import { useSafeLayoutEffect } from "./useSafeLayoutEffect";
+import { useIsomorphicLayoutEffect } from "./useSafeLayoutEffect";
 
 export interface UseRovingFocusOptions {
     isDisabled?: boolean;
 }
 
 export function useRovingFocus(scope: FocusScope, { isDisabled = false }: UseRovingFocusOptions = {}) {
-    useSafeLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         if (!isDisabled) {
             const handleFocus = (event: FocusEvent) => {
                 scope.getElements().forEach(x => {
@@ -67,7 +67,7 @@ export interface UseKeyedRovingFocusOptions extends UseRovingFocusOptions {
 IMPORTANT: Keyed roving focus doesn't handle disabled elements. This is the responsability of the calling component to ensure that the `currentKey` doesn't match a disabled element.
 */
 export function useKeyedRovingFocus(scope: FocusScope, currentKey: string, { isDisabled = false, keyProp = "value" }: UseKeyedRovingFocusOptions = {}) {
-    useSafeLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         if (!isDisabled) {
             const setTabIndexes = (elements: HTMLElement[]) => {
                 if (!isNil(currentKey)) {

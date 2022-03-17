@@ -1,6 +1,6 @@
 import { ChangeEvent, ElementType, ForwardedRef, Ref, useImperativeHandle, useRef } from "react";
 import { ValidationState } from "../../input";
-import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi, useSafeLayoutEffect } from "../../shared";
+import { cssModule, isNil, isNumber, normalizeSize, useAutoFocus, useControllableState, useEventCallback, useForwardInputApi, useIsomorphicLayoutEffect } from "../../shared";
 
 export interface UseCheckboxProps {
     active?: boolean;
@@ -104,7 +104,7 @@ export function useCheckbox({
         }
     });
 
-    useSafeLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         if (!isNil(inputRef.current)) {
             inputRef.current.indeterminate = !!isIndeterminate;
         }
