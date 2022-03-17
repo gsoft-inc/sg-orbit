@@ -103,14 +103,14 @@ function appendColorSchemes<C, L, D>(
 }
 
 function renderBucket(scope: string, bucket: VarsBucket) {
-    if(isBrowser) {
-        const element = document.createElement("style");
+    if (!isBrowser) { return; }
 
-        element.setAttribute("id", scope);
-        element.innerText = `.o-ui.${scope} { ${bucket.join(" ")} }`;
+    const element = document.createElement("style");
 
-        document.head.appendChild(element);
-    }
+    element.setAttribute("id", scope);
+    element.innerText = `.o-ui.${scope} { ${bucket.join(" ")} }`;
+
+    document.head.appendChild(element);
 }
 
 export const SpacePrefix = "sp";
