@@ -1,8 +1,10 @@
+import { isNil } from "./assertions";
+
 export function canUseDOM(): boolean {
-    return !!(
+    return (
         typeof window !== "undefined" &&
-    window.document &&
-    window.document.createElement
+        !isNil(window.document) &&
+        !isNil(window.document.createElement)
     );
 }
 
