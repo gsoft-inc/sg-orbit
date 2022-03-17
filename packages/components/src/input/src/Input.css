@@ -61,7 +61,7 @@
 }
 
 .o-ui-text-input input,
-.o-ui-text-area textarea {
+.o-ui-text-area {
     border-radius: var(--o-ui-input-border-radius);
 }
 
@@ -157,8 +157,9 @@
     padding-left: 0;
 }
 
-/* BUTTON */
-.o-ui-input-button {
+/* BUTTON | INPUT */
+.o-ui-text-input.o-ui-input-button,
+.o-ui-number-input.o-ui-input-button {
     position: inline-flex !important;
     display: flex;
     text-align: center;
@@ -166,7 +167,8 @@
     margin-left: .625rem;
 }
 
-.o-ui-input-has-button.o-ui-input {
+.o-ui-input-has-button.o-ui-text-input,
+.o-ui-input-has-button.o-ui-number-input {
     padding-right: 0;
 }
 
@@ -174,7 +176,7 @@
 /* STATES | FOCUS */
 .o-ui-text-input:not(.o-ui-input-disabled).o-ui-input-has-focus,
 .o-ui-number-input:not(.o-ui-input-disabled):focus-within,
-.o-ui-text-area:not(.o-ui-input-disabled):focus-within textarea,
+.o-ui-text-area:not(.o-ui-input-disabled).o-ui-input-has-focus textarea,
 .o-ui-input-focus:not(.o-ui-input-disabled):not(.o-ui-has-button-disabled) {
     box-shadow: var(--o-ui-focus-ring-inset-md) !important;
     outline: none;

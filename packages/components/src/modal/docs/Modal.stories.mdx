@@ -2,6 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Button } from "@components/button";
 import { ButtonGroup } from "@components/button";
 import { Card } from "@components/card";
+import { CheckCircleIcon } from "@components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Footer, Header, InnerContent, InnerFooter, InnerHeader } from "@components/placeholders";
 import { ET, Planet, SpacePortrait, TheMartian } from "./assets";
@@ -230,15 +231,24 @@ You don't have to use a `ModalTrigger` component if it doesn't fit your needs. A
 
 <Preview filePath="/modal/docs/CustomTrigger" />
 
-## Best Pratices
+## Best Practices
 
-Prefer dismissible modal whenever possible. If your modal has no way to be dismissed and depends on a user choice use an Alert.
+- Prefer dismissible modal whenever possible. If your modal has no way to be dismissed and depends on a user choice use an [Alert](?path=/docs/alert--default-story).
+- Modals can be disruptive, use them sparingly.
+- Modals should not have complex layouts, these are not pages, when in need in more than a choice layout, use an appropriate [component](#related-components) or a page.
+- Don’t ask a question right above the buttons.
 
-Modals can be disruptive, use them sparingly.
+## Accessibility
 
-Modals should not have complex layouts, these are not pages, when in need in more than a choice layout, use an appropriate component or a page.
+- Modal should not rely on images or illustrations in order to give information to the user.
+- When presenting [choices](#choice) a Modal should provide enough information for the user to be able to take a decision in the spot, or a way to come back to the choice later.
+- Focus on the first interactive element in the modal, except if it’s a destructive action as it could trigger unwanted behavior.
 
-Don’t ask a question right above the buttons.
+## Related Components
+
+- To present a small supplemental amount of information in a non blocking way use a [Popover](?path=/docs/popover--default-story).
+- To communicate a change or condition that needs the user’s attention within the context of a page, use a [Message](?path=/docs/message--default-story).
+- To present large amounts of additional information or actions that don’t require confirmation, use an [Accordion](?path=/docs/accordion--default-story).
 
 ## API
 

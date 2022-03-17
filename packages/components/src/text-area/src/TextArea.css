@@ -11,3 +11,18 @@
 .o-ui-text-area.o-ui-input-transparent textarea {
     padding: 0;
 }
+
+/* BUTTON | TEXTAREA */
+.o-ui-text-area .o-ui-input-button {
+    position: absolute !important;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2 );
+}
+
+.o-ui-input-has-button.o-ui-text-area textarea {
+    padding-right: var(--o-ui-input-padding-with-button);
+}

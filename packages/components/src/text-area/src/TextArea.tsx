@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -77,6 +77,22 @@ const useFontFaceReady = () => {
 
     return ready;
 };
+
+function useHasFocus() {
+    const [hasFocus, setHasFocus] = useState(false);
+
+    return {
+        hasFocus,
+        inputProps: {
+            onBlur: useEventCallback(() => {
+                setHasFocus(false);
+            }),
+            onFocus: useEventCallback(() => {
+                setHasFocus(true);
+            })
+        }
+    };
+}
 
 function useCalculateLineHeight(input: HTMLTextAreaElement) {
     const fontsLoaded = useFontFaceReady();
@@ -203,6 +219,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     }, [adjustRows, inputValue]);
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
+    const { hasFocus, inputProps: inputFocusProps } = useHasFocus();
 
     const content = (
         <>
@@ -215,7 +232,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
                         as,
                         rows
                     },
-                    inputProps
+                    inputProps,
+                    inputFocusProps
                 )}
             />
             {buttonMarkup}
@@ -230,7 +248,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
                     as: wrapperAs,
                     className: cssModule(
                         "o-ui-input",
-                        buttonMarkup && "has-button"
+                        buttonMarkup && "has-button",
+                        hasFocus && "has-focus"
                     )
                 },
                 wrapperProps
