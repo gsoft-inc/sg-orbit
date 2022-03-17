@@ -158,8 +158,8 @@
 }
 
 /* BUTTON | INPUT */
-.o-ui-text-input.o-ui-input-button,
-.o-ui-number-input.o-ui-input-button {
+.o-ui-text-input .o-ui-input-button,
+.o-ui-number-input .o-ui-input-button {
     position: inline-flex !important;
     display: flex;
     text-align: center;
