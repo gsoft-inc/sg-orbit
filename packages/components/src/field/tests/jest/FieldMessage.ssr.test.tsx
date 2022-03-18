@@ -4,6 +4,7 @@
 import { ErrorMessage, ErrorMessageProps, HelpMessage, HelpMessageProps, ValidMessage, ValidMessageProps } from "@components/field";
 import { forwardRef } from "react";
 import { renderToString } from "react-dom/server";
+import { throwOnConsoleLogs } from "@jest-utils";
 
 const Help = forwardRef<HTMLElement, Omit<HelpMessageProps, "children">>((props, ref) => {
     return (
@@ -48,6 +49,8 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
     // eslint-disable-next-line jest/valid-title
     describe(id, () => {
         test("can render on the server", async () => {
+            throwOnConsoleLogs();
+
             const renderOnServer = () =>
                 renderToString(
                     <Element />

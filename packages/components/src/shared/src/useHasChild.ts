@@ -2,7 +2,7 @@
 
 import { RefObject, useState } from "react";
 import { isNil } from "./assertions";
-import { useIsomorphicLayoutEffect } from "./useSafeLayoutEffect";
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 
 export function useHasChild(querySelector: string, rootRef: RefObject<HTMLElement>) {
     const [result, setResult] = useState(false);

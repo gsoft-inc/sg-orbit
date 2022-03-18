@@ -37,7 +37,7 @@ export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";
 export * from "./useFocusWithin";
-export * from "./useSafeLayoutEffect";
+export * from "./useIsomorphicLayoutEffect";
 
 // Features
 export * from "./slots";

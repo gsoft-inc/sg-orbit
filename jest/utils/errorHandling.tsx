@@ -16,6 +16,21 @@ function muteConsoleErrors(patterns: string[]) {
     };
 }
 
+function throwOnConsoleLogs() {
+    const error = console.error;
+    console.error = function (message) {
+        error.apply(console, arguments);
+        throw message instanceof Error ? message : new Error(message);
+    };
+
+    const warn = console.warn;
+    console.warn = function (message) {
+        warn.apply(console, arguments);
+        throw message instanceof Error ? message : new Error(message);
+    };
+}
+
+
 interface ErrorBoundaryProps {
     onError: (error: Error) => void;
     children?: ReactNode;
@@ -53,4 +68,4 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> 
     }
 }
 
-export { muteConsoleErrors, ErrorBoundary }
+export { muteConsoleErrors, ErrorBoundary, throwOnConsoleLogs }

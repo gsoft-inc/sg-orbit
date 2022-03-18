@@ -6,6 +6,7 @@ import { Div } from "@components/html";
 import { Text } from "@components/typography";
 import { forwardRef } from "react";
 import { renderToString } from "react-dom/server";
+import { throwOnConsoleLogs } from "@jest-utils";
 
 const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, ref) => {
     return (
@@ -20,6 +21,8 @@ const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, 
 });
 
 test("can render on the server", () => {
+    throwOnConsoleLogs();
+
     const renderOnServer = () =>
         renderToString(
             <SquareBadge>

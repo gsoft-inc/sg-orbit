@@ -1,7 +1,7 @@
 import type { FocusScope, ScopeChangeEventHandler } from "./useFocusScope";
 
 import { isNil } from "./assertions";
-import { useIsomorphicLayoutEffect } from "./useSafeLayoutEffect";
+import { useIsomorphicLayoutEffect } from "./useIsomorphicLayoutEffect";
 
 export interface UseRovingFocusOptions {
     isDisabled?: boolean;
