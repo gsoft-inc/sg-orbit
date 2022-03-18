@@ -1,6 +1,6 @@
 import { Instance, Placement, createPopper } from "@popperjs/core";
 import { ResponsiveProp } from "../../styling";
-import { isBrowser, isNil, useMergedRefs, useRefState } from "../../shared";
+import { getBodyElement, isNil, useMergedRefs, useRefState } from "../../shared";
 import { useCallback } from "react";
 
 export type OverlayPosition = Placement;
@@ -45,7 +45,7 @@ export function useOverlayPosition({
             enabled: allowFlip,
             name: "flip",
             options: {
-                boundary: boundaryElement ?? (isBrowser ? document.body : undefined)
+                boundary: boundaryElement ?? getBodyElement()
             }
         });
 
@@ -53,7 +53,7 @@ export function useOverlayPosition({
             enabled: allowPreventOverflow,
             name: "preventOverflow",
             options: {
-                boundary: boundaryElement ?? (isBrowser ? document.body : undefined)
+                boundary: boundaryElement ?? getBodyElement()
             }
         });
 

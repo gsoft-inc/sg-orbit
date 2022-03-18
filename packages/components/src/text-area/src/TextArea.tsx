@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
+import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -97,11 +97,11 @@ function useCalculateLineHeight(input: HTMLTextAreaElement) {
         element.style.font = font;
         element.innerText = "LineHeightHelper";
 
-        document.body.appendChild(element);
+        getBodyElement().appendChild(element);
 
         const height = element.getBoundingClientRect().height;
 
-        document.body.removeChild(element);
+        getBodyElement().removeChild(element);
 
         return height;
     }, [input, fontsLoaded]);

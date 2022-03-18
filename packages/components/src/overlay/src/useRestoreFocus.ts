@@ -3,7 +3,7 @@
 // This restore focus hook only works because we use an animation to fade away the overlay. Without an animation, the active element will always be the body which
 // will be out of scope. To fix this, it would probably requires this code to become a React element instead of a React hook.
 
-import { FocusScope, Keys, createFocusableTreeWalker, isNil, useEventCallback, useIsomorphicLayoutEffect, useRefState } from "../../shared";
+import { FocusScope, Keys, createFocusableTreeWalker, getBodyElement, isNil, useEventCallback, useIsomorphicLayoutEffect, useRefState } from "../../shared";
 import { KeyboardEvent } from "react";
 
 import { isElementInViewport } from "./isElementInViewport";
@@ -39,7 +39,7 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
                     // Creating a tree walker to find what would be the next logical element to focus regardless if the current component is used in a focus trap setup or not.
                     // We cannot use the scope because the next logical element to focus might be outside the overlay, therefore outside of the scope.
                     // This is important to use a tree walker instead of creating a FocusScope because we are looking for an element at the document body level. Loading all these elements in a scope would be a performance killer.
-                    const walker = createFocusableTreeWalker(document.body, { acceptElement: isTabbable });
+                    const walker = createFocusableTreeWalker(getBodyElement(), { acceptElement: isTabbable });
                     walker.currentNode = currentActiveElement as Node;
 
                     const next = () => {
@@ -53,7 +53,7 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
                     if (!focusScope.isInScope(nextElement)) {
                         const elementToRestore = elementToRestoreRef.current;
 
-                        if (document.body.contains(elementToRestore)) {
+                        if (getBodyElement().contains(elementToRestore)) {
                             // If we haven't found an element or the element we found is not in the overlay scope, it might be a use case for some custom restore logic.
                             // Try to find a tabbable element next to the element to restore.
                             walker.currentNode = elementToRestore;
@@ -91,7 +91,7 @@ export function useRestoreFocus(focusScope: FocusScope, { isDisabled }: UseResto
                     const elementToRestore = elementToRestoreRef.current;
 
                     requestAnimationFrame(() => {
-                        if (document.body.contains(elementToRestore)) {
+                        if (getBodyElement().contains(elementToRestore)) {
                             if (isElementInViewport(elementToRestore)) {
                                 elementToRestore.focus();
                             }

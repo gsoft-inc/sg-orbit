@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isBrowser, mergeProps } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, getBodyElement, mergeProps } from "../../shared";
 import { ThemeProvider, useColorSchemeContext, useThemeContext } from "../../styling";
 
 import { Transition } from "../../transition";
@@ -76,7 +76,7 @@ export function InnerOverlay({
         </Transition>
     );
 
-    const host = containerElement ?? (isBrowser ? document.body : undefined);
+    const host = containerElement ?? getBodyElement();
 
     if (host) {
         return createPortal(content, host);

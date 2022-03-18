@@ -9,3 +9,7 @@ export function canUseDOM(): boolean {
 }
 
 export const isBrowser = canUseDOM();
+
+export function getBodyElement() {
+    return isBrowser ? document.body : undefined;
+}
