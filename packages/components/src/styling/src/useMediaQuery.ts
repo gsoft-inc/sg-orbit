@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 
+
+// Ensure that matchMedia function exists. In a jest environement or in SSR, this function is not available.
+export function canUseMatchMedia(): boolean {
+    return (
+        typeof window !== "undefined" &&
+        typeof window.matchMedia === "function"
+    );
+}
+
+export const supportsMatchMedia = canUseMatchMedia();
+
 // Copied from https://github.com/adobe/react-spectrum/blob/main/packages/%40react-spectrum/utils/src/useMediaQuery.ts
 export function useMediaQuery(query: string) {
     // Ensure that matchMedia function exists. In a jest environement or in SSR, this function is not available.
-    const supportsMatchMedia = typeof window !== "undefined" && typeof window.matchMedia === "function";
     const [matches, setMatches] = useState(() => supportsMatchMedia
         ? window.matchMedia(query).matches
         : false
@@ -25,7 +35,7 @@ export function useMediaQuery(query: string) {
         return () => {
             mediaQueryList.removeEventListener("change", onChange);
         };
-    }, [query, supportsMatchMedia]);
+    }, [query]);
 
     return matches;
 }
