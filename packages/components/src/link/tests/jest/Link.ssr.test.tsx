@@ -12,5 +12,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <AddIcon />
             </Link>
         );
+
     expect(renderOnServer).not.toThrow();
 });

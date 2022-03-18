@@ -13,5 +13,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 name="date-range"
             />
         );
+
     expect(renderOnServer).not.toThrow();
 });

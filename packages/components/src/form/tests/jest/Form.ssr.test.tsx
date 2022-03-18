@@ -11,5 +11,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <input type="text" />
             </Form>
         );
+
     expect(renderOnServer).not.toThrow();
 });

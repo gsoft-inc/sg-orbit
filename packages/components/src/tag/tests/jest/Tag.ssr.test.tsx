@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Tag>Falcon 9</Tag>
         );
+
     expect(renderOnServer).not.toThrow();
 });

@@ -20,5 +20,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Tile>
             </TileGroup>
         );
+
     expect(renderOnServer).not.toThrow();
 });

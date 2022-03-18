@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Counter>15</Counter>
         );
+
     expect(renderOnServer).not.toThrow();
 });

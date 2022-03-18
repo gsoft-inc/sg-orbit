@@ -52,8 +52,8 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
                 renderToString(
                     <Element />
                 );
-            expect(renderOnServer).not.toThrow();
 
+            expect(renderOnServer).not.toThrow();
         });
     });
 });

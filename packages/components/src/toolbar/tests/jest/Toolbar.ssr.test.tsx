@@ -13,5 +13,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Button>2</Button>
             </Toolbar>
         );
+
     expect(renderOnServer).not.toThrow();
 });

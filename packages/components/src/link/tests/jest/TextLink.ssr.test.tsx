@@ -11,5 +11,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 Flight details
             </TextLink>
         );
+
     expect(renderOnServer).not.toThrow();
 });

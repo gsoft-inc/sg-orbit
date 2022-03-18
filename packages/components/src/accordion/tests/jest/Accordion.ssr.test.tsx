@@ -25,6 +25,7 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Item>
             </Accordion>
         );
+
     expect(renderOnServer).not.toThrow();
 });
 

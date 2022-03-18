@@ -12,6 +12,7 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Avatar name="Kimbal Musk" />
             </AvatarGroup>
         );
+
     expect(renderOnServer).not.toThrow();
 });
 

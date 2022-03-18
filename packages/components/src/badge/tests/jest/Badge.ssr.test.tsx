@@ -26,6 +26,7 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Text>100</Text>
             </SquareBadge>
         );
+
     expect(renderOnServer).not.toThrow();
 });
 

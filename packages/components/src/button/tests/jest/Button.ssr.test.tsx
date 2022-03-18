@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Button autoFocus variant="secondary">Cutoff</Button>
         );
+
     expect(renderOnServer).not.toThrow();
 });

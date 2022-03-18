@@ -18,5 +18,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Dialog>
             </DialogTrigger>
         );
+
     expect(renderOnServer).not.toThrow();
 });

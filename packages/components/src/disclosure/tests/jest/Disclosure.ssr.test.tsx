@@ -14,5 +14,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Content>Content</Content>
             </Disclosure>
         );
+
     expect(renderOnServer).not.toThrow();
 });

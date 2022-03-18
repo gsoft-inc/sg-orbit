@@ -11,5 +11,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 max={new Date(2021, 0, 1)}
             />
         );
+
     expect(renderOnServer).not.toThrow();
 });

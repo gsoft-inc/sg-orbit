@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Message variant="warning">Scheduled launch today at 1PM.</Message>
         );
+
     expect(renderOnServer).not.toThrow();
 });

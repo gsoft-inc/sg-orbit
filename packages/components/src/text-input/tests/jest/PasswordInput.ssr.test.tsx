@@ -11,5 +11,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 aria-label="Label"
             />
         );
+
     expect(renderOnServer).not.toThrow();
 });

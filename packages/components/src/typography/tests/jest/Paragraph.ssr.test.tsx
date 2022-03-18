@@ -11,5 +11,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
             Body
             </Paragraph>
         );
+
     expect(renderOnServer).not.toThrow();
 });

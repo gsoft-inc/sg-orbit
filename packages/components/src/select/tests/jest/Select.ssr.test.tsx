@@ -14,5 +14,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Item key="saturn">Saturn</Item>
             </Select>
         );
+
     expect(renderOnServer).not.toThrow();
 });

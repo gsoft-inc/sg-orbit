@@ -28,5 +28,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <SvgImage src={BasicSvg} aria-label="Basic SVG" />
         );
+
     expect(renderOnServer).not.toThrow();
 });

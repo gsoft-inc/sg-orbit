@@ -20,5 +20,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Item>
             </Tabs>
         );
+
     expect(renderOnServer).not.toThrow();
 });

@@ -12,5 +12,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 src={AzureIcon32}
             />
         );
+
     expect(renderOnServer).not.toThrow();
 });

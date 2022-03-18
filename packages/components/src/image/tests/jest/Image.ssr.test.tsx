@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Image src="https://bit.ly/dan-abramov" alt="Dan Abramov" />
         );
+
     expect(renderOnServer).not.toThrow();
 });

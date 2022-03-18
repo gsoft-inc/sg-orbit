@@ -12,5 +12,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Div slot="image">Image</Div>
             </IllustratedMessage>
         );
+
     expect(renderOnServer).not.toThrow();
 });

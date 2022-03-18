@@ -14,5 +14,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Content>Fuel configuration and level</Content>
             </Tile>
         );
+
     expect(renderOnServer).not.toThrow();
 });

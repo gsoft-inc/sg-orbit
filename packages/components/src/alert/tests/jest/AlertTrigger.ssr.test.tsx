@@ -18,6 +18,7 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Alert>
             </AlertTrigger>
         );
+
     expect(renderOnServer).not.toThrow();
 });
 

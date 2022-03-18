@@ -13,5 +13,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 <Checkbox value="3">3</Checkbox>
             </CheckboxGroup>
         );
+
     expect(renderOnServer).not.toThrow();
 });

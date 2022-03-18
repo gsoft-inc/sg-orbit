@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Text>Text</Text>
         );
+
     expect(renderOnServer).not.toThrow();
 });

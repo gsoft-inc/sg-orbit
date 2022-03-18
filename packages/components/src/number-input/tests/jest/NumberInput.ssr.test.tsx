@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <NumberInput aria-label="Label" />
         );
+
     expect(renderOnServer).not.toThrow();
 });

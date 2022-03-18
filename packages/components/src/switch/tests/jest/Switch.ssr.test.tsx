@@ -9,5 +9,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
         renderToString(
             <Switch autoFocus>Engines</Switch>
         );
+
     expect(renderOnServer).not.toThrow();
 });

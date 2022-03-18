@@ -18,5 +18,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </InputGroup>
             </Field>
         );
+
     expect(renderOnServer).not.toThrow();
 });

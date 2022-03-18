@@ -22,5 +22,6 @@ test("Server-side rendering: renders on a server without crashing", () => {
                 </Field>
             </Fieldset>
         );
+
     expect(renderOnServer).not.toThrow();
 });
