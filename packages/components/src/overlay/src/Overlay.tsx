@@ -76,10 +76,10 @@ export function InnerOverlay({
         </Transition>
     );
 
-    const host = containerElement ?? getBodyElement();
+    const _container = containerElement ?? getBodyElement();
 
-    if (host) {
-        return createPortal(content, host);
+    if (_container) {
+        return createPortal(content, _container);
     }
 
     return null;
