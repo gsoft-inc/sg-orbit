@@ -71,7 +71,7 @@ export function BreakpointProvider({
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    }, [handleResize, supportsMatchMedia]);
+    }, [handleResize]);
 
     return (
         <BreakpointContext.Provider value={{ matchedBreakpoints }}>
