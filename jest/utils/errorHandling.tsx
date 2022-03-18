@@ -17,15 +17,11 @@ function muteConsoleErrors(patterns: string[]) {
 }
 
 function throwOnConsoleLogs() {
-    const error = console.error;
-    console.error = function (message) {
-        error.apply(console, arguments);
+    console.error = message => {
         throw message instanceof Error ? message : new Error(message);
     };
 
-    const warn = console.warn;
-    console.warn = function (message) {
-        warn.apply(console, arguments);
+    console.warn = message => {
         throw message instanceof Error ? message : new Error(message);
     };
 }
