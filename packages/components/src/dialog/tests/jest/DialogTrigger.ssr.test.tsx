@@ -7,7 +7,7 @@ import { Dialog, DialogTrigger } from "@components/dialog";
 import { Heading } from "@components/typography";
 import { renderToString } from "react-dom/server";
 
-test("Server-side rendering: renders on a server without crashing", () => {
+test("can render on the server", () => {
     const renderOnServer = () =>
         renderToString(
             <DialogTrigger dismissable>

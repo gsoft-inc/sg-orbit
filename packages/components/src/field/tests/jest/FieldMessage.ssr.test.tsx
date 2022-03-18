@@ -47,7 +47,7 @@ const Valid = forwardRef<HTMLElement, Omit<ValidMessageProps, "children">>((prop
 ].forEach(([Element, id]) => {
     // eslint-disable-next-line jest/valid-title
     describe(id, () => {
-        test("Server-side rendering: renders on a server without crashing", async () => {
+        test("can render on the server", async () => {
             const renderOnServer = () =>
                 renderToString(
                     <Element />

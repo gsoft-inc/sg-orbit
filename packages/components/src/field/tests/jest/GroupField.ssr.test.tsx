@@ -5,7 +5,7 @@ import { Checkbox, CheckboxGroup } from "@components/checkbox";
 import { GroupField, Label } from "@components/field";
 import { renderToString } from "react-dom/server";
 
-test("Server-side rendering: renders on a server without crashing", () => {
+test("can render on the server", () => {
     const renderOnServer = () =>
         renderToString(
             <GroupField id="foo">
