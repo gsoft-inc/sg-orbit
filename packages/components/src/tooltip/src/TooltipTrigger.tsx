@@ -1,5 +1,3 @@
-import "./Tooltip.css";
-
 import { Children, ComponentProps, FocusEvent, ReactElement, ReactNode, SyntheticEvent, forwardRef, useCallback } from "react";
 import {
     InternalProps,

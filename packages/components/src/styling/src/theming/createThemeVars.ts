@@ -1,7 +1,7 @@
 import { ColorScheme } from "../useColorScheme";
 import { ColorSchemeSection, OrbitTheme } from "./orbitTheme";
 import { Entry, JsonObject, JsonValue } from "type-fest";
-import { isArray, isNil, isNumber, isString } from "../../../shared";
+import { isArray, isBrowser, isNil, isNumber, isString } from "../../../shared";
 
 type VarsBucket = string[];
 
@@ -103,6 +103,8 @@ function appendColorSchemes<C, L, D>(
 }
 
 function renderBucket(scope: string, bucket: VarsBucket) {
+    if (!isBrowser) { return; }
+
     const element = document.createElement("style");
 
     element.setAttribute("id", scope);
