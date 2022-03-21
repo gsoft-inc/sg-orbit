@@ -7,6 +7,7 @@
     "license": "Apache-2.0",
     "main": "src/index.css",
     "style": "src/index.css",
+    "source": "src/index.css",
     "publishConfig": {
         "access": "public"
     }

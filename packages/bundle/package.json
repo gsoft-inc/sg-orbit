@@ -5,8 +5,9 @@
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
     "license": "Apache-2.0",
-    "main": "dist/index.js",
+    "main": "dist/index.mjs",
     "types": "dist/index.d.ts",
+    "source": "src/index.ts",
     "style": "dist/index.css",
     "files": [
         "/dist",
@@ -14,6 +15,7 @@
         "!/dist/**/tests/*",
         "index.css"
     ],
+    "sideEffects": false,
     "publishConfig": {
         "access": "public"
     },
@@ -22,7 +24,7 @@
         "prebuild": "yarn clean",
         "build": "run-s build:*",
         "build:types": "tsc --build ./tsconfig.build.json",
-        "build:js": "babel src -d dist --config-file ./babel.config.js --copy-files --extensions .ts,.tsx ",
+        "build:js": "babel src -d dist --config-file ./babel.config.js --out-file-extension .mjs --copy-files --extensions .ts,.tsx",
         "clean": "run-p clear-dist clear-ts-cache",
         "clear-dist": "node ../../scripts/clear-dir dist",
         "clear-ts-cache": "yarn rimraf *.tsbuildinfo",
