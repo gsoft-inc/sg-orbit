@@ -1,8 +1,8 @@
-import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useInputIcon, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef, useState } from "react";
+import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
-import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -54,22 +54,6 @@ export interface InnerTextInputProps extends AbstractTextInputProps<typeof Defau
     type?: "text" | "password" | "search" | "url" | "tel" | "email";
 }
 
-function useHasFocus() {
-    const [hasFocus, setHasFocus] = useState(false);
-
-    return {
-        hasFocus,
-        inputProps: {
-            onBlur: useEventCallback(() => {
-                setHasFocus(false);
-            }),
-            onFocus: useEventCallback(() => {
-                setHasFocus(true);
-            })
-        }
-    };
-}
-
 export function InnerTextInput(props: InnerTextInputProps) {
     const [toolbarProps] = useToolbarProps();
     const [fieldProps] = useFieldInputProps();
@@ -107,6 +91,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
         validationState,
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
+        className,
+        style,
         ...rest
     } = mergeProps(
         props,
@@ -155,9 +141,9 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
-    const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
+    const { className: wrapperClassName, style: wrapperStyle, ...inputPropsToForward } = useStyledSystem({ ...rest, className: userWrapperProps?.className, style: userWrapperProps?.style });
 
-    const { hasFocus, inputProps: inputFocusProps } = useHasFocus();
+    const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
 
     const content = (
         <>
@@ -171,7 +157,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
                     },
                     inputProps,
                     inputPropsToForward,
-                    inputFocusProps
+                    inputFocusProps,
+                    { className, style }
                 )}
             />
             {/* Otherwise an input button will receive an addon className */}
@@ -196,7 +183,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
                     )
                 },
                 wrapperProps,
-                { className, style }
+                { className: wrapperClassName, style: wrapperStyle }
             )}
         >
             {content}

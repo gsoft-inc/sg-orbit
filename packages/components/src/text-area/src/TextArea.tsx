@@ -1,7 +1,7 @@
-import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState, useEventCallback } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { useFieldInputProps } from "../../field";
 
@@ -77,22 +77,6 @@ const useFontFaceReady = () => {
 
     return ready;
 };
-
-function useHasFocus() {
-    const [hasFocus, setHasFocus] = useState(false);
-
-    return {
-        hasFocus,
-        inputProps: {
-            onBlur: useEventCallback(() => {
-                setHasFocus(false);
-            }),
-            onFocus: useEventCallback(() => {
-                setHasFocus(true);
-            })
-        }
-    };
-}
 
 function useCalculateLineHeight(input: HTMLTextAreaElement) {
     const fontsLoaded = useFontFaceReady();
@@ -219,7 +203,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
     }, [adjustRows, inputValue]);
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
-    const { hasFocus, inputProps: inputFocusProps } = useHasFocus();
+    const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
 
     const content = (
         <>
