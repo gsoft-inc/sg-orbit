@@ -25,8 +25,8 @@ export type AbstractImageProps<T extends ElementType> = SlotProps & InternalProp
      */
     shape?: "straight" | "rounded" | "circular";
     /**
-     * The path to the image.
-     */
+         * An SVG as a component.
+    */
     src?: ResponsiveProp<string>;
     /**
      * One or more strings separated by commas, indicating possible image sources for the user agent to use.

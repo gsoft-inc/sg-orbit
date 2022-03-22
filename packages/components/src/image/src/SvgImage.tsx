@@ -11,28 +11,28 @@ export interface InnerSvgImageProps extends
     Omit<InternalProps, "as">,
     Omit<SVGProps<SVGSVGElement>, keyof StyledSystemProps | OverlappingStyleProps> {
     /**
-     * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
-     */
+         * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
+         */
     "aria-label": string;
     /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill).
-     */
+         * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill).
+         */
     fill?: FillProp;
     /**
-    * The image height.
-    */
+        * The image height.
+        */
     height?: HeightProp;
     /**
-     * An SVG as a component.
-     */
+         * An SVG as a component.
+         */
     src?: ResponsiveProp<ElementType>;
     /**
-     * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
-     */
+         * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
+         */
     stroke?: StrokeProp;
     /**
-    * The image width.
-    */
+        * The image width.
+        */
     width?: WidthProp;
 }
 
