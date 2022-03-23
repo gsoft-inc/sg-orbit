@@ -1,4 +1,4 @@
-import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useInputIcon, useWrappedStyledSystemAdapter, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
@@ -95,9 +95,11 @@ export function InnerTextInput(props: InnerTextInputProps) {
         style,
         ...rest
     } = mergeProps(
-        props,
+        useWrappedStyledSystemAdapter(props),
         wrappedInputPropsAdapter(contextualProps)
     );
+
+    const { className: wrapperClassName, style: wrapperStyle, ...inputPropsToForward } = useStyledSystem({ ...rest, className: userWrapperProps?.className, style: userWrapperProps?.style });
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
@@ -140,8 +142,6 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const iconMarkup = useInputIcon(icon, { disabled });
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
-
-    const { className: wrapperClassName, style: wrapperStyle, ...inputPropsToForward } = useStyledSystem({ ...rest, className: userWrapperProps?.className, style: userWrapperProps?.style });
 
     const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
 
