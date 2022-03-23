@@ -1,7 +1,10 @@
 node_modules
 dist
-*.jsx
+*.js
+*.ts
 *.tsx
+*.cjs
 *.md
 *.mdx
 *.svg
+*.json

@@ -12,7 +12,6 @@ import { Themes } from "./styles/themes";
 
 /* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
-
 createThemeVars([ShareGateTheme]);
 
 if (!isChromatic) {
