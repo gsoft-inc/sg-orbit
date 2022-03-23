@@ -1,6 +1,5 @@
-import { AbstractInputProps, useInput, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useInput, useInputIcon, useMoveStylingPropsToWrapper } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { CaretIcon } from "../../icons";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
 import {
@@ -17,7 +16,9 @@ import {
     useFocusWithin,
     useRefState
 } from "../../shared";
-import { ResponsiveProp, useResponsiveValue, useStyledSystem } from "../../styling";
+import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
+import { CaretIcon } from "../../icons";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -197,10 +198,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         value: valueProp,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
-    } = mergeProps(
-        props,
-        wrappedInputPropsAdapter(contextualProps)
-    );
+    } = useMoveStylingPropsToWrapper(props, contextualProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
@@ -341,14 +339,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
-    const { className, style, ...inputPropsToForward } = useStyledSystem(rest);
-
     const content = (
         <>
             {iconMarkup}
             <Box
                 {...mergeProps(
-                    inputPropsToForward,
+                    rest,
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
@@ -390,8 +386,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                         )
                     )
                 },
-                focusWithinProps,
-                { className, style }
+                focusWithinProps
             )}
         >
             {content}

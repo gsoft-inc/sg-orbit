@@ -1,6 +1,5 @@
 import { AbstractTextInputProps, TextInput } from "../../text-input";
 import { ChangeEvent, ComponentProps, KeyboardEvent, SyntheticEvent, forwardRef, useCallback } from "react";
-import { CrossButton } from "../../button";
 import {
     Keys,
     OmitInternalProps,
@@ -13,9 +12,11 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
+
+import { CrossButton } from "../../button";
 import { MagnifierIcon } from "../../icons";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { wrappedInputPropsAdapter } from "../../input";
+import { useMoveStylingPropsToWrapper } from "../../input";
 
 const DefaultElement = "input";
 
@@ -43,10 +44,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = mergeProps(
-        props,
-        wrappedInputPropsAdapter(inputGroupProps)
-    );
+    } = useMoveStylingPropsToWrapper(props, inputGroupProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 

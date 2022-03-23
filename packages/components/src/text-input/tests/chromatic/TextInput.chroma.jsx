@@ -1,6 +1,7 @@
+import { Inline, Stack } from "@components/layout";
+
 import { CrossButton } from "@components/button";
 import { Div } from "@components/html";
-import { Inline, Stack } from "@components/layout";
 import { MagnifierIcon } from "@components/icons";
 import { TextInput } from "@components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
@@ -12,6 +13,9 @@ function stories(segment) {
 }
 
 stories()
+    .add("test", () =>
+        <TextInput aria-label="Label" marginTop={10} />
+    )
     .add("default", () =>
         <Stack>
             <TextInput aria-label="Label" />

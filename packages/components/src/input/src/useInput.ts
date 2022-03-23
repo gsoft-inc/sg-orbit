@@ -1,6 +1,7 @@
-import { ChangeEvent, ChangeEventHandler, ForwardedRef, useState } from "react";
-import { ValidationState } from "./types";
+import { ChangeEvent, ChangeEventHandler, ForwardedRef } from "react";
 import { cssModule, isNil, isNumber, mergeClasses, useAutoFocus, useEventCallback, useMergedRefs } from "../../shared";
+
+import { ValidationState } from "./types";
 
 export interface UseInputProps {
     active?: boolean;
@@ -20,22 +21,6 @@ export interface UseInputProps {
     type?: "text" | "password" | "search" | "url" | "tel" | "email" | "number";
     validationState?: ValidationState;
     value?: string | number;
-}
-
-export function useInputHasFocus() {
-    const [hasFocus, setHasFocus] = useState(false);
-
-    return {
-        hasFocus,
-        inputProps: {
-            onBlur: useEventCallback(() => {
-                setHasFocus(false);
-            }),
-            onFocus: useEventCallback(() => {
-                setHasFocus(true);
-            })
-        }
-    };
 }
 
 export function useInput({

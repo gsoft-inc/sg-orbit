@@ -1,8 +1,9 @@
-import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useMoveStylingPropsToWrapper } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "textarea";
@@ -137,10 +138,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
-    } = mergeProps(
-        props,
-        wrappedInputPropsAdapter(fieldProps)
-    );
+    } = useMoveStylingPropsToWrapper(props, fieldProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
@@ -202,8 +200,9 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         adjustRows();
     }, [adjustRows, inputValue]);
 
-    const buttonMarkup = useInputButton(button, !disabled && !readOnly);
     const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
+
+    const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
     const content = (
         <>

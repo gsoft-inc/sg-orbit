@@ -1,4 +1,4 @@
-import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, useMoveStylingPropsToWrapper } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
@@ -97,7 +97,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
-    const contextualProps = mergeProps(
+    const contextProps = mergeProps(
         fieldProps,
         inputGroupProps
     );
@@ -142,10 +142,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         wrapperProps,
         zIndex = 10000,
         ...rest
-    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
-        props,
-        wrappedInputPropsAdapter(contextualProps)
-    );
+    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = useMoveStylingPropsToWrapper(props, contextProps);
 
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");
@@ -415,6 +412,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         icon: iconMarkup ?? null,
                         id: triggerId,
                         loading: useDeferredValue(loading, 100, false),
+                        name,
                         onKeyDown: handleTriggerKeyDown,
                         onValueChange: handleTriggerChange,
                         placeholder,
