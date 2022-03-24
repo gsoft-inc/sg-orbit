@@ -1,4 +1,6 @@
-import { mergeProps } from "../../shared";
+import { isNil, mergeProps } from "../../shared";
+
+import { CSSProperties } from "react";
 import { useStyledSystem } from "../../styling";
 
 // export interface WrappedStyledSystemAdapterInputProps<P extends {
@@ -22,26 +24,32 @@ function useMoveStyledPropsToWrapper<TProps extends Record<string, any>>({ class
         ...props,
         className,
         style,
-        wrapperProps: {
-            ...(wrapperProps ?? {}),
-            className: wrapperClassName,
-            style: wrapperStyle
-        }
+        wrapperProps: isNil(wrapperProps) && isNil(wrapperClassName) && isNil(wrapperStyle)
+            ? undefined
+            : {
+                ...(wrapperProps ?? {}),
+                className: wrapperClassName,
+                style: wrapperStyle
+            }
     };
 }
 
 interface AdaptedInputStyleProps {
     wrapperProps: {
         className?: string;
+        style?: CSSProperties;
     };
 }
 
-function moveContextStylePropsToWrapper<P extends { className?: string }>({ className, ...rest }: P): Omit<P, "className"> & AdaptedInputStyleProps {
+function moveContextStylePropsToWrapper<P extends { className?: string; style?: CSSProperties }>({ className, style, ...rest }: P): Omit<P, "className" | "style"> & AdaptedInputStyleProps {
     return {
         ...rest,
-        wrapperProps: {
-            className
-        }
+        wrapperProps: isNil(className) && isNil(style)
+            ? undefined
+            : {
+                className,
+                style
+            }
     };
 }
 
@@ -54,10 +62,12 @@ export function useMoveStylingPropsToWrapper<TInputProps extends Record<string, 
         adaptedInputProps,
         adaptedContextProps,
         {
-            wrapperProps: mergeProps(
-                styledWrapperProps,
-                contextWrapperProps
-            )
+            wrapperProps: isNil(styledWrapperProps) && isNil(contextWrapperProps)
+                ? undefined
+                : mergeProps(
+                    styledWrapperProps ?? {},
+                    contextWrapperProps ?? {}
+                )
         }
     );
 }
