@@ -62,6 +62,10 @@ export function BreakpointProvider({
     }, 50);
 
     useEffect(() => {
+        if (!supportsMatchMedia) {
+            return;
+        }
+
         window.addEventListener("resize", handleResize);
 
         return () => {

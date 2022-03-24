@@ -16,6 +16,17 @@ function muteConsoleErrors(patterns: string[]) {
     };
 }
 
+function throwOnConsoleLogs() {
+    console.error = message => {
+        throw message instanceof Error ? message : new Error(message);
+    };
+
+    console.warn = message => {
+        throw message instanceof Error ? message : new Error(message);
+    };
+}
+
+
 interface ErrorBoundaryProps {
     onError: (error: Error) => void;
     children?: ReactNode;
@@ -53,4 +64,4 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> 
     }
 }
 
-export { muteConsoleErrors, ErrorBoundary }
+export { muteConsoleErrors, ErrorBoundary, throwOnConsoleLogs }
