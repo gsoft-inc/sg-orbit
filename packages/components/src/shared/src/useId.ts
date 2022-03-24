@@ -1,10 +1,8 @@
 import { isNil } from "./assertions";
-import { useMemo } from "react";
-
-let id = 0;
+import { useId as useAutoId } from "@reach/auto-id";
 
 export function useId(userId?: string, prefix?: string) {
-    const [uuid] = useMemo(() => (++id).toString(), []);
+    const uuid = useAutoId();
 
     if (!isNil(userId)) {
         return userId;

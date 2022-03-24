@@ -1,5 +1,3 @@
-import "./Listbox.css";
-
 import { Box } from "../../box";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";

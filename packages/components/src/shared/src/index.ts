@@ -14,6 +14,7 @@ export * from "./arrayify";
 export * from "./resolveChildren";
 export * from "./focusableTreeWalker";
 export * from "./as";
+export * from "./dom";
 
 // Hooks
 export * from "./useMergedRefs";
@@ -36,6 +37,7 @@ export * from "./useForceRender";
 export * from "./useResizeObserver";
 export * from "./useRefState";
 export * from "./useFocusWithin";
+export * from "./useIsomorphicLayoutEffect";
 
 // Features
 export * from "./slots";

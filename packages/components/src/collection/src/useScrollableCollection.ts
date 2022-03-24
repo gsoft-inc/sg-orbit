@@ -1,6 +1,6 @@
 import { CollectionNode } from "./useCollection";
-import { RefObject, useLayoutEffect, useState } from "react";
-import { isNil } from "../../shared";
+import { RefObject, useState } from "react";
+import { isNil, useIsomorphicLayoutEffect } from "../../shared";
 
 interface UseScrollableCollectionOptions {
     borderHeight?: number;
@@ -43,7 +43,7 @@ export function useScrollableCollection(containerRef: RefObject<Element>, nodes:
     }: UseScrollableCollectionOptions = {}) {
     const [collectionHeight, setCollectionHeight] = useState<string>();
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         if (!disabled) {
             if (!isNil(containerRef.current)) {
                 const adjustedMaxHeight = maxHeight + borderHeight + paddingHeight;

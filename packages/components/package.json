@@ -44,7 +44,8 @@
         "react-is": "17.0.2",
         "text-mask-core": "5.1.2",
         "type-fest": "2.9.0",
-        "use-debounce": "7.0.1"
+        "use-debounce": "7.0.1",
+        "@reach/auto-id" : "0.16.0"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
