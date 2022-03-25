@@ -1,7 +1,8 @@
+import { isNil, useEventCallback } from "../../shared";
+
 import { RadioGroup } from "../../radio";
 import { SyntheticEvent } from "react";
 import { ToggleButton } from "../../button";
-import { isNil, useEventCallback } from "../../shared";
 
 export interface ButtonPresetsProps {
     "aria-describedby"?: string;

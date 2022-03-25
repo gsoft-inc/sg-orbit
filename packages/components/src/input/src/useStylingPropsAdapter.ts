@@ -49,7 +49,7 @@ function moveContextStylePropsToWrapper<TProps extends Record<string, any>>({ cl
     } as Omit<TProps, keyof CssProps> & WrapperProps;
 }
 
-export type ExtractWrapperProps<T> = T extends { wrapperProps?: infer U } ? U & CssProps : CssProps;
+export type ExtractWrapperProps<T> = T extends { wrapperProps?: infer TWrapperProps } ? TWrapperProps & CssProps : CssProps;
 
 export function useStylingPropsAdapter<TInputProps extends Record<string, any>, TContextProps extends Record<string, any>>(inputProps: TInputProps, contextProps: TContextProps) {
     const { wrapperProps: styledWrapperProps, ...adaptedInputProps } = useMoveStyledSystemPropsToWrapper(inputProps);
