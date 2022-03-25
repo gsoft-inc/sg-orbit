@@ -1,4 +1,4 @@
-import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useInputIcon, useMoveStylingPropsToWrapper } from "../../input";
+import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useInputIcon, useStylingPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
@@ -95,7 +95,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
         className,
         style,
         ...rest
-    } = useMoveStylingPropsToWrapper(props, contextProps);
+    } = useStylingPropsAdapter(props, contextProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");

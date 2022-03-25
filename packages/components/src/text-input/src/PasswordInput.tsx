@@ -5,8 +5,8 @@ import { OmitInternalProps, mergeProps, useControllableState, useEventCallback }
 
 import { IconButton } from "../../button";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { useMoveStylingPropsToWrapper } from "../../input";
 import { useState } from "react";
+import { useStylingPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
@@ -22,7 +22,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = useMoveStylingPropsToWrapper(props, inputGroupProps);
+    } = useStylingPropsAdapter(props, inputGroupProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);

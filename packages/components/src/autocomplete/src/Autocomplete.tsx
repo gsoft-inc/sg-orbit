@@ -1,4 +1,4 @@
-import { AbstractInputProps, useMoveStylingPropsToWrapper } from "../../input";
+import { AbstractInputProps, useStylingPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
@@ -142,7 +142,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         wrapperProps,
         zIndex = 10000,
         ...rest
-    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = useMoveStylingPropsToWrapper(props, contextProps);
+    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = useStylingPropsAdapter(props, contextProps);
 
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");

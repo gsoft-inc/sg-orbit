@@ -1,8 +1,8 @@
 import { renderHook } from "@testing-library/react-hooks";
-import { useMoveStylingPropsToWrapper } from "@components/input";
+import { useStylingPropsAdapter } from "@components/input";
 
 test("when the input have a className prop, return the className value as a root prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ className: "earth" }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ className: "earth" }, {}));
 
     expect(result.current.className).toBe("earth");
     expect(result.current.wrapperProps).toBeUndefined();
@@ -13,14 +13,14 @@ test("when the input have a style prop, return the style value as a root prop", 
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ style: styleProp }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ style: styleProp }, {}));
 
     expect(result.current.style).toBe(styleProp);
     expect(result.current.wrapperProps).toBeUndefined();
 });
 
 test("when the input wrapper have a className prop, return the className value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ wrapperProps: { className: "earth" } }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ wrapperProps: { className: "earth" } }, {}));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("earth");
@@ -31,21 +31,21 @@ test("when the input wrapper have a style prop, return the style value as a wrap
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ wrapperProps: { style: styleProp } }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ wrapperProps: { style: styleProp } }, {}));
 
     expect(result.current.style).toBeUndefined();
     expect(result.current.wrapperProps.style).toEqual(styleProp);
 });
 
 test("when the input have styled props outputting classes, return the styled props resulting className value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ borderHover: "1px solid red" }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ borderHover: "1px solid red" }, {}));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("o-ui-b-hover");
 });
 
 test("when the input have styled props outputting style values, return the styled props resulting values as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ marginTop: 10 }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ marginTop: 10 }, {}));
 
     expect(result.current.style).toBeUndefined();
 
@@ -55,7 +55,7 @@ test("when the input have styled props outputting style values, return the style
 });
 
 test("when the context props have a className prop, return the className value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({}, { className: "earth" }));
+    const { result } = renderHook(() => useStylingPropsAdapter({}, { className: "earth" }));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("earth");
@@ -66,14 +66,14 @@ test("when the context props have a style prop, return the styles value as a wra
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({}, { style: styleProp }));
+    const { result } = renderHook(() => useStylingPropsAdapter({}, { style: styleProp }));
 
     expect(result.current.style).toBeUndefined();
     expect(result.current.wrapperProps.style).toEqual(styleProp);
 });
 
 test("when the input wrapper have a className prop and the context props have a className prop, return the merged value as as wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ wrapperProps: { className: "earth" } }, { className: "saturn" }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ wrapperProps: { className: "earth" } }, { className: "saturn" }));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("earth saturn");
@@ -88,7 +88,7 @@ test("when the input wrapper have a style prop and the context prop have a style
         color: "blue"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ wrapperProps: { style: wrapperStyleProp } }, { style: contextStyleProp }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ wrapperProps: { style: wrapperStyleProp } }, { style: contextStyleProp }));
 
     expect(result.current.style).toBeUndefined();
 
@@ -99,7 +99,7 @@ test("when the input wrapper have a style prop and the context prop have a style
 });
 
 test("when the input have styled props outputting classes and also have a wrapper className prop, return the merged value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ borderHover: "1px solid red", wrapperProps: { className: "earth" } }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ borderHover: "1px solid red", wrapperProps: { className: "earth" } }, {}));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("earth o-ui-b-hover");
@@ -110,7 +110,7 @@ test("when the input have styled props outputting style values and also have a w
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ marginTop: 10, wrapperProps: { style: wrapperStyleProp } }, {}));
+    const { result } = renderHook(() => useStylingPropsAdapter({ marginTop: 10, wrapperProps: { style: wrapperStyleProp } }, {}));
 
     expect(result.current.style).toBeUndefined();
 
@@ -121,7 +121,7 @@ test("when the input have styled props outputting style values and also have a w
 });
 
 test("when the input have styled props outputting classes and the context props have a className prop, return the merged value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ borderHover: "1px solid red" }, { className: "earth" }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ borderHover: "1px solid red" }, { className: "earth" }));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("o-ui-b-hover earth");
@@ -132,7 +132,7 @@ test("when the input have styled props outputting style values and the context p
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ marginTop: 10 }, { style: contextStyleProp }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ marginTop: 10 }, { style: contextStyleProp }));
 
     expect(result.current.style).toBeUndefined();
 
@@ -143,7 +143,7 @@ test("when the input have styled props outputting style values and the context p
 });
 
 test("when the input have styled props outputting classes, the wrapper have a className prop and the context props have a className prop, return the merge value as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ borderHover: "1px solid red", wrapperProps: { className: "earth" } }, { className: "saturn" }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ borderHover: "1px solid red", wrapperProps: { className: "earth" } }, { className: "saturn" }));
 
     expect(result.current.className).toBeUndefined();
     expect(result.current.wrapperProps.className).toBe("earth o-ui-b-hover saturn");
@@ -158,7 +158,7 @@ test("when the input have styled props outputting style values, the wrapper have
         border: "1px solid red"
     };
 
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ marginTop: 10, wrapperProps: { style: wrapperStyleProp } }, { style: contextStyleProp }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ marginTop: 10, wrapperProps: { style: wrapperStyleProp } }, { style: contextStyleProp }));
 
     expect(result.current.style).toBeUndefined();
 
@@ -170,7 +170,7 @@ test("when the input have styled props outputting style values, the wrapper have
 });
 
 test("when the input have a className prop and the context props have a className prop, return the input className value as a root prop and the context className prop as a wrapper prop", () => {
-    const { result } = renderHook(() => useMoveStylingPropsToWrapper({ className: "earth" }, { className: "saturn" }));
+    const { result } = renderHook(() => useStylingPropsAdapter({ className: "earth" }, { className: "saturn" }));
 
     expect(result.current.className).toBe("earth");
     expect(result.current.wrapperProps.className).toBe("saturn");

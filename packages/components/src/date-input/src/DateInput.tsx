@@ -1,4 +1,4 @@
-import { AbstractInputProps, useMoveStylingPropsToWrapper } from "../../input";
+import { AbstractInputProps, useStylingPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import {
     ChangeEvent,
@@ -82,7 +82,7 @@ const Input = forwardRef<any, any>((props, ref) => {
         value,
         wrapperProps,
         ...rest
-    } = useMoveStylingPropsToWrapper(props, inputGroupProps);
+    } = useStylingPropsAdapter(props, inputGroupProps);
 
     const dateProps = useDateInput({
         forwardedRef: ref,
