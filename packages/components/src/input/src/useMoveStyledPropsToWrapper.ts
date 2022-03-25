@@ -1,19 +1,17 @@
-import { isNil, mergeProps } from "../../shared";
+import { StyledComponentProps, isNil, mergeProps } from "../../shared";
 
 import { CSSProperties } from "react";
 import { useStyledSystem } from "../../styling";
 
-// export interface WrappedStyledSystemAdapterInputProps<P extends {
-//     [str: string]: any;
-//     className?: string;
-//     style?: Record<string, any>;
-// }> {
-//     className?: string;
-//     style?: Record<string, any>;
-//     wrapperProps?: P;
-// }
+interface StyleObject {
+    className?: string;
+    style?: CSSProperties;
+}
+export interface UseMoveStylingPropsToWrapperInputProps extends StyleObject, StyledComponentProps<any> {
+    wrapperProps?: StyleObject;
+}
 
-function useMoveStyledPropsToWrapper<TProps extends Record<string, any>>({ className, style, wrapperProps, ...rest }: TProps) {
+function useMoveStyledPropsToWrapper<TProps extends UseMoveStylingPropsToWrapperInputProps>({ className, style, wrapperProps, ...rest }: TProps) {
     const { className: wrapperClassName, style: wrapperStyle, ...props } = useStyledSystem({
         ...rest,
         className: wrapperProps?.className,
@@ -35,13 +33,10 @@ function useMoveStyledPropsToWrapper<TProps extends Record<string, any>>({ class
 }
 
 interface AdaptedInputStyleProps {
-    wrapperProps: {
-        className?: string;
-        style?: CSSProperties;
-    };
+    wrapperProps: StyleObject;
 }
 
-function moveContextStylePropsToWrapper<P extends { className?: string; style?: CSSProperties }>({ className, style, ...rest }: P): Omit<P, "className" | "style"> & AdaptedInputStyleProps {
+function moveContextStylePropsToWrapper<P extends StyleObject>({ className, style, ...rest }: P): Omit<P, "className" | "style"> & AdaptedInputStyleProps {
     return {
         ...rest,
         wrapperProps: isNil(className) && isNil(style)
@@ -53,7 +48,9 @@ function moveContextStylePropsToWrapper<P extends { className?: string; style?: 
     };
 }
 
-export function useMoveStylingPropsToWrapper<TInputProps extends Record<string, any>, TContextProps extends Record<string, any>>(inputProps: TInputProps, contextProps: TContextProps) {
+export type ExtractWrapperProps<T> = T extends { wrapperProps?: infer U } ? U & StyleObject : StyleObject;
+
+export function useMoveStylingPropsToWrapper<TInputProps extends UseMoveStylingPropsToWrapperInputProps, TContextProps extends StyleObject>(inputProps: TInputProps, contextProps: TContextProps) {
     const { wrapperProps: styledWrapperProps, ...adaptedInputProps } = useMoveStyledPropsToWrapper(inputProps);
 
     const { wrapperProps: contextWrapperProps, ...adaptedContextProps } = moveContextStylePropsToWrapper(contextProps);
@@ -67,7 +64,7 @@ export function useMoveStylingPropsToWrapper<TInputProps extends Record<string, 
                 : mergeProps(
                     styledWrapperProps ?? {},
                     contextWrapperProps ?? {}
-                )
+                ) as ExtractWrapperProps<TInputProps>
         }
     );
 }
