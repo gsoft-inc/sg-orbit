@@ -22,8 +22,8 @@ import {
 
 import { ComponentProps } from "react";
 import { renderWithTheme } from "@jest-utils";
-import renderer from "react-test-renderer";
 import { waitFor } from "@testing-library/react";
+import renderer from "react-test-renderer";
 
 const AlignmentSampling = [
     "start",
