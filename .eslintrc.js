@@ -3,7 +3,6 @@ module.exports = {
     plugins: ["jest"],
     extends: [
         "@sharegate/eslint-config-recommended",
-        "@sharegate/eslint-config-sort-imports",
         "plugin:jest/recommended"
     ],
     parserOptions: {
