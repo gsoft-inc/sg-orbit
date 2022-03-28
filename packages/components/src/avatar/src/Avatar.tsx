@@ -32,6 +32,10 @@ export interface InnerAvatarProps extends SlotProps, InternalProps, StyledCompon
      */
     retryCount?: number;
     /**
+     * The allowed number of retry to load a remote image.
+     */
+    retryCount?: number;
+    /**
      * An avatar can vary in size.
      */
     size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl">;
