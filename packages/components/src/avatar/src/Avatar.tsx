@@ -38,7 +38,7 @@ export interface InnerAvatarProps extends SlotProps, InternalProps, StyledCompon
     /**
      * The url of a remote image or an image object.
      */
-    src?: ResponsiveProp<string>;
+    src?: string;
 }
 
 function AvatarImage({
@@ -48,11 +48,9 @@ function AvatarImage({
     size,
     src
 }: any) {
-    const srcValue = useResponsiveValue(src);
-
-    if (!isString(srcValue)) {
+    if (!isString(src)) {
         return (
-            <Img alt={name} className="o-ui-avatar-image" src={srcValue} />
+            <Img alt={name} className="o-ui-avatar-image" src={src} />
         );
     }
 
@@ -61,7 +59,7 @@ function AvatarImage({
             alt={name}
             className="o-ui-avatar-image"
             retryCount={retryCount}
-            src={srcValue}
+            src={src}
         >
             <AvatarInitials
                 aria-label={ariaLabel}
@@ -216,4 +214,3 @@ export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvat
 )));
 
 export type AvatarProps = ComponentProps<typeof Avatar>;
-

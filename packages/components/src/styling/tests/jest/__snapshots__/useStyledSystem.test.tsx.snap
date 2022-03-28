@@ -6537,7 +6537,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "backgroundColor": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -6549,14 +6557,23 @@ Array [
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-purple-4)",
+        "backgroundColor": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-purple-4)",
+        "backgroundColor": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -7641,7 +7658,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-bg-active"
@@ -7655,7 +7681,11 @@ Array [
     className="o-ui-bg-active"
     style={
       Object {
-        "--o-ui-bg-active": "var(--o-ui-purple-4)",
+        "--o-ui-bg-active": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -7663,7 +7693,12 @@ Array [
     className="o-ui-bg-active"
     style={
       Object {
-        "--o-ui-bg-active": "var(--o-ui-purple-4)",
+        "--o-ui-bg-active": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -8752,7 +8787,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
+        "--o-ui-bg-focus": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-bg-focus"
@@ -8766,7 +8810,11 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
-        "--o-ui-bg-focus": "var(--o-ui-purple-4)",
+        "--o-ui-bg-focus": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -8774,7 +8822,12 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
-        "--o-ui-bg-focus": "var(--o-ui-purple-4)",
+        "--o-ui-bg-focus": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -9863,7 +9916,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-bg-hover"
@@ -9877,7 +9939,11 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-purple-4)",
+        "--o-ui-bg-hover": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -9885,7 +9951,12 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-purple-4)",
+        "--o-ui-bg-hover": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -11920,7 +11991,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "borderBottomLeftRadius": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -11932,7 +12011,12 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "4px",
+        "borderBottomLeftRadius": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -12088,7 +12172,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "borderBottomRightRadius": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -12100,7 +12192,12 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "4px",
+        "borderBottomRightRadius": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -18465,7 +18562,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "borderRadius": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -18477,7 +18582,12 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "4px",
+        "borderRadius": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -22931,7 +23041,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "borderTopLeftRadius": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -22943,7 +23061,12 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "4px",
+        "borderTopLeftRadius": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -23099,7 +23222,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "borderTopRightRadius": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -23111,7 +23242,12 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "4px",
+        "borderTopRightRadius": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -28643,7 +28779,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "bottom": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -28655,7 +28799,12 @@ Array [
   <div
     style={
       Object {
-        "bottom": "4px",
+        "bottom": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -29867,7 +30016,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "color": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -29879,14 +30036,23 @@ Array [
   <div
     style={
       Object {
-        "color": "var(--o-ui-purple-4)",
+        "color": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
   <div
     style={
       Object {
-        "color": "var(--o-ui-purple-4)",
+        "color": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -30747,7 +30913,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-c-active"
@@ -30761,7 +30936,11 @@ Array [
     className="o-ui-c-active"
     style={
       Object {
-        "--o-ui-c-active": "var(--o-ui-purple-4)",
+        "--o-ui-c-active": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -30769,7 +30948,12 @@ Array [
     className="o-ui-c-active"
     style={
       Object {
-        "--o-ui-c-active": "var(--o-ui-purple-4)",
+        "--o-ui-c-active": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -31634,7 +31818,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
+        "--o-ui-c-focus": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-c-focus"
@@ -31648,7 +31841,11 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
-        "--o-ui-c-focus": "var(--o-ui-purple-4)",
+        "--o-ui-c-focus": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -31656,7 +31853,12 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
-        "--o-ui-c-focus": "var(--o-ui-purple-4)",
+        "--o-ui-c-focus": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -32521,7 +32723,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-c-hover"
@@ -32535,7 +32746,11 @@ Array [
     className="o-ui-c-hover"
     style={
       Object {
-        "--o-ui-c-hover": "var(--o-ui-purple-4)",
+        "--o-ui-c-hover": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -32543,7 +32758,12 @@ Array [
     className="o-ui-c-hover"
     style={
       Object {
-        "--o-ui-c-hover": "var(--o-ui-purple-4)",
+        "--o-ui-c-hover": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -32752,7 +32972,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "columnGap": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -32764,7 +32992,12 @@ Array [
   <div
     style={
       Object {
-        "columnGap": "4px",
+        "columnGap": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -33848,7 +34081,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "fill": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -33860,14 +34101,23 @@ Array [
   <div
     style={
       Object {
-        "fill": "var(--o-ui-purple-4)",
+        "fill": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
   <div
     style={
       Object {
-        "fill": "var(--o-ui-purple-4)",
+        "fill": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -34728,7 +34978,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-f-focus"
@@ -34742,7 +35001,11 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-purple-4)",
+        "--o-ui-f-focus": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -34750,7 +35013,12 @@ Array [
     className="o-ui-f-focus"
     style={
       Object {
-        "--o-ui-f-focus": "var(--o-ui-purple-4)",
+        "--o-ui-f-focus": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -35615,7 +35883,16 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    className="o-ui-f-hover"
+    style={
+      Object {
+        "--o-ui-f-hover": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     className="o-ui-f-hover"
@@ -35629,7 +35906,11 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-purple-4)",
+        "--o-ui-f-hover": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -35637,7 +35918,12 @@ Array [
     className="o-ui-f-hover"
     style={
       Object {
-        "--o-ui-f-hover": "var(--o-ui-purple-4)",
+        "--o-ui-f-hover": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -35823,7 +36109,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "flex": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -35835,7 +36129,12 @@ Array [
   <div
     style={
       Object {
-        "flex": "4px",
+        "flex": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -35991,7 +36290,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "flexBasis": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -36003,7 +36310,12 @@ Array [
   <div
     style={
       Object {
-        "flexBasis": "4px",
+        "flexBasis": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -36534,7 +36846,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "fontSize": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -36546,7 +36866,12 @@ Array [
   <div
     style={
       Object {
-        "fontSize": "4px",
+        "fontSize": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -36862,7 +37187,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "gap": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -36874,7 +37207,12 @@ Array [
   <div
     style={
       Object {
-        "gap": "4px",
+        "gap": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -37229,7 +37567,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "gridAutoColumns": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -37241,7 +37587,12 @@ Array [
   <div
     style={
       Object {
-        "gridAutoColumns": "4px",
+        "gridAutoColumns": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -37577,7 +37928,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "gridAutoRows": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -37589,7 +37948,12 @@ Array [
   <div
     style={
       Object {
-        "gridAutoRows": "4px",
+        "gridAutoRows": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -38460,7 +38824,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "gridTemplateColumns": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -38472,7 +38844,12 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateColumns": "4px",
+        "gridTemplateColumns": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -38740,7 +39117,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "gridTemplateRows": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -38752,7 +39137,12 @@ Array [
   <div
     style={
       Object {
-        "gridTemplateRows": "4px",
+        "gridTemplateRows": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -39020,7 +39410,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "height": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -39032,7 +39430,12 @@ Array [
   <div
     style={
       Object {
-        "height": "4px",
+        "height": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -39581,7 +39984,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "left": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -39593,7 +40004,12 @@ Array [
   <div
     style={
       Object {
-        "left": "4px",
+        "left": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -39810,7 +40226,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "lineHeight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -39822,7 +40246,12 @@ Array [
   <div
     style={
       Object {
-        "lineHeight": "4px",
+        "lineHeight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -40034,7 +40463,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "margin": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -40046,7 +40483,12 @@ Array [
   <div
     style={
       Object {
-        "margin": "4px",
+        "margin": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -40244,7 +40686,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginBottom": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -40256,7 +40706,12 @@ Array [
   <div
     style={
       Object {
-        "marginBottom": "4px",
+        "marginBottom": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -40454,7 +40909,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginLeft": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -40466,7 +40929,12 @@ Array [
   <div
     style={
       Object {
-        "marginLeft": "4px",
+        "marginLeft": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -40664,7 +41132,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginRight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -40676,7 +41152,12 @@ Array [
   <div
     style={
       Object {
-        "marginRight": "4px",
+        "marginRight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -40874,7 +41355,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginTop": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -40886,7 +41375,12 @@ Array [
   <div
     style={
       Object {
-        "marginTop": "4px",
+        "marginTop": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -41107,7 +41601,18 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginLeft": Object {
+          "s": "2px",
+        },
+        "marginRight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -41120,8 +41625,18 @@ Array [
   <div
     style={
       Object {
-        "marginLeft": "4px",
-        "marginRight": "4px",
+        "marginLeft": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
+        "marginRight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -41346,7 +41861,18 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "marginBottom": Object {
+          "s": "2px",
+        },
+        "marginTop": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -41359,8 +41885,18 @@ Array [
   <div
     style={
       Object {
-        "marginBottom": "4px",
-        "marginTop": "4px",
+        "marginBottom": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
+        "marginTop": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -41597,7 +42133,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "maxHeight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -41609,7 +42153,12 @@ Array [
   <div
     style={
       Object {
-        "maxHeight": "4px",
+        "maxHeight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -41877,7 +42426,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "maxWidth": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -41889,7 +42446,12 @@ Array [
   <div
     style={
       Object {
-        "maxWidth": "4px",
+        "maxWidth": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -42157,7 +42719,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "minHeight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -42169,7 +42739,12 @@ Array [
   <div
     style={
       Object {
-        "minHeight": "4px",
+        "minHeight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -42437,7 +43012,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "minWidth": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -42449,7 +43032,12 @@ Array [
   <div
     style={
       Object {
-        "minWidth": "4px",
+        "minWidth": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -43419,7 +44007,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "padding": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -43431,7 +44027,12 @@ Array [
   <div
     style={
       Object {
-        "padding": "4px",
+        "padding": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -43629,7 +44230,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingBottom": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -43641,7 +44250,12 @@ Array [
   <div
     style={
       Object {
-        "paddingBottom": "4px",
+        "paddingBottom": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -43839,7 +44453,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingLeft": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -43851,7 +44473,12 @@ Array [
   <div
     style={
       Object {
-        "paddingLeft": "4px",
+        "paddingLeft": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -44049,7 +44676,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingRight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -44061,7 +44696,12 @@ Array [
   <div
     style={
       Object {
-        "paddingRight": "4px",
+        "paddingRight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -44259,7 +44899,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingTop": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -44271,7 +44919,12 @@ Array [
   <div
     style={
       Object {
-        "paddingTop": "4px",
+        "paddingTop": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -44492,7 +45145,18 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingLeft": Object {
+          "s": "2px",
+        },
+        "paddingRight": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -44505,8 +45169,18 @@ Array [
   <div
     style={
       Object {
-        "paddingLeft": "4px",
-        "paddingRight": "4px",
+        "paddingLeft": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
+        "paddingRight": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -44731,7 +45405,18 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "paddingBottom": Object {
+          "s": "2px",
+        },
+        "paddingTop": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -44744,8 +45429,18 @@ Array [
   <div
     style={
       Object {
-        "paddingBottom": "4px",
-        "paddingTop": "4px",
+        "paddingBottom": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
+        "paddingTop": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -45109,7 +45804,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "right": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -45121,7 +45824,12 @@ Array [
   <div
     style={
       Object {
-        "right": "4px",
+        "right": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -45319,7 +46027,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "rowGap": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -45331,7 +46047,12 @@ Array [
   <div
     style={
       Object {
-        "rowGap": "4px",
+        "rowGap": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -46089,7 +46810,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "stroke": Object {
+          "s": "purple-2",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -46101,14 +46830,23 @@ Array [
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-purple-4)",
+        "stroke": Object {
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
   <div
     style={
       Object {
-        "stroke": "var(--o-ui-purple-4)",
+        "stroke": Object {
+          "base": "purple-1",
+          "lg": "purple-4",
+          "md": "purple-3",
+          "s": "purple-2",
+        },
       }
     }
   />,
@@ -46473,7 +47211,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "top": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -46485,7 +47231,12 @@ Array [
   <div
     style={
       Object {
-        "top": "4px",
+        "top": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
@@ -47194,7 +47945,15 @@ Array [
       }
     }
   />,
-  <div />,
+  <div
+    style={
+      Object {
+        "width": Object {
+          "s": "2px",
+        },
+      }
+    }
+  />,
   <div />,
   <div
     style={
@@ -47206,7 +47965,12 @@ Array [
   <div
     style={
       Object {
-        "width": "4px",
+        "width": Object {
+          "base": "1px",
+          "lg": "4px",
+          "md": "3px",
+          "s": "2px",
+        },
       }
     }
   />,
