@@ -971,13 +971,9 @@ Array [
     }
   />,
   <div
-    verticalALign={
+    style={
       Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
+        "verticalAlign": "text-top",
       }
     }
   />,
@@ -1998,13 +1994,9 @@ Array [
     }
   />,
   <div
-    verticalALign={
+    style={
       Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
+        "verticalAlign": "super",
       }
     }
   />,
@@ -3037,13 +3029,9 @@ Array [
     }
   />,
   <div
-    verticalALign={
+    style={
       Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
+        "verticalAlign": "sub",
       }
     }
   />,
@@ -4063,13 +4051,9 @@ Array [
     }
   />,
   <div
-    verticalALign={
+    style={
       Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
+        "verticalAlign": "text-bottom",
       }
     }
   />,
@@ -5102,13 +5086,9 @@ Array [
     }
   />,
   <div
-    verticalALign={
+    style={
       Object {
-        "lg": "text-top",
-        "md": "super",
-        "sm": "sub",
-        "xl": "text-bottom",
-        "xs": "baseline",
+        "verticalAlign": "baseline",
       }
     }
   />,
@@ -47583,37 +47563,81 @@ Array [
 exports[`props vertical align 1`] = `
 Array [
   <div
-    verticalALign="baseline"
+    style={
+      Object {
+        "verticalAlign": "baseline",
+      }
+    }
   />,
   <div
-    verticalALign="sub"
+    style={
+      Object {
+        "verticalAlign": "sub",
+      }
+    }
   />,
   <div
-    verticalALign="super"
+    style={
+      Object {
+        "verticalAlign": "super",
+      }
+    }
   />,
   <div
-    verticalALign="text-top"
+    style={
+      Object {
+        "verticalAlign": "text-top",
+      }
+    }
   />,
   <div
-    verticalALign="text-bottom"
+    style={
+      Object {
+        "verticalAlign": "text-bottom",
+      }
+    }
   />,
   <div
-    verticalALign="middle"
+    style={
+      Object {
+        "verticalAlign": "middle",
+      }
+    }
   />,
   <div
-    verticalALign="10em"
+    style={
+      Object {
+        "verticalAlign": "10em",
+      }
+    }
   />,
   <div
-    verticalALign="inherit"
+    style={
+      Object {
+        "verticalAlign": "inherit",
+      }
+    }
   />,
   <div
-    verticalALign="initial"
+    style={
+      Object {
+        "verticalAlign": "initial",
+      }
+    }
   />,
   <div
-    verticalALign="revert"
+    style={
+      Object {
+        "verticalAlign": "revert",
+      }
+    }
   />,
   <div
-    verticalALign="unset"
+    style={
+      Object {
+        "verticalAlign": "unset",
+      }
+    }
   />,
 ]
 `;

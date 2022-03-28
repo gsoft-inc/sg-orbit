@@ -17,10 +17,11 @@ import {
     normalizeVariable,
     useStyledSystem
 } from "@components/styling";
+
 import { ComponentProps } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
+import { waitFor } from "@testing-library/react";
 
 const AlignmentSampling = [
     "start",
@@ -50,11 +51,11 @@ const ColorSampling = [
     "hsl(50, 33%, 25%)",
     "hsla(50, 33%, 25%, .75)",
     { base: "purple-1" },
-    { s: "purple-2" },
+    { sm: "purple-2" },
     { md: "purple-3" },
     { lg: "purple-4" },
-    { s: "purple-2", md: "purple-3", lg: "purple-4" },
-    { base: "purple-1", s: "purple-2", md: "purple-3", lg: "purple-4" }
+    { sm: "purple-2", md: "purple-3", lg: "purple-4" },
+    { base: "purple-1", sm: "purple-2", md: "purple-3", lg: "purple-4" }
 ];
 
 const LengthSampling = [
@@ -68,10 +69,10 @@ const LengthSampling = [
     "1vmax",
     "calc(1px + 1px)",
     { base: "1px" },
-    { s: "2px" },
-    { sm: "3px" },
+    { sm: "2px" },
+    { md: "3px" },
     { lg: "4px" },
-    { base: "1px", s: "2px", md: "3px", lg: "4px" }
+    { base: "1px", sm: "2px", md: "3px", lg: "4px" }
 ];
 
 const GlobalSampling = [
@@ -262,7 +263,7 @@ const Props: PropDefinition[] = [
     },
     { name: "transform origin", key: "transformOrigin", values: ["2px", "bottom", "3cm 2px", "right bottom 2cm", ...GlobalSampling] },
     { name: "transform style", key: "transformStyle", values: ["flat", "preserve-3d", ...GlobalSampling] },
-    { name: "vertical align", key: "verticalALign", values: ["baseline", "sub", "super", "text-top", "text-bottom", "middle", "10em", ...GlobalSampling] },
+    { name: "vertical align", key: "verticalAlign", values: ["baseline", "sub", "super", "text-top", "text-bottom", "middle", "10em", ...GlobalSampling] },
     { name: "visibility", key: "visibility", values: ["visible", "hidden", "collapse", ...GlobalSampling] },
     { name: "white-space", key: "whiteSpace", values: ["normal", "nowrap", "pre", "pre-wrap", "pre-line", "break-spaces", ...GlobalSampling] },
     { name: "width", key: "width", values: [...Object.keys(SizingMapping), ...SizingSampling, ...GlobalSampling] },
