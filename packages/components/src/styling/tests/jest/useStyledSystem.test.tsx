@@ -1,5 +1,3 @@
-/* eslint sort-imports-es6-autofix/sort-imports-es6: "off" */
-
 import {
     BackgroundColorMapping,
     BorderMapping,
@@ -22,8 +20,8 @@ import {
 
 import { ComponentProps } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
 import renderer from "react-test-renderer";
+import { waitFor } from "@testing-library/react";
 
 const AlignmentSampling = [
     "start",

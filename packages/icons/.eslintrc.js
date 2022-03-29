@@ -17,7 +17,6 @@ module.exports = {
         }
     ],
     rules: {
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }],
-        "sort-imports-es6-autofix/sort-imports-es6": "off"
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".mdx"] }]
     }
 };
