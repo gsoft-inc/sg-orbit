@@ -6,10 +6,6 @@ import { SyntheticEvent, useRef } from "react";
 import { useEventCallback } from "../../shared";
 
 export interface MenuPresetsProps {
-    "aria-describedby"?: string;
-    "aria-details"?: string;
-    "aria-label"?: string;
-    "aria-labelledby"?: string;
     onSelectionChange: (event: SyntheticEvent, index: number) => void;
     selectedIndex?: number;
     values: string[];
