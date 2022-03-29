@@ -93,7 +93,7 @@ stories()
                 <Div backgroundColor="accent-7">Echo</Div>
                 <Div backgroundColor="accent-7">Foxtrot</Div>
             </Grid>
-            <Grid templateColumns={{ md: [13, 10], l: "150px 100px 150px" }} gap={4}>
+            <Grid templateColumns={{ md: [13, 10], lg: "150px 100px 150px" }} gap={4}>
                 <Div backgroundColor="accent-10">Alpha</Div>
                 <Div backgroundColor="accent-10">Bravo</Div>
                 <Div backgroundColor="accent-10">Charlie</Div>
@@ -120,7 +120,7 @@ stories()
                 <Div backgroundColor="accent-7">Bravo</Div>
                 <Div backgroundColor="accent-7">Charlie</Div>
             </Grid>
-            <Grid templateRows={{ md: [13, 10, 13], l: "200px 100px 200px" }} gap={4}>
+            <Grid templateRows={{ md: [13, 10, 13], lg: "200px 100px 200px" }} gap={4}>
                 <Div backgroundColor="accent-10">Alpha</Div>
                 <Div backgroundColor="accent-10">Bravo</Div>
                 <Div backgroundColor="accent-10">Charlie</Div>

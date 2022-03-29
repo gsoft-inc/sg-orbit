@@ -8,6 +8,7 @@ import {
     OmitInternalProps,
     StyledComponentProps,
     cssModule,
+    getBodyElement,
     isNil,
     isString,
     mergeProps,
@@ -78,10 +79,10 @@ function useHideBodyScrollbar() {
         if (stateRef.current.isVisible) {
             setState({
                 isVisible: false,
-                originalPosition: document.body.style.overflowY
+                originalPosition: getBodyElement().style.overflowY
             });
 
-            document.body.style.overflowY = "hidden";
+            getBodyElement().style.overflowY = "hidden";
         }
 
         return () => {
@@ -94,7 +95,7 @@ function useHideBodyScrollbar() {
                     originalPosition: ""
                 });
 
-                document.body.style.overflowY = state.originalPosition;
+                getBodyElement().style.overflowY = state.originalPosition;
             }
         };
     }, [stateRef, setState]);

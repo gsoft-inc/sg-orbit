@@ -4,6 +4,7 @@ module.exports = {
     ],
     rules: {
         "no-param-reassign": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "sort-imports-es6-autofix/sort-imports-es6": "off"
     }
 };

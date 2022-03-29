@@ -5,11 +5,6 @@ import { SyntheticEvent } from "react";
 import { ToggleButton } from "../../button";
 
 export interface ButtonPresetsProps {
-    "aria-describedby"?: string;
-    "aria-details"?: string;
-    "aria-label"?: string;
-    "aria-labelledby"?: string;
-    disabled?: boolean;
     onSelectionChange: (event: SyntheticEvent, index: number) => void;
     selectedIndex?: number;
     values: string[];

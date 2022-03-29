@@ -1,7 +1,7 @@
 import { AbstractInputProps, useInput, useInputButton, useInputHasFocus, useStylingPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useLayoutEffect, useMemo, useState } from "react";
-import { OmitInternalProps, cssModule, isNil, mergeProps, useChainedEventCallback, useControllableState } from "../../shared";
+import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
+import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
 import { useFieldInputProps } from "../../field";
@@ -98,11 +98,11 @@ function useCalculateLineHeight(input: HTMLTextAreaElement) {
         element.style.font = font;
         element.innerText = "LineHeightHelper";
 
-        document.body.appendChild(element);
+        getBodyElement().appendChild(element);
 
         const height = element.getBoundingClientRect().height;
 
-        document.body.removeChild(element);
+        getBodyElement().removeChild(element);
 
         return height;
     }, [input, fontsLoaded]);
@@ -196,7 +196,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         setRows(newRows);
     }, [inputRef, lineHeight, maxRows]);
 
-    useLayoutEffect(() => {
+    useIsomorphicLayoutEffect(() => {
         adjustRows();
     }, [adjustRows, inputValue]);
 
