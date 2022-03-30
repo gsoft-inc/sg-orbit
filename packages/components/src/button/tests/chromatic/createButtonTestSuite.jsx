@@ -88,12 +88,15 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                 </Div>
-                <Div>
+                <Stack>
                     <Button fluid element={element}>
                         <SignoutIcon />
                         <Text>Button</Text>
                     </Button>
-                </Div>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                    </Button>
+                </Stack>
             </Stack>
         )
         .add("end icon", () =>
@@ -148,12 +151,15 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutIcon slot="end-icon" />
                     </Button>
                 </Div>
-                <Div>
+                <Stack>
                     <Button fluid element={element}>
                         <Text>Button</Text>
                         <SignoutIcon slot="end-icon" />
                     </Button>
-                </Div>
+                    <Button fluid element={element}>
+                        <Text>Button</Text>
+                    </Button>
+                </Stack>
             </Stack>
         )
         .add("counter", () =>
