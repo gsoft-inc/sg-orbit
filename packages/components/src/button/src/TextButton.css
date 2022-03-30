@@ -31,6 +31,7 @@
     margin-right: calc(-1 * (var(--o-ui-text-button-with-icon-padding-md) + var(--o-ui-text-button-icon-size-md)) / 2);
 }
 
+.o-ui-button-fluid.o-ui-button-has-end-icon.o-ui-button-has-start-icon.o-ui-button-sm .o-ui-button-text,
 .o-ui-button-fluid.o-ui-button-has-end-icon.o-ui-button-has-start-icon.o-ui-button-md .o-ui-button-text {
     margin-left: 0;
     margin-right: 0;
