@@ -1,6 +1,6 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, SVGProps, forwardRef, useCallback } from "react";
-import { FillProp, HeightProp, StrokeProp, StyledSystemProps, WidthProp } from "../../styling";
+import { FillProp, HeightProp, ResponsiveProp, StrokeProp, StyledSystemProps, WidthProp, useResponsiveValue } from "../../styling";
 import { InternalProps, OmitInternalProps, SlotProps, isNil, mergeProps, slot, useMergedRefs } from "../../shared";
 
 type OverlappingStyleProps = "fill" | "height" | "stroke" | "width";
@@ -19,20 +19,20 @@ export interface InnerSvgImageProps extends
      */
     fill?: FillProp;
     /**
-    * The image height.
-    */
+     * The image height.
+     */
     height?: HeightProp;
     /**
      * An SVG as a component.
      */
-    src: ElementType;
+    src?: ResponsiveProp<ElementType>;
     /**
      * See [MDN](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke).
      */
     stroke?: StrokeProp;
     /**
-    * The image width.
-    */
+     * The image width.
+     */
     width?: WidthProp;
 }
 
@@ -60,13 +60,14 @@ export function InnerSvgImage({
     }, []);
 
     const ref = useMergedRefs(forwardedRef, hideUseElement);
+    const srcValue = useResponsiveValue(src);
 
     return (
         <Box
             {...mergeProps(
                 rest,
                 {
-                    as: src,
+                    as: srcValue,
                     focusable: false,
                     ref,
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-convey-information

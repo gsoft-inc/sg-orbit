@@ -1,6 +1,7 @@
 import { AbstractImageProps, Image as OrbitImage } from "./Image";
 import { ComponentProps, ReactElement, ReactNode, forwardRef, useEffect, useState } from "react";
 import { OmitInternalProps, isNil, mergeProps, slot, useRefState } from "../../shared";
+import { useResponsiveValue } from "../../styling";
 
 const DefaultElement = "img";
 
@@ -34,6 +35,8 @@ function InnerAsyncImage({
     const [canRender, setCanRender] = useState(false);
     const [canRenderTimeoutIdRef, setCanRenderTimeoutId] = useRefState<ReturnType<typeof setTimeout>>();
 
+    const srcValue = useResponsiveValue(src);
+
     if (retryCount < 1) {
         throw new Error("An async image retry count must be equal or greater to 1.");
     }
@@ -55,7 +58,7 @@ function InnerAsyncImage({
     useEffect(() => {
         setIsLoaded(false);
         setFailureCount(0);
-    }, [src]);
+    }, [srcValue]);
 
     useEffect(() => {
         if (!isLoaded && failureCount < retryCount) {
@@ -69,7 +72,7 @@ function InnerAsyncImage({
                 }
             };
 
-            image.src = src;
+            image.src = srcValue;
 
             image.onload = () => {
                 disposeImage();
@@ -92,7 +95,7 @@ function InnerAsyncImage({
                 disposeImage();
             };
         }
-    }, [src, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef, setCanRenderTimeoutId]);
+    }, [srcValue, retryCount, isLoaded, failureCount, canRenderTimeoutIdRef, setCanRenderTimeoutId]);
 
     if (!canRender && !isLoaded) {
         return null;
@@ -106,7 +109,7 @@ function InnerAsyncImage({
                     {
                         as,
                         ref: forwardedRef,
-                        src
+                        src: srcValue
                     }
                 )}
             />
