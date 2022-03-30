@@ -65,25 +65,4 @@ export const App = () => (
     <Text color="alias-primary">Hello World!</Text>
   </Div>
 );
-```
-
-## Icons
-
-[Orbit icons](?path=/docs/icon-gallery--page) depends on [`@svgr/webpack`](https://react-svgr.com/docs/getting-started/) to transform SVG icons files into React components. If you are not using [Create React App](https://github.com/facebook/create-react-app), you'll have to setup [babel-plugin-named-asset-import](https://www.npmjs.com/package/babel-plugin-named-asset-import) with `@svgr/webpack` to export Orbit icons components as [named exports](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and leverage [tree shaking](https://webpack.js.org/guides/tree-shaking/).
-
-```javascript
-{
-    plugins: [
-        [
-            "babel-plugin-named-asset-import",
-            {
-                loaderMap: {
-                    svg: {
-                        "ReactComponent": "@svgr/webpack?-svgo,+ref![path]"
-                    }
-                }
-            }
-        ]
-    ]
-}
-```
+``
