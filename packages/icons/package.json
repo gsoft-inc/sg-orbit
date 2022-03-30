@@ -12,11 +12,11 @@
         "access": "public"
     },
     "scripts": {
-        "start": "yarn copy-to-dist",
+        "start": "yarn copy-and-optimize-to-dist",
         "prebuild": "yarn clean",
-        "build": "yarn copy-to-dist",
+        "build": "yarn copy-and-optimize-to-dist",
         "clean": "rimraf dist",
-        "copy-to-dist": "node scripts/copy-to-dist"
+        "copy-and-optimize-to-dist": "node scripts/copy-and-optimize-to-dist"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
