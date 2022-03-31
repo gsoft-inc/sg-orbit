@@ -1763,5 +1763,8 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         className: styling.className,
         style: styling.style
     } as Omit<TProps, keyof StyledSystemProps>;
+}
 
+export function isStyledSystemProp(name: string) {
+    return !isNil(PropsHandlers[name]);
 }
