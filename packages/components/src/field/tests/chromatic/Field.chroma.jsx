@@ -1,3 +1,4 @@
+import { DateInput, DateRangeInput } from "@components/date-input";
 import { ErrorMessage, Field, HelpMessage, Label, ValidMessage } from "@components/field";
 import { Inline, Stack } from "@components/layout";
 import { PasswordInput, TextInput } from "@components/text-input";
@@ -5,7 +6,6 @@ import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 import { Autocomplete } from "@components/autocomplete";
 import { Checkbox } from "@components/checkbox";
-import { DateInput } from "@components/date-input";
 import { Div } from "@components/html";
 import { InputGroup } from "@components/input-group";
 import { Item } from "@components/collection";
@@ -143,6 +143,13 @@ stories()
         <Field>
             <Label>When?</Label>
             <DateInput placeholder="dd/mm/yyyy" />
+            <HelpMessage>When do you leave?</HelpMessage>
+        </Field>
+    )
+    .add("date range input", () =>
+        <Field>
+            <Label>When?</Label>
+            <DateRangeInput placeholder="dd/mm/yyyy" />
             <HelpMessage>When do you leave?</HelpMessage>
         </Field>
     )

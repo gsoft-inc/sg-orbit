@@ -1,4 +1,3 @@
-import { AbstractInputProps, adaptInputStylingProps } from "../../input";
 import { Box, BoxProps } from "../../box";
 import {
     ChangeEvent,
@@ -15,6 +14,7 @@ import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, merg
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { areEqualDates, toMidnightDate } from "./dateUtils";
 
+import { AbstractInputProps } from "../../input";
 import { ButtonPresets } from "./ButtonPresets";
 import { MenuPresets } from "./MenuPresets";
 import { TextInput } from "../../text-input";
@@ -82,7 +82,11 @@ const Input = forwardRef<any, any>((props, ref) => {
         value,
         wrapperProps,
         ...rest
-    } = adaptInputStylingProps(props, inputGroupProps);
+    } = mergeProps(
+        props,
+        inputGroupProps
+    );
+    // } = adaptInputStylingProps(props, inputGroupProps);
 
     const dateProps = useDateInput({
         forwardedRef: ref,
