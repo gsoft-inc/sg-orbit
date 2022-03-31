@@ -4,9 +4,9 @@ import { EyeIcon, PrivacyIcon } from "../../icons";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 
 import { IconButton } from "../../button";
+import { adaptInputStylingProps } from "../../input";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
-import { useStylingPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
@@ -22,7 +22,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = useStylingPropsAdapter(props, inputGroupProps);
+    } = adaptInputStylingProps(props, inputGroupProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);

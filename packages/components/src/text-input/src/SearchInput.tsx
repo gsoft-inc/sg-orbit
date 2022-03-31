@@ -15,8 +15,8 @@ import {
 
 import { CrossButton } from "../../button";
 import { MagnifierIcon } from "../../icons";
+import { adaptInputStylingProps } from "../../input";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { useStylingPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
@@ -44,7 +44,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = useStylingPropsAdapter(props, inputGroupProps);
+    } = adaptInputStylingProps(props, inputGroupProps);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 

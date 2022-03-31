@@ -1,9 +1,8 @@
-import { CSSProperties } from "react";
+import { MarginTopProp } from "@components/styling";
+import { adaptInputStylingProps } from "@components/input";
 import { expectAssignable } from "@typescript/tests";
-import { useStylingPropsAdapter } from "@components/input";
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
-const result = useStylingPropsAdapter({
+const result = adaptInputStylingProps({
     marginTop: 10,
     randomProps: "randomValue",
     wrapperProps: {
@@ -18,6 +17,6 @@ expectAssignable<{
     wrapperProps: {
         anotherRandomProps: string;
         className?: string;
-        style?: CSSProperties;
+        marginTop?: MarginTopProp;
     };
 }>(result);

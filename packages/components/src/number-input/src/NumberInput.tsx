@@ -1,4 +1,4 @@
-import { AbstractInputProps, useInput, useInputIcon, useStylingPropsAdapter } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
@@ -198,7 +198,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
         value: valueProp,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
-    } = useStylingPropsAdapter(props, contextualProps);
+    } = adaptInputStylingProps(props, contextualProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
