@@ -4,7 +4,6 @@ import { EyeIcon, PrivacyIcon } from "../../icons";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 
 import { IconButton } from "../../button";
-import { adaptInputStylingProps } from "../../input";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
 
@@ -22,7 +21,10 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = adaptInputStylingProps(props, inputGroupProps);
+    } = mergeProps(
+        props,
+        inputGroupProps
+    );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
     const [isHidden, setIsHidden] = useState(true);

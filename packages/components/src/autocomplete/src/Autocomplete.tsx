@@ -1,4 +1,3 @@
-import { AbstractInputProps, adaptInputStylingProps } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
@@ -22,6 +21,7 @@ import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 
+import { AbstractInputProps } from "../../input";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { SearchInput } from "../../text-input";
 import { useDebouncedCallback } from "./useDebouncedCallback";
@@ -97,11 +97,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
-    const contextProps = mergeProps(
-        fieldProps,
-        inputGroupProps
-    );
-
     const {
         active,
         align = "start",
@@ -142,7 +137,11 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         wrapperProps,
         zIndex = 10000,
         ...rest
-    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = adaptInputStylingProps(props, contextProps);
+    }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
+        props,
+        fieldProps,
+        inputGroupProps
+    );
 
     const [focusedItem, setFocusedItem] = useState(null);
     const [queryRef, setQuery] = useRefState("");

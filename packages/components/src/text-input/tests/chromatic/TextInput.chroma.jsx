@@ -13,9 +13,6 @@ function stories(segment) {
 }
 
 stories()
-    .add("test", () =>
-        <TextInput aria-label="Label" marginTop={10} />
-    )
     .add("default", () =>
         <Stack>
             <TextInput aria-label="Label" />

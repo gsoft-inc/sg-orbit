@@ -231,7 +231,6 @@ function moveStyledSystemPropsToWrapper<TProps extends Record<string, any>>({ wr
     } = props;
 
     const adaptedWrapperProps = {
-        ...(wrapperProps ?? {}),
         alignContent,
         alignItems,
         alignSelf,
@@ -336,7 +335,10 @@ function moveStyledSystemPropsToWrapper<TProps extends Record<string, any>>({ wr
         visibility,
         width,
         willChange,
-        zIndex
+        zIndex,
+        // If it's not at the end it will not work when the wrapper props already includes styled props.
+        // It shouldn't happened though, this is the whole point of this adapter to allow the user to specify the styled props on the root components.
+        ...(wrapperProps ?? {})
     } as ExtractWrapperPropsType<TProps> & WrapperStyledSystemProps;
 
     return {

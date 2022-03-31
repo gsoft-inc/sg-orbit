@@ -109,5 +109,11 @@ test("when the input have a className prop and the context props have a classNam
     expect(result.wrapperProps.className).toBe("saturn");
 });
 
+test("when the wrapper props include a styled prop, return the style prop as a wrapper prop", () => {
+    const result = adaptInputStylingProps({ wrapperProps: { border: "purple-10" } }, { className: "saturn" });
+
+    expect(result.wrapperProps.border).toBe("purple-10");
+});
+
 
 

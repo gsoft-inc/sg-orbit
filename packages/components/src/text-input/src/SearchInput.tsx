@@ -15,7 +15,6 @@ import {
 
 import { CrossButton } from "../../button";
 import { MagnifierIcon } from "../../icons";
-import { adaptInputStylingProps } from "../../input";
 import { useInputGroupTextInputProps } from "../../input-group";
 
 const DefaultElement = "input";
@@ -44,7 +43,12 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         value,
         wrapperProps,
         ...rest
-    } = adaptInputStylingProps(props, inputGroupProps);
+    } = mergeProps(
+        props,
+        inputGroupProps
+    );
+
+    console.log("SearchInput wrapper props: ", wrapperProps, props);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
@@ -113,9 +117,12 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     spellCheck: "false",
                     type: "search" as const,
                     value: inputValue,
-                    wrapperProps: mergeProps(wrapperProps ?? {}, {
-                        className: "o-ui-search-input"
-                    })
+                    wrapperProps: mergeProps(
+                        wrapperProps ?? {},
+                        {
+                            className: "o-ui-search-input"
+                        }
+                    )
                 }
             )}
         />
