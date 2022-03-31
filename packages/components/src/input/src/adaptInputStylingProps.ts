@@ -7,7 +7,8 @@ interface CssProps {
     className?: string;
     style?: CSSProperties;
 }
-export type ExtractWrapperProps<T> = T extends { wrapperProps?: infer TWrapperProps } ? TWrapperProps : Record<string, any>;
+
+type ExtractWrapperPropsType<T> = T extends { wrapperProps?: infer TWrapperProps } ? TWrapperProps : Record<string, any>;
 
 type WrapperStyledSystemProps =
     Pick<
@@ -336,7 +337,7 @@ function moveStyledSystemPropsToWrapper<TProps extends Record<string, any>>({ wr
         width,
         willChange,
         zIndex
-    } as ExtractWrapperProps<TProps> & WrapperStyledSystemProps;
+    } as ExtractWrapperPropsType<TProps> & WrapperStyledSystemProps;
 
     return {
         ...rest,
