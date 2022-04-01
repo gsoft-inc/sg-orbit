@@ -14,10 +14,6 @@
     width: var(--o-ui-sz-16);
 }
 
-.o-ui-input-group .o-ui-input-group-text-input {
-    width: 100%;
-}
-
 /* STATES */
 .o-ui-input-group:not(:focus-within) > *:not(.o-ui-input-group-text-addon):hover {
     z-index: 2;
