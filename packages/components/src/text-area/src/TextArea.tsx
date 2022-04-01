@@ -140,8 +140,6 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         ...rest
     } = adaptInputStylingProps(props, fieldProps);
 
-    console.log("*** rest: ", rest, userWrapperProps);
-
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
     }

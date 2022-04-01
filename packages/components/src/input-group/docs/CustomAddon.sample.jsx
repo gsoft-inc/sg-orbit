@@ -10,7 +10,7 @@ function CustomAddon({ children, ...props }) {
                 {
                     alignItems: "center",
                     height: 6,
-                    border: "#adacac",
+                    border: "#ADACAC",
                     padding: "0px 10px",
                     style: {
                         borderTopRightRadius: "var(--o-ui-input-border-radius)",
