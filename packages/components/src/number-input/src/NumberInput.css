@@ -5,6 +5,8 @@
 .o-ui-number-input {
     /* 150px @ 16px */
     width: 9.365rem;
+    padding-right: var(--o-ui-spinner-width);
+
 }
 
 /* INPUT */
@@ -16,7 +18,7 @@
 
 .o-ui-number-input input {
     -moz-appearance: textfield;
-    padding-right: calc(var(--o-ui-spinner-width) + 2px);
+    width: 100%;
 }
 
 /* SPINNER */
@@ -26,7 +28,6 @@
     flex-direction: column;
     width: var(--o-ui-spinner-width);
     min-height: calc(var(--o-ui-sz-6) - 2px);
-    margin: 1px;
     position: absolute;
     right: 0;
     bottom: 0;

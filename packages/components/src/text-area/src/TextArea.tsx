@@ -1,8 +1,9 @@
-import { AbstractInputProps, useInput, useInputButton, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "textarea";
@@ -137,10 +138,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
         ...rest
-    } = mergeProps(
-        props,
-        wrappedInputPropsAdapter(fieldProps)
-    );
+    } = adaptInputStylingProps(props, fieldProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
@@ -202,6 +200,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
         adjustRows();
     }, [adjustRows, inputValue]);
 
+    const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
+
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
     const content = (
@@ -215,7 +215,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
                         as,
                         rows
                     },
-                    inputProps
+                    inputProps,
+                    inputFocusProps
                 )}
             />
             {buttonMarkup}
@@ -230,7 +231,8 @@ export function InnerTextArea(props: InnerTextAreaProps) {
                     as: wrapperAs,
                     className: cssModule(
                         "o-ui-input",
-                        buttonMarkup && "has-button"
+                        buttonMarkup && "has-button",
+                        hasFocus && "has-focus"
                     )
                 },
                 wrapperProps

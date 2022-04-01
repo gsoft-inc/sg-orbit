@@ -11,7 +11,7 @@ test("when autoFocusButton value is \"primary\", autofocus the primary button on
     const { getByText } = renderWithTheme(
         <Alert autoFocusButton="primary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -22,7 +22,7 @@ test("when autoFocusButton value is \"secondary\", autofocus the secondary butto
     const { getByText } = renderWithTheme(
         <Alert autoFocusButton="secondary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -33,7 +33,7 @@ test("when autoFocusButton value is \"cancel\", autofocus the cancel button on r
     const { getByText } = renderWithTheme(
         <Alert autoFocusButton="cancel" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -44,7 +44,7 @@ test("when autoFocusButton value is not defined, autofocus the primary button", 
     const { getByText } = renderWithTheme(
         <Alert primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -59,7 +59,7 @@ test("ref is a DOM element", async () => {
     renderWithTheme(
         <Alert ref={ref} primaryButtonLabel="Primary">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -80,7 +80,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             }}
         >
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
@@ -96,7 +96,7 @@ test("set ref once", async () => {
     renderWithTheme(
         <Alert ref={handler} primaryButtonLabel="Primary">
             <Heading>Autopilot</Heading>
-            <Content>Are you use sure you want to engage autopilot?</Content>
+            <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
