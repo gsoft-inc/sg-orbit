@@ -6,6 +6,52 @@ import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
+test("when a className is provided, render the className on the input element", async () => {
+    const { getByTestId } = renderWithTheme(
+        <TextInput className="earth" aria-label="Label" data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).toHaveClass("earth"));
+});
+
+test("when style is provided, render the style on the input element", async () => {
+    const { getByTestId } = renderWithTheme(
+        <TextInput style={{ border: "1px solid red" }} aria-label="Label" data-testid="input" />
+    );
+
+    await waitFor(() => expect(getByTestId("input")).toHaveStyle({
+        border: "1px solid red"
+    }));
+});
+
+test("when a wrapper className is provided, render the className on the wrapper element", async () => {
+    const { getByTestId } = renderWithTheme(
+        <TextInput wrapperProps={{ className: "earth", "data-testid": "wrapper" }} aria-label="Label" />
+    );
+
+    await waitFor(() => expect(getByTestId("wrapper")).toHaveClass("earth"));
+});
+
+test("when a wrapper style is provided, render the style on the wrapper element", async () => {
+    const { getByTestId } = renderWithTheme(
+        <TextInput wrapperProps={{ style: { border: "1px solid red" }, "data-testid": "wrapper" }} aria-label="Label" />
+    );
+
+    await waitFor(() => expect(getByTestId("wrapper")).toHaveStyle({
+        border: "1px solid red"
+    }));
+});
+
+test("when a styled prop is provided, render the style on the wrapper element", async () => {
+    const { getByTestId } = renderWithTheme(
+        <TextInput marginTop={10} wrapperProps={{ "data-testid": "wrapper" }} aria-label="Label" />
+    );
+
+    await waitFor(() => expect(getByTestId("wrapper")).toHaveStyle({
+        marginTop: "var(--o-ui-sp-10)"
+    }));
+});
+
 // ***** Behaviors *****
 
 test("when autofocus is true, the input is focused on render", async () => {

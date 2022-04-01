@@ -1,6 +1,4 @@
-import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
-import { ButtonPresets } from "./ButtonPresets";
 import {
     ChangeEvent,
     ComponentProps,
@@ -12,11 +10,14 @@ import {
     useRef
 } from "react";
 import { InputGroup, useInputGroupProps } from "../../input-group";
-import { MenuPresets } from "./MenuPresets";
 import { OmitInternalProps, augmentElement, cssModule, isNil, mergeClasses, mergeProps, useControllableState, useEventCallback } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { TextInput } from "../../text-input";
 import { areEqualDates, toMidnightDate } from "./dateUtils";
+
+import { AbstractInputProps } from "../../input";
+import { ButtonPresets } from "./ButtonPresets";
+import { MenuPresets } from "./MenuPresets";
+import { TextInput } from "../../text-input";
 import { useDateInput } from "./useDateInput";
 
 export interface DatePreset {
@@ -83,8 +84,9 @@ const Input = forwardRef<any, any>((props, ref) => {
         ...rest
     } = mergeProps(
         props,
-        wrappedInputPropsAdapter(inputGroupProps)
+        inputGroupProps
     );
+    // } = adaptInputStylingProps(props, inputGroupProps);
 
     const dateProps = useDateInput({
         forwardedRef: ref,

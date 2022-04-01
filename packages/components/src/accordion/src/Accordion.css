@@ -33,6 +33,7 @@
     outline: none;
     display: flex;
     align-items: center;
+    margin: 0;
     text-align: left;
     cursor: pointer;
     background-color: transparent;

@@ -844,6 +844,7 @@ test("ref is a DOM element", async () => {
     await waitFor(() => expect(ref.current).not.toBeNull());
 
     expect(ref.current instanceof HTMLElement).toBeTruthy();
+
     expect(ref.current.tagName).toBe("INPUT");
 });
 

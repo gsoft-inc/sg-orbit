@@ -24,8 +24,16 @@
     border-radius: var(--o-ui-br-rounded);
     display: grid;
     align-items: stretch;
-    grid-template-areas: "image aside";
-    grid-template-columns: min-content auto;
+    grid-template-areas: "image image" "aside aside";
+    grid-template-rows: min-content auto;
+}
+
+@media screen and (min-width: 768px) {
+    .o-ui-dialog {
+        grid-template-rows: unset;
+        grid-template-areas: "image aside";
+        grid-template-columns: min-content auto;
+    }
 }
 
 /* DIALOG | ASIDE */
@@ -50,19 +58,22 @@
     width: 960px;
 }
 
-.o-ui-dialog-fullscreen {
-    width: calc(100% - (2 * var(--o-ui-sz-6)));
-    min-height: calc(100% - (2 * var(--o-ui-sz-6)));
-}
-
 /* DIALOG | IMAGE & ILLUSTRATION */
 .o-ui-dialog-image,
 .o-ui-dialog-illustration {
-    width: 256px;
-    height: 100%;
+    width: 100%;
+    height: var(--o-ui-sz-14);
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     grid-area: image;
+}
+
+@media screen and (min-width: 768px) {
+    .o-ui-dialog-image,
+    .o-ui-dialog-illustration {
+        width: var(--o-ui-sz-15);
+        height: 100%;
+    }
 }
 
 .o-ui-dialog-image img {
@@ -71,6 +82,8 @@
     max-width: 100%;
     max-height: 100%;
     overflow: hidden;
+    object-fit: cover;
+    object-position: top center;
 }
 
 .o-ui-dialog-illustration {
@@ -94,7 +107,7 @@
 /* DIALOG | HEADER SECTION | HEADER */
 .o-ui-dialog-header {
     align-self: center;
-    max-width: 200px;
+    max-width: var(--o-ui-sz-14);
     flex-shrink: 0;
 }
 
