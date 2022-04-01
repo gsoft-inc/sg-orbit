@@ -12,11 +12,11 @@
         "access": "public"
     },
     "scripts": {
-        "start": "yarn copy-and-optimize-to-dist",
+        "start": "yarn write-icons",
         "prebuild": "yarn clean",
-        "build": "yarn copy-and-optimize-to-dist",
+        "build": "yarn write-icons",
         "clean": "rimraf dist",
-        "copy-and-optimize-to-dist": "node scripts/copy-and-optimize-to-dist"
+        "write-icons": "node scripts/write-icons"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }

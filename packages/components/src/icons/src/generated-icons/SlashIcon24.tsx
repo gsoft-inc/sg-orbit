@@ -1,6 +1,6 @@
 /*
 * THIS FILE IS GENERATED. DO NOT EDIT IT.
-* To re-generate the icons, run the yarn generate-icons command in the components project.
+* To re-generate the icons, run the yarn generate-icons-components command in the components project.
 */
 
 /* eslint-disable */
