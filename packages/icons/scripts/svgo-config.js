@@ -15,7 +15,6 @@ module.exports = {
                 }
             }
         },
-        { name: "removeXMLNS" },
         { name: "convertStyleToAttrs" },
         { name: "sortAttrs" },
         { name: "removeStyleElement" },
