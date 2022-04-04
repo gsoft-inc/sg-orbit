@@ -75,12 +75,15 @@
 }
 
 /* SPINNER | ACTIVE */
-/* to do in JS */
+.o-ui-number-input-spinner-increment:active:focus,
+.o-ui-number-input-spinner-decrement:active:focus {
+    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+}
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-mid-break);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* SPINNER | DISABLED */
