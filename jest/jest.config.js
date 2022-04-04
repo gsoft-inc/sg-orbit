@@ -11,7 +11,6 @@ module.exports = {
     },
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
-        "\\.svg": "<rootDir>/jest/svgr-mock.js",
         "@jest-utils$": "<rootDir>/jest/utils/index.ts",
         "@components/(.*)$": "<rootDir>/packages/components/src/$1"
     },
