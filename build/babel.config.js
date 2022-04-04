@@ -67,16 +67,6 @@ module.exports = {
             }
         ],
         "@babel/plugin-proposal-nullish-coalescing-operator",
-        "@babel/plugin-proposal-optional-chaining",
-        !IS_TEST && [
-            "babel-plugin-named-asset-import",
-            {
-                loaderMap: {
-                    svg: {
-                        "ReactComponent": "@svgr/webpack?-svgo,+ref![path]"
-                    }
-                }
-            }
-        ]
+        "@babel/plugin-proposal-optional-chaining"
     ].filter(Boolean)
 };
