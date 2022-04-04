@@ -17,6 +17,9 @@ type WrapperStyledSystemProps =
     "alignItems" |
     "alignSelf" |
     "backgroundColor" |
+    "backgroundColorActive" |
+    "backgroundColorFocus" |
+    "backgroundColorHover" |
     "border" |
     "borderActive" |
     "borderBottom" |
@@ -127,6 +130,9 @@ function moveStyledSystemPropsToWrapper<TProps extends Record<string, any>>({ wr
         alignItems,
         alignSelf,
         backgroundColor,
+        backgroundColorActive,
+        backgroundColorFocus,
+        backgroundColorHover,
         border,
         borderActive,
         borderBottom,
@@ -237,6 +243,9 @@ function moveStyledSystemPropsToWrapper<TProps extends Record<string, any>>({ wr
         alignItems,
         alignSelf,
         backgroundColor,
+        backgroundColorActive,
+        backgroundColorFocus,
+        backgroundColorHover,
         border,
         borderActive,
         borderBottom,
