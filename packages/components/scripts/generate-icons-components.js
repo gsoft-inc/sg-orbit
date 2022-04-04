@@ -22,6 +22,9 @@ loadIcons(SRC_PATH)
     .then(icons => {
         cleanDir(GENERATED_ICON_PATH);
 
+        return icons;
+    })
+    .then(icons => {
         generateIconComponents(icons, GENERATED_ICON_PATH);
 
         return icons;
