@@ -1,6 +1,7 @@
+import { Inline, Stack } from "@components/layout";
+
 import { Div } from "@components/html";
 import { EmailIcon } from "@components/icons";
-import { Inline, Stack } from "@components/layout";
 import { SearchInput } from "@components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -114,8 +115,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <SearchInput border="warning-7" aria-label="Label" />
+            <SearchInput border="alert-6" aria-label="Label" />
             <SearchInput className="border-red" aria-label="Label" />
             <SearchInput style={{ border: "1px solid red" }} aria-label="Label" />
+            <SearchInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
+            <SearchInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>
     );

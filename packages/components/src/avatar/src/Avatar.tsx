@@ -214,4 +214,3 @@ export const Avatar = slot("avatar", forwardRef<any, OmitInternalProps<InnerAvat
 )));
 
 export type AvatarProps = ComponentProps<typeof Avatar>;
-

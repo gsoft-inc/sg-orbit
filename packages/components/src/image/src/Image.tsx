@@ -1,9 +1,9 @@
 import { Box } from "../../box";
 import { ComponentProps, ElementType, forwardRef } from "react";
-import { HeightProp, ObjectFitProp, ObjectPositionProp, WidthProp } from "../../styling";
+import { HeightProp, ObjectFitProp, ObjectPositionProp, ResponsiveProp, WidthProp, useResponsiveValue } from "../../styling";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, mergeProps, slot } from "../../shared";
 
-export type AbstractImageProps<T extends ElementType> = SlotProps & InternalProps & Omit<StyledComponentProps<T>, "height" | "objectFit" | "objectPosition" | "width"> & {
+export type AbstractImageProps<T extends ElementType> = SlotProps & InternalProps & Omit<StyledComponentProps<T>, "height" | "objectFit" | "objectPosition" | "src" | "width"> & {
     /**
      * A text description of the image.
      */
@@ -25,9 +25,9 @@ export type AbstractImageProps<T extends ElementType> = SlotProps & InternalProp
      */
     shape?: "straight" | "rounded" | "circular";
     /**
-     * The path to the image.
-     */
-    src?: string;
+     * An image path.
+    */
+    src?: ResponsiveProp<string>;
     /**
      * One or more strings separated by commas, indicating possible image sources for the user agent to use.
      */
@@ -45,9 +45,12 @@ export type InnerImageProps = AbstractImageProps<typeof DefaultElement>;
 export function InnerImage({
     as = DefaultElement,
     forwardedRef,
+    src,
     shape = "straight",
     ...rest
 }: InnerImageProps) {
+    const srcValue = useResponsiveValue(src);
+
     return (
         <Box
             {...mergeProps(
@@ -58,7 +61,8 @@ export function InnerImage({
                         "o-ui-image",
                         shape
                     ),
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    src: srcValue
                 }
             )}
         />

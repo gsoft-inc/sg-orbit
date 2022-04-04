@@ -1,11 +1,11 @@
 import { AbstractTextInputProps, TextInput } from "./TextInput";
 import { ChangeEvent, ComponentProps, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
-import { IconButton } from "../../button";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
+
+import { IconButton } from "../../button";
 import { useInputGroupTextInputProps } from "../../input-group";
 import { useState } from "react";
-import { wrappedInputPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
@@ -23,7 +23,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
         ...rest
     } = mergeProps(
         props,
-        wrappedInputPropsAdapter(inputGroupProps)
+        inputGroupProps
     );
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");

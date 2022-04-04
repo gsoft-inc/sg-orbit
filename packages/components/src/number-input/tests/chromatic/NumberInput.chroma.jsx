@@ -1,8 +1,9 @@
+import { Inline, Stack } from "@components/layout";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { Div } from "@components/html";
 import { EditIcon } from "@components/icons";
-import { Inline, Stack } from "@components/layout";
 import { NumberInput } from "@components/number-input";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/NumberInput")
@@ -71,5 +72,7 @@ stories()
             <NumberInput border="warning-7" placeholder="Age" />
             <NumberInput className="border-red" placeholder="Age" />
             <NumberInput style={{ border: "1px solid red" }} placeholder="Age" />
+            <NumberInput wrapperProps={{ className: "border-red" }} placeholder="Age" />
+            <NumberInput wrapperProps={{ style: { border: "1px solid red" } }} placeholder="Age" />
         </Inline>
     );

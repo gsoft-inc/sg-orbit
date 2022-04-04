@@ -1,8 +1,9 @@
+import { Inline, Stack } from "@components/layout";
+import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
+
 import { CrossButton } from "@components/button";
 import { Div } from "@components/html";
-import { Inline, Stack } from "@components/layout";
 import { TextArea } from "@components/text-area";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 function stories(segment) {
     return storiesOfBuilder(module, "Chromatic/TextArea")
@@ -125,10 +126,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <TextArea border="warning-7" aria-label="Label" />
+            <TextArea border="alert-6" aria-label="Label" />
             <TextArea className="bg-red" aria-label="Label" />
             <TextArea style={{ backgroundColor: "red" }} aria-label="Label" />
-            <TextArea wrapperProps={{ border: "warning-7" }} aria-label="Label" />
+            <TextArea wrapperProps={{ border: "alert-6" }} aria-label="Label" />
             <TextArea wrapperProps={{ className: "border-red" }} aria-label="Label" />
             <TextArea wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>

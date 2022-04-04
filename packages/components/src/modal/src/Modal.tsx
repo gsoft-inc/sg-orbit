@@ -7,12 +7,7 @@ import { StyleProvider } from "../../styling";
 
 const DefaultElement = "section";
 
-export interface InnerModalProps extends AbstractDialogProps<typeof DefaultElement> {
-    /**
-     * Whether or not the dialog should take almost all the available space.
-     */
-    fullscreen?: boolean;
-}
+export type InnerModalProps = AbstractDialogProps<typeof DefaultElement>;
 
 function useModalContentMarkup(content: ReactElement) {
     return useMemo(() => {
@@ -74,7 +69,6 @@ export function InnerModal({
     children,
     dismissable = true,
     forwardedRef,
-    fullscreen,
     zIndex = 1,
     ...rest
 }: InnerModalProps) {
@@ -105,8 +99,8 @@ export function InnerModal({
             return "lg" as const;
         }
 
-        return fullscreen ? "fullscreen" as const : "sm" as const;
-    }, [fullscreen, image, illustration, hasCards]);
+        return "sm" as const;
+    }, [image, illustration, hasCards]);
 
     return (
         <Dialog

@@ -16,7 +16,7 @@ test("do not dismiss on outside click", async () => {
             <Button data-testid="trigger">Trigger</Button>
             <Alert data-testid="alert" primaryButtonLabel="Primary">
                 <Heading>Autopilot</Heading>
-                <Content>Are you use sure you want to engage autopilot?</Content>
+                <Content>Are you sure you want to engage autopilot?</Content>
             </Alert>
         </AlertTrigger>
     );
@@ -44,7 +44,7 @@ test("ref is a DOM element", async () => {
             <Button>Trigger</Button>
             <Alert primaryButtonLabel="Primary">
                 <Heading>Autopilot</Heading>
-                <Content>Are you use sure you want to engage autopilot?</Content>
+                <Content>Are you sure you want to engage autopilot?</Content>
             </Alert>
         </AlertTrigger>
     );
@@ -68,7 +68,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             <Button>Trigger</Button>
             <Alert primaryButtonLabel="Primary">
                 <Heading>Autopilot</Heading>
-                <Content>Are you use sure you want to engage autopilot?</Content>
+                <Content>Are you sure you want to engage autopilot?</Content>
             </Alert>
         </AlertTrigger>
     );
@@ -87,7 +87,7 @@ test("set ref once", async () => {
             <Button>Trigger</Button>
             <Alert primaryButtonLabel="Primary">
                 <Heading>Autopilot</Heading>
-                <Content>Are you use sure you want to engage autopilot?</Content>
+                <Content>Are you sure you want to engage autopilot?</Content>
             </Alert>
         </AlertTrigger>
     );

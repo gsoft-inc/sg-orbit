@@ -1,9 +1,10 @@
-import { AbstractInputProps, useInput, useInputButton, useInputIcon, wrappedInputPropsAdapter } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputIcon } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
+
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -59,7 +60,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
-    const contextualProps = mergeProps(
+    const contextProps = mergeProps(
         {},
         omitProps(toolbarProps, ["orientation"]),
         fieldProps,
@@ -91,11 +92,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
         validationState,
         value,
         wrapperProps: { as: wrapperAs = "div", ...userWrapperProps } = {},
+        className,
+        style,
         ...rest
-    } = mergeProps(
-        props,
-        wrappedInputPropsAdapter(contextualProps)
-    );
+    } = adaptInputStylingProps(props, contextProps);
 
     if (isNil(ariaLabel) && isNil(ariaLabelledBy) && isNil(placeholder)) {
         console.error("An input component must either have an \"aria-label\" attribute, an \"aria-labelledby\" attribute or a \"placeholder\" attribute.");
@@ -135,6 +135,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
         value: inputValue
     });
 
+    const { hasFocus, inputProps: inputFocusProps } = useInputHasFocus();
+
     const iconMarkup = useInputIcon(icon, { disabled });
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
@@ -148,9 +150,12 @@ export function InnerTextInput(props: InnerTextInputProps) {
                     {
                         "aria-label": ariaLabel,
                         "aria-labelledby": ariaLabelledBy,
-                        as
+                        as,
+                        className,
+                        style
                     },
-                    inputProps
+                    inputProps,
+                    inputFocusProps
                 )}
             />
             {/* Otherwise an input button will receive an addon className */}
@@ -170,7 +175,8 @@ export function InnerTextInput(props: InnerTextInputProps) {
                         "o-ui-input",
                         iconMarkup && "has-icon",
                         disabled && "disabled",
-                        buttonMarkup && "has-button"
+                        buttonMarkup && "has-button",
+                        hasFocus && "has-focus"
                     )
                 },
                 wrapperProps

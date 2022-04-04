@@ -1,5 +1,6 @@
-import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
+
+import { Div } from "@components/html";
 import { PasswordInput } from "@components/text-input";
 import { storiesOfBuilder } from "@stories/utils";
 
@@ -78,8 +79,10 @@ stories()
     )
     .add("styling", () =>
         <Inline>
-            <PasswordInput border="warning-7" aria-label="Label" />
+            <PasswordInput border="alert-6" aria-label="Label" />
             <PasswordInput className="border-red" aria-label="Label" />
             <PasswordInput style={{ border: "1px solid red" }} aria-label="Label" />
+            <PasswordInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
+            <PasswordInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
         </Inline>
     );

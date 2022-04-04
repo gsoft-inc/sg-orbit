@@ -23,16 +23,16 @@ SYNTAX:
 <Button backgroundColorHover="#fff">Toto</Button>
 
 // Breakpoint, no pseudo, known value
-<Button backgroundColor={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ sm: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, no pseudo, dynamic value
-<Button backgroundColor={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColor={{ sm: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, known value
-<Button backgroundColorHover={{ s: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ sm: "warning-10", md: "accent-10", lg: "black" }}>Toto</Button>
 
 // Breakpoint, pseudo, dynamic value
-<Button backgroundColorHover={{ s: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
+<Button backgroundColorHover={{ sm: "warning-10", md: "#fff", lg: "black" }}>Toto</Button>
 */
 
 const GlobalValues = [
@@ -1763,5 +1763,8 @@ export function useStyledSystem<TProps extends Record<string, any>>(props: TProp
         className: styling.className,
         style: styling.style
     } as Omit<TProps, keyof StyledSystemProps>;
+}
 
+export function isStyledSystemProp(name: string) {
+    return !isNil(PropsHandlers[name]);
 }

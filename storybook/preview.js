@@ -1,4 +1,3 @@
-/* eslint-disable sort-imports-es6-autofix/sort-imports-es6 */
 import "@css/normalize.css";
 import "@components/index.css";
 import "./styles";
@@ -9,8 +8,6 @@ import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContaine
 
 import { Code } from "@stories/mdx";
 import { Themes } from "./styles/themes";
-
-/* eslint-enable sort-imports-es6-autofix/sort-imports-es6 */
 
 createThemeVars([ShareGateTheme]);
 

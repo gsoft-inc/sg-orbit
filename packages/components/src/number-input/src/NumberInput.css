@@ -5,6 +5,8 @@
 .o-ui-number-input {
     /* 150px @ 16px */
     width: 9.365rem;
+    padding-right: var(--o-ui-spinner-width);
+
 }
 
 /* INPUT */
@@ -16,7 +18,7 @@
 
 .o-ui-number-input input {
     -moz-appearance: textfield;
-    padding-right: calc(var(--o-ui-spinner-width) + 2px);
+    width: 100%;
 }
 
 /* SPINNER */
@@ -26,7 +28,6 @@
     flex-direction: column;
     width: var(--o-ui-spinner-width);
     min-height: calc(var(--o-ui-sz-6) - 2px);
-    margin: 1px;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -74,12 +75,15 @@
 }
 
 /* SPINNER | ACTIVE */
-/* to do in JS */
+.o-ui-number-input-spinner-increment:active:focus,
+.o-ui-number-input-spinner-decrement:active:focus {
+    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+}
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-mid-break);
+    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* SPINNER | DISABLED */
