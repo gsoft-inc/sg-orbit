@@ -1,6 +1,5 @@
 import { AbstractTextInputProps, TextInput } from "../../text-input";
 import { ChangeEvent, ComponentProps, KeyboardEvent, SyntheticEvent, forwardRef, useCallback } from "react";
-import { CrossButton } from "../../button";
 import {
     Keys,
     OmitInternalProps,
@@ -13,9 +12,10 @@ import {
     useEventCallback,
     useMergedRefs
 } from "../../shared";
+
+import { CrossButton } from "../../button";
 import { MagnifierIcon } from "../../icons";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { wrappedInputPropsAdapter } from "../../input";
 
 const DefaultElement = "input";
 
@@ -45,8 +45,10 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         ...rest
     } = mergeProps(
         props,
-        wrappedInputPropsAdapter(inputGroupProps)
+        inputGroupProps
     );
+
+    console.log("SearchInput wrapper props: ", wrapperProps, props);
 
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
@@ -115,9 +117,12 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
                     spellCheck: "false",
                     type: "search" as const,
                     value: inputValue,
-                    wrapperProps: mergeProps(wrapperProps ?? {}, {
-                        className: "o-ui-search-input"
-                    })
+                    wrapperProps: mergeProps(
+                        wrapperProps ?? {},
+                        {
+                            className: "o-ui-search-input"
+                        }
+                    )
                 }
             )}
         />

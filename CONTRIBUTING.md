@@ -92,6 +92,11 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/components).
 
+## Adding or modifying an icon
+
+When adding a new icon in @orbit-ui/icons, you want to make sure that the @orbit-ui/components package is updated accordingly. You will need to generate
+a new react component for that icon using the `yarn generate-icons-components` command.
+
 ### Storybook
 
 Every components must be developed and documented in [Storybook](https://storybook.js.org).

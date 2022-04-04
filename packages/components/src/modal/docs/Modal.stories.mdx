@@ -4,7 +4,7 @@ import { ButtonGroup } from "@components/button";
 import { Card } from "@components/card";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Content, Footer, Header, InnerContent, InnerFooter, InnerHeader } from "@components/placeholders";
-import { ET, Planet, SpacePortrait, TheMartian } from "./assets";
+import { ET, Planet, SpacePortrait, SpacePortraitHorizontal, TheMartian } from "./assets";
 import { Heading, InnerHeading, Paragraph } from "@components/typography";
 import { Illustration } from "@components/illustration";
 import { Image } from "@components/image";
@@ -18,13 +18,26 @@ import { TextLink } from "@components/link";
 
 # Modal
 
-<Tagline>A modal is a dialog box that sits on the top of the current page and block access to the rest of the page to force a user interaction.</Tagline>
+<Tagline>A modal focus the user’s attention exclusively on one task or piece of information via a dialog that sits on top of the page content.</Tagline>
 
 <ComponentInfo
     usage={"import { Modal, ModalTrigger, Heading, Header, Content, Footer, ModalTriggerContext, useModalTriggerContext } from \"@sharegate/orbit-ui\";"}
     ariaPath="#dialog_modal"
     githubPath="/packages/components/src/modal/src"
 />
+
+## Best Practices
+
+- Prefer dismissible modal whenever possible. If your modal has no way to be dismissed and depends on a user choice use an [Alert](?path=/docs/alert--default-story).
+- Modals can be disruptive, use them sparingly.
+- Modals should not have complex layouts, these are not pages, when in need in more than a choice layout, use an appropriate [component](#related-components) or a page.
+- Don’t ask a question right above the buttons.
+
+## Accessibility
+
+- Modal should not rely on images or illustrations in order to give information to the user.
+- When presenting [choices](#choice) a Modal should provide enough information for the user to be able to take a decision in the spot, or a way to come back to the choice later.
+- Focus on the first interactive element in the modal, except if it’s a destructive action as it could trigger unwanted behavior.
 
 ## Usage
 
@@ -49,14 +62,14 @@ A modal must have an heading and a content.
 
 ### Image
 
-A modal can have a side banner [image](?path=/story/chromatic-image--default):
+A modal can have a side banner [image](?path=/story/chromatic-image--default). Make sure the image has no essential information as it could be cropped in mobile view. Images should not prevent a user from seeing the close button, be conscious of this.
 
 <Preview scope={{ SpacePortrait }}>
     <Story name="image">
         <ModalTrigger>
             <Button variant="secondary">Open</Button>
             <Modal>
-                <Image src={SpacePortrait} alt="Planet with a flag" />
+                <Image src={{ base: SpacePortraitHorizontal, sm: SpacePortrait }} alt="Planet with a flag" />
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
                     <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
@@ -67,14 +80,14 @@ A modal can have a side banner [image](?path=/story/chromatic-image--default):
     </Story>
 </Preview>
 
-Or an [illustration](?path=/docs/illustration--horizontal):
+Or an [illustration](?path=/docs/illustration--horizontal). Prefer 1:1 ratio for illustrations to prevent them to render a Modal too high on small resolutions, alternatively in mobile use another illustration that has a 1:1 ratio.
 
 <Preview scope={{ Planet }}>
     <Story name="illustration centered">
         <ModalTrigger>
             <Button variant="secondary">Open</Button>
             <Modal>
-                <Illustration backgroundColor="#7a49a5">
+                <Illustration backgroundColor="alias-accent-light">
                     <Image src={Planet} alt="Planet Logo" />
                 </Illustration>
                 <Heading>Apollo 11</Heading>
@@ -89,7 +102,7 @@ Or an [illustration](?path=/docs/illustration--horizontal):
 
 ### Choice
 
-A modal can offer a choice between 2 options.
+A modal can offer a choice between 2 options. Keep the copy not too long in order to help the user quickly make his choice.
 
 <Preview scope={{ ET, TheMartian }}>
     <Story name="choice">
@@ -118,7 +131,7 @@ A modal can offer a choice between 2 options.
 
 ### Header
 
-A modal can have an header.
+Use an header to provide additional information usually in the form of a link or a tooltip that provides more context to the task at hand. Links should open in a new window.
 
 <Preview>
     <Story name="header">
@@ -140,7 +153,7 @@ A modal can have an header.
 
 ### Footer
 
-A modal can have a footer.
+Use a footer to provide trivial information about content present in the modal, like a step : 1/3.
 
 <Preview>
     <Story name="footer">
@@ -152,7 +165,7 @@ A modal can have a footer.
                     <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
                     <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
                 </Content>
-                <Footer>Copyright © 2021</Footer>
+                <Footer>Copyright 2021</Footer>
             </Modal>
         </ModalTrigger>
     </Story>
@@ -160,7 +173,7 @@ A modal can have a footer.
 
 ### Buttons
 
-A modal can have a single [button](?path=/docs/button--default-story):
+A modal can have a single [button](?path=/docs/button--default-story). Use a primary [button](?path=/docs/button--default-story) to provide the main action.
 
 <Preview>
     <Story name="button">
@@ -178,36 +191,13 @@ A modal can have a single [button](?path=/docs/button--default-story):
     </Story>
 </Preview>
 
-Or a [group of button](?path=/docs/button--default-story#button-group)
+Or a [group of button](?path=/docs/button--default-story#button-group). A maximum of 3 buttons are allowed in a modal, when necessary. The secondary and tertiary actions should be using a secondary variant.
 
 <Preview>
     <Story name="button group">
         <ModalTrigger>
             <Button variant="secondary">Open</Button>
             <Modal>
-                <Heading>Apollo 11 movie</Heading>
-                <Content>
-                    <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
-                    <Paragraph>The film consists solely of archival footage, including 70 mm film previously unreleased to the public, and does not feature narration, interviews or modern recreations. The Saturn V rocket, Apollo crew consisting of Buzz Aldrin, Neil Armstrong, and Michael Collins, and Apollo program Earth-based mission operations engineers are prominently featured in the film.</Paragraph>
-                </Content>
-                <ButtonGroup>
-                    <Button variant="secondary">Select</Button>
-                    <Button>Next</Button>
-                </ButtonGroup>
-            </Modal>
-        </ModalTrigger>
-    </Story>
-</Preview>
-
-### Fullscreen
-
-A modal can take almost all the available space.
-
-<Preview>
-    <Story name="fullscreen">
-        <ModalTrigger>
-            <Button variant="secondary">Open</Button>
-            <Modal fullscreen>
                 <Heading>Apollo 11 movie</Heading>
                 <Content>
                     <Paragraph>Apollo 11 is a 2019 American documentary film edited, produced and directed by Todd Douglas Miller. It focuses on the 1969 Apollo 11 mission, the first spaceflight from which men walked on the Moon.</Paragraph>
@@ -252,6 +242,12 @@ You don't have to use a `ModalTrigger` component if it doesn't fit your needs. A
 - The custom trigger is responsible of show/hide the modal. This is usually done in combination with an [overlay](?path=/docs/overlay--page) component.
 
 <Preview filePath="/modal/docs/CustomTrigger" />
+
+## Related Components
+
+- To present a small supplemental amount of information in a non blocking way use a [Popover](?path=/docs/popover--default-story).
+- To communicate a change or condition that needs the user’s attention within the context of a page, use a [Message](?path=/docs/message--default-story).
+- To present large amounts of additional information or actions that don’t require confirmation, use an [Accordion](?path=/docs/accordion--default-story).
 
 ## API
 
@@ -315,7 +311,3 @@ You don't have to use a `ModalTrigger` component if it doesn't fit your needs. A
 />
 
 <ArgsTable of={InnerFooter} sort="alpha" />
-
-
-
-

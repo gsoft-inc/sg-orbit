@@ -1,4 +1,3 @@
-import { AbstractInputProps, wrappedInputPropsAdapter } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
@@ -22,6 +21,7 @@ import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
 import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 
+import { AbstractInputProps } from "../../input";
 import { HiddenAutocomplete } from "./HiddenAutocomplete";
 import { SearchInput } from "../../text-input";
 import { useDebouncedCallback } from "./useDebouncedCallback";
@@ -97,11 +97,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     const [fieldProps] = useFieldInputProps();
     const [inputGroupProps] = useInputGroupTextInputProps();
 
-    const contextualProps = mergeProps(
-        fieldProps,
-        inputGroupProps
-    );
-
     const {
         active,
         align = "start",
@@ -144,7 +139,8 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         ...rest
     }: InnerAutocompleteProps & Omit<UseFieldInputPropsReturn, "size"> = mergeProps(
         props,
-        wrappedInputPropsAdapter(contextualProps)
+        fieldProps,
+        inputGroupProps
     );
 
     const [focusedItem, setFocusedItem] = useState(null);
@@ -160,8 +156,6 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
             return undefined;
         }, [setQuery])
     });
-
-    const triggerWrapperRef = useRef();
 
     const {
         focusScope,
@@ -187,9 +181,10 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
     });
 
     const [triggerWidthRef, triggerWidth] = useTriggerWidth();
+    const triggerWrapperRef = useMergedRefs(triggerWidthRef, popupTriggerRef);
 
     const listboxRef = useRef<ListboxElement>();
-    const triggerRef = useMergedRefs(forwardedRef, popupTriggerRef, triggerWidthRef);
+    const triggerRef = useMergedRefs(forwardedRef);
 
     const [results, searchCollection] = useCollectionSearch(children, { onSearch });
 
@@ -262,7 +257,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
         onBlur: useEventCallback((event: FocusEvent) => {
             if (!isDevToolsBlurEvent(focusScope)) {
                 // Close the menu when the focus switch from the trigger to somewhere else than the menu or the trigger.
-                if (!isTargetParent(event.relatedTarget, triggerWrapperRef.current) && !isTargetParent(event.relatedTarget, overlayRef)) {
+                if (!isTargetParent(event.relatedTarget, triggerWrapperRef) && !isTargetParent(event.relatedTarget, overlayRef)) {
                     close(event);
                     reset();
                 }
@@ -416,6 +411,7 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
                         icon: iconMarkup ?? null,
                         id: triggerId,
                         loading: useDeferredValue(loading, 100, false),
+                        name,
                         onKeyDown: handleTriggerKeyDown,
                         onValueChange: handleTriggerChange,
                         placeholder,
@@ -462,4 +458,3 @@ export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<Inner
 ));
 
 export type AutocompleteProps = ComponentProps<typeof Autocomplete>;
-

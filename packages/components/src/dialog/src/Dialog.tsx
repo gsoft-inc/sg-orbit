@@ -66,7 +66,7 @@ export interface InnerDialogProps extends AbstractDialogProps<typeof DefaultElem
     /**
      * A dialog can vary in size.
      */
-    size?: ResponsiveProp<"sm" | "md" | "lg" | "fullscreen">;
+    size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
 function useHideBodyScrollbar() {
@@ -321,7 +321,7 @@ export function InnerDialog({
                             as,
                             className: cssModule(
                                 "o-ui-dialog",
-                                sizeValue === "fullscreen" ? sizeValue : normalizeSize(sizeValue),
+                                normalizeSize(sizeValue),
                                 focus && "focus"
                             ),
                             id: dialogId,

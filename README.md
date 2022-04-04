@@ -25,7 +25,7 @@ Orbit is a design system developed by ShareGate to help create the best experien
 
 The documentation website contains information about installation, the Orbit foundation and Orbit components.
 
-https://orbit.sharegate.design/
+https://orbit.sharegate.design
 
 ## Storybook website
 

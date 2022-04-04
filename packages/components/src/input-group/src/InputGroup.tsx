@@ -95,6 +95,7 @@ export function InnerInputGroup({
     }, [children]);
 
     const hasTextInput = useHasChild(".o-ui-input-group-text-input", ref);
+    const hasDateInput = useHasChild(".o-ui-date-input-in-group", ref);
 
     return (
         <Box
@@ -105,7 +106,8 @@ export function InnerInputGroup({
                     className: cssModule(
                         "o-ui-input-group",
                         fluidValue && "fluid",
-                        hasTextInput && "has-text-input"
+                        hasTextInput && "has-text-input",
+                        hasDateInput && "has-date-input"
                     ),
                     ref
                 }
