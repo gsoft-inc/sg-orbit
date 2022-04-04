@@ -1,6 +1,7 @@
 const chalk = require("chalk");
 const shell = require("shelljs");
-const { loadOptimizedIcons } = require("./load-optimized-icons");
+const { loadIcons } = require("./load-icons");
+const { optimizeIcons } = require("./optimize-icons");
 const fs = require("fs");
 
 const SRC_PATH = "src";
@@ -22,9 +23,8 @@ const writeIcons = (icons, dir) => {
 
 console.log("Optimizing and building icons...");
 
-loadOptimizedIcons(SRC_PATH)
-    .then(icons => {
-        writeIcons(icons, DIST_PATH);
-    })
+loadIcons(SRC_PATH)
+    .then(icons => optimizeIcons(icons))
+    .then(icons => writeIcons(icons, DIST_PATH))
     .catch(error => console.error(error))
     .then(() => console.log(chalk.green("Build icons completed!")));

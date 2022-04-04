@@ -2,7 +2,6 @@ const fs = require("fs");
 const config = require("../../icons/scripts/svgo-config");
 const { transform } = require("@svgr/core");
 const camelCase = require("camelcase");
-const { groupBy } = require("lodash");
 const shell = require("shelljs");
 
 const GENERATED_HEADER = `/*
@@ -14,22 +13,6 @@ const GENERATED_HEADER = `/*
 const iconTemplate = content => `${GENERATED_HEADER}
 /* eslint-disable */
 ${content}
-/* eslint-enable */
-`;
-
-const indexFileTemplate = (iconNames, groupedIcons) => `${GENERATED_HEADER}
-/* eslint-disable */
-import { createOrbitIcon, createOrbitMultiVariantIcon } from "../createOrbitIcon";
-
-${iconNames.map(icon => `import { ReactComponent as Inner${icon} } from "./${icon}";`).join("\n")}
-
-${iconNames.map(icon => `export const ${icon} = createOrbitIcon(Inner${icon}, "${icon}");`).join("\n")}
-
-${Object.entries(groupedIcons).map(([key, group])=> {
-        const name = getComponentName(key);
-
-        return `export const ${name} = createOrbitMultiVariantIcon(${group.map(icon => `Inner${getComponentName(icon.name, icon.size)}`).join(", ")}, "${name}");`;
-    }).join("\n")}
 /* eslint-enable */
 `;
 
@@ -77,15 +60,6 @@ function generateIconComponent(name, icon, path) {
     fs.writeFileSync(`${path}/${name}.tsx`, iconTemplate(code));
 }
 
-function generateIndexFile(icons, dir) {
-    const iconNames = icons.map(x => getComponentName(x.name, x.size));
-    const groupedIcons = groupBy(icons, "group");
-    const content = indexFileTemplate(iconNames, groupedIcons);
-
-    fs.writeFileSync(`${dir}/index.tsx`, content);
-}
-
 module.exports = {
-    generateIconComponents,
-    generateIndexFile
+    generateIconComponents
 };
