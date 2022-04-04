@@ -1,3 +1,3 @@
-export { ReactComponent as AzureIcon32 } from "./AzureIcon32";
-export { ReactComponent as FilterIcon24 } from "./FilterIcon24";
-export { ReactComponent as FilterIcon32 } from "./FilterIcon32";
+export { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+export { ReactComponent as FilterIcon24 } from "./icon-filter-24.svg";
+export { ReactComponent as FilterIcon32 } from "./icon-filter-32.svg";
