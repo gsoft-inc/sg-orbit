@@ -7,6 +7,7 @@ import { Image } from "@components/image";
 import { Inline, Stack } from "@components/layout";
 import { Item } from "@components/collection";
 import { Nasa } from "./assets";
+import { Switch } from "@components/switch";
 import { Tabs } from "@components/tabs";
 import { TextLink } from "@components/link";
 import { cloneElement } from "react";
@@ -145,7 +146,56 @@ export function createTestSuite(element, stories) {
                 </Card>
             </Stack>
         )
-        .add("link header", () =>
+        .add("component alignment header", () =>
+            <Stack>
+                <Inline>
+                    <Card size="xs" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Header>
+                            <Switch aria-label="lorem" />
+                        </Header>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card size="sm" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Header>
+                            <Switch aria-label="lorem" />
+                        </Header>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card element={element}>
+                        <Heading>Nasa</Heading>
+                        <Header>
+                            <Switch aria-label="lorem" />
+                        </Header>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Inline>
+                <Inline>
+                    <Card size="lg" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Header>
+                            <Switch aria-label="lorem" />
+                        </Header>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card size="xl" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Header>
+                            <Switch aria-label="lorem" />
+                        </Header>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Inline>
+                <Card fluid element={element}>
+                    <Heading>Nasa</Heading>
+                    <Header>
+                        <Switch aria-label="lorem" />
+                    </Header>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Stack>
+        ).add("link header", () =>
             <Stack>
                 <Inline>
                     <Card size="xs" element={element}>
@@ -649,6 +699,12 @@ export function createTestSuite(element, stories) {
         .add("heading overflow", () =>
             <Card element={element}>
                 <Heading>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Heading>
+                <Content>The National Aeronautics and Space Administration</Content>
+            </Card>
+        )
+        .add("heading alignment", () =>
+            <Card element={element}>
+                <Heading>Lorem ipsum dolor sit amet<Switch aria-label="Lorem" /></Heading>
                 <Content>The National Aeronautics and Space Administration</Content>
             </Card>
         )
