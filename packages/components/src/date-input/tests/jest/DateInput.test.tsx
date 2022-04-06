@@ -8,7 +8,7 @@ import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.
 // Providing an option.delay fix the problem but we get the following warning: "You seem to have overlapping act() calls, this is not supported. Be sure to await previous act() calls before making a new one."
-async function type(element: Element, text: string) {
+function type(element: Element, text: string) {
     [...text].forEach(x => {
         userEvent.type(element, x);
     });
@@ -31,15 +31,15 @@ test("only accept number characters", async () => {
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "aA");
+    type(getByTestId("date"), "aA");
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
 
-    await type(getByTestId("date"), "(@$");
+    type(getByTestId("date"), "(@$");
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
 
-    await type(getByTestId("date"), "010");
+    type(getByTestId("date"), "010");
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("01/0"));
 });
@@ -53,7 +53,7 @@ test("when the input has no value and a partial date has been entered, reset to 
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "010");
+    type(getByTestId("date"), "010");
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("01/0"));
 
@@ -77,7 +77,7 @@ test("when the input has no value and an invalid date has been entered, clear th
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "99999999");
+    type(getByTestId("date"), "99999999");
 
     await userEvent.click(document.body);
 
@@ -102,7 +102,7 @@ test("when the entered date is lower than the min date, reset value to min date"
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "01012020");
+    type(getByTestId("date"), "01012020");
 
     await userEvent.click(document.body);
 
@@ -127,7 +127,7 @@ test("when the entered date is greater than the max date, reset the date to the 
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "01012022");
+    type(getByTestId("date"), "01012022");
 
     await userEvent.click(document.body);
 
@@ -149,7 +149,7 @@ test("when a valid date is entered, convert the date format to a read format on 
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "01012021");
+    type(getByTestId("date"), "01012021");
 
     await userEvent.click(document.body);
 
@@ -183,7 +183,7 @@ test("when the input value has a valid date and a partial date has been entered 
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "010");
+    type(getByTestId("date"), "010");
 
     await userEvent.click(document.body);
 
@@ -210,7 +210,7 @@ test("when the input value has a valid date and a malformed date has been entere
 
     await backspace(getByTestId("date"), 6);
 
-    await type(getByTestId("date"), "999999");
+    type(getByTestId("date"), "999999");
 
     await userEvent.click(document.body);
 
@@ -414,7 +414,7 @@ test("when the input has no value and a valid date has been entered, call onDate
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "01012021");
+    type(getByTestId("date"), "01012021");
 
     await userEvent.click(document.body);
 
@@ -436,7 +436,7 @@ test("when the input has no value and a partial date has been cleared, do not ca
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "010");
+    type(getByTestId("date"), "010");
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("01/0"));
 
@@ -463,7 +463,7 @@ test("when the input has no value and a malformed date has been entered, do not 
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "99999999");
+    type(getByTestId("date"), "99999999");
 
     await userEvent.click(document.body);
 
@@ -561,7 +561,7 @@ test("when the input value has a valid date and a malformed date has been entere
 
     await backspace(getByTestId("date"), 6);
 
-    await type(getByTestId("date"), "999999");
+    type(getByTestId("date"), "999999");
 
     await userEvent.click(document.body);
 
@@ -603,7 +603,7 @@ test("when a valid date has been entered and the date exceed the specified min o
         getByTestId("date").focus();
     });
 
-    await type(getByTestId("date"), "01012020");
+    type(getByTestId("date"), "01012020");
 
     await userEvent.click(document.body);
 
