@@ -17,31 +17,31 @@ function appendButton() {
     return button;
 }
 
-test("handler is called when the specified event is triggered on the target element", async () => {
+test("handler is called when the specified event is triggered on the target element", () => {
     const handler = jest.fn();
 
     renderHook(() => useEventListener(document, "click", handler));
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalled();
 });
 
-test("handler is not called when another event is triggered on the target element", async () => {
+test("handler is not called when another event is triggered on the target element", () => {
     const handler = jest.fn();
 
     renderHook(() => useEventListener(document, "click", handler));
 
     const button = appendButton();
 
-    await fireEvent.mouseOver(button);
+    fireEvent.mouseOver(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("handler is not called when an event is trigerred on another target element", async () => {
+test("handler is not called when an event is trigerred on another target element", () => {
     const handler = jest.fn();
 
     const div = document.createElement("div");
@@ -51,24 +51,24 @@ test("handler is not called when an event is trigerred on another target element
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("handler can be a function", async () => {
+test("handler can be a function", () => {
     const handler = jest.fn();
 
     renderHook(() => useEventListener(() => document, "click", handler));
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalled();
 });
 
-test("can listen to multiple events on the same target element", async () => {
+test("can listen to multiple events on the same target element", () => {
     const clickHandler = jest.fn();
     const mouseOverHandler = jest.fn();
 
@@ -77,26 +77,26 @@ test("can listen to multiple events on the same target element", async () => {
 
     const button = appendButton();
 
-    await fireEvent.click(button);
-    await fireEvent.mouseOver(button);
+    fireEvent.click(button);
+    fireEvent.mouseOver(button);
 
     expect(clickHandler).toHaveBeenCalled();
     expect(mouseOverHandler).toHaveBeenCalled();
 });
 
-test("doesn't call handler when not active", async () => {
+test("doesn't call handler when not active", () => {
     const handler = jest.fn();
 
     renderHook(() => useEventListener(document, "click", handler, false));
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
 
-test("doesn't call handler after transitioning from active to inactive", async () => {
+test("doesn't call handler after transitioning from active to inactive", () => {
     const handler = jest.fn();
 
     const { rerender } = renderHook(({ active }) => useEventListener(document, "click", handler, active), {
@@ -107,18 +107,18 @@ test("doesn't call handler after transitioning from active to inactive", async (
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     rerender({
         active: false
     });
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalledTimes(1);
 });
 
-test("call handler after transitioning from inactive to active", async () => {
+test("call handler after transitioning from inactive to active", () => {
     const handler = jest.fn();
 
     const { rerender } = renderHook(({ active }) => useEventListener(document, "click", handler, active), {
@@ -129,13 +129,13 @@ test("call handler after transitioning from inactive to active", async () => {
 
     const button = appendButton();
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     rerender({
         active: true
     });
 
-    await fireEvent.click(button);
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalledTimes(1);
 });
