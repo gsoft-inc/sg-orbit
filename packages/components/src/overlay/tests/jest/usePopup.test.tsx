@@ -73,9 +73,7 @@ describe("\"click\" trigger", () => {
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
@@ -91,9 +89,7 @@ describe("\"click\" trigger", () => {
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
@@ -109,9 +105,7 @@ describe("\"click\" trigger", () => {
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
@@ -126,9 +120,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -143,9 +135,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -160,9 +150,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -176,15 +164,11 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -199,15 +183,11 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(queryByTestId("overlay")).toBeInTheDocument());
     });
@@ -221,9 +201,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -231,9 +209,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -248,9 +224,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -258,9 +232,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
@@ -277,9 +249,7 @@ describe("\"click\" trigger", () => {
             </>
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -307,9 +277,7 @@ describe("\"click\" trigger", () => {
             </>
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -333,9 +301,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -343,9 +309,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -360,9 +324,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -370,9 +332,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
@@ -388,9 +348,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -404,9 +362,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.focus(getByTestId("trigger"));
-        });
+        await fireEvent.focus(getByTestId("trigger"));
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -420,9 +376,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -436,9 +390,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
     });
@@ -455,9 +407,7 @@ test("closing the popup with esc keypress return the focus to the trigger", asyn
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     act(() => {
         getByTestId("overlay").focus();
@@ -465,9 +415,7 @@ test("closing the popup with esc keypress return the focus to the trigger", asyn
 
     await waitFor(() => expect(getByTestId("trigger")).not.toHaveFocus());
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-    });
+    await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
 });
@@ -493,9 +441,7 @@ test("when the popup is open, the popup trigger aria-expanded is \"true\"", asyn
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-expanded", "true"));
 });
@@ -508,9 +454,7 @@ test("when the popup is open, the popup trigger aria-controls match the overlay 
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-controls", getByTestId("overlay").getAttribute("id")));
 });
@@ -524,9 +468,7 @@ test("when an id is provided for the overlay, it is used as the overlay id", asy
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("overlay")).toHaveAttribute("id", "overlay-custom-id"));
 });
@@ -539,9 +481,7 @@ test("when no overlay id is provided, an overlay id is autogenerated", async () 
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("overlay")).toHaveAttribute("id"));
 });
@@ -559,9 +499,7 @@ test("call onOpenChange when the popup open", async () => {
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -582,9 +520,7 @@ test("call onOpenChange when the popup close", async () => {
         getByTestId("overlay").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-    });
+    await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -601,9 +537,7 @@ test("when closed, do not call onOpenChange on outside click", async () => {
         />
     );
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });

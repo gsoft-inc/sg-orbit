@@ -51,9 +51,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -70,9 +68,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -89,9 +85,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -108,9 +102,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -127,9 +119,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -147,9 +137,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -167,9 +155,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -187,9 +173,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -206,9 +190,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -227,9 +209,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
+        await userEvent.hover(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -265,13 +245,9 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
+        await userEvent.hover(getByTestId("trigger"));
 
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
-        });
+        await userEvent.unhover(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -292,9 +268,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -312,13 +286,9 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
+        await userEvent.hover(getByTestId("trigger"));
 
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
-        });
+        await userEvent.unhover(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -340,9 +310,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -360,9 +328,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
+        await userEvent.hover(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -401,9 +367,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
-        });
+        await userEvent.click(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -420,9 +384,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -439,9 +401,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -458,9 +418,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
-        });
+        await userEvent.hover(getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });

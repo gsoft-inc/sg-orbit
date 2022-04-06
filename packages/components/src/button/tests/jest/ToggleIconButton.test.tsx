@@ -1,6 +1,6 @@
 import { AddIcon } from "@components/icons";
 import { ToggleIconButton } from "@components/button";
-import { act, waitFor } from "@testing-library/react";
+import { waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -22,9 +22,7 @@ test("call onChange when the button is selected", async () => {
         </ToggleIconButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(getByTestId("toggle-icon-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -45,13 +43,9 @@ test("call onChange when the button is unselected", async () => {
         </ToggleIconButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(getByTestId("toggle-icon-button"));
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(getByTestId("toggle-icon-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

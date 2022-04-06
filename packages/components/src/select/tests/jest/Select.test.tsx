@@ -27,9 +27,7 @@ test("when a select open and there is no selected option, the first option is fo
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
@@ -43,9 +41,7 @@ test("when a select open and there is a selected option, the selected option is 
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
 });
@@ -59,9 +55,7 @@ test("when a select open with arrow down keypress and there is no selected optio
         </Select>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
@@ -75,9 +69,7 @@ test("when a select open with arrow down keypress and there is a selected option
         </Select>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
 });
@@ -91,9 +83,7 @@ test("when a select open with arrow up keypress and there is no selected option,
         </Select>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(getByTestId("saturn-option")).toHaveFocus());
 });
@@ -107,9 +97,7 @@ test("when a select open with arrow up keypress and there is a selected option, 
         </Select>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
 });
@@ -126,15 +114,11 @@ test("selecting an option close the menu", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 });
@@ -151,15 +135,11 @@ test("selecting an option update the trigger selected value text", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
 });
@@ -179,15 +159,11 @@ test("selecting an option focus the trigger", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(queryByTestId("select")).toHaveFocus());
 });
@@ -208,9 +184,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -218,9 +192,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        userEvent.tab();
-    });
+    await userEvent.tab();
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
@@ -243,9 +215,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
@@ -253,9 +223,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
@@ -274,9 +242,7 @@ test("when in a field, clicking on the field label open the select and focus the
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
-    });
+    await userEvent.click(getByTestId("label"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
@@ -421,9 +387,7 @@ test("call onOpenChange when the select open", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
-    });
+    await userEvent.click(getByTestId("select"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -451,9 +415,7 @@ test("call onOpenChange when the select close", async () => {
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.esc });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -476,9 +438,7 @@ test("call onSelectionChange when an option is selected", async () => {
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

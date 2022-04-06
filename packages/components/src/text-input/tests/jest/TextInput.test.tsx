@@ -96,9 +96,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
-    });
+    await userEvent.click(getByTestId("label"));
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
 });
@@ -112,9 +110,7 @@ test("call onValueChange when the value change", async () => {
         <TextInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
-    });
+    await userEvent.type(getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -127,9 +123,7 @@ test("call onChange when the value change", async () => {
         <TextInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
-    });
+    await userEvent.type(getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

@@ -2,7 +2,7 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Disclosure } from "@components/disclosure";
 import { Keys } from "@components/shared";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { fireEvent, waitFor } from "@testing-library/react";
 import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
@@ -19,15 +19,11 @@ test("spacebar keypress toggles content visibility", async () => {
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 });
@@ -44,15 +40,11 @@ test("enter keypress toggles content visibility", async () => {
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 });
@@ -112,9 +104,7 @@ test("call onOpenChange when expand", async () => {
         </Disclosure>
     );
 
-    act(() => {
-        fireEvent.click(getByTestId("header"));
-    });
+    await fireEvent.click(getByTestId("header"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -130,9 +120,7 @@ test("call onOpenChange when close", async () => {
         </Disclosure>
     );
 
-    act(() => {
-        fireEvent.click(getByTestId("header"));
-    });
+    await fireEvent.click(getByTestId("header"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

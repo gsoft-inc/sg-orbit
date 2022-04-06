@@ -92,9 +92,7 @@ test("down arrow keypress moves focus to the next option", async () => {
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(document.activeElement).toBe(getByTestId("jupiter-option")));
 });
@@ -112,13 +110,9 @@ test("up arrow keypress moves focus to the previous option", async () => {
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-option")));
 });
@@ -136,13 +130,9 @@ test("home keypress move the focus to the first option", async () => {
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.home });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.home });
 
     await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-option")));
 });
@@ -160,9 +150,7 @@ test("end keypress move the focus to the last option", async () => {
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.end });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.end });
 
     await waitFor(() => expect(document.activeElement).toBe(getByTestId("mars-option")));
 });
@@ -180,9 +168,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the option 
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -200,9 +186,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the option sel
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -216,9 +200,7 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the option sele
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -236,15 +218,11 @@ test("when selectionMode is \"single\", spacebar keypress toggle the option sele
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -262,15 +240,11 @@ test("when selectionMode is \"single\", enter keypress toggle the option selecti
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -284,15 +258,11 @@ test("when selectionMode is \"single\", mouse click toggle the option selection"
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -310,15 +280,11 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the option se
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -336,15 +302,11 @@ test("when selectionMode is \"multiple\", enter keypress toggle the option selec
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -358,15 +320,11 @@ test("when selectionMode is \"multiple\", mouse click toggle the option selectio
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -384,13 +342,9 @@ test("when selectionMode is \"multiple\", shift + down arrow keypress moves focu
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -410,13 +364,9 @@ test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus 
         getByTestId("mars-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -437,17 +387,13 @@ test("when selectionMode is \"multiple\", shift + space keypress selects contigu
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     act(() => {
         getByTestId("mercury-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -464,9 +410,7 @@ test("when useVirtualFocus is true, a mouse click should render the option as fo
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("jupiter-option"));
-    });
+    await userEvent.click(getByTestId("jupiter-option"));
 
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
@@ -499,9 +443,7 @@ test("when useVirtualFocus and focusOnHover are true, a mouse hover should rende
         </Listbox>
     );
 
-    act(() => {
-        fireEvent.mouseOver(getByTestId("jupiter-option"));
-    });
+    await fireEvent.mouseOver(getByTestId("jupiter-option"));
 
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
@@ -515,9 +457,7 @@ test("a letter keypress move the focus to the first option starting with that le
         </Listbox>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: "j" });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: "j" });
 
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
 });
@@ -803,9 +743,7 @@ test("call onSelectionChange when a single option is selected", async () => {
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -825,13 +763,9 @@ test("call onSelectionChange when multiple options are selected in sequence", as
         </Listbox>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
-    });
+    await userEvent.click(getByTestId("earth-option"));
 
-    act(() => {
-        userEvent.click(getByTestId("mars-option"));
-    });
+    await userEvent.click(getByTestId("mars-option"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -856,17 +790,13 @@ test("call onSelectionChange when multiple options are selected at once", async 
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
 
     act(() => {
         getByTestId("mercury-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
-    });
+    await fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -924,9 +854,7 @@ test("call onFocusChange when an option is focused following an arrow down keypr
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -947,9 +875,7 @@ test("call onFocusChange when an option is focused following an arrow up keypres
         getByTestId("jupiter-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -969,9 +895,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
         </Listbox>
     );
 
-    act(() => {
-        fireEvent.mouseOver(getByTestId("earth-option"));
-    });
+    await fireEvent.mouseOver(getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -991,9 +915,7 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
         </Listbox>
     );
 
-    act(() => {
-        fireEvent.mouseOver(getByTestId("earth-option"));
-    });
+    await fireEvent.mouseOver(getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
@@ -1016,9 +938,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         getByTestId("jupiter-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -1042,9 +962,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -1093,15 +1011,5 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode instanceof HTMLElement).toBeTruthy();
     expect(refNode.tagName).toBe("DIV");
 });
-
-// test("set ref once", async () => {
-//     const handler = jest.fn();
-
-//     renderWithTheme(
-//         <Listbox ref={handler} />
-//     );
-
-//     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-// });
 
 

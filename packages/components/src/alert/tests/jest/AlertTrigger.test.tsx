@@ -2,7 +2,6 @@ import { Alert, AlertTrigger } from "@components/alert";
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
-import { act } from "@testing-library/react-hooks";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
@@ -21,15 +20,11 @@ test("do not dismiss on outside click", async () => {
         </AlertTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
 });

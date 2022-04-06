@@ -29,9 +29,7 @@ test("when a menu open and there is no selected item, the first item is focused"
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });
@@ -48,9 +46,7 @@ test("when a menu open and there is a selected item, the selected item is focuse
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
 });
@@ -67,9 +63,7 @@ test("when a menu open with arrow down keypress and there is no selected item, t
         </MenuTrigger>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });
@@ -86,9 +80,7 @@ test("when a menu open with arrow down keypress and there is a selected item, th
         </MenuTrigger>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
 });
@@ -105,9 +97,7 @@ test("when a menu open with arrow up keypress and there is no selected item, the
         </MenuTrigger>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(getByTestId("saturn-item")).toHaveFocus());
 });
@@ -124,9 +114,7 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
         </MenuTrigger>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
 });
@@ -143,15 +131,11 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(getByTestId("earth-item"));
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
 });
@@ -168,15 +152,11 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(getByTestId("earth-item"));
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
 });
@@ -193,15 +173,11 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(getByTestId("earth-item"));
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
 });
@@ -221,15 +197,11 @@ test("selecting an item focus the trigger", async () => {
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(getByTestId("earth-item"));
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
 });
@@ -248,9 +220,7 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(getByTestId("earth-item"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 });
@@ -271,9 +241,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
@@ -281,9 +249,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        userEvent.tab();
-    });
+    await userEvent.tab();
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
 
@@ -306,9 +272,7 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
@@ -316,9 +280,7 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
         getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
 
@@ -433,9 +395,7 @@ test("call onOpenChange when the menu open", async () => {
         </MenuTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(getByTestId("trigger"));
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
@@ -466,9 +426,7 @@ test("call onOpenChange when the menu close", async () => {
         getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.esc });
-    });
+    await fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

@@ -63,9 +63,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -106,9 +104,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -129,9 +125,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -178,9 +172,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(getByTestId("overlay"));
-        });
+        await userEvent.click(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -201,9 +193,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(getByTestId("overlay"));
-        });
+        await userEvent.click(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -250,9 +240,7 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -274,9 +262,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -292,9 +278,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.mouseLeave(getByTestId("overlay"));
-        });
+        await fireEvent.mouseLeave(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -310,9 +294,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -333,9 +315,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -355,9 +335,7 @@ describe("\"hover\" trigger", () => {
             </>
         );
 
-        act(() => {
-            fireEvent.mouseLeave(getByTestId("overlay"));
-        });
+        await fireEvent.mouseLeave(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -378,9 +356,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(getByTestId("overlay"));
-        });
+        await userEvent.click(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -401,9 +377,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(getByTestId("overlay"));
-        });
+        await userEvent.click(getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -450,9 +424,7 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
-        });
+        await fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
