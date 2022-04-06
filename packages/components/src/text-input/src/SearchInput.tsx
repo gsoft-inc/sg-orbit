@@ -48,8 +48,6 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         inputGroupProps
     );
 
-    console.log("SearchInput wrapper props: ", wrapperProps, props);
-
     const [inputValue, setValue] = useControllableState(value, defaultValue, "");
 
     const inputRef = useMergedRefs(forwardedRef);
