@@ -74,10 +74,9 @@ const optimizeIcon = icon => {
     };
 };
 
+// remove the size props, and rename sizeInTheName to size
 function mergeSizeProps(icons) {
-    // after validation, we know that the size in the name is the same as the size in the svg, and that the svg is square. We can now merge the size props
 
-    // remove the size props, and rename sizeInTheName to size
     // eslint-disable-next-line no-unused-vars
     return icons.map(({ size, sizeInTheName, ...rest }) => {
         return {
