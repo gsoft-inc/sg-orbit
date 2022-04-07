@@ -1,6 +1,3 @@
-import { AccordionContext } from "./AccordionContext";
-import { AccordionItem } from "./AccordionItem";
-import { Box } from "../../box";
 import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InternalProps,
@@ -19,7 +16,11 @@ import {
     useId,
     useKeyboardNavigation,
     useMergedRefs
-} from "../../shared";
+} from "../../shared/index";
+
+import { AccordionContext } from "./AccordionContext";
+import { AccordionItem } from "./AccordionItem";
+import { Box } from "../../box/index";
 import { useAccordionItems } from "./useAccordionItems";
 
 const DefaultElement = "div";

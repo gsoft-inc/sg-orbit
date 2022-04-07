@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/components",
-    "version": "5.1.0-esm4",
+    "version": "5.1.0-esm9",
     "description": "Orbit components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -17,9 +17,7 @@
         "!/dist/**/tests/*",
         "index.css"
     ],
-    "sideEffects": [
-        "*.css"
-    ],
+    "sideEffects": false,
     "publishConfig": {
         "access": "public"
     },
@@ -27,6 +25,7 @@
         "setup": "yarn create-dist",
         "start-components": "yarn watch",
         "prebuild": "yarn clean",
+        "build-prod": "cross-env NODE_ENV=production yarn build",
         "build": "run-s build:*",
         "build:types": "tsc --build ./tsconfig.build.json",
         "build:js": "babel src -d dist --config-file ../../build/babel.config.cjs --copy-files --extensions .ts,.tsx",

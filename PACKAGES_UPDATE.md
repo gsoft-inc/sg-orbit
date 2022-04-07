@@ -34,7 +34,7 @@ Cannot update `eslint` to version 8. We get the following error when opening an 
 ## Meow & Chalk
 
 Cannot update `meow` to version 10.
-Cannot update `charlk` to version 5.
+Cannot update `chark` to version 5.
 
 FYI: I think this problem is solvable on our side and should be investigated.
 

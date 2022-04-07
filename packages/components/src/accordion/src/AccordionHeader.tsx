@@ -1,8 +1,9 @@
 import { ComponentProps, ElementType, ReactNode, forwardRef, useMemo } from "react";
-import { DisclosureArrow } from "../../disclosure";
-import { Div, HtmlButton } from "../../html";
-import { H3, HeadingProps, Text } from "../../typography";
-import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, omitProps, useSlots } from "../../shared";
+import { Div, HtmlButton } from "../../html/index";
+import { H3, HeadingProps, Text } from "../../typography/index";
+import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, omitProps, useSlots } from "../../shared/index";
+
+import { DisclosureArrow } from "../../disclosure/index";
 
 const DefaultElement = "button";
 

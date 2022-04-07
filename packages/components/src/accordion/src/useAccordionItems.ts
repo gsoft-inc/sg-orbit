@@ -1,6 +1,6 @@
 import { Children, ReactElement, ReactNode, Ref, RefAttributes, useMemo } from "react";
-import { Content, Header } from "../../placeholders";
-import { isNil, mergeProps } from "../../shared";
+import { Content, Header } from "../../placeholders/index";
+import { isNil, mergeProps } from "../../shared/index";
 
 export interface AccordionBuilderItem {
     header: AccordionBuilderHeader;

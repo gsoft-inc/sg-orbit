@@ -67,6 +67,8 @@ module.exports = {
             }
         ],
         "@babel/plugin-proposal-nullish-coalescing-operator",
-        "@babel/plugin-proposal-optional-chaining"
+        "@babel/plugin-proposal-optional-chaining",
+        // Usefull for ES6 modules to prevent having "Error: Cannot find module" because the import doesn't includes the file extension.
+        "babel-plugin-add-import-extension"
     ].filter(Boolean)
 };
