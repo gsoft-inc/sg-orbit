@@ -1,4 +1,4 @@
-const { customizeWebpack } = require("./webpack.config.js");
+const { customizeWebpack } = require("./webpack.config.cjs");
 const { includeChromatic, includeDocs, printEnvironment, isChromatic, isDebug } = require("./env");
 
 printEnvironment();
