@@ -40,16 +40,18 @@ Here's an example of how to bootstrap an app with a pre-constructed ShareGate th
 
 ```jsx
 import { createThemeVars, ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
-import { render } from "react-dom";
+import { createRoot } from 'react-dom/client';
 import App from "./App";
 
 createThemeVars([ShareGateTheme]);
 
-render(
+const container = document.getElementById('app');
+const root = createRoot(container);
+
+root.render(
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <App />
-    </ThemeProvider>,
-    document.getElementById("root")
+    </ThemeProvider>
 );
 ```
 
