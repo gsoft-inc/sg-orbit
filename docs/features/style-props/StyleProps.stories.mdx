@@ -12,9 +12,9 @@ import { PropsReferenceTable } from "./PropsReferenceTable";
 
 # Style props
 
-An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications.
+An Orbit style property(style props) is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications.
 
-Shorthands like `border` and `paddingX` are also provided to helps you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
+Shorthands like `border` and `paddingX` are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
 
 ```jsx
 <Div
@@ -29,9 +29,9 @@ Shorthands like `border` and `paddingX` are also provided to helps you save keys
 </Div>
 ```
 
-Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense. Style values intellisense will provide suggestions matching the values provided by the [theme](?path=/docs/theming--page) as well as the native CSS values of the property. You won't have to guess anymore or open an external documentation to choose a value.
+Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense. Style values intellisense will suggest matching the values provided by the [theme](?path=/docs/theming--page) as well as native CSS values of the property. You won't have to guess or open external documentation to pick a value.
 
-To help achieve a consistent UI, Orbit style props are based on scales and values defined in a customizable [theme](?path=/docs/theming--page).
+To help achieve a consistent user interface, Orbit style props are based on scales and values defined in a customizable [theme](?path=/docs/theming--page).
 
 <Preview>
     <Div width={18} backgroundColor="alias-accent-light" padding={4} borderRadius={2} maxWidth="100%">
@@ -43,18 +43,18 @@ To help achieve a consistent UI, Orbit style props are based on scales and value
 
 Style props doesn't support every CSS pseudo-classes. [Location pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#location_pseudo-classes), [input pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#the_input_pseudo-classes), [tree-structural pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes), `::before` and `::after` are not supported and will most likely never be.
 
-When a CSS pseudo-classes is not supported by Orbit style props, we recommend that you use CSS classes instead.
+When a CSS pseudo-class is not supported by Orbit style props, we recommend using a CSS class.
 
-The following user action pseudo-classes are supported by some style props and behaves like their pseudo CSS counterparts:
+Since the following user action pseudo-classes are often used, some style props supports them. These behaves like their pseudo CSS counterparts.
 
 <Table
     columns={[
         { title: "Suffix", headerStyle: { width: "100px" } },
         { title: "Pseudo state", headerStyle: { width: "250px" } } ]}
     rows={[
-        ["Active", ":active"],
-        ["Hover", ":hover"],
-        ["Focus", ":focus"]
+        ["active", ":active"],
+        ["hover", ":hover"],
+        ["focus", ":focus"]
     ]}
     style={{
         marginTop: "24px",
@@ -74,17 +74,17 @@ The following user action pseudo-classes are supported by some style props and b
 
 You might wonder how will you use Orbit style props on your HTML elements?
 
-Orbit provides a set of HTML element components already setup with Orbit styled system. You should always prefer these components to native HTML elements.
+Orbit provides a set of HTML elements components already configured with Orbit styled system. You should chose these components over native HTML elements.
 
 [`<A>`](?path=/docs/html-anchor--example), [`<Address>`](?path=/docs/html-address--example), [`<Article>`](?path=/docs/html-article--page), [`<Aside>`](?path=/docs/html-aside--page), [`<Button>`](?path=/docs/html-button--example), [`<Div>`](?path=/docs/html-div--example), [`<Footer>`](?path=/docs/html-footer--page), [`<Header>`](?path=/docs/html-header--page), [`<Img>`](?path=/docs/html-img--example), [`<Input>`](?path=/docs/html-input--example), [`<List>`](?path=/docs/html-list--example), [`<Main>`](?path=/docs/html-main--page), [`<Nav>`](?path=/docs/html-nav--page), [`<Section>`](?path=/docs/html-section--page), [`<Span>`](?path=/docs/html-span--example), [`<Table>`](?path=/docs/html-table--example)
 
-For text elements, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph>`](?path=/docs/paragraph--size) component to a `<Span>` or a `<Div>`.
+For text elements, prefer a [`<Text>`](?path=/docs/text--size) or [`<Paragraph>`](?path=/docs/paragraph--size) component rather than `<Span>` or a `<Div>`.
 
 ## Layout containers
 
-To faciliate layouts, Orbit provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
+To facilitate layouts, Orbit provides specialized components for [Grid](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids) and [Flex](https://developer.mozilla.org/en-US/docs/Glossary/Flex_Container) layout containers.
 
-When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component over a [`<Div>`](?path=/docs/html-div--example) component.
+When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`<Flex>`](?path=/docs/flex--horizontal) component instead of a [`<Div>`](?path=/docs/html-div--example) component.
 
 ```jsx
 <Grid templateColumns="1fr 1fr" gap={2} height={10}>
@@ -97,7 +97,7 @@ When applicable, always prefer using a [`<Grid>`](?path=/docs/grid--areas) or [`
 
 ## Custom components
 
-Any component can accept style props. To accept style props, the component interface must extends the `StyledComponentProps` interface and either forward all the style props to an Orbit components or call the `useStyledSystem` hook.
+Any component can accept style properties. To accept style properties, the component interface must extends the `StyledComponentProps` interface and either forward all the style props to an Orbit components or call the `useStyledSystem` hook.
 
 Passing the style props to an Orbit component:
 
@@ -139,7 +139,7 @@ function CustomButton({ onClick, ...rest }: CustomButtonProps) {
 
 ## Reference
 
-The following tables shows a list of every available style props organized by categories.
+The following tables provide a list of all available style props categorized.
 
 ### Space
 
@@ -332,7 +332,7 @@ The following tables shows a list of every available style props organized by ca
 </Div>
 ```
 
-Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors as a value.
+Border props (border, borderBottom, borderTop, borderRight, borderLeft) uses an implicit style (solid) and width(1px). These properties only accepts colors for value.
 
 <PropsReferenceTable
     rows={[
