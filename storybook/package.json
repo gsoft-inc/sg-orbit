@@ -20,5 +20,10 @@
         "clean": "rimraf dist",
         "chromatic": "chromatic test -b=build-sb-for-chroma --debug",
         "chromatic-ci": "yarn chromatic --no-interactive"
-    }
+    },
+    "browserslist": [
+        "last 50 version",
+        "IE 10",
+        "IE 11"
+    ]
 }

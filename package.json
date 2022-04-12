@@ -83,14 +83,16 @@
     "@babel/preset-env": "7.16.8",
     "@babel/preset-react": "7.16.7",
     "@babel/preset-typescript": "7.16.7",
-    "@sharegate/browserslist-config-recommended": "2.0.0",
     "@sharegate/eslint-config-react": "3.0.0",
     "@sharegate/eslint-config-recommended": "1.2.0",
     "@sharegate/eslint-config-typescript": "2.0.0",
     "@sharegate/stylelint-config-recommended": "2.1.1",
-    "@storybook/addon-essentials": "6.4.10",
-    "@storybook/react": "6.4.10",
-    "@storybook/addon-a11y": "6.4.10",
+    "@storybook/addon-a11y": "6.4.20",
+    "@storybook/addon-essentials": "6.4.20",
+    "@storybook/builder-webpack5": "6.4.20",
+    "@storybook/manager-webpack5": "6.4.20",
+    "@storybook/addon-postcss": "2.0.0",
+    "@storybook/react": "6.4.20",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "5.16.1",
     "@testing-library/react": "12.1.2",
@@ -125,6 +127,8 @@
     "meow": "9.0.0",
     "netlify-cli": "8.6.18",
     "npm-run-all": "4.1.5",
+    "postcss": "8.4.12",
+    "postcss-preset-env": "7.4.3",
     "prettier": "2.5.1",
     "prism-react-renderer": "1.2.1",
     "prop-types": "15.8.1",
@@ -138,11 +142,17 @@
     "stylelint": "13.13.1",
     "type-fest": "2.9.0",
     "typescript": "4.5.4",
+    "webpack": "5.65.0",
     "webpack-filter-warnings-plugin": "1.2.1",
     "svgo": "2.8.0",
     "@svgr/core": "6.2.1"
   },
   "engines": {
     "node": ">=16"
-  }
+  },
+  "browserslist": [
+    "last 50 version",
+    "IE 10",
+    "IE 11"
+  ]
 }

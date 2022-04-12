@@ -1,12 +1,13 @@
 import "./Snippet.css";
 
-import { Div } from "@components/html";
+import Highlight, { defaultProps } from "prism-react-renderer";
 import { isNil, mergeClasses } from "@components/shared";
+
+import { Div } from "@components/html";
 import { string } from "prop-types";
+import theme from "prism-react-renderer/themes/dracula";
 import { useFormattedCode } from "./useFormattedCode";
 import { useState } from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/dracula";
 
 const propTypes = {
     code: string,
@@ -54,7 +55,7 @@ function FileSnippet({ filePath, language, ...rest }) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
-        import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
+        import(/* webpackMode: "eager" */ `@root/packages/components/src${filePath}.sample.jsx?raw`)
             .then(module => {
                 setCode(module.default);
             });

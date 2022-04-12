@@ -77,12 +77,12 @@ function FilePreview({ filePath, language, scope, features = false, noInline, ..
 
     if (isNil(code)) {
         if (!features) {
-            import(/* webpackMode: "eager" */ `!!raw-loader!@root/packages/components/src${filePath}.sample.jsx`)
+            import(/* webpackMode: "eager" */ `@root/packages/components/src${filePath}.sample.jsx?raw`)
                 .then(module => {
                     setCode(module.default);
                 });
         } else {
-            import(/* webpackMode: "eager" */ `!!raw-loader!@root/docs/features/${filePath}.sample.jsx`)
+            import(/* webpackMode: "eager" */ `@root/docs/features/${filePath}.sample.jsx?raw`)
                 .then(module => {
                     setCode(module.default);
                 });

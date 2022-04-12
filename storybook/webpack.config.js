@@ -16,15 +16,23 @@ function addWebpackAliases(config) {
     };
 }
 
+function supportRawInlineImport(config) {
+    const rules = config.module.rules;
+
+    // Must match the babel-loader rule in this file https://github.com/storybookjs/storybook/blob/next/lib/manager-webpack5/src/presets/babel-loader-manager.ts
+    const babelRule = rules.find(x => x.test.test(".jsx") && x.use && x.use[0]?.loader && x.use[0].loader.includes("babel-loader"));
+    babelRule.resourceQuery = { not: [/raw/] };
+
+    rules.push({
+        type: "asset/source",
+        resourceQuery: /raw/
+    });
+}
+
 // Currently required for:
 //   - https://github.com/reworkcss/css
 function supportPackagesWithDependencyOnNodeFileSystem(config) {
-    const existingNode = config.node || {};
-
-    config.node = {
-        ...existingNode,
-        fs: "empty"
-    };
+    config.resolve.fallback.fs = false;
 }
 
 function ignoreJarleWarning(config) {
@@ -53,9 +61,23 @@ function ignorePrettierParsers(config) {
 module.exports = {
     customizeWebpack: async config => {
         addWebpackAliases(config);
+        supportRawInlineImport(config);
         supportPackagesWithDependencyOnNodeFileSystem(config);
         ignoreJarleWarning(config);
         ignorePrettierParsers(config);
+
+        // console.log(JSON.stringify(config, null, 2));
+
+        // config.module.rules.forEach(x => {
+        //     if (Array.isArray(x.use)) {
+        //         x.use.forEach(y => {
+        //             console.log(JSON.stringify(y, null, 2));
+        //             console.log(JSON.stringify(y.options, null, 2));
+        //         });
+        //     } else {
+        //         console.log(JSON.stringify(x.use, null, 2));
+        //     }
+        // });
 
         return config;
     }
