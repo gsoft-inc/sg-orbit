@@ -8,11 +8,11 @@ import { Preview } from "@stories/components";
 
 # Color schemes
 
-Orbit supports *light* and *dark* color schemes within a theme and offers out of the box color schemes support for all components and [tokens](?path=/story/tokens--page), where it makes sense.
+Orbit supports a *light* and a *dark* color scheme within a theme and offers, out of the box, color schemes support for all components and [tokens](?path=/story/tokens--page), where applicable.
 
 ## Apply a color scheme
 
-A color scheme could either be forced by providing a specific `light` or `dark` value to a [theme provider](?path=/story/theme-provider--default-story):
+A color scheme can either be enforced by providing a specific `light` or `dark` value to a [theme provider](?path=/story/theme-provider--default-story):
 
 ```jsx
 <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
@@ -28,7 +28,7 @@ or be selected according to the [user's operating system setting](https://develo
 </ThemeProvider>
 ```
 
-> When the `system` value is provided, an additional *fallback* color scheme must be provided to `defaultColorScheme` in case the theme provider can't access the user setting.
+> When the `system` value is provided, an additional *fallback* color scheme must be provided to `defaultColorScheme` in case the theme provider is not able to access the user setting.
 
 ## Changing the color scheme
 
@@ -36,7 +36,7 @@ To manage the color scheme in your application, Orbit exposes a `ColorSchemeCont
 
 ### Context
 
-The `ColorSchemeContext` of the closest [theme provider](?path=/story/theme-provider--default-story) can be accessed with the `useColorSchemeContext` hook. Once you have an hold on the context, you can access the current color scheme or update the value with `setColorScheme` if needed.
+The `ColorSchemeContext` of the closest [theme provider](?path=/story/theme-provider--default-story) can be accessed using the `useColorSchemeContext` hook. Once you have a hold on the context, you can access the current color scheme or update the value with `setColorScheme`.
 
 <Preview filePath="color-schemes/ColorSchemeToggle" features />
 

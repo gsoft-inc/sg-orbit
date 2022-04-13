@@ -7,8 +7,12 @@ const propTypes = {
 
 const ScaleLinks = {
     "box-shadow-scale": <Link href="?path=/docs/tokens--page#box-shadows">1..4 / alias</Link>,
+    "font-sizes-scale": <Link href="?path=/docs/tokens--page#font-sizes">1..11 / alias</Link>,
+    "font-weights-scale": <Link href="?path=/docs/tokens--page#font-weights">1..3</Link>,
+    "line-heights-scale": <Link href="?path=/docs/tokens--page#line-heights">1..6</Link>,
     "color-scale": <Link href="?path=/docs/tokens--page#background-colors">[color]-[1..10] / alias</Link>,
     "sizing-scale": <Link href="?path=/docs/tokens--page#sizings">1..18</Link>,
+    "border-radius-scale": <Link href="?path=/docs/tokens--page#radii">1..4 / alias</Link>,
     "spacing-scale": <Link href="?path=/docs/tokens--page#spacings">1..13</Link>
 }
 

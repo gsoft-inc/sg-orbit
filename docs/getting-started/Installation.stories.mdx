@@ -8,23 +8,23 @@ import { PackageInstallationSnippet } from "@stories/components";
 
 # Installation
 
-Multiple [NPM packages](https://www.npmjs.com/settings/orbit-ui/packages) compose Orbit. We simplify the installation process by creating a bundle package called [@sharegate/orbit-ui](https://www.npmjs.com/package/@sharegate/orbit-ui) so you can install Orbit by adding a single package to your app.
+Multiple [NPM packages](https://www.npmjs.com/settings/orbit-ui/packages) compose Orbit. By creating a bundle package named [@sharegate/orbit-ui](https://www.npmjs.com/package/@sharegate/orbit-ui), we simplify the installation process and allow you to install Orbit with just a single package.
 
-> We take for granted you already installed [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npmjs.com/package/react-dom). If you haven't, **you'll get a warning at installation**.
+> We assume that you have already set up [react](https://www.npmjs.com/package/react) and [react-dom](https://www.npmjs.com/package/react-dom). Otherwise, **you'll get a warning at installation**.
 
 ### Install packages
 
-To install Orbit, open a terminal at the root of your project workspace and execute the following command:
+To install Orbit, open a terminal at the root of your project workspace and run the following command:
 
 <PackageInstallationSnippet packageName="bundle" />
 
-The command will install all Orbit packages in your app `node_modules` folder.
+The command will install all Orbit packages in the `node_modules` folder of your application.
 
 ### Import styles
 
-Orbit styles includes the ShareGate font, a [CSS bootstrap](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/css/src) and of course the components styles.
+Orbit styles include the ShareGate font, a [CSS bootstrap](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/css/src) and of course the component's styles.
 
-To import Orbit styles add the following import statement to your root stylesheet:
+To import Orbit styles add the following import declaration to your root stylesheet:
 
 ```css
 @import "~@sharegate/orbit-ui/index.css";
@@ -32,11 +32,11 @@ To import Orbit styles add the following import statement to your root styleshee
 
 ### Bootstrap your app
 
-Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/docs/theming--page) which allow apps to provide their specific foundation values to Orbit.
+Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/docs/theming--page) that allow applications to supply their core values to Orbit.
 
 The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a [theme provider](?path=/docs/theme-provider--default-story) at the root of your application.
 
-Here's an example of how to bootstrap an app with a pre-constructed ShareGate theme object:
+Below an example of how to bootstrap an application with a pre-constructed ShareGate theme object:
 
 ```jsx
 import { createThemeVars, ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
@@ -55,7 +55,7 @@ render(
 
 ### Start building
 
-You're all set! You can start building your app with Orbit:
+You're all set! You can start building your application with Orbit:
 
 ```jsx
 import { Div, Text } from "@sharegate/orbit-ui";
