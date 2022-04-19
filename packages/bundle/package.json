@@ -1,6 +1,6 @@
 {
     "name": "@sharegate/orbit-ui",
-    "version": "26.0.1",
+    "version": "26.0.2",
     "description": "Orbit design system",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe ShareGate inc.",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@orbit-ui/components": "6.0.1",
-        "@orbit-ui/css": "2.0.1",
+        "@orbit-ui/css": "2.0.2",
         "@orbit-ui/icons": "11.1.1"
     }
 }
