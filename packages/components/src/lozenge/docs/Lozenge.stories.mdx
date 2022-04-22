@@ -12,18 +12,41 @@ import { Text } from "@components/typography";
 
 # Lozenge
 
-<Tagline>Lozenges are used to highlight an item's status for quick recognition or to give additional fast short information such as highlighting a new item.</Tagline>
+<Tagline>Lozenges are used to highlight an item's status, for quick recognition or to give additional information such as highlighting a new item.</Tagline>
 
 <ComponentInfo
     usage={"import { Lozenge } from \"@sharegate/orbit-ui\";"}
     githubPath="/packages/components/src/lozenge/src"
 />
 
+## Best practices
+
+Lozenge should:
+
+- Be used to highlight an element in a list.
+- Be used to bring attention to a particular element that requires the user’s attention, such as an expiring license, something new or a problematic situation.
+- Be non-interactive, this includes being clickable or trigger a tooltip on hover.
+
+## Content guidelines
+
+- Keep the copy short, ideally only 1 word or 2 short words. If you need to display more text, you should consider using another component such as a [message](?path=/docs/message--default-story) or an [alert](?path=/docs/alert--default-story).
+
+
+## Accessibility
+
+- Text should be descriptive enough to be understood without relying on the color.
+- Text should be descriptive and complete enough to be understood without relying on an icon. Using an icon to carry information will render it non-accessible.
+
+## Related
+
+- To display a quantity, use either a [counter](?path=/docs/counter--default-story) or a [badge](?path=/docs/badge--default-story).
+- To provide contextual help, use a [tooltip](?path=/docs/tooltip--default-story).
+
 ## Usage
 
 ### Default
 
-A default lozenge.
+This is the lozenge that should be used in most situations.
 
 <Preview>
     <Story name="default">
@@ -33,7 +56,7 @@ A default lozenge.
 
 ### Icon
 
-A lozenge can contain an [icon](?path=/docs/icon-gallery--page).
+An [icon](?path=/docs/icon-gallery--page) is used to make it easier for the user to understand the intent of the Lozenge.
 
 <Preview>
     <Story name="icon">
@@ -46,7 +69,7 @@ A lozenge can contain an [icon](?path=/docs/icon-gallery--page).
 
 ### Size
 
-A lozenge can vary in size.
+The lozenge can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the lozenge should not contain an icon.
 
 <Preview>
     <Story name="size">
@@ -60,7 +83,7 @@ A lozenge can vary in size.
 
 ### Highlight
 
-A lozenge can be highlighted.
+A lozenge can be highlighted to bring more attention to it when required. This version should be used sparingly to avoid overloading the user interface.
 
 <Preview>
     <Story name="highlight">
@@ -73,7 +96,7 @@ A lozenge can be highlighted.
 
 ### Warning
 
-A lozenge can use a warning color.
+A lozenge can use a warning color. This version is useful when we need to warn the user of an action that need to be taken in the near future but not immediately.
 
 <Preview>
     <Story name="warning">
@@ -86,7 +109,7 @@ A lozenge can use a warning color.
 
 ### Positive
 
-A lozenge can use a positive color.
+This version can be used to highlight a positive message.
 
 <Preview>
     <Story name="positive">
@@ -100,7 +123,9 @@ A lozenge can use a positive color.
 
 ### Negative
 
-A lozenge can use a positive color.
+This version is used to represent a state or an element that is either in a negative or destructive state.
+
+As an example, it can be used to highlight a blocked user or an element that has been deleted but still visible. This should be used with caution as this color scheme can trigger a negative reaction from a user.
 
 <Preview>
     <Story name="negative">
