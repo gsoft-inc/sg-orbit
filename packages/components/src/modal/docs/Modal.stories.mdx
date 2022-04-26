@@ -26,18 +26,28 @@ import { TextLink } from "@components/link";
     githubPath="/packages/components/src/modal/src"
 />
 
-## Best Practices
+## Guidelines
 
-- Prefer dismissible modal whenever possible. If your modal has no way to be dismissed and depends on a user choice use an [Alert](?path=/docs/alert--default-story).
-- Modals can be disruptive, use them sparingly.
+### When to use
+
+- Use a Modal when you want a user to interact with the application without jumping to a new page and interrupting the user's workflow.
+
+### Content
+
 - Modals should not have complex layouts, these are not pages, when in need in more than a choice layout, use an appropriate [component](#related-components) or a page.
-- Don’t ask a question right above the buttons.
-
-## Accessibility
-
+- Don’t ask the user a question right above the buttons.
 - Modal should not rely on images or illustrations in order to give information to the user.
 - When presenting [choices](#choice) a Modal should provide enough information for the user to be able to take a decision in the spot, or a way to come back to the choice later.
+
+### Accessibility
+
 - Focus on the first interactive element in the modal, except if it’s a destructive action as it could trigger unwanted behavior.
+- Prefer dismissible modal whenever possible.
+- Modals can be disruptive, use them sparingly.
+
+### Modal vs Alert
+
+If your modal has no way to be dismissed and depends on a user choice use an [Alert](?path=/docs/alert--default-story).
 
 ## Usage
 

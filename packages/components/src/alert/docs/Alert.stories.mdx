@@ -20,9 +20,11 @@ import { Heading, InnerHeading } from "@components/typography";
     githubPath="/packages/components/src/alert/src"
 />
 
-## Accessibility
+## Guidelines
 
-An alert comes with the `alertdialog` role and should be used to display a confirmation message, an alert, an error, or a warning.
+### Accessibility
+
+- An alert comes with the `alertdialog` role and should be used to display a confirmation message, an alert, an error, or a warning.
 
 It requires:
 - The focus to be trapped inside the alert.
@@ -32,7 +34,7 @@ It requires:
 
 Label and description can be overwritten with the use of `aria-label` and `aria-describedby` props on the alert.
 
-### Focus
+#### Focus
 
 If the alert calls for an action, make sure to set the focus correctly to avoid any unwanted action.
 To do so, you can use the `autoFocusButton` prop on the alert to specify which control should have the initial focus.

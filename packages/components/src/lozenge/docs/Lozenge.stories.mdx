@@ -19,28 +19,27 @@ import { Text } from "@components/typography";
     githubPath="/packages/components/src/lozenge/src"
 />
 
-## Best practices
 
-Lozenge should:
+## Guidelines
 
-- Be used to highlight an element in a list.
-- Be used to bring attention to a particular element that requires the user’s attention, such as an expiring license, something new or a problematic situation.
-- Be non-interactive, this includes being clickable or trigger a tooltip on hover.
+### When to use
 
-## Content guidelines
+- To highlight an element in a list.
+- To bring attention to a particular element that requires the user’s attention, such as an expiring license, something new or a problematic situation.
+
+### Content guidelines
 
 - Keep the copy short, ideally only 1 word or 2 short words. If you need to display more text, you should consider using another component such as a [message](?path=/docs/message--default-story) or an [alert](?path=/docs/alert--default-story).
-
-
-## Accessibility
-
 - Text should be descriptive enough to be understood without relying on the color.
-- Text should be descriptive and complete enough to be understood without relying on an icon. Using an icon to carry information will render it non-accessible.
+- Lozenge should be non-interactive, this includes being clickable or trigger a tooltip on hover.
 
-## Related
+### Accessibility
 
-- To display a quantity, use either a [counter](?path=/docs/counter--default-story) or a [badge](?path=/docs/badge--default-story).
-- To provide contextual help, use a [tooltip](?path=/docs/tooltip--default-story).
+- Text should be descriptive enough to be understood without relying on an icon. Using an icon to carry information will render it non-accessible.
+
+### Lozenge vs Counter vs Badge
+
+- Lozenges are for text copy when you want to display a quantity, use either a [counter](?path=/docs/counter--default-story) or a [badge](?path=/docs/badge--default-story).
 
 ## Usage
 
