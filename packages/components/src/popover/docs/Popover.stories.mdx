@@ -19,15 +19,21 @@ import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@com
     githubPath="/packages/components/src/popover/src"
 />
 
+## Guidelines
+
+### Content
+
+A Popover should:
+
+- Minimally have an heading and some content.
+
+### Popover vs Tooltip
+
+- A popover is not meant to be used as a [tooltip](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role). If you need a component which behave like one use Orbit's [tooltip](?path=/docs/tooltip--default-story) component instead.
+
 ## Usage
 
-A popover trigger accepts exactly two children: the element which trigger the opening of the popover and the popover content. A trigger can be any component which accepts a `ref` and any other props passed from popover.
-
-The popover content must have at least an heading and some content.
-
-#### This is not a tooltip
-
-A popover is not meant to be used as a [tooltip](?path=/docs/tooltip--default-story). If you need a component which behave like a tooltip, use the tooltip component instead.
+> A popover trigger accepts exactly two children: the element which trigger the opening of the popover and the popover content. A trigger can be any component which accepts a `ref` and any other props passed from popover.
 
 ### Default
 

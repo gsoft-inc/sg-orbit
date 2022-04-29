@@ -30,24 +30,26 @@ import { TextLink } from "@components/link";
 
 ### When to use
 
-- Use a Modal when you want a user to interact with the application without jumping to a new page and interrupting the user's workflow.
+- To let a user to interact with the application without jumping to a new page and interrupting the user's workflow.
 
 ### Content
 
-- Modals should not have complex layouts, these are not pages, when in need in more than a choice layout, use an appropriate [component](#related-components) or a page.
-- Don’t ask the user a question right above the buttons.
-- Modal should not rely on images or illustrations in order to give information to the user.
-- When presenting [choices](#choice) a Modal should provide enough information for the user to be able to take a decision in the spot, or a way to come back to the choice later.
+A Modal should:
+
+- Provide enough information for the user to be able to take a decision in the spot, or a way to come back to the choice later.
+- Not use complex layouts, Modals are not pages. Consider using a page when a modal layout is getting too complex.
+- Not rely on images or illustrations in order to provide essential information to the user.
+- Not ask the user a question right above the button(s).
 
 ### Accessibility
 
-- Focus on the first interactive element in the modal, except if it’s a destructive action as it could trigger unwanted behavior.
-- Prefer dismissible modal whenever possible.
-- Modals can be disruptive, use them sparingly.
+- Make sure to autofocus on the first interactive element in the modal, except if it’s a destructive action as it could trigger unwanted behavior.
+- Prioritize dismissible modals whenever possible in order to give control to the user.
+- Use modals sparingly as it disrupt the user's flow.
 
 ### Modal vs Alert
 
-If your modal has no way to be dismissed and depends on a user choice use an [Alert](?path=/docs/alert--default-story).
+If your modal has no way to be dismissed and requires the user to make a choice use an [Alert](?path=/docs/alert--default-story).
 
 ## Usage
 
