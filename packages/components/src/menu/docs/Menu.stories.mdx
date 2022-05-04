@@ -27,7 +27,7 @@ import { Tooltip, TooltipTrigger } from "@components/tooltip";
 
 ## Usage
 
-> A menu accepts exactly two children: the element which trigger the opening of the menu and the menu items. A trigger can be any component which accepts a `ref` and any other props passed from menu.
+A menu accepts exactly two children: the element which trigger the opening of the menu and the menu items. A trigger can be any component which accepts a `ref` and any other props passed from menu.
 
 ### Default
 
@@ -312,7 +312,7 @@ A menu can display a validation state to communicate to the user whether the cur
 
 A menu supports multiple selection modes. By default, selection is disabled, however this can be changed by settings the `selectionMode` property to `"single"` or `"multiple"`.
 
-> When using selection with a `<Menu>` component wraped inside a `<MenuTrigger>`, you must handled the selected keys in controlled mode with the `selectedKeys` property otherwise the selected keys won't be persisted through openings.
+When using selection with a `<Menu>` component wraped inside a `<MenuTrigger>`, you must handled the selected keys in controlled mode with the `selectedKeys` property otherwise the selected keys won't be persisted through openings.
 
 <Preview filePath="/menu/docs/Selection" />
 

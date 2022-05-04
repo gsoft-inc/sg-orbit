@@ -199,7 +199,8 @@
 }
 
 /* ELEMENTS | CODE | IN PARAGRAPH */
-.sbdocs .sbdocs-p code {
+.sbdocs .sbdocs-p code,
+.sbdocs .sbdocs-li code {
     padding: 0 !important;
     border: none !important;
     border-radius: 0 !important;
