@@ -15,18 +15,42 @@ import { Text } from "@components/typography";
 
 # Tag
 
-<Tagline>A tag represent an interactive keyword that help label, organize and categorize content. Tags are meant to be displayed in a TagsPicker.</Tagline>
+<Tagline>A tag represents a keyword that helps label, organize and categorize content.</Tagline>
 
 <ComponentInfo
     usage={"import { Tag, TagList, Item } from \"@sharegate/orbit-ui\";"}
     githubPath="/packages/components/src/tag/src"
 />
 
+## Guidelines
+
+### When to use
+
+- To categorize content allowing the user to quickly skim a list of items.
+- To group items together such as a filter list.
+
+### Content
+
+Tags should:
+
+- Not rely on an icon to be understand the intention of a tag.
+
+### Accessibility
+
+- Text should be descriptive enough to be understood without relying on the color.
+- Text should be descriptive and complete enough to be understood without relying on the icon. Using an icon to carry information will make it non-accessible.
+
+### Tag, Lozenge, Button and other alternatives
+
+- To highlight an item's status for quick recognition or to give additional fast short information such as highlighting a new item use a [lozenge](?path=/docs/lozenge--default-story).
+- For interactivity, a clickable component, use a [button](?path=/docs/button--default-story). Tags should’nt be used as Buttons, buttons have a recognizable look throughout the app, one should not use a different pattern.
+- To display a quantity, use either a [counter](?path=/docs/counter--default-story) or a [badge](?path=/docs/badge--default-story).
+
 ## Usage
 
 ### Default
 
-A default tag.
+A default tag. Use in most situations.
 
 <Preview>
     <Story name="default">
@@ -36,7 +60,7 @@ A default tag.
 
 ### Icon
 
-A tag can contain [icons](?path=/docs/icon-gallery--page).
+A tag can contain [icons](?path=/docs/icon-gallery--page). An icon is used when it can make it easier for the user to understand the meaning.
 
 <Preview>
     <Story name="icon">
@@ -66,7 +90,7 @@ A tag can contain [icons](?path=/docs/icon-gallery--page).
 
 ### Dot
 
-A tag can contain a [dot](?path=/docs/dot--default-story).
+A tag can contain a [dot](?path=/docs/dot--default-story). Use it to allow the user to quickly skim through a lot of tags. The dot color must have a recognizable meaning.
 
 <Preview>
     <Story name="dot">
@@ -79,7 +103,7 @@ A tag can contain a [dot](?path=/docs/dot--default-story).
 
 ### Counter
 
-A tag can contain a [counter](?path=/docs/counter--default-story).
+A tag can contain a [counter](?path=/docs/counter--default-story). Useful to indicate a number of matches in a filter list.
 
 <Preview>
     <Story name="counter">
@@ -102,7 +126,7 @@ A tag can be removable by specifying an `onRemove` handler.
 
 ### Size
 
-A tag can vary in size.
+A tag can vary in size. When a lot of tags can be seen side by side, prefer the small size. The tag can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the lozenge should not contain an icon.
 
 <Preview>
     <Story name="size">
@@ -129,7 +153,7 @@ A tag can take the width of its container.
 
 ### Outline
 
-A tag can have a subtle appearance.
+A tag can have a subtle appearance. Avoid using this variant next to an outline button.
 
 <Preview>
     <Story name="outline">
@@ -139,7 +163,7 @@ A tag can have a subtle appearance.
 
 ### Custom colors
 
-Custom colors can be applied to a tag.
+Custom colors can be applied to a tag. You’ll be responsible to insure that the color contrast is accessible.
 
 <Preview>
     <Story name="custom-color">
@@ -187,7 +211,7 @@ A tag list can have a clear button.
 
 ### Size
 
-A tag list can vary in size.
+A tag list can vary in size. This will pass the size to it’s children.
 
 <Preview>
     <Story name="tag list size">
@@ -232,7 +256,7 @@ A tag list items can be rendered dynamically.
 
 ### Tags picker
 
-The following example show how a TagList can be composed with one of Orbit's picker to build a basic tags picker.
+The following example show how a tag list can be composed with one of Orbit's picker to build a basic tags picker.
 
 <Preview filePath="/tag/docs/TagsPicker" />
 

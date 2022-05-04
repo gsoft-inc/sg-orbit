@@ -16,20 +16,37 @@ import { RouterLink } from "./RouterLink";
 
 # Tile
 
-<Tagline>A tile group information into an interactive element to let users browse and take action on a group of related items.</Tagline>
+<Tagline>A tile groups information into an interactive element to let users browse and take action on a group of related items.</Tagline>
 
 <ComponentInfo
     usage={"import { Tile, TileLink, TileGroup, Heading, Content } from \"@sharegate/orbit-ui\";"}
     githubPath="/packages/components/src/tile/src"
 />
 
-## Basic
+## Guidelines
 
-A basic tile is checkable. It works like a radio button or a checkbox depending if it's used in a [single or multiple selection context](?path=/docs/tile--tile#tilegroup). An heading and a content is required.
+### When to use
+
+- To let the user make a choice while giving more context than with a [radio group](?path=/docs/radio-group--default-story) or a [checkbox](?path=/docs/checkbox--default-story).
+- To let the user navigate to another page while giving more context than with a [link](?path=/docs/link--default-story).
+
+### Content
+
+Tiles should:
+
+- Have an heading and a content.
+
+## Usage
+
+Tiles behaves like a radio button or a checkbox depending if it's used in a [single or multiple selection context](?path=/docs/tile--tile#tilegroup).
+
+### Basic
+
+A tile consists of minimally an heading and some content.
 
 <Preview width={16}>
     <Story name="tile">
-        <Tile border="hsl(122,122,122)">
+        <Tile>
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
         </Tile>
@@ -121,7 +138,7 @@ A tite can handle `checked` state in controlled mode.
 
 ## TileLink
 
-A tile can also be naviguable. It is similar to a [link](?path=/docs/link--default-story) and it does share the same props.
+A tile can also be navigable. It is similar to a [link](?path=/docs/link--default-story) and it does share the same props.
 
 <Preview width={16}>
     <Story name="link">
@@ -147,7 +164,7 @@ To integrate with a third-party routing library like [React Router](https://reac
 
 ## TileGroup
 
-Related tiles can be grouped together. By default a tile group doesn't allow any selection. This is usually what you want if you need to group together naviguable tiles.
+Related tiles can be grouped together. By default a tile group doesn't allow any selection. This is usually what you want if you need to group together navigable tiles.
 
 <Preview width={16}>
     <Story name="no selection">

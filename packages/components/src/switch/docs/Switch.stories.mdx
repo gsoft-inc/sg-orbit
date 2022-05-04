@@ -21,6 +21,26 @@ import { Text } from "@components/typography";
     githubPath="/packages/components/src/switch/src"
 />
 
+### When to use
+
+- To trigger an immediate action such as an activation/deactivation.
+
+### Content
+
+Switches should:
+
+- Have a short and descriptive label.
+- Be self explanatory without relying on an icon. Using an icon to carry information will render it non-accessible.
+
+### Accessibility
+
+- Do not change the label based on the state of the switch. The label should represent the "on/checked" state of the switch.
+
+### Checkbox, Radio or Switch
+
+- If the objective is to select multiples elements from a list, the [checkbox](?path=/docs/checkbox--default-story) should be used instead.
+- If the objective is to select one value out of a set of elements the [radio](?path=/docs/radio--default-story) should be used instead.
+
 ## Usage
 
 ### Default

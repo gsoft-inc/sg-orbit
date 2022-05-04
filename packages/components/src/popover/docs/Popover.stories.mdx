@@ -19,15 +19,21 @@ import { InnerPopover, InnerPopoverTrigger, Popover, PopoverTrigger } from "@com
     githubPath="/packages/components/src/popover/src"
 />
 
+## Guidelines
+
+### Content
+
+Popovers should:
+
+- Minimally have an heading and some content.
+
+### Popover vs Tooltip
+
+- A popover is not meant to be used as a [tooltip](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/tooltip_role) element. If you need a component which behave like one use Orbit's [tooltip](?path=/docs/tooltip--default-story) component instead.
+
 ## Usage
 
 A popover trigger accepts exactly two children: the element which trigger the opening of the popover and the popover content. A trigger can be any component which accepts a `ref` and any other props passed from popover.
-
-The popover content must have at least an heading and some content.
-
-#### This is not a tooltip
-
-A popover is not meant to be used as a [tooltip](?path=/docs/tooltip--default-story). If you need a component which behave like a tooltip, use the tooltip component instead.
 
 ### Default
 
@@ -47,7 +53,7 @@ A default popover must have an heading and a content.
 
 ### Buttons
 
-A popper can have a single [button](?path=/docs/button--default-story):
+A popover can have a single [button](?path=/docs/button--default-story):
 
 <Preview>
     <Story name="button">
@@ -82,7 +88,7 @@ Or a [group of button](?path=/docs/button--default-story#button-group):
 
 ### Footer
 
-A popper can have footer text.
+A popover can have footer text.
 
 <Preview>
     <Story name="footer">
@@ -126,7 +132,7 @@ By default, a popover will dismiss *on outside interactions* and `esc` keydown. 
 
 You can set the `dismissable` prop to `false` and render a call to action which will manually dismiss the popover by calling a `close` function retrieved from the `usePopoverTriggerContext` hook.
 
-> Inlining the call to `usePopoverTriggerContext` in `PopoverTrigger` will not work.
+Inlining the call to `usePopoverTriggerContext` in `PopoverTrigger` will not work.
 
 <Preview filePath="/popover/docs/PopoverCustomClose" />
 

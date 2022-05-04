@@ -23,9 +23,11 @@ import { Text } from "@components/typography";
     githubPath="/packages/components/src/tabs/src"
 />
 
-## Accessibility
+## Guidelines
 
-An accessible title must be provided through aria-label prop. See [WAI-ARIA](https://www.w3.org/TR/wai-aria-practices/#wai-aria-roles-states-and-properties-20).
+### Accessibility
+
+- An accessible title must be provided through [`aria-label`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) property.
 
 ## Usage
 
@@ -132,7 +134,7 @@ Tabs items can be rendered dynamically.
 
 By default, tabs are activated automatically. This means when you use the arrow keys to change tabs, the tab is activated and focused.
 
-> The content of a tab should ideally be preloaded. However, if switching to a tab panel causes a network request and possibly a page refresh, there might be some notable latency and this might affect the experience for keyboard and screen reader users.
+The content of a tab should ideally be preloaded. However, if switching to a tab panel causes a network request and possibly a page refresh, there might be some notable latency and this might affect the experience for keyboard and screen reader users.
 
 In this scenario, you should use a manually activated tab, it moves focus without activating the tabs. With focus on a specifc tab, users can activate a tab by pressing ``Space`` or ``Enter``.
 
