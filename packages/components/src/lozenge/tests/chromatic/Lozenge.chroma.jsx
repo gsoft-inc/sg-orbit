@@ -155,6 +155,11 @@ stories()
             </Inline>
         </Stack>
     )
+    .add("inherit parent text properties", () =>
+        <Inline alignY="end">
+            <Lozenge textTransform="uppercase">New</Lozenge>
+        </Inline>
+    )
     .add("zoom", () =>
         <Inline>
             <Div className="zoom-in">
