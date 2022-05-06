@@ -332,9 +332,11 @@
 
 /* ELEMENTS | BLOCKQUOTE */
 .sbdocs.sbdocs-blockquote {
-    padding: var(--o-ui-sp-3) var(--o-ui-sp-4) var(--o-ui-sp-3) var(--o-ui-sp-3);
-    background-color: var(--o-ui-purple-1);
+    background-color: var(--o-ui-bg-alias-accent-light);
+    padding: var(--o-ui-sp-3) var(--o-ui-sp-3) var(--o-ui-sp-3) var(--o-ui-sp-5);
+    border-radius: var(--o-ui-br-rounded);
     font-size: 15px !important;
+    border-left: none;
 }
 
 .sbdocs.sbdocs-blockquote p {
