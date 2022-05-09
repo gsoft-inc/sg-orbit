@@ -21,6 +21,29 @@ import { TextLink } from "@components/link";
     githubPath="/packages/components/src/message/src"
 />
 
+## Guidelines
+
+### When to use
+
+- To inform the user of a non-critical situation.
+- To confirm an action.
+- To incite the user to take an action, if this action does not require to interrupt the user flow.
+
+### Content
+
+Messages should:
+
+- Be short, limit your content to one sentence when possible.
+- Provide a path of action. Don't let the user wonder what's next.
+
+### Accessibility
+
+- Text should be descriptive and complete enough to be understood without relying on the icon. Using an icon to carry information will make it non-accessible.
+
+### Message vs Modal vs Alert
+
+- If the user flow has to be interrupted, use either a [modal](?path=/docs/modal--default-story) or an [alert](?path=/docs/alert--default-story).
+
 ## Usage
 
 ### Default
