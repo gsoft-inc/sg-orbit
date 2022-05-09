@@ -6,7 +6,7 @@ import { ShareGateTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
-import { Code } from "@stories/mdx";
+import { Code, Highlight } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 
 createThemeVars([ShareGateTheme]);
@@ -48,6 +48,7 @@ export const parameters = {
         theme: Themes.docs,
         inlineStories: true,
         components: {
+            blockquote: Highlight,
             code: Code
         },
         container: ({ context, children }) => withDocsContainer(context, children),

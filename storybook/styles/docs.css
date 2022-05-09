@@ -330,17 +330,6 @@
     margin: var(--o-ui-sp-4) 0 !important;
 }
 
-/* ELEMENTS | BLOCKQUOTE */
-.sbdocs.sbdocs-blockquote {
-    padding: var(--o-ui-sp-3) var(--o-ui-sp-4) var(--o-ui-sp-3) var(--o-ui-sp-3);
-    background-color: var(--o-ui-purple-1);
-    font-size: 15px !important;
-}
-
-.sbdocs.sbdocs-blockquote p {
-    font-size: 15px;
-}
-
 /* ELEMENTS | KBD */
 .sbdocs kbd {
     line-height: var(--o-ui-lh-1);
