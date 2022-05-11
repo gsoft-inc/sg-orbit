@@ -25,7 +25,7 @@ import { TextLink } from "@components/link";
 
 ### When to use
 
-- To inform the user of a non-critical situation.
+- To provide feedback such as success, warning, error etc.
 - To confirm an action.
 - To incite the user to take an action, if this action does not require to interrupt the user flow.
 
@@ -33,8 +33,10 @@ import { TextLink } from "@components/link";
 
 Messages should:
 
-- Be short, limit your content to one sentence when possible.
+- Be short. Limit your content to one sentence when possible.
 - Provide a path of action. Don't let the user wonder what's next.
+- Use copy that is easily scannable.
+- Link to the appropriate documentation when additional context is needed.
 
 ### Accessibility
 
@@ -109,7 +111,7 @@ Use an informative message to notify a user of a change that's relevant for them
 
 ### Warning
 
-Use a warning message to help a user avoid an issue.
+Use the warning variant message to help a user avoid an issue.
 
 <Preview>
     <Story name="warning">
@@ -122,7 +124,7 @@ Use a warning message to help a user avoid an issue.
 
 ### Positive
 
-Use a positive message to inform a user that an action has completed successfuly.
+Use the positive variant to inform a user that an action has completed successfuly.
 
 <Preview>
     <Story name="positive">
@@ -135,7 +137,7 @@ Use a positive message to inform a user that an action has completed successfuly
 
 ### Negative
 
-Use a negative message to help a user understand a critical issue at the system level.
+Use the negative variant to help a user understand a critical issue at the system level.
 
 <Preview>
     <Story name="negative">
