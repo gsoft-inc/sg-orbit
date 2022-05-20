@@ -6,7 +6,7 @@ import { Illustration } from "@components/illustration";
 import { Image } from "@components/image";
 import { Inline } from "@components/layout";
 import { InnerTile, InnerTileGroup, InnerTileLink, Tile, TileGroup, TileLink } from "@components/tile";
-import { Planet, SpaceLandscape, SpacePortrait } from "./assets";
+import { Planet, SpacePortraitHorizontal, SpacePortrait } from "./assets";
 import { RouterLink } from "./RouterLink";
 
 <Meta
@@ -57,10 +57,10 @@ A tile consists of minimally an heading and some content.
 
 A tile can have an [image](?path=/story/chromatic-image--default).
 
-<Preview scope={{ SpaceLandscape }} width={16}>
+<Preview scope={{ SpacePortraitHorizontal }} width={16}>
     <Story name="image">
         <Tile>
-            <Image src={SpaceLandscape} alt="Planet over another planet" />
+            <Image src={SpacePortraitHorizontal} alt="Planet over another planet" />
             <Heading>Buy a ticket</Heading>
             <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
         </Tile>
@@ -72,7 +72,7 @@ Or an [illustration](?path=/docs/illustration--horizontal) with a background col
 <Preview scope={{ Planet }} width={16}>
     <Story name="illustration">
         <Tile>
-            <Illustration backgroundColor="alias-hard-break">
+            <Illustration backgroundColor="alias-accent-light">
                 <Image src={Planet} width="100px" alt="Planet" />
             </Illustration>
             <Heading>Buy a ticket</Heading>
@@ -111,11 +111,13 @@ A tile can be disabled.
 
 A tile can render horizontally.
 
-<Preview scope={{ SpacePortrait, Planet }}>
+<Preview scope={{ SpacePortrait, SpacePortraitHorizontal, Planet }}>
     <Story name="orientation">
         <Inline wrap={{ base: true, md: false }}>
             <Tile orientation="horizontal">
-                <Image src={SpacePortrait} alt="Space Portrait" />
+                <Image src={SpacePortrait}
+                    alt="Space Portrait"
+                />
                 <Heading>Buy a ticket</Heading>
                 <Content>Tickets are not refundable and not transferable. A confirmation email will be sent within the next few minutes.</Content>
             </Tile>
