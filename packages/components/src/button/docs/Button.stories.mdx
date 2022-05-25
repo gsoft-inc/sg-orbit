@@ -34,6 +34,28 @@ import { Text } from "@components/typography";
     githubPath="/packages/components/src/button/src"
 />
 
+## Guidelines
+
+### When to use
+
+- To trigger an action such as submitting a form, exporting data.
+
+### Content
+
+Buttons should:
+
+- Use strong, actionable verbs.
+- Be positionned in consistent locations.
+
+### Accessibility
+
+- Use the disabled prop to set the disabled state of the button.
+
+### Button vs Link vs Switch
+
+- When you need to link to another page, use a [link](?path=/docs/link--default-story) component.
+- To activate or deactivate a feature, use the [switch](?path=/docs/switch--default-story) instead of a single [toggle button](?path=/docs/button--default-story#toggle-button).
+
 ## Usage
 
 ### Default
@@ -48,7 +70,7 @@ A default button.
 
 ### Icon
 
-A button can contain [icons](?path=/docs/icon-gallery--page).
+A button can contain [icons](?path=/docs/icon-gallery--page). We should avoid using icons on small buttons.
 
 <Preview>
     <Story name="icon">
@@ -100,7 +122,7 @@ A button can vary in size.
 
 ### Disabled
 
-A button can be disabled.
+Used to disable a button that isn’t usable.
 
 <Preview>
     <Story name="disabled">
@@ -110,7 +132,7 @@ A button can be disabled.
 
 ### Loading
 
-A button can show a loading indicator.
+A button can show a loading indicator. The button text is hidden but the button maintains the width that it would have if the text were visible.
 
 <Preview>
     <Story name="loading">
@@ -120,7 +142,7 @@ A button can show a loading indicator.
 
 ### Fluid
 
-A button can take the width of its container.
+A button can be expanded to full width to fill its parent container.
 
 <Preview>
     <Story name="fluid">
@@ -131,16 +153,55 @@ A button can take the width of its container.
     </Story>
 </Preview>
 
-### Variant
+### Variants
 
-A button can use a different style..
+A button can use different variants.
+
+#### Primary
+
+Used to indicate the main action of a page or a section. This is usually the action we want the user to take.
+
+In a button group, there can be only 1 primary button. This will be reserved for the suggested action.
 
 <Preview>
-    <Story name="variant">
+    <Story name="primary">
         <Inline>
             <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
-            <Button variant="tertiary">Tertiary</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+#### Secondary
+
+Secondary buttons are used for user actions that need less prominence in the page or the section. It’s also the button used when there are no suggested actions to the user.
+
+<Preview>
+    <Story name="secondary">
+        <Inline>
+            <Button variant="secondary">Negative</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+#### Tertiary
+
+Tertiary buttons are used for actions that need to be there but that we don't want to encourage. A common use case would be a Cancel button in a message or an alert.
+
+<Preview>
+    <Story name="tertiary">
+        <Inline>
+            <Button variant="tertiary">Negative</Button>
+        </Inline>
+    </Story>
+</Preview>
+
+#### Negative
+
+Negative buttons are used for actions that would result in a deletion or another non recoverable negative action. These are mostly useful in modals.
+
+<Preview>
+    <Story name="negative">
+        <Inline>
             <Button variant="negative">Negative</Button>
         </Inline>
     </Story>
