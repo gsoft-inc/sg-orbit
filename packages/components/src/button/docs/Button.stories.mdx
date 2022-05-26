@@ -39,21 +39,22 @@ import { Text } from "@components/typography";
 ### When to use
 
 - To trigger an action such as submitting a form, exporting data.
+- To trigger a new UI element to appear on the page such as a modal.
+- Progressing or regressing a user through a step.
 
 ### Content
 
 Buttons should:
 
 - Use strong, actionable verbs.
-- Be positionned in consistent locations.
+- Avoid using "click here" or "start here" as copy.
 
-### Accessibility
-
-- Use the disabled prop to set the disabled state of the button.
-
-### Button vs Link vs Switch
+### Button vs Link
 
 - When you need to link to another page, use a [link](?path=/docs/link--default-story) component.
+
+### ToggleButton vs Switch
+
 - To activate or deactivate a feature, use the [switch](?path=/docs/switch--default-story) instead of a single [toggle button](?path=/docs/button--default-story#toggle-button).
 
 ## Usage
@@ -70,7 +71,7 @@ A default button.
 
 ### Icon
 
-A button can contain [icons](?path=/docs/icon-gallery--page). We should avoid using icons on small buttons.
+A button can contain [icons](?path=/docs/icon-gallery--page). Avoid using icons on small buttons.
 
 <Preview>
     <Story name="icon">
@@ -122,7 +123,7 @@ A button can vary in size.
 
 ### Disabled
 
-Used to disable a button that isn’t usable.
+A button can be disabled.
 
 <Preview>
     <Story name="disabled">
@@ -219,13 +220,13 @@ A button can be rendered as a link by using the `ButtonAsLink` component.
 
 ## Icon button
 
-A button content can be a single icon. An accessible name must be provided through `aria-label` prop. See [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
+A button content can be a single icon. An accessible name must be provided through [aria-label](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) prop. See also [WCAG practices](https://www.w3.org/TR/WCAG20-TECHS/ARIA6.html).
 
 <Preview>
     <Story name="icon button">
         <Inline alignY="center">
-            <IconButton size="sm" variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-            <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+            <IconButton size="sm" variant="secondary" aria-label="Add owner"><AddIcon /></IconButton>
+            <IconButton variant="secondary" aria-label="Add owner"><AddIcon /></IconButton>
         </Inline>
     </Story>
 </Preview>
