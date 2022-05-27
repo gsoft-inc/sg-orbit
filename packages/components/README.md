@@ -290,7 +290,7 @@ Ex:
 
 #### Accessibility
 
-All components should follow [WAI-ARIA practices](https://www.w3.org/TR/wai-aria-practices/) when applicable.
+All components should follow [WAI-ARIA practices](https://www.w3.org/WAI/ARIA/apg/) when applicable.
 
 ## Babel
 
