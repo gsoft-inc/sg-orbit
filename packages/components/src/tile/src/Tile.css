@@ -86,10 +86,6 @@
     mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
 }
 
-.o-ui-tile-checkable:hover:not([disabled]):not([aria-checked="true"]):not([aria-pressed="true"])::before {
-    opacity: 0.7;
-}
-
 .o-ui-tile[aria-checked="true"]::before,
 .o-ui-tile[aria-pressed="true"]::before {
     opacity: 1;
