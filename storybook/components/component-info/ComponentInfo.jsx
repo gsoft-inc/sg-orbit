@@ -82,7 +82,7 @@ export function ComponentInfo({
                 <Div className="o-ui-sb-component-info-item">
                     <dt className="o-ui-sb-component-info-title">wai-aria</dt>
                     <dd className="o-ui-sb-component-info-value">
-                        <ExternalLink href={`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}>{`https://www.w3.org/TR/wai-aria-practices/${ariaPath}`}</ExternalLink>
+                        <ExternalLink href={`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}>{`https://www.w3.org/WAI/ARIA/apg/patterns/${ariaPath}`}</ExternalLink>
                     </dd>
                 </Div>
             )}
