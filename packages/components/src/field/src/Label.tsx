@@ -10,10 +10,6 @@ export interface InnerLabelProps extends InternalProps, StyledComponentProps<typ
      * React children.
      */
     children: ReactNode;
-    /**
-     * Whether or not the label show a required state.
-     */
-    required?: boolean;
 }
 
 function RequiredIndicator() {
@@ -29,7 +25,6 @@ export function InnerLabel(props: InnerLabelProps) {
         as = DefaultElement,
         children,
         forwardedRef,
-        required,
         ...rest
     } = mergeProps(
         props,
@@ -49,7 +44,6 @@ export function InnerLabel(props: InnerLabelProps) {
             )}
         >
             {children}
-            {required && <RequiredIndicator />}
         </Text>
     );
 }

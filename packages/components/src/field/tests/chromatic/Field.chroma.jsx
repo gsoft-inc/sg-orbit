@@ -97,13 +97,6 @@ stories()
             </Div>
         </Stack>
     )
-    .add("required", () =>
-        <Field required>
-            <Label>Where to?</Label>
-            <TextInput />
-            <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-        </Field>
-    )
     .add("states", () =>
         <Field disabled>
             <Label>Where to?</Label>

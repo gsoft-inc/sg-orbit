@@ -24,6 +24,10 @@ export interface InnerFieldProps extends InternalProps, StyledComponentProps<typ
      */
     required?: boolean;
     /**
+     * Whether or not the field show a required state.
+     */
+    requiredIndicator?: boolean;
+    /**
      * Whether the field should display as "valid" or "invalid".
      */
     validationState?: ValidationState;
