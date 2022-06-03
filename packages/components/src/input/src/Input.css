@@ -19,7 +19,7 @@
 
 .o-ui-input input {
     -webkit-appearance: none;
-    outline: none;
+    outline: transparent;
     border: none;
     width: 100%;
     background-color: inherit;
@@ -180,7 +180,7 @@
 .o-ui-text-area:not(.o-ui-input-disabled).o-ui-input-has-focus textarea,
 .o-ui-input-focus:not(.o-ui-input-disabled):not(.o-ui-has-button-disabled) {
     box-shadow: var(--o-ui-focus-ring-inset-md) !important;
-    outline: none;
+    outline: transparent;
 }
 
 /* STATES | DISABLED */

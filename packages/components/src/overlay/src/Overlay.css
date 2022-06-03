@@ -5,7 +5,7 @@
 }
 
 .o-ui-overlay {
-    outline: none;
+    outline: transparent;
     width: fit-content;
     height: fit-content;
     position: relative;
@@ -145,7 +145,7 @@
 /* STATE | FOCUS */
 .o-ui-overlay-focus-ring:focus-visible,
 .o-ui-overlay-focus-ring-focus {
-    outline: none;
+    outline: transparent;
 }
 
 .o-ui-overlay-focus-ring::before {

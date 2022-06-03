@@ -81,7 +81,7 @@
     padding: 0;
     padding-left: var(--o-ui-sp-1);
     border: none;
-    outline: none;
+    outline: transparent;
     transition: all .12s ease-in, padding 0s linear;
     width: 100%;
     min-height: calc(var(--o-ui-sz-6) - 2px);

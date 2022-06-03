@@ -30,7 +30,7 @@
 
 /* TRIGGER */
 .o-ui-accordion-trigger {
-    outline: none;
+    outline: transparent;
     display: flex;
     align-items: center;
     margin: 0;
@@ -141,7 +141,7 @@
 
 .o-ui-accordion-trigger:focus-visible,
 .o-ui-accordion-trigger-focus {
-    outline: none;
+    outline: transparent;
     position: relative;
 }
 

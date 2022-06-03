@@ -37,7 +37,7 @@
 .o-ui-button:focus-visible,
 .o-ui-button-focus {
     z-index: 2;
-    outline: none;
+    outline: transparent;
 }
 
 .o-ui-button:focus-visible:after {
