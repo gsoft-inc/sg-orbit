@@ -3,7 +3,7 @@
 }
 
 .o-ui-checkbox {
-    outline: none;
+    outline: transparent;
     display: inline-flex;
     align-items: center;
     cursor: pointer;

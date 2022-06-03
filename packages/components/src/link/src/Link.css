@@ -1,5 +1,5 @@
 .o-ui-link {
-    outline: none;
+    outline: transparent;
     color: inherit;
     display: inline-block;
     border: none;
@@ -92,7 +92,7 @@
 /* TEXT | STATE | FOCUS */
 .o-ui-text-link:focus-visible,
 .o-ui-text-link.o-ui-link-focus {
-    outline: none;
+    outline: transparent;
     border-radius: var(--o-ui-br-rounded);
 }
 

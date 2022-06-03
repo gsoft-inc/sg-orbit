@@ -48,7 +48,7 @@
 .o-ui-tile:focus,
 .o-ui-tile:focus-visible,
 .o-ui-tile-focus {
-    outline: none;
+    outline: transparent;
 }
 
 .o-ui-tile:focus-visible:after,

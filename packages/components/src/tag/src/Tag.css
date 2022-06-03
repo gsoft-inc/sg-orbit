@@ -40,7 +40,7 @@ button:not([disabled]).o-ui-tag:focus-visible,
 a:not([disabled]).o-ui-tag:focus-visible,
 button:not([disabled]).o-ui-tag.o-ui-tag-focus,
 a:not([disabled]).o-ui-tag.o-ui-tag-focus {
-    outline: none;
+    outline: transparent;
 }
 
 button:not([disabled]).o-ui-tag:focus-visible:after,
@@ -105,7 +105,7 @@ button.o-ui-tag-solid:focus-visible,
 a.o-ui-tag-solid:focus-visible,
 button.o-ui-tag-solid.o-ui-tag-focus,
 a.o-ui-tag-solid.o-ui-tag-focus {
-    outline: none;
+    outline: transparent;
 }
 
 /* SOLID | AS ANCHOR / BUTTON | STATES | DISABLED */
