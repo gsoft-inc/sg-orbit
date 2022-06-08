@@ -28,18 +28,18 @@ Orbit styles include the ShareGate font, a [CSS bootstrap](https://github.com/gs
 To import Orbit styles add the following import declaration to your root stylesheet:
 
 ```css
+/* index.css */
+
 @import "~@sharegate/orbit-ui/index.css";
 ```
 
-### Bootstrap your app
+### Configure your application
 
-Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/docs/theming--page) that allow applications to supply their core values to Orbit.
-
-The theming system introduced a concept of theme object. To bootstrap Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a [theme provider](?path=/docs/theme-provider--default-story) at the root of your application.
-
-Below an example of how to bootstrap an application with a pre-constructed ShareGate theme object:
+Below an example of how to configure  an application with a *pre-constructed* ShareGate [theme](?path=/story/theming--page#option-3-retrieve-a-pre-constructed-theme-from-orbit) object:
 
 ```jsx
+// index.ts
+
 import { createThemeVars, ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
 import { render } from "react-dom";
 import App from "./App";
@@ -54,9 +54,13 @@ render(
 );
 ```
 
-### Start building
+Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/docs/theming--page) allowing applications to supply their core values to Orbit.
 
-You're all set! You can start building your application with Orbit:
+The theming system introduced a concept of theme object. To configure Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a [theme provider](?path=/docs/theme-provider--default-story) at the root of your application.
+
+### Start creating components
+
+You're all set! You can start creating your application with Orbit:
 
 ```jsx
 import { Div, Text } from "@sharegate/orbit-ui";

@@ -12,33 +12,33 @@ import { Table } from "@stories/components";
 
 # Tokens
 
-Tokens are Orbit's reusable values, providing a common language between developers and designers.
+Tokens are Orbit's reusable values to provide a common language between developers and designers.
 
-Aliased tokens are named for their use case, rather than their value. For example `alias-alert` is named to indicate the appropriate background color for an error message background, as opposed to `red-5` which is less specific and could be used in a number of ways depending on context.
+## Aliased tokens
+
+Those tokens are named for their use case, rather than their value. For example `alias-alert` is named to indicate the appropriate background color for an error message background, as opposed to `red-5` which is less specific and could be used in a number of ways depending on context.
 
 This makes their intended use clear and intentional, and allows us to develop a scalable and consistent visual language while also being the building block of Orbit's [theming](/docs/theming--page).
 
-> In Orbit, **1 rem unit = 16 pixels**.
-
 ## Usage
 
-Tokens can be used as `CSS` variables or [Style Props](/docs/style-props--page) values.
-
-Style Props:
+Tokens can be used as [style props](/docs/style-props--page) values:
 
 ```jsx
-    <Div backgroundColor="alias-accent-faint">...</Div>
+<Div backgroundColor="alias-accent-faint">...</Div>
 ```
 
-CSS Variable:
+Or `CSS` variables:
 
 ```css
-    .item {
-        background-color: var(--o-ui-bg-alias-accent-faint);
-    }
+.item {
+    background-color: var(--o-ui-bg-alias-accent-faint);
+}
 ```
 
-## Background Colors
+## Values
+
+### Background Colors
 
 <TokenTable
     colors={[
@@ -70,7 +70,7 @@ CSS Variable:
     ]}
 />
 
-## Border Colors
+### Border Colors
 
 <TokenTable
     colors={[
@@ -92,7 +92,7 @@ CSS Variable:
     ]}
 />
 
-## Box Shadows
+### Box Shadows
 
 <TokenTable
     colors={[
@@ -103,7 +103,7 @@ CSS Variable:
     ]}
 />
 
-## Durations
+### Durations
 
 <TokenTable
     colors={[
@@ -115,7 +115,7 @@ CSS Variable:
     ]}
 />
 
-## Easings
+### Easings
 
 Only usable as `CSS` variables
 
@@ -127,7 +127,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Icon Colors
+### Icon Colors
 
 <TokenTable
     colors={[
@@ -143,7 +143,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Font Sizes
+### Font Sizes
 
 <TokenTable
     colors={[
@@ -161,7 +161,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Font Weights
+### Font Weights
 
 <TokenTable
     colors={[
@@ -171,7 +171,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Line Heights
+### Line Heights
 
 <TokenTable
     colors={[
@@ -184,7 +184,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Radii
+### Radii
 
 <TokenTable
     colors={[
@@ -198,7 +198,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Sizings
+### Sizings
 
 <TokenTable
     colors={[
@@ -223,7 +223,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Spacings
+### Spacings
 
 <TokenTable
     colors={[
@@ -243,7 +243,7 @@ Only usable as `CSS` variables
     ]}
 />
 
-## Text Colors
+### Text Colors
 
 <TokenTable
     colors={[

@@ -7,11 +7,9 @@ import { Meta } from "@storybook/addon-docs";
 
 # As function
 
-Previously, all Orbit components were accepting an `as` prop. This feature have always be useful to handle use cases were you need to change the underlying element type of a component or integrate Orbit with an external library like [React router](https://reactrouter.com/).
+This function allow you to change the *underlying element type* of a component or integrate Orbit with an external library like [React router](https://reactrouter.com/).
 
-Since we introduced TypeScript, the `as` prop has proven to be difficult. Dynamic typings based on a prop value is not Typescript forte.
-
-To mitigate the problem, we choose to deprecate the `as` prop in favor of an `as(baseComponent, asComponent)` function. The `as()` function return a new component which render the provided `baseComponent` with `asComponent` as the underlying type and merge the typings of both components.
+## Usage
 
 To specify a new underlying type:
 
@@ -33,3 +31,10 @@ const RouterTextLink = as(TextLink, ReactRouterLink, { normalizeStyles: true });
 
 <RouterTextLink to="/home">Home</RouterTextLink>
 ```
+
+## How it works
+
+Previously, all Orbit components were accepting an as prop. Since we introduced TypeScript, the `as` prop has proven to be difficult. Dynamic typings based on a prop value is not Typescript forte.
+
+To mitigate the problem, we choose to deprecate the `as` prop in favor of an `as(baseComponent, asComponent)` function. The `as()` function return a new component which render the provided `baseComponent` with `asComponent` as the underlying type and merge the typings of both components.
+

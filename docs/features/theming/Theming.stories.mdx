@@ -10,13 +10,11 @@ import { GithubLink } from "@stories/components";
 
 # Theming
 
-Orbit styled system is powered by the values of a theme object provided by the application.
+Orbit styled system is powered by the values of a *theme object* provided by the application. A theme object is a combination of *design values* and *design scales*. A design scale can be for typography, spacing, sizing or even colors. Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some are even a mix of both, such as `fontSizes`.
 
-A theme object is a combination of design values and design scales. A design scale can be for typography, spacing, sizing or even colors. Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain object for named values like `colors`. Some are even a mix of both, such as `fontSizes`.
+## Theme specification
 
-### Specifications
-
-The Orbit theme object specification is inspired by [Styled System Theme Specifications](https://styled-system.com/theme-specification) which is inspired by [System UI Theme Specification](https://system-ui.com/theme/).
+The Orbit theme object specification is inspired by [Styled System Theme Specification](https://styled-system.com/theme-specification) which is inspired by [System UI Theme Specification](https://system-ui.com/theme/).
 
 An Orbit theme object is composed of the following *8 keys*:
 
@@ -60,7 +58,7 @@ When rendered with the `createThemeVars` function, the following CSS variables w
     }}
 />
 
-### Apply a theme
+## Apply a theme
 
 Orbit components and Orbit [style props](?path=/docs/style-props--page) doesn't render any styles until a theme is applied.
 
@@ -84,7 +82,7 @@ createThemeVars([theme]);
 
 Any object can be used as an Orbit theme object as long as it extends the <GithubLink path="/packages/components/src/styling/src/theming/orbitTheme.ts">`OrbitTheme`</GithubLink> TypeScript type. A few options are available.
 
-#### Define your own theme from scratch
+#### Option 1: Define your own theme from scratch
 
 ```jsx
 import { OrbitTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
@@ -104,7 +102,7 @@ createThemeVars([theme]);
 </ThemeProvider>
 ```
 
-#### Create a new theme from Orbit defaults
+#### Option 2: Create a new theme from Orbit defaults
 
 You only need to provide a subset of <GithubLink path="/packages/components/src/styling/src/theming/orbitTheme.ts">`OrbitTheme`</GithubLink> values. The remaining values will fallback to Orbit defaults.
 
@@ -137,7 +135,7 @@ createThemeVars([theme]);
 </ThemeProvider>
 ```
 
-#### Retrieve a pre-constructed theme from Orbit
+#### Option 3: Retrieve a pre-constructed theme from Orbit
 
 ```jsx
 import { ShareGateTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
