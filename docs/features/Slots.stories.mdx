@@ -7,17 +7,13 @@ import { Meta } from "@storybook/addon-docs";
 
 # Slots
 
-Slots allow a component to support multiple layouts in a declarative way by defining a template for consumers.
-
-## Placeholders
-
-To enable slots, components will define *named placeholders* which will then be filled by the component consumer to achieve the final layout.
+Slots allows a component to support multiple layouts in a declarative way by defining a template of named placeholders for consumers.
 
 ## Types of slots
 
-In Orbit, a component placeholders are fulfilled through his children and slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) on the child component.
+In Orbit, component placeholders are fulfilled through his children and slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) on the child component.
 
-In the following example, the `<Text>` component implicitly fulfill the `text` slot of the button and the `<LightbulbIcon>` component explicitly fulfill the `end-icon` slot of the button.
+In the following example, the `<Text>` component *implicitly* fulfill the `text` slot of the button and the `<LightbulbIcon>` component *explicitly* fulfill the `end-icon` slot of the button.
 
 ```jsx
 <Button variant="secondary">
@@ -32,7 +28,7 @@ To identify which slots placeholders are available for a component, refer to the
 
 Some of Orbit components which are considered *slotables* are defined to automatically fullfill a specific placeholder of a component when available. If a match happens, we say the fullfillment is *implicit*.
 
-For example, an `<Icon>` component will implicitly fulfill an `icon` slot of a `<Button>` when defined as his child.
+For example, an `<Icon>` component will implicitly fulfill the `icon` slot of a `<Button>` when defined as his child.
 
 ```jsx
 <Button variant="secondary">
@@ -53,7 +49,7 @@ export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => 
 
 ### Explicit slots
 
-Sometimes, we want to force a component into a specific placeholder of a component. To do so, an *explicit* can be specified on a child component with the `slop` prop.
+Sometimes, we want to force a component into a specific placeholder of a component. To do so, an *explicit* slot can be specified on a child component with the `slot` prop. *Explicit slots will have precedence over implicit slots*.
 
 ```jsx
 <Button variant="secondary">
@@ -62,7 +58,7 @@ Sometimes, we want to force a component into a specific placeholder of a compone
 </Button>
 ```
 
-For native HTML elements, instead of specifying an explicit slot directly on the native element, we do recommend you use [Orbit HTML elements](?path=/docs/html-anchor--example).
+For native HTML elements, instead of specifying an explicit slot directly on the native element, we recommend using [Orbit HTML elements](?path=/docs/html-anchor--example).
 
 ```jsx
 <Card>
