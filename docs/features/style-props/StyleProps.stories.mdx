@@ -12,11 +12,11 @@ import { PropsReferenceTable } from "./PropsReferenceTable";
 
 # Style props
 
-An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. With style props, Orbit styled system let you easily set style values for a [curated set of CSS properties](#reference) like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) and many more.
+An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. With style props, Orbit styled system let you easily set style values for a [curated set of CSS properties](#properties) like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) and many more.
 
 ## Usage
 
-To apply a style value, set a value to any [style property](#reference) of an Orbit component.
+To apply a style value, set a value to any [style property](#properties) of an Orbit component.
 
 ```jsx
 <Div
@@ -34,7 +34,7 @@ To apply a style value, set a value to any [style property](#reference) of an Or
 
 ## Shorthands
 
-Props like `border` and `paddingX` are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
+Props like `border` and `paddingX` are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#properties) section.
 
 ```jsx
 <Div
@@ -81,7 +81,7 @@ Since the following user action pseudo-classes are often used, some style props 
     }}
 />
 
-> Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the [reference](#reference) section.
+> Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the [reference](#properties) section.
 
 <Preview>
     <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius={2}>

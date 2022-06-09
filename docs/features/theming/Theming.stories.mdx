@@ -88,6 +88,8 @@ Any object can be used as an Orbit theme object as long as it extends the <Githu
 
 #### Option 1: Define your own theme from scratch
 
+Make sure you provide the right definition by extending the <GithubLink path="/packages/components/src/styling/src/theming/orbitTheme.ts">`OrbitTheme`</GithubLink> type.
+
 ```jsx
 import { OrbitTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
 
@@ -108,7 +110,7 @@ createThemeVars([theme]);
 
 #### Option 2: Create a new theme from Orbit defaults
 
-You only need to provide a subset of <GithubLink path="/packages/components/src/styling/src/theming/orbitTheme.ts">`OrbitTheme`</GithubLink> values. The remaining values will fallback to Orbit defaults.
+With `createTheme`, you only have to provide a subset of <GithubLink path="/packages/components/src/styling/src/theming/orbitTheme.ts">`OrbitTheme`</GithubLink> values. The remaining values will fallback to Orbit defaults.
 
 ```jsx
 import { createTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
@@ -140,6 +142,8 @@ createThemeVars([theme]);
 ```
 
 #### Option 3: Retrieve a pre-constructed theme from Orbit
+
+The only theme available at the moment is <GithubLink path="/packages/components/src/styling/src/theming/sharegateTheme.ts">`ShareGateTheme`</GithubLink>.
 
 ```jsx
 import { ShareGateTheme, createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
