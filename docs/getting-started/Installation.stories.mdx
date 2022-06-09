@@ -35,7 +35,7 @@ To import Orbit styles add the following import declaration to your root stylesh
 
 ### Configure your application
 
-Below is an example of how to configure an application with a *pre-constructed* ShareGate [theme](?path=/story/theming--page#option-3-retrieve-a-pre-constructed-theme-from-orbit) object:
+Below is an example of how to configure an application with a [pre-constructed ShareGate theme object](?path=/story/theming--page#option-3-retrieve-a-pre-constructed-theme-from-orbit):
 
 ```jsx
 // index.ts
@@ -56,7 +56,7 @@ render(
 
 Instead of harcoding the foundation values in Orbit, we choose to implement a [theming system](?path=/docs/theming--page) allowing applications to supply their core values to Orbit.
 
-The theming system introduced a concept of theme object. To configure Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with `createThemeVars()` and define a [theme provider](?path=/docs/theme-provider--default-story) at the root of your application.
+The theming system introduced a concept of theme object. To configure Orbit, you'll need to build your own theme object or import a pre-constructed one from Orbit. The theme object will be used to create the foundation variables with the `createThemeVars` function and define a [theme provider](?path=/docs/theme-provider--default-story) at the root of your application.
 
 ### Start creating components
 

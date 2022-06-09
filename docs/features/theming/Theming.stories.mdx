@@ -10,11 +10,13 @@ import { GithubLink } from "@stories/components";
 
 # Theming
 
-Orbit styled system is powered by the values of a *theme object* provided by the application. A theme object is a combination of *design values* and *design scales*. A design scale can be for typography, spacing, sizing or even colors. Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain objects for named values like `colors`. Some are even a mix of both, such as `fontSizes`.
+Orbit styled system is powered by the values of a *theme object* provided by the application. The Orbit theme object specification have been inspired by the [Styled System Theme Specification](https://styled-system.com/theme-specification).
 
-## Theme specification
+## Theme object
 
-The Orbit theme object specification is inspired by [Styled System Theme Specification](https://styled-system.com/theme-specification) which is inspired by [System UI Theme Specification](https://system-ui.com/theme/).
+A theme object is a combination of *design values* and *design scales* ([spacing](?path=/story/tokens--page#spacings), [sizing](?path=/story/tokens--page#sizings), [colors](?path=/story/tokens--page#text-colors), etc..).
+
+Some scales are defined in Orbit as arrays for ordinal values like `space` or as plain objects for named values like `colors`. Some are even a mix of both, such as `fontSizes`.
 
 An Orbit theme object is composed of the following *8 keys*:
 
@@ -35,7 +37,9 @@ An Orbit theme object is composed of the following *8 keys*:
     }}
 />
 
-When rendered with the `createThemeVars` function, the following CSS variables will be created from the theme object values.
+### Output
+
+When rendered with the `createThemeVars` function, the following CSS variables will be outputted from the theme object values.
 
 <Table
     columns={[

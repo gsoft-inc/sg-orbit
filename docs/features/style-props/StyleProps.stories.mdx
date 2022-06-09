@@ -12,17 +12,18 @@ import { PropsReferenceTable } from "./PropsReferenceTable";
 
 # Style props
 
-An Orbit style property(style props) is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. Orbit styled system let you set style values for CSS properties like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width), and many more which we deem appropriate for ShareGate applications.
+An Orbit style property is a mapping of a [CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Properties_Reference) to a component property. With style props, Orbit styled system let you easily set style values for a [curated set of CSS properties](#reference) like [font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size), [margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin), [padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding), [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) and many more.
 
-### Shorthands
+## Usage
 
-Props like `border` and `paddingX` are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
+To apply a style value, set a value to any [style property](#reference) of an Orbit component.
 
 ```jsx
 <Div
     fontSize={6}
     fontWeight={3}
-    padding={3}
+    paddingTop={3}
+    paddingBottom={3}
     marginBottom={3}
     color="alias-static-white"
     borderRadius={3}
@@ -31,11 +32,23 @@ Props like `border` and `paddingX` are also provided to help you save keystrokes
 </Div>
 ```
 
-### TypeScript Intellisense
+## Shorthands
+
+Props like `border` and `paddingX` are also provided to help you save keystrokes. An exhaustive list of all the supported props is available in the [reference](#reference) section.
+
+```jsx
+<Div
+    paddingY={3}
+    border="alias-accent">
+    Lost in space.
+</Div>
+```
+
+## TypeScript Intellisense
 
 Inspired by [Styled System](https://styled-system.com/), Orbit's style props are flexible and easy to discover with [TypeScript](https://www.typescriptlang.org/) intellisense. Style values intellisense will offer suggestions matching the values of the provided [theme](?path=/docs/theming--page) as well as native CSS values of the property. You won't have to guess or open external documentation to pick a value.
 
-### Scale values
+## Scale values
 
 To help achieve a consistent user interface, Orbit style props are based on scales and values defined in a customizable [theme](?path=/docs/theming--page).
 
@@ -143,7 +156,7 @@ function CustomButton({ onClick, ...rest }: CustomButtonProps) {
 }
 ```
 
-## Reference
+## Properties
 
 The following tables provide a list of all available style props by category.
 
