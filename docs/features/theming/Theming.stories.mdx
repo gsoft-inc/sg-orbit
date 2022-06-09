@@ -64,9 +64,9 @@ Orbit components and Orbit [style props](?path=/docs/style-props--page) doesn't 
 
 To apply a theme:
 
-- Retrieve a theme object.
-- Render the CSS variables matching the theme object with `createThemeVars`.
-- Select a theme to apply with `<ThemeProvider>`.
+1. [Select a theme object](#select-a-theme-object)
+2. Render the CSS variables of the theme object with the `createThemeVars` function
+3. [Define a `<ThemeProvider>` component with the theme object](?path=/docs/theme-provider--page)
 
 ```jsx
 import { createThemeVars, ThemeProvider } from "@sharegate/orbit-ui";
@@ -147,7 +147,7 @@ createThemeVars([ShareGateTheme]);
 </ThemeProvider>
 ```
 
-### Use a theme object in code
+## Use a theme object in code
 
 Theme objects are primarily used to boostrap Orbit styled system but they can also be used directly in JavaScript code when you need to fetch a value.
 
@@ -159,7 +159,7 @@ If you have access to the theme object, use the object directly.
 </Div>
 ```
 
-If you don't have access to the theme object, retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook.
+If you don't have access to the theme object, retrieve a `ThemeAccessor` instance from the `ThemeContext` by using the `useThemeContext` hook and access the theme values from the instance.
 
 ```jsx
 import { useThemeContext } from "sharegate/orbit-ui";
