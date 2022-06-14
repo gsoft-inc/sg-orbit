@@ -21,7 +21,7 @@ const propTypes = {
 };
 
 const ExtendLinks = {
-    "styled-component": <Link href="?path=/docs/style-props--page#reference">StyleProps</Link>,
+    "styled-component": <Link href="?path=/docs/style-props--page#properties">StyleProps</Link>,
     "a": <Link href="?path=/docs/html-anchor--example">A</Link>,
     "button": <Link href="?path=/docs/html-button--example">Button</Link>,
     "div": <Link href="?path=/docs/html-div--example">Div</Link>,

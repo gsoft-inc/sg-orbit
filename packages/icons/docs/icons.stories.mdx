@@ -149,11 +149,9 @@ import { Meta } from "@storybook/addon-docs";
 
 # Icons
 
-All official icons **includes their padding** and are generally available in two variants, `24px` and `32px`. If an icon is only available in `32px`, he is considered universal.
+Official collection of icons to promote a consistent experience across the ShareGate ecosystem. All icons are available in two ways, [React components](#react-components) and [static files](#static-files).
 
-Orbit make those icons available for products in two ways, *React components* and *static files*.
-
-If you are looking for documentation about custom SVG icons (e.g. Azure specific icons), please refer to the [icon component](?path=/docs/icon--default-story) documentation.
+> If you are looking for documentation about integrating a *custom icons* (ex: Azure specific icons) in your application, please refer to the [icon component](?path=/docs/icon--default-story) documentation.
 
 ## Gallery
 
@@ -206,19 +204,23 @@ If you are looking for documentation about custom SVG icons (e.g. Azure specific
     {renderItem("Zip", createMultiVariant(<ZipIcon />), [createVariant("24x24", <ZipIcon24 />, "icon-zip-24.svg"), createVariant("32x32", <ZipIcon32 />, "icon-zip-32.svg")])}
 </IconGallery>
 
-## Dimensions
+## Design specifications
 
-The dimensions of an icon should always match Orbit Design [spacing scale](?path=/docs/tokens--page#spacings) values. To define dimensions, a few options are available depending on whether you choose to include an icon as a [component](#components) or as a [static file](#static-files).
+All official SVG icons includes their padding and are generally available in two variants, 24px and 32px. If an icon is only available in 32px, he is considered universal.
+
+## Icon dimensions
+
+To define dimensions, a few options are available depending on whether you choose to include an icon as a [React component](#components) or as a [static file](#static-files).
 
 ### React components
 
-If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a `size` prop that will translate to dimensions classes at render time.
+If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a [`size`](#sizes) prop which will translate to the appropriate dimensions classes at render time.
 
-Two types of components are available, _multi-variants_ components and _variants_ components. They both share the same `size` prop but handles variants differently.
+Two types of components are available, [multi-variants](#multi-variants) components and [variants](#variants) components. They both share the same `size` prop but handles variants differently.
 
 #### Multi-variants
 
-Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We do recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
+Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
 
 ```jsx
 import { CalendarIcon } from "@sharegate/orbit-ui";
@@ -242,9 +244,7 @@ function render() {
 
 #### Sizes
 
-By default an icon component render as an `md` sized icon.
-
-To alter the dimensions of an icon, you can specify any of the following sizes: `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"inherit"`.
+By default an icon component render as an `md` sized icon. To alter the dimensions of an icon, you can specify any of the following sizes: `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"inherit"`.
 
 > If your icon is intended to be used as content of an Orbit component, you won't have to specify the icon size since Orbit components already have pre-determined dimensions for their icons.
 
@@ -267,7 +267,7 @@ Icons SVG files are available from the root of `@orbit-ui/icons` package. These 
 
 Orbit Design provide icons with default dimensions, e.g. a `24px` variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
 
-You can customize an icon dimensions with the `width` and `height` props of Orbit [styled-system](?path=/docs/styled-system).
+You can customize an icon dimensions with the `width` and `height` props of Orbit [styled-system](?path=/docs/style-props--page).
 
 #### Image source
 
@@ -293,11 +293,11 @@ function render() {
 
 An SVG object get it's color from the [fill attribute](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Fills_and_Strokes). When an SVG object doesn't define a `fill` attribute on his elements, CSS can be use to style the internal color of the elements of the objects with the `fill` property.
 
-This means that you can alter the color of an icon by specifying a new `fill` value. If the SVG already contains a `fill` attribute, please [fill an issue](https://github.com/gsoft-inc/sg-orbit/issues).
+This means you can alter the color of an icon by specifying a new `fill` value. If the SVG already contains a `fill` attribute, please [fill an issue](https://github.com/gsoft-inc/sg-orbit/issues).
 
 ### React components
 
-To set the color of an icon component, you can set the `fill` prop of Orbit [styled-system](?path=/docs/styled-system).
+To set the color of an icon component, you can set the `fill` prop of Orbit [styled-system](?path=/docs/style-props--page).
 
 ```jsx
 import { CalendarIcon } from "@sharegate/orbit-ui";
@@ -309,7 +309,7 @@ function render() {
 
 ### Image source
 
-To set the color of an image, you can set the `fill` prop of Orbit [styled-system](?path=/docs/styled-system).
+To set the color of an image, you can set the `fill` prop of Orbit [styled-system](?path=/docs/style-props--page).
 
 ```jsx
 import CalendarIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
@@ -318,7 +318,3 @@ function render() {
     return <Img src={CalendarIcon24} alt="calendar" fill="purple-8" />;
 }
 ```
-
-## Custom icons
-
-For custom SVG icons (e.g. Azure specific icons), please refer to the [icon component documentation](?path=/docs/icon--default-story).

@@ -7,15 +7,13 @@ import { Meta } from "@storybook/addon-docs";
 
 # Slots
 
-Slots solve a variety of use cases by allowing a component to offer multiple layouts in a declarative way.
+Slots allows a component to support multiple layouts in a declarative way by defining a template of named placeholders for consumers.
 
-It's done by giving a component the ability to offer *named placeholders* which could then be filled by the component consumer to achieve the final layout.
+## Types of slots
 
-For more information about the *concept of slots*, have a look at web components slots on [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots).
+In Orbit, component placeholders are fulfilled through his children and slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) on the child component.
 
-In Orbit, slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) and are fulfilled through the component children.
-
-In the following example, the `<Text>` component implicitly fulfill the `text` slot and the `<LightbulbIcon>` component explicitly fulfill the `end-icon` slot.
+In the following example, the `<Text>` component *implicitly* fulfill the `text` slot of the button and the `<LightbulbIcon>` component *explicitly* fulfill the `end-icon` slot of the button.
 
 ```jsx
 <Button variant="secondary">
@@ -24,15 +22,13 @@ In the following example, the `<Text>` component implicitly fulfill the `text` s
 </Button>
 ```
 
-To identify which slots are available for a component, refer to the API section of the component. [Have a look at the button component slots](?path=/docs/button--default-story#button-1).
+To identify which slots placeholders are available for a component, refer to the [API section of a component](?path=/docs/button--default-story#button-1).
 
-## Implicit slots
+### Implicit slots
 
-*Slotables* Orbit components come with a default slot name.
+Some of Orbit components which are considered *slotables* are defined to automatically fullfill a specific placeholder of a component when available. If a match happens, we say the fullfillment is *implicit*.
 
-An `<Icon>` component will implicitly fulfill an `icon` slot and a `<Button>` component will implicitly fulfill a `button` slot, etc..
-
-To use an implicit slot, declare a component having a default slot as a children of a component accepting the given slot.
+For example, an `<Icon>` component will implicitly fulfill the `icon` slot of a `<Button>` when defined as his child.
 
 ```jsx
 <Button variant="secondary">
@@ -41,7 +37,7 @@ To use an implicit slot, declare a component having a default slot as a children
 </Button>
 ```
 
-You can define an implicit slot on a custom component by using the `slot` function.
+An implicit slot can be defined on a custom component by using the `slot` function.
 
 ```jsx
 import { slot } from "@sharegate/orbit-ui";
@@ -51,9 +47,9 @@ export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => 
 ));
 ```
 
-## Explicit slots
+### Explicit slots
 
-> An explicit slot is defined by specifying the `slot` prop on a component declaration.
+Sometimes, we want to force a component into a specific placeholder of a component. To do so, an *explicit* slot can be specified on a child component with the `slot` prop. *Explicit slots will have precedence over implicit slots*.
 
 ```jsx
 <Button variant="secondary">
@@ -62,7 +58,7 @@ export const MyComponent = slot("name-of-the-slot-to-fulfill-by-default", () => 
 </Button>
 ```
 
-For native HTML elements, instead of specifying an explicit slot directly on the native element, we do recommend you use [Orbit HTML elements](?path=/docs/html-anchor--example).
+For native HTML elements, instead of specifying an explicit slot directly on the native element, we recommend using [Orbit HTML elements](?path=/docs/html-anchor--example).
 
 ```jsx
 <Card>
@@ -72,4 +68,7 @@ For native HTML elements, instead of specifying an explicit slot directly on the
 </Card>
 ```
 
-A component default slot can be overrided by defining an explicit slot.
+## Other resources
+
+For more information about the slots concepts, have a look at web components slots on [MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_templates_and_slots#adding_flexibility_with_slots).
+
