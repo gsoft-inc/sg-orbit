@@ -11,6 +11,7 @@
     position: relative;
     cursor: pointer;
     box-shadow: var(--o-ui-bs-2);
+    font-family: inherit;
 }
 
 /* HEADING */
