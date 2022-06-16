@@ -82,11 +82,6 @@
     list-style-type: none;
 }
 
-.o-ui-avatar-group-remainings-list-item {
-    display: flex;
-    align-items: center;
-}
-
 .o-ui-avatar-group-remainings-list-item:not(:last-child) {
     margin-bottom: var(--o-ui-sp-2);
 }
