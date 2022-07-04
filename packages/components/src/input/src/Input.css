@@ -25,6 +25,7 @@
     background-color: inherit;
     color: inherit;
     min-height: calc(var(--o-ui-sz-6) - 2px);
+    margin: 0;
     padding: 0;
 }
 
