@@ -158,6 +158,7 @@ stories()
     .add("inherit parent text properties", () =>
         <Inline alignY="end">
             <Lozenge textTransform="uppercase">New</Lozenge>
+            <Lozenge color="red" highlight>New</Lozenge>
         </Inline>
     )
     .add("zoom", () =>
