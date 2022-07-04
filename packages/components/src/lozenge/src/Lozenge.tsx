@@ -19,7 +19,7 @@ import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
-export interface InnerLozengeProps extends SlotProps, InternalProps {
+export interface InnerLozengeProps extends SlotProps, InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children.
      */

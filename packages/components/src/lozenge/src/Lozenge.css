@@ -54,7 +54,7 @@
 }
 
 .o-ui-lozenge.o-ui-lozenge-informative.o-ui-lozenge-highlight .o-ui-lozenge-text {
-    color: var(--o-ui-white);
+    color: inherit;
 }
 
 .o-ui-lozenge.o-ui-lozenge-informative.o-ui-lozenge-highlight .o-ui-lozenge-icon {
@@ -74,7 +74,7 @@
 }
 
 .o-ui-lozenge.o-ui-lozenge-positive.o-ui-lozenge-highlight .o-ui-lozenge-text {
-    color: var(--o-ui-white);
+    color: inherit;
 }
 
 .o-ui-lozenge.o-ui-lozenge-positive.o-ui-lozenge-highlight .o-ui-lozenge-icon {
