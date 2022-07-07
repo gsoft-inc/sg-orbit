@@ -26,7 +26,6 @@
     border-radius: var(--o-ui-br-rounded);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;
-    z-index: 2;
 }
 
 /* STATES | FOCUS | FOCUS RING */
