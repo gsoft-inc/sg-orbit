@@ -155,10 +155,13 @@ stories()
             </Inline>
         </Stack>
     )
-    .add("inherit parent text properties", () =>
+    .add("inherit parent properties", () =>
         <Inline alignY="end">
             <Lozenge textTransform="uppercase">New</Lozenge>
-            <Lozenge color="red" highlight>New</Lozenge>
+            <Lozenge color="red" highlight>
+                <CheckCircleIcon />
+                <Text>New</Text>
+            </Lozenge>
         </Inline>
     )
     .add("zoom", () =>
