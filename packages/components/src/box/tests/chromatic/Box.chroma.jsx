@@ -1,24 +1,25 @@
 import { Box } from "@components/box";
 import { Inline } from "@components/layout";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Box")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .build())
-        .build();
-}
+export default {
+    title: "Chromatic/Box",
+    component: Box,
+    parameters: {
+        chromatic: { delay: 100 }
+    }
+};
 
-stories()
-    .add("default", () =>
-        <Box>The Universe is under no obligation to make sense to you.</Box>
-    )
-    .add("styling", () =>
-        <Inline>
-            <Box border="warning-7">The Universe is under no obligation to make sense to you.</Box>
-            <Box className="bg-red">The Universe is under no obligation to make sense to you.</Box>
-            <Box style={{ backgroundColor: "red" }}>The Universe is under no obligation to make sense to you.</Box>
-        </Inline>
-    );
+export const Default = () => <Box>The Universe is under no obligation to make sense to you.</Box>;
+
+export const Styling = () => <Inline>
+    <Box border="warning-7">The Universe is under no obligation to make sense to you.</Box>
+    <Box className="bg-red">The Universe is under no obligation to make sense to you.</Box>
+    <Box style={{ backgroundColor: "red" }}>The Universe is under no obligation to make sense to you.</Box>
+</Inline>;
+
+Default.storyName = "default";
+Default.parameters = {
+    chromatic: { delay: 100 }
+};
+
+Styling.storyName = "styling";
