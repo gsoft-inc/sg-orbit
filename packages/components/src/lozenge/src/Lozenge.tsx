@@ -45,6 +45,10 @@ const textSize = createSizeAdapter({
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
+const textTransform = function (size) {
+    return size === "sm" ? "uppercase" : null;
+};
+
 export function InnerLozenge({
     as = DefaultElement,
     children,
@@ -68,7 +72,8 @@ export function InnerLozenge({
         },
         text: {
             className: "o-ui-lozenge-text",
-            size: textSize(sizeValue)
+            size: textSize(sizeValue),
+            textTransform: textTransform(sizeValue)
         }
     }), [sizeValue]));
 
