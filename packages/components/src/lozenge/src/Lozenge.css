@@ -37,6 +37,12 @@
     line-height: var(--o-ui-sz-4);
 }
 
+/* SIZE */
+.o-ui-lozenge-fluid {
+    width: 100%;
+    justify-content: center;
+}
+
 /* CONTENT | ICON */
 .o-ui-lozenge-has-icon {
     padding-left: calc(var(--o-ui-sp-2) / 2);
