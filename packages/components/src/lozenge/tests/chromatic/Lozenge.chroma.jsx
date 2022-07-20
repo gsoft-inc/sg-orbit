@@ -164,6 +164,17 @@ stories()
             </Lozenge>
         </Inline>
     )
+    .add("fluid", () =>
+        <Div width="500px">
+            <Inline>
+                <Lozenge fluid>New</Lozenge>
+                <Lozenge fluid>
+                    <CheckCircleIcon />
+                    <Text>New</Text>
+                </Lozenge>
+            </Inline>
+        </Div>
+    )
     .add("zoom", () =>
         <Inline>
             <Div className="zoom-in">
