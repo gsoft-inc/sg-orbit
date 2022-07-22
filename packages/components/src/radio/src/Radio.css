@@ -25,10 +25,15 @@
     display: block;
     background-color: var(--o-ui-bg-alias-accent);
     border-radius: var(--o-ui-br-circular);
-    transform: scale(0) translate(-2px, -2px);
-    transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing--productive);
+    transform: scale(0);
+    transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
+    margin-top: calc(var(--o-ui-sz-3) * -1 / 2);
+    margin-left: calc(var(--o-ui-sz-3) * -1 / 2);
 }
 
 /* CONTENT | LABEL */
@@ -89,7 +94,7 @@
 
 /* STATE | CHECKED */
 .o-ui-radio-checked .o-ui-radio-button::before {
-    transform: scale(0.5) translate(-2px, -2px);
+    transform: scale(0.5);
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {
