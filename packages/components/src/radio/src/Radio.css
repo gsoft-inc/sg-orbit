@@ -18,6 +18,7 @@
     position: relative;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
+    flex-shrink: 0;
 }
 
 .o-ui-radio-button::before {
