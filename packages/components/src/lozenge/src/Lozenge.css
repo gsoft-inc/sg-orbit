@@ -28,9 +28,19 @@
     line-height: var(--o-ui-sz-2);
 }
 
+.o-ui-lozenge-sm .o-ui-lozenge-text {
+    text-transform: uppercase;
+}
+
 .o-ui-lozenge-lg {
     min-height: var(--o-ui-sz-4);
     line-height: var(--o-ui-sz-4);
+}
+
+/* SIZE */
+.o-ui-lozenge-fluid {
+    width: 100%;
+    justify-content: center;
 }
 
 /* CONTENT | ICON */

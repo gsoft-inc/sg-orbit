@@ -64,17 +64,16 @@ An [icon](?path=/docs/icon-gallery--page) is used to make it easier for the user
 
 ### Size
 
-The lozenge can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the lozenge should not contain an icon.
+The lozenge can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the lozenge should not contain an icon, and text is automatically set to uppercase.
 
 <Preview>
     <Story name="size">
         <Inline alignY="center">
-            <Lozenge size="sm">NEW</Lozenge>
-            <Lozenge>NEW</Lozenge>
+            <Lozenge size="sm">New</Lozenge>
+            <Lozenge>New release</Lozenge>
         </Inline>
     </Story>
 </Preview>
-
 
 ### Highlight
 
@@ -86,6 +85,16 @@ A lozenge can be highlighted to bring more attention to it when required. This v
             <Lozenge size="sm" highlight>NEW</Lozenge>
             <Lozenge highlight>NEW</Lozenge>
         </Inline>
+    </Story>
+</Preview>
+
+### Fluid
+
+A lozenge can take all the available space.
+
+<Preview>
+    <Story name="fluid">
+        <Lozenge fluid>NEW</Lozenge>
     </Story>
 </Preview>
 

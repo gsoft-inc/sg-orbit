@@ -25,8 +25,12 @@ export interface InnerLozengeProps extends SlotProps, InternalProps, StyledCompo
      */
     children: ReactNode;
     /**
-     * Whether or not to add emphasis to the lozenge.
+.
      */
+    fluid?: boolean;
+    /**
+   * Whether or not to add emphasis to the lozenge.
+   */
     highlight?: boolean;
     /**
      * A lozenge can vary in size.
@@ -50,6 +54,7 @@ export function InnerLozenge({
     children,
     variant = "informative",
     forwardedRef,
+    fluid,
     highlight,
     size,
     ...rest
@@ -81,6 +86,7 @@ export function InnerLozenge({
                     className: cssModule(
                         "o-ui-lozenge",
                         highlight && "highlight",
+                        fluid && "fluid",
                         icon && "has-icon",
                         variant,
                         normalizeSize(sizeValue)
