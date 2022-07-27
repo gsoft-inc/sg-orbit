@@ -23,5 +23,3 @@ export const Item = forwardRef<any, OmitInternalProps<InnerItemProps>>((props, r
 ));
 
 export type ItemProps = ComponentProps<typeof Item>;
-
-const foo = <Item />;
