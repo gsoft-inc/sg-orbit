@@ -5,7 +5,7 @@ export interface InnerItemProps extends InternalProps, StyledHtmlAttributes {
     /**
      * React children.
      */
-    children: ReactNode;
+    children?: ReactNode;
     /**
      * A unique key to identify the item.
      */
