@@ -5,6 +5,7 @@
     overflow-x: hidden;
     padding: var(--o-ui-sp-2) var(--o-ui-textarea-padding);
     min-height: var(--o-ui-sz-11);
+    color: inherit;
 }
 
 /* TRANSPARENT */
