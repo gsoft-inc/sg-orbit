@@ -1,3 +1,56 @@
+@import "./styling/index.css";
+
+/*
+NOTE: Importing all the components CSS files in a root file is not our preferred solution. Ideally, every components would import is own CSS file.
+Sadly, we encountered CSS ordering issues when the components are bundled in our apps.
+*/
+
+/* Must be imported first */
+@import "./html/index.css";
+@import "./input/index.css";
+
+@import "./accordion/index.css";
+@import "./alert/index.css";
+@import "./autocomplete/index.css";
+@import "./avatar/index.css";
+@import "./badge/index.css";
+@import "./button/index.css";
+@import "./card/index.css";
+@import "./checkbox/index.css";
+@import "./counter/index.css";
+@import "./date-input/index.css";
+@import "./dialog/index.css";
+@import "./disclosure/index.css";
+@import "./divider/index.css";
+@import "./dot/index.css";
+@import "./field/index.css";
+@import "./form/index.css";
+@import "./icons/index.css";
+@import "./illustrated-message/index.css";
+@import "./illustration/index.css";
+@import "./image/index.css";
+@import "./input-group/index.css";
+@import "./link/index.css";
+@import "./listbox/index.css";
+@import "./lozenge/index.css";
+@import "./menu/index.css";
+@import "./message/index.css";
+@import "./modal/index.css";
+@import "./number-input/index.css";
+@import "./overlay/index.css";
+@import "./popover/index.css";
+@import "./radio/index.css";
+@import "./select/index.css";
+@import "./switch/index.css";
+@import "./tabs/index.css";
+@import "./tag/index.css";
+@import "./text-area/index.css";
+@import "./text-input/index.css";
+@import "./tile/index.css";
+@import "./tooltip/index.css";
+@import "./typography/index.css";
+@import "./visually-hidden/index.css";
+
 .o-ui {
     /* STATES | DISABLED */
     --o-ui-disabled-opacity: 0.4;
@@ -56,56 +109,3 @@
         opacity: 0;
     }
 }
-
-@import "./styling/index.css";
-
-/*
-NOTE: Importing all the components CSS files in a root file is not our preferred solution. Ideally, every components would import is own CSS file.
-Sadly, we encountered CSS ordering issues when the components are bundled in our apps.
-*/
-
-/* Must be imported first */
-@import "./html/index.css";
-@import "./input/index.css";
-
-@import "./accordion/index.css";
-@import "./alert/index.css";
-@import "./autocomplete/index.css";
-@import "./avatar/index.css";
-@import "./badge/index.css";
-@import "./button/index.css";
-@import "./card/index.css";
-@import "./checkbox/index.css";
-@import "./counter/index.css";
-@import "./date-input/index.css";
-@import "./dialog/index.css";
-@import "./disclosure/index.css";
-@import "./divider/index.css";
-@import "./dot/index.css";
-@import "./field/index.css";
-@import "./form/index.css";
-@import "./icons/index.css";
-@import "./illustrated-message/index.css";
-@import "./illustration/index.css";
-@import "./image/index.css";
-@import "./input-group/index.css";
-@import "./link/index.css";
-@import "./listbox/index.css";
-@import "./lozenge/index.css";
-@import "./menu/index.css";
-@import "./message/index.css";
-@import "./modal/index.css";
-@import "./number-input/index.css";
-@import "./overlay/index.css";
-@import "./popover/index.css";
-@import "./radio/index.css";
-@import "./select/index.css";
-@import "./switch/index.css";
-@import "./tabs/index.css";
-@import "./tag/index.css";
-@import "./text-area/index.css";
-@import "./text-input/index.css";
-@import "./tile/index.css";
-@import "./tooltip/index.css";
-@import "./typography/index.css";
-@import "./visually-hidden/index.css";
