@@ -36,7 +36,7 @@
 }
 
 /* ADDON */
-.o-ui-input-group> :first-child:not(.o-ui-input-group-input) {
+.o-ui-input-group > :first-of-type:not(.o-ui-input-group-input) {
     margin-right: -1px;
 }
 
@@ -45,13 +45,13 @@
 }
 
 /* ADDON | START */
-.o-ui-input-group-input:not(:first-child),
-.o-ui-input-group-input:not(:first-child) input {
+.o-ui-input-group-input:not(:first-of-type),
+.o-ui-input-group-input:not(:first-of-type) input {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
 
-.o-ui-input-group-addon:first-child {
+.o-ui-input-group-addon:first-of-type {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     flex-shrink: 0;
