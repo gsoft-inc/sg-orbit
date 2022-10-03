@@ -24,10 +24,6 @@
     padding-bottom: var(--o-ui-sp-2);
 }
 
-.o-ui-accordion-header:first-of-type {
-    margin-top: 0;
-}
-
 /* TRIGGER */
 .o-ui-accordion-trigger {
     outline: transparent;
@@ -151,22 +147,22 @@
 }
 
 /* BORDERED | FIRST ITEM | BORDER RADIUS */
-.o-ui-accordion-bordered .o-ui-accordion-header:first-of-type,
-.o-ui-accordion-bordered .o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
+.o-ui-accordion-bordered h3:first-of-type,
+.o-ui-accordion-bordered h3:first-of-type .o-ui-accordion-trigger {
     border-top-left-radius: var(--o-ui-sp-2);
     border-top-right-radius: var(--o-ui-sp-2);
 }
 
 /* BORDERED | LAST ITEM | BORDER RADIUS */
-.o-ui-accordion-bordered .o-ui-accordion-header:last-of-type,
-.o-ui-accordion-bordered .o-ui-accordion-header:last-of-type .o-ui-accordion-trigger {
+.o-ui-accordion-bordered h3:last-of-type,
+.o-ui-accordion-bordered h3:last-of-type .o-ui-accordion-trigger {
     border-bottom-left-radius: var(--o-ui-sp-2);
     border-bottom-right-radius: var(--o-ui-sp-2);
 }
 
 /* BORDERED | LAST PANEL | BORDER RADIUS */
-.o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type,
-.o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type .o-ui-accordion-trigger {
+.o-ui-accordion-bordered div:last-of-type,
+.o-ui-accordion-bordered div:last-of-type .o-ui-accordion-trigger {
     border-bottom-left-radius: var(--o-ui-sp-2);
     border-bottom-right-radius: var(--o-ui-sp-2);
 }

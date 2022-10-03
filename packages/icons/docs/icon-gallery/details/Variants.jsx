@@ -90,7 +90,7 @@ export function Variants({ iconDisplayName, variants }) {
     return (
         <>
             <H2>Variants</H2>
-            <Tabs aria-label="Icon variants">
+            <Tabs aria-label="Icon variants" className="o-ui-sb-gallery-item-variant-section">
                 {variants.map(x => (
                     <Item key={x.name}>
                         <Header>{x.name}</Header>

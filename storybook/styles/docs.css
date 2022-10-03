@@ -171,7 +171,7 @@
 }
 
 .sbdocs.sbdocs-h2,
-.sbdocs.sbdocs-h2:first-of-type {
+.sbdocs > h2:first-of-type {
     margin: 1.5rem 0;
     font-size: var(--o-ui-fs-7);
 }
