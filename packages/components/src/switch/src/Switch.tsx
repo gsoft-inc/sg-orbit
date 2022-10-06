@@ -1,7 +1,7 @@
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, ReactNode, forwardRef, useMemo } from "react";
-import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useSlots } from "../../shared";
+import { cssModule, OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -29,6 +29,10 @@ export interface InnerSwitchProps extends Omit<AbstractInputProps<typeof Default
      * @ignore
      */
     disabled?: boolean;
+    /**
+     * The initial value of `checked` when uncontrolled.
+     */
+    fluid?: boolean;
     /**
      * @ignore
      */
@@ -70,6 +74,7 @@ export function InnerSwitch(props: InnerSwitchProps) {
         children,
         defaultChecked,
         disabled,
+        fluid,
         focus,
         forwardedRef,
         hover,
@@ -154,7 +159,11 @@ export function InnerSwitch(props: InnerSwitchProps) {
             {...mergeProps(
                 rest,
                 {
-                    as
+                    as,
+                    className: cssModule(
+                        "o-ui-switch",
+                        fluid && "fluid"
+                    )
                 },
                 wrapperProps
             )}

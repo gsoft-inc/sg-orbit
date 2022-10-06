@@ -142,3 +142,8 @@
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
     transform: translate(calc(var(--o-ui-sz-6) / 2 + 2px), 2px);
 }
+
+/* FLUID */
+.o-ui-switch-fluid {
+    width: 100%;
+}

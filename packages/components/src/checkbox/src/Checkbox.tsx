@@ -1,7 +1,7 @@
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
-import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
+import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Span } from "../../html";
 import { Text } from "../../typography";
@@ -30,6 +30,10 @@ export interface InnerCheckboxProps extends Omit<AbstractInputProps<typeof Defau
      * @ignore
      */
     disabled?: boolean;
+    /**
+     * Whether or not the checkbox take up the width of its container.
+     */
+    fluid?: ResponsiveProp<boolean>;
     /**
      * A controlled indeterminate state value.
      */
@@ -81,6 +85,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         defaultChecked,
         defaultIndeterminate,
         disabled,
+        fluid,
         focus,
         forwardedRef,
         hover,
@@ -176,7 +181,11 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
             {...mergeProps(
                 rest,
                 {
-                    as
+                    as,
+                    className: cssModule(
+                        "o-ui-checkbox",
+                        fluid && "fluid"
+                    )
                 },
                 wrapperProps
             )}

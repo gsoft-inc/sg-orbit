@@ -17,6 +17,7 @@ import {
 
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
+import { ResponsiveProp } from "../../styling";
 import { Span } from "../../html";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
@@ -40,6 +41,10 @@ export interface InnerRadioProps extends Omit<AbstractInputProps<typeof DefaultE
      * @ignore
      */
     disabled?: boolean;
+    /**
+     * Whether or not the radio take up the width of its container.
+     */
+    fluid?: ResponsiveProp<boolean>;
     /**
      * @ignore
      */
@@ -78,6 +83,7 @@ export function InnerRadio(props: InnerRadioProps) {
         children,
         defaultChecked,
         disabled,
+        fluid,
         focus,
         forwardedRef,
         hover,
@@ -165,6 +171,7 @@ export function InnerRadio(props: InnerRadioProps) {
                         isChecked && "checked",
                         reverse && "reverse",
                         validationState && validationState,
+                        fluid && "fluid",
                         disabled && "disabled",
                         active && "active",
                         focus && "focus",

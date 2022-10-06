@@ -59,6 +59,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
         children,
         defaultValue,
         disabled,
+        fluid,
         forwardedRef,
         gap,
         name,
@@ -117,6 +118,7 @@ export function InnerRadioGroup(props: InnerRadioGroupProps) {
     const { groupProps, itemProps } = useGroupInput({
         cssModule: "o-ui-radio-group",
         disabled,
+        fluid,
         gap,
         groupRef,
         isInField,

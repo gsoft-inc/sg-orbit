@@ -126,6 +126,15 @@ export function createRadioTestSuite(element, stories) {
                 </Flex>
             </Stack>
         )
+        .add("fluid", () =>
+            <Inline>
+                <Div className="fluid">
+                    <Div width="400px">
+                        <Radio value="any" element={element} fluid>Milky Way</Radio>
+                    </Div>
+                </Div>
+            </Inline>
+        )
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">

@@ -151,6 +151,15 @@ stories()
             </RadioGroup>
         </Inline>
     )
+    .add("fluid", () =>
+        <Inline>
+            <RadioGroup fluid className="bg-red">
+                <Radio value="1">1</Radio>
+                <Radio value="2">2</Radio>
+                <Radio value="3">3</Radio>
+            </RadioGroup>
+        </Inline>
+    )
     .add("styling", () =>
         <Inline>
             <RadioGroup border="warning-7">

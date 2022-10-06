@@ -239,6 +239,15 @@ export function createCheckboxTestSuite(element, stories) {
                 </Flex>
             </Stack>
         )
+        .add("fluid", () =>
+            <Inline>
+                <Div className="fluid">
+                    <Div width="400px">
+                        <Checkbox element={element} fluid backgroundColor="red">Milky Way</Checkbox>
+                    </Div>
+                </Div>
+            </Inline>
+        )
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">

@@ -232,6 +232,14 @@ export function createTestSuite(element, stories) {
                 </Div>
             </Stack>
         )
+        .add("fluid", () =>
+            <Div className="fluid">
+                <Div width="400px">
+                    <Switch element={element} fluid backgroundColor="red">Engine</Switch>
+                </Div>
+            </Div>
+
+        )
         .add("zoom", () =>
             <Inline>
                 <Div className="zoom-in">

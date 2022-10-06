@@ -7,6 +7,7 @@
     width: max-content;
     height: max-content;
     color: var(--o-ui-text-alias-primary);
+    background-color: cadetblue;
 }
 
 /* BUTTON */
@@ -146,4 +147,9 @@
 /* REVERSE */
 .o-ui-radio-reverse {
     flex-direction: row-reverse;
+}
+
+/* FLUID */
+.o-ui-radio-fluid {
+    width: 100%;
 }
