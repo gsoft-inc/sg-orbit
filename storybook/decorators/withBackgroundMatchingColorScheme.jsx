@@ -8,7 +8,7 @@ const BackgroundColors = {
     dark: "#272626"
 };
 
-export function withBackgroundMatchingColorScheme(Story, context) {
+export function withBackgroundMatchingColorScheme(story, context) {
     const colorScheme = context.globals.colorScheme;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -36,5 +36,5 @@ export function withBackgroundMatchingColorScheme(Story, context) {
         }
     }, [colorScheme, context]);
 
-    return <Story />;
+    return story();
 }

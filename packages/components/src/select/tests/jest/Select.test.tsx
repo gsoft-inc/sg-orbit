@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor, screen } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
@@ -402,7 +402,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay").querySelector(":scope .o-ui-listbox")).toHaveAttribute("aria-labelledby", "planets"));
+    await waitFor(() => expect(getByTestId("overlay").querySelector(".o-ui-listbox")).toHaveAttribute("aria-labelledby", "planets"));
 });
 
 // ***** Api *****
