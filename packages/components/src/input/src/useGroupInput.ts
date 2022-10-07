@@ -21,7 +21,7 @@ const Gap = {
 export interface UseGroupInputProps {
     cssModule?: string;
     disabled?: boolean;
-    fluid?: ResponsiveProp<boolean>;
+    fluid?: boolean;
     gap?: GapProp;
     groupRef: Ref<any>;
     isInField?: boolean;
