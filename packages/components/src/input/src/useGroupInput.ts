@@ -1,5 +1,5 @@
 import { FlexAlignment, FlexOrientation } from "../../layout";
-import { GapProp } from "../../styling";
+import { GapProp, ResponsiveProp } from "../../styling";
 import { Ref } from "react";
 import { ValidationState } from "../../input";
 import { cssModule, normalizeSize } from "../../shared";
@@ -21,7 +21,7 @@ const Gap = {
 export interface UseGroupInputProps {
     cssModule?: string;
     disabled?: boolean;
-    fluid?: boolean;
+    fluid?: ResponsiveProp<boolean>;
     gap?: GapProp;
     groupRef: Ref<any>;
     isInField?: boolean;
@@ -51,7 +51,7 @@ export interface UseGroupInputReturn {
     };
     itemProps: {
         disabled?: boolean;
-        fluid?: boolean;
+        fluid?: ResponsiveProp<boolean>;
         reverse?: boolean;
         size?: "sm" | "md";
         validationState?: ValidationState;
