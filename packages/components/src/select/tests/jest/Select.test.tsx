@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, waitFor, screen } from "@testing-library/react";
+import { act, fireEvent, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
