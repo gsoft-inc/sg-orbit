@@ -92,18 +92,18 @@ function useId(providedId?: number | string | undefined | null) {
     // our tricks will play well with concurrent rendering anyway.
     if (typeof React.useId === "function") {
         // @ts-expect-error
-        const id = React.useId(providedId);
+        const _id = React.useId(providedId);
 
-        return providedId != null ? providedId : id;
+        return providedId != null ? providedId : _id;
     }
 
     // If this instance isn't part of the initial render, we don't have to do the
     // double render/patch-up dance. We can just generate the ID and return it.
     const initialId = providedId ?? (serverHandoffComplete ? genId() : null);
-    const [id, setId] = React.useState(initialId);
+    const [_id, setId] = React.useState(initialId);
 
     useIsomorphicLayoutEffect(() => {
-        if (id === null) {
+        if (_id === null) {
             // Patch the ID after render. We do this in `useLayoutEffect` to avoid any
             // rendering flicker, though it'll make the first render slower (unlikely
             // to matter, but you're welcome to measure your app and let us know if
@@ -122,7 +122,7 @@ function useId(providedId?: number | string | undefined | null) {
         }
     }, []);
 
-    return providedId ?? id ?? undefined;
+    return providedId ?? _id ?? undefined;
 }
 
 export { useId };

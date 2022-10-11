@@ -1,5 +1,5 @@
 import { isNil } from "./assertions";
-import { useId as useIdReach } from "./autoId";
+import { useId as useIdReach } from "./_autoId";
 import { useId as useIdReact } from "react";
 
 // Use React's useId on version >18, and use @reach/auto-id on versions below
