@@ -2,10 +2,9 @@ import { Alert, AlertTrigger } from "@components/alert";
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
-import { act } from "@testing-library/react-hooks";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { act, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

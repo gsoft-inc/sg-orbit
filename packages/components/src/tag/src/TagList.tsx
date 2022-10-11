@@ -67,7 +67,7 @@ function TagItem({
                 }
             )}
         >
-            {item.content}
+            <>{item.content}</>
         </Tag>
     );
 }
