@@ -45,7 +45,7 @@ const config = {
     ],
     webpackFinal: customizeWebpack,
     reactOptions: {
-        strictMode: isDebug
+        strictMode: true
     }
 };
 
