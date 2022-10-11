@@ -17,7 +17,6 @@ const useIdPolyfill = () => {
 const useAutoId = useIdReact ?? useIdPolyfill;
 
 export function useId(userId?: string, prefix?: string) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const uuid = useAutoId();
 
     if (!isNil(userId)) {
