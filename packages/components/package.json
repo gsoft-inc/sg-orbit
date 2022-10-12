@@ -35,8 +35,8 @@
         "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
     },
     "peerDependencies": {
-        "react": "*",
-        "react-dom": "*"
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*",

@@ -1,12 +1,8 @@
 import { isNil } from "./assertions";
-import { useId as useIdReach } from "./_autoId";
-import { useId as useIdReact } from "react";
-
-// Use React's useId on version >18, and use @reach/auto-id on versions below
-const useAutoId = useIdReact ?? useIdReach;
+import { useId as _useId } from "react";
 
 export function useId(userId?: string, prefix?: string) {
-    const uuid = useAutoId();
+    const uuid = _useId();
 
     if (!isNil(userId)) {
         return userId;
