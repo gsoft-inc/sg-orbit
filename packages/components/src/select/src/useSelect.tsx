@@ -156,7 +156,7 @@ export function useSelect(children: ReactNode, {
 
     const selectedItem = useMemo(() => items.find(x => x.key === selectedKey), [items, selectedKey]);
 
-    const { avatar, "end-icon": endIcon, icon, stringValue, text } = useRawSlots(selectedItem?.content, ["icon", "avatar", "text", "end-icon"]);
+    const { avatar, "end-icon": endIcon, icon, stringValue, text } = useRawSlots(<>{selectedItem?.content}</>, ["icon", "avatar", "text", "end-icon"]);
 
     const triggerId = useId(id, "o-ui-select-trigger");
     const valueId = useId(id, "o-ui-select-value");
