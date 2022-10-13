@@ -2,7 +2,7 @@ import { ShareGateTheme, ThemeProvider } from "@components/styling";
 
 import { isChromatic } from "../env";
 
-export function withThemeProvider(story, context) {
+export function withThemeProvider(Story, context) {
     const { viewMode, globals } = context;
 
     return (
@@ -12,7 +12,7 @@ export function withThemeProvider(story, context) {
             // min-height ensure popup components renders correctly in chromatic tests.
             height={viewMode === "story" || isChromatic ? "600px" : undefined}
         >
-            {story()}
+            <Story />
         </ThemeProvider>
     );
 }

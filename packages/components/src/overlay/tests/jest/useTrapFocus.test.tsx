@@ -48,15 +48,23 @@ test("move the focus to the next element of the scope on tab keypress", async ()
         </>
     );
 
-    await act(() => userEvent.click(getByTestId("button-2")));
+    act(() => {
+        userEvent.click(getByTestId("button-2"));
+    });
 
-    await act(() => userEvent.tab());
+    act(() => {
+        userEvent.tab();
+    });
 
-    await act(() => userEvent.tab());
+    act(() => {
+        userEvent.tab();
+    });
 
     await waitFor(() => expect(getByTestId("button-4")).toHaveFocus());
 
-    await act(() => userEvent.tab());
+    act(() => {
+        userEvent.tab();
+    });
 
     await waitFor(() => expect(getByTestId("button-2")).toHaveFocus());
 });
@@ -128,9 +136,13 @@ test("when disabled, do not trap the focus", async () => {
         </>
     );
 
-    await act(() => userEvent.click(getByTestId("button-4")));
+    act(() => {
+        userEvent.click(getByTestId("button-4"));
+    });
 
-    await act(() => userEvent.tab());
+    act(() => {
+        userEvent.tab();
+    });
 
     await waitFor(() => expect(getByTestId("button-5")).toHaveFocus());
 });

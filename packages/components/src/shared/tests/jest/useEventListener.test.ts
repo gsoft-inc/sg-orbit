@@ -1,4 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react-hooks";
 import { fireEvent } from "@testing-library/dom";
 import { useEventListener } from "@components/shared";
 

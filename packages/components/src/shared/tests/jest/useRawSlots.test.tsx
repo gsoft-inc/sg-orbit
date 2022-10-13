@@ -1,6 +1,6 @@
 import { Box, BoxProps } from "@components/box";
 import { forwardRef } from "react";
-import { renderHook } from "@testing-library/react";
+import { renderHook } from "@testing-library/react-hooks";
 import { slot, useRawSlots } from "@components/shared";
 
 const Title = slot("title", forwardRef<HTMLElement, BoxProps>(({ children, ...rest }, ref) => {

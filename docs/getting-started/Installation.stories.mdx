@@ -41,16 +41,16 @@ Below is an example of how to configure an application with a [pre-constructed](
 // index.ts
 
 import { createThemeVars, ShareGateTheme, ThemeProvider } from "@sharegate/orbit-ui";
-import { createRoot } from "react-dom/client";
+import { render } from "react-dom";
 import App from "./App";
 
 createThemeVars([ShareGateTheme]);
 
-const root = createRoot(document.getElementById("root")!);
-root.render(
+render(
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <App />
-    </ThemeProvider>
+    </ThemeProvider>,
+    document.getElementById("root")
 );
 ```
 

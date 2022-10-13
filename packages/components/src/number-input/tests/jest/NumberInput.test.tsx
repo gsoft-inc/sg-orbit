@@ -103,9 +103,13 @@ test("when a value has been entered, increment the entered value on increment bu
         getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(getByTestId("input"), "10"));
+    act(() => {
+        userEvent.type(getByTestId("input"), "10");
+    });
 
-    await act(() => userEvent.click(getByLabelText("Increment value")));
+    act(() => {
+        userEvent.click(getByLabelText("Increment value"));
+    });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(11));
 });
@@ -135,9 +139,13 @@ test("when a value has been entered, decrement the entered value on decrement bu
         getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(getByTestId("input"), "10"));
+    act(() => {
+        userEvent.type(getByTestId("input"), "10");
+    });
 
-    await act(() => userEvent.click(getByLabelText("Decrement value")));
+    act(() => {
+        userEvent.click(getByLabelText("Decrement value"));
+    });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(9));
 });

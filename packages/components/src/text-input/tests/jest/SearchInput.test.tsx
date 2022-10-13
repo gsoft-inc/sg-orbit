@@ -130,9 +130,13 @@ test("call onValueChange when the value is cleared", async () => {
         getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(getByTestId("input"), "a"));
+    act(() => {
+        userEvent.type(getByTestId("input"), "a");
+    });
 
-    await act(() => userEvent.click(container.querySelector(".o-ui-search-input-clear-button")));
+    act(() => {
+        userEvent.click(container.querySelector(".o-ui-search-input-clear-button"));
+    });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ""));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
