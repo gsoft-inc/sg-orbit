@@ -1,6 +1,6 @@
 import { ColorScheme, ShareGateTheme, ThemeProvider } from "@components/styling";
 import { ReactElement, ReactNode } from "react";
-import { RenderHookOptions, renderHook } from "@testing-library/react-hooks";
+import { RenderHookOptions, renderHook } from "@testing-library/react";
 
 import { render } from "@testing-library/react";
 

@@ -90,6 +90,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 
 .o-ui-fade-out {
     animation: o-ui-fade-out-animation var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+    opacity: 0;
 }
 
 @keyframes o-ui-fade-in-animation {

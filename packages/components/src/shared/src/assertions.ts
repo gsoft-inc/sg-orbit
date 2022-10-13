@@ -34,8 +34,7 @@ export function isEmptyArray(value: any) {
     return isArray(value) && value.length === 0;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function isFunction(value: any): value is Function {
+export function isFunction(value: any): value is (...args: any) => any {
     return typeof value === "function";
 }
 

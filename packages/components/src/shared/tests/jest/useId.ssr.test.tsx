@@ -13,13 +13,13 @@ function Test() {
 }
 
 describe("useId SSR", () => {
-    it("should not generate an id on the server", () => {
+    it("should generate an id on the server", () => {
         const renderOnServer = () => renderToString(<Test />);
 
         expect(renderOnServer).not.toThrow();
 
         const markup = renderOnServer();
 
-        expect(markup.indexOf("id=\"")).toBe(-1);
+        expect(markup.includes("id=\"")).toBeTruthy();
     });
 });

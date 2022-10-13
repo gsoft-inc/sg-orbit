@@ -43,7 +43,10 @@ const config = {
             }
         }
     ],
-    webpackFinal: customizeWebpack
+    webpackFinal: customizeWebpack,
+    reactOptions: {
+        strictMode: true
+    }
 };
 
 // An optimized version of the components props will be visibile in the production build. It's available for debug & chromatic because the performance cost is too big.
