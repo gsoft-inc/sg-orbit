@@ -126,7 +126,7 @@
     content: "";
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    translate: 0 -50%;
     bottom: calc(0.5rem - 2px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-br-rounded);

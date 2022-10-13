@@ -25,7 +25,7 @@
     background-color: var(--o-ui-bg-alias-static-white);
     border-radius: var(--o-ui-br-circular);
     position: absolute;
-    transform: translate(2px, 2px);
+    translate: 2px 2px;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
 }
 
@@ -81,7 +81,7 @@
 }
 
 .o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sz-6) / 2 + 2px), 2px);
+    translate: calc(var(--o-ui-sz-6) / 2 + 2px) 2px;
 }
 
 /* STATE | FOCUS */
@@ -124,7 +124,7 @@
 }
 
 .o-ui-switch-sm.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sz-5) / 2 + 2px), 2px);
+    translate: calc(var(--o-ui-sz-5) / 2 + 2px) 2px;
 }
 
 /* MEDIUM */
@@ -140,5 +140,5 @@
 }
 
 .o-ui-switch-md.o-ui-switch-checked .o-ui-switch-control::before {
-    transform: translate(calc(var(--o-ui-sz-6) / 2 + 2px), 2px);
+    translate: calc(var(--o-ui-sz-6) / 2 + 2px) 2px;
 }

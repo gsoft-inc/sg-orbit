@@ -393,15 +393,17 @@
     border: 2px solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-white);
     animation: o-ui-sb-spinner 1s linear infinite;
-    transform: translate(-50%, -50%) rotate(0deg);
+    translate: -50% -50%;
+    /* might be possible to remove to validate */
+    rotate: 0deg;
 }
 
 @keyframes o-ui-sb-spinner {
     0% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        rotate: 0deg;
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        rotate: 360deg;
     }
 }
 

@@ -17,7 +17,7 @@
 .o-ui-text-area .o-ui-input-button {
     position: absolute !important;
     top: 50%;
-    transform: translateY(-50%);
+    translate: 0 -50%;
     justify-content: center;
     align-items: center;
     text-align: center;

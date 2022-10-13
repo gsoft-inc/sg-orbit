@@ -9,9 +9,9 @@
     background-color: #6B5B7B;
     width: 10rem;
     height: 10rem;
-    transition: transform var(--o-ui-sb-duration) var(--o-ui-sb-easing);
+    transition: translate var(--o-ui-sb-duration) var(--o-ui-sb-easing);
 }
 
 .o-ui-sb-object-animated {
-    transform: translateX(100px);
+    translate: 100px;
 }

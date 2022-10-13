@@ -26,7 +26,7 @@
     display: block;
     background-color: var(--o-ui-bg-alias-accent);
     border-radius: var(--o-ui-br-circular);
-    transform: scale(0);
+    scale: 0;
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
     position: absolute;
     top: 50%;
@@ -95,7 +95,7 @@
 
 /* STATE | CHECKED */
 .o-ui-radio-checked .o-ui-radio-button::before {
-    transform: scale(0.5);
+    scale: 0.5;
 }
 
 .o-ui-radio-checked.o-ui-radio-invalid .o-ui-radio-button {

@@ -5,9 +5,9 @@
 }
 
 .o-ui-disclosure-arrow-up {
-    transform: rotate(-90deg);
+    rotate: -90deg;
 }
 
 .o-ui-disclosure-arrow-down {
-    transform: rotate(90deg);
+    rotate: 90deg;
 }

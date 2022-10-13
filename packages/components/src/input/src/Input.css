@@ -200,10 +200,10 @@
 /* STATES | LOADING */
 @keyframes o-ui-input-spinner {
     0% {
-        transform: translate(0, -50%) rotate(0deg);
+        rotate: 0deg;
     }
     100% {
-        transform: translate(0, -50%) rotate(360deg);
+        rotate: 360deg;
     }
 }
 
@@ -215,7 +215,8 @@
     border-radius: 50px;
     border: 2px solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-b-alias-mid-break);
-    transform: translate(0, -50%) rotate(0deg);
+    translate: 0 -50%;
+    rotate: 0deg;
     animation: o-ui-input-spinner 1s linear infinite;
     width: 1.25rem;
     height: 1.25rem;

@@ -218,7 +218,7 @@ a.o-ui-button {
     border: 2px solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-b-alias-high-break);
     animation: o-ui-button-spinner 1s linear infinite;
-    transform: rotate(0deg);
+    rotate: 0deg;
     position: absolute;
     left: 0;
     right: 0;
@@ -242,10 +242,10 @@ a.o-ui-button {
 
 @keyframes o-ui-button-spinner {
     0% {
-        transform: rotate(0deg);
+        rotate: 0deg;
     }
     100% {
-        transform: rotate(360deg);
+        rotate: 360deg;
     }
 }
 
