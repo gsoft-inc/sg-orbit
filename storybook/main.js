@@ -49,6 +49,14 @@ const config = {
     }
 };
 
+// Disable Typescript during Chromatic tests, otherwise we use too much RAM in our CI
+if (isChromatic) {
+    config.typescript = {
+        check: false,
+        reactDocgen: false
+    };
+}
+
 // An optimized version of the components props will be visibile in the production build. It's available for debug & chromatic because the performance cost is too big.
 if (!isChromatic && !isDebug) {
     config.typescript = {
