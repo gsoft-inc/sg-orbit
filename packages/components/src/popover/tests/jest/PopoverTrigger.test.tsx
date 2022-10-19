@@ -28,15 +28,11 @@ test("when a popover is dismissable, hide the popover on outside click", async (
         </PopoverTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await act(() => userEvent.click(getByTestId("trigger")));
 
     await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await act(() => userEvent.click(document.body));
 
     await waitFor(() => expect(queryByTestId("popover")).not.toBeInTheDocument());
 });

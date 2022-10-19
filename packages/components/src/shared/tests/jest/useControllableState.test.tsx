@@ -1,6 +1,6 @@
 import { ErrorBoundary, muteConsoleErrors } from "@jest-utils";
 import { ReactNode } from "react";
-import { act, renderHook } from "@testing-library/react-hooks";
+import { act, renderHook } from "@testing-library/react";
 import { useControllableState } from "@components/shared";
 
 // Errors in useEffect are not catch by @testing-library/react-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
@@ -29,9 +29,15 @@ test("state is the initial value when an initial value is provided", () => {
 });
 
 test("throw an error when a controlled value and an initial value are provided", () => {
-    const { result } = renderHook(() => useControllableState(true, true, false));
-
-    expect(result.error).toBeDefined();
+    let error = false;
+    
+    try {
+        renderHook(() => useControllableState(true, true, false));
+    } catch {
+        error = true;
+    }
+    
+    expect(error).toBeTruthy();
 });
 
 test("state is the default value when no controlled value and no initial value are provided", () => {

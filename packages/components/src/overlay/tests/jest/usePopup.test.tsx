@@ -455,9 +455,7 @@ test("closing the popup with esc keypress return the focus to the trigger", asyn
         />
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await act(() => userEvent.click(getByTestId("trigger")));
 
     act(() => {
         getByTestId("overlay").focus();

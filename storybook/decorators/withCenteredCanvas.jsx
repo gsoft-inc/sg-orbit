@@ -2,12 +2,12 @@ import { Div } from "@components/html";
 import { Flex } from "@components/layout";
 import { isChromatic } from "../env";
 
-export function withCenteredCanvas(Story, context) {
+export function withCenteredCanvas(story, context) {
     const { parameters, viewMode } = context;
     const { canvasLayout } = parameters;
 
     if (viewMode !== "story" && !isChromatic) {
-        return <Story />;
+        return story();
     }
 
     return (
@@ -27,7 +27,7 @@ export function withCenteredCanvas(Story, context) {
                 marginLeft="auto"
                 style={canvasLayout}
             >
-                <Story />
+                {story()}
             </Div>
         </Flex>
     );

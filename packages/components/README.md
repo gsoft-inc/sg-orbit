@@ -153,6 +153,14 @@ Usually, interaction tests are split into 4 distinct regions: *Behaviors*, *Aria
 
 Every Orbit custom components must share a consistent API and a similar design. Please read carefully the following guidelines before you develop a new component or update an existing one.
 
+### Common functionnalities
+
+All components should:
+- Use Orbit's [tokens](https://orbit.sharegate.design/?path=/docs/tokens--page)
+- Support Orbit's [color schemes](https://orbit.sharegate.design/?path=/docs/color-schemes--page) and [theming](https://orbit.sharegate.design/?path=/docs/theming--page)
+- Implement Orbit's [style props](https://orbit.sharegate.design/?path=/docs/style-props--page)
+- Support Orbit's [responsive styles](https://orbit.sharegate.design/?path=/docs/responsive-styles--page)
+
 ### Design
 
 #### Functional components
@@ -288,7 +296,7 @@ Ex:
 - `defaultStartDate`
 - `defaultValues`
 
-#### Accessibility
+### Accessibility
 
 All components should follow [WAI-ARIA practices](https://www.w3.org/WAI/ARIA/apg/) when applicable.
 

@@ -14,7 +14,7 @@ export interface CollectionNode {
 }
 
 export interface CollectionItem extends CollectionNode {
-    content: ElementType | ReactElement[];
+    content: ReactNode;
     tooltip?: {
         content: ReactElement;
         props: Record<string, any>;
@@ -28,7 +28,7 @@ export interface CollectionSection extends CollectionNode {
 }
 
 export interface CollectionDivider extends CollectionNode {
-    content: ElementType | ReactElement[];
+    content: ReactNode;
     type: NodeType.divider;
 }
 
