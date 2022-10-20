@@ -190,12 +190,6 @@
     color: var(--o-ui-text-alias-alert);
 }
 
-/* NEGATIVE | STATE | HOVER */
-.o-ui-link:hover.o-ui-link-negative,
-.o-ui-link-hover.o-ui-link-negative {
-    color: var(--o-ui-text-alias-alert-hover);
-}
-
 /* AS BUTTON */
 button.o-ui-link {
     text-align: left;

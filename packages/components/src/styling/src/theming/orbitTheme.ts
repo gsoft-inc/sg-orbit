@@ -157,7 +157,6 @@ export interface ColorAliases {
     "text-alias-accent": AliasValue;
     "text-alias-accent-hover": AliasValue;
     "text-alias-alert": AliasValue;
-    "text-alias-alert-hover": AliasValue;
     "text-alias-warning": AliasValue;
     "text-alias-success": AliasValue;
     "text-alias-static-white": AliasValue;
