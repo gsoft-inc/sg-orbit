@@ -41,8 +41,14 @@ const config = {
                     values: ["wcag2a", "wcag2aa"]
                 }
             }
+        },
+        {
+            name: "@storybook/addon-interactions"
         }
     ],
+    features: {
+        previewCsfV3: true
+    },
     webpackFinal: customizeWebpack,
     reactOptions: {
         strictMode: true
