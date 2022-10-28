@@ -1,26 +1,29 @@
 import { Underlay } from "@components/overlay";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Underlay")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .chromaticPauseAnimationAtEnd()
-            .build())
-        .build();
-}
+export default {
+    title: "Chromatic/Underlay",
+    component: Underlay,
+    parameters: {
+        chromatic: {
+            delay: 100,
+            chromaticPauseAnimationAtEnd: true
+        }
+    }
+};
 
-stories()
-    .add("default", () =>
-        <Underlay />
-    )
-    .add("styled system", () =>
-        <Underlay border="warning-7" />
-    )
-    .add("className", () =>
-        <Underlay className="border-red" />
-    )
-    .add("style", () =>
-        <Underlay style={{ border: "1px solid red" }} />
-    );
+export const Default = () =>
+    <Underlay />;
+
+export const StyledRystem = () =>
+    <Underlay border="warning-7" />;
+
+export const ClassName = () =>
+    <Underlay className="border-red" />;
+
+export const Style = () =>
+    <Underlay style={{ border: "1px solid red" }} />;
+
+Default.storyName = "Default.storyName";
+StyledRystem.storyName = "StyledRystem.storyName";
+ClassName.storyName = "ClassName.storyName";
+Style.storyName = "Style.storyName";

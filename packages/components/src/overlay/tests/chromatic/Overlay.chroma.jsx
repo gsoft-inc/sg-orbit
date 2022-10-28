@@ -3,17 +3,17 @@ import { Overlay } from "@components/overlay";
 import { ShareGateTheme, ThemeProvider } from "@components/styling";
 import { augmentElement, mergeProps, useMergedRefs } from "@components/shared";
 import { forwardRef, useState } from "react";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Overlay")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .chromaticPauseAnimationAtEnd()
-            .build())
-        .build();
-}
+export default {
+    title: "Chromatic/Overlay",
+    component: Overlay,
+    parameters: {
+        chromatic: {
+            delay: 100,
+            chromaticPauseAnimationAtEnd: true
+        }
+    }
+};
 
 function PrimaryBox({ children, ...rest }) {
     return (
@@ -55,35 +55,37 @@ ref) => {
     );
 });
 
-stories()
-    .add("inherit theme", () =>
-        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            <Boundary>
-                <Overlay show>
-                    <PrimaryBox />
-                </Overlay>
-            </Boundary>
-        </ThemeProvider>
-    )
-    .add("styled system", () =>
+export const InheritTheme = () =>
+    <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <Boundary>
-            <Overlay border="warning-7" show>
+            <Overlay show>
                 <PrimaryBox />
             </Overlay>
         </Boundary>
-    )
-    .add("className", () =>
-        <Boundary>
-            <Overlay className="border-red" show>
-                <PrimaryBox />
-            </Overlay>
-        </Boundary>
-    )
-    .add("style", () =>
-        <Boundary>
-            <Overlay style={{ border: "1px solid red" }} show>
-                <PrimaryBox />
-            </Overlay>
-        </Boundary>
-    );
+    </ThemeProvider>;
 
+export const StyledSystem = () =>
+    <Boundary>
+        <Overlay border="warning-7" show>
+            <PrimaryBox />
+        </Overlay>
+    </Boundary>;
+
+export const ClassName = () =>
+    <Boundary>
+        <Overlay className="border-red" show>
+            <PrimaryBox />
+        </Overlay>
+    </Boundary>;
+
+export const Style = () =>
+    <Boundary>
+        <Overlay style={{ border: "1px solid red" }} show>
+            <PrimaryBox />
+        </Overlay>
+    </Boundary>;
+
+InheritTheme.storyName = "inherit theme";
+StyledSystem.storyName = "styled system";
+ClassName.storyName = "className";
+Style.storyName = "style";

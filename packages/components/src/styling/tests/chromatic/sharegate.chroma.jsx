@@ -15,13 +15,10 @@ import {
 import { Box } from "@components/box";
 import { FileIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
-import { storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/ShareGate")
-        .segment(segment)
-        .build();
-}
+export default {
+    title: "Chromatic/Sharegate"
+};
 
 function SmallSquare(props) {
     return (
@@ -43,81 +40,87 @@ function LargeSquare(props) {
     );
 }
 
-stories()
-    .add("background color", () =>
-        <Stack>
+export const BackgroundColor = () =>
+    <Stack>
+        <Inline gap={0} wrap>
+            {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
+        </Inline>
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Inline gap={0} wrap>
                 {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-                <Inline gap={0} wrap>
-                    {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
-                </Inline>
-            </ThemeProvider>
-        </Stack>
-    )
-    .add("border", () =>
-        <Stack>
+        </ThemeProvider>
+    </Stack>;
+
+export const Border = () =>
+    <Stack>
+        <Inline gap={1} wrap>
+            {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
+        </Inline>
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Inline gap={1} wrap>
                 {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-                <Inline gap={1} wrap>
-                    {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
-                </Inline>
-            </ThemeProvider>
-        </Stack>
-    )
-    .add("box shadow", () =>
-        <Inline>
-            {Object.keys(BoxShadowMapping).map(x => <LargeSquare boxShadow={x} key={x} />)}
+        </ThemeProvider>
+    </Stack>;
+
+export const BoxShadow = () =>
+    <Inline>
+        {Object.keys(BoxShadowMapping).map(x => <LargeSquare boxShadow={x} key={x} />)}
+    </Inline>;
+
+export const Color = () =>
+    <Stack>
+        <Inline gap={0} wrap>
+            {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
         </Inline>
-    )
-    .add("color", () =>
-        <Stack>
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Inline gap={0} wrap>
                 {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
             </Inline>
-            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-                <Inline gap={0} wrap>
-                    {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
-                </Inline>
-            </ThemeProvider>
-        </Stack>
-    )
-    .add("icon colors", () =>
-        <Stack>
+        </ThemeProvider>
+    </Stack>;
+
+export const IconColors = () =>
+    <Stack>
+        <Inline gap={0} wrap>
+            {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
+        </Inline>
+        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Inline gap={0} wrap>
                 {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
-            <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-                <Inline gap={0} wrap>
-                    {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
-                </Inline>
-            </ThemeProvider>
-        </Stack>
-    )
-    .add("font size", () =>
-        Object.keys(FontSizeMapping).map(x => <Box fontSize={x} key={x}>Space exploration</Box>)
-    )
-    .add("font weight", () =>
-        Object.keys(FontWeightMapping).map(x => <Box fontWeight={x} key={x}>Space exploration</Box>)
-    )
-    .add("line height", () =>
-        <Inline>
-            {Object.keys(LineHeightMapping).map(x => <Box lineHeight={x} key={x}>That's one small step for man, one giant leap for mankind.</Box>)}
-        </Inline>
-    )
-    .add("spacing", () =>
-        <Stack>
-            {Object.keys(SpacingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
-        </Stack>
-    )
-    .add("sizing", () =>
-        <Stack>
-            {Object.keys(SizingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
-        </Stack>
-    );
+        </ThemeProvider>
+    </Stack>;
 
+export const FontSize = () =>
+    Object.keys(FontSizeMapping).map(x => <Box fontSize={x} key={x}>Space exploration</Box>);
 
+export const FontWeight = () =>
+    Object.keys(FontWeightMapping).map(x => <Box fontWeight={x} key={x}>Space exploration</Box>);
 
+export const LineHeight = () =>
+    <Inline>
+        {Object.keys(LineHeightMapping).map(x => <Box lineHeight={x} key={x}>That's one small step for man, one giant leap for mankind.</Box>)}
+    </Inline>;
+
+export const Spacing = () =>
+    <Stack>
+        {Object.keys(SpacingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
+    </Stack>;
+
+export const Sizing = () =>
+    <Stack>
+        {Object.keys(SizingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
+    </Stack>;
+
+BackgroundColor.storyName = "background color";
+Border.storyName = "border";
+BoxShadow.storyName = "box shadow";
+Color.storyName = "color";
+IconColors.storyName = "icon colors";
+FontSize.storyName = "font size";
+FontWeight.storyName = "font weight";
+LineHeight.storyName = "line height";
+Spacing.storyName = "spacing";
+Sizing.storyName = "sizing";

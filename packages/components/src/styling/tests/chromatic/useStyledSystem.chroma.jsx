@@ -1,55 +1,44 @@
 import { Box } from "@components/box";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/useStyledSystem")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .build())
-        .build();
-}
+const viewports = [640, 768, 1024, 1280, 1536];
 
-stories()
-    .add("every single breakpoints", () =>
-        <Box
-            backgroundColor={{ base: "purple-5", xs: "green-5", sm: "alert-5", md: "purple-5", lg: "neutral-5", xl: "green-5" }}
-            color="alias-static-white"
-            width={12}
-        >
-                Space X
-        </Box>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
-    )
-    .add("match higher breakpoint", () =>
-        <Box
-            backgroundColor={{ base: "purple-3", sm: "alert-3" }}
-            color="alias-static-white"
-            width={12}
-        >
+export default {
+    title: "Chromatic/UseStyledSystem",
+    parameters: {
+        chromatic: {
+            delay: 100,
+            viewports: viewports
+        }
+    }
+};
+
+export const EverySingleBreakpoints = () =>
+    <Box
+        backgroundColor={{ base: "purple-5", xs: "green-5", sm: "alert-5", md: "purple-5", lg: "neutral-5", xl: "green-5" }}
+        color="alias-static-white"
+        width={12}
+    >
             Space X
-        </Box>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
-    )
-    .add("match base", () =>
-        <Box
-            backgroundColor={{ base: "purple-8" }}
-            color="alias-static-white"
-            width={12}
-        >
-            Space X
-        </Box>,
-         {
-             ...paramsBuilder()
-                 .withBreakpoints()
-                 .build()
-         }
-    );
+    </Box>;
+
+export const MatchHigherBreakpoint = () =>
+    <Box
+        backgroundColor={{ base: "purple-3", sm: "alert-3" }}
+        color="alias-static-white"
+        width={12}
+    >
+        Space X
+    </Box>;
+
+export const MatchBase = () =>
+    <Box
+        backgroundColor={{ base: "purple-8" }}
+        color="alias-static-white"
+        width={12}
+    >
+        Space X
+    </Box>;
+
+EverySingleBreakpoints.storyName = "every single breakpoints";
+MatchHigherBreakpoint.storyName = "match higher breakpoint";
+MatchBase.storyName = "match base";
