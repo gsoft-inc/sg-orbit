@@ -9,7 +9,6 @@ import { TextArea } from "@components/text-area";
 import { TextInput } from "@components/text-input";
 import { TextLinkAsButton } from "@components/link";
 
-
 export default {
     title: "Chromatic/Form",
     component: Form

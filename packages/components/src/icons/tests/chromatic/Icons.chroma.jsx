@@ -143,8 +143,7 @@ import {
 import { TestSuite } from "./TestSuite";
 
 export default {
-    title: "Chromatic/Icons",
-    component: TestSuite
+    title: "Chromatic/Icons"
 };
 
 export const Add = () => <TestSuite icon24={AddIcon24} icon32={AddIcon32} multiIcon={AddIcon} />;
