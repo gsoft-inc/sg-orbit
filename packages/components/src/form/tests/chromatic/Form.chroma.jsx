@@ -14,7 +14,7 @@ export default {
     component: Form
 };
 
-export const Default = () =>
+export const Default = () => (
     <Inline alignY="end" gap={13}>
         <Form>
             <Field>
@@ -40,9 +40,12 @@ export const Default = () =>
             </Field>
             <TextLinkAsButton>Submit</TextLinkAsButton>
         </Form>
-    </Inline>;
+    </Inline>
+);
 
-export const Fluid = () =>
+Default.storyName = "default";
+
+export const Fluid = () => (
     <Inline gap={13}>
         <Form fluid>
             <Field>
@@ -68,9 +71,12 @@ export const Fluid = () =>
             </Field>
             <TextLinkAsButton>Submit</TextLinkAsButton>
         </Form>
-    </Inline>;
+    </Inline>
+);
 
-export const Disabled = () =>
+Fluid.storyName = "fluid";
+
+export const Disabled = () => (
     <Inline alignY="end" gap={13}>
         <Form disabled>
             <Field>
@@ -96,9 +102,12 @@ export const Disabled = () =>
             </Field>
             <TextLinkAsButton>Submit</TextLinkAsButton>
         </Form>
-    </Inline>;
+    </Inline>
+);
 
-export const NestedDiv = () =>
+Disabled.storyName = "disabled";
+
+export const NestedDiv = () => (
     <Form>
         <Field>
             <Label>FullName</Label>
@@ -118,9 +127,12 @@ export const NestedDiv = () =>
             </Div>
         </Div>
         <Button variant="secondary">Submit</Button>
-    </Form>;
+    </Form>
+);
 
-export const FormGroupField = () =>
+NestedDiv.storyName = "nested div";
+
+export const FormGroupField = () => (
     <Form>
         <Field>
             <Label>FullName</Label>
@@ -144,9 +156,12 @@ export const FormGroupField = () =>
             </RadioGroup>
         </GroupField>
         <Button variant="secondary">Submit</Button>
-    </Form>;
+    </Form>
+);
 
-export const ButtonAlignment = () =>
+FormGroupField.storyName = "group field";
+
+export const ButtonAlignment = () => (
     <Inline>
         <Form>
             <Field>
@@ -178,9 +193,12 @@ export const ButtonAlignment = () =>
                 <Button>Submit</Button>
             </ButtonGroup>
         </Form>
-    </Inline>;
+    </Inline>
+);
 
-export const Styling = () =>
+ButtonAlignment.storyName = "button alignment";
+
+export const Styling = () => (
     <Inline>
         <Form border="warning-7">
             <Field>
@@ -197,12 +215,7 @@ export const Styling = () =>
                 <TextInput placeholder="Where to?" />
             </Field>
         </Form>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Fluid.storyName = "fluid";
-Disabled.storyName = "disabled";
-NestedDiv.storyName = "nested div";
-FormGroupField.storyName = "group field";
-ButtonAlignment.storyName = "button alignment";
 Styling.storyName = "styling";

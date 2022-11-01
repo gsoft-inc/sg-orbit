@@ -40,7 +40,7 @@ function LargeSquare(props) {
     );
 }
 
-export const BackgroundColor = () =>
+export const BackgroundColor = () => (
     <Stack>
         <Inline gap={0} wrap>
             {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
@@ -50,9 +50,12 @@ export const BackgroundColor = () =>
                 {Object.keys(BackgroundColorMapping).map(x => <SmallSquare backgroundColor={x} key={x} />)}
             </Inline>
         </ThemeProvider>
-    </Stack>;
+    </Stack>
+);
 
-export const Border = () =>
+BackgroundColor.storyName = "background color";
+
+export const Border = () => (
     <Stack>
         <Inline gap={1} wrap>
             {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
@@ -62,14 +65,20 @@ export const Border = () =>
                 {Object.keys(BorderMapping).map(x => <SmallSquare border={x} key={x} />)}
             </Inline>
         </ThemeProvider>
-    </Stack>;
+    </Stack>
+);
 
-export const BoxShadow = () =>
+Border.storyName = "border";
+
+export const BoxShadow = () => (
     <Inline>
         {Object.keys(BoxShadowMapping).map(x => <LargeSquare boxShadow={x} key={x} />)}
-    </Inline>;
+    </Inline>
+);
 
-export const Color = () =>
+BoxShadow.storyName = "box shadow";
+
+export const Color = () => (
     <Stack>
         <Inline gap={0} wrap>
             {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
@@ -79,9 +88,12 @@ export const Color = () =>
                 {Object.keys(ColorMapping).map(x => <SmallSquare color={x} key={x}>T</SmallSquare>)}
             </Inline>
         </ThemeProvider>
-    </Stack>;
+    </Stack>
+);
 
-export const IconColors = () =>
+Color.storyName = "color";
+
+export const IconColors = () => (
     <Stack>
         <Inline gap={0} wrap>
             {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
@@ -91,36 +103,41 @@ export const IconColors = () =>
                 {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
             </Inline>
         </ThemeProvider>
-    </Stack>;
+    </Stack>
+);
 
-export const FontSize = () =>
+IconColors.storyName = "icon colors";
+
+export const FontSize = () => (
     Object.keys(FontSizeMapping).map(x => <Box fontSize={x} key={x}>Space exploration</Box>);
 
-export const FontWeight = () =>
+    FontSize.storyName = "font size";
+
+export const FontWeight = () => (
     Object.keys(FontWeightMapping).map(x => <Box fontWeight={x} key={x}>Space exploration</Box>);
 
-export const LineHeight = () =>
+    FontWeight.storyName = "font weight";
+
+export const LineHeight = () => (
     <Inline>
         {Object.keys(LineHeightMapping).map(x => <Box lineHeight={x} key={x}>That's one small step for man, one giant leap for mankind.</Box>)}
-    </Inline>;
+    </Inline>
+);
 
-export const Spacing = () =>
+LineHeight.storyName = "line height";
+
+export const Spacing = () => (
     <Stack>
         {Object.keys(SpacingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
-    </Stack>;
+    </Stack>
+);
 
-export const Sizing = () =>
+Spacing.storyName = "spacing";
+
+export const Sizing = () => (
     <Stack>
         {Object.keys(SizingMapping).map(x => <Box width={x} height={3} backgroundColor="#000" key={x} />)}
-    </Stack>;
+    </Stack>
+);
 
-BackgroundColor.storyName = "background color";
-Border.storyName = "border";
-BoxShadow.storyName = "box shadow";
-Color.storyName = "color";
-IconColors.storyName = "icon colors";
-FontSize.storyName = "font size";
-FontWeight.storyName = "font weight";
-LineHeight.storyName = "line height";
-Spacing.storyName = "spacing";
 Sizing.storyName = "sizing";

@@ -16,36 +16,48 @@ export default {
     component: Popover
 };
 
-export const Default = () =>
+export const Default = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-export const TextFooter = () =>
+Default.storyName = "default";
+
+export const TextFooter = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
         <Footer>Step 2/4</Footer>
-    </Popover>;
+    </Popover>
+);
 
-export const LinkFooter = () =>
+TextFooter.storyName = "text footer";
+
+export const LinkFooter = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
         <Footer>
             <TextLink href="https://www.google.com" external>Step 2/4</TextLink>
         </Footer>
-    </Popover>;
+    </Popover>
+);
 
-export const PopoverButton = () =>
+LinkFooter.storyName = "link footer";
+
+export const PopoverButton = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
         <Button variant="primary">Accept</Button>
-    </Popover>;
+    </Popover>
+);
 
-export const PopoverButtonGroup = () =>
+PopoverButton.storyName = "button";
+
+export const PopoverButtonGroup = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -53,9 +65,12 @@ export const PopoverButtonGroup = () =>
             <Button variant="secondary">Cancel</Button>
             <Button variant="primary">Accept</Button>
         </ButtonGroup>
-    </Popover>;
+    </Popover>
+);
 
-export const AllSlots = () =>
+PopoverButtonGroup.storyName = "button group";
+
+export const AllSlots = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft. The company was founded in 2002 by Elon Musk to revolutionize space transportation, with the ultimate goal of making life multiplanetary.</Content>
@@ -64,9 +79,12 @@ export const AllSlots = () =>
             <Button variant="secondary">Cancel</Button>
             <Button variant="primary">Accept</Button>
         </ButtonGroup>
-    </Popover>;
+    </Popover>
+);
 
-export const PopoverForm = () =>
+AllSlots.storyName = "all slots";
+
+export const PopoverForm = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>
@@ -85,9 +103,12 @@ export const PopoverForm = () =>
             <Button variant="secondary">Cancel</Button>
             <Button variant="primary">Save</Button>
         </ButtonGroup>
-    </Popover>;
+    </Popover>
+);
 
-export const PopoverImage = () =>
+PopoverForm.storyName = "form";
+
+export const PopoverImage = () => (
     <Popover>
         <Heading>Space News</Heading>
         <Content>
@@ -97,66 +118,74 @@ export const PopoverImage = () =>
             <Button variant="secondary">Cancel</Button>
             <Button variant="primary">Save</Button>
         </ButtonGroup>
-    </Popover>;
+    </Popover>
+);
 
-export const Focused = () =>
+PopoverImage.storyName = "image";
+
+export const Focused = () => (
     <Popover focus>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-export const NotDismissable = () =>
+Focused.storyName = "focused";
+
+export const NotDismissable = () => (
     <Popover dismissable={false}>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-export const StyledSystem = () =>
+NotDismissable.storyName = "not dismissable";
+
+export const StyledSystem = () => (
     <Popover border="warning-7">
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-export const ClassName = () =>
+StyledSystem.storyName = "styled system";
+
+export const ClassName = () => (
     <Popover className="border-red">
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-export const ZoomIn = () =>
+ClassName.storyName = "className";
+
+export const ZoomIn = () => (
     <Div className="zoom-in">
         <Popover>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
-    </Div>;
+    </Div>
+);
 
-export const ZoomOut = () =>
+ZoomIn.storyName = "zoom in";
+
+export const ZoomOut = () => (
     <Div className="zoom-out">
         <Popover>
             <Heading>Space News</Heading>
             <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
         </Popover>
-    </Div>;
+    </Div>
+);
 
-export const Style = () =>
+ZoomOut.storyName = "zoom out";
+
+export const Style = () => (
     <Popover style={{ border: "1px solid red" }}>
         <Heading>Space News</Heading>
         <Content>SpaceX designs, manufactures, and launches the world's most advanced rockets and spacecraft.</Content>
-    </Popover>;
+    </Popover>
+);
 
-Default.storyName = "default";
-TextFooter.storyName = "text footer";
-LinkFooter.storyName = "link footer";
-PopoverButton.storyName = "button";
-PopoverButtonGroup.storyName = "button group";
-AllSlots.storyName = "all slots";
-PopoverForm.storyName = "form";
-PopoverImage.storyName = "image";
-Focused.storyName = "focused";
-NotDismissable.storyName = "not dismissable";
-StyledSystem.storyName = "styled system";
-ClassName.storyName = "className";
-ZoomIn.storyName = "zoom in";
-ZoomOut.storyName = "zoom out";
 Style.storyName = "style";

@@ -15,6 +15,8 @@ export const Default = () =>
         <Button variant="secondary">Cutoff</Button>
     </ButtonGroup>;
 
+Default.storyName = "default";
+
 export const Size = () =>
     <Inline alignY="end">
         <ButtonGroup orientation="vertical" size="sm">
@@ -28,6 +30,8 @@ export const Size = () =>
             <Button variant="secondary">Cutoff</Button>
         </ButtonGroup>
     </Inline>;
+
+Size.storyName = "size";
 
 export const Align = () =>
     <Stack>
@@ -51,6 +55,8 @@ export const Align = () =>
         </ButtonGroup>
     </Stack>;
 
+Align.storyName = "align";
+
 export const Zoom = () =>
     <Inline>
         <Div className="zoom-in">
@@ -67,7 +73,4 @@ export const Zoom = () =>
         </Div>
     </Inline>;
 
-Default.storyName = "default";
-Size.storyName = "size";
-Align.storyName = "align";
 Zoom.storyName = "zoom";

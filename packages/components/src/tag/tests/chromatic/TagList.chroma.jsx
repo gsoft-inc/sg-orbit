@@ -12,7 +12,7 @@ export default {
     component: TagList
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <TagList>
             <Item key="mercury">Mercury Program</Item>
@@ -24,9 +24,12 @@ export const Default = () =>
             <Item key="gemini">Gemini Program</Item>
             <Item key="apollo">Apollo Program</Item>
         </TagList>
-    </Stack>;
+    </Stack>
+);
 
-export const ItemWithIicon = () =>
+Default.storyName = "default";
+
+export const ItemWithIicon = () => (
     <TagList>
         <Item key="mercury">
             <LightbulbIcon />
@@ -40,9 +43,12 @@ export const ItemWithIicon = () =>
             <HelpIcon />
             <Text>Apollo Program</Text>
         </Item>
-    </TagList>;
+    </TagList>
+);
 
-export const ItemWithDot = () =>
+ItemWithIicon.storyName = "item with an icon";
+
+export const ItemWithDot = () => (
     <TagList>
         <Item key="mercury">
             <Dot color="alias-accent" />
@@ -56,9 +62,12 @@ export const ItemWithDot = () =>
             <Dot color="alias-accent" />
             <Text>Apollo Program</Text>
         </Item>
-    </TagList>;
+    </TagList>
+);
 
-export const ItemWithCounter = () =>
+ItemWithDot.storyName = "item with a dot";
+
+export const ItemWithCounter = () => (
     <TagList>
         <Item key="mercury">
             <Text>Mercury Program</Text>
@@ -72,9 +81,12 @@ export const ItemWithCounter = () =>
             <Text>Apollo Program</Text>
             <Counter variant="divider">60</Counter>
         </Item>
-    </TagList>;
+    </TagList>
+);
 
-export const WithClearButton = () =>
+ItemWithCounter.storyName = "item with a counter";
+
+export const WithClearButton = () => (
     <Stack>
         <TagList onClear={() => {}}>
             <Item key="mercury">Mercury Program</Item>
@@ -86,13 +98,19 @@ export const WithClearButton = () =>
             <Item key="gemini">Gemini Program</Item>
             <Item key="apollo">Apollo Program</Item>
         </TagList>
-    </Stack>;
+    </Stack>
+);
 
-export const WithClearButtonEmpty = () =>
+WithClearButton.storyName = "with clear button";
+
+export const WithClearButtonEmpty = () => (
     <TagList onClear={() => {}}>
-    </TagList>;
+    </TagList>
+);
 
-export const Readonly = () =>
+WithClearButtonEmpty.storyName = "with clear button & empty";
+
+export const Readonly = () => (
     <Stack>
         <TagList readOnly>
             <Item key="mercury">Mercury Program</Item>
@@ -104,9 +122,12 @@ export const Readonly = () =>
             <Item key="gemini">Gemini Program</Item>
             <Item key="apollo">Apollo Program</Item>
         </TagList>
-    </Stack>;
+    </Stack>
+);
 
-export const MultipleRows = () =>
+Readonly.storyName = "readonly";
+
+export const MultipleRows = () => (
     <Stack>
         <Div width={17}>
             <TagList>
@@ -140,9 +161,12 @@ export const MultipleRows = () =>
                 <Item key="artemis-2">Artemis Program</Item>
             </TagList>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+MultipleRows.storyName = "multiple rows";
+
+export const Styling = () => (
     <Inline>
         <TagList border="warning-7">
             <Item key="earth">Earth</Item>
@@ -159,14 +183,7 @@ export const Styling = () =>
             <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </TagList>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-ItemWithIicon.storyName = "item with an icon";
-ItemWithDot.storyName = "item with a dot";
-ItemWithCounter.storyName = "item with a counter";
-WithClearButton.storyName = "with clear button";
-WithClearButtonEmpty.storyName = "with clear button & empty";
-Readonly.storyName = "readonly";
-MultipleRows.storyName = "multiple rows";
 Styling.storyName = "styling";

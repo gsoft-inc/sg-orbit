@@ -19,6 +19,8 @@ export const Default = () =>
         <Checkbox value="3">3</Checkbox>
     </CheckboxGroup>;
 
+Default.storyName = "default";
+
 export const Size = () =>
     <Inline alignY="end" gap={13}>
         <CheckboxGroup size="sm" orientation="vertical">
@@ -33,12 +35,16 @@ export const Size = () =>
         </CheckboxGroup>
     </Inline>;
 
+Size.storyName = "size";
+
 export const Reverse = () =>
     <CheckboxGroup reverse orientation="vertical">
         <Checkbox value="1">1</Checkbox>
         <Checkbox value="2">A very long option to read while you wait for the countdown to mars.</Checkbox>
         <Checkbox value="3">3</Checkbox>
     </CheckboxGroup>;
+
+Reverse.storyName = "reverse";
 
 export const Zoom = () =>
     <Stack>
@@ -58,7 +64,4 @@ export const Zoom = () =>
         </Div>
     </Stack>;
 
-Default.storyName = "default";
-Size.storyName = "size";
-Reverse.storyName = "reverse";
 Zoom.storyName = "zoom";

@@ -6,70 +6,97 @@ export default {
     component: Stack
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Reverse = () =>
+Default.storyName = "default";
+
+export const Reverse = () => (
     <Stack reverse>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignXStart = () =>
+Reverse.storyName = "reverse";
+
+export const AlignXStart = () => (
     <Stack alignX="start">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignXCenter = () =>
+AlignXStart.storyName = "align X start";
+
+export const AlignXCenter = () => (
     <Stack alignX="center">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignXEnd = () =>
+AlignXCenter.storyName = "align X center";
+
+export const AlignXEnd = () => (
     <Stack alignX="end">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignYStart = () =>
+AlignXEnd.storyName = "align X end";
+
+export const AlignYStart = () => (
     <Stack alignY="start" height={12}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignYCenter = () =>
+AlignYStart.storyName = "align Y start";
+
+export const AlignYCenter = () => (
     <Stack alignY="center" height={12}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignYEnd = () =>
+AlignYCenter.storyName = "align Y center";
+
+export const AlignYEnd = () => (
     <Stack alignY="end" height={12}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Wrap = () =>
+AlignYEnd.storyName = "align Y end";
+
+export const Wrap = () => (
     <Stack wrap="wrap" height={4}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Inline = () =>
+Wrap.storyName = "wrap";
+
+export const Inline = () => (
     <>
         <Stack inline>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -81,9 +108,12 @@ export const Inline = () =>
             <Div backgroundColor="accent-5">Bravo</Div>
             <Div backgroundColor="accent-5">Charlie</Div>
         </Stack>
-    </>;
+    </>
+);
 
-export const Nested = () =>
+Inline.storyName = "inline";
+
+export const Nested = () => (
     <Stack gap={8}>
         <Stack gap={1}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -95,16 +125,7 @@ export const Nested = () =>
             <Div backgroundColor="alert-5">Echo</Div>
             <Div backgroundColor="alert-5">Foxtrot</Div>
         </Stack>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Reverse.storyName = "reverse";
-AlignXStart.storyName = "align X start";
-AlignXCenter.storyName = "align X center";
-AlignXEnd.storyName = "align X end";
-AlignYStart.storyName = "align Y start";
-AlignYCenter.storyName = "align Y center";
-AlignYEnd.storyName = "align Y end";
-Wrap.storyName = "wrap";
-Inline.storyName = "inline";
 Nested.storyName = "nested";

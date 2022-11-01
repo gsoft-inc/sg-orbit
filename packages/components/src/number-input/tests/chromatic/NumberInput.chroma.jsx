@@ -13,7 +13,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <NumberInput placeholder="Age" />
         <NumberInput loading placeholder="Age" />
@@ -28,15 +28,24 @@ export const Default = () =>
         <Div>
             <NumberInput loading fluid placeholder="Age" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const IntegerValue = () =>
-    <NumberInput defaultValue={12} step={1} placeholder="Age" />;
+Default.storyName = "default";
 
-export const DecimalValue = () =>
-    <NumberInput defaultValue={12.10} step={0.1} placeholder="Grams" />;
+export const IntegerValue = () => (
+    <NumberInput defaultValue={12} step={1} placeholder="Age" />
+);
 
-export const Icon = () =>
+IntegerValue.storyName = "integer value";
+
+export const DecimalValue = () => (
+    <NumberInput defaultValue={12.10} step={0.1} placeholder="Grams" />
+);
+
+DecimalValue.storyName = "decimal value";
+
+export const Icon = () => (
     <Stack>
         <NumberInput icon={<EditIcon />} placeholder="Age" />
         <NumberInput loading icon={<EditIcon />} placeholder="Age" />
@@ -47,15 +56,21 @@ export const Icon = () =>
             <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
         </Div>
         <NumberInput loading fluid icon={<EditIcon />} placeholder="Age" />
-    </Stack>;
+    </Stack>
+);
 
-export const Validation = () =>
+Icon.storyName = "icon";
+
+export const Validation = () => (
     <Inline>
         <NumberInput validationState="invalid" placeholder="Age" />
         <NumberInput validationState="valid" placeholder="Age" />
-    </Inline>;
+    </Inline>
+);
 
-export const Zoom = () =>
+Validation.storyName = "validation";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <NumberInput placeholder="Age" />
@@ -63,21 +78,19 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <NumberInput placeholder="Age" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <NumberInput border="warning-7" placeholder="Age" />
         <NumberInput className="border-red" placeholder="Age" />
         <NumberInput style={{ border: "1px solid red" }} placeholder="Age" />
         <NumberInput wrapperProps={{ className: "border-red" }} placeholder="Age" />
         <NumberInput wrapperProps={{ style: { border: "1px solid red" } }} placeholder="Age" />
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-IntegerValue.storyName = "integer value";
-DecimalValue.storyName = "decimal value";
-Icon.storyName = "icon";
-Validation.storyName = "validation";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

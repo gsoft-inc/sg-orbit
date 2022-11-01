@@ -23,6 +23,8 @@ export const Default = () =>
         </ButtonGroup>
     </Stack>;
 
+Default.storyName = "default";
+
 export const ButtonGroupIconButton = () =>
     <Inline gap={13}>
         <Stack>
@@ -51,6 +53,8 @@ export const ButtonGroupIconButton = () =>
         </Stack>
     </Inline>;
 
+ButtonGroupIconButton.storyName = "icon button";
+
 export const Fluid = () =>
     <ButtonGroup fluid>
         <Button variant="secondary">Cutoff</Button>
@@ -58,12 +62,16 @@ export const Fluid = () =>
         <Button variant="secondary">Cutoff</Button>
     </ButtonGroup>;
 
+Fluid.storyName = "fluid";
+
 export const Disabled = () =>
     <ButtonGroup disabled>
         <Button variant="secondary">Cutoff</Button>
         <Button variant="secondary">Cutoff</Button>
         <Button variant="secondary">Cutoff</Button>
     </ButtonGroup>;
+
+Disabled.storyName = "disabled";
 
 export const Align = () =>
     <Stack>
@@ -85,6 +93,8 @@ export const Align = () =>
         </ButtonGroup>
     </Stack>;
 
+Align.storyName = "align";
+
 export const Zoom = () =>
     <Stack>
         <Div className="zoom-in">
@@ -101,9 +111,4 @@ export const Zoom = () =>
         </Div>
     </Stack>;
 
-Default.storyName = "default";
-ButtonGroupIconButton.storyName = "icon button";
-Fluid.storyName = "fluid";
-Disabled.storyName = "disabled";
-Align.storyName = "align";
 Zoom.storyName = "zoom";

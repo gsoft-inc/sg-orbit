@@ -10,7 +10,7 @@ export default {
     component: TextInput
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <TextInput aria-label="Label" />
         <TextInput loading aria-label="Label" />
@@ -21,9 +21,12 @@ export const Default = () =>
             <TextInput fluid aria-label="Label"></TextInput>
         </Div>
         <TextInput loading fluid aria-label="Label"></TextInput>
-    </Stack>;
+    </Stack>
+);
 
-export const Placeholder = () =>
+Default.storyName = "default";
+
+export const Placeholder = () => (
     <Stack>
         <TextInput placeholder="Where to?" />
         <TextInput loading placeholder="Where to?" />
@@ -34,9 +37,12 @@ export const Placeholder = () =>
             <TextInput fluid placeholder="Where to?"></TextInput>
         </Div>
         <TextInput loading fluid placeholder="Where to?"></TextInput>
-    </Stack>;
+    </Stack>
+);
 
-export const Value = () =>
+Placeholder.storyName = "placeholder";
+
+export const Value = () => (
     <Stack>
         <TextInput defaultValue="SpaceX will win the race!" aria-label="Label" />
         <TextInput loading defaultValue="SpaceX will win the race!" aria-label="Label" />
@@ -51,9 +57,12 @@ export const Value = () =>
             <TextInput fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
         </Div>
         <TextInput loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextInput>
-    </Stack>;
+    </Stack>
+);
 
-export const Icon = () =>
+Value.storyName = "value";
+
+export const Icon = () => (
     <Stack>
         <TextInput icon={<MagnifierIcon />} placeholder="Where to?" aria-label="Label" />
         <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" placeholder="Where to?" />
@@ -64,9 +73,12 @@ export const Icon = () =>
         <Div width="10%">
             <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Button = () =>
+Icon.storyName = "icon";
+
+export const Button = () => (
     <Stack>
         <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         <TextInput button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" defaultValue="SpaceX will win the race!" />
@@ -75,15 +87,21 @@ export const Button = () =>
             <TextInput readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         </Inline>
         <TextInput loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-    </Stack>;
+    </Stack>
+);
 
-export const Validation = () =>
+Button.storyName = "button";
+
+export const Validation = () => (
     <Inline>
         <TextInput validationState="invalid" placeholder="Where to?" />
         <TextInput validationState="valid" placeholder="Where to?" />
-    </Inline>;
+    </Inline>
+);
 
-export const States = () =>
+Validation.storyName = "validation";
+
+export const States = () => (
     <Stack>
         <Inline alignY="end">
             <TextInput loading placeholder="Where to?" />
@@ -110,9 +128,12 @@ export const States = () =>
             <TextInput loading focus hover placeholder="Where to?" />
             <TextInput disabled focus hover placeholder="Where to?" />
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+States.storyName = "states";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <TextInput placeholder="Where to?" />
@@ -120,9 +141,12 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <TextInput placeholder="Where to?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <TextInput border="alert-6" aria-label="Label" />
         <TextInput className="bg-red" aria-label="Label" />
@@ -130,14 +154,7 @@ export const Styling = () =>
         <TextInput wrapperProps={{ border: "alert-6" }} aria-label="Label" />
         <TextInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
         <TextInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Placeholder.storyName = "placeholder";
-Value.storyName = "value";
-Icon.storyName = "icon";
-Button.storyName = "button";
-Validation.storyName = "validation";
-States.storyName = "states";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

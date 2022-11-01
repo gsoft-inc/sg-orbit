@@ -16,7 +16,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Toolbar orientation="vertical">
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -30,9 +30,12 @@ export const Default = () =>
             <ToggleButton value="2">2</ToggleButton>
             <ToggleButton value="3">3</ToggleButton>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Align = () =>
+Default.storyName = "default";
+
+export const Align = () => (
     <Inline gap={13}>
         <Toolbar alignX="start" orientation="vertical">
             <CheckboxGroup>
@@ -76,9 +79,12 @@ export const Align = () =>
                 <ToggleButton value="3">3</ToggleButton>
             </RadioGroup>
         </Toolbar>
-    </Inline>;
+    </Inline>
+);
 
-export const VerticalAlign = () =>
+Align.storyName = "align";
+
+export const VerticalAlign = () => (
     <Inline gap={13}>
         <Toolbar alignY="start" orientation="vertical" height={16}>
             <CheckboxGroup>
@@ -107,8 +113,7 @@ export const VerticalAlign = () =>
             <TextInput aria-label="Label" />
             <ToggleButton>Activate</ToggleButton>
         </Toolbar>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Align.storyName = "align";
 VerticalAlign.storyName = "vertical align";

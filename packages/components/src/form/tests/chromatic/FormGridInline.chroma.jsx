@@ -11,7 +11,7 @@ export default {
     component: Form
 };
 
-export const Default = () =>
+export const Default = () => (
     <Form>
         <Field>
             <Label>Gender</Label>
@@ -52,9 +52,12 @@ export const Default = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-export const Fluid = () =>
+Default.storyName = "default";
+
+export const Fluid = () => (
     <Form>
         <Field>
             <Label>Gender</Label>
@@ -95,9 +98,12 @@ export const Fluid = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-export const Messages = () =>
+Fluid.storyName = "fluid";
+
+export const Messages = () => (
     <Form>
         <Grid templateColumns={repeat(3, "1fr")}>
             <Field>
@@ -136,8 +142,7 @@ export const Messages = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-Default.storyName = "default";
-Fluid.storyName = "fluid";
 Messages.storyName = "messages";

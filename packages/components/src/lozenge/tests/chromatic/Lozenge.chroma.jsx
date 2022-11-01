@@ -9,13 +9,16 @@ export default {
     component: Lozenge
 };
 
-export const Default = () =>
+export const Default = () => (
     <Inline alignY="end">
         <Lozenge size="sm">New</Lozenge>
         <Lozenge>New</Lozenge>
-    </Inline>;
+    </Inline>
+);
 
-export const Variants = () =>
+Default.storyName = "default";
+
+export const Variants = () => (
     <Inline alignY="end">
         <Lozenge size="sm">New</Lozenge>
         <Lozenge >New</Lozenge>
@@ -70,9 +73,12 @@ export const Variants = () =>
                 <Text>New</Text>
             </Lozenge>
         </Inline>
-    </Inline>;
+    </Inline>
+);
 
-export const Icon = () =>
+Variants.storyName = "variants";
+
+export const Icon = () => (
     <Stack>
         <Inline alignY="end">
             <Lozenge size="sm">
@@ -92,9 +98,12 @@ export const Icon = () =>
                 <Text>New</Text>
             </Lozenge>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const HighlightAndVariant = () =>
+Icon.storyName = "icon";
+
+export const HighlightAndVariant = () => (
     <Stack>
         <Inline alignY="end">
             <Lozenge highlight size="sm">New</Lozenge>
@@ -150,18 +159,24 @@ export const HighlightAndVariant = () =>
                 <Text>New</Text>
             </Lozenge>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InheritParentProperties = () =>
+HighlightAndVariant.storyName = "highlight and variant";
+
+export const InheritParentProperties = () => (
     <Inline alignY="end">
         <Lozenge textTransform="uppercase">New</Lozenge>
         <Lozenge color="red" highlight>
             <CheckCircleIcon />
             <Text>New</Text>
         </Lozenge>
-    </Inline>;
+    </Inline>
+);
 
-export const Fluid = () =>
+InheritParentProperties.storyName = "inherit parent properties";
+
+export const Fluid = () => (
     <Div width="500px">
         <Inline>
             <Lozenge fluid>New</Lozenge>
@@ -170,9 +185,12 @@ export const Fluid = () =>
                 <Text>New</Text>
             </Lozenge>
         </Inline>
-    </Div>;
+    </Div>
+);
 
-export const Zoom = () =>
+Fluid.storyName = "fluid";
+
+export const Zoom = () => (
     <Inline>
         <Div className="zoom-in">
             <Lozenge>New</Lozenge>
@@ -180,9 +198,12 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <Lozenge>New</Lozenge>
         </Div>
-    </Inline>;
+    </Inline>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <Lozenge border="warning-7">New</Lozenge>
         <Lozenge className="border-red">New</Lozenge>
@@ -191,13 +212,7 @@ export const Styling = () =>
                 border: "1px solid red"
             }}
         >New</Lozenge>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Variants.storyName = "variants";
-Icon.storyName = "icon";
-HighlightAndVariant.storyName = "highlight and variant";
-InheritParentProperties.storyName = "inherit parent properties";
-Fluid.storyName = "fluid";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

@@ -14,7 +14,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <TextArea aria-label="Label" />
         <TextArea loading aria-label="Label" />
@@ -25,9 +25,12 @@ export const Default = () =>
             <TextArea fluid aria-label="Label"></TextArea>
         </Div>
         <TextArea loading fluid aria-label="Label"></TextArea>
-    </Stack>;
+    </Stack>
+);
 
-export const Placeholder = () =>
+Default.storyName = "default";
+
+export const Placeholder = () => (
     <Stack>
         <TextArea placeholder="Where to?" />
         <TextArea loading placeholder="Where to?" />
@@ -38,9 +41,12 @@ export const Placeholder = () =>
             <TextArea fluid placeholder="Where to?"></TextArea>
         </Div>
         <TextArea loading fluid placeholder="Where to?"></TextArea>
-    </Stack>;
+    </Stack>
+);
 
-export const Value = () =>
+Placeholder.storyName = "placeholder";
+
+export const Value = () => (
     <Stack>
         <TextArea defaultValue="SpaceX will win the race!" aria-label="Label" />
         <TextArea loading defaultValue="SpaceX will win the race!" aria-label="Label" />
@@ -55,24 +61,33 @@ export const Value = () =>
             <TextArea fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
         </Div>
         <TextArea loading fluid defaultValue="SpaceX will win the race!" aria-label="Label"></TextArea>
-    </Stack>;
+    </Stack>
+);
 
-export const Button = () =>
+Value.storyName = "value";
+
+export const Button = () => (
     <Stack>
         <TextArea button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         <TextArea button={<CrossButton aria-label="Clear value" />} defaultValue="SpaceX will win the race!" aria-label="Label" />
         <TextArea disabled button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         <TextArea readOnly button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
         <TextArea loading button={<CrossButton aria-label="Clear value" />} placeholder="Where to?" />
-    </Stack>;
+    </Stack>
+);
 
-export const Validation = () =>
+Button.storyName = "button";
+
+export const Validation = () => (
     <Inline>
         <TextArea validationState="invalid" placeholder="Where to?" />
         <TextArea validationState="valid" placeholder="Where to?" />
-    </Inline>;
+    </Inline>
+);
 
-export const States = () =>
+Validation.storyName = "validation";
+
+export const States = () => (
     <Stack>
         <Inline alignY="end">
             <TextArea loading placeholder="Where to?" />
@@ -99,21 +114,33 @@ export const States = () =>
             <TextArea loading focus hover placeholder="Where to?" />
             <TextArea disabled focus hover placeholder="Where to?" />
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Autosize = () =>
+States.storyName = "states";
+
+export const Autosize = () => (
     <Inline alignX="start">
         <TextArea defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
         <TextArea maxRows={5} defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a eros nec urna mollis sollicitudin id et lacus. Nam in feugiat urna, eget volutpat sem. Duis ornare, eros nec accumsan consectetur, nunc nisi elementum quam, egestas posuere elit purus a neque. Nunc risus mi, interdum id nisl et, tempor pulvinar elit." aria-label="Label" />
-    </Inline>;
+    </Inline>
+);
 
-export const NoResize = () =>
-    <TextArea resize="none" aria-label="Label" />;
+Autosize.storyName = "autosize";
 
-export const Rows = () =>
-    <TextArea rows={12} aria-label="Label" />;
+export const NoResize = () => (
+    <TextArea resize="none" aria-label="Label" />
+);
 
-export const Zoom = () =>
+NoResize.storyName = "no resize";
+
+export const Rows = () => (
+    <TextArea rows={12} aria-label="Label" />
+);
+
+Rows.storyName = "rows";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <TextArea aria-label="Label" />
@@ -121,9 +148,12 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <TextArea aria-label="Label" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <TextArea border="alert-6" aria-label="Label" />
         <TextArea className="bg-red" aria-label="Label" />
@@ -131,16 +161,7 @@ export const Styling = () =>
         <TextArea wrapperProps={{ border: "alert-6" }} aria-label="Label" />
         <TextArea wrapperProps={{ className: "border-red" }} aria-label="Label" />
         <TextArea wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Placeholder.storyName = "placeholder";
-Value.storyName = "value";
-Button.storyName = "button";
-Validation.storyName = "validation";
-States.storyName = "states";
-Autosize.storyName = "autosize";
-NoResize.storyName = "no resize";
-Rows.storyName = "rows";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

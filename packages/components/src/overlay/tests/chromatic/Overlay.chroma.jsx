@@ -55,37 +55,44 @@ ref) => {
     );
 });
 
-export const InheritTheme = () =>
+export const InheritTheme = () => (
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <Boundary>
             <Overlay show>
                 <PrimaryBox />
             </Overlay>
         </Boundary>
-    </ThemeProvider>;
+    </ThemeProvider>
+);
 
-export const StyledSystem = () =>
+InheritTheme.storyName = "inherit theme";
+
+export const StyledSystem = () => (
     <Boundary>
         <Overlay border="warning-7" show>
             <PrimaryBox />
         </Overlay>
-    </Boundary>;
+    </Boundary>
+);
 
-export const ClassName = () =>
+StyledSystem.storyName = "styled system";
+
+export const ClassName = () => (
     <Boundary>
         <Overlay className="border-red" show>
             <PrimaryBox />
         </Overlay>
-    </Boundary>;
+    </Boundary>
+);
 
-export const Style = () =>
+ClassName.storyName = "className";
+
+export const Style = () => (
     <Boundary>
         <Overlay style={{ border: "1px solid red" }} show>
             <PrimaryBox />
         </Overlay>
-    </Boundary>;
+    </Boundary>
+);
 
-InheritTheme.storyName = "inherit theme";
-StyledSystem.storyName = "styled system";
-ClassName.storyName = "className";
 Style.storyName = "style";

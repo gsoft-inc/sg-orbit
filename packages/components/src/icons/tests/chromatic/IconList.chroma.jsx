@@ -16,25 +16,30 @@ function Icons(props) {
     );
 }
 
-export const Default = () =>
-    <Icons />;
+export const Default = () => (
+    <Icons />
+);
 
-export const Size = () =>
+Default.storyName = "default";
+
+export const Size = () => (
     <Stack>
         <Icons size="2xs" />
         <Icons size="xs" />
         <Icons size="sm" />
         <Icons />
         <Icons size="lg" />
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Size.storyName = "size";
+
+export const Styling = () => (
     <Stack>
         <Icons border="warning-7" />
         <Icons className="border-red" />
         <Icons style={{ border: "1px solid red" }} />
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Size.storyName = "size";
 Styling.storyName = "styling";

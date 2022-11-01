@@ -14,7 +14,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <DialogTrigger>
         <Button variant="secondary">Open</Button>
         <Dialog>
@@ -25,9 +25,12 @@ export const Default = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Dialog>
-    </DialogTrigger>;
+    </DialogTrigger>
+);
 
-export const DefaultOpen = () =>
+Default.storyName = "default";
+
+export const DefaultOpen = () => (
     <DialogTrigger defaultOpen>
         <Button variant="secondary">Open</Button>
         <Dialog>
@@ -38,9 +41,12 @@ export const DefaultOpen = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Dialog>
-    </DialogTrigger>;
+    </DialogTrigger>
+);
 
-export const NotDismissable = () =>
+DefaultOpen.storyName = "default open";
+
+export const NotDismissable = () => (
     <DialogTrigger dismissable={false} defaultOpen>
         <Button variant="secondary">Open</Button>
         <Dialog>
@@ -51,9 +57,12 @@ export const NotDismissable = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Dialog>
-    </DialogTrigger>;
+    </DialogTrigger>
+);
 
-export const FunctionalContent = () =>
+NotDismissable.storyName = "not dismissable";
+
+export const FunctionalContent = () => (
     <DialogTrigger defaultOpen>
         {() => {
             return (
@@ -70,9 +79,7 @@ export const FunctionalContent = () =>
                 </>
             );
         }}
-    </DialogTrigger>;
+    </DialogTrigger>
+);
 
-Default.storyName = "default";
-DefaultOpen.storyName = "default open";
-NotDismissable.storyName = "not dismissable";
 FunctionalContent.storyName = "functional content";

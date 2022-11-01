@@ -8,22 +8,26 @@ export default {
     component: AlertTrigger
 };
 
-export const Default = () => <AlertTrigger>
-    <Button variant="secondary">Open</Button>
-    <Alert primaryButtonLabel="Yes">
-        <Heading>Launch</Heading>
-        <Content>Are you sure you want to launch the space shuttle?</Content>
-    </Alert>
-</AlertTrigger>;
-
-
-export const DefaultOpen = () => <AlertTrigger defaultOpen>
-    <Button variant="secondary">Open</Button>
-    <Alert primaryButtonLabel="Yes">
-        <Heading>Launch</Heading>
-        <Content>Are you sure you want to launch the space shuttle?</Content>
-    </Alert>
-</AlertTrigger>;
+export const Default = () => (
+    <AlertTrigger>
+        <Button variant="secondary">Open</Button>
+        <Alert primaryButtonLabel="Yes">
+            <Heading>Launch</Heading>
+            <Content>Are you sure you want to launch the space shuttle?</Content>
+        </Alert>
+    </AlertTrigger>
+);
 
 Default.storyName = "default";
+
+export const DefaultOpen = () => (
+    <AlertTrigger defaultOpen>
+        <Button variant="secondary">Open</Button>
+        <Alert primaryButtonLabel="Yes">
+            <Heading>Launch</Heading>
+            <Content>Are you sure you want to launch the space shuttle?</Content>
+        </Alert>
+    </AlertTrigger>
+);
+
 DefaultOpen.storyName = "default open";

@@ -24,7 +24,7 @@ const Trigger = ({ children, ...rest }) => {
     );
 };
 
-export const Default = () =>
+export const Default = () => (
     <Disclosure>
         <Button variant="secondary">Mars</Button>
         <Div>
@@ -33,9 +33,12 @@ export const Default = () =>
             to the effect of the iron oxide prevalent on Mars's surface, which gives it a reddish appearance distinctive among the astronomical bodies visible to the naked eye.
             [19] Mars is a terrestrial planet with a thin atmosphere, with surface features reminiscent of the impact craters of the Moon and the valleys, deserts and polar ice caps of Earth.
         </Div>
-    </Disclosure>;
+    </Disclosure>
+);
 
-export const Opened = () =>
+Default.storyName = "default";
+
+export const Opened = () => (
     <Stack>
         <Disclosure open>
             <Button variant="secondary">Mars</Button>
@@ -45,9 +48,12 @@ export const Opened = () =>
             <Button variant="secondary">Mars</Button>
             <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
         </Disclosure>
-    </Stack>;
+    </Stack>
+);
 
-export const CustomTrigger = () =>
+Opened.storyName = "opened";
+
+export const CustomTrigger = () => (
     <Stack>
         <Disclosure>
             <Trigger>Mars</Trigger>
@@ -57,15 +63,21 @@ export const CustomTrigger = () =>
             <Trigger>Mars</Trigger>
             <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
         </Disclosure>
-    </Stack>;
+    </Stack>
+);
 
-export const TextLink = () =>
+CustomTrigger.storyName = "custom trigger";
+
+export const TextLink = () => (
     <Disclosure>
         <TextLinkAsButton>Mars</TextLinkAsButton>
         <Div>Mars is the fourth planet from the Sun and the second-smallest planet.</Div>
-    </Disclosure>;
+    </Disclosure>
+);
 
-export const FunctionalContent = () =>
+TextLink.storyName = "text link";
+
+export const FunctionalContent = () => (
     <Disclosure defaultOpen>
         {() => {
             return (
@@ -75,10 +87,7 @@ export const FunctionalContent = () =>
                 </>
             );
         }}
-    </Disclosure>;
+    </Disclosure>
+);
 
-Default.storyName = "default";
-Opened.storyName = "opened";
-CustomTrigger.storyName = "custom trigger";
-TextLink.storyName = "text link";
 FunctionalContent.storyName = "functional content";

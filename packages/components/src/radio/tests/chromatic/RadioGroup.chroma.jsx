@@ -46,14 +46,17 @@ function CustomComponent({
     );
 }
 
-export const Default = () =>
+export const Default = () => (
     <RadioGroup>
         <Radio value="1">1</Radio>
         <Radio value="2">2</Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Selection = () =>
+Default.storyName = "default";
+
+export const Selection = () => (
     <Inline>
         <RadioGroup value="2">
             <Radio value="1">1</Radio>
@@ -65,78 +68,108 @@ export const Selection = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Inline>;
+    </Inline>
+);
 
-export const Number = () =>
+Selection.storyName = "selection";
+
+export const Number = () => (
     <RadioGroup defaultValue={2}>
         <Radio value={1}>1</Radio>
         <Radio value={2}>2</Radio>
         <Radio value={3}>3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Disabled = () =>
+Number.storyName = "number";
+
+export const Disabled = () => (
     <RadioGroup disabled>
         <Radio value="1">1</Radio>
         <Radio value="2">2</Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const DisabledRadio = () =>
+Disabled.storyName = "disabled";
+
+export const DisabledRadio = () => (
     <RadioGroup>
         <Radio disabled value="1">1</Radio>
         <Radio value="2">2</Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Gap = () =>
+DisabledRadio.storyName = "disabled radio";
+
+export const Gap = () => (
     <RadioGroup gap={13}>
         <Radio value="1">1</Radio>
         <Radio value="2">2</Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Wrap = () =>
+Gap.storyName = "gap";
+
+export const Wrap = () => (
     <Div width={11}>
         <RadioGroup wrap orientation="horizontal">
             {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
                 <Radio width={6} value={x} key={x}>{x}</Radio>
             )}
         </RadioGroup>
-    </Div>;
+    </Div>
+);
 
-export const NoWrap = () =>
+Wrap.storyName = "wrap";
+
+export const NoWrap = () => (
     <Div width={11}>
         <RadioGroup wrap={false} orientation="horizontal">
             {["1", "2", "3", "4", "5", "6", "7", "8"].map(x =>
                 <Radio width={6} value={x} key={x}>{x}</Radio>
             )}
         </RadioGroup>
-    </Div>;
+    </Div>
+);
 
-export const OverflowWrapped = () =>
+NoWrap.storyName = "no wrap";
+
+export const OverflowWrapped = () => (
     <Div width={11}>
         <RadioGroup wrap orientation="horizontal">
             {["1", "2", "3", "Neptune", "5", "6", "7", "8"].map(x =>
                 <Radio value={x} key={x}>{x}</Radio>
             )}
         </RadioGroup>
-    </Div>;
+    </Div>
+);
 
-export const ToggleButtons = () =>
+OverflowWrapped.storyName = "overflow wrapped";
+
+export const ToggleButtons = () => (
     <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
         <ToggleButton variant="secondary" value="1">1</ToggleButton>
         <ToggleButton variant="secondary" value="2">2</ToggleButton>
         <ToggleButton variant="secondary" value="3">3</ToggleButton>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const CustomComponents = () =>
+ToggleButtons.storyName = "toggle buttons";
+
+export const CustomComponents = () => (
     <RadioGroup gap={2} orientation="horizontal" defaultValue="2">
         <CustomComponent value="1">1</CustomComponent>
         <CustomComponent value="2">2</CustomComponent>
         <CustomComponent value="3">3</CustomComponent>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Validation = () =>
+CustomComponents.storyName = "custom components";
+
+export const Validation = () => (
     <Inline gap={13}>
         <RadioGroup validationState="invalid">
             <Radio value="1">1</Radio>
@@ -148,9 +181,12 @@ export const Validation = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Inline>;
+    </Inline>
+);
 
-export const Styling = () =>
+Validation.storyName = "validation";
+
+export const Styling = () => (
     <Inline>
         <RadioGroup border="warning-7">
             <Radio value="1">1</Radio>
@@ -167,9 +203,12 @@ export const Styling = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Inline>;
+    </Inline>
+);
 
-export const Reverse = () =>
+Styling.storyName = "styling";
+
+export const Reverse = () => (
     <Stack inline>
         <Field>
             <Label>Select a package</Label>
@@ -199,19 +238,7 @@ export const Reverse = () =>
             </RadioGroup>
             <Div border="1px solid #000" width="100%" height={7}></Div>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Selection.storyName = "selection";
-Number.storyName = "number";
-Disabled.storyName = "disabled";
-DisabledRadio.storyName = "disabled radio";
-Gap.storyName = "gap";
-Wrap.storyName = "wrap";
-NoWrap.storyName = "no wrap";
-OverflowWrapped.storyName = "overflow wrapped";
-ToggleButtons.storyName = "toggle buttons";
-CustomComponents.storyName = "custom components";
-Validation.storyName = "validation";
-Styling.storyName = "styling";
 Reverse.storyName = "reverse";

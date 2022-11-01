@@ -21,19 +21,24 @@ const StyledAnchor = ({ children }) => {
     );
 };
 
-export const Size = () => <A href="#">Google</A>;
+export const Size = () => (
+    <A href="#">Google</A>
+);
 
-export const StyleContext = () =>
-    <StyledAnchor>Google</StyledAnchor>;
+Size.storyName = "size";
 
-export const Styling = () =>
+export const StyleContext = () => (
+    <StyledAnchor>Google</StyledAnchor>
+);
+
+StyleContext.storyName = "support style context";
+
+export const Styling = () => (
     <Inline>
         <A border="warning-7" href="#">Google</A>
         <A className="border-red" href="#">Google</A>
         <A style={{ border: "1px solid red" }} href="#">Google</A>
-    </Inline>;
+    </Inline>
+);
 
-
-Size.storyName = "size";
-StyleContext.storyName = "support style context";
 Styling.storyName = "styling";

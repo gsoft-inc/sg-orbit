@@ -7,7 +7,7 @@ export default {
     component: Text
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack gap="0">
         <Text size="5xl">There are no passengers on spaceship earth.</Text>
         <Text size="4xl">There are no passengers on spaceship earth.</Text>
@@ -18,20 +18,25 @@ export const Default = () =>
         <Text>There are no passengers on spaceship earth.</Text>
         <Text size="sm">There are no passengers on spaceship earth.</Text>
         <Text size="xs">There are no passengers on spaceship earth.</Text>
-    </Stack>;
+    </Stack>
+);
 
-export const Inherit = () =>
+Default.storyName = "default";
+
+export const Inherit = () => (
     <Div fontSize={1}>
         <Text size="inherit">There are no passengers on spaceship earth.</Text>
-    </Div>;
+    </Div>
+);
 
-export const Styling = () =>
+Inherit.storyName = "inherit";
+
+export const Styling = () => (
     <Stack>
         <Text border="warning-7">There are no passengers on spaceship earth.</Text>
         <Text className="bg-red">There are no passengers on spaceship earth.</Text>
         <Text style={{ backgroundColor: "red" }}>There are no passengers on spaceship earth.</Text>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Inherit.storyName = "inherit";
 Styling.storyName = "styling";

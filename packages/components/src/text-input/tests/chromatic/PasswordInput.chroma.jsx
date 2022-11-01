@@ -7,7 +7,7 @@ export default {
     component: PasswordInput
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <PasswordInput aria-label="Label" />
         <PasswordInput disabled aria-label="Label"></PasswordInput>
@@ -16,9 +16,12 @@ export const Default = () =>
         <Div width="10%">
             <PasswordInput fluid aria-label="Label"></PasswordInput>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Placeholder = () =>
+Default.storyName = "default";
+
+export const Placeholder = () => (
     <Stack>
         <PasswordInput placeholder="What's your secret?" />
         <PasswordInput disabled placeholder="What's your secret?"></PasswordInput>
@@ -27,9 +30,12 @@ export const Placeholder = () =>
         <Div width="10%">
             <PasswordInput fluid placeholder="What's your secret?"></PasswordInput>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Value = () =>
+Placeholder.storyName = "placeholder";
+
+export const Value = () => (
     <Stack>
         <PasswordInput defaultValue="test123!" aria-label="Label" />
         <PasswordInput disabled defaultValue="test123!" aria-label="Label" />
@@ -42,9 +48,12 @@ export const Value = () =>
         <Div width="10%">
             <PasswordInput fluid defaultValue="test123!" aria-label="Label"></PasswordInput>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const States = () =>
+Value.storyName = "value";
+
+export const States = () => (
     <Stack>
         <PasswordInput active placeholder="What's your secret?" />
         <Inline>
@@ -61,9 +70,12 @@ export const States = () =>
         </Inline>
         <PasswordInput disabled placeholder="What's your secret?" />
         <PasswordInput readOnly placeholder="What's your secret?" />
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+States.storyName = "states";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <PasswordInput placeholder="What's your secret?" />
@@ -71,20 +83,19 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <PasswordInput placeholder="What's your secret?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <PasswordInput border="alert-6" aria-label="Label" />
         <PasswordInput className="border-red" aria-label="Label" />
         <PasswordInput style={{ border: "1px solid red" }} aria-label="Label" />
         <PasswordInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
         <PasswordInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Placeholder.storyName = "placeholder";
-Value.storyName = "value";
-States.storyName = "states";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

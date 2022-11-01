@@ -29,6 +29,8 @@ export const Default = () => <Stack>
     </Inline>
 </Stack>;
 
+Default.storyName = "default";
+
 export const Divider = () =>
     <Stack>
         <Inline alignY="center">
@@ -51,6 +53,8 @@ export const Divider = () =>
         </Inline>
     </Stack>;
 
+Divider.storyName = "divider";
+
 export const Pushed = () =>
     <Stack>
         <Div>
@@ -62,6 +66,8 @@ export const Pushed = () =>
             <Counter pushed variant="divider">15</Counter>
         </Div>
     </Stack>;
+
+Pushed.storyName = "pushed";
 
 export const Reverse = () =>
     <Stack>
@@ -75,11 +81,15 @@ export const Reverse = () =>
         </Div>
     </Stack>;
 
+Reverse.storyName = "reverse";
+
 export const Color = () =>
     <Inline color="warning-7" backgroundColor="warning-1" alignY="center">
         <Counter color="inherit">15</Counter>
         <Counter variant="divider" color="inherit">15</Counter>
     </Inline>;
+
+Color.storyName = "color";
 
 export const Highlight = () =>
     <Inline alignY="center">
@@ -87,11 +97,15 @@ export const Highlight = () =>
         <Counter variant="divider" highlight>15</Counter>
     </Inline>;
 
+Highlight.storyName = "highlight";
+
 export const Disabled = () =>
     <Inline alignY="center">
         <Counter disabled>15</Counter>
         <Counter variant="divider" disabled>15</Counter>
     </Inline>;
+
+Disabled.storyName = "disabled";
 
 export const Zoom = () =>
     <Stack>
@@ -109,6 +123,8 @@ export const Zoom = () =>
         </Div>
     </Stack>;
 
+Zoom.storyName = "zoom";
+
 export const Styling = () =>
     <Stack>
         <Inline alignY="center">
@@ -123,12 +139,4 @@ export const Styling = () =>
         </Inline>
     </Stack>;
 
-Default.storyName = "default";
-Divider.storyName = "divider";
-Pushed.storyName = "pushed";
-Reverse.storyName = "reverse";
-Color.storyName = "color";
-Highlight.storyName = "highlight";
-Disabled.storyName = "disabled";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

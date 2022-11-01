@@ -17,19 +17,25 @@ export default {
     }
 };
 
-export const TextOnly = () =>
+export const TextOnly = () => (
     <Inline alignY="end">
         <Message>Scheduled launch today at 1PM.</Message>
         <Message>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
-    </Inline>;
+    </Inline>
+);
 
-export const TextDismiss = () =>
+TextOnly.storyName = "text only";
+
+export const TextDismiss = () => (
     <Inline alignY="end">
         <Message onDismiss={() => {}}>Scheduled launch today at 1PM.</Message>
         <Message onDismiss={() => {}}>Scheduled launch today at 1PM.<br />Please be cautious.</Message>
-    </Inline>;
+    </Inline>
+);
 
-export const TextAction = () =>
+TextDismiss.storyName = "text + dismiss";
+
+export const TextAction = () => (
     <Inline alignY="end">
         <Message>
             <Content>Scheduled launch today at 1PM.</Content>
@@ -39,9 +45,12 @@ export const TextAction = () =>
             <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
             <Button>Undo</Button>
         </Message>
-    </Inline>;
+    </Inline>
+);
 
-export const TextActionDismiss = () =>
+TextAction.storyName = "text + action";
+
+export const TextActionDismiss = () => (
     <Inline alignY="end">
         <Message onDismiss={() => {}}>
             <Content>Scheduled launch today at 1PM.</Content>
@@ -51,9 +60,12 @@ export const TextActionDismiss = () =>
             <Content>Scheduled launch today at 1PM.<br /><TextLink href="https://dictionary.cambridge.org/dictionary/english/cautious" external>Please be cautious</TextLink>.</Content>
             <Button>Undo</Button>
         </Message>
-    </Inline>;
+    </Inline>
+);
 
-export const RichContent = () =>
+TextActionDismiss.storyName = "text + action + dismiss";
+
+export const RichContent = () => (
     <Message onDismiss={() => {}}>
         <Content>
             <Heading>Scheduled launch</Heading>
@@ -64,20 +76,29 @@ export const RichContent = () =>
             </UL>
         </Content>
         <Button>Undo</Button>
-    </Message>;
+    </Message>
+);
 
-export const Contained = () =>
+RichContent.storyName = "rich content";
+
+export const Contained = () => (
     <Div width={16}>
         <Message>Scheduled launch today at 1PM.</Message>
-    </Div>;
+    </Div>
+);
 
-export const BoxAsContent = () =>
+Contained.storyName = "contained";
+
+export const BoxAsContent = () => (
     <Message>
         <Box slot="content">Scheduled launch today at 1PM.</Box>
         <Button>Undo</Button>
-    </Message>;
+    </Message>
+);
 
-export const Zoom = () =>
+BoxAsContent.storyName = "box as content";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Message>Scheduled launch today at 1PM.</Message>
@@ -85,16 +106,22 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <Message>Scheduled launch today at 1PM.</Message>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <Message border="warning-7"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
         <Message className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
         <Message style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
-    </Stack>;
+    </Stack>
+);
 
-export const Informative = () =>
+Styling.storyName = "styling";
+
+export const Informative = () => (
     <Stack>
         <Message variant="informative" onDismiss={() => {}}>
             <Content>
@@ -120,9 +147,12 @@ export const Informative = () =>
             </Content>
             <Button>Cancel</Button>
         </Message>
-    </Stack>;
+    </Stack>
+);
 
-export const Warning = () =>
+Informative.storyName = "informative";
+
+export const Warning = () => (
     <Stack>
         <Message variant="warning" onDismiss={() => {}}>
             <Content>
@@ -148,9 +178,12 @@ export const Warning = () =>
             </Content>
             <Button>Cancel</Button>
         </Message>
-    </Stack>;
+    </Stack>
+);
 
-export const Positive = () =>
+Warning.storyName = "warning";
+
+export const Positive = () => (
     <Stack>
         <Message variant="positive" onDismiss={() => {}}>
             <Content>
@@ -176,9 +209,12 @@ export const Positive = () =>
             </Content>
             <Button>Cancel</Button>
         </Message>
-    </Stack>;
+    </Stack>
+);
 
-export const Negative = () =>
+Positive.storyName = "positive";
+
+export const Negative = () => (
     <Stack>
         <Message variant="negative" onDismiss={() => {}}>
             <Content>
@@ -204,18 +240,7 @@ export const Negative = () =>
             </Content>
             <Button>Cancel</Button>
         </Message>
-    </Stack>;
+    </Stack>
+);
 
-TextOnly.storyName = "text only";
-TextDismiss.storyName = "text + dismiss";
-TextAction.storyName = "text + action";
-TextActionDismiss.storyName = "text + action + dismiss";
-RichContent.storyName = "rich content";
-Contained.storyName = "contained";
-BoxAsContent.storyName = "box as content";
-Zoom.storyName = "zoom";
-Styling.storyName = "styling";
-Informative.storyName = "informative";
-Warning.storyName = "warning";
-Positive.storyName = "positive";
 Negative.storyName = "negative";

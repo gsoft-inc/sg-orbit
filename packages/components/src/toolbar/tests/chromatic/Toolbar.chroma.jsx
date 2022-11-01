@@ -21,7 +21,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Toolbar>
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -36,9 +36,12 @@ export const Default = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const DisabledElement = () =>
+Default.storyName = "default";
+
+export const DisabledElement = () => (
     <Toolbar>
         <CheckboxGroup disabled>
             <ToggleButton value="1">1</ToggleButton>
@@ -53,9 +56,12 @@ export const DisabledElement = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Fluid = () =>
+DisabledElement.storyName = "disabled element";
+
+export const Fluid = () => (
     <Toolbar fluid>
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -68,9 +74,12 @@ export const Fluid = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Disabled = () =>
+Fluid.storyName = "fluid";
+
+export const Disabled = () => (
     <Toolbar disabled>
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -83,9 +92,12 @@ export const Disabled = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Gap = () =>
+Disabled.storyName = "disabled";
+
+export const Gap = () => (
     <Toolbar gap={13}>
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -100,9 +112,12 @@ export const Gap = () =>
             <Radio value="2">2</Radio>
             <Radio value="3">3</Radio>
         </RadioGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Align = () =>
+Gap.storyName = "gap";
+
+export const Align = () => (
     <Stack>
         <Toolbar alignX="start">
             <CheckboxGroup>
@@ -134,9 +149,12 @@ export const Align = () =>
                 <NotificationIcon />
             </ToggleIconButton>
         </Toolbar>
-    </Stack>;
+    </Stack>
+);
 
-export const VerticalAlign = () =>
+Align.storyName = "align";
+
+export const VerticalAlign = () => (
     <Inline gap={13}>
         <Toolbar alignY="start" height={10}>
             <CheckboxGroup>
@@ -168,9 +186,12 @@ export const VerticalAlign = () =>
                 <NotificationIcon />
             </ToggleIconButton>
         </Toolbar>
-    </Inline>;
+    </Inline>
+);
 
-export const NoWrap = () =>
+VerticalAlign.storyName = "vertical align";
+
+export const NoWrap = () => (
     <Div width={12}>
         <Toolbar wrap={false}>
             <CheckboxGroup>
@@ -187,9 +208,12 @@ export const NoWrap = () =>
                 <Radio value="3">3</Radio>
             </RadioGroup>
         </Toolbar>
-    </Div>;
+    </Div>
+);
 
-export const Complex = () =>
+NoWrap.storyName = "no wrap";
+
+export const Complex = () => (
     <Toolbar>
         <CheckboxGroup>
             <ToggleButton value="1">1</ToggleButton>
@@ -212,9 +236,12 @@ export const Complex = () =>
             <TextInput aria-label="Label" />
             <Text>Days</Text>
         </InputGroup>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const FieldsLabel = () =>
+Complex.storyName = "complex";
+
+export const FieldsLabel = () => (
     <Toolbar alignY="end">
         <Field>
             <Label>Package</Label>
@@ -229,9 +256,12 @@ export const FieldsLabel = () =>
             <TextInput aria-label="Label" />
         </Field>
         <ToggleButton>Activate</ToggleButton>
-    </Toolbar>;
+    </Toolbar>
+);
 
-export const Styling = () =>
+FieldsLabel.storyName = "fields + label";
+
+export const Styling = () => (
     <Stack>
         <Toolbar border="warning-7">
             <CheckboxGroup>
@@ -254,16 +284,7 @@ export const Styling = () =>
                 <ToggleButton value="3">3</ToggleButton>
             </CheckboxGroup>
         </Toolbar>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-DisabledElement.storyName = "disabled element";
-Fluid.storyName = "fluid";
-Disabled.storyName = "disabled";
-Gap.storyName = "gap";
-Align.storyName = "align";
-VerticalAlign.storyName = "vertical align";
-NoWrap.storyName = "no wrap";
-Complex.storyName = "complex";
-FieldsLabel.storyName = "fields + label";
 Styling.storyName = "styling";

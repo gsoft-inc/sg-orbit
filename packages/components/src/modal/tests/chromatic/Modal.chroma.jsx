@@ -14,7 +14,7 @@ export default {
     component: Modal
 };
 
-export const Default = () =>
+export const Default = () => (
     <Modal>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -22,9 +22,12 @@ export const Default = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ModalImage = () =>
+Default.storyName = "default";
+
+export const ModalImage = () => (
     <Modal>
         <Image src={Apollo11Poster} alt="Apollo 11" />
         <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -33,9 +36,12 @@ export const ModalImage = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ModalIllustration = () =>
+ModalImage.storyName = "image";
+
+export const ModalIllustration = () => (
     <Modal>
         <Illustration color="warning-1">
             <Image src={Nasa} alt="Nasa" />
@@ -46,9 +52,12 @@ export const ModalIllustration = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ModalChoice = () =>
+ModalIllustration.storyName = "illustration";
+
+export const ModalChoice = () => (
     <Modal>
         <Heading>Space agencies</Heading>
         <Content>
@@ -65,9 +74,12 @@ export const ModalChoice = () =>
                 <Button variant="secondary">Choose</Button>
             </Card>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ChoiceWithText = () =>
+ModalChoice.storyName = "choice";
+
+export const ChoiceWithText = () => (
     <Modal>
         <Heading>Space agencies</Heading>
         <Content>
@@ -85,9 +97,12 @@ export const ChoiceWithText = () =>
                 <Button variant="secondary">Choose</Button>
             </Card>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ChoiceWithContentBetweenCards = () =>
+ChoiceWithText.storyName = "choice with text";
+
+export const ChoiceWithContentBetweenCards = () => (
     <Modal>
         <Heading>Space agencies</Heading>
         <Content>
@@ -106,9 +121,12 @@ export const ChoiceWithContentBetweenCards = () =>
                 <Button variant="secondary">Choose</Button>
             </Card>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const StyledSystemStyleProp = () =>
+ChoiceWithContentBetweenCards.storyName = "choice with content between cards";
+
+export const StyledSystemStyleProp = () => (
     <Modal border="warning-7">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -116,9 +134,12 @@ export const StyledSystemStyleProp = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ClassName = () =>
+StyledSystemStyleProp.storyName = "styled system styleProp";
+
+export const ClassName = () => (
     <Modal className="border-red">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -126,9 +147,12 @@ export const ClassName = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-export const ZoomIn = () =>
+ClassName.storyName = "className";
+
+export const ZoomIn = () => (
     <Div className="zoom-in">
         <Modal>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -138,9 +162,12 @@ export const ZoomIn = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Modal>
-    </Div>;
+    </Div>
+);
 
-export const ZoomOut = () =>
+ZoomIn.storyName = "zoom in";
+
+export const ZoomOut = () => (
     <Div className="zoom-out">
         <Modal>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -150,9 +177,12 @@ export const ZoomOut = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Modal>
-    </Div>;
+    </Div>
+);
 
-export const StyledSystem = () =>
+ZoomOut.storyName = "zoom out";
+
+export const StyledSystem = () => (
     <Modal style={{ border: "1px solid red" }}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -160,16 +190,7 @@ export const StyledSystem = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Modal>;
+    </Modal>
+);
 
-Default.storyName = "default";
-ModalImage.storyName = "image";
-ModalIllustration.storyName = "illustration";
-ModalChoice.storyName = "choice";
-ChoiceWithText.storyName = "choice with text";
-ChoiceWithContentBetweenCards.storyName = "choice with content between cards";
-StyledSystemStyleProp.storyName = "styled system styleProp";
-ClassName.storyName = "className";
-ZoomIn.storyName = "zoom in";
-ZoomOut.storyName = "zoom out";
 StyledSystem.storyName = "styled system";

@@ -6,77 +6,107 @@ export default {
     component: Inline
 };
 
-export const Default = () =>
+export const Default = () => (
     <Inline>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const Reverse = () =>
+Default.storyName = "default";
+
+export const Reverse = () => (
     <Inline reverse>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignXStart = () =>
+Reverse.storyName = "reverse";
+
+export const AlignXStart = () => (
     <Inline alignX="start">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignXCenter = () =>
+AlignXStart.storyName = "align X start";
+
+export const AlignXCenter = () => (
     <Inline alignX="center">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignXEnd = () =>
+AlignXCenter.storyName = "align X center";
+
+export const AlignXEnd = () => (
     <Inline alignX="end">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignYStart = () =>
+AlignXEnd.storyName = "align X end";
+
+export const AlignYStart = () => (
     <Inline alignY="start" height={10}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignYCenter = () =>
+AlignYStart.storyName = "align Y start";
+
+export const AlignYCenter = () => (
     <Inline alignY="center" height={10}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const AlignYEnd = () =>
+AlignYCenter.storyName = "align Y center";
+
+export const AlignYEnd = () => (
     <Inline alignY="end" height={10}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const Wrap = () =>
+AlignYEnd.storyName = "align Y end";
+
+export const Wrap = () => (
     <Inline width={4}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const Nowrap = () =>
+Wrap.storyName = "wrap";
+
+export const Nowrap = () => (
     <Inline wrap={false} width={4}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Inline>;
+    </Inline>
+);
 
-export const DefaultInline = () =>
+Nowrap.storyName = "nowrap";
+
+export const DefaultInline = () => (
     <>
         <Inline inline>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -88,9 +118,12 @@ export const DefaultInline = () =>
             <Div backgroundColor="accent-5">Bravo</Div>
             <Div backgroundColor="accent-5">Charlie</Div>
         </Inline>
-    </>;
+    </>
+);
 
-export const Nested = () =>
+DefaultInline.storyName = "inline";
+
+export const Nested = () => (
     <Inline gap={8}>
         <Inline gap={1}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -102,17 +135,7 @@ export const Nested = () =>
             <Div backgroundColor="alert-5">Echo</Div>
             <Div backgroundColor="alert-5">Foxtrot</Div>
         </Inline>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Reverse.storyName = "reverse";
-AlignXStart.storyName = "align X start";
-AlignXCenter.storyName = "align X center";
-AlignXEnd.storyName = "align X end";
-AlignYStart.storyName = "align Y start";
-AlignYCenter.storyName = "align Y center";
-AlignYEnd.storyName = "align Y end";
-Wrap.storyName = "wrap";
-Nowrap.storyName = "nowrap";
-DefaultInline.storyName = "inline";
 Nested.storyName = "nested";

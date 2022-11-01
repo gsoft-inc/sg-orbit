@@ -17,7 +17,7 @@ export default {
     component: Dialog
 };
 
-export const Default = () =>
+export const Default = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -25,9 +25,12 @@ export const Default = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const TextHeader = () =>
+Default.storyName = "default";
+
+export const TextHeader = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Header>02 December 2020</Header>
@@ -36,9 +39,12 @@ export const TextHeader = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const LinkHeader = () =>
+TextHeader.storyName = "text header";
+
+export const LinkHeader = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Header>
@@ -49,9 +55,12 @@ export const LinkHeader = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const TextFooter = () =>
+LinkHeader.storyName = "link header";
+
+export const TextFooter = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -60,9 +69,12 @@ export const TextFooter = () =>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
         <Footer>02 December 2020</Footer>
-    </Dialog>;
+    </Dialog>
+);
 
-export const LinkFooter = () =>
+TextFooter.storyName = "text footer";
+
+export const LinkFooter = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -73,9 +85,12 @@ export const LinkFooter = () =>
         <Footer>
             <TextLink href="https://www.nature.com/articles/d41586-020-03421-y" external>View the whole story</TextLink>
         </Footer>
-    </Dialog>;
+    </Dialog>
+);
 
-export const DialogButton = () =>
+LinkFooter.storyName = "link footer";
+
+export const DialogButton = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -84,9 +99,12 @@ export const DialogButton = () =>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
         <Button variant="secondary">Close</Button>
-    </Dialog>;
+    </Dialog>
+);
 
-export const DialogButtonGroup = () =>
+DialogButton.storyName = "button";
+
+export const DialogButtonGroup = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -98,9 +116,12 @@ export const DialogButtonGroup = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const FooterButtonGroup = () =>
+DialogButtonGroup.storyName = "button group";
+
+export const FooterButtonGroup = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -113,9 +134,12 @@ export const FooterButtonGroup = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const ImageTooSmall = () =>
+FooterButtonGroup.storyName = "footer & button group";
+
+export const ImageTooSmall = () => (
     <Dialog>
         <Image src={Apollo11Poster} alt="Apollo 11" />
         <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -124,9 +148,12 @@ export const ImageTooSmall = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const ImageTooBig = () =>
+ImageTooSmall.storyName = "image too small";
+
+export const ImageTooBig = () => (
     <Dialog>
         <Image src={TheMartianPoster} alt="The Martian" />
         <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -135,9 +162,12 @@ export const ImageTooBig = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const DialogueIllustration = () =>
+ImageTooBig.storyName = "image too big";
+
+export const DialogueIllustration = () => (
     <Dialog>
         <Illustration color="warning-1">
             <Image src={Nasa} alt="Nasa" />
@@ -148,9 +178,12 @@ export const DialogueIllustration = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const AllSections = () =>
+DialogueIllustration.storyName = "illustration";
+
+export const AllSections = () => (
     <Dialog>
         <Illustration color="warning-1">
             <Image src={Nasa} alt="Nasa" />
@@ -169,9 +202,12 @@ export const AllSections = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const HeadingOverflow = () =>
+AllSections.storyName = "all sections";
+
+export const HeadingOverflow = () => (
     <Dialog>
         <Heading>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Heading>
         <Content>
@@ -179,9 +215,12 @@ export const HeadingOverflow = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const HeaderOverflow = () =>
+HeadingOverflow.storyName = "heading overflow";
+
+export const HeaderOverflow = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Header>
@@ -190,9 +229,12 @@ export const HeaderOverflow = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const FooterOverflow = () =>
+HeaderOverflow.storyName = "header overflow";
+
+export const FooterOverflow = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -205,9 +247,12 @@ export const FooterOverflow = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const ButtonOverflow = () =>
+FooterOverflow.storyName = "footer overflow";
+
+export const ButtonOverflow = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -220,9 +265,12 @@ export const ButtonOverflow = () =>
             <Button variant="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             <Button variant="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const EverythingOverflow = () =>
+ButtonOverflow.storyName = "button overflow";
+
+export const EverythingOverflow = () => (
     <Dialog>
         <Heading>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Heading>
         <Header>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas finibus a purus sit amet volutpat. Ut ac mauris sit amet elit rhoncus dictum. Morbi vehicula, tortor eget congue porta, mi ipsum interdum lectus, non lobortis dui nulla sed nisi.</Header>
@@ -237,9 +285,12 @@ export const EverythingOverflow = () =>
             <Button variant="secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
             <Button variant="primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const NotDismissable = () =>
+EverythingOverflow.storyName = "everything overflow";
+
+export const NotDismissable = () => (
     <Dialog dismissable={false}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -247,9 +298,12 @@ export const NotDismissable = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const Small = () =>
+NotDismissable.storyName = "not dismissable";
+
+export const Small = () => (
     <Dialog size="sm">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -261,9 +315,12 @@ export const Small = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const Medium = () =>
+Small.storyName = "small";
+
+export const Medium = () => (
     <Dialog size="md">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -275,9 +332,12 @@ export const Medium = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const Large = () =>
+Medium.storyName = "medium";
+
+export const Large = () => (
     <Dialog size="lg">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -289,9 +349,12 @@ export const Large = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const Scrolling = () =>
+Large.storyName = "large";
+
+export const Scrolling = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -306,9 +369,12 @@ export const Scrolling = () =>
             <Paragraph>Proin hendrerit volutpat diam, at cursus elit euismod ac. Donec in enim quis diam fermentum auctor. Suspendisse dignissim eros quis consectetur mattis. Vestibulum vel hendrerit libero. Vestibulum auctor nisl a ligula accumsan pharetra. Morbi blandit tristique est ac pulvinar. Vestibulum ornare, nulla a elementum facilisis, erat justo tristique tortor, eget rutrum nisi tortor id sapien. Morbi mattis semper urna vitae ornare.</Paragraph>
             <Paragraph>Donec ut purus tempus, eleifend lacus sit amet, varius tellus. Aliquam sed fringilla enim. Suspendisse luctus neque volutpat justo finibus, id auctor purus pellentesque. Fusce vulputate commodo enim ut consequat. Sed elit justo, feugiat ac augue a, rhoncus imperdiet nulla. Maecenas rutrum nulla non massa elementum, sit amet volutpat ex dignissim. Duis vulputate turpis a nisi dictum, a finibus erat feugiat. Donec mollis tristique neque at commodo. Suspendisse quis lacus in erat gravida iaculis et a nisi.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const NoAutofocus = () =>
+Scrolling.storyName = "scrolling";
+
+export const NoAutofocus = () => (
     <Dialog>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -328,9 +394,12 @@ export const NoAutofocus = () =>
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Next</Button>
         </ButtonGroup>
-    </Dialog>;
+    </Dialog>
+);
 
-export const Focused = () =>
+NoAutofocus.storyName = "do not autofocus an element which is not in the initial viewport";
+
+export const Focused = () => (
     <Dialog focus>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -338,9 +407,12 @@ export const Focused = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const WrapperStyledSystem = () =>
+Focused.storyName = "focused";
+
+export const WrapperStyledSystem = () => (
     <Dialog wrapperProps={{ border: "warning-7" }}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -348,9 +420,12 @@ export const WrapperStyledSystem = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const WrapperClassName = () =>
+WrapperStyledSystem.storyName = "wrapper styled system";
+
+export const WrapperClassName = () => (
     <Dialog wrapperProps={{ className: "border-red" }}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -358,9 +433,12 @@ export const WrapperClassName = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const WrapperStyle = () =>
+WrapperClassName.storyName = "wrapper className";
+
+export const WrapperStyle = () => (
     <Dialog wrapperProps={{ style: { border: "1px solid red" } }}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -370,7 +448,9 @@ export const WrapperStyle = () =>
         </Content>
     </Dialog>;
 
-export const StyledSystem = () =>
+WrapperStyle.storyName = "wrapper style";
+
+export const StyledSystem = () => (
     <Dialog border="warning-7">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -378,9 +458,12 @@ export const StyledSystem = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const ClassName = () =>
+StyledSystem.storyName = "styled system";
+
+export const ClassName = () => (
     <Dialog className="border-red">
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -388,9 +471,12 @@ export const ClassName = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-export const ZoomIn = () =>
+ClassName.storyName = "className";
+
+export const ZoomIn = () => (
     <Div className="zoom-in">
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -400,9 +486,12 @@ export const ZoomIn = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Dialog>
-    </Div>;
+    </Div>
+);
 
-export const ZoomOut = () =>
+ZoomIn.storyName = "zoom in";
+
+export const ZoomOut = () => (
     <Div className="zoom-out">
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
@@ -412,9 +501,12 @@ export const ZoomOut = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Dialog>
-    </Div>;
+    </Div>
+);
 
-export const Style = () =>
+ZoomOut.storyName = "zoom out";
+
+export const Style = () => (
     <Dialog style={{ border: "1px solid red" }}>
         <Heading>Iconic Arecibo Observatory collapses</Heading>
         <Content>
@@ -422,37 +514,7 @@ export const Style = () =>
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>
+);
 
-Default.storyName = "default";
-TextHeader.storyName = "text header";
-LinkHeader.storyName = "link header";
-TextFooter.storyName = "text footer";
-LinkFooter.storyName = "link footer";
-DialogButton.storyName = "button";
-DialogButtonGroup.storyName = "button group";
-FooterButtonGroup.storyName = "footer & button group";
-ImageTooSmall.storyName = "image too small";
-ImageTooBig.storyName = "image too big";
-DialogueIllustration.storyName = "illustration";
-AllSections.storyName = "all sections";
-HeadingOverflow.storyName = "heading overflow";
-HeaderOverflow.storyName = "header overflow";
-FooterOverflow.storyName = "footer overflow";
-ButtonOverflow.storyName = "button overflow";
-EverythingOverflow.storyName = "everything overflow";
-NotDismissable.storyName = "not dismissable";
-Small.storyName = "small";
-Medium.storyName = "medium";
-Large.storyName = "large";
-Scrolling.storyName = "scrolling";
-NoAutofocus.storyName = "do not autofocus an element which is not in the initial viewport";
-Focused.storyName = "focused";
-WrapperStyledSystem.storyName = "wrapper styled system";
-WrapperClassName.storyName = "wrapper className";
-WrapperStyle.storyName = "wrapper style";
-StyledSystem.storyName = "styled system";
-ClassName.storyName = "className";
-ZoomIn.storyName = "zoom in";
-ZoomOut.storyName = "zoom out";
 Style.storyName = "style";

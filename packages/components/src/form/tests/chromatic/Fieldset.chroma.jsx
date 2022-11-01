@@ -10,7 +10,7 @@ export default {
     component: Fieldset
 };
 
-export const Default = () =>
+export const Default = () => (
     <Form>
         <Fieldset label="Shipping Address">
             <Inline>
@@ -93,9 +93,12 @@ export const Default = () =>
             </Field>
         </Fieldset>
         <Button variant="secondary">Submit</Button>
-    </Form>;
+    </Form>
+);
 
-export const Zoom = () =>
+Default.storyName = "default";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Fieldset label="Shipping Address">
@@ -125,9 +128,12 @@ export const Zoom = () =>
                 </Inline>
             </Fieldset>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <Fieldset border="warning-7" label="Shipping Address">
             <Inline>
@@ -165,8 +171,7 @@ export const Styling = () =>
                 </Field>
             </Inline>
         </Fieldset>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

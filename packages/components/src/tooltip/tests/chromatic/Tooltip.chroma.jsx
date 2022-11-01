@@ -24,215 +24,274 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <TooltipTrigger>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const Open = () =>
+Default.storyName = "default";
+
+export const Open = () => (
     <TooltipTrigger open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const OpenOnFocus = () =>
+Open.storyName = "open";
+
+export const OpenOnFocus = () => (
     <TooltipTrigger>
         <Button autoFocus variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const IconTrigger = () =>
+OpenOnFocus.storyName = "open on focus";
+
+export const IconTrigger = () => (
     <TooltipTrigger open>
         <EmailIcon />
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const IconButtonTrigger = () =>
+IconTrigger.storyName = "icon trigger";
+
+export const IconButtonTrigger = () => (
     <TooltipTrigger open>
         <IconButton variant="secondary" aria-label="Email">
             <EmailIcon />
         </IconButton>
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const LinkTrigger = () =>
+IconButtonTrigger.storyName = "icon button trigger";
+
+export const LinkTrigger = () => (
     <TooltipTrigger open>
         <TextLink>Trigger</TextLink>
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const ImageTrigger = () =>
+LinkTrigger.storyName = "link trigger";
+
+export const ImageTrigger = () => (
     <TooltipTrigger open>
         <Image src={Launch} width="400px" alt="SpaceX launch" />
         <Tooltip>Man must rise above the Earth</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const VeryLongContent = () =>
+ImageTrigger.storyName = "image trigger";
+
+export const VeryLongContent = () => (
     <TooltipTrigger open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth—to the top of the atmosphere and beyond—for only thus will he fully understand the world in which he lives. Astronomy compels the soul to look upward, and leads us from this world to another.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const LinkInContent = () =>
+VeryLongContent.storyName = "very long content";
+
+export const LinkInContent = () => (
     <TooltipTrigger open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the <TextLink href="https://en.wikipedia.org/wiki/Earth">Earth</TextLink>.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionAuto = () =>
+LinkInContent.storyName = "link in content";
+
+export const PositionAuto = () => (
     <TooltipTrigger position="auto" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionAutoSstart = () =>
+PositionAuto.storyName = "position auto";
+
+export const PositionAutoSstart = () => (
     <TooltipTrigger position="auto-start" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionAutoEnd = () =>
+PositionAutoSstart.storyName = "position auto-start";
+
+export const PositionAutoEnd = () => (
     <TooltipTrigger position="auto-end" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionTop = () =>
+PositionAutoEnd.storyName = "position auto-end";
+
+export const PositionTop = () => (
     <TooltipTrigger position="top" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionTopRtart = () =>
+PositionTop.storyName = "position top";
+
+export const PositionTopRtart = () => (
     <TooltipTrigger position="top-start" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionTopEnd = () =>
+PositionTopRtart.storyName = "position top-start";
+
+export const PositionTopEnd = () => (
     <TooltipTrigger position="top-end" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionBottom = () =>
+PositionTopEnd.storyName = "position top-end";
+
+export const PositionBottom = () => (
     <TooltipTrigger position="bottom" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionBottomSstart = () =>
+PositionBottom.storyName = "position bottom";
+
+export const PositionBottomSstart = () => (
     <TooltipTrigger position="bottom-start" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionBottomEnd = () =>
+PositionBottomSstart.storyName = "position bottom-start";
+
+export const PositionBottomEnd = () => (
     <TooltipTrigger position="bottom-end" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionRight = () =>
+PositionBottomEnd.storyName = "position bottom-end";
+
+export const PositionRight = () => (
     <TooltipTrigger position="right" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionRightRtart = () =>
+PositionRight.storyName = "position right";
+
+export const PositionRightRtart = () => (
     <TooltipTrigger position="right-start" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionRightEnd = () =>
+PositionRightRtart.storyName = "position right-start";
+
+export const PositionRightEnd = () => (
     <TooltipTrigger position="right-end" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionLeft = () =>
+PositionRightEnd.storyName = "position right-end";
+
+export const PositionLeft = () => (
     <TooltipTrigger position="left" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionLeftStart = () =>
+PositionLeft.storyName = "position left";
+
+export const PositionLeftStart = () => (
     <TooltipTrigger position="left-start" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const PositionLeftEnd = () =>
+PositionLeftStart.storyName = "position left-start";
+
+export const PositionLeftEnd = () => (
     <TooltipTrigger position="left-end" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipTriggerRtyledRystem = () =>
+PositionLeftEnd.storyName = "position left-end";
+
+export const TooltipTriggerRtyledRystem = () => (
     <TooltipTrigger border="warning-7" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipTriggerClassName = () =>
+TooltipTriggerRtyledRystem.storyName = "tooltip trigger styled system";
+
+export const TooltipTriggerClassName = () => (
     <TooltipTrigger className="border-red" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipTriggerStyle = () =>
+TooltipTriggerClassName.storyName = "tooltip trigger className";
+
+export const TooltipTriggerStyle = () => (
     <TooltipTrigger style={{ border: "1px solid red" }} open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipStyledRystem = () =>
+TooltipTriggerStyle.storyName = "tooltip trigger style";
+
+export const TooltipStyledRystem = () => (
     <TooltipTrigger border="warning-7" open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip className="border-red">Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipClassName = () =>
+TooltipStyledRystem.storyName = "tooltip styled system";
+
+export const TooltipClassName = () => (
     <TooltipTrigger open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip className="border-red">Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-export const TooltipStyle = () =>
+TooltipClassName.storyName = "tooltip className";
+
+export const TooltipStyle = () => (
     <TooltipTrigger open>
         <Button variant="secondary">Trigger</Button>
         <Tooltip style={{ border: "1px solid red" }}>Man must rise above the Earth.</Tooltip>
-    </TooltipTrigger>;
+    </TooltipTrigger>
+);
 
-Default.storyName = "default";
-Open.storyName = "open";
-OpenOnFocus.storyName = "open on focus";
-IconTrigger.storyName = "icon trigger";
-IconButtonTrigger.storyName = "icon button trigger";
-LinkTrigger.storyName = "link trigger";
-ImageTrigger.storyName = "image trigger";
-VeryLongContent.storyName = "very long content";
-LinkInContent.storyName = "link in content";
-PositionAuto.storyName = "position auto";
-PositionAutoSstart.storyName = "position auto-start";
-PositionAutoEnd.storyName = "position auto-end";
-PositionTop.storyName = "position top";
-PositionTopRtart.storyName = "position top-start";
-PositionTopEnd.storyName = "position top-end";
-PositionBottom.storyName = "position bottom";
-PositionBottomSstart.storyName = "position bottom-start";
-PositionBottomEnd.storyName = "position bottom-end";
-PositionRight.storyName = "position right";
-PositionRightRtart.storyName = "position right-start";
-PositionRightEnd.storyName = "position right-end";
-PositionLeft.storyName = "position left";
-PositionLeftStart.storyName = "position left-start";
-PositionLeftEnd.storyName = "position left-end";
-TooltipTriggerRtyledRystem.storyName = "tooltip trigger styled system";
-TooltipTriggerClassName.storyName = "tooltip trigger className";
-TooltipTriggerStyle.storyName = "tooltip trigger style";
-TooltipStyledRystem.storyName = "tooltip styled system";
-TooltipClassName.storyName = "tooltip className";
 TooltipStyle.storyName = "tooltip style";

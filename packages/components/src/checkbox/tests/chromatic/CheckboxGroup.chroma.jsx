@@ -56,6 +56,8 @@ export const Default = () =>
         </CheckboxGroup>
     </Stack>;
 
+Default.storyName = "default";
+
 export const Selection = () =>
     <Stack>
         <CheckboxGroup value={[]}>
@@ -75,12 +77,16 @@ export const Selection = () =>
         </CheckboxGroup>
     </Stack>;
 
+Selection.storyName = "selection";
+
 export const Number = () =>
     <CheckboxGroup defaultValue={[2]}>
         <Checkbox value={1}>1</Checkbox>
         <Checkbox value={2}>2</Checkbox>
         <Checkbox value={3}>3</Checkbox>
     </CheckboxGroup>;
+
+Number.storyName = "number";
 
 export const Disabled = () =>
     <CheckboxGroup disabled>
@@ -89,12 +95,16 @@ export const Disabled = () =>
         <Checkbox value="3">3</Checkbox>
     </CheckboxGroup>;
 
+Disabled.storyName = "disabled";
+
 export const Gap = () =>
     <CheckboxGroup gap={13}>
         <Checkbox value="1">1</Checkbox>
         <Checkbox value="2">2</Checkbox>
         <Checkbox value="3">3</Checkbox>
     </CheckboxGroup>;
+
+Gap.storyName = "gap";
 
 export const Wrap = () =>
     <Div width={11}>
@@ -107,6 +117,8 @@ export const Wrap = () =>
         </CheckboxGroup>
     </Div>;
 
+Wrap.storyName = "wrap";
+
 export const NoWrap = () =>
     <Div width={11}>
         <CheckboxGroup wrap={false}>
@@ -117,6 +129,8 @@ export const NoWrap = () =>
             }
         </CheckboxGroup>
     </Div>;
+
+NoWrap.storyName = "no wrap";
 
 export const WrapOverflow = () =>
     <Div width={12}>
@@ -129,6 +143,8 @@ export const WrapOverflow = () =>
         </CheckboxGroup>
     </Div>;
 
+WrapOverflow.storyName = "wrap overflow";
+
 export const ToggleButtons = () =>
     <CheckboxGroup gap={2} defaultValue={["2"]}>
         <ToggleButton variant="secondary" value="1">1</ToggleButton>
@@ -136,12 +152,16 @@ export const ToggleButtons = () =>
         <ToggleButton variant="secondary" value="3">3</ToggleButton>
     </CheckboxGroup>;
 
+ToggleButtons.storyName = "toggle buttons";
+
 export const CustomComponents = () =>
     <CheckboxGroup gap={2} defaultValue={["2"]}>
         <CustomComponent value="1">1</CustomComponent>
         <CustomComponent value="2">2</CustomComponent>
         <CustomComponent value="3">3</CustomComponent>
     </CheckboxGroup>;
+
+CustomComponents.storyName = "custom components";
 
 export const Validation = () =>
     <Inline gap={13}>
@@ -156,6 +176,8 @@ export const Validation = () =>
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
     </Inline>;
+
+Validation.storyName = "validation";
 
 export const Styling = () =>
     <Inline>
@@ -176,6 +198,8 @@ export const Styling = () =>
         </CheckboxGroup>
     </Inline>;
 
+Styling.storyName = "styling";
+
 export const Reverse = () =>
     <Stack inline>
         <CheckboxGroup reverse label="Select your packages">
@@ -189,6 +213,8 @@ export const Reverse = () =>
             <Checkbox value="3">3</Checkbox>
         </CheckboxGroup>
     </Stack>;
+
+Reverse.storyName = "reverse";
 
 export const Zoom = () =>
     <Stack>
@@ -208,17 +234,4 @@ export const Zoom = () =>
         </Div>
     </Stack>;
 
-Default.storyName = "default";
-Selection.storyName = "selection";
-Number.storyName = "number";
-Disabled.storyName = "disabled";
-Gap.storyName = "gap";
-Wrap.storyName = "wrap";
-NoWrap.storyName = "no wrap";
-WrapOverflow.storyName = "wrap overflow";
-ToggleButtons.storyName = "toggle buttons";
-CustomComponents.storyName = "custom components";
-Validation.storyName = "validation";
-Styling.storyName = "styling";
-Reverse.storyName = "reverse";
 Zoom.storyName = "zoom";

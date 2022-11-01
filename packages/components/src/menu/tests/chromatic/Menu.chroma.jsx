@@ -18,21 +18,27 @@ export default {
     }
 };
 
-export const OnlyItems = () =>
+export const OnlyItems = () => (
     <Menu aria-label="Planets">
         <Item key="earth">Earth</Item>
         <Item key="mars">Mars</Item>
         <Item key="saturn">Saturn</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const GeneratedKeys = () =>
+OnlyItems.storyName = "only items";
+
+export const GeneratedKeys = () => (
     <Menu aria-label="Planets">
         <Item>Earth</Item>
         <Item>Mars</Item>
         <Item>Saturn</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const Sections = () =>
+GeneratedKeys.storyName = "generated keys";
+
+export const Sections = () => (
     <Menu aria-label="Planets">
         <Section title="Visited">
             <Item key="earth">Earth</Item>
@@ -45,9 +51,12 @@ export const Sections = () =>
             <Item key="neptune">Neptune</Item>
             <Item key="uranus">Uranus</Item>
         </Section>
-    </Menu>;
+    </Menu>
+);
 
-export const Dividers = () =>
+Sections.storyName = "sections";
+
+export const Dividers = () => (
     <Menu aria-label="Planets">
         <Item key="earth">Earth</Item>
         <Item key="mars">Mars</Item>
@@ -58,9 +67,12 @@ export const Dividers = () =>
         <Item key="mercury">Mercury</Item>
         <Item key="neptune">Neptune</Item>
         <Item key="uranus">Uranus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const MixedSectionsItemsAndDividers = () =>
+Dividers.storyName = "dividers";
+
+export const MixedSectionsItemsAndDividers = () => (
     <Menu aria-label="Planets">
         <Item key="earth">Earth</Item>
         <Item key="mars">Mars</Item>
@@ -72,9 +84,12 @@ export const MixedSectionsItemsAndDividers = () =>
             <Item key="neptune">Neptune</Item>
             <Item key="uranus">Uranus</Item>
         </Section>
-    </Menu>;
+    </Menu>
+);
 
-export const SelectedKeys = () =>
+MixedSectionsItemsAndDividers.storyName = "mixed sections, items and dividers";
+
+export const SelectedKeys = () => (
     <Inline>
         <Menu defaultSelectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
             <Item key="earth">Earth</Item>
@@ -94,9 +109,12 @@ export const SelectedKeys = () =>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
         </Menu>
-    </Inline>;
+    </Inline>
+);
 
-export const ItemWithStartIcon = () =>
+SelectedKeys.storyName = "selected keys";
+
+export const ItemWithStartIcon = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <NotificationIcon />
@@ -114,9 +132,12 @@ export const ItemWithStartIcon = () =>
         <Item key="neptune">Neptune</Item>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ItemWithStartIconAndDescription = () =>
+ItemWithStartIcon.storyName = "item with start icon";
+
+export const ItemWithStartIconAndDescription = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <NotificationIcon />
@@ -133,9 +154,12 @@ export const ItemWithStartIconAndDescription = () =>
             <Text>Mars</Text>
             <Text slot="description">Elon and Grimes are coming.</Text>
         </Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ItemWithEndIcon = () =>
+ItemWithStartIconAndDescription.storyName = "item with start icon and description";
+
+export const ItemWithEndIcon = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Text>Earth</Text>
@@ -153,9 +177,12 @@ export const ItemWithEndIcon = () =>
         <Item key="neptune">Neptune</Item>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ItemWithAvatar = () =>
+ItemWithEndIcon.storyName = "item with end icon";
+
+export const ItemWithAvatar = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="Earth" />
@@ -169,9 +196,12 @@ export const ItemWithAvatar = () =>
             <Avatar src="https://randomuser.me/api/portraits/men/10.jpg" name="Mars" />
             <Text>Mars</Text>
         </Item>
-    </Menu>;
+    </Menu>
+);
 
-export const itemWithAvatarAndDescription = () =>
+ItemWithAvatar.storyName = "item with avatar";
+
+export const itemWithAvatarAndDescription = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Avatar name="Earth" />
@@ -188,9 +218,12 @@ export const itemWithAvatarAndDescription = () =>
             <Text>Mars</Text>
             <Text slot="description">Elon and Grimes are coming.</Text>
         </Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ItemWithDescription = () =>
+itemWithAvatarAndDescription.storyName = "item with avatar and description";
+
+export const ItemWithDescription = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Text>Earth</Text>
@@ -205,9 +238,12 @@ export const ItemWithDescription = () =>
         <Item key="neptune">Neptune</Item>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ItemOverflow = () =>
+ItemWithDescription.storyName = "item with description";
+
+export const ItemOverflow = () => (
     <Inline>
         <Menu width={12} aria-label="Planets">
             <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
@@ -219,9 +255,12 @@ export const ItemOverflow = () =>
             <Item>Jupiter</Item>
             <Item>Mars</Item>
         </Menu>
-    </Inline>;
+    </Inline>
+);
 
-export const ItemWithDescriptionOverflow = () =>
+ItemOverflow.storyName = "item overflow";
+
+export const ItemWithDescriptionOverflow = () => (
     <Inline>
         <Menu aria-label="Planets">
             <Item key="earth">
@@ -261,9 +300,12 @@ export const ItemWithDescriptionOverflow = () =>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
         </Menu>
-    </Inline>;
+    </Inline>
+);
 
-export const ItemWithDescriptionOverflowWhenFluid = () =>
+ItemWithDescriptionOverflow.storyName = "item with description overflow";
+
+export const ItemWithDescriptionOverflowWhenFluid = () => (
     <Inline>
         <Menu fluid width={15} aria-label="Planets">
             <Item key="earth">
@@ -295,16 +337,22 @@ export const ItemWithDescriptionOverflowWhenFluid = () =>
             <Item key="saturn">Saturn</Item>
             <Item key="uranus">Uranus</Item>
         </Menu>
-    </Inline>;
+    </Inline>
+);
 
-export const Fluid = () =>
+ItemWithDescriptionOverflowWhenFluid.storyName = "item with description overflow when fluid";
+
+export const Fluid = () => (
     <Menu fluid aria-label="Planets">
         <Item key="earth">Earth</Item>
         <Item key="mars">Mars</Item>
         <Item key="saturn">Saturn</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ValidationState = () =>
+Fluid.storyName = "fluid";
+
+export const ValidationState = () => (
     <Stack>
         <Inline>
             <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
@@ -362,9 +410,12 @@ export const ValidationState = () =>
                 </Item>
             </Menu>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const States = () =>
+ValidationState.storyName = "validation state";
+
+export const States = () => (
     <Stack>
         <Inline>
             <Menu selectedKeys={["earth"]} selectionMode="single" aria-label="Planets">
@@ -410,14 +461,20 @@ export const States = () =>
                 <Item disabled focus hover key="mercury">Mercury</Item>
             </Menu>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const DynamicItems = () =>
+States.storyName = "states";
+
+export const DynamicItems = () => (
     <Menu aria-label="Planets">
         {["Earth", "Jupiter", "Mars", "Mercury", "Neptune", "Saturn", "Uranus"].map(x => (
             <Item key={x.toLowerCase()}>{x}</Item>
         ))}
-    </Menu>;
+    </Menu>
+);
+
+DynamicItems.storyName = "dynamic items";
 
 const RedItem = ({ children, ...rest }) => {
     return (
@@ -430,35 +487,47 @@ const RedItem = ({ children, ...rest }) => {
     );
 };
 
-export const CustomItemComponent = () =>
+export const CustomItemComponent = () => (
     <Menu aria-label="Planets">
         <RedItem key="earth">Earth</RedItem>
         <RedItem key="jupiter">Jupiter</RedItem>
         <RedItem key="mars">Mars</RedItem>
-    </Menu>;
+    </Menu>
+);
 
-export const AdaptWidthToLargestItem = () =>
+CustomItemComponent.storyName = "custom item component";
+
+export const AdaptWidthToLargestItem = () => (
     <Menu aria-label="Planets">
         <Item>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
         <Item>Jupiter</Item>
         <Item>Mars</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const CustomMenuWidth = () =>
+AdaptWidthToLargestItem.storyName = "adapt width to largest item";
+
+export const CustomMenuWidth = () => (
     <Menu width={16} aria-label="Planets">
         <Item key="earth">Earth</Item>
         <Item key="mars">Mars</Item>
         <Item key="saturn">Saturn</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ConditionalRendering = () =>
+CustomMenuWidth.storyName = "custom menu width";
+
+export const ConditionalRendering = () => (
     <Menu aria-label="Planets">
         {false && <Item key="earth">Earth</Item>}
         <Item>Jupiter</Item>
         <Item>Mars</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ScrollingWithTooManyItems = () =>
+ConditionalRendering.storyName = "conditional rendering";
+
+export const ScrollingWithTooManyItems = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Item key="ceres">Ceres</Item>
         <Item key="charon">Charon</Item>
@@ -474,9 +543,12 @@ export const ScrollingWithTooManyItems = () =>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
         <Item key="venus">Venus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ScrollingWithSections = () =>
+ScrollingWithTooManyItems.storyName = "scrolling with too many items";
+
+export const ScrollingWithSections = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Section title="Visited">
             <Item key="earth">Earth</Item>
@@ -496,9 +568,23 @@ export const ScrollingWithSections = () =>
             <Item key="uranus">Uranus</Item>
             <Item key="venus">Venus</Item>
         </Section>
-    </Menu>;
+    </Menu>
+);
 
-export const ScrollingWithDividers = () =>
+ScrollingWithSections.storyName = "scrolling with sections";
+
+ScrollingWithSections.args = {
+    a11y: {
+        config: {
+            rules: [
+                { id: "aria-required-children", enabled: false },
+                { id: "aria-required-parent", enabled: false }
+            ]
+        }
+    }
+};
+
+export const ScrollingWithDividers = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Item key="ceres">Ceres</Item>
         <Item key="charon">Charon</Item>
@@ -516,9 +602,12 @@ export const ScrollingWithDividers = () =>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
         <Item key="venus">Venus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const ScrollingWithDescriptions = () =>
+ScrollingWithDividers.storyName = "scrolling with dividers";
+
+export const ScrollingWithDescriptions = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Item key="earth">
             <Text>Earth</Text>
@@ -556,9 +645,12 @@ export const ScrollingWithDescriptions = () =>
             <Text>Venus</Text>
             <Text slot="description">A description!</Text>
         </Item>
-    </Menu>;
+    </Menu>
+);
 
-export const scrollingMixMatch = () =>
+ScrollingWithDescriptions.storyName = "scrolling with descriptions";
+
+export const scrollingMixMatch = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Section title="Visited">
             <Item key="earth">
@@ -585,9 +677,12 @@ export const scrollingMixMatch = () =>
             <Item key="uranus">Uranus</Item>
             <Item key="venus">Venus</Item>
         </Section>
-    </Menu>;
+    </Menu>
+);
 
-export const ScrollingWithCustomStyleHeight = () =>
+scrollingMixMatch.storyName = "scrolling mix & match";
+
+export const ScrollingWithCustomStyleHeight = () => (
     <Menu selectionMode="single" height={12} aria-label="Planets">
         <Item key="ceres">Ceres</Item>
         <Item key="charon">Charon</Item>
@@ -603,9 +698,12 @@ export const ScrollingWithCustomStyleHeight = () =>
         <Item key="saturn">Saturn</Item>
         <Item key="uranus">Uranus</Item>
         <Item key="venus">Venus</Item>
-    </Menu>;
+    </Menu>
+);
 
-export const Zoom = () =>
+ScrollingWithCustomStyleHeight.storyName = "scrolling with custom style height";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Menu aria-label="Planets">
@@ -621,9 +719,12 @@ export const Zoom = () =>
                 <Item key="mars">Mars</Item>
             </Menu>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <Menu border="warning-7" aria-label="Planets">
             <Item key="earth">Earth</Item>
@@ -640,47 +741,7 @@ export const Styling = () =>
             <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
-    </Inline>;
+    </Inline>
+);
 
-ScrollingWithSections.args = {
-    a11y: {
-        config: {
-            rules: [
-                { id: "aria-required-children", enabled: false },
-                { id: "aria-required-parent", enabled: false }
-            ]
-        }
-    }
-};
-
-OnlyItems.storyName = "only items";
-GeneratedKeys.storyName = "generated keys";
-Sections.storyName = "sections";
-Dividers.storyName = "dividers";
-MixedSectionsItemsAndDividers.storyName = "mixed sections, items and dividers";
-SelectedKeys.storyName = "selected keys";
-ItemWithStartIcon.storyName = "item with start icon";
-ItemWithStartIconAndDescription.storyName = "item with start icon and description";
-ItemWithEndIcon.storyName = "item with end icon";
-ItemWithAvatar.storyName = "item with avatar";
-itemWithAvatarAndDescription.storyName = "item with avatar and description";
-ItemWithDescription.storyName = "item with description";
-ItemOverflow.storyName = "item overflow";
-ItemWithDescriptionOverflow.storyName = "item with description overflow";
-ItemWithDescriptionOverflowWhenFluid.storyName = "item with description overflow when fluid";
-Fluid.storyName = "fluid";
-ValidationState.storyName = "validation state";
-States.storyName = "states";
-DynamicItems.storyName = "dynamic items";
-CustomItemComponent.storyName = "custom item component";
-AdaptWidthToLargestItem.storyName = "adapt width to largest item";
-CustomMenuWidth.storyName = "custom menu width";
-ConditionalRendering.storyName = "conditional rendering";
-ScrollingWithTooManyItems.storyName = "scrolling with too many items";
-ScrollingWithSections.storyName = "scrolling with sections";
-ScrollingWithDividers.storyName = "scrolling with dividers";
-ScrollingWithDescriptions.storyName = "scrolling with descriptions";
-scrollingMixMatch.storyName = "scrolling mix & match";
-ScrollingWithCustomStyleHeight.storyName = "scrolling with custom style height";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

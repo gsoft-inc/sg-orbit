@@ -12,7 +12,7 @@ export default {
     component: Form
 };
 
-export const Default = () =>
+export const Default = () => (
     <Form>
         <Field>
             <Label>Gender</Label>
@@ -53,9 +53,12 @@ export const Default = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-export const Fluid = () =>
+Default.storyName = "default";
+
+export const Fluid = () => (
     <Form fluid>
         <Field>
             <Label>Gender</Label>
@@ -96,9 +99,12 @@ export const Fluid = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-export const FluidFixWidthContainer = () =>
+Fluid.storyName = "fluid";
+
+export const FluidFixWidthContainer = () => (
     <Div width={17}>
         <Form fluid>
             <Field>
@@ -141,9 +147,12 @@ export const FluidFixWidthContainer = () =>
                 <Button type="submit" variant="secondary">Submit</Button>
             </ButtonGroup>
         </Form>
-    </Div>;
+    </Div>
+);
 
-export const Messages = () =>
+FluidFixWidthContainer.storyName = "fluid with fix width container";
+
+export const Messages = () => (
     <Form>
         <Inline>
             <Field>
@@ -182,9 +191,7 @@ export const Messages = () =>
             <TextLinkAsButton type="reset">Reset</TextLinkAsButton>
             <Button type="submit" variant="secondary">Submit</Button>
         </ButtonGroup>
-    </Form>;
+    </Form>
+);
 
-Default.storyName = "default";
-Fluid.storyName = "fluid";
-FluidFixWidthContainer.storyName = "fluid with fix width container";
 Messages.storyName = "messages";

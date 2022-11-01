@@ -11,19 +11,26 @@ export default {
     }
 };
 
-export const Default = () =>
-    <Underlay />;
-
-export const StyledRystem = () =>
-    <Underlay border="warning-7" />;
-
-export const ClassName = () =>
-    <Underlay className="border-red" />;
-
-export const Style = () =>
-    <Underlay style={{ border: "1px solid red" }} />;
+export const Default = () => (
+    <Underlay />
+);
 
 Default.storyName = "Default.storyName";
+
+export const StyledRystem = () => (
+    <Underlay border="warning-7" />
+);
+
 StyledRystem.storyName = "StyledRystem.storyName";
+
+export const ClassName = () => (
+    <Underlay className="border-red" />
+);
+
 ClassName.storyName = "ClassName.storyName";
+
+export const Style = () => (
+    <Underlay style={{ border: "1px solid red" }} />
+);
+
 Style.storyName = "Style.storyName";

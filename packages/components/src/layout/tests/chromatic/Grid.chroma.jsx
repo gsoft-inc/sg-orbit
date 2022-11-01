@@ -8,7 +8,7 @@ export default {
     component: Grid
 };
 
-export const Default = () =>
+export const Default = () => (
     <Grid>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
@@ -16,9 +16,12 @@ export const Default = () =>
         <Div backgroundColor="accent-5">Delta</Div>
         <Div backgroundColor="accent-5">Echo</Div>
         <Div backgroundColor="accent-5">Foxtrot</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const GridInline = () =>
+Default.storyName = "default";
+
+export const GridInline = () => (
     <>
         <Grid inline>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -30,9 +33,12 @@ export const GridInline = () =>
             <Div backgroundColor="accent-10">Echo</Div>
             <Div backgroundColor="accent-10">Foxtrot</Div>
         </Grid>
-    </>;
+    </>
+);
 
-export const Nesting = () =>
+GridInline.storyName = "inline";
+
+export const Nesting = () => (
     <Grid templateColumns={["1fr", "1fr"]} gap={4}>
         <Grid templateColumns={[13, "auto"]}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -42,9 +48,12 @@ export const Nesting = () =>
             <Div backgroundColor="accent-8">Delta</Div>
             <Div backgroundColor="accent-9">Echo</Div>
         </Grid>
-    </Grid>;
+    </Grid>
+);
 
-export const Gap = () =>
+Nesting.storyName = "nesting";
+
+export const Gap = () => (
     <Grid gap={4}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
@@ -52,9 +61,12 @@ export const Gap = () =>
         <Div backgroundColor="accent-5">Delta</Div>
         <Div backgroundColor="accent-5">Echo</Div>
         <Div backgroundColor="accent-5">Foxtrot</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const ColumnGap = () =>
+Gap.storyName = "gap";
+
+export const ColumnGap = () => (
     <Grid columnGap={4} autoFlow="column">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
@@ -62,9 +74,12 @@ export const ColumnGap = () =>
         <Div backgroundColor="accent-5">Delta</Div>
         <Div backgroundColor="accent-5">Echo</Div>
         <Div backgroundColor="accent-5">Foxtrot</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const RowGap = () =>
+ColumnGap.storyName = "column gap";
+
+export const RowGap = () => (
     <Grid rowGap={4}>
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
@@ -72,9 +87,12 @@ export const RowGap = () =>
         <Div backgroundColor="accent-5">Delta</Div>
         <Div backgroundColor="accent-5">Echo</Div>
         <Div backgroundColor="accent-5">Foxtrot</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const TemplateColumns = () =>
+RowGap.storyName = "row gap";
+
+export const TemplateColumns = () => (
     <Stack>
         <Grid templateColumns="65px 50px 65px" gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -100,9 +118,12 @@ export const TemplateColumns = () =>
             <Div backgroundColor="accent-10">Echo</Div>
             <Div backgroundColor="accent-10">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const TemplateRows = () =>
+TemplateColumns.storyName = "template columns";
+
+export const TemplateRows = () => (
     <Inline>
         <Grid templateRows="200px 100px 200px" gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -119,9 +140,12 @@ export const TemplateRows = () =>
             <Div backgroundColor="accent-10">Bravo</Div>
             <Div backgroundColor="accent-10">Charlie</Div>
         </Grid>
-    </Inline>;
+    </Inline>
+);
 
-export const Areas = () =>
+TemplateRows.storyName = "template rows";
+
+export const Areas = () => (
     <Stack>
         <Grid areas={["a a", "b c", "d e"]} gap={4}>
             <Div gridArea="a" backgroundColor="accent-1">Alpha</Div>
@@ -137,9 +161,12 @@ export const Areas = () =>
             <Div gridArea="d" backgroundColor="accent-9">Delta</Div>
             <Div gridArea="e" backgroundColor="accent-10">Echo</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const AutoFlow = () =>
+Areas.storyName = "areas";
+
+export const AutoFlow = () => (
     <Stack>
         <Grid autoFlow="column" gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -162,9 +189,12 @@ export const AutoFlow = () =>
             <Div backgroundColor="accent-10">Delta</Div>
             <Div backgroundColor="accent-10">Echo</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const AutoColumns = () =>
+AutoFlow.storyName = "auto flow";
+
+export const AutoColumns = () => (
     <Stack>
         <Grid autoColumns={13} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -187,9 +217,12 @@ export const AutoColumns = () =>
             <Div backgroundColor="accent-10">Delta</Div>
             <Div backgroundColor="accent-10">Echo</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const AutoRows = () =>
+AutoColumns.storyName = "auto columns";
+
+export const AutoRows = () => (
     <Stack>
         <Grid autoRows={8} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -212,9 +245,12 @@ export const AutoRows = () =>
             <Div backgroundColor="accent-10">Delta</Div>
             <Div backgroundColor="accent-10">Echo</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const ColumnSpan = () =>
+AutoRows.storyName = "auto rows";
+
+export const ColumnSpan = () => (
     <Stack>
         <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -232,149 +268,212 @@ export const ColumnSpan = () =>
             <Div backgroundColor="accent-10">Echo</Div>
             <Div backgroundColor="accent-10">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const AlignContentStart = () =>
+ColumnSpan.storyName = "column span";
+
+export const AlignContentStart = () => (
     <Grid alignContent="start" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignContentCenter = () =>
+AlignContentStart.storyName = "align content start";
+
+export const AlignContentCenter = () => (
     <Grid alignContent="center" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignContentSpaceBetween = () =>
+AlignContentCenter.storyName = "align content center";
+
+export const AlignContentSpaceBetween = () => (
     <Grid alignContent="space-between" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignContentSpaceAround = () =>
+AlignContentSpaceBetween.storyName = "align content space-between";
+
+export const AlignContentSpaceAround = () => (
     <Grid alignContent="space-around" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignItemsStart = () =>
+AlignContentSpaceAround.storyName = "align content space-around";
+
+export const AlignItemsStart = () => (
     <Grid alignItems="start" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignItemsCenter = () =>
+AlignItemsStart.storyName = "align items start";
+
+export const AlignItemsCenter = () => (
     <Grid alignItems="center" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const AlignItemsEnd = () =>
+AlignItemsCenter.storyName = "align items center";
+
+export const AlignItemsEnd = () => (
     <Grid alignItems="end" gap={4} height="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentStart = () =>
+AlignItemsEnd.storyName = "align items end";
+
+export const JustifyContentStart = () => (
     <Grid justifyContent="start" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentCenter = () =>
+JustifyContentStart.storyName = "justify content start";
+
+export const JustifyContentCenter = () => (
     <Grid justifyContent="center" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentEnd = () =>
+JustifyContentCenter.storyName = "justify content center";
+
+export const JustifyContentEnd = () => (
     <Grid justifyContent="end" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentLeft = () =>
+JustifyContentEnd.storyName = "justify content end";
+
+export const JustifyContentLeft = () => (
     <Grid justifyContent="left" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentRight = () =>
+JustifyContentLeft.storyName = "justify content left";
+
+export const JustifyContentRight = () => (
     <Grid justifyContent="right" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentSpaceBetween = () =>
+JustifyContentRight.storyName = "justify content right";
+
+export const JustifyContentSpaceBetween = () => (
     <Grid justifyContent="space-between" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentSpaceAround = () =>
+JustifyContentSpaceBetween.storyName = "justify content space between";
+
+export const JustifyContentSpaceAround = () => (
     <Grid justifyContent="space-around" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyContentSpaceEvenly = () =>
+JustifyContentSpaceAround.storyName = "justify content space around";
+
+export const JustifyContentSpaceEvenly = () => (
     <Grid justifyContent="space-evenly" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyItemsStart = () =>
+JustifyContentSpaceEvenly.storyName = "justify content space evenly";
+
+export const JustifyItemsStart = () => (
     <Grid justifyItems="start" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyItemsCenter = () =>
+JustifyItemsStart.storyName = "justify items start";
+
+export const JustifyItemsCenter = () => (
     <Grid justifyItems="center" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyItemsEnd = () =>
+JustifyItemsCenter.storyName = "justify items center";
+
+export const JustifyItemsEnd = () => (
     <Grid justifyItems="end" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const JustifyItemsLeft = () =>
+JustifyItemsEnd.storyName = "justify items end";
+
+export const JustifyItemsLeft = () => (
     <Grid justifyItems="left" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const justifyItemsRight = () =>
+JustifyItemsLeft.storyName = "justify items left";
+
+export const justifyItemsRight = () => (
     <Grid justifyItems="right" gap={4} width="300px">
         <Div backgroundColor="accent-5">Alpha</Div>
         <Div gridColumn={2} backgroundColor="accent-5">Bravo</Div>
         <Div backgroundColor="accent-5">Charlie</Div>
-    </Grid>;
+    </Grid>
+);
 
-export const RowSpan = () =>
+justifyItemsRight.storyName = "justify items right";
+
+export const RowSpan = () => (
     <Stack>
         <Grid templateColumns={["1fr", "1fr", "1fr"]} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -392,9 +491,12 @@ export const RowSpan = () =>
             <Div backgroundColor="accent-10">Echo</Div>
             <Div backgroundColor="accent-10">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const Repeat = () =>
+RowSpan.storyName = "row span";
+
+export const Repeat = () => (
     <Stack>
         <Grid templateColumns={repeat("auto-fit", 12)} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -412,10 +514,13 @@ export const Repeat = () =>
             <Div backgroundColor="accent-5">Echo</Div>
             <Div backgroundColor="accent-5">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
+
+Repeat.storyName = "repeat";
 
 
-export const Minmax = () =>
+export const Minmax = () => (
     <Stack>
         <Grid templateColumns={[minmax(13, "auto"), 12, 12]} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -433,9 +538,12 @@ export const Minmax = () =>
             <Div backgroundColor="accent-5">Echo</Div>
             <Div backgroundColor="accent-5">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
 
-export const FitContent = () =>
+Minmax.storyName = "minmax";
+
+export const FitContent = () => (
     <Stack>
         <Grid templateColumns={[fitContent(13), 12, 12]} gap={4}>
             <Div backgroundColor="accent-5">Alpha</Div>
@@ -453,7 +561,10 @@ export const FitContent = () =>
             <Div backgroundColor="accent-5">Echo</Div>
             <Div backgroundColor="accent-5">Foxtrot</Div>
         </Grid>
-    </Stack>;
+    </Stack>
+);
+
+FitContent.storyName = "fit-content";
 
 AutoColumns.args = {
     chromatic: {
@@ -508,41 +619,3 @@ AutoColumns.args = {
         viewports: viewports
     }
 };
-
-Default.storyName = "default";
-GridInline.storyName = "inline";
-Nesting.storyName = "nesting";
-Gap.storyName = "gap";
-ColumnGap.storyName = "column gap";
-RowGap.storyName = "row gap";
-TemplateColumns.storyName = "template columns";
-TemplateRows.storyName = "template rows";
-Areas.storyName = "areas";
-AutoFlow.storyName = "auto flow";
-AutoColumns.storyName = "auto columns";
-AutoRows.storyName = "auto rows";
-ColumnSpan.storyName = "column span";
-AlignContentStart.storyName = "align content start";
-AlignContentCenter.storyName = "align content center";
-AlignContentSpaceBetween.storyName = "align content space-between";
-AlignContentSpaceAround.storyName = "align content space-around";
-AlignItemsStart.storyName = "align items start";
-AlignItemsCenter.storyName = "align items center";
-AlignItemsEnd.storyName = "align items end";
-JustifyContentStart.storyName = "justify content start";
-JustifyContentCenter.storyName = "justify content center";
-JustifyContentEnd.storyName = "justify content end";
-JustifyContentLeft.storyName = "justify content left";
-JustifyContentRight.storyName = "justify content right";
-JustifyContentSpaceBetween.storyName = "justify content space between";
-JustifyContentSpaceAround.storyName = "justify content space around";
-JustifyContentSpaceEvenly.storyName = "justify content space evenly";
-JustifyItemsStart.storyName = "justify items start";
-JustifyItemsCenter.storyName = "justify items center";
-JustifyItemsEnd.storyName = "justify items end";
-JustifyItemsLeft.storyName = "justify items left";
-justifyItemsRight.storyName = "justify items right";
-RowSpan.storyName = "row span";
-Repeat.storyName = "repeat";
-Minmax.storyName = "minmax";
-FitContent.storyName = "fit-content";

@@ -68,21 +68,32 @@ export const DefaultSlot = () =>
         <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
     </Card>;
 
-export const DynamicSlot = () =>
+DefaultSlot.storyName = "default slot";
+
+export const DynamicSlot = () => (
     <Card>
         <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
         <Box slot="content" style={{ backgroundColor: "purple" }}>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Box>
-    </Card>;
+    </Card>
+);
 
-export const WrapStringContent = () =>
+DynamicSlot.storyName = "dynamic slot";
+
+export const WrapStringContent = () => (
     <Card>
         Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
-    </Card>;
+    </Card>
+);
 
-export const WrapMixedContent = () =>
+WrapStringContent.storyName = "wrap string";
+
+export const WrapMixedContent = () =>(
     <Card>
         Early this morning (Oct. 20), SpaceX lit up the three <TextLink href="#">Raptor engines</TextLink> on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
-    </Card>;
+    </Card>
+);
+
+WrapMixedContent.storyName = "wrap mixed";
 
 export const UserPropsOnSlottedComponent = () =>
     <Card>
@@ -90,6 +101,7 @@ export const UserPropsOnSlottedComponent = () =>
         <Content className="pa2">Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
     </Card>;
 
+UserPropsOnSlottedComponent.storyName = "user props";
 
 const NoDefaultAndPassThroughCard = ({ children, ...rest }) => {
     const { content } = useSlots(children, useMemo(() => ({
@@ -108,18 +120,24 @@ const NoDefaultAndPassThroughCard = ({ children, ...rest }) => {
     );
 };
 
-export const NoDefaultCard = () =>
+export const NoDefaultCard = () => (
     <NoDefaultAndPassThroughCard>
         <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
-    </NoDefaultAndPassThroughCard>;
+    </NoDefaultAndPassThroughCard>
+);
 
-export const SupportFragment = () =>
+NoDefaultCard.storyName = "no default";
+
+export const SupportFragment = () => (
     <Card>
         <>
             <Title>SpaceX fires up 3-engine Starship SN8 prototype ahead of epic test flight</Title>
             <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
         </>
-    </Card>;
+    </Card>
+);
+
+SupportFragment.storyName = "support fragment";
 
 function FunctionalCard({ children, ...rest }) {
     const { content } = useSlots(children, {
@@ -138,10 +156,13 @@ function FunctionalCard({ children, ...rest }) {
     );
 }
 
-export const SlotsFunctionalCard = () =>
+export const SlotsFunctionalCard = () => (
     <FunctionalCard>
         <Content blue>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
-    </FunctionalCard>;
+    </FunctionalCard>
+);
+
+SlotsFunctionalCard.storyName = "support functional";
 
 function ConditionalCard({ children, ...rest }) {
     const { content } = useSlots(children, {
@@ -166,12 +187,4 @@ export const SupportConditionnalSlots = () =>
         <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
     </ConditionalCard>;
 
-DefaultSlot.storyName = "default slot";
-DynamicSlot.storyName = "dynamic slot";
-WrapStringContent.storyName = "wrap string";
-WrapMixedContent.storyName = "wrap mixed";
-UserPropsOnSlottedComponent.storyName = "user props";
-NoDefaultCard.storyName = "no default";
-SupportFragment.storyName = "support fragment";
-SlotsFunctionalCard.storyName = "support functional";
 SupportConditionnalSlots.storyName = "support conditional";

@@ -10,12 +10,15 @@ export default {
     component: Illustration
 };
 
-export const Default = () =>
+export const Default = () => (
     <Illustration>
         <Image src={Nasa} alt="Nasa" width="150px" />
-    </Illustration>;
+    </Illustration>
+);
 
-export const Horizontal = () =>
+Default.storyName = "default";
+
+export const Horizontal = () => (
     <Stack>
         <Illustration orientation="horizontal" width="700px" height="200px" backgroundColor="accent-2">
             <Image src={Nasa} alt="Nasa" />
@@ -25,9 +28,12 @@ export const Horizontal = () =>
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Box>
-    </Stack>;
+    </Stack>
+);
 
-export const Vertical = () =>
+Horizontal.storyName = "horizontal";
+
+export const Vertical = () => (
     <Inline>
         <Illustration orientation="vertical" width="200px" height="500px" backgroundColor="accent-2">
             <Image src={Nasa} alt="Nasa" />
@@ -37,19 +43,28 @@ export const Vertical = () =>
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Box>
-    </Inline>;
+    </Inline>
+);
 
-export const Straight = () =>
+Vertical.storyName = "vertical";
+
+export const Straight = () => (
     <Illustration shape="straight" width="700px" height="200px" backgroundColor="accent-2">
         <Image src={Nasa} alt="Nasa" />
-    </Illustration>;
+    </Illustration>
+);
 
-export const Rounded = () =>
+Straight.storyName = "straight";
+
+export const Rounded = () => (
     <Illustration shape="rounded" width="700px" height="200px" backgroundColor="accent-2">
         <Image src={Nasa} alt="Nasa" />
-    </Illustration>;
+    </Illustration>
+);
 
-export const Color = () =>
+Rounded.storyName = "rounded";
+
+export const Color = () => (
     <Stack>
         <Inline>
             <Illustration backgroundColor="accent-2" width="700px" height="200px">
@@ -67,9 +82,12 @@ export const Color = () =>
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+Color.storyName = "color";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Illustration border="warning-7" width="700px" height="200px">
@@ -81,9 +99,12 @@ export const Zoom = () =>
                 <Image src={Nasa} alt="Nasa" />
             </Illustration>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <Illustration border="warning-7" width="700px" height="200px">
             <Image src={Nasa} alt="Nasa" />
@@ -94,13 +115,7 @@ export const Styling = () =>
         <Illustration style={{ border: "1px solid red" }} width="700px" height="200px">
             <Image src={Nasa} alt="Nasa" />
         </Illustration>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Horizontal.storyName = "horizontal";
-Vertical.storyName = "vertical";
-Straight.storyName = "straight";
-Rounded.storyName = "rounded";
-Color.storyName = "color";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

@@ -19,18 +19,24 @@ export default {
     component: Field
 };
 
-export const Default = () =>
+export const Default = () => (
     <Field>
         <TextInput placeholder="Where to?" />
-    </Field>;
+    </Field>
+);
 
-export const FieldLabel = () =>
+Default.storyName = "default";
+
+export const FieldLabel = () => (
     <Field>
         <Label>Where to?</Label>
         <TextInput />
-    </Field>;
+    </Field>
+);
 
-export const Message = () =>
+FieldLabel.storyName = "label";
+
+export const Message = () => (
     <Stack gap={10}>
         <Field>
             <TextInput placeholder="Where to?" />
@@ -40,9 +46,20 @@ export const Message = () =>
             <TextInput placeholder="Where to?" />
             <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
         </Field>
-    </Stack>;
+    </Stack>
+);
 
-export const Validation = () =>
+Message.args = {
+    a11y: {
+        config: {
+            rules: [{ id: "label-title-only", enabled: false }]
+        }
+    }
+};
+
+Message.storyName = "message";
+
+export const Validation = () => (
     <Inline>
         <Field>
             <Label>Where to?</Label>
@@ -65,9 +82,12 @@ export const Validation = () =>
             <ValidMessage>Thank you!</ValidMessage>
             <ErrorMessage>This is not a valid destination.</ErrorMessage>
         </Field>
-    </Inline>;
+    </Inline>
+);
 
-export const Fluid = () =>
+Validation.storyName = "validation";
+
+export const Fluid = () => (
     <Stack>
         <Div>
             <Field fluid>
@@ -83,77 +103,110 @@ export const Fluid = () =>
                 <HelpMessage>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</HelpMessage>
             </Field>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Required = () =>
+Fluid.storyName = "fluid";
+
+export const Required = () => (
     <Field required>
         <Label>Where to?</Label>
         <TextInput />
         <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const States = () =>
+Required.storyName = "required";
+
+export const States = () => (
     <Field disabled>
         <Label>Where to?</Label>
         <TextInput />
         <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldTextInput = () =>
+States.storyName = "states";
+
+export const FieldTextInput = () => (
     <Field>
         <Label>Where to?</Label>
         <TextInput placeholder="Ex. Mars" />
         <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldPasswordInput = () =>
+FieldTextInput.storyName = "text input";
+
+export const FieldPasswordInput = () => (
     <Field>
         <Label>Where to?</Label>
         <PasswordInput />
         <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldNumberInput = () =>
+FieldPasswordInput.storyName = "password input";
+
+export const FieldNumberInput = () => (
     <Field>
         <Label>Age</Label>
         <NumberInput placeholder="Ex. 89" />
         <HelpMessage>How long ago are you born?</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldTextArea = () =>
+FieldNumberInput.storyName = "number input";
+
+export const FieldTextArea = () => (
     <Field>
         <Label>Where to?</Label>
         <TextArea placeholder="Ex. Mars" />
         <HelpMessage>Must be a planet in earth solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldDateInput = () =>
+FieldTextArea.storyName = "text area";
+
+export const FieldDateInput = () => (
     <Field>
         <Label>When?</Label>
         <DateInput placeholder="dd/mm/yyyy" />
         <HelpMessage>When do you leave?</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldDateRangeInput = () =>
+FieldDateInput.storyName = "date input";
+
+export const FieldDateRangeInput = () => (
     <Field>
         <Label>When?</Label>
         <DateRangeInput placeholder="dd/mm/yyyy" />
         <HelpMessage>When do you leave?</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldCheckbox = () =>
+FieldDateRangeInput.storyName = "date range input";
+
+export const FieldCheckbox = () => (
     <Field>
         <Checkbox>Milky Way</Checkbox>
         <HelpMessage>Must be reachable within 200,000 light-years.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldSwitch = () =>
+FieldCheckbox.storyName = "checkbox";
+
+export const FieldSwitch = () => (
     <Field>
         <Switch>Milky Way</Switch>
         <HelpMessage>Engines must cooldown for 30 minutes between startups.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldSelect = () =>
+FieldSwitch.storyName = "switch";
+
+export const FieldSelect = () => (
     <Field>
         <Label>Planet</Label>
         <Select placeholder="Select a planet" aria-label="Planets">
@@ -162,9 +215,12 @@ export const FieldSelect = () =>
             <Item key="saturn">Saturn</Item>
         </Select>
         <HelpMessage>Must be a planet of the solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldAutocomplete = () =>
+FieldSelect.storyName = "select";
+
+export const FieldAutocomplete = () => (
     <Field>
         <Label>Planet</Label>
         <Autocomplete placeholder="Select a planet" aria-label="Planets">
@@ -173,9 +229,12 @@ export const FieldAutocomplete = () =>
             <Item key="saturn">Saturn</Item>
         </Autocomplete>
         <HelpMessage>Must be a planet of the solar system.</HelpMessage>
-    </Field>;
+    </Field>
+);
 
-export const FieldInputGroup = () =>
+FieldAutocomplete.storyName = "autocomplete";
+
+export const FieldInputGroup = () => (
     <Stack>
         <Field>
             <Label>Launch date</Label>
@@ -195,9 +254,12 @@ export const FieldInputGroup = () =>
                 <HelpMessage>In how many days does your flight will launch?</HelpMessage>
             </Field>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+FieldInputGroup.storyName = "input group";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Field>
@@ -211,9 +273,12 @@ export const Zoom = () =>
                 <TextInput />
             </Field>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <Field border="warning-7">
             <Label>Launch date</Label>
@@ -227,33 +292,7 @@ export const Styling = () =>
             <Label>Launch date</Label>
             <TextInput />
         </Field>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-FieldLabel.storyName = "label";
-Message.storyName = "message";
-Validation.storyName = "validation";
-Fluid.storyName = "fluid";
-Required.storyName = "required";
-States.storyName = "states";
-FieldTextInput.storyName = "text input";
-FieldPasswordInput.storyName = "password input";
-FieldNumberInput.storyName = "number input";
-FieldTextArea.storyName = "text area";
-FieldDateInput.storyName = "date input";
-FieldDateRangeInput.storyName = "date range input";
-FieldCheckbox.storyName = "checkbox";
-FieldSwitch.storyName = "switch";
-FieldSelect.storyName = "select";
-FieldAutocomplete.storyName = "autocomplete";
-FieldInputGroup.storyName = "input group";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";
-
-Message.args = {
-    a11y: {
-        config: {
-            rules: [{ id: "label-title-only", enabled: false }]
-        }
-    }
-};

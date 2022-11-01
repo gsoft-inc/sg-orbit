@@ -8,14 +8,16 @@ export default {
     title: "Chromatic/Badge/icon"
 };
 
-export const Default = {
-    render: () => <SquareBadge variant="icon">
+export const Default = () => (
+    <SquareBadge variant="icon">
         <CheckCircleIcon />
     </SquareBadge>
-};
+);
 
-export const Overlap = {
-    render: () => <Inline gap={8}>
+Default.storyName = "default";
+
+export const Overlap = Default.storyName = "default"; (
+    <Inline gap={8}>
         <SquareBadge variant="icon">
             <CheckCircleIcon />
         </SquareBadge>
@@ -29,10 +31,12 @@ export const Overlap = {
             <CheckCircleIcon />
         </TextBadge>
     </Inline>
-};
+);
 
-export const Styling = {
-    render: () => <Inline>
+Overlap.storyName = "overlap";
+
+export const Styling = () => (
+    <Inline>
         <SquareBadge border="warning-7" variant="icon">
             <CheckCircleIcon />
         </SquareBadge>
@@ -43,8 +47,6 @@ export const Styling = {
             <CheckCircleIcon />
         </SquareBadge>
     </Inline>
-};
+);
 
-Default.storyName = "default";
-Overlap.storyName = "overlap";
 Styling.storyName = "styling";

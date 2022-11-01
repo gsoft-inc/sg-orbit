@@ -18,7 +18,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Tabs aria-label="Planets">
         <Item>
             <Header>Mars</Header>
@@ -44,9 +44,12 @@ export const Default = () =>
                 Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
             </Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const Fluid = () =>
+Default.storyName = "default";
+
+export const Fluid = () => (
     <Tabs fluid aria-label="Planets">
         <Item>
             <Header>Mars</Header>
@@ -72,9 +75,12 @@ export const Fluid = () =>
                 Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.
             </Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const SelectedKeyWithManualKeys = () =>
+Fluid.storyName = "fluid";
+
+export const SelectedKeyWithManualKeys = () => (
     <Stack>
         <Tabs defaultSelectedKey="jupiter" aria-label="Planets">
             <Item key="mars">
@@ -104,9 +110,12 @@ export const SelectedKeyWithManualKeys = () =>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>
-    </Stack>;
+    </Stack>
+);
 
-export const SelectedKeyWithGeneratedKeys = () =>
+SelectedKeyWithManualKeys.storyName = "selected key with manual keys";
+
+export const SelectedKeyWithGeneratedKeys = () => (
     <Stack>
         <Tabs defaultSelectedKey="1" aria-label="Planets">
             <Item>
@@ -136,9 +145,12 @@ export const SelectedKeyWithGeneratedKeys = () =>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>
-    </Stack>;
+    </Stack>
+);
 
-export const TabWithIcon = () =>
+SelectedKeyWithGeneratedKeys.storyName = "selected key with generated keys";
+
+export const TabWithIcon = () => (
     <Tabs aria-label="Planets">
         <Item>
             <Header>
@@ -151,9 +163,12 @@ export const TabWithIcon = () =>
             <Header>Jupiter</Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const TabWithLozenge = () =>
+TabWithIcon.storyName = "tab with icon";
+
+export const TabWithLozenge = () => (
     <Tabs aria-label="Planets">
         <Item>
             <Header>
@@ -170,9 +185,12 @@ export const TabWithLozenge = () =>
             </Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const TabAsDiv = () =>
+TabWithLozenge.storyName = "tab with lozenge";
+
+export const TabAsDiv = () => (
     <Tabs aria-label="Planets">
         <Item>
             <Header as="div">Mars</Header>
@@ -186,9 +204,12 @@ export const TabAsDiv = () =>
             <Header>Venus</Header>
             <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const States = () =>
+TabAsDiv.storyName = "tab as div";
+
+export const States = () => (
     <Stack>
         <Tabs aria-label="Planets">
             <Item selected>
@@ -282,9 +303,12 @@ export const States = () =>
                 <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
             </Item>
         </Tabs>
-    </Stack>;
+    </Stack>
+);
 
-export const DisabledTabIsNotTheDefaultTab = () =>
+States.storyName = "states";
+
+export const DisabledTabIsNotTheDefaultTab = () => (
     <Tabs aria-label="Planets">
         <Item disabled>
             <Header>
@@ -297,9 +321,12 @@ export const DisabledTabIsNotTheDefaultTab = () =>
             <Header>Jupiter</Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const DisabledSelectedTabIsNotTheDefaultTab = () =>
+DisabledTabIsNotTheDefaultTab.storyName = "disabled tab is not the default tab";
+
+export const DisabledSelectedTabIsNotTheDefaultTab = () => (
     <Tabs selectedKey="0" aria-label="Planets">
         <Item disabled>
             <Header>
@@ -312,9 +339,12 @@ export const DisabledSelectedTabIsNotTheDefaultTab = () =>
             <Header>Jupiter</Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const Overflow = () =>
+DisabledSelectedTabIsNotTheDefaultTab.storyName = "disabled selected tab is not the default tab";
+
+export const Overflow = () => (
     <Div width="300px">
         <Tabs aria-label="Planets">
             <Item key="mars">
@@ -359,9 +389,12 @@ export const Overflow = () =>
                 <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
             </Item>
         </Tabs>
-    </Div>;
+    </Div>
+);
 
-export const OverflowFluid = () =>
+Overflow.storyName = "overflow";
+
+export const OverflowFluid = () => (
     <Div width="300px">
         <Tabs aria-label="Planets" fluid>
             <Item key="mars">
@@ -396,9 +429,12 @@ export const OverflowFluid = () =>
                 <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
             </Item>
         </Tabs>
-    </Div>;
+    </Div>
+);
 
-export const OverflowNotCollapsible = () =>
+OverflowFluid.storyName = "overflow fluid";
+
+export const OverflowNotCollapsible = () => (
     <Div width="300px">
         <Tabs aria-label="Planets" collapsible={false}>
             <Item key="mars">
@@ -433,9 +469,12 @@ export const OverflowNotCollapsible = () =>
                 <Content>Neptune—the eighth and most distant major planet orbiting our Sun—is dark, cold and whipped by supersonic winds. It was the first planet located through mathematical calculations, rather than by telescope.</Content>
             </Item>
         </Tabs>
-    </Div>;
+    </Div>
+);
 
-export const DynamicTabs = () =>
+OverflowNotCollapsible.storyName = "overflow + not collapsible";
+
+export const DynamicTabs = () => (
     <Tabs aria-label="Planets">
         {["1", "2", "3"].map(x => (
             <Item key={x}>
@@ -443,7 +482,10 @@ export const DynamicTabs = () =>
                 <Content>{`Content ${x}`}</Content>
             </Item>
         ))}
-    </Tabs>;
+    </Tabs>
+);
+
+DynamicTabs.storyName = "dynamic tabs";
 
 const ActiveHeader = ({ tab, children, ...rest }) => {
     const { selectedKey } = useTabsContext();
@@ -483,7 +525,7 @@ const ColoredContent = ({ panel, children, ...rest }) => {
     );
 };
 
-export const CustomComponents = () =>
+export const CustomComponents = () => (
     <Stack>
         <Tabs aria-label="Planets">
             <Item>
@@ -513,9 +555,12 @@ export const CustomComponents = () =>
                 <ColoredContent>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</ColoredContent>
             </Item>
         </Tabs>
-    </Stack>;
+    </Stack>
+);
 
-export const ConditionalRendering = () =>
+CustomComponents.storyName = "custom components";
+
+export const ConditionalRendering = () => (
     <Tabs aria-label="Planets">
         <Item key="mars">
             <Header>Mars</Header>
@@ -525,9 +570,12 @@ export const ConditionalRendering = () =>
             <Header>Jupiter</Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>}
-    </Tabs>;
+    </Tabs>
+);
 
-export const Zoom = () =>
+ConditionalRendering.storyName = "conditional rendering";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Tabs aria-label="Planets">
@@ -585,9 +633,12 @@ export const Zoom = () =>
                 </Item>
             </Tabs>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <Inline>
             <Tabs border="warning-7" aria-label="Planets">
@@ -629,23 +680,7 @@ export const Styling = () =>
                 </Item>
             </Tabs>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Fluid.storyName = "fluid";
-SelectedKeyWithManualKeys.storyName = "selected key with manual keys";
-SelectedKeyWithGeneratedKeys.storyName = "selected key with generated keys";
-TabWithIcon.storyName = "tab with icon";
-TabWithLozenge.storyName = "tab with lozenge";
-TabAsDiv.storyName = "tab as div";
-States.storyName = "states";
-DisabledTabIsNotTheDefaultTab.storyName = "disabled tab is not the default tab";
-DisabledSelectedTabIsNotTheDefaultTab.storyName = "disabled selected tab is not the default tab";
-Overflow.storyName = "overflow";
-OverflowFluid.storyName = "overflow fluid";
-OverflowNotCollapsible.storyName = "overflow + not collapsible";
-DynamicTabs.storyName = "dynamic tabs";
-CustomComponents.storyName = "custom components";
-ConditionalRendering.storyName = "conditional rendering";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

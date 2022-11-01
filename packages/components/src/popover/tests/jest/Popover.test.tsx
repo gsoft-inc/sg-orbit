@@ -107,8 +107,8 @@ test("when not dismissable, tabbing the last focusable element of the popover wi
         getByTestId("last-focusable-element").focus();
     });
 
-    act(() => {
-        userEvent.tab();
+    await act(() => {
+        return userEvent.tab();
     });
 
     await waitFor(() => expect(getByTestId("first-focusable-element")).toHaveFocus());

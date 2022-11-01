@@ -41,9 +41,6 @@ const config = {
                     values: ["wcag2a", "wcag2aa"]
                 }
             }
-        },
-        {
-            name: "@storybook/addon-interactions"
         }
     ],
     features: {

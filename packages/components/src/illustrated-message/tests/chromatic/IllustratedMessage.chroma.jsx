@@ -12,14 +12,17 @@ export default {
     component: IllustratedMessage
 };
 
-export const Default = () =>
+export const Default = () => (
     <IllustratedMessage>
         <Image src={Nasa} alt="Nasa" width="150px" />
         <Heading>Can't find "Saturn"</Heading>
         <Content>Try searching for something else.</Content>
-    </IllustratedMessage>;
+    </IllustratedMessage>
+);
 
-export const Horizontal = () =>
+Default.storyName = "default";
+
+export const Horizontal = () => (
     <Stack>
         <IllustratedMessage orientation="horizontal" width="700px" height="200px">
             <Image src={Nasa} alt="Nasa" />
@@ -33,9 +36,12 @@ export const Horizontal = () =>
                 <Content>Try searching for something else.</Content>
             </IllustratedMessage>
         </Box>
-    </Stack>;
+    </Stack>
+);
 
-export const Vertical = () =>
+Horizontal.storyName = "horizontal";
+
+export const Vertical = () => (
     <Inline>
         <IllustratedMessage orientation="vertical" width="200px" height="500px">
             <Image src={Nasa} alt="Nasa" />
@@ -49,29 +55,41 @@ export const Vertical = () =>
                 <Content>Try searching for something else.</Content>
             </IllustratedMessage>
         </Box>
-    </Inline>;
+    </Inline>
+);
 
-export const VeryLongTitle = () =>
+Vertical.storyName = "vertical";
+
+export const VeryLongTitle = () => (
     <IllustratedMessage width="700px" height="200px">
         <Image src={Nasa} alt="Nasa" />
         <Heading>Can't find "Saturn" or "Mars" or another continent.</Heading>
         <Content>Try searching for something else.</Content>
-    </IllustratedMessage>;
+    </IllustratedMessage>
+);
 
-export const VeryLongContent = () =>
+VeryLongTitle.storyName = "very long title";
+
+export const VeryLongContent = () => (
     <IllustratedMessage width="700px" height="200px" orientation="horizontal">
         <Image src={Nasa} alt="Nasa" />
         <Heading>Can't find "Saturn"</Heading>
         <Content>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc suscipit metus neque, non pharetra enim tincidunt dictum. Fusce in ultricies turpis, vitae finibus nunc. Quisque laoreet sit amet eros eget volutpat. Pellentesque non nulla dui. Sed nec felis quam. Vestibulum velit magna, fringilla ut neque cursus, porta rhoncus nulla. Suspendisse auctor sollicitudin tortor, quis viverra tellus egestas sed. Pellentesque ut dignissim nisi. Duis sit amet ex bibendum, pharetra purus eget, varius massa. In pulvinar dui quis dignissim commodo. Nulla facilisi..</Content>
-    </IllustratedMessage>;
+    </IllustratedMessage>
+);
 
-export const NoTitle = () =>
+VeryLongContent.storyName = "very long content";
+
+export const NoTitle = () => (
     <IllustratedMessage width="700px" height="200px">
         <Image src={Nasa} alt="Nasa" />
         <Content>Try searching for something else.</Content>
-    </IllustratedMessage>;
+    </IllustratedMessage>
+);
 
-export const NoDimensions = () =>
+NoTitle.storyName = "no title";
+
+export const NoDimensions = () => (
     <Stack>
         <IllustratedMessage>
             <Image src={Nasa} alt="Nasa" width="150px" />
@@ -83,9 +101,12 @@ export const NoDimensions = () =>
             <Heading>Can't find "Saturn"</Heading>
             <Content>Try searching for something else.</Content>
         </IllustratedMessage>
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+NoDimensions.storyName = "no dimensions";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <IllustratedMessage border="warning-7" width="700px" height="200px" orientation="horizontal">
@@ -101,9 +122,12 @@ export const Zoom = () =>
                 <Content>Try searching for something else.</Content>
             </IllustratedMessage>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <IllustratedMessage border="warning-7" width="700px" height="200px" orientation="horizontal">
             <Image src={Nasa} alt="Nasa" />
@@ -120,14 +144,8 @@ export const Styling = () =>
             <Heading>Can't find "Saturn"</Heading>
             <Content>Try searching for something else.</Content>
         </IllustratedMessage>
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Horizontal.storyName = "horizontal";
-Vertical.storyName = "vertical";
-VeryLongTitle.storyName = "very long title";
-VeryLongContent.storyName = "very long content";
-NoTitle.storyName = "no title";
-NoDimensions.storyName = "no dimensions";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";
+

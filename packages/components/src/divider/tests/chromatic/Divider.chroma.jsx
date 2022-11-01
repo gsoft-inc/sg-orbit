@@ -8,17 +8,23 @@ export default {
     component: Divider
 };
 
-export const Default = () =>
-    <Divider />;
+export const Default = () => (
+    <Divider />
+);
 
-export const Surrounded = () =>
+Default.storyName = "default";
+
+export const Surrounded = () => (
     <Div>
         <Text>Apollo 8 - 1968</Text>
         <Divider />
         <Text>Apollo 11 - 1969</Text>
-    </Div>;
+    </Div>
+);
 
-export const MultipleSeparators = () =>
+Surrounded.storyName = "surrounded";
+
+export const MultipleSeparators = () => (
     <Div>
         <Text>Apollo 8 - 1968</Text>
         <Divider />
@@ -27,22 +33,33 @@ export const MultipleSeparators = () =>
         <Text>Luna 16 - 1970</Text>
         <Divider />
         <Text>Salyut 1 - 1971</Text>
-    </Div>;
+    </Div>
+);
 
-export const Labelled = () =>
-    <Divider>Since 1978</Divider>;
+MultipleSeparators.storyName = "multiple separators";
 
-export const LongLabel = () =>
+export const Labelled = () => (
+    <Divider>Since 1978</Divider>
+);
+
+Labelled.storyName = "labelled";
+
+export const LongLabel = () => (
     <Divider height={16}>Since 1978 there have been more than 10 space exploration missions.</Divider>;
 
-export const LabelledSurrounded = () =>
+LongLabel.storyName = "long label";
+
+export const LabelledSurrounded = () => (
     <Div>
         <Text>Apollo 11 - 1969</Text>
         <Divider>Since 1978</Divider>
         <Text>Voyager 1 - 1990</Text>
-    </Div>;
+    </Div>
+);
 
-export const Zoom = () =>
+LabelledSurrounded.storyName = "labelled surrounded";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Divider>Since 1978</Divider>
@@ -50,20 +67,17 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <Divider>Since 1978</Divider>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Stack>
         <Divider border="warning-7" />
         <Divider className="border-red" />
         <Divider style={{ border: "1px solid red" }} />
-    </Stack>;
+    </Stack>
+);
 
-Default.storyName = "default";
-Surrounded.storyName = "surrounded";
-MultipleSeparators.storyName = "multiple separators";
-Labelled.storyName = "labelled";
-LongLabel.storyName = "long label";
-LabelledSurrounded.storyName = "labelled surrounded";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

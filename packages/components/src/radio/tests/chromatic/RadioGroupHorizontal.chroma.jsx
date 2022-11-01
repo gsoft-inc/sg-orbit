@@ -12,7 +12,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <RadioGroup orientation="horizontal">
         <Radio value="1">1</Radio>
         <Radio value="2">
@@ -20,14 +20,17 @@ export const Default = () =>
             <Counter>60</Counter>
         </Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-export const Reverse = () =>
+Default.storyName = "default";
+
+export const Reverse = () => (
     <RadioGroup reverse orientation="horizontal">
         <Radio value="1">1</Radio>
         <Radio value="2">A very long option to read while you wait for the countdown to mars.</Radio>
         <Radio value="3">3</Radio>
-    </RadioGroup>;
+    </RadioGroup>
+);
 
-Default.storyName = "default";
 Reverse.storyName = "reverse";

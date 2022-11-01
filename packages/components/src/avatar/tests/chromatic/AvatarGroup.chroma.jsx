@@ -21,8 +21,8 @@ export default {
     title: "Chromatic/AvatarGroup"
 };
 
-export const Default = {
-    render: () => <Inline gap={13}>
+export const Default = () =>
+    <Inline gap={13}>
         <Stack>
             <AvatarGroup size="2xs">
                 <Avatar name="Sally Ride" />
@@ -97,11 +97,10 @@ export const Default = {
                 <Avatar name="Christa McAuliffe" />
             </AvatarGroup>
         </Stack>
-    </Inline>
-};
+    </Inline>;
 
-export const NoWrap = {
-    render: () => <Div width={12}>
+export const NoWrap = () =>
+    <Div width={12}>
         <AvatarGroup wrap={false} size="xl">
             <Avatar name="Sally Ride" />
             <Avatar name="Alan Shepard" />
@@ -109,11 +108,10 @@ export const NoWrap = {
             <Avatar name="Christa McAuliffe" />
             <Avatar name="Neil Armstrong" />
         </AvatarGroup>
-    </Div>
-};
+    </Div>;
 
-export const WithRemainings = {
-    render: () => <Stack>
+export const WithRemainings = () =>
+    <Stack>
         <AvatarGroup size="2xs">
             <Avatar name="Sally Ride" />
             <Avatar name="Alan Shepard" />
@@ -163,22 +161,20 @@ export const WithRemainings = {
             <Avatar name="Christa McAuliffe" />
             <Avatar name="Neil Armstrong" />
         </AvatarGroup>
-    </Stack>
-};
+    </Stack>;
 
-export const Overflow = {
-    render: () => <Div width={10}>
+export const Overflow = () =>
+    <Div width={10}>
         <AvatarGroup size="2xl">
             <Avatar name="Sally Ride" />
             <Avatar name="Alan Shepard" />
             <Avatar name="Chris Hadfield" />
             <Avatar name="Christa McAuliffe" />
         </AvatarGroup>
-    </Div>
-};
+    </Div>;
 
-export const Zoom = {
-    render: () => <Stack>
+export const Zoom = () =>
+    <Stack>
         <Div className="zoom-in">
             <AvatarGroup>
                 <Avatar name="Sally Ride" />
@@ -191,11 +187,10 @@ export const Zoom = {
                 <Avatar name="Alan Shepard" />
             </AvatarGroup>
         </Div>
-    </Stack>
-};
+    </Stack>;
 
-export const Styling = {
-    render: () => <Inline>
+export const Styling = () =>
+    <Inline>
         <AvatarGroup border="warning-7">
             <Avatar name="Sally Ride" />
             <Avatar name="Alan Shepard" />
@@ -208,20 +203,20 @@ export const Styling = {
             <Avatar name="Sally Ride" />
             <Avatar name="Alan Shepard" />
         </AvatarGroup>
-    </Inline>
-};
+    </Inline>;
 
-export const WithRemainingsHover = {
-    render: () => <AvatarGroup remainingAvatarsProps={{ "data-testid": "remaining-avatars" }}>
+export const WithRemainingsHover = () =>
+    <AvatarGroup remainingAvatarsProps={{ "data-testid": "remaining-avatars" }}>
         <Avatar name="Sally Ride" />
         <Avatar name="Alan Shepard" />
         <Avatar name="Chris Hadfield" />
         <Avatar name="Christa McAuliffe" />
         <Avatar name="Neil Armstrong" />
-    </AvatarGroup>,
-    play: async () => {
-        await userEvent.hover(screen.getByTestId("remaining-avatars"));
-    }
+    </AvatarGroup>
+;
+
+WithRemainingsHover.play = async () => {
+    userEvent.hover(screen.getByTestId("remaining-avatars"));
 };
 
 Default.storyName = "default";

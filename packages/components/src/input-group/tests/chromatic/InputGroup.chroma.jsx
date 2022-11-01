@@ -19,7 +19,7 @@ export default {
     component: InputGroup
 };
 
-export const TextAddon = () =>
+export const TextAddon = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -56,9 +56,12 @@ export const TextAddon = () =>
                 <Text>Days</Text>
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const ButtonAddon = () =>
+TextAddon.storyName = "text addon";
+
+export const ButtonAddon = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -129,9 +132,12 @@ export const ButtonAddon = () =>
                 <TextInput validationState="invalid" aria-label="Duration" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const IconButtonAddon = () =>
+ButtonAddon.storyName = "button addon";
+
+export const IconButtonAddon = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -202,9 +208,12 @@ export const IconButtonAddon = () =>
                 <TextInput validationState="invalid" aria-label="Duration" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const MenuAddon = () =>
+IconButtonAddon.storyName = "icon button addon";
+
+export const MenuAddon = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -367,9 +376,12 @@ export const MenuAddon = () =>
                 <TextInput validationState="invalid" aria-label="Planet" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const SelectAddon = () =>
+MenuAddon.storyName = "menu addon";
+
+export const SelectAddon = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -492,23 +504,32 @@ export const SelectAddon = () =>
                 <TextInput validationState="invalid" aria-label="Planet" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Placeholder = () =>
+SelectAddon.storyName = "select addon";
+
+export const Placeholder = () => (
     <InputGroup>
         <Text>Launching in</Text>
         <TextInput placeholder="Ex. 8" />
         <Text>Days</Text>
-    </InputGroup>;
+    </InputGroup>
+);
 
-export const Fluid = () =>
+Placeholder.storyName = "placeholder";
+
+export const Fluid = () => (
     <InputGroup fluid>
         <Text>Launching in</Text>
         <TextInput aria-label="Duration" />
         <Text>Days</Text>
-    </InputGroup>;
+    </InputGroup>
+);
 
-export const States = () =>
+Fluid.storyName = "fluid";
+
+export const States = () => (
     <Stack>
         <InputGroup disabled>
             <TextInput aria-label="Duration" />
@@ -518,9 +539,12 @@ export const States = () =>
             <TextInput aria-label="Duration" />
             <Text>Days</Text>
         </InputGroup>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupTextInput = () =>
+States.storyName = "states";
+
+export const InputGroupTextInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -557,9 +581,12 @@ export const InputGroupTextInput = () =>
                 <TextInput validationState="invalid" aria-label="Duration" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupNumberInput = () =>
+InputGroupTextInput.storyName = "text input";
+
+export const InputGroupNumberInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -596,9 +623,12 @@ export const InputGroupNumberInput = () =>
                 <NumberInput validationState="invalid" aria-label="Duration" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupPasswordInput = () =>
+InputGroupNumberInput.storyName = "number input";
+
+export const InputGroupPasswordInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -635,9 +665,12 @@ export const InputGroupPasswordInput = () =>
                 <PasswordInput validationState="invalid" aria-label="Password" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupSearchInput = () =>
+InputGroupPasswordInput.storyName = "password input";
+
+export const InputGroupSearchInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -674,9 +707,12 @@ export const InputGroupSearchInput = () =>
                 <SearchInput validationState="invalid" aria-label="Origin" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupDateInput = () =>
+InputGroupSearchInput.storyName = "search input";
+
+export const InputGroupDateInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -713,9 +749,12 @@ export const InputGroupDateInput = () =>
                 <DateInput validationState="invalid" aria-label="Date" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupDateRangeInput = () =>
+InputGroupDateInput.storyName = "date input";
+
+export const InputGroupDateRangeInput = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -766,9 +805,12 @@ export const InputGroupDateRangeInput = () =>
                 <DateRangeInput validationState="invalid" aria-label="Date" />
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const InputGroupAutocomplete = () =>
+InputGroupDateRangeInput.storyName = "date range input";
+
+export const InputGroupAutocomplete = () => (
     <Stack>
         <Inline>
             <InputGroup>
@@ -831,9 +873,12 @@ export const InputGroupAutocomplete = () =>
                 </Autocomplete>
             </InputGroup>
         </Inline>
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+InputGroupAutocomplete.storyName = "autocomplete";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <Inline>
@@ -905,9 +950,12 @@ export const Zoom = () =>
                 </InputGroup>
             </Inline>
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <InputGroup border="warning-7">
             <Text>Days</Text>
@@ -921,22 +969,7 @@ export const Styling = () =>
             <Text>Days</Text>
             <TextInput aria-label="Duration" />
         </InputGroup>
-    </Inline>;
+    </Inline>
+);
 
-TextAddon.storyName = "text addon";
-ButtonAddon.storyName = "button addon";
-IconButtonAddon.storyName = "icon button addon";
-MenuAddon.storyName = "menu addon";
-SelectAddon.storyName = "select addon";
-Placeholder.storyName = "placeholder";
-Fluid.storyName = "fluid";
-States.storyName = "states";
-InputGroupTextInput.storyName = "text input";
-InputGroupNumberInput.storyName = "number input";
-InputGroupPasswordInput.storyName = "password input";
-InputGroupSearchInput.storyName = "search input";
-InputGroupDateInput.storyName = "date input";
-InputGroupDateRangeInput.storyName = "date range input";
-InputGroupAutocomplete.storyName = "autocomplete";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

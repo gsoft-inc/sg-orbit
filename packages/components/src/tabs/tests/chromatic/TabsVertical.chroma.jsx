@@ -17,7 +17,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <Tabs orientation="vertical" aria-label="Planets">
         <Item>
             <Header>Mars</Header>
@@ -31,9 +31,12 @@ export const Default = () =>
             <Header>Venus</Header>
             <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const Fluid = () =>
+Default.storyName = "default";
+
+export const Fluid = () => (
     <Tabs orientation="vertical" fluid height={14} aria-label="Planets">
         <Item>
             <Header>Mars</Header>
@@ -47,9 +50,12 @@ export const Fluid = () =>
             <Header>Venus</Header>
             <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const TabWithIcon = () =>
+Fluid.storyName = "fluid";
+
+export const TabWithIcon = () => (
     <Tabs orientation="vertical" aria-label="Planets">
         <Item>
             <Header>
@@ -62,9 +68,12 @@ export const TabWithIcon = () =>
             <Header>Jupiter</Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const TabWithLozenge = () =>
+TabWithIcon.storyName = "tab with icon";
+
+export const TabWithLozenge = () => (
     <Tabs orientation="vertical" aria-label="Planets">
         <Item>
             <Header>
@@ -81,9 +90,12 @@ export const TabWithLozenge = () =>
             </Header>
             <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
         </Item>
-    </Tabs>;
+    </Tabs>
+);
 
-export const States = () =>
+TabWithLozenge.storyName = "tab with lozenge";
+
+export const States = () => (
     <Inline>
         <Tabs orientation="vertical" aria-label="Planets">
             <Item selected>
@@ -163,10 +175,7 @@ export const States = () =>
                 <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
             </Item>
         </Tabs>
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Fluid.storyName = "fluid";
-TabWithIcon.storyName = "tab with icon";
-TabWithLozenge.storyName = "tab with lozenge";
 States.storyName = "states";

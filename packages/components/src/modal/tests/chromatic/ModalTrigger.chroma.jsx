@@ -8,7 +8,7 @@ export default {
     component: ModalTrigger
 };
 
-export const Default = () =>
+export const Default = () => (
     <ModalTrigger>
         <Button variant="secondary">Open</Button>
         <Modal>
@@ -19,9 +19,12 @@ export const Default = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Modal>
-    </ModalTrigger>;
+    </ModalTrigger>
+);
 
-export const DefaultOpen = () =>
+Default.storyName = "default";
+
+export const DefaultOpen = () => (
     <ModalTrigger defaultOpen>
         <Button variant="secondary">Open</Button>
         <Modal>
@@ -33,9 +36,12 @@ export const DefaultOpen = () =>
             </Content>
             <Button variant="secondary">Close</Button>
         </Modal>
-    </ModalTrigger>;
+    </ModalTrigger>
+);
 
-export const NotDismissable = () =>
+DefaultOpen.storyName = "default open";
+
+export const NotDismissable = () => (
     <ModalTrigger dismissable={false} defaultOpen>
         <Button variant="secondary">Open</Button>
         <Modal>
@@ -46,8 +52,7 @@ export const NotDismissable = () =>
                 <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
             </Content>
         </Modal>
-    </ModalTrigger>;
+    </ModalTrigger>
+);
 
-Default.storyName = "default";
-DefaultOpen.storyName = "default open";
 NotDismissable.storyName = "not dismissable";

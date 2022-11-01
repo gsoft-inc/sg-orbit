@@ -59,7 +59,7 @@ function RemainingAvatars({ avatars, size, ...rest }: RemainingAvatarsProps) {
                     })}
                 </ul>
             </Tooltip>
-        </TooltipTrigger >
+        </TooltipTrigger>
     );
 }
 

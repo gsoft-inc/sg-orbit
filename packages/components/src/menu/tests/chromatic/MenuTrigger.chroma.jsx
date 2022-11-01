@@ -19,7 +19,7 @@ export default {
     }
 };
 
-export const Default = () =>
+export const Default = () => (
     <MenuTrigger>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -27,9 +27,12 @@ export const Default = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const OpenWithItemsOnly = () =>
+Default.storyName = "default";
+
+export const OpenWithItemsOnly = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -37,9 +40,12 @@ export const OpenWithItemsOnly = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const OpenWithSections = () =>
+OpenWithItemsOnly.storyName = "open with items only";
+
+export const OpenWithSections = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -55,9 +61,12 @@ export const OpenWithSections = () =>
                 <Item key="uranus">Uranus</Item>
             </Section>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const OpenWithDividers = () =>
+OpenWithSections.storyName = "open with sections";
+
+export const OpenWithDividers = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -70,9 +79,12 @@ export const OpenWithDividers = () =>
             <Item key="neptune">Neptune</Item>
             <Item key="uranus">Uranus</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const OpenWithASelectedItem = () =>
+OpenWithDividers.storyName = "open with dividers";
+
+export const OpenWithASelectedItem = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -80,9 +92,12 @@ export const OpenWithASelectedItem = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const OpenWithMultipleSelectedItems = () =>
+OpenWithASelectedItem.storyName = "open with a selected item";
+
+export const OpenWithMultipleSelectedItems = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu defaultSelectedKeys={["mars", "saturn"]} selectionMode="multiple">
@@ -90,9 +105,12 @@ export const OpenWithMultipleSelectedItems = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const DirectionBottom = () =>
+OpenWithMultipleSelectedItems.storyName = "open with multiple selected items";
+
+export const DirectionBottom = () => (
     <MenuTrigger direction="bottom" defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -100,9 +118,12 @@ export const DirectionBottom = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const DirectionTop = () =>
+DirectionBottom.storyName = "direction bottom";
+
+export const DirectionTop = () => (
     <MenuTrigger direction="top" defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -110,11 +131,14 @@ export const DirectionTop = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
+
+DirectionTop.storyName = "direction top";
 
 DirectionTop.decorators = [Story => <div style={{ marginTop: "100px" }}><Story /></div>];
 
-export const AlignStart = () =>
+export const AlignStart = () => (
     <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu width={14}>
@@ -122,11 +146,14 @@ export const AlignStart = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
+
+AlignStart.storyName = "align start";
 
 AlignStart.decorators = [Story => <div style={{ paddingLeft: "200px" }}><Story /></div>];
 
-export const AlignEnd = () =>
+export const AlignEnd = () => (
     <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu width={14}>
@@ -134,11 +161,14 @@ export const AlignEnd = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
+
+AlignEnd.storyName = "align end";
 
 AlignEnd.decorators = [Story => <div style={{ paddingLeft: "200px" }}><Story /></div>];
 
-export const IconButtonTrigger = () =>
+export const IconButtonTrigger = () => (
     <MenuTrigger defaultOpen>
         <IconButton variant="secondary" aria-label="Open menu">
             <VerticalDotsIcon />
@@ -148,7 +178,10 @@ export const IconButtonTrigger = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
+
+IconButtonTrigger.storyName = "icon button trigger";
 
 const CustomTrigger = forwardRef((props, ref) => {
     return (
@@ -165,7 +198,7 @@ const CustomTrigger = forwardRef((props, ref) => {
     );
 });
 
-export const CustomTriggerWithDisclosureArrow = () =>
+export const CustomTriggerWithDisclosureArrow = () => (
     <MenuTrigger defaultOpen>
         <CustomTrigger />
         <Menu>
@@ -173,7 +206,10 @@ export const CustomTriggerWithDisclosureArrow = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
+
+CustomTriggerWithDisclosureArrow.storyName = "custom trigger with disclosure arrow";
 
 const CustomMenu = forwardRef(({ children, ...props }, ref) => {
     return (
@@ -187,7 +223,8 @@ const CustomMenu = forwardRef(({ children, ...props }, ref) => {
     );
 });
 
-export const MenuTriggerCustomMenu = () =>
+
+export const MenuTriggerCustomMenu = () => (
     <MenuTrigger defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <CustomMenu>
@@ -195,9 +232,12 @@ export const MenuTriggerCustomMenu = () =>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
         </CustomMenu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const FunctionalContent = () =>
+MenuTriggerCustomMenu.storyName = "custom menu";
+
+export const FunctionalContent = () => (
     <MenuTrigger defaultOpen>
         {() => {
             return (
@@ -211,9 +251,12 @@ export const FunctionalContent = () =>
                 </>
             );
         }}
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const StyledSystem = () =>
+FunctionalContent.storyName = "functional content";
+
+export const StyledSystem = () => (
     <MenuTrigger border="warning-7" defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -221,9 +264,12 @@ export const StyledSystem = () =>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const ClassName = () =>
+StyledSystem.storyName = "styled system";
+
+export const ClassName = () => (
     <MenuTrigger className="border-red" defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -231,9 +277,12 @@ export const ClassName = () =>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-export const Style = () =>
+ClassName.storyName = "className";
+
+export const Style = () => (
     <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
         <Button variant="secondary">Trigger</Button>
         <Menu>
@@ -241,22 +290,7 @@ export const Style = () =>
             <Item key="jupiter">Jupiter</Item>
             <Item key="mars">Mars</Item>
         </Menu>
-    </MenuTrigger>;
+    </MenuTrigger>
+);
 
-Default.storyName = "default";
-OpenWithItemsOnly.storyName = "open with items only";
-OpenWithSections.storyName = "open with sections";
-OpenWithDividers.storyName = "open with dividers";
-OpenWithASelectedItem.storyName = "open with a selected item";
-OpenWithMultipleSelectedItems.storyName = "open with multiple selected items";
-DirectionBottom.storyName = "direction bottom";
-DirectionTop.storyName = "direction top";
-AlignStart.storyName = "align start";
-AlignEnd.storyName = "align end";
-IconButtonTrigger.storyName = "icon button trigger";
-CustomTriggerWithDisclosureArrow.storyName = "custom trigger with disclosure arrow";
-MenuTriggerCustomMenu.storyName = "custom menu";
-FunctionalContent.storyName = "functional content";
-StyledSystem.storyName = "styled system";
-ClassName.storyName = "className";
 Style.storyName = "style";

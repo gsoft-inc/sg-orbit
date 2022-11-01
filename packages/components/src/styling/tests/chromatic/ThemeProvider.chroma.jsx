@@ -32,21 +32,29 @@ function PrimaryColors() {
     );
 }
 
-export const Sharegate = () =>
+export const Sharegate = () =>(
     <ThemeProvider theme={ShareGateTheme}>
         <PrimaryColors />
-    </ThemeProvider>;
+    </ThemeProvider>
+);
 
-export const Light = () =>
+Sharegate.storyName = "sharegate";
+
+export const Light = () =>(
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <Box padding={4} backgroundColor="alias-mid-break" />
-    </ThemeProvider>;
+    </ThemeProvider>
+);
 
-export const Dark = () =>
+Light.storyName = "light";
+
+export const Dark = () =>(
     <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
         <Box padding={4} backgroundColor="alias-mid-break" />
-    </ThemeProvider>;
+    </ThemeProvider>
+);
 
+Dark.storyName = "dark";
 
 const SwitchColorScheme = () => {
     const { setColorScheme } = useColorSchemeContext();
@@ -59,13 +67,11 @@ const SwitchColorScheme = () => {
     return null;
 };
 
-export const SetColorSchemeWithApi = () =>
+export const SetColorSchemeWithApi = () =>(
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <SwitchColorScheme />
         <Box padding={4} backgroundColor="alias-mid-break" />
-    </ThemeProvider>;
+    </ThemeProvider>
+);
 
-Sharegate.storyName = "sharegate";
-Light.storyName = "light";
-Dark.storyName = "dark";
 SetColorSchemeWithApi.storyName = "set color scheme with api";

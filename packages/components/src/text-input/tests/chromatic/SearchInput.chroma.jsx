@@ -9,7 +9,7 @@ export default {
     component: SearchInput
 };
 
-export const Default = () =>
+export const Default = () => (
     <Stack>
         <SearchInput aria-label="Label" />
         <SearchInput loading aria-label="Label"></SearchInput>
@@ -20,9 +20,12 @@ export const Default = () =>
             <SearchInput fluid aria-label="Label"></SearchInput>
         </Div>
         <SearchInput loading fluid aria-label="Label"></SearchInput>
-    </Stack>;
+    </Stack>
+);
 
-export const Placeholder = () =>
+Default.storyName = "default";
+
+export const Placeholder = () => (
     <Stack>
         <SearchInput placeholder="Where to?" />
         <SearchInput loading placeholder="Where to?" />
@@ -33,9 +36,12 @@ export const Placeholder = () =>
             <SearchInput fluid placeholder="Where to?"></SearchInput>
         </Div>
         <SearchInput loading fluid placeholder="Where to?"></SearchInput>
-    </Stack>;
+    </Stack>
+);
 
-export const Value = () =>
+Placeholder.storyName = "placeholder";
+
+export const Value = () => (
     <Stack>
         <SearchInput defaultValue="Mars" aria-label="Label" />
         <SearchInput loading defaultValue="Mars" aria-label="Label" />
@@ -50,9 +56,12 @@ export const Value = () =>
             <SearchInput fluid defaultValue="Mars" aria-label="Label"></SearchInput>
         </Div>
         <SearchInput loading fluid defaultValue="Mars" aria-label="Label"></SearchInput>
-    </Stack>;
+    </Stack>
+);
 
-export const CustomIcon = () =>
+Value.storyName = "value";
+
+export const CustomIcon = () => (
     <Stack>
         <SearchInput icon={<EmailIcon />} placeholder="Where to?" aria-label="Label" />
         <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" aria-label="Label" />
@@ -63,9 +72,12 @@ export const CustomIcon = () =>
         <Div width="10%">
             <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const NoIcon = () =>
+CustomIcon.storyName = "custom icon";
+
+export const NoIcon = () => (
     <Stack>
         <SearchInput icon={null} placeholder="Where to?" />
         <SearchInput icon={null} defaultValue="SpaceX will win the race!" />
@@ -76,9 +88,12 @@ export const NoIcon = () =>
         <Div width="10%">
             <SearchInput fluid icon={null} placeholder="Where to?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const States = () =>
+NoIcon.storyName = "no icon";
+
+export const States = () => (
     <Stack>
         <SearchInput active placeholder="Where to?" />
         <Inline>
@@ -98,9 +113,12 @@ export const States = () =>
         </Inline>
         <SearchInput disabled placeholder="Where to?" />
         <SearchInput readOnly placeholder="Where to?" />
-    </Stack>;
+    </Stack>
+);
 
-export const Zoom = () =>
+States.storyName = "states";
+
+export const Zoom = () => (
     <Stack>
         <Div className="zoom-in">
             <SearchInput placeholder="Where to?" />
@@ -108,22 +126,19 @@ export const Zoom = () =>
         <Div className="zoom-out">
             <SearchInput placeholder="Where to?" />
         </Div>
-    </Stack>;
+    </Stack>
+);
 
-export const Styling = () =>
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
     <Inline>
         <SearchInput border="alert-6" aria-label="Label" />
         <SearchInput className="border-red" aria-label="Label" />
         <SearchInput style={{ border: "1px solid red" }} aria-label="Label" />
         <SearchInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
         <SearchInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
-    </Inline>;
+    </Inline>
+);
 
-Default.storyName = "default";
-Placeholder.storyName = "placeholder";
-Value.storyName = "value";
-CustomIcon.storyName = "custom icon";
-NoIcon.storyName = "no icon";
-States.storyName = "states";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";
