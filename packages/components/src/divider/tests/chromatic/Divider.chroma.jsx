@@ -45,7 +45,8 @@ export const Labelled = () => (
 Labelled.storyName = "labelled";
 
 export const LongLabel = () => (
-    <Divider height={16}>Since 1978 there have been more than 10 space exploration missions.</Divider>;
+    <Divider height={16}>Since 1978 there have been more than 10 space exploration missions.</Divider>
+);
 
 LongLabel.storyName = "long label";
 

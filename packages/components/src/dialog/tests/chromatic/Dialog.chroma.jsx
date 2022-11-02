@@ -446,7 +446,7 @@ export const WrapperStyle = () => (
             <Paragraph>The facility suffered two cable failures this year, and then in early December, the suspended platform above the radio dish came crashing down.</Paragraph>
             <Paragraph>The news about Arecibo's structural damage and subsequent decommissioning was disheartening for the local community, too. Field trips to its visitors' center are a ''rite of passage'' for Puerto Rican children.</Paragraph>
         </Content>
-    </Dialog>;
+    </Dialog>);
 
 WrapperStyle.storyName = "wrapper style";
 

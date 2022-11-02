@@ -109,14 +109,16 @@ export const IconColors = () => (
 IconColors.storyName = "icon colors";
 
 export const FontSize = () => (
-    Object.keys(FontSizeMapping).map(x => <Box fontSize={x} key={x}>Space exploration</Box>);
+    Object.keys(FontSizeMapping).map(x => <Box fontSize={x} key={x}>Space exploration</Box>)
+);
 
-    FontSize.storyName = "font size";
+FontSize.storyName = "font size";
 
 export const FontWeight = () => (
-    Object.keys(FontWeightMapping).map(x => <Box fontWeight={x} key={x}>Space exploration</Box>);
+    Object.keys(FontWeightMapping).map(x => <Box fontWeight={x} key={x}>Space exploration</Box>)
+);
 
-    FontWeight.storyName = "font weight";
+FontWeight.storyName = "font weight";
 
 export const LineHeight = () => (
     <Inline>
