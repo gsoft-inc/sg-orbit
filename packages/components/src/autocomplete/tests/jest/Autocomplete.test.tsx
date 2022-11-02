@@ -135,8 +135,8 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+    await act(() => {
+        return userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
@@ -334,8 +334,8 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -407,14 +407,14 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     // First tab move the focus to the clear button.
-    act(() => {
-        userEvent.tab();
+    await act(() => {
+        return userEvent.tab();
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.tab();
+    await act(() => {
+        return userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -475,8 +475,8 @@ test("when the clear button is clicked, the focus is moved to the input", async 
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+    await act(() => {
+        return userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
@@ -495,8 +495,8 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
+    await act(() => {
+        return userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());

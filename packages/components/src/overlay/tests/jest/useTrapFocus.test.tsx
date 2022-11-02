@@ -74,8 +74,8 @@ test("move the focus to the previous element of the scope on shift + tab keypres
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("button-4"));
+    await act(() => {
+        return userEvent.click(getByTestId("button-4"));
     });
 
     act(() => {
@@ -108,8 +108,8 @@ test("when no element of the scope is focused, clicking an element outside of th
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("button-5"));
+    await act(() => {
+        return userEvent.click(getByTestId("button-5"));
     });
 
     await waitFor(() => expect(getByTestId("button-2")).toHaveFocus());

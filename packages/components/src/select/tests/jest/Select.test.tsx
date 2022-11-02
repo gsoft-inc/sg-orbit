@@ -27,8 +27,8 @@ test("when a select open and there is no selected option, the first option is fo
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
@@ -43,8 +43,8 @@ test("when a select open and there is a selected option, the selected option is 
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
@@ -126,14 +126,14 @@ test("selecting an option close the menu", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
+    await act(() => {
+        return userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -151,14 +151,14 @@ test("selecting an option update the trigger selected value text", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
+    await act(() => {
+        return userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
@@ -179,14 +179,14 @@ test("selecting an option focus the trigger", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
+    await act(() => {
+        return userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(queryByTestId("select")).toHaveFocus());
@@ -208,8 +208,8 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -218,8 +218,8 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         getByTestId("earth-option").focus();
     });
 
-    act(() => {
-        userEvent.tab();
+    await act(() => {
+        return userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -243,8 +243,8 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         </>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -274,8 +274,8 @@ test("when in a field, clicking on the field label open the select and focus the
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
+    await act(() => {
+        return userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
@@ -421,8 +421,8 @@ test("call onOpenChange when the select open", async () => {
         </Select>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("select"));
+    await act(() => {
+        return userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -476,8 +476,8 @@ test("call onSelectionChange when an option is selected", async () => {
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByTestId("earth-option"));
+    await act(() => {
+        return userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth"));

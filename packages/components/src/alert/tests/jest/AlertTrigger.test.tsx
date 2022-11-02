@@ -20,14 +20,14 @@ test("do not dismiss on outside click", async () => {
         </AlertTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
+    await act(() => {
+        return userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());

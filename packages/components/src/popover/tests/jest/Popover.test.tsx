@@ -84,8 +84,8 @@ test("when dismissable, tabbing the last focusable element of the popover will m
         getByTestId("last-focusable-element").focus();
     });
 
-    act(() => {
-        userEvent.tab();
+    await act(() => {
+        return userEvent.tab();
     });
 
     await waitFor(() => expect(getByLabelText("Dismiss")));
@@ -173,8 +173,8 @@ test("call onClose when the dismiss button is click", async () => {
         </Popover>
     );
 
-    act(() => {
-        userEvent.click(getByLabelText("Dismiss"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Dismiss"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));

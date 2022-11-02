@@ -61,8 +61,8 @@ test("when the input has no value and a partial date has been entered, reset to 
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("01/0"));
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
@@ -85,8 +85,8 @@ test("when the input has no value and an invalid date has been entered, clear th
 
     type(getByTestId("date"), "99999999");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
@@ -112,8 +112,8 @@ test("when the entered date is lower than the min date, reset value to min date"
 
     type(getByTestId("date"), "01012020");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -139,8 +139,8 @@ test("when the entered date is greater than the max date, reset the date to the 
 
     type(getByTestId("date"), "01012022");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -163,8 +163,8 @@ test("when a valid date is entered, convert the date format to a read format on 
 
     type(getByTestId("date"), "01012021");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -199,8 +199,8 @@ test("when the input value has a valid date and a partial date has been entered 
 
     type(getByTestId("date"), "010");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -228,8 +228,8 @@ test("when the input value has a valid date and a malformed date has been entere
 
     type(getByTestId("date"), "999999");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -249,8 +249,8 @@ test("when in a field, clicking on the field label focus the date input", async 
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
+    await act(() => {
+        return userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveFocus());
@@ -300,14 +300,14 @@ describe("compact presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        await act(() => {
+            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByRole("menuitemradio"));
+        await act(() => {
+            return userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("Wed, Jan 1, 2020"));
@@ -328,14 +328,14 @@ describe("compact presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        await act(() => {
+            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByRole("menuitemradio"));
+        await act(() => {
+            return userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(container.querySelector(":scope [aria-label=\"Date presets\"]")).toHaveFocus());
@@ -350,14 +350,14 @@ describe("compact presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        await act(() => {
+            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByRole("menuitemradio"));
+        await act(() => {
+            return userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
@@ -373,8 +373,8 @@ describe("compact presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        await act(() => {
+            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -393,8 +393,8 @@ describe("expanded presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByRole("radio"));
+        await act(() => {
+            return userEvent.click(getByRole("radio"));
         });
 
         await waitFor(() => expect(getByPlaceholderText("date-input")).toHaveValue("Wed, Jan 1, 2020"));
@@ -415,8 +415,8 @@ describe("expanded presets", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByRole("radio"));
+        await act(() => {
+            return userEvent.click(getByRole("radio"));
         });
 
         await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));
@@ -454,8 +454,8 @@ test("when the input has no value and a valid date has been entered, call onDate
 
     type(getByTestId("date"), "01012021");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -484,8 +484,8 @@ test("when the input has no value and a partial date has been cleared, do not ca
         userEvent.clear(getByTestId("date"));
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
@@ -509,8 +509,8 @@ test("when the input has no value and a malformed date has been entered, do not 
 
     type(getByTestId("date"), "99999999");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue(""));
@@ -539,8 +539,8 @@ test("when the input value has a valid date and a new valid date has been entere
         userEvent.type(getByTestId("date"), "0");
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -566,8 +566,8 @@ test("when the input value has a valid date and the date has been cleared, call 
         userEvent.clear(getByTestId("date"));
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), null));
@@ -591,8 +591,8 @@ test("when the input value has a valid date and a partial date has been entered,
 
     backspace(getByTestId("date"), 3);
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("date")).toHaveValue("Fri, Jan 1, 2021"));
@@ -619,8 +619,8 @@ test("when the input value has a valid date and a malformed date has been entere
 
     type(getByTestId("date"), "999999");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -641,8 +641,8 @@ test("when the input value has a valid date and is focused then blured with the 
         getByTestId("date").focus();
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -665,8 +665,8 @@ test("when a valid date has been entered and the date exceed the specified min o
 
     type(getByTestId("date"), "01012020");
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handleDateChange).toHaveBeenLastCalledWith(expect.anything(), new Date(2021, 0, 1)));
@@ -683,14 +683,14 @@ test("when a preset is selected, call onDateChange with the preset date", async 
         />
     );
 
-    act(() => {
-        userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+    await act(() => {
+        return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
     });
 
     await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-    act(() => {
-        userEvent.click(getByRole("menuitemradio"));
+    await act(() => {
+        return userEvent.click(getByRole("menuitemradio"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

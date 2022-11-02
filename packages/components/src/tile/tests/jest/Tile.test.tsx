@@ -115,8 +115,8 @@ test("call onChange when the tile is selected", async () => {
         </Tile>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("tile"));
+    await act(() => {
+        return userEvent.click(getByTestId("tile"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -133,12 +133,12 @@ test("call onChange when the tile is unselected", async () => {
         </Tile>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("tile"));
+    await act(() => {
+        return userEvent.click(getByTestId("tile"));
     });
 
-    act(() => {
-        userEvent.click(getByTestId("tile"));
+    await act(() => {
+        return userEvent.click(getByTestId("tile"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

@@ -51,8 +51,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -147,8 +147,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -206,8 +206,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -227,8 +227,8 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -265,12 +265,12 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.hover(getByTestId("trigger"));
         });
 
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -292,8 +292,8 @@ describe("\"hover\" trigger", () => {
             getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
+        await act(() => {
+            return userEvent.click(document.body);
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -312,12 +312,12 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.hover(getByTestId("trigger"));
         });
 
-        act(() => {
-            userEvent.unhover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.unhover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -340,8 +340,8 @@ describe("\"hover\" trigger", () => {
             getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
+        await act(() => {
+            return userEvent.click(document.body);
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -360,8 +360,8 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -401,8 +401,8 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -458,8 +458,8 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.hover(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());

@@ -20,8 +20,8 @@ test("when in a field, clicking on the field label focus the input", async () =>
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
+    await act(() => {
+        return userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());

@@ -56,8 +56,8 @@ test("call onChange, when the switch is checked", async () => {
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -71,12 +71,12 @@ test("call onChange when the switch is unchecked", async () => {
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
@@ -90,8 +90,8 @@ test("call onValueChange when the switch is turned on", async () => {
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -105,12 +105,12 @@ test("call onValueChange when the switch is turned off", async () => {
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
@@ -124,8 +124,8 @@ test("dont call onValueChange when the switch is disabled", async () => {
         <Switch disabled onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
+    await act(() => {
+        return userEvent.click(getInput(getByTestId("switch")));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());

@@ -87,8 +87,8 @@ test("increment value on increment button click", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(2));
@@ -119,8 +119,8 @@ test("decrement value on decrement button click", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(0));
@@ -151,8 +151,8 @@ test("when no value has been entered yet and the increment button is clicked, se
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));
@@ -167,8 +167,8 @@ test("when no value has been entered yet and the decrement button is clicked, se
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(-1));
@@ -183,12 +183,12 @@ test("when a max value is specified, do not increment over the max value", async
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(2));
@@ -203,8 +203,8 @@ test("when a max value is specified and no value has been set yet, do not increm
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(0));
@@ -219,12 +219,12 @@ test("when a min value is specified, do not decrement under the min value", asyn
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(4));
@@ -239,8 +239,8 @@ test("when a min value is specified and no value has been set yet, do not decrem
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(4));
@@ -259,8 +259,8 @@ test("when the entered value is lower than the min value, reset value to min val
         userEvent.type(getByTestId("input"), "2");
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(3));
@@ -279,8 +279,8 @@ test("when the entered value is greater than the max value, reset the value to t
         userEvent.type(getByTestId("input"), "2");
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));
@@ -364,8 +364,8 @@ test("when in a field, clicking on the field label focus the input", async () =>
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
+    await act(() => {
+        return userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());
@@ -399,8 +399,8 @@ test("call onValueChange when the value change and the input lose focus", async 
         userEvent.type(getByTestId("input"), "2");
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
@@ -423,8 +423,8 @@ test("call onValueChange when the value is incremented", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Increment value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Increment value"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
@@ -447,8 +447,8 @@ test("call onValueChange when the value is decremented", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 0));
@@ -491,8 +491,8 @@ test("do not call onFocus again when a spinner arrow is clicked", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -514,8 +514,8 @@ test("call onBlur when the input lose focus", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -538,8 +538,8 @@ test("do not call onBlur when a spinner arrow is clicked", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(getByLabelText("Decrement value"));
+    await act(() => {
+        return userEvent.click(getByLabelText("Decrement value"));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -590,8 +590,8 @@ test("when the entered value exceed the specified min or max value, onValueChang
         userEvent.type(getByTestId("input"), "4");
     });
 
-    act(() => {
-        userEvent.click(document.body);
+    await act(() => {
+        return userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handleValueChange).toHaveBeenLastCalledWith(expect.anything(), 5));

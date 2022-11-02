@@ -73,8 +73,8 @@ describe("\"click\" trigger", () => {
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -126,8 +126,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -176,14 +176,14 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -199,14 +199,14 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).toBeInTheDocument());
@@ -221,8 +221,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -248,8 +248,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -277,8 +277,8 @@ describe("\"click\" trigger", () => {
             </>
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -307,8 +307,8 @@ describe("\"click\" trigger", () => {
             </>
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -333,8 +333,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -343,8 +343,8 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
+        await act(() => {
+            return userEvent.click(document.body);
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -360,8 +360,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -370,8 +370,8 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
+        await act(() => {
+            return userEvent.click(document.body);
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -388,8 +388,8 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(getByTestId("trigger"));
+        await act(() => {
+            return userEvent.click(getByTestId("trigger"));
         });
 
         await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
