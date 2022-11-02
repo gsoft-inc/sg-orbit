@@ -15,22 +15,22 @@ export const Default = () => (
     <Underlay />
 );
 
-Default.storyName = "Default.storyName";
+Default.storyName = "default";
 
-export const StyledRystem = () => (
+export const StyledSystem = () => (
     <Underlay border="warning-7" />
 );
 
-StyledRystem.storyName = "StyledRystem.storyName";
+StyledSystem.storyName = "styled system";
 
 export const ClassName = () => (
     <Underlay className="border-red" />
 );
 
-ClassName.storyName = "ClassName.storyName";
+ClassName.storyName = "className";
 
 export const Style = () => (
     <Underlay style={{ border: "1px solid red" }} />
 );
 
-Style.storyName = "Style.storyName";
+Style.storyName = "style";
