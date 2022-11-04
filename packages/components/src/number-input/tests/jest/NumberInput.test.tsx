@@ -17,8 +17,8 @@ test("accept numbers", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "1");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "1");
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(1));
@@ -33,8 +33,8 @@ test("accept negative numbers", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "-1");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "-1");
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(-1));
@@ -65,14 +65,14 @@ test("do not accept non numeric characters", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(null));
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "$");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "$");
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveValue(null));
@@ -255,8 +255,8 @@ test("when the entered value is lower than the min value, reset value to min val
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await act(() => {
@@ -275,8 +275,8 @@ test("when the entered value is greater than the max value, reset the value to t
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await act(() => {
@@ -297,8 +297,8 @@ test("when the entered value is equal to the min value, the decrement stepper is
 
     await waitFor(() => expect(getByLabelText("Decrement value")).not.toHaveAttribute("disabled"));
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await waitFor(() => expect(getByLabelText("Decrement value")).toHaveAttribute("disabled"));
@@ -315,8 +315,8 @@ test("when the entered value is equal to the max value, the increment stepper is
 
     await waitFor(() => expect(getByLabelText("Increment value")).not.toHaveAttribute("disabled"));
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await waitFor(() => expect(getByLabelText("Increment value")).toHaveAttribute("disabled"));
@@ -380,8 +380,8 @@ test("call onChange when the value change", async () => {
         <NumberInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -395,8 +395,8 @@ test("call onValueChange when the value change and the input lose focus", async 
         <NumberInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "2");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "2");
     });
 
     await act(() => {
@@ -586,8 +586,8 @@ test("when the entered value exceed the specified min or max value, onValueChang
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "4");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "4");
     });
 
     await act(() => {

@@ -92,8 +92,8 @@ test("call onChange when the value change", async () => {
         <SearchInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -111,8 +111,8 @@ test("call onValueChange when the value change", async () => {
         getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
+    await act(() => {
+        return userEvent.type(getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
