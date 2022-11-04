@@ -109,16 +109,4 @@ if (isDocs) {
     parameters.options.isToolshown = true;
 }
 
-export const globalTypes = {
-    colorScheme: {
-        name: "ColorScheme",
-        description: "Color scheme for components",
-        defaultValue: "light",
-        toolbar: {
-            title: "Color Scheme",
-            items: ["light", "dark"]
-        }
-    }
-};
-
 export const decorators = [withCenteredCanvas, withThemeProvider, withBackgroundMatchingColorScheme];
