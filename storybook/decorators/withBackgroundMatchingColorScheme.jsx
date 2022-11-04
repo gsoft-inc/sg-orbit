@@ -1,6 +1,5 @@
 import { isNil } from "@components/shared";
 import { useEffect } from "react";
-import { useColorScheme } from "../addons/colorScheme";
 
 const StyleElementId = "story-background-color";
 
@@ -10,8 +9,7 @@ const BackgroundColors = {
 };
 
 export function withBackgroundMatchingColorScheme(story, context) {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const colorScheme = useColorScheme();
+    const colorScheme = context.globals.colorScheme;
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
