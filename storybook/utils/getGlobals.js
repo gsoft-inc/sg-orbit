@@ -10,7 +10,7 @@
 export function getGlobals(context) {
     // If it's a DocsContextProps, we have to do this to get up-to-date globals
     // from the StoryContext.
-    if ( context.storyById && context.getStoryContext) {
+    if (context.storyById && context.getStoryContext) {
         const story = context.storyById(context.id);
         const storyContext = context.getStoryContext(story);
 
