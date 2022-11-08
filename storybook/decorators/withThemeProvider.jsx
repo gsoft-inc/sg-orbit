@@ -1,9 +1,11 @@
 import { ShareGateTheme, ThemeProvider } from "@components/styling";
 
 import { isChromatic } from "../env";
+import { getGlobals } from "../utils";
 
 export function withThemeProvider(story, context) {
-    const { viewMode, globals } = context;
+    const { viewMode } = context;
+    const globals = getGlobals(context);
 
     return (
         <ThemeProvider
