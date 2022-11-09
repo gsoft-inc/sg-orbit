@@ -5,6 +5,7 @@ import {
     ButtonAsLink,
     ButtonGroup,
     IconButton,
+    IconButtonAsLink,
     InnerButton,
     InnerButtonGroup,
     InnerIconButton,
@@ -229,6 +230,16 @@ A button content can be a single icon. An accessible name must be provided throu
     </Story>
 </Preview>
 
+### Icon link
+
+An icon button can be rendered as a link by using the IconButtonAsLink component.
+
+<Preview>
+    <Story name="icon link button">
+        <IconButtonAsLink variant="secondary" aria-label="Add owner"><AddIcon /></IconButtonAsLink>
+    </Story>
+</Preview>
+
 ## Button group
 
 Buttons whose actions are related to each other can be grouped together.
@@ -383,4 +394,12 @@ A toggle button can handle `checked` state in controlled mode.
     compact
 />
 
-<ArgsTable of={InnerButton} sort="alpha" />
+### IconButtonAsLink
+
+<ComponentInfo
+    usage={"import { IconButtonAsLink } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerIconButton.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerIconButton} sort="alpha" />
