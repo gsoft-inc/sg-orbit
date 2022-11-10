@@ -9,8 +9,8 @@ interface RouterLinkProps {
     b?: boolean;
 }
 
-const RouterLink = (props: RouterLinkProps) => {
-    return <Div>{props.b && props.a}</Div>;
+const RouterLink = ({ a, b }: RouterLinkProps) => {
+    return <Div>{b && a}</Div>;
 };
 
 const RouterButton = as(Button, RouterLink);

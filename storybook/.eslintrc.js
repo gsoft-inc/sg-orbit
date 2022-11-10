@@ -3,6 +3,5 @@ module.exports = {
         "@sharegate/eslint-config-react"
     ],
     rules: {
-        "react/destructuring-assignment": "off"
     }
 };
