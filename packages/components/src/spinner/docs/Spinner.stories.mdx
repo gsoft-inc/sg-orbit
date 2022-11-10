@@ -1,0 +1,60 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@components/layout";
+import { InnerSpinner, Spinner } from "@components/spinner";
+
+<Meta
+    title="Components/Spinner"
+    id="spinner"
+/>
+
+# Spinner
+
+<Tagline>Loaders indicate either a loading status for content or act as a transition to a new state, providing users with feedback that the interaction was sucessful.</Tagline>
+
+<ComponentInfo
+    usage={"import { Spinner } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/spinner/src"
+/>
+
+## Usage
+
+### Default
+
+A default spinner. Use in most situations.
+
+<Preview>
+    <Story name="default">
+        <Spinner />
+    </Story>
+</Preview>
+
+### Size
+
+A spinner can vary in size.
+
+<Preview>
+    <Story name="spinner size">
+        <Inline alignY="end">
+            <Spinner size="2xs" />
+            <Spinner size="xs" />
+            <Spinner size="sm" />
+            <Spinner size="md" />
+            <Spinner size="lg" />
+            <Spinner size="xl" />
+            <Spinner size="2xl" />
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+### Spinner
+
+<ComponentInfo
+    usage={"import { Spinner } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerSpinner.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerSpinner} sort="alpha" />

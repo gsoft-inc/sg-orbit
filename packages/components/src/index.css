@@ -41,6 +41,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./popover/index.css";
 @import "./radio/index.css";
 @import "./select/index.css";
+@import "./spinner/index.css";
 @import "./switch/index.css";
 @import "./tabs/index.css";
 @import "./tag/index.css";
@@ -97,6 +98,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -106,6 +108,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
     0% {
         opacity: 1;
     }
+
     100% {
         opacity: 0;
     }

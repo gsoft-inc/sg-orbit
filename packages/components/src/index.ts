@@ -38,6 +38,7 @@ export * from "./popover";
 export * from "./radio";
 export * from "./select";
 export * from "./shared";
+export * from "./spinner";
 export * from "./styling";
 export * from "./switch";
 export * from "./tabs";
