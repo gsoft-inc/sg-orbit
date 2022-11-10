@@ -29,6 +29,8 @@ export const Default = {
     </Inline>
 };
 
+Default.storyName = "default";
+
 export const Overlap = {
     render: () => <Inline gap={8}>
         <SquareBadge>
@@ -42,6 +44,8 @@ export const Overlap = {
         </IconBadge>
     </Inline>
 };
+
+Overlap.storyName = "overlap";
 
 export const Zoom = {
     render: () => <Inline gap={8}>
@@ -58,6 +62,8 @@ export const Zoom = {
     </Inline>
 };
 
+Zoom.storyName = "zoom";
+
 export const Styling = {
     render: () => <Inline gap={8}>
         <SquareBadge border="warning-7">
@@ -72,7 +78,4 @@ export const Styling = {
     </Inline>
 };
 
-Default.storyName = "default";
-Overlap.storyName = "overlap";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

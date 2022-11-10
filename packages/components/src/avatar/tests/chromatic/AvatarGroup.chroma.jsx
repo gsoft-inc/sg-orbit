@@ -99,6 +99,8 @@ export const Default = () =>
         </Stack>
     </Inline>;
 
+Default.storyName = "default";
+
 export const NoWrap = () =>
     <Div width={12}>
         <AvatarGroup wrap={false} size="xl">
@@ -109,6 +111,8 @@ export const NoWrap = () =>
             <Avatar name="Neil Armstrong" />
         </AvatarGroup>
     </Div>;
+
+NoWrap.storyName = "no wrap";
 
 export const WithRemainings = () =>
     <Stack>
@@ -163,6 +167,8 @@ export const WithRemainings = () =>
         </AvatarGroup>
     </Stack>;
 
+WithRemainings.storyName = "with remainings";
+
 export const Overflow = () =>
     <Div width={10}>
         <AvatarGroup size="2xl">
@@ -172,6 +178,8 @@ export const Overflow = () =>
             <Avatar name="Christa McAuliffe" />
         </AvatarGroup>
     </Div>;
+
+Overflow.storyName = "overflow";
 
 export const Zoom = () =>
     <Stack>
@@ -189,6 +197,8 @@ export const Zoom = () =>
         </Div>
     </Stack>;
 
+Zoom.storyName = "zoom";
+
 export const Styling = () =>
     <Inline>
         <AvatarGroup border="warning-7">
@@ -205,6 +215,8 @@ export const Styling = () =>
         </AvatarGroup>
     </Inline>;
 
+Styling.storyName = "styling";
+
 export const WithRemainingsHover = () =>
     <AvatarGroup remainingAvatarsProps={{ "data-testid": "remaining-avatars" }}>
         <Avatar name="Sally Ride" />
@@ -215,14 +227,8 @@ export const WithRemainingsHover = () =>
     </AvatarGroup>
 ;
 
+WithRemainingsHover.storyName = "with remainings hover";
+
 WithRemainingsHover.play = async () => {
     userEvent.hover(screen.getByTestId("remaining-avatars"));
 };
-
-Default.storyName = "default";
-NoWrap.storyName = "no wrap";
-Overflow.storyName = "overflow";
-WithRemainings.storyName = "with remainings";
-Styling.storyName = "styling";
-Zoom.storyName = "zoom";
-WithRemainingsHover.storyName = "with remainings hover";

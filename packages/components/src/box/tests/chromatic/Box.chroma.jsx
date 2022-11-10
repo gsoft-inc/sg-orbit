@@ -14,9 +14,6 @@ export const Default = () => (
 );
 
 Default.storyName = "default";
-Default.parameters = {
-    chromatic: { delay: 100 }
-};
 
 export const Styling = () => (
     <Inline>

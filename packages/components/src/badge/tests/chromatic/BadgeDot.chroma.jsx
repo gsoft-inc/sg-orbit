@@ -12,6 +12,8 @@ export const Default = {
     render: () => <SquareBadge variant="dot" />
 };
 
+Default.storyName = "default";
+
 export const Overlap = {
     render: () => <Inline gap={8}>
         <SquareBadge variant="dot" />
@@ -21,6 +23,8 @@ export const Overlap = {
     </Inline>
 };
 
+Overlap.storyName = "overlap";
+
 export const Styling = {
     render: () => <Inline>
         <SquareBadge variant="dot" border="warning-7" />
@@ -29,6 +33,4 @@ export const Styling = {
     </Inline>
 };
 
-Default.storyName = "default";
-Overlap.storyName = "overlap";
 Styling.storyName = "styling";

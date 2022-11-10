@@ -14,6 +14,8 @@ export const Default = () =>
         <CrossButton aria-label="Clear" />
     </Inline>;
 
+Default.storyName = "default";
+
 export const Condensed = () =>
     <Inline alignY="end">
         <CrossButton condensed size="2xs" aria-label="Clear" />
@@ -22,5 +24,4 @@ export const Condensed = () =>
         <CrossButton condensed aria-label="Clear" />
     </Inline>;
 
-Default.storyName = "default";
 Condensed.storyName = "condensed";
