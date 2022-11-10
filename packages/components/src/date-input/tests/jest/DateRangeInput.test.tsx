@@ -122,7 +122,7 @@ test("when the focus is in the start date input, tab keypress move the focus to 
     });
 
     act(() => {
-       userEvent.tab();
+        userEvent.tab();
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveFocus());
@@ -138,7 +138,7 @@ test("when the focus is in the end date input, shift + tab keypress move the foc
     });
 
     act(() => {
-       userEvent.tab({ shift: true });
+        userEvent.tab({ shift: true });
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
@@ -363,7 +363,7 @@ test("tab keypress from outside will focus the start date input", async () => {
     await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
 
     act(() => {
-       userEvent.tab();
+        userEvent.tab();
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
