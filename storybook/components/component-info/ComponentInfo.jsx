@@ -44,7 +44,7 @@ const ExtendLinks = {
 };
 
 export function ComponentInfo({
-    usage,
+    usage: usageProp,
     slots,
     inherits,
     ariaPath,
@@ -53,7 +53,7 @@ export function ComponentInfo({
     className,
     ...rest
 }) {
-    usage = useThemedSnippet(usage);
+    const usage = useThemedSnippet(usageProp);
 
     return (
         <dl
