@@ -218,7 +218,7 @@ export const Styling = () =>
 Styling.storyName = "styling";
 
 export const WithRemainingsHover = () =>
-    <AvatarGroup data-testid="avatar-group">
+    <AvatarGroup>
         <Avatar name="Sally Ride" />
         <Avatar name="Alan Shepard" />
         <Avatar name="Chris Hadfield" />
@@ -230,5 +230,5 @@ export const WithRemainingsHover = () =>
 WithRemainingsHover.storyName = "with remainings hover";
 
 WithRemainingsHover.play = async () => {
-    userEvent.hover(screen.getByTestId("avatar-group").lastChild);
+    userEvent.hover(screen.querySelector(".o-ui-avatar-group-remainings"));
 };
