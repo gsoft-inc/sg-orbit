@@ -215,22 +215,26 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
     });
 
     const handleStartDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
+        let snappedDate = newDate;
+
         if (!isNil(newDate) && !isNil(endDate) && newDate > endDate) {
-            newDate = endDate;
+            snappedDate = endDate;
         }
 
         if (!isNil(onDatesChange)) {
-            onDatesChange(event, newDate, endDate);
+            onDatesChange(event, snappedDate, endDate);
         }
     });
 
     const handleEndDateChange = useEventCallback((event: ChangeEvent<HTMLInputElement>, newDate) => {
+        let snappedDate = newDate;
+
         if (!isNil(newDate) && !isNil(startDate) && newDate < startDate) {
-            newDate = startDate;
+            snappedDate = startDate;
         }
 
         if (!isNil(onDatesChange)) {
-            onDatesChange(event, startDate, newDate);
+            onDatesChange(event, startDate, snappedDate);
         }
     });
 

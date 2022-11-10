@@ -16,16 +16,16 @@ function useNodesFiltering(nodes: CollectionNode[]): [CollectionItem[], (query: 
     const filter = useCallback((query: string) => {
         const cache: Record<string, any> = {};
 
-        query = query.toLowerCase();
+        const cacheKey = query.toLowerCase();
 
-        if (!isNil(cache[query])) {
-            setResults(cache[query]);
+        if (!isNil(cache[cacheKey])) {
+            setResults(cache[cacheKey]);
         } else {
             const filteredNodes = reduceCollection(nodes, item => {
-                return isQueryMatchingItem(query, item);
+                return isQueryMatchingItem(cacheKey, item);
             });
 
-            cache[query] = filteredNodes;
+            cache[cacheKey] = filteredNodes;
 
             setResults(filteredNodes);
         }

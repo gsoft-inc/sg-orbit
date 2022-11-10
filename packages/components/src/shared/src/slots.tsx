@@ -44,14 +44,14 @@ export function getRawSlots(children: ReactNode, slots: string[]): Record<string
         return {};
     }
 
-    children = resolveChildren(children);
+    const resolvedChildren = resolveChildren(children);
 
-    if (!isString(children)) {
-        return findSlots(children, slots);
+    if (!isString(resolvedChildren)) {
+        return findSlots(resolvedChildren, slots);
     }
 
     return {
-        stringValue: children
+        stringValue: resolvedChildren
     };
 }
 
@@ -77,10 +77,10 @@ export function getSlots<T extends SlotOptions>(children: ReactNode, { _ = {}, .
 
     let slotElements: SlotElements = {};
 
-    children = resolveChildren(children);
+    const resolvedChildren = resolveChildren(children);
 
-    if (!isString(children)) {
-        slotElements = findSlots(children, Object.keys(slots));
+    if (!isString(resolvedChildren)) {
+        slotElements = findSlots(resolvedChildren, Object.keys(slots));
     }
 
     const { defaultWrapper: Wrapper, required } = _;
