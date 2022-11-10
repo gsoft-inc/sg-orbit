@@ -322,8 +322,7 @@ export function InnerListbox({
                     const newKeys = selectionManager.toggleSelection(key);
 
                     updateSelectedKeys(event, newKeys);
-                }
-                else if (selectionMode === "multiple") {
+                } else if (selectionMode === "multiple") {
                     let newKeys = [];
 
                     if (event.shiftKey) {

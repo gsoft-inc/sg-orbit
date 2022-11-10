@@ -23,7 +23,7 @@ function getComponentName(fileName, size) {
     let formatedName = camelCase(name, options);
 
     formatedName = formatedName.replace(/^(Icon)/, "");
-    if (size){
+    if (size) {
         formatedName = formatedName.replace(new RegExp(`${size}$`, "g"), `Icon${size}`);
     } else {
         formatedName += "Icon";
@@ -32,7 +32,7 @@ function getComponentName(fileName, size) {
     return formatedName;
 }
 
-function generateIconComponents(icons, dir){
+function generateIconComponents(icons, dir) {
     if (!shell.test("-d", dir)) {
         shell.mkdir(dir);
     }

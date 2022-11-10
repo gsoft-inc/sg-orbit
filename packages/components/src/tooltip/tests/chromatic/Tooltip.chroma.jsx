@@ -1,6 +1,5 @@
-import { Button } from "@components/button";
+import { IconButton, Button } from "@components/button";
 import { EmailIcon } from "@components/icons";
-import { IconButton } from "@components/button";
 import { Image } from "@components/image";
 import { Launch } from "./assets";
 import { TextLink } from "@components/link";

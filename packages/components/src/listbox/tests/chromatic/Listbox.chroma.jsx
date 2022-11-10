@@ -3,9 +3,8 @@ import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon }
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
 import { Item, Section } from "@components/collection";
-import { Listbox, ListboxOption } from "@components/listbox";
+import { useListboxContext, Listbox, ListboxOption } from "@components/listbox";
 import { Text } from "@components/typography";
-import { useListboxContext } from "@components/listbox";
 
 export default {
     title: "Chromatic/Listbox",

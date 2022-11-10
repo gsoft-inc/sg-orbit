@@ -21,7 +21,7 @@ const getAllFiles = (dirPath, arrayOfFiles = []) => {
 
 const getFiles = dir => {
     return new Promise((resolve, reject) => {
-        if(shell.test("-d", dir)) {
+        if (shell.test("-d", dir)) {
             resolve(getAllFiles(dir));
         } else {
             reject(`no such directory ${dir}`);
@@ -36,7 +36,7 @@ const parseName = file => {
     const size = ICONS_SIZES.find(s => fileName.replace(".svg", "").endsWith(s))?.toString(); // find the icon size
     const group = fileName.replace(`-${size}.svg`, "");
 
-    if(!fileName.startsWith("icon-")) {
+    if (!fileName.startsWith("icon-")) {
         console.error(
             "The icon name must start with icon-: ",
             file
@@ -44,7 +44,7 @@ const parseName = file => {
         process.exit(1);
     }
 
-    if(!size) {
+    if (!size) {
         console.error(
             "The icon name must contain its size: ",
             file

@@ -1,8 +1,7 @@
 import { ComponentProps } from "react";
-import { Keys } from "@components/shared";
+import { mergeProps, Keys } from "@components/shared";
 import { UseOverlayTriggerOptions, useOverlayTrigger } from "@components/overlay";
 import { act, fireEvent, waitFor } from "@testing-library/react";
-import { mergeProps } from "@components/shared";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 

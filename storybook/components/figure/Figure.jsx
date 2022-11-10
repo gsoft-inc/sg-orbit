@@ -9,7 +9,7 @@ export function Figure({ url, caption, width, height, ...rest }) {
             <a href={url} target="_blank" rel="noopener noreferrer" >
                 <img src={url} alt={caption} width={width} height={height} />
             </a>
-            <figcaption className="i">{ caption }</figcaption>
+            <figcaption className="i">{caption}</figcaption>
         </figure>
     );
 }

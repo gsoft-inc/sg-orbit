@@ -1,10 +1,7 @@
 import { Apollo11Poster, Nasa, TheMartianPoster } from "./assets";
-import { Footer, Header } from "@components/placeholders";
+import { Content, Footer, Header } from "@components/placeholders";
 import { Heading, Paragraph } from "@components/typography";
-
-import { Button } from "@components/button";
-import { ButtonGroup } from "@components/button";
-import { Content } from "@components/placeholders";
+import { ButtonGroup, Button } from "@components/button";
 import { Dialog } from "@components/dialog";
 import { Div } from "@components/html";
 import { Illustration } from "@components/illustration";

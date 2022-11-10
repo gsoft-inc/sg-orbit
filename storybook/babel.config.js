@@ -1,4 +1,4 @@
-module.exports ={
+module.exports = {
     "extends": "../build/babel.config",
     plugins: [
         ["babel-plugin-named-asset-import",

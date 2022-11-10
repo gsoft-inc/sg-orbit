@@ -114,6 +114,3 @@ test("when the wrapper props include a styled prop, return the style prop as a w
 
     expect(result.wrapperProps.border).toBe("purple-10");
 });
-
-
-
