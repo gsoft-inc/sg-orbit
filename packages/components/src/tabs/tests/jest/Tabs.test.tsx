@@ -513,8 +513,8 @@ test("call onSelectionChange once when a tab is clicked", async () => {
         </Tabs>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tab-2"));
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -536,14 +536,14 @@ test("dont' call onSelectionChange when the active tab is clicked", async () => 
         </Tabs>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tab-2"));
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 
-    await act(() => {
-        return userEvent.click(getByTestId("tab-2"));
+    act(() => {
+        userEvent.click(getByTestId("tab-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

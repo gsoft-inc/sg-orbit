@@ -370,8 +370,8 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        await act(() => {
-            return userEvent.click(document.body);
+        act(() => {
+            userEvent.click(document.body);
         });
 
         await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());

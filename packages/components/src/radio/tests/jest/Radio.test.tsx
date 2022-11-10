@@ -46,8 +46,8 @@ test("call onChange when the radio is checked", async () => {
         <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("radio")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -61,8 +61,8 @@ test("call onValueChange when the radio is checked", async () => {
         <Radio value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("radio")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -76,8 +76,8 @@ test("dont call onValueChange when the radio is disabled", async () => {
         <Radio disabled value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("radio")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());

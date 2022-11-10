@@ -230,8 +230,8 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the item select
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
@@ -298,14 +298,14 @@ test("when selectionMode is \"single\", mouse click toggle the item selection", 
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
@@ -372,14 +372,14 @@ test("when selectionMode is \"multiple\", mouse click toggle the item selection"
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
@@ -669,8 +669,8 @@ test("when selectionMode is \"none\", call onSelectionChange when a single item 
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
@@ -692,8 +692,8 @@ test("when selectionMode is \"single\", call onSelectionChange when a single ite
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
@@ -715,12 +715,12 @@ test("when selectionMode is \"multiple\", call onSelectionChange when multiple i
         </Menu>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("mars-item"));
+    act(() => {
+        userEvent.click(getByTestId("mars-item"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));

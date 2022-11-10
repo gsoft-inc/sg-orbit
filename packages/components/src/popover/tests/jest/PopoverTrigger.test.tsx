@@ -48,8 +48,8 @@ test("when a popover is dismissable, hide the popover on esc keydown", async () 
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).toHaveFocus());
@@ -72,14 +72,14 @@ test("when a popover is dismissable, hide the popover on trigger toggle", async 
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).not.toBeInTheDocument());
@@ -96,14 +96,14 @@ test("when a popover is not dismissable, do not hide the popover on outside clic
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
@@ -120,8 +120,8 @@ test("when a popover is not dismissable, do not hide the popover on esc keydown"
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
@@ -144,14 +144,14 @@ test("when a popover is not dismissable, do not hide the popover on trigger togg
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).toBeInTheDocument());
@@ -181,14 +181,14 @@ test("when the context close function is called, close the dialog", async () => 
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("close-btn")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("close-btn"));
+    act(() => {
+        userEvent.click(getByTestId("close-btn"));
     });
 
     await waitFor(() => expect(queryByTestId("popover")).not.toBeInTheDocument());
@@ -207,8 +207,8 @@ test("a popover trigger have an aria-haspopup attribute", async () => {
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
@@ -231,8 +231,8 @@ test("call onOpenChange when the popover appears", async () => {
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
@@ -279,8 +279,8 @@ test("call onOpenChange on outside click", async () => {
 
     await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), false));
@@ -302,8 +302,8 @@ test("ref is a DOM element", async () => {
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(ref.current).not.toBeNull());
@@ -329,8 +329,8 @@ test("when using a callback ref, ref is a DOM element", async () => {
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(refNode).not.toBeNull());
@@ -352,8 +352,8 @@ test("set ref once", async () => {
         </PopoverTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

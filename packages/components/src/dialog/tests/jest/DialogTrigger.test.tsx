@@ -35,14 +35,14 @@ test("when dismissable is true, close the dialog on dismiss button click", async
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(getByLabelText("Dismiss"));
+    act(() => {
+        userEvent.click(getByLabelText("Dismiss"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
@@ -59,14 +59,14 @@ test("when dismissable is true, close the dialog on outside click", async () => 
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
@@ -83,8 +83,8 @@ test("when dismissable is true, close the dialog on esc keypress", async () => {
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
@@ -107,14 +107,14 @@ test("when dismissable is false, do not close the dialog on outside click", asyn
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
@@ -131,8 +131,8 @@ test("when dismissable is false, do not close the dialog on esc keypress", async
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
@@ -168,14 +168,14 @@ test("when the context close function is called, close the dialog", async () => 
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("close-btn")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("close-btn"));
+    act(() => {
+        userEvent.click(getByTestId("close-btn"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
@@ -196,8 +196,8 @@ test("when the dialog open, call onOpenChange", async () => {
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
@@ -219,14 +219,14 @@ test("call onOpenChange when the dismiss button is clicked", async () => {
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(getByLabelText("Dismiss"));
+    act(() => {
+        userEvent.click(getByLabelText("Dismiss"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
@@ -248,14 +248,14 @@ test("call onOpenChange on outside click", async () => {
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).not.toBeInTheDocument());
@@ -277,8 +277,8 @@ test("call onOpenChange on esc keypress", async () => {
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toHaveFocus());
@@ -377,14 +377,14 @@ test("when a dialog contains a select component, focusing an option do not close
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("select"));
+    act(() => {
+        userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
@@ -418,20 +418,20 @@ test("when a dialog contains a select component, selecting an option do not clos
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("select"));
+    act(() => {
+        userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("option-2"));
+    act(() => {
+        userEvent.click(getByTestId("option-2"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
@@ -458,14 +458,14 @@ test("when a dialog contains a select, closing the select with an esc keydown do
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("select"));
+    act(() => {
+        userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
@@ -504,14 +504,14 @@ test("when a dialog contains a select, closing the select with a tab keydown sel
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("select"));
+    act(() => {
+        userEvent.click(getByTestId("select"));
     });
 
     await waitFor(() => expect(queryByTestId("select-overlay")).toBeInTheDocument());
@@ -549,8 +549,8 @@ test("when a dialog contains a radio group, only the first radio of the group is
         </DialogTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("dialog")).toBeInTheDocument());

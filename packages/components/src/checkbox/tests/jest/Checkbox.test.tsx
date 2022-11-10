@@ -53,8 +53,8 @@ test("call onChange, when the checkbox is checked", async () => {
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -68,12 +68,12 @@ test("call onChange when the checkbox is unchecked", async () => {
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
@@ -87,8 +87,8 @@ test("call onValueChange when the checkbox is checked", async () => {
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -102,12 +102,12 @@ test("call onValueChange when the checkbox is unchecked", async () => {
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
@@ -121,8 +121,8 @@ test("call onValueChange when the checkbox goes from indeterminate to checked", 
         <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -136,8 +136,8 @@ test("dont call onValueChange when the checkbox is disabled", async () => {
         <Checkbox disabled onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await act(() => {
-        return userEvent.click(getInput(getByTestId("checkbox")));
+    act(() => {
+        userEvent.click(getInput(getByTestId("checkbox")));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());

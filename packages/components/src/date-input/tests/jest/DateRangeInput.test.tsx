@@ -121,8 +121,8 @@ test("when the focus is in the start date input, tab keypress move the focus to 
         getStartDateInput(container).focus();
     });
 
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+       userEvent.tab();
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveFocus());
@@ -137,8 +137,8 @@ test("when the focus is in the end date input, shift + tab keypress move the foc
         getEndDateInput(container).focus();
     });
 
-    await act(() => {
-        return userEvent.tab({ shift: true });
+    act(() => {
+       userEvent.tab({ shift: true });
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
@@ -158,8 +158,8 @@ test("when the start date is greater than the end date, reset the start date to 
 
     type(getStartDateInput(container), "02022021");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -185,8 +185,8 @@ test("when the end date is lower than the start date, reset the end date to the 
 
     type(getEndDateInput(container), "02022019");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -212,8 +212,8 @@ test("when the start date is lower than the min date, reset the start date to th
 
     type(getStartDateInput(container), "02022019");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -239,8 +239,8 @@ test("when the start date is greater than the max date, reset the start date to 
 
     type(getStartDateInput(container), "02022021");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -266,8 +266,8 @@ test("when the end date is lower than the min date, reset the end date to the mi
 
     type(getEndDateInput(container), "02022019");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -293,8 +293,8 @@ test("when the end date is greater than the max date, reset the end date to the 
 
     type(getEndDateInput(container), "02022021");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -315,8 +315,8 @@ test("clear both dates on clear button click", async () => {
         />
     );
 
-    await act(() => {
-        return userEvent.click(getByRole("button"));
+    act(() => {
+        userEvent.click(getByRole("button"));
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue(""));
@@ -362,8 +362,8 @@ test("tab keypress from outside will focus the start date input", async () => {
 
     await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
 
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+       userEvent.tab();
     });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
@@ -651,8 +651,8 @@ test("when a start date is applied, call onDatesChange with the new start date",
 
     type(getStartDateInput(container), "01012020");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -675,8 +675,8 @@ test("when an end date is applied, call onDatesChange with the new end date", as
 
     type(getEndDateInput(container), "01012020");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -707,8 +707,8 @@ test("when the start date and the end date are applied, call onDatesChange with 
 
     type(getEndDateInput(container), "01012021");
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), new Date(2020, 0, 1), new Date(2021, 0, 1)));
@@ -726,8 +726,8 @@ test("when the dates are cleared, call onDatesChange with null for both dates", 
         />
     );
 
-    await act(() => {
-        return userEvent.click(getByRole("button"));
+    act(() => {
+        userEvent.click(getByRole("button"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -745,14 +745,14 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
         />
     );
 
-    await act(() => {
-        return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+    act(() => {
+        userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
     });
 
     await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByRole("menuitemradio"));
+    act(() => {
+        userEvent.click(getByRole("menuitemradio"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

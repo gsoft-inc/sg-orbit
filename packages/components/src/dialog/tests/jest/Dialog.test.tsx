@@ -85,8 +85,8 @@ test("when dismissable is true, tabbing the last focusable element of the dialog
         getByTestId("focusable-element").focus();
     });
 
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+        userEvent.tab();
     });
 
     await waitFor(() => expect(getByLabelText("Dismiss")).toHaveFocus());
@@ -206,8 +206,8 @@ test("call onClose when the dismiss button is clicked", async () => {
         </Dialog>
     );
 
-    await act(() => {
-        return userEvent.click(getByLabelText("Dismiss"));
+    act(() => {
+        userEvent.click(getByLabelText("Dismiss"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
@@ -242,8 +242,8 @@ test("call onClose on outside click", async () => {
         </Dialog>
     );
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));

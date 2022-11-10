@@ -77,8 +77,8 @@ test("when opening, the focus stay on the input", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -100,14 +100,14 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "m");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "m");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "{backspace}");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "{backspace}");
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
@@ -129,14 +129,14 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "m");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "m");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+    act(() => {
+        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
@@ -328,14 +328,14 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -400,21 +400,21 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     // First tab move the focus to the clear button.
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+        userEvent.tab();
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+        userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
@@ -440,8 +440,8 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         </>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -469,14 +469,14 @@ test("when the clear button is clicked, the focus is moved to the input", async 
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+    act(() => {
+        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
@@ -495,8 +495,8 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
         </Field>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("label"));
+    act(() => {
+        userEvent.click(getByTestId("label"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
@@ -610,8 +610,8 @@ test("an autocomplete have an aria-expanded attribute", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -633,8 +633,8 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
@@ -660,8 +660,8 @@ test("call onSearch when the query is updated", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "e"));
@@ -684,12 +684,12 @@ test("do not call onSearch when the query is empty", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "{backspace}");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "{backspace}");
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -711,8 +711,8 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -735,12 +735,12 @@ test("call onOpenChange when the autocomplete overlay close", async () => {
         </Autocomplete>
     );
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "e");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await act(() => {
-        return userEvent.type(getByTestId("autocomplete"), "{backspace}");
+    act(() => {
+        userEvent.type(getByTestId("autocomplete"), "{backspace}");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

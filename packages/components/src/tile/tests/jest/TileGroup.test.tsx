@@ -200,8 +200,8 @@ test("when selectionMode is \"single\", call onChange when a tile is selected", 
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
@@ -224,12 +224,12 @@ test("when selectionMode is \"single\", call onChange when then selected tile ch
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-2"));
+    act(() => {
+        userEvent.click(getByTestId("tile-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
@@ -252,12 +252,12 @@ test("when selectionMode is \"multiple\", call onChange when a tile is selected"
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-2"));
+    act(() => {
+        userEvent.click(getByTestId("tile-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1", "2"]));
@@ -280,16 +280,16 @@ test("when selectionMode is \"multiple\", call onChange when a tile is unselecte
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-2"));
+    act(() => {
+        userEvent.click(getByTestId("tile-2"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
@@ -312,8 +312,8 @@ test("when selectionMode is \"single\" call the tile onChange handler when a til
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -336,8 +336,8 @@ test("when selectionMode is \"multiple\", call the tile onChange handler when a 
         </TileGroup>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("tile-1"));
+    act(() => {
+        userEvent.click(getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));

@@ -91,8 +91,8 @@ test("call onBlur when the focus move out of the element", async () => {
         getByTestId("input").focus();
     });
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -133,8 +133,8 @@ test("do not call onBlur when isDisabled is true", async () => {
         getByTestId("input").focus();
     });
 
-    await act(() => {
-        return userEvent.click(document.body);
+    act(() => {
+        userEvent.click(document.body);
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());

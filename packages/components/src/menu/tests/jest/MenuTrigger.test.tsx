@@ -29,8 +29,8 @@ test("when a menu open and there is no selected item, the first item is focused"
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
@@ -48,8 +48,8 @@ test("when a menu open and there is a selected item, the selected item is focuse
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
@@ -143,14 +143,14 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -168,14 +168,14 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -193,14 +193,14 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -221,14 +221,14 @@ test("selecting an item focus the trigger", async () => {
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
@@ -248,8 +248,8 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-item"));
+    act(() => {
+        userEvent.click(getByTestId("earth-item"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
@@ -271,8 +271,8 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
@@ -281,8 +281,8 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         getByTestId("earth-item").focus();
     });
 
-    await act(() => {
-        return userEvent.tab();
+    act(() => {
+        userEvent.tab();
     });
 
     await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
@@ -306,8 +306,8 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
         </>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
@@ -433,8 +433,8 @@ test("call onOpenChange when the menu open", async () => {
         </MenuTrigger>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("trigger"));
+    act(() => {
+        userEvent.click(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());

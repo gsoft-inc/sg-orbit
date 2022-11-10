@@ -216,8 +216,8 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the option sele
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
@@ -284,14 +284,14 @@ test("when selectionMode is \"single\", mouse click toggle the option selection"
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
@@ -358,14 +358,14 @@ test("when selectionMode is \"multiple\", mouse click toggle the option selectio
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
@@ -464,8 +464,8 @@ test("when useVirtualFocus is true, a mouse click should render the option as fo
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("jupiter-option"));
+    act(() => {
+        userEvent.click(getByTestId("jupiter-option"));
     });
 
     await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
@@ -803,8 +803,8 @@ test("call onSelectionChange when a single option is selected", async () => {
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
@@ -825,12 +825,12 @@ test("call onSelectionChange when multiple options are selected in sequence", as
         </Listbox>
     );
 
-    await act(() => {
-        return userEvent.click(getByTestId("earth-option"));
+    act(() => {
+        userEvent.click(getByTestId("earth-option"));
     });
 
-    await act(() => {
-        return userEvent.click(getByTestId("mars-option"));
+    act(() => {
+        userEvent.click(getByTestId("mars-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
