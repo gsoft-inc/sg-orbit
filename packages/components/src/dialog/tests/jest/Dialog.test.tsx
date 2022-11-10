@@ -300,6 +300,3 @@ test("set ref once", async () => {
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
-
-
-

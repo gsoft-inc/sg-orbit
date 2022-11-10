@@ -137,6 +137,3 @@ test("call onOpenChange when close", async () => {
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
-
-
-

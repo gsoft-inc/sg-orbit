@@ -1,11 +1,10 @@
 import { AbstractTextInputProps, TextInput } from "./TextInput";
-import { ChangeEvent, ComponentProps, forwardRef } from "react";
+import { useState, ChangeEvent, ComponentProps, forwardRef } from "react";
 import { EyeIcon, PrivacyIcon } from "../../icons";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 
 import { IconButton } from "../../button";
 import { useInputGroupTextInputProps } from "../../input-group";
-import { useState } from "react";
 
 const DefaultElement = "input";
 

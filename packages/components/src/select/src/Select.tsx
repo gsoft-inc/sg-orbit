@@ -205,7 +205,7 @@ export function InnerSelect(props: InnerSelectProps) {
 
     const valueMarkup = isNil(selectedItem)
         ? placeholder && (
-            <Text {...mergeProps({ className: "o-ui-select-placeholder" }, valueProps )}>
+            <Text {...mergeProps({ className: "o-ui-select-placeholder" }, valueProps)}>
                 {placeholder}
             </Text>
         )

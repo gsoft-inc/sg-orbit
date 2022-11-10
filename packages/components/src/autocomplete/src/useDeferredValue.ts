@@ -13,7 +13,6 @@ export function useDeferredValue<T>(value: T, delay?: number, defaultValue?: T) 
         disposables.setTimeout(() => {
             setDeferredValue(value);
         }, delay);
-
     }, [value, delay, disposables]);
 
     return deferredValue;

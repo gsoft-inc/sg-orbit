@@ -1,5 +1,5 @@
 import { Box, BoxProps } from "../../box";
-import { ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
+import { forwardRef, useCallback, useRef, useState, ChangeEvent, ComponentProps, FocusEvent, KeyboardEvent, ReactElement, ReactNode, SyntheticEvent } from "react";
 import {
     Keys,
     OmitInternalProps,
@@ -18,7 +18,6 @@ import { Listbox, ListboxElement, OptionKeyProp } from "../../listbox";
 import { Overlay, OverlayProps, PopupPosition, PopupProps, isDevToolsBlurEvent, isTargetParent, usePopup, useTriggerWidth } from "../../overlay";
 import { ResponsiveProp, WidthProp } from "../../styling";
 import { UseFieldInputPropsReturn, useFieldInputProps } from "../../field";
-import { forwardRef, useCallback, useRef, useState } from "react";
 import { getItemText, useCollectionSearch, useOnlyCollectionItems } from "../../collection";
 
 import { AbstractInputProps } from "../../input";

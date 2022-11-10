@@ -27,15 +27,15 @@ const ensureUniqueNames = data => {
 const validateSize = (width, height, sizeInTheName, name) => {
     const sizes = ICONS_SIZES;
 
-    if (sizes.includes(Number(width)) && sizes.includes(Number(height)) ) {
-        if(sizeInTheName !== Number(width) && sizeInTheName !== Number(height)) {
+    if (sizes.includes(Number(width)) && sizes.includes(Number(height))) {
+        if (sizeInTheName !== Number(width) && sizeInTheName !== Number(height)) {
             console.error(
                 `The size of ${name} is not the same as the one in its name. width: ${width} height: ${height}, name: ${sizeInTheName}`
             );
             process.exit(1);
         }
 
-        if(Number(width) !== Number(height)) {
+        if (Number(width) !== Number(height)) {
             console.error(
                 `The size of ${name} is not square. width: ${width} height: ${height}`
             );
@@ -76,7 +76,6 @@ const optimizeIcon = icon => {
 
 // remove the size props, and rename sizeInTheName to size
 function mergeSizeProps(icons) {
-
     // eslint-disable-next-line no-unused-vars
     return icons.map(({ size, sizeInTheName, ...rest }) => {
         return {

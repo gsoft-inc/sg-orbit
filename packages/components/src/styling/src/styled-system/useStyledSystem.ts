@@ -1230,8 +1230,7 @@ function createBorderHandler<TValue extends string>(systemValues: Record<TValue,
         if (!isNil(parsedValue)) {
             if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
                 context.addStyleValue(name, `${BorderWidthAndStyle} ${parsedValue}`);
-            }
-            else {
+            } else {
                 context.addStyleValue(name, parsedValue);
             }
         }
@@ -1247,8 +1246,7 @@ function createBorderPseudoHandler<TValue extends string>(pseudoClassName: strin
 
             if (ColorExpressionTypes.some(x => parsedValue.startsWith(x))) {
                 context.addStyleValue(pseudoVariable, `${BorderWidthAndStyle} ${parsedValue}`);
-            }
-            else {
+            } else {
                 context.addStyleValue(pseudoVariable, parsedValue);
             }
         }

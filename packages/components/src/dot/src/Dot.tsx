@@ -1,10 +1,8 @@
 import { BackgroundColorProp, useResponsiveValue } from "../../styling";
-import { ComponentProps, forwardRef } from "react";
+import { useMemo, ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
-
 import { Box } from "../../box";
 import { Text } from "../../typography";
-import { useMemo } from "react";
 
 const DefaultElement = "span";
 

@@ -1,6 +1,5 @@
 import { Form, FormProps } from "@components/form";
-import { createRef } from "react";
-import { forwardRef } from "react";
+import { createRef, forwardRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 
