@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { useMemo, ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, isNil, mergeProps, useControllableState, useEventCallback, useId } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { TabsContext, TabsOrientation } from "./TabsContext";
@@ -6,7 +6,6 @@ import { TabsContext, TabsOrientation } from "./TabsContext";
 import { Box } from "../../box";
 import { TabList } from "./TabList";
 import { TabPanels } from "./TabPanels";
-import { useMemo } from "react";
 import { useTabsItems } from "./useTabsItems";
 
 const DefaultElement = "div";

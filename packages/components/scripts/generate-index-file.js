@@ -16,7 +16,7 @@ ${iconNames.map(icon => `import { ReactComponent as Inner${icon} } from "./${ico
 
 ${iconNames.map(icon => `export const ${icon} = createOrbitIcon(Inner${icon}, "${icon}");`).join("\n")}
 
-${Object.entries(groupedIcons).map(([key, group])=> {
+${Object.entries(groupedIcons).map(([key, group]) => {
         const name = getComponentName(key);
 
         return `export const ${name} = createOrbitMultiVariantIcon(${group.map(icon => `Inner${getComponentName(icon.name, icon.size)}`).join(", ")}, "${name}");`;
@@ -31,7 +31,7 @@ function getComponentName(fileName, size) {
     let formatedName = camelCase(name, options);
 
     formatedName = formatedName.replace(/^(Icon)/, "");
-    if (size){
+    if (size) {
         formatedName = formatedName.replace(new RegExp(`${size}$`, "g"), `Icon${size}`);
     } else {
         formatedName += "Icon";

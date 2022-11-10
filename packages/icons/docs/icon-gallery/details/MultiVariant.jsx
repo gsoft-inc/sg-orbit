@@ -1,10 +1,9 @@
 import "./MultiVariant.css";
 
-import { CheckeredBackground } from "@stories/components";
+import { Snippet, CheckeredBackground } from "@stories/components";
 import { Inline } from "@components/layout";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { MULTI_VARIANT_SHAPE } from "../shapes";
-import { Snippet } from "@stories/components";
 import { cloneElement } from "react";
 import { components } from "@storybook/components";
 

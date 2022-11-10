@@ -3271,29 +3271,29 @@
   resolved "https://registry.yarnpkg.com/@sharegate/browserslist-config-recommended/-/browserslist-config-recommended-2.0.0.tgz#721957ea4d553e6dc3ce4071774e57f11626c905"
   integrity sha512-JDqp52vddllEg4sj0bXMZJE+anYW8nv8myD7GX/e0mx2APp0+jDMMLqWyhzZZRnWGU3B9ZVtLBXjn5mLfbvPpw==
 
-"@sharegate/eslint-config-react@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-react/-/eslint-config-react-3.0.0.tgz#4145f5b3d00abeca1794bf13c7d86ad5b86d8c40"
-  integrity sha512-PV9WE+Aj9k5WVL9aUTM4kET3JiwMtNpxsgxH1U6m2oUftbpHtZLJj8kXojbSTJJgwxHApMAifNNEgB8/Lp5fzA==
+"@sharegate/eslint-config-react@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-react/-/eslint-config-react-4.0.0.tgz#f9a8c88c2e494492b03413e574d06b6e09248c43"
+  integrity sha512-VX7S9zmYWL/sWwNJzMvVMKjkV4J0hzm0eT5QqM5JQIZT4OPCT0W8P1yvTqPmSznNwR5jFADHQwmDetTqFRwGpQ==
   dependencies:
-    "@sharegate/eslint-config-recommended" "1.2.0"
+    "@sharegate/eslint-config-recommended" "2.0.0"
     eslint-plugin-jsx-a11y "*"
     eslint-plugin-react "*"
     eslint-plugin-react-hooks "*"
 
-"@sharegate/eslint-config-recommended@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-recommended/-/eslint-config-recommended-1.2.0.tgz#218e2fa267dc19a059eac3a8860fcbcb28ba75af"
-  integrity sha512-GO/h0dexFtLfd5DE0K/LBCVytRN9V+tIiWYr4DRtFhF2shEYF3NA6XLbVPVP07n8TduqKFUXmjh4GnJbTVwkKQ==
+"@sharegate/eslint-config-recommended@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-recommended/-/eslint-config-recommended-2.0.0.tgz#215fe53ab8cbe956935dee9488d6376001657796"
+  integrity sha512-k3Rjf0Sd7nUjt0EarUBBfqBKvIDsfKTxjKkc9X7/8r+jZqdVND3JZiVcq5twVX6Le1Bm4F0TWiya6m+jshvuaw==
   dependencies:
     eslint-plugin-import "*"
 
-"@sharegate/eslint-config-typescript@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-2.0.0.tgz#0af4a7d5b4f001598207d55daf91ab51be64aa89"
-  integrity sha512-+AiPegfVYpcbhoiCl4Y7r/+7s7dr0zvd9AaRxUwGrHE93bQXwIKC8NZ0IQ1KIc+s6+p9IPrK1YXyqR/bshsaFQ==
+"@sharegate/eslint-config-typescript@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/eslint-config-typescript/-/eslint-config-typescript-3.0.0.tgz#5743705db17371fde54157e637fa346ad214e480"
+  integrity sha512-/RT47akIBwWlYKVrweGD6Kap3t6Hy0Cbr/HfUHdSx28HrE2xJQ89B2FltMG5Fi5jtZb3X8hgpRRrY/9xmIVNxw==
   dependencies:
-    "@sharegate/eslint-config-recommended" "1.2.0"
+    "@sharegate/eslint-config-recommended" "2.0.0"
     "@typescript-eslint/eslint-plugin" "*"
 
 "@sharegate/stylelint-config-recommended@2.1.1":

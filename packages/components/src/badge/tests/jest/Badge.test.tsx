@@ -1,8 +1,7 @@
 import { Badge, BadgeProps } from "@components/badge";
 import { Div } from "@components/html";
 import { Text } from "@components/typography";
-import { createRef } from "react";
-import { forwardRef } from "react";
+import { forwardRef, createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";
 

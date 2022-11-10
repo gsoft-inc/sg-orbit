@@ -1,8 +1,7 @@
 import { Counter } from "@components/counter";
 import { Div } from "@components/html";
 import { EmailIcon, IconList, InfoIcon, WarningIcon } from "@components/icons";
-import { Flex } from "@components/layout";
-import { Inline, Stack } from "@components/layout";
+import { Flex, Inline, Stack } from "@components/layout";
 import { Text } from "@components/typography";
 import { cloneElement } from "react";
 

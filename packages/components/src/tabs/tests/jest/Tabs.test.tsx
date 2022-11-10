@@ -68,7 +68,6 @@ test("a disabled tab is not tabbable", async () => {
 
     await waitFor(() => expect(getByTestId("tab-1")).not.toHaveAttribute("tabindex"));
     await waitFor(() => expect(getByTestId("tab-2")).toHaveAttribute("tabindex", "0"));
-
 });
 
 test("when manual, focusing a tab doesn't change the active tab", async () => {
