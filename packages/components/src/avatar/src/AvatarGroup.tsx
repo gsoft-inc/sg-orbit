@@ -9,7 +9,6 @@ import { Tooltip, TooltipTrigger } from "../../tooltip";
 const DefaultElement = "div";
 
 export interface InnerAvatarGroupProps extends Omit<AbstractGroupProps<typeof DefaultElement>, "gap" | "orientation"> {
-    remainingAvatarsProps?: any;
     /**
      * The avatars of the group can vary in size.
      */
@@ -71,7 +70,6 @@ export function InnerAvatarGroup({
     children,
     wrap = true,
     forwardedRef,
-    remainingAvatarsProps,
     ...rest
 }: InnerAvatarGroupProps) {
     const sizeValue = useResponsiveValue(size);
@@ -101,7 +99,6 @@ export function InnerAvatarGroup({
         <RemainingAvatars
             avatars={remainingAvatars as ReactElement[]}
             size={sizeValue}
-            {...remainingAvatarsProps}
         />
     );
 
