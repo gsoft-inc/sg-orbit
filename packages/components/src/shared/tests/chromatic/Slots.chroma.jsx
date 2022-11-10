@@ -87,7 +87,7 @@ export const WrapStringContent = () => (
 
 WrapStringContent.storyName = "wrap string";
 
-export const WrapMixedContent = () =>(
+export const WrapMixedContent = () => (
     <Card>
         Early this morning (Oct. 20), SpaceX lit up the three <TextLink href="#">Raptor engines</TextLink> on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.
     </Card>

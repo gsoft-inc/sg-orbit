@@ -12,7 +12,7 @@ export default {
     }
 };
 
-export const EverySingleBreakpoints = () =>(
+export const EverySingleBreakpoints = () => (
     <Box
         backgroundColor={{ base: "purple-5", xs: "green-5", sm: "alert-5", md: "purple-5", lg: "neutral-5", xl: "green-5" }}
         color="alias-static-white"
@@ -36,7 +36,7 @@ export const MatchHigherBreakpoint = () => (
 
 MatchHigherBreakpoint.storyName = "match higher breakpoint";
 
-export const MatchBase = () =>(
+export const MatchBase = () => (
     <Box
         backgroundColor={{ base: "purple-8" }}
         color="alias-static-white"

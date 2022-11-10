@@ -32,7 +32,7 @@ function PrimaryColors() {
     );
 }
 
-export const Sharegate = () =>(
+export const Sharegate = () => (
     <ThemeProvider theme={ShareGateTheme}>
         <PrimaryColors />
     </ThemeProvider>
@@ -40,7 +40,7 @@ export const Sharegate = () =>(
 
 Sharegate.storyName = "sharegate";
 
-export const Light = () =>(
+export const Light = () => (
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <Box padding={4} backgroundColor="alias-mid-break" />
     </ThemeProvider>
@@ -48,7 +48,7 @@ export const Light = () =>(
 
 Light.storyName = "light";
 
-export const Dark = () =>(
+export const Dark = () => (
     <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
         <Box padding={4} backgroundColor="alias-mid-break" />
     </ThemeProvider>
@@ -67,7 +67,7 @@ const SwitchColorScheme = () => {
     return null;
 };
 
-export const SetColorSchemeWithApi = () =>(
+export const SetColorSchemeWithApi = () => (
     <ThemeProvider theme={ShareGateTheme} colorScheme="light">
         <SwitchColorScheme />
         <Box padding={4} backgroundColor="alias-mid-break" />

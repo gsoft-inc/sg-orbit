@@ -9,7 +9,7 @@ export default {
     }
 };
 
-export const Default = () =>(
+export const Default = () => (
     <Box>The Universe is under no obligation to make sense to you.</Box>
 );
 

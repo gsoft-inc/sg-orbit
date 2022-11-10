@@ -263,7 +263,6 @@ export const FunctionalContent = () => (
                 </>
 
             );
-
         }}
     </PopoverTrigger>
 );
