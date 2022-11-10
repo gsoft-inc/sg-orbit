@@ -422,8 +422,8 @@ describe("with toggle buttons", () => {
             </RadioGroup>
         );
 
-        await act(() => {
-            return userEvent.click(getByTestId("button-1"));
+        act(() => {
+            userEvent.click(getByTestId("button-1"));
         });
 
         await waitFor(() => expect(getByTestId("button-1")).toHaveAttribute("aria-checked", "true"));
@@ -440,8 +440,8 @@ describe("with toggle buttons", () => {
             </RadioGroup>
         );
 
-        await act(() => {
-            return userEvent.click(getByTestId("button-1"));
+        act(() => {
+            userEvent.click(getByTestId("button-1"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));

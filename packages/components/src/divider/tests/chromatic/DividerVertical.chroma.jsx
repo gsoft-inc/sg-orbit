@@ -15,12 +15,16 @@ export const Default = () =>
         <Divider orientation="vertical" />
     </Div>;
 
+Default.storyName = "default";
+
 export const DividerDot = () =>
     <Flex>
         <Dot>Engines ready</Dot>
         <Divider orientation="vertical" />
         <Text>Falcon 9</Text>
     </Flex>;
+
+DividerDot.storyName = "dot";
 
 export const MultipleSeparators = () =>
     <Flex>
@@ -31,15 +35,21 @@ export const MultipleSeparators = () =>
         <TextLink href="#">View details</TextLink>
     </Flex>;
 
+MultipleSeparators.storyName = "multiple separators";
+
 export const Labelled = () =>
     <Div height={16}>
         <Divider orientation="vertical">Since 1978</Divider>
     </Div>;
 
+Labelled.storyName = "labelled";
+
 export const LongLabel = () =>
     <Div height={16}>
         <Divider orientation="vertical">Since 1978 there have been more than 10 space exploration missions.</Divider>
     </Div>;
+
+LongLabel.storyName = "long label";
 
 export const LabelledSurrounded = () =>
     <Flex height={16}>
@@ -48,12 +58,16 @@ export const LabelledSurrounded = () =>
         <Text>Mission post mortem</Text>
     </Flex>;
 
+LabelledSurrounded.storyName = "labelled surrounded";
+
 export const AlignItems = () =>
     <Flex alignItems="center">
         <Text>Mission goals</Text>
         <Divider orientation="vertical" />
         <Text size="sm">Mission post mortem</Text>
     </Flex>;
+
+AlignItems.storyName = "align items";
 
 export const Zoom = () =>
     <Inline height={16}>
@@ -65,6 +79,8 @@ export const Zoom = () =>
         </Div>
     </Inline>;
 
+Zoom.storyName = "zoom";
+
 export const Styling = () =>
     <Inline height={16}>
         <Divider border="warning-7" orientation="vertical" />
@@ -72,12 +88,4 @@ export const Styling = () =>
         <Divider style={{ border: "1px solid red" }} orientation="vertical" />
     </Inline>;
 
-Default.storyName = "default";
-DividerDot.storyName = "dot";
-MultipleSeparators.storyName = "multiple separators";
-Labelled.storyName = "labelled";
-LongLabel.storyName = "long label";
-LabelledSurrounded.storyName = "labelled surrounded";
-AlignItems.storyName = "align items";
-Zoom.storyName = "zoom";
 Styling.storyName = "styling";

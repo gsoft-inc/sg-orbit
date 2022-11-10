@@ -32,6 +32,8 @@ export const GroupFieldCheckboxGroup = () =>
         </GroupField>
     </Stack>;
 
+GroupFieldCheckboxGroup.storyName = "checkbox group";
+
 export const GroupFieldRadioGroup = () =>
     <Inline gap={13} alignY="end">
         <GroupField>
@@ -53,6 +55,8 @@ export const GroupFieldRadioGroup = () =>
             <HelpMessage>You can find a detailed description of our flight packages on our website.</HelpMessage>
         </GroupField>
     </Inline>;
+
+GroupFieldRadioGroup.storyName = "radio group";
 
 export const GroupFieldButtonGoup = () =>
     <Stack gap={13}>
@@ -76,12 +80,16 @@ export const GroupFieldButtonGoup = () =>
         </GroupField>
     </Stack>;
 
+GroupFieldButtonGoup.storyName = "button group";
+
 export const GroupFieldDateRangeInput = () =>
     <GroupField>
         <Label>When?</Label>
         <DateRangeInput placeholder="dd/mm/yyyy" />
         <HelpMessage>When do you leave?</HelpMessage>
     </GroupField>;
+
+GroupFieldDateRangeInput.storyName = "date range input";
 
 export const Styling = () =>
     <Inline>
@@ -108,8 +116,4 @@ export const Styling = () =>
         </GroupField>
     </Inline>;
 
-GroupFieldCheckboxGroup.storyName = "checkbox group";
-GroupFieldRadioGroup.storyName = "radio group";
-GroupFieldButtonGoup.storyName = "button group";
-GroupFieldDateRangeInput.storyName = "date range input";
 Styling.storyName = "styling";

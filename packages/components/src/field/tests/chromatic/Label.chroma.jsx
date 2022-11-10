@@ -11,13 +11,19 @@ export default {
 export const Default = () =>
     <Label>Where to?</Label>;
 
+Default.storyName = "default";
+
 export const Complex = () =>
     <Label>
         <Span>Where to? (<TextLink variant="primary" size="inherit" href="https://www.google.com/sky">view destinations</TextLink>)</Span>
     </Label>;
 
+Complex.storyName = "complex";
+
 export const AsSpan = () =>
     <Label as="span">Where to?</Label>;
+
+AsSpan.storyName = "as span";
 
 export const Styling = () =>
     <Inline>
@@ -26,7 +32,4 @@ export const Styling = () =>
         <Label style={{ background: "red" }}>Where to?</Label>
     </Inline>;
 
-Default.storyName = "default";
-Complex.storyName = "complex";
-AsSpan.storyName = "as span";
 Styling.storyName = "styling";

@@ -106,8 +106,8 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(document.body);
+        act(() => {
+            userEvent.click(document.body);
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
@@ -178,8 +178,8 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        await act(() => {
-            return userEvent.click(getByTestId("overlay"));
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -201,8 +201,8 @@ describe("\"click\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        await act(() => {
-            return userEvent.click(getByTestId("overlay"));
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -310,8 +310,8 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(document.body);
+        act(() => {
+            userEvent.click(document.body);
         });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
@@ -378,8 +378,8 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        await act(() => {
-            return userEvent.click(getByTestId("overlay"));
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -401,8 +401,8 @@ describe("\"hover\" trigger", () => {
             getByTestId("overlay").focus();
         });
 
-        await act(() => {
-            return userEvent.click(getByTestId("overlay"));
+        act(() => {
+            userEvent.click(getByTestId("overlay"));
         });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());

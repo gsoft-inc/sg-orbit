@@ -461,14 +461,14 @@ describe("compact presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        act(() => {
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        await act(() => {
-            return userEvent.click(getByRole("menuitemradio"));
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -496,14 +496,14 @@ describe("compact presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        act(() => {
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        await act(() => {
-            return userEvent.click(getByRole("menuitemradio"));
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(container.querySelector(":scope [aria-label=\"Date presets\"]")).toHaveFocus());
@@ -518,14 +518,14 @@ describe("compact presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        act(() => {
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
 
-        await act(() => {
-            return userEvent.click(getByRole("menuitemradio"));
+        act(() => {
+            userEvent.click(getByRole("menuitemradio"));
         });
 
         await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
@@ -542,8 +542,8 @@ describe("compact presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        act(() => {
+            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -562,8 +562,8 @@ describe("extended presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(getByRole("radio"));
+        act(() => {
+            userEvent.click(getByRole("radio"));
         });
 
         await waitFor(() => expect(getStartDateInput(container)).toHaveValue("Wed, Jan 1, 2020"));
@@ -591,8 +591,8 @@ describe("extended presets", () => {
             />
         );
 
-        await act(() => {
-            return userEvent.click(getByRole("radio"));
+        act(() => {
+            userEvent.click(getByRole("radio"));
         });
 
         await waitFor(() => expect(getByRole("radio")).toHaveAttribute("aria-checked", "true"));

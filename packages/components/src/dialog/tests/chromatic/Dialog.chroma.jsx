@@ -164,7 +164,7 @@ export const ImageTooBig = () => (
 
 ImageTooBig.storyName = "image too big";
 
-export const DialogueIllustration = () => (
+export const DialogIllustration = () => (
     <Dialog>
         <Illustration color="warning-1">
             <Image src={Nasa} alt="Nasa" />
@@ -178,7 +178,7 @@ export const DialogueIllustration = () => (
     </Dialog>
 );
 
-DialogueIllustration.storyName = "illustration";
+DialogIllustration.storyName = "illustration";
 
 export const AllSections = () => (
     <Dialog>

@@ -14,11 +14,15 @@ export default {
 export const Default = () =>
     <DisclosureArrow open />;
 
+Default.storyName = "default";
+
 export const Controlled = () =>
     <Inline>
         <DisclosureArrow open={false} />
         <DisclosureArrow open />
     </Inline>;
+
+Controlled.storyName = "controlled";
 
 export const Context = () =>
     <Inline>
@@ -30,13 +34,12 @@ export const Context = () =>
         </DisclosureContext.Provider>
     </Inline>;
 
+Context.storyName = "context";
+
 export const Styling = () =>
     <Inline>
         <DisclosureArrow open className="border-red" />
         <DisclosureArrow open style={{ border: "1px solid red" }} />
     </Inline>;
 
-Default.storyName = "default";
-Controlled.storyName = "controlled";
-Context.storyName = "context";
 Styling.storyName = "styling";
