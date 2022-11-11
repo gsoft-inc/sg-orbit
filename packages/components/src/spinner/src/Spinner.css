@@ -11,6 +11,7 @@
 .o-ui-spinner-wrapper {
     display: flex;
     align-items: center;
+    /* TODO, do we use gap anywhere else, or do we had a "with-label" css class  */
     gap: var(--o-ui-sp-2);
     color: var(--o-ui-text-alias-secondary);
 }
