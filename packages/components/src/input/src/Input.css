@@ -123,7 +123,7 @@
 
 /* INVALID */
 .o-ui-input-invalid:not(.o-ui-input-disabled),
-.o-ui-input-invalid:not(.o-ui-input-disabled) textarea  {
+.o-ui-input-invalid:not(.o-ui-input-disabled) textarea {
     --o-ui-input-border-color: var(--o-ui-b-alias-alert);
 }
 
@@ -193,7 +193,7 @@
     cursor: not-allowed;
 }
 
-.o-ui-input-disabled > * {
+.o-ui-input-disabled>* {
     cursor: not-allowed;
 }
 
@@ -202,24 +202,16 @@
     0% {
         transform: translate(0, -50%) rotate(0deg);
     }
+
     100% {
         transform: translate(0, -50%) rotate(360deg);
     }
 }
 
-.o-ui-input-loading::before {
-    content: "";
+.o-ui-input-spinner {
     position: absolute;
-    top: 50%;
+    right: calc((var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2);
     z-index: 1;
-    border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-break);
-    border-top-color: var(--o-ui-b-alias-mid-break);
-    transform: translate(0, -50%) rotate(0deg);
-    animation: o-ui-input-spinner 1s linear infinite;
-    width: 1.25rem;
-    height: 1.25rem;
-    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2 );
 }
 
 .o-ui-input-loading .o-ui-button {

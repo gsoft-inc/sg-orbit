@@ -4,7 +4,7 @@ import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } fr
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-
+import { Spinner } from "../../spinner";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -141,6 +141,10 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
+    const loadingMarkup = loading && (
+        <Spinner className="o-ui-input-spinner" role="presentation" size="md" />
+    );
+
     const content = (
         <>
             {iconMarkup}
@@ -162,6 +166,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
             <ClearInputGroupContext>
                 {buttonMarkup}
             </ClearInputGroupContext>
+            {loadingMarkup}
         </>
     );
 

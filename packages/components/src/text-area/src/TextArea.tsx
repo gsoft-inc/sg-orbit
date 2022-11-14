@@ -3,7 +3,7 @@ import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ReactElement, forwardRef, useCallback, useEffect, useMemo, useState } from "react";
 import { OmitInternalProps, cssModule, getBodyElement, isNil, mergeProps, useChainedEventCallback, useControllableState, useIsomorphicLayoutEffect } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-
+import { Spinner } from "../../spinner";
 import { useFieldInputProps } from "../../field";
 
 const DefaultElement = "textarea";
@@ -204,6 +204,10 @@ export function InnerTextArea(props: InnerTextAreaProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
+    const loadingMarkup = loading && (
+        <Spinner className="o-ui-input-spinner" role="presentation" size="md" />
+    );
+
     const content = (
         <>
             <Box
@@ -239,6 +243,7 @@ export function InnerTextArea(props: InnerTextAreaProps) {
             )}
         >
             {content}
+            {loadingMarkup}
         </Box>
     );
 }
