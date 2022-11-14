@@ -11,19 +11,28 @@
 .o-ui-spinner-wrapper {
     display: flex;
     align-items: center;
-    /* TODO, do we use gap anywhere else, or do we had a "with-label" css class  */
-    gap: var(--o-ui-sp-2);
     color: var(--o-ui-text-alias-secondary);
 }
 
 .o-ui-spinner {
     animation: o-ui-spinner 1s linear infinite;
+    color: var(--o-ui-text-alias-secondary);
     border-width: 2px;
     border-style: solid;
     border-color: var(--o-ui-b-alias-high-break) var(--o-ui-b-alias-high-break) var(--o-ui-b-alias-low-break) var(--o-ui-b-alias-low-break);
     display: inline-block;
     border-radius: 100%;
     transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-spinner {
+        animation-iteration-count: 1;
+    }
+}
+
+.o-ui-spinner-has-label {
+    margin-right: var(--o-ui-sp-2);
 }
 
 .o-ui-spinner-sm {

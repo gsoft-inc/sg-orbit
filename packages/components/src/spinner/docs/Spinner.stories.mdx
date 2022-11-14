@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Inline, Stack } from "@components/layout";
+import { Inline } from "@components/layout";
 import { InnerSpinner, Spinner } from "@components/spinner";
 
 <Meta
@@ -35,18 +35,23 @@ A spinner can vary in size.
 
 <Preview>
     <Story name="spinner size">
-        <Stack>
-            <Inline alignY="end">
-                <Spinner size="sm" ariaLabel="Crawling in progress"/>
-                <Spinner size="md" ariaLabel="Crawling in progress"/>
-                <Spinner size="lg" ariaLabel="Crawling in progress"/>
-            </Inline>
-            <Inline alignY="end">
-                <Spinner size="sm">Crawling in progress</Spinner>
-                <Spinner size="md">Crawling in progress</Spinner>
-                <Spinner size="lg">Crawling in progress</Spinner>
-            </Inline>
-        </Stack>
+        <Inline alignY="end">
+            <Spinner size="sm" ariaLabel="Crawling in progress"/>
+            <Spinner size="md" ariaLabel="Crawling in progress"/>
+            <Spinner size="lg" ariaLabel="Crawling in progress"/>
+        </Inline>
+    </Story>
+</Preview>
+
+### Label
+A spinner can have a label.
+<Preview>
+    <Story name="spinner labels">
+        <Inline alignY="end">
+            <Spinner size="sm">Crawling in progress</Spinner>
+            <Spinner size="md">Crawling in progress</Spinner>
+            <Spinner size="lg">Crawling in progress</Spinner>
+        </Inline>
     </Story>
 </Preview>
 
