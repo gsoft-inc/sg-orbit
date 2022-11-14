@@ -55,7 +55,8 @@ export function InnerSpinner({
                 {
                     as,
                     className: "o-ui-spinner-wrapper",
-                    ref: forwardedRef
+                    ref: forwardedRef,
+                    role: "status"
                 }
             )}
         >
