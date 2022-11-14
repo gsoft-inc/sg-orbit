@@ -1,6 +1,7 @@
 import { EmbeddedIcon, EmbeddedIconProps } from "../../icons";
 import { ReactElement, ReactNode } from "react";
 import { embedIconButton } from "../../button";
+import { Spinner } from "../../spinner";
 
 type UseInputIconProps = Omit<EmbeddedIconProps, "className" | "children">;
 
@@ -22,4 +23,8 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
         condensed: true,
         variant: "tertiary"
     });
+}
+
+export function useInputSpinner(loading: boolean) {
+    return loading && <Spinner className="o-ui-input-spinner" role="presentation" size="md" />;
 }
