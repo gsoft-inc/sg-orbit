@@ -8,6 +8,9 @@ import { Text } from "../../typography";
 const DefaultElement = "div";
 
 export interface InnerSpinnerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+    /**
+     * A spinner can vary in size.
+     */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
 }
 
