@@ -30,8 +30,8 @@
     }
 }
 
-.o-ui-spinner-has-label {
-    margin-right: var(--o-ui-sp-2);
+.o-ui-spinner-label {
+    margin-left: var(--o-ui-sp-2);
 }
 
 .o-ui-spinner-sm {

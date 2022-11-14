@@ -35,7 +35,7 @@ export function InnerSpinner({
     }
 
     const labelMarkup = children && (
-        <Text color="inherit" size={textSize(sizeValue)}>
+        <Text className="o-ui-spinner-label" color="inherit" size={textSize(sizeValue)}>
             {children}
         </Text>
     );
@@ -43,8 +43,7 @@ export function InnerSpinner({
     const spinnerMarkup = (<Div
         className={cssModule(
             "o-ui-spinner",
-            normalizeSize(sizeValue),
-            children && "has-label"
+            normalizeSize(sizeValue)
         )}
     />);
 
