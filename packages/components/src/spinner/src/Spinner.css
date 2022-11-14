@@ -1,13 +1,3 @@
-@keyframes o-ui-spinner {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
 .o-ui-spinner-wrapper {
     display: flex;
     align-items: center;
@@ -24,16 +14,28 @@
     flex-shrink: 0;
 }
 
+.o-ui-spinner-label {
+    margin-left: var(--o-ui-sp-2);
+}
+
+/* ANIMATIONS */
+@keyframes o-ui-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .o-ui-spinner {
         animation-iteration-count: 1;
     }
 }
 
-.o-ui-spinner-label {
-    margin-left: var(--o-ui-sp-2);
-}
-
+/* SIZES */
 .o-ui-spinner-sm {
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
