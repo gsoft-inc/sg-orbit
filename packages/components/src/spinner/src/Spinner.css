@@ -23,6 +23,7 @@
     display: inline-block;
     border-radius: 100%;
     transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
+    flex-shrink: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
