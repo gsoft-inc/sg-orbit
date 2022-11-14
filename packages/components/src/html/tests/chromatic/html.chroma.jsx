@@ -1,43 +1,44 @@
 import { A } from "@components/html";
 import { Inline } from "@components/layout";
 import { StyleProvider } from "@components/styling";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/Html")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .build())
-        .build();
-}
+export default {
+    title: "Chromatic/Html",
+    component: StyleProvider
+};
 
-stories()
-    .add("default", () =>
-        <A href="#">Google</A>
-    )
-    .add("support style context", () => {
-        const StyledAnchor = ({ children }) => {
-            return (
-                <StyleProvider
-                    value={{
-                        "html-a": {
-                            color: "red"
-                        }
-                    }}
-                >
-                    <A href="#">{children}</A>
-                </StyleProvider>
-            );
-        };
-
-        return (
-            <StyledAnchor>Google</StyledAnchor>
-        );
-    })
-    .add("styling", () =>
-        <Inline>
-            <A border="warning-7" href="#">Google</A>
-            <A className="border-red" href="#">Google</A>
-            <A style={{ border: "1px solid red" }} href="#">Google</A>
-        </Inline>
+const StyledAnchor = ({ children }) => {
+    return (
+        <StyleProvider
+            value={{
+                "html-a": {
+                    color: "red"
+                }
+            }}
+        >
+            <A href="#">{children}</A>
+        </StyleProvider>
     );
+};
+
+export const Size = () => (
+    <A href="#">Google</A>
+);
+
+Size.storyName = "size";
+
+export const StyleContext = () => (
+    <StyledAnchor>Google</StyledAnchor>
+);
+
+StyleContext.storyName = "support style context";
+
+export const Styling = () => (
+    <Inline>
+        <A border="warning-7" href="#">Google</A>
+        <A className="border-red" href="#">Google</A>
+        <A style={{ border: "1px solid red" }} href="#">Google</A>
+    </Inline>
+);
+
+Styling.storyName = "styling";

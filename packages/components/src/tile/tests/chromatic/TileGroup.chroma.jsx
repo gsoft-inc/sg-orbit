@@ -3,49 +3,120 @@ import { Div } from "@components/html";
 import { Heading } from "@components/typography";
 import { Stack } from "@components/layout";
 import { Tile, TileGroup, TileLink } from "@components/tile";
-import { storiesOfBuilder } from "@stories/utils";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/TileGroup")
-        .segment(segment)
-        .build();
-}
+export default {
+    title: "Chromatic/TileGroup",
+    component: TileGroup
+};
 
-stories()
-    .add("selection", () =>
-        <Stack>
-            <TileGroup defaultValue={["fuel"]} selectionMode="single" rowSize={3}>
-                <Tile value="map">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </Tile>
-                <Tile value="fuel">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile value="setting">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </Tile>
-            </TileGroup>
-            <TileGroup defaultValue={["fuel", "setting"]} selectionMode="multiple" rowSize={3}>
-                <Tile value="map">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </Tile>
-                <Tile value="fuel">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </Tile>
-                <Tile value="setting">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </Tile>
-            </TileGroup>
-        </Stack>
-    )
-    .add("1 per row", () =>
-        <TileGroup rowSize={1}>
+export const Selection = () => (
+    <Stack>
+        <TileGroup defaultValue={["fuel"]} selectionMode="single" rowSize={3}>
+            <Tile value="map">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </Tile>
+            <Tile value="fuel">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </Tile>
+            <Tile value="setting">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </Tile>
+        </TileGroup>
+        <TileGroup defaultValue={["fuel", "setting"]} selectionMode="multiple" rowSize={3}>
+            <Tile value="map">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </Tile>
+            <Tile value="fuel">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </Tile>
+            <Tile value="setting">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </Tile>
+        </TileGroup>
+    </Stack>
+);
+
+Selection.storyName = "selection";
+
+export const OnePerRow = () => (
+    <TileGroup rowSize={1}>
+        <TileLink href="https://www.google.com">
+            <Heading>Map</Heading>
+            <Content>View space map</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Setting</Heading>
+            <Content>Cockpit settings</Content>
+        </TileLink>
+    </TileGroup>
+);
+
+OnePerRow.storyName = "1 per row";
+
+export const TwoPerRow = () => (
+    <TileGroup rowSize={2}>
+        <TileLink href="https://www.google.com">
+            <Heading>Map</Heading>
+            <Content>View space map</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Setting</Heading>
+            <Content>Cockpit settings</Content>
+        </TileLink>
+    </TileGroup>
+);
+
+TwoPerRow.storyName = "2 per row";
+
+export const ThreePerRow = () => (
+    <TileGroup rowSize={3}>
+        <TileLink href="https://www.google.com">
+            <Heading>Map</Heading>
+            <Content>View space map</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Fuel</Heading>
+            <Content>Fuel configuration and level</Content>
+        </TileLink>
+        <TileLink href="https://www.google.com">
+            <Heading>Setting</Heading>
+            <Content>Cockpit settings</Content>
+        </TileLink>
+    </TileGroup>
+);
+
+ThreePerRow.storyName = "3 per row";
+
+export const Wrap = () => (
+    <TileGroup rowSize={6}>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(x => (
+            <TileLink href="https://www.google.com" key={x}>
+                <Heading>{x}</Heading>
+                <Content>{x}</Content>
+            </TileLink>
+        ))}
+    </TileGroup>
+);
+
+Wrap.storyName = "wrap";
+
+export const Disabled = () => (
+    <Stack>
+        <TileGroup selectionMode="none" disabled rowSize={3}>
             <TileLink href="https://www.google.com">
                 <Heading>Map</Heading>
                 <Content>View space map</Content>
@@ -59,66 +130,43 @@ stories()
                 <Content>Cockpit settings</Content>
             </TileLink>
         </TileGroup>
-    )
-    .add("2 per row", () =>
-        <TileGroup rowSize={2}>
-            <TileLink href="https://www.google.com">
+        <TileGroup selectionMode="single" disabled rowSize={3}>
+            <Tile value="map">
                 <Heading>Map</Heading>
                 <Content>View space map</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
+            </Tile>
+            <Tile value="fuel">
                 <Heading>Fuel</Heading>
                 <Content>Fuel configuration and level</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
+            </Tile>
+            <Tile value="setting">
                 <Heading>Setting</Heading>
                 <Content>Cockpit settings</Content>
-            </TileLink>
+            </Tile>
         </TileGroup>
-    )
-    .add("3 per row", () =>
-        <TileGroup rowSize={3}>
-            <TileLink href="https://www.google.com">
+        <TileGroup selectionMode="multiple" disabled rowSize={3}>
+            <Tile value="map">
                 <Heading>Map</Heading>
                 <Content>View space map</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
+            </Tile>
+            <Tile value="fuel">
                 <Heading>Fuel</Heading>
                 <Content>Fuel configuration and level</Content>
-            </TileLink>
-            <TileLink href="https://www.google.com">
+            </Tile>
+            <Tile value="setting">
                 <Heading>Setting</Heading>
                 <Content>Cockpit settings</Content>
-            </TileLink>
+            </Tile>
         </TileGroup>
-    )
-    .add("wrap", () =>
-        <TileGroup rowSize={6}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(x => (
-                <TileLink href="https://www.google.com" key={x}>
-                    <Heading>{x}</Heading>
-                    <Content>{x}</Content>
-                </TileLink>
-            ))}
-        </TileGroup>
-    )
-    .add("disabled", () =>
-        <Stack>
-            <TileGroup selectionMode="none" disabled rowSize={3}>
-                <TileLink href="https://www.google.com">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </TileLink>
-            </TileGroup>
-            <TileGroup selectionMode="single" disabled rowSize={3}>
+    </Stack>
+);
+
+Disabled.storyName = "disabled";
+
+export const Zoom = () => (
+    <Stack>
+        <Div className="zoom-in">
+            <TileGroup rowSize={3}>
                 <Tile value="map">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>
@@ -132,7 +180,9 @@ stories()
                     <Content>Cockpit settings</Content>
                 </Tile>
             </TileGroup>
-            <TileGroup selectionMode="multiple" disabled rowSize={3}>
+        </Div>
+        <Div className="zoom-out">
+            <TileGroup rowSize={3}>
                 <Tile value="map">
                     <Heading>Map</Heading>
                     <Content>View space map</Content>
@@ -146,87 +196,57 @@ stories()
                     <Content>Cockpit settings</Content>
                 </Tile>
             </TileGroup>
-        </Stack>
-    )
-    .add("zoom", () =>
-        <Stack>
-            <Div className="zoom-in">
-                <TileGroup rowSize={3}>
-                    <Tile value="map">
-                        <Heading>Map</Heading>
-                        <Content>View space map</Content>
-                    </Tile>
-                    <Tile value="fuel">
-                        <Heading>Fuel</Heading>
-                        <Content>Fuel configuration and level</Content>
-                    </Tile>
-                    <Tile value="setting">
-                        <Heading>Setting</Heading>
-                        <Content>Cockpit settings</Content>
-                    </Tile>
-                </TileGroup>
-            </Div>
-            <Div className="zoom-out">
-                <TileGroup rowSize={3}>
-                    <Tile value="map">
-                        <Heading>Map</Heading>
-                        <Content>View space map</Content>
-                    </Tile>
-                    <Tile value="fuel">
-                        <Heading>Fuel</Heading>
-                        <Content>Fuel configuration and level</Content>
-                    </Tile>
-                    <Tile value="setting">
-                        <Heading>Setting</Heading>
-                        <Content>Cockpit settings</Content>
-                    </Tile>
-                </TileGroup>
-            </Div>
-        </Stack>
-    )
-    .add("styling", () =>
-        <Stack>
-            <TileGroup border="warning-7" rowSize={3}>
-                <TileLink href="https://www.google.com">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </TileLink>
-            </TileGroup>
-            <TileGroup className="border-red" rowSize={3}>
-                <TileLink href="https://www.google.com">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </TileLink>
-            </TileGroup>
-            <TileGroup style={{ border: "1px solid red" }} rowSize={3}>
-                <TileLink href="https://www.google.com">
-                    <Heading>Map</Heading>
-                    <Content>View space map</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Fuel</Heading>
-                    <Content>Fuel configuration and level</Content>
-                </TileLink>
-                <TileLink href="https://www.google.com">
-                    <Heading>Setting</Heading>
-                    <Content>Cockpit settings</Content>
-                </TileLink>
-            </TileGroup>
-        </Stack>
-    );
+        </Div>
+    </Stack>
+);
+
+Zoom.storyName = "zoom";
+
+export const Styling = () => (
+    <Stack>
+        <TileGroup border="warning-7" rowSize={3}>
+            <TileLink href="https://www.google.com">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </TileLink>
+        </TileGroup>
+        <TileGroup className="border-red" rowSize={3}>
+            <TileLink href="https://www.google.com">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </TileLink>
+        </TileGroup>
+        <TileGroup style={{ border: "1px solid red" }} rowSize={3}>
+            <TileLink href="https://www.google.com">
+                <Heading>Map</Heading>
+                <Content>View space map</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Fuel</Heading>
+                <Content>Fuel configuration and level</Content>
+            </TileLink>
+            <TileLink href="https://www.google.com">
+                <Heading>Setting</Heading>
+                <Content>Cockpit settings</Content>
+            </TileLink>
+        </TileGroup>
+    </Stack>
+);
+
+Styling.storyName = "styling";
