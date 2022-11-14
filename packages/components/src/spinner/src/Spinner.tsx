@@ -71,4 +71,4 @@ export const Spinner = forwardRef<any, OmitInternalProps<InnerSpinnerProps>>((pr
     <InnerSpinner {...props} forwardedRef={ref} />
 ));
 
-export type SpinnerProps = ComponentProps<typeof InnerSpinner>;
+export type SpinnerProps = ComponentProps<typeof Spinner>;
