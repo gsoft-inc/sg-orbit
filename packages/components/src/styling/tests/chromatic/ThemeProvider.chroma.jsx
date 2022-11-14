@@ -1,18 +1,18 @@
 import { ShareGateTheme, ThemeProvider, useColorSchemeContext } from "@components/styling";
-import { paramsBuilder, storiesOfBuilder } from "@stories/utils";
 
 import { Box } from "@components/box";
 import { Inline } from "@components/layout";
 import { useEffect } from "react";
 
-function stories(segment) {
-    return storiesOfBuilder(module, "Chromatic/ThemeProvider")
-        .segment(segment)
-        .parameters(paramsBuilder()
-            .chromaticDelay(100)
-            .build())
-        .build();
-}
+export default {
+    title: "Chromatic/ThemeProvider",
+    component: ThemeProvider,
+    parameters: {
+        chromatic: {
+            delay: 100
+        }
+    }
+};
 
 function PrimaryColors() {
     return (
@@ -31,38 +31,46 @@ function PrimaryColors() {
     );
 }
 
-stories()
-    .add("sharegate", () =>
-        <ThemeProvider theme={ShareGateTheme}>
-            <PrimaryColors />
-        </ThemeProvider>
-    )
-    .add("light", () =>
-        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            <Box padding={4} backgroundColor="alias-mid-break" />
-        </ThemeProvider>
-    )
-    .add("dark", () =>
-        <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
-            <Box padding={4} backgroundColor="alias-mid-break" />
-        </ThemeProvider>
-    )
-    .add("set color scheme with api", () => {
-        const SwitchColorScheme = () => {
-            const { setColorScheme } = useColorSchemeContext();
+export const Sharegate = () => (
+    <ThemeProvider theme={ShareGateTheme}>
+        <PrimaryColors />
+    </ThemeProvider>
+);
 
-            useEffect(() => {
-                setColorScheme("dark");
-            // eslint-disable-next-line react-hooks/exhaustive-deps
-            }, []);
+Sharegate.storyName = "sharegate";
 
-            return null;
-        };
+export const Light = () => (
+    <ThemeProvider theme={ShareGateTheme} colorScheme="light">
+        <Box padding={4} backgroundColor="alias-mid-break" />
+    </ThemeProvider>
+);
 
-        return (
-            <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-                <SwitchColorScheme />
-                <Box padding={4} backgroundColor="alias-mid-break" />
-            </ThemeProvider>
-        );
-    });
+Light.storyName = "light";
+
+export const Dark = () => (
+    <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
+        <Box padding={4} backgroundColor="alias-mid-break" />
+    </ThemeProvider>
+);
+
+Dark.storyName = "dark";
+
+const SwitchColorScheme = () => {
+    const { setColorScheme } = useColorSchemeContext();
+
+    useEffect(() => {
+        setColorScheme("dark");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return null;
+};
+
+export const SetColorSchemeWithApi = () => (
+    <ThemeProvider theme={ShareGateTheme} colorScheme="light">
+        <SwitchColorScheme />
+        <Box padding={4} backgroundColor="alias-mid-break" />
+    </ThemeProvider>
+);
+
+SetColorSchemeWithApi.storyName = "set color scheme with api";
