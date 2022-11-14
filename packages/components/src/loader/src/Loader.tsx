@@ -1,5 +1,5 @@
 import { useState, useEffect, ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, isNil } from "../../shared";
 import { Box } from "../../box";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Div } from "../../html";
@@ -30,10 +30,10 @@ export function InnerLoader({
 }: InnerLoaderProps) {
     const sizeValue = useResponsiveValue(size);
 
-    const [show, setShow] = useState(!delay);
+    const [show, setShow] = useState(isNil(delay));
 
     useEffect(() => {
-        if (!delay) {
+        if (isNil(delay)) {
             return;
         }
         const showTimer = setTimeout(() => setShow(true), delay);
