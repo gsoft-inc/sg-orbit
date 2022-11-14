@@ -1,11 +1,11 @@
 .o-ui {
-    --o-ui-spinner-width: var(--o-ui-sz-4);
+    --o-ui-stepper-width: var(--o-ui-sz-4);
 }
 
 .o-ui-number-input {
     /* 150px @ 16px */
     width: 9.365rem;
-    padding-right: var(--o-ui-spinner-width);
+    padding-right: var(--o-ui-stepper-width);
 
 }
 
@@ -21,12 +21,12 @@
     width: 100%;
 }
 
-/* SPINNER */
+/* STEPPER */
 .o-ui-number-input-stepper {
     display: flex;
     visibility: hidden;
     flex-direction: column;
-    width: var(--o-ui-spinner-width);
+    width: var(--o-ui-stepper-width);
     min-height: calc(var(--o-ui-sz-6) - 2px);
     position: absolute;
     right: 0;
@@ -62,7 +62,7 @@
     border-bottom-right-radius: var(--o-ui-input-border-radius);
 }
 
-/* SPINNER | VISIBLE */
+/* STEPPER | VISIBLE */
 .o-ui-number-input:hover .o-ui-number-input-stepper,
 .o-ui-input-hover .o-ui-number-input-stepper,
 .o-ui-number-input input:focus-visible+.o-ui-number-input-stepper,
@@ -74,25 +74,25 @@
     fill: var(--o-ui-icon-alias-primary);
 }
 
-/* SPINNER | ACTIVE */
+/* STEPPER | ACTIVE */
 .o-ui-number-input-stepper-increment:active:focus,
 .o-ui-number-input-stepper-decrement:active:focus {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
-/* SPINNER | HOVER */
+/* STEPPER | HOVER */
 .o-ui-number-input-stepper-increment:hover,
 .o-ui-number-input-stepper-decrement:hover {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
-/* SPINNER | DISABLED */
+/* STEPPER | DISABLED */
 .o-ui-number-input-stepper-increment:disabled,
 .o-ui-number-input-stepper-decrement:disabled {
     opacity: var(--o-ui-disabled-opacity);
 }
 
-/* SPINNER | LOADING */
+/* STEPPER | LOADING */
 .o-ui-input-loading .o-ui-number-input-stepper {
     display: none;
 }
