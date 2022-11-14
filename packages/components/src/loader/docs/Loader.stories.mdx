@@ -52,6 +52,21 @@ A loader can vary in size.
     </Story>
 </Preview>
 
+
+### Delay
+
+By default, a loader can appear after a short delay. This is to prevent the loader from appearing when the action is very fast.
+If you want to disable this delay, you can set the `delay` prop to `null`. You can also set a custom delay in milliseconds.
+
+<Preview>
+    <Story name="delay">
+        <Inline alignY="end">
+            <Loader delay={null} aria-label="Loading..."/>
+        </Inline>
+    </Story>
+</Preview>
+
+
 ## API
 
 ### Loader

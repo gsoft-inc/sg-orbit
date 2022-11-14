@@ -1,5 +1,5 @@
-import { ComponentProps, forwardRef } from "react";
-import { isNil, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
+import { useState, useEffect, ComponentProps, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize } from "../../shared";
 import { Box } from "../../box";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Div } from "../../html";
@@ -12,6 +12,10 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
      */
     "aria-label": string;
     /**
+     * A loader can appear after a short delay (in ms).
+     */
+    delay?: number | null;
+    /**
      * A loader can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md" | "lg" | "xl">;
@@ -20,10 +24,22 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
 export function InnerLoader({
     as = DefaultElement,
     size = "md",
+    delay = 3000,
     forwardedRef,
     ...rest
 }: InnerLoaderProps) {
     const sizeValue = useResponsiveValue(size);
+
+    const [show, setShow] = useState(!delay);
+
+    useEffect(() => {
+        if (!delay) {
+            return;
+        }
+        const showTimer = setTimeout(() => setShow(true), delay);
+
+        return () => clearTimeout(showTimer);
+    }, [delay]);
 
     return (
         <Box
@@ -33,7 +49,8 @@ export function InnerLoader({
                     as,
                     className:cssModule(
                         "o-ui-loader",
-                        normalizeSize(sizeValue)
+                        normalizeSize(sizeValue),
+                        show && "show"
                     ),
                     ref: forwardedRef,
                     role: "status"
