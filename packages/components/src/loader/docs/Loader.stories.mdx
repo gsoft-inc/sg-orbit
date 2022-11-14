@@ -1,0 +1,57 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Preview, Tagline } from "@stories/components";
+import { Inline } from "@components/layout";
+import { InnerLoader, Loader } from "@components/loader";
+
+<Meta
+    title="Components/Loader"
+    id="loader"
+/>
+
+# Loader
+
+<Tagline>TBD.</Tagline>
+
+<ComponentInfo
+    usage={"import { Loader } from \"@sharegate/orbit-ui\";"}
+    githubPath="/packages/components/src/loader/src"
+/>
+
+## Usage
+
+### Default
+
+A default loader. Use in most situations.
+
+<Preview>
+    <Story name="default">
+        <Loader aria-label="Loading..." />
+    </Story>
+</Preview>
+
+### Size
+
+A loader can vary in size.
+
+<Preview>
+    <Story name="spinner size">
+        <Inline alignY="end">
+            <Loader size="sm" aria-label="Loading..."/>
+            <Loader size="md" aria-label="Loading..."/>
+            <Loader size="lg" aria-label="Loading..."/>
+            <Loader size="xl" aria-label="Loading..."/>
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+### Loader
+
+<ComponentInfo
+    usage={"import { Loader } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerLoader.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerLoader} sort="alpha" />

@@ -32,6 +32,7 @@ Sadly, we encountered CSS ordering issues when the components are bundled in our
 @import "./input-group/index.css";
 @import "./link/index.css";
 @import "./listbox/index.css";
+@import "./loader/index.css";
 @import "./lozenge/index.css";
 @import "./menu/index.css";
 @import "./message/index.css";
