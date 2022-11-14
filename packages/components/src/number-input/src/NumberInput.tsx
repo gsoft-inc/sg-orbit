@@ -1,4 +1,4 @@
-import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, FocusEvent, FocusEventHandler, MouseEvent, ReactElement, Ref, SyntheticEvent, forwardRef, useCallback, useMemo } from "react";
 import { Div, HtmlButton } from "../../html";
@@ -339,6 +339,8 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
+    const loadingMarkup = useInputSpinner(loading);
+
     const content = (
         <>
             {iconMarkup}
@@ -363,6 +365,7 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                 onDecrement={handleDecrement}
                 onIncrement={handleIncrement}
             />
+            {loadingMarkup}
         </>
     );
 

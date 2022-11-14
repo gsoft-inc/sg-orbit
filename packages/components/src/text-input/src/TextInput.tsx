@@ -1,10 +1,9 @@
-import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputIcon } from "../../input";
+import { AbstractInputProps, adaptInputStylingProps, useInput, useInputButton, useInputHasFocus, useInputIcon, useInputSpinner } from "../../input";
 import { Box, BoxProps } from "../../box";
 import { ChangeEvent, ComponentProps, ElementType, ReactElement, forwardRef } from "react";
 import { ClearInputGroupContext, useInputGroupTextInputProps } from "../../input-group";
 import { OmitInternalProps, cssModule, isNil, mergeProps, omitProps, useChainedEventCallback, useControllableState } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Spinner } from "../../spinner";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
 
@@ -141,9 +140,7 @@ export function InnerTextInput(props: InnerTextInputProps) {
 
     const buttonMarkup = useInputButton(button, !disabled && !readOnly);
 
-    const loadingMarkup = loading && (
-        <Spinner className="o-ui-input-spinner" role="presentation" size="md" />
-    );
+    const loadingMarkup = useInputSpinner(loading);
 
     const content = (
         <>
