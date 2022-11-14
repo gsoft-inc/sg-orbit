@@ -11,18 +11,16 @@
 .o-ui-spinner-wrapper {
     display: flex;
     align-items: center;
-    color: var(--o-ui-text-alias-secondary);
+    color: var(--o-ui-text-alias-primary);
 }
 
 .o-ui-spinner {
     animation: o-ui-spinner 1s linear infinite;
-    color: var(--o-ui-text-alias-secondary);
     border-width: 2px;
     border-style: solid;
     border-color: var(--o-ui-b-alias-high-break) var(--o-ui-b-alias-high-break) var(--o-ui-b-alias-low-break) var(--o-ui-b-alias-low-break);
     display: inline-block;
     border-radius: 100%;
-    transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;
 }
 
