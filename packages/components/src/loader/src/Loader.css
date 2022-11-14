@@ -2,6 +2,24 @@
     animation: o-ui-loader-rotate 2s infinite linear;
 }
 
+.o-ui-loader-dot-1,
+.o-ui-loader-dot-2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: var(--o-ui-icon-alias-accent);
+    border-radius: 100%;
+    animation: o-ui-loader-bounce 2s infinite ease-in-out;
+}
+
+.o-ui-loader-dot-2 {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+}
+
 /* SIZES */
 .o-ui-loader-sm {
     width: var(--o-ui-sz-4);
@@ -23,41 +41,21 @@
     height: var(--o-ui-sz-7);
 }
 
-.o-ui-loader-dot-1,
-.o-ui-loader-dot-2 {
-    width: 60%;
-    height: 60%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    background-color: var(--o-ui-icon-alias-accent);
-    border-radius: 100%;
-    animation: o-ui-loader-bounce 2s infinite ease-in-out;
-}
-
-.o-ui-loader-dot-2 {
-    top: auto;
-    bottom: 0;
-    animation-delay: -1s;
-}
-
+/* ANIMATIONS */
 @keyframes o-ui-loader-bounce {
 
     0%,
     100% {
         transform: scale(0);
-        -webkit-transform: scale(0);
     }
 
     50% {
         transform: scale(1);
-        -webkit-transform: scale(1);
     }
 }
 
 @keyframes o-ui-loader-rotate {
     100% {
         transform: rotate(360deg);
-        -webkit-transform: rotate(360deg);
     }
 }
