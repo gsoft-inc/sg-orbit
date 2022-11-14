@@ -22,7 +22,7 @@
 }
 
 /* SPINNER */
-.o-ui-number-input-spinner {
+.o-ui-number-input-stepper {
     display: flex;
     visibility: hidden;
     flex-direction: column;
@@ -35,12 +35,12 @@
 }
 
 /* TRANSPARENT */
-.o-ui-input-transparent .o-ui-number-input-spinner {
+.o-ui-input-transparent .o-ui-number-input-stepper {
     margin: 0;
 }
 
-.o-ui-number-input-spinner-increment,
-.o-ui-number-input-spinner-decrement {
+.o-ui-number-input-stepper-increment,
+.o-ui-number-input-stepper-decrement {
     display: flex;
     justify-content: center;
     flex: 1 1 0%;
@@ -53,47 +53,47 @@
     background-color: var(--o-ui-bg-alias-default);
 }
 
-.o-ui-number-input-spinner-increment {
+.o-ui-number-input-stepper-increment {
     border-top-right-radius: var(--o-ui-input-border-radius);
     border-bottom: 1px solid var(--o-ui-input-border-color);
 }
 
-.o-ui-number-input-spinner-decrement {
+.o-ui-number-input-stepper-decrement {
     border-bottom-right-radius: var(--o-ui-input-border-radius);
 }
 
 /* SPINNER | VISIBLE */
-.o-ui-number-input:hover .o-ui-number-input-spinner,
-.o-ui-input-hover .o-ui-number-input-spinner,
-.o-ui-number-input input:focus-visible + .o-ui-number-input-spinner,
-.o-ui-input-focus .o-ui-number-input-spinner {
+.o-ui-number-input:hover .o-ui-number-input-stepper,
+.o-ui-input-hover .o-ui-number-input-stepper,
+.o-ui-number-input input:focus-visible+.o-ui-number-input-stepper,
+.o-ui-input-focus .o-ui-number-input-stepper {
     visibility: visible;
 }
 
-.o-ui-number-input-spinner .o-ui-icon {
+.o-ui-number-input-stepper .o-ui-icon {
     fill: var(--o-ui-icon-alias-primary);
 }
 
 /* SPINNER | ACTIVE */
-.o-ui-number-input-spinner-increment:active:focus,
-.o-ui-number-input-spinner-decrement:active:focus {
+.o-ui-number-input-stepper-increment:active:focus,
+.o-ui-number-input-stepper-decrement:active:focus {
     background-color: var(--o-ui-bg-alias-basic-transparent-active);
 }
 
 /* SPINNER | HOVER */
-.o-ui-number-input-spinner-increment:hover,
-.o-ui-number-input-spinner-decrement:hover {
+.o-ui-number-input-stepper-increment:hover,
+.o-ui-number-input-stepper-decrement:hover {
     background-color: var(--o-ui-bg-alias-basic-transparent-hover);
 }
 
 /* SPINNER | DISABLED */
-.o-ui-number-input-spinner-increment:disabled,
-.o-ui-number-input-spinner-decrement:disabled {
+.o-ui-number-input-stepper-increment:disabled,
+.o-ui-number-input-stepper-decrement:disabled {
     opacity: var(--o-ui-disabled-opacity);
 }
 
 /* SPINNER | LOADING */
-.o-ui-input-loading .o-ui-number-input-spinner {
+.o-ui-input-loading .o-ui-number-input-stepper {
     display: none;
 }
 

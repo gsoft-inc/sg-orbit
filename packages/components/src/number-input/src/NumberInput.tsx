@@ -22,6 +22,7 @@ import { CaretIcon } from "../../icons";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
+import { Spinner } from "../../spinner";
 
 const DefaultElement = "input";
 
@@ -71,7 +72,7 @@ interface InnerNumberInputProps extends Omit<AbstractInputProps<typeof DefaultEl
     wrapperProps?: Partial<BoxProps>;
 }
 
-interface SpinnerProps extends Omit<ComponentProps<"div">, "ref"> {
+interface NumberInputStepperProps extends Omit<ComponentProps<"div">, "ref"> {
     disableDecrement?: boolean;
     disableIncrement?: boolean;
     onDecrement?: (event: MouseEvent) => void;
@@ -80,14 +81,14 @@ interface SpinnerProps extends Omit<ComponentProps<"div">, "ref"> {
     ref?: Ref<any>;
 }
 
-function Spinner({
+function NumberInputStepper({
     disableDecrement,
     disableIncrement,
     onDecrement,
     onFocus,
     onIncrement,
     ...rest
-}: SpinnerProps) {
+}: NumberInputStepperProps) {
     const handleIncrement = useEventCallback((event: MouseEvent) => {
         onIncrement(event);
     });
@@ -102,13 +103,13 @@ function Spinner({
                 rest,
                 {
                     "aria-hidden": true,
-                    className: "o-ui-number-input-spinner"
+                    className: "o-ui-number-input-stepper"
                 }
             )}
         >
             <HtmlButton
                 aria-label="Increment value"
-                className="o-ui-number-input-spinner-increment"
+                className="o-ui-number-input-stepper-increment"
                 disabled={disableIncrement}
                 onClick={handleIncrement}
                 onFocus={onFocus}
@@ -119,7 +120,7 @@ function Spinner({
             </HtmlButton>
             <HtmlButton
                 aria-label="Decrement value"
-                className="o-ui-number-input-spinner-decrement"
+                className="o-ui-number-input-stepper-decrement"
                 disabled={disableDecrement}
                 onClick={handleDecrement}
                 onFocus={onFocus}
@@ -339,6 +340,10 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
     const iconMarkup = useInputIcon(icon, { disabled });
 
+    const loadingMarkup = loading && (
+        <Spinner className="o-ui-input-spinner" role="presentation" size="md" />
+    );
+
     const content = (
         <>
             {iconMarkup}
@@ -356,13 +361,14 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
                     inputProps
                 )}
             />
-            <Spinner
+            <NumberInputStepper
                 aria-hidden={loading}
                 disableDecrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue <= min)}
                 disableIncrement={readOnly || disabled || (!isNil(numericInputValue) && numericInputValue >= max)}
                 onDecrement={handleDecrement}
                 onIncrement={handleIncrement}
             />
+            {loadingMarkup}
         </>
     );
 
