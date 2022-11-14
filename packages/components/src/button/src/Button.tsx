@@ -21,6 +21,7 @@ import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
+import { Spinner } from "../../spinner";
 
 export type AbstractButtonProps<T extends ElementType> = InternalProps & InteractionProps & Omit<StyledComponentProps<T>, "autoFocus"> & {
     /**
@@ -77,6 +78,13 @@ const condensedTextSize = createSizeAdapter({
 const textSize = createSizeAdapter({
     "sm": "md",
     "md": "md"
+});
+/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
+
+/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
+const spinnerSize = createSizeAdapter({
+    "sm": "md",
+    "md": "lg"
 });
 /* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
 
@@ -155,6 +163,10 @@ export function InnerButton(props: InnerButtonProps) {
         }
     }), [sizeValue, disabled, condensed, loading]));
 
+    const loadingMarkup = loading && (
+        <Spinner className="o-ui-button-spinner" role="presentation" size={spinnerSize(sizeValue)} />
+    );
+
     return (
         <Box
             {...mergeProps(
@@ -176,6 +188,7 @@ export function InnerButton(props: InnerButtonProps) {
             {text}
             {counter}
             {endIcon}
+            {loadingMarkup}
         </Box>
     );
 }
