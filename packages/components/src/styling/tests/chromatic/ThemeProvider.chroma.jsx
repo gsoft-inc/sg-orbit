@@ -9,8 +9,7 @@ export default {
     component: ThemeProvider,
     parameters: {
         chromatic: {
-            delay: 100,
-            chromaticPauseAnimationAtEnd: true
+            delay: 100
         }
     }
 };

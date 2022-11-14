@@ -11,8 +11,7 @@ export default {
     component: Listbox,
     parameters: {
         chromatic: {
-            delay: 100,
-            chromaticPauseAnimationAtEnd: true
+            delay: 100
         }
     }
 };
