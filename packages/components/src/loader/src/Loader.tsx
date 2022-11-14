@@ -24,7 +24,7 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
 export function InnerLoader({
     as = DefaultElement,
     size = "md",
-    delay = 3000,
+    delay = 300,
     forwardedRef,
     ...rest
 }: InnerLoaderProps) {
