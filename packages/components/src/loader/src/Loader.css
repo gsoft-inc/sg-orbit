@@ -15,6 +15,13 @@
     animation: o-ui-loader-bounce 2s infinite ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-loader-dot-1,
+    .o-ui-loader-dot-2 {
+        animation-iteration-count: 1;
+    }
+}
+
 .o-ui-loader-dot-2 {
     top: auto;
     bottom: 0;
@@ -25,6 +32,31 @@
 .o-ui-loader-show {
     opacity: 1;
     animation: o-ui-loader-rotate 2s infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-loader-show {
+        animation-iteration-count: 1;
+    }
+}
+
+/* ANIMATIONS */
+@keyframes o-ui-loader-bounce {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+@keyframes o-ui-loader-rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /* SIZES */
@@ -46,23 +78,4 @@
 .o-ui-loader-xl {
     width: var(--o-ui-sz-7);
     height: var(--o-ui-sz-7);
-}
-
-/* ANIMATIONS */
-@keyframes o-ui-loader-bounce {
-
-    0%,
-    100% {
-        transform: scale(0);
-    }
-
-    50% {
-        transform: scale(1);
-    }
-}
-
-@keyframes o-ui-loader-rotate {
-    100% {
-        transform: rotate(360deg);
-    }
 }

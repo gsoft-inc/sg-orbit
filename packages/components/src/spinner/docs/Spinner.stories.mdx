@@ -19,17 +19,23 @@ import { InnerSpinner, Spinner } from "@components/spinner";
 
 ## Guidelines
 
+### When to use
+
+- To notify users that their request has been received and the action will soon complete.
+
 ### Accessibility
+
 - The spinner has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default. When inside a parent component that is focusable, the spinner should have a role of `presentation` to prevent the screen reader from reading the spinner.
 
 ### Spinner vs Loader
-- When you need to give feedback for a page or subset of the page that is loading, use a [loader](?path=/docs/loader--default-story) instead.
+
+- Use Spinner inside a component. When the whole page is waiting for data, use a [loader](?path=/docs/loader--default-story) instead.
 
 ## Usage
 
 ### Default
 
-A default spinner. Use in most situations.
+A simple spinner.
 
 <Preview>
     <Story name="default">
@@ -52,9 +58,11 @@ A spinner can vary in size.
 </Preview>
 
 ### Label
+
 A spinner can have a label.
+
 <Preview>
-    <Story name="labels">
+    <Story name="label">
         <Inline alignY="end">
             <Spinner size="sm">Loading...</Spinner>
             <Spinner size="md">Loading...</Spinner>

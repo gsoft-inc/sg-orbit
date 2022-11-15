@@ -24,12 +24,11 @@
     margin-left: var(--o-ui-sp-2);
 }
 
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes o-ui-spinner {
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(360deg);
     }
