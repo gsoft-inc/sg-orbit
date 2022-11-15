@@ -1,4 +1,5 @@
 .o-ui-loader {
+    --animation-duration: 2s;
     opacity: 0;
     transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
 }
@@ -11,8 +12,8 @@
     position: absolute;
     top: 0;
     background-color: var(--o-ui-icon-alias-accent);
-    border-radius: 100%;
-    animation: o-ui-loader-bounce 2s infinite ease-in-out;
+    border-radius: var(--o-ui-br-circular);
+    animation: o-ui-loader-bounce var(--animation-duration) infinite var(--o-ui-easing-productive);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -25,13 +26,13 @@
 .o-ui-loader-dot-2 {
     top: auto;
     bottom: 0;
-    animation-delay: -1s;
+    animation-delay: calc( -1 * (var(--animation-duration) / 2));
 }
 
 /* STATES */
 .o-ui-loader-show {
     opacity: 1;
-    animation: o-ui-loader-rotate 2s infinite linear;
+    animation: o-ui-loader-rotate var(--animation-duration) infinite var(--o-ui-easing-focus);
 }
 
 @media (prefers-reduced-motion: reduce) {
