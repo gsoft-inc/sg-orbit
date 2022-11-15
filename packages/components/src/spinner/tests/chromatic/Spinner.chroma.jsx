@@ -8,9 +8,9 @@ export default {
 
 export const Default = () => (
     <Inline alignY="end" className="zoom-out">
-        <Spinner size="sm" color="red" ariaLabel="Crawling in progress" />
-        <Spinner size="md" ariaLabel="Crawling in progress" />
-        <Spinner size="lg" ariaLabel="Crawling in progress" />
+        <Spinner size="sm" aria-label="Crawling in progress" />
+        <Spinner size="md" aria-label="Crawling in progress" />
+        <Spinner size="lg" aria-label="Crawling in progress" />
     </Inline>
 );
 
@@ -29,12 +29,12 @@ Styling.storyName = "styling";
 export const Zoom = () => (
     <Stack>
         <Inline alignY="end" className="zoom-in">
-            <Spinner size="sm" color="red">Crawling in progress</Spinner>
+            <Spinner size="sm">Crawling in progress</Spinner>
             <Spinner size="md">Crawling in progress</Spinner>
             <Spinner size="lg">Crawling in progress</Spinner>
         </Inline>
         <Inline alignY="end" className="zoom-out">
-            <Spinner size="sm" color="red">Crawling in progress</Spinner>
+            <Spinner size="sm">Crawling in progress</Spinner>
             <Spinner size="md">Crawling in progress</Spinner>
             <Spinner size="lg">Crawling in progress</Spinner>
         </Inline>
@@ -45,7 +45,7 @@ Zoom.storyName = "zoom";
 
 export const Label = () => (
     <Inline alignY="end" >
-        <Spinner size="sm" color="red">Crawling in progress</Spinner>
+        <Spinner size="sm">Crawling in progress</Spinner>
         <Spinner size="md">Crawling in progress</Spinner>
         <Spinner size="lg">Crawling in progress</Spinner>
     </Inline>
@@ -55,7 +55,7 @@ Label.storyName = "label";
 
 export const Overflow = () => (
     <Stack width={10}>
-        <Spinner size="sm" color="red">Crawling in progress</Spinner>
+        <Spinner size="sm">Crawling in progress</Spinner>
         <Spinner size="md">Crawling in progress</Spinner>
         <Spinner size="lg">Crawling in progress</Spinner>
     </Stack>
