@@ -2,6 +2,9 @@ import {
     AddIcon,
     AddIcon24,
     AddIcon32,
+    AlertIcon,
+    AlertIcon24,
+    AlertIcon32,
     ArrowIcon,
     ArrowIcon24,
     ArrowIcon32,
@@ -151,6 +154,12 @@ export const Add = () => (
 );
 
 Add.storyName = "add";
+
+export const Alert = () => (
+    <TestSuite icon24={AlertIcon24} icon32={AlertIcon32} multiIcon={AlertIcon} />
+);
+
+Alert.storyName = "alert";
 
 export const Arrow = () => (
     <TestSuite icon24={ArrowIcon24} icon32={ArrowIcon32} multiIcon={ArrowIcon} />
