@@ -15,6 +15,7 @@
             "@typescript/*": ["./typescript/*"],
             "@jest-utils": ["./jest/utils"],
             "@components/*": ["./packages/components/src/*"],
+            "@experimental-components/*": ["./packages/experimental/src/*"],
             "@orbit-ui/components": ["./packages/components/src"]
         }
     }
