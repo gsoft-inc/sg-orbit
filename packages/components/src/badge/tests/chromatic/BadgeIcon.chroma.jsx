@@ -16,7 +16,7 @@ export const Default = () => (
 
 Default.storyName = "default";
 
-export const Overlap = Default.storyName = "default"; (
+export const Overlap = () => (
     <Inline gap={8}>
         <SquareBadge variant="icon">
             <CheckCircleIcon />
