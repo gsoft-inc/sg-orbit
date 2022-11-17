@@ -39,6 +39,26 @@ Those rules will have to be included in the “experimental” package documenta
 
 Refer to the "Adding a new component" section in the [components' package README](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/components#add-a-new-component)
 
+## Flagging an “experimental” component in the documentation
+
+Make sure you add the "parameters" section to the component's story file.
+
+```js
+<Meta
+    title="Components/Paper"
+    id="paper"
+    parameters={{
+        status: "beta"
+    }}
+/>
+```
+
+And make sure to add the following component in the Usage Section
+
+```js
+<BetaMessage />
+```
+
 ## License
 
 Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
