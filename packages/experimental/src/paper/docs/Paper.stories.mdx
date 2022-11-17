@@ -1,0 +1,44 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Tagline, Preview, BetaMessage } from "@stories/components";
+import { InnerPaper, Paper } from "@experimental-components/paper";
+
+<Meta
+    title="Components/Paper"
+    id="paper"
+    parameters={{
+        status: "beta"
+    }}
+/>
+
+# Paper
+
+<Tagline>A Paper.</Tagline>
+
+<ComponentInfo
+    usage={"import { Paper } from \"@orbit-ui/experimental-components\";"}
+    githubPath="/packages/experimental/src/paper/src"
+/>
+
+## Usage
+
+<BetaMessage />
+
+### Default
+
+A default paper.
+
+<Preview>
+    <Story name="default">
+        <Paper>Allo</Paper>
+    </Story>
+</Preview>
+
+## API
+
+<ComponentInfo
+    usage={"import { Paper } from \"@orbit-ui/experimental-components\";"}
+    inherits={[InnerPaper.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerPaper} sort="alpha" />

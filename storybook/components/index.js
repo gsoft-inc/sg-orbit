@@ -1,3 +1,4 @@
+export * from "./beta-message";
 export * from "./checkered-background";
 export * from "./external-link";
 export * from "./figure";
