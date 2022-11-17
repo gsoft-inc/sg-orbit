@@ -8,6 +8,8 @@ import { createOrbitIcon, createOrbitMultiVariantIcon } from "../createOrbitIcon
 
 import { ReactComponent as InnerAddIcon24 } from "./AddIcon24";
 import { ReactComponent as InnerAddIcon32 } from "./AddIcon32";
+import { ReactComponent as InnerAlertIcon24 } from "./AlertIcon24";
+import { ReactComponent as InnerAlertIcon32 } from "./AlertIcon32";
 import { ReactComponent as InnerArrowIcon24 } from "./ArrowIcon24";
 import { ReactComponent as InnerArrowIcon32 } from "./ArrowIcon32";
 import { ReactComponent as InnerCalendarIcon24 } from "./CalendarIcon24";
@@ -109,6 +111,8 @@ import { ReactComponent as InnerZipIcon32 } from "./ZipIcon32";
 
 export const AddIcon24 = createOrbitIcon(InnerAddIcon24, "AddIcon24");
 export const AddIcon32 = createOrbitIcon(InnerAddIcon32, "AddIcon32");
+export const AlertIcon24 = createOrbitIcon(InnerAlertIcon24, "AlertIcon24");
+export const AlertIcon32 = createOrbitIcon(InnerAlertIcon32, "AlertIcon32");
 export const ArrowIcon24 = createOrbitIcon(InnerArrowIcon24, "ArrowIcon24");
 export const ArrowIcon32 = createOrbitIcon(InnerArrowIcon32, "ArrowIcon32");
 export const CalendarIcon24 = createOrbitIcon(InnerCalendarIcon24, "CalendarIcon24");
@@ -209,6 +213,7 @@ export const ZipIcon24 = createOrbitIcon(InnerZipIcon24, "ZipIcon24");
 export const ZipIcon32 = createOrbitIcon(InnerZipIcon32, "ZipIcon32");
 
 export const AddIcon = createOrbitMultiVariantIcon(InnerAddIcon24, InnerAddIcon32, "AddIcon");
+export const AlertIcon = createOrbitMultiVariantIcon(InnerAlertIcon24, InnerAlertIcon32, "AlertIcon");
 export const ArrowIcon = createOrbitMultiVariantIcon(InnerArrowIcon24, InnerArrowIcon32, "ArrowIcon");
 export const CalendarIcon = createOrbitMultiVariantIcon(InnerCalendarIcon24, InnerCalendarIcon32, "CalendarIcon");
 export const CaretIcon = createOrbitMultiVariantIcon(InnerCaretIcon24, InnerCaretIcon32, "CaretIcon");
