@@ -2,8 +2,8 @@ import { ComponentProps, forwardRef } from "react";
 import { isNil, InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, createSizeAdapter } from "../../shared";
 import { Box } from "../../box";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Div } from "../../html";
 import { Text } from "../../typography";
+import { ReactComponent as SpinnerMd } from "./assets/spinner-md.svg";
 
 const DefaultElement = "div";
 
@@ -43,9 +43,9 @@ export function InnerSpinner({
         </Text>
     );
 
-    const spinnerMarkup = (<Div
+    const spinnerMarkup = (<SpinnerMd
         className={cssModule(
-            "o-ui-spinner",
+            "o-ui-spinner-wheel",
             normalizeSize(sizeValue)
         )}
     />);
@@ -56,7 +56,7 @@ export function InnerSpinner({
                 rest,
                 {
                     as,
-                    className: "o-ui-spinner-wrapper",
+                    className: "o-ui-spinner",
                     ref: forwardedRef,
                     role: "status"
                 }
