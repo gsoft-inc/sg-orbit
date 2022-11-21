@@ -1,10 +1,11 @@
 import { useState, useEffect, ComponentProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, normalizeSize, isNil } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledComponentProps, cssModule, mergeProps, isNil, isNumber } from "../../shared";
 import { Box } from "../../box";
-import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Div } from "../../html";
 
 const DefaultElement = "div";
+
+const DEFAULT_LOADER_DELAY = 300;
 
 export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "children"> {
     /**
@@ -13,30 +14,25 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
     "aria-label": string;
     /**
      * A loader can appear after a short delay (in ms).
+     * if set the true, the default delay is 300ms.
      */
-    delay?: number | null;
-    /**
-     * A loader can vary in size.
-     */
-    size?: ResponsiveProp<"sm" | "md" | "lg" | "xl">;
+    delay?: boolean | number;
 }
 
 export function InnerLoader({
     as = DefaultElement,
-    size = "md",
-    delay = 300,
+    delay,
     forwardedRef,
     ...rest
 }: InnerLoaderProps) {
-    const sizeValue = useResponsiveValue(size);
-
-    const [show, setShow] = useState(isNil(delay));
+    const [show, setShow] = useState<boolean>(isNil(delay) || delay === false);
 
     useEffect(() => {
-        if (isNil(delay)) {
+        if (isNil(delay) || delay === false) {
             return;
         }
-        const showTimer = setTimeout(() => setShow(true), delay);
+
+        const showTimer = setTimeout(() => setShow(true), isNumber(delay) ? delay : DEFAULT_LOADER_DELAY);
 
         return () => clearTimeout(showTimer);
     }, [delay]);
@@ -49,7 +45,6 @@ export function InnerLoader({
                     as,
                     className:cssModule(
                         "o-ui-loader",
-                        normalizeSize(sizeValue),
                         show && "show"
                     ),
                     ref: forwardedRef,

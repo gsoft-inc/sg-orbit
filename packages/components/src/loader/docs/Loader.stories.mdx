@@ -49,31 +49,15 @@ A default loader. Use in most situations.
     </Story>
 </Preview>
 
-### Size
-
-A loader can vary in size.
-
-<Preview>
-    <Story name="size">
-        <Inline alignY="end">
-            <Loader size="sm" aria-label="Loading..."/>
-            <Loader size="md" aria-label="Loading..."/>
-            <Loader size="lg" aria-label="Loading..."/>
-            <Loader size="xl" aria-label="Loading..."/>
-        </Inline>
-    </Story>
-</Preview>
-
-
 ### Delay
 
-A loader appears after a short delay. This is to prevent the loader from appearing when the action is very fast.
-If you want to disable this delay, you can set the `delay` prop to `false`. You can also set a custom delay in milliseconds.
+A loader can appears after a short delay. This is to prevent the loader from appearing when the action is very fast.
+By settings `delay` to `true`, the loader will appear after 300ms. You can also set a custom delay in milliseconds.
 
 <Preview>
     <Story name="delay">
         <Inline alignY="end">
-            <Loader delay={false} aria-label="Loading..."/>
+            <Loader delay aria-label="Loading..."/>
         </Inline>
     </Story>
 </Preview>
