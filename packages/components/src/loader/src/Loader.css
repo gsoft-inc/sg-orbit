@@ -15,7 +15,7 @@
     top: 0;
     background-color: var(--o-ui-icon-alias-accent);
     border-radius: var(--o-ui-br-circular);
-    animation: o-ui-loader-bounce var(--animation-duration) infinite var(--o-ui-easing-productive);
+    animation: o-ui-loader-bounce var(--animation-duration) infinite ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -34,7 +34,7 @@
 /* STATES */
 .o-ui-loader-show {
     opacity: 1;
-    animation: o-ui-loader-rotate var(--animation-duration) infinite var(--o-ui-easing-focus);
+    animation: o-ui-loader-rotate var(--animation-duration) infinite linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
