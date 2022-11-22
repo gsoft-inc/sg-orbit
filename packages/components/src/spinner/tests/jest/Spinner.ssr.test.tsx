@@ -10,7 +10,7 @@ test("can render on the server", () => {
 
     const renderOnServer = () =>
         renderToString(
-            <Spinner />
+            <Spinner aria-label="Loading" />
         );
 
     expect(renderOnServer).not.toThrow();
