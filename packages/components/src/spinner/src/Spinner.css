@@ -4,17 +4,26 @@
     color: var(--o-ui-text-alias-primary);
 }
 
-.o-ui-spinner-wheel {
-    display: inline-block;
-    border-radius: 100%;
-    flex-shrink: 0;
-    stroke: var(--o-ui-icon-alias-primary);
-    animation: rotate 2s linear infinite;
+.o-ui-spinner-wheel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.o-ui-spinner-wheel-path {
+.o-ui-spinner-wheel {
+    display: inline-block;
+    fill: none;
+    flex-shrink: 0;
+    stroke: var(--o-ui-icon-alias-primary);
+    stroke-dashoffset: 75;
+    stroke-dasharray: 283;
+    animation: 2s linear infinite spinner-animation;
+}
+
+.o-ui-spinner-wheel-circle {
     stroke-linecap: round;
-    animation: dash 1.5s ease-in-out infinite;
+    transform-origin: 50% 50%;
+    animation: 1.4s ease-in-out infinite both wheel-animation;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -28,39 +37,59 @@
 }
 
 /* ANIMATION */
-@keyframes rotate {
+@keyframes wheel-animation {
+    0%,
+    25% {
+        stroke-dashoffset: 280;
+        transform: rotate(0);
+    }
+    50%,
+    75% {
+        stroke-dashoffset: 75;
+        transform: rotate(45deg);
+    }
     100% {
+        stroke-dashoffset: 280;
         transform: rotate(360deg);
     }
 }
 
-@keyframes dash {
+@keyframes spinner-animation {
     0% {
-        stroke-dasharray: 1, 150;
-        stroke-dashoffset: 0;
-    }
-    50% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -35;
+        transform: rotateZ(0deg);
     }
     100% {
-        stroke-dasharray: 90, 150;
-        stroke-dashoffset: -124;
+        transform: rotateZ(360deg);
     }
 }
 
 /* SIZES */
-.o-ui-spinner-wheel-sm {
+.o-ui-spinner-sm .o-ui-spinner-wheel-container {
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
 }
 
-.o-ui-spinner-wheel-md {
+.o-ui-spinner-sm .o-ui-spinner-wheel {
+    width: .625rem;
+    height: .625rem;
+}
+
+.o-ui-spinner-md .o-ui-spinner-wheel-container {
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
 }
 
-.o-ui-spinner-wheel-lg {
+.o-ui-spinner-md .o-ui-spinner-wheel {
+    width: .8125rem;
+    height: .8125rem;
+}
+
+.o-ui-spinner-lg .o-ui-spinner-wheel-container {
     width: var(--o-ui-sz-4);
     height: var(--o-ui-sz-4);
+}
+
+.o-ui-spinner-lg .o-ui-spinner-wheel {
+    width: 1rem;
+    height: 1rem;
 }
