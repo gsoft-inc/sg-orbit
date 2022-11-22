@@ -3,7 +3,10 @@ import { Inline, Stack } from "@components/layout";
 
 export default {
     component: Spinner,
-    title: "Chromatic/Spinner"
+    title: "Chromatic/Spinner",
+    parameters: {
+        chromatic: { pauseAnimationAtEnd: true }
+    }
 };
 
 export const Default = () => (

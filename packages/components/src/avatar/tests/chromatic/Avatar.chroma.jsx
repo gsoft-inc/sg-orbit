@@ -37,6 +37,7 @@ export const RemoteImage = () =>
     <Avatar size="2xl" name="Neil Armstrong" src="https://randomuser.me/api/portraits/men/10.jpg" />;
 
 RemoteImage.storyName = "remote image";
+
 RemoteImage.parameters = {
     chromatic: { delay: 500 }
 };

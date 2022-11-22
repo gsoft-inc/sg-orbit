@@ -14,7 +14,7 @@ export default {
     parameters: {
         chromatic: {
             delay: 100,
-            chromaticPauseAnimationAtEnd: true
+            pauseAnimationAtEnd: true
         }
     }
 };
