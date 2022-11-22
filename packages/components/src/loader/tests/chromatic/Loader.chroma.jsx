@@ -14,22 +14,12 @@ Default.storyName = "default";
 
 export const Styling = () => (
     <Inline alignY="end" >
-        <Loader size="sm" aria-label="Loading..." />
-        <Loader size="md" aria-label="Loading..." />
-        <Loader size="lg" aria-label="Loading..." />
-    </Inline>
-);
-
-Styling.storyName = "styling";
-
-export const Size = () => (
-    <Inline alignY="end" >
         <Loader className="border-red" aria-label="Loading..." />
         <Loader style={{ border: "1px solid red" }} aria-label="Loading..." />
     </Inline>
 );
 
-Size.storyName = "size";
+Styling.storyName = "styling";
 
 export const Zoom = () => (
     <Stack>
