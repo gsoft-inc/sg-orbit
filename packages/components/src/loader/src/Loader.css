@@ -61,3 +61,19 @@
         transform: rotate(360deg);
     }
 }
+
+/* STATES */
+.o-ui-loader:not(.o-ui-loader-active) {
+    animation-play-state: paused;
+}
+
+.o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-1,
+.o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-2 {
+    animation: none;
+    transform: scale(1);
+}
+
+.o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-2 {
+    animation: none;
+    transform: scale(.3);
+}

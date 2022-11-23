@@ -8,6 +8,10 @@ const DefaultElement = "div";
 
 export interface InnerSpinnerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
+     * A spinner can state can be controlled.
+     */
+    active?: boolean;
+    /**
      * A spinner can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
@@ -24,6 +28,7 @@ const textSize = createSizeAdapter({
 export function InnerSpinner({
     as = DefaultElement,
     size = "md",
+    active = true,
     forwardedRef,
     children,
     "aria-label": ariaLabel,
@@ -64,7 +69,8 @@ export function InnerSpinner({
                     as,
                     className: cssModule(
                         "o-ui-spinner",
-                        normalizeSize(sizeValue)
+                        normalizeSize(sizeValue),
+                        active && "active"
                     ),
                     ref: forwardedRef,
                     role: "status"

@@ -7,15 +7,15 @@ export default {
 };
 
 export const Default = () => (
-    <Loader aria-label="Loading..." />
+    <Loader active={false} aria-label="Loading..." />
 );
 
 Default.storyName = "default";
 
 export const Styling = () => (
     <Inline alignY="end" >
-        <Loader className="border-red" aria-label="Loading..." />
-        <Loader style={{ border: "1px solid red" }} aria-label="Loading..." />
+        <Loader active={false} className="border-red" aria-label="Loading..." />
+        <Loader active={false} style={{ border: "1px solid red" }} aria-label="Loading..." />
     </Inline>
 );
 
@@ -24,14 +24,14 @@ Styling.storyName = "styling";
 export const Zoom = () => (
     <Stack>
         <Inline alignY="end" className="zoom-in">
-            <Loader size="sm" aria-label="Loading..." />
-            <Loader size="md" aria-label="Loading..." />
-            <Loader size="lg" aria-label="Loading..." />
+            <Loader active={false} size="sm" aria-label="Loading..." />
+            <Loader active={false} size="md" aria-label="Loading..." />
+            <Loader active={false} size="lg" aria-label="Loading..." />
         </Inline>
         <Inline alignY="end" className="zoom-out">
-            <Loader size="sm" aria-label="Loading..." />
-            <Loader size="md" aria-label="Loading..." />
-            <Loader size="lg" aria-label="Loading..." />
+            <Loader active={false} size="sm" aria-label="Loading..." />
+            <Loader active={false} size="md" aria-label="Loading..." />
+            <Loader active={false} size="lg" aria-label="Loading..." />
         </Inline>
     </Stack>
 );

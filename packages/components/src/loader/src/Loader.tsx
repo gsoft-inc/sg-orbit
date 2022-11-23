@@ -9,6 +9,10 @@ const DEFAULT_LOADER_DELAY = 300;
 
 export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "children"> {
     /**
+     * A spinner can state can be controlled.
+     */
+    active?: boolean;
+    /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
@@ -21,6 +25,7 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
 
 export function InnerLoader({
     as = DefaultElement,
+    active = true,
     delay,
     forwardedRef,
     ...rest
@@ -45,7 +50,8 @@ export function InnerLoader({
                     as,
                     className:cssModule(
                         "o-ui-loader",
-                        show && "show"
+                        show && "show",
+                        active && "active"
                     ),
                     ref: forwardedRef,
                     role: "status"

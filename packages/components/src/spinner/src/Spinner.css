@@ -30,6 +30,9 @@
     .o-ui-spinner-wheel {
         animation-iteration-count: 1;
     }
+    .o-ui-spinner-wheel-circle {
+        animation-iteration-count: 1;
+    }
 }
 
 .o-ui-spinner-label {
@@ -92,4 +95,15 @@
 .o-ui-spinner-lg .o-ui-spinner-wheel {
     width: 1rem;
     height: 1rem;
+}
+
+/* STATES */
+.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel,
+.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel-circle {
+    animation-play-state: paused;
+}
+
+.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel {
+    stroke-dasharray: 183;
+    transform: rotate(195deg);
 }
