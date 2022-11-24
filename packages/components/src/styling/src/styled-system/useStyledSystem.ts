@@ -291,14 +291,16 @@ const BoxShadowScale = [
     1,
     2,
     3,
-    4
+    4,
+    5
 ] as const;
 
 const BoxShadowAliases = [
     "alias-floating",
     "alias-lifted",
     "alias-raised",
-    "alias-skim"
+    "alias-skim",
+    "alias-accent"
 ] as const;
 
 const FontSizeScale = [

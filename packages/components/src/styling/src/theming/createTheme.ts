@@ -131,7 +131,8 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             "alias-skim": "$bs-1",
             "alias-lifted": "$bs-2",
             "alias-raised": "$bs-3",
-            "alias-floating": "$bs-4"
+            "alias-floating": "$bs-4",
+            "alias-accent": "$bs-5"
         },
         light: [`
             0 0.1px 0.3px rgba(0, 0, 0, 0.022),
@@ -161,6 +162,13 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             0 8.9px 17.9px -5px rgba(0, 0, 0, 0.048),
             0 16.7px 33.4px -5px rgba(0, 0, 0, 0.058),
             0 40px 80px -5px rgba(0, 0, 0, 0.08)
+            `, `
+            0 1.1px 2.2px -5px rgba(93, 101, 246, 0.022),
+            0 2.7px 5.3px -5px rgba(93, 101, 246, 0.032),
+            0 5px 10px -5px rgba(93, 101, 246, 0.04),
+            0 8.9px 17.9px -5px rgba(93, 101, 246, 0.048),
+            0 16.7px 33.4px -5px rgba(93, 101, 246, 0.058),
+            0 40px 80px -5px rgba(93, 101, 246, 0.08)
             `
         ],
         dark: [`
@@ -191,6 +199,13 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             0 5.6px 17.9px rgba(0, 0, 0, 0.072),
             0 10.4px 33.4px rgba(0, 0, 0, 0.086),
             0 25px 80px rgba(0, 0, 0, 0.12)
+            `, `
+            0 0.7px 2.2px rgba(93, 101, 246, 0.034),
+            0 1.7px 5.3px rgba(93, 101, 246, 0.048),
+            0 3.1px 10px rgba(93, 101, 246, 0.06),
+            0 5.6px 17.9px rgba(93, 101, 246, 0.072),
+            0 10.4px 33.4px rgba(93, 101, 246, 0.086),
+            0 25px 80px rgba(93, 101, 246, 0.12)
             `
         ]
     }
