@@ -186,6 +186,7 @@ const BackgroundColorAliases = [
     "alias-soft-break",
     "alias-hard-break",
     "alias-mid-break",
+    "alias-accent-break",
     "alias-basic",
     "alias-basic-hover",
     "alias-basic-active",

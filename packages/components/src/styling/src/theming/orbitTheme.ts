@@ -82,6 +82,7 @@ export interface ColorAliases {
     "bg-alias-soft-break": AliasValue;
     "bg-alias-mid-break": AliasValue;
     "bg-alias-hard-break": AliasValue;
+    "bg-alias-accent-break": AliasValue;
     "bg-alias-basic": AliasValue;
     "bg-alias-basic-hover": AliasValue;
     "bg-alias-basic-active": AliasValue;
