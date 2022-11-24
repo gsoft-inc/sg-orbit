@@ -70,10 +70,12 @@
 .o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-1,
 .o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-2 {
     animation: none;
+}
+
+.o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-1 {
     transform: scale(1);
 }
 
 .o-ui-loader:not(.o-ui-loader-active) .o-ui-loader-dot-2 {
-    animation: none;
     transform: scale(.3);
 }
