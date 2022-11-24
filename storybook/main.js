@@ -44,7 +44,8 @@ const config = {
         }
     ],
     features: {
-        previewCsfV3: true
+        previewCsfV3: true,
+        buildStoriesJson: true // 👈 Enable this to build the stories.json file
     },
     webpackFinal: customizeWebpack,
     reactOptions: {
