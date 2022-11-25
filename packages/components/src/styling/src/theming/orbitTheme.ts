@@ -45,7 +45,10 @@ export interface BorderRadiusValues {
     2: string;
     3: string;
     4: string;
-    "rounded": string;
+    "xs": string;
+    "sm": string;
+    "md": string;
+    "lg": string;
     "pill": string;
     "circular": string;
 }

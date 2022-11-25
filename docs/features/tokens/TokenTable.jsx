@@ -88,7 +88,7 @@ export function iconRenderer(token) {
 }
 
 export function lineHeightRenderer(token) {
-    return <Div display="inline-block" paddingX={2} lineHeight={token} borderRadius={2}><Span lineHeight={token}>Ag</Span></Div>
+    return <Div display="inline-block" paddingX={2} lineHeight={token} borderRadius="sm"><Span lineHeight={token}>Ag</Span></Div>
 }
 
 export function radiiRenderer(token) {

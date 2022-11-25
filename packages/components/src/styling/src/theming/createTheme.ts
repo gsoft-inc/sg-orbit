@@ -124,7 +124,10 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
         4: "1rem",
         "pill": "999px",
         "circular": "100%",
-        "rounded": ".25rem"
+        "xs": ".125rem",
+        "sm": ".25rem",
+        "md": ".5rem",
+        "lg": "1rem"
     },
     boxShadows: {
         common: {
