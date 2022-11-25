@@ -38,7 +38,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color-alias-default);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -93,7 +93,7 @@
 .o-ui-text-link:focus-visible,
 .o-ui-text-link.o-ui-link-focus {
     outline: transparent;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
 }
 
 .o-ui-text-link:focus-visible:after,
@@ -208,7 +208,7 @@ button.o-ui-link-hover {
 
 /* SHAPE | ROUNDED */
 .o-ui-link-rounded {
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
 }
 
 /* SHAPE | CIRCULAR */
@@ -232,5 +232,5 @@ button.o-ui-link-hover {
 
 /* ICON LINK */
 .o-ui-icon-link {
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
 }

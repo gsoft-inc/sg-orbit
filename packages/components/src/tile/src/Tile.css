@@ -5,7 +5,7 @@
     background-color: var(--o-ui-bg-alias-default);
     padding: 0;
     color: var(--o-ui-text-alias-primary);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     display: grid;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-focus);
     position: relative;
@@ -77,7 +77,7 @@
     position: absolute;
     right: 8px;
     bottom: 8px;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     width: 24px;
     height: 24px;
     display: flex;
@@ -105,13 +105,13 @@
 }
 
 .o-ui-tile-vertical .o-ui-tile-thumbnail {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-top-right-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-top-right-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 .o-ui-tile-horizontal .o-ui-tile-thumbnail {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-bottom-left-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-bottom-left-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 /* IMAGE */
@@ -121,13 +121,13 @@
 }
 
 .o-ui-tile-vertical .o-ui-tile-image {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-top-right-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-top-right-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 .o-ui-tile-horizontal .o-ui-tile-image {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-bottom-left-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-bottom-left-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 /* ILLUSTRATION */
@@ -136,13 +136,13 @@
 }
 
 .o-ui-tile-vertical .o-ui-tile-illustration {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-top-right-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-top-right-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 .o-ui-tile-horizontal .o-ui-tile-illustration {
-    border-top-left-radius: calc(var(--o-ui-br-rounded) - 1px);
-    border-bottom-left-radius: calc(var(--o-ui-br-rounded) - 1px);
+    border-top-left-radius: calc(var(--o-ui-br-sm) - 1px);
+    border-bottom-left-radius: calc(var(--o-ui-br-sm) - 1px);
 }
 
 /* MAIN SECTION */

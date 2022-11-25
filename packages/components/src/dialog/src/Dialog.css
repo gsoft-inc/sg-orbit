@@ -21,7 +21,7 @@
 .o-ui-dialog {
     position: relative;
     background-color: var(--o-ui-bg-alias-default);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     display: grid;
     align-items: stretch;
     grid-template-areas: "image image" "aside aside";

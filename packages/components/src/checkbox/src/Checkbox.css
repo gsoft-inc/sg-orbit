@@ -23,7 +23,7 @@
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
     border: 1px solid var(--o-ui-b-alias-mid-break);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;
 }
@@ -39,7 +39,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -55,7 +55,7 @@
     background-color: var(--o-ui-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-sm);
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
