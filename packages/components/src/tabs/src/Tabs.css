@@ -11,19 +11,18 @@
 /* TAB LIST */
 .o-ui-tab-list {
     display: flex;
-    gap: var(--o-ui-sp-2);
 }
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--o-ui-b-alias-low-break);
+    border-bottom: 4px solid var(--o-ui-b-alias-low-break);
     align-items: center;
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--o-ui-b-alias-low-break);
+    border-left: 4px solid var(--o-ui-b-alias-low-break);
 }
 
 /* TAB LIST | POPOVER | TRIGGER */
@@ -127,7 +126,7 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(0.5rem - 2px);
+    bottom: calc(0.5rem - 4px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-br-sm);
     pointer-events: none;
@@ -142,8 +141,8 @@
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
+    border-bottom: 4px solid transparent;
+    margin-bottom: -4px;
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | VERTICAL */
@@ -153,8 +152,8 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    border-left: 2px solid transparent;
-    margin-left: -2px;
+    border-left: 4px solid transparent;
+    margin-left: -4px;
     width: 100%;
     justify-content: start;
 }
@@ -183,24 +182,24 @@
 
 .o-ui-tabs-horizontal .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
 .o-ui-tabs-horizontal .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
-    border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
+    border-bottom: 4px solid var(--o-ui-b-alias-mid-break);
 }
 
 .o-ui-tabs-vertical .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
 .o-ui-tabs-vertical .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
-    border-left: 2px solid var(--o-ui-b-alias-mid-break);
+    border-left: 4px solid var(--o-ui-b-alias-mid-break);
 }
 
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--o-ui-bg-alias-accent);
+    border-bottom: 4px solid var(--o-ui-bg-alias-accent);
     color: var(--o-ui-text-alias-primary);
 }
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--o-ui-bg-alias-accent);
+    border-left: 4px solid var(--o-ui-bg-alias-accent);
 }
 
 /* TAB | FLUID */
