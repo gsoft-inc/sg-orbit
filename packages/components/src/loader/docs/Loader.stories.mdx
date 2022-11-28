@@ -38,10 +38,11 @@ import { InnerLoader, Loader } from "@components/loader";
 - Avoid increasing the size of the Loader to maintain consistency with other indicators accross the application.
 - Always center the Loader and position it close to where you want the user's attention to be once loading is complete.
 - Ideally used on a white background.
+- The delay property should often be used to avoid flashing the loader when the loading time is very short.
 
 ### Default
 
-This is the loader that should be used in most situations.
+This is the default loader.
 
 <Preview>
     <Story name="default">
