@@ -6,16 +6,21 @@ export default {
     title: "Chromatic/Loader"
 };
 
+// We deactivate the animation to avoid flaky tests.
+const InactiveLoader = ({ ...props }) => (
+    <Loader active={false} {...props} />
+);
+
 export const Default = () => (
-    <Loader active={false} aria-label="Loading..." />
+    <InactiveLoader aria-label="Loading..." />
 );
 
 Default.storyName = "default";
 
 export const Styling = () => (
     <Inline alignY="end" >
-        <Loader active={false} className="border-red" aria-label="Loading..." />
-        <Loader active={false} style={{ border: "1px solid red" }} aria-label="Loading..." />
+        <InactiveLoader className="border-red" aria-label="Loading..." />
+        <InactiveLoader style={{ border: "1px solid red" }} aria-label="Loading..." />
     </Inline>
 );
 
@@ -24,14 +29,14 @@ Styling.storyName = "styling";
 export const Zoom = () => (
     <Stack>
         <Inline alignY="end" className="zoom-in">
-            <Loader active={false} size="sm" aria-label="Loading..." />
-            <Loader active={false} size="md" aria-label="Loading..." />
-            <Loader active={false} size="lg" aria-label="Loading..." />
+            <InactiveLoader size="sm" aria-label="Loading..." />
+            <InactiveLoader size="md" aria-label="Loading..." />
+            <InactiveLoader size="lg" aria-label="Loading..." />
         </Inline>
         <Inline alignY="end" className="zoom-out">
-            <Loader active={false} size="sm" aria-label="Loading..." />
-            <Loader active={false} size="md" aria-label="Loading..." />
-            <Loader active={false} size="lg" aria-label="Loading..." />
+            <InactiveLoader size="sm" aria-label="Loading..." />
+            <InactiveLoader size="md" aria-label="Loading..." />
+            <InactiveLoader size="lg" aria-label="Loading..." />
         </Inline>
     </Stack>
 );

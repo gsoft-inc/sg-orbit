@@ -6,11 +6,17 @@ export default {
     title: "Chromatic/Spinner"
 };
 
+// We deactivate the animation to avoid flaky tests.
+const InactiveSpinner = ({ ...props }) => (
+    <Spinner active={false} {...props} />
+);
+
+
 export const Default = () => (
     <Inline alignY="end" className="zoom-out">
-        <Spinner active={false} size="sm" aria-label="Crawling in progress" />
-        <Spinner active={false} size="md" aria-label="Crawling in progress" />
-        <Spinner active={false} size="lg" aria-label="Crawling in progress" />
+        <InactiveSpinner size="sm" aria-label="Crawling in progress" />
+        <InactiveSpinner size="md" aria-label="Crawling in progress" />
+        <InactiveSpinner size="lg" aria-label="Crawling in progress" />
     </Inline>
 );
 
@@ -18,9 +24,9 @@ Default.storyName = "default";
 
 export const Styling = () => (
     <Inline>
-        <Spinner active={false} color="red" >Crawling in progress</Spinner>
-        <Spinner active={false} className="border-red" />
-        <Spinner active={false} style={{ border: "1px solid red" }} />
+        <InactiveSpinner color="red" >Crawling in progress</InactiveSpinner>
+        <InactiveSpinner className="border-red" />
+        <InactiveSpinner style={{ border: "1px solid red" }} />
     </Inline>
 );
 
@@ -29,14 +35,14 @@ Styling.storyName = "styling";
 export const Zoom = () => (
     <Stack>
         <Inline alignY="end" className="zoom-in">
-            <Spinner active={false} size="sm">Crawling in progress</Spinner>
-            <Spinner active={false} size="md">Crawling in progress</Spinner>
-            <Spinner active={false} size="lg">Crawling in progress</Spinner>
+            <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
         </Inline>
         <Inline alignY="end" className="zoom-out">
-            <Spinner active={false} size="sm">Crawling in progress</Spinner>
-            <Spinner active={false} size="md">Crawling in progress</Spinner>
-            <Spinner active={false} size="lg">Crawling in progress</Spinner>
+            <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
         </Inline>
     </Stack>
 );
@@ -45,9 +51,9 @@ Zoom.storyName = "zoom";
 
 export const Label = () => (
     <Inline alignY="end" >
-        <Spinner active={false} size="sm">Crawling in progress</Spinner>
-        <Spinner active={false} size="md">Crawling in progress</Spinner>
-        <Spinner active={false} size="lg">Crawling in progress</Spinner>
+        <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
+        <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+        <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
     </Inline>
 );
 
@@ -55,9 +61,9 @@ Label.storyName = "label";
 
 export const Overflow = () => (
     <Stack width={10}>
-        <Spinner active={false} size="sm">Crawling in progress</Spinner>
-        <Spinner active={false} size="md">Crawling in progress</Spinner>
-        <Spinner active={false} size="lg">Crawling in progress</Spinner>
+        <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
+        <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+        <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
     </Stack>
 );
 
