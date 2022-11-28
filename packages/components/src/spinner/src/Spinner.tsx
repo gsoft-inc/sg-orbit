@@ -8,7 +8,7 @@ const DefaultElement = "div";
 
 export interface InnerSpinnerProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
-     * A spinner can state can be controlled.
+     * Specify whether you want the Spinner to be animating or not
      */
     active?: boolean;
     /**

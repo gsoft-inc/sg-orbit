@@ -9,7 +9,7 @@ const DEFAULT_LOADER_DELAY = 300;
 
 export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "children"> {
     /**
-     * A spinner can state can be controlled.
+     * Specify whether you want the Loader to be animating or not.
      */
     active?: boolean;
     /**
