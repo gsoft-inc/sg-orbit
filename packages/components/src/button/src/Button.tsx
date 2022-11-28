@@ -164,7 +164,12 @@ export function InnerButton(props: InnerButtonProps) {
     }), [sizeValue, disabled, condensed, loading]));
 
     const loadingMarkup = loading && (
-        <Spinner className="o-ui-button-spinner" role="presentation" size={spinnerSize(sizeValue)} />
+        <Spinner
+            className="o-ui-button-spinner"
+            role="presentation"
+            size={spinnerSize(sizeValue)}
+            variant={variant === "primary" ? "overBackground" : undefined}
+        />
     );
 
     return (

@@ -13,7 +13,7 @@ const InactiveSpinner = ({ ...props }) => (
 
 
 export const Default = () => (
-    <Inline alignY="end" className="zoom-out">
+    <Inline alignY="end">
         <InactiveSpinner size="sm" aria-label="Crawling in progress" />
         <InactiveSpinner size="md" aria-label="Crawling in progress" />
         <InactiveSpinner size="lg" aria-label="Crawling in progress" />
@@ -22,9 +22,18 @@ export const Default = () => (
 
 Default.storyName = "default";
 
+export const Variant = () => (
+    <Inline alignY="end" backgroundColor="alias-accent">
+        <InactiveSpinner variant="overBackground" aria-label="Crawling in progress" />
+        <InactiveSpinner variant="overBackground">Crawling in progress</InactiveSpinner>
+    </Inline>
+);
+
+Variant.storyName = "variant";
+
 export const Styling = () => (
     <Inline>
-        <InactiveSpinner color="red" >Crawling in progress</InactiveSpinner>
+        <InactiveSpinner color="red">Crawling in progress</InactiveSpinner>
         <InactiveSpinner className="border-red" />
         <InactiveSpinner style={{ border: "1px solid red" }} />
     </Inline>

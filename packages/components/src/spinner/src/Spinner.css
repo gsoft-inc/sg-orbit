@@ -30,9 +30,19 @@
     .o-ui-spinner-wheel {
         animation-iteration-count: 1;
     }
+
     .o-ui-spinner-wheel-circle {
         animation-iteration-count: 1;
     }
+}
+
+/* VARIANT | OVERBACKGROUND */
+.o-ui-spinner-overBackground {
+    color: var(--o-ui-text-alias-static-white);
+}
+
+.o-ui-spinner-overBackground .o-ui-spinner-wheel {
+    stroke: var(--o-ui-icon-alias-static-white);
 }
 
 /* CONTENT | LABEL */
