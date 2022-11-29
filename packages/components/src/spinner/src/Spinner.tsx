@@ -59,7 +59,7 @@ export function InnerSpinner({
                 viewBox="0 0 100 100"
                 xmlns="http://www.w3.org/2000/svg"
             >
-                <circle className="o-ui-spinner-wheel-circle" cx="50" cy="50" r="45" strokeWidth="10" />
+                <circle className="o-ui-spinner-wheel-circle" cx="50" cy="50" r="45" />
             </svg>
         </div>
     );
@@ -74,7 +74,7 @@ export function InnerSpinner({
                         "o-ui-spinner",
                         normalizeSize(sizeValue),
                         active && "active",
-                        variant
+                        variant && "over-background"
                     ),
                     ref: forwardedRef,
                     role: "status"

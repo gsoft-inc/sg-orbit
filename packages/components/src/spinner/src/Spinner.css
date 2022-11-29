@@ -11,37 +11,29 @@
 }
 
 .o-ui-spinner-wheel {
-    display: inline-block;
-    fill: none;
-    flex-shrink: 0;
-    stroke: var(--o-ui-icon-alias-primary);
-    stroke-dashoffset: 75;
-    stroke-dasharray: 283;
     animation: 2s linear infinite spinner-animation;
+    max-width: 100px;
+    overflow: hidden;
 }
 
 .o-ui-spinner-wheel-circle {
-    stroke-linecap: round;
-    transform-origin: 50% 50%;
     animation: 1.4s ease-in-out infinite both wheel-animation;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .o-ui-spinner-wheel {
-        animation-iteration-count: 1;
-    }
-
-    .o-ui-spinner-wheel-circle {
-        animation-iteration-count: 1;
-    }
+    display: block;
+    fill: transparent;
+    stroke: var(--o-ui-icon-alias-primary);
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    stroke-dashoffset: 280;
+    stroke-width: 10px;
+    transform-origin: 50% 50%;
 }
 
 /* VARIANT | OVERBACKGROUND */
-.o-ui-spinner-overBackground {
+.o-ui-spinner-over-background {
     color: var(--o-ui-text-alias-static-white);
 }
 
-.o-ui-spinner-overBackground .o-ui-spinner-wheel {
+.o-ui-spinner-over-background .o-ui-spinner-wheel-circle {
     stroke: var(--o-ui-icon-alias-static-white);
 }
 
@@ -111,10 +103,18 @@
 /* STATES */
 .o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel,
 .o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel-circle {
-    animation-play-state: paused;
+    animation: none;
 }
 
 .o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel {
-    stroke-dasharray: 183;
-    transform: rotate(195deg);
+    stroke-dasharray: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .o-ui-spinner-wheel {
+        stroke-dasharray: 300;
+    }
+    .o-ui-spinner-wheel-circle {
+        animation: none;
+    }
 }
