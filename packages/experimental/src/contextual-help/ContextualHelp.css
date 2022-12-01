@@ -1,0 +1,28 @@
+.o-ui-contextual-help {
+    outline: 0;
+    border-radius: var(--o-ui-br-rounded);
+}
+
+/* STATE | FOCUS */
+.o-ui-contextual-help:focus-visible {
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
+}
+
+/* STATES | FOCUS | FOCUS RING */
+.o-ui-contextual-help:after {
+    opacity: 0;
+    content: "";
+    top: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    left: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    right: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    bottom: calc(-1 * var(--o-ui-focus-ring-outset-outer-offset));
+    display: block;
+    position: absolute;
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
+    border-radius: var();
+    transition: var(--o-ui-focus-ring-transition);
+}
+
+.o-ui-contextual-help:focus-visible:after {
+    opacity: 1;
+}
