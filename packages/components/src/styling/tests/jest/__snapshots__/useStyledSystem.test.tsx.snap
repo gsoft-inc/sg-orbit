@@ -4,1163 +4,1163 @@
     exports[`breakpoints lg 1`] = `
     Array [
     <div
-    style={;
+    style={;;;;;;
 object {
     "alignContent":
- "normal",
+    "normal",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "alignItems":
- "normal",
+    "normal",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "alignSelf":
- "normal",
+    "normal",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "aspectRatio":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "backgroundColor":
- "var(--o-ui-bg-alias-mid-break)",
+    "var(--o-ui-bg-alias-mid-break)",
     }
     }
     />,
     <div
     className="o-ui-bg-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bg-active":
- "var(--o-ui-bg-alias-mid-break)",
+    "var(--o-ui-bg-alias-mid-break)",
     }
     }
     />,
     <div
     className="o-ui-bg-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bg-focus":
- "var(--o-ui-bg-alias-mid-break)",
+    "var(--o-ui-bg-alias-mid-break)",
     }
     }
     />,
     <div
     className="o-ui-bg-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bg-hover":
- "var(--o-ui-bg-alias-mid-break)",
+    "var(--o-ui-bg-alias-mid-break)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "backgroundImage":
- "revert",
+    "revert",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "backgroundPosition":
- "right",
+    "right",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "backgroundRepeat":
- "no-repeat",
+    "no-repeat",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "backgroundSize":
- "3.2em",
+    "3.2em",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "border":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-b-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-b-active":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-b-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-b-focus":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-b-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-b-hover":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderBottom":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bb-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bb-active":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bb-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bb-focus":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bb-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bb-hover":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderLeft":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bl-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bl-active":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bl-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bl-focus":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bl-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bl-hover":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderRight":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-br-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-br-active":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-br-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-br-focus":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-br-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-br-hover":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderTop":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bt-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bt-active":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bt-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bt-focus":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
     className="o-ui-bt-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bt-hover":
- "1px solid var(--o-ui-b-alias-accent)",
+    "1px solid var(--o-ui-b-alias-accent)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderRadius":
- "var(--o-ui-br-4)",
+    "var(--o-ui-br-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderBottomLeftRadius":
- "var(--o-ui-br-4)",
+    "var(--o-ui-br-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderBottomRightRadius":
- "var(--o-ui-br-4)",
+    "var(--o-ui-br-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderTopLeftRadius":
- "var(--o-ui-br-4)",
+    "var(--o-ui-br-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "borderTopRightRadius":
- "var(--o-ui-br-4)",
+    "var(--o-ui-br-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "bottom":
- "1rem",
+    "1rem",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "boxShadow":
- "var(--o-ui-bs-4)",
+    "var(--o-ui-bs-4)",
     }
     }
     />,
     <div
     className="o-ui-bs-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bs-active":
- "var(--o-ui-bs-4)",
+    "var(--o-ui-bs-4)",
     }
     }
     />,
     <div
     className="o-ui-bs-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bs-focus":
- "var(--o-ui-bs-4)",
+    "var(--o-ui-bs-4)",
     }
     }
     />,
     <div
     className="o-ui-bs-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-bs-hover":
- "var(--o-ui-bs-4)",
+    "var(--o-ui-bs-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "color":
- "var(--o-ui-text-alias-tertiary)",
+    "var(--o-ui-text-alias-tertiary)",
     }
     }
     />,
     <div
     className="o-ui-c-active"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-c-active":
- "var(--o-ui-text-alias-tertiary)",
+    "var(--o-ui-text-alias-tertiary)",
     }
     }
     />,
     <div
     className="o-ui-c-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-c-focus":
- "var(--o-ui-text-alias-tertiary)",
+    "var(--o-ui-text-alias-tertiary)",
     }
     }
     />,
     <div
     className="o-ui-c-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-c-hover":
- "var(--o-ui-text-alias-tertiary)",
+    "var(--o-ui-text-alias-tertiary)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "columnGap":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "content":
- "open-quote",
+    "open-quote",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "contentVisibility":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "cursor":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
     className="o-ui-cs-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-cs-hover":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "display":
- "flex",
+    "flex",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "fill":
- "var(--o-ui-icon-alias-tertiary)",
+    "var(--o-ui-icon-alias-tertiary)",
     }
     }
     />,
     <div
     className="o-ui-f-focus"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-f-focus":
- "var(--o-ui-icon-alias-tertiary)",
+    "var(--o-ui-icon-alias-tertiary)",
     }
     }
     />,
     <div
     className="o-ui-f-hover"
-    style={;
+    style={;;;;;;
 object {
     "--o-ui-f-hover":
- "var(--o-ui-icon-alias-tertiary)",
+    "var(--o-ui-icon-alias-tertiary)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "filter":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flex":
- "1px",
+    "1px",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexBasis":
- "1em",
+    "1em",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexDirection":
- "column-reverse",
+    "column-reverse",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexFlow":
- "column-reverse",
+    "column-reverse",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexGrow":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexShrink":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "flexWrap":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "fontSize":
- "var(--o-ui-fs-4)",
+    "var(--o-ui-fs-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "fontStyle":
- "oblique 10deg",
+    "oblique 10deg",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "fontVariationSettings":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gap":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "grid":
- "auto-flow dense 40% / [line1] minmax(20em, max-content)",
+    "auto-flow dense 40% / [line1] minmax(20em, max-content)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridArea":
- "4 some-grid-area / 2 another-grid-area",
+    "4 some-grid-area / 2 another-grid-area",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridAutoColumns":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridAutoFlow":
- "row dense",
+    "row dense",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridAutoRows":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridColumn":
- "1 / span 2",
+    "1 / span 2",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridColumnEnd":
- "somegridarea 4",
+    "somegridarea 4",
     }
     }
     />,
     <div />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridColumnStart":
- "somegridarea 4",
+    "somegridarea 4",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridRow":
- "1 / span 2",
+    "1 / span 2",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridRowEnd":
- "somegridarea 4",
+    "somegridarea 4",
     }
     }
     />,
     <div />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridRowStart":
- "somegridarea 4",
+    "somegridarea 4",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridTemplate":
- "\\"a a a\\" \\"b b b\\"",
+    "\\"a a a\\" \\"b b b\\"",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridTemplateAreas":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridTemplateColumns":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "gridTemplateRows":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "height":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "justifyContent":
- "normal",
+    "normal",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "justifyItems":
- "end",
+    "end",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "justifySelf":
- "end",
+    "end",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "left":
- "1rem",
+    "1rem",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "letterSpacing":
- ".3px",
+    ".3px",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "lineHeight":
- "var(--o-ui-lh-4)",
+    "var(--o-ui-lh-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "margin":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "marginBottom":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "marginLeft":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "marginRight":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "marginTop":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
-        "marginLeft": "var(--o-ui-sp-4)";
+        "marginLeft": "var(--o-ui-sp-4)";;;;;;
 ,
     "marginRight":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
-        "marginBottom": "var(--o-ui-sp-4)";
+        "marginBottom": "var(--o-ui-sp-4)";;;;;;
 ,
     "marginTop":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "maxHeight":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "maxWidth":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "minHeight":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "minWidth":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "objectFit":
- "none",
+    "none",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "objectPosition":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "opacity":
- "initial",
+    "initial",
     }
     }
     />,
     <div
     className="o-ui-o-active"
-    style={;
+    style={;;;;;;
 object {
     "o-ui-o-active":
- "initial",
+    "initial",
     }
     }
     />,
     <div
     className="o-ui-o-focus"
-    style={;
+    style={;;;;;;
 object {
     "o-ui-o-focus":
- "initial",
+    "initial",
     }
     }
     />,
     <div
     className="o-ui-o-hover"
-    style={;
+    style={;;;;;;
 object {
     "o-ui-o-hover":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "order":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "outline":
- "green solid 3px",
+    "green solid 3px",
     }
     }
     />,
     <div
     className="o-ui-ol-focus"
-    style={;
+    style={;;;;;;
 object {
     "o-ui-ol-focus":
- "green solid 3px",
+    "green solid 3px",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "overflow":
- "scroll",
+    "scroll",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "overflowX":
- "scroll",
+    "scroll",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "overflowY":
- "scroll",
+    "scroll",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "padding":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "paddingBottom":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "paddingLeft":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "paddingRight":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "paddingTop":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
-        "paddingLeft": "var(--o-ui-sp-4)";
+        "paddingLeft": "var(--o-ui-sp-4)";;;;;;
 ,
     "paddingRight":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
-        "paddingBottom": "var(--o-ui-sp-4)";
+        "paddingBottom": "var(--o-ui-sp-4)";;;;;;
 ,
     "paddingTop":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "pointerEvents":
- "visibleFill",
+    "visibleFill",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "position":
- "fixed",
+    "fixed",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "resize":
- "vertical",
+    "vertical",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "right":
- "1rem",
+    "1rem",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "rowGap":
- "var(--o-ui-sp-4)",
+    "var(--o-ui-sp-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "stroke":
- "var(--o-ui-icon-alias-tertiary)",
+    "var(--o-ui-icon-alias-tertiary)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "textAlign":
- "right",
+    "right",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "textDecoration":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "textOverflow":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "textTransform":
- "lowercase",
+    "lowercase",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "top":
- "1rem",
+    "1rem",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "transform":
- "perspective(17px)",
+    "perspective(17px)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "transformOrigin":
- "right bottom 2cm",
+    "right bottom 2cm",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "transformStyle":
- "initial",
+    "initial",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "verticalAlign":
- "text-top",
+    "text-top",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "visibility":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "whiteSpace":
- "pre-wrap",
+    "pre-wrap",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "width":
- "var(--o-ui-sz-4)",
+    "var(--o-ui-sz-4)",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "willChange":
- "transform",
+    "transform",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "wordBreak":
- "inherit",
+    "inherit",
     }
     }
     />,
     <div
-    style={;
+    style={;;;;;;
 object {
     "zIndex":
- "289",
+    "289",
     }
     }
     />,
@@ -3469,35 +3469,35 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-pill)",
+        "borderRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-pill)",
+        "borderBottomLeftRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-pill)",
+        "borderBottomRightRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-pill)",
+        "borderTopLeftRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-pill)",
+        "borderTopRightRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
@@ -4276,7 +4276,7 @@ Array [
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-bg-alias-default)",
+        "backgroundColor": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -4284,7 +4284,7 @@ Array [
     className="o-ui-bg-active"
     style={
       Object {
-        "--o-ui-bg-active": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -4292,7 +4292,7 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
-        "--o-ui-bg-focus": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -4300,7 +4300,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -5739,7 +5739,7 @@ Array [
   <div
     style={
       Object {
-        "backgroundColor": "var(--o-ui-bg-alias-default)",
+        "backgroundColor": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -6712,7 +6712,7 @@ Array [
     className="o-ui-bg-active"
     style={
       Object {
-        "--o-ui-bg-active": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -7822,7 +7822,7 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
-        "--o-ui-bg-focus": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -8932,7 +8932,7 @@ Array [
     className="o-ui-bg-hover"
     style={
       Object {
-        "--o-ui-bg-hover": "var(--o-ui-bg-alias-default)",
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-surface)",
       }
     }
   />,
@@ -11938,21 +11938,21 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-pill)",
+        "borderBottomLeftRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-sm)",
+        "borderBottomLeftRadius": "var(--o-ui-br-alias-sm)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-circular)",
+        "borderBottomLeftRadius": "var(--o-ui-br-alias-circular)",
       }
     }
   />,
@@ -12105,21 +12105,21 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-pill)",
+        "borderBottomRightRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-sm)",
+        "borderBottomRightRadius": "var(--o-ui-br-alias-sm)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-circular)",
+        "borderBottomRightRadius": "var(--o-ui-br-alias-circular)",
       }
     }
   />,
@@ -18474,21 +18474,21 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-pill)",
+        "borderRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-sm)",
+        "borderRadius": "var(--o-ui-br-alias-sm)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-circular)",
+        "borderRadius": "var(--o-ui-br-alias-circular)",
       }
     }
   />,
@@ -22934,21 +22934,21 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-pill)",
+        "borderTopLeftRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-sm)",
+        "borderTopLeftRadius": "var(--o-ui-br-alias-sm)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-circular)",
+        "borderTopLeftRadius": "var(--o-ui-br-alias-circular)",
       }
     }
   />,
@@ -23101,21 +23101,21 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-pill)",
+        "borderTopRightRadius": "var(--o-ui-br-alias-pill)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-sm)",
+        "borderTopRightRadius": "var(--o-ui-br-alias-sm)",
       }
     }
   />,
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-circular)",
+        "borderTopRightRadius": "var(--o-ui-br-alias-circular)",
       }
     }
   />,

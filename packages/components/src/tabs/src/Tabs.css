@@ -28,7 +28,7 @@
 /* TAB LIST | POPOVER | TRIGGER */
 .o-ui-tab-list-popover-trigger {
     border: none;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
     position: relative;
@@ -49,9 +49,9 @@
 
 /* TAB LIST | POPOVER */
 .o-ui-tab-list-popover {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     border: 1px solid var(--o-ui-b-alias-low-break);
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     box-shadow: var(--o-ui-bs-alias-lifted);
     margin-top: var(--o-ui-sp-2);
 }
@@ -128,7 +128,7 @@
     transform: translateY(-50%);
     bottom: calc(0.5rem - 4px);
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     pointer-events: none;
     height: calc(var(--o-ui-sz-3) + 0.25rem);
     transition: var(--o-ui-focus-ring-transition);

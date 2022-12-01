@@ -27,7 +27,7 @@
 
 /* SHAPES */
 .o-ui-illustration-rounded {
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
 }
 
 /* CONTENT */

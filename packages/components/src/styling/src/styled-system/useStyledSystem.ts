@@ -182,7 +182,8 @@ const OrbitColors = [
 ] as const;
 
 const BackgroundColorAliases = [
-    "alias-default",
+    "alias-body",
+    "alias-surface",
     "alias-soft-break",
     "alias-hard-break",
     "alias-mid-break",
@@ -283,12 +284,12 @@ const BorderRadiusScale = [
     2,
     3,
     4,
-    "pill",
-    "xs",
-    "sm",
-    "md",
-    "lg",
-    "circular"
+    "alias-pill",
+    "alias-xs",
+    "alias-sm",
+    "alias-md",
+    "alias-lg",
+    "alias-circular"
 ] as const;
 
 const BoxShadowScale = [

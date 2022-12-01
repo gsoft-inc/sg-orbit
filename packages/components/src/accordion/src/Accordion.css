@@ -9,7 +9,7 @@
 .o-ui-accordion-bordered {
     box-shadow: var(--o-ui-bs-alias-skim);
     border-radius: var(--o-ui-sp-2);
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
 }
 
 /* HEADER */
@@ -51,7 +51,7 @@
 
 /* TRIGGER | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-trigger {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding: calc(var(--o-ui-sp-4) - 1px) var(--o-ui-sp-5) var(--o-ui-sp-4) var(--o-ui-sp-6);
     border-top: 1px solid var(--o-ui-b-alias-low-break);
 }
@@ -97,7 +97,7 @@
 
 /* PANEL | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-panel {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding-left: var(--o-ui-sp-6);
     padding-right: calc(var(--o-ui-sp-6) + var(--o-ui-sp-6));
 }
@@ -118,7 +118,7 @@
     content: "";
     position: absolute;
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     pointer-events: none;
     transition: var(--o-ui-focus-ring-transition);
 }

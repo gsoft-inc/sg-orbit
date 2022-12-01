@@ -14,7 +14,7 @@
     min-height: var(--o-ui-sz-6);
     overflow: hidden;
     padding: 0 var(--o-ui-sp-3) 0;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     line-height: inherit;
     font-family: inherit;
     font-size: 100%;
@@ -81,7 +81,7 @@
 .o-ui-select-trigger-outline {
     width: 100%;
     max-width: var(--o-ui-sz-16);
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     border: 1px solid var(--o-ui-b-alias-mid-break);
 }
 

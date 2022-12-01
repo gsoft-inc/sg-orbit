@@ -122,12 +122,12 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
         2: ".25rem",
         3: ".5rem",
         4: "1rem",
-        "pill": "999px",
-        "circular": "100%",
-        "xs": ".125rem",
-        "sm": ".25rem",
-        "md": ".5rem",
-        "lg": "1rem"
+        "alias-pill": "999px",
+        "alias-circular": "100%",
+        "alias-xs": ".125rem",
+        "alias-sm": ".25rem",
+        "alias-md": ".5rem",
+        "alias-lg": "1rem"
     },
     boxShadows: {
         common: {
@@ -203,12 +203,12 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             0 10.4px 33.4px rgba(0, 0, 0, 0.086),
             0 25px 80px rgba(0, 0, 0, 0.12)
             `, `
-            0 0.3px 1.1px rgba(93, 101, 246, 0.056),
-            0 0.7px 2.7px rgba(93, 101, 246, 0.081),
-            0 1.3px 5px rgba(93, 101, 246, 0.1),
-            0 2.2px 8.9px rgba(93, 101, 246, 0.119),
-            0 4.2px 16.7px rgba(93, 101, 246, 0.144),
-            0 10px 40px rgba(93, 101, 246, 0.2)
+            0 0.3px 1.1px rgba(93, 101, 246, 0.022),
+            0 0.7px 2.7px rgba(93, 101, 246, 0.032),
+            0 1.3px 5px rgba(93, 101, 246, 0.04),
+            0 2.2px 8.9px rgba(93, 101, 246, 0.048),
+            0 4.2px 16.7px rgba(93, 101, 246, 0.058),
+            0 10px 40px rgba(93, 101, 246, 0.08)
             `
         ]
     }

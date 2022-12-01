@@ -45,12 +45,12 @@ export interface BorderRadiusValues {
     2: string;
     3: string;
     4: string;
-    "xs": string;
-    "sm": string;
-    "md": string;
-    "lg": string;
-    "pill": string;
-    "circular": string;
+    "alias-xs": string;
+    "alias-sm": string;
+    "alias-md": string;
+    "alias-lg": string;
+    "alias-pill": string;
+    "alias-circular": string;
 }
 
 export type BoxShadowColorSchemes = ColorSchemeSection<BoxShadowAliases, BoxShadowValues, BoxShadowValues>;
@@ -81,7 +81,8 @@ type AliasValue =
 
 export interface ColorAliases {
     // Background
-    "bg-alias-default": AliasValue;
+    "bg-alias-surface": AliasValue;
+    "bg-alias-body": AliasValue;
     "bg-alias-soft-break": AliasValue;
     "bg-alias-mid-break": AliasValue;
     "bg-alias-hard-break": AliasValue;
@@ -123,6 +124,7 @@ export interface ColorAliases {
     "bg-alias-success-light": AliasValue;
     "bg-alias-transparent": AliasValue;
     "bg-alias-input-selection": AliasValue;
+    "bg-alias-underlay": AliasValue;
     // Border
     "b-alias-low-break": AliasValue;
     "b-alias-mid-break": AliasValue;

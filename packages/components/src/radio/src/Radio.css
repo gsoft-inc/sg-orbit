@@ -12,8 +12,8 @@
 /* BUTTON */
 .o-ui-radio-button {
     display: inline-block;
-    background-color: var(--o-ui-bg-alias-default);
-    border-radius: var(--o-ui-br-circular);
+    background-color: var(--o-ui-bg-alias-surface);
+    border-radius: var(--o-ui-br-alias-circular);
     border: 1px solid var(--o-ui-b-alias-mid-break);
     position: relative;
     width: var(--o-ui-sz-3);
@@ -25,7 +25,7 @@
     content: "";
     display: block;
     background-color: var(--o-ui-bg-alias-accent);
-    border-radius: var(--o-ui-br-circular);
+    border-radius: var(--o-ui-br-alias-circular);
     transform: scale(0);
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
     position: absolute;
@@ -122,7 +122,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
-    border-radius: var(--o-ui-br-pill);
+    border-radius: var(--o-ui-br-alias-pill);
     transition: var(--o-ui-focus-ring-transition);
 }
 

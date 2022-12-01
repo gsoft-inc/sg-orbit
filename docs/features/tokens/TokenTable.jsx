@@ -43,7 +43,7 @@ export function TokenTable({ colors }) {
                     { title: "Token", headerStyle: { width: "325px" }, rowClassName: "code" },
                     { title: "CSS Variable", headerStyle: { width: "350px" }, rowClassName: "code" },
                     { title: "Value", headerStyle: { width: "225px" }, rowClassName: "code" },
-                    { title: "Example", headerStyle: { width: "275px" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-default)" } },
+                    { title: "Example", headerStyle: { width: "275px" }, rowClassName: "example", rowStyle: { backgroundColor: "var(--o-ui-bg-alias-surface)" } },
                 ]}
                 rows={colors.map(x => toRowValues(x))}
             />
@@ -92,7 +92,7 @@ export function lineHeightRenderer(token) {
 }
 
 export function radiiRenderer(token) {
-    if (token === "circular") {
+    if (token === "alias-circular") {
         return <Div height={4} width={4} borderRadius={token} border="alias-accent"></Div>
     } else {
         return <Div height={4} width={8} borderRadius={token} border="alias-accent"></Div>

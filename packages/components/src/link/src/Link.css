@@ -38,7 +38,7 @@
     display: block;
     position: absolute;
     box-shadow: 0 0 0 2px var(--o-ui-focus-ring-color-alias-default);
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     transition: var(--o-ui-focus-ring-transition);
 }
 
@@ -93,7 +93,7 @@
 .o-ui-text-link:focus-visible,
 .o-ui-text-link.o-ui-link-focus {
     outline: transparent;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
 }
 
 .o-ui-text-link:focus-visible:after,
@@ -208,16 +208,16 @@ button.o-ui-link-hover {
 
 /* SHAPE | ROUNDED */
 .o-ui-link-rounded {
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
 }
 
 /* SHAPE | CIRCULAR */
 .o-ui-link-circular {
-    border-radius: var(--o-ui-br-circular);
+    border-radius: var(--o-ui-br-alias-circular);
 }
 
 .o-ui-link.o-ui-link-circular:after {
-    border-radius: var(--o-ui-br-circular);
+    border-radius: var(--o-ui-br-alias-circular);
 }
 
 /* SHAPE | BOX */
@@ -232,5 +232,5 @@ button.o-ui-link-hover {
 
 /* ICON LINK */
 .o-ui-icon-link {
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
 }

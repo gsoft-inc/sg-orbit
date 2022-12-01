@@ -20,7 +20,8 @@ export const ShareGateTheme = createTheme({
         ],
         light: {
             // Background
-            "bg-alias-default": "$white",
+            "bg-alias-body": "$gray",
+            "bg-alias-surface": "$white",
             "bg-alias-soft-break": "$gray",
             "bg-alias-mid-break": "$neutral-1",
             "bg-alias-hard-break": "$neutral-3",
@@ -62,11 +63,12 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-3",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
             "b-alias-high-break": "$neutral-6",
-            "b-alias-accent": "$purple-4",
+            "b-alias-accent": "$purple-6",
             "b-alias-accent-hover": "$purple-8",
             "b-alias-accent-active": "$purple-9",
             "b-alias-alert": "$alert-6",
@@ -110,7 +112,8 @@ export const ShareGateTheme = createTheme({
         },
         dark: {
             // Background
-            "bg-alias-default": "$neutral-9",
+            "bg-alias-body": "$neutral-10",
+            "bg-alias-surface": "$neutral-9",
             "bg-alias-soft-break": "$neutral-10",
             "bg-alias-hard-break": "$neutral-6",
             "bg-alias-mid-break": "$neutral-8",
@@ -152,6 +155,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-5",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-8",
             "b-alias-mid-break": "$neutral-7",

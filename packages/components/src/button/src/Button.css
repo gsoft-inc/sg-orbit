@@ -17,7 +17,7 @@
     text-align: center;
     position: relative;
     width: max-content;
-    border-radius: var(--o-ui-br-sm);
+    border-radius: var(--o-ui-br-alias-sm);
     color: inherit;
     font-family: inherit;
     font-size: 100%;
@@ -155,6 +155,13 @@ a.o-ui-button {
     background-color: var(--o-ui-transparent);
     border: none;
     color: var(--o-ui-text-alias-primary);
+}
+
+/* TERTIARY | ICONS */
+.o-ui-button-tertiary .o-ui-button-start-icon,
+.o-ui-button-tertiary .o-ui-button-end-icon,
+.o-ui-button-tertiary .o-ui-button-icon {
+    fill: var(--o-ui-icon-alias-accent);
 }
 
 /* TERTIARY | FOCUS */
