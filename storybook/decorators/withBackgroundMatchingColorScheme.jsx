@@ -6,8 +6,8 @@ import { getGlobals } from "../utils";
 const StyleElementId = "story-background-color";
 
 const BackgroundColors = {
-    light: "#F9F9F9",
-    dark: "#111010"
+    light: "#FFFFFF",
+    dark: "#272626"
 };
 
 export function withBackgroundMatchingColorScheme(story, context) {
