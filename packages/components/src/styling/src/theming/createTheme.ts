@@ -166,12 +166,7 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             0 16.7px 33.4px -5px rgba(0, 0, 0, 0.058),
             0 40px 80px -5px rgba(0, 0, 0, 0.08)
             `, `
-            0 0.3px 1.1px rgba(93, 101, 246, 0.017),
-            0 0.7px 2.7px rgba(93, 101, 246, 0.024),
-            0 1.3px 5px rgba(93, 101, 246, 0.03),
-            0 2.2px 8.9px rgba(93, 101, 246, 0.036),
-            0 4.2px 16.7px rgba(93, 101, 246, 0.043),
-            0 10px 40px rgba(93, 101, 246, 0.06)
+            0 5px 10px 0 rgba(93, 101, 246, 0.1)
             `
         ],
         dark: [`
@@ -203,12 +198,7 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
             0 10.4px 33.4px rgba(0, 0, 0, 0.086),
             0 25px 80px rgba(0, 0, 0, 0.12)
             `, `
-            0 0.3px 1.1px rgba(93, 101, 246, 0.022),
-            0 0.7px 2.7px rgba(93, 101, 246, 0.032),
-            0 1.3px 5px rgba(93, 101, 246, 0.04),
-            0 2.2px 8.9px rgba(93, 101, 246, 0.048),
-            0 4.2px 16.7px rgba(93, 101, 246, 0.058),
-            0 10px 40px rgba(93, 101, 246, 0.08)
+            0 5px 10px 0 rgba(93, 101, 246, 0.25)
             `
         ]
     }
