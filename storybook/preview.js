@@ -38,6 +38,7 @@ export const parameters = {
                 ],
                 "Layout",
                 "Components",
+                "Experimental",
                 "Content",
                 "Placeholders",
                 "Html elements",
