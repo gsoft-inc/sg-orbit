@@ -1,4 +1,4 @@
-import { Paper } from "@experimental-components/paper";
+import { Paper } from "@experimental/paper";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import { waitFor } from "@testing-library/react";

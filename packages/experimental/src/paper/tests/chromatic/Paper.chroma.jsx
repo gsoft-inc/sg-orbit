@@ -1,5 +1,5 @@
 import { Div } from "@components/html";
-import { Paper } from "@experimental-components/paper";
+import { Paper } from "@experimental/paper";
 import { Inline, Stack } from "@components/layout";
 
 export default {

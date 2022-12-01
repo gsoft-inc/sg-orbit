@@ -15,7 +15,7 @@ module.exports = {
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
         "@jest-utils$": "<rootDir>/jest/utils/index.ts",
         "@components/(.*)$": "<rootDir>/packages/components/src/$1",
-        "@experimental-components/(.*)$": "<rootDir>/packages/experimental/src/$1",
+        "@experimental/(.*)$": "<rootDir>/packages/experimental/src/$1",
         "@orbit-ui/components$": "<rootDir>/packages/components/src/index.ts"
     },
     setupFilesAfterEnv: [

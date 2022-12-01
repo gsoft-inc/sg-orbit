@@ -1,6 +1,6 @@
 import "@css/normalize.css";
 import "@components/index.css";
-import "@experimental-components/index.css";
+import "@experimental/index.css";
 import "./styles";
 
 import { ShareGateTheme, createThemeVars } from "@components/styling";

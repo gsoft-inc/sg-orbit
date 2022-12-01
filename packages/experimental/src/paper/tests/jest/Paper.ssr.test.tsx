@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { Paper } from "@experimental-components/paper";
+import { Paper } from "@experimental/paper";
 import { renderToString } from "react-dom/server";
 import { throwOnConsoleLogs } from "@jest-utils";
 
