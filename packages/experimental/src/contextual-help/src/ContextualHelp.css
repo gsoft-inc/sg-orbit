@@ -1,6 +1,7 @@
 .o-ui-contextual-help {
     outline: 0;
     border-radius: var(--o-ui-br-rounded);
+    color: inherit;
 }
 
 /* STATE | FOCUS */

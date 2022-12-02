@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { Paper } from "@experimental/paper";
+import { ContextualHelp } from "@experimental/contextual-help";
 import { renderToString } from "react-dom/server";
 import { throwOnConsoleLogs } from "@jest-utils";
 
@@ -10,7 +10,9 @@ test("can render on the server", () => {
 
     const renderOnServer = () =>
         renderToString(
-            <Paper color="alias-basic" />
+            <ContextualHelp >
+                Help message
+            </ContextualHelp>
         );
 
     expect(renderOnServer).not.toThrow();
