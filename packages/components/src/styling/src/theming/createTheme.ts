@@ -124,10 +124,10 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
         4: "1rem",
         "alias-pill": "999px",
         "alias-circular": "100%",
-        "alias-xs": ".125rem",
-        "alias-sm": ".25rem",
-        "alias-md": ".5rem",
-        "alias-lg": "1rem"
+        "alias-xs": "$br-1",
+        "alias-sm": "$br-2",
+        "alias-md": "$br-3",
+        "alias-lg": "$br-4"
     },
     boxShadows: {
         common: {
