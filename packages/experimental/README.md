@@ -41,22 +41,15 @@ Refer to the "Adding a new component" section in the [components' package README
 
 ## Flagging an “experimental” component in the documentation
 
-Make sure you add the "parameters" section to the component's story file.
+Make sure to add the following component in the Usage Section
 
 ```js
-<Meta
-    title="Components/Paper"
-    id="paper"
-    parameters={{
-        status: "beta"
-    }}
-/>
+<ExperimentalMessage />
 ```
-
-And make sure to add the following component in the Usage Section
+Some props are available to detail the component's status.
 
 ```js
-<BetaMessage />
+<ExperimentalMessage noDoc noTests noVisualTesting noFinalDesign noCompleteSpecs noMobileSupport />
 ```
 
 ## License
