@@ -1,4 +1,4 @@
-import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
+import { AlertIcon, CheckIcon, InfoIcon, WarningIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
@@ -68,7 +68,7 @@ const Role = {
 
 const Icon = {
     informative: <InfoIcon />,
-    negative: <InfoIcon />,
+    negative: <AlertIcon />,
     positive: <CheckIcon />,
     warning: <WarningIcon />
 };
