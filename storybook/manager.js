@@ -1,6 +1,5 @@
 import { Themes } from "./styles/themes";
 import { addons } from "@storybook/addons";
-import { registerDevelopmentStatusAddon } from "./addons";
 
 addons.setConfig({
     theme: Themes.manager,
@@ -8,5 +7,3 @@ addons.setConfig({
     enableShortcuts: false
 
 });
-
-registerDevelopmentStatusAddon();
