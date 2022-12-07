@@ -2,39 +2,30 @@
     display: flex;
     align-items: center;
     color: var(--o-ui-text-alias-primary);
-}
-
-.o-ui-spinner-wheel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    --o-ui-spinner-sm-wheel-size: 0.75em;
+    --o-ui-spinner-md-wheel-size: 1em;
+    --o-ui-spinner-lg-wheel-size: 1.25em;
 }
 
 .o-ui-spinner-wheel {
-    animation: 2s linear infinite spinner-animation;
-    max-width: 100px;
-    overflow: hidden;
+    position: relative;
 }
 
-.o-ui-spinner-wheel-circle {
-    animation: 1.4s ease-in-out infinite both wheel-animation;
-    display: block;
-    fill: transparent;
-    stroke: var(--o-ui-icon-alias-primary);
-    stroke-linecap: round;
-    stroke-dasharray: 283;
-    stroke-dashoffset: 280;
-    stroke-width: 10px;
-    transform-origin: 50% 50%;
+.o-ui-spinner-wheel::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: var(--o-ui-br-circular);
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    animation: spinner .6s linear infinite;
 }
 
 /* VARIANT | OVERBACKGROUND */
 .o-ui-spinner-over-background {
     color: var(--o-ui-text-alias-static-white);
-}
-
-.o-ui-spinner-over-background .o-ui-spinner-wheel-circle {
-    stroke: var(--o-ui-icon-alias-static-white);
 }
 
 /* CONTENT | LABEL */
@@ -43,78 +34,62 @@
 }
 
 /* ANIMATION */
-@keyframes wheel-animation {
-    0%,
-    25% {
-        stroke-dashoffset: 280;
-        transform: rotate(0);
-    }
-    50%,
-    75% {
-        stroke-dashoffset: 75;
-        transform: rotate(45deg);
-    }
-    100% {
-        stroke-dashoffset: 280;
+@keyframes spinner {
+    to {
         transform: rotate(360deg);
     }
 }
 
-@keyframes spinner-animation {
-    0% {
-        transform: rotateZ(0deg);
-    }
-    100% {
-        transform: rotateZ(360deg);
-    }
-}
-
 /* SIZES */
-.o-ui-spinner-sm .o-ui-spinner-wheel-container {
+.o-ui-spinner-sm .o-ui-spinner-wheel {
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
 }
 
-.o-ui-spinner-sm .o-ui-spinner-wheel {
-    width: .625rem;
-    height: .625rem;
+.o-ui-spinner-sm .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-sm-wheel-size);
+    height: var(--o-ui-spinner-sm-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-sm-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-sm-wheel-size) / 2);
 }
 
-.o-ui-spinner-md .o-ui-spinner-wheel-container {
+.o-ui-spinner-md .o-ui-spinner-wheel {
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
 }
 
-.o-ui-spinner-md .o-ui-spinner-wheel {
-    width: .875rem;
-    height: .875rem;
+.o-ui-spinner-md .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-md-wheel-size);
+    height: var(--o-ui-spinner-md-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-md-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-md-wheel-size) / 2);
 }
 
-.o-ui-spinner-lg .o-ui-spinner-wheel-container {
+.o-ui-spinner-lg .o-ui-spinner-wheel {
     width: var(--o-ui-sz-4);
     height: var(--o-ui-sz-4);
 }
 
-.o-ui-spinner-lg .o-ui-spinner-wheel {
-    width: 1rem;
-    height: 1rem;
+.o-ui-spinner-lg .o-ui-spinner-wheel::before {
+    width: var(--o-ui-spinner-lg-wheel-size);
+    height: var(--o-ui-spinner-lg-wheel-size);
+    margin-top: calc(-1 * var(--o-ui-spinner-lg-wheel-size) / 2);
+    margin-left: calc(-1 * var(--o-ui-spinner-lg-wheel-size) / 2);
 }
 
 /* STATES */
-.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel,
-.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel-circle {
+.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel::before {
     animation: none;
-}
-
-.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel {
-    stroke-dasharray: 300;
+    border-right-color: currentColor;
+    border-left-color: currentColor;
+    transform: rotate(130deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .o-ui-spinner-wheel {
-        stroke-dasharray: 300;
-    }
-    .o-ui-spinner-wheel-circle {
+    .o-ui-spinner-wheel-circle::before {
         animation: none;
+        border-right-color: currentColor;
+        border-left-color: currentColor;
+        transform: rotate(130deg);
     }
 }

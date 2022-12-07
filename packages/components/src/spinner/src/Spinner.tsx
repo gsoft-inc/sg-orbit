@@ -51,17 +51,7 @@ export function InnerSpinner({
     );
 
     const spinnerMarkup = (
-        <div
-            className="o-ui-spinner-wheel-container"
-        >
-            <svg
-                className="o-ui-spinner-wheel"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <circle className="o-ui-spinner-wheel-circle" cx="50" cy="50" r="45" />
-            </svg>
-        </div>
+        <div className="o-ui-spinner-wheel"></div>
     );
 
     return (
