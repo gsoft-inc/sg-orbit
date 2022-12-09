@@ -1,7 +1,7 @@
 .o-ui-spinner {
     display: flex;
     align-items: center;
-    color: var(--o-ui-text-alias-primary);
+    color: inherit;
     --o-ui-spinner-sm-wheel-size: 0.75em;
     --o-ui-spinner-md-wheel-size: 1em;
     --o-ui-spinner-lg-wheel-size: 1.25em;
