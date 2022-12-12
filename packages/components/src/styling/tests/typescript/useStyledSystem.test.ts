@@ -364,11 +364,7 @@ expectAssignable<BottomProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg:
 
 expectAssignable<BoxShadowProp>(1);
 expectAssignable<BoxShadowProp>(2);
-expectAssignable<BoxShadowProp>(3);
-expectAssignable<BoxShadowProp>(4);
-expectAssignable<BoxShadowProp>("alias-skim");
 expectAssignable<BoxShadowProp>("alias-lifted");
-expectAssignable<BoxShadowProp>("alias-raised");
 expectAssignable<BoxShadowProp>("alias-floating");
 expectAssignable<BoxShadowProp>("none");
 expectAssignable<BoxShadowProp>("10px 5px 5px black");

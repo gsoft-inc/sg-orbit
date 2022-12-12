@@ -1,7 +1,7 @@
 .o-ui-tooltip {
     background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-rounded);
-    box-shadow: var(--o-ui-bs-alias-raised);
+    box-shadow: var(--o-ui-bs-alias-floating);
     padding: var(--o-ui-sp-3);
     max-width: var(--o-ui-sz-16);
     white-space: pre-wrap;
