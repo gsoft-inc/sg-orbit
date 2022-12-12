@@ -67,7 +67,7 @@ export const ShareGateTheme = createTheme({
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
             "b-alias-high-break": "$neutral-6",
-            "b-alias-accent": "$purple-4",
+            "b-alias-accent": "$purple-6",
             "b-alias-accent-hover": "$purple-8",
             "b-alias-accent-active": "$purple-9",
             "b-alias-alert": "$alert-6",
