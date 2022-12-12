@@ -23,6 +23,10 @@ export interface InnerCardProps extends SlotProps, InternalProps, StyledComponen
      * A card can vary in size.
      */
     size?: ResponsiveProp<"xs" | "sm" | "md" | "lg" | "xl">;
+    /**
+     * The style to use.
+     */
+    variant?: "elevated" | "outline";
 }
 
 export function InnerCard({
@@ -32,6 +36,7 @@ export function InnerCard({
     forwardedRef,
     orientation = "vertical",
     size,
+    variant = "elevated",
     ...rest
 }: InnerCardProps) {
     const fluidValue = useResponsiveValue(fluid);
@@ -101,7 +106,8 @@ export function InnerCard({
                         "o-ui-card",
                         orientationValue,
                         !fluidValue && normalizeSize(sizeValue),
-                        fluidValue && "fluid"
+                        fluidValue && "fluid",
+                        variant
                     ),
                     ref: forwardedRef
                 }

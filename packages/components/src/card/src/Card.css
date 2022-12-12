@@ -2,6 +2,14 @@
     display: grid;
     background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-rounded);
+}
+
+/* VARIANT */
+.o-ui-card-elevated {
+    box-shadow: var(--o-ui-bs-alias-lifted);
+}
+
+.o-ui-card-outline {
     border: 1px solid var(--o-ui-b-alias-low-break);
 }
 
