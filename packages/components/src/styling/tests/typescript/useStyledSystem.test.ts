@@ -193,7 +193,7 @@ expectAssignable<BackgroundColorProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BackgroundColorProp>("hsl(50, 33%, 25%)");
 expectAssignable<BackgroundColorProp>("hsla(50, 33%, 25%, .75)");
 expectAssignable<BackgroundColorProp>("purple-1");
-expectAssignable<BackgroundColorProp>("alias-default");
+expectAssignable<BackgroundColorProp>("alias-surface");
 expectAssignable<BackgroundColorProp>("currentColor");
 expectAssignable<BackgroundColorProp>("transparent");
 expectAssignable<BackgroundColorProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });

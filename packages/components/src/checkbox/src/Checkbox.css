@@ -23,6 +23,7 @@
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
     border: 1px solid var(--o-ui-b-alias-mid-break);
+    background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-rounded);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     flex-shrink: 0;

@@ -2,7 +2,7 @@
     width: 100%;
     min-width: 100px;
     border: 1px solid var(--o-ui-b-alias-low-break);
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding: 0;
     color: var(--o-ui-text-alias-primary);
     border-radius: var(--o-ui-br-rounded);

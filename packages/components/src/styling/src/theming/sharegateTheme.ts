@@ -20,7 +20,8 @@ export const ShareGateTheme = createTheme({
         ],
         light: {
             // Background
-            "bg-alias-default": "$white",
+            "bg-alias-body": "$gray",
+            "bg-alias-surface": "$white",
             "bg-alias-soft-break": "$gray",
             "bg-alias-mid-break": "$neutral-1",
             "bg-alias-hard-break": "$neutral-3",
@@ -110,7 +111,8 @@ export const ShareGateTheme = createTheme({
         },
         dark: {
             // Background
-            "bg-alias-default": "$neutral-9",
+            "bg-alias-body": "$neutral-10",
+            "bg-alias-surface": "$neutral-9",
             "bg-alias-soft-break": "$neutral-10",
             "bg-alias-hard-break": "$neutral-6",
             "bg-alias-mid-break": "$neutral-8",
