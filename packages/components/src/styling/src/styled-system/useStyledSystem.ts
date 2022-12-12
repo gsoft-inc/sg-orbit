@@ -182,7 +182,8 @@ const OrbitColors = [
 ] as const;
 
 const BackgroundColorAliases = [
-    "alias-default",
+    "alias-body",
+    "alias-surface",
     "alias-soft-break",
     "alias-hard-break",
     "alias-mid-break",
