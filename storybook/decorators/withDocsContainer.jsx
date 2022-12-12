@@ -1,8 +1,8 @@
 import { DocsContainer } from "@storybook/addon-docs";
-import { ShareGateTheme, ThemeProvider } from "@components/styling";
+import { ShareGateTheme, LegacyTheme, ThemeProvider } from "@components/styling";
 
 function ThemedDocsContainer({ context, children }) {
-    const theme = context.globals.theme === "sharegate" ? ShareGateTheme : ShareGateTheme;
+    const theme = context.globals.theme === "sharegate" ? ShareGateTheme : LegacyTheme;
 
     return (
         <ThemeProvider theme={theme} colorScheme="light">

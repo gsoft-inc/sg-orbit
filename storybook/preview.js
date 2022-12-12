@@ -2,14 +2,14 @@ import "@css/normalize.css";
 import "@components/index.css";
 import "./styles";
 
-import { ShareGateTheme, createThemeVars } from "@components/styling";
+import { ShareGateTheme, LegacyTheme, createThemeVars } from "@components/styling";
 import { isChromatic, isDocs } from "./env";
 import { withBackgroundMatchingColorScheme, withCenteredCanvas, withDocsContainer, withThemeProvider } from "./decorators";
 
 import { Code, Highlight } from "@stories/mdx";
 import { Themes } from "./styles/themes";
 
-createThemeVars([ShareGateTheme]);
+createThemeVars([ShareGateTheme, LegacyTheme]);
 
 if (!isChromatic) {
     // Custom font makes chromatic inconsistent and cause "false positive". View https://www.chromatic.com/docs/resource-loading#loading-custom-fonts.
@@ -110,6 +110,15 @@ if (isDocs) {
 }
 
 export const globalTypes = {
+    theme: {
+        name: "Theme",
+        description: "Theme for components",
+        defaultValue: ShareGateTheme.name,
+        toolbar: {
+            title: "Theme",
+            items: [ShareGateTheme.name, LegacyTheme.name]
+        }
+    },
     colorScheme: {
         name: "ColorScheme",
         description: "Color scheme for components",

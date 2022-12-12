@@ -1,4 +1,4 @@
-import { ShareGateTheme, ThemeProvider } from "@components/styling";
+import { ShareGateTheme, LegacyTheme, ThemeProvider } from "@components/styling";
 import { arrayOf, func, shape, string } from "prop-types";
 
 import { Div, Span } from "@components/html";
@@ -36,7 +36,9 @@ export function TokenTable({ colors }) {
     const docsContext = useContext(DocsContext);
 
     return (
-        <ThemeProvider theme={ShareGateTheme} colorScheme={docsContext.globals.colorScheme}>
+        <ThemeProvider
+            theme={docsContext.globals.theme === "sharegate" ? ShareGateTheme : LegacyTheme}
+            colorScheme={docsContext.globals.colorScheme}>
             <Table
                 className="token-table"
                 columns={[
