@@ -289,16 +289,12 @@ const BorderRadiusScale = [
 
 const BoxShadowScale = [
     1,
-    2,
-    3,
-    4
+    2
 ] as const;
 
 const BoxShadowAliases = [
     "alias-floating",
-    "alias-lifted",
-    "alias-raised",
-    "alias-skim"
+    "alias-lifted"
 ] as const;
 
 const FontSizeScale = [

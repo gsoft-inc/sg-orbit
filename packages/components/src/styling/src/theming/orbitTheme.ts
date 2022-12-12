@@ -30,12 +30,10 @@ export type FontWeightValues = FixedLengthArray<string, 3>;
 
 export type LineHeightValues = FixedLengthArray<number, 6>;
 
-export type BoxShadowValues = FixedLengthArray<string, 4>;
+export type BoxShadowValues = FixedLengthArray<string, 2>;
 
 export interface BoxShadowAliases {
-    "alias-skim": string;
     "alias-lifted": string;
-    "alias-raised": string;
     "alias-floating": string;
 }
 

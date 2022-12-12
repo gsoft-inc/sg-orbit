@@ -1,4 +1,4 @@
-import { ColorAliases, ColorPalette, ColorPaletteSection, OrbitTheme } from "./orbitTheme";
+import { BoxShadowColorSchemes, ColorAliases, ColorPalette, ColorPaletteSection, OrbitTheme } from "./orbitTheme";
 
 export interface CreateThemeProps {
     name: string;
@@ -10,6 +10,7 @@ export interface CreateThemeProps {
         light: ColorAliases;
         dark: ColorAliases;
     };
+    boxShadows: BoxShadowColorSchemes;
 }
 
 const ShareGateColors: Partial<ColorPaletteSection> = {
@@ -99,7 +100,7 @@ const ShareGateColors: Partial<ColorPaletteSection> = {
     ]
 };
 
-const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
+const ThemeBase: Omit<OrbitTheme, "name" | "colors" | "boxShadows"> = {
     sizing: [".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem", "6rem", "8rem", "12rem", "16rem", "20rem", "24rem", "30rem"],
     space: [".25rem", ".5rem", ".75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4rem", "4.5rem", "5rem"],
     fontSizes: {
@@ -125,74 +126,6 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors"> = {
         "pill": "999px",
         "circular": "100%",
         "rounded": ".25rem"
-    },
-    boxShadows: {
-        common: {
-            "alias-skim": "$bs-1",
-            "alias-lifted": "$bs-2",
-            "alias-raised": "$bs-3",
-            "alias-floating": "$bs-4"
-        },
-        light: [`
-            0 0.1px 0.3px rgba(0, 0, 0, 0.022),
-            0 0.1px 0.7px rgba(0, 0, 0, 0.032),
-            0 0.3px 1.3px rgba(0, 0, 0, 0.04),
-            0 0.4px 2.2px rgba(0, 0, 0, 0.048),
-            0 0.8px 4.2px rgba(0, 0, 0, 0.058),
-            0 2px 10px rgba(0, 0, 0, 0.08)
-            `, `
-            0 0.2px 0.6px rgba(0, 0, 0, 0.02),
-            0 0.5px 1.3px rgba(0, 0, 0, 0.028),
-            0 0.9px 2.5px rgba(0, 0, 0, 0.035),
-            0 1.6px 4.5px rgba(0, 0, 0, 0.042),
-            0 2.9px 8.4px rgba(0, 0, 0, 0.05),
-            0 7px 20px rgba(0, 0, 0, 0.07)
-            `, `
-            0 0.3px 1.1px rgba(0, 0, 0, 0.017),
-            0 0.7px 2.7px rgba(0, 0, 0, 0.024),
-            0 1.3px 5px rgba(0, 0, 0, 0.03),
-            0 2.2px 8.9px rgba(0, 0, 0, 0.036),
-            0 4.2px 16.7px rgba(0, 0, 0, 0.043),
-            0 10px 40px rgba(0, 0, 0, 0.06)
-            `, `
-            0 1.1px 2.2px -5px rgba(0, 0, 0, 0.022),
-            0 2.7px 5.3px -5px rgba(0, 0, 0, 0.032),
-            0 5px 10px -5px rgba(0, 0, 0, 0.04),
-            0 8.9px 17.9px -5px rgba(0, 0, 0, 0.048),
-            0 16.7px 33.4px -5px rgba(0, 0, 0, 0.058),
-            0 40px 80px -5px rgba(0, 0, 0, 0.08)
-            `
-        ],
-        dark: [`
-            0 0.3px 1.1px rgba(0, 0, 0, 0.056),
-            0 0.7px 2.7px rgba(0, 0, 0, 0.081),
-            0 1.3px 5px rgba(0, 0, 0, 0.1),
-            0 2.2px 8.9px rgba(0, 0, 0, 0.119),
-            0 4.2px 16.7px rgba(0, 0, 0, 0.144),
-            0 10px 40px rgba(0, 0, 0, 0.2)
-            `, `
-            0 0.2px 0.6px rgba(0, 0, 0, 0.056),
-            0 0.5px 1.3px rgba(0, 0, 0, 0.081),
-            0 0.9px 2.5px rgba(0, 0, 0, 0.1),
-            0 1.6px 4.5px rgba(0, 0, 0, 0.119),
-            0 2.9px 8.4px rgba(0, 0, 0, 0.144),
-            0 7px 20px rgba(0, 0, 0, 0.2)
-            `, `
-            0 0.3px 1.1px rgba(0, 0, 0, 0.056),
-            0 0.7px 2.7px rgba(0, 0, 0, 0.081),
-            0 1.3px 5px rgba(0, 0, 0, 0.1),
-            0 2.2px 8.9px rgba(0, 0, 0, 0.119),
-            0 4.2px 16.7px rgba(0, 0, 0, 0.144),
-            0 10px 40px rgba(0, 0, 0, 0.2)
-            `, `
-            0 0.7px 2.2px rgba(0, 0, 0, 0.034),
-            0 1.7px 5.3px rgba(0, 0, 0, 0.048),
-            0 3.1px 10px rgba(0, 0, 0, 0.06),
-            0 5.6px 17.9px rgba(0, 0, 0, 0.072),
-            0 10.4px 33.4px rgba(0, 0, 0, 0.086),
-            0 25px 80px rgba(0, 0, 0, 0.12)
-            `
-        ]
     }
 };
 
@@ -205,7 +138,8 @@ export function createTheme({
         accent,
         light,
         dark
-    }
+    },
+    boxShadows
 }: CreateThemeProps): OrbitTheme {
     return {
         ...ThemeBase,
@@ -220,6 +154,7 @@ export function createTheme({
             },
             light,
             dark
-        }
+        },
+        boxShadows
     };
 }

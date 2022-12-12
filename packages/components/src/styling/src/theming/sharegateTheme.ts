@@ -198,5 +198,33 @@ export const ShareGateTheme = createTheme({
             // Focus
             "focus-ring-color-alias-default": "rgba(53, 144, 221, .35)"
         }
+    },
+    boxShadows: {
+        common: {
+            "alias-lifted": "$bs-1",
+            "alias-floating": "$bs-2"
+        },
+        light: [ `
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ],
+        dark: [ `
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ]
     }
 });
