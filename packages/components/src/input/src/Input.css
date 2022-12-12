@@ -49,7 +49,7 @@
     padding: 0;
     border-radius: var(--o-ui-input-border-radius);
     border: 1px solid var(--o-ui-input-border-color);
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     line-height: inherit;
     font-family: inherit;

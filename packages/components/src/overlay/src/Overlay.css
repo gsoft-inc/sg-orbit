@@ -25,7 +25,7 @@
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     box-shadow: var(--o-ui-bs-alias-floating);
 }
 
@@ -33,7 +33,7 @@
     content: "";
     width: 20px;
     height: 10px;
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     position: absolute;
     top: calc(var(--o-ui-overlay-arrow-dimension) / 2);
     left: calc(-1 * var(--o-ui-overlay-arrow-dimension) / 2);

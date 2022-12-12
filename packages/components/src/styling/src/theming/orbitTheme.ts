@@ -75,7 +75,8 @@ type AliasValue =
 
 export interface ColorAliases {
     // Background
-    "bg-alias-default": AliasValue;
+    "bg-alias-surface": AliasValue;
+    "bg-alias-body": AliasValue;
     "bg-alias-soft-break": AliasValue;
     "bg-alias-mid-break": AliasValue;
     "bg-alias-hard-break": AliasValue;
