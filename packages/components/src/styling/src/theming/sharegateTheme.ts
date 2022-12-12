@@ -61,6 +61,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-3",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
@@ -150,6 +151,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-5",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-8",
             "b-alias-mid-break": "$neutral-7",

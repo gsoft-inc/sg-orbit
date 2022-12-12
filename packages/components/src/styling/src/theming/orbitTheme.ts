@@ -118,6 +118,7 @@ export interface ColorAliases {
     "bg-alias-success-light": AliasValue;
     "bg-alias-transparent": AliasValue;
     "bg-alias-input-selection": AliasValue;
+    "bg-alias-underlay": AliasValue;
     // Border
     "b-alias-low-break": AliasValue;
     "b-alias-mid-break": AliasValue;
