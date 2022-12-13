@@ -1,5 +1,4 @@
 import { createTheme } from "./createTheme";
-import { OrbitTheme } from "./orbitTheme";
 
 export const ShareGateTheme = createTheme({
     name: "sharegate",
@@ -231,57 +230,3 @@ export const ShareGateTheme = createTheme({
         ]
     }
 });
-
-export const LegacyTheme: OrbitTheme = {
-    ...ShareGateTheme,
-    name: "legacy",
-    colors: {
-        ...ShareGateTheme.colors,
-        light: {
-            ...ShareGateTheme.colors.light,
-            "bg-alias-body": "white"
-        },
-        dark: {
-            ...ShareGateTheme.colors.dark,
-            "bg-alias-body": "white"
-        }
-    },
-    boxShadows: {
-        common: {
-            "alias-lifted": "$bs-1",
-            "alias-floating": "$bs-2"
-        },
-        light: [ `
-            0 0.2px 0.6px rgba(0, 0, 0, 0.02),
-            0 0.5px 1.3px rgba(0, 0, 0, 0.028),
-            0 0.9px 2.5px rgba(0, 0, 0, 0.035),
-            0 1.6px 4.5px rgba(0, 0, 0, 0.042),
-            0 2.9px 8.4px rgba(0, 0, 0, 0.05),
-            0 7px 20px rgba(0, 0, 0, 0.07)
-            `, `
-            0 0.3px 1.1px rgba(0, 0, 0, 0.017),
-            0 0.7px 2.7px rgba(0, 0, 0, 0.024),
-            0 1.3px 5px rgba(0, 0, 0, 0.03),
-            0 2.2px 8.9px rgba(0, 0, 0, 0.036),
-            0 4.2px 16.7px rgba(0, 0, 0, 0.043),
-            0 10px 40px rgba(0, 0, 0, 0.06)
-            `
-        ],
-        dark: [ `
-            0 0.2px 0.6px rgba(0, 0, 0, 0.056),
-            0 0.5px 1.3px rgba(0, 0, 0, 0.081),
-            0 0.9px 2.5px rgba(0, 0, 0, 0.1),
-            0 1.6px 4.5px rgba(0, 0, 0, 0.119),
-            0 2.9px 8.4px rgba(0, 0, 0, 0.144),
-            0 7px 20px rgba(0, 0, 0, 0.2)
-            `, `
-            0 0.3px 1.1px rgba(0, 0, 0, 0.056),
-            0 0.7px 2.7px rgba(0, 0, 0, 0.081),
-            0 1.3px 5px rgba(0, 0, 0, 0.1),
-            0 2.2px 8.9px rgba(0, 0, 0, 0.119),
-            0 4.2px 16.7px rgba(0, 0, 0, 0.144),
-            0 10px 40px rgba(0, 0, 0, 0.2)
-            `
-        ]
-    }
-};
