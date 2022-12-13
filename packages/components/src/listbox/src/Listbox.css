@@ -15,7 +15,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     overflow-y: auto;
     background-color: var(--o-ui-bg-alias-surface);
     outline: transparent;
-    border-radius: var(--o-ui-br-3);
+    border-radius: var(--o-ui-br-2);
     box-shadow: var(--o-ui-bs-alias-floating);
     border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-low-break);
 }
@@ -98,7 +98,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     left: 0;
     height: var(--o-ui-listbox-option-height);
     width: 2px;
-    background-color: var(--o-ui-focus-ring-color-alias-default);
+    background-color: var(--o-ui-bg-alias-accent);
 }
 
 /* OPTION | STATE | HOVER */

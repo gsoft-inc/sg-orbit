@@ -15,7 +15,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     list-style-type: none;
     padding: 0;
     margin: 0;
-    border-radius: var(--o-ui-br-3);
+    border-radius: var(--o-ui-br-2);
     width: max-content;
     min-width: 200px;
     max-width: var(--o-ui-sz-16);
@@ -99,7 +99,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     height: 100%;
     width: 2px;
     opacity: 0;
-    background-color: var(--o-ui-focus-ring-color-alias-default);
+    background-color: var(--o-ui-bg-alias-accent);
 }
 
 .o-ui-menu-item:focus::after {
