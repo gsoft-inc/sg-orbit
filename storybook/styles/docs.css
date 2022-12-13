@@ -316,7 +316,7 @@
 
 .sb-show-main details {
     padding: 8px;
-    border-radius: 4px;
+    border-radius: var(--o-ui-br-rounded);
     background-color: var(--o-ui-purple-1);
 }
 
