@@ -227,7 +227,7 @@
 }
 
 .sbdocs.sbdocs-a:focus {
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-4);
     background-color: rgba(0, 0, 0, 0.04);
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
 }
@@ -316,7 +316,7 @@
 
 .sb-show-main details {
     padding: 8px;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-4);
     background-color: var(--o-ui-purple-1);
 }
 
