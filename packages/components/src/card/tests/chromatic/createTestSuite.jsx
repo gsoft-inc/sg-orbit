@@ -50,6 +50,38 @@ export function createTestSuite(element, stories) {
                 </Card>
             </Stack>
         )
+        .add("variant", () =>
+            <Stack>
+                <Inline>
+                    <Card variant="outline" size="xs" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card variant="outline" size="sm" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card variant="outline" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Inline>
+                <Inline>
+                    <Card variant="outline" size="lg" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                    <Card variant="outline" size="xl" element={element}>
+                        <Heading>Nasa</Heading>
+                        <Content>The National Aeronautics and Space Administration</Content>
+                    </Card>
+                </Inline>
+                <Card variant="outline" fluid element={element}>
+                    <Heading>Nasa</Heading>
+                    <Content>The National Aeronautics and Space Administration</Content>
+                </Card>
+            </Stack>
+        )
         .add("illustration 1", () =>
             <Stack>
                 <Inline>
