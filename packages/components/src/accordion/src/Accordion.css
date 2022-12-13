@@ -155,6 +155,7 @@
 .o-ui-accordion-bordered .o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
     border-top-left-radius: var(--o-ui-br-4);
     border-top-right-radius: var(--o-ui-br-4);
+    border-top: 0;
 }
 
 /* BORDERED | LAST ITEM | BORDER RADIUS */
