@@ -123,8 +123,11 @@
     box-shadow: var(--o-ui-bs-alias-lifted);
 }
 
-.sbdocs.sbdocs-preview,
-.sbdocs.sbdocs-preview > div > div {
+.sbdocs.sbdocs-preview {
+    overflow: hidden;
+}
+
+.sbdocs.sbdocs-preview>div>div {
     overflow: visible;
 }
 
