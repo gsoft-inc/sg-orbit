@@ -50,8 +50,8 @@
 /* DISMISS BUTTON */
 .o-ui-popover .o-ui-popover-dismiss-button {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    right: var(--o-ui-sp-4);
+    top: var(--o-ui-sp-3);
 }
 
 /* DISMISSABLE */

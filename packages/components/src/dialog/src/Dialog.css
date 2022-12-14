@@ -148,6 +148,6 @@
 /* DISMISS BUTTON */
 .o-ui-dialog .o-ui-dialog-dismiss-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    right: var(--o-ui-sp-4);
+    top: var(--o-ui-sp-4);
 }
