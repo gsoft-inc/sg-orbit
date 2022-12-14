@@ -295,7 +295,6 @@ expectAssignable<BorderRadiusProp>(2);
 expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("pill");
-expectAssignable<BorderRadiusProp>("rounded");
 expectAssignable<BorderRadiusProp>("circular");
 expectAssignable<BorderRadiusProp>("1px");
 expectAssignable<BorderRadiusProp>("1em");

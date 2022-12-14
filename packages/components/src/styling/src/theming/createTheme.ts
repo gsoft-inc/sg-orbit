@@ -124,8 +124,7 @@ const ThemeBase: Omit<OrbitTheme, "name" | "colors" | "boxShadows"> = {
         3: ".5rem",
         4: "1rem",
         "pill": "999px",
-        "circular": "100%",
-        "rounded": ".25rem"
+        "circular": "100%"
     }
 };
 

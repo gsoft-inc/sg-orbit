@@ -284,7 +284,6 @@ const BorderRadiusScale = [
     3,
     4,
     "pill",
-    "rounded",
     "circular"
 ] as const;
 
