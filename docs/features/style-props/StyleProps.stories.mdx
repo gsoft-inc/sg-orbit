@@ -53,7 +53,7 @@ Inspired by [Styled System](https://styled-system.com/), Orbit's style props are
 To help achieve a consistent user interface, Orbit style props are based on scales and values defined in a customizable [theme](?path=/docs/theming--page).
 
 <Preview>
-    <Div width={18} backgroundColor="alias-accent-light" padding={4} borderRadius="rounded" maxWidth="100%">
+    <Div width={18} backgroundColor="alias-accent-light" padding={4} borderRadius={2} maxWidth="100%">
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -84,7 +84,7 @@ Since the following user action pseudo-classes are often used, some style props 
 > Not all style props supports user action pseudo-classes. Find out which props support user action pseudo-classes in the [reference](#properties) section.
 
 <Preview>
-    <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius="rounded">
+    <Div backgroundColorHover="alias-success-light" backgroundColor="alias-warning-light" padding={4} width={18} maxWidth="100%" borderRadius={2}>
         <Paragraph fontSize={4}>Lost in space.</Paragraph>
     </Div>
 </Preview>
@@ -345,7 +345,7 @@ The following tables provide a list of all available style props by category.
 ```jsx
 <Div
     border={1}
-    borderRadius="rounded"
+    borderRadius={2}
 >
     Rocket
 </Div>
