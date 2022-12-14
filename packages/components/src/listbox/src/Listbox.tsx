@@ -105,8 +105,6 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
 
 const ListboxItemHeight = 32;
 
-const ListboxBorderSize = 1;
-
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
@@ -369,7 +367,6 @@ export function InnerListbox({
     const scrollableProps = useScrollableCollection(containerRef, nodes, {
         itemSelector: ".o-ui-listbox-option",
         maxHeight: 12 * ListboxItemHeight + 2 * ListboxItemHeight,
-        paddingHeight: 2 * ListboxBorderSize,
         sectionSelector: ".o-ui-listbox-section"
     });
 
