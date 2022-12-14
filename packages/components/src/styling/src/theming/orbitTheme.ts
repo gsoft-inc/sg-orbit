@@ -42,7 +42,6 @@ export interface BorderRadiusValues {
     2: string;
     3: string;
     4: string;
-    "rounded": string;
     "pill": string;
     "circular": string;
 }
