@@ -207,8 +207,10 @@ export const ShareGateTheme = createTheme({
             "alias-floating": "$bs-2"
         },
         light: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
             0px 5px 10px rgba(93, 101, 246, 0.1)
             `, `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
             0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
             0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
             0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
@@ -218,8 +220,10 @@ export const ShareGateTheme = createTheme({
             `
         ],
         dark: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
             0px 5px 10px rgba(93, 101, 246, 0.1)
             `, `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
             0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
             0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
             0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
