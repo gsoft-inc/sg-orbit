@@ -29,7 +29,7 @@
 /* TAB LIST | POPOVER | TRIGGER */
 .o-ui-tab-list-popover-trigger {
     border: none;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
     position: relative;
@@ -129,7 +129,7 @@
     transform: translateY(-50%);
     bottom: calc(0.5rem - var(--o-ui-tab-stroke-width) );
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     pointer-events: none;
     height: calc(var(--o-ui-sz-3) + 0.25rem);
     transition: var(--o-ui-focus-ring-transition);

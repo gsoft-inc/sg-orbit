@@ -14,7 +14,7 @@
     min-height: var(--o-ui-sz-6);
     overflow: hidden;
     padding: 0 var(--o-ui-sp-3) 0;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     line-height: inherit;
     font-family: inherit;
     font-size: 100%;

@@ -11850,7 +11850,7 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-rounded)",
+        "borderBottomLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -12018,7 +12018,7 @@ Array [
   <div
     style={
       Object {
-        "borderBottomRightRadius": "var(--o-ui-br-rounded)",
+        "borderBottomRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -18395,7 +18395,7 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-rounded)",
+        "borderRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -22861,7 +22861,7 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-rounded)",
+        "borderTopLeftRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -23029,7 +23029,7 @@ Array [
   <div
     style={
       Object {
-        "borderTopRightRadius": "var(--o-ui-br-rounded)",
+        "borderTopRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
