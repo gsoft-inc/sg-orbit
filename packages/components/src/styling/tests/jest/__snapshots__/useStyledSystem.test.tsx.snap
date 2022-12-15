@@ -11850,13 +11850,6 @@ Array [
   <div
     style={
       Object {
-        "borderBottomLeftRadius": "var(--o-ui-br-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderBottomLeftRadius": "var(--o-ui-br-circular)",
       }
     }
@@ -12012,13 +12005,6 @@ Array [
     style={
       Object {
         "borderBottomRightRadius": "var(--o-ui-br-pill)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderBottomRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
@@ -18395,13 +18381,6 @@ Array [
   <div
     style={
       Object {
-        "borderRadius": "var(--o-ui-br-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderRadius": "var(--o-ui-br-circular)",
       }
     }
@@ -22861,13 +22840,6 @@ Array [
   <div
     style={
       Object {
-        "borderTopLeftRadius": "var(--o-ui-br-2)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
         "borderTopLeftRadius": "var(--o-ui-br-circular)",
       }
     }
@@ -23023,13 +22995,6 @@ Array [
     style={
       Object {
         "borderTopRightRadius": "var(--o-ui-br-pill)",
-      }
-    }
-  />,
-  <div
-    style={
-      Object {
-        "borderTopRightRadius": "var(--o-ui-br-2)",
       }
     }
   />,
