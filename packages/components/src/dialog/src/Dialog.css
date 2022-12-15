@@ -66,6 +66,7 @@
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     grid-area: image;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
