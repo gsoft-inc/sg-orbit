@@ -5890,6 +5890,13 @@ Array [
   <div
     style={
       Object {
+        "backgroundColor": "var(--o-ui-bg-alias-underlay)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "backgroundColor": "var(--o-ui-bg-alias-input-selection)",
       }
     }
@@ -6905,6 +6912,14 @@ Array [
     style={
       Object {
         "--o-ui-bg-active": "var(--o-ui-bg-alias-transparent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-active"
+    style={
+      Object {
+        "--o-ui-bg-active": "var(--o-ui-bg-alias-underlay)",
       }
     }
   />,
@@ -8031,6 +8046,14 @@ Array [
     className="o-ui-bg-focus"
     style={
       Object {
+        "--o-ui-bg-focus": "var(--o-ui-bg-alias-underlay)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-focus"
+    style={
+      Object {
         "--o-ui-bg-focus": "var(--o-ui-bg-alias-input-selection)",
       }
     }
@@ -9143,6 +9166,14 @@ Array [
     style={
       Object {
         "--o-ui-bg-hover": "var(--o-ui-bg-alias-transparent)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-bg-hover"
+    style={
+      Object {
+        "--o-ui-bg-hover": "var(--o-ui-bg-alias-underlay)",
       }
     }
   />,
