@@ -25,15 +25,15 @@
 .o-ui-overlay-arrow::before {
     content: "";
     transform: rotate(45deg);
-    background-color: var(--o-ui-bg-alias-default);
-    box-shadow: var(--o-ui-bs-alias-raised);
+    background-color: var(--o-ui-bg-alias-surface);
+    box-shadow: var(--o-ui-bs-alias-floating);
 }
 
 .o-ui-overlay-arrow::after {
     content: "";
     width: 20px;
     height: 10px;
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     position: absolute;
     top: calc(var(--o-ui-overlay-arrow-dimension) / 2);
     left: calc(-1 * var(--o-ui-overlay-arrow-dimension) / 2);
@@ -156,7 +156,7 @@
     right: 0;
     left: 0;
     bottom: 0;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: inherit;
     border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color-alias-default);
     opacity: 0;
 }

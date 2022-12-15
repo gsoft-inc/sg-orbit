@@ -20,7 +20,8 @@ export const ShareGateTheme = createTheme({
         ],
         light: {
             // Background
-            "bg-alias-default": "$white",
+            "bg-alias-body": "$gray",
+            "bg-alias-surface": "$white",
             "bg-alias-soft-break": "$gray",
             "bg-alias-mid-break": "$neutral-1",
             "bg-alias-hard-break": "$neutral-3",
@@ -61,11 +62,12 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-3",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
             "b-alias-high-break": "$neutral-6",
-            "b-alias-accent": "$purple-4",
+            "b-alias-accent": "$purple-6",
             "b-alias-accent-hover": "$purple-8",
             "b-alias-accent-active": "$purple-9",
             "b-alias-alert": "$alert-6",
@@ -109,7 +111,8 @@ export const ShareGateTheme = createTheme({
         },
         dark: {
             // Background
-            "bg-alias-default": "$neutral-9",
+            "bg-alias-body": "$neutral-10",
+            "bg-alias-surface": "$neutral-9",
             "bg-alias-soft-break": "$neutral-10",
             "bg-alias-hard-break": "$neutral-6",
             "bg-alias-mid-break": "$neutral-8",
@@ -150,6 +153,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-5",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-8",
             "b-alias-mid-break": "$neutral-7",
@@ -196,5 +200,37 @@ export const ShareGateTheme = createTheme({
             // Focus
             "focus-ring-color-alias-default": "rgba(53, 144, 221, .35)"
         }
+    },
+    boxShadows: {
+        common: {
+            "alias-lifted": "$bs-1",
+            "alias-floating": "$bs-2"
+        },
+        light: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ],
+        dark: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.15),
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0 0 0 1px rgba(93, 101, 246, 0.15),
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ]
     }
 });

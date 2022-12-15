@@ -5,7 +5,7 @@
     padding: var(--o-ui-sp-2) var(--o-ui-sp-3) var(--o-ui-sp-2) var(--o-ui-sp-9);
     width: 100%;
     height: max-content;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-3);
     position: relative;
     gap: var(--o-ui-sp-2);
 }
