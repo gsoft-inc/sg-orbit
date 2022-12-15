@@ -223,6 +223,7 @@ const BackgroundColorAliases = [
     "alias-success-faint",
     "alias-success-light",
     "alias-transparent",
+    "alias-underlay",
     "alias-input-selection"
 ] as const;
 
