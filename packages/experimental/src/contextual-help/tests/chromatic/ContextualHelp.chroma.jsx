@@ -3,7 +3,7 @@ import { ContextualHelp } from "@experimental/contextual-help";
 import { Inline } from "@components/layout";
 
 export default {
-    title: "Chromatic/Paper",
+    title: "Chromatic/ContextualHelp",
     component: ContextualHelp
 };
 
