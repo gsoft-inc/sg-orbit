@@ -141,6 +141,7 @@ export interface ColorAliases {
     "icon-alias-faint": AliasValue;
     "icon-alias-accent": AliasValue;
     "icon-alias-accent-hover": AliasValue;
+    "icon-alias-accent-active": AliasValue;
     "icon-alias-alert": AliasValue;
     "icon-alias-alert-hover": AliasValue;
     "icon-alias-warning": AliasValue;
@@ -155,6 +156,7 @@ export interface ColorAliases {
     "text-alias-faint": AliasValue;
     "text-alias-accent": AliasValue;
     "text-alias-accent-hover": AliasValue;
+    "text-alias-accent-active": AliasValue;
     "text-alias-alert": AliasValue;
     "text-alias-warning": AliasValue;
     "text-alias-success": AliasValue;

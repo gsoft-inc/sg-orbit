@@ -126,7 +126,7 @@ a.o-ui-button {
 
 /* SECONDARY */
 .o-ui-button-secondary {
-    border: 1px solid var(--o-ui-b-alias-high-break);
+    border: 1px solid var(--o-ui-b-alias-mid-break);
     color: var(--o-ui-text-alias-primary);
 }
 
@@ -140,21 +140,29 @@ a.o-ui-button {
 /* SECONDARY | HOVER */
 .o-ui-button-secondary:not([disabled]):not(.o-ui-button-loading):hover,
 .o-ui-button-secondary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover {
-    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+    background-color: var(--o-ui-bg-alias-accent-transparent-hover);
+    color: var(--o-ui-text-alias-accent-hover);
 }
 
 /* SECONDARY | ACTIVE */
 .o-ui-button-secondary:not(.o-ui-button-loading):active,
 .o-ui-button-secondary:not(.o-ui-button-loading):active:hover,
 .o-ui-button-secondary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
-    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+    background-color: var(--o-ui-bg-alias-accent-transparent-active);
+    border-color: var(--o-ui-b-alias-accent-active);
+    color: var(--o-ui-text-alias-accent-active);
 }
 
 /* TERTIARY */
 .o-ui-button-tertiary {
     background-color: var(--o-ui-transparent);
-    border: none;
+    border: 1px solid transparent;
     color: var(--o-ui-text-alias-primary);
+}
+
+.o-ui-button-tertiary .o-ui-button-start-icon,
+.o-ui-button-tertiary .o-ui-button-end-icon {
+    fill: var(--o-ui-icon-alias-accent);
 }
 
 /* TERTIARY | FOCUS */
@@ -173,14 +181,38 @@ a.o-ui-button {
 /* TERTIARY | HOVER */
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading):hover,
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover {
-    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+    background-color: var(--o-ui-bg-alias-accent-transparent-hover);
+    color: var(--o-ui-text-alias-accent-hover);
+}
+
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading):hover .o-ui-button-start-icon,
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover .o-ui-button-start-icon,
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading):hover .o-ui-button-end-icon,
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover .o-ui-button-end-icon  {
+    fill: var(--o-ui-icon-alias-accent-hover);
 }
 
 /* TERTIARY | ACTIVE */
 .o-ui-button-tertiary:not(.o-ui-button-loading):active,
 .o-ui-button-tertiary:not(.o-ui-button-loading):active:hover,
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
-    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+    background-color: var(--o-ui-bg-alias-accent-transparent-active);
+    color: var(--o-ui-text-alias-accent-active);
+}
+
+.o-ui-button-tertiary:not(.o-ui-button-loading):active .o-ui-button-start-icon,
+.o-ui-button-tertiary:not(.o-ui-button-loading):active:hover .o-ui-button-start-icon,
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active .o-ui-button-start-icon,
+.o-ui-button-tertiary:not(.o-ui-button-loading):active .o-ui-button-end-icon,
+.o-ui-button-tertiary:not(.o-ui-button-loading):active:hover .o-ui-button-end-icon,
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active .o-ui-button-end-icon {
+    fill: var(--o-ui-icon-alias-accent-active);
+}
+
+.o-ui-dark .o-ui-button-tertiary:not(.o-ui-button-loading):active,
+.o-ui-dark .o-ui-button-tertiary:not(.o-ui-button-loading):active:hover,
+.o-ui-dark .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
+    border-color: var(--o-ui-b-alias-accent-active);
 }
 
 /* NEGATIVE */
