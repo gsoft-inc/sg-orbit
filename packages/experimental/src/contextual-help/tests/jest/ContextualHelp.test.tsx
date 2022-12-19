@@ -3,6 +3,7 @@ import { Text, Transition } from "@orbit-ui/components";
 import { renderWithTheme } from "@jest-utils";
 import { waitFor, act } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { createRef } from "react";
 
 beforeAll(() => {
     // @ts-ignore
@@ -10,54 +11,67 @@ beforeAll(() => {
 });
 
 // ***** Refs *****
-// test("ref is a DOM element", async () => {
-//     const ref = createRef<HTMLElement>();
+test("ref is a DOM element", async () => {
+    const ref = createRef<HTMLElement>();
 
-//     renderWithTheme(
-//         <ContextualHelp ref={ref} >
-//             Help message
-//         </ContextualHelp>
-//     );
+    const { getByTestId } = renderWithTheme(
+        <ContextualHelp data-testid="trigger" ref={ref}>
+            Content
+        </ContextualHelp>
+    );
 
-//     await waitFor(() => expect(ref.current).not.toBeNull());
+    await act(() => {
+        return userEvent.hover(getByTestId("trigger"));
+    });
 
-//     expect(ref.current instanceof HTMLElement).toBeTruthy();
-//     expect(ref.current.tagName).toBe("DIV");
-// });
+    await waitFor(() => expect(ref.current).not.toBeNull());
 
-// test("when using a callback ref, ref is a DOM element", async () => {
-//     let refNode: HTMLElement = null;
+    await waitFor(() => expect(ref.current instanceof SVGSVGElement).toBeTruthy());
+    await waitFor(() => expect(ref.current.tagName).toBe("svg"));
+});
 
-//     renderWithTheme(
-//         <ContextualHelp ref={node => {
-//             refNode = node;
-//         }}
-//         >
-//             Help message
-//         </ContextualHelp>
-//     );
+test("when using a callback ref, ref is a DOM element", async () => {
+    let refNode: HTMLElement = null;
 
-//     await waitFor(() => expect(refNode).not.toBeNull());
+    const { getByTestId } = renderWithTheme(
+        <ContextualHelp
+            data-testid="trigger"
+            ref={node => {
+                refNode = node;
+            }}
+        >
+            Content
+        </ContextualHelp>
+    );
 
-//     expect(refNode instanceof HTMLElement).toBeTruthy();
-//     expect(refNode.tagName).toBe("DIV");
-// });
+    await act(() => {
+        return userEvent.hover(getByTestId("trigger"));
+    });
 
-// test("set ref once", async () => {
-//     const handler = jest.fn();
+    await waitFor(() => expect(refNode).not.toBeNull());
 
-//     renderWithTheme(
-//         <ContextualHelp ref={handler} >
-//             Help message
-//         </ContextualHelp>
-//     );
+    await waitFor(() => expect(refNode instanceof SVGSVGElement).toBeTruthy());
+    await waitFor(() => expect(refNode.tagName).toBe("svg"));
+});
 
-//     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-// });
+test("set ref once", async () => {
+    const handler = jest.fn();
+
+    const { getByTestId } = renderWithTheme(
+        <ContextualHelp data-testid="trigger" ref={handler}>
+            Content
+        </ContextualHelp>
+    );
+
+    await act(() => {
+        return userEvent.hover(getByTestId("trigger"));
+    });
+
+    await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
+});
 
 
 // ***** Behaviors *****
-
 test("open on ContextualHelp hover", async () => {
     const { getByTestId } = renderWithTheme(
         <ContextualHelp data-testid="trigger">
@@ -65,9 +79,8 @@ test("open on ContextualHelp hover", async () => {
         </ContextualHelp>
     );
 
-    act(() => {
-        // userEvent.hover() doesn't fire when the element is disabled.
-        userEvent.hover(getByTestId("trigger"));
+    await act(() => {
+        return userEvent.hover(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
@@ -78,7 +91,7 @@ test("call onOpenChange when the tooltip appears", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <ContextualHelp data-testid="trigger">
+        <ContextualHelp data-testid="trigger" onOpenChange={handler}>
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
     );
@@ -95,7 +108,7 @@ test("call onOpenChange when the tooltip disappear", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <ContextualHelp data-testid="trigger">
+        <ContextualHelp data-testid="trigger" onOpenChange={handler}>
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
     );
