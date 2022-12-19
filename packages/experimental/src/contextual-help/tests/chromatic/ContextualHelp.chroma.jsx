@@ -1,4 +1,3 @@
-import { Div } from "@components/html";
 import { ContextualHelp } from "@experimental/contextual-help";
 import { Inline } from "@components/layout";
 
@@ -15,19 +14,22 @@ export const Default = () => (
 
 Default.storyName = "default";
 
-export const Zoom = () => (
+export const Open = () => (
     <Inline>
-        <Div className="zoom-in">
-            <ContextualHelp>
-                Help message
-            </ContextualHelp>
-        </Div>
-        <Div className="zoom-out">
-            <ContextualHelp>
-                Help message
-            </ContextualHelp>
-        </Div>
+        <ContextualHelp open>
+        Help message
+        </ContextualHelp>
     </Inline>
 );
 
-Zoom.storyName = "zoom";
+Open.storyName = "open";
+
+export const Variant = () => (
+    <Inline>
+        <ContextualHelp variant="help" open>
+        Help message
+        </ContextualHelp>
+    </Inline>
+);
+
+Variant.storyName = "variant";
