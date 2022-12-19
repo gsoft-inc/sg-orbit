@@ -29081,6 +29081,13 @@ Array [
   <div
     style={
       Object {
+        "color": "var(--o-ui-text-alias-accent-active)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "color": "var(--o-ui-text-alias-alert)",
       }
     }
@@ -29859,6 +29866,14 @@ Array [
     style={
       Object {
         "--o-ui-c-active": "var(--o-ui-text-alias-accent-hover)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-active"
+    style={
+      Object {
+        "--o-ui-c-active": "var(--o-ui-text-alias-accent-active)",
       }
     }
   />,
@@ -30753,6 +30768,14 @@ Array [
     className="o-ui-c-focus"
     style={
       Object {
+        "--o-ui-c-focus": "var(--o-ui-text-alias-accent-active)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-focus"
+    style={
+      Object {
         "--o-ui-c-focus": "var(--o-ui-text-alias-alert)",
       }
     }
@@ -31633,6 +31656,14 @@ Array [
     style={
       Object {
         "--o-ui-c-hover": "var(--o-ui-text-alias-accent-hover)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-c-hover"
+    style={
+      Object {
+        "--o-ui-c-hover": "var(--o-ui-text-alias-accent-active)",
       }
     }
   />,
@@ -33062,6 +33093,13 @@ Array [
   <div
     style={
       Object {
+        "fill": "var(--o-ui-icon-alias-accent-active)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
         "fill": "var(--o-ui-icon-alias-alert)",
       }
     }
@@ -33840,6 +33878,14 @@ Array [
     style={
       Object {
         "--o-ui-f-focus": "var(--o-ui-icon-alias-accent-hover)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-focus"
+    style={
+      Object {
+        "--o-ui-f-focus": "var(--o-ui-icon-alias-accent-active)",
       }
     }
   />,
@@ -34727,6 +34773,14 @@ Array [
     style={
       Object {
         "--o-ui-f-hover": "var(--o-ui-icon-alias-accent-hover)",
+      }
+    }
+  />,
+  <div
+    className="o-ui-f-hover"
+    style={
+      Object {
+        "--o-ui-f-hover": "var(--o-ui-icon-alias-accent-active)",
       }
     }
   />,
@@ -45297,6 +45351,13 @@ Array [
     style={
       Object {
         "stroke": "var(--o-ui-icon-alias-accent-hover)",
+      }
+    }
+  />,
+  <div
+    style={
+      Object {
+        "stroke": "var(--o-ui-icon-alias-accent-active)",
       }
     }
   />,
