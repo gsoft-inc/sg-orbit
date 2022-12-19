@@ -1,0 +1,76 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { Stepper } from "@experimental/stepper";
+
+import { ComponentInfo, Tagline, Preview, ExperimentalMessage } from "@stories/components";
+import { Item } from "@sharegate/orbit-ui";
+
+<Meta
+    title="Experimental/Stepper"
+    id="stepper"
+/>
+
+# Stepper
+
+<Tagline>Display content divided into a steps sequence.</Tagline>
+
+<ComponentInfo
+    usage={"import { Stepper } from \"@orbit-ui/experimental\";"}
+    githubPath="/packages/experimental/src/stepper/src"
+/>
+
+
+## Usage
+
+<ExperimentalMessage noAccessibilitySupport noTests noVisualTesting noFinalDesign noMobileSupport />
+
+### Default
+
+Steppers display progress through a sequence of logical and numbered steps. They may also be used for navigation.
+
+<Preview>
+    <Story name="default">
+        <Stepper selectedKey="Shipping">
+            <Item key="Shipping">Shipping</Item>
+            <Item key="Payment">Payment</Item>
+            <Item key="Confirmation">Confirmation</Item>
+        </Stepper>
+    </Story>
+</Preview>
+
+## Items
+
+Steppers can have an arbitrary number of items.
+
+<Preview>
+    <Story name="items">
+        <Stepper selectedKey="Payment">
+            <Item key="Source">Source</Item>
+            <Item key="Source team">Source team</Item>
+            <Item key="Destination">Destination</Item>
+            <Item key="Copy options">Copy options</Item>
+            <Item key="Summary">Summary</Item>
+        </Stepper>
+    </Story>
+</Preview>
+
+## Custom Width
+
+Steppers can also have a fixed width.
+
+<Preview>
+    <Story name="custom-width">
+        <Stepper selectedKey="Source team" width="512px">
+            <Item key="Source">Source</Item>
+            <Item key="Source team">Source team</Item>
+            <Item key="Destination">Destination</Item>
+            <Item key="Copy options">Copy options</Item>
+            <Item key="Summary">Summary</Item>
+        </Stepper>
+    </Story>
+</Preview>
+
+## API
+
+### Stepper
+
+<ArgsTable of={Stepper} sort="alpha" />

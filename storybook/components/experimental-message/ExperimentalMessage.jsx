@@ -2,8 +2,8 @@ import { Message } from "@components/message";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 
-export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport }) {
-    const hasDetails = [noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport].some(validation => validation);
+export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport, noAccessibilitySupport }) {
+    const hasDetails = [noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport, noAccessibilitySupport].some(validation => validation);
 
     return (
         <Message variant="negative">
@@ -16,6 +16,7 @@ export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDe
                     {noVisualTesting && <li>Visual testing is missing</li>}
                     {noFinalDesign && <li>The Design is not final</li>}
                     {noMobileSupport && <li>Mobile support is missing</li>}
+                    {noAccessibilitySupport && <li>Component is not accessible</li>}
                 </ul>}
             </Content>
         </Message>
