@@ -49,7 +49,7 @@ Make sure to add the following component in the Usage Section
 Some props are available to detail the component's status.
 
 ```js
-<ExperimentalMessage noDoc noTests noVisualTesting noFinalDesign noCompleteSpecs noMobileSupport />
+<ExperimentalMessage noDoc noTests noVisualTesting noFinalDesign noMobileSupport />
 ```
 
 ## License
