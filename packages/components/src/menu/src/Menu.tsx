@@ -88,8 +88,6 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
 
 const MenuItemHeight = 32;
 
-const MenuBorderSize = 1;
-
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
 
@@ -207,7 +205,6 @@ export function InnerMenu({
         dividerSelector: ".o-ui-menu-divider",
         itemSelector: ".o-ui-menu-item",
         maxHeight: 12 * MenuItemHeight,
-        paddingHeight: 2 * MenuBorderSize,
         sectionSelector: ".o-ui-menu-section-title"
     });
 

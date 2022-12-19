@@ -92,7 +92,7 @@ During the installation you will encoutered several missing *peerDependencies* w
 
 The following documentation is a brief overview of the tools and processes involved in the development of a component. For more information, please read the [React components documentation](/packages/components).
 
-## Adding or modifying an icon
+### Adding or modifying an icon
 
 When adding a new icon in @orbit-ui/icons, you want to make sure that the @orbit-ui/components package is updated accordingly. You will need to generate
 a new react component for that icon using the `yarn generate-icons-components` command.
@@ -117,7 +117,7 @@ yarn start
 
 Any updates to the packages or Storybook's stories will automatically re-compile the packages and refresh the Storybook app accordingly.
 
-## Start Storybook in docs mode.
+### Start Storybook in docs mode.
 
 To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 

@@ -1,8 +1,8 @@
 .o-ui-popover {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding: var(--o-ui-sp-4);
-    border-radius: var(--o-ui-br-rounded);
-    box-shadow: var(--o-ui-bs-alias-raised);
+    border-radius: var(--o-ui-br-3);
+    box-shadow: var(--o-ui-bs-alias-floating);
     /* Must keep a max width. */
     max-width: var(--o-ui-sz-16);
     width: 100%;
@@ -50,8 +50,8 @@
 /* DISMISS BUTTON */
 .o-ui-popover .o-ui-popover-dismiss-button {
     position: absolute;
-    top: .5rem;
-    right: .5rem;
+    right: var(--o-ui-sp-3);
+    top: var(--o-ui-sp-3);
 }
 
 /* DISMISSABLE */

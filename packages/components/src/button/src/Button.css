@@ -17,7 +17,7 @@
     text-align: center;
     position: relative;
     width: max-content;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     color: inherit;
     font-family: inherit;
     font-size: 100%;

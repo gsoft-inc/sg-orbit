@@ -4,6 +4,6 @@ import { addons } from "@storybook/addons";
 addons.setConfig({
     theme: Themes.manager,
     panelPosition: "right",
-    enableShortcuts: false
-
+    enableShortcuts: false,
+    showToolbar: true
 });

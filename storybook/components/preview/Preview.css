@@ -1,7 +1,7 @@
 /* PREVIEW */
 .o-ui-sb-preview {
     margin: var(--o-ui-sp-7) 0 var(--o-ui-sp-8);
-    border-radius: 4px;
+    border-radius: var(--o-ui-br-4);
     box-shadow: var(--o-ui-bs-alias-raised);
 }
 

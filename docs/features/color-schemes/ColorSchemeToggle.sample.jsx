@@ -15,7 +15,7 @@ render(() => {
 
     return (
         <ThemeProvider theme={ShareGateTheme} colorScheme={parentColorScheme}>
-            <Div backgroundColor="alias-default" padding={2}>
+            <Div backgroundColor="alias-surface" padding={2}>
                 <ColorSchemeToggle />
             </Div>
         </ThemeProvider>

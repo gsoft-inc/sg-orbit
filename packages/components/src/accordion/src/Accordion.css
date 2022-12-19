@@ -7,9 +7,9 @@
 
 /* BORDERED */
 .o-ui-accordion-bordered {
-    box-shadow: var(--o-ui-bs-alias-skim);
-    border-radius: var(--o-ui-sp-2);
-    background-color: var(--o-ui-bg-alias-default);
+    box-shadow: var(--o-ui-bs-alias-lifted);
+    border-radius: var(--o-ui-br-4);
+    background-color: var(--o-ui-bg-alias-surface);
 }
 
 /* HEADER */
@@ -51,7 +51,7 @@
 
 /* TRIGGER | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-trigger {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding: calc(var(--o-ui-sp-4) - 1px) var(--o-ui-sp-5) var(--o-ui-sp-4) var(--o-ui-sp-6);
     border-top: 1px solid var(--o-ui-b-alias-low-break);
 }
@@ -97,7 +97,7 @@
 
 /* PANEL | BORDERED */
 .o-ui-accordion-bordered .o-ui-accordion-panel {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     padding-left: var(--o-ui-sp-6);
     padding-right: calc(var(--o-ui-sp-6) + var(--o-ui-sp-6));
 }
@@ -118,7 +118,7 @@
     content: "";
     position: absolute;
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     pointer-events: none;
     transition: var(--o-ui-focus-ring-transition);
 }
@@ -153,20 +153,21 @@
 /* BORDERED | FIRST ITEM | BORDER RADIUS */
 .o-ui-accordion-bordered .o-ui-accordion-header:first-of-type,
 .o-ui-accordion-bordered .o-ui-accordion-header:first-of-type .o-ui-accordion-trigger {
-    border-top-left-radius: var(--o-ui-sp-2);
-    border-top-right-radius: var(--o-ui-sp-2);
+    border-top-left-radius: var(--o-ui-br-4);
+    border-top-right-radius: var(--o-ui-br-4);
+    border-top: 0;
 }
 
 /* BORDERED | LAST ITEM | BORDER RADIUS */
 .o-ui-accordion-bordered .o-ui-accordion-header:last-of-type,
 .o-ui-accordion-bordered .o-ui-accordion-header:last-of-type .o-ui-accordion-trigger {
-    border-bottom-left-radius: var(--o-ui-sp-2);
-    border-bottom-right-radius: var(--o-ui-sp-2);
+    border-bottom-left-radius: var(--o-ui-br-4);
+    border-bottom-right-radius: var(--o-ui-br-4);
 }
 
 /* BORDERED | LAST PANEL | BORDER RADIUS */
 .o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type,
 .o-ui-accordion-bordered .o-ui-accordion-panel:last-of-type .o-ui-accordion-trigger {
-    border-bottom-left-radius: var(--o-ui-sp-2);
-    border-bottom-right-radius: var(--o-ui-sp-2);
+    border-bottom-left-radius: var(--o-ui-br-4);
+    border-bottom-right-radius: var(--o-ui-br-4);
 }

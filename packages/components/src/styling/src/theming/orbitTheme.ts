@@ -30,12 +30,10 @@ export type FontWeightValues = FixedLengthArray<string, 3>;
 
 export type LineHeightValues = FixedLengthArray<number, 6>;
 
-export type BoxShadowValues = FixedLengthArray<string, 4>;
+export type BoxShadowValues = FixedLengthArray<string, 2>;
 
 export interface BoxShadowAliases {
-    "alias-skim": string;
     "alias-lifted": string;
-    "alias-raised": string;
     "alias-floating": string;
 }
 
@@ -44,7 +42,6 @@ export interface BorderRadiusValues {
     2: string;
     3: string;
     4: string;
-    "rounded": string;
     "pill": string;
     "circular": string;
 }
@@ -77,7 +74,8 @@ type AliasValue =
 
 export interface ColorAliases {
     // Background
-    "bg-alias-default": AliasValue;
+    "bg-alias-surface": AliasValue;
+    "bg-alias-body": AliasValue;
     "bg-alias-soft-break": AliasValue;
     "bg-alias-mid-break": AliasValue;
     "bg-alias-hard-break": AliasValue;
@@ -118,6 +116,7 @@ export interface ColorAliases {
     "bg-alias-success-light": AliasValue;
     "bg-alias-transparent": AliasValue;
     "bg-alias-input-selection": AliasValue;
+    "bg-alias-underlay": AliasValue;
     // Border
     "b-alias-low-break": AliasValue;
     "b-alias-mid-break": AliasValue;

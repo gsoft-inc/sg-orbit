@@ -42,7 +42,8 @@ This makes their intended use clear and intentional, and allows us to develop a 
 
 <TokenTable
     colors={[
-        { token: "alias-default", variable: "--o-ui-bg-alias-default", valueLight: "#FFFFFF", valueDark: "#272626", itemRenderer: backgroundRenderer },
+        { token: "alias-body", variable: "--o-ui-bg-alias-body", valueLight: "#F9F9F9", valueDark: "#111010", itemRenderer: backgroundRenderer },
+        { token: "alias-surface", variable: "--o-ui-bg-alias-surface", valueLight: "#FFFFFF", valueDark: "#272626", itemRenderer: backgroundRenderer },
         { token: "alias-soft-break", variable: "--o-ui-alias-bg-soft-break", valueLight: "#F9F9F9", valueDark: "#111010", itemRenderer: backgroundRenderer},
         { token: "alias-mid-break", variable: "--o-ui-bg-alias-mid-break", valueLight: "#F4F4F4", valueDark: "#434342", itemRenderer: backgroundRenderer },
         { token: "alias-hard-break", variable: "--o-ui-bg-alias-hard-break", valueLight: "#C4C3C3", valueDark: "#777676", itemRenderer: backgroundRenderer },
@@ -66,6 +67,7 @@ This makes their intended use clear and intentional, and allows us to develop a 
         { token: "alias-success", variable: "--o-ui-bg-alias-success", valueLight: "#2D8739", valueDark: "#2D8739", itemRenderer: backgroundRenderer },
         { token: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", valueLight: "#E3F8EC", valueDark: "#1B2A1A", itemRenderer: backgroundRenderer },
         { token: "alias-success-light", variable: "--o-ui-bg-alias-success-light", valueLight: "#CEEDD7", valueDark: "#284929", itemRenderer: backgroundRenderer },
+        { token: "alias-underlay", variable: "--o-ui-bg-alias-underlay", valueLight: "rgba(31, 33, 81, 0.5)", valueDark: "rgba(31, 33, 81, 0.5)", itemRenderer: backgroundRenderer },
         { token: "alias-transparent", variable: "--o-ui-bg-alias-transparent", valueLight: "transparent", valueDark: "transparent", itemRenderer: backgroundRenderer }
     ]}
 />
@@ -96,10 +98,8 @@ This makes their intended use clear and intentional, and allows us to develop a 
 
 <TokenTable
     colors={[
-        { token: "alias-skim", variable: "--o-ui-bs-alias-skim", valueLight: "bs-1", valueDark: "bs-1", itemRenderer: boxShadowRenderer},
-        { token: "alias-lifted", variable: "--o-ui-bs-alias-lifted", valueLight: "bs-2", valueDark: "bs-2" , itemRenderer: boxShadowRenderer},
-        { token: "alias-raised", variable: "--o-ui-bs-alias-raised", valueLight: "bs-3", valueDark: "bs-3", itemRenderer: boxShadowRenderer},
-        { token: "alias-floating", variable: "--o-ui-bs-alias-floated" , valueLight: "bs-4", valueDark: "bs-4", itemRenderer: boxShadowRenderer}
+        { token: "alias-lifted", variable: "--o-ui-bs-alias-lifted", valueLight: "bs-1", valueDark: "bs-1" , itemRenderer: boxShadowRenderer},
+        { token: "alias-floating", variable: "--o-ui-bs-alias-floating" , valueLight: "bs-2", valueDark: "bs-2", itemRenderer: boxShadowRenderer}
     ]}
 />
 
@@ -192,7 +192,6 @@ Only usable as `CSS` variables
         { token: "2", variable: "--o-ui-br-2", valueLight: "0.25rem (4px)", valueDark: "0.25rem (4px)", itemRenderer: radiiRenderer },
         { token: "3", variable: "--o-ui-br-3", valueLight: "0.5rem (8px)", valueDark: "0.5rem (8px)", itemRenderer: radiiRenderer },
         { token: "4", variable: "--o-ui-br-4", valueLight: "1rem (16px)", valueDark: "1rem (16px)", itemRenderer: radiiRenderer },
-        { token: "rounded", variable: "--o-ui-br-rounded", valueLight: ".25rem (4px)", valueDark: ".25rem (4px)", itemRenderer: radiiRenderer },
         { token: "pill", variable: "--o-ui-br-pill", valueLight: "999px", valueDark: "999px", itemRenderer: radiiRenderer },
         { token: "circular", variable: "--o-ui-br-circular", valueLight: "100%", valueDark: "100%", itemRenderer: radiiRenderer }
     ]}

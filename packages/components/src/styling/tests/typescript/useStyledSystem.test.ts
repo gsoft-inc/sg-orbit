@@ -193,7 +193,7 @@ expectAssignable<BackgroundColorProp>("rgba(255, 255, 128, .5)");
 expectAssignable<BackgroundColorProp>("hsl(50, 33%, 25%)");
 expectAssignable<BackgroundColorProp>("hsla(50, 33%, 25%, .75)");
 expectAssignable<BackgroundColorProp>("purple-1");
-expectAssignable<BackgroundColorProp>("alias-default");
+expectAssignable<BackgroundColorProp>("alias-surface");
 expectAssignable<BackgroundColorProp>("currentColor");
 expectAssignable<BackgroundColorProp>("transparent");
 expectAssignable<BackgroundColorProp>({ base: "purple-1", xs: "purple-1", sm: "purple-1", md: "purple-1", lg: "purple-1", xl: "purple-1" });
@@ -295,7 +295,6 @@ expectAssignable<BorderRadiusProp>(2);
 expectAssignable<BorderRadiusProp>(3);
 expectAssignable<BorderRadiusProp>(4);
 expectAssignable<BorderRadiusProp>("pill");
-expectAssignable<BorderRadiusProp>("rounded");
 expectAssignable<BorderRadiusProp>("circular");
 expectAssignable<BorderRadiusProp>("1px");
 expectAssignable<BorderRadiusProp>("1em");
@@ -364,11 +363,7 @@ expectAssignable<BottomProp>({ base: "1px", xs: "1px", sm: "1px", md: "1px", lg:
 
 expectAssignable<BoxShadowProp>(1);
 expectAssignable<BoxShadowProp>(2);
-expectAssignable<BoxShadowProp>(3);
-expectAssignable<BoxShadowProp>(4);
-expectAssignable<BoxShadowProp>("alias-skim");
 expectAssignable<BoxShadowProp>("alias-lifted");
-expectAssignable<BoxShadowProp>("alias-raised");
 expectAssignable<BoxShadowProp>("alias-floating");
 expectAssignable<BoxShadowProp>("none");
 expectAssignable<BoxShadowProp>("10px 5px 5px black");

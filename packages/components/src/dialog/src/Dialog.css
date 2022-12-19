@@ -20,8 +20,8 @@
 /* DIALOG */
 .o-ui-dialog {
     position: relative;
-    background-color: var(--o-ui-bg-alias-default);
-    border-radius: var(--o-ui-br-rounded);
+    background-color: var(--o-ui-bg-alias-surface);
+    border-radius: var(--o-ui-br-4);
     display: grid;
     align-items: stretch;
     grid-template-areas: "image image" "aside aside";
@@ -66,6 +66,7 @@
     border-top-left-radius: inherit;
     border-bottom-left-radius: inherit;
     grid-area: image;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 768px) {
@@ -148,6 +149,6 @@
 /* DISMISS BUTTON */
 .o-ui-dialog .o-ui-dialog-dismiss-button {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    right: var(--o-ui-sp-4);
+    top: var(--o-ui-sp-4);
 }

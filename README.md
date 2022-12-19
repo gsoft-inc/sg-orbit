@@ -8,7 +8,6 @@
 
 <p align=center>
     <a href="https://circleci.com/gh/gsoft-inc/sg-orbit/tree/master"><img alt="build" src="https://img.shields.io/circleci/build/github/gsoft-inc/sg-orbit/master"></a>
-    <a href="https://david-dm.org/gsoft-inc/sg-orbit?type=dev" title="devDependencies"><img src="https://david-dm.org/gsoft-inc/sg-orbit/dev-status.svg"/></a>
 </p>
 
 <p align=center>

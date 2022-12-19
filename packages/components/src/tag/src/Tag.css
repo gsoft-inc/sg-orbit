@@ -6,7 +6,7 @@
     align-items: center;
     line-height: var(--o-ui-lh-1);
     color: var(--o-ui-text-alias-primary);
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: max-content;
     height: max-content;
@@ -119,7 +119,7 @@ a.o-ui-tag-solid.o-ui-tag-disabled {
 
 /* OUTLINE */
 .o-ui-tag-outline {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     border: 1px solid var(--o-ui-b-alias-mid-break);
 }
 
