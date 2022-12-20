@@ -4,10 +4,10 @@ Full documentation available at: https://orbit.sharegate.design
 
 ## What differentiate an “experimental” component from a “stable” component?
 Contrary to a “stable” component, an “experimental” component can:
-- Not have a final stamp of approval from the design team
-- Not have all its variants or usecases defined
-- Not have a complete test coverage
-- Not have a final documentation
+- Not have a final stamp of approval from the design team.
+- Not have all its variants or usecases defined.
+- Not have a complete test coverage.
+- Not have a final documentation.
 
 By lowering expectations in regards to the design team approbation, testing coverage and documentation we believe an “experimental” component could go out about 60% to 65% faster than a “stable” component.
 
@@ -54,4 +54,4 @@ Some props are available to detail the component's status.
 
 ## License
 
-Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
