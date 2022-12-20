@@ -318,7 +318,7 @@ a.o-ui-button {
 .o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary,
 .o-ui-button:active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic,
-.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic  {
+.o-ui-button-active:hover:not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-secondary.o-ui-button-basic {
     background-color: rgba(0, 0, 0, 0.15);
     color: inherit;
     border: 1px solid currentColor;
