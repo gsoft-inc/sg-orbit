@@ -26,7 +26,7 @@
 .o-ui-sb-gallery-preview-icon:focus .o-ui-sb-gallery-preview-container,
 .o-ui-sb-gallery-preview-icon:active .o-ui-sb-gallery-preview-container {
     opacity: 1;
-    transition: opacity 0.15s ease-in;
+    transition: opacity .15s ease-in;
 }
 
 .o-ui-sb-gallery-view-button {
