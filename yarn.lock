@@ -3301,10 +3301,10 @@
     "@sharegate/eslint-config-recommended" "2.0.0"
     "@typescript-eslint/eslint-plugin" "*"
 
-"@sharegate/stylelint-config-recommended@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-5.0.0.tgz#8b2e49bb81eb240ca9a79f6e85f855087a4fe16c"
-  integrity sha512-d0+ir25f3vUPd7O9uOxjiIYE1KMC97+AeKw0I2Wo9Mg5YPgWESCL/ktDUYfxkggF2PYcdpCmQOzRVkVKZbaE2w==
+"@sharegate/stylelint-config-recommended@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@sharegate/stylelint-config-recommended/-/stylelint-config-recommended-6.0.0.tgz#04385479a749726f74cfa4ec5a2f8a45266069c9"
+  integrity sha512-y0GAh3gZHfkU6GjuvWUUhdb6d+r0DP+aZpYQqyGEFRuZYye2nU0Zcdscz2h3MmFAJVR4FWh9cleHNFxDr3ab+Q==
   dependencies:
     stylelint-config-recommended "^9"
 

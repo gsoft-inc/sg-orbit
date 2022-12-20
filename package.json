@@ -87,7 +87,7 @@
     "@sharegate/eslint-config-react": "4.0.0",
     "@sharegate/eslint-config-recommended": "2.0.0",
     "@sharegate/eslint-config-typescript": "3.0.0",
-    "@sharegate/stylelint-config-recommended": "5.0.0",
+    "@sharegate/stylelint-config-recommended": "6.0.0",
     "@storybook/addon-a11y": "6.5.13",
     "@storybook/addon-essentials": "6.5.13",
     "@storybook/react": "6.5.13 ",
