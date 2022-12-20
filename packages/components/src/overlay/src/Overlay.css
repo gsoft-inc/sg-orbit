@@ -60,7 +60,7 @@
 /* ARROW | BORDER */
 /* BOTTOM ARROW */
 .o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-arrow::after {
-    top: calc( var(--o-ui-overlay-arrow-dimension) / 2);
+    top: calc(var(--o-ui-overlay-arrow-dimension) / 2);
 }
 
 /* TOP ARROW */

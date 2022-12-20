@@ -122,12 +122,12 @@
 }
 
 /* TAB | STATE | FOCUS */
-.o-ui-tab::before{
+.o-ui-tab::before {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(0.5rem - var(--o-ui-tab-stroke-width) );
+    bottom: calc(0.5rem - var(--o-ui-tab-stroke-width));
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
     border-radius: var(--o-ui-br-2);
     pointer-events: none;
