@@ -171,7 +171,7 @@
     text-align: left;
 }
 
-.o-ui-tile-thumbnail+.o-ui-tile-main {
+.o-ui-tile-thumbnail + .o-ui-tile-main {
     padding: var(--o-ui-sp-4) var(--o-ui-sp-5) var(--o-ui-sp-5) var(--o-ui-sp-5);
 }
 

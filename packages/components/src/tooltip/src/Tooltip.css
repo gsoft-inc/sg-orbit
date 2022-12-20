@@ -15,7 +15,7 @@
 }
 
 /* RIGHT ICON */
-.o-ui-tooltip .o-ui-text + .o-ui-icon  {
+.o-ui-tooltip .o-ui-text + .o-ui-icon {
     margin-left: var(--o-ui-sp-1);
 }
 
