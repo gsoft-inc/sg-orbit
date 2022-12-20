@@ -188,7 +188,7 @@ a.o-ui-button {
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading):hover .o-ui-button-start-icon,
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover .o-ui-button-start-icon,
 .o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading):hover .o-ui-button-end-icon,
-.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover .o-ui-button-end-icon  {
+.o-ui-button-tertiary:not([disabled]):not(.o-ui-button-loading).o-ui-button-hover .o-ui-button-end-icon {
     fill: var(--o-ui-icon-alias-accent-hover);
 }
 
