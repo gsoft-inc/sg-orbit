@@ -351,12 +351,12 @@ a.o-ui-button {
 .o-ui-button-inherit-style.o-ui-button-primary .o-ui-button-end-icon {
     fill: var(--o-ui-white);
     color: var(--o-ui-white);
-    opacity: 0.9;
+    opacity: .9;
 }
 
 .o-ui-button-inherit-style.o-ui-button-primary .o-ui-button-text {
     color: var(--o-ui-white);
-    opacity: 0.9;
+    opacity: .9;
 }
 
 .o-ui-button:hover:not([disabled]):not(.o-ui-button-loading).o-ui-button-inherit-style.o-ui-button-primary,
@@ -386,7 +386,7 @@ a.o-ui-button {
 /* INHERIT | PRIMARY | COUNTER */
 .o-ui-button-inherit-style.o-ui-button-primary .o-ui-button-counter {
     color: var(--o-ui-white) !important;
-    opacity: 0.9;
+    opacity: .9;
 }
 
 .o-ui-button:hover.o-ui-button-primary .o-ui-button-counter,

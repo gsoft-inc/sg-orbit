@@ -5,7 +5,6 @@ module.exports = {
         "linebreaks": "unix",
 
         "color-hex-length": "long",
-        "number-leading-zero": "always",
         "property-case": "lower",
 
         "function-comma-space-after": "always",

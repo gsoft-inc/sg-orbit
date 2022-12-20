@@ -82,7 +82,7 @@
     padding-left: var(--o-ui-sp-1);
     border: none;
     outline: transparent;
-    transition: all 0.12s ease-in, padding 0s linear;
+    transition: all .12s ease-in, padding 0s linear;
     width: 100%;
     min-height: calc(var(--o-ui-sz-6) - 2px);
     background-color: transparent;

@@ -165,8 +165,8 @@
     position: inline-flex !important;
     display: flex;
     text-align: center;
-    margin-right: 0.625rem;
-    margin-left: 0.625rem;
+    margin-right: .625rem;
+    margin-left: .625rem;
 }
 
 .o-ui-input-has-button.o-ui-text-input,
