@@ -34,14 +34,11 @@
     },
     "peerDependencies": {
         "react": "^18.0.0",
-        "react-dom": "^18.0.0",
-        "@orbit-ui/components": "*"
+        "react-dom": "^18.0.0"
     },
     "dependencies": {
-        "@babel/runtime-corejs3": "*"
-    },
-    "devDependencies": {
-        "@orbit-ui/components": "10.0.0"
+        "@babel/runtime-corejs3": "*",
+        "@orbit-ui/components": "11.0.0"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
