@@ -14,7 +14,7 @@ export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDe
                     {noDoc && <li>Documentation is missing</li>}
                     {noTests && <li>Tests are missing</li>}
                     {noVisualTesting && <li>Visual testing is missing</li>}
-                    {noFinalDesign && <li>The Design is not final</li>}
+                    {noFinalDesign && <li>The design is not final</li>}
                     {noMobileSupport && <li>Mobile support is missing</li>}
                     {noAccessibilitySupport && <li>Component is not accessible</li>}
                 </ul>}

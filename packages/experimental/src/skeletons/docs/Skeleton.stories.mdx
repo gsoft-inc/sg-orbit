@@ -1,0 +1,94 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { Skeleton } from "@experimental/skeletons";
+import { Button, Text, Heading, Stack, InfoIcon } from "@orbit-ui/components";
+import { ComponentInfo, Tagline, Preview, ExperimentalMessage } from "@stories/components";
+
+<Meta
+    title="Experimental/Skeleton"
+    id="skeleton"
+/>
+
+# Skeleton
+
+<Tagline>Skeleton are used to provide a low fidelity representation of content before it appears on the page, and improves load times perceived by users.</Tagline>
+
+<ComponentInfo
+    usage={"import { Skeleton, TextSkeleton, ButtonSkeleton } from \"@orbit-ui/experimental\";"}
+    githubPath="/packages/experimental/src/skeletons/src"
+/>
+
+## Usage
+
+<ExperimentalMessage noAccessibilitySupport noTests noVisualTesting noFinalDesign noMobileSupport />
+
+### Default
+
+<Preview>
+    <Story name="default">
+        <Skeleton />
+    </Story>
+</Preview>
+
+### Content
+
+<Preview>
+    <Story name="content">
+        <Skeleton>
+            <InfoIcon />
+        </Skeleton>
+    </Story>
+</Preview>
+
+
+### Fluid
+
+<Preview>
+    <Story name="fluid">
+        <Skeleton fluid >
+            <InfoIcon />
+        </Skeleton>
+    </Story>
+</Preview>
+
+
+### TextSkeleton
+
+TextSkeleton already has a `height` style set, so you don't need to specify it yourself.
+
+<Preview>
+    <Story name="text-skeleton">
+        <Stack>
+            <Skeleton fluid>
+                <Text size="sm">allo</Text>
+            </Skeleton>
+            <Skeleton fluid>
+                <Text size="sm">allo</Text>
+            </Skeleton>
+            <Skeleton fluid>
+                <Text>allo</Text>
+            </Skeleton>
+            <Skeleton fluid>
+                <Text size="lg">allo</Text>
+            </Skeleton>
+            <Skeleton fluid>
+                <Heading size="lg">allo</Heading>
+            </Skeleton>
+        </Stack>
+    </Story>
+</Preview>
+
+### ButtonSkeleton
+
+<Preview>
+    <Story name="button-skeleton">
+        <Skeleton>
+            <Button>Loading...</Button>
+        </Skeleton>
+    </Story>
+</Preview>
+
+## API
+
+### Skeleton
+
+<ArgsTable of={Skeleton} sort="alpha" />

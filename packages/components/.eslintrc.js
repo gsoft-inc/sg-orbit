@@ -8,14 +8,14 @@ module.exports = {
         {
             extends: ["plugin:mdx/recommended"],
             files: ["*.mdx"],
-            globals: {
-                "props": true
-            },
+            // globals: {
+            //     "props": true
+            // },
             rules: {
-                "max-len": "off",
-                "react-hooks/rules-of-hooks": "off",
-                "react/jsx-tag-spacing": "off",
-                "semi": "off"
+                // "max-len": "off",
+                // "react-hooks/rules-of-hooks": "off",
+                // "react/jsx-tag-spacing": "off",
+                // "semi": "off"
             }
         },
         {

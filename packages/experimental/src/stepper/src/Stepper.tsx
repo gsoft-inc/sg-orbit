@@ -1,4 +1,4 @@
-import { Box, InternalProps, OmitInternalProps, Span, StyledComponentProps, cssModule, mergeProps, useCollection, useOnlyCollectionItems } from "@sharegate/orbit-ui";
+import { Box, InternalProps, OmitInternalProps, Span, StyledComponentProps, cssModule, mergeProps, useCollection, useOnlyCollectionItems } from "@orbit-ui/components";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 
 const DefaultElement = "div";

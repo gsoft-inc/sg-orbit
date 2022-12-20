@@ -1,0 +1,64 @@
+.o-ui-skeleton {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    background: 0 0;
+    border-radius: var(--o-ui-br-2);
+    display: inline-block;
+}
+
+.o-ui-skeleton-fluid {
+    width: 100%;
+}
+
+/* TODO find better name */
+.o-ui-skeleton-no-content {
+    width: 300px;
+    height: 24px;
+}
+
+.o-ui-skeleton-visible:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: none;
+}
+
+.o-ui-skeleton-visible:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: none;
+    background: var(--o-ui-bg-alias-mid-break);
+}
+
+.o-ui-skeleton-animate:after {
+    top: 0;
+    right: -150%;
+    bottom: 0;
+    left: -150%;
+    animation: skeleton-animation 1.4s linear infinite;
+    inset: 0 -150%;
+    position: absolute;
+    background:
+        linear-gradient(270deg,
+            var(--o-ui-bg-alias-mid-break) 25%,
+            var(--o-ui-bg-alias-basic-transparent-hover) 37%,
+            var(--o-ui-bg-alias-mid-break) 63%);
+}
+
+@keyframes skeleton-animation {
+    0% {
+        transform: translateX(-37.5%);
+    }
+
+    100% {
+        transform: translateX(37.5%);
+    }
+}
