@@ -1,6 +1,6 @@
 .o-ui-contextual-help {
     outline: 0;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     color: inherit;
 }
 
