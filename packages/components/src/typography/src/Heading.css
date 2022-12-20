@@ -10,35 +10,35 @@
 :where(.o-ui-heading-2xs) {
     font-size: var(--o-ui-fs-4);
     line-height: var(--o-ui-lh-3);
-    margin-bottom: calc(var(--o-ui-fs-4) * .5);
+    margin-bottom: calc(var(--o-ui-fs-4) * 0.5);
 }
 
 :where(.o-ui-heading-xs) {
     font-size: var(--o-ui-fs-5);
     line-height: var(--o-ui-lh-4);
-    margin-bottom: calc(var(--o-ui-fs-5) * .5);
+    margin-bottom: calc(var(--o-ui-fs-5) * 0.5);
 }
 
 :where(.o-ui-heading-sm) {
     font-size: var(--o-ui-fs-6);
     line-height: var(--o-ui-lh-5);
-    margin-bottom: calc(var(--o-ui-fs-6) * .5);
+    margin-bottom: calc(var(--o-ui-fs-6) * 0.5);
 }
 
 :where(.o-ui-heading-md) {
     font-size: var(--o-ui-fs-7);
     line-height: var(--o-ui-lh-5);
-    margin-bottom: calc(var(--o-ui-fs-7) * .5);
+    margin-bottom: calc(var(--o-ui-fs-7) * 0.5);
 }
 
 :where(.o-ui-heading-lg) {
     font-size: var(--o-ui-fs-8);
     line-height: var(--o-ui-lh-6);
-    margin-bottom: calc(var(--o-ui-fs-8) * .5);
+    margin-bottom: calc(var(--o-ui-fs-8) * 0.5);
 }
 
 :where(.o-ui-heading-xl) {
     font-size: var(--o-ui-fs-9);
     line-height: var(--o-ui-lh-2);
-    margin-bottom: calc(var(--o-ui-fs-9) * .5);
+    margin-bottom: calc(var(--o-ui-fs-9) * 0.5);
 }

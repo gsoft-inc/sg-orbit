@@ -128,7 +128,7 @@
     overflow: hidden;
 }
 
-.sbdocs.sbdocs-preview>div>div {
+.sbdocs.sbdocs-preview > div > div {
     overflow: visible;
 }
 
@@ -143,7 +143,7 @@
 .sbdocs.sbdocs-h4,
 .sbdocs.sbdocs-h5,
 .sbdocs.sbdocs-h6,
-.sbdocs.sbdocs-p  {
+.sbdocs.sbdocs-p {
     color: var(--o-ui-text-alias-primary);
 }
 
@@ -342,8 +342,8 @@
     white-space: nowrap;
     border-radius: 3px;
     font-size: 13px;
-    border: 1px solid #EEE;
-    color: rgba(51,51,51,0.9);
+    border: 1px solid #EEEEEE;
+    color: rgba(51, 51, 51, 0.9);
     background-color: #F8F8F8;
 }
 
