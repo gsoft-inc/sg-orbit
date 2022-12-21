@@ -233,8 +233,6 @@ const BorderColorAliases = [
     "alias-low-break",
     "alias-mid-break",
     "alias-high-break",
-    "alias-accent",
-    "alias-accent-hover",
     "alias-accent-active",
     "alias-alert",
     "alias-alert-hover",
