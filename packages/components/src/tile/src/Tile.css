@@ -83,7 +83,7 @@
 
 .o-ui-tile[aria-checked="true"]::before,
 .o-ui-tile[aria-pressed="true"]::before {
-    border-color: var(--o-ui-b-alias-accent);
+    border-color: var(--o-ui-b-alias-accent-active);
 }
 
 /* CHECKED | CHECKMARK */
