@@ -76,13 +76,24 @@
 /* SPINNER | ACTIVE */
 .o-ui-number-input-spinner-increment:active:focus,
 .o-ui-number-input-spinner-decrement:active:focus {
-    background-color: var(--o-ui-bg-alias-basic-transparent-active);
+    background-color: var(--o-ui-bg-alias-accent-transparent-active);
+    fill: var(--o-ui-icon-alias-accent-active);
+}
+
+.o-ui-number-input-spinner-increment:active:focus .o-ui-icon,
+.o-ui-number-input-spinner-decrement:active:focus .o-ui-icon {
+    fill: var(--o-ui-icon-alias-accent-active);
 }
 
 /* SPINNER | HOVER */
 .o-ui-number-input-spinner-increment:hover,
 .o-ui-number-input-spinner-decrement:hover {
-    background-color: var(--o-ui-bg-alias-basic-transparent-hover);
+    background-color: var(--o-ui-bg-alias-accent-transparent-hover);
+}
+
+.o-ui-number-input-spinner-increment:hover .o-ui-icon,
+.o-ui-number-input-spinner-decrement:hover .o-ui-icon {
+    fill: var(--o-ui-icon-alias-accent-hover);
 }
 
 /* SPINNER | DISABLED */

@@ -121,8 +121,6 @@ export interface ColorAliases {
     "b-alias-low-break": AliasValue;
     "b-alias-mid-break": AliasValue;
     "b-alias-high-break": AliasValue;
-    "b-alias-accent": AliasValue;
-    "b-alias-accent-hover": AliasValue;
     "b-alias-accent-active": AliasValue;
     "b-alias-alert": AliasValue;
     "b-alias-alert-hover": AliasValue;
@@ -141,6 +139,7 @@ export interface ColorAliases {
     "icon-alias-faint": AliasValue;
     "icon-alias-accent": AliasValue;
     "icon-alias-accent-hover": AliasValue;
+    "icon-alias-accent-active": AliasValue;
     "icon-alias-alert": AliasValue;
     "icon-alias-alert-hover": AliasValue;
     "icon-alias-warning": AliasValue;
@@ -155,6 +154,7 @@ export interface ColorAliases {
     "text-alias-faint": AliasValue;
     "text-alias-accent": AliasValue;
     "text-alias-accent-hover": AliasValue;
+    "text-alias-accent-active": AliasValue;
     "text-alias-alert": AliasValue;
     "text-alias-warning": AliasValue;
     "text-alias-success": AliasValue;
