@@ -125,6 +125,12 @@ export interface ColorAliases {
     "b-alias-alert": AliasValue;
     "b-alias-alert-hover": AliasValue;
     "b-alias-alert-active": AliasValue;
+    "b-alias-warning": AliasValue;
+    "b-alias-warning-hover": AliasValue;
+    "b-alias-warning-active": AliasValue;
+    "b-alias-success": AliasValue;
+    "b-alias-success-hover": AliasValue;
+    "b-alias-success-active": AliasValue;
     // Icon
     "icon-alias-primary": AliasValue;
     "icon-alias-primary-hover": AliasValue;
