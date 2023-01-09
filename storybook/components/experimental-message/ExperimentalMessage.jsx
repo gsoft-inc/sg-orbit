@@ -9,7 +9,7 @@ export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDe
         <Message variant="negative">
             <Content>
                 <Heading>Experimental</Heading>
-            This component and its documentation is in development. There could be breaking changes made to it in a non-major release. Please use with caution
+                This component and its documentation is in development. There could be breaking changes made to it in a non-major release. Please use with caution
                 {hasDetails && <ul>
                     {noDoc && <li>Documentation is missing</li>}
                     {noTests && <li>Tests are missing</li>}

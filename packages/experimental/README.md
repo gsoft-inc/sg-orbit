@@ -3,13 +3,13 @@
 Full documentation available at: https://orbit.sharegate.design
 
 ## What differentiate an “experimental” component from a “stable” component?
-Contrary to a “stable” component, an “experimental” component can:
+Contrary to a “stable” component, an “experimental” component may:
 - Not have a final stamp of approval from the design team.
 - Not have all its variants or usecases defined.
 - Not have a complete test coverage.
 - Not have a final documentation.
 
-By lowering expectations in regards to the design team approbation, testing coverage and documentation we believe an “experimental” component could go out about 60% to 65% faster than a “stable” component.
+By having fewer requirements in regards to the design team approbation, testing coverage and documentation we believe an “experimental” component could go out about 60% to 65% faster than a “stable” component.
 
 ## What should an “experimental” component support from day 1?
 An “experimental” component must:
@@ -32,8 +32,8 @@ Those rules will have to be included in the “experimental” package documenta
 - “Experimental” components shouldn’t be specific to an application.
 - “Experimental” components must be released in a different package than the “stable” components.
 - “Experimental” components code is isolated from “stable” code.
-- “Experimental” components shouldn’t require new third party dependencies. If a component has a very good reason to install a new third party, it should be approved by the Collège de gouvernance FE first
-- An “experimental” component doesn’t have to be accessible from the beginning but is expected to have a realistic path toward accessibility (the component will have to be WAI ARIA AA requirements before being promoted to a “stable” component). We encourage developers to build accessible components from the ground up when possible
+- “Experimental” components shouldn’t require new third party dependencies. If a component has a very good reason to install a new third party, it should be approved by the Collège de gouvernance FE first.
+- An “experimental” component doesn’t have to be accessible from the beginning but is expected to have a realistic path toward accessibility (the component will have to be WAI ARIA AA requirements before being promoted to a “stable” component). We encourage developers to build accessible components from the ground up when possible.
 
 ## Adding a new “experimental” component
 
