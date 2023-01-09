@@ -33,7 +33,6 @@ export function InnerContextualHelp({ children, defaultOpen, forwardedRef, onOpe
     );
 }
 
-
 InnerContextualHelp.defaultElement = DefaultElement;
 
 export const ContextualHelp = forwardRef<any, OmitInternalProps<InnerContextualHelpProps>>((props, ref) => (
