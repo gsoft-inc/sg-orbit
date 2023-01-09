@@ -3,7 +3,14 @@ import { Inline } from "@components/layout";
 
 export default {
     title: "Chromatic/ContextualHelp",
-    component: ContextualHelp
+    component: ContextualHelp,
+    decorators: [
+        Story => (
+            <div style={{ padding: "150px 250px" }}>
+                <Story />
+            </div>
+        )
+    ]
 };
 
 export const Default = () => (
