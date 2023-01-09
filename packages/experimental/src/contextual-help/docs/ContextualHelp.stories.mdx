@@ -1,0 +1,63 @@
+import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
+import { ComponentInfo, Tagline, Preview, ExperimentalMessage } from "@stories/components";
+import { InnerContextualHelp, ContextualHelp } from "@experimental/contextual-help";
+import { Inline } from "@orbit-ui/components";
+
+<Meta
+    title="Experimental/ContextualHelp"
+    id="contextual-help"
+/>
+
+# ContextualHelp
+
+<Tagline>Contextual help shows a user extra information about the state of an adjacent component. It explains a high-level topic about an experience and can point users to more information elsewhere.</Tagline>
+
+<ComponentInfo
+    usage={"import { ContextualHelp } from \"@orbit-ui/experimental\";"}
+    githubPath="/packages/experimental/src/contextual-help/src"
+/>
+
+
+## Guidelines
+
+### HelpMessage vs. ContextualHelp
+
+Use [HelpMessage](?path=/docs/field--input#input) for critical information that a user needs to know to complete a task. Don't hide essential information in ContextualHelp; it's intended to supplement the experience with minimal disruption.
+
+## Usage
+
+<ExperimentalMessage noFinalDesign noMobileSupport />
+
+### Default
+
+A default ContextualHelp.
+
+<Preview>
+    <Story name="default">
+        <ContextualHelp>A license activation provides access to the migration tool for one user on one workstation. It doesn't provide access to ShareGate Management.</ContextualHelp>
+    </Story>
+</Preview>
+
+
+### Variant
+
+A ContextualHelp can be either a help or info icon.
+
+<Preview>
+    <Story name="variant">
+        <Inline>
+            <ContextualHelp>A license activation provides access to the migration tool for one user on one workstation. It doesn't provide access to ShareGate Management.</ContextualHelp>
+            <ContextualHelp variant="help">A license activation provides access to the migration tool for one user on one workstation. It doesn't provide access to ShareGate Management.</ContextualHelp>
+        </Inline>
+    </Story>
+</Preview>
+
+## API
+
+<ComponentInfo
+    usage={"import { ContextualHelp } from \"@orbit-ui/experimental\";"}
+    inherits={[InnerContextualHelp.defaultElement, "styled-component"]}
+    compact
+/>
+
+<ArgsTable of={InnerContextualHelp} sort="alpha" />

@@ -3,7 +3,8 @@ const path = require("path");
 module.exports = {
     rootDir: path.resolve(__dirname, ".."),
     roots: [
-        "<rootDir>/packages/components"
+        "<rootDir>/packages/components",
+        "<rootDir>/packages/experimental"
     ],
     testMatch: ["**/tests/jest/*.test.ts?(x)"],
     transform: {
@@ -13,7 +14,9 @@ module.exports = {
         "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/jest/svgr-mock.js",
         "@jest-utils$": "<rootDir>/jest/utils/index.ts",
-        "@components/(.*)$": "<rootDir>/packages/components/src/$1"
+        "@components/(.*)$": "<rootDir>/packages/components/src/$1",
+        "@experimental/(.*)$": "<rootDir>/packages/experimental/src/$1",
+        "@orbit-ui/components$": "<rootDir>/packages/components/src/index.ts"
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect",
@@ -21,7 +24,8 @@ module.exports = {
     ],
     testEnvironment: "jsdom",
     testPathIgnorePatterns: [
-        "<rootDir>/packages/components/dist"
+        "<rootDir>/packages/components/dist",
+        "<rootDir>/packages/experimental/dist"
     ],
     verbose: true
 };
