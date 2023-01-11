@@ -1,5 +1,5 @@
 import { ComponentProps, ReactNode, forwardRef, SyntheticEvent } from "react";
-import { InfoIcon, HelpIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps } from "@orbit-ui/components";
+import { InfoIcon, HelpIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps } from "@sharegate/orbit-ui";
 
 const DefaultElement = "svg";
 
