@@ -91,7 +91,12 @@ test("call onOpenChange when the tooltip appears", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <ContextualHelp data-testid="trigger" onOpenChange={handler}>
+        <ContextualHelp
+            data-testid="trigger"
+            tooltipTriggerProps={{
+                onOpenChange:handler
+            }}
+        >
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
     );
@@ -108,7 +113,12 @@ test("call onOpenChange when the tooltip disappear", async () => {
     const handler = jest.fn();
 
     const { getByTestId } = renderWithTheme(
-        <ContextualHelp data-testid="trigger" onOpenChange={handler}>
+        <ContextualHelp
+            data-testid="trigger"
+            tooltipTriggerProps={{
+                onOpenChange:handler
+            }}
+        >
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
     );
