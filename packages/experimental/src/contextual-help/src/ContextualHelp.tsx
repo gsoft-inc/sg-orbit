@@ -1,22 +1,21 @@
-import { ComponentProps, ReactNode, forwardRef, SyntheticEvent } from "react";
-import { InfoIcon, HelpIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps } from "@orbit-ui/components";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InfoIcon, HelpIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps, TooltipProps, TooltipTriggerProps } from "@sharegate/orbit-ui";
 
 const DefaultElement = "svg";
 
 interface InnerContextualHelpProps extends ComponentProps<typeof InfoIcon>, SlotProps, InternalProps{
     children: ReactNode;
-    defaultOpen?: boolean;
-    onOpenChange?:(event: SyntheticEvent, isOpen: boolean) => void;
-    open?: boolean;
-    variant?:	"help" | "info";
+    tooltipProps?: Partial<TooltipProps>;
+    tooltipTriggerProps?: Partial<TooltipTriggerProps>;
+    variant?: "help" | "info";
 }
 
-export function InnerContextualHelp({ children, defaultOpen, forwardedRef, onOpenChange, open, variant, ...rest }: InnerContextualHelpProps) {
+export function InnerContextualHelp({ children, forwardedRef, tooltipProps, tooltipTriggerProps, variant, ...rest }: InnerContextualHelpProps) {
     const Icon = variant === "help" ? HelpIcon : InfoIcon;
     const label = variant === "help" ? "Help" : "Information";
 
     return (
-        <TooltipTrigger defaultOpen={defaultOpen} onOpenChange={onOpenChange} open={open}>
+        <TooltipTrigger {...tooltipTriggerProps}>
             <Icon
                 {...mergeProps(
                     rest,
@@ -24,11 +23,11 @@ export function InnerContextualHelp({ children, defaultOpen, forwardedRef, onOpe
                         "aria-label": label,
                         className: "o-ui-contextual-help",
                         ref: forwardedRef,
-                        tabIndex:0
+                        tabIndex: 0
                     }
                 )}
             />
-            <Tooltip>{children}</Tooltip>
+            <Tooltip {...tooltipProps}>{children}</Tooltip>
         </TooltipTrigger>
     );
 }

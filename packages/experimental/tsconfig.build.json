@@ -11,5 +11,10 @@
     ],
     "exclude": [
         "**/tests/*"
+    ],
+    "references": [
+        {
+            "path": "../bundle/tsconfig.build.json"
+        }
     ]
 }

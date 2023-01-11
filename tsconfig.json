@@ -16,7 +16,8 @@
             "@jest-utils": ["./jest/utils"],
             "@components/*": ["./packages/components/src/*"],
             "@experimental/*": ["./packages/experimental/src/*"],
-            "@orbit-ui/components": ["./packages/components/src"]
+            "@orbit-ui/components": ["./packages/components/src"],
+            "@sharegate/orbit-ui": ["./packages/bundle/src"]
         }
     }
 }

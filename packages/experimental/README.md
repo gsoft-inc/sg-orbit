@@ -1,4 +1,4 @@
-# @orbit-ui/experimental-components
+# @orbit-ui/experimental
 
 Full documentation available at: https://orbit.sharegate.design
 
