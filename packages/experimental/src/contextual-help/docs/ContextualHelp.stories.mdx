@@ -20,9 +20,20 @@ import { Inline } from "@sharegate/orbit-ui";
 
 ## Guidelines
 
+### Accessibility
+
+This components is tabbable and can be focused with the keyboard.
+
 ### HelpMessage vs. ContextualHelp
 
 Use [HelpMessage](?path=/docs/field--input#input) for critical information that a user needs to know to complete a task. Don't hide essential information in ContextualHelp; it's intended to supplement the experience with minimal disruption.
+
+### Note
+
+We should consider converting this component from a tooltip to a button with a popover for 3 reasons:
+- Tooltips don't work in mobiles/tablets
+- Since it contains longer amount of text than usual tooltip, the user needs to focus on it longer, and moving the mouse closes the tooltip automatically
+- Tooltip makes it impossible to add a Learn More link inside the overlay
 
 ## Usage
 
