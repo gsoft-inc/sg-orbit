@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/experimental",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "Orbit experimental components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -33,9 +33,9 @@
         "copy-css-index-to-dist": "node scripts/copy-css-index-to-dist"
     },
     "peerDependencies": {
+        "@sharegate/orbit-ui": ">=32.1.0",
         "react": "^18.0.0",
-        "react-dom": "^18.0.0",
-        "@sharegate/orbit-ui": ">=32.1.0"
+        "react-dom": "^18.0.0"
     },
     "dependencies": {
         "@babel/runtime-corejs3": "*"
