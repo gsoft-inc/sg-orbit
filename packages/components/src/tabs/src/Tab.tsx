@@ -50,7 +50,7 @@ export function InnerTab({
         },
         icon: {
             className: "o-ui-tab-icon",
-            size: "sm"
+            size: "md"
         },
         lozenge: {
             "aria-hidden": true,

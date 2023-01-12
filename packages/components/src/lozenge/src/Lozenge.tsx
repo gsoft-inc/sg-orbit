@@ -15,7 +15,6 @@ import {
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "span";
 
@@ -69,7 +68,7 @@ export function InnerLozenge({
         },
         icon: {
             className: "o-ui-lozenge-icon",
-            size: embeddedIconSize(sizeValue)
+            size: "sm"
         },
         text: {
             className: "o-ui-lozenge-text",

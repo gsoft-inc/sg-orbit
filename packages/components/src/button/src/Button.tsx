@@ -17,7 +17,6 @@ import {
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -142,11 +141,11 @@ export function InnerButton(props: InnerButtonProps) {
         },
         "end-icon": {
             className: "o-ui-button-end-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            size: condensed ? sizeValue : "md"
         },
         icon: {
             className: "o-ui-button-icon o-ui-button-start-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            size: condensed ? sizeValue : "md"
         },
         text: {
             "aria-hidden": loading,

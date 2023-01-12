@@ -249,7 +249,7 @@ export function InnerSelect(props: InnerSelectProps) {
                 {valueMarkup}
                 <DisclosureArrow
                     open={isOpen}
-                    size="sm"
+                    size="md"
                 />
             </Box>
             <Overlay

@@ -115,12 +115,12 @@ export function InnerListboxOption({
         },
         "end-icon": {
             className: "o-ui-listbox-option-end-icon",
-            size: "sm"
+            size: "md"
         },
         icon: (iconElement: ReactElement, slotElements: SlotElements) => {
             return {
                 className: "o-ui-listbox-option-start-icon",
-                size: isNil(slotElements.description) ? "sm" : "lg"
+                size: isNil(slotElements.description) ? "md" : "lg"
             };
         },
         text: {

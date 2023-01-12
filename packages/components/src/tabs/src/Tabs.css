@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--o-ui-sp-3);
+    padding: var(--o-ui-sp-2) var(--o-ui-sp-3);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     min-width: max-content;
