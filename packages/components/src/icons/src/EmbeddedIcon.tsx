@@ -26,8 +26,8 @@ export interface EmbeddedIconProps extends
 export const embeddedIconSize = createSizeAdapter({
     "2xs": "2xs",
     "xs": "2xs",
-    "sm": "xs",
-    "md": "sm",
+    "sm": "md",
+    "md": "md",
     "lg": "md",
     "xl": "lg",
     "inherit": "inherit"

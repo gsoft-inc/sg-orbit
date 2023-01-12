@@ -4,7 +4,6 @@ import { CrossButton, embedIconButton } from "../../button";
 import { InteractionProps, InternalProps, OmitInternalProps, StyledComponentProps, createSizeAdapter, cssModule, isNil, mergeProps, normalizeSize, useMergedRefs, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 
 const DefaultElement = "div";
 
@@ -79,11 +78,11 @@ export function InnerTag({
         },
         "end-icon": {
             className: "o-ui-tag-end-icon",
-            size: embeddedIconSize(sizeValue)
+            size: "md"
         },
         icon: {
             className: "o-ui-tag-start-icon",
-            size: embeddedIconSize(sizeValue)
+            size: "md"
         },
         text: {
             className: "o-ui-tag-text",

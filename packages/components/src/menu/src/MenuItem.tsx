@@ -71,7 +71,7 @@ export function InnerMenuItem({
         },
         "end-icon": {
             className: "o-ui-menu-item-end-icon",
-            size: "sm"
+            size: "md"
         },
         icon: (iconElement: ReactElement, slotElements: SlotElements) => {
             return {
@@ -154,4 +154,3 @@ export const MenuItem = forwardRef<any, OmitInternalProps<InnerMenuItemProps>>((
 ));
 
 export type MenuItemProps = ComponentProps<typeof MenuItem>;
-
