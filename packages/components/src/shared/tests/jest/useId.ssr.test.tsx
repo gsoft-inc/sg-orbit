@@ -4,7 +4,6 @@
 
 import { renderToString } from "react-dom/server";
 import { useId } from "@components/shared";
-import React from "react";
 
 function Test() {
     const id = useId();
