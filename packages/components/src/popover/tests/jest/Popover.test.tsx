@@ -88,7 +88,7 @@ test("when dismissable, tabbing the last focusable element of the popover will m
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByLabelText("Dismiss")));
+    await waitFor(() => expect(getByLabelText("Dismiss")).toHaveFocus());
 });
 
 test("when not dismissable, tabbing the last focusable element of the popover will move the focus to the first focusable element", async () => {

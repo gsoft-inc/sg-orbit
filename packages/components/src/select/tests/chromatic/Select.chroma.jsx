@@ -58,7 +58,7 @@ stories()
                         {...triggerProps}
                         variant="secondary"
                     >
-                        {selectedItem?.content ?? placeholder}
+                        {selectedItem.content ?? placeholder}
                     </Button>
                     <Overlay {...overlayProps}>
                         <Listbox {...listboxProps} />

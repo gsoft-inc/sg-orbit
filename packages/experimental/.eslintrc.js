@@ -1,23 +1,5 @@
-// TODO: Extract to an MDX config into the sg-eslint packages.
-
 module.exports = {
-    extends: [
-        "@sharegate/eslint-config-react"
-    ],
     overrides: [
-        {
-            extends: ["plugin:mdx/recommended"],
-            files: ["*.mdx"],
-            globals: {
-                "props": true
-            },
-            rules: {
-                "max-len": "off",
-                "react-hooks/rules-of-hooks": "off",
-                "react/jsx-tag-spacing": "off",
-                "semi": "off"
-            }
-        },
         {
             files: ["*.chroma.jsx"],
             rules: {
@@ -35,9 +17,6 @@ module.exports = {
             }
         },
         {
-            extends:[
-                "@sharegate/eslint-config-typescript"
-            ],
             files: ["*.ts?(x)"],
             rules: {
                 "react/jsx-sort-props": "error",
@@ -60,8 +39,5 @@ module.exports = {
                 "react/jsx-sort-props": "off"
             }
         }
-    ],
-    rules: {
-        "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".ts", ".tsx", ".mdx"] }]
-    }
+    ]
 };

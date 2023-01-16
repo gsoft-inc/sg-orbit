@@ -9,10 +9,10 @@ import addons from "@storybook/addons";
 const A = components.a;
 
 export function LearnUsageLink(props) {
-    const modalContext = useContext(ModalContext);
+    const { onClose } = useContext(ModalContext);
 
     const handleClick = () => {
-        modalContext.onClose();
+        onClose();
         addons.getChannel().emit(NAVIGATE_URL, "#dimensions");
     };
 
