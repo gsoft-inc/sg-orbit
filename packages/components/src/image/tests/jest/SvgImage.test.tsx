@@ -53,11 +53,11 @@ test("an aria-hidden attribute is added to all the path elements of the svg", as
 });
 
 test("remove the title element of the svg", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { queryByTestId } = renderWithTheme(
         <SvgImage data-testid="svg" src={SvgWithTitle} aria-label="Basic SVG" />
     );
 
-    await waitFor(() => expect(getByTestId("svg").querySelector("title")).toBeNull());
+    await waitFor(() => expect(queryByTestId("svg").querySelector("title")).toBeNull());
 });
 
 // ***** Refs *****

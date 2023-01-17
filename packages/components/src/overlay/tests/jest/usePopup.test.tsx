@@ -190,7 +190,7 @@ describe("\"click\" trigger", () => {
     });
 
     test("when opened and hideOnTriggerClick is false, do not close on trigger click", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        const { getByTestId } = renderWithTheme(
             <Popup
                 hideOnTriggerClick={false}
                 trigger="click"
@@ -209,7 +209,7 @@ describe("\"click\" trigger", () => {
             userEvent.click(getByTestId("trigger"));
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).toBeInTheDocument());
+        await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
     });
 
     test("when opened, close on esc keypress", async () => {
