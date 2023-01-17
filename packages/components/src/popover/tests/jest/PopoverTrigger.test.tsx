@@ -154,7 +154,7 @@ test("when a popover is not dismissable, do not hide the popover on trigger togg
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("popover")).toBeInTheDocument());
+    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
 });
 
 test("when the context close function is called, close the dialog", async () => {
@@ -185,7 +185,7 @@ test("when the context close function is called, close the dialog", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(queryByTestId("close-btn")).toBeInTheDocument());
+    await waitFor(() => expect(getByTestId("close-btn")).toBeInTheDocument());
 
     act(() => {
         userEvent.click(getByTestId("close-btn"));
