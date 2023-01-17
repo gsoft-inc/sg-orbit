@@ -116,7 +116,7 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
 });
 
 test("when a query is cleared with the clear button, hide the overlay", async () => {
-    const { container, getByTestId, queryByTestId } = renderWithTheme(
+    const { getByLabelText, getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -136,7 +136,7 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
-        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+        userEvent.click(getByLabelText("Clear value"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
@@ -456,7 +456,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
 });
 
 test("when the clear button is clicked, the focus is moved to the input", async () => {
-    const { container, getByTestId } = renderWithTheme(
+    const { getByLabelText, getByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -476,7 +476,7 @@ test("when the clear button is clicked, the focus is moved to the input", async 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
 
     act(() => {
-        userEvent.click(container.querySelector(":scope .o-ui-search-input-clear-button"));
+        userEvent.click(getByLabelText("Clear value"));
     });
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());

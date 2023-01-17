@@ -122,7 +122,7 @@ test("call onValueChange when the value change", async () => {
 test("call onValueChange when the value is cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = renderWithTheme(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
@@ -132,7 +132,7 @@ test("call onValueChange when the value is cleared", async () => {
 
     await act(() => userEvent.type(getByTestId("input"), "a"));
 
-    await act(() => userEvent.click(container.querySelector(".o-ui-search-input-clear-button")));
+    await act(() => userEvent.click(getByLabelText("Clear value")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ""));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
