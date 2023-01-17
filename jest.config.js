@@ -1,29 +1,23 @@
-const path = require("path");
-
 module.exports = {
-    rootDir: path.resolve(__dirname, ".."),
-    roots: [
-        "<rootDir>/packages/components",
-        "<rootDir>/packages/experimental"
-    ],
+    roots: ["<rootDir>/packages/"],
     testMatch: ["**/tests/jest/*.test.ts?(x)"],
     transform: {
-        "^.+\\.(js|jsx|ts|tsx)$": path.resolve("jest/babel-transform.js")
+        "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
     },
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
-        "\\.svg": "<rootDir>/jest/svgr-mock.js",
-        "@jest-utils$": "<rootDir>/jest/utils/index.ts",
+        "\\.svg": "<rootDir>/__mocks__/svgr-mock.js",
+        "@test-utils/(.*)$": "<rootDir>/tooling/jest-utils/$1",
         "@components/(.*)$": "<rootDir>/packages/components/src/$1",
         "@experimental/(.*)$": "<rootDir>/packages/experimental/src/$1",
         "@orbit-ui/components$": "<rootDir>/packages/components/src/index.ts"
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect",
-        "<rootDir>/jest/setup-jest.js"
+        "<rootDir>/setup-jest.js"
     ],
     testEnvironment: "jsdom",
-    testPathIgnorePatterns: [
+    testPathIgnorePatterns: [ // TODO: tests should not be built in the dist folder
         "<rootDir>/packages/components/dist",
         "<rootDir>/packages/experimental/dist"
     ],

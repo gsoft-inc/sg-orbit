@@ -2,7 +2,7 @@ import { Button } from "@components/button";
 import { ComponentProps } from "react";
 import { Div } from "@components/html";
 import { as } from "@components/shared";
-import { expectAssignable } from "@typescript/tests";
+import { expectAssignable } from "@typescript-utils";
 
 interface RouterLinkProps {
     a: string;

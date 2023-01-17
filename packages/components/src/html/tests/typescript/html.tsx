@@ -1,6 +1,6 @@
 import { A } from "@components/html";
 import { ComponentProps, createRef } from "react";
-import { expectAssignable } from "@typescript/tests";
+import { expectAssignable } from "@typescript-utils";
 
 type AProps = ComponentProps<typeof A>;
 

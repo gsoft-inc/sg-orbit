@@ -8,20 +8,9 @@ module.exports = {
             }
         },
         {
-            files: ["*.sample.jsx"],
-            rules: {
-                "no-unused-expressions": "off",
-                "no-unused-vars": "off",
-                "no-undef": "off",
-                "react/jsx-no-undef": "off"
-            }
-        },
-        {
             files: ["*.ts?(x)"],
             rules: {
-                "react/jsx-sort-props": "error",
-                "@typescript-eslint/ban-ts-comment": "off",
-                "@typescript-eslint/no-explicit-any": "off"
+                "react/jsx-sort-props": "error"
             }
         },
         {

@@ -1,14 +1,5 @@
 module.exports = {
     root: true,
-    parser: "@typescript-eslint/parser",
-    parserOptions: {
-        ecmaVersion: 2020
-    },
-    env: {
-        commonjs: true,
-        node: true,
-        es6: true
-    },
     rules: {
         "linebreak-style": ["warn", "unix"]
     },
@@ -16,6 +7,12 @@ module.exports = {
     [
         {
             files: ["*.js", "*.jsx", "*.ts", "*.tsx"],
+            parser: "@typescript-eslint/parser", // we use the typescript parser for js files as well
+            env: {
+                commonjs: true,
+                node: true,
+                es6: true
+            },
             extends: [
                 "plugin:@sharegate/core",
                 "plugin:@sharegate/react",
@@ -37,7 +34,18 @@ module.exports = {
         {
             files: ["*.ts", "*.tsx"],
             rules: {
-                "react/no-unused-prop-types": "off" // Issue with typescript
+                "react/no-unused-prop-types": "off", // Issue with typescript
+                "@typescript-eslint/no-explicit-any": "off", // we use any a lot in orbit
+                "@typescript-eslint/ban-ts-comment": "off"
+            }
+        },
+        {
+            files: ["*.sample.jsx"],
+            rules: {
+                "no-unused-expressions": "off",
+                "no-unused-vars": "off",
+                "no-undef": "off",
+                "react/jsx-no-undef": "off"
             }
         },
         {
@@ -57,6 +65,9 @@ module.exports = {
             },
             globals: {
                 "props": true
+            },
+            rules:{
+                "react/jsx-no-undef": "off"
             }
         }
     ]

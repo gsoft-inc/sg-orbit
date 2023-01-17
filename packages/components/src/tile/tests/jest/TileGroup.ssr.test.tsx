@@ -9,7 +9,7 @@ import { throwOnConsoleLogs } from "@jest-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();
-    
+
     const renderOnServer = () =>
         renderToString(
             <TileGroup value={["2"]} selectionMode="single">

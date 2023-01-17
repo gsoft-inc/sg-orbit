@@ -1,11 +1,9 @@
 import { ColorScheme, ShareGateTheme, ThemeProvider } from "@components/styling";
 import { ReactElement, ReactNode } from "react";
-import { RenderHookOptions, renderHook } from "@testing-library/react";
-
-import { render } from "@testing-library/react";
+import { RenderHookOptions, renderHook, render } from "@testing-library/react";
 
 export interface JestThemeOptions {
-    colorScheme?: ColorScheme
+    colorScheme?: ColorScheme;
 }
 
 function withThemeProvider({ colorScheme = "light" }: JestThemeOptions = {}) {
@@ -15,7 +13,7 @@ function withThemeProvider({ colorScheme = "light" }: JestThemeOptions = {}) {
                 <ThemeProvider theme={ShareGateTheme} colorScheme={colorScheme}>
                     {children}
                 </ThemeProvider>
-            )
+            );
         }
     };
 }
@@ -24,12 +22,12 @@ export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: Record
     return render(ui, {
         ...withThemeProvider(themeOptions),
         ...testingLibraryOptions
-    })
+    });
 }
 
 export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>, themeOptions?: JestThemeOptions) {
     return renderHook(callback, {
         ...withThemeProvider(themeOptions),
         ...renderHookOptions
-    })
+    });
 }

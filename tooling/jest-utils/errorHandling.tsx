@@ -1,4 +1,4 @@
-import { ReactNode, Component } from "react"
+import { ReactNode, Component } from "react";
 
 // React logs errors to the console when an error is thrown, even when a boundary exists. Silence it temporarily.
 // https://github.com/facebook/react/issues/15520
@@ -32,7 +32,7 @@ interface ErrorBoundaryProps {
     children?: ReactNode;
 }
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> {
+class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean }> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
 
@@ -54,7 +54,8 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> 
     }
 
     render() {
-        if (this.state.hasError) {
+        const { hasError } = this.state;
+        if (hasError) {
             return null;
         }
 
@@ -64,4 +65,4 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, { hasError: boolean}> 
     }
 }
 
-export { muteConsoleErrors, ErrorBoundary, throwOnConsoleLogs }
+export { muteConsoleErrors, ErrorBoundary, throwOnConsoleLogs };

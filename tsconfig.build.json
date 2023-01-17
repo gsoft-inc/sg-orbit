@@ -1,11 +1,11 @@
 {
-    "extends": "@sharegate/typescript-config/react.json",
+    "extends": "@sharegate/typescript-config/react-library.json",
     "compilerOptions": {
-        // We don't create declaration files when linting
-        "noEmit": true,
-
         // We disable some checks because this code was made before we had the strict option enabled
         "strict": false,
         "noFallthroughCasesInSwitch": false,
+
+        // Generate typing files only.
+        "emitDeclarationOnly": true
     }
 }

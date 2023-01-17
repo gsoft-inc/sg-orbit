@@ -1,5 +1,5 @@
 {
-    "extends": "../../typescript/tsconfig.shared.build.json",
+    "extends": "../../tsconfig.build.json",
     "compilerOptions": {
         "composite": true,
         "rootDir": "./src",
@@ -7,7 +7,7 @@
     },
     "include": [
         "src/**/*",
-        "../../typescript/typings/*",
+        "../../@types/*"
     ],
     "references": [
         {
