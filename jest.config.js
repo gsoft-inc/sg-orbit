@@ -7,7 +7,7 @@ module.exports = {
     moduleNameMapper: {
         "\\.css$": "identity-obj-proxy",
         "\\.svg": "<rootDir>/__mocks__/svgr-mock.js",
-        "@test-utils/(.*)$": "<rootDir>/tooling/jest-utils/$1",
+        "@jest-utils": "<rootDir>/tooling/jest-utils",
         "@components/(.*)$": "<rootDir>/packages/components/src/$1",
         "@experimental/(.*)$": "<rootDir>/packages/experimental/src/$1",
         "@orbit-ui/components$": "<rootDir>/packages/components/src/index.ts"
