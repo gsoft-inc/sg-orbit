@@ -81,6 +81,7 @@ test("state is updated when a new controlled value is provided on a subsequent r
 test("throw an error when a controlled value is not provided on the first run but is provided on a subsequent run", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {
@@ -104,6 +105,7 @@ test("throw an error when a controlled value is not provided on the first run bu
 test("throw an error when a controlled value is provided on the first run but is not provided on a subsequent run", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {

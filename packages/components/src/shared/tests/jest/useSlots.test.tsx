@@ -90,6 +90,7 @@ function DefaultedCard({ children, ...rest }: DivProps) {
 test("throw an exception when a required slot is not fulfilled", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     render(
@@ -124,6 +125,7 @@ test("do not throw an exception when a required slot is fulfilled", () => {
 test("throw an exception when required is a function and unfilled slots are returned", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     render(

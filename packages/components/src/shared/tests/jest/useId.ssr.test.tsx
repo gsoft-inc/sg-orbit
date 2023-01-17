@@ -17,8 +17,6 @@ describe("useId SSR", () => {
 
         expect(renderOnServer).not.toThrow();
 
-        const markup = renderOnServer();
-
-        expect(markup.includes("id=\"")).toBeTruthy();
+        expect(renderOnServer().includes("id=\"")).toBeTruthy();
     });
 });
