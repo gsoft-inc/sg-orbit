@@ -33,7 +33,7 @@ const getFiles = dir => {
 const parseName = file => {
     const splitPath = file.split(path.sep);
     const fileName = splitPath[splitPath.length - 1];
-    const size = ICONS_SIZES.find(s => fileName.replace(".svg", "").endsWith(s)).toString(); // find the icon size
+    const size = ICONS_SIZES.find(s => fileName.replace(".svg", "").endsWith(s))?.toString(); // find the icon size
     const group = fileName.replace(`-${size}.svg`, "");
 
     if (!fileName.startsWith("icon-")) {
