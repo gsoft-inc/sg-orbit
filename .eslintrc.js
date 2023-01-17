@@ -27,8 +27,7 @@ module.exports = {
                 "testing-library/prefer-find-by": "off", // multiple errors, should be fixed in another PR. 135 errors
                 "testing-library/no-node-access": "off", // multiple errors, should be fixed in another PR. 37 errors
                 "testing-library/render-result-naming-convention": "off", // multiple errors, should be fixed in another PR. 5 errors
-                "testing-library/prefer-presence-queries": "off", // multiple errors, should be fixed in another PR. 21 errors
-                "testing-library/no-container": "off"// multiple errors, should be fixed in another PR. 15 issues
+                "testing-library/prefer-presence-queries": "off" // multiple errors, should be fixed in another PR. 21 errors
             }
         },
         {

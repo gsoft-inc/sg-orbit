@@ -27,10 +27,14 @@ function backspace(element: HTMLElement, times = 1) {
 }
 
 function getStartDateInput(container: HTMLElement, name = "date-range") {
+    // containers are used here since we can't find the input by name otherwise,
+    // and we can't use placeholder since it's the same for the start and end date inputs
     return container.querySelector(`:scope [name=${name}-start-date]`) as HTMLElement;
 }
 
 function getEndDateInput(container: HTMLElement, name = "date-range") {
+    // containers are used here since we can't find the input by name otherwise,
+    // and we can't use placeholder since it's the same for the start and end date inputs
     return container.querySelector(`:scope [name=${name}-end-date]`) as HTMLElement;
 }
 
@@ -453,7 +457,7 @@ test("when autofocus is specified with a delay, the date range input is focused 
 
 describe("compact presets", () => {
     test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-        const { container, getByRole } = renderWithTheme(
+        const { container, getByRole, getByLabelText } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -462,7 +466,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+            userEvent.click(getByLabelText("Date presets"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -488,7 +492,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected, the preset menu trigger is focused", async () => {
-        const { container, getByRole } = renderWithTheme(
+        const { getByRole, getByLabelText } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -497,7 +501,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+            userEvent.click(getByLabelText("Date presets"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -506,11 +510,11 @@ describe("compact presets", () => {
             userEvent.click(getByRole("menuitemradio"));
         });
 
-        await waitFor(() => expect(container.querySelector(":scope [aria-label=\"Date presets\"]")).toHaveFocus());
+        await waitFor(() => expect(getByLabelText("Date presets")).toHaveFocus());
     });
 
     test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
-        const { container, getByRole } = renderWithTheme(
+        const { getByLabelText, getByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -519,7 +523,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+            userEvent.click(getByLabelText("Date presets"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -532,7 +536,7 @@ describe("compact presets", () => {
     });
 
     test("when dates match a preset, the selected item of the menu match the preset", async () => {
-        const { container, getByRole } = renderWithTheme(
+        const { getByLabelText, getByRole } = renderWithTheme(
             <DateRangeInput
                 startDate={new Date(2020, 0, 1)}
                 endDate={new Date(2020, 0, 7)}
@@ -543,7 +547,7 @@ describe("compact presets", () => {
         );
 
         act(() => {
-            userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+            userEvent.click(getByLabelText("Date presets"));
         });
 
         await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
@@ -737,7 +741,7 @@ test("when the dates are cleared, call onDatesChange with null for both dates", 
 test("when a preset is selected, call onDatesChange with both dates", async () => {
     const handler = jest.fn();
 
-    const { container, getByRole } = renderWithTheme(
+    const { getByLabelText, getByRole } = renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             onDatesChange={handler}
@@ -746,7 +750,7 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
     );
 
     act(() => {
-        userEvent.click(container.querySelector(":scope [aria-label=\"Date presets\"]"));
+        userEvent.click(getByLabelText("Date presets"));
     });
 
     await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
