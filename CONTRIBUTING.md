@@ -321,12 +321,12 @@ Execute all the linters & validate the TypeScript types.
 yarn lint
 ```
 
-### check-types
+### typecheck
 
 Validate the TypeScript types.
 
 ```bash
-yarn check-types
+yarn typecheck
 ```
 
 ### jest
