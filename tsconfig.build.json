@@ -1,11 +1,9 @@
 {
     "extends": "@sharegate/typescript-config/react-library.json",
     "compilerOptions": {
-        // We disable some checks because this code was made before we had the strict option enabled
         "strict": false,
         "noFallthroughCasesInSwitch": false,
 
-        // Generate typing files only.
         "emitDeclarationOnly": true
     }
 }
