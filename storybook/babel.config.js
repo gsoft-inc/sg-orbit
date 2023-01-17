@@ -1,7 +1,8 @@
 module.exports = {
-    "extends": "../build/babel.config",
+    "extends": "../babel.config",
     plugins: [
-        ["babel-plugin-named-asset-import",
+        [
+            "babel-plugin-named-asset-import",
             {
                 loaderMap: {
                     svg: {

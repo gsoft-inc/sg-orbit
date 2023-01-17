@@ -1,5 +1,5 @@
 import { TupleTypes, mergeProps } from "@components/shared";
-import { expectAssignable } from "@typescript/tests";
+import { expectAssignable } from "@typescript-utils";
 
 const a1: { a?: string; b?: string } = {};
 

@@ -30,13 +30,13 @@ test("state is the initial value when an initial value is provided", () => {
 
 test("throw an error when a controlled value and an initial value are provided", () => {
     let error = false;
-    
+
     try {
         renderHook(() => useControllableState(true, true, false));
     } catch {
         error = true;
     }
-    
+
     expect(error).toBeTruthy();
 });
 

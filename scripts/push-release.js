@@ -29,6 +29,3 @@ es(shell.exec(`git tag -a ${gitTag} -m "${gitTag}"`));
 es(shell.exec(`git push origin ${gitTag}`));
 
 console.log(chalk.green("success"), ` The release has been push to Git with the tag ${gitTag}`);
-
-
-

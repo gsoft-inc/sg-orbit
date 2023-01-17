@@ -26,7 +26,7 @@ const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) =
 
 test("can render on the server", () => {
     throwOnConsoleLogs();
-    
+
     const renderOnServer = () =>
         renderToString(
             <SvgImage src={BasicSvg} aria-label="Basic SVG" />

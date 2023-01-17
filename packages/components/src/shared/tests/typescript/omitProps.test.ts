@@ -1,4 +1,4 @@
-import { expectAssignable } from "@typescript/tests";
+import { expectAssignable } from "@typescript-utils";
 import { omitProps } from "@components/shared";
 
 interface MyObject {
