@@ -50,6 +50,8 @@ test("can parse a single static slot", () => {
     const { result } = renderHook(() => useRawSlots(children, ["title"]));
 
     expect(result.current.title).not.toBeUndefined();
+    // False positive, we are accessing the children prop
+    // eslint-disable-next-line testing-library/no-node-access
     expect(result.current.title.props.children).toBe(title);
 });
 
@@ -80,6 +82,8 @@ test("can parse a dynamic slot", () => {
     const { result } = renderHook(() => useRawSlots(children, ["title"]));
 
     expect(result.current.title).not.toBeUndefined();
+    // False positive, we are accessing the children prop
+    // eslint-disable-next-line testing-library/no-node-access
     expect(result.current.title.props.children).toBe(title);
 });
 

@@ -45,7 +45,7 @@ test("when the trigger is disabled, close on trigger leave", async () => {
     await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
 
     act(() => {
-        fireEvent.mouseLeave(getByTestId("trigger").parentElement);
+        fireEvent.mouseLeave(getByTestId("trigger"));
     });
 
     await waitFor(() => expect(queryByTestId("tooltip")).not.toBeInTheDocument());
