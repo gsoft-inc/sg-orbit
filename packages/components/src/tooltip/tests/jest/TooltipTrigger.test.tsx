@@ -45,6 +45,8 @@ test("when the trigger is disabled, close on trigger leave", async () => {
     await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
 
     act(() => {
+        // fireEvent.mouseLeave() doesn't fire when the element is disabled, so we take its parent
+        // eslint-disable-next-line testing-library/no-node-access
         fireEvent.mouseLeave(getByTestId("trigger").parentElement);
     });
 

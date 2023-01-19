@@ -42,11 +42,12 @@ test("when a query matching existing values is entered, open the overlay with th
 });
 
 test("when a query matching no values is entered, open the overlay with a not found message", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, getByText } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
             data-testid="autocomplete"
+            noResultsMessage="No results."
         >
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -60,7 +61,7 @@ test("when a query matching no values is entered, open the overlay with a not fo
     act(() => getByTestId("autocomplete").focus());
 
     await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("overlay").querySelector(".o-ui-autocomplete-no-results")));
+    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByText("No results.")));
 });
 
 test("when opening, the focus stay on the input", async () => {

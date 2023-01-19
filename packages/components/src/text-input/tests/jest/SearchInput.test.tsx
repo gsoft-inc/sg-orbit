@@ -11,7 +11,7 @@ function getInput(element: Element) {
 }
 
 test("clear value on clear button click", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -25,7 +25,7 @@ test("clear value on clear button click", async () => {
     await waitFor(() => expect(getInput(getByTestId("input")).value).toBe("Mars"));
 
     act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
+        fireEvent.click(getByLabelText("Clear value"));
     });
 
     await waitFor(() => expect(getInput(getByTestId("input")).value).toBe(""));
@@ -46,7 +46,7 @@ test("clear value on esc", async () => {
 });
 
 test("focus input on clear", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, getByLabelText } = renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -58,7 +58,7 @@ test("focus input on clear", async () => {
     );
 
     act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
+        fireEvent.click(getByLabelText("Clear value"));
     });
 
     await waitFor(() => expect(getByTestId("input")).toHaveFocus());

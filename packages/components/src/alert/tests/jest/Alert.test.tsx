@@ -8,47 +8,47 @@ import { waitFor } from "@testing-library/react";
 // ***** Behaviors *****
 
 test("when autoFocusButton value is \"primary\", autofocus the primary button on render", async () => {
-    const { getByText } = renderWithTheme(
+    const { getByRole } = renderWithTheme(
         <Alert autoFocusButton="primary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
-    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
+    await waitFor(() => expect(getByRole("button", { name: "Primary" })).toHaveFocus());
 });
 
 test("when autoFocusButton value is \"secondary\", autofocus the secondary button on render", async () => {
-    const { getByText } = renderWithTheme(
+    const { getByRole } = renderWithTheme(
         <Alert autoFocusButton="secondary" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
-    await waitFor(() => expect(getByText("Secondary").parentElement).toHaveFocus());
+    await waitFor(() => expect(getByRole("button", { name: "Secondary" })).toHaveFocus());
 });
 
 test("when autoFocusButton value is \"cancel\", autofocus the cancel button on render", async () => {
-    const { getByText } = renderWithTheme(
+    const { getByRole } = renderWithTheme(
         <Alert autoFocusButton="cancel" primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
-    await waitFor(() => expect(getByText("Cancel").parentElement).toHaveFocus());
+    await waitFor(() => expect(getByRole("button", { name: "Cancel" })).toHaveFocus());
 });
 
 test("when autoFocusButton value is not defined, autofocus the primary button", async () => {
-    const { getByText } = renderWithTheme(
+    const { getByRole } = renderWithTheme(
         <Alert primaryButtonLabel="Primary" secondaryButtonLabel="Secondary" cancelButtonLabel="Cancel">
             <Heading>Autopilot</Heading>
             <Content>Are you sure you want to engage autopilot?</Content>
         </Alert>
     );
 
-    await waitFor(() => expect(getByText("Primary").parentElement).toHaveFocus());
+    await waitFor(() => expect(getByRole("button", { name: "Primary" })).toHaveFocus());
 });
 
 // ***** Refs *****

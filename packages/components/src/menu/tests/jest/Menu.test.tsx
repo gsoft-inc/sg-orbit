@@ -110,7 +110,7 @@ test("down arrow keypress moves focus to the next item", async () => {
         fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("jupiter-item")));
+    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
 });
 
 test("up arrow keypress moves focus to the previous item", async () => {
@@ -134,7 +134,7 @@ test("up arrow keypress moves focus to the previous item", async () => {
         fireEvent.keyDown(getByTestId("jupiter-item"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-item")));
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });
 
 test("home keypress move the focus to the first item", async () => {
@@ -158,7 +158,7 @@ test("home keypress move the focus to the first item", async () => {
         fireEvent.keyDown(getByTestId("jupiter-item"), { key: Keys.home });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-item")));
+    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
 });
 
 test("end keypress move the focus to the last item", async () => {
@@ -178,7 +178,7 @@ test("end keypress move the focus to the last item", async () => {
         fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.end });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("mars-item")));
+    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the item selection", async () => {

@@ -390,7 +390,7 @@ test("when an aria-label and an aria-labelledby are provided, do not set aria-la
 });
 
 test("when no aria-label and no aria-labelledby are provided, set the trigger id as listbox aria-labelledby", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByRole } = renderWithTheme(
         <Select
             id="planets"
             defaultOpen
@@ -402,7 +402,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay").querySelector(".o-ui-listbox")).toHaveAttribute("aria-labelledby", "planets"));
+    await waitFor(() => expect(getByRole("listbox")).toHaveAttribute("aria-labelledby", "planets"));
 });
 
 // ***** Api *****
