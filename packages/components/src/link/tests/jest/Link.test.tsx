@@ -2,32 +2,32 @@ import { AddIcon } from "@components/icons";
 import { Link } from "@components/link";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 // ***** External *****;
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Link external href="#" aria-label="Add" data-testid="link">
             <AddIcon />
         </Link>
     );
 
-    await waitFor(() => expect(getByTestId("link")).toHaveAttribute("rel", "noopener noreferrer"));
+    await waitFor(() => expect(screen.getByTestId("link")).toHaveAttribute("rel", "noopener noreferrer"));
 });
 
 test("when autofocus is true, the icon link is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Link autoFocus href="#" aria-label="Add" data-testid="link">
             <AddIcon />
         </Link>
     );
 
-    await waitFor(() => expect(getByTestId("link")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("link")).toHaveFocus());
 });
 
 test("when autofocus is true and the link is disabled, the icon link is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Link
             disabled
             autoFocus
@@ -39,11 +39,11 @@ test("when autofocus is true and the link is disabled, the icon link is not focu
         </Link>
     );
 
-    await waitFor(() => expect(getByTestId("link")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("link")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the link is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Link
             autoFocus={10}
             href="#"
@@ -54,9 +54,9 @@ test("when autofocus is specified with a delay, the link is focused after the de
         </Link>
     );
 
-    expect(getByTestId("link")).not.toHaveFocus();
+    expect(screen.getByTestId("link")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("link")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("link")).toHaveFocus());
 });
 
 // ***** Refs *****

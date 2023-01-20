@@ -1,5 +1,5 @@
 import { Content, Footer } from "@components/placeholders";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Heading } from "@components/typography";
@@ -13,7 +13,7 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("when an element is manually autofocus, keep the focus on this element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -24,11 +24,11 @@ test("when an element is manually autofocus, keep the focus on this element", as
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("submit-button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("submit-button")).toHaveFocus());
 });
 
 test("when no element is focused, autofocus the first focusable element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -38,22 +38,22 @@ test("when no element is focused, autofocus the first focusable element", async 
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("focusable-element")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("focusable-element")).toHaveFocus());
 });
 
 test("when no element is focused and there are no focusable element, autofocus the popover element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveFocus());
 });
 
 test("do not autofocus an anchor element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -65,11 +65,11 @@ test("do not autofocus an anchor element", async () => {
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveFocus());
 });
 
 test("when dismissable, tabbing the last focusable element of the popover will move the focus to the dissmiss button", async () => {
-    const { getByTestId, getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Popover data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -81,18 +81,18 @@ test("when dismissable, tabbing the last focusable element of the popover will m
     );
 
     act(() => {
-        getByTestId("last-focusable-element").focus();
+        screen.getByTestId("last-focusable-element").focus();
     });
 
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByLabelText("Dismiss")).toHaveFocus());
+    await waitFor(() => expect(screen.getByLabelText("Dismiss")).toHaveFocus());
 });
 
 test("when not dismissable, tabbing the last focusable element of the popover will move the focus to the first focusable element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover dismissable={false} data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -104,61 +104,61 @@ test("when not dismissable, tabbing the last focusable element of the popover wi
     );
 
     act(() => {
-        getByTestId("last-focusable-element").focus();
+        screen.getByTestId("last-focusable-element").focus();
     });
 
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByTestId("first-focusable-element")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("first-focusable-element")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, the popover id attribute match the provided id value.", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover id="foo" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveAttribute("id", "foo"));
 });
 
 test("when an aria-label attribute and an aria-labelledby attribute are provided, do not set aria-labelledby on the popover", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover aria-label="Iconic Arecibo Observatory" aria-labelledby="heading-1" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("aria-label", "Iconic Arecibo Observatory"));
-    await waitFor(() => expect(getByTestId("popover")).not.toHaveAttribute("aria-labelledby"));
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveAttribute("aria-label", "Iconic Arecibo Observatory"));
+    await waitFor(() => expect(screen.getByTestId("popover")).not.toHaveAttribute("aria-labelledby"));
 });
 
 test("when an aria-labelledby attribute is provided, the popover aria-labelledby attribute value match the provided value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover aria-labelledby="heading-1" data-testid="popover">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("aria-labelledby", "heading-1"));
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveAttribute("aria-labelledby", "heading-1"));
 });
 
 test("when no aria-label or aria-labelledby attributes are provided, the popover aria-labelledby attribute value match the heading id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popover data-testid="popover">
             <Heading id="heading-1">Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Popover>
     );
 
-    await waitFor(() => expect(getByTestId("popover")).toHaveAttribute("aria-labelledby", "heading-1"));
+    await waitFor(() => expect(screen.getByTestId("popover")).toHaveAttribute("aria-labelledby", "heading-1"));
 });
 
 // ***** Api *****
@@ -166,7 +166,7 @@ test("when no aria-label or aria-labelledby attributes are provided, the popover
 test("call onClose when the dismiss button is click", async () => {
     const handler = jest.fn();
 
-    const { getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Popover onClose={handler}>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
@@ -174,7 +174,7 @@ test("call onClose when the dismiss button is click", async () => {
     );
 
     act(() => {
-        userEvent.click(getByLabelText("Dismiss"));
+        userEvent.click(screen.getByLabelText("Dismiss"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));

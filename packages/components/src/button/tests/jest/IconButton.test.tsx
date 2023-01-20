@@ -1,4 +1,4 @@
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { AddIcon } from "@components/icons";
 import { IconButton } from "@components/button";
@@ -8,7 +8,7 @@ import { renderWithTheme } from "@jest-utils";
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             autoFocus
             variant="secondary"
@@ -19,11 +19,11 @@ test("when autofocus is true, the button is focused on render", async () => {
         </IconButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             disabled
             autoFocus
@@ -35,11 +35,11 @@ test("when autofocus is true and the button is disabled, the button is not focus
         </IconButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             autoFocus={10}
             variant="secondary"
@@ -50,9 +50,9 @@ test("when autofocus is specified with a delay, the button is focused after the 
         </IconButton>
     );
 
-    expect(getByTestId("button")).not.toHaveFocus();
+    expect(screen.getByTestId("button")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 // ***** Api *****
