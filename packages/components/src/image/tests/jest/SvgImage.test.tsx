@@ -45,6 +45,8 @@ test("an aria-hidden attribute is added to all the path elements of the svg", as
         <SvgImage data-testid="svg" src={BasicSvg} aria-label="Basic SVG" />
     );
 
+    // In this specific case, we really want to iterate over the path elements
+    // eslint-disable-next-line testing-library/no-node-access
     const paths = getByTestId("svg").querySelectorAll("path");
 
     await waitFor(() => expect(paths[0]).toHaveAttribute("aria-hidden", "true"));
@@ -57,6 +59,8 @@ test("remove the title element of the svg", async () => {
         <SvgImage data-testid="svg" src={SvgWithTitle} aria-label="Basic SVG" />
     );
 
+    // In this specific case, we really want find a child element of the svg via its DOM type
+    // eslint-disable-next-line testing-library/no-node-access
     await waitFor(() => expect(queryByTestId("svg").querySelector("title")).toBeNull());
 });
 

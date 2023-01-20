@@ -96,7 +96,7 @@ test("down arrow keypress moves focus to the next option", async () => {
         fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("jupiter-option")));
+    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
 });
 
 test("up arrow keypress moves focus to the previous option", async () => {
@@ -120,7 +120,7 @@ test("up arrow keypress moves focus to the previous option", async () => {
         fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-option")));
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
 
 test("home keypress move the focus to the first option", async () => {
@@ -144,7 +144,7 @@ test("home keypress move the focus to the first option", async () => {
         fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.home });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("earth-option")));
+    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
 });
 
 test("end keypress move the focus to the last option", async () => {
@@ -164,7 +164,7 @@ test("end keypress move the focus to the last option", async () => {
         fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.end });
     });
 
-    await waitFor(() => expect(document.activeElement).toBe(getByTestId("mars-option")));
+    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
 });
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the option selection", async () => {
@@ -1094,14 +1094,14 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("DIV");
 });
 
-// test("set ref once", async () => {
-//     const handler = jest.fn();
+test("set ref once", async () => {
+    const handler = jest.fn();
 
-//     renderWithTheme(
-//         <Listbox ref={handler} />
-//     );
+    renderWithTheme(
+        <Listbox ref={handler} />
+    );
 
-//     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-// });
+    await waitFor(() => expect(handler).toHaveBeenCalled());
+});
 
 
