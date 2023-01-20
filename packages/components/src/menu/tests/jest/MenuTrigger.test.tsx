@@ -132,7 +132,7 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
 });
 
 test("when selectionMode is \"none\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="none" data-testid="menu">
@@ -147,7 +147,7 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -157,7 +157,7 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
 });
 
 test("when selectionMode is \"single\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -172,7 +172,7 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -182,7 +182,7 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
 });
 
 test("when selectionMode is \"multiple\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -197,7 +197,7 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -210,7 +210,7 @@ test("selecting an item focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -225,7 +225,7 @@ test("selecting an item focus the trigger", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
@@ -235,7 +235,7 @@ test("selecting an item focus the trigger", async () => {
 });
 
 test("when closeOnSelect is false, selecting an item doesn't close the menu", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger closeOnSelect={false} defaultOpen>
             <Button>Trigger</Button>
             <Menu data-testid="menu">
@@ -246,17 +246,17 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <MenuTrigger>
@@ -275,7 +275,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-item").focus();
@@ -291,7 +291,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <MenuTrigger>
@@ -310,7 +310,7 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-item").focus();
@@ -422,7 +422,7 @@ test("when a trigger doesn't have an id, a trigger id is autogenerated", async (
 test("call onOpenChange when the menu open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Menu data-testid="menu">
@@ -437,7 +437,7 @@ test("call onOpenChange when the menu open", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -446,7 +446,7 @@ test("call onOpenChange when the menu open", async () => {
 test("call onOpenChange when the menu close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <MenuTrigger
             onOpenChange={handler}
             defaultOpen
@@ -460,7 +460,7 @@ test("call onOpenChange when the menu close", async () => {
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toBeInTheDocument());
+    expect(await findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-item").focus();

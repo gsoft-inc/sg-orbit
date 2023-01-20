@@ -459,7 +459,7 @@ test("when autofocus is specified with a delay, the date range input is focused 
 
 describe("compact presets", () => {
     test("when a preset is selected, both inputs are filled with the preset dates", async () => {
-        const { container, getByRole, getByLabelText } = renderWithTheme(
+        const { container, getByRole, getByLabelText, findByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -471,7 +471,7 @@ describe("compact presets", () => {
             userEvent.click(getByLabelText("Date presets"));
         });
 
-        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+        expect(await findByRole("menu")).toBeInTheDocument();
 
         act(() => {
             userEvent.click(getByRole("menuitemradio"));
@@ -494,7 +494,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected, the preset menu trigger is focused", async () => {
-        const { getByRole, getByLabelText } = renderWithTheme(
+        const { getByRole, getByLabelText, findByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -506,7 +506,7 @@ describe("compact presets", () => {
             userEvent.click(getByLabelText("Date presets"));
         });
 
-        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+        expect(await findByRole("menu")).toBeInTheDocument();
 
         act(() => {
             userEvent.click(getByRole("menuitemradio"));
@@ -516,7 +516,7 @@ describe("compact presets", () => {
     });
 
     test("when a preset is selected from the menu, the selected item of the menu match the selected preset", async () => {
-        const { getByLabelText, getByRole } = renderWithTheme(
+        const { getByLabelText, getByRole, findByRole } = renderWithTheme(
             <DateRangeInput
                 presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
                 presetsVariant="compact"
@@ -528,7 +528,7 @@ describe("compact presets", () => {
             userEvent.click(getByLabelText("Date presets"));
         });
 
-        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+        expect(await findByRole("menu")).toBeInTheDocument();
 
         act(() => {
             userEvent.click(getByRole("menuitemradio"));
@@ -538,7 +538,7 @@ describe("compact presets", () => {
     });
 
     test("when dates match a preset, the selected item of the menu match the preset", async () => {
-        const { getByLabelText, getByRole } = renderWithTheme(
+        const { getByLabelText, getByRole, findByRole } = renderWithTheme(
             <DateRangeInput
                 startDate={new Date(2020, 0, 1)}
                 endDate={new Date(2020, 0, 7)}
@@ -552,7 +552,7 @@ describe("compact presets", () => {
             userEvent.click(getByLabelText("Date presets"));
         });
 
-        await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+        expect(await findByRole("menu")).toBeInTheDocument();
 
         await waitFor(() => expect(getByRole("menuitemradio")).toHaveAttribute("aria-checked", "true"));
     });
@@ -743,7 +743,7 @@ test("when the dates are cleared, call onDatesChange with null for both dates", 
 test("when a preset is selected, call onDatesChange with both dates", async () => {
     const handler = jest.fn();
 
-    const { getByLabelText, getByRole } = renderWithTheme(
+    const { getByLabelText, getByRole, findByRole } = renderWithTheme(
         <DateRangeInput
             presets={[{ text: "Preset 1", startDate: new Date(2020, 0, 1), endDate: new Date(2020, 0, 7) }]}
             onDatesChange={handler}
@@ -755,7 +755,7 @@ test("when a preset is selected, call onDatesChange with both dates", async () =
         userEvent.click(getByLabelText("Date presets"));
     });
 
-    await waitFor(() => expect(getByRole("menu")).toBeInTheDocument());
+    expect(await findByRole("menu")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByRole("menuitemradio"));

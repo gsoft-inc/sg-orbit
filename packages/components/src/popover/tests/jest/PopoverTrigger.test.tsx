@@ -86,7 +86,7 @@ test("when a popover is dismissable, hide the popover on trigger toggle", async 
 });
 
 test("when a popover is not dismissable, do not hide the popover on outside click", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -106,11 +106,11 @@ test("when a popover is not dismissable, do not hide the popover on outside clic
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
+    expect(await findByTestId("popover")).toBeInTheDocument();
 });
 
 test("when a popover is not dismissable, do not hide the popover on esc keydown", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -130,11 +130,11 @@ test("when a popover is not dismissable, do not hide the popover on esc keydown"
         fireEvent.keyDown(getByTestId("popover"), { key: Keys.esc });
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
+    expect(await findByTestId("popover")).toBeInTheDocument();
 });
 
 test("when a popover is not dismissable, do not hide the popover on trigger toggle", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -154,7 +154,7 @@ test("when a popover is not dismissable, do not hide the popover on trigger togg
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
+    expect(await findByTestId("popover")).toBeInTheDocument();
 });
 
 test("when the context close function is called, close the dialog", async () => {
@@ -174,7 +174,7 @@ test("when the context close function is called, close the dialog", async () => 
         );
     });
 
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <CustomDialog />
@@ -185,7 +185,7 @@ test("when the context close function is called, close the dialog", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("close-btn")).toBeInTheDocument());
+    expect(await findByTestId("close-btn")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("close-btn"));
@@ -197,7 +197,7 @@ test("when the context close function is called, close the dialog", async () => 
 // ***** Aria *****
 
 test("a popover trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -211,7 +211,7 @@ test("a popover trigger have an aria-haspopup attribute", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
+    expect(await findByTestId("popover")).toBeInTheDocument();
 
     await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-haspopup", "dialog"));
 });
@@ -221,7 +221,7 @@ test("a popover trigger have an aria-haspopup attribute", async () => {
 test("call onOpenChange when the popover appears", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <PopoverTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Popover data-testid="popover">
@@ -235,8 +235,7 @@ test("call onOpenChange when the popover appears", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("popover")).toBeInTheDocument());
-
+    expect(await findByTestId("popover")).toBeInTheDocument();
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });

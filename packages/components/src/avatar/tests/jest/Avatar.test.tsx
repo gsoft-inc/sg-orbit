@@ -6,19 +6,19 @@ import { waitFor } from "@testing-library/react";
 // ***** Aria *****
 
 test("when no image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = renderWithTheme(
+    const { findByLabelText } = renderWithTheme(
         <Avatar name="Elon Musk" aria-label="Maye Musk" />
     );
 
-    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+    expect(await findByLabelText("Maye Musk")).not.toBeNull();
 });
 
 test("when an image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = renderWithTheme(
+    const { findByLabelText } = renderWithTheme(
         <Avatar src="dummy" name="Elon Musk" aria-label="Maye Musk" />
     );
 
-    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+    expect(await findByLabelText("Maye Musk")).not.toBeNull();
 });
 
 // ***** Refs *****

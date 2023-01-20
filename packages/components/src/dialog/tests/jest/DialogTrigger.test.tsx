@@ -97,7 +97,7 @@ test("when dismissable is true, close the dialog on esc keypress", async () => {
 });
 
 test("when dismissable is false, do not close the dialog on outside click", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -117,11 +117,11 @@ test("when dismissable is false, do not close the dialog on outside click", asyn
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when dismissable is false, do not close the dialog on esc keypress", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger dismissable={false}>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -141,7 +141,7 @@ test("when dismissable is false, do not close the dialog on esc keypress", async
         fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when the context close function is called, close the dialog", async () => {
@@ -161,7 +161,7 @@ test("when the context close function is called, close the dialog", async () => 
         );
     });
 
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <CustomDialog />
@@ -172,7 +172,7 @@ test("when the context close function is called, close the dialog", async () => 
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("close-btn")).toBeInTheDocument());
+    expect(await findByTestId("close-btn")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("close-btn"));
@@ -357,7 +357,7 @@ test("set ref once", async () => {
 // ***** Nested overlay components *****
 
 test("when a dialog contains a select component, focusing an option do not close the dialog", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -381,24 +381,24 @@ test("when a dialog contains a select component, focusing an option do not close
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("select-overlay")).toBeInTheDocument());
+    expect(await findByTestId("select-overlay")).toBeInTheDocument();
 
     act(() => {
         getByTestId("option-2").focus();
     });
 
-    await waitFor(() => expect(getByTestId("select-overlay")).toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("select-overlay")).toBeInTheDocument();
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when a dialog contains a select component, selecting an option do not close the dialog", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -422,23 +422,23 @@ test("when a dialog contains a select component, selecting an option do not clos
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("select-overlay")).toBeInTheDocument());
+    expect(await findByTestId("select-overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("option-2"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when a dialog contains a select, closing the select with an esc keydown do not close the dialog", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -462,13 +462,13 @@ test("when a dialog contains a select, closing the select with an esc keydown do
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("select-overlay")).toBeInTheDocument());
+    expect(await findByTestId("select-overlay")).toBeInTheDocument();
 
     act(() => {
         getByTestId("option-2").focus();
@@ -479,11 +479,11 @@ test("when a dialog contains a select, closing the select with an esc keydown do
     });
 
     await waitFor(() => expect(queryByTestId("select-overlay")).not.toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when a dialog contains a select, closing the select with a tab keydown select the next focusable element of the dialog", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -508,13 +508,14 @@ test("when a dialog contains a select, closing the select with a tab keydown sel
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("select-overlay")).toBeInTheDocument());
+    expect(await findByTestId("select-overlay")).toBeInTheDocument();
+
 
     act(() => {
         getByTestId("option-2").focus();
@@ -526,11 +527,11 @@ test("when a dialog contains a select, closing the select with a tab keydown sel
 
     await waitFor(() => expect(queryByTestId("select-overlay")).not.toBeInTheDocument());
     await waitFor(() => expect(queryByTestId("button")).toHaveFocus());
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 });
 
 test("when a dialog contains a radio group, only the first radio of the group is focused with tabbulation", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <DialogTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Dialog data-testid="dialog">
@@ -553,7 +554,7 @@ test("when a dialog contains a radio group, only the first radio of the group is
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("dialog")).toBeInTheDocument());
+    expect(await findByTestId("dialog")).toBeInTheDocument();
 
     act(() => {
         getByTestId("button-1").focus();

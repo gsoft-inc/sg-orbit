@@ -22,7 +22,7 @@ test("when an id is provided, the group field id attribute match the provided id
 });
 
 test("when the id is auto generated, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <GroupField data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -33,14 +33,14 @@ test("when the id is auto generated, the group field aria-labelledby attribute m
         </GroupField>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
-    const label = await waitFor(() => getByTestId("field-label"));
+    const field = await findByTestId("field");
+    const label = await findByTestId("field-label");
 
     expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 test("when an id is provided, the group field aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <GroupField id="foo" data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -51,14 +51,14 @@ test("when an id is provided, the group field aria-labelledby attribute match th
         </GroupField>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
-    const label = await waitFor(() => getByTestId("field-label"));
+    const field = await findByTestId("field");
+    const label = await findByTestId("field-label");
 
     expect(field.getAttribute("aria-labelledby")).toBe(label.getAttribute("id"));
 });
 
 test("when the id is auto generated, the group field aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <GroupField data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -70,14 +70,14 @@ test("when the id is auto generated, the group field aria-describedby attribute 
         </GroupField>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
-    const message = await waitFor(() => getByTestId("field-message"));
+    const field = await findByTestId("field");
+    const message = await findByTestId("field-message");
 
     expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });
 
 test("when an id is provided, the group field aria-describedby attribute match the message id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <GroupField id="foo" data-testid="field">
             <Label data-testid="field-label">Your favorite galaxy?</Label>
             <CheckboxGroup>
@@ -89,8 +89,8 @@ test("when an id is provided, the group field aria-describedby attribute match t
         </GroupField>
     );
 
-    const field = await waitFor(() => getByTestId("field"));
-    const message = await waitFor(() => getByTestId("field-message"));
+    const field = await findByTestId("field");
+    const message = await findByTestId("field-message");
 
     expect(field.getAttribute("aria-describedby")).toBe(message.getAttribute("id"));
 });

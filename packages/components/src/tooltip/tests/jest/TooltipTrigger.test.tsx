@@ -14,7 +14,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when the trigger is disabled, open on trigger hover", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <TooltipTrigger>
             <Button disabled data-testid="trigger">Trigger</Button>
             <Tooltip data-testid="tooltip">Content</Tooltip>
@@ -26,11 +26,11 @@ test("when the trigger is disabled, open on trigger hover", async () => {
         fireEvent.mouseEnter(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+    expect(await findByTestId("tooltip")).toBeInTheDocument();
 });
 
 test("when the trigger is disabled, close on trigger leave", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <TooltipTrigger>
             <Button disabled data-testid="trigger">Trigger</Button>
             <Tooltip data-testid="tooltip">Content</Tooltip>
@@ -42,7 +42,7 @@ test("when the trigger is disabled, close on trigger leave", async () => {
         fireEvent.mouseEnter(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+    expect(await findByTestId("tooltip")).toBeInTheDocument();
 
     act(() => {
         // fireEvent.mouseLeave() doesn't fire when the element is disabled, so we take its parent

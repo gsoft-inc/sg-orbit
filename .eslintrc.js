@@ -22,8 +22,7 @@ module.exports = {
             ],
             rules: {
                 "testing-library/no-unnecessary-act": "off", // multiple errors, should be fixed in another PR. 515 errors
-                "testing-library/prefer-screen-queries": "off", // multiple errors, should be fixed in another PR. 1343 errors
-                "testing-library/prefer-find-by": "off" // multiple errors, should be fixed in another PR. 135 errors
+                "testing-library/prefer-screen-queries": "off" // multiple errors, should be fixed in another PR. 1343 errors
             }
         },
         {
