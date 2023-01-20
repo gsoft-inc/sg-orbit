@@ -1,28 +1,28 @@
 import { Transition } from "@components/transition";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
 
 test("when no enter transition is specified, render the element on show", async () => {
-    const { findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
     );
 
-    expect(await findByTestId("content")).toBeInTheDocument();
+    expect(await screen.findByTestId("content")).toBeInTheDocument();
 });
 
 test("when no leave transition is specified, remove the element on hide", async () => {
-    const { findByTestId, queryByTestId, rerender } = renderWithTheme(
+    const { rerender } = renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
     );
 
-    expect(await findByTestId("content")).toBeInTheDocument();
+    expect(await screen.findByTestId("content")).toBeInTheDocument();
 
     rerender(
         <Transition show={false}>
@@ -30,7 +30,7 @@ test("when no leave transition is specified, remove the element on hide", async 
         </Transition>
     );
 
-    await waitFor(() => expect(queryByTestId("content")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("content")).not.toBeInTheDocument());
 });
 
 // ***** Refs *****

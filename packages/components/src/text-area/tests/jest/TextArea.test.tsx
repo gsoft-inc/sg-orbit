@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { TextArea } from "@components/text-area";
 import { createRef } from "react";
@@ -13,41 +13,41 @@ Object.defineProperty(document, "fonts", {
 });
 
 test("when autofocus is true, the input is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
-    expect(getByTestId("input")).not.toHaveFocus();
+    expect(screen.getByTestId("input")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 test("when in a field, clicking on the field label focus the input", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Field>
             <Label data-testid="label">Label</Label>
             <TextArea aria-label="Label" data-testid="input" />
@@ -55,10 +55,10 @@ test("when in a field, clicking on the field label focus the input", async () =>
     );
 
     act(() => {
-        userEvent.click(getByTestId("label"));
+        userEvent.click(screen.getByTestId("label"));
     });
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 // ***** Api *****
@@ -66,12 +66,12 @@ test("when in a field, clicking on the field label focus the input", async () =>
 test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        userEvent.type(getByTestId("input"), "a");
+        userEvent.type(screen.getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
@@ -81,12 +81,12 @@ test("call onValueChange when the value change", async () => {
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextArea onChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        userEvent.type(getByTestId("input"), "a");
+        userEvent.type(screen.getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));

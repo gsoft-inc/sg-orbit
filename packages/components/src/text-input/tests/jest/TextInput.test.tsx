@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { TextInput } from "@components/text-input";
 import { createRef } from "react";
@@ -7,47 +7,47 @@ import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 test("when a className is provided, render the className on the input element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput className="earth" aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).toHaveClass("earth"));
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveClass("earth"));
 });
 
 test("when style is provided, render the style on the input element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput style={{ border: "1px solid red" }} aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).toHaveStyle({
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveStyle({
         border: "1px solid red"
     }));
 });
 
 test("when a wrapper className is provided, render the className on the wrapper element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput wrapperProps={{ className: "earth", "data-testid": "wrapper" }} aria-label="Label" />
     );
 
-    await waitFor(() => expect(getByTestId("wrapper")).toHaveClass("earth"));
+    await waitFor(() => expect(screen.getByTestId("wrapper")).toHaveClass("earth"));
 });
 
 test("when a wrapper style is provided, render the style on the wrapper element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput wrapperProps={{ style: { border: "1px solid red" }, "data-testid": "wrapper" }} aria-label="Label" />
     );
 
-    await waitFor(() => expect(getByTestId("wrapper")).toHaveStyle({
+    await waitFor(() => expect(screen.getByTestId("wrapper")).toHaveStyle({
         border: "1px solid red"
     }));
 });
 
 test("when a styled prop is provided, render the style on the wrapper element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput marginTop={10} wrapperProps={{ "data-testid": "wrapper" }} aria-label="Label" />
     );
 
-    await waitFor(() => expect(getByTestId("wrapper")).toHaveStyle({
+    await waitFor(() => expect(screen.getByTestId("wrapper")).toHaveStyle({
         marginTop: "var(--o-ui-sp-10)"
     }));
 });
@@ -55,41 +55,41 @@ test("when a styled prop is provided, render the style on the wrapper element", 
 // ***** Behaviors *****
 
 test("when autofocus is true, the input is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 test("when autofocus is true and the input is disabled, the input is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput disabled autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the input is readonly, the input is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput readOnly autoFocus aria-label="Label" data-testid="input" />
     );
 
-    await waitFor(() => expect(getByTestId("input")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the input is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput autoFocus={10} aria-label="Label" data-testid="input" />
     );
 
-    expect(getByTestId("input")).not.toHaveFocus();
+    expect(screen.getByTestId("input")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 test("when in a field, clicking on the field label focus the input", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Field>
             <Label data-testid="label">Label</Label>
             <TextInput data-testid="input" />
@@ -97,10 +97,10 @@ test("when in a field, clicking on the field label focus the input", async () =>
     );
 
     act(() => {
-        userEvent.click(getByTestId("label"));
+        userEvent.click(screen.getByTestId("label"));
     });
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 // ***** Api *****
@@ -108,12 +108,12 @@ test("when in a field, clicking on the field label focus the input", async () =>
 test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        userEvent.type(getByTestId("input"), "a");
+        userEvent.type(screen.getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
@@ -123,12 +123,12 @@ test("call onValueChange when the value change", async () => {
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TextInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        userEvent.type(getByTestId("input"), "a");
+        userEvent.type(screen.getByTestId("input"), "a");
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));

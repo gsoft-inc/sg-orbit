@@ -1,24 +1,24 @@
 import { Tooltip } from "@components/tooltip";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 // ***** Aria *****
 
 test("when an id is provided, the tooltip id attribute match the provided id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tooltip id="foo" data-testid="tooltip">Content</Tooltip>
     );
 
-    await waitFor(() => expect(getByTestId("tooltip")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("tooltip")).toHaveAttribute("id", "foo"));
 });
 
 test("a tooltip have the \"tooltip\" role", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tooltip data-testid="tooltip">Content</Tooltip>
     );
 
-    await waitFor(() => expect(getByTestId("tooltip")).toHaveAttribute("role", "tooltip"));
+    await waitFor(() => expect(screen.getByTestId("tooltip")).toHaveAttribute("role", "tooltip"));
 });
 
 // ***** Refs *****

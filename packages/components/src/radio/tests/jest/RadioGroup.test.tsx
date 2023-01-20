@@ -1,5 +1,5 @@
 import { Radio, RadioGroup } from "@components/radio";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { Keys } from "@components/shared";
 import { ToggleButton } from "@components/button";
@@ -14,44 +14,44 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("first radio is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
         </RadioGroup>
     );
 
-    expect(getInput(getByTestId("radio-1"))).toHaveAttribute("tabindex", "0");
-    expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "-1");
+    expect(getInput(screen.getByTestId("radio-1"))).toHaveAttribute("tabindex", "0");
+    expect(getInput(screen.getByTestId("radio-2"))).toHaveAttribute("tabindex", "-1");
 });
 
 test("selected radio is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup defaultValue="2">
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-1"))).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
 });
 
 test("a disabled radio is not tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio disabled value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
         </RadioGroup>
     );
 
-    expect(getInput(getByTestId("radio-1"))).not.toHaveAttribute("tabindex");
+    expect(getInput(screen.getByTestId("radio-1"))).not.toHaveAttribute("tabindex");
 
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).toHaveAttribute("tabindex", "0"));
 });
 
 test("right arrow keypress select the next radio", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -60,18 +60,18 @@ test("right arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        getInput(getByTestId("radio-1")).focus();
+        getInput(screen.getByTestId("radio-1")).focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowRight });
+        fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
     });
 
-    await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2")).checked).toBeTruthy());
 });
 
 test("left arrow keypress select the next radio", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -80,18 +80,18 @@ test("left arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        getInput(getByTestId("radio-1")).focus();
+        getInput(screen.getByTestId("radio-1")).focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowLeft });
+        fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowLeft });
     });
 
-    await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-3")).checked).toBeTruthy());
 });
 
 test("down arrow keypress select the next radio", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -100,18 +100,18 @@ test("down arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        getInput(getByTestId("radio-1")).focus();
+        getInput(screen.getByTestId("radio-1")).focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowDown });
+        fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getInput(getByTestId("radio-2")).checked).toBeTruthy());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2")).checked).toBeTruthy());
 });
 
 test("up arrow keypress select the next radio", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -120,18 +120,18 @@ test("up arrow keypress select the next radio", async () => {
     );
 
     act(() => {
-        getInput(getByTestId("radio-1")).focus();
+        getInput(screen.getByTestId("radio-1")).focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowUp });
+        fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getInput(getByTestId("radio-3")).checked).toBeTruthy());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-3")).checked).toBeTruthy());
 });
 
 test("when autofocus is true, the first radio is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup autoFocus>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -139,11 +139,11 @@ test("when autofocus is true, the first radio is focused on render", async () =>
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-1"))).toHaveFocus());
 });
 
 test("when autofocus is true and the radio group is disabled, the first radio is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup disabled autoFocus>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -151,11 +151,11 @@ test("when autofocus is true and the radio group is disabled, the first radio is
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-1"))).not.toHaveFocus());
 });
 
 test("when autofocus is true and the first radio is disabled, the next checkbox is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup autoFocus>
             <Radio disabled value="1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -163,11 +163,11 @@ test("when autofocus is true and the first radio is disabled, the next checkbox 
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).not.toHaveFocus());
 });
 
 test("when autofocus is true and there is a default value, the radio matching the default value is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup defaultValue="2" autoFocus>
             <Radio value="1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -175,11 +175,11 @@ test("when autofocus is true and there is a default value, the radio matching th
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the first radio is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup autoFocus={10}>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -187,15 +187,15 @@ test("when autofocus is specified with a delay, the first radio is focused after
         </RadioGroup>
     );
 
-    expect(getInput(getByTestId("radio-1"))).not.toHaveFocus();
+    expect(getInput(screen.getByTestId("radio-1"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-1"))).toHaveFocus());
 });
 
 test("when a radio value is not provided, the value is autogenerated", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup onChange={handler}>
             <Radio>1</Radio>
             <Radio data-testid="radio-2">2</Radio>
@@ -204,7 +204,7 @@ test("when a radio value is not provided, the value is autogenerated", async () 
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio-2")));
+        userEvent.click(getInput(screen.getByTestId("radio-2")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
@@ -215,7 +215,7 @@ test("when a radio value is not provided, the value is autogenerated", async () 
 test("call onChange when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup
             onChange={handler}
         >
@@ -226,7 +226,7 @@ test("call onChange when a radio is selected", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio-1")));
+        userEvent.click(getInput(screen.getByTestId("radio-1")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
@@ -236,7 +236,7 @@ test("call onChange when a radio is selected", async () => {
 test("call onChange when a radio is selected with the keyboard arrows", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup
             onChange={handler}
         >
@@ -247,11 +247,11 @@ test("call onChange when a radio is selected with the keyboard arrows", async ()
     );
 
     act(() => {
-        getInput(getByTestId("radio-1")).focus();
+        getInput(screen.getByTestId("radio-1")).focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getInput(getByTestId("radio-1")), { key: Keys.arrowRight });
+        fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "2"));
@@ -261,7 +261,7 @@ test("call onChange when a radio is selected with the keyboard arrows", async ()
 test("call the radio onValueChange handler when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio onValueChange={handler} value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -270,7 +270,7 @@ test("call the radio onValueChange handler when a radio is selected", async () =
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio-1")));
+        userEvent.click(getInput(screen.getByTestId("radio-1")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -280,7 +280,7 @@ test("call the radio onValueChange handler when a radio is selected", async () =
 test("call the radio onChange handler when a radio is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio onChange={handler} value="1" data-testid="radio-1">1</Radio>
             <Radio value="2">2</Radio>
@@ -289,7 +289,7 @@ test("call the radio onChange handler when a radio is selected", async () => {
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio-1")));
+        userEvent.click(getInput(screen.getByTestId("radio-1")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -299,7 +299,7 @@ test("call the radio onChange handler when a radio is selected", async () => {
 // ***** Aria *****
 
 test("when a name is provided, the group elements name attribute match the provided name", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup name="foo">
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -307,13 +307,13 @@ test("when a name is provided, the group elements name attribute match the provi
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio-1"))).toHaveAttribute("name", "foo"));
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("name", "foo"));
-    await waitFor(() => expect(getInput(getByTestId("radio-3"))).toHaveAttribute("name", "foo"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-1"))).toHaveAttribute("name", "foo"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).toHaveAttribute("name", "foo"));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-3"))).toHaveAttribute("name", "foo"));
 });
 
 test("when no name is provided, all the group elements share the same auto generated name", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <Radio value="1" data-testid="radio-1">1</Radio>
             <Radio value="2" data-testid="radio-2">2</Radio>
@@ -321,15 +321,15 @@ test("when no name is provided, all the group elements share the same auto gener
         </RadioGroup>
     );
 
-    const name = getInput(getByTestId("radio-1")).getAttribute("name");
+    const name = getInput(screen.getByTestId("radio-1")).getAttribute("name");
 
     await waitFor(() => expect(name).toBeDefined());
-    await waitFor(() => expect(getInput(getByTestId("radio-2"))).toHaveAttribute("name", name));
-    await waitFor(() => expect(getInput(getByTestId("radio-3"))).toHaveAttribute("name", name));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-2"))).toHaveAttribute("name", name));
+    await waitFor(() => expect(getInput(screen.getByTestId("radio-3"))).toHaveAttribute("name", name));
 });
 
 test("a radio group role is \"radiogroup\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup data-testid="radio-group">
             <Radio value="1">1</Radio>
             <Radio value="2">2</Radio>
@@ -337,11 +337,11 @@ test("a radio group role is \"radiogroup\"", async () => {
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getByTestId("radio-group")).toHaveAttribute("role", "radiogroup"));
+    await waitFor(() => expect(screen.getByTestId("radio-group")).toHaveAttribute("role", "radiogroup"));
 });
 
 test("when a radio group elements are not radio, their role is \"radio\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <RadioGroup>
             <ToggleButton value="1" data-testid="radio-1">1</ToggleButton>
             <ToggleButton value="2" data-testid="radio-2">2</ToggleButton>
@@ -349,9 +349,9 @@ test("when a radio group elements are not radio, their role is \"radio\"", async
         </RadioGroup>
     );
 
-    await waitFor(() => expect(getByTestId("radio-1")).toHaveAttribute("role", "radio"));
-    await waitFor(() => expect(getByTestId("radio-2")).toHaveAttribute("role", "radio"));
-    await waitFor(() => expect(getByTestId("radio-3")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(screen.getByTestId("radio-1")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(screen.getByTestId("radio-2")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(screen.getByTestId("radio-3")).toHaveAttribute("role", "radio"));
 });
 
 // ***** Refs *****
@@ -414,7 +414,7 @@ test("set ref once", async () => {
 
 describe("with toggle buttons", () => {
     test("a toggled button have aria-checked set to \"true\"", async () => {
-        const { getByTestId } = renderWithTheme(
+        renderWithTheme(
             <RadioGroup>
                 <ToggleButton value="1" data-testid="button-1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>
@@ -423,16 +423,16 @@ describe("with toggle buttons", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("button-1"));
+            userEvent.click(screen.getByTestId("button-1"));
         });
 
-        await waitFor(() => expect(getByTestId("button-1")).toHaveAttribute("aria-checked", "true"));
+        await waitFor(() => expect(screen.getByTestId("button-1")).toHaveAttribute("aria-checked", "true"));
     });
 
     test("call onChange when a button is toggled", async () => {
         const handler = jest.fn();
 
-        const { getByTestId } = renderWithTheme(
+        renderWithTheme(
             <RadioGroup onChange={handler}>
                 <ToggleButton value="1" data-testid="button-1">1</ToggleButton>
                 <ToggleButton value="2">2</ToggleButton>
@@ -441,7 +441,7 @@ describe("with toggle buttons", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("button-1"));
+            userEvent.click(screen.getByTestId("button-1"));
         });
 
         await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
