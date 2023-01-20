@@ -1,7 +1,7 @@
 import { Inline, Stack } from "@components/layout";
 
 import { Div } from "@components/html";
-import { EmailIcon } from "@components/icons";
+import { EmailMajorIcon } from "@components/icons";
 import { SearchInput } from "@components/text-input";
 
 export default {
@@ -63,14 +63,14 @@ Value.storyName = "value";
 
 export const CustomIcon = () => (
     <Stack>
-        <SearchInput icon={<EmailIcon />} placeholder="Where to?" aria-label="Label" />
-        <SearchInput icon={<EmailIcon />} defaultValue="SpaceX will win the race!" aria-label="Label" />
-        <SearchInput loading icon={<EmailIcon />} placeholder="Where to?" />
-        <SearchInput disabled icon={<EmailIcon />} placeholder="Where to?" />
-        <SearchInput readOnly icon={<EmailIcon />} placeholder="Where to?" />
-        <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+        <SearchInput icon={<EmailMajorIcon />} placeholder="Where to?" aria-label="Label" />
+        <SearchInput icon={<EmailMajorIcon />} defaultValue="SpaceX will win the race!" aria-label="Label" />
+        <SearchInput loading icon={<EmailMajorIcon />} placeholder="Where to?" />
+        <SearchInput disabled icon={<EmailMajorIcon />} placeholder="Where to?" />
+        <SearchInput readOnly icon={<EmailMajorIcon />} placeholder="Where to?" />
+        <SearchInput fluid icon={<EmailMajorIcon />} placeholder="Where to?" />
         <Div width="10%">
-            <SearchInput fluid icon={<EmailIcon />} placeholder="Where to?" />
+            <SearchInput fluid icon={<EmailMajorIcon />} placeholder="Where to?" />
         </Div>
     </Stack>
 );

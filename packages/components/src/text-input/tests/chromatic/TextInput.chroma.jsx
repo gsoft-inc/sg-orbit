@@ -2,7 +2,7 @@ import { Inline, Stack } from "@components/layout";
 
 import { CrossButton } from "@components/button";
 import { Div } from "@components/html";
-import { MagnifierIcon } from "@components/icons";
+import { MagnifierMajorIcon } from "@components/icons";
 import { TextInput } from "@components/text-input";
 
 export default {
@@ -64,14 +64,14 @@ Value.storyName = "value";
 
 export const Icon = () => (
     <Stack>
-        <TextInput icon={<MagnifierIcon />} placeholder="Where to?" aria-label="Label" />
-        <TextInput icon={<MagnifierIcon />} defaultValue="SpaceX will win the race!" placeholder="Where to?" />
-        <TextInput loading icon={<MagnifierIcon />} placeholder="Where to?" />
-        <TextInput disabled icon={<MagnifierIcon />} placeholder="Where to?" />
-        <TextInput readOnly icon={<MagnifierIcon />} placeholder="Where to?" />
-        <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
+        <TextInput icon={<MagnifierMajorIcon />} placeholder="Where to?" aria-label="Label" />
+        <TextInput icon={<MagnifierMajorIcon />} defaultValue="SpaceX will win the race!" placeholder="Where to?" />
+        <TextInput loading icon={<MagnifierMajorIcon />} placeholder="Where to?" />
+        <TextInput disabled icon={<MagnifierMajorIcon />} placeholder="Where to?" />
+        <TextInput readOnly icon={<MagnifierMajorIcon />} placeholder="Where to?" />
+        <TextInput fluid icon={<MagnifierMajorIcon />} placeholder="Where to?" />
         <Div width="10%">
-            <TextInput fluid icon={<MagnifierIcon />} placeholder="Where to?" />
+            <TextInput fluid icon={<MagnifierMajorIcon />} placeholder="Where to?" />
         </Div>
     </Stack>
 );

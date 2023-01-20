@@ -13,7 +13,7 @@ import {
     ThemeProvider
 } from "@components/styling";
 import { Box } from "@components/box";
-import { FileIcon } from "@components/icons";
+import { FileMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 
 export default {
@@ -96,11 +96,11 @@ Color.storyName = "color";
 export const IconColors = () => (
     <Stack>
         <Inline gap={0} wrap>
-            {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
+            {Object.keys(IconColorMapping).map(x => <FileMajorIcon fill={x} key={x} />)}
         </Inline>
         <ThemeProvider theme={ShareGateTheme} colorScheme="dark">
             <Inline gap={0} wrap>
-                {Object.keys(IconColorMapping).map(x => <FileIcon fill={x} key={x} />)}
+                {Object.keys(IconColorMapping).map(x => <FileMajorIcon fill={x} key={x} />)}
             </Inline>
         </ThemeProvider>
     </Stack>

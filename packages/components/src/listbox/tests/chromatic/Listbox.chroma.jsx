@@ -1,5 +1,5 @@
 import { Avatar } from "@components/avatar";
-import { CheckCircleIcon, CrossIcon, IconList, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { PlaceholderMajorIcon, CrossMajorIcon, IconList, LightbulbMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
 import { Item, Section } from "@components/collection";
@@ -118,31 +118,31 @@ SelectedKeys.storyName = "selected keys";
 export const ItemWithStartIcon = () =>
     <Listbox aria-label="Planets">
         <Item key="earth">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Earth</Text>
         </Item>
         <Item key="jupiter">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Jupiter</Text>
         </Item>
         <Item key="mars">
-            <LightbulbIcon />
+            <LightbulbMajorIcon />
             <Text>Mars</Text>
         </Item>
         <Item key="mercury">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Mercury</Text>
         </Item>
         <Item key="neptune">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Neptune</Text>
         </Item>
         <Item key="saturn">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Saturn</Text>
         </Item>
         <Item key="uranus">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Uranus</Text>
         </Item>
     </Listbox>;
@@ -152,17 +152,17 @@ ItemWithStartIcon.storyName = "item with start icon";
 export const ItemWithStartIconAndDescription = () =>
     <Listbox aria-label="Planets">
         <Item key="earth">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Earth</Text>
             <Text slot="description">Earth</Text>
         </Item>
         <Item key="jupiter">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Jupiter</Text>
             <Text slot="description">Jupiter</Text>
         </Item>
         <Item key="mars">
-            <LightbulbIcon />
+            <LightbulbMajorIcon />
             <Text>Mars</Text>
             <Text slot="description">Mars</Text>
         </Item>
@@ -174,14 +174,14 @@ export const ItemWithEndIcon = () =>
     <Listbox aria-label="Planets">
         <Item key="earth">
             <Text>Earth</Text>
-            <NotificationIcon slot="end-icon" />
+            <NotificationMajorIcon slot="end-icon" />
         </Item>
         <Item key="jupiter">Jupiter</Item>
         <Item key="mars">
             <Text>Mars</Text>
             <IconList slot="end-icon">
-                <LightbulbIcon />
-                <NotificationIcon />
+                <LightbulbMajorIcon />
+                <NotificationMajorIcon />
             </IconList>
         </Item>
         <Item key="mercury">Mercury</Item>
@@ -354,26 +354,26 @@ export const Validation = () =>
         <Inline>
             <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
             </Listbox>
             <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
@@ -382,26 +382,26 @@ export const Validation = () =>
         <Inline>
             <Listbox validationState="invalid" defaultSelectedKeys={["mars"]} aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item focus key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
             </Listbox>
             <Listbox validationState="valid" defaultSelectedKeys={["mars"]} aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item focus key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
@@ -457,7 +457,7 @@ const ActiveOption = ({ item, children, ...rest }) => {
             {...rest}
             item={item}
         >
-            {selectedKeys.includes(key) ? <CheckCircleIcon /> : <CrossIcon />}
+            {selectedKeys.includes(key) ? <PlaceholderMajorIcon /> : <CrossMajorIcon />}
             <Text>{children}</Text>
         </ListboxOption>
     );

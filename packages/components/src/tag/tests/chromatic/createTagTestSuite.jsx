@@ -1,4 +1,4 @@
-import { CheckCircleIcon, IconList } from "@components/icons";
+import { PlaceholderMajorIcon, IconList } from "@components/icons";
 import { Counter } from "@components/counter";
 import { Div } from "@components/html";
 import { Dot } from "@components/dot";
@@ -28,35 +28,35 @@ export function createTagTestSuite(element, stories) {
             <Stack>
                 <Inline alignY="end">
                     <Tag size="sm" element={element}>
-                        <CheckCircleIcon />
+                        <PlaceholderMajorIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag element={element}>
-                        <CheckCircleIcon />
+                        <PlaceholderMajorIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
                 <Inline alignY="end">
                     <Tag size="sm" element={element}>
                         <IconList>
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                            <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                         </IconList>
                         <Text>Falcon 9</Text>
                     </Tag>
                     <Tag element={element}>
                         <IconList>
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                            <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                         </IconList>
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Inline>
                 <Tag fluid element={element}>
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Div width="10%">
                     <Tag fluid element={element}>
-                        <CheckCircleIcon />
+                        <PlaceholderMajorIcon />
                         <Text>Falcon 9</Text>
                     </Tag>
                 </Div>
@@ -64,42 +64,42 @@ export function createTagTestSuite(element, stories) {
                     <Tag size="sm" element={element}>
                         <Text>Falcon 9</Text>
                         <IconList slot="end-icon">
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                            <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                         </IconList>
                     </Tag>
                     <Tag element={element}>
                         <Text>Falcon 9</Text>
                         <IconList slot="end-icon">
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                            <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                         </IconList>
                     </Tag>
                 </Inline>
                 <Tag fluid element={element}>
                     <Text>Falcon 9</Text>
                     <IconList slot="end-icon">
-                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                     </IconList>
                 </Tag>
                 <Div width="10%">
                     <Tag fluid element={element}>
                         <Text>Falcon 9</Text>
                         <IconList slot="end-icon">
-                            <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                            <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                         </IconList>
                     </Tag>
                 </Div>
                 <Tag element={element}>
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Falcon 9</Text>
                     <IconList slot="end-icon">
-                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                     </IconList>
                 </Tag>
                 <Tag fluid element={element}>
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Falcon 9</Text>
                     <IconList slot="end-icon">
-                        <CheckCircleIcon /><CheckCircleIcon /><CheckCircleIcon />
+                        <PlaceholderMajorIcon /><PlaceholderMajorIcon /><PlaceholderMajorIcon />
                     </IconList>
                 </Tag>
             </Stack>
@@ -138,7 +138,7 @@ export function createTagTestSuite(element, stories) {
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag size="sm" fluid element={element}>
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag fluid element={element}>
@@ -149,7 +149,7 @@ export function createTagTestSuite(element, stories) {
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Tag fluid element={element}>
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Falcon 9</Text>
                 </Tag>
                 <Div width="10%">
@@ -174,11 +174,11 @@ export function createTagTestSuite(element, stories) {
                         </Inline>
                         <Inline>
                             <Tag size="sm" fluid element={element}>
-                                <CheckCircleIcon />
+                                <PlaceholderMajorIcon />
                                 <Text>Falcon 9</Text>
                             </Tag>
                             <Tag fluid element={element}>
-                                <CheckCircleIcon />
+                                <PlaceholderMajorIcon />
                                 <Text>Falcon 9</Text>
                             </Tag>
                         </Inline>

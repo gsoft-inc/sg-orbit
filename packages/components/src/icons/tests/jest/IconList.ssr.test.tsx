@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { CheckIcon, IconList } from "@components/icons";
+import { CheckMajorIcon, IconList } from "@components/icons";
 import { renderToString } from "react-dom/server";
 import { throwOnConsoleLogs } from "@jest-utils";
 
@@ -11,8 +11,8 @@ test("can render on the server", () => {
     const renderOnServer = () =>
         renderToString(
             <IconList >
-                <CheckIcon />
-                <CheckIcon />
+                <CheckMajorIcon />
+                <CheckMajorIcon />
             </IconList>
         );
 

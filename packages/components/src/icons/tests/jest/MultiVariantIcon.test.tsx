@@ -1,11 +1,11 @@
-import { FilterIcon24, FilterIcon32 } from "./assets";
+import { FilterMajorIcon24, FilterMajorIcon32 } from "./assets";
 import { MultiVariantIcon, MultiVariantIconProps, createMultiVariantIcon } from "@components/icons";
 import { renderWithTheme } from "@jest-utils";
 
 function createIcon(props: Omit<MultiVariantIconProps, "src24" | "src32"> = {}) {
     return <MultiVariantIcon
-        src24={FilterIcon24}
-        src32={FilterIcon32}
+        src24={FilterMajorIcon24}
+        src32={FilterMajorIcon32}
         {...props}
     />;
 }
@@ -31,7 +31,7 @@ test("ref is a DOM element", async () => {
 test("hoc icon ref is a DOM element", async () => {
     let refNode: SVGSVGElement = null;
 
-    const HocIcon = createMultiVariantIcon(FilterIcon24, FilterIcon32);
+    const HocIcon = createMultiVariantIcon(FilterMajorIcon24, FilterMajorIcon32);
 
     renderWithTheme(
         <HocIcon

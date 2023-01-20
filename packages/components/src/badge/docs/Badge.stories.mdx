@@ -1,6 +1,6 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Badge, InnerBadge } from "@components/badge";
-import { CheckCircleIcon, EmailIcon } from "@components/icons";
+import { PlaceholderMajorIcon, EmailMajorIcon } from "@components/icons";
 import { Circle } from "./Circle.jsx";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Inline } from "@components/layout";
@@ -61,7 +61,7 @@ A badge can be rendered as a dot. A single digit is supported.
                 <Circle />
             </Badge>
             <Badge variant="dot" overlap="icon">
-                <EmailIcon size="lg" />
+                <EmailMajorIcon size="lg" />
             </Badge>
             <Badge variant="dot">
                 Notifications
@@ -77,7 +77,7 @@ A badge can be an [icon](?path=/docs/icon-gallery--page).
 <Preview scope={{ Circle }}>
     <Story name="icon">
         <Badge variant="icon" overlap="circle">
-            <CheckCircleIcon />
+            <PlaceholderMajorIcon />
             <Circle />
         </Badge>
     </Story>
@@ -99,7 +99,7 @@ A badge can overlap over elements with different shape.
                     <Square />
                 </Badge>
                 <Badge variant="icon">
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Square />
                 </Badge>
             </Inline>
@@ -112,21 +112,21 @@ A badge can overlap over elements with different shape.
                     <Circle />
                 </Badge>
                 <Badge variant="icon" overlap="circle">
-                    <CheckCircleIcon />
+                    <PlaceholderMajorIcon />
                     <Circle />
                 </Badge>
             </Inline>
             <Inline gap={8}>
                 <Badge overlap="icon">
                     <Text>100</Text>
-                    <EmailIcon size="lg" />
+                    <EmailMajorIcon size="lg" />
                 </Badge>
                 <Badge variant="dot" overlap="icon">
-                    <EmailIcon size="lg" />
+                    <EmailMajorIcon size="lg" />
                 </Badge>
                 <Badge variant="icon" overlap="icon">
-                    <CheckCircleIcon />
-                    <EmailIcon size="lg" />
+                    <PlaceholderMajorIcon />
+                    <EmailMajorIcon size="lg" />
                 </Badge>
             </Inline>
         </Inline>

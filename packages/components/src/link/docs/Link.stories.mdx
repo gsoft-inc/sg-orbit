@@ -1,4 +1,4 @@
-import { AddIcon, WarningIcon } from "@components/icons";
+import { AddMajorIcon, WarningMajorIcon } from "@components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { GalaxyLargeImage } from "./assets";
@@ -41,7 +41,7 @@ A text link can contain [icons](#).
     <Story name="icon">
         <TextLink href="#">
             <Text>Flight details</Text>
-            <WarningIcon />
+            <WarningMajorIcon />
         </TextLink>
     </Story>
 </Preview>
@@ -53,7 +53,7 @@ A text link can contain [icons](#).
 <Preview>
     <Story name="start icon">
         <TextLink href="#">
-            <WarningIcon slot="start-icon" />
+            <WarningMajorIcon slot="start-icon" />
             <Text>Flight details</Text>
         </TextLink>
     </Story>
@@ -132,8 +132,8 @@ A link content can be a single icon.
 <Preview>
     <Story name="icon link">
         <Inline alignY="center">
-            <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
-            <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
+            <IconLink size="sm" aria-label="Add" href="#"><AddMajorIcon /></IconLink>
+            <IconLink aria-label="Add" href="#"><AddMajorIcon /></IconLink>
         </Inline>
     </Story>
 </Preview>
@@ -144,7 +144,7 @@ An icon link can behave like a button by using the `IconLinkAsButton` component.
 
 <Preview>
     <Story name="icon link button">
-        <IconLinkAsButton><AddIcon /></IconLinkAsButton>
+        <IconLinkAsButton><AddMajorIcon /></IconLinkAsButton>
     </Story>
 </Preview>
 

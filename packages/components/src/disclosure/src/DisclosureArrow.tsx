@@ -1,4 +1,4 @@
-import { ChevronIcon } from "../../icons";
+import { ChevronMajorIcon } from "../../icons";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
 import { ResponsiveProp } from "../../styling";
@@ -31,7 +31,7 @@ export function InnerDisclosureArrow({
     }
 
     return (
-        <ChevronIcon
+        <ChevronMajorIcon
             {...mergeProps(
                 rest,
                 {

@@ -1,4 +1,4 @@
-import { EditIcon, IconList } from "@components/icons";
+import { PencilMajorIcon, IconList } from "@components/icons";
 import { Stack } from "@components/layout";
 
 export default {
@@ -9,9 +9,9 @@ export default {
 function Icons(props) {
     return (
         <IconList {...props}>
-            <EditIcon />
-            <EditIcon />
-            <EditIcon />
+            <PencilMajorIcon />
+            <PencilMajorIcon />
+            <PencilMajorIcon />
         </IconList>
     );
 }

@@ -1,5 +1,5 @@
 import { IconButton, Button } from "@components/button";
-import { EmailIcon } from "@components/icons";
+import { EmailMajorIcon } from "@components/icons";
 import { Image } from "@components/image";
 import { Launch } from "./assets";
 import { TextLink } from "@components/link";
@@ -52,7 +52,7 @@ OpenOnFocus.storyName = "open on focus";
 
 export const IconTrigger = () => (
     <TooltipTrigger open>
-        <EmailIcon />
+        <EmailMajorIcon />
         <Tooltip>Man must rise above the Earth</Tooltip>
     </TooltipTrigger>
 );
@@ -62,7 +62,7 @@ IconTrigger.storyName = "icon trigger";
 export const IconButtonTrigger = () => (
     <TooltipTrigger open>
         <IconButton variant="secondary" aria-label="Email">
-            <EmailIcon />
+            <EmailMajorIcon />
         </IconButton>
         <Tooltip>Man must rise above the Earth</Tooltip>
     </TooltipTrigger>

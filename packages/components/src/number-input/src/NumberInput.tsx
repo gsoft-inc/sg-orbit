@@ -18,7 +18,7 @@ import {
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
 
-import { CaretIcon } from "../../icons";
+import { ChevronMinorIcon } from "../../icons";
 import { useFieldInputProps } from "../../field";
 import { useInputGroupProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -115,7 +115,10 @@ function Spinner({
                 tabIndex={-1}
                 type="button"
             >
-                <CaretIcon size="xs" />
+                <ChevronMinorIcon
+                    size="xs"
+                    transform="rotate(270deg)"
+                />
             </HtmlButton>
             <HtmlButton
                 aria-label="Decrement value"
@@ -126,9 +129,9 @@ function Spinner({
                 tabIndex={-1}
                 type="button"
             >
-                <CaretIcon
+                <ChevronMinorIcon
                     size="xs"
-                    transform="rotate(180deg)"
+                    transform="rotate(90deg)"
                 />
             </HtmlButton>
         </Div>

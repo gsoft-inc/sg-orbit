@@ -1,6 +1,6 @@
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
-import { LightbulbIcon } from "@components/icons";
+import { LightbulbMajorIcon } from "@components/icons";
 import { Text } from "@components/typography";
 import { cloneElement } from "react";
 
@@ -18,7 +18,7 @@ export function createToggleButtonTestSuite(element, stories) {
                 </Inline>
                 <ToggleButton element={element}>
                     <Text>Cutoff</Text>
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                 </ToggleButton>
                 <Inline alignY="end">
                     <ToggleButton size="sm" element={element}>Aa</ToggleButton>
@@ -50,7 +50,7 @@ export function createToggleButtonTestSuite(element, stories) {
                 <ToggleButton defaultChecked element={element}>Cutoff</ToggleButton>
                 <ToggleButton checked element={element}>
                     <Text>Cutoff</Text>
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                 </ToggleButton>
             </Inline>
         )

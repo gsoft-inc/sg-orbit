@@ -1,6 +1,6 @@
 import { act, waitFor } from "@testing-library/react";
 
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { IconButton } from "@components/button";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
@@ -15,7 +15,7 @@ test("when autofocus is true, the button is focused on render", async () => {
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -31,7 +31,7 @@ test("when autofocus is true and the button is disabled, the button is not focus
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -46,7 +46,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -68,7 +68,7 @@ test("can focus the button with the focus api", async () => {
             }}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -90,7 +90,7 @@ test("ref is a DOM element", async () => {
             ref={ref}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -111,7 +111,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             }}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -130,7 +130,7 @@ test("set ref once", async () => {
             ref={handler}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 

@@ -1,6 +1,6 @@
 import { Badge } from "@components/badge";
 import { Div } from "@components/html";
-import { EmailIcon } from "@components/icons";
+import { EmailMajorIcon } from "@components/icons";
 
 export function SquareBadge({ children, ...rest }) {
     return (
@@ -30,7 +30,7 @@ export function IconBadge({ children, ...rest }) {
             overlap="icon"
         >
             {children}
-            <EmailIcon size="lg" />
+            <EmailMajorIcon size="lg" />
         </Badge>
     );
 }

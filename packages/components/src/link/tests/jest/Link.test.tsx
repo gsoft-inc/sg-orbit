@@ -1,4 +1,4 @@
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { Link } from "@components/link";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
@@ -9,7 +9,7 @@ import { waitFor } from "@testing-library/react";
 test("when external, add rel=\"noopener noreferrer\"", async () => {
     const { getByTestId } = renderWithTheme(
         <Link external href="#" aria-label="Add" data-testid="link">
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -19,7 +19,7 @@ test("when external, add rel=\"noopener noreferrer\"", async () => {
 test("when autofocus is true, the icon link is focused on render", async () => {
     const { getByTestId } = renderWithTheme(
         <Link autoFocus href="#" aria-label="Add" data-testid="link">
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -35,7 +35,7 @@ test("when autofocus is true and the link is disabled, the icon link is not focu
             aria-label="Add"
             data-testid="link"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -50,7 +50,7 @@ test("when autofocus is specified with a delay, the link is focused after the de
             aria-label="Add"
             data-testid="link"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -66,7 +66,7 @@ test("ref is a DOM element", async () => {
 
     renderWithTheme(
         <Link ref={ref} href="#" aria-label="Add">
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -87,7 +87,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             href="#"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 
@@ -102,7 +102,7 @@ test("set ref once", async () => {
 
     renderWithTheme(
         <Link ref={handler} href="#" aria-label="Add">
-            <AddIcon />
+            <AddMajorIcon />
         </Link>
     );
 

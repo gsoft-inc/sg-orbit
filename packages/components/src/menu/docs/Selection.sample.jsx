@@ -8,7 +8,7 @@
     return (
         <MenuTrigger>
             <IconButton variant="secondary" aria-label="View tasks">
-                <VerticalDotsIcon />
+                <VerticalDotsMajorIcon />
             </IconButton>
             <Menu selectionMode="multiple" selectedKeys={selectedKeys} onSelectionChange={handleSelectionChange}>
                 <Section title="Actions">

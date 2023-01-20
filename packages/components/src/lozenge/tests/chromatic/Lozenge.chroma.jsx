@@ -1,4 +1,4 @@
-import { CheckCircleIcon, IconList } from "@components/icons";
+import { PlaceholderMajorIcon, IconList } from "@components/icons";
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
 import { Lozenge } from "@components/lozenge";
@@ -33,43 +33,43 @@ export const Variants = () => (
 
         <Inline alignY="end">
             <Lozenge size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="warning" size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="warning">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="positive" size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="positive">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="negative" size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="negative">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="informative" size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="informative">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
         </Inline>
@@ -82,18 +82,18 @@ export const Icon = () => (
     <Stack>
         <Inline alignY="end">
             <Lozenge size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
         </Inline>
         <Div>
             <Lozenge>
                 <IconList>
-                    <CheckCircleIcon /><CheckCircleIcon />
+                    <PlaceholderMajorIcon /><PlaceholderMajorIcon />
                 </IconList>
                 <Text>New</Text>
             </Lozenge>
@@ -119,43 +119,43 @@ export const HighlightAndVariant = () => (
         </Inline>
         <Inline alignY="end">
             <Lozenge highlight size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge highlight>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="warning" highlight size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="warning" highlight>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="positive" highlight size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="positive" highlight>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="negative" highlight size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="negative" highlight>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="informative" highlight size="sm">
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
             <Lozenge variant="informative" highlight>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
         </Inline>
@@ -168,7 +168,7 @@ export const InheritParentProperties = () => (
     <Inline alignY="end">
         <Lozenge textTransform="uppercase">New</Lozenge>
         <Lozenge color="red" highlight>
-            <CheckCircleIcon />
+            <PlaceholderMajorIcon />
             <Text>New</Text>
         </Lozenge>
     </Inline>
@@ -181,7 +181,7 @@ export const Fluid = () => (
         <Inline>
             <Lozenge fluid>New</Lozenge>
             <Lozenge fluid>
-                <CheckCircleIcon />
+                <PlaceholderMajorIcon />
                 <Text>New</Text>
             </Lozenge>
         </Inline>

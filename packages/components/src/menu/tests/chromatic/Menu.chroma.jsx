@@ -1,7 +1,7 @@
 import { Avatar } from "@components/avatar";
 import { Div } from "@components/html";
 import { Divider } from "@components/divider";
-import { IconList, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { IconList, LightbulbMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Item, Section } from "@components/collection";
 import { Menu, MenuItem } from "@components/menu";
@@ -117,14 +117,14 @@ SelectedKeys.storyName = "selected keys";
 export const ItemWithStartIcon = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Earth</Text>
         </Item>
         <Item key="jupiter">Jupiter</Item>
         <Item key="mars">
             <IconList>
-                <LightbulbIcon />
-                <NotificationIcon />
+                <LightbulbMajorIcon />
+                <NotificationMajorIcon />
             </IconList>
             <Text>Mars</Text>
         </Item>
@@ -140,17 +140,17 @@ ItemWithStartIcon.storyName = "item with start icon";
 export const ItemWithStartIconAndDescription = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Earth</Text>
             <Text slot="description">Home Sweet Home</Text>
         </Item>
         <Item key="jupiter">
-            <NotificationIcon />
+            <NotificationMajorIcon />
             <Text>Jupiter</Text>
             <Text slot="description">Jupiter did it!</Text>
         </Item>
         <Item key="mars">
-            <LightbulbIcon />
+            <LightbulbMajorIcon />
             <Text>Mars</Text>
             <Text slot="description">Elon and Grimes are coming.</Text>
         </Item>
@@ -163,14 +163,14 @@ export const ItemWithEndIcon = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Text>Earth</Text>
-            <NotificationIcon slot="end-icon" />
+            <NotificationMajorIcon slot="end-icon" />
         </Item>
         <Item key="jupiter">Jupiter</Item>
         <Item key="mars">
             <Text>Mars</Text>
             <IconList slot="end-icon">
-                <LightbulbIcon />
-                <NotificationIcon />
+                <LightbulbMajorIcon />
+                <NotificationMajorIcon />
             </IconList>
         </Item>
         <Item key="mercury">Mercury</Item>
@@ -357,26 +357,26 @@ export const ValidationState = () => (
         <Inline>
             <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
             </Menu>
             <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
@@ -385,26 +385,26 @@ export const ValidationState = () => (
         <Inline>
             <Menu validationState="invalid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item focus key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>
             </Menu>
             <Menu validationState="valid" selectedKeys={["mars"]} selectionMode="single" aria-label="Planets">
                 <Item key="earth">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Earth</Text>
                     <Text slot="description">Home sweet home!</Text>
                 </Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item focus key="mars">
-                    <LightbulbIcon />
+                    <LightbulbMajorIcon />
                     <Text>Mars</Text>
                     <Text slot="description">See you in 2026</Text>
                 </Item>

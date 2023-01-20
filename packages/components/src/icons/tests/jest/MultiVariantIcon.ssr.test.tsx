@@ -1,7 +1,7 @@
 /**
  * @jest-environment node
  */
-import { FilterIcon24, FilterIcon32 } from "./assets";
+import { FilterMajorIcon24, FilterMajorIcon32 } from "./assets";
 import { MultiVariantIcon } from "@components/icons";
 import { renderToString } from "react-dom/server";
 import { throwOnConsoleLogs } from "@jest-utils";
@@ -12,8 +12,8 @@ test("can render on the server", () => {
     const renderOnServer = () =>
         renderToString(
             <MultiVariantIcon
-                src24={FilterIcon24}
-                src32={FilterIcon32}
+                src24={FilterMajorIcon24}
+                src32={FilterMajorIcon32}
             />
         );
 

@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
+import { AzureIcon32, FilterMajorIcon24, FilterMajorIcon32 } from "./assets";
 import { CheckeredBackground, ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@components/icons";
 import { Inline } from "@components/layout";
@@ -115,16 +115,16 @@ A multi variants icon support the same props as `<Icon />`.
 
 ### Size
 
-<Preview scope={{ FilterIcon24, FilterIcon32 }}>
+<Preview scope={{ FilterMajorIcon24, FilterMajorIcon32 }}>
     <Story name="multi-variants size">
         <CheckeredBackground>
             <Inline alignY="center" gap={2}>
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="2xs" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="xs" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="sm" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="xl" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="2xs" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="xs" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="sm" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="lg" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="xl" />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -132,13 +132,13 @@ A multi variants icon support the same props as `<Icon />`.
 
 ### Color
 
-<Preview scope={{ FilterIcon24, FilterIcon32 }}>
+<Preview scope={{ FilterMajorIcon24, FilterMajorIcon32 }}>
     <Story name="multi-variants color">
         <CheckeredBackground>
             <Inline alignY="end" gap={2}>
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-2" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-6" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-10" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="lg" fill="accent-2" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="lg" fill="accent-6" />
+                <MultiVariantIcon src24={FilterMajorIcon24} src32={FilterMajorIcon32} size="lg" fill="accent-10" />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -152,7 +152,7 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
     <Story name="icon list">
         <IconList>
             <Icon src={AzureIcon32} />
-            <Icon src={FilterIcon32} />
+            <Icon src={FilterMajorIcon32} />
         </IconList>
     </Story>
 </Preview>

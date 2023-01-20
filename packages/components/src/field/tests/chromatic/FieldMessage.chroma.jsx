@@ -1,6 +1,6 @@
 import { Div, LI, OL, UL } from "@components/html";
 import { ErrorMessage, HelpMessage, ValidMessage } from "@components/field";
-import { HelpIcon, InfoIcon, WarningIcon } from "@components/icons";
+import { HelpMajorIcon, InfoCircleMajorIcon, WarningMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Paragraph } from "@components/typography";
 import { TextLink } from "@components/link";
@@ -29,7 +29,7 @@ Default.storyName = "default";
 export const Icon = () => (
     <HelpMessage>
         <Align>
-            <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            <HelpMajorIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
         </Align>
     </HelpMessage>
 );
@@ -82,7 +82,7 @@ Wrappers.storyName = "wrappers";
 export const Complex = () => (
     <HelpMessage>
         <Align>
-            <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            <HelpMajorIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
         </Align>
         <Paragraph>
             If two pieces of the same type of <TextLink href="#">metal touch</TextLink> in space they <TextLink href="https://www.sharegate.com" external>will permanently</TextLink> bond.
@@ -108,7 +108,7 @@ Fluid.storyName = "fluid";
 export const Help = () => (
     <HelpMessage>
         <Align>
-            <HelpIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            <HelpMajorIcon /> Enter your final destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
         </Align>
     </HelpMessage>
 );
@@ -118,7 +118,7 @@ Help.storyName = "help";
 export const Error = () => (
     <ErrorMessage>
         <Align>
-            <WarningIcon /> This is not a valid destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
+            <WarningMajorIcon /> This is not a valid destination. Here's a <TextLink href="https://www.google.com/sky" external>space map</TextLink>.
         </Align>
     </ErrorMessage>
 );
@@ -128,7 +128,7 @@ Error.storyName = "error";
 export const Valid = () => (
     <ValidMessage>
         <Align>
-            <InfoIcon /> Thank you! Here's your <TextLink href="https://www.sharegate.com" external>receipt</TextLink>.
+            <InfoCircleMajorIcon /> Thank you! Here's your <TextLink href="https://www.sharegate.com" external>receipt</TextLink>.
         </Align>
     </ValidMessage>
 );
