@@ -1,4 +1,4 @@
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, waitFor, within } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { DateRangeInput } from "@components/date-input";
@@ -373,30 +373,32 @@ test("tab keypress from outside will focus the start date input", async () => {
     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
 });
 
-// test("shift + tab keypress from outside will focus the start date input", async () => {
-//     const { container, getByTestId } = renderWithTheme(
-//         <>
-//             <DateRangeInput
-//                 defaultStartDate={new Date(2020, 0, 1)}
-//                 defaultEndDate={new Date(2021, 0, 1)}
-//                 name="date-range"
-//             />
-//             <Button data-testid="after">After</Button>
-//         </>
-//     );
+test("shift + tab keypress from outside will focus the start date input", async () => {
+    const { getByTestId } = renderWithTheme(
+        <>
+            <DateRangeInput
+                defaultStartDate={new Date(2020, 0, 1)}
+                defaultEndDate={new Date(2021, 0, 1)}
+                name="date-range"
+                data-testid="date-range-input"
+            />
+            <Button data-testid="after">After</Button>
+        </>
+    );
 
-//     act(() => {
-//         getByTestId("after").focus();
-//     });
+    act(() => {
+        getByTestId("after").focus();
+    });
 
-//     await waitFor(() => expect(getByTestId("after")).toHaveFocus());
+    await waitFor(() => expect(getByTestId("after")).toHaveFocus());
 
-//     act(() => {
-//         userEvent.tab({ shift: true });
-//     });
+    act(() => {
+        userEvent.tab({ shift: true });
+    });
 
-//     await waitFor(() => expect(getStartDateInput(container)).toHaveFocus());
-// });
+    // the clear button get focused
+    await waitFor(() => expect(within(getByTestId("date-range-input")).getByRole("button")).toHaveFocus());
+});
 
 test("when autofocus is true, the date range input is focused on render", async () => {
     const { container, getByTestId } = renderWithTheme(

@@ -4,12 +4,6 @@ test("return func when no arguments", () => {
     expect(typeof (createChainedFunction())).toBe("function");
 });
 
-// test("return original function when single function is provided", () => {
-//     const func = jest.fn();
-
-//     expect(createChainedFunction(func)).toBe(func);
-// });
-
 test("wraps two functions with another that invokes both when called", () => {
     const func1 = jest.fn();
     const func2 = jest.fn();

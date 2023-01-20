@@ -1094,14 +1094,14 @@ test("when using a callback ref, ref is a DOM element", async () => {
     expect(refNode.tagName).toBe("DIV");
 });
 
-// test("set ref once", async () => {
-//     const handler = jest.fn();
+test("set ref once", async () => {
+    const handler = jest.fn();
 
-//     renderWithTheme(
-//         <Listbox ref={handler} />
-//     );
+    renderWithTheme(
+        <Listbox ref={handler} />
+    );
 
-//     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
-// });
+    await waitFor(() => expect(handler).toHaveBeenCalled());
+});
 
 

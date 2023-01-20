@@ -40,21 +40,21 @@ test("accept negative numbers", async () => {
     await waitFor(() => expect(getByTestId("input")).toHaveValue(-1));
 });
 
-// test("accept floating numbers", async () => {
-//     const { getByTestId } = renderWithTheme(
-//         <NumberInput data-testid="input" />
-//     );
+test("accept floating numbers", async () => {
+    const { getByTestId } = renderWithTheme(
+        <NumberInput data-testid="input" />
+    );
 
-//     act(() => {
-//         getByTestId("input").focus();
-//     });
+    act(() => {
+        getByTestId("input").focus();
+    });
 
-//     act(() => {
-//         userEvent.type(getByTestId("input"), "0.1");
-//     });
+    act(() => {
+        userEvent.type(getByTestId("input"), "0.1");
+    });
 
-//     await waitFor(() => expect(getByTestId("input")).toHaveValue(0.1));
-// });
+    await waitFor(() => expect(getByTestId("input")).toHaveValue(0.1));
+});
 
 test("do not accept non numeric characters", async () => {
     const { getByTestId } = renderWithTheme(
