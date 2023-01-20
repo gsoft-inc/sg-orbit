@@ -123,16 +123,17 @@ test("a dynamically added element should be tabbable when the key is null and al
 });
 
 test("dynamically removing a non tabbable element keep the current tabbable element", async () => {
-    const { rerender, getByTestId } = render(
+    const { rerender, getByTestId, findByTestId } = render(
         <DynamicRovingFocus currentValue="2" renderDynamicElement>
             <Button value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-3")).toBeInTheDocument());
+    const element3 = await findByTestId("element-3");
+    expect(element3).toBeInTheDocument();
     await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(element3).toHaveAttribute("tabindex", "-1"));
 
     rerender(
         <DynamicRovingFocus currentValue="2">

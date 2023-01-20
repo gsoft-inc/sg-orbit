@@ -6,23 +6,23 @@ import { waitFor } from "@testing-library/react";
 // ***** Behaviors *****
 
 test("when no enter transition is specified, render the element on show", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
     );
 
-    await waitFor(() => expect(getByTestId("content")).toBeInTheDocument());
+    expect(await findByTestId("content")).toBeInTheDocument();
 });
 
 test("when no leave transition is specified, remove the element on hide", async () => {
-    const { getByTestId, queryByTestId, rerender } = renderWithTheme(
+    const { findByTestId, queryByTestId, rerender } = renderWithTheme(
         <Transition show>
             <span data-testid="content">Content</span>
         </Transition>
     );
 
-    await waitFor(() => expect(getByTestId("content")).toBeInTheDocument());
+    expect(await findByTestId("content")).toBeInTheDocument();
 
     rerender(
         <Transition show={false}>

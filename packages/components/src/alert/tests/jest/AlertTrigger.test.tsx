@@ -10,7 +10,7 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("do not dismiss on outside click", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <AlertTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Alert data-testid="alert" primaryButtonLabel="Primary">
@@ -24,13 +24,13 @@ test("do not dismiss on outside click", async () => {
         userEvent.click(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+    expect(await findByTestId("alert")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(document.body);
     });
 
-    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+    expect(await findByTestId("alert")).toBeInTheDocument();
 });
 
 // ***** Refs *****

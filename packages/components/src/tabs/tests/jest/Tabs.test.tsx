@@ -339,7 +339,7 @@ test("when an id is provided, the tab id attribute match the provided id", async
 });
 
 test("when a root id is provided, it is used to compose the tab and panel ids", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs id="foo" aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
@@ -348,8 +348,8 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(header).toHaveAttribute("id", "foo-tab-0"));
     await waitFor(() => expect(header).toHaveAttribute("aria-controls", "foo-panel-0"));
@@ -358,7 +358,7 @@ test("when a root id is provided, it is used to compose the tab and panel ids", 
 });
 
 test("when an header id is provided, it is assigned to the tab id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header id="tab-header" data-testid="header">Header 1</Header>
@@ -367,15 +367,15 @@ test("when an header id is provided, it is assigned to the tab id", async () => 
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(header).toHaveAttribute("id", "tab-header"));
     await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", "tab-header"));
 });
 
 test("when a content id is provided, it is assigned to the content id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
@@ -384,15 +384,15 @@ test("when a content id is provided, it is assigned to the content id", async ()
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(header).toHaveAttribute("aria-controls", "tab-content"));
     await waitFor(() => expect(content).toHaveAttribute("id", "tab-content"));
 });
 
 test("when the root id is auto generated, it is used to compose the tab and panel ids", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
@@ -401,8 +401,8 @@ test("when the root id is auto generated, it is used to compose the tab and pane
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(header).toHaveAttribute("id"));
     await waitFor(() => expect(header).toHaveAttribute("aria-controls", content.getAttribute("id")));
@@ -411,7 +411,7 @@ test("when the root id is auto generated, it is used to compose the tab and pane
 });
 
 test("when the header id is auto generated, it is assigned to the tab id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
@@ -420,15 +420,15 @@ test("when the header id is auto generated, it is assigned to the tab id", async
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(header).toHaveAttribute("id"));
     await waitFor(() => expect(content).toHaveAttribute("aria-labelledby", header.getAttribute("id")));
 });
 
 test("when the content id is auto generated, it is assigned to the tab id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header data-testid="header">Header 1</Header>
@@ -437,15 +437,15 @@ test("when the content id is auto generated, it is assigned to the tab id", asyn
         </Tabs>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     await waitFor(() => expect(content).toHaveAttribute("id"));
     await waitFor(() => expect(header.getAttribute("aria-controls")).toBe(content.getAttribute("id")));
 });
 
 test("a tab headers container have the \"tablist\" role", async () => {
-    const { getByRole } = renderWithTheme(
+    const { findByRole } = renderWithTheme(
         <Tabs aria-label="Tabs" collapsible={false}>
             <Item>
                 <Header>Header 1</Header>
@@ -454,7 +454,7 @@ test("a tab headers container have the \"tablist\" role", async () => {
         </Tabs>
     );
 
-    await waitFor(() => expect(getByRole("tablist")).toBeInTheDocument());
+    expect(await findByRole("tablist")).toBeInTheDocument();
 });
 
 test("a tab header have the \"tab\" role", async () => {

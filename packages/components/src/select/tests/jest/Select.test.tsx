@@ -115,7 +115,7 @@ test("when a select open with arrow up keypress and there is a selected option, 
 });
 
 test("selecting an option close the menu", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -130,7 +130,8 @@ test("selecting an option close the menu", async () => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
+
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -140,7 +141,7 @@ test("selecting an option close the menu", async () => {
 });
 
 test("selecting an option update the trigger selected value text", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -155,7 +156,7 @@ test("selecting an option update the trigger selected value text", async () => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -168,7 +169,7 @@ test("selecting an option focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -183,7 +184,7 @@ test("selecting an option focus the trigger", async () => {
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));
@@ -193,7 +194,7 @@ test("selecting an option focus the trigger", async () => {
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <Select
@@ -212,7 +213,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-option").focus();
@@ -228,7 +229,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Select
@@ -247,7 +248,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         userEvent.click(getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-option").focus();
@@ -432,7 +433,7 @@ test("call onOpenChange when the select open", async () => {
 test("call onOpenChange when the select close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Select
             onOpenChange={handler}
             defaultOpen
@@ -445,7 +446,7 @@ test("call onOpenChange when the select close", async () => {
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         getByTestId("earth-option").focus();
@@ -462,7 +463,7 @@ test("call onOpenChange when the select close", async () => {
 test("call onSelectionChange when an option is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Select
             onSelectionChange={handler}
             defaultOpen
@@ -474,7 +475,7 @@ test("call onSelectionChange when an option is selected", async () => {
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByTestId("earth-option"));

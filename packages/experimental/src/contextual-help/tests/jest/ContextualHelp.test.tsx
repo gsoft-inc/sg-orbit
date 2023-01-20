@@ -73,7 +73,7 @@ test("set ref once", async () => {
 
 // ***** Behaviors *****
 test("open on ContextualHelp hover", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <ContextualHelp data-testid="trigger">
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
@@ -83,7 +83,7 @@ test("open on ContextualHelp hover", async () => {
         return userEvent.hover(getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+    expect(await findByTestId("tooltip")).toBeInTheDocument();
 });
 
 // ***** Api *****

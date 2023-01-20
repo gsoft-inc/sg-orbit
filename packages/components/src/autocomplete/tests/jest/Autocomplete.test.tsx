@@ -18,7 +18,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when a query matching existing values is entered, open the overlay with the matching values", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { findByTestId, getByTestId, queryByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -33,16 +33,16 @@ test("when a query matching existing values is entered, open the overlay with th
 
     await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("mars-option")));
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("mercury-option")));
+    const overlay = await findByTestId("overlay");
+    expect(overlay).toBeInTheDocument();
+    await waitFor(() => expect(overlay).toContainElement(getByTestId("mars-option")));
+    await waitFor(() => expect(overlay).toContainElement(getByTestId("mercury-option")));
 
     await waitFor(() => expect(queryByTestId("earth-option")).not.toBeInTheDocument());
 });
 
 test("when a query matching no values is entered, open the overlay with a not found message", async () => {
-    const { getByTestId, getByText } = renderWithTheme(
+    const { findByTestId, getByTestId, getByText } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -60,12 +60,13 @@ test("when a query matching no values is entered, open the overlay with a not fo
 
     act(() => getByTestId("autocomplete").focus());
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByText("No results.")));
+    const overlay = await findByTestId("overlay");
+    expect(overlay).toBeInTheDocument();
+    expect(overlay).toContainElement(getByText("No results."));
 });
 
 test("when opening, the focus stay on the input", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -82,13 +83,13 @@ test("when opening, the focus stay on the input", async () => {
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
 });
 
 test("when a query is cleared with backspaces, hide the overlay", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -105,7 +106,8 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
         userEvent.type(getByTestId("autocomplete"), "m");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
+
 
     act(() => {
         userEvent.type(getByTestId("autocomplete"), "{backspace}");
@@ -117,7 +119,7 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
 });
 
 test("when a query is cleared with the clear button, hide the overlay", async () => {
-    const { getByLabelText, getByTestId, queryByTestId } = renderWithTheme(
+    const { getByLabelText, getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -134,7 +136,8 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
         userEvent.type(getByTestId("autocomplete"), "m");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
+
 
     act(() => {
         userEvent.click(getByLabelText("Clear value"));
@@ -146,7 +149,7 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
 });
 
 test("when opened, clicking on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -161,7 +164,7 @@ test("when opened, clicking on a value close the overlay & select the value", as
 
     await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await act(() => userEvent.click(getByTestId("earth-option")));
 
@@ -171,7 +174,7 @@ test("when opened, clicking on a value close the overlay & select the value", as
 });
 
 test("when opened, enter keypress on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -186,7 +189,7 @@ test("when opened, enter keypress on a value close the overlay & select the valu
 
     await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.arrowDown });
@@ -202,7 +205,7 @@ test("when opened, enter keypress on a value close the overlay & select the valu
 });
 
 test("when opened, on esc keypress hide the overlay and focus the input", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -217,7 +220,7 @@ test("when opened, on esc keypress hide the overlay and focus the input", async 
 
     await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.esc });
@@ -316,7 +319,7 @@ test("when opened, end keypress virtually focus the last value", async () => {
 });
 
 test("when no value is selected, leaving the autocomplete without selecting a new value clear the input", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -333,7 +336,7 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(document.body);
@@ -345,7 +348,7 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
 });
 
 test("when a value is selected, leaving the autocomplete without selecting a value reset the input with the selected value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -360,7 +363,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
 
     await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await act(() => userEvent.click(getByTestId("earth-option")));
 
@@ -374,7 +377,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("m"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await act(() => userEvent.click(document.body));
 
@@ -384,7 +387,7 @@ test("when a value is selected, leaving the autocomplete without selecting a val
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button>Previous</Button>
             <Autocomplete
@@ -405,14 +408,14 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     // First tab move the focus to the clear button.
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.tab();
@@ -424,7 +427,7 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Autocomplete
@@ -445,7 +448,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.tab({ shift: true });
@@ -457,7 +460,7 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
 });
 
 test("when the clear button is clicked, the focus is moved to the input", async () => {
-    const { getByLabelText, getByTestId } = renderWithTheme(
+    const { getByLabelText, getByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -474,7 +477,7 @@ test("when the clear button is clicked, the focus is moved to the input", async 
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(getByLabelText("Clear value"));
@@ -598,7 +601,7 @@ test("an autocomplete have an aria-haspopup attribute", async () => {
 });
 
 test("an autocomplete have an aria-expanded attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -615,13 +618,13 @@ test("an autocomplete have an aria-expanded attribute", async () => {
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("aria-expanded", "true"));
 });
 
 test("when opened, the autocomplete aria-controls match the overlay id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -638,7 +641,7 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
         userEvent.type(getByTestId("autocomplete"), "e");
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await findByTestId("overlay")).toBeInTheDocument();
 
     await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("aria-controls", getByTestId("overlay").getAttribute("id")));
 });

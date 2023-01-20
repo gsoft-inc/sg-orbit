@@ -8,15 +8,14 @@ import { renderWithTheme } from "@jest-utils";
 // ***** Behaviors *****
 
 test("spacebar keypress toggles content visibility", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-
+    const header = await findByTestId("header");
     expect(header).toHaveAttribute("aria-expanded", "false");
 
     act(() => {
@@ -33,14 +32,14 @@ test("spacebar keypress toggles content visibility", async () => {
 });
 
 test("enter keypress toggles content visibility", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { getByTestId, findByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
+    const header = await findByTestId("header");
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 
@@ -71,30 +70,30 @@ test("when an id is provided, the disclosure id attribute match the provided id"
 });
 
 test("when an id is provided, a disclosure aria-controls attribute match the content element id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Disclosure id="foo">
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
         </Disclosure>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     expect(content).toHaveAttribute("id");
     expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
 });
 
 test("when an id is auto generated, a disclosure aria-controls attribute match the content element id", async () => {
-    const { getByTestId } = renderWithTheme(
+    const { findByTestId } = renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
         </Disclosure>
     );
 
-    const header = await waitFor(() => getByTestId("header"));
-    const content = await waitFor(() => getByTestId("content"));
+    const header = await findByTestId("header");
+    const content = await findByTestId("content");
 
     expect(content).toHaveAttribute("id");
     expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
