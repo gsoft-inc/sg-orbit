@@ -88,9 +88,7 @@ test("when manual, focusing a tab doesn't change the active tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));
 });
@@ -109,9 +107,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
         </Tabs>
     );
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -130,9 +126,7 @@ test("when manual, enter keypress makes a tab active", async () => {
         </Tabs>
     );
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -159,9 +153,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -188,9 +180,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowLeft });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowLeft });
 
     await waitFor(() => expect(screen.getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
 });
@@ -217,9 +207,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -246,9 +234,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowUp });
-    });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
 });
@@ -488,9 +474,7 @@ test("call onSelectionChange when the active tab change", async () => {
         </Tabs>
     );
 
-    act(() => {
-        fireEvent.click(screen.getByTestId("tab-2"));
-    });
+    fireEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -512,9 +496,7 @@ test("call onSelectionChange once when a tab is clicked", async () => {
         </Tabs>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tab-2"));
-    });
+    await userEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -535,15 +517,11 @@ test("dont' call onSelectionChange when the active tab is clicked", async () => 
         </Tabs>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tab-2"));
-    });
+    await userEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tab-2"));
-    });
+    await userEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -564,9 +542,7 @@ test("dont call onSelectionChange when a tab is disabled", async () => {
         </Tabs>
     );
 
-    act(() => {
-        fireEvent.click(screen.getByTestId("tab-2"));
-    });
+    fireEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });

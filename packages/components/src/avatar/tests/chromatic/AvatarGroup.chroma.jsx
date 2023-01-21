@@ -230,5 +230,5 @@ export const WithRemainingsHover = () =>
 WithRemainingsHover.storyName = "with remainings hover";
 
 WithRemainingsHover.play = async () => {
-    userEvent.hover(screen.getByTestId("avatar-group").lastChild);
+    await userEvent.hover(screen.getByTestId("avatar-group").lastChild);
 };

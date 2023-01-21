@@ -1,5 +1,4 @@
-import { act, renderHook } from "@testing-library/react";
-import { fireEvent } from "@testing-library/dom";
+import { renderHook, fireEvent } from "@testing-library/react";
 import { useEventListener } from "@components/shared";
 
 function createButton() {
@@ -24,9 +23,7 @@ test("handler is called when the specified event is triggered on the target elem
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalled();
 });
@@ -38,9 +35,7 @@ test("handler is not called when another event is triggered on the target elemen
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.mouseOver(button);
-    });
+    fireEvent.mouseOver(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
@@ -55,9 +50,7 @@ test("handler is not called when an event is trigerred on another target element
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
@@ -69,9 +62,7 @@ test("handler can be a function", () => {
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalled();
 });
@@ -85,10 +76,8 @@ test("can listen to multiple events on the same target element", () => {
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-        fireEvent.mouseOver(button);
-    });
+    fireEvent.click(button);
+    fireEvent.mouseOver(button);
 
     expect(clickHandler).toHaveBeenCalled();
     expect(mouseOverHandler).toHaveBeenCalled();
@@ -101,9 +90,7 @@ test("doesn't call handler when not active", () => {
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).not.toHaveBeenCalled();
 });
@@ -119,17 +106,13 @@ test("doesn't call handler after transitioning from active to inactive", () => {
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     rerender({
         active: false
     });
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalledTimes(1);
 });
@@ -145,17 +128,13 @@ test("call handler after transitioning from inactive to active", () => {
 
     const button = appendButton();
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     rerender({
         active: true
     });
 
-    act(() => {
-        fireEvent.click(button);
-    });
+    fireEvent.click(button);
 
     expect(handler).toHaveBeenCalledTimes(1);
 });

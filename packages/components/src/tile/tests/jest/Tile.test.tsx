@@ -1,4 +1,4 @@
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 import { CheckableContext } from "@components/shared";
 import { Content } from "@components/placeholders";
@@ -115,9 +115,7 @@ test("call onChange when the tile is selected", async () => {
         </Tile>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile"));
-    });
+    await userEvent.click(screen.getByTestId("tile"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -133,13 +131,9 @@ test("call onChange when the tile is unselected", async () => {
         </Tile>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile"));
-    });
+    await userEvent.click(screen.getByTestId("tile"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile"));
-    });
+    await userEvent.click(screen.getByTestId("tile"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

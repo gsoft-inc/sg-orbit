@@ -17,9 +17,7 @@ test("accept numbers", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "1");
-    });
+    await userEvent.type(screen.getByTestId("input"), "1");
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(1));
 });
@@ -33,9 +31,7 @@ test("accept negative numbers", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "-1");
-    });
+    await userEvent.type(screen.getByTestId("input"), "-1");
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(-1));
 });
@@ -49,9 +45,7 @@ test("accept floating numbers", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "0.1");
-    });
+    await userEvent.type(screen.getByTestId("input"), "0.1");
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(0.1));
 });
@@ -65,15 +59,11 @@ test("do not accept non numeric characters", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(null));
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "$");
-    });
+    await userEvent.type(screen.getByTestId("input"), "$");
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(null));
 });
@@ -87,9 +77,7 @@ test("increment value on increment button click", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(2));
 });
@@ -103,9 +91,9 @@ test("when a value has been entered, increment the entered value on increment bu
         screen.getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(screen.getByTestId("input"), "10"));
+    await userEvent.type(screen.getByTestId("input"), "10");
 
-    await act(() => userEvent.click(screen.getByLabelText("Increment value")));
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(11));
 });
@@ -119,9 +107,7 @@ test("decrement value on decrement button click", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(0));
 });
@@ -135,9 +121,9 @@ test("when a value has been entered, decrement the entered value on decrement bu
         screen.getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(screen.getByTestId("input"), "10"));
+    await userEvent.type(screen.getByTestId("input"), "10");
 
-    await act(() => userEvent.click(screen.getByLabelText("Decrement value")));
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(9));
 });
@@ -151,9 +137,7 @@ test("when no value has been entered yet and the increment button is clicked, se
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(1));
 });
@@ -167,9 +151,7 @@ test("when no value has been entered yet and the decrement button is clicked, se
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(-1));
 });
@@ -183,13 +165,9 @@ test("when a max value is specified, do not increment over the max value", async
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(2));
 });
@@ -203,9 +181,7 @@ test("when a max value is specified and no value has been set yet, do not increm
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(0));
 });
@@ -219,13 +195,9 @@ test("when a min value is specified, do not decrement under the min value", asyn
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(4));
 });
@@ -239,9 +211,7 @@ test("when a min value is specified and no value has been set yet, do not decrem
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(4));
 });
@@ -255,13 +225,9 @@ test("when the entered value is lower than the min value, reset value to min val
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(3));
 });
@@ -275,13 +241,9 @@ test("when the entered value is greater than the max value, reset the value to t
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveValue(1));
 });
@@ -297,9 +259,7 @@ test("when the entered value is equal to the min value, the decrement stepper is
 
     await waitFor(() => expect(screen.getByLabelText("Decrement value")).not.toHaveAttribute("disabled"));
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
     await waitFor(() => expect(screen.getByLabelText("Decrement value")).toHaveAttribute("disabled"));
 });
@@ -315,9 +275,7 @@ test("when the entered value is equal to the max value, the increment stepper is
 
     await waitFor(() => expect(screen.getByLabelText("Increment value")).not.toHaveAttribute("disabled"));
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
     await waitFor(() => expect(screen.getByLabelText("Increment value")).toHaveAttribute("disabled"));
 });
@@ -364,9 +322,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
         </Field>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("label"));
-    });
+    await userEvent.click(screen.getByTestId("label"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
@@ -380,9 +336,7 @@ test("call onChange when the value change", async () => {
         <NumberInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -395,13 +349,9 @@ test("call onValueChange when the value change and the input lose focus", async 
         <NumberInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "2");
-    });
+    await userEvent.type(screen.getByTestId("input"), "2");
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -423,9 +373,7 @@ test("call onValueChange when the value is incremented", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Increment value"));
-    });
+    await userEvent.click(screen.getByLabelText("Increment value"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 2));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -447,9 +395,7 @@ test("call onValueChange when the value is decremented", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), 0));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -491,9 +437,7 @@ test("do not call onFocus again when a spinner arrow is clicked", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -514,9 +458,7 @@ test("call onBlur when the input lose focus", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -538,9 +480,7 @@ test("do not call onBlur when a spinner arrow is clicked", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(screen.getByLabelText("Decrement value"));
-    });
+    await userEvent.click(screen.getByLabelText("Decrement value"));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
@@ -586,13 +526,9 @@ test("when the entered value exceed the specified min or max value, onValueChang
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "4");
-    });
+    await userEvent.type(screen.getByTestId("input"), "4");
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handleValueChange).toHaveBeenLastCalledWith(expect.anything(), 5));
     await waitFor(() => expect(handleValueChange).toHaveBeenCalledTimes(1));

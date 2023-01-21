@@ -1,7 +1,7 @@
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile, TileGroup } from "@components/tile";
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -200,9 +200,7 @@ test("when selectionMode is \"single\", call onChange when a tile is selected", 
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -224,13 +222,9 @@ test("when selectionMode is \"single\", call onChange when then selected tile ch
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-2"));
-    });
+    await userEvent.click(screen.getByTestId("tile-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -252,13 +246,9 @@ test("when selectionMode is \"multiple\", call onChange when a tile is selected"
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-2"));
-    });
+    await userEvent.click(screen.getByTestId("tile-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1", "2"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -280,17 +270,9 @@ test("when selectionMode is \"multiple\", call onChange when a tile is unselecte
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
-
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-2"));
-    });
-
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
+    await userEvent.click(screen.getByTestId("tile-2"));
+    await userEvent.click(screen.getByTestId("tile-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));
@@ -312,9 +294,7 @@ test("when selectionMode is \"single\" call the tile onChange handler when a til
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -336,9 +316,7 @@ test("when selectionMode is \"multiple\", call the tile onChange handler when a 
         </TileGroup>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("tile-1"));
-    });
+    await userEvent.click(screen.getByTestId("tile-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

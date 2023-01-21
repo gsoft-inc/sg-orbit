@@ -24,9 +24,7 @@ test("clear value on clear button click", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    act(() => {
-        fireEvent.click(screen.getByLabelText("Clear value"));
-    });
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -38,9 +36,7 @@ test("clear value on esc", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
-    });
+    fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -57,9 +53,7 @@ test("focus input on clear", async () => {
         />
     );
 
-    act(() => {
-        fireEvent.click(screen.getByLabelText("Clear value"));
-    });
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
@@ -92,9 +86,7 @@ test("call onChange when the value change", async () => {
         <SearchInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -111,9 +103,7 @@ test("call onValueChange when the value change", async () => {
         screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -130,9 +120,9 @@ test("call onValueChange when the value is cleared", async () => {
         screen.getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(screen.getByTestId("input"), "a"));
+    await userEvent.type(screen.getByTestId("input"), "a");
 
-    await act(() => userEvent.click(screen.getByLabelText("Clear value")));
+    await userEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ""));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
