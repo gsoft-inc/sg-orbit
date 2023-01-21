@@ -70,7 +70,7 @@ test("focusing an element change the tabbable element", async () => {
         </RovingFocus>
     );
 
-    userEvent.click(screen.getByTestId("element-2"));
+    await userEvent.click(screen.getByTestId("element-2"));
 
     await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
     await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
@@ -153,7 +153,7 @@ test("dynamically removing a tabbable element set the first non disabled element
         </DynamicRovingFocus>
     );
 
-    userEvent.click(screen.getByTestId("element-3"));
+    await userEvent.click(screen.getByTestId("element-3"));
 
     await waitFor(() => expect(screen.getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
 
