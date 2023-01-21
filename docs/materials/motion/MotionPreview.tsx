@@ -7,7 +7,7 @@ import { Div } from "@components/html";
 import { Inline } from "@components/layout";
 import { Item } from "@components/collection";
 import { Select } from "@components/select";
-import { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 
 export function MotionPreview() {
     const [isAnimated, setAnimated] = useState(false);
@@ -18,11 +18,11 @@ export function MotionPreview() {
         setAnimated(!isAnimated);
     };
 
-    const handleSelectDuration = (event, selectedKey) => {
+    const handleSelectDuration = (_: SyntheticEvent, selectedKey: string) => {
         setDuration(selectedKey);
     };
 
-    const handleSelectEasing = (event, selectedKey) => {
+    const handleSelectEasing = (_: SyntheticEvent, selectedKey: string) => {
         setEasing(selectedKey);
     };
 
@@ -49,7 +49,7 @@ export function MotionPreview() {
                 </Field>
                 <Button variant="primary" onClick={handleClick}>Play this motion</Button>
             </Inline>
-            <Div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` }} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`} />
+            <Div style={{ "--o-ui-sb-duration": `var(--o-ui-easing-${duration})`, "--o-ui-sb-easing": `var(--o-ui-easing-${easing})` } as any} className={`mt6 o-ui-sb-object ${isAnimated ? "o-ui-sb-object-animated" : ""}`} />
         </>
     );
 }
