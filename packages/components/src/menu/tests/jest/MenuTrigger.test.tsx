@@ -1,5 +1,5 @@
 import { Menu, MenuTrigger } from "@components/menu";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
@@ -18,7 +18,7 @@ beforeEach(() => {
 // ***** Behaviors *****
 
 test("when a menu open and there is no selected item, the first item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -30,14 +30,14 @@ test("when a menu open and there is no selected item, the first item is focused"
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("when a menu open and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -49,14 +49,14 @@ test("when a menu open and there is a selected item, the selected item is focuse
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when a menu open with arrow down keypress and there is no selected item, the first item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -68,14 +68,14 @@ test("when a menu open with arrow down keypress and there is no selected item, t
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("when a menu open with arrow down keypress and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -87,14 +87,14 @@ test("when a menu open with arrow down keypress and there is a selected item, th
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when a menu open with arrow up keypress and there is no selected item, the last item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -106,14 +106,14 @@ test("when a menu open with arrow up keypress and there is no selected item, the
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getByTestId("saturn-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("saturn-item")).toHaveFocus());
 });
 
 test("when a menu open with arrow up keypress and there is a selected item, the selected item is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu defaultSelectedKeys={["mars"]} selectionMode="single">
@@ -125,14 +125,14 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("trigger"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when selectionMode is \"none\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="none" data-testid="menu">
@@ -144,20 +144,20 @@ test("when selectionMode is \"none\", selecting an item close the menu", async (
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-item"));
+        userEvent.click(screen.getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("menu")).not.toBeInTheDocument());
 });
 
 test("when selectionMode is \"single\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -169,20 +169,20 @@ test("when selectionMode is \"single\", selecting an item close the menu", async
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-item"));
+        userEvent.click(screen.getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("menu")).not.toBeInTheDocument());
 });
 
 test("when selectionMode is \"multiple\", selecting an item close the menu", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -194,23 +194,23 @@ test("when selectionMode is \"multiple\", selecting an item close the menu", asy
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-item"));
+        userEvent.click(screen.getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("menu")).not.toBeInTheDocument());
 });
 
 test("selecting an item focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Menu selectionMode="single" data-testid="menu">
@@ -222,20 +222,20 @@ test("selecting an item focus the trigger", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-item"));
+        userEvent.click(screen.getByTestId("earth-item"));
     });
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveFocus());
 });
 
 test("when closeOnSelect is false, selecting an item doesn't close the menu", async () => {
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger closeOnSelect={false} defaultOpen>
             <Button>Trigger</Button>
             <Menu data-testid="menu">
@@ -246,17 +246,17 @@ test("when closeOnSelect is false, selecting an item doesn't close the menu", as
         </MenuTrigger>
     );
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-item"));
+        userEvent.click(screen.getByTestId("earth-item"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button>Previous</Button>
             <MenuTrigger>
@@ -272,26 +272,26 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("menu")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("after")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("after")).toHaveFocus());
 });
 
 test("when opened, on shift+tab keydown close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <MenuTrigger>
@@ -307,28 +307,28 @@ test("when opened, on shift+tab keydown close and select the previous tabbable e
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
     act(() => {
         userEvent.tab({ shift: true });
     });
 
-    await waitFor(() => expect(queryByTestId("menu")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("menu")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("previous")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("a menu trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button data-testid="trigger">Trigger</Button>
             <Menu>
@@ -339,11 +339,11 @@ test("a menu trigger have an aria-haspopup attribute", async () => {
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-haspopup", "menu"));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("aria-haspopup", "menu"));
 });
 
 test("when a trigger have an aria-labelledby attribute, the menu aria-labelledby match the trigger aria-labelledby attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button aria-labelledby="trigger-label">Trigger</Button>
             <Menu data-testid="menu">
@@ -354,11 +354,11 @@ test("when a trigger have an aria-labelledby attribute, the menu aria-labelledby
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("aria-labelledby", "trigger-label"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("aria-labelledby", "trigger-label"));
 });
 
 test("when a trigger doesn't have a aria-labelledby attribute, the menu aria-labelledby match the trigger id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button id="trigger-id">Trigger</Button>
             <Menu data-testid="menu">
@@ -369,11 +369,11 @@ test("when a trigger doesn't have a aria-labelledby attribute, the menu aria-lab
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("aria-labelledby", "trigger-id"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("aria-labelledby", "trigger-id"));
 });
 
 test("when a trigger have a aria-describedby attribute, the menu aria-describedby match the trigger aria-describedby attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger defaultOpen>
             <Button aria-describedby="trigger-description">Trigger</Button>
             <Menu data-testid="menu">
@@ -384,11 +384,11 @@ test("when a trigger have a aria-describedby attribute, the menu aria-describedb
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("aria-describedby", "trigger-description"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("aria-describedby", "trigger-description"));
 });
 
 test("when a trigger have an id, use this id for the trigger", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button id="trigger-id" data-testid="trigger">Trigger</Button>
             <Menu>
@@ -399,11 +399,11 @@ test("when a trigger have an id, use this id for the trigger", async () => {
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("id", "trigger-id"));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("id", "trigger-id"));
 });
 
 test("when a trigger doesn't have an id, a trigger id is autogenerated", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger>
             <Button id="trigger-id" data-testid="trigger">Trigger</Button>
             <Menu>
@@ -414,7 +414,7 @@ test("when a trigger doesn't have an id, a trigger id is autogenerated", async (
         </MenuTrigger>
     );
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("id"));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("id"));
 });
 
 // ***** Api *****
@@ -422,7 +422,7 @@ test("when a trigger doesn't have an id, a trigger id is autogenerated", async (
 test("call onOpenChange when the menu open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger onOpenChange={handler}>
             <Button data-testid="trigger">Trigger</Button>
             <Menu data-testid="menu">
@@ -434,10 +434,10 @@ test("call onOpenChange when the menu open", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -446,7 +446,7 @@ test("call onOpenChange when the menu open", async () => {
 test("call onOpenChange when the menu close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <MenuTrigger
             onOpenChange={handler}
             defaultOpen
@@ -460,14 +460,14 @@ test("call onOpenChange when the menu close", async () => {
         </MenuTrigger>
     );
 
-    expect(await findByTestId("menu")).toBeInTheDocument();
+    expect(await screen.findByTestId("menu")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.esc });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

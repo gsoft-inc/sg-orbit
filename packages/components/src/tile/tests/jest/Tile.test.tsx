@@ -1,4 +1,4 @@
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { CheckableContext } from "@components/shared";
 import { Content } from "@components/placeholders";
@@ -11,66 +11,66 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("when autofocus is true, the tile is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile autoFocus data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveFocus());
 });
 
 test("when autofocus is true and the tile is disabled, the tile is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile disabled autoFocus data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the tile is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile autoFocus={10} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     );
 
-    expect(getByTestId("tile")).not.toHaveFocus();
+    expect(screen.getByTestId("tile")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when a tile is not in a checkable context and is not selected, aria-pressed is \"false\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveAttribute("aria-pressed", "false"));
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveAttribute("aria-pressed", "false"));
 });
 
 test("when a tile is not in a checkable context and is selected, aria-pressed is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile checked data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
         </Tile>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveAttribute("aria-pressed", "true"));
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveAttribute("aria-pressed", "true"));
 });
 
 test("when a tile is in a checkable context and is not selected, aria-checked is \"false\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <CheckableContext.Provider
             value={{
                 checkedValue: []
@@ -83,11 +83,11 @@ test("when a tile is in a checkable context and is not selected, aria-checked is
         </CheckableContext.Provider>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when a tile is in a checkable context and is selected, aria-checked is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <CheckableContext.Provider
             value={{
                 checkedValue: ["fuel"]
@@ -100,7 +100,7 @@ test("when a tile is in a checkable context and is selected, aria-checked is \"t
         </CheckableContext.Provider>
     );
 
-    await waitFor(() => expect(getByTestId("tile")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("tile")).toHaveAttribute("aria-checked", "true"));
 });
 
 // ***** Api *****
@@ -108,7 +108,7 @@ test("when a tile is in a checkable context and is selected, aria-checked is \"t
 test("call onChange when the tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile onChange={handler} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -116,7 +116,7 @@ test("call onChange when the tile is selected", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile"));
+        userEvent.click(screen.getByTestId("tile"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -126,7 +126,7 @@ test("call onChange when the tile is selected", async () => {
 test("call onChange when the tile is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Tile onChange={handler} data-testid="tile">
             <Heading>Fuel</Heading>
             <Content>Fuel configuration and level</Content>
@@ -134,11 +134,11 @@ test("call onChange when the tile is unselected", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile"));
+        userEvent.click(screen.getByTestId("tile"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("tile"));
+        userEvent.click(screen.getByTestId("tile"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

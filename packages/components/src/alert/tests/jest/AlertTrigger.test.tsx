@@ -4,13 +4,13 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("do not dismiss on outside click", async () => {
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <AlertTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Alert data-testid="alert" primaryButtonLabel="Primary">
@@ -21,16 +21,16 @@ test("do not dismiss on outside click", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    expect(await findByTestId("alert")).toBeInTheDocument();
+    expect(await screen.findByTestId("alert")).toBeInTheDocument();
 
     act(() => {
         userEvent.click(document.body);
     });
 
-    expect(await findByTestId("alert")).toBeInTheDocument();
+    expect(await screen.findByTestId("alert")).toBeInTheDocument();
 });
 
 // ***** Refs *****

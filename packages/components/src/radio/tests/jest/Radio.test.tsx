@@ -1,4 +1,4 @@
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 
 import { Radio } from "@components/radio";
 import { createRef } from "react";
@@ -12,29 +12,29 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the radio is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio autoFocus value="1" data-testid="radio">1</Radio>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio"))).toHaveFocus());
 });
 
 test("when autofocus is true and the radio is disabled, the radio is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio disabled autoFocus value="1" data-testid="radio">1</Radio>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("radio"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio"))).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the radio is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio autoFocus={10} value="1" data-testid="radio">1</Radio>
     );
 
-    expect(getInput(getByTestId("radio"))).not.toHaveFocus();
+    expect(getInput(screen.getByTestId("radio"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId("radio"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("radio"))).toHaveFocus());
 });
 
 // ***** Api *****
@@ -42,12 +42,12 @@ test("when autofocus is specified with a delay, the radio is focused after the d
 test("call onChange when the radio is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio value="1" onChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio")));
+        userEvent.click(getInput(screen.getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
@@ -57,12 +57,12 @@ test("call onChange when the radio is checked", async () => {
 test("call onValueChange when the radio is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio")));
+        userEvent.click(getInput(screen.getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -72,12 +72,12 @@ test("call onValueChange when the radio is checked", async () => {
 test("dont call onValueChange when the radio is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Radio disabled value="1" onValueChange={handler} data-testid="radio">1</Radio>
     );
 
     act(() => {
-        userEvent.click(getInput(getByTestId("radio")));
+        userEvent.click(getInput(screen.getByTestId("radio")));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());

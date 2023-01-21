@@ -1,5 +1,5 @@
 import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Keys } from "@components/shared";
@@ -63,7 +63,7 @@ beforeEach(() => {
 
 describe("\"click\" trigger", () => {
     test("when closed, open on trigger click", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -71,17 +71,17 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when closed, open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -89,17 +89,17 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when closed, open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -107,17 +107,17 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when closed and disabled, do not open on trigger click", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -127,14 +127,14 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when closed and disabled, do not open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -144,14 +144,14 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when closed and disabled, do not open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 disabled
                 trigger="click"
@@ -161,14 +161,14 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened, close on trigger click", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -177,20 +177,20 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened and hideOnTriggerClick is false, do not close on trigger click", async () => {
-        const { getByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 hideOnTriggerClick={false}
                 trigger="click"
@@ -200,21 +200,21 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when opened, close on esc keypress", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -223,24 +223,24 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+            fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened and hideOnEscape is false, do not close on esc keypress", async () => {
-        const { getByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 hideOnEscape={false}
                 trigger="click"
@@ -250,24 +250,24 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
-            fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+            fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when opened, close on blur", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
@@ -279,24 +279,24 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
-            getByTestId("focusable-element").focus();
+            screen.getByTestId("focusable-element").focus();
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened and hideOnLeave is false, do not close on blur", async () => {
-        const { getByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <>
                 <button type="button" data-testid="focusable-element">Focusable element</button>
                 <Popup
@@ -309,24 +309,24 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
-            getByTestId("focusable-element").focus();
+            screen.getByTestId("focusable-element").focus();
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 
     test("when opened, close on outside click", async () => {
-        const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="click"
                 data-triggertestid="trigger"
@@ -335,24 +335,24 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
             userEvent.click(document.body);
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when opened and hideOnOutsideClick is false, do not close on outside click", async () => {
-        const { getByTestId, findByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 hideOnOutsideClick={false}
                 trigger="click"
@@ -362,26 +362,26 @@ describe("\"click\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
         act(() => {
-            getByTestId("overlay").focus();
+            screen.getByTestId("overlay").focus();
         });
 
         act(() => {
             userEvent.click(document.body);
         });
 
-        expect(await findByTestId("overlay")).toBeInTheDocument();
+        expect(await screen.findByTestId("overlay")).toBeInTheDocument();
     });
 });
 
 describe("\"none\" trigger", () => {
     test("when closed, do not open on trigger click", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -390,14 +390,14 @@ describe("\"none\" trigger", () => {
         );
 
         act(() => {
-            userEvent.click(getByTestId("trigger"));
+            userEvent.click(screen.getByTestId("trigger"));
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when closed, do not open on trigger hover", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -406,14 +406,14 @@ describe("\"none\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.focus(getByTestId("trigger"));
+            fireEvent.focus(screen.getByTestId("trigger"));
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when closed, do not open on trigger space keypress", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -422,14 +422,14 @@ describe("\"none\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.space });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 
     test("when closed, do not open on trigger enter keypress", async () => {
-        const { getByTestId, queryByTestId } = renderWithTheme(
+        renderWithTheme(
             <Popup
                 trigger="none"
                 data-triggertestid="trigger"
@@ -438,10 +438,10 @@ describe("\"none\" trigger", () => {
         );
 
         act(() => {
-            fireEvent.keyDown(getByTestId("trigger"), { key: Keys.enter });
+            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
         });
 
-        await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+        await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
     });
 });
 
@@ -449,43 +449,43 @@ test("closing the popup with esc keypress return the focus to the trigger", asyn
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
         />
     );
 
-    await act(() => userEvent.click(getByTestId("trigger")));
+    await act(() => userEvent.click(screen.getByTestId("trigger")));
 
     act(() => {
-        getByTestId("overlay").focus();
+        screen.getByTestId("overlay").focus();
     });
 
-    await waitFor(() => expect(getByTestId("trigger")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("trigger")).not.toHaveFocus());
 
     act(() => {
-        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
     });
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("a popup trigger have an aria-haspopup attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
         />
     );
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-haspopup", "dialog"));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("aria-haspopup", "dialog"));
 });
 
 test("when the popup is open, the popup trigger aria-expanded is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -493,14 +493,14 @@ test("when the popup is open, the popup trigger aria-expanded is \"true\"", asyn
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-expanded", "true"));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("aria-expanded", "true"));
 });
 
 test("when the popup is open, the popup trigger aria-controls match the overlay id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -508,14 +508,14 @@ test("when the popup is open, the popup trigger aria-controls match the overlay 
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("trigger")).toHaveAttribute("aria-controls", getByTestId("overlay").getAttribute("id")));
+    await waitFor(() => expect(screen.getByTestId("trigger")).toHaveAttribute("aria-controls", screen.getByTestId("overlay").getAttribute("id")));
 });
 
 test("when an id is provided for the overlay, it is used as the overlay id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             id="overlay-custom-id"
             data-triggertestid="trigger"
@@ -524,14 +524,14 @@ test("when an id is provided for the overlay, it is used as the overlay id", asy
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toHaveAttribute("id", "overlay-custom-id"));
+    await waitFor(() => expect(screen.getByTestId("overlay")).toHaveAttribute("id", "overlay-custom-id"));
 });
 
 test("when no overlay id is provided, an overlay id is autogenerated", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             data-triggertestid="trigger"
             data-overlaytestid="overlay"
@@ -539,10 +539,10 @@ test("when no overlay id is provided, an overlay id is autogenerated", async () 
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
-    await waitFor(() => expect(getByTestId("overlay")).toHaveAttribute("id"));
+    await waitFor(() => expect(screen.getByTestId("overlay")).toHaveAttribute("id"));
 });
 
 // ***** Api *****
@@ -550,7 +550,7 @@ test("when no overlay id is provided, an overlay id is autogenerated", async () 
 test("call onOpenChange when the popup open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             onOpenChange={handler}
             data-triggertestid="trigger"
@@ -559,7 +559,7 @@ test("call onOpenChange when the popup open", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("trigger"));
+        userEvent.click(screen.getByTestId("trigger"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -569,7 +569,7 @@ test("call onOpenChange when the popup open", async () => {
 test("call onOpenChange when the popup close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Popup
             onOpenChange={handler}
             defaultOpen
@@ -578,11 +578,11 @@ test("call onOpenChange when the popup close", async () => {
     );
 
     act(() => {
-        getByTestId("overlay").focus();
+        screen.getByTestId("overlay").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

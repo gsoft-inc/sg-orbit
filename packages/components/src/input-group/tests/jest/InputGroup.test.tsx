@@ -2,7 +2,7 @@ import { Field, Label } from "@components/field";
 import { InputGroup } from "@components/input-group";
 import { Text } from "@components/typography";
 import { TextInput } from "@components/text-input";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -10,7 +10,7 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("when in a field, clicking on the field label focus the input", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Field>
             <Label data-testid="label">Label</Label>
             <InputGroup>
@@ -21,10 +21,10 @@ test("when in a field, clicking on the field label focus the input", async () =>
     );
 
     act(() => {
-        userEvent.click(getByTestId("label"));
+        userEvent.click(screen.getByTestId("label"));
     });
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 // ***** Refs *****

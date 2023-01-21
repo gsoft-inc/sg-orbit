@@ -3,89 +3,89 @@ import { Div } from "@components/html";
 import { Toolbar } from "@components/toolbar";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****
 
 test("first element is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar>
             <Button data-testid="element-1">1</Button>
             <Button data-testid="element-2">2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
 });
 
 test("a disabled element is not tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar>
             <Button disabled data-testid="element-1">1</Button>
             <Button data-testid="element-2">2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when autofocus is true, the first focusable element is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar autoFocus>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveFocus());
 });
 
 test("when autofocus is true and the toolbar is disabled, do not autofocuus an element on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar disabled autoFocus>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the first focusable element is disabled, the next focusable element is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar autoFocus>
             <Button disabled>1</Button>
             <Button data-testid="element-2">2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-2")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the first focusable element is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar autoFocus={10}>
             <Button data-testid="element-1">1</Button>
             <Button>2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("a toolbar have the \"toolbar\" role", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Toolbar data-testid="toolbar">
             <Button>1</Button>
             <Button>2</Button>
         </Toolbar>
     );
 
-    await waitFor(() => expect(getByTestId("toolbar")).toHaveAttribute("role", "toolbar"));
+    await waitFor(() => expect(screen.getByTestId("toolbar")).toHaveAttribute("role", "toolbar"));
 });
 
 // ***** Refs *****

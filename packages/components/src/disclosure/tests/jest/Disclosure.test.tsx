@@ -2,55 +2,55 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Disclosure } from "@components/disclosure";
 import { Keys } from "@components/shared";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
 test("spacebar keypress toggles content visibility", async () => {
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>
     );
 
-    const header = await findByTestId("header");
+    const header = await screen.findByTestId("header");
     expect(header).toHaveAttribute("aria-expanded", "false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
     });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
     });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 });
 
 test("enter keypress toggles content visibility", async () => {
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
         </Disclosure>
     );
 
-    const header = await findByTestId("header");
+    const header = await screen.findByTestId("header");
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
     });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
     act(() => {
-        fireEvent.keyDown(getByTestId("header"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
     });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
@@ -59,41 +59,41 @@ test("enter keypress toggles content visibility", async () => {
 // ***** Aria *****
 
 test("when an id is provided, the disclosure id attribute match the provided id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure id="foo" data-testid="disclosure">
             <Button>Header</Button>
             <Content>Content</Content>
         </Disclosure>
     );
 
-    await waitFor(() => expect(getByTestId("disclosure")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("disclosure")).toHaveAttribute("id", "foo"));
 });
 
 test("when an id is provided, a disclosure aria-controls attribute match the content element id", async () => {
-    const { findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure id="foo">
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
         </Disclosure>
     );
 
-    const header = await findByTestId("header");
-    const content = await findByTestId("content");
+    const header = await screen.findByTestId("header");
+    const content = await screen.findByTestId("content");
 
     expect(content).toHaveAttribute("id");
     expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
 });
 
 test("when an id is auto generated, a disclosure aria-controls attribute match the content element id", async () => {
-    const { findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure>
             <Button data-testid="header">Header</Button>
             <Content data-testid="content">Content</Content>
         </Disclosure>
     );
 
-    const header = await findByTestId("header");
-    const content = await findByTestId("content");
+    const header = await screen.findByTestId("header");
+    const content = await screen.findByTestId("content");
 
     expect(content).toHaveAttribute("id");
     expect(header).toHaveAttribute("aria-controls", content.getAttribute("id"));
@@ -104,7 +104,7 @@ test("when an id is auto generated, a disclosure aria-controls attribute match t
 test("call onOpenChange when expand", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
@@ -112,7 +112,7 @@ test("call onOpenChange when expand", async () => {
     );
 
     act(() => {
-        fireEvent.click(getByTestId("header"));
+        fireEvent.click(screen.getByTestId("header"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -122,7 +122,7 @@ test("call onOpenChange when expand", async () => {
 test("call onOpenChange when close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Disclosure defaultOpen onOpenChange={handler}>
             <Button data-testid="header">Header</Button>
             <Content>Content</Content>
@@ -130,7 +130,7 @@ test("call onOpenChange when close", async () => {
     );
 
     act(() => {
-        fireEvent.click(getByTestId("header"));
+        fireEvent.click(screen.getByTestId("header"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));

@@ -1,7 +1,7 @@
 import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { ReactNode } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { useFocusScope, useKeyedRovingFocus } from "@components/shared";
 
 interface RovingFocusProps {
@@ -32,55 +32,55 @@ function DynamicRovingFocus({ currentValue, renderDynamicElement, children }: Ro
 
 
 test("when key is null, a disabled element is not tabbable", async () => {
-    const { getByTestId } = render(
+    render(
         <RovingFocus>
             <Button disabled value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
         </RovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when key is null and all elements are disabled, no element is tabbable", async () => {
-    const { getByTestId } = render(
+    render(
         <RovingFocus>
             <Button disabled value="1" data-testid="element-1">1</Button>
             <Button disabled value="2" data-testid="element-2">2</Button>
         </RovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-2")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).not.toHaveAttribute("tabindex"));
 });
 
 test("when a key is provided, the matching element is tabbable", async () => {
-    const { getByTestId } = render(
+    render(
         <RovingFocus currentValue="2">
             <Button value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
         </RovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a key is provided and the matching element is disabled, no element is tabbable", async () => {
-    const { getByTestId } = render(
+    render(
         <RovingFocus currentValue="2">
             <Button value="1" data-testid="element-1">1</Button>
             <Button disabled value="2" data-testid="element-2">2</Button>
         </RovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).not.toHaveAttribute("tabindex"));
 });
 
 test("a dynamically added element should not change the tabbable element", async () => {
-    const { rerender, getByTestId } = render(
+    const { rerender } = render(
         <DynamicRovingFocus currentValue="2">
             <Button value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
@@ -94,21 +94,21 @@ test("a dynamically added element should not change the tabbable element", async
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-3")).toHaveAttribute("tabindex", "-1"));
 });
 
 test("a dynamically added element should be tabbable when the key is null and all the existing elements are disabled", async () => {
-    const { rerender, getByTestId } = render(
+    const { rerender } = render(
         <DynamicRovingFocus>
             <Button disabled value="1" data-testid="element-1">1</Button>
             <Button disabled value="2" data-testid="element-2">2</Button>
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-2")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).not.toHaveAttribute("tabindex"));
 
     rerender(
         <DynamicRovingFocus renderDynamicElement>
@@ -117,22 +117,22 @@ test("a dynamically added element should be tabbable when the key is null and al
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-2")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
 });
 
 test("dynamically removing a non tabbable element keep the current tabbable element", async () => {
-    const { rerender, getByTestId, findByTestId } = render(
+    const { rerender } = render(
         <DynamicRovingFocus currentValue="2" renderDynamicElement>
             <Button value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
         </DynamicRovingFocus>
     );
 
-    const element3 = await findByTestId("element-3");
+    const element3 = await screen.findByTestId("element-3");
     expect(element3).toBeInTheDocument();
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
     await waitFor(() => expect(element3).toHaveAttribute("tabindex", "-1"));
 
     rerender(
@@ -142,19 +142,19 @@ test("dynamically removing a non tabbable element keep the current tabbable elem
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });
 
 test("dynamically removing a tabbable element does not set a new tabbable element", async () => {
-    const { rerender, getByTestId } = render(
+    const { rerender } = render(
         <DynamicRovingFocus currentValue="3" renderDynamicElement>
             <Button value="1" data-testid="element-1">1</Button>
             <Button value="2" data-testid="element-2">2</Button>
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-3")).toHaveAttribute("tabindex", "0"));
 
     rerender(
         <DynamicRovingFocus currentValue="3">
@@ -163,18 +163,18 @@ test("dynamically removing a tabbable element does not set a new tabbable elemen
         </DynamicRovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "-1"));
 });
 
 test("normalize key to string", async () => {
-    const { getByTestId } = render(
+    render(
         <RovingFocus currentValue="2">
             <Button value={1} data-testid="element-1">1</Button>
             <Button value={2} data-testid="element-2">2</Button>
         </RovingFocus>
     );
 
-    await waitFor(() => expect(getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("element-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("element-2")).toHaveAttribute("tabindex", "0"));
 });

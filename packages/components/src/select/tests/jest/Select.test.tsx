@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
@@ -19,7 +19,7 @@ beforeEach(() => {
 // ***** Behaviors *****
 
 test("when a select open and there is no selected option, the first option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -28,14 +28,14 @@ test("when a select open and there is no selected option, the first option is fo
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when a select open and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -44,14 +44,14 @@ test("when a select open and there is a selected option, the selected option is 
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
 
 test("when a select open with arrow down keypress and there is no selected option, the first option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select data-testid="select">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -60,14 +60,14 @@ test("when a select open with arrow down keypress and there is no selected optio
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when a select open with arrow down keypress and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -76,14 +76,14 @@ test("when a select open with arrow down keypress and there is a selected option
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
 
 test("when a select open with arrow up keypress and there is no selected option, the last option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -92,14 +92,14 @@ test("when a select open with arrow up keypress and there is no selected option,
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getByTestId("saturn-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("saturn-option")).toHaveFocus());
 });
 
 test("when a select open with arrow up keypress and there is a selected option, the selected option is focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select defaultSelectedKey="mars" data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars" data-testid="mars-option">Mars</Item>
@@ -108,14 +108,14 @@ test("when a select open with arrow up keypress and there is a selected option, 
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("select"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
 
 test("selecting an option close the menu", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -127,21 +127,21 @@ test("selecting an option close the menu", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 });
 
 test("selecting an option update the trigger selected value text", async () => {
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -153,23 +153,23 @@ test("selecting an option update the trigger selected value text", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("select")).toHaveTextContent("Earth"));
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveTextContent("Earth"));
 });
 
 test("selecting an option focus the trigger", async () => {
     // @ts-ignore
     Transition.disableAnimation = false;
 
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             data-testid="select"
             overlayProps={{ "data-testid": "overlay" }}
@@ -181,20 +181,20 @@ test("selecting an option focus the trigger", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(queryByTestId("select")).toHaveFocus());
+    await waitFor(() => expect(screen.queryByTestId("select")).toHaveFocus());
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button>Previous</Button>
             <Select
@@ -210,26 +210,26 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
         userEvent.tab();
     });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("after")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("after")).toHaveFocus());
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Select
@@ -245,26 +245,26 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
         userEvent.tab({ shift: true });
     });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("previous")).toHaveFocus());
 });
 
 test("when in a field, clicking on the field label open the select and focus the first option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Field>
             <Label data-testid="label">Select</Label>
             <Select data-testid="select">
@@ -276,14 +276,14 @@ test("when in a field, clicking on the field label open the select and focus the
     );
 
     act(() => {
-        userEvent.click(getByTestId("label"));
+        userEvent.click(screen.getByTestId("label"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when autofocus is true, the select trigger is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             autoFocus
             data-testid="select"
@@ -294,11 +294,11 @@ test("when autofocus is true, the select trigger is focused on render", async ()
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveFocus());
 });
 
 test("when autofocus is true and the select is disabled, the select trigger is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             disabled
             autoFocus
@@ -310,13 +310,13 @@ test("when autofocus is true and the select is disabled, the select trigger is n
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("select")).not.toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("a select have an aria-haspopup attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             defaultOpen
             data-testid="select"
@@ -327,11 +327,11 @@ test("a select have an aria-haspopup attribute", async () => {
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).toHaveAttribute("aria-haspopup", "listbox"));
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveAttribute("aria-haspopup", "listbox"));
 });
 
 test("when an aria-label and an aria-labelledby are provided, do not set aria-labelledby on the trigger", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             aria-label="Planets"
             aria-labelledby="an-id"
@@ -343,11 +343,11 @@ test("when an aria-label and an aria-labelledby are provided, do not set aria-la
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).not.toHaveAttribute("aria-labelledby"));
+    await waitFor(() => expect(screen.getByTestId("select")).not.toHaveAttribute("aria-labelledby"));
 });
 
 test("when an id is provided, it is used as the trigger id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             id="planets"
             data-testid="select"
@@ -358,11 +358,11 @@ test("when an id is provided, it is used as the trigger id", async () => {
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).toHaveAttribute("id", "planets"));
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveAttribute("id", "planets"));
 });
 
 test("when no id is provided, generate a trigger id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -370,11 +370,11 @@ test("when no id is provided, generate a trigger id", async () => {
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("select")).toHaveAttribute("id"));
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveAttribute("id"));
 });
 
 test("when an aria-label and an aria-labelledby are provided, do not set aria-labelledby on the overlay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             defaultOpen
             overlayProps={{ "data-testid": "overlay" }}
@@ -387,11 +387,11 @@ test("when an aria-label and an aria-labelledby are provided, do not set aria-la
         </Select>
     );
 
-    await waitFor(() => expect(getByTestId("overlay")).not.toHaveAttribute("aria-labelledby"));
+    await waitFor(() => expect(screen.getByTestId("overlay")).not.toHaveAttribute("aria-labelledby"));
 });
 
 test("when no aria-label and no aria-labelledby are provided, set the trigger id as listbox aria-labelledby", async () => {
-    const { getByRole } = renderWithTheme(
+    renderWithTheme(
         <Select
             id="planets"
             defaultOpen
@@ -403,7 +403,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
         </Select>
     );
 
-    await waitFor(() => expect(getByRole("listbox")).toHaveAttribute("aria-labelledby", "planets"));
+    await waitFor(() => expect(screen.getByRole("listbox")).toHaveAttribute("aria-labelledby", "planets"));
 });
 
 // ***** Api *****
@@ -411,7 +411,7 @@ test("when no aria-label and no aria-labelledby are provided, set the trigger id
 test("call onOpenChange when the select open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             onOpenChange={handler}
             data-testid="select"
@@ -423,7 +423,7 @@ test("call onOpenChange when the select open", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("select"));
+        userEvent.click(screen.getByTestId("select"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -433,7 +433,7 @@ test("call onOpenChange when the select open", async () => {
 test("call onOpenChange when the select close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             onOpenChange={handler}
             defaultOpen
@@ -446,14 +446,14 @@ test("call onOpenChange when the select close", async () => {
         </Select>
     );
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.esc });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
@@ -463,7 +463,7 @@ test("call onOpenChange when the select close", async () => {
 test("call onSelectionChange when an option is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, findByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select
             onSelectionChange={handler}
             defaultOpen
@@ -475,10 +475,10 @@ test("call onSelectionChange when an option is selected", async () => {
         </Select>
     );
 
-    expect(await findByTestId("overlay")).toBeInTheDocument();
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth"));
@@ -542,7 +542,7 @@ test("set ref once", async () => {
 test("calling the focus function on the select ref will focus the select trigger", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Select ref={ref} data-testid="select">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -554,6 +554,6 @@ test("calling the focus function on the select ref will focus the select trigger
         ref.current.focus();
     });
 
-    await waitFor(() => expect(getByTestId("select")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("select")).toHaveFocus());
 });
 

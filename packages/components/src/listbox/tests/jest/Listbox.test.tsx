@@ -1,6 +1,6 @@
 import { Item, Section } from "@components/collection";
 import { Listbox, ListboxElement } from "@components/listbox";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { Keys } from "@components/shared";
 import { Text } from "@components/typography";
@@ -11,7 +11,7 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("when a listbox have no selection, the first option is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -19,11 +19,11 @@ test("when a listbox have no selection, the first option is tabbable", async () 
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a listbox with sections have no selection, the first option is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -39,11 +39,11 @@ test("when a listbox with sections have no selection, the first option is tabbab
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("tabindex", "0"));
 });
 
 test("a disabled option is not tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -51,12 +51,12 @@ test("a disabled option is not tabbable", async () => {
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).not.toHaveAttribute("tabindex"));
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).not.toHaveAttribute("tabindex"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a listbox have a single option selected, this option is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["jupiter"]}>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -64,11 +64,11 @@ test("when a listbox have a single option selected, this option is tabbable", as
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a listbox have multiple selected options, the first selected option is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -76,11 +76,11 @@ test("when a listbox have multiple selected options, the first selected option i
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("tabindex", "0"));
 });
 
 test("down arrow keypress moves focus to the next option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -89,18 +89,18 @@ test("down arrow keypress moves focus to the next option", async () => {
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
 
 test("up arrow keypress moves focus to the previous option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -109,22 +109,22 @@ test("up arrow keypress moves focus to the previous option", async () => {
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("home keypress move the focus to the first option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -133,22 +133,22 @@ test("home keypress move the focus to the first option", async () => {
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.home });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.home });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("end keypress move the focus to the last option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -157,18 +157,18 @@ test("end keypress move the focus to the last option", async () => {
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.end });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.end });
     });
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -177,18 +177,18 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the option 
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"none\", enter keypress don't toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -197,18 +197,18 @@ test("when selectionMode is \"none\", enter keypress don't toggle the option sel
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"none\", mouse click doesn't toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="none">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -217,14 +217,14 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the option sele
     );
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"single\", spacebar keypress toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -233,24 +233,24 @@ test("when selectionMode is \"single\", spacebar keypress toggle the option sele
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"single\", enter keypress toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -259,24 +259,24 @@ test("when selectionMode is \"single\", enter keypress toggle the option selecti
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"single\", mouse click toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="single">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -285,20 +285,20 @@ test("when selectionMode is \"single\", mouse click toggle the option selection"
     );
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"multiple\", spacebar keypress toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -307,24 +307,24 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the option se
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"multiple\", enter keypress toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -333,24 +333,24 @@ test("when selectionMode is \"multiple\", enter keypress toggle the option selec
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.enter });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"multiple\", mouse click toggle the option selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -359,20 +359,20 @@ test("when selectionMode is \"multiple\", mouse click toggle the option selectio
     );
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"multiple\", shift + down arrow keypress moves focus to and toggles the selected state of the next option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -381,24 +381,24 @@ test("when selectionMode is \"multiple\", shift + down arrow keypress moves focu
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveAttribute("aria-selected", "true"));
 });
 
 test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus to and toggles the selected state of the previous option", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -407,24 +407,24 @@ test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus 
     );
 
     act(() => {
-        getByTestId("mars-option").focus();
+        screen.getByTestId("mars-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveAttribute("aria-selected", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveAttribute("aria-selected", "false"));
 });
 
 test("when selectionMode is \"multiple\", shift + space keypress selects contiguous options from the most recently selected item to the focused item.", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple">
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -434,29 +434,29 @@ test("when selectionMode is \"multiple\", shift + space keypress selects contigu
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
     act(() => {
-        getByTestId("mercury-option").focus();
+        screen.getByTestId("mercury-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
     });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveAttribute("aria-selected", "true"));
-    await waitFor(() => expect(getByTestId("mercury-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("mercury-option")).toHaveAttribute("aria-selected", "true"));
 });
 
 test("when useVirtualFocus is true, a mouse click should render the option as focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox useVirtualFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -465,14 +465,14 @@ test("when useVirtualFocus is true, a mouse click should render the option as fo
     );
 
     act(() => {
-        userEvent.click(getByTestId("jupiter-option"));
+        userEvent.click(screen.getByTestId("jupiter-option"));
     });
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when useVirtualFocus is true, a programatically focused option should render the as focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox useVirtualFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -481,14 +481,14 @@ test("when useVirtualFocus is true, a programatically focused option should rend
     );
 
     act(() => {
-        getByTestId("jupiter-option").focus();
+        screen.getByTestId("jupiter-option").focus();
     });
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when useVirtualFocus and focusOnHover are true, a mouse hover should render the option as focused", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             useVirtualFocus
             focusOnHover
@@ -500,14 +500,14 @@ test("when useVirtualFocus and focusOnHover are true, a mouse hover should rende
     );
 
     act(() => {
-        fireEvent.mouseOver(getByTestId("jupiter-option"));
+        fireEvent.mouseOver(screen.getByTestId("jupiter-option"));
     });
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
 
 test("a letter keypress move the focus to the first option starting with that letter", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -516,16 +516,16 @@ test("a letter keypress move the focus to the first option starting with that le
     );
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: "j" });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: "j" });
     });
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, the listbox id attribute match the provided id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox id="foo" data-testid="listbox">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -533,11 +533,11 @@ test("when an id is provided, the listbox id attribute match the provided id", a
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("listbox")).toHaveAttribute("id", "foo"));
 });
 
 test("a listbox role is \"listbox\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox data-testid="listbox">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -545,11 +545,11 @@ test("a listbox role is \"listbox\"", async () => {
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("role", "listbox"));
+    await waitFor(() => expect(screen.getByTestId("listbox")).toHaveAttribute("role", "listbox"));
 });
 
 test("when selectionMode is \"multiple\", aria-multiselectable is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox selectionMode="multiple" data-testid="listbox">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -557,11 +557,11 @@ test("when selectionMode is \"multiple\", aria-multiselectable is \"true\"", asy
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("listbox")).toHaveAttribute("aria-multiselectable", "true"));
+    await waitFor(() => expect(screen.getByTestId("listbox")).toHaveAttribute("aria-multiselectable", "true"));
 });
 
 test("a listbox option role is \"option\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -569,11 +569,11 @@ test("a listbox option role is \"option\"", async () => {
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("role", "option"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("role", "option"));
 });
 
 test("when a listbox option is selected, aria-selected is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["earth"]}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -581,11 +581,11 @@ test("when a listbox option is selected, aria-selected is \"true\"", async () =>
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 });
 
 test("when a listbox option is disabled, aria-disabled is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["earth"]}>
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -593,11 +593,11 @@ test("when a listbox option is disabled, aria-disabled is \"true\"", async () =>
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("aria-disabled", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-disabled", "true"));
 });
 
 test("a listbox option aria-labelledby match the listbox option id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item id="earth-item" key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -605,11 +605,11 @@ test("a listbox option aria-labelledby match the listbox option id", async () =>
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-labelledby", "earth-item-label"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-labelledby", "earth-item-label"));
 });
 
 test("when a listbox option have a description, the listbox option aria-describedby match the description id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item id="earth-item" key="earth" data-testid="earth-item">
                 <Text>Earth</Text>
@@ -620,11 +620,11 @@ test("when a listbox option have a description, the listbox option aria-describe
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-describedby", "earth-item-description"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-describedby", "earth-item-description"));
 });
 
 test("when an id is provided to an option, it is used as the option id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item id="i-am-earth" key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -632,11 +632,11 @@ test("when an id is provided to an option, it is used as the option id", async (
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("id", "i-am-earth"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("id", "i-am-earth"));
 });
 
 test("when no option id is provided, an option id is autogenerated", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -644,11 +644,11 @@ test("when no option id is provided, an option id is autogenerated", async () =>
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveAttribute("id"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("id"));
 });
 
 test("when autofocus is true, the first listbox option is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -656,11 +656,11 @@ test("when autofocus is true, the first listbox option is focused on render", as
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when autofocus is true and the listbox is disabled, the first option is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox disabled autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -668,11 +668,11 @@ test("when autofocus is true and the listbox is disabled, the first option is no
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the listbox use virtual focus, the first listbox option is virtually focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox useVirtualFocus autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -680,12 +680,12 @@ test("when autofocus is true and the listbox use virtual focus, the first listbo
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).not.toHaveFocus());
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when autofocus is true and the listbox use virtual focus and is disabled, the first listbox option is not virtually focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox disabled useVirtualFocus autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -693,11 +693,11 @@ test("when autofocus is true and the listbox use virtual focus and is disabled, 
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the listox have sections, the first listbox option is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocus>
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-option">Earth</Item>
@@ -713,11 +713,11 @@ test("when autofocus is true and the listox have sections, the first listbox opt
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when autofocus is true and there is a single default key, the listbox option matching the default key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["jupiter"]} autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -725,11 +725,11 @@ test("when autofocus is true and there is a single default key, the listbox opti
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
 
 test("when autofocus is true and there are multiple default keys, the listbox option matching the first default key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -737,11 +737,11 @@ test("when autofocus is true and there are multiple default keys, the listbox op
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target is \"first\", the listbox first option is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocusTarget="first" autoFocus>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -749,11 +749,11 @@ test("when autofocus is true and the default focus target is \"first\", the list
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target is \"last\", the listbox last option is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocusTarget="last" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -761,11 +761,11 @@ test("when autofocus is true and the default focus target is \"last\", the listb
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target match an option key, the listbox option matching the key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocusTarget="jupiter" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -773,11 +773,11 @@ test("when autofocus is true and the default focus target match an option key, t
         </Listbox>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the first listbox option is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox autoFocus={10}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -785,9 +785,9 @@ test("when autofocus is specified with a delay, the first listbox option is focu
         </Listbox>
     );
 
-    expect(getByTestId("earth-option")).not.toHaveFocus();
+    expect(screen.getByTestId("earth-option")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
 
 // ***** Api *****
@@ -795,7 +795,7 @@ test("when autofocus is specified with a delay, the first listbox option is focu
 test("call onSelectionChange when a single option is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox onSelectionChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -804,7 +804,7 @@ test("call onSelectionChange when a single option is selected", async () => {
     );
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
@@ -814,7 +814,7 @@ test("call onSelectionChange when a single option is selected", async () => {
 test("call onSelectionChange when multiple options are selected in sequence", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             onSelectionChange={handler}
             selectionMode="multiple"
@@ -826,11 +826,11 @@ test("call onSelectionChange when multiple options are selected in sequence", as
     );
 
     act(() => {
-        userEvent.click(getByTestId("earth-option"));
+        userEvent.click(screen.getByTestId("earth-option"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("mars-option"));
+        userEvent.click(screen.getByTestId("mars-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
@@ -840,7 +840,7 @@ test("call onSelectionChange when multiple options are selected in sequence", as
 test("call onSelectionChange when multiple options are selected at once", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             onSelectionChange={handler}
             selectionMode="multiple"
@@ -853,19 +853,19 @@ test("call onSelectionChange when multiple options are selected at once", async 
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.space });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
     });
 
     act(() => {
-        getByTestId("mercury-option").focus();
+        screen.getByTestId("mercury-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
+        fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]));
@@ -875,7 +875,7 @@ test("call onSelectionChange when multiple options are selected at once", async 
 test("call onFocusChange when an option is programatically focused", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox onFocusChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -884,7 +884,7 @@ test("call onFocusChange when an option is programatically focused", async () =>
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
@@ -894,7 +894,7 @@ test("call onFocusChange when an option is programatically focused", async () =>
 test("dont call onFocusChange when a disabled option is programatically focused", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox onFocusChange={handler}>
             <Item disabled key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -903,7 +903,7 @@ test("dont call onFocusChange when a disabled option is programatically focused"
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -912,7 +912,7 @@ test("dont call onFocusChange when a disabled option is programatically focused"
 test("call onFocusChange when an option is focused following an arrow down keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox onFocusChange={handler}>
             <Item key="earth" data-testid="earth-option">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -921,11 +921,11 @@ test("call onFocusChange when an option is focused following an arrow down keypr
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
@@ -935,7 +935,7 @@ test("call onFocusChange when an option is focused following an arrow down keypr
 test("call onFocusChange when an option is focused following an arrow up keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox onFocusChange={handler}>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-option">Jupiter</Item>
@@ -944,11 +944,11 @@ test("call onFocusChange when an option is focused following an arrow up keypres
     );
 
     act(() => {
-        getByTestId("jupiter-option").focus();
+        screen.getByTestId("jupiter-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
@@ -958,7 +958,7 @@ test("call onFocusChange when an option is focused following an arrow up keypres
 test("when focusOnHover is true, call onFocusChange when an option is hovered with mouse", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             focusOnHover
             onFocusChange={handler}
@@ -970,7 +970,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
     );
 
     act(() => {
-        fireEvent.mouseOver(getByTestId("earth-option"));
+        fireEvent.mouseOver(screen.getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
@@ -980,7 +980,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
 test("when focusOnHover is true, dont call onFocusChange when a disabled option is hovered with mouse", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             focusOnHover
             onFocusChange={handler}
@@ -992,7 +992,7 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
     );
 
     act(() => {
-        fireEvent.mouseOver(getByTestId("earth-option"));
+        fireEvent.mouseOver(screen.getByTestId("earth-option"));
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -1001,7 +1001,7 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
 test("when useVirtualFocus is true, call onFocusChange when an option is focused following an arrow up keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             useVirtualFocus
             onFocusChange={handler}
@@ -1013,11 +1013,11 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
     );
 
     act(() => {
-        getByTestId("jupiter-option").focus();
+        screen.getByTestId("jupiter-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-option"), { key: Keys.arrowUp });
+        fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
@@ -1027,7 +1027,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
 test("when useVirtualFocus is true, call onFocusChange when an option is focused following an arrow down keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Listbox
             useVirtualFocus
             onFocusChange={handler}
@@ -1039,11 +1039,11 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
     );
 
     act(() => {
-        getByTestId("earth-option").focus();
+        screen.getByTestId("earth-option").focus();
     });
 
     act(() => {
-        fireEvent.keyDown(getByTestId("earth-option"), { key: Keys.arrowDown });
+        fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));

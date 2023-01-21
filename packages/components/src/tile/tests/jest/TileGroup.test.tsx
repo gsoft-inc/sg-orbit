@@ -1,7 +1,7 @@
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile, TileGroup } from "@components/tile";
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor } from "@testing-library/react";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
@@ -9,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 // ***** Behaviors *****
 
 test("when selectionMode is \"single\" and a value is specified, the tile matching the value is checked", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup value={["2"]} selectionMode="single">
             <Tile value="1">
                 <Heading>1</Heading>
@@ -22,11 +22,11 @@ test("when selectionMode is \"single\" and a value is specified, the tile matchi
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
 });
 
 test("when selectionMode is \"single\" and a default value is specified, the tile matching the value is checked", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup defaultValue={["2"]} selectionMode="single">
             <Tile value="1">
                 <Heading>1</Heading>
@@ -39,11 +39,11 @@ test("when selectionMode is \"single\" and a default value is specified, the til
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("tile-2")).toHaveAttribute("aria-checked", "true"));
 });
 
 test("when selectionMode is \"none\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup autoFocus selectionMode="none">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -56,11 +56,11 @@ test("when selectionMode is \"none\" and autofocus is true, the first tile is fo
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveFocus());
 });
 
 test("when selectionMode is \"single\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup autoFocus selectionMode="single">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -73,11 +73,11 @@ test("when selectionMode is \"single\" and autofocus is true, the first tile is 
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveFocus());
 });
 
 test("when selectionMode is \"single\", there is a selected title and autofocus is true, the selected tile is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup autoFocus defaultValue={["2"]} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -90,13 +90,13 @@ test("when selectionMode is \"single\", there is a selected title and autofocus 
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveAttribute("tabindex", "-1"));
-    await waitFor(() => expect(getByTestId("tile-2")).toHaveAttribute("tabindex", "0"));
-    await waitFor(() => expect(getByTestId("tile-2")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveAttribute("tabindex", "-1"));
+    await waitFor(() => expect(screen.getByTestId("tile-2")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("tile-2")).toHaveFocus());
 });
 
 test("when selectionMode is \"multiple\" and autofocus is true, the first tile is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup autoFocus selectionMode="multiple">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -109,13 +109,13 @@ test("when selectionMode is \"multiple\" and autofocus is true, the first tile i
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when selectionMode is \"single\" the group role is \"radiogroup\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="single" data-testid="group">
             <Tile>
                 <Heading>1</Heading>
@@ -128,11 +128,11 @@ test("when selectionMode is \"single\" the group role is \"radiogroup\"", async 
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("group")).toHaveAttribute("role", "radiogroup"));
+    await waitFor(() => expect(screen.getByTestId("group")).toHaveAttribute("role", "radiogroup"));
 });
 
 test("when selectionMode is \"single\", the tile role is \"radio\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="single">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -145,11 +145,11 @@ test("when selectionMode is \"single\", the tile role is \"radio\"", async () =>
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveAttribute("role", "radio"));
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveAttribute("role", "radio"));
 });
 
 test("when selectionMode is \"multiple\", the group role is \"group\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="multiple" data-testid="group">
             <Tile>
                 <Heading>1</Heading>
@@ -162,11 +162,11 @@ test("when selectionMode is \"multiple\", the group role is \"group\"", async ()
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("group")).toHaveAttribute("role", "group"));
+    await waitFor(() => expect(screen.getByTestId("group")).toHaveAttribute("role", "group"));
 });
 
 test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="multiple">
             <Tile data-testid="tile-1">
                 <Heading>1</Heading>
@@ -179,7 +179,7 @@ test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async 
         </TileGroup>
     );
 
-    await waitFor(() => expect(getByTestId("tile-1")).toHaveAttribute("role", "checkbox"));
+    await waitFor(() => expect(screen.getByTestId("tile-1")).toHaveAttribute("role", "checkbox"));
 });
 
 // ***** Api *****
@@ -187,7 +187,7 @@ test("when selectionMode is \"multiple\", the tile role is \"checkbox\"", async 
 test("when selectionMode is \"single\", call onChange when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup onChange={handler} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -201,7 +201,7 @@ test("when selectionMode is \"single\", call onChange when a tile is selected", 
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
@@ -211,7 +211,7 @@ test("when selectionMode is \"single\", call onChange when a tile is selected", 
 test("when selectionMode is \"single\", call onChange when then selected tile change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup onChange={handler} selectionMode="single">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -225,11 +225,11 @@ test("when selectionMode is \"single\", call onChange when then selected tile ch
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("tile-2"));
+        userEvent.click(screen.getByTestId("tile-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
@@ -239,7 +239,7 @@ test("when selectionMode is \"single\", call onChange when then selected tile ch
 test("when selectionMode is \"multiple\", call onChange when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup onChange={handler} selectionMode="multiple">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -253,11 +253,11 @@ test("when selectionMode is \"multiple\", call onChange when a tile is selected"
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("tile-2"));
+        userEvent.click(screen.getByTestId("tile-2"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1", "2"]));
@@ -267,7 +267,7 @@ test("when selectionMode is \"multiple\", call onChange when a tile is selected"
 test("when selectionMode is \"multiple\", call onChange when a tile is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup onChange={handler} selectionMode="multiple">
             <Tile value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -281,15 +281,15 @@ test("when selectionMode is \"multiple\", call onChange when a tile is unselecte
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("tile-2"));
+        userEvent.click(screen.getByTestId("tile-2"));
     });
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["2"]));
@@ -299,7 +299,7 @@ test("when selectionMode is \"multiple\", call onChange when a tile is unselecte
 test("when selectionMode is \"single\" call the tile onChange handler when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="single">
             <Tile onChange={handler} value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -313,7 +313,7 @@ test("when selectionMode is \"single\" call the tile onChange handler when a til
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
@@ -323,7 +323,7 @@ test("when selectionMode is \"single\" call the tile onChange handler when a til
 test("when selectionMode is \"multiple\", call the tile onChange handler when a tile is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <TileGroup selectionMode="multiple">
             <Tile onChange={handler} value="1" data-testid="tile-1">
                 <Heading>1</Heading>
@@ -337,7 +337,7 @@ test("when selectionMode is \"multiple\", call the tile onChange handler when a 
     );
 
     act(() => {
-        userEvent.click(getByTestId("tile-1"));
+        userEvent.click(screen.getByTestId("tile-1"));
     });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
