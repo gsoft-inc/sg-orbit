@@ -6,7 +6,6 @@
         "emitDeclarationOnly": false,
         "paths": {
             "@test-utils": ["./tooling/test-utils"],
-            "@typescript-utils": ["./tooling/typescript-utils"],
             "@components/*": ["./packages/components/src/*"],
             "@experimental/*": ["./packages/experimental/src/*"],
             "@orbit-ui/components": ["./packages/components/src"],

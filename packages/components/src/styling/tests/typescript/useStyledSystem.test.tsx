@@ -112,7 +112,7 @@ import {
     WordBreakProp,
     ZIndexProp
 } from "@components/styling";
-import { expectAssignable } from "@typescript-utils";
+import { expectAssignable } from "@test-utils";
 
 expectAssignable<ResponsiveValue<string>>({ base: "value" });
 expectAssignable<ResponsiveValue<string>>({ md: "value" });

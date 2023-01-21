@@ -1,5 +1,5 @@
 import { arrayify } from "@components/shared";
-import { expectAssignable } from "@typescript-utils";
+import { expectAssignable } from "@test-utils";
 
 expectAssignable<number[]>(arrayify(1));
 expectAssignable<number[]>(arrayify([1]));

@@ -1,6 +1,6 @@
 import { MarginTopProp } from "@components/styling";
 import { adaptInputStylingProps } from "@components/input";
-import { expectAssignable } from "@typescript-utils";
+import { expectAssignable } from "@test-utils";
 
 const result = adaptInputStylingProps({
     marginTop: 10,

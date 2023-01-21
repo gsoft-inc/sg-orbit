@@ -29,7 +29,7 @@ export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) =
     const { wrapper, ...rest } = renderHookOptions;
 
     return renderHook(callback, {
-        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
+        wrapper: wrapper ?? createThemeProviderWrapper(),
         ...rest
     });
 }
