@@ -63,7 +63,7 @@ test("when a menu open with arrow down keypress and there is no selected item, t
         </MenuTrigger>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
@@ -80,7 +80,7 @@ test("when a menu open with arrow down keypress and there is a selected item, th
         </MenuTrigger>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
@@ -97,7 +97,7 @@ test("when a menu open with arrow up keypress and there is no selected item, the
         </MenuTrigger>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("saturn-item")).toHaveFocus());
 });
@@ -114,7 +114,7 @@ test("when a menu open with arrow up keypress and there is a selected item, the 
         </MenuTrigger>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
@@ -426,7 +426,7 @@ test("call onOpenChange when the menu close", async () => {
         screen.getByTestId("earth-item").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

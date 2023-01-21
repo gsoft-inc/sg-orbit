@@ -180,9 +180,9 @@ test("when opened, enter keypress on a value close the overlay & select the valu
 
     expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
@@ -207,7 +207,7 @@ test("when opened, on esc keypress hide the overlay and focus the input", async 
 
     expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.esc });
 
     await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 });
@@ -228,7 +228,7 @@ test("when opened, down arrow keypress virtually focus the first value", async (
 
     await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveClass("o-ui-focus"));
 });
@@ -248,7 +248,7 @@ test("when opened, up arrow keypress virtually focus the last value", async () =
 
     await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
 });
@@ -268,7 +268,7 @@ test("when opened, home keypress virtually focus the first value", async () => {
 
     await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.home });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.home });
 
     await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveClass("o-ui-focus"));
 });
@@ -288,7 +288,7 @@ test("when opened, end keypress virtually focus the last value", async () => {
 
     await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.end });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.end });
 
     await waitFor(() => expect(screen.getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
 });

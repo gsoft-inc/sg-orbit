@@ -52,7 +52,7 @@ test("when a popover is dismissable, hide the popover on esc keydown", async () 
 
     await waitFor(() => expect(screen.queryByTestId("popover")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
 
     await waitFor(() => expect(screen.queryByTestId("popover")).not.toBeInTheDocument());
 });
@@ -112,7 +112,7 @@ test("when a popover is not dismissable, do not hide the popover on esc keydown"
 
     await waitFor(() => expect(screen.getByTestId("popover")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
 
     expect(await screen.findByTestId("popover")).toBeInTheDocument();
 });
@@ -227,7 +227,7 @@ test("call onOpenChange on esc keypress", async () => {
 
     await waitFor(() => expect(screen.getByTestId("popover")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("popover"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

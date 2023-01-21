@@ -24,7 +24,7 @@ test("clear value on clear button click", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    await fireEvent.click(screen.getByLabelText("Clear value"));
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -36,7 +36,7 @@ test("clear value on esc", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    await fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -53,7 +53,7 @@ test("focus input on clear", async () => {
         />
     );
 
-    await fireEvent.click(screen.getByLabelText("Clear value"));
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });

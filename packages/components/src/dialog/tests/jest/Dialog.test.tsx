@@ -220,7 +220,7 @@ test("call onClose on esc keypress", async () => {
         </Dialog>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

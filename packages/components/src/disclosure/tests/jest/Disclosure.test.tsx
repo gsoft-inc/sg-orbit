@@ -18,11 +18,11 @@ test("spacebar keypress toggles content visibility", async () => {
     const header = await screen.findByTestId("header");
     expect(header).toHaveAttribute("aria-expanded", "false");
 
-    await fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
-    await fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.space });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 });
@@ -39,11 +39,11 @@ test("enter keypress toggles content visibility", async () => {
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 
-    await fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
 
     expect(header).toHaveAttribute("aria-expanded", "true");
 
-    await fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("header"), { key: Keys.enter });
 
     expect(header).toHaveAttribute("aria-expanded", "false");
 });
@@ -103,7 +103,7 @@ test("call onOpenChange when expand", async () => {
         </Disclosure>
     );
 
-    await fireEvent.click(screen.getByTestId("header"));
+    fireEvent.click(screen.getByTestId("header"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -119,7 +119,7 @@ test("call onOpenChange when close", async () => {
         </Disclosure>
     );
 
-    await fireEvent.click(screen.getByTestId("header"));
+    fireEvent.click(screen.getByTestId("header"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

@@ -92,7 +92,7 @@ test("down arrow keypress moves focus to the next option", async () => {
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
@@ -110,9 +110,9 @@ test("up arrow keypress moves focus to the previous option", async () => {
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
@@ -130,9 +130,9 @@ test("home keypress move the focus to the first option", async () => {
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.home });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.home });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
@@ -150,7 +150,7 @@ test("end keypress move the focus to the last option", async () => {
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.end });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.end });
 
     await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
@@ -168,7 +168,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the option 
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -186,7 +186,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the option sel
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -218,11 +218,11 @@ test("when selectionMode is \"single\", spacebar keypress toggle the option sele
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -240,11 +240,11 @@ test("when selectionMode is \"single\", enter keypress toggle the option selecti
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -280,11 +280,11 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the option se
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -302,11 +302,11 @@ test("when selectionMode is \"multiple\", enter keypress toggle the option selec
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
 });
@@ -342,9 +342,9 @@ test("when selectionMode is \"multiple\", shift + down arrow keypress moves focu
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown, shiftKey: true });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowDown, shiftKey: true });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "false"));
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -364,9 +364,9 @@ test("when selectionMode is \"multiple\", shift + up arrow keypress moves focus 
         screen.getByTestId("mars-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("mars-option"), { key: Keys.arrowUp, shiftKey: true });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp, shiftKey: true });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -387,11 +387,11 @@ test("when selectionMode is \"multiple\", shift + space keypress selects contigu
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     await screen.getByTestId("mercury-option").focus();
 
-    await fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveAttribute("aria-selected", "true"));
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveAttribute("aria-selected", "true"));
@@ -441,7 +441,7 @@ test("when useVirtualFocus and focusOnHover are true, a mouse hover should rende
         </Listbox>
     );
 
-    await fireEvent.mouseOver(screen.getByTestId("jupiter-option"));
+    fireEvent.mouseOver(screen.getByTestId("jupiter-option"));
 
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveClass("o-ui-focus"));
 });
@@ -455,7 +455,7 @@ test("a letter keypress move the focus to the first option starting with that le
         </Listbox>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: "j" });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: "j" });
 
     await waitFor(() => expect(screen.getByTestId("jupiter-option")).toHaveFocus());
 });
@@ -788,13 +788,13 @@ test("call onSelectionChange when multiple options are selected at once", async 
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.space });
 
     act(() => {
         screen.getByTestId("mercury-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
+    fireEvent.keyDown(screen.getByTestId("mercury-option"), { key: Keys.space, shiftKey: true });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "jupiter", "mars", "mercury"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -852,7 +852,7 @@ test("call onFocusChange when an option is focused following an arrow down keypr
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -873,7 +873,7 @@ test("call onFocusChange when an option is focused following an arrow up keypres
         screen.getByTestId("jupiter-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -893,7 +893,7 @@ test("when focusOnHover is true, call onFocusChange when an option is hovered wi
         </Listbox>
     );
 
-    await fireEvent.mouseOver(screen.getByTestId("earth-option"));
+    fireEvent.mouseOver(screen.getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -913,7 +913,7 @@ test("when focusOnHover is true, dont call onFocusChange when a disabled option 
         </Listbox>
     );
 
-    await fireEvent.mouseOver(screen.getByTestId("earth-option"));
+    fireEvent.mouseOver(screen.getByTestId("earth-option"));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
@@ -936,7 +936,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         screen.getByTestId("jupiter-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("jupiter-option"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "earth", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -960,7 +960,7 @@ test("when useVirtualFocus is true, call onFocusChange when an option is focused
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "jupiter", expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

@@ -318,7 +318,7 @@ test("clear both dates on esc keypress", async () => {
         getStartDateInput(container).focus();
     });
 
-    await fireEvent.keyDown(getStartDateInput(container), { key: Keys.esc });
+    fireEvent.keyDown(getStartDateInput(container), { key: Keys.esc });
 
     await waitFor(() => expect(getStartDateInput(container)).toHaveValue(""));
     await waitFor(() => expect(getEndDateInput(container)).toHaveValue(""));
