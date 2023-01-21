@@ -25,11 +25,11 @@ export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: Render
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>) {
+export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>, themeOptions?: ThemeProviderWrapperOptions) {
     const { wrapper, ...rest } = renderHookOptions;
 
     return renderHook(callback, {
-        wrapper: wrapper ?? createThemeProviderWrapper(),
+        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
         ...rest
     });
 }
