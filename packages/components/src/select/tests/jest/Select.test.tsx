@@ -1,13 +1,11 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // Using "beforeEach" instead of "beforeAll" because the restore focus tests currently need the fade out animation to works properly.
@@ -55,7 +53,7 @@ test("when a select open with arrow down keypress and there is no selected optio
         </Select>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveFocus());
 });
@@ -69,7 +67,7 @@ test("when a select open with arrow down keypress and there is a selected option
         </Select>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
@@ -83,7 +81,7 @@ test("when a select open with arrow up keypress and there is no selected option,
         </Select>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("saturn-option")).toHaveFocus());
 });
@@ -97,7 +95,7 @@ test("when a select open with arrow up keypress and there is a selected option, 
         </Select>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("select"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveFocus());
 });
@@ -416,7 +414,7 @@ test("call onOpenChange when the select close", async () => {
         screen.getByTestId("earth-option").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("earth-option"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

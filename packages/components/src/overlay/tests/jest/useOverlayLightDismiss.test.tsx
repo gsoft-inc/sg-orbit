@@ -1,10 +1,8 @@
 import { Keys, mergeProps, useFocusScope, useMergedRefs } from "@components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@components/overlay";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { ComponentProps } from "react";
 import { Div } from "@components/html";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;
@@ -63,7 +61,7 @@ describe("\"click\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -125,7 +123,7 @@ describe("\"click\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -240,7 +238,7 @@ describe("\"click\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -262,7 +260,7 @@ describe("\"hover\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -278,7 +276,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        await fireEvent.mouseLeave(screen.getByTestId("overlay"));
+        fireEvent.mouseLeave(screen.getByTestId("overlay"));
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -315,7 +313,7 @@ describe("\"hover\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -335,7 +333,7 @@ describe("\"hover\" trigger", () => {
             </>
         );
 
-        await fireEvent.mouseLeave(screen.getByTestId("overlay"));
+        fireEvent.mouseLeave(screen.getByTestId("overlay"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -424,7 +422,7 @@ describe("\"hover\" trigger", () => {
             screen.getByTestId("overlay").focus();
         });
 
-        await fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
+        fireEvent.keyDown(screen.getByTestId("overlay"), { key: Keys.esc });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });

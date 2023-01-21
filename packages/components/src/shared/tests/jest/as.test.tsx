@@ -1,5 +1,5 @@
 import { createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { render, waitFor } from "@test-utils";
 
 import { Div } from "@components/html";
 import { TextLink } from "@components/link";

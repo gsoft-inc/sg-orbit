@@ -1,8 +1,7 @@
 import { Keys } from "@components/shared";
 import { SearchInput } from "@components/text-input";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -24,7 +23,7 @@ test("clear value on clear button click", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    await fireEvent.click(screen.getByLabelText("Clear value"));
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -36,7 +35,7 @@ test("clear value on esc", async () => {
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    await fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
 
     await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
@@ -53,7 +52,7 @@ test("focus input on clear", async () => {
         />
     );
 
-    await fireEvent.click(screen.getByLabelText("Clear value"));
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });

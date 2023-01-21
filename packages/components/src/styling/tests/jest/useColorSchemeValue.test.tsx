@@ -1,4 +1,4 @@
-import { renderHookWithTheme } from "@jest-utils";
+import { renderHookWithTheme } from "@test-utils";
 import { useColorSchemeValue } from "@components/styling";
 
 test("return the light color value when the color scheme is light", async () => {

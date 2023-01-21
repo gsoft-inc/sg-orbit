@@ -2,8 +2,7 @@ import { Alert } from "@components/alert";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Behaviors *****
 

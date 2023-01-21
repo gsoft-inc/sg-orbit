@@ -1,12 +1,10 @@
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Accordion } from "@components/accordion";
 import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
@@ -32,7 +30,7 @@ test("down arrow keypress select the next item", async () => {
         screen.getByTestId("item-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("item-1"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("item-1"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("item-2")).toHaveFocus());
 });
@@ -59,7 +57,7 @@ test("up arrow keypress select the next item", async () => {
         screen.getByTestId("item-2").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("item-2"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("item-2"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("item-1")).toHaveFocus());
 });
@@ -149,11 +147,11 @@ test("when single, call onExpansionChange when the expanded tab change", async (
         </Accordion>
     );
 
-    await fireEvent.click(screen.getByTestId("item-1"));
+    fireEvent.click(screen.getByTestId("item-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
 
-    await fireEvent.click(screen.getByTestId("item-2"));
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -179,15 +177,15 @@ test("when multiple, call onExpansionChange when the expanded tabs change", asyn
         </Accordion>
     );
 
-    await fireEvent.click(screen.getByTestId("item-1"));
+    fireEvent.click(screen.getByTestId("item-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
 
-    await fireEvent.click(screen.getByTestId("item-2"));
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0", "1"]));
 
-    await fireEvent.click(screen.getByTestId("item-2"));
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));

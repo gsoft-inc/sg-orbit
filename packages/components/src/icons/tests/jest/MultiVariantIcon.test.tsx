@@ -1,6 +1,6 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
 import { MultiVariantIcon, MultiVariantIconProps, createMultiVariantIcon } from "@components/icons";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 
 function createIcon(props: Omit<MultiVariantIconProps, "src24" | "src32"> = {}) {
     return <MultiVariantIcon

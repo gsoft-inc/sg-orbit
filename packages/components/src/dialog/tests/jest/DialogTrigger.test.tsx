@@ -1,16 +1,14 @@
 import { Dialog, DialogProps, DialogTrigger, useDialogTriggerContext } from "@components/dialog";
 import { Heading, Paragraph } from "@components/typography";
 import { Radio, RadioGroup } from "@components/radio";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef, forwardRef } from "react";
-
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -79,7 +77,7 @@ test("when dismissable is true, close the dialog on esc keypress", async () => {
 
     await waitFor(() => expect(screen.queryByTestId("dialog")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
 
     await waitFor(() => expect(screen.queryByTestId("dialog")).not.toBeInTheDocument());
 });
@@ -119,7 +117,7 @@ test("when dismissable is false, do not close the dialog on esc keypress", async
 
     await waitFor(() => expect(screen.queryByTestId("dialog")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
 
     expect(await screen.findByTestId("dialog")).toBeInTheDocument();
 });
@@ -247,7 +245,7 @@ test("call onOpenChange on esc keypress", async () => {
 
     await waitFor(() => expect(screen.queryByTestId("dialog")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
 
     await waitFor(() => expect(screen.queryByTestId("dialog")).not.toBeInTheDocument());
 
@@ -422,7 +420,7 @@ test("when a dialog contains a select, closing the select with an esc keydown do
         screen.getByTestId("option-2").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("option-2"), { key: Keys.esc });
+    fireEvent.keyDown(screen.getByTestId("option-2"), { key: Keys.esc });
 
     await waitFor(() => expect(screen.queryByTestId("select-overlay")).not.toBeInTheDocument());
     expect(await screen.findByTestId("dialog")).toBeInTheDocument();
@@ -463,7 +461,7 @@ test("when a dialog contains a select, closing the select with a tab keydown sel
         screen.getByTestId("option-2").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("option-2"), { key: Keys.tab });
+    fireEvent.keyDown(screen.getByTestId("option-2"), { key: Keys.tab });
 
     await waitFor(() => expect(screen.queryByTestId("select-overlay")).not.toBeInTheDocument());
     await waitFor(() => expect(screen.queryByTestId("button")).toHaveFocus());
@@ -500,11 +498,11 @@ test("when a dialog contains a radio group, only the first radio of the group is
 
     await waitFor(() => expect(screen.queryByTestId("button-1")).toHaveFocus());
 
-    await fireEvent.keyDown(screen.getByTestId("button-1"), { key: Keys.tab });
+    fireEvent.keyDown(screen.getByTestId("button-1"), { key: Keys.tab });
 
     await waitFor(() => expect(getRadioInput(screen.queryByTestId("radio-1"))).toHaveFocus());
 
-    await fireEvent.keyDown(getRadioInput(screen.getByTestId("radio-1")), { key: Keys.tab });
+    fireEvent.keyDown(getRadioInput(screen.getByTestId("radio-1")), { key: Keys.tab });
 
     await waitFor(() => expect(screen.queryByTestId("button-2")).toHaveFocus());
 });

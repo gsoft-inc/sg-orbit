@@ -1,7 +1,6 @@
 import { TextLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** External *****
 

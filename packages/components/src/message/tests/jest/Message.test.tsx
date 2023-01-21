@@ -1,7 +1,6 @@
 import { Message } from "@components/message";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Aria *****
 

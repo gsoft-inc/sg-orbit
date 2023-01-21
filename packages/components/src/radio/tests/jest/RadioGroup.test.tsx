@@ -1,10 +1,8 @@
 import { Radio, RadioGroup } from "@components/radio";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Keys } from "@components/shared";
 import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -63,7 +61,7 @@ test("right arrow keypress select the next radio", async () => {
         getInput(screen.getByTestId("radio-1")).focus();
     });
 
-    await fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
+    fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
 
     await waitFor(() => expect(getInput(screen.getByTestId("radio-2")).checked).toBeTruthy());
 });
@@ -81,7 +79,7 @@ test("left arrow keypress select the next radio", async () => {
         getInput(screen.getByTestId("radio-1")).focus();
     });
 
-    await fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowLeft });
+    fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowLeft });
 
     await waitFor(() => expect(getInput(screen.getByTestId("radio-3")).checked).toBeTruthy());
 });
@@ -99,7 +97,7 @@ test("down arrow keypress select the next radio", async () => {
         getInput(screen.getByTestId("radio-1")).focus();
     });
 
-    await fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowDown });
+    fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowDown });
 
     await waitFor(() => expect(getInput(screen.getByTestId("radio-2")).checked).toBeTruthy());
 });
@@ -117,7 +115,7 @@ test("up arrow keypress select the next radio", async () => {
         getInput(screen.getByTestId("radio-1")).focus();
     });
 
-    await fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowUp });
+    fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowUp });
 
     await waitFor(() => expect(getInput(screen.getByTestId("radio-3")).checked).toBeTruthy());
 });
@@ -238,7 +236,7 @@ test("call onChange when a radio is selected with the keyboard arrows", async ()
         getInput(screen.getByTestId("radio-1")).focus();
     });
 
-    await fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
+    fireEvent.keyDown(getInput(screen.getByTestId("radio-1")), { key: Keys.arrowRight });
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "2"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

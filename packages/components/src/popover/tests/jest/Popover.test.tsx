@@ -1,13 +1,11 @@
 import { Content, Footer } from "@components/placeholders";
-import { act, screen, waitFor } from "@testing-library/react";
-
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { Heading } from "@components/typography";
 import { HtmlInput } from "@components/html";
 import { Popover } from "@components/popover";
 import { TextLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

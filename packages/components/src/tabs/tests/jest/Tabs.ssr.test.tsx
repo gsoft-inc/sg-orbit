@@ -5,7 +5,7 @@ import { Content, Header } from "@components/placeholders";
 import { Item } from "@components/collection";
 import { Tabs } from "@components/tabs";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();

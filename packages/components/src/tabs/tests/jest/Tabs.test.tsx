@@ -1,11 +1,10 @@
 import { Content, Header } from "@components/placeholders";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Tabs } from "@components/tabs";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // It's very hard to setup jest with a specific width & height to be able to test collapsed tabs because jsdom doesn't support layout.
@@ -88,7 +87,7 @@ test("when manual, focusing a tab doesn't change the active tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "false"));
 });
@@ -107,7 +106,7 @@ test("when manual, spacebar keypress makes a tab active", async () => {
         </Tabs>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.space });
+    fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -126,7 +125,7 @@ test("when manual, enter keypress makes a tab active", async () => {
         </Tabs>
     );
 
-    await fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.enter });
+    fireEvent.keyDown(screen.getByTestId("tab-2"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -153,7 +152,7 @@ test("when horizontal, right arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowRight });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -180,7 +179,7 @@ test("when horizontal, left arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowLeft });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowLeft });
 
     await waitFor(() => expect(screen.getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
 });
@@ -207,7 +206,7 @@ test("when vertical, down arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowDown });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("tab-2")).toHaveAttribute("aria-selected", "true"));
 });
@@ -234,7 +233,7 @@ test("when vertical, up arrow keypress select the next tab", async () => {
         screen.getByTestId("tab-1").focus();
     });
 
-    await fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowUp });
+    fireEvent.keyDown(screen.getByTestId("tab-1"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("tab-3")).toHaveAttribute("aria-selected", "true"));
 });
@@ -474,7 +473,7 @@ test("call onSelectionChange when the active tab change", async () => {
         </Tabs>
     );
 
-    await fireEvent.click(screen.getByTestId("tab-2"));
+    fireEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "1"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -542,7 +541,7 @@ test("dont call onSelectionChange when a tab is disabled", async () => {
         </Tabs>
     );
 
-    await fireEvent.click(screen.getByTestId("tab-2"));
+    fireEvent.click(screen.getByTestId("tab-2"));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
