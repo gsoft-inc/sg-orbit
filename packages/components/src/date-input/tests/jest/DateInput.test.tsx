@@ -10,17 +10,13 @@ import userEvent from "@testing-library/user-event";
 // Providing an option.delay fix the problem but we get the following warning: "You seem to have overlapping act() calls, this is not supported. Be sure to await previous act() calls before making a new one."
 function type(element: Element, text: string) {
     [...text].forEach(x => {
-        act(() => {
-            userEvent.type(element, x);
-        });
+        userEvent.type(element, x);
     });
 }
 
 function backspace(element: Element, times = 1) {
     for (let x = 0; x < times; x += 1) {
-        act(() => {
-            userEvent.type(element, "{backspace}");
-        });
+        userEvent.type(element, "{backspace}");
     }
 }
 
