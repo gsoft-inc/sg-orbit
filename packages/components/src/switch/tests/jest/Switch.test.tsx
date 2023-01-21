@@ -1,8 +1,7 @@
-import { act, screen, waitFor } from "@testing-library/react";
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { Switch } from "@components/switch";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: HTMLElement) {

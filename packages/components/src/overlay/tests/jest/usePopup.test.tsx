@@ -1,10 +1,8 @@
 import { Overlay, UsePopupOptions, usePopup } from "@components/overlay";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 type PopupProps = UsePopupOptions & {

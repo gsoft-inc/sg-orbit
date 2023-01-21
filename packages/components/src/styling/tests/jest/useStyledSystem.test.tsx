@@ -19,9 +19,8 @@ import {
 } from "@components/styling";
 
 import { ComponentProps } from "react";
-import { renderWithTheme } from "@test-utils";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 import renderer from "react-test-renderer";
-import { screen, waitFor } from "@testing-library/react";
 
 const AlignmentSampling = [
     "start",

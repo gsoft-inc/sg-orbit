@@ -2,8 +2,7 @@ import { Badge, BadgeProps } from "@components/badge";
 import { Div } from "@components/html";
 import { Text } from "@components/typography";
 import { forwardRef, createRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, ref) => {
     return (

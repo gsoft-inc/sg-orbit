@@ -2,9 +2,8 @@ import { Field, Label } from "@components/field";
 import { InputGroup } from "@components/input-group";
 import { Text } from "@components/typography";
 import { TextInput } from "@components/text-input";
-import { screen, waitFor } from "@testing-library/react";
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

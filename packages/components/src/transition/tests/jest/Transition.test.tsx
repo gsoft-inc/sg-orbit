@@ -1,7 +1,6 @@
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Behaviors *****
 

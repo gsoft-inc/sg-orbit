@@ -1,8 +1,7 @@
 import { Div } from "@components/html";
 import { Grid, GridProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 const SimpleGrid = forwardRef<HTMLDivElement, Omit<GridProps, "children">>((props, ref) => {
     return (

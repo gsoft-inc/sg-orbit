@@ -1,7 +1,6 @@
 import { Tooltip } from "@components/tooltip";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Aria *****
 

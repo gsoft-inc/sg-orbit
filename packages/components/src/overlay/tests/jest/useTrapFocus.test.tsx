@@ -1,11 +1,9 @@
 import { UseTrapFocusOptions, useTrapFocus } from "@components/overlay";
-import { screen, waitFor } from "@testing-library/react";
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { mergeProps, useFocusManager, useFocusScope } from "@components/shared";
-
 import { Button } from "@components/button";
 import { ComponentProps } from "react";
 import { Div } from "@components/html";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 type TrapProps = UseTrapFocusOptions & ComponentProps<"div">;

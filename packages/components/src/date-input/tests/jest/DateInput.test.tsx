@@ -1,9 +1,7 @@
 import { Field, Label } from "@components/field";
-import { act, screen, waitFor } from "@testing-library/react";
-
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { DateInput } from "@components/date-input";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // Using userEvent.type with a string having multiple characters doesn't work because of the mask. Only the last character ends up being typed.

@@ -1,10 +1,8 @@
 import { Keys, mergeProps, useFocusScope, useMergedRefs } from "@components/shared";
 import { UseOverlayLightDismissOptions, useOverlayLightDismiss } from "@components/overlay";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { ComponentProps } from "react";
 import { Div } from "@components/html";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;

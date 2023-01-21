@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { Autocomplete } from "@components/autocomplete";
 import { Button } from "@components/button";
@@ -7,7 +7,6 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

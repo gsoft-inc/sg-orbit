@@ -1,8 +1,7 @@
 import { Div } from "@components/html";
 import { Inline, InlineProps } from "@components/layout";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 const Inlined = forwardRef<HTMLElement, Omit<InlineProps, "children">>((props, ref) => {
     return (

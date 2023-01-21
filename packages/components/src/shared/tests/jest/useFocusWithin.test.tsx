@@ -1,4 +1,4 @@
-import { act, render, screen, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@test-utils";
 
 import { Div } from "@components/html";
 import { ReactNode } from "react";

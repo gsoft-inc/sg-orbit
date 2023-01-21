@@ -1,7 +1,6 @@
 import { ContextualHelp } from "@experimental/contextual-help";
 import { Text, Transition } from "@sharegate/orbit-ui";
-import { renderWithTheme } from "@test-utils";
-import { waitFor, screen } from "@testing-library/react";
+import { renderWithTheme, waitFor, screen } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
 

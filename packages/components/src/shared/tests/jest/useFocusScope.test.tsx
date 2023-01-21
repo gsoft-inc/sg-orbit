@@ -1,6 +1,6 @@
 import { FocusScope, FocusScopeContext, isFunction, useFocusScope, useMergedRefs } from "@components/shared";
 import { ReactNode, createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
+import { render, waitFor, renderWithTheme } from "@test-utils";
 
 import { Button } from "@components/button";
 import { Disclosure } from "@components/disclosure";
@@ -8,7 +8,6 @@ import { Div } from "@components/html";
 import { Item } from "@components/collection";
 import { Select } from "@components/select";
 import { TextInput } from "@components/text-input";
-import { renderWithTheme } from "@test-utils";
 
 interface FocusScopeProps {
     tabIndex?: number;

@@ -1,9 +1,8 @@
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile, TileGroup } from "@components/tile";
-import { screen, waitFor } from "@testing-library/react";
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

@@ -1,16 +1,14 @@
 import { Dialog, DialogProps, DialogTrigger, useDialogTriggerContext } from "@components/dialog";
 import { Heading, Paragraph } from "@components/typography";
 import { Radio, RadioGroup } from "@components/radio";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef, forwardRef } from "react";
-
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

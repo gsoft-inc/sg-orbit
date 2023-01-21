@@ -1,10 +1,8 @@
 import { Radio, RadioGroup } from "@components/radio";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Keys } from "@components/shared";
 import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {

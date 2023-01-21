@@ -1,9 +1,7 @@
-import { act, screen, waitFor } from "@testing-library/react";
-
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { AddIcon } from "@components/icons";
 import { IconButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
 
 // ***** Behaviors *****
 

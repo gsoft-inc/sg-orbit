@@ -2,8 +2,7 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Disclosure } from "@components/disclosure";
 import { Keys } from "@components/shared";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
-import { renderWithTheme } from "@test-utils";
+import { fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 
 // ***** Behaviors *****
 

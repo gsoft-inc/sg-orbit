@@ -1,8 +1,7 @@
 import { Div } from "@components/html";
 import { Illustration } from "@components/illustration";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 // ***** Refs *****
 

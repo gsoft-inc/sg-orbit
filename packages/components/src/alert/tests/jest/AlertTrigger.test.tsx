@@ -3,8 +3,7 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@test-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

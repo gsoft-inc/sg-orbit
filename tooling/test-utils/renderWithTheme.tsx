@@ -1,33 +1,29 @@
-import { ColorScheme, ShareGateTheme, ThemeProvider } from "@components/styling";
+import { ShareGateTheme, ThemeProvider } from "@components/styling";
 import { ReactElement, ReactNode } from "react";
-import { RenderHookOptions, renderHook, render } from "@testing-library/react";
+import { RenderHookOptions, renderHook, render, RenderOptions } from "@testing-library/react";
 
-export interface JestThemeOptions {
-    colorScheme?: ColorScheme;
-}
+const ThemeProviderWrapper = ({ children }: { children?: ReactNode }) => {
+    return (
+        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
+            {children}
+        </ThemeProvider>
+    );
+};
 
-function withThemeProvider({ colorScheme = "light" }: JestThemeOptions = {}) {
-    return {
-        wrapper: ({ children }: { children?: ReactNode }) => {
-            return (
-                <ThemeProvider theme={ShareGateTheme} colorScheme={colorScheme}>
-                    {children}
-                </ThemeProvider>
-            );
-        }
-    };
-}
-
-export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: Record<any, any>, themeOptions?: JestThemeOptions) {
+export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: Omit<RenderOptions, "wrapper">) {
     return render(ui, {
-        ...withThemeProvider(themeOptions),
+        wrapper: ThemeProviderWrapper,
         ...testingLibraryOptions
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>, themeOptions?: JestThemeOptions) {
+export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: Omit<RenderHookOptions<TProps>, "wrapper">) {
     return renderHook(callback, {
-        ...withThemeProvider(themeOptions),
+        wrapper: ThemeProviderWrapper,
         ...renderHookOptions
     });
 }
+
+export * from "@testing-library/react";
+export { renderWithTheme as render };
+export { renderHookWithTheme as renderHook };
