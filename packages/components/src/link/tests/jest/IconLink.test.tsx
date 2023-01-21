@@ -1,7 +1,7 @@
 import { AddIcon } from "@components/icons";
 import { IconLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { screen, waitFor } from "@testing-library/react";
 
 // ***** Behaviors *****

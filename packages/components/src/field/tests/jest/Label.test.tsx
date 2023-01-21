@@ -1,6 +1,6 @@
 import { Label, LabelProps } from "@components/field";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 const FieldLabel = forwardRef<HTMLElement, Omit<LabelProps, "children">>((props, ref) => {

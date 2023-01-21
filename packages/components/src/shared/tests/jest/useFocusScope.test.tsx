@@ -8,7 +8,7 @@ import { Div } from "@components/html";
 import { Item } from "@components/collection";
 import { Select } from "@components/select";
 import { TextInput } from "@components/text-input";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 
 interface FocusScopeProps {
     tabIndex?: number;

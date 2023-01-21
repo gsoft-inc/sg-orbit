@@ -3,7 +3,7 @@ import { act, screen, waitFor } from "@testing-library/react";
 
 import { TextArea } from "@components/text-area";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

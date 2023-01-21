@@ -2,7 +2,7 @@ import { Keys } from "@components/shared";
 import { SearchInput } from "@components/text-input";
 import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

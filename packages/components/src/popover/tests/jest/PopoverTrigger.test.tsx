@@ -7,7 +7,7 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

@@ -4,7 +4,7 @@ import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 import { Button } from "@components/button";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 type PopupProps = UsePopupOptions & {

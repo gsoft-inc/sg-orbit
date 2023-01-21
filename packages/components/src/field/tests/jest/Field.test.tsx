@@ -1,7 +1,7 @@
 import { Field, HelpMessage, Label } from "@components/field";
 import { TextInput } from "@components/text-input";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { screen, waitFor } from "@testing-library/react";
 
 // ***** Aria *****

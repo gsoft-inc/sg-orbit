@@ -1,6 +1,6 @@
 import { Counter } from "@components/counter";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****

@@ -1,6 +1,6 @@
 import { ErrorMessage, ErrorMessageProps, HelpMessage, HelpMessageProps, ValidMessage, ValidMessageProps } from "@components/field";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 const Help = forwardRef<HTMLElement, Omit<HelpMessageProps, "children">>((props, ref) => {

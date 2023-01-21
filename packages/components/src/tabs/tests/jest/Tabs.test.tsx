@@ -5,7 +5,7 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Tabs } from "@components/tabs";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // It's very hard to setup jest with a specific width & height to be able to test collapsed tabs because jsdom doesn't support layout.

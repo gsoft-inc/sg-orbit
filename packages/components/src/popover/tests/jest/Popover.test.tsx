@@ -7,7 +7,7 @@ import { HtmlInput } from "@components/html";
 import { Popover } from "@components/popover";
 import { TextLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

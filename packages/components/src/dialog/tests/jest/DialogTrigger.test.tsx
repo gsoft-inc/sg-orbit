@@ -10,7 +10,7 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Select } from "@components/select";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

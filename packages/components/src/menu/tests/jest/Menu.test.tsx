@@ -6,7 +6,7 @@ import { Keys } from "@components/shared";
 import { Menu } from "@components/menu";
 import { Text } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

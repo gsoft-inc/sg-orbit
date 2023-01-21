@@ -4,7 +4,7 @@
 import { Div } from "@components/html";
 import { IllustratedMessage } from "@components/illustrated-message";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();

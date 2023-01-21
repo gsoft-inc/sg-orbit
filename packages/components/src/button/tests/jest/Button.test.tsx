@@ -2,7 +2,7 @@ import { act, screen, waitFor } from "@testing-library/react";
 
 import { Button } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 
 // ***** Behaviors *****
 

@@ -5,7 +5,7 @@
         "noEmit": true,
         "emitDeclarationOnly": false,
         "paths": {
-            "@jest-utils": ["./tooling/jest-utils"],
+            "@test-utils": ["./tooling/test-utils"],
             "@typescript-utils": ["./tooling/typescript-utils"],
             "@components/*": ["./packages/components/src/*"],
             "@experimental/*": ["./packages/experimental/src/*"],

@@ -19,7 +19,7 @@ import {
 } from "@components/styling";
 
 import { ComponentProps } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import renderer from "react-test-renderer";
 import { screen, waitFor } from "@testing-library/react";
 

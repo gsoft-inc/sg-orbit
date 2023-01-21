@@ -4,7 +4,7 @@
 import { ErrorMessage, ErrorMessageProps, HelpMessage, HelpMessageProps, ValidMessage, ValidMessageProps } from "@components/field";
 import { forwardRef } from "react";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 const Help = forwardRef<HTMLElement, Omit<HelpMessageProps, "children">>((props, ref) => {
     return (

@@ -2,7 +2,7 @@ import { AddIcon } from "@components/icons";
 import { ToggleIconButton } from "@components/button";
 import { screen, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Api *****

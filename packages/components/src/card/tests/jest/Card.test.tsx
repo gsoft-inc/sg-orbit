@@ -2,7 +2,7 @@ import { Card } from "@components/card";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****

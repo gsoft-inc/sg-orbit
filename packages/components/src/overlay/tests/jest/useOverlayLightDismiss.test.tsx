@@ -4,7 +4,7 @@ import { act, fireEvent, screen, waitFor } from "@testing-library/react";
 
 import { ComponentProps } from "react";
 import { Div } from "@components/html";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 type OverlayProps = UseOverlayLightDismissOptions & ComponentProps<"div">;

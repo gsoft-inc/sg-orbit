@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, ButtonGroupProps } from "@components/button";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 const Group = forwardRef<HTMLElement, Omit<ButtonGroupProps, "children">>((props, ref) => {

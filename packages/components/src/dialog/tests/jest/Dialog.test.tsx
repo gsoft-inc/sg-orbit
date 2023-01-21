@@ -6,7 +6,7 @@ import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

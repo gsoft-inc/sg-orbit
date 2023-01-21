@@ -6,7 +6,7 @@ import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 
 // ***** Behaviors *****
 

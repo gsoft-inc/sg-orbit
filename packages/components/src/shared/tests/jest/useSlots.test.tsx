@@ -1,5 +1,5 @@
 import { Div, DivProps } from "@components/html";
-import { ErrorBoundary, muteConsoleErrors } from "@jest-utils";
+import { ErrorBoundary, muteConsoleErrors } from "@test-utils";
 import { ReactNode, createRef, forwardRef } from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import { slot, useSlots } from "@components/shared";

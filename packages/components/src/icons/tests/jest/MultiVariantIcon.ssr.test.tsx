@@ -4,7 +4,7 @@
 import { FilterIcon24, FilterIcon32 } from "./assets";
 import { MultiVariantIcon } from "@components/icons";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();

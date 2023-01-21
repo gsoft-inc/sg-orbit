@@ -1,6 +1,6 @@
 import { Dot } from "@components/dot";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { waitFor } from "@testing-library/react";
 
 // ***** Refs *****

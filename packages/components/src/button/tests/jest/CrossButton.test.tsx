@@ -1,7 +1,7 @@
 import { CrossButton } from "@components/button";
 import { act, waitFor } from "@testing-library/react";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 
 // ***** Api *****
 

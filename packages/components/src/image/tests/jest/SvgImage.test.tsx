@@ -1,6 +1,6 @@
 import { ComponentProps, createRef, forwardRef } from "react";
 import { SvgImage } from "@components/image";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme } from "@test-utils";
 import { screen, waitFor } from "@testing-library/react";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
