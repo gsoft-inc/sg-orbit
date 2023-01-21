@@ -1,26 +1,36 @@
-import { ShareGateTheme, ThemeProvider } from "@components/styling";
+import { ShareGateTheme, ThemeProvider, ColorScheme } from "@components/styling";
 import { ReactElement, ReactNode } from "react";
 import { RenderHookOptions, renderHook, render, RenderOptions } from "@testing-library/react";
 
-const ThemeProviderWrapper = ({ children }: { children?: ReactNode }) => {
-    return (
-        <ThemeProvider theme={ShareGateTheme} colorScheme="light">
-            {children}
-        </ThemeProvider>
-    );
-};
+export interface ThemeProviderWrapperOptions {
+    colorScheme?: ColorScheme;
+}
 
-export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: Omit<RenderOptions, "wrapper">) {
+function createThemeProviderWrapper({ colorScheme = "light" }: ThemeProviderWrapperOptions = {}) {
+    return ({ children }: { children?: ReactNode }) => {
+        return (
+            <ThemeProvider theme={ShareGateTheme} colorScheme={colorScheme}>
+                {children}
+            </ThemeProvider>
+        );
+    };
+}
+
+export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: RenderOptions, themeOptions?: ThemeProviderWrapperOptions) {
+    const { wrapper, ...rest } = testingLibraryOptions;
+
     return render(ui, {
-        wrapper: ThemeProviderWrapper,
-        ...testingLibraryOptions
+        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
+        ...rest
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: Omit<RenderHookOptions<TProps>, "wrapper">) {
+export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>) {
+    const { wrapper, ...rest } = renderHookOptions;
+
     return renderHook(callback, {
-        wrapper: ThemeProviderWrapper,
-        ...renderHookOptions
+        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
+        ...rest
     });
 }
 
