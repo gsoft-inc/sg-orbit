@@ -19,10 +19,7 @@ module.exports = {
                 "plugin:@sharegate/jest",
                 "plugin:@sharegate/typescript",
                 "plugin:@sharegate/testing-library"
-            ],
-            rules: {
-                "testing-library/no-unnecessary-act": "off" // multiple errors, should be fixed in another PR. 515 errors
-            }
+            ]
         },
         {
             files: ["*.ts", "*.tsx"],

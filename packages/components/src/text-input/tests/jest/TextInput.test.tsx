@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 import { TextInput } from "@components/text-input";
 import { createRef } from "react";
@@ -96,9 +96,7 @@ test("when in a field, clicking on the field label focus the input", async () =>
         </Field>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("label"));
-    });
+    await userEvent.click(screen.getByTestId("label"));
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
@@ -112,9 +110,7 @@ test("call onValueChange when the value change", async () => {
         <TextInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -127,9 +123,7 @@ test("call onChange when the value change", async () => {
         <TextInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(screen.getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -147,9 +141,7 @@ test("can focus the input with the focus api", async () => {
         />
     );
 
-    act(() => {
-        refNode.focus();
-    });
+    await refNode.focus();
 
     await waitFor(() => expect(refNode).toHaveFocus());
 });

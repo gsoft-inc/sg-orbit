@@ -1,5 +1,5 @@
 import { UseTrapFocusOptions, useTrapFocus } from "@components/overlay";
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { mergeProps, useFocusManager, useFocusScope } from "@components/shared";
 
 import { Button } from "@components/button";
@@ -48,15 +48,15 @@ test("move the focus to the next element of the scope on tab keypress", async ()
         </>
     );
 
-    await act(() => userEvent.click(screen.getByTestId("button-2")));
+    await userEvent.click(screen.getByTestId("button-2"));
 
-    await act(() => userEvent.tab());
+    await userEvent.tab();
 
-    await act(() => userEvent.tab());
+    await userEvent.tab();
 
     await waitFor(() => expect(screen.getByTestId("button-4")).toHaveFocus());
 
-    await act(() => userEvent.tab());
+    await userEvent.tab();
 
     await waitFor(() => expect(screen.getByTestId("button-2")).toHaveFocus());
 });
@@ -74,23 +74,15 @@ test("move the focus to the previous element of the scope on shift + tab keypres
         </>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("button-4"));
-    });
+    await userEvent.click(screen.getByTestId("button-4"));
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
     await waitFor(() => expect(screen.getByTestId("button-2")).toHaveFocus());
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
     await waitFor(() => expect(screen.getByTestId("button-4")).toHaveFocus());
 });
@@ -108,9 +100,7 @@ test("when no element of the scope is focused, clicking an element outside of th
         </>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("button-5"));
-    });
+    await userEvent.click(screen.getByTestId("button-5"));
 
     await waitFor(() => expect(screen.getByTestId("button-2")).toHaveFocus());
 });
@@ -128,9 +118,9 @@ test("when disabled, do not trap the focus", async () => {
         </>
     );
 
-    await act(() => userEvent.click(screen.getByTestId("button-4")));
+    await userEvent.click(screen.getByTestId("button-4"));
 
-    await act(() => userEvent.tab());
+    await userEvent.tab();
 
     await waitFor(() => expect(screen.getByTestId("button-5")).toHaveFocus());
 });

@@ -106,9 +106,7 @@ test("down arrow keypress moves focus to the next item", async () => {
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
     await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveFocus());
 });
@@ -126,13 +124,9 @@ test("up arrow keypress moves focus to the previous item", async () => {
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.arrowUp });
-    });
+    await fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.arrowUp });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
@@ -150,13 +144,9 @@ test("home keypress move the focus to the first item", async () => {
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.home });
-    });
+    await fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.home });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
@@ -174,9 +164,7 @@ test("end keypress move the focus to the last item", async () => {
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.end });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.end });
 
     await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
@@ -194,9 +182,7 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the item se
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
@@ -214,9 +200,7 @@ test("when selectionMode is \"none\", enter keypress don't toggle the item selec
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
@@ -230,9 +214,7 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the item select
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
@@ -250,15 +232,11 @@ test("when selectionMode is \"single\", spacebar keypress toggle the item select
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -276,15 +254,11 @@ test("when selectionMode is \"single\", enter keypress toggle the item selection
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -298,15 +272,11 @@ test("when selectionMode is \"single\", mouse click toggle the item selection", 
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -324,15 +294,11 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the item sele
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -350,15 +316,11 @@ test("when selectionMode is \"multiple\", enter keypress toggle the item selecti
         screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
-    });
+    await fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -372,15 +334,11 @@ test("when selectionMode is \"multiple\", mouse click toggle the item selection"
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
@@ -669,9 +627,7 @@ test("when selectionMode is \"none\", call onSelectionChange when a single item 
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -692,9 +648,7 @@ test("when selectionMode is \"single\", call onSelectionChange when a single ite
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -715,13 +669,9 @@ test("when selectionMode is \"multiple\", call onSelectionChange when multiple i
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("mars-item"));
-    });
+    await userEvent.click(screen.getByTestId("mars-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

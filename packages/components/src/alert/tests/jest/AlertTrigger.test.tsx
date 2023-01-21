@@ -4,7 +4,7 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
 import { renderWithTheme } from "@jest-utils";
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -20,15 +20,11 @@ test("do not dismiss on outside click", async () => {
         </AlertTrigger>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("trigger"));
-    });
+    await userEvent.click(screen.getByTestId("trigger"));
 
     expect(await screen.findByTestId("alert")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     expect(await screen.findByTestId("alert")).toBeInTheDocument();
 });

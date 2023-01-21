@@ -50,9 +50,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(screen.getByTestId("trigger"));
-        });
+        await userEvent.click(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -69,9 +67,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -88,9 +84,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -107,9 +101,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -126,9 +118,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).toHaveBeenCalled());
     });
@@ -146,9 +136,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(screen.getByTestId("trigger"));
-        });
+        await userEvent.click(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -166,9 +154,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -186,9 +172,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -205,9 +189,7 @@ describe("\"click\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(screen.getByTestId("trigger"));
-        });
+        await userEvent.click(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -226,9 +208,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(screen.getByTestId("trigger"));
-        });
+        await userEvent.hover(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -264,13 +244,9 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(screen.getByTestId("trigger"));
-        });
+        await userEvent.hover(screen.getByTestId("trigger"));
 
-        act(() => {
-            userEvent.unhover(screen.getByTestId("trigger"));
-        });
+        await userEvent.unhover(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -291,9 +267,7 @@ describe("\"hover\" trigger", () => {
             screen.getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
     });
@@ -311,13 +285,9 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(screen.getByTestId("trigger"));
-        });
+        await userEvent.hover(screen.getByTestId("trigger"));
 
-        act(() => {
-            userEvent.unhover(screen.getByTestId("trigger"));
-        });
+        await userEvent.unhover(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -339,9 +309,7 @@ describe("\"hover\" trigger", () => {
             screen.getByTestId("trigger").focus();
         });
 
-        act(() => {
-            userEvent.click(document.body);
-        });
+        await userEvent.click(document.body);
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -359,9 +327,7 @@ describe("\"hover\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(screen.getByTestId("trigger"));
-        });
+        await userEvent.hover(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -400,9 +366,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.click(screen.getByTestId("trigger"));
-        });
+        await userEvent.click(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -419,9 +383,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.space });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -438,9 +400,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
-        });
+        await fireEvent.keyDown(screen.getByTestId("trigger"), { key: Keys.enter });
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -457,9 +417,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            userEvent.hover(screen.getByTestId("trigger"));
-        });
+        await userEvent.hover(screen.getByTestId("trigger"));
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });
@@ -476,9 +434,7 @@ describe("\"none\" trigger", () => {
             />
         );
 
-        act(() => {
-            screen.getByTestId("trigger").focus();
-        });
+        await screen.getByTestId("trigger").focus();
 
         await waitFor(() => expect(handler).not.toHaveBeenCalled());
     });

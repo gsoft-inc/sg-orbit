@@ -1,4 +1,4 @@
-import { act, screen, waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 
 import { ToggleButton } from "@components/button";
 import { createRef } from "react";
@@ -58,9 +58,7 @@ test("call onChange when the button is selected", async () => {
         </ToggleButton>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -80,13 +78,9 @@ test("call onChange when the button is unselected", async () => {
         </ToggleButton>
     );
 
-    act(() => {
-        userEvent.click(screen.getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
-    act(() => {
-        userEvent.click(screen.getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

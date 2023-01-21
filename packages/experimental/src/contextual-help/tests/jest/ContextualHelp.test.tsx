@@ -1,7 +1,7 @@
 import { ContextualHelp } from "@experimental/contextual-help";
 import { Text, Transition } from "@sharegate/orbit-ui";
 import { renderWithTheme } from "@jest-utils";
-import { waitFor, act, screen } from "@testing-library/react";
+import { waitFor, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
 
@@ -20,9 +20,7 @@ test("ref is a DOM element", async () => {
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
@@ -44,9 +42,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
@@ -63,9 +59,7 @@ test("set ref once", async () => {
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -79,9 +73,7 @@ test("open on ContextualHelp hover", async () => {
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     expect(await screen.findByTestId("tooltip")).toBeInTheDocument();
 });
@@ -101,9 +93,7 @@ test("call onOpenChange when the tooltip appears", async () => {
         </ContextualHelp>
     );
 
-    act(() => {
-        userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -123,13 +113,9 @@ test("call onOpenChange when the tooltip disappear", async () => {
         </ContextualHelp>
     );
 
-    act(() => {
-        userEvent.hover(screen.getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
-    act(() => {
-        userEvent.unhover(screen.getByTestId("trigger"));
-    });
+    await userEvent.unhover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
