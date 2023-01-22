@@ -18,8 +18,8 @@ if (includeChromatic) {
     stories = [
         ...stories,
         "../packages/components/**/tests/chromatic/**/*.chroma.jsx",
-        "../packages/experimental/**/tests/chromatic/**/*.chroma.jsx"
-
+        "../packages/experimental/**/tests/chromatic/**/*.chroma.tsx",
+        "../packages/experimental/**/tests/chromatic/**/*.stories.tsx"
     ];
 }
 

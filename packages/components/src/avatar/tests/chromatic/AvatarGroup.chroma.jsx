@@ -1,8 +1,7 @@
 import { Avatar, AvatarGroup } from "@components/avatar";
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
-import { screen } from "@testing-library/react";
-import { userEvent } from "@storybook/testing-library";
+import { screen, userEvent } from "@storybook/testing-library";
 
 export default {
     component: AvatarGroup,

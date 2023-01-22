@@ -18,8 +18,13 @@ module.exports = {
                 "plugin:@sharegate/react",
                 "plugin:@sharegate/jest",
                 "plugin:@sharegate/typescript",
-                "plugin:@sharegate/testing-library"
-            ]
+                "plugin:@sharegate/testing-library",
+                "plugin:@sharegate/storybook",
+                "plugin:@sharegate/storybook-csf"
+            ],
+            rules: {
+                "storybook/no-title-property-in-meta": "off" // retarded?
+            }
         },
         {
             files: ["*.ts", "*.tsx"],
