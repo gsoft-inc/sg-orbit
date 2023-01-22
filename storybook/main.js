@@ -46,9 +46,6 @@ const config = {
             }
         }
     ],
-    features: {
-        previewCsfV3: true
-    },
     webpackFinal: customizeWebpack,
     reactOptions: {
         strictMode: true
