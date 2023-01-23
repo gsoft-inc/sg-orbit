@@ -1,12 +1,10 @@
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Accordion } from "@components/accordion";
 import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 

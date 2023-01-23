@@ -1,9 +1,7 @@
 import { Checkbox, CheckboxGroup } from "@components/checkbox";
-import { screen, waitFor } from "@testing-library/react";
-
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {

@@ -1,7 +1,6 @@
 import { AzureIcon32 } from "./assets";
 import { Icon, IconProps, createIcon } from "@components/icons";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 function createAzureIcon(props: Omit<IconProps, "src"> = {}) {
     return <Icon

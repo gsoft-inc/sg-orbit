@@ -5,8 +5,7 @@
         "noEmit": true,
         "emitDeclarationOnly": false,
         "paths": {
-            "@jest-utils": ["./tooling/jest-utils"],
-            "@typescript-utils": ["./tooling/typescript-utils"],
+            "@test-utils": ["./tooling/test-utils"],
             "@components/*": ["./packages/components/src/*"],
             "@experimental/*": ["./packages/experimental/src/*"],
             "@orbit-ui/components": ["./packages/components/src"],

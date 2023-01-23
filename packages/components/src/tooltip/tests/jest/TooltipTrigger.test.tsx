@@ -1,9 +1,8 @@
 import { Button } from "@components/button";
 import { Tooltip, TooltipTrigger } from "@components/tooltip";
 import { Transition } from "@components/transition";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

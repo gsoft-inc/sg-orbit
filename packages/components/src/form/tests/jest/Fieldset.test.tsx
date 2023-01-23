@@ -2,8 +2,7 @@ import { Field, Label } from "@components/field";
 import { Fieldset, FieldsetProps } from "@components/form";
 import { TextInput } from "@components/text-input";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { screen, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 const BasicFieldset = forwardRef<HTMLElement, Omit<FieldsetProps, "children" | "label">>((props, ref) => {
     return (

@@ -1,13 +1,11 @@
 import { Popover, PopoverProps, PopoverTrigger, usePopoverTriggerContext } from "@components/popover";
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef, forwardRef } from "react";
-
 import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {

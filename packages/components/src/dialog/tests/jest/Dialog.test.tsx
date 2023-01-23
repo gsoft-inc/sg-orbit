@@ -1,12 +1,10 @@
 import { Content, Footer, Header } from "@components/placeholders";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

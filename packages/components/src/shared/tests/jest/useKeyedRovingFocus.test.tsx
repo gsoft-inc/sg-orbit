@@ -1,7 +1,7 @@
 import { Button } from "@components/button";
 import { Div } from "@components/html";
 import { ReactNode } from "react";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@test-utils";
 import { useFocusScope, useKeyedRovingFocus } from "@components/shared";
 
 interface RovingFocusProps {

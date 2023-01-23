@@ -1,9 +1,8 @@
 import { Field, Label } from "@components/field";
-import { act, screen, waitFor } from "@testing-library/react";
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { TextArea } from "@components/text-area";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

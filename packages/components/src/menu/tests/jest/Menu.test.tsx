@@ -1,12 +1,10 @@
 import { Item, Section } from "@components/collection";
-import { act, fireEvent, screen, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Divider } from "@components/divider";
 import { Keys } from "@components/shared";
 import { Menu } from "@components/menu";
 import { Text } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****

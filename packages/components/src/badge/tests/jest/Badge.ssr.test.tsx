@@ -6,7 +6,7 @@ import { Div } from "@components/html";
 import { Text } from "@components/typography";
 import { forwardRef } from "react";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 const SquareBadge = forwardRef<HTMLElement, BadgeProps>(({ children, ...rest }, ref) => {
     return (

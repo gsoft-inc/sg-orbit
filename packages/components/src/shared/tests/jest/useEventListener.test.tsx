@@ -1,4 +1,4 @@
-import { renderHook, fireEvent } from "@testing-library/react";
+import { renderHook, fireEvent } from "@test-utils";
 import { useEventListener } from "@components/shared";
 
 function createButton() {
