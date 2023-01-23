@@ -16,21 +16,17 @@ function createThemeProviderWrapper({ colorScheme = "light" }: ThemeProviderWrap
     };
 }
 
-export function renderWithTheme(ui: ReactElement, testingLibraryOptions?: RenderOptions, themeOptions?: ThemeProviderWrapperOptions) {
-    const { wrapper, ...rest } = testingLibraryOptions;
-
+export function renderWithTheme(ui: ReactElement, testingLibraryOptions: RenderOptions = {}, themeOptions?: ThemeProviderWrapperOptions) {
     return render(ui, {
-        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
-        ...rest
+        wrapper: createThemeProviderWrapper(themeOptions),
+        ...testingLibraryOptions
     });
 }
 
-export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions?: RenderHookOptions<TProps>, themeOptions?: ThemeProviderWrapperOptions) {
-    const { wrapper, ...rest } = renderHookOptions;
-
+export function renderHookWithTheme<TProps, TResult>(callback: (props: TProps) => TResult, renderHookOptions: RenderHookOptions<TProps> = {}, themeOptions?: ThemeProviderWrapperOptions) {
     return renderHook(callback, {
-        wrapper: wrapper ?? createThemeProviderWrapper(themeOptions),
-        ...rest
+        wrapper: createThemeProviderWrapper(themeOptions),
+        ...renderHookOptions
     });
 }
 
