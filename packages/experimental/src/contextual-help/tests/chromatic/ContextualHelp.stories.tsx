@@ -16,21 +16,21 @@ export default {
 type ContextualHelpStory = ComponentStoryObj<typeof ContextualHelp>;
 
 export const Default: ContextualHelpStory = {
+    storyName: "default",
     args: {
         children: "Help message"
 
-    },
-    storyName: "default"
+    }
 };
 
 export const Open: ContextualHelpStory = {
+    storyName: "open",
     args: {
         ...Default.args,
         tooltipTriggerProps: {
             open: true
         }
-    },
-    storyName: "open"
+    }
 };
 
 
