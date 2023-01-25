@@ -2,7 +2,7 @@
 name: "🐛 Bug Report"
 about: Report a possible bug or regression.
 title: "🐛 <TITLE>"
-labels: "bug:unconfirmed"
+labels: "bug"
 ---
 
 <!-- Please provide a clear and concise description of what the bug is. -->
