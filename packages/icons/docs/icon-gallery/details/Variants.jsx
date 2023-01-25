@@ -3,10 +3,8 @@ import "./Variants.css";
 import { Content, Header } from "@components/placeholders";
 import { Disclosure, DisclosureArrow } from "@components/disclosure";
 import { Div, HtmlButton } from "@components/html";
-import { Item } from "@components/collection";
 import { LearnUsageLink } from "./LearnUsageLink";
 import { Snippet } from "@stories/components";
-import { Tabs } from "@components/tabs";
 import { Text } from "@components/typography";
 import { VARIANT_SHAPE } from "../shapes";
 import { arrayOf, shape, string } from "prop-types";
@@ -86,28 +84,18 @@ function Variant({ iconDisplayName, iconComponent, iconFileName }) {
     );
 }
 
-export function Variants({ iconDisplayName, variants }) {
+export function Variants({ iconDisplayName }) {
     return (
         <>
             <H2>Variants</H2>
-            <Tabs aria-label="Icon variants">
-                {variants.map(x => (
-                    <Item key={x.name}>
-                        <Header>{x.name}</Header>
-                        <Content>
-                            <Variant
-                                iconDisplayName={iconDisplayName}
-                                {...x}
-                            />
-                        </Content>
-                    </Item>
-                ))}
-            </Tabs>
+            <Header>a</Header>
+            <Content>
+                {iconDisplayName}
+            </Content>
         </>
     );
 }
 
 Variants.propTypes = {
-    iconDisplayName: string.isRequired,
-    variants: arrayOf(shape(VARIANT_SHAPE))
+    iconDisplayName: string.isRequired
 };

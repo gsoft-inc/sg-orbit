@@ -51,7 +51,7 @@
     left: 50%;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-major-24.svg") center center no-repeat;
     mask-size: var(--o-ui-sz-3) var(--o-ui-sz-3);
     background-color: var(--o-ui-white);
     transform: translate(-50%, -50%) scale(0) rotate(2deg);
@@ -60,13 +60,13 @@
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-major-24.svg") center center no-repeat;
     transform: translate(-50%, -50%) scale(1) rotate(2deg);
 }
 
 /* CHECKED | SMALL */
 .o-ui-checkbox-sm.o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-major-24.svg") center center no-repeat;
     transform: translate(-50%, -50%) scale(0.75) rotate(2deg);
 }
 

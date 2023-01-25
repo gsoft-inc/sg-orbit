@@ -3,14 +3,13 @@ import { Variants } from "./Variants";
 import { any, string } from "prop-types";
 
 const propTypes = {
-    iconDisplayName: string.isRequired,
-    variants: any.isRequired
+    iconDisplayName: string.isRequired
 };
 
-export function IconDetail({ iconDisplayName, variants }) {
+export function IconDetail({ iconDisplayName }) {
     return (
         <>
-            <Variants iconDisplayName={iconDisplayName} variants={variants} />
+            <Variants iconDisplayName={iconDisplayName} />
         </>
     );
 }

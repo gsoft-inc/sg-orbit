@@ -14,6 +14,6 @@ export function createVariant(name, iconComponent, iconFileName) {
     };
 }
 
-export function renderItem(name, multiVariant, variants) {
-    return <IconItem name={name} multiVariant={multiVariant} variants={variants} />;
+export function renderItem(name, multiVariant) {
+    return <IconItem name={name} multiVariant={multiVariant} />;
 }

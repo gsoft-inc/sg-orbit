@@ -2,43 +2,66 @@ import {
     AddMajorIcon,
     AlertMajorIcon,
     ArrowMajorIcon,
+    ArrowMinorIcon,
+    BurgerMajorIcon,
     CalendarMajorIcon,
-    PlaceholderMajorIcon,
     CheckMajorIcon,
+    CheckMinorIcon,
     ChevronMajorIcon,
+    ChevronMinorIcon,
+    ChevronUpDownMajorIcon,
+    ChevronUpDownMinorIcon,
     CrossMajorIcon,
-    FileCsvMajorIcon,
+    CrossMinorIcon,
+    DotMajorIcon,
+    DuplicateMajorIcon,
     DownloadMajorIcon,
-    PencilMajorIcon,
     EmailMajorIcon,
+    ExternalLinkMajorIcon,
     EyeMajorIcon,
     FileMajorIcon,
+    FileCsvMajorIcon,
+    FileMusicMajorIcon,
+    FilePdfMajorIcon,
+    FileVideoMajorIcon,
+    FileZipMajorIcon,
     FilterMajorIcon,
     FolderMajorIcon,
     GearMajorIcon,
+    GrabMajorIcon,
     GroupMajorIcon,
-    GuestRemoveMajorIcon,
     HelpMajorIcon,
+    HomeMajorIcon,
     HorizontalDotsMajorIcon,
     ImageMajorIcon,
     InfoCircleMajorIcon,
+    InfoCircleMinorIcon,
     LightbulbMajorIcon,
+    LinkMajorIcon,
+    LinkRemoveMajorIcon,
     MagnifierMajorIcon,
-    FileMusicMajorIcon,
     NotificationMajorIcon,
     NotificationOffMajorIcon,
-    FilePdfMajorIcon,
-    PrivacyPrivateMajorIcon,
+    PencilMajorIcon,
+    PlaceholderMajorIcon,
+    PlaceholderMinorIcon,
+    PadlockLockedMajorIcon,
+    PadlockUnlockedMajorIcon,
+    RevertMajorIcon,
+    SigninMajorIcon,
     SignoutMajorIcon,
     StarFillMajorIcon,
     StarOutlineMajorIcon,
     SortMajorIcon,
     TrashMajorIcon,
+    TrashMinorIcon,
     UserAddMajorIcon,
+    UserAddMinorIcon,
     VerticalDotsMajorIcon,
-    FileVideoMajorIcon,
     WarningMajorIcon,
-    FileZipMajorIcon
+    UfoMajorIcon,
+    RocketMajorIcon,
+    TelescopeMajorIcon
 } from "@components/icons";
 import { TestSuite } from "./TestSuite";
 
@@ -46,242 +69,380 @@ export default {
     title: "Chromatic/Icons"
 };
 
-export const Add = () => (
+export const IconAddMajor = () => (
     <TestSuite multiIcon={AddMajorIcon} />
 );
 
-Add.storyName = "add";
+IconAddMajor.storyName = "Add Major";
 
-export const Alert = () => (
+export const IconAlertMajor = () => (
     <TestSuite multiIcon={AlertMajorIcon} />
 );
 
-Alert.storyName = "alert";
+IconAlertMajor.storyName = "Alert Major";
 
-export const Arrow = () => (
+export const IconArrowMajor = () => (
     <TestSuite multiIcon={ArrowMajorIcon} />
 );
 
-Arrow.storyName = "arrow";
+IconArrowMajor.storyName = "Arrow Major";
 
-export const Calendar = () => (
+export const IconArrowMinor = () => (
+    <TestSuite multiIcon={ArrowMinorIcon} />
+);
+
+IconArrowMinor.storyName = "Arrow Minor";
+
+export const IconBurgerMajor = () => (
+    <TestSuite multiIcon={BurgerMajorIcon} />
+);
+
+IconBurgerMajor.storyName = "Burger Major";
+
+export const IconCalendarMajor = () => (
     <TestSuite multiIcon={CalendarMajorIcon} />
 );
 
-Calendar.storyName = "calendar";
+IconCalendarMajor.storyName = "Calendar Major";
 
-export const IconCheck = () => (
+export const IconCheckMajor = () => (
     <TestSuite multiIcon={CheckMajorIcon} />
 );
 
-IconCheck.storyName = "check";
+IconCheckMajor.storyName = "Check Major";
 
-export const CheckCircle = () => (
-    <TestSuite multiIcon={PlaceholderMajorIcon} />
+export const IconCheckMinor = () => (
+    <TestSuite multiIcon={CheckMinorIcon} />
 );
 
-CheckCircle.storyName = "check circle";
+IconCheckMinor.storyName = " Check";
 
-export const Chevron = () => (
+export const IconChevronMajor = () => (
     <TestSuite multiIcon={ChevronMajorIcon} />
 );
 
-Chevron.storyName = "chevron";
+IconChevronMajor.storyName = "Chevron Major";
 
-export const Cross = () => (
+export const IconChevronMinor = () => (
+    <TestSuite multiIcon={ChevronMinorIcon} />
+);
+
+IconChevronMinor.storyName = "Chevron Minor";
+
+export const IconChevronUpDownMajor = () => (
+    <TestSuite multiIcon={ChevronUpDownMajorIcon} />
+);
+
+IconChevronUpDownMajor.storyName = "ChevronUpDown Major";
+
+export const IconChevronUpDownMinor = () => (
+    <TestSuite multiIcon={ChevronUpDownMinorIcon} />
+);
+
+IconChevronUpDownMinor.storyName = "ChevronUpDown Minor";
+
+export const IconCrossMajor = () => (
     <TestSuite multiIcon={CrossMajorIcon} />
 );
 
-Cross.storyName = "cross";
+IconCrossMajor.storyName = "Cross Major";
 
-export const Csv = () => (
-    <TestSuite multiIcon={FileCsvMajorIcon} />
+export const IconCrossMinor = () => (
+    <TestSuite multiIcon={CrossMinorIcon} />
 );
 
-Csv.storyName = "csv";
+IconCrossMinor.storyName = "Cross Minor";
 
-export const Download = () => (
+export const IconDotMajor = () => (
+    <TestSuite multiIcon={DotMajorIcon} />
+);
+
+IconDotMajor.storyName = "Dot Major";
+
+export const IconDuplicateMajor = () => (
+    <TestSuite multiIcon={DuplicateMajorIcon} />
+);
+
+IconDuplicateMajor.storyName = "Duplicate Major";
+
+export const IconDownloadMajor = () => (
     <TestSuite multiIcon={DownloadMajorIcon} />
 );
 
-Download.storyName = "download";
+IconDownloadMajor.storyName = "Download Major";
 
-export const Edit = () => (
-    <TestSuite multiIcon={PencilMajorIcon} />
-);
-
-Edit.storyName = "edit";
-
-export const IconEmail = () => (
+export const IconEmailMajor = () => (
     <TestSuite multiIcon={EmailMajorIcon} />
 );
 
-IconEmail.storyName = "email";
+IconEmailMajor.storyName = "Email Major";
 
-export const Eye = () => (
+export const IconExternalLinkMajor = () => (
+    <TestSuite multiIcon={ExternalLinkMajorIcon} />
+);
+
+IconExternalLinkMajor.storyName = "ExternalLink Major";
+
+export const IconEyeMajor = () => (
     <TestSuite multiIcon={EyeMajorIcon} />
 );
 
-Eye.storyName = "eye";
+IconEyeMajor.storyName = "Eye Major";
 
-export const File = () => (
+export const IconFileMajor = () => (
     <TestSuite multiIcon={FileMajorIcon} />
 );
 
-File.storyName = "file";
+IconFileMajor.storyName = "File Major";
 
-export const FileZip = () => (
-    <TestSuite multiIcon={FileZipMajorIcon} />
+export const IconFileCsvMajor = () => (
+    <TestSuite multiIcon={FileCsvMajorIcon} />
 );
 
-FileZip.storyName = "file zip";
+IconFileCsvMajor.storyName = "FileCsv Major";
 
-export const Filter = () => (
-    <TestSuite multiIcon={FilterMajorIcon} />
-);
-
-Filter.storyName = "filter";
-
-export const Folder = () => (
-    <TestSuite multiIcon={FolderMajorIcon} />
-);
-
-Folder.storyName = "folder";
-
-export const Gear = () => (
-    <TestSuite multiIcon={GearMajorIcon} />
-);
-
-Gear.storyName = "gear";
-
-export const Group = () => (
-    <TestSuite multiIcon={GroupMajorIcon} />
-);
-
-Group.storyName = "group";
-
-export const GuestRemove = () => (
-    <TestSuite multiIcon={GuestRemoveMajorIcon} />
-);
-
-GuestRemove.storyName = "guest remove";
-
-export const Help = () => (
-    <TestSuite multiIcon={HelpMajorIcon} />
-);
-
-Help.storyName = "help";
-
-export const HorizontalDots = () => (
-    <TestSuite multiIcon={HorizontalDotsMajorIcon} />
-);
-
-HorizontalDots.storyName = "horizontal dots";
-
-export const Info = () => (
-    <TestSuite multiIcon={InfoCircleMajorIcon} />
-);
-
-Info.storyName = "info";
-
-export const Lightbulb = () => (
-    <TestSuite multiIcon={LightbulbMajorIcon} />
-);
-
-Lightbulb.storyName = "lightbulb";
-
-export const Magnifier = () => (
-    <TestSuite multiIcon={MagnifierMajorIcon} />
-);
-
-Magnifier.storyName = "magnifier";
-
-export const Music = () => (
+export const IconFileMusicMajor = () => (
     <TestSuite multiIcon={FileMusicMajorIcon} />
 );
 
-Music.storyName = "music";
+IconFileMusicMajor.storyName = "FileMusic Major";
 
-export const IconNotification = () => (
-    <TestSuite multiIcon={NotificationMajorIcon} />
-);
-
-IconNotification.storyName = "notification";
-
-export const NotificationOff = () => (
-    <TestSuite multiIcon={NotificationOffMajorIcon} />
-);
-
-NotificationOff.storyName = "notification off";
-
-export const Pdf = () => (
+export const IconFilePdfMajor = () => (
     <TestSuite multiIcon={FilePdfMajorIcon} />
 );
 
-Pdf.storyName = "pdf";
+IconFilePdfMajor.storyName = "FilePdf Major";
 
-export const Image = () => (
-    <TestSuite multiIcon={ImageMajorIcon} />
-);
-
-Image.storyName = "image";
-
-export const Privacy = () => (
-    <TestSuite multiIcon={PrivacyPrivateMajorIcon} />
-);
-
-Privacy.storyName = "privacy";
-
-export const Signout = () => (
-    <TestSuite multiIcon={SignoutMajorIcon} />
-);
-
-Signout.storyName = "signout";
-
-export const IconStar = () => (
-    <TestSuite multiIcon={StarFillMajorIcon} />
-);
-
-IconStar.storyName = "star";
-
-export const StarOutline = () => (
-    <TestSuite multiIcon={StarOutlineMajorIcon} />
-);
-
-StarOutline.storyName = "star outline";
-
-export const Sort = () => (
-    <TestSuite multiIcon={SortMajorIcon} />
-);
-
-Sort.storyName = "sort";
-
-export const Trash = () => (
-    <TestSuite multiIcon={TrashMajorIcon} />
-);
-
-Trash.storyName = "trash";
-
-export const UserAdd = () => (
-    <TestSuite multiIcon={UserAddMajorIcon} />
-);
-
-UserAdd.storyName = "user add";
-
-export const VerticalDots = () => (
-    <TestSuite multiIcon={VerticalDotsMajorIcon} />
-);
-
-VerticalDots.storyName = "vertical dots";
-
-export const Video = () => (
+export const IconFileVideoMajor = () => (
     <TestSuite multiIcon={FileVideoMajorIcon} />
 );
 
-Video.storyName = "video";
+IconFileVideoMajor.storyName = "FileVideo Major";
 
-export const Warning = () => (
+export const IconFileZipMajor = () => (
+    <TestSuite multiIcon={FileZipMajorIcon} />
+);
+
+IconFileZipMajor.storyName = "FileZip Major";
+
+export const IconFilterMajor = () => (
+    <TestSuite multiIcon={FilterMajorIcon} />
+);
+
+IconFilterMajor.storyName = "Filter Major";
+
+export const IconFolderMajor = () => (
+    <TestSuite multiIcon={FolderMajorIcon} />
+);
+
+IconFolderMajor.storyName = "Folder Major";
+
+export const IconGearMajor = () => (
+    <TestSuite multiIcon={GearMajorIcon} />
+);
+
+IconGearMajor.storyName = "Gear Major";
+
+export const IconGrabMajor = () => (
+    <TestSuite multiIcon={GrabMajorIcon} />
+);
+
+IconGrabMajor.storyName = "Grab Major";
+
+export const IconGroupMajor = () => (
+    <TestSuite multiIcon={GroupMajorIcon} />
+);
+
+IconGroupMajor.storyName = "Group Major";
+
+export const IconHelpMajor = () => (
+    <TestSuite multiIcon={HelpMajorIcon} />
+);
+
+IconHelpMajor.storyName = "Help Major";
+
+export const IconHomeMajor = () => (
+    <TestSuite multiIcon={HomeMajorIcon} />
+);
+
+IconHomeMajor.storyName = "Home Major";
+
+export const IconHorizontalDotsMajor = () => (
+    <TestSuite multiIcon={HorizontalDotsMajorIcon} />
+);
+
+IconHorizontalDotsMajor.storyName = "HorizontalDots Major";
+
+export const IconImageMajor = () => (
+    <TestSuite multiIcon={ImageMajorIcon} />
+);
+
+IconImageMajor.storyName = "Image Major";
+
+export const IconInfoCircleMajor = () => (
+    <TestSuite multiIcon={InfoCircleMajorIcon} />
+);
+
+IconInfoCircleMajor.storyName = "InfoCircle Major";
+
+export const IconInfoCircleMinor = () => (
+    <TestSuite multiIcon={InfoCircleMinorIcon} />
+);
+
+IconInfoCircleMinor.storyName = "InfoCircle Minor";
+
+export const IconLightbulbMajor = () => (
+    <TestSuite multiIcon={LightbulbMajorIcon} />
+);
+
+IconLightbulbMajor.storyName = "Lightbulb Major";
+
+export const IconLinkMajor = () => (
+    <TestSuite multiIcon={LinkMajorIcon} />
+);
+
+IconLinkMajor.storyName = "Link Major";
+
+export const IconLinkRemoveMajor = () => (
+    <TestSuite multiIcon={LinkRemoveMajorIcon} />
+);
+
+IconLinkRemoveMajor.storyName = "LinkRemove Major";
+
+export const IconMagnifierMajor = () => (
+    <TestSuite multiIcon={MagnifierMajorIcon} />
+);
+
+IconMagnifierMajor.storyName = "Magnifier Major";
+
+export const IconNotificationMajor = () => (
+    <TestSuite multiIcon={NotificationMajorIcon} />
+);
+
+IconNotificationMajor.storyName = "Notification Major";
+
+export const IconNotificationOffMajor = () => (
+    <TestSuite multiIcon={NotificationOffMajorIcon} />
+);
+
+IconNotificationOffMajor.storyName = "NotificationOff Major";
+
+export const IconPencilMajor = () => (
+    <TestSuite multiIcon={PencilMajorIcon} />
+);
+
+IconPencilMajor.storyName = "Pencil Major";
+
+export const IconPlaceholderMajor = () => (
+    <TestSuite multiIcon={PlaceholderMajorIcon} />
+);
+
+IconPlaceholderMajor.storyName = "Placeholder Major";
+
+export const IconPlaceholderMinor = () => (
+    <TestSuite multiIcon={PlaceholderMinorIcon} />
+);
+
+IconPlaceholderMinor.storyName = "Placeholder Minor";
+
+export const IconPrivacyPrivateMajor = () => (
+    <TestSuite multiIcon={PadlockLockedMajorIcon} />
+);
+
+IconPrivacyPrivateMajor.storyName = "PrivacyPrivate Major";
+
+export const IconPrivacyPublicMajor = () => (
+    <TestSuite multiIcon={PadlockUnlockedMajorIcon} />
+);
+
+IconPrivacyPublicMajor.storyName = "PrivacyPublic Major";
+
+export const IconRevertMajor = () => (
+    <TestSuite multiIcon={RevertMajorIcon} />
+);
+
+IconRevertMajor.storyName = "Revert Major";
+
+export const IconSigninMajor = () => (
+    <TestSuite multiIcon={SigninMajorIcon} />
+);
+
+IconSigninMajor.storyName = "Signin Major";
+
+export const IconSignoutMajor = () => (
+    <TestSuite multiIcon={SignoutMajorIcon} />
+);
+
+IconSignoutMajor.storyName = "Signout Major";
+
+export const IconStarFillMajor = () => (
+    <TestSuite multiIcon={StarFillMajorIcon} />
+);
+
+IconStarFillMajor.storyName = "Star Major";
+
+export const IconStarOutlineMajor = () => (
+    <TestSuite multiIcon={StarOutlineMajorIcon} />
+);
+
+IconStarOutlineMajor.storyName = "StarOutline Major";
+
+export const IconSortMajor = () => (
+    <TestSuite multiIcon={SortMajorIcon} />
+);
+
+IconSortMajor.storyName = "Sort Major";
+
+export const IconTrashMajor = () => (
+    <TestSuite multiIcon={TrashMajorIcon} />
+);
+
+IconTrashMajor.storyName = "Trash Major";
+
+export const IconTrashMinor = () => (
+    <TestSuite multiIcon={TrashMinorIcon} />
+);
+
+IconTrashMinor.storyName = "Trash Minor";
+
+export const IconUserAddMajor = () => (
+    <TestSuite multiIcon={UserAddMajorIcon} />
+);
+
+IconUserAddMajor.storyName = "UserAdd Major";
+
+export const IconUserAddMinor = () => (
+    <TestSuite multiIcon={UserAddMinorIcon} />
+);
+
+IconUserAddMinor.storyName = "UserAdd Minor";
+
+export const IconVerticalDotsMajor = () => (
+    <TestSuite multiIcon={VerticalDotsMajorIcon} />
+);
+
+IconVerticalDotsMajor.storyName = "VerticalDots Major";
+
+export const IconWarningMajor = () => (
     <TestSuite multiIcon={WarningMajorIcon} />
 );
 
-Warning.storyName = "warning";
+IconWarningMajor.storyName = "Warning Major";
+
+export const IconUfoMajor = () => (
+    <TestSuite multiIcon={UfoMajorIcon} />
+);
+
+IconUfoMajor.storyName = "Ufo Major";
+
+export const IconRocketMajor = () => (
+    <TestSuite multiIcon={RocketMajorIcon} />
+);
+
+IconRocketMajor.storyName = "Rocket Major";
+
+export const IconTelescopeMajor = () => (
+    <TestSuite multiIcon={TelescopeMajorIcon} />
+);
+
+IconTelescopeMajor.storyName = "Telescope Major";

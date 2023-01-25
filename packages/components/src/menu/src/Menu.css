@@ -75,7 +75,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     content: "";
     width: var(--o-ui-menu-item-checkmark-size);
     height: var(--o-ui-menu-item-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-major-24.svg") center center no-repeat;
     mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
     background-color: var(--o-ui-bg-alias-accent);
     position: absolute;
