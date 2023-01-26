@@ -94,8 +94,8 @@
     right: 8px;
     top: 8px;
     border-radius: var(--o-ui-br-4);
-    width: var(--o-ui-sz-4);
-    height: var(--o-ui-sz-4);
+    width: var(--o-ui-sz-2);
+    height: var(--o-ui-sz-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,8 +106,8 @@
     content: "";
     opacity: 1;
     position: absolute;
-    width: var(--o-ui-sz-3);
-    height: var(--o-ui-sz-3);
+    width: var(--o-ui-sz-1);
+    height: var(--o-ui-sz-1);
     mask-size: contain;
     display: flex;
     align-items: center;
