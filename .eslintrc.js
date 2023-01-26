@@ -27,6 +27,12 @@ module.exports = {
             }
         },
         {
+            files: ["*.stories.tsx"],
+            rules:{
+                "@typescript-eslint/no-empty-function" : "off" // empty function in examples is fine
+            }
+        },
+        {
             files: ["*.ts", "*.tsx"],
             rules: {
                 "react/no-unused-prop-types": "off", // Issue with typescript

@@ -1,6 +1,6 @@
 import { Button, IconButton } from "@components/button";
 import { Item, Section } from "@components/collection";
-import { Menu, MenuTrigger } from "@components/menu";
+import { Menu, MenuProps, MenuTrigger } from "@components/menu";
 import { DisclosureArrow } from "@components/disclosure";
 import { Divider } from "@components/divider";
 import { HtmlButton, HtmlButtonProps } from "@components/html";
@@ -223,7 +223,7 @@ export const CustomTriggerWithDisclosureArrow: MenuTriggerStory = {
     )
 };
 
-const CustomMenu = forwardRef(({ children, ...props }, ref) => {
+const CustomMenu = forwardRef<any, MenuProps>(({ children, ...props }, ref) => {
     return (
         <Menu
             {...props}
@@ -236,73 +236,78 @@ const CustomMenu = forwardRef(({ children, ...props }, ref) => {
 });
 
 
-export const MenuTriggerCustomMenu = () => (
-    <MenuTrigger defaultOpen>
-        <Button variant="secondary">Trigger</Button>
-        <CustomMenu>
-            <Item key="earth">Earth</Item>
-            <Item key="mars">Mars</Item>
-            <Item key="saturn">Saturn</Item>
-        </CustomMenu>
-    </MenuTrigger>
-);
+export const MenuTriggerCustomMenu: MenuTriggerStory = {
+    storyName: "custom menu",
+    render: () => (
+        <MenuTrigger defaultOpen>
+            <Button variant="secondary">Trigger</Button>
+            <CustomMenu>
+                <Item key="earth">Earth</Item>
+                <Item key="mars">Mars</Item>
+                <Item key="saturn">Saturn</Item>
+            </CustomMenu>
+        </MenuTrigger>
+    )
+};
 
-MenuTriggerCustomMenu.storyName = "custom menu";
+export const FunctionalContent: MenuTriggerStory = {
+    storyName: "functional content",
+    render: () => (
+        <MenuTrigger defaultOpen>
+            {(() => {
+                return (
+                    <>
+                        <Button variant="secondary">Trigger</Button>
+                        <Menu>
+                            <Item key="earth">Earth</Item>
+                            <Item key="mars">Mars</Item>
+                            <Item key="saturn">Saturn</Item>
+                        </Menu>
+                    </>
+                );
+            })()}
+        </MenuTrigger>
+    )
+};
 
-export const FunctionalContent = () => (
-    <MenuTrigger defaultOpen>
-        {() => {
-            return (
-                <>
-                    <Button variant="secondary">Trigger</Button>
-                    <Menu>
-                        <Item key="earth">Earth</Item>
-                        <Item key="mars">Mars</Item>
-                        <Item key="saturn">Saturn</Item>
-                    </Menu>
-                </>
-            );
-        }}
-    </MenuTrigger>
-);
+export const StyledSystem: MenuTriggerStory = {
+    storyName: "styled system",
+    render: () => (
+        <MenuTrigger border="warning-7" defaultOpen>
+            <Button variant="secondary">Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+};
 
-FunctionalContent.storyName = "functional content";
+export const ClassName: MenuTriggerStory = {
+    storyName: "className",
+    render:  () => (
+        <MenuTrigger className="border-red" defaultOpen>
+            <Button variant="secondary">Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+};
 
-export const StyledSystem = () => (
-    <MenuTrigger border="warning-7" defaultOpen>
-        <Button variant="secondary">Trigger</Button>
-        <Menu>
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    </MenuTrigger>
-);
-
-StyledSystem.storyName = "styled system";
-
-export const ClassName = () => (
-    <MenuTrigger className="border-red" defaultOpen>
-        <Button variant="secondary">Trigger</Button>
-        <Menu>
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    </MenuTrigger>
-);
-
-ClassName.storyName = "className";
-
-export const Style = () => (
-    <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
-        <Button variant="secondary">Trigger</Button>
-        <Menu>
-            <Item key="earth">Earth</Item>
-            <Item key="jupiter">Jupiter</Item>
-            <Item key="mars">Mars</Item>
-        </Menu>
-    </MenuTrigger>
-);
-
-Style.storyName = "style";
+export const Style: MenuTriggerStory = {
+    storyName: "style",
+    render:  () => (
+        <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
+            <Button variant="secondary">Trigger</Button>
+            <Menu>
+                <Item key="earth">Earth</Item>
+                <Item key="jupiter">Jupiter</Item>
+                <Item key="mars">Mars</Item>
+            </Menu>
+        </MenuTrigger>
+    )
+};

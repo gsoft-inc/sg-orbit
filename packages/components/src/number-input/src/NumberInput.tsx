@@ -25,7 +25,7 @@ import { useToolbarProps } from "../../toolbar";
 
 const DefaultElement = "input";
 
-interface InnerNumberInputProps extends Omit<AbstractInputProps<typeof DefaultElement>, "max" | "min" | "step" | "value"> {
+export interface InnerNumberInputProps extends Omit<AbstractInputProps<typeof DefaultElement>, "max" | "min" | "step" | "value"> {
     /**
      * The default value of `value` when uncontrolled.
      */
