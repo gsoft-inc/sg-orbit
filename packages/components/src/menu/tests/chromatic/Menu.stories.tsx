@@ -453,34 +453,34 @@ export const States: MenuStory = {
             </Inline>
             <Inline>
                 <Menu aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="mercury">Mercury</Item>
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
                     <Item disabled key="neptune">Neptune</Item>
                     <Item key="saturn">Saturn</Item>
                 </Menu>
                 <Menu aria-label="Planets">
                     <Item disabled key="neptune">Neptune</Item>
-                    <Item disabled key="earth">Earth</Item>
-                    <Item disabled key="jupiter">Jupiter</Item>
-                    <Item disabled key="mars">Mars</Item>
-                    <Item disabled key="mercury">Mercury</Item>
+                    <Item disabled active key="earth">Earth</Item>
+                    <Item disabled focus key="jupiter">Jupiter</Item>
+                    <Item disabled hover key="mars">Mars</Item>
+                    <Item disabled focus hover key="mercury">Mercury</Item>
                 </Menu>
                 <Menu selectionMode="single" aria-label="Planets">
-                    <Item key="earth">Earth</Item>
-                    <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">Mars</Item>
-                    <Item key="mercury">Mercury</Item>
+                    <Item active key="earth">Earth</Item>
+                    <Item focus key="jupiter">Jupiter</Item>
+                    <Item hover key="mars">Mars</Item>
+                    <Item focus hover key="mercury">Mercury</Item>
                     <Item disabled key="neptune">Neptune</Item>
                     <Item key="saturn">Saturn</Item>
                 </Menu>
                 <Menu selectionMode="single" aria-label="Planets">
                     <Item disabled key="neptune">Neptune</Item>
-                    <Item disabled key="earth">Earth</Item>
-                    <Item disabled key="jupiter">Jupiter</Item>
-                    <Item disabled key="mars">Mars</Item>
-                    <Item disabled key="mercury">Mercury</Item>
+                    <Item disabled active key="earth">Earth</Item>
+                    <Item disabled focus key="jupiter">Jupiter</Item>
+                    <Item disabled hover key="mars">Mars</Item>
+                    <Item disabled focus hover key="mercury">Mercury</Item>
                 </Menu>
             </Inline>
         </Stack>

@@ -420,7 +420,7 @@ export const Validation: ListboxStory = {
                         <Text slot="description">Home sweet home!</Text>
                     </Item>
                     <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">
+                    <Item focus key="mars">
                         <LightbulbIcon />
                         <Text>Mars</Text>
                         <Text slot="description">See you in 2026</Text>
@@ -433,7 +433,7 @@ export const Validation: ListboxStory = {
                         <Text slot="description">Home sweet home!</Text>
                     </Item>
                     <Item key="jupiter">Jupiter</Item>
-                    <Item key="mars">
+                    <Item focus key="mars">
                         <LightbulbIcon />
                         <Text>Mars</Text>
                         <Text slot="description">See you in 2026</Text>
@@ -459,16 +459,16 @@ export const States: ListboxStory = {
                 <Item key="saturn">Saturn</Item>
             </Listbox>
             <Listbox aria-label="Planets">
-                <Item key="jupiter">Jupiter</Item>
-                <Item key="mars">Mars</Item>
-                <Item key="mercury">Mercury</Item>
+                <Item focus key="jupiter">Jupiter</Item>
+                <Item hover key="mars">Mars</Item>
+                <Item focus hover key="mercury">Mercury</Item>
                 <Item key="saturn">Saturn</Item>
             </Listbox>
             <Listbox aria-label="Planets">
                 <Item disabled key="neptune">Neptune</Item>
-                <Item disabled key="jupiter">Jupiter</Item>
-                <Item disabled key="mars">Mars</Item>
-                <Item disabled key="mercury">Mercury</Item>
+                <Item disabled focus key="jupiter">Jupiter</Item>
+                <Item disabled hover key="mars">Mars</Item>
+                <Item disabled focus hover key="mercury">Mercury</Item>
             </Listbox>
         </Inline>
     )

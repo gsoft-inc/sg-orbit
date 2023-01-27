@@ -228,23 +228,23 @@ export const States: TabsStory = {
                     <Header>Uranus</Header>
                     <Content>Uranus is the seventh planet from the Sun.</Content>
                 </Item>
-                <Item selected>
+                <Item selected hover>
                     <Header>Neptune</Header>
                     <Content>It was the first planet located through mathematical calculations, rather than by telescope.</Content>
                 </Item>
-                <Item>
+                <Item active>
                     <Header>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Item>
-                <Item>
+                <Item focus>
                     <Header>Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
-                <Item>
+                <Item hover>
                     <Header>Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
-                <Item>
+                <Item focus hover>
                     <Header>Saturn</Header>
                     <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Item>
@@ -254,23 +254,23 @@ export const States: TabsStory = {
                     <Header>Uranus</Header>
                     <Content>Uranus is the seventh planet from the Sun.</Content>
                 </Item>
-                <Item selected>
+                <Item selected hover>
                     <Header>Neptune</Header>
                     <Content>It was the first planet located through mathematical calculations, rather than by telescope.</Content>
                 </Item>
-                <Item>
+                <Item active>
                     <Header>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Item>
-                <Item>
+                <Item focus>
                     <Header>Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
-                <Item>
+                <Item hover>
                     <Header>Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
-                <Item>
+                <Item focus hover>
                     <Header>Saturn</Header>
                     <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Item>
@@ -280,23 +280,23 @@ export const States: TabsStory = {
                     <Header>Uranus</Header>
                     <Content>Uranus is the seventh planet from the Sun.</Content>
                 </Item>
-                <Item disabled selected>
+                <Item disabled selected hover>
                     <Header>Neptune</Header>
                     <Content>It was the first planet located through mathematical calculations, rather than by telescope.</Content>
                 </Item>
-                <Item disabled>
+                <Item disabled active>
                     <Header>Mars</Header>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                 </Item>
-                <Item disabled>
+                <Item disabled focus>
                     <Header>Jupiter</Header>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
-                <Item disabled>
+                <Item disabled hover>
                     <Header>Venus</Header>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>
                 </Item>
-                <Item disabled>
+                <Item disabled focus hover>
                     <Header>Saturn</Header>
                     <Content>Saturn is the sixth planet from the Sun and the second-largest in the Solar System, after Jupiter.</Content>
                 </Item>
