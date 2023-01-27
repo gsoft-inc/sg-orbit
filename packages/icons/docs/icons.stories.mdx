@@ -150,7 +150,7 @@ Official collection of icons to promote a consistent experience across the Share
 
 ## Design specifications
 
-All official SVG icons includes their padding and are generally available in two variants, 24px and 32px. If an icon is only available in 32px, he is considered universal.
+All official SVG icons includes their padding and are available in 24px x 24px. Some icons have a minor version to not overpower more important icons in a component.
 
 ## Icon dimensions
 
@@ -162,27 +162,21 @@ If you choose to include an icon as a component, you don't have to worry about d
 
 Two types of components are available, [multi-variants](#multi-variants) components and [variants](#variants) components. They both share the same `size` prop but handles variants differently.
 
-#### Multi-variants
+#### Major
 
-Multi-variants components will decide for you which variant of an icon to render based on the `size` you specify. Use a multi-variants component if you don't have a strong opinion about how icons variants and icons dimensions should be paired. We recommend using multi-variants components whenever you can since this is the easiest way to ensure your icon is compliant with current and future versions of Orbit Design.
+All icons are provided as Major icons, which serve as the primary variation of the icon and are suitable for the majority of usage scenarios.
+
+#### Minor
+
+To keep your icon from taking up too much space compared to text or other elements surrounding it, use a smaller version of the icon. The overall icon size (24x24) remains the same, but the icon within the component is reduced in size. If a smaller version of an icon is not available in Orbit, please request one by submitting an issue on [Github](https://github.com/gsoft-inc/sg-orbit/issues).
+
+#### Usage
 
 ```jsx
 import { CalendarMajorIcon } from "@sharegate/orbit-ui";
 
 function render() {
     return <CalendarMajorIcon aria-label="Calendar" />;
-}
-```
-
-#### Variants
-
-Variants components let you decide at import time which variant of an icon to use. Use a variant component to pair an icon variant with any dimensions.
-
-```jsx
-import { CalendarMajorIcon24 } from "@sharegate/orbit-ui";
-
-function render() {
-    return <CalendarMajorIcon24 aria-label="Calendar" />;
 }
 ```
 
@@ -216,7 +210,7 @@ You can customize an icon dimensions with the `width` and `height` props of Orbi
 #### Image source
 
 ```jsx
-import CalendarMajorIcon24 from "@orbit-ui/icons/icon-calendar-24.svg";
+import CalendarMajorIcon24 from "@orbit-ui/icons/icon-calendar-major-24.svg";
 
 function render() {
     return <Img src={CalendarMajorIcon24} alt="Calendar" width={6} height={6} />;
@@ -227,9 +221,9 @@ function render() {
 
 ```css
 .calendar-24 {
-    background: url("~@orbit-ui/icons/icon-calendar-24.svg");
-    width: var(--o-ui-sp-4);
-    height: var(--o-ui-sp-4);
+    background: url("~@orbit-ui/icons/icon-calendar-major-24.svg");
+    width: var(--o-ui-sz-4);
+    height: var(--o-ui-sz-4);
 }
 ```
 
