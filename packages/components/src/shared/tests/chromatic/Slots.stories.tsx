@@ -55,7 +55,7 @@ const Title = slot("title", forwardRef<any, BoxProps>(({ className, style, child
     );
 }));
 
-const Content = slot("content", forwardRef<any, BoxProps>(({ className, style, children }, ref) => {
+const Content = slot("content", forwardRef<any, BoxProps & { blue?: boolean }>(({ className, style, children }, ref) => {
     return (
         <Box
             className={className}
@@ -178,7 +178,7 @@ export const SlotsFunctionalCard: SlotStory = {
     storyName: "support functional",
     render: () => (
         <FunctionalCard>
-            <Content>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
+            <Content blue>Early this morning (Oct. 20), SpaceX lit up the three Raptor engines on its SN8 ("Serial No. 8") Starship prototype in a brief "static fire" test at the company's South Texas site, near the beachside village of Boca Chica.</Content>
         </FunctionalCard>
     )
 };
