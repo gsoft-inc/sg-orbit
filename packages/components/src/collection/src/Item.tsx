@@ -1,7 +1,7 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledHtmlAttributes } from "../../shared";
+import { InternalProps, OmitInternalProps, StyledHtmlAttributes, InteractionProps } from "../../shared";
 
-export interface InnerItemProps extends InternalProps, StyledHtmlAttributes {
+export interface InnerItemProps extends InternalProps, InteractionProps, StyledHtmlAttributes {
     /**
      * React children.
      */

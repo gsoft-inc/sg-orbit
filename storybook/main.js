@@ -7,6 +7,7 @@ let stories = [];
 
 if (includeDocs) {
     stories = [
+        // TODO simplify imports for any pkgs /docs/**/*.stories.mdx
         "../docs/**/*.stories.mdx",
         "../packages/icons/docs/**/*.stories.mdx",
         "../packages/components/src/**/docs/**/*.stories.mdx",
@@ -17,9 +18,11 @@ if (includeDocs) {
 if (includeChromatic) {
     stories = [
         ...stories,
+        // TODO remove chroma and simplify imports
         "../packages/components/**/tests/chromatic/**/*.chroma.jsx",
-        "../packages/experimental/**/tests/chromatic/**/*.chroma.jsx"
-
+        "../packages/components/**/tests/chromatic/**/*.stories.tsx",
+        "../packages/experimental/**/tests/chromatic/**/*.chroma.tsx",
+        "../packages/experimental/**/tests/chromatic/**/*.stories.tsx"
     ];
 }
 
@@ -46,9 +49,6 @@ const config = {
             }
         }
     ],
-    features: {
-        previewCsfV3: true
-    },
     webpackFinal: customizeWebpack,
     reactOptions: {
         strictMode: true
