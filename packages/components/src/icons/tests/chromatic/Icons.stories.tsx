@@ -147,10 +147,11 @@ import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { TestSuite } from "./TestSuite";
 
 export default {
-    title: "Chromatic/Icons"
-} as ComponentMeta<any>;
+    title: "Chromatic/Icons",
+    component: TestSuite
+} as ComponentMeta<typeof TestSuite>;
 
-type IconsStory = ComponentStoryObj<any>;
+type IconsStory = ComponentStoryObj<typeof TestSuite>;
 
 export const Add: IconsStory = {
     storyName: "add",
