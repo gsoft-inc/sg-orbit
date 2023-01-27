@@ -188,7 +188,7 @@ export const PositionBottom: TooltipStory = {
     )
 };
 
-export const PositionBottomSstart: TooltipStory = {
+export const PositionBottomStart: TooltipStory = {
     storyName: "position bottom-start",
     render: () => (
         <TooltipTrigger position="bottom-start" open>
