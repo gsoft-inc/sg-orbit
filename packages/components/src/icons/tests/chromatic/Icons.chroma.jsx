@@ -370,6 +370,12 @@ export const IconRevertMajor = () => (
 
 IconRevertMajor.storyName = "Revert Major";
 
+export const IconRocketMajor = () => (
+    <TestSuite multiIcon={RocketMajorIcon} />
+);
+
+IconRocketMajor.storyName = "Rocket Major";
+
 export const IconSigninMajor = () => (
     <TestSuite multiIcon={SigninMajorIcon} />
 );
@@ -400,6 +406,12 @@ export const IconSortMajor = () => (
 
 IconSortMajor.storyName = "Sort Major";
 
+export const IconTelescopeMajor = () => (
+    <TestSuite multiIcon={TelescopeMajorIcon} />
+);
+
+IconTelescopeMajor.storyName = "Telescope Major";
+
 export const IconTrashMajor = () => (
     <TestSuite multiIcon={TrashMajorIcon} />
 );
@@ -411,6 +423,12 @@ export const IconTrashMinor = () => (
 );
 
 IconTrashMinor.storyName = "Trash Minor";
+
+export const IconUfoMajor = () => (
+    <TestSuite multiIcon={UfoMajorIcon} />
+);
+
+IconUfoMajor.storyName = "Ufo Major";
 
 export const IconUserAddMajor = () => (
     <TestSuite multiIcon={UserAddMajorIcon} />
@@ -435,21 +453,3 @@ export const IconWarningMajor = () => (
 );
 
 IconWarningMajor.storyName = "Warning Major";
-
-export const IconUfoMajor = () => (
-    <TestSuite multiIcon={UfoMajorIcon} />
-);
-
-IconUfoMajor.storyName = "Ufo Major";
-
-export const IconRocketMajor = () => (
-    <TestSuite multiIcon={RocketMajorIcon} />
-);
-
-IconRocketMajor.storyName = "Rocket Major";
-
-export const IconTelescopeMajor = () => (
-    <TestSuite multiIcon={TelescopeMajorIcon} />
-);
-
-IconTelescopeMajor.storyName = "Telescope Major";
