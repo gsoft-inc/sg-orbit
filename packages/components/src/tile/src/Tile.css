@@ -111,7 +111,7 @@
     mask-size: contain;
     display: flex;
     align-items: center;
-    mask-image: url("~@orbit-ui/icons/dist/icon-check-minor-24.svg");
+    mask-image: url("~@orbit-ui/icons/dist/icon-check-minor.svg");
     z-index: 1;
     right: 10px;
     top: 10px;

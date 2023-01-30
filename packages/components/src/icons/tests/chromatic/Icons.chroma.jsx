@@ -18,6 +18,7 @@ import {
     DownloadMajorIcon,
     EmailMajorIcon,
     ExternalLinkMajorIcon,
+    ExternalLinkMinorIcon,
     EyeMajorIcon,
     FileMajorIcon,
     FileCsvMajorIcon,
@@ -182,6 +183,12 @@ export const IconExternalLinkMajor = () => (
 );
 
 IconExternalLinkMajor.storyName = "ExternalLink Major";
+
+export const IconExternalLinkMinor = () => (
+    <TestSuite multiIcon={ExternalLinkMinorIcon} />
+);
+
+IconExternalLinkMajor.storyName = "ExternalLink Minor";
 
 export const IconEyeMajor = () => (
     <TestSuite multiIcon={EyeMajorIcon} />

@@ -67,7 +67,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     content: "";
     width: var(--o-ui-listbox-option-checkmark-size);
     height: var(--o-ui-listbox-option-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-major-24.svg") center center no-repeat;
+    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
     mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
     background-color: var(--o-ui-bg-alias-accent);
     position: absolute;

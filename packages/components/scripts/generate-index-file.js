@@ -12,24 +12,20 @@ const indexFileTemplate = iconNames => `${GENERATED_HEADER}
 /* eslint-disable */
 import { createOrbitIcon } from "../createOrbitIcon";
 
-${iconNames.map(icon => `import { ReactComponent as Inner${icon} } from "./${icon}24";`).join("\n")}
+${iconNames.map(icon => `import { ReactComponent as Inner${icon} } from "./${icon}";`).join("\n")}
 
 ${iconNames.map(icon => `export const ${icon} = createOrbitIcon(Inner${icon}, "${icon}");`).join("\n")}
 /* eslint-enable */
 `;
 
-function getComponentName(fileName, size) {
+function getComponentName(fileName) {
     const name = fileName.replace(/\.svg$/, "");
 
     const options = { pascalCase: true };
     let formatedName = camelCase(name, options);
 
     formatedName = formatedName.replace(/^(Icon)/, "");
-    if (size) {
-        formatedName = formatedName.replace(new RegExp(`${size}$`, "g"), "Icon");
-    } else {
-        formatedName += "Icon";
-    }
+    formatedName += "Icon";
 
     return formatedName;
 }

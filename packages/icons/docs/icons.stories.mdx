@@ -18,7 +18,9 @@ import {
     DuplicateMajorIcon,
     EmailMajorIcon,
     ExternalLinkMajorIcon,
+    ExternalLinkMinorIcon,
     EyeMajorIcon,
+    EyeSlashMajorIcon,
     FileMajorIcon,
     FileCsvMajorIcon,
     FileMusicMajorIcon,
@@ -102,7 +104,9 @@ Official collection of icons to promote a consistent experience across the Share
     {renderItem("DownloadMajor", createMultiVariant(<DownloadMajorIcon />))}
     {renderItem("EmailMajor", createMultiVariant(<EmailMajorIcon />))}
     {renderItem("ExternalLinkMajor", createMultiVariant(<ExternalLinkMajorIcon />))}
+    {renderItem("ExternalLinkinor", createMultiVariant(<ExternalLinkMinorIcon />))}
     {renderItem("EyeMajor", createMultiVariant(<EyeMajorIcon />))}
+    {renderItem("EyeSlashMajor", createMultiVariant(<EyeSlashMajorIcon />))}
     {renderItem("FileMajor", createMultiVariant(<FileMajorIcon />))}
     {renderItem("FileCsvMajor", createMultiVariant(<FileCsvMajorIcon />))}
     {renderItem("FileMusicMajor", createMultiVariant(<FileMusicMajorIcon />))}
@@ -150,7 +154,7 @@ Official collection of icons to promote a consistent experience across the Share
 
 ## Design specifications
 
-All official SVG icons includes their padding and are available in 24px x 24px. Some icons have a minor version to not overpower more important icons in a component.
+All official SVG icons includes their padding and are available in 24px x 24px as major icons. Some icons have a minor version to avoid overpowering more important elements in a component.
 
 ## Icon dimensions
 
@@ -210,7 +214,7 @@ You can customize an icon dimensions with the `width` and `height` props of Orbi
 #### Image source
 
 ```jsx
-import CalendarMajorIcon24 from "@orbit-ui/icons/icon-calendar-major-24.svg";
+import CalendarMajorIcon24 from "@orbit-ui/icons/icon-calendar-major.svg";
 
 function render() {
     return <Img src={CalendarMajorIcon24} alt="Calendar" width={6} height={6} />;
@@ -220,8 +224,8 @@ function render() {
 #### CSS background
 
 ```css
-.calendar-24 {
-    background: url("~@orbit-ui/icons/icon-calendar-major-24.svg");
+.calendar {
+    background: url("~@orbit-ui/icons/icon-calendar-major.svg");
     width: var(--o-ui-sz-4);
     height: var(--o-ui-sz-4);
 }
@@ -250,7 +254,7 @@ function render() {
 To set the color of an image, you can set the `fill` prop of Orbit [styled-system](?path=/docs/style-props--page).
 
 ```jsx
-import CalendarMajorIcon from "@orbit-ui/icons/icon-calendar-major-24.svg";
+import CalendarMajorIcon from "@orbit-ui/icons/icon-calendar-major.svg";
 
 function render() {
     return <Img src={CalendarMajorIcon} alt="calendar" fill="purple-8" />;

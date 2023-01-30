@@ -1,6 +1,6 @@
 import { AbstractTextInputProps, TextInput } from "./TextInput";
 import { useState, ChangeEvent, ComponentProps, forwardRef } from "react";
-import { EyeMajorIcon, PadlockLockedMajorIcon } from "../../icons";
+import { EyeMajorIcon, EyeSlashMajorIcon } from "../../icons";
 import { OmitInternalProps, mergeProps, useControllableState, useEventCallback } from "../../shared";
 
 import { IconButton } from "../../button";
@@ -45,7 +45,7 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
             title="Toggle password visibility"
             variant="tertiary"
         >
-            {isHidden ? <EyeMajorIcon /> : <PadlockLockedMajorIcon />}
+            {isHidden ? <EyeMajorIcon /> : <EyeSlashMajorIcon />}
         </IconButton>
     );
 
