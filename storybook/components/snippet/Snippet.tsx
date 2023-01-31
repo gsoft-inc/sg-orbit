@@ -2,21 +2,20 @@ import "./Snippet.css";
 
 import { Div } from "@components/html";
 import { isNil, mergeClasses } from "@components/shared";
-import { string } from "prop-types";
 import { useFormattedCode } from "./useFormattedCode";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/dracula";
 
-const propTypes = {
-    code: string,
-    filePath: string,
-    language: string
-};
-
 export const CodeTheme = theme;
 
-function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
+interface CodeBlockProps extends Omit<ComponentProps<typeof Highlight>, "code" | "language" | "children" | "Prism">{
+    code: string;
+    language: string;
+    className?: string;
+}
+
+function CodeBlock({ code, language, className: wrapperClassName, ...rest }: CodeBlockProps) {
     const formattedCode = useFormattedCode(code, language);
 
     return (
@@ -31,7 +30,7 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
                 {...rest}
                 {...defaultProps}
                 code={formattedCode}
-                language={language}
+                language={language as any}
                 theme={CodeTheme}
             >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
@@ -50,7 +49,11 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }) {
     );
 }
 
-function FileSnippet({ filePath, language, ...rest }) {
+interface FileSnippetProps extends Omit<CodeBlockProps, "code"> {
+    filePath: string;
+}
+
+function FileSnippet({ filePath, language, ...rest }: FileSnippetProps) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -65,13 +68,15 @@ function FileSnippet({ filePath, language, ...rest }) {
     return <CodeBlock code={code} language={language} {...rest} />;
 }
 
-export function Snippet({ code, filePath, language = "jsx", ...rest }) {
+export interface SnippetProps extends CodeBlockProps {
+    filePath?: string;
+}
+
+export function Snippet({ code, filePath, language = "jsx", ...rest }: SnippetProps) {
     if (!isNil(filePath)) {
         return <FileSnippet filePath={filePath} language={language} {...rest} />;
     }
 
     return <CodeBlock code={code} language={language} {...rest} />;
 }
-
-Snippet.propTypes = propTypes;
 

@@ -1,20 +1,16 @@
-import { ExternalLink } from "@stories/components";
+import { ExternalLink, ExternalLinkProps } from "@stories/components";
 import { Flex } from "@components/layout";
 import { Img } from "@components/html";
-import { bool, string } from "prop-types";
 import { getGithubUrl } from "./getGithubUrl";
 import GithubLogo from "./assets/logo-github-32.png";
 
-const propTypes = {
-    path: string.isRequired,
-    logo: bool
-};
+interface GithubLinkProps extends Omit<ExternalLinkProps, "href"> {
+    path: string;
+    logo?: boolean;
+}
 
-const defaultProps = {
-    logo: false
-};
 
-export function GithubLink({ path, logo, children, ...rest }) {
+export function GithubLink({ path, logo = false, children, ...rest }: GithubLinkProps) {
     if (logo) {
         return (
             <Flex inline alignItems="center">
@@ -33,6 +29,3 @@ export function GithubLink({ path, logo, children, ...rest }) {
         </ExternalLink>
     );
 }
-
-GithubLink.propTypes = propTypes;
-GithubLink.defaultProps = defaultProps;

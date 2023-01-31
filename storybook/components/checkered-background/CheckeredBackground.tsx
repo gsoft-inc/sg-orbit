@@ -1,9 +1,9 @@
 import "./CheckeredBackground.css";
 
-import { Div } from "@components/html";
+import { Div, DivProps } from "@components/html";
 import { mergeProps } from "@components/shared";
 
-export function CheckeredBackground({ children, ...rest }) {
+export function CheckeredBackground({ children, ...rest }: DivProps) {
     return (
         <Div
             {...mergeProps(

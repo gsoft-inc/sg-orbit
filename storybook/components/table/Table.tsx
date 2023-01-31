@@ -1,38 +1,35 @@
 /* eslint-disable react/no-array-index-key */
-
-import { any, arrayOf, bool, object, oneOfType, shape, string } from "prop-types";
 import { isPlainObject, isString, mergeClasses } from "@components/shared";
 
 import { components } from "@storybook/components";
 import { isElement } from "react-is";
+import { ComponentProps } from "react";
 
 const MdxTable = components.table;
+type MdxTableProps = ComponentProps<typeof MdxTable>;
 
-const ColumnShape = {
-    title: string.isRequired,
-    headerClassName: string,
-    headerStyle: object,
-    rowClassName: string,
-    rowStyle: object
-};
+interface Column {
+    title: string;
+    headerClassName?: string;
+    headerStyle?: object;
+    rowClassName?: string;
+    rowStyle?: object;
+}
 
-const RowValueShape = {
-    value: any,
-    className: string,
-    style: object
-};
+interface Row {
+    value?: any;
+    className?: string;
+    style?: object;
+}
 
-const propTypes = {
-    columns: arrayOf(oneOfType([string, shape(ColumnShape)])).isRequired,
-    rows: arrayOf(arrayOf(oneOfType([any, shape(RowValueShape)]))).isRequired,
-    headerClassName: string,
-    rowClassName: string,
-    fluid: bool
-};
+interface TableProps {
+    columns: string[] | Column[];
+    rows: any[] | Row[];
+    headerClassName?: string;
+    rowClassName?: string;
+    fluid?: boolean;
+}
 
-const defaultProps = {
-    fluid: false
-};
 
 function ensureRowsValuesMatchColumns(columns, rows) {
     const columnsCount = columns.length;
@@ -44,7 +41,11 @@ function ensureRowsValuesMatchColumns(columns, rows) {
     });
 }
 
-function TableRaw({ fluid, className, children, ...rest }) {
+interface TableRawProps extends MdxTableProps {
+    fluid?: boolean;
+}
+
+function TableRaw({ fluid, className, children, ...rest }: TableRawProps) {
     const classes = mergeClasses(
         fluid && "w-100",
         className
@@ -57,7 +58,7 @@ function TableRaw({ fluid, className, children, ...rest }) {
     );
 }
 
-export function Table({ columns, rows, headerClassName, rowClassName, ...rest }) {
+export function Table({ columns, rows, headerClassName, rowClassName, fluid = false, ...rest }: TableProps) {
     ensureRowsValuesMatchColumns(columns, rows);
 
     const renderHeader = (value, index) => {
@@ -80,11 +81,11 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
     const renderValue = (value, index) => {
         const defaultClasses = mergeClasses(
             rowClassName,
-            columns[index].rowClassName
+            (columns[index] as Column).rowClassName
         );
 
         if (isString(value) || isElement(value)) {
-            return <td className={defaultClasses} style={columns[index].rowStyle} key={index}>{value}</td>;
+            return <td className={defaultClasses} style={(columns[index] as Column).rowStyle} key={index}>{value}</td>;
         }
 
         const extraClasses = mergeClasses(
@@ -93,7 +94,7 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
         );
 
         const style = {
-            ...(columns[index].rowStyle || {}),
+            ...((columns[index] as Column).rowStyle || {}),
             ...(value.style || {})
         };
 
@@ -101,7 +102,7 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
     };
 
     return (
-        <TableRaw {...rest}>
+        <TableRaw fluid={fluid} {...rest}>
             <thead className="thead">
                 <tr>
                     {columns.map((x, index) => renderHeader(x, index))}
@@ -119,8 +120,5 @@ export function Table({ columns, rows, headerClassName, rowClassName, ...rest })
         </TableRaw>
     );
 }
-
-Table.propTypes = propTypes;
-Table.defaultProps = defaultProps;
 
 Table.Raw = TableRaw;

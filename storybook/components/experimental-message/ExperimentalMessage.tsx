@@ -1,8 +1,16 @@
-import { Message } from "@components/message";
+import { Message, MessageProps } from "@components/message";
 import { Content } from "@components/placeholders";
 import { Heading, Text } from "@components/typography";
 
-export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport, ...rest }) {
+interface ExperimentalMessageProps extends MessageProps{
+    noDoc?: boolean;
+    noTests?: boolean;
+    noVisualTesting?: boolean;
+    noFinalDesign?: boolean;
+    noMobileSupport?: boolean;
+}
+
+export function ExperimentalMessage({ noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport, ...rest }: ExperimentalMessageProps) {
     const hasDetails = [noDoc, noTests, noVisualTesting, noFinalDesign, noMobileSupport].some(validation => validation);
 
     return (

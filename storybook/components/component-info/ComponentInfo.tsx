@@ -1,24 +1,9 @@
 import "./ComponentInfo.css";
 
 import { ExternalLink, GithubLink, Link, useThemedSnippet } from "@stories/components";
-import { arrayOf, bool, oneOfType, shape, string } from "prop-types";
 import { cssModule, mergeClasses } from "@components/shared";
-
 import { Div } from "@components/html";
-
-const propTypes = {
-    usage: oneOfType([
-        string,
-        shape({
-            sharegate: string.isRequired
-        })
-    ]),
-    slots: arrayOf(string),
-    inheits: arrayOf(string),
-    ariaPath: string,
-    githubPath: string,
-    compact: bool
-};
+import { ComponentProps } from "react";
 
 const ExtendLinks = {
     "styled-component": <Link href="?path=/docs/style-props--page#properties">StyleProps</Link>,
@@ -43,6 +28,18 @@ const ExtendLinks = {
     "ul": <Link href="?path=/docs/html-ul--example">UL</Link>
 };
 
+
+export interface ComponentInfoProps extends ComponentProps<"dl">{
+    usage: string | {
+        sharegate: string;
+    };
+    slots?: string[];
+    inherits?: string[];
+    ariaPath?: string;
+    githubPath?: string;
+    compact?: boolean;
+}
+
 export function ComponentInfo({
     usage: usageProp,
     slots,
@@ -52,7 +49,7 @@ export function ComponentInfo({
     compact,
     className,
     ...rest
-}) {
+}: ComponentInfoProps) {
     const usage = useThemedSnippet(usageProp);
 
     return (
@@ -108,5 +105,3 @@ export function ComponentInfo({
         </dl>
     );
 }
-
-ComponentInfo.propTypes = propTypes;
