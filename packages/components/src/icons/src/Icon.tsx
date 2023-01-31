@@ -72,8 +72,10 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
+export type CreatedIconProps = OmitInternalProps<InnerIconProps, "src">;
+
 export function createIcon(src: ElementType) {
-    return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerIconProps, "src">>((props, ref) =>
+    return slot("icon", forwardRef<SVGSVGElement, CreatedIconProps>((props, ref) =>
         <InnerIcon
             {...props}
             forwardedRef={ref}

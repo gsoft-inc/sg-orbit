@@ -1,4 +1,4 @@
-import { Flex } from "@components/layout";
+import { Flex, FlexProps } from "@components/layout";
 import { ModalContext } from "./ModalContext";
 import { NAVIGATE_URL } from "@storybook/core-events";
 import { components } from "@storybook/components";
@@ -8,11 +8,11 @@ import addons from "@storybook/addons";
 // Would be better to use Storybook AnchorMdx component but the component doesn't currently forward the onClick handler.
 const A = components.a;
 
-export function LearnUsageLink(props) {
+export function LearnUsageLink(props: Omit<FlexProps, "children">) {
     const { onClose } = useContext(ModalContext);
 
     const handleClick = () => {
-        onClose();
+        onClose?.();
         addons.getChannel().emit(NAVIGATE_URL, "#dimensions");
     };
 

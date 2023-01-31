@@ -6,29 +6,23 @@ import { Div } from "@components/html";
 import { Flex } from "@components/layout";
 import { Heading } from "@components/typography";
 import { IconDetail } from "./details";
-import { MULTI_VARIANT_SHAPE, VARIANT_SHAPE } from "./shapes";
 import { PreviewIcon } from "./PreviewIcon";
-import { arrayOf, shape, string } from "prop-types";
-import { useCallback, useState } from "react";
+import { ReactElement, SyntheticEvent, useCallback, useState } from "react";
+import { CreatedIconProps } from "@components/icons";
 
-const propTypes = {
-    name: string.isRequired,
-    multiVariant: shape(MULTI_VARIANT_SHAPE).isRequired,
-    variants: arrayOf(shape(VARIANT_SHAPE))
-};
-
-function getDisplayName(name) {
-    return name.split(/(?=[A-Z])/).join(" ");
+interface IconItemProps {
+    name: string;
+    iconComponent: ReactElement<CreatedIconProps>;
 }
 
-export function IconItem({ name, multiVariant, variants }) {
+export function IconItem({ name, iconComponent }: IconItemProps) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleShowDetail = useCallback(() => {
         setIsModalOpen(true);
     }, [setIsModalOpen]);
 
-    const handleModalOpenChange = useCallback((event, isOpen) => {
+    const handleModalOpenChange = useCallback((_: SyntheticEvent, isOpen: boolean) => {
         setIsModalOpen(isOpen);
     }, [setIsModalOpen]);
 
@@ -43,8 +37,8 @@ export function IconItem({ name, multiVariant, variants }) {
             <Flex direction="column" className="o-ui-sb-gallery-item">
                 <Div padding={3} fontSize={3} textAlign="center">{displayName.toLowerCase()}</Div>
                 <Flex justifyContent="center">
-                    <Div width={7} height={7}>
-                        <PreviewIcon icon={multiVariant.icon} onShowDetail={handleShowDetail} />
+                    <Div borderRadius={2} border="alias-mid-break" padding={1} boxShadow={2}>
+                        <PreviewIcon width={4} height={4} icon={iconComponent} onShowDetail={handleShowDetail} />
                     </Div>
                 </Flex>
             </Flex>
@@ -52,9 +46,9 @@ export function IconItem({ name, multiVariant, variants }) {
                 <Heading>{displayName}</Heading>
                 <Content>
                     <IconDetail
-                        iconDisplayName={displayName}
-                        multiVariant={multiVariant}
-                        variants={variants}
+                        name={name}
+                        iconComponent={iconComponent}
+                        iconFileName={getFileName(name)}
                     />
                 </Content>
             </Dialog>
@@ -62,4 +56,11 @@ export function IconItem({ name, multiVariant, variants }) {
     );
 }
 
-IconItem.propTypes = propTypes;
+
+function getDisplayName(name: string) {
+    return name.split(/(?=[A-Z])/).join(" ");
+}
+
+function getFileName(name: string) {
+    return (`icon-${name.split(/(?=[A-Z])/).join("-")}.svg`).toLowerCase();
+}
