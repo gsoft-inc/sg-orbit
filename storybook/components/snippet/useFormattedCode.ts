@@ -10,7 +10,7 @@ const PrettierParser = {
     "css": "css"
 };
 
-export function useFormattedCode(code, language) {
+export function useFormattedCode(code: string, language: string) {
     return useMemo(() => {
         const parser = PrettierParser[language];
 

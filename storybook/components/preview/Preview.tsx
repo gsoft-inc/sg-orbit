@@ -2,25 +2,24 @@ import "./Preview.css";
 
 import { CodeTheme, useFormattedCode } from "@stories/components";
 import { Div, Span } from "@components/html";
-import { DocsContext, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
+import { DocsContext, DocsContextProps, SourceContext, getSourceProps, storyBlockIdFromId } from "@storybook/addon-docs";
 import { Editor as JarleEditor, Error as JarleError, Preview as JarlePreview, Provider as JarleProvider } from "jarle";
 import { applyHooks, defaultDecorateStory } from "@storybook/client-api";
 import { as, isNil } from "@components/shared";
-import { bool, object, string } from "prop-types";
 import { storyNameFromExport, toId } from "@storybook/csf";
-import { useContext, useState } from "react";
+import { ComponentProps, ReactElement, useContext, useState } from "react";
 
 import { Box } from "@components/box";
 import { KnownScope } from "./scopes";
 
-const propTypes = {
-    filePath: string,
-    language: string,
-    scope: object,
-    features: bool
-};
 
 const StyledJarlePreview = as(Box, JarlePreview);
+type JarleProviderProps = ComponentProps<typeof JarleProvider>;
+
+interface CodeEditorProps extends JarleProviderProps {
+    children: any;
+    additionalScope?: any;
+}
 
 function CodeEditor({
     code,
@@ -28,7 +27,7 @@ function CodeEditor({
     scope: additionalScope = {},
     children,
     ...rest
-}) {
+}: CodeEditorProps) {
     const formattedCoded = useFormattedCode(code, language);
 
     return (
@@ -57,22 +56,34 @@ function CodeEditor({
     );
 }
 
-function DecoratedLivePreview({ ...rest }) {
+type DecoratedLivePreviewProps = ComponentProps<typeof StyledJarlePreview>;
+
+function DecoratedLivePreview(props: DecoratedLivePreviewProps): JSX.Element {
     const docsContext = useContext(DocsContext);
 
+    // @ts-ignore
     const storyStore = window.__STORYBOOK_STORY_STORE__;
 
     const decorators = storyStore.projectAnnotations.decorators;
 
-    // Decorators must be applied otherwise functionnalities like the color schemes switcher won't work.
-    const decorateStory = applyHooks(defaultDecorateStory);
 
-    return decorators
-        ? decorateStory(() => <StyledJarlePreview {...rest} />, decorators)(docsContext)
-        : <StyledJarlePreview {...rest} />;
+    if (decorators) {
+        // Decorators must be applied otherwise functionnalities like the color schemes switcher won't work.
+        const decorateStory = applyHooks(defaultDecorateStory);
+        const decoratedStory = decorateStory(() => <StyledJarlePreview {...props} />, decorators)(docsContext as any);
+
+        return decoratedStory as JSX.Element;
+    } else {
+        return <StyledJarlePreview {...props} />;
+    }
 }
 
-function FilePreview({ filePath, language, scope, features = false, noInline, ...rest }) {
+interface FilePreviewProps extends Pick<ComponentProps<typeof CodeEditor>, "language">, DecoratedLivePreviewProps {
+    filePath?: string;
+    features?: boolean;
+}
+
+function FilePreview({ filePath, language, scope, features = false, ...rest }: FilePreviewProps) {
     const [code, setCode] = useState();
 
     if (isNil(code)) {
@@ -96,14 +107,17 @@ function FilePreview({ filePath, language, scope, features = false, noInline, ..
             code={code}
             language={language}
             scope={scope}
-            noInline={noInline}
         >
             <DecoratedLivePreview {...rest} />
         </CodeEditor>
     );
 }
 
-function MdxSourcePreview({ mdxSource, language, scope, noInline, ...rest }) {
+export interface MdxSourcePreviewProps extends Pick<ComponentProps<typeof CodeEditor>, "language">, DecoratedLivePreviewProps {
+    mdxSource?: string;
+}
+
+function MdxSourcePreview({ mdxSource, language, scope, ...rest }: MdxSourcePreviewProps) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
@@ -114,21 +128,24 @@ function MdxSourcePreview({ mdxSource, language, scope, noInline, ...rest }) {
             code={code}
             language={language ?? inferredLanguage}
             scope={scope}
-            noInline={noInline}
         >
             <DecoratedLivePreview {...rest} />
         </CodeEditor>
     );
 }
 
-function lookupStoryId(storyName, { mdxStoryNameToKey, mdxComponentAnnotations }) {
+function lookupStoryId(storyName: string, { mdxStoryNameToKey, mdxComponentAnnotations }: DocsContextProps) {
     return toId(
         mdxComponentAnnotations.id || mdxComponentAnnotations.title,
         storyNameFromExport(mdxStoryNameToKey[storyName])
     );
 }
 
-function StoryPreview({ language, scope, noInline, children, ...rest }) {
+interface StoryPreviewProps extends Pick<ComponentProps<typeof CodeEditor>, "language">, DecoratedLivePreviewProps {
+    children?: ReactElement;
+}
+
+function StoryPreview({ language, scope, children, ...rest }: StoryPreviewProps) {
     const docsContext = useContext(DocsContext);
     const sourceContext = useContext(SourceContext);
 
@@ -141,7 +158,6 @@ function StoryPreview({ language, scope, noInline, children, ...rest }) {
             code={code}
             language={language ?? inferredLanguage}
             scope={scope}
-            noInline={noInline}
         >
             <Div id={storyBlockIdFromId(storyId)}>
                 <DecoratedLivePreview {...rest} />
@@ -150,15 +166,23 @@ function StoryPreview({ language, scope, noInline, children, ...rest }) {
     );
 }
 
+export interface PreviewProps {
+    filePath?: string;
+    language?: string;
+    scope?: string;
+    features?: boolean;
+    mdxSource?: string;
+    children?: ReactElement;
+}
+
 export function Preview({
     filePath,
     mdxSource,
     language,
     scope,
-    noInline,
     children,
     ...rest
-}) {
+}: PreviewProps) {
     if (!isNil(filePath)) {
         return (
             <FilePreview
@@ -166,7 +190,6 @@ export function Preview({
                 filePath={filePath}
                 language={language}
                 scope={scope}
-                noInline={noInline}
             />
         );
     }
@@ -178,7 +201,6 @@ export function Preview({
                 mdxSource={mdxSource}
                 language={language}
                 scope={scope}
-                noInline={noInline}
             />
         );
     }
@@ -188,11 +210,8 @@ export function Preview({
             {...rest}
             language={language}
             scope={scope}
-            noInline={noInline}
         >
             {children}
         </StoryPreview>
     );
 }
-
-Preview.propTypes = propTypes;

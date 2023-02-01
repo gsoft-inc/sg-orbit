@@ -1,14 +1,14 @@
-import { Snippet } from "@stories/components";
+import { Snippet, SnippetProps } from "@stories/components";
 import { isNil } from "@components/shared";
-import { string } from "prop-types";
 import { useState } from "react";
 
-const propTypes = {
-    packageName: string.isRequired
-};
 
-export function PackageInstallationSnippet({ packageName, ...rest }) {
-    const [dependencies, setDependencies] = useState();
+interface PackageInstallationSnippetProps extends SnippetProps {
+    packageName: string;
+}
+
+export function PackageInstallationSnippet({ packageName, ...rest }: PackageInstallationSnippetProps) {
+    const [dependencies, setDependencies] = useState<string>();
 
     if (isNil(dependencies)) {
         import(/* webpackMode: "eager" */ `@root/packages/${packageName}/package.json`)
@@ -30,5 +30,3 @@ export function PackageInstallationSnippet({ packageName, ...rest }) {
         />
     );
 }
-
-PackageInstallationSnippet.propTypes = propTypes;
