@@ -1,6 +1,6 @@
 .o-ui-tile {
     width: 100%;
-    min-width: 100px;
+    min-width: 6.25rem;
     border: none;
     background-color: var(--o-ui-bg-alias-surface);
     padding: 0;
@@ -91,8 +91,8 @@
     content: "";
     opacity: 0;
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: 0.5rem;
+    top: 0.5rem;
     border-radius: var(--o-ui-br-4);
     width: var(--o-ui-sz-4);
     height: var(--o-ui-sz-4);
@@ -101,6 +101,8 @@
     justify-content: center;
     background-color: var(--o-ui-text-alias-accent);
     mask-image: url("~@orbit-ui/icons/dist/icon-check-circle-24.svg");
+    mask-repeat: no-repeat;
+    mask-size: cover;
 }
 
 .o-ui-tile[aria-checked="true"] .o-ui-tile-main::before,

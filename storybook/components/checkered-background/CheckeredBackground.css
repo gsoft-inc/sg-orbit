@@ -1,7 +1,7 @@
 .o-ui-sb-checkered-background-preview {
-    background-size: 30px 30px;
+    background-size: 1.875rem 1.875rem;
     background-color: var(--o-ui-bg-alias-surface);
     /* stylelint-disable-next-line */
     background-image: linear-gradient(45deg, var(--o-ui-bg-alias-soft-break) 25%, transparent 25%), linear-gradient(-45deg, var(--o-ui-bg-alias-soft-break) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--o-ui-bg-alias-soft-break) 75%), linear-gradient(-45deg, transparent 75%, var(--o-ui-bg-alias-soft-break) 75%);
-    background-position: 0 0, 0 15px, 15px -15px, -15px 0;
+    background-position: 0 0, 0 0.9375rem, 0.9375rem -0.9375rem, -0.9375rem 0;
 }

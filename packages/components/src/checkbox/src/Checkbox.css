@@ -1,7 +1,3 @@
-.o-ui {
-    --o-ui-checkbox-indeterminate-stroke-width: 5px;
-}
-
 .o-ui-checkbox {
     outline: transparent;
     display: inline-flex;

@@ -102,7 +102,7 @@
 .o-ui-date-range-input-divider[aria-orientation="vertical"] {
     flex-shrink: 0;
     align-self: auto;
-    height: 25px !important;
+    height: 1.5625rem !important;
 }
 
 /* CLEAR BUTTON */
@@ -130,5 +130,5 @@
 /* IN GROUP */
 .o-ui-date-range-input-in-group:not(.o-ui-date-range-input-fluid) {
     width: 100%;
-    max-width: 300px;
+    max-width: 18.75rem;
 }

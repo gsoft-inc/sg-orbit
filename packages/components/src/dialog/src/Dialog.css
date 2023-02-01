@@ -47,15 +47,15 @@
 
 /* DIALOG | SIZES */
 .o-ui-dialog-sm {
-    width: 544px;
+    width: 34rem;
 }
 
 .o-ui-dialog-md {
-    width: 800px;
+    width: 50rem;
 }
 
 .o-ui-dialog-lg {
-    width: 960px;
+    width: 60rem;
 }
 
 /* DIALOG | IMAGE & ILLUSTRATION */

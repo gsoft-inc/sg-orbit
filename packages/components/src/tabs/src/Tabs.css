@@ -1,7 +1,7 @@
 /* TABS */
 .o-ui-tabs {
     height: max-content;
-    --o-ui-tab-stroke-width: 4px;
+    --o-ui-tab-stroke-width: 0.25rem;
 }
 
 /* TABS | ORIENTATION | VERTICAL */
@@ -74,8 +74,8 @@
 
 /* TAB LIST | POPOVER | FOCUS */
 .o-ui-tab-list-popover .o-ui-tab::before {
-    left: 8px;
-    right: 8px;
+    left: 0.5rem;
+    right: 0.5rem;
 }
 
 /* TAB LIST | HIDDEN TABS */
@@ -137,8 +137,8 @@
 
 /* TAB | STATE | FOCUS | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab::before {
-    left: 8px;
-    right: 8px;
+    left: 0.5rem;
+    right: 0.5rem;
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {

@@ -91,5 +91,5 @@
 /* SELECT ADDON */
 .o-ui-input-group-select-addon {
     width: auto !important;
-    min-width: 85px;
+    min-width: 5.3125rem;
 }

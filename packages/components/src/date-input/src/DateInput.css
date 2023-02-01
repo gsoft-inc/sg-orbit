@@ -1,5 +1,5 @@
 .o-ui-date-input {
-    width: 160px;
+    width: 10rem;
 }
 
 /* BUTTON PRESETS */
@@ -23,5 +23,5 @@
 
 /* IN GROUP */
 .o-ui-date-input-in-group {
-    width: 140px;
+    width: 8.75rem;
 }

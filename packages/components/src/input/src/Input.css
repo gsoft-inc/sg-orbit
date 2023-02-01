@@ -93,7 +93,7 @@
 /* AUTOFILL */
 .o-ui-input input:-webkit-autofill,
 .o-ui-input textarea:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px var(--o-ui-bg-alias-accent-faint) inset !important;
+    -webkit-box-shadow: 0 0 0 62.5rem var(--o-ui-bg-alias-accent-faint) inset !important;
     -webkit-text-fill-color: var(--o-ui-text-alias-primary) !important;
 }
 
@@ -212,8 +212,8 @@
     position: absolute;
     top: 50%;
     z-index: 1;
-    border-radius: 50px;
-    border: 2px solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-br-circular);
+    border: 0.125rem solid var(--o-ui-b-alias-low-break);
     border-top-color: var(--o-ui-b-alias-mid-break);
     transform: translate(0, -50%) rotate(0deg);
     animation: o-ui-input-spinner 1s linear infinite;

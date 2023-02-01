@@ -16,7 +16,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     margin: 0;
     border-radius: var(--o-ui-br-2);
     width: max-content;
-    min-width: 200px;
+    min-width: 12.5rem;
     max-width: var(--o-ui-sz-16);
     height: max-content;
     box-shadow: var(--o-ui-bs-alias-floating);

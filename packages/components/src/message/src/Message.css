@@ -36,7 +36,7 @@
     /* Ugly fix unti Chroma have decent support for height: min-content + absolute */
     height: auto !important;
     flex-shrink: 0;
-    max-width: 180px;
+    max-width: 11.25rem;
 }
 
 /* DISMISS */
