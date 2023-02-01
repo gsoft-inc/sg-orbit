@@ -191,3 +191,4 @@ export type ButtonProps = ComponentProps<typeof Button>;
 ///////////
 
 export const ButtonAsLink = slot("button", as(Button, "a"));
+export type ButtonAsLinkProps = ComponentProps<typeof ButtonAsLink>;
