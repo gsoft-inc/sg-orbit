@@ -32,8 +32,8 @@ jobs:
                   name: Build Packages
                   command: yarn build-pkg
             - run:
-                  name: Run Jest
-                  command: yarn jest-ci
+                  name: Run Tests
+                  command: yarn test
     chromatic:
         parameters:
             exitOnceUploaded:
