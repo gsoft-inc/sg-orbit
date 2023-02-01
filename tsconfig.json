@@ -12,7 +12,7 @@
             "@experimental/*": ["./packages/experimental/src/*"],
             "@orbit-ui/components": ["./packages/components/src"],
             "@sharegate/orbit-ui": ["./packages/bundle/src"],
-            "@stories/components": ["./storybook/components"]
+            "@stories/components": ["./.storybook/components"]
         }
     }
 }
