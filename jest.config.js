@@ -14,7 +14,7 @@ module.exports = {
     },
     setupFilesAfterEnv: [
         "@testing-library/jest-dom/extend-expect",
-        "<rootDir>/setup-jest.js"
+        "<rootDir>/setupTests.js"
     ],
     testEnvironment: "jsdom",
     testPathIgnorePatterns: [ // TODO: tests should not be built in the dist folder
