@@ -10,30 +10,6 @@ aliases:
       keys:
           - yarn-packages-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum "storybook/yarn.lock" }}
 jobs:
-    build:
-        docker:
-            - image: cimg/node:16.10.0
-        resource_class: large
-        working_directory: ~/build
-        steps:
-            - checkout
-            - restore_cache: *restore-yarn-deps
-            - run:
-                  name: Install Dependencies
-                  command: yarn install-pkg --frozen-lockfile
-            - save_cache: *save-yarn-deps
-            - run:
-                  name: Lint
-                  command: yarn lint-ci
-            - run:
-                  name: Setup Packages
-                  command: yarn setup
-            - run:
-                  name: Build Packages
-                  command: yarn build-pkg
-            - run:
-                  name: Run Jest
-                  command: yarn jest-ci
     chromatic:
         parameters:
             exitOnceUploaded:
@@ -63,26 +39,12 @@ jobs:
                   command: yarn chromatic-ci<<# parameters.exitOnceUploaded >> --exit-once-uploaded<</ parameters.exitOnceUploaded >>
 workflows:
     version: 2
-    github-build:
-        jobs:
-            - build:
-                  filters:
-                      branches:
-                          ignore:
-                              - master
     github-chromatic:
         jobs:
             - chromatic:
                   filters:
                       branches:
                           ignore:
-                              - master
-    commit:
-        jobs:
-            - build:
-                  filters:
-                      branches:
-                          only:
                               - master
     nightly:
         triggers:
