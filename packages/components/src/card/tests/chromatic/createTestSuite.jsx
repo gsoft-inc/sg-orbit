@@ -125,13 +125,13 @@ export function createTestSuite(element, stories) {
         .add("illustration 2", () =>
             <Stack>
                 <Card fluid element={element}>
-                    <Illustration color="warning-1" width="200px">
+                    <Illustration color="warning-1" width="12.5rem">
                         <Image src={Nasa} alt="Nasa" />
                     </Illustration>
                     <Heading>Nasa</Heading>
                     <Content>The National Aeronautics and Space Administration</Content>
                 </Card>
-                <Card height="250px" element={element}>
+                <Card height="15.625rem" element={element}>
                     <Illustration color="warning-1">
                         <Image src={Nasa} alt="Nasa" />
                     </Illustration>
@@ -529,7 +529,7 @@ export function createTestSuite(element, stories) {
         .add("all sections 2", () =>
             <Card fluid element={element}>
                 <Illustration color="warning-1">
-                    <Image src={Nasa} alt="Nasa" width="200px" />
+                    <Image src={Nasa} alt="Nasa" width="12.5rem" />
                 </Illustration>
                 <Heading>Nasa</Heading>
                 <Header>

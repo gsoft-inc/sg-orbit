@@ -191,9 +191,9 @@ export const Styling: TagListStory = {
                 <Item className="border-red" key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </TagList>
-            <TagList style={{ border: "1px solid red" }}>
+            <TagList style={{ border: "0.0625rem solid red" }}>
                 <Item key="earth">Earth</Item>
-                <Item style={{ border: "1px solid red" }} key="jupiter">Jupiter</Item>
+                <Item style={{ border: "0.0625rem solid red" }} key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </TagList>
         </Inline>

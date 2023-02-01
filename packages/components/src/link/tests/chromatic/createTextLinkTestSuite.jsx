@@ -19,7 +19,7 @@ export function createTextLinkTestSuite(element, stories) {
                 <Div fontSize={5}>
                     <TextLink size="inherit" href="#" element={element}>Flight details</TextLink>
                 </Div>
-                <Div width="400px">
+                <Div width="25rem">
                     <TextLink href="#" element={element}>
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
                     </TextLink>
@@ -38,7 +38,7 @@ export function createTextLinkTestSuite(element, stories) {
                         <ArrowIcon />
                     </TextLink>
                 </Inline>
-                <Div width="400px">
+                <Div width="25rem">
                     <TextLink href="#" element={element}>
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
                         <ArrowIcon />
@@ -58,7 +58,7 @@ export function createTextLinkTestSuite(element, stories) {
                         <Text>Flight details</Text>
                     </TextLink>
                 </Inline>
-                <Div width="400px">
+                <Div width="25rem">
                     <TextLink href="#" element={element}>
                         <InfoIcon slot="start-icon" />
                         <Text>NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.</Text>
@@ -140,7 +140,7 @@ export function createTextLinkTestSuite(element, stories) {
                     <TextLink external size="sm" href="#" element={element}>Flight details</TextLink>
                     <TextLink external href="#" element={element}>Flight details</TextLink>
                 </Inline>
-                <Div width="400px">
+                <Div width="25rem">
                     <TextLink external href="#" element={element}>
                         NASA selected SpaceX to develop a lunar optimized Starship to transport crew between lunar orbit and the surface of the Moon as part of NASA’s Artemis program.
                     </TextLink>

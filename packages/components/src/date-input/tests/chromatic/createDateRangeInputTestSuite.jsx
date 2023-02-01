@@ -79,7 +79,7 @@ export function createDateRangeInputTestSuite(element, stories) {
             <Stack>
                 <DateRangeInput border="alert-6" element={element} />
                 <DateRangeInput className="border-red" element={element} />
-                <DateRangeInput style={{ border: "1px solid red" }} element={element} />
+                <DateRangeInput style={{ border: "0.0625rem solid red" }} element={element} />
             </Stack>
         );
 }

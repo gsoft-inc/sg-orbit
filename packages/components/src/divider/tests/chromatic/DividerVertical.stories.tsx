@@ -106,7 +106,7 @@ export const Styling: DividerStory = {
         <Inline height={16}>
             <Divider border="warning-7" orientation="vertical" />
             <Divider className="border-red" orientation="vertical" />
-            <Divider style={{ border: "1px solid red" }} orientation="vertical" />
+            <Divider style={{ border: "0.0625rem solid red" }} orientation="vertical" />
         </Inline>
     )
 };

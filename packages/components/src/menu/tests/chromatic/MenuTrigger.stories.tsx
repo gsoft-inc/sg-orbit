@@ -135,7 +135,7 @@ export const DirectionBottom: MenuTriggerStory = {
 
 export const DirectionTop: MenuTriggerStory = {
     storyName: "direction top",
-    decorators: [Story => <div style={{ marginTop: "100px" }}><Story /></div>],
+    decorators: [Story => <div style={{ marginTop: "6.25rem" }}><Story /></div>],
     render: () => (
         <MenuTrigger direction="top" defaultOpen>
             <Button variant="secondary">Trigger</Button>
@@ -150,7 +150,7 @@ export const DirectionTop: MenuTriggerStory = {
 
 export const AlignStart: MenuTriggerStory = {
     storyName: "align start",
-    decorators: [Story => <div style={{ paddingLeft: "200px" }}><Story /></div>],
+    decorators: [Story => <div style={{ paddingLeft: "12.5rem" }}><Story /></div>],
     render: () => (
         <MenuTrigger align="start" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button variant="secondary">Trigger</Button>
@@ -165,7 +165,7 @@ export const AlignStart: MenuTriggerStory = {
 
 export const AlignEnd: MenuTriggerStory = {
     storyName: "align end",
-    decorators: [Story => <div style={{ paddingLeft: "200px" }}><Story /></div>],
+    decorators: [Story => <div style={{ paddingLeft: "12.5rem" }}><Story /></div>],
     render: () => (
         <MenuTrigger align="end" allowFlip={false} allowPreventOverflow={false} defaultOpen>
             <Button variant="secondary">Trigger</Button>
@@ -301,7 +301,7 @@ export const ClassName: MenuTriggerStory = {
 export const Style: MenuTriggerStory = {
     storyName: "style",
     render:  () => (
-        <MenuTrigger style={{ border: "1px solid red" }} defaultOpen>
+        <MenuTrigger style={{ border: "0.0625rem solid red" }} defaultOpen>
             <Button variant="secondary">Trigger</Button>
             <Menu>
                 <Item key="earth">Earth</Item>

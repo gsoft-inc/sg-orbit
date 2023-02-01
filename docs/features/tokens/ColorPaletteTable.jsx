@@ -24,10 +24,10 @@ export function ColorPaletteTable({ colors }) {
     return (
         <Table
             columns={[
-                { title: "Prop Value", headerStyle: { width: "150px" }, rowClassName: "code" },
-                { title: "CSS Variable", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "Color Code", headerStyle: { width: "275px" }, rowClassName: "code" },
-                { title: "", headerStyle: { width: "300px" } }
+                { title: "Prop Value", headerStyle: { width: "9.375rem" }, rowClassName: "code" },
+                { title: "CSS Variable", headerStyle: { width: "12.5rem" }, rowClassName: "code" },
+                { title: "Color Code", headerStyle: { width: "17.1875rem" }, rowClassName: "code" },
+                { title: "", headerStyle: { width: "18.75rem" } }
             ]}
             rows={colors.map(x => toRowValues(x))}
         />

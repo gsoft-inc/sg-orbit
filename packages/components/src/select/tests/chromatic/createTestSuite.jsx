@@ -409,7 +409,7 @@ export function createTestSuite(element, stories) {
             </Select>,
              {
                  ...paramsBuilder()
-                     .canvasLayout({ marginTop: "100px" })
+                     .canvasLayout({ marginTop: "6.25rem" })
                      .build()
              }
         )
@@ -428,7 +428,7 @@ export function createTestSuite(element, stories) {
             </Select>,
              {
                  ...paramsBuilder()
-                     .canvasLayout({ paddingLeft: "200px" })
+                     .canvasLayout({ paddingLeft: "12.5rem" })
                      .build()
              }
         )
@@ -440,7 +440,7 @@ export function createTestSuite(element, stories) {
             </Select>,
              {
                  ...paramsBuilder()
-                     .canvasLayout({ paddingLeft: "400px" })
+                     .canvasLayout({ paddingLeft: "25rem" })
                      .build()
              }
         )

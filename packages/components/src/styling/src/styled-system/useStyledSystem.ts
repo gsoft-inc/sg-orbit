@@ -227,7 +227,7 @@ const BackgroundColorAliases = [
     "alias-input-selection"
 ] as const;
 
-const BorderWidthAndStyle = "1px solid";
+const BorderWidthAndStyle = "0.0625rem solid";
 
 const BorderColorAliases = [
     "alias-low-break",
@@ -1218,8 +1218,8 @@ function createPseudoHandler<TValue extends string | number>(pseudoClassName, ps
 }
 
 // Custom handler for borders to allow the following syntax:
-// - border="warning-10" -> style="1px solid var(--o-ui-warning-10)"
-// - border="hsla(223, 12%, 87%, 1)" -> style="1px solid hsla(223, 12%, 87%, 1)"
+// - border="warning-10" -> style="0.0625rem solid var(--o-ui-warning-10)"
+// - border="hsla(223, 12%, 87%, 1)" -> style="0.0625rem solid hsla(223, 12%, 87%, 1)"
 function createBorderHandler<TValue extends string>(systemValues: Record<TValue, string>): PropHandler<TValue> {
     return (name, value, context) => {
         const parsedValue = parseResponsiveSystemValue(value, systemValues, context.matchedBreakpoints);

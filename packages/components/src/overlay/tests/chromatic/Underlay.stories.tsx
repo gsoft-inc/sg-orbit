@@ -38,6 +38,6 @@ export const ClassName: UnderlayStory = {
 export const Style: UnderlayStory = {
     storyName: "style",
     render: () => (
-        <Underlay style={{ border: "1px solid red" }} />
+        <Underlay style={{ border: "0.0625rem solid red" }} />
     )
 };

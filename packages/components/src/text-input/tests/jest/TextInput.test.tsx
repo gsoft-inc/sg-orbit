@@ -15,11 +15,11 @@ test("when a className is provided, render the className on the input element", 
 
 test("when style is provided, render the style on the input element", async () => {
     renderWithTheme(
-        <TextInput style={{ border: "1px solid red" }} aria-label="Label" data-testid="input" />
+        <TextInput style={{ border: "0.0625rem solid red" }} aria-label="Label" data-testid="input" />
     );
 
     await waitFor(() => expect(screen.getByTestId("input")).toHaveStyle({
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     }));
 });
 
@@ -33,11 +33,11 @@ test("when a wrapper className is provided, render the className on the wrapper 
 
 test("when a wrapper style is provided, render the style on the wrapper element", async () => {
     renderWithTheme(
-        <TextInput wrapperProps={{ style: { border: "1px solid red" }, "data-testid": "wrapper" }} aria-label="Label" />
+        <TextInput wrapperProps={{ style: { border: "0.0625rem solid red" }, "data-testid": "wrapper" }} aria-label="Label" />
     );
 
     await waitFor(() => expect(screen.getByTestId("wrapper")).toHaveStyle({
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     }));
 });
 

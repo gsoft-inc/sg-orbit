@@ -45,7 +45,7 @@ export const Styling: StyleProviderStory = {
         <Inline>
             <A border="warning-7" href="#">Google</A>
             <A className="border-red" href="#">Google</A>
-            <A style={{ border: "1px solid red" }} href="#">Google</A>
+            <A style={{ border: "0.0625rem solid red" }} href="#">Google</A>
         </Inline>
     )
 };

@@ -128,7 +128,7 @@ export const Styling: MessageStory = {
         <Stack>
             <Message border="warning-7"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
             <Message className="border-red"><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
-            <Message style={{ border: "1px solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
+            <Message style={{ border: "0.0625rem solid red" }}><strong>Scheduled launch</strong> today at 1PM. Please be cautious.</Message>
         </Stack>
     )
 };

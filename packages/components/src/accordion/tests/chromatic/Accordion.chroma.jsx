@@ -46,10 +46,10 @@ stories()
                     <Content className="border-red">Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
             </Accordion>
-            <Accordion style={{ border: "1px solid red" }} expandedKeys={["0"]}>
+            <Accordion style={{ border: "0.0625rem solid red" }} expandedKeys={["0"]}>
                 <Item>
-                    <H3 style={{ border: "1px solid red" }}>Mars</H3>
-                    <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
+                    <H3 style={{ border: "0.0625rem solid red" }}>Mars</H3>
+                    <Content style={{ border: "0.0625rem solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
             </Accordion>
         </Inline>

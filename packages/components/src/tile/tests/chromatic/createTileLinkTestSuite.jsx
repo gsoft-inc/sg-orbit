@@ -88,7 +88,7 @@ export function createTileLinkTestSuite(element, stories) {
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </TileLink>
-                <TileLink style={{ border: "1px solid red" }} href="https://www.google.com" element={element}>
+                <TileLink style={{ border: "0.0625rem solid red" }} href="https://www.google.com" element={element}>
                     <Heading>Fuel</Heading>
                     <Content>Fuel configuration and level</Content>
                 </TileLink>

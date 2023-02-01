@@ -13,7 +13,7 @@ function CustomSelect({
                 variant="secondary"
                 width={{
                     base: "100%",
-                    sm: "320px"
+                    sm: "20rem"
                 }}
             >
                 <Text {...valueProps}>

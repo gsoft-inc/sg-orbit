@@ -414,7 +414,7 @@ export const CustomTriggerWidth: AutocompleteStory = {
 export const CustomMenuWidth: AutocompleteStory = {
     storyName: "custom menu width",
     render: () => (
-        <Autocomplete overlayProps={{ width: "500px" }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete overlayProps={{ width: "31.25rem" }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -447,9 +447,9 @@ export const DirectionTop: AutocompleteStory = {
 
 export const AlignStart: AutocompleteStory = {
     storyName: "align start",
-    decorators: [Story => <div style={{ paddingLeft: "200px" }}><Story /></div>],
+    decorators: [Story => <div style={{ paddingLeft: "12.5rem" }}><Story /></div>],
     render: () => (
-        <Autocomplete align="start" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="start" overlayProps={{ style: { width: "31.25rem" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -459,9 +459,9 @@ export const AlignStart: AutocompleteStory = {
 
 export const AlignEnd: AutocompleteStory = {
     storyName: "align end",
-    decorators: [Story => <div style={{ paddingLeft: "400px" }}><Story /></div>],
+    decorators: [Story => <div style={{ paddingLeft: "25rem" }}><Story /></div>],
     render: () => (
-        <Autocomplete align="end" overlayProps={{ style: { width: "500px" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
+        <Autocomplete align="end" overlayProps={{ style: { width: "31.25rem" } }} defaultOpen placeholder="Select a planet" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="mars">Mars</Item>
             <Item key="saturn">Saturn</Item>
@@ -516,7 +516,7 @@ export const Styling: AutocompleteStory = {
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Autocomplete>
-            <Autocomplete style={{ border: "1px solid red" }} placeholder="Select a planet" aria-label="Planets">
+            <Autocomplete style={{ border: "0.0625rem solid red" }} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

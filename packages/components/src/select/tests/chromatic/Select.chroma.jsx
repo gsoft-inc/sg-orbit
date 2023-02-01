@@ -119,7 +119,7 @@ stories()
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>
             </Select>
-            <Select style={{ border: "1px solid red" }} placeholder="Select a planet" aria-label="Planets">
+            <Select style={{ border: "0.0625rem solid red" }} placeholder="Select a planet" aria-label="Planets">
                 <Item key="earth">Earth</Item>
                 <Item key="jupiter">Jupiter</Item>
                 <Item key="mars">Mars</Item>

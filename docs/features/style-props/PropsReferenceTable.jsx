@@ -30,11 +30,11 @@ export function PropsReferenceTable({ rows }) {
     return (
         <Table
             columns={[
-                { title: "Prop", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "CSS property", headerStyle: { width: "250px" }, rowClassName: "code" },
-                { title: "Theme key", headerStyle: { width: "125px" }, rowClassName: "code" },
-                { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "Supports", headerStyle: { width: "300px" }, rowClassName: "code" }
+                { title: "Prop", headerStyle: { width: "12.5rem" }, rowClassName: "code" },
+                { title: "CSS property", headerStyle: { width: "15.625rem" }, rowClassName: "code" },
+                { title: "Theme key", headerStyle: { width: "7.8125rem" }, rowClassName: "code" },
+                { title: "Scale", headerStyle: { width: "12.5rem" }, rowClassName: "code" },
+                { title: "Supports", headerStyle: { width: "18.75rem" }, rowClassName: "code" }
             ]}
             rows={rows.map(x => toRowValues(x))}
         />

@@ -191,7 +191,7 @@ export const Styling: FlexStory = {
                 <Div backgroundColor="accent-5">Bravo</Div>
                 <Div backgroundColor="accent-5">Charlie</Div>
             </Flex>
-            <Flex style={{ border: "1px solid red" }} direction="row">
+            <Flex style={{ border: "0.0625rem solid red" }} direction="row">
                 <Div backgroundColor="accent-5">Alpha</Div>
                 <Div backgroundColor="accent-5">Bravo</Div>
                 <Div backgroundColor="accent-5">Charlie</Div>

@@ -61,12 +61,12 @@ export const Styling: DotStory = {
             <Inline>
                 <Dot border="warning-7" color="alias-hard-break"></Dot>
                 <Dot className="border-red" color="alias-hard-break"></Dot>
-                <Dot style={{ border: "1px solid red" }} color="alias-hard-break"></Dot>
+                <Dot style={{ border: "0.0625rem solid red" }} color="alias-hard-break"></Dot>
             </Inline>
             <Inline>
                 <Dot border="warning-7" color="alias-hard-break">Habitable</Dot>
                 <Dot className="border-red" color="alias-hard-break">Habitable</Dot>
-                <Dot style={{ border: "1px solid red" }} color="alias-hard-break">Habitable</Dot>
+                <Dot style={{ border: "0.0625rem solid red" }} color="alias-hard-break">Habitable</Dot>
             </Inline>
         </Stack>
     )

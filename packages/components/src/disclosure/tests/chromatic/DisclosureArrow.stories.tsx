@@ -50,7 +50,7 @@ export const Styling:DisclosureArrowStory = {
     render: () => (
         <Inline>
             <DisclosureArrow open className="border-red" />
-            <DisclosureArrow open style={{ border: "1px solid red" }} />
+            <DisclosureArrow open style={{ border: "0.0625rem solid red" }} />
         </Inline>
     )
 };

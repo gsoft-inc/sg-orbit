@@ -301,7 +301,7 @@ export const Styling: FieldStory = {
                 <Label>Launch date</Label>
                 <TextInput />
             </Field>
-            <Field style={{ border: "1px solid red" }}>
+            <Field style={{ border: "0.0625rem solid red" }}>
                 <Label>Launch date</Label>
                 <TextInput />
             </Field>

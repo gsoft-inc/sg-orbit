@@ -987,7 +987,7 @@ export const Styling: InputGroupStory = {
                 <Text>Days</Text>
                 <TextInput aria-label="Duration" />
             </InputGroup>
-            <InputGroup style={{ border: "1px solid red" }}>
+            <InputGroup style={{ border: "0.0625rem solid red" }}>
                 <Text>Days</Text>
                 <TextInput aria-label="Duration" />
             </InputGroup>

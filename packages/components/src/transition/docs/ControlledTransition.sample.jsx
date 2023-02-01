@@ -6,7 +6,7 @@
     }, [setIsVisible]);
 
     return (
-        <Div minHeight="80px">
+        <Div minHeight="5rem">
             <Button onClick={handleToggle} variant="secondary" marginBottom={4}>Toggle animation</Button>
             <Transition
                 show={isVisible}

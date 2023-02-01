@@ -168,7 +168,7 @@ export function createAccordionTestSuite(element, stories) {
             </Stack>
         )
         .add("narrow container", () =>
-            <Div width="200px">
+            <Div width="12.5rem">
                 <Accordion element={element}>
                     <Item>
                         <H3>Mars</H3>
@@ -254,7 +254,7 @@ export function createAccordionTestSuite(element, stories) {
                                 style: { backgroundColor: expandedKeys.includes(key) ? "blue" : "red" },
                                 header,
                                 headingType: H1,
-                                headingProps: { padding: "10px" }
+                                headingProps: { padding: "0.625rem" }
                             }
                         )}
                     >

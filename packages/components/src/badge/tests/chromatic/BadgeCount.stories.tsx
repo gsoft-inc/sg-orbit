@@ -80,7 +80,7 @@ export const Styling: BadgeStory = {
             <SquareBadge className="border-red">
                 <Text>100</Text>
             </SquareBadge>
-            <SquareBadge style={{ border: "1px solid red" }}>
+            <SquareBadge style={{ border: "0.0625rem solid red" }}>
                 <Text>100</Text>
             </SquareBadge>
         </Inline>

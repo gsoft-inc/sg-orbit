@@ -7,7 +7,7 @@
     }, [show, setShow]);
 
     return (
-        <Stack minHeight="110px">
+        <Stack minHeight="6.875rem">
             <Button
                 variant="secondary"
                 onClick={toggleVisibility}

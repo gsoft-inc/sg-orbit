@@ -7,7 +7,7 @@ function CustomInput(props) {
                 props,
                 {
                     type: "text",
-                    width: "225px",
+                    width: "14.0625rem",
                     height: 6,
                     border: "hsla(223, 12%, 87%, 1)",
                     style: {

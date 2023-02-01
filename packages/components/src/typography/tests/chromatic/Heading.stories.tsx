@@ -27,7 +27,7 @@ export const Styling: HeadingStory = {
         <>
             <Heading border="warning-7">I see Earth!<br /> It is so beautiful!</Heading>
             <Heading className="border-red">I see Earth!<br /> It is so beautiful!</Heading>
-            <Heading style={{ border: "1px solid red" }}>I see Earth!<br /> It is so beautiful!</Heading>
+            <Heading style={{ border: "0.0625rem solid red" }}>I see Earth!<br /> It is so beautiful!</Heading>
         </>
     )
 };

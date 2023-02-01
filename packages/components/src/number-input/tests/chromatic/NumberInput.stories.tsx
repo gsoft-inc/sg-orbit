@@ -99,9 +99,9 @@ export const Styling: NumberInputStory = {
         <Inline>
             <NumberInput border="warning-7" placeholder="Age" />
             <NumberInput className="border-red" placeholder="Age" />
-            <NumberInput style={{ border: "1px solid red" }} placeholder="Age" />
+            <NumberInput style={{ border: "0.0625rem solid red" }} placeholder="Age" />
             <NumberInput wrapperProps={{ className: "border-red" }} placeholder="Age" />
-            <NumberInput wrapperProps={{ style: { border: "1px solid red" } }} placeholder="Age" />
+            <NumberInput wrapperProps={{ style: { border: "0.0625rem solid red" } }} placeholder="Age" />
         </Inline>
     )
 };

@@ -9,7 +9,7 @@ test("when the input have a className prop, return the className value as a root
 
 test("when the input have a style prop, return the style value as a root prop", () => {
     const styleProp = {
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     };
 
     const result = adaptInputStylingProps({ style: styleProp }, {});
@@ -28,7 +28,7 @@ test("when the input wrapper have a className prop, return the className value a
 
 test("when the input wrapper have a style prop, return the style value as a wrapper prop", () => {
     const styleProp = {
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     };
 
     const result = adaptInputStylingProps({ wrapperProps: { style: styleProp } }, {});
@@ -64,7 +64,7 @@ test("when the context props have a className prop, return the className value a
 
 test("when the context props have a style prop, return the styles value as a wrapper prop", () => {
     const styleProp = {
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     };
 
     const result = adaptInputStylingProps({}, { style: styleProp });
@@ -84,7 +84,7 @@ test("when the input wrapper have a className prop and the context props have a 
 
 test("when the input wrapper have a style prop and the context prop have a style prop, return the merged value as a wrapper prop", () => {
     const wrapperStyleProp = {
-        border: "1px solid red"
+        border: "0.0625rem solid red"
     };
 
     const contextStyleProp = {

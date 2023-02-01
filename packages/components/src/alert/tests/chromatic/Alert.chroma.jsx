@@ -40,9 +40,9 @@ stories()
     .add("styles", () =>
         <Alert
             primaryButtonLabel="Yes"
-            style={{ border: "1px solid red" }}
+            style={{ border: "0.0625rem solid red" }}
         >
-            <Heading style={{ border: "1px solid red" }}>Launch</Heading>
-            <Content style={{ border: "1px solid red" }}>Are you sure you want to launch the space shuttle?</Content>
+            <Heading style={{ border: "0.0625rem solid red" }}>Launch</Heading>
+            <Content style={{ border: "0.0625rem solid red" }}>Are you sure you want to launch the space shuttle?</Content>
         </Alert>
     );

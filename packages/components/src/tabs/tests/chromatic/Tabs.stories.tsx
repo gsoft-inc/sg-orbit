@@ -360,7 +360,7 @@ export const DisabledSelectedTabIsNotTheDefaultTab: TabsStory = {
 export const Overflow: TabsStory = {
     storyName: "overflow",
     render: () => (
-        <Div width="300px">
+        <Div width="18.75rem">
             <Tabs aria-label="Planets">
                 <Item key="mars">
                     <Header>Mars</Header>
@@ -411,7 +411,7 @@ export const Overflow: TabsStory = {
 export const OverflowFluid: TabsStory = {
     storyName: "overflow fluid",
     render: () => (
-        <Div width="300px">
+        <Div width="18.75rem">
             <Tabs aria-label="Planets" fluid>
                 <Item key="mars">
                     <Header>Mars</Header>
@@ -452,7 +452,7 @@ export const OverflowFluid: TabsStory = {
 export const OverflowNotCollapsible: TabsStory = {
     storyName: "overflow + not collapsible",
     render: () => (
-        <Div width="300px">
+        <Div width="18.75rem">
             <Tabs aria-label="Planets" collapsible={false}>
                 <Item key="mars">
                     <Header>Mars</Header>
@@ -679,9 +679,9 @@ export const Styling: TabsStory = {
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
-                <Tabs style={{ border: "1px solid red" }} aria-label="Planets">
+                <Tabs style={{ border: "0.0625rem solid red" }} aria-label="Planets">
                     <Item>
-                        <Header style={{ border: "1px solid red" }}>Mars</Header>
+                        <Header style={{ border: "0.0625rem solid red" }}>Mars</Header>
                         <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
@@ -702,7 +702,7 @@ export const Styling: TabsStory = {
                 <Tabs aria-label="Planets">
                     <Item>
                         <Header>Mars</Header>
-                        <Content style={{ border: "1px solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
+                        <Content style={{ border: "0.0625rem solid red" }}>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
                     </Item>
                 </Tabs>
             </Inline>

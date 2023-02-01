@@ -147,9 +147,9 @@ export const Styling: SearchInputStory = {
         <Inline>
             <SearchInput border="alert-6" aria-label="Label" />
             <SearchInput className="border-red" aria-label="Label" />
-            <SearchInput style={{ border: "1px solid red" }} aria-label="Label" />
+            <SearchInput style={{ border: "0.0625rem solid red" }} aria-label="Label" />
             <SearchInput wrapperProps={{ className: "border-red" }} aria-label="Label" />
-            <SearchInput wrapperProps={{ style: { border: "1px solid red" } }} aria-label="Label" />
+            <SearchInput wrapperProps={{ style: { border: "0.0625rem solid red" } }} aria-label="Label" />
         </Inline>
     )
 };
