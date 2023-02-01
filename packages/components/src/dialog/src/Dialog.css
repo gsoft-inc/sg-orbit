@@ -28,7 +28,7 @@
     grid-template-rows: min-content auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
     .o-ui-dialog {
         grid-template-rows: unset;
         grid-template-areas: "image aside";
@@ -69,7 +69,7 @@
     overflow: hidden;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
     .o-ui-dialog-image,
     .o-ui-dialog-illustration {
         width: var(--o-ui-sz-15);

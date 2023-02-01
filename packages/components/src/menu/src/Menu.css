@@ -4,7 +4,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 */
 
 .o-ui {
-    --o-ui-menu-border-size: 1px;
+    --o-ui-menu-border-size: 0.0625rem;
     --o-ui-menu-item-height: var(--o-ui-sz-5);
     --o-ui-menu-item-checkmark-size: var(--o-ui-sz-1);
 }
@@ -96,7 +96,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     position: absolute;
     left: 0;
     height: 100%;
-    width: 2px;
+    width: 0.125rem;
     opacity: 0;
     background-color: var(--o-ui-bg-alias-accent);
 }

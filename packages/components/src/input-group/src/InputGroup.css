@@ -37,11 +37,11 @@
 
 /* ADDON */
 .o-ui-input-group > :first-child:not(.o-ui-input-group-input) {
-    margin-right: -1px;
+    margin-right: -0.0625rem;
 }
 
 .o-ui-input-group > :last-child:not(.o-ui-input-group-input) {
-    margin-left: -1px;
+    margin-left: -0.0625rem;
 }
 
 /* ADDON | START */
@@ -77,7 +77,7 @@
     padding: 0 var(--o-ui-sp-3);
     min-height: var(--o-ui-sz-6);
     border-radius: var(--o-ui-br-2);
-    border: 1px solid var(--o-ui-b-alias-mid-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-mid-break);
     color: var(--o-ui-text-alias-primary);
     background-color: var(--o-ui-bg-alias-mid-break);
     flex-shrink: 0;

@@ -10,7 +10,7 @@
 }
 
 .o-ui-card-outline {
-    border: 1px solid var(--o-ui-b-alias-low-break);
+    border: 0.0625rem solid var(--o-ui-b-alias-low-break);
     border-radius: var(--o-ui-br-3);
 }
 

@@ -42,19 +42,19 @@
 
 /* ARROW | POSITION */
 .o-ui-overlay[data-popper-placement^="top"] .o-ui > .o-ui-overlay-arrow {
-    bottom: calc(-1 * 0.25rem - 1px);
+    bottom: calc(-1 * 0.25rem - 0.0625rem);
 }
 
 .o-ui-overlay[data-popper-placement^="bottom"] .o-ui > .o-ui-overlay-arrow {
-    top: calc(-1 * 0.25rem - 1px);
+    top: calc(-1 * 0.25rem - 0.0625rem);
 }
 
 .o-ui-overlay[data-popper-placement^="left"] .o-ui > .o-ui-overlay-arrow {
-    right: calc(-1 * 0.25rem - 1px);
+    right: calc(-1 * 0.25rem - 0.0625rem);
 }
 
 .o-ui-overlay[data-popper-placement^="right"] .o-ui > .o-ui-overlay-arrow {
-    left: calc(-1 * 0.25rem - 1px);
+    left: calc(-1 * 0.25rem - 0.0625rem);
 }
 
 /* ARROW | BORDER */

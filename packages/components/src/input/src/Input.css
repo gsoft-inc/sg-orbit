@@ -24,7 +24,7 @@
     width: 100%;
     background-color: inherit;
     color: inherit;
-    min-height: calc(var(--o-ui-sz-6) - 2px);
+    min-height: calc(var(--o-ui-sz-6) - 0.125rem);
     margin: 0;
     padding: 0;
 }
@@ -48,7 +48,7 @@
     font-size: var(--o-ui-fs-3);
     padding: 0;
     border-radius: var(--o-ui-input-border-radius);
-    border: 1px solid var(--o-ui-input-border-color);
+    border: 0.0625rem solid var(--o-ui-input-border-color);
     background-color: var(--o-ui-bg-alias-surface);
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive), padding 0s linear;
     line-height: inherit;

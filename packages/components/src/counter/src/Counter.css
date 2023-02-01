@@ -44,7 +44,7 @@
     left: 0;
     bottom: 0;
     height: 80%;
-    border-left: 1px solid currentColor;
+    border-left: 0.0625rem solid currentColor;
     opacity: 0.4;
 }
 
@@ -56,7 +56,7 @@
 
 .o-ui-counter-divider.o-ui-counter-reverse::before {
     border-left: 0;
-    border-right: 1px solid currentColor;
+    border-right: 0.0625rem solid currentColor;
 }
 
 /* DIVIDER | COLOR | INHERIT */
