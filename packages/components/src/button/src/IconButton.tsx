@@ -154,3 +154,4 @@ export const embedIconButton = createEmbeddableAdapter({
 ///////////
 
 export const IconButtonAsLink = slot("button", as(IconButton, "a"));
+export type IconButtonAsLinkProps = ComponentProps<typeof IconButtonAsLink>;

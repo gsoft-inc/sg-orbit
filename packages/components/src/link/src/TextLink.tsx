@@ -128,3 +128,4 @@ export type TextLinkProps = ComponentProps<typeof TextLink>;
 /////////
 
 export const TextLinkAsButton = as(TextLink, "button");
+export type TextLinkAsButtonProps = ComponentProps<typeof TextLinkAsButton>;
