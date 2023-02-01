@@ -1,9 +1,8 @@
-import { Snippet } from "@stories/components";
+import { Snippet, SnippetProps } from "@stories/components";
 import { useThemedSnippet } from "./useThemedSnippet";
 
-interface ThemedSnippetProps {
+interface ThemedSnippetProps extends SnippetProps {
     sharegate: string;
-    language?: string;
 }
 
 export function ThemedSnippet({ sharegate, language = "javascript", ...rest }: ThemedSnippetProps) {

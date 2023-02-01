@@ -9,9 +9,8 @@ import theme from "prism-react-renderer/themes/dracula";
 
 export const CodeTheme = theme;
 
-interface CodeBlockProps extends Omit<ComponentProps<typeof Highlight>, "code" | "language" | "children" | "Prism">{
-    code: string;
-    language: string;
+
+interface CodeBlockProps extends Omit<ComponentProps<typeof Highlight>, "children" | "Prism">{
     className?: string;
 }
 
@@ -30,7 +29,7 @@ function CodeBlock({ code, language, className: wrapperClassName, ...rest }: Cod
                 {...rest}
                 {...defaultProps}
                 code={formattedCode}
-                language={language as any}
+                language={language}
                 theme={CodeTheme}
             >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => (
