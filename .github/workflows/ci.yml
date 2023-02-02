@@ -44,8 +44,8 @@ jobs:
             - name: Lint Stylelint
               run: yarn lint:style-ci
 
-    build:
-        name: "Build"
+    build_and_tests:
+        name: "Build and Tests"
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -58,18 +58,5 @@ jobs:
               run: yarn install --frozen-lockfile
             - name: Build Packages
               run: yarn build
-
-    tests:
-        name: "Tests"
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - name: Setup Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version-file: ".nvmrc"
-                  cache: "yarn"
-            - name: Install Dependencies
-              run: yarn install --frozen-lockfile
             - name: Run Jest
               run: yarn test
