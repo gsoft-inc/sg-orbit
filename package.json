@@ -28,7 +28,7 @@
     "reset": "yarn clean && rimraf node_modules yarn.lock",
     "lint": "yarn lint:eslint && yarn lint:style && yarn typecheck",
     "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx,.mdx . --cache --cache-location node_modules/.cache/.eslintcache",
-    "lint:eslint-ci": "eslint --ext .js,.jsx,.ts,.tsx,.mdx .--max-warnings=0",
+    "lint:eslint-ci": "eslint --ext .js,.jsx,.ts,.tsx,.mdx . --max-warnings=0",
     "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache",
     "lint:style-ci": "stylelint \"**/*.css\" --allow-empty-input",
     "typecheck": "tsc",
