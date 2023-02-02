@@ -5,8 +5,6 @@ name: Chromatic
 
 on:
     pull_request:
-        branches-ignore:
-            - master
     schedule:
         - cron:  '0 0 * * 1-5'       
 
