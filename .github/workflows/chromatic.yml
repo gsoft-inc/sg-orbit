@@ -4,6 +4,8 @@
 name: Chromatic
 
 on:
+    schedule:
+        - cron:  '0 0 * * 1-5'    
     pull_request:
         branches-ignore:
           - changeset-release/*
