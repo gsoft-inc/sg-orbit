@@ -18,10 +18,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Setup Node.js
               uses: actions/setup-node@v3
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version-file: ".nvmrc"
                   cache: "yarn"
             - name: Install Dependencies
               run: yarn install --frozen-lockfile
