@@ -6,12 +6,7 @@ name: Chromatic
 on:
     pull_request:
         branches-ignore:
-          - master
           - changeset-release/*
-
-concurrency:
-    group: ${{ github.ref }}
-    cancel-in-progress: true
 
 jobs:
     chromatic:
