@@ -5,8 +5,9 @@ name: Chromatic
 
 on:
     pull_request:
-    schedule:
-        - cron:  '0 0 * * 1-5'       
+        branches-ignore:
+          - master
+          - changeset-release/*
 
 concurrency:
     group: ${{ github.ref }}
