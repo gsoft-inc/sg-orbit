@@ -27,9 +27,10 @@
     "clean:sb": "rimraf storybook-static",
     "reset": "yarn clean && rimraf node_modules yarn.lock",
     "lint": "yarn lint:eslint && yarn lint:style && yarn typecheck",
-    "lint:ci": "yarn lint:eslint --max-warnings=0 && yarn lint:style",
-    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx,.mdx . --cache --cache-location node_modules/.cache/.eslintcache --max-warnings=0",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx,.mdx . --cache --cache-location node_modules/.cache/.eslintcache",
+    "lint:eslint-ci": "eslint --ext .js,.jsx,.ts,.tsx,.mdx .--max-warnings=0",
     "lint:style": "stylelint \"**/*.css\" --allow-empty-input --cache",
+    "lint:style-ci": "stylelint \"**/*.css\" --allow-empty-input",
     "typecheck": "tsc",
     "test": "jest",
     "new-version": "lerna version --exact --no-push --loglevel verbose",
@@ -41,12 +42,10 @@
     "release-alpha": "cross-env NODE_ENV=production run-s build-pkg publish-pkg-alpha",
     "diff": "lerna changed && lerna diff",
     "deploy:netlify-sb-preview": "yarn && yarn build && yarn build:sb && netlify deploy --dir=storybook-static/sb --site=4b420380-aed1-4dc6-b002-6efe7b413025 --open",
-
     "serve:sb": "serve storybook-static/sb",
     "serve:sb-chroma": "serve storybook-static/chromatic",
     "serve:sb-docs": "serve storybook-static/docs",
-    "chromatic": "chromatic -b=build-sb-for-chroma --debug",
-    "chromatic:ci": "chromatic -b=build-sb-for-chroma --no-interactive"
+    "chromatic": "chromatic -b=build-sb-for-chroma --debug"
   },
   "devDependencies": {
     "@babel/cli": "7.16.8",
