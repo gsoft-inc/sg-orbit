@@ -29,8 +29,6 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally Storybook is not managed by the monorepo tooling because it's not meant to be published as an npm package. Storybook can be found in the [.storybook](/.storybook) directory.
-
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
 When Lerna is configured to use Yarn, the installation of the npm dependencies and the management of the packages inter-dependencies will be delegated to Yarn. It result in an increase of performance and a more reliable experience than using the same features from Lerna. The native integration between Lerna and Yarn make it worthwill to switch from npm to Yarn for this project.
@@ -220,12 +218,12 @@ A Netlify deploy can be started locally with a CLI command. This is useful if yo
 To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
-yarn deploy-sb-preview
+yarn deploy:netlify-storybook-preview
 ```
 
 The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
 
-If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [.storybook/package.json](/.storybook/package.json) file.
+If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy:netlify-storybook-preview` in the [package.json](package.json) file.
 
 ## Commands
 
