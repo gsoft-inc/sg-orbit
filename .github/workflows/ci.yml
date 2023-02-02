@@ -14,42 +14,62 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    install-pkg:
+    eslint:
+        name: "Eslint"
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: Setup Node.js
+            - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
-                  node-version-file: ".nvmrc"
+                  node-version: ${{ matrix.node-version }}
                   cache: "yarn"
             - name: Install Dependencies
               run: yarn install --frozen-lockfile
-
-    lint-eslint:
-        runs-on: ubuntu-latest
-        needs: install-pkg
-        steps:
             - name: Lint Eslint
               run: yarn lint:eslint-ci
 
-    lint-style:
+    stylelint:
+        name: "Stylelint"
         runs-on: ubuntu-latest
-        needs: install-pkg
         steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "yarn"
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
             - name: Lint Stylelint
               run: yarn lint:style-ci
 
     build:
+        name: "Build"
         runs-on: ubuntu-latest
-        needs: install-pkg
         steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "yarn"
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
             - name: Build Packages
               run: yarn build
 
-    test:
+    tests:
+        name: "Tests"
         runs-on: ubuntu-latest
-        needs: install-pkg
         steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "yarn"
+            - name: Install Dependencies
+              run: yarn install --frozen-lockfile
             - name: Run Jest
               run: yarn test
