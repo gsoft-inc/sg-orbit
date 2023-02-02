@@ -23,7 +23,7 @@
         "build:types": "tsc --build ./tsconfig.build.json",
         "build:js": "babel src -d dist --config-file ../../babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
         "generate-icons-components": "node ./scripts/generate-icons-components.js",
-        "clean": "rimraf dist",
+        "clean": "rimraf dist tsconfig.build.tsbuildinfo",
         "create-dist": "node ../../scripts/create-dir dist"
     },
     "peerDependencies": {
