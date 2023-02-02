@@ -1,21 +1,21 @@
 import "./PreviewIcon.css";
-import { Div, HtmlButton, DivProps } from "@components/html";
+import { Div, Span, HtmlButton, DivProps } from "@components/html";
 import { ReactElement } from "react";
 import { CreatedIconProps } from "@components/icons";
 
 interface PreviewIconProps extends DivProps {
     icon: ReactElement<CreatedIconProps>;
+    displayName: string;
     onShowDetail: () => void;
 }
 
-export function PreviewIcon({ icon, onShowDetail, ...rest }: PreviewIconProps) {
+export function PreviewIcon({ icon, displayName, onShowDetail, ...rest }: PreviewIconProps) {
     const onIconClick = () => {
         onShowDetail();
     };
 
     return (
         <Div className="o-ui-sb-gallery-preview-icon" tabIndex={0} {...rest}>
-            {icon}
             <Div className="o-ui-sb-gallery-preview-container" tabIndex={-1}>
                 <HtmlButton
                     onClick={onIconClick}
@@ -24,7 +24,10 @@ export function PreviewIcon({ icon, onShowDetail, ...rest }: PreviewIconProps) {
                     borderRadius={2}
                     tabIndex={-1}
                 >
-                    View
+                    <Span className="o-ui-sb-gallery-view-button-wrapper">
+                        {icon}
+                        {displayName}
+                    </Span>
                 </HtmlButton>
             </Div>
         </Div>

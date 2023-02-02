@@ -2,7 +2,6 @@ import "./IconItem.css";
 
 import { Content } from "@components/placeholders";
 import { Dialog, DialogTrigger } from "@components/dialog";
-import { Div } from "@components/html";
 import { Flex } from "@components/layout";
 import { Heading } from "@components/typography";
 import { IconDetail } from "./details";
@@ -34,13 +33,8 @@ export function IconItem({ name, iconComponent }: IconItemProps) {
             onOpenChange={handleModalOpenChange}
             dismissable
         >
-            <Flex direction="column" className="o-ui-sb-gallery-item">
-                <Div padding={3} fontSize={3} textAlign="center">{displayName.toLowerCase()}</Div>
-                <Flex justifyContent="center">
-                    <Div borderRadius={2} border="alias-mid-break" padding={1} boxShadow={2}>
-                        <PreviewIcon width={4} height={4} icon={iconComponent} onShowDetail={handleShowDetail} />
-                    </Div>
-                </Flex>
+            <Flex direction="row" className="o-ui-sb-gallery-item">
+                <PreviewIcon icon={iconComponent} displayName={displayName} onShowDetail={handleShowDetail} />
             </Flex>
             <Dialog>
                 <Heading>{displayName}</Heading>

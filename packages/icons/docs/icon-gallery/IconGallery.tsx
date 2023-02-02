@@ -1,9 +1,10 @@
-import { Flex, FlexProps } from "@components/layout";
+import "./IconGallery.css";
+import { Grid, GridProps } from "@components/layout";
 
-export function IconGallery({ children, ...rest }: FlexProps) {
+export function IconGallery({ children, ...rest }: GridProps) {
     return (
-        <Flex wrap="wrap" {...rest}>
+        <Grid className="o-ui-sb-gallery" {...rest}>
             {children}
-        </Flex>
+        </Grid>
     );
 }

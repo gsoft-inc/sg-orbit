@@ -1,4 +1,13 @@
 .o-ui-sb-gallery-item {
-    flex: 0 1 calc(13%);
-    margin: 0 10px 30px 0;
+    align-items: center;
+    margin: 0;
+    padding: 0.5rem;
+    flex-direction: row;
+    border-bottom: 0.0625rem solid var(--o-ui-b-alias-low-break);
+    border-right: 0.0625rem solid var(--o-ui-b-alias-low-break);
+    transition: background-color var(--o-ui-easing-duration-1) var(--o-ui-easing-focus);
+}
+
+.o-ui-sb-gallery-item:hover {
+    background-color: var(--o-ui-bg-alias-soft-break);
 }
