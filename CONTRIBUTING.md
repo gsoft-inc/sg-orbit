@@ -67,24 +67,10 @@ For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/
 To install the project, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
-yarn bootstrap
+yarn
 ```
 
 The installation should take up to 5 minutes.
-
-By default, this will install the packages and Storybook.
-
-To only install the packages, use the following command:
-
-```bash
-yarn bootstrap:pkg
-```
-
-If you want to install Storybook later, use the following command:
-
-```bash
-yarn bootstrap:sb
-```
 
 During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
 
@@ -245,16 +231,6 @@ If you encountered any problem with the CLI command, make sure the site `App ID`
 
 All commands are available in the [package.json](package.json) file. Here's a list of the commands you might need to use frequently. The following commands must be executed in a terminal opened at the root of the workspace.
 
-### bootstrap
-
-Install the npm dependencies for every packages of the monorepo and Storybook. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and Storybook.
-
-Depending of the packages / Storybook, the setup step will perform a number of required additional installation tasks.
-
-```bash
-yarn bootstrap
-```
-
 ### start
 
 Compile all the packages & start Storybook.
@@ -302,16 +278,6 @@ C:\Dev\20_gsoft\sg-orbit\node_modules\rimraf\bin.js:47
 ```
 
 Close & re-open VSCode and delete manually the *node_modules* folder at the root of the workspace.
-
-### update
-
-Use this command when you update a dependency and you want it installed without executing the setup steps.
-
-Use this command if you add a new package to the monorepo and you need to update the packages inter-dependencies.
-
-```bash
-yarn update
-```
 
 ### lint
 
