@@ -3,8 +3,7 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Modal, ModalTrigger } from "@components/modal";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 // ***** Refs *****
 

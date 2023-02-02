@@ -111,3 +111,4 @@ export type IconLinkProps = ComponentProps<typeof IconLink>;
 /////////
 
 export const IconLinkAsButton = as(IconLink, "button");
+export type IconLinkAsButtonProps = ComponentProps<typeof IconLinkAsButton>;

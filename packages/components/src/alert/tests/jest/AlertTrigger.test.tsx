@@ -3,14 +3,13 @@ import { Button } from "@components/button";
 import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { act, waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("do not dismiss on outside click", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <AlertTrigger>
             <Button data-testid="trigger">Trigger</Button>
             <Alert data-testid="alert" primaryButtonLabel="Primary">
@@ -20,17 +19,13 @@ test("do not dismiss on outside click", async () => {
         </AlertTrigger>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("trigger"));
-    });
+    await userEvent.click(screen.getByTestId("trigger"));
 
-    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+    expect(await screen.findByTestId("alert")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
-    await waitFor(() => expect(getByTestId("alert")).toBeInTheDocument());
+    expect(await screen.findByTestId("alert")).toBeInTheDocument();
 });
 
 // ***** Refs *****

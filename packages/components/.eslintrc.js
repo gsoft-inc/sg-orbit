@@ -1,10 +1,9 @@
 module.exports = {
     overrides: [
         {
-            files: ["*.chroma.jsx"],
+            files: ["*.chroma.jsx", "*.stories.tsx"],
             rules: {
-                "max-len": "off",
-                "react/no-array-index-key": "off"
+                "max-len": "off"
             }
         },
         {

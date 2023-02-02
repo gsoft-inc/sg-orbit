@@ -18,12 +18,29 @@ module.exports = {
                 "plugin:@sharegate/react",
                 "plugin:@sharegate/jest",
                 "plugin:@sharegate/typescript",
-                "plugin:@sharegate/testing-library"
+                "plugin:@sharegate/testing-library",
+                "plugin:@sharegate/storybook"
             ],
             rules: {
-                "testing-library/no-unnecessary-act": "off", // multiple errors, should be fixed in another PR. 515 errors
-                "testing-library/prefer-screen-queries": "off", // multiple errors, should be fixed in another PR. 1343 errors
-                "testing-library/prefer-find-by": "off" // multiple errors, should be fixed in another PR. 135 errors
+
+            }
+        },
+        {
+            files: ["*.chroma.jsx"],
+            extends: [
+            ],
+            rules:{
+                "storybook/default-exports": "off" // Those stories do not support CSF yet
+            }
+        },
+        {
+            files: ["*.stories.tsx"],
+            extends: [
+                "plugin:@sharegate/storybook-csf"
+            ],
+            rules:{
+                "storybook/no-title-property-in-meta": "off", // this should be turned off in the main config
+                "@typescript-eslint/no-empty-function" : "off" // empty function in examples is fine
             }
         },
         {

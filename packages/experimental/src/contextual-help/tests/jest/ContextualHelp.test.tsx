@@ -1,7 +1,6 @@
 import { ContextualHelp } from "@experimental/contextual-help";
 import { Text, Transition } from "@sharegate/orbit-ui";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor, act } from "@testing-library/react";
+import { renderWithTheme, waitFor, screen } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 import { createRef } from "react";
 
@@ -14,15 +13,13 @@ beforeAll(() => {
 test("ref is a DOM element", async () => {
     const ref = createRef<HTMLElement>();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp data-testid="trigger" ref={ref}>
             Content
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(ref.current).not.toBeNull());
 
@@ -33,7 +30,7 @@ test("ref is a DOM element", async () => {
 test("when using a callback ref, ref is a DOM element", async () => {
     let refNode: HTMLElement = null;
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp
             data-testid="trigger"
             ref={node => {
@@ -44,9 +41,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(refNode).not.toBeNull());
 
@@ -57,15 +52,13 @@ test("when using a callback ref, ref is a DOM element", async () => {
 test("set ref once", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp data-testid="trigger" ref={handler}>
             Content
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -73,24 +66,22 @@ test("set ref once", async () => {
 
 // ***** Behaviors *****
 test("open on ContextualHelp hover", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp data-testid="trigger">
             <Text data-testid="tooltip">Content</Text>
         </ContextualHelp>
     );
 
-    await act(() => {
-        return userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
-    await waitFor(() => expect(getByTestId("tooltip")).toBeInTheDocument());
+    expect(await screen.findByTestId("tooltip")).toBeInTheDocument();
 });
 
 // ***** Api *****
 test("call onOpenChange when the tooltip appears", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp
             data-testid="trigger"
             tooltipTriggerProps={{
@@ -101,9 +92,7 @@ test("call onOpenChange when the tooltip appears", async () => {
         </ContextualHelp>
     );
 
-    act(() => {
-        userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -112,7 +101,7 @@ test("call onOpenChange when the tooltip appears", async () => {
 test("call onOpenChange when the tooltip disappear", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ContextualHelp
             data-testid="trigger"
             tooltipTriggerProps={{
@@ -123,13 +112,9 @@ test("call onOpenChange when the tooltip disappear", async () => {
         </ContextualHelp>
     );
 
-    act(() => {
-        userEvent.hover(getByTestId("trigger"));
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
-    act(() => {
-        userEvent.unhover(getByTestId("trigger"));
-    });
+    await userEvent.unhover(screen.getByTestId("trigger"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

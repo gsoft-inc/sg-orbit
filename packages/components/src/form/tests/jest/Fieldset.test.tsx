@@ -2,8 +2,7 @@ import { Field, Label } from "@components/field";
 import { Fieldset, FieldsetProps } from "@components/form";
 import { TextInput } from "@components/text-input";
 import { createRef, forwardRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 const BasicFieldset = forwardRef<HTMLElement, Omit<FieldsetProps, "children" | "label">>((props, ref) => {
     return (
@@ -31,39 +30,39 @@ function getLabel(element: HTMLElement) {
 // ***** Aria *****
 
 test("when an id is provided, the fieldset id attribute match the provided id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <BasicFieldset id="foo" data-testid="fieldset" />
     );
 
-    await waitFor(() => expect(getByTestId("fieldset")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("fieldset")).toHaveAttribute("id", "foo"));
 });
 
 test("a field role is \"group\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <BasicFieldset data-testid="fieldset" />
     );
 
-    await waitFor(() => expect(getByTestId("fieldset")).toHaveAttribute("role", "group"));
+    await waitFor(() => expect(screen.getByTestId("fieldset")).toHaveAttribute("role", "group"));
 });
 
 test("when an id is provided, the fieldset aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <BasicFieldset id="foo" data-testid="fieldset" />
     );
 
-    const label = getLabel(getByTestId("fieldset"));
+    const label = getLabel(screen.getByTestId("fieldset"));
 
-    await waitFor(() => expect(getByTestId("fieldset")).toHaveAttribute("aria-labelledby", label.getAttribute("id")));
+    await waitFor(() => expect(screen.getByTestId("fieldset")).toHaveAttribute("aria-labelledby", label.getAttribute("id")));
 });
 
 test("when an id is auto generated, the fieldset aria-labelledby attribute match the label id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <BasicFieldset data-testid="fieldset" />
     );
 
-    const label = getLabel(getByTestId("fieldset"));
+    const label = getLabel(screen.getByTestId("fieldset"));
 
-    await waitFor(() => expect(getByTestId("fieldset")).toHaveAttribute("aria-labelledby", label.getAttribute("id")));
+    await waitFor(() => expect(screen.getByTestId("fieldset")).toHaveAttribute("aria-labelledby", label.getAttribute("id")));
 });
 
 // ***** Refs *****

@@ -1,21 +1,19 @@
-import { act, waitFor } from "@testing-library/react";
-
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Button autoFocus variant="secondary" data-testid="button">Cutoff</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Button
             disabled
             autoFocus
@@ -24,11 +22,11 @@ test("when autofocus is true and the button is disabled, the button is not focus
         >Cutoff</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Button
             autoFocus={10}
             variant="secondary"
@@ -36,26 +34,26 @@ test("when autofocus is specified with a delay, the button is focused after the 
         >Cutoff</Button>
     );
 
-    expect(getByTestId("button")).not.toHaveFocus();
+    expect(screen.getByTestId("button")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when no type is specified, the type is default to \"button\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Button
             variant="secondary"
             data-testid="button"
         >Cutoff</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "button"));
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveAttribute("type", "button"));
 });
 
 test("when type is specified, the type is forwarded", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Button
             type="submit"
             variant="secondary"
@@ -63,7 +61,7 @@ test("when type is specified, the type is forwarded", async () => {
         >Cutoff</Button>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveAttribute("type", "submit"));
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveAttribute("type", "submit"));
 });
 
 // ***** Api *****

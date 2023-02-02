@@ -3,7 +3,7 @@ import { InfoCircleMajorIcon, HelpMajorIcon, Tooltip, TooltipTrigger, OmitIntern
 
 const DefaultElement = "svg";
 
-interface InnerContextualHelpProps extends ComponentProps<typeof InfoCircleMajorIcon>, SlotProps, InternalProps{
+export interface InnerContextualHelpProps extends ComponentProps<typeof InfoCircleMajorIcon>, SlotProps, InternalProps{
     children: ReactNode;
     tooltipProps?: Partial<TooltipProps>;
     tooltipTriggerProps?: Partial<TooltipTriggerProps>;

@@ -1,8 +1,7 @@
-import { act, waitFor } from "@testing-library/react";
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { Switch } from "@components/switch";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: HTMLElement) {
@@ -12,39 +11,39 @@ function getInput(element: HTMLElement) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the switch is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch autoFocus data-testid="switch">Engines</Switch>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("switch"))).toHaveFocus());
 });
 
 test("when autofocus is true and the switch is disabled, do not focus the switch on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch disabled autoFocus data-testid="switch">Engines</Switch>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("switch"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("switch"))).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the switch is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch autoFocus={10} data-testid="switch">Engines</Switch>
     );
 
-    expect(getInput(getByTestId("switch"))).not.toHaveFocus();
+    expect(getInput(screen.getByTestId("switch"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("switch"))).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("a switch role is \"switch\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch data-testid="switch">Engines</Switch>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("switch"))).toHaveAttribute("role", "switch"));
+    await waitFor(() => expect(getInput(screen.getByTestId("switch"))).toHaveAttribute("role", "switch"));
 });
 
 // ***** Api *****
@@ -52,13 +51,11 @@ test("a switch role is \"switch\"", async () => {
 test("call onChange, when the switch is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -67,17 +64,13 @@ test("call onChange, when the switch is checked", async () => {
 test("call onChange when the switch is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch onChange={handler} data-testid="switch">Milky Way</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -86,13 +79,11 @@ test("call onChange when the switch is unchecked", async () => {
 test("call onValueChange when the switch is turned on", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -101,17 +92,13 @@ test("call onValueChange when the switch is turned on", async () => {
 test("call onValueChange when the switch is turned off", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -120,13 +107,11 @@ test("call onValueChange when the switch is turned off", async () => {
 test("dont call onValueChange when the switch is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Switch disabled onValueChange={handler} data-testid="switch">Engines</Switch>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("switch")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("switch")));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });

@@ -1,18 +1,16 @@
 import { Item, Section } from "@components/collection";
-import { act, fireEvent, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Divider } from "@components/divider";
 import { Keys } from "@components/shared";
 import { Menu } from "@components/menu";
 import { Text } from "@components/typography";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when a menu have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -20,11 +18,11 @@ test("when a menu have no selection, the first item is tabbable", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a menu with sections have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
@@ -40,11 +38,11 @@ test("when a menu with sections have no selection, the first item is tabbable", 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a menu with dividers have no selection, the first item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="mars">Mars</Item>
@@ -54,11 +52,11 @@ test("when a menu with dividers have no selection, the first item is tabbable", 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("a disabled item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item disabled key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -66,11 +64,11 @@ test("a disabled item is tabbable", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a menu have a single item selected, this item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter"]} aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -78,11 +76,11 @@ test("when a menu have a single item selected, this item is tabbable", async () 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("when a menu have multiple selected items, the first selected item is tabbable", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" aria-label="Planets">
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -90,11 +88,11 @@ test("when a menu have multiple selected items, the first selected item is tabba
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveAttribute("tabindex", "0"));
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveAttribute("tabindex", "0"));
 });
 
 test("down arrow keypress moves focus to the next item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -103,18 +101,16 @@ test("down arrow keypress moves focus to the next item", async () => {
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveFocus());
 });
 
 test("up arrow keypress moves focus to the previous item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -123,22 +119,18 @@ test("up arrow keypress moves focus to the previous item", async () => {
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-item"), { key: Keys.arrowUp });
-    });
+    fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.arrowUp });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("home keypress move the focus to the first item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -147,22 +139,18 @@ test("home keypress move the focus to the first item", async () => {
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("jupiter-item"), { key: Keys.home });
-    });
+    fireEvent.keyDown(screen.getByTestId("jupiter-item"), { key: Keys.home });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("end keypress move the focus to the last item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -171,18 +159,16 @@ test("end keypress move the focus to the last item", async () => {
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.end });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.end });
 
-    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when selectionMode is \"none\", spacebar keypress don't toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -191,18 +177,16 @@ test("when selectionMode is \"none\", spacebar keypress don't toggle the item se
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
-    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"none\", enter keypress don't toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -211,18 +195,16 @@ test("when selectionMode is \"none\", enter keypress don't toggle the item selec
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
-    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"none\", mouse click doesn't toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -230,15 +212,13 @@ test("when selectionMode is \"none\", mouse click doesn't toggle the item select
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveAttribute("aria-checked"));
 });
 
 test("when selectionMode is \"single\", spacebar keypress toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -247,24 +227,20 @@ test("when selectionMode is \"single\", spacebar keypress toggle the item select
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when selectionMode is \"single\", enter keypress toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -273,24 +249,20 @@ test("when selectionMode is \"single\", enter keypress toggle the item selection
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when selectionMode is \"single\", mouse click toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -298,21 +270,17 @@ test("when selectionMode is \"single\", mouse click toggle the item selection", 
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when selectionMode is \"multiple\", spacebar keypress toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -321,24 +289,20 @@ test("when selectionMode is \"multiple\", spacebar keypress toggle the item sele
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.space });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.space });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when selectionMode is \"multiple\", enter keypress toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -347,24 +311,20 @@ test("when selectionMode is \"multiple\", enter keypress toggle the item selecti
     );
 
     act(() => {
-        getByTestId("earth-item").focus();
+        screen.getByTestId("earth-item").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("earth-item"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("earth-item"), { key: Keys.enter });
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when selectionMode is \"multiple\", mouse click toggle the item selection", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -372,21 +332,17 @@ test("when selectionMode is \"multiple\", mouse click toggle the item selection"
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "false"));
 });
 
 test("when autofocus is true, the first menu item is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -394,11 +350,11 @@ test("when autofocus is true, the first menu item is focused on render", async (
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("when autofocus is true and the menu is disabled, the first item is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu disabled autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -406,11 +362,11 @@ test("when autofocus is true and the menu is disabled, the first item is not foc
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).not.toHaveFocus());
 });
 
 test("when autofocus is true and the menu have sections, the first menu item is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocus>
             <Section title="Visited">
                 <Item key="earth" data-testid="earth-item">Earth</Item>
@@ -426,11 +382,11 @@ test("when autofocus is true and the menu have sections, the first menu item is 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("when autofocus is true and there is a single default key, the menu item matching the default key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter"]} autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -438,11 +394,11 @@ test("when autofocus is true and there is a single default key, the menu item ma
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveFocus());
 });
 
 test("when autofocus is true and there are multiple default keys, the menu item matching the first default key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu defaultSelectedKeys={["jupiter", "mars"]} selectionMode="multiple" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -450,11 +406,11 @@ test("when autofocus is true and there are multiple default keys, the menu item 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target is \"first\", the menu first item is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocusTarget="first" autoFocus>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -462,11 +418,11 @@ test("when autofocus is true and the default focus target is \"first\", the menu
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target is \"last\", the menu last item is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocusTarget="last" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -474,11 +430,11 @@ test("when autofocus is true and the default focus target is \"last\", the menu 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("mars-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("mars-item")).toHaveFocus());
 });
 
 test("when autofocus is true and the default focus target match an item key, the menu item matching the key is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocusTarget="jupiter" autoFocus>
             <Item key="earth">Earth</Item>
             <Item key="jupiter" data-testid="jupiter-item">Jupiter</Item>
@@ -486,11 +442,11 @@ test("when autofocus is true and the default focus target match an item key, the
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("jupiter-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("jupiter-item")).toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the first menu item is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu autoFocus={10}>
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -498,15 +454,15 @@ test("when autofocus is specified with a delay, the first menu item is focused a
         </Menu>
     );
 
-    expect(getByTestId("earth-item")).not.toHaveFocus();
+    expect(screen.getByTestId("earth-item")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, the menu id attribute match the provided id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu id="foo" aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -514,11 +470,11 @@ test("when an id is provided, the menu id attribute match the provided id", asyn
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("id", "foo"));
 });
 
 test("a menu role is \"menu\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -526,11 +482,11 @@ test("a menu role is \"menu\"", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("role", "menu"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("role", "menu"));
 });
 
 test("menu aria-orientation is always \"vertical\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" data-testid="menu">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -538,11 +494,11 @@ test("menu aria-orientation is always \"vertical\"", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("menu")).toHaveAttribute("aria-orientation", "vertical"));
+    await waitFor(() => expect(screen.getByTestId("menu")).toHaveAttribute("aria-orientation", "vertical"));
 });
 
 test("when selectionMode is \"none\", a menu item role is \"menuitem\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="none">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -550,11 +506,11 @@ test("when selectionMode is \"none\", a menu item role is \"menuitem\"", async (
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("role", "menuitem"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("role", "menuitem"));
 });
 
 test("when selectionMode is \"single\", a menu item role is \"menuitemradio\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -562,11 +518,11 @@ test("when selectionMode is \"single\", a menu item role is \"menuitemradio\"", 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("role", "menuitemradio"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("role", "menuitemradio"));
 });
 
 test("when selectionMode is \"multiple\", a menu item role is \"menuitemcheckbox\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets" selectionMode="multiple">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -574,11 +530,11 @@ test("when selectionMode is \"multiple\", a menu item role is \"menuitemcheckbox
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("role", "menuitemcheckbox"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("role", "menuitemcheckbox"));
 });
 
 test("when a menu item is selected, aria-checked is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu defaultSelectedKeys={["earth"]} aria-label="Planets" selectionMode="single">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -586,11 +542,11 @@ test("when a menu item is selected, aria-checked is \"true\"", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-checked", "true"));
 });
 
 test("when a menu item is disabled, aria-disabled is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item disabled key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -598,11 +554,11 @@ test("when a menu item is disabled, aria-disabled is \"true\"", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-disabled", "true"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-disabled", "true"));
 });
 
 test("a menu item aria-labelledby match the menu item id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="earth-item" key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -610,11 +566,11 @@ test("a menu item aria-labelledby match the menu item id", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-labelledby", "earth-item-label"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-labelledby", "earth-item-label"));
 });
 
 test("when a menu item have a description, the menu item aria-describedby match the description id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="earth-item" key="earth" data-testid="earth-item">
                 <Text>Earth</Text>
@@ -625,11 +581,11 @@ test("when a menu item have a description, the menu item aria-describedby match 
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("aria-describedby", "earth-item-description"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("aria-describedby", "earth-item-description"));
 });
 
 test("when an id is provided to an item, it is used as the item id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item id="i-am-earth" key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -637,11 +593,11 @@ test("when an id is provided to an item, it is used as the item id", async () =>
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("id", "i-am-earth"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("id", "i-am-earth"));
 });
 
 test("when no item id is provided, an item id is autogenerated", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu aria-label="Planets">
             <Item key="earth" data-testid="earth-item">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -649,7 +605,7 @@ test("when no item id is provided, an item id is autogenerated", async () => {
         </Menu>
     );
 
-    await waitFor(() => expect(getByTestId("earth-item")).toHaveAttribute("id"));
+    await waitFor(() => expect(screen.getByTestId("earth-item")).toHaveAttribute("id"));
 });
 
 // ***** Api *****
@@ -657,7 +613,7 @@ test("when no item id is provided, an item id is autogenerated", async () => {
 test("when selectionMode is \"none\", call onSelectionChange when a single item is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu
             selectionMode="none"
             onSelectionChange={handler}
@@ -669,9 +625,7 @@ test("when selectionMode is \"none\", call onSelectionChange when a single item 
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -680,7 +634,7 @@ test("when selectionMode is \"none\", call onSelectionChange when a single item 
 test("when selectionMode is \"single\", call onSelectionChange when a single item is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu
             onSelectionChange={handler}
             selectionMode="single"
@@ -692,9 +646,7 @@ test("when selectionMode is \"single\", call onSelectionChange when a single ite
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -703,7 +655,7 @@ test("when selectionMode is \"single\", call onSelectionChange when a single ite
 test("when selectionMode is \"multiple\", call onSelectionChange when multiple items are selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Menu
             onSelectionChange={handler}
             selectionMode="multiple"
@@ -715,13 +667,9 @@ test("when selectionMode is \"multiple\", call onSelectionChange when multiple i
         </Menu>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("earth-item"));
-    });
+    await userEvent.click(screen.getByTestId("earth-item"));
 
-    act(() => {
-        userEvent.click(getByTestId("mars-item"));
-    });
+    await userEvent.click(screen.getByTestId("mars-item"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["earth", "mars"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

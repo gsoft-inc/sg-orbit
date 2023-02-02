@@ -1,8 +1,6 @@
-import { act, waitFor } from "@testing-library/react";
-
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Checkbox } from "@components/checkbox";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 function getInput(element: Element) {
@@ -12,15 +10,15 @@ function getInput(element: Element) {
 // ***** Behaviors *****
 
 test("when autofocus is true, the checkbox is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox autoFocus data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("checkbox"))).toHaveFocus());
 });
 
 test("when autofocus is true and the checkbox is disabled, the checkbox is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox
             disabled
             autoFocus
@@ -28,20 +26,20 @@ test("when autofocus is true and the checkbox is disabled, the checkbox is not f
         >Milky Way</Checkbox>
     );
 
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).not.toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("checkbox"))).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the checkbox is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox
             autoFocus={10}
             data-testid="checkbox"
         >Milky Way</Checkbox>
     );
 
-    expect(getInput(getByTestId("checkbox"))).not.toHaveFocus();
+    expect(getInput(screen.getByTestId("checkbox"))).not.toHaveFocus();
 
-    await waitFor(() => expect(getInput(getByTestId("checkbox"))).toHaveFocus());
+    await waitFor(() => expect(getInput(screen.getByTestId("checkbox"))).toHaveFocus());
 });
 
 // ***** Api *****
@@ -49,13 +47,11 @@ test("when autofocus is specified with a delay, the checkbox is focused after th
 test("call onChange, when the checkbox is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -64,17 +60,13 @@ test("call onChange, when the checkbox is checked", async () => {
 test("call onChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox onChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -83,13 +75,11 @@ test("call onChange when the checkbox is unchecked", async () => {
 test("call onValueChange when the checkbox is checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -98,17 +88,13 @@ test("call onValueChange when the checkbox is checked", async () => {
 test("call onValueChange when the checkbox is unchecked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -117,13 +103,11 @@ test("call onValueChange when the checkbox is unchecked", async () => {
 test("call onValueChange when the checkbox goes from indeterminate to checked", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox defaultIndeterminate onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -132,13 +116,11 @@ test("call onValueChange when the checkbox goes from indeterminate to checked", 
 test("dont call onValueChange when the checkbox is disabled", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Checkbox disabled onValueChange={handler} data-testid="checkbox">Milky Way</Checkbox>
     );
 
-    act(() => {
-        userEvent.click(getInput(getByTestId("checkbox")));
-    });
+    await userEvent.click(getInput(screen.getByTestId("checkbox")));
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });

@@ -4,7 +4,7 @@
 import { Item } from "@components/collection";
 import { Listbox } from "@components/listbox";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();

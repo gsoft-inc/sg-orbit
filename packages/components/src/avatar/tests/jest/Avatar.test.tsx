@@ -1,24 +1,23 @@
 import { Avatar } from "@components/avatar";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Aria *****
 
 test("when no image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Avatar name="Elon Musk" aria-label="Maye Musk" />
     );
 
-    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+    expect(await screen.findByLabelText("Maye Musk")).not.toBeNull();
 });
 
 test("when an image src is provided and a custom aria-label is provided, the aria-label attribute match the provided aria-label", async () => {
-    const { getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Avatar src="dummy" name="Elon Musk" aria-label="Maye Musk" />
     );
 
-    await waitFor(() => expect(getByLabelText("Maye Musk")).not.toBeNull());
+    expect(await screen.findByLabelText("Maye Musk")).not.toBeNull();
 });
 
 // ***** Refs *****

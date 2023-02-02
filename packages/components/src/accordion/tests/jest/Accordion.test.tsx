@@ -1,17 +1,15 @@
-import { act, fireEvent, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Accordion } from "@components/accordion";
 import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 
 // ***** Behaviors *****
 
 test("down arrow keypress select the next item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -29,18 +27,16 @@ test("down arrow keypress select the next item", async () => {
     );
 
     act(() => {
-        getByTestId("item-1").focus();
+        screen.getByTestId("item-1").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("item-1"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("item-1"), { key: Keys.arrowDown });
 
-    await waitFor(() => expect(getByTestId("item-2")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("item-2")).toHaveFocus());
 });
 
 test("up arrow keypress select the next item", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -58,18 +54,16 @@ test("up arrow keypress select the next item", async () => {
     );
 
     act(() => {
-        getByTestId("item-2").focus();
+        screen.getByTestId("item-2").focus();
     });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("item-2"), { key: Keys.arrowUp });
-    });
+    fireEvent.keyDown(screen.getByTestId("item-2"), { key: Keys.arrowUp });
 
-    await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("item-1")).toHaveFocus());
 });
 
 test("when autofocus is true, accordion header is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion autoFocus>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -86,11 +80,11 @@ test("when autofocus is true, accordion header is focused on render", async () =
         </Accordion>
     );
 
-    await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("item-1")).toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, accordion header is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion autoFocus={10}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -107,15 +101,15 @@ test("when autofocus is specified with a delay, accordion header is focused afte
         </Accordion>
     );
 
-    expect(getByTestId("item-1")).not.toHaveFocus();
+    expect(screen.getByTestId("item-1")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("item-1")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("item-1")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, the accordion id attribute match the provided value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion id="foo" data-testid="accordion">
             <Item>
                 <H3>Header</H3>
@@ -128,7 +122,7 @@ test("when an id is provided, the accordion id attribute match the provided valu
         </Accordion>
     );
 
-    await waitFor(() => expect(getByTestId("accordion")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("accordion")).toHaveAttribute("id", "foo"));
 });
 
 // ***** Api *****
@@ -136,7 +130,7 @@ test("when an id is provided, the accordion id attribute match the provided valu
 test("when single, call onExpansionChange when the expanded tab change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion expansionMode="single" onExpansionChange={handler}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -153,15 +147,11 @@ test("when single, call onExpansionChange when the expanded tab change", async (
         </Accordion>
     );
 
-    act(() => {
-        fireEvent.click(getByTestId("item-1"));
-    });
+    fireEvent.click(screen.getByTestId("item-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
 
-    act(() => {
-        fireEvent.click(getByTestId("item-2"));
-    });
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["1"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -170,7 +160,7 @@ test("when single, call onExpansionChange when the expanded tab change", async (
 test("when multiple, call onExpansionChange when the expanded tabs change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Accordion expansionMode="multiple" onExpansionChange={handler}>
             <Item data-testid="item-1">
                 <H3>Header</H3>
@@ -187,21 +177,15 @@ test("when multiple, call onExpansionChange when the expanded tabs change", asyn
         </Accordion>
     );
 
-    act(() => {
-        fireEvent.click(getByTestId("item-1"));
-    });
+    fireEvent.click(screen.getByTestId("item-1"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
 
-    act(() => {
-        fireEvent.click(getByTestId("item-2"));
-    });
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0", "1"]));
 
-    act(() => {
-        fireEvent.click(getByTestId("item-2"));
-    });
+    fireEvent.click(screen.getByTestId("item-2"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ["0"]));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(3));

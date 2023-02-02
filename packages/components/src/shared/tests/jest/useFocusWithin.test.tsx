@@ -1,4 +1,4 @@
-import { act, render, waitFor } from "@testing-library/react";
+import { act, render, screen, waitFor } from "@test-utils";
 
 import { Div } from "@components/html";
 import { ReactNode } from "react";
@@ -25,7 +25,7 @@ function FocusWithin({ onFocus, onBlur, disabled, children }: FocusWithinProps) 
 test("call onFocus when a child of the element receive focus", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onFocus={handler}>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -33,7 +33,7 @@ test("call onFocus when a child of the element receive focus", async () => {
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -42,7 +42,7 @@ test("call onFocus when a child of the element receive focus", async () => {
 test("do not call onFocus again when the focus move to another child of the element", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onFocus={handler}>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -50,11 +50,11 @@ test("do not call onFocus again when the focus move to another child of the elem
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
     act(() => {
-        getByTestId("button").focus();
+        screen.getByTestId("button").focus();
     });
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -63,7 +63,7 @@ test("do not call onFocus again when the focus move to another child of the elem
 test("do not call onFocus when isDisabled is true", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onFocus={handler} disabled>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -71,7 +71,7 @@ test("do not call onFocus when isDisabled is true", async () => {
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -80,7 +80,7 @@ test("do not call onFocus when isDisabled is true", async () => {
 test("call onBlur when the focus move out of the element", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onBlur={handler}>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -88,12 +88,10 @@ test("call onBlur when the focus move out of the element", async () => {
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -101,7 +99,7 @@ test("call onBlur when the focus move out of the element", async () => {
 test("do not call onBlur when the focus move to another child of the element", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onBlur={handler}>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -109,11 +107,11 @@ test("do not call onBlur when the focus move to another child of the element", a
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
     act(() => {
-        getByTestId("button").focus();
+        screen.getByTestId("button").focus();
     });
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
@@ -122,7 +120,7 @@ test("do not call onBlur when the focus move to another child of the element", a
 test("do not call onBlur when isDisabled is true", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = render(
+    render(
         <FocusWithin onBlur={handler} disabled>
             <input type="text" data-testid="input" />
             <button type="button" data-testid="button" />
@@ -130,12 +128,10 @@ test("do not call onBlur when isDisabled is true", async () => {
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });

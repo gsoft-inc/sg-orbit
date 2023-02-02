@@ -1,5 +1,5 @@
 import { Field, Label } from "@components/field";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 
 import { Autocomplete } from "@components/autocomplete";
 import { Button } from "@components/button";
@@ -7,7 +7,6 @@ import { Item } from "@components/collection";
 import { Keys } from "@components/shared";
 import { Transition } from "@components/transition";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 beforeAll(() => {
@@ -18,7 +17,7 @@ beforeAll(() => {
 // ***** Behaviors *****
 
 test("when a query matching existing values is entered, open the overlay with the matching values", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -31,18 +30,18 @@ test("when a query matching existing values is entered, open the overlay with th
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    const overlay = await screen.findByTestId("overlay");
+    expect(overlay).toBeInTheDocument();
+    await waitFor(() => expect(overlay).toContainElement(screen.getByTestId("mars-option")));
+    await waitFor(() => expect(overlay).toContainElement(screen.getByTestId("mercury-option")));
 
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("mars-option")));
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByTestId("mercury-option")));
-
-    await waitFor(() => expect(queryByTestId("earth-option")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("earth-option")).not.toBeInTheDocument());
 });
 
 test("when a query matching no values is entered, open the overlay with a not found message", async () => {
-    const { getByTestId, getByText } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -56,16 +55,17 @@ test("when a query matching no values is entered, open the overlay with a not fo
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "z"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "z");
 
-    act(() => getByTestId("autocomplete").focus());
+    act(() => screen.getByTestId("autocomplete").focus());
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
-    await waitFor(() => expect(getByTestId("overlay")).toContainElement(getByText("No results.")));
+    const overlay = await screen.findByTestId("overlay");
+    expect(overlay).toBeInTheDocument();
+    expect(overlay).toContainElement(screen.getByText("No results."));
 });
 
 test("when opening, the focus stay on the input", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -78,17 +78,15 @@ test("when opening, the focus stay on the input", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 test("when a query is cleared with backspaces, hide the overlay", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -101,23 +99,19 @@ test("when a query is cleared with backspaces, hide the overlay", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "m");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "{backspace}");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "{backspace}");
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue(""));
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 });
 
 test("when a query is cleared with the clear button, hide the overlay", async () => {
-    const { getByLabelText, getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -130,23 +124,20 @@ test("when a query is cleared with the clear button, hide the overlay", async ()
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "m");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.click(getByLabelText("Clear value"));
-    });
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
+    await userEvent.click(screen.getByLabelText("Clear value"));
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue(""));
+
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 });
 
 test("when opened, clicking on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -159,19 +150,19 @@ test("when opened, clicking on a value close the overlay & select the value", as
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await act(() => userEvent.click(getByTestId("earth-option")));
+    await userEvent.click(screen.getByTestId("earth-option"));
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue("Earth"));
 });
 
 test("when opened, enter keypress on a value close the overlay & select the value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -184,25 +175,21 @@ test("when opened, enter keypress on a value close the overlay & select the valu
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.enter });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.enter });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue("Earth"));
 });
 
 test("when opened, on esc keypress hide the overlay and focus the input", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -215,19 +202,17 @@ test("when opened, on esc keypress hide the overlay and focus the input", async 
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.esc });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.esc });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 });
 
 test("when opened, down arrow keypress virtually focus the first value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -240,17 +225,15 @@ test("when opened, down arrow keypress virtually focus the first value", async (
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.arrowDown });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowDown });
 
-    await waitFor(() => expect(getByTestId("earth-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("earth-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when opened, up arrow keypress virtually focus the last value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -262,17 +245,15 @@ test("when opened, up arrow keypress virtually focus the last value", async () =
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.arrowUp });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.arrowUp });
 
-    await waitFor(() => expect(getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when opened, home keypress virtually focus the first value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -284,17 +265,15 @@ test("when opened, home keypress virtually focus the first value", async () => {
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.home });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.home });
 
-    await waitFor(() => expect(getByTestId("mars-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("mars-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when opened, end keypress virtually focus the last value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -306,17 +285,15 @@ test("when opened, end keypress virtually focus the last value", async () => {
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("autocomplete"), { key: Keys.end });
-    });
+    fireEvent.keyDown(screen.getByTestId("autocomplete"), { key: Keys.end });
 
-    await waitFor(() => expect(getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
+    await waitFor(() => expect(screen.getByTestId("maartje-option")).toHaveClass("o-ui-focus"));
 });
 
 test("when no value is selected, leaving the autocomplete without selecting a new value clear the input", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -329,23 +306,19 @@ test("when no value is selected, leaving the autocomplete without selecting a ne
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue(""));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue(""));
 });
 
 test("when a value is selected, leaving the autocomplete without selecting a value reset the input with the selected value", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -358,33 +331,33 @@ test("when a value is selected, leaving the autocomplete without selecting a val
         </Autocomplete>
     );
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "e"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await act(() => userEvent.click(getByTestId("earth-option")));
+    await userEvent.click(screen.getByTestId("earth-option"));
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue("Earth"));
 
-    await act(() => userEvent.clear(getByTestId("autocomplete")));
+    await userEvent.clear(screen.getByTestId("autocomplete"));
 
-    await act(() => userEvent.type(getByTestId("autocomplete"), "m"));
+    await userEvent.type(screen.getByTestId("autocomplete"), "m");
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("m"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue("m"));
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await act(() => userEvent.click(document.body));
+    await userEvent.click(document.body);
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveValue("Earth"), { timeout: 20000 });
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveValue("Earth"), { timeout: 20000 });
 });
 
 test("when opened, on tab keydown, close and select the next tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button>Previous</Button>
             <Autocomplete
@@ -401,30 +374,24 @@ test("when opened, on tab keydown, close and select the next tabbable element", 
         </>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
     // First tab move the focus to the clear button.
-    act(() => {
-        userEvent.tab();
-    });
+    await userEvent.tab();
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.tab();
-    });
+    await userEvent.tab();
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("after")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("after")).toHaveFocus());
 });
 
 test("when opened, on shift+tab keydown, close and select the previous tabbable element", async () => {
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    renderWithTheme(
         <>
             <Button data-testid="previous">Previous</Button>
             <Autocomplete
@@ -441,23 +408,19 @@ test("when opened, on shift+tab keydown, close and select the previous tabbable 
         </>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.tab({ shift: true });
-    });
+    await userEvent.tab({ shift: true });
 
-    await waitFor(() => expect(queryByTestId("overlay")).not.toBeInTheDocument());
+    await waitFor(() => expect(screen.queryByTestId("overlay")).not.toBeInTheDocument());
 
-    await waitFor(() => expect(getByTestId("previous")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("previous")).toHaveFocus());
 });
 
 test("when the clear button is clicked, the focus is moved to the input", async () => {
-    const { getByLabelText, getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -470,21 +433,17 @@ test("when the clear button is clicked, the focus is moved to the input", async 
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    act(() => {
-        userEvent.click(getByLabelText("Clear value"));
-    });
+    await userEvent.click(screen.getByLabelText("Clear value"));
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 test("when in a field, clicking on the field label focus the autocomplete", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Field>
             <Label data-testid="label">Autocomplete</Label>
             <Autocomplete aria-label="Planet" data-testid="autocomplete">
@@ -496,15 +455,13 @@ test("when in a field, clicking on the field label focus the autocomplete", asyn
         </Field>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("label"));
-    });
+    await userEvent.click(screen.getByTestId("label"));
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 test("when autofocus is true, the autocomplete trigger is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             autoFocus
             aria-label="Planet"
@@ -517,11 +474,11 @@ test("when autofocus is true, the autocomplete trigger is focused on render", as
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 test("when autofocus is true and the autocomplete is disabled, the autocomplete trigger is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             disabled
             autoFocus
@@ -535,11 +492,11 @@ test("when autofocus is true and the autocomplete is disabled, the autocomplete 
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the autocomplete trigger is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             autoFocus={10}
             aria-label="Planet"
@@ -552,15 +509,15 @@ test("when autofocus is specified with a delay, the autocomplete trigger is focu
         </Autocomplete>
     );
 
-    expect(getByTestId("autocomplete")).not.toHaveFocus();
+    expect(screen.getByTestId("autocomplete")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, it is used as the trigger id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete id="foo" aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -568,11 +525,11 @@ test("when an id is provided, it is used as the trigger id", async () => {
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveAttribute("id", "foo"));
 });
 
 test("an autocomplete have the \"combobox\" role", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -581,11 +538,11 @@ test("an autocomplete have the \"combobox\" role", async () => {
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("role", "combobox"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveAttribute("role", "combobox"));
 });
 
 test("an autocomplete have an aria-haspopup attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete aria-label="Planet" data-testid="autocomplete">
             <Item key="earth">Earth</Item>
             <Item key="jupiter">Jupiter</Item>
@@ -594,11 +551,11 @@ test("an autocomplete have an aria-haspopup attribute", async () => {
         </Autocomplete>
     );
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("aria-haspopup", "listbox"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveAttribute("aria-haspopup", "listbox"));
 });
 
 test("an autocomplete have an aria-expanded attribute", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -611,17 +568,15 @@ test("an autocomplete have an aria-expanded attribute", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("aria-expanded", "true"));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveAttribute("aria-expanded", "true"));
 });
 
 test("when opened, the autocomplete aria-controls match the overlay id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             overlayProps={{ "data-testid": "overlay" }}
             aria-label="Planet"
@@ -634,13 +589,11 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    await waitFor(() => expect(getByTestId("overlay")).toBeInTheDocument());
+    expect(await screen.findByTestId("overlay")).toBeInTheDocument();
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveAttribute("aria-controls", getByTestId("overlay").getAttribute("id")));
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveAttribute("aria-controls", screen.getByTestId("overlay").getAttribute("id")));
 });
 
 // ***** Api *****
@@ -648,7 +601,7 @@ test("when opened, the autocomplete aria-controls match the overlay id", async (
 test("call onSearch when the query is updated", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             onSearch={handler}
             aria-label="Planet"
@@ -661,9 +614,7 @@ test("call onSearch when the query is updated", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "e"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -672,7 +623,7 @@ test("call onSearch when the query is updated", async () => {
 test("do not call onSearch when the query is empty", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             onSearch={handler}
             aria-label="Planet"
@@ -685,13 +636,9 @@ test("do not call onSearch when the query is empty", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "{backspace}");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "{backspace}");
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
@@ -699,7 +646,7 @@ test("do not call onSearch when the query is empty", async () => {
 test("call onOpenChange when the autocomplete overlay open", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             onOpenChange={handler}
             aria-label="Planet"
@@ -712,9 +659,7 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -723,7 +668,7 @@ test("call onOpenChange when the autocomplete overlay open", async () => {
 test("call onOpenChange when the autocomplete overlay close", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             onOpenChange={handler}
             aria-label="Planet"
@@ -736,13 +681,9 @@ test("call onOpenChange when the autocomplete overlay close", async () => {
         </Autocomplete>
     );
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "e");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "e");
 
-    act(() => {
-        userEvent.type(getByTestId("autocomplete"), "{backspace}");
-    });
+    await userEvent.type(screen.getByTestId("autocomplete"), "{backspace}");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -752,7 +693,7 @@ test("call onSelectionChange when a value is selected", async () => {
     const user = userEvent.setup();
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             onSelectionChange={handler}
             aria-label="Planet"
@@ -765,9 +706,9 @@ test("call onSelectionChange when a value is selected", async () => {
         </Autocomplete>
     );
 
-    await act(() => user.type(getByTestId("autocomplete"), "e"));
+    await act(() => user.type(screen.getByTestId("autocomplete"), "e"));
 
-    await act(() => user.click(getByTestId("earth-option")));
+    await act(() => user.click(screen.getByTestId("earth-option")));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), { key: "earth", value: "Earth" }));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -776,7 +717,7 @@ test("call onSelectionChange when a value is selected", async () => {
 test("calling the focus function on the autocomplete ref will focus the autocomplete", async () => {
     const ref = createRef<HTMLInputElement>();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Autocomplete
             defaultOpen
             ref={ref}
@@ -794,7 +735,7 @@ test("calling the focus function on the autocomplete ref will focus the autocomp
         ref.current.focus();
     });
 
-    await waitFor(() => expect(getByTestId("autocomplete")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("autocomplete")).toHaveFocus());
 });
 
 // ***** Refs *****
