@@ -10,7 +10,7 @@
     ]
   },
   "scripts": {
-    "start": "run-s start:pkg storybook",
+    "start": "run-s start:pkg start:sb",
     "start:pkg": "lerna run start --parallel",
     "start:sb":"start-storybook -p 9009",
     "start:sb-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true yarn start:sb",
