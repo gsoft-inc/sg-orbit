@@ -29,8 +29,6 @@ For more information on monorepo:
 
 [Lerna](https://github.com/lerna/lerna) is used to manage this monorepo. The packages of the monorepo can be found in the [packages](/packages) directory. 
 
-Exceptionally Storybook is not managed by the monorepo tooling because it's not meant to be published as an npm package. Storybook can be found in the [.storybook](/.storybook) directory.
-
 Since Yarn workspace feature offer native mono-repo capabilities and a seemless integration with Lerna this is our goto package manager for this project.
 
 When Lerna is configured to use Yarn, the installation of the npm dependencies and the management of the packages inter-dependencies will be delegated to Yarn. It result in an increase of performance and a more reliable experience than using the same features from Lerna. The native integration between Lerna and Yarn make it worthwill to switch from npm to Yarn for this project.
@@ -67,24 +65,10 @@ For more options to install Yarn, view https://yarnpkg.com/lang/en/docs/install/
 To install the project, open a terminal at the root of the workspace and execute the following command:
 
 ```bash
-yarn bootstrap
+yarn
 ```
 
 The installation should take up to 5 minutes.
-
-By default, this will install the packages and Storybook.
-
-To only install the packages, use the following command:
-
-```bash
-yarn bootstrap:pkg
-```
-
-If you want to install Storybook later, use the following command:
-
-```bash
-yarn bootstrap:sb
-```
 
 During the installation you will encoutered several missing *peerDependencies* warnings. Ignore those warnings, this is happening because the *devDependencies* of this monorepo are defined at the root of the workspace.
 
@@ -234,26 +218,16 @@ A Netlify deploy can be started locally with a CLI command. This is useful if yo
 To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
-yarn deploy-sb-preview
+yarn deploy:netlify-storybook-preview
 ```
 
 The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
 
-If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-sb-preview` in the [.storybook/package.json](/.storybook/package.json) file.
+If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy:netlify-storybook-preview` in the [package.json](package.json) file.
 
 ## Commands
 
 All commands are available in the [package.json](package.json) file. Here's a list of the commands you might need to use frequently. The following commands must be executed in a terminal opened at the root of the workspace.
-
-### bootstrap
-
-Install the npm dependencies for every packages of the monorepo and Storybook. Once the npm dependencies are installed a custom **setup** step will be executed for every packages and Storybook.
-
-Depending of the packages / Storybook, the setup step will perform a number of required additional installation tasks.
-
-```bash
-yarn bootstrap
-```
 
 ### start
 
@@ -302,16 +276,6 @@ C:\Dev\20_gsoft\sg-orbit\node_modules\rimraf\bin.js:47
 ```
 
 Close & re-open VSCode and delete manually the *node_modules* folder at the root of the workspace.
-
-### update
-
-Use this command when you update a dependency and you want it installed without executing the setup steps.
-
-Use this command if you add a new package to the monorepo and you need to update the packages inter-dependencies.
-
-```bash
-yarn update
-```
 
 ### lint
 

@@ -8,3 +8,7 @@ __MACOSX
 .DS_Store
 .netlify
 *.tsbuildinfo
+storybook-static
+.eslintcache
+.stylelintcache
+build-storybook.log
