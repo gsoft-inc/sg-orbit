@@ -201,7 +201,7 @@ export const ItemWithAvatar = () => (
 
 ItemWithAvatar.storyName = "item with avatar";
 
-export const itemWithAvatarAndDescription = () => (
+export const ItemWithAvatarAndDescription = () => (
     <Menu aria-label="Planets">
         <Item key="earth">
             <Avatar name="Earth" />
@@ -221,7 +221,7 @@ export const itemWithAvatarAndDescription = () => (
     </Menu>
 );
 
-itemWithAvatarAndDescription.storyName = "item with avatar and description";
+ItemWithAvatarAndDescription.storyName = "item with avatar and description";
 
 export const ItemWithDescription = () => (
     <Menu aria-label="Planets">
