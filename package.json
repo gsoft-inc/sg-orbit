@@ -17,7 +17,7 @@
     "start:sb-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true start-storybook -p 9010 --docs",
     "start:sb-no-chroma": "cross-env STORYBOOK_INCLUDE_CHROMATIC=false yarn start:sb",
     "build": "lerna run build",
-    "build:sb": "build-storybook -o dist/sb",
+    "build:sb": "build-storybook -o storybook-static/sb",
     "build:sb-chroma": "cross-env STORYBOOK_IS_CHROMATIC=true build-storybook -o storybook-static/chromatic",
     "build:sb-docs": "cross-env STORYBOOK_IS_DOCS_SITE=true build-storybook -o storybook-static/docs --docs",
     "build:netlify-sb": "yarn build && yarn build:sb",
