@@ -650,7 +650,7 @@ export const ScrollingWithDescriptions = () => (
 
 ScrollingWithDescriptions.storyName = "scrolling with descriptions";
 
-export const scrollingMixMatch = () => (
+export const ScrollingMixMatch = () => (
     <Menu selectionMode="single" aria-label="Planets">
         <Section title="Visited">
             <Item key="earth">
@@ -680,7 +680,7 @@ export const scrollingMixMatch = () => (
     </Menu>
 );
 
-scrollingMixMatch.storyName = "scrolling mix & match";
+ScrollingMixMatch.storyName = "scrolling mix & match";
 
 export const ScrollingWithCustomStyleHeight = () => (
     <Menu selectionMode="single" height={12} aria-label="Planets">
