@@ -1,5 +1,3 @@
-import "./Preview.css";
-
 import { CheckeredBackground } from "@stories/components";
 import { CreatedIconProps } from "@components/icons";
 import { Inline } from "@components/layout";
