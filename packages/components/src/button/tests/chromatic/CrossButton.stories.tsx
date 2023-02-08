@@ -18,13 +18,3 @@ export const Default: CrossButtonStory = {
         </Inline>
     )
 };
-
-export const Condensed: CrossButtonStory = {
-    storyName: "condensed",
-    render: () => (
-        <Inline alignY="end">
-            <CrossButton condensed size="sm" aria-label="Clear" />
-            <CrossButton condensed aria-label="Clear" />
-        </Inline>
-    )
-};

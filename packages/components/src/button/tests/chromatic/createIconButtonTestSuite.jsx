@@ -23,12 +23,6 @@ export function createIconButtonTestSuite(element, stories) {
                     <IconButton loading size="sm" aria-label="Add" element={element}><AddMajorIcon /></IconButton>
                     <IconButton loading aria-label="Add" element={element}><AddMajorIcon /></IconButton>
                 </Inline>
-                <Inline alignY="end">
-                    <IconButton condensed size="2xs" aria-label="Add" element={element}><AddMajorIcon /></IconButton>
-                    <IconButton condensed size="xs" aria-label="Add" element={element}><AddMajorIcon /></IconButton>
-                    <IconButton condensed size="sm" aria-label="Add" element={element}><AddMajorIcon /></IconButton>
-                    <IconButton condensed aria-label="Add" element={element}><AddMajorIcon /></IconButton>
-                </Inline>
             </Stack>
         )
         .add("states", () =>

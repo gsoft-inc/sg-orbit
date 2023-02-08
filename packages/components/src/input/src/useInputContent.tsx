@@ -19,7 +19,6 @@ export function useInputButton(button: ReactElement, isActive: boolean, props: R
     return button && isActive && embedIconButton(button, {
         ...props,
         className: "o-ui-input-button",
-        condensed: true,
         variant: "tertiary"
     });
 }

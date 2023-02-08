@@ -92,9 +92,8 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
         <CrossButton
             aria-label="Clear value"
             className="o-ui-search-input-clear-button"
-            condensed
             onClick={handleClear}
-            size="sm"
+            size="xs"
             title="Clear value"
         />
     );

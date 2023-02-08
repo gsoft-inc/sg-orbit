@@ -15,12 +15,6 @@ export function createIconLinkTestSuite(element, stories) {
                 <IconLink href="#" aria-label="Add" element={element}><AddMajorIcon /></IconLink>
             </Inline>
         )
-        .add("condensed", () =>
-            <Inline alignY="end">
-                <IconLink condensed size="sm" href="#" aria-label="Add" element={element}><AddMajorIcon /></IconLink>
-                <IconLink condensed href="#" aria-label="Add" element={element}><AddMajorIcon /></IconLink>
-            </Inline>
-        )
         .add("primary", () =>
             <Inline alignY="end">
                 <IconLink variant="primary" size="sm" aria-label="Add" href="#" element={element}><AddMajorIcon /></IconLink>

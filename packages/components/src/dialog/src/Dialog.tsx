@@ -272,10 +272,9 @@ export function InnerDialog({
         <CrossButton
             aria-label="Dismiss"
             className="o-ui-dialog-dismiss-button"
-            condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
-            size="sm"
+            size="xs"
         />
     );
 

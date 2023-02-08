@@ -21,10 +21,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading size="sm" element={element}>Button</Button>
                     <Button loading element={element}>Button</Button>
                 </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>Button</Button>
-                    <Button condensed element={element}>Button</Button>
-                </Inline>
                 <Div>
                     <Button fluid element={element}>Button</Button>
                 </Div>
@@ -68,16 +64,6 @@ export function createButtonTestSuite(element, stories) {
                         <Text>Button</Text>
                     </Button>
                     <Button loading element={element}>
-                        <SignoutMajorIcon />
-                        <Text>Button</Text>
-                    </Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <SignoutMajorIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button condensed element={element}>
                         <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
@@ -135,16 +121,6 @@ export function createButtonTestSuite(element, stories) {
                         <SignoutMajorIcon slot="end-icon" />
                     </Button>
                 </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <Text>Button</Text>
-                        <SignoutMajorIcon slot="end-icon" />
-                    </Button>
-                    <Button condensed element={element}>
-                        <Text>Button</Text>
-                        <SignoutMajorIcon slot="end-icon" />
-                    </Button>
-                </Inline>
                 <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
@@ -192,16 +168,6 @@ export function createButtonTestSuite(element, stories) {
                         <Counter variant="divider">15</Counter>
                     </Button>
                     <Button loading element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                    <Button condensed element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>

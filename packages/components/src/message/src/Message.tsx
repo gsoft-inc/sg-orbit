@@ -91,7 +91,6 @@ export function InnerMessage({
         },
         button: {
             className: "o-ui-message-action",
-            condensed: true,
             inherit: true,
             size: "sm",
             variant: "secondary"
