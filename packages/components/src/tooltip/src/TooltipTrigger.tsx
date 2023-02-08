@@ -7,7 +7,6 @@ import {
     isNil,
     mergeProps,
     resolveChildren,
-    useControllableState,
     useEventCallback,
     useId,
     useMergedRefs
@@ -17,6 +16,7 @@ import { useResponsiveValue, useThemeContext } from "../../styling";
 
 import { Div } from "../../html";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
+import { useTooltipTriggerState } from "./useTooltipTriggerState";
 
 const DefaultElement = "div";
 
@@ -95,7 +95,7 @@ export function InnerTooltipTrigger({
 
     const { themeAccessor } = useThemeContext();
 
-    const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
+    const { isOpen, setIsOpen } = useTooltipTriggerState(open, defaultOpen, false);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
         if (isOpen !== newValue) {
@@ -126,7 +126,7 @@ export function InnerTooltipTrigger({
         isDisabled: disabled,
         onHide: useEventCallback((event: SyntheticEvent) => {
             // Prevent from closing when the focus goes to an element of the overlay on opening.
-            if (!isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
+            if (event.type !== "blur" || !isTargetParent((event as FocusEvent).relatedTarget, overlayRef)) {
                 updateIsOpen(event, false);
             }
         }),
