@@ -13,8 +13,6 @@ export const Default: CrossButtonStory = {
     storyName: "default",
     render: () => (
         <Inline alignY="end">
-            <CrossButton size="2xs" aria-label="Clear" />
-            <CrossButton size="xs" aria-label="Clear" />
             <CrossButton size="sm" aria-label="Clear" />
             <CrossButton aria-label="Clear" />
         </Inline>
@@ -25,8 +23,6 @@ export const Condensed: CrossButtonStory = {
     storyName: "condensed",
     render: () => (
         <Inline alignY="end">
-            <CrossButton condensed size="2xs" aria-label="Clear" />
-            <CrossButton condensed size="xs" aria-label="Clear" />
             <CrossButton condensed size="sm" aria-label="Clear" />
             <CrossButton condensed aria-label="Clear" />
         </Inline>

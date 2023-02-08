@@ -178,7 +178,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled {
 
 /* CONTENT | START ICON */
 .o-ui-tag .o-ui-tag-start-icon {
-    margin-right: var(--o-ui-sp-1);
+    margin-right: calc(var(--o-ui-sp-1) + 0.125rem);
     flex-shrink: 0;
 }
 
@@ -194,7 +194,7 @@ a.o-ui-tag-outline.o-ui-tag-disabled {
 
 /* CONTENT | END ICON */
 .o-ui-tag:not(.o-ui-tag-fluid) .o-ui-tag-end-icon {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* CONTENT | END ICON | SMALL */

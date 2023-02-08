@@ -23,7 +23,7 @@
 /* SPINNER */
 .o-ui-number-input-spinner {
     display: flex;
-    visibility: visible;
+    visibility: hidden;
     flex-direction: column;
     width: var(--o-ui-spinner-width);
     min-height: calc(var(--o-ui-sz-6) - 2px);
@@ -56,9 +56,6 @@
     border-top-right-radius: var(--o-ui-input-border-radius);
     border-bottom: 1px solid var(--o-ui-input-border-color);
 }
-/*
-.o-ui-number-input-spinner-increment .o-ui-icon{
-} */
 
 .o-ui-number-input-spinner-decrement {
     border-bottom-right-radius: var(--o-ui-input-border-radius);
@@ -75,6 +72,8 @@
 .o-ui-number-input-spinner .o-ui-icon {
     fill: var(--o-ui-icon-alias-primary);
     align-self: center;
+    width: 1rem;
+    height: 1rem;
 }
 
 /* SPINNER | ACTIVE */

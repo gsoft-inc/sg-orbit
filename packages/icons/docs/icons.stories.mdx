@@ -6,7 +6,6 @@ import {
     BurgerMajorIcon,
     CalendarMajorIcon,
     CheckMajorIcon,
-    CheckMinorIcon,
     ChevronMajorIcon,
     ChevronMinorIcon,
     ChevronUpDownMajorIcon,
@@ -86,7 +85,7 @@ Official collection of icons to promote a consistent experience across the Share
 
 ### Major icons
 
-Major icons are 16x16 in a 24x24 bounding box. Use them to draw attention to an area.
+Major icons are `16x16` in a `20x20` bounding box. Use them to draw attention to an area.
 
 <IconGallery>
     {renderItem("Add", <AddMajorIcon />)}
@@ -147,11 +146,10 @@ Major icons are 16x16 in a 24x24 bounding box. Use them to draw attention to an 
 
 ### Minor icons
 
-Minor icons are 12x12 in a 24x24 bounding box. Use them to prevent an icon from taking too much the center stage in a component.
+Minor icons are 12x12 in a 20x20 bounding box. Use them to prevent an icon from taking too much the center stage in a component.
 
 <IconGallery>
     {renderItem("Arrow", <ArrowMinorIcon />)}
-    {renderItem("Check", <CheckMinorIcon />)}
     {renderItem("Chevron", <ChevronMinorIcon />)}
     {renderItem("ChevronUpDown", <ChevronUpDownMinorIcon />)}
     {renderItem("Cross", <CrossMinorIcon />)}
@@ -165,17 +163,11 @@ Minor icons are 12x12 in a 24x24 bounding box. Use them to prevent an icon from 
 
 ## Design specifications
 
-All official SVG icons includes their padding and are available in 24px x 24px as major icons. Some icons have a minor version to avoid overpowering more important elements in a component.
+All official SVG icons are available as major icons. Some icons have a minor version to avoid overpowering more important elements in a component.
 
 ## Icon dimensions
 
-To define dimensions, a few options are available depending on whether you choose to include an icon as a [React component](#components) or as a [static file](#static-files).
-
-### React components
-
-If you choose to include an icon as a component, you don't have to worry about dimensions. Components accept a [`size`](#sizes) prop which will translate to the appropriate dimensions classes at render time.
-
-Two types of components are available, [multi-variants](#multi-variants) components and [variants](#variants) components. They both share the same `size` prop but handles variants differently.
+All icons are available as 20x20 SVGs. They should not be resized as they have been crafted to look their best in this particular size. INSERT TEXT ABOUT SPOT ICONS HERE.
 
 #### Major
 
@@ -183,7 +175,7 @@ All icons are provided as Major icons, which serve as the primary variation of t
 
 #### Minor
 
-To keep your icon from taking up too much space compared to text or other elements surrounding it, use a smaller version of the icon. The overall icon size (24x24) remains the same, but the icon within the component is reduced in size. If a smaller version of an icon is not available in Orbit, please request one by submitting an issue on [Github](https://github.com/gsoft-inc/sg-orbit/issues).
+To keep your icon from taking up too much space compared to text or other elements surrounding it, use a smaller version of the icon. The overall icon size(20x20) remains the same, but the icon within the component is reduced in size. If a smaller version of an icon is not available in Orbit, please request one by submitting an issue on [Github](https://github.com/gsoft-inc/sg-orbit/issues).
 
 #### Usage
 
@@ -195,37 +187,18 @@ function render() {
 }
 ```
 
-#### Sizes
-
-By default an icon component render as an `md` sized icon. To alter the dimensions of an icon, you can specify any of the following sizes: `"2xs"`, `"xs"`, `"sm"`, `"lg"`, `"xl"`, `"inherit"`.
-
-> If your icon is intended to be used as content of an Orbit component, you won't have to specify the icon size since Orbit components already have pre-determined dimensions for their icons.
-
-<Preview>
-    <CheckeredBackground>
-        <Inline alignY="end" gap={2}>
-            <CalendarMajorIcon size="2xs" />
-            <CalendarMajorIcon size="xs" />
-            <CalendarMajorIcon size="sm" />
-            <CalendarMajorIcon />
-            <CalendarMajorIcon size="lg" />
-            <CalendarMajorIcon size="xl" />
-        </Inline>
-    </CheckeredBackground>
-</Preview>
-
 ### Static files
 
 Icons SVG files are available from the root of `@orbit-ui/icons` package. These files are usefull for non React apps or any use cases which cannot be done using a component. Whenever you can, you should prefer React components to static files.
 
-Orbit Design provide icons with default dimensions, e.g. a `24px` variant will have a default viewport of 24x24 and a viewbox of `0 0 24 24`.
+Orbit Design provide icons with default dimensions, e.g. a `20px` variant will have a default viewport of 20x20 and a viewbox of `0 0 20 20`.
 
-You can customize an icon dimensions with the `width` and `height` props of Orbit [styled-system](?path=/docs/style-props--page).
+Although frowned upon, you can customize an icon dimensions with the `width` and `height` props of Orbit [styled-system](?path=/docs/style-props--page).
 
 #### Image source
 
 ```jsx
-import CalendarMajorIcon24 from "@orbit-ui/icons/icon-calendar-major.svg";
+import CalendarMajorIcon from "@orbit-ui/icons/icon-calendar-major.svg";
 
 function render() {
     return <Img src={CalendarMajorIcon24} alt="Calendar" width={6} height={6} />;
@@ -237,8 +210,8 @@ function render() {
 ```css
 .calendar {
     background: url("~@orbit-ui/icons/icon-calendar-major.svg");
-    width: var(--o-ui-sz-4);
-    height: var(--o-ui-sz-4);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
 }
 ```
 

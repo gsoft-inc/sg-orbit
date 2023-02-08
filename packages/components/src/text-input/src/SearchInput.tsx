@@ -94,7 +94,7 @@ export function InnerSearchInput(props: InnerSearchInputProps) {
             className="o-ui-search-input-clear-button"
             condensed
             onClick={handleClear}
-            size="xs"
+            size="sm"
             title="Clear value"
         />
     );

@@ -61,7 +61,7 @@ A badge can be rendered as a dot. A single digit is supported.
                 <Circle />
             </Badge>
             <Badge variant="dot" overlap="icon">
-                <EmailMajorIcon size="lg" />
+                <EmailMajorIcon/>
             </Badge>
             <Badge variant="dot">
                 Notifications
@@ -117,16 +117,8 @@ A badge can overlap over elements with different shape.
                 </Badge>
             </Inline>
             <Inline gap={8}>
-                <Badge overlap="icon">
-                    <Text>100</Text>
-                    <EmailMajorIcon size="lg" />
-                </Badge>
                 <Badge variant="dot" overlap="icon">
-                    <EmailMajorIcon size="lg" />
-                </Badge>
-                <Badge variant="icon" overlap="icon">
-                    <PlaceholderMajorIcon />
-                    <EmailMajorIcon size="lg" />
+                    <EmailMajorIcon/>
                 </Badge>
             </Inline>
         </Inline>

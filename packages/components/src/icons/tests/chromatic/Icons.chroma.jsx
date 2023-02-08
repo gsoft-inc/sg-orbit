@@ -6,7 +6,6 @@ import {
     BurgerMajorIcon,
     CalendarMajorIcon,
     CheckMajorIcon,
-    CheckMinorIcon,
     ChevronMajorIcon,
     ChevronMinorIcon,
     ChevronUpDownMajorIcon,
@@ -111,12 +110,6 @@ export const IconCheckMajor = () => (
 );
 
 IconCheckMajor.storyName = "Check Major";
-
-export const IconCheckMinor = () => (
-    <TestSuite multiIcon={CheckMinorIcon} />
-);
-
-IconCheckMinor.storyName = " Check";
 
 export const IconChevronMajor = () => (
     <TestSuite multiIcon={ChevronMajorIcon} />

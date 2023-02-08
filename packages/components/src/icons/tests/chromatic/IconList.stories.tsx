@@ -29,13 +29,7 @@ export const Default: IconListStory = {
 export const Size: IconListStory = {
     storyName: "size",
     render: () => (
-        <Stack>
-            <Icons size="2xs" />
-            <Icons size="xs" />
-            <Icons size="sm" />
-            <Icons />
-            <Icons size="lg" />
-        </Stack>
+        <Icons />
     )
 };
 

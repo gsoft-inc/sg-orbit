@@ -13,7 +13,6 @@ import { ReactComponent as InnerArrowMinorIcon } from "./ArrowMinorIcon";
 import { ReactComponent as InnerBurgerMajorIcon } from "./BurgerMajorIcon";
 import { ReactComponent as InnerCalendarMajorIcon } from "./CalendarMajorIcon";
 import { ReactComponent as InnerCheckMajorIcon } from "./CheckMajorIcon";
-import { ReactComponent as InnerCheckMinorIcon } from "./CheckMinorIcon";
 import { ReactComponent as InnerChevronMajorIcon } from "./ChevronMajorIcon";
 import { ReactComponent as InnerChevronMinorIcon } from "./ChevronMinorIcon";
 import { ReactComponent as InnerChevronUpDownMajorIcon } from "./ChevronUpDownMajorIcon";
@@ -28,6 +27,7 @@ import { ReactComponent as InnerExternalLinkMajorIcon } from "./ExternalLinkMajo
 import { ReactComponent as InnerExternalLinkMinorIcon } from "./ExternalLinkMinorIcon";
 import { ReactComponent as InnerEyeMajorIcon } from "./EyeMajorIcon";
 import { ReactComponent as InnerEyeSlashMajorIcon } from "./EyeSlashMajorIcon";
+import { ReactComponent as InnerEyeSlashedMajorIcon } from "./EyeSlashedMajorIcon";
 import { ReactComponent as InnerFileCsvMajorIcon } from "./FileCsvMajorIcon";
 import { ReactComponent as InnerFileMajorIcon } from "./FileMajorIcon";
 import { ReactComponent as InnerFileMusicMajorIcon } from "./FileMusicMajorIcon";
@@ -50,6 +50,7 @@ import { ReactComponent as InnerLightbulbMajorIcon } from "./LightbulbMajorIcon"
 import { ReactComponent as InnerLinkMajorIcon } from "./LinkMajorIcon";
 import { ReactComponent as InnerLinkRemoveMajorIcon } from "./LinkRemoveMajorIcon";
 import { ReactComponent as InnerMagnifierMajorIcon } from "./MagnifierMajorIcon";
+import { ReactComponent as InnerNofiticationMajorIcon } from "./NofiticationMajorIcon";
 import { ReactComponent as InnerNotificationMajorIcon } from "./NotificationMajorIcon";
 import { ReactComponent as InnerNotificationOffMajorIcon } from "./NotificationOffMajorIcon";
 import { ReactComponent as InnerPadlockLockedMajorIcon } from "./PadlockLockedMajorIcon";
@@ -84,7 +85,6 @@ export const ArrowMinorIcon = createOrbitIcon(InnerArrowMinorIcon, "ArrowMinorIc
 export const BurgerMajorIcon = createOrbitIcon(InnerBurgerMajorIcon, "BurgerMajorIcon");
 export const CalendarMajorIcon = createOrbitIcon(InnerCalendarMajorIcon, "CalendarMajorIcon");
 export const CheckMajorIcon = createOrbitIcon(InnerCheckMajorIcon, "CheckMajorIcon");
-export const CheckMinorIcon = createOrbitIcon(InnerCheckMinorIcon, "CheckMinorIcon");
 export const ChevronMajorIcon = createOrbitIcon(InnerChevronMajorIcon, "ChevronMajorIcon");
 export const ChevronMinorIcon = createOrbitIcon(InnerChevronMinorIcon, "ChevronMinorIcon");
 export const ChevronUpDownMajorIcon = createOrbitIcon(InnerChevronUpDownMajorIcon, "ChevronUpDownMajorIcon");
@@ -99,6 +99,7 @@ export const ExternalLinkMajorIcon = createOrbitIcon(InnerExternalLinkMajorIcon,
 export const ExternalLinkMinorIcon = createOrbitIcon(InnerExternalLinkMinorIcon, "ExternalLinkMinorIcon");
 export const EyeMajorIcon = createOrbitIcon(InnerEyeMajorIcon, "EyeMajorIcon");
 export const EyeSlashMajorIcon = createOrbitIcon(InnerEyeSlashMajorIcon, "EyeSlashMajorIcon");
+export const EyeSlashedMajorIcon = createOrbitIcon(InnerEyeSlashedMajorIcon, "EyeSlashedMajorIcon");
 export const FileCsvMajorIcon = createOrbitIcon(InnerFileCsvMajorIcon, "FileCsvMajorIcon");
 export const FileMajorIcon = createOrbitIcon(InnerFileMajorIcon, "FileMajorIcon");
 export const FileMusicMajorIcon = createOrbitIcon(InnerFileMusicMajorIcon, "FileMusicMajorIcon");
@@ -121,6 +122,7 @@ export const LightbulbMajorIcon = createOrbitIcon(InnerLightbulbMajorIcon, "Ligh
 export const LinkMajorIcon = createOrbitIcon(InnerLinkMajorIcon, "LinkMajorIcon");
 export const LinkRemoveMajorIcon = createOrbitIcon(InnerLinkRemoveMajorIcon, "LinkRemoveMajorIcon");
 export const MagnifierMajorIcon = createOrbitIcon(InnerMagnifierMajorIcon, "MagnifierMajorIcon");
+export const NofiticationMajorIcon = createOrbitIcon(InnerNofiticationMajorIcon, "NofiticationMajorIcon");
 export const NotificationMajorIcon = createOrbitIcon(InnerNotificationMajorIcon, "NotificationMajorIcon");
 export const NotificationOffMajorIcon = createOrbitIcon(InnerNotificationOffMajorIcon, "NotificationOffMajorIcon");
 export const PadlockLockedMajorIcon = createOrbitIcon(InnerPadlockLockedMajorIcon, "PadlockLockedMajorIcon");

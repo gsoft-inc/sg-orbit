@@ -55,7 +55,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* ITEM | ICON | START  */
 .o-ui-menu-item-start-icon {
-    margin-right: var(--o-ui-sp-1);
+    margin-right: calc(var(--o-ui-sp-1) + 0.125rem);
     grid-row-start: 1;
     grid-row-end: 3;
 }
@@ -67,7 +67,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* ITEM | ICON | END  */
 .o-ui-menu-item-end-icon {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* ITEM | STATE | SELECTED */

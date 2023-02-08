@@ -47,13 +47,13 @@
 
 /* ICON */
 .o-ui-switch .o-ui-switch-icon {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* ICON | REVERSE */
 .o-ui-switch-reverse .o-ui-switch-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-sp-1);
+    margin-right: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* REVERSE */

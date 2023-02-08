@@ -6,25 +6,17 @@ import {
 } from "@components/icons";
 
 interface TestSuiteProps {
-    multiIcon?: ComponentType<Partial<IconProps>>;
+    icon?: ComponentType<Partial<IconProps>>;
 }
 
-export function TestSuite({ multiIcon: MultiIcon }: TestSuiteProps) {
+export function TestSuite({ icon: Icon }: TestSuiteProps) {
     return (
         <Stack>
             <Inline alignY="end">
-                <MultiIcon size="2xs" />
-                <MultiIcon size="xs" />
-                <MultiIcon size="sm" />
-                <MultiIcon />
-                <MultiIcon size="lg" />
-                <MultiIcon size="xl" />
-                <MultiIcon size="xl" fill="warning-10" />
-                <MultiIcon size="xl" className="fill-red" />
-                <MultiIcon size="xl" style={{ fill: "red" }} />
+                <Icon />
             </Inline>
             <Div fontSize={1}>
-                <MultiIcon size="inherit" />
+                <Icon size="inherit" />
             </Div>
         </Stack>
     );

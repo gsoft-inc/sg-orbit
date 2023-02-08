@@ -11,12 +11,7 @@ export function PreviewSection({ icon }: PreviewSectionProps) {
     return (
         <CheckeredBackground>
             <Inline alignY="end" gap={2}>
-                {cloneElement(icon, { size: "2xs" })}
-                {cloneElement(icon, { size: "xs" })}
-                {cloneElement(icon, { size: "sm" })}
-                {cloneElement(icon, { size: "md" })}
-                {cloneElement(icon, { size: "lg" })}
-                {cloneElement(icon, { size: "xl" })}
+                {cloneElement(icon)}
             </Inline>
         </CheckeredBackground>
     );

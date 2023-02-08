@@ -23,13 +23,7 @@ export const Default = () => (
 Default.storyName = "default";
 
 export const Size = () => (
-    <Stack>
-        <Icons size="2xs" />
-        <Icons size="xs" />
-        <Icons size="sm" />
-        <Icons />
-        <Icons size="lg" />
-    </Stack>
+    <Icons />
 );
 
 Size.storyName = "size";

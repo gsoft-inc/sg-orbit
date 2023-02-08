@@ -33,7 +33,7 @@ export function IconBadge({ children, ...rest }: BadgeUtilsProps) {
             overlap="icon"
         >
             {children}
-            <EmailMajorIcon size="lg" />
+            <EmailMajorIcon />
         </Badge>
     );
 }

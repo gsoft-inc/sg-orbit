@@ -1,6 +1,6 @@
 import { AbstractIconButtonProps, IconButton, InnerIconButton } from "./IconButton";
 import { ComponentProps, forwardRef } from "react";
-import { CrossMajorIcon } from "../../icons";
+import { CrossMinorIcon } from "../../icons";
 import { OmitInternalProps, slot } from "../../shared";
 
 export type InnerCrossButtonProps = Omit<AbstractIconButtonProps<"button">, "fluid" | "loading" | "onChange" | "type" | "variant">;
@@ -13,7 +13,7 @@ export function InnerCrossButton({ forwardedRef, ...rest }: InnerCrossButtonProp
             ref={forwardedRef}
             variant="tertiary"
         >
-            <CrossMajorIcon />
+            <CrossMinorIcon />
         </IconButton>
     );
 }

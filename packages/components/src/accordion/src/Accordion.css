@@ -22,6 +22,7 @@
 .o-ui-accordion-borderless .o-ui-accordion-header .o-ui-accordion-trigger {
     padding-top: var(--o-ui-sp-2);
     padding-bottom: var(--o-ui-sp-2);
+    height: var(--o-ui-sz-6);
 }
 
 .o-ui-accordion-header:first-child {
@@ -78,6 +79,11 @@
 /* TRIGGER | BORDERED | HAS ICON */
 .o-ui-accordion-bordered .o-ui-accordion-trigger.o-ui-accordion-trigger-has-icon {
     padding-left: var(--o-ui-sp-4);
+}
+
+.o-ui-accordion-icon {
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
 }
 
 .o-ui-accordion-icon + .o-ui-accordion-title {

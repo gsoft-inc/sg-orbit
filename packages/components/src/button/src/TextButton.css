@@ -15,12 +15,12 @@
 
 /* CONTENT | ICON | START */
 .o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-start-icon + .o-ui-button-text {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* CONTENT | ICON | END */
 .o-ui-text-button:not(.o-ui-button-fluid) .o-ui-button-end-icon {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 .o-ui-button-fluid.o-ui-button-has-start-icon.o-ui-button-md .o-ui-button-text {

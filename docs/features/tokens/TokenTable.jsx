@@ -81,9 +81,9 @@ export function fontWeightRenderer(token) {
 
 export function iconRenderer(token) {
     if (token === "alias-static-white") {
-        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#272626"><InfoCircleMajorIcon fill={token} size="lg" /></Div>;
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start" backgroundColor="#272626"><InfoCircleMajorIcon fill={token} /></Div>;
     } else {
-        return <Div height={6} display="flex" alignItems="center" justifyContent="start"><InfoCircleMajorIcon fill={token} size="lg" /></Div>;
+        return <Div height={6} display="flex" alignItems="center" justifyContent="start"><InfoCircleMajorIcon fill={token} /></Div>;
     }
 }
 

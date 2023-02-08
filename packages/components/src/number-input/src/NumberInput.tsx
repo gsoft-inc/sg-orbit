@@ -116,7 +116,6 @@ function Spinner({
                 type="button"
             >
                 <ChevronMinorIcon
-                    size="xs"
                     transform="rotate(270deg)"
                 />
             </HtmlButton>
@@ -130,7 +129,6 @@ function Spinner({
                 type="button"
             >
                 <ChevronMinorIcon
-                    size="xs"
                     transform="rotate(90deg)"
                 />
             </HtmlButton>

@@ -150,8 +150,8 @@
 .o-ui-input-icon {
     display: inline-flex;
     flex-shrink: 0;
-    margin-right: 0.375rem;
-    margin-left: 0.375rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 /* ICON | MEDIUM */

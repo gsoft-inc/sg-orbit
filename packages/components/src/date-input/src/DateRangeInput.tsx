@@ -368,7 +368,7 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
                         className="o-ui-date-range-input-clear-button"
                         condensed
                         onClick={handleClearDates}
-                        size="xs"
+                        size="sm"
                     />
                 </ClearInputGroupContext>}
         </Box>

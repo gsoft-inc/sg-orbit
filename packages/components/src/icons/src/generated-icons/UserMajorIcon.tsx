@@ -5,7 +5,7 @@
 
 /* eslint-disable */
 import { SVGProps, Ref, forwardRef } from "react";
-const InnerUserMajorIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" ref={ref} {...props}><path fillRule="evenodd" d="M12 5.5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-4.5 3a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM12 16c-3.77 0-6.027 1.953-6.538 3.487a.75.75 0 0 1-1.423-.474C4.807 16.706 7.77 14.5 12 14.5s7.193 2.206 7.962 4.513a.75.75 0 0 1-1.424.474C18.028 17.953 15.77 16 12 16Z" clipRule="evenodd" /></svg>;
+const InnerUserMajorIcon = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 20 20" ref={ref} {...props}><path fillRule="evenodd" d="M10 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM6 6a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm4 7.75c-3.723 0-6.014 2.164-6.538 3.737a.75.75 0 0 1-1.423-.474C2.794 14.745 5.723 12.25 10 12.25s7.206 2.495 7.962 4.763a.75.75 0 0 1-1.424.474c-.524-1.573-2.815-3.737-6.538-3.737Z" clipRule="evenodd" /></svg>;
 const ForwardRef = forwardRef(InnerUserMajorIcon);
 export { ForwardRef as ReactComponent };
 /* eslint-enable */

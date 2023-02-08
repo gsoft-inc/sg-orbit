@@ -154,7 +154,7 @@ export function InnerPopover({
             condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
-            size="xs"
+            size="sm"
         />
     );
 

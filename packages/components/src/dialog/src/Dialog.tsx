@@ -275,7 +275,7 @@ export function InnerDialog({
             condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
-            size="xs"
+            size="sm"
         />
     );
 
