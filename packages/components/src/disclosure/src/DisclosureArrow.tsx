@@ -1,7 +1,6 @@
 import { ChevronMinorIcon } from "../../icons";
 import { ComponentProps, forwardRef } from "react";
 import { InternalProps, OmitInternalProps, SlotProps, StyledComponentProps, cssModule, isNil, mergeProps, slot } from "../../shared";
-import { ResponsiveProp } from "../../styling";
 import { useDisclosureContext } from "./DisclosureContext";
 
 const DefaultElement = "svg";
@@ -11,10 +10,6 @@ export interface InnerDisclosureArrowProps extends SlotProps, InternalProps, Sty
      * A controlled open value that determined whether or not the arrow is up or down.
      */
     open?: boolean;
-    /**
-     * An arrow can vary in size.
-     */
-    size?: ResponsiveProp<"2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit">;
 }
 
 export function InnerDisclosureArrow({
