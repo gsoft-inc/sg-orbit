@@ -4,7 +4,7 @@ import { ResponsiveProp, StyledSystemProps, useResponsiveValue, useStyleProps } 
 
 import { Box } from "../../box";
 
-export type IconSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+export type IconSize = "inherit";
 
 export interface InnerIconProps extends
     StyledSystemProps,

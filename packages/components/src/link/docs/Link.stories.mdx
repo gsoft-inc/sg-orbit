@@ -35,14 +35,20 @@ A link style can optimized for text.
 
 ### Icon
 
-A text link can contain [icons](#).
+A text link can contain [icons](#). Use `size="inherit"` on icons when used in a small TextLink.
 
 <Preview>
     <Story name="icon">
-        <TextLink href="#">
-            <Text>Flight details</Text>
-            <WarningMajorIcon />
-        </TextLink>
+        <Inline alignY="center">
+            <TextLink size="sm" href="#">
+                <Text>Flight details</Text>
+                <WarningMajorIcon size="inherit"/>
+            </TextLink>
+            <TextLink href="#">
+                <Text>Flight details</Text>
+                <WarningMajorIcon />
+            </TextLink>
+        </Inline>
     </Story>
 </Preview>
 

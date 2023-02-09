@@ -54,13 +54,13 @@
 
 /* CONTENT | ICON */
 .o-ui-radio-icon {
-    margin-left: var(--o-ui-sp-2);
+    margin-left: calc(var(--o-ui-sp-2) + 0.125rem);
 }
 
 /* CONTENT | ICON | REVERSE */
 .o-ui-radio-reverse .o-ui-radio-icon {
     margin-left: 0;
-    margin-right: var(--o-ui-sp-2);
+    margin-right: calc(var(--o-ui-sp-2) + 0.125rem);
 }
 
 /* CONTENT | COUNTER */
