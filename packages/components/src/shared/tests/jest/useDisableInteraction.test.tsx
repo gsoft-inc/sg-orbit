@@ -2,7 +2,7 @@ import { render, screen } from "@test-utils";
 import userEvent from "@testing-library/user-event";
 import { useDisableClick } from "../../src";
 
-test("returns click handler passed but prevents interaction if the boolean is true", async() => {
+test("handler is not called when boolean is true", async() => {
     const handler = jest.fn();
 
     function MockComponent() {
@@ -21,7 +21,7 @@ test("returns click handler passed but prevents interaction if the boolean is tr
 });
 
 
-test("returns click handler passed but does not prevent interaction if the boolean is false", async() => {
+test("handler is not called when boolean is false", async() => {
     const handler = jest.fn();
 
     function MockComponent() {
