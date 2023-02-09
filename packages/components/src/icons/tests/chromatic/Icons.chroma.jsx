@@ -3,6 +3,8 @@ import {
     AlertMajorIcon,
     ArrowMajorIcon,
     ArrowMinorIcon,
+    ArrowUpDownMajorIcon,
+    ArrowUpDownMinorIcon,
     BurgerMajorIcon,
     CalendarMajorIcon,
     CheckMajorIcon,
@@ -52,7 +54,6 @@ import {
     SignoutMajorIcon,
     StarFillMajorIcon,
     StarOutlineMajorIcon,
-    SortMajorIcon,
     TrashMajorIcon,
     TrashMinorIcon,
     UserAddMajorIcon,
@@ -92,6 +93,18 @@ export const IconArrowMinor = () => (
 );
 
 IconArrowMinor.storyName = "Arrow Minor";
+
+export const IconArrowUpDownMajor = () => (
+    <TestSuite multiIcon={IconArrowUpDownMajor} />
+);
+
+IconArrowUpDownMajor.storyName = "ArrowUpDown Major";
+
+export const IconArrowUpDownMinor = () => (
+    <TestSuite multiIcon={IconArrowUpDownMinor} />
+);
+
+IconArrowUpDownMinor.storyName = "ArrowUpDown Minor";
 
 export const IconBurgerMajor = () => (
     <TestSuite multiIcon={BurgerMajorIcon} />
@@ -392,12 +405,6 @@ export const IconStarOutlineMajor = () => (
 );
 
 IconStarOutlineMajor.storyName = "StarOutline Major";
-
-export const IconSortMajor = () => (
-    <TestSuite multiIcon={SortMajorIcon} />
-);
-
-IconSortMajor.storyName = "Sort Major";
 
 export const IconTelescopeMajor = () => (
     <TestSuite multiIcon={TelescopeMajorIcon} />

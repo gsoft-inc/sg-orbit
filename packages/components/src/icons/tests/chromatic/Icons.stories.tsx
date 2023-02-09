@@ -52,7 +52,6 @@ import {
     SignoutMajorIcon,
     StarFillMajorIcon,
     StarOutlineMajorIcon,
-    SortMajorIcon,
     TrashMajorIcon,
     TrashMinorIcon,
     UserAddMajorIcon,
@@ -558,15 +557,6 @@ export const IconStarOutlineMajor: IconsStory = {
 };
 
 IconStarOutlineMajor.storyName = "StarOutline Major";
-
-export const IconSortMajor: IconsStory = {
-    storyName: "Sort Major",
-    render: () => (
-        <TestSuite icon={SortMajorIcon} />
-    )
-};
-
-IconSortMajor.storyName = "Sort Major";
 
 export const IconTelescopeMajor: IconsStory = {
     storyName: "Telescope Major",
