@@ -1,6 +1,6 @@
-import { AriaAttributes } from "react";
+import { AriaAttributes, MouseEventHandler } from "react";
 import { HtmlButton } from "../../html";
-import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { useDisableClick, InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "negative";
 
@@ -10,6 +10,7 @@ export interface UseButtonProps extends Partial<InternalProps>, InteractionProps
     fluid?: boolean;
     inherit?: boolean;
     loading?: boolean;
+    onClick: MouseEventHandler<HTMLButtonElement>;
     size?: Size;
     type?: "button" | "submit" | "reset";
     variant?: ButtonVariant;
@@ -19,6 +20,7 @@ export interface UseButtonReturn {
     "aria-busy": boolean;
     "aria-live": AriaAttributes["aria-live"];
     className: string;
+    onClick: MouseEventHandler<HTMLButtonElement>;
     ref: MergedRef<any>;
     type: UseButtonProps["type"];
 }
@@ -34,6 +36,7 @@ export function useButton({
     hover,
     inherit,
     loading,
+    onClick,
     size,
     type = "button",
     variant = "primary"
@@ -44,6 +47,8 @@ export function useButton({
         delay: isNumber(autoFocus) ? autoFocus : undefined,
         isDisabled: !autoFocus
     });
+
+    const handleClick = useDisableClick(loading, onClick);
 
     return {
         "aria-busy": loading,
@@ -62,6 +67,7 @@ export function useButton({
                 normalizeSize(size)
             )
         ),
+        onClick: handleClick,
         ref: buttonRef,
         type: type ?? (as === HtmlButton ? "button" : undefined)
     };

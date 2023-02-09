@@ -1,6 +1,7 @@
 import { act, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { createRef } from "react";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
@@ -37,6 +38,24 @@ test("when autofocus is specified with a delay, the button is focused after the 
     expect(screen.getByTestId("button")).not.toHaveFocus();
 
     await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
+});
+
+test("when loading is true, the button should prevent onClick", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <Button
+            loading
+            onClick={handler}
+            data-testid="button"
+        >
+            Loading Button
+        </Button>
+    );
+
+    await userEvent.click(screen.getByTestId("button"));
+
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 // ***** Aria *****

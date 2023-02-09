@@ -32,6 +32,7 @@ export * from "./useId";
 export * from "./useKeyboardNavigation";
 export * from "./useHasChild";
 export * from "./useIsInitialRender";
+export * from "./useDisableInteraction";
 export * from "./useDisposables";
 export * from "./useForceRender";
 export * from "./useResizeObserver";

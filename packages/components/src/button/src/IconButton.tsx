@@ -87,6 +87,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         size,
         type,
         variant = "secondary",
+        onClick,
         ...rest
     } = mergeProps(
         props,
@@ -108,6 +109,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         hover,
         inherit,
         loading,
+        onClick,
         size: sizeValue,
         type,
         variant
