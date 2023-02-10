@@ -1,6 +1,6 @@
 import { render, screen } from "@test-utils";
 import userEvent from "@testing-library/user-event";
-import { useDisableClick } from "../../src";
+import { useDisableClick } from "../../src/useDisableClick";
 
 test("handler is not called when boolean is true", async() => {
     const handler = jest.fn();

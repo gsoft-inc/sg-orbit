@@ -1,6 +1,7 @@
 import { AriaAttributes, MouseEventHandler } from "react";
 import { HtmlButton } from "../../html";
-import { useDisableClick, InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { InteractionProps, InternalProps, MergedRef, Size, cssModule, isNumber, mergeClasses, normalizeSize, useAutoFocus, useMergedRefs } from "../../shared";
+import { useDisableClick } from "./useDisableClick";
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary" | "negative";
 
