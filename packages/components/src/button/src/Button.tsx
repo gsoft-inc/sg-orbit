@@ -89,6 +89,7 @@ export function InnerButton(props: InnerButtonProps) {
         type,
         variant = "primary",
         inherit,
+        onClick,
         ...rest
     } = mergeProps(
         props,
@@ -112,6 +113,7 @@ export function InnerButton(props: InnerButtonProps) {
         hover,
         inherit,
         loading,
+        onClick,
         size: sizeValue,
         type,
         variant
