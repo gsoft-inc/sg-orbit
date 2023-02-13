@@ -64,7 +64,7 @@ test("when loading is true, the button should prevent onClick", async () => {
             data-testid="button"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
