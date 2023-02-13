@@ -8,16 +8,16 @@
     import { ReactComponent as Azure } from "./icon-azure.svg";
     import { ReactComponent as Filter } from "./icon-filter.svg";
 
-    export const AzureIcon = createIcon(Azure32);
+    export const AzureMajorIcon = createIcon(Azure);
     export const FilterMajorIcon = createIcon(Filter);
     ```
 
     ```jsx
-    import { AzureIcon, FilterMajorIcon } from "./assets";
+    import { AzureMajorIcon, FilterMajorIcon } from "./assets";
 
     () => (
         <>
-            <AzureIcon />
+            <AzureMajorIcon />
             <FilterMajorIcon />
         </>
     );
