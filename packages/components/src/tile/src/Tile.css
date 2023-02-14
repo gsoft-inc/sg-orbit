@@ -106,13 +106,13 @@
     content: "";
     opacity: 1;
     position: absolute;
-    width: var(--o-ui-sz-2);
-    height: var(--o-ui-sz-2);
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
     mask-size: contain;
     mask-image: url("~@orbit-ui/icons/dist/icon-check-major.svg");
     z-index: 1;
-    right: 0.625rem;
-    top: 0.625rem;
+    right: 0.5rem;
+    top: 0.5rem;
     background-color: var(--o-ui-bg-alias-accent-faint);
 }
 
