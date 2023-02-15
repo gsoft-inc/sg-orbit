@@ -12,7 +12,6 @@ import {
     ChevronUpDownMinorIcon,
     CrossMajorIcon,
     CrossMinorIcon,
-    DotMajorIcon,
     DuplicateMajorIcon,
     DownloadMajorIcon,
     EmailMajorIcon,
@@ -188,15 +187,6 @@ export const IconCrossMinor: IconsStory = {
 };
 
 IconCrossMinor.storyName = "Cross Minor";
-
-export const IconDotMajor: IconsStory = {
-    storyName: "Dot Major",
-    render: () => (
-        <TestSuite icon={DotMajorIcon} />
-    )
-};
-
-IconDotMajor.storyName = "Dot Major";
 
 export const IconDuplicateMajor: IconsStory = {
     storyName: "Duplicate Major",

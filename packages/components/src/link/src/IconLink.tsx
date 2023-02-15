@@ -4,7 +4,7 @@ import { Children, ComponentProps, ReactElement, ReactNode, forwardRef } from "r
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, mergeProps } from "../../shared";
-import { ResponsiveProp, useStyleProps } from "../../styling";
+import { useStyleProps } from "../../styling";
 
 const DefaultElement = "a";
 
@@ -21,10 +21,6 @@ export interface InnerIconLinkProps extends AbstractLinkProps<typeof DefaultElem
      * React children.
      */
     children: ReactNode;
-    /**
-     * A link can vary in size.
-     */
-    size?: ResponsiveProp<"sm" | "md">;
     /**
      * The link style to use.
      */
