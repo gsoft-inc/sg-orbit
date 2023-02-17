@@ -64,8 +64,6 @@
 .o-ui-dialog-illustration {
     width: 100%;
     height: var(--o-ui-sz-14);
-    /* border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit; */
     grid-area: image;
     overflow: hidden;
 }
