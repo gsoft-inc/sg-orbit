@@ -1,3 +1,16 @@
+.o-ui-tooltip-wrapper {
+    max-width: var(--o-ui-sz-16);
+
+    --o-ui-tooltip-arrow-border-color: var(--o-ui-focus-ring-color-alias-default);
+    --o-ui-tooltip-arrow-dimension: 10px;
+    /* since we take a 10px by 10px and add a transformation of 45, we get a lozenge. the height of that lozenge can be calculated using
+       sqrt(var(--o-ui-tooltip-arrow-dimension) ^ 2 + var(--o-ui-tooltip-arrow-dimension) ^ 2) = 14.142135623730951. Since calc doesn't
+       allow complex calculation like this, we pre-compute it in --o-ui-tooltip-lozenge-dimension
+    */
+    --o-ui-tooltip-lozenge-dimension: 14px;
+    --o-ui-tooltip-spacing-with-trigger: var(--o-ui-sp-3);
+}
+
 .o-ui-tooltip {
     background-color: var(--o-ui-bg-alias-surface);
     border-radius: var(--o-ui-br-3);
@@ -8,18 +21,104 @@
     overflow-wrap: break-word;
 }
 
-/* We need a .o-ui-tooltip-content class */
+.o-ui-tooltip-arrow,
+.o-ui-tooltip-arrow::before {
+    position: absolute;
+    width: var(--o-ui-tooltip-arrow-dimension);
+    height: var(--o-ui-tooltip-arrow-dimension);
+    z-index: 1;
+}
+
+.o-ui-tooltip-arrow::before {
+    content: "";
+    transform: rotate(45deg);
+    background-color: var(--o-ui-bg-alias-surface);
+    box-shadow: var(--o-ui-bs-alias-floating);
+}
+
+.o-ui-tooltip-arrow::after {
+    content: "";
+    width: 20px;
+    height: 10px;
+    background-color: var(--o-ui-bg-alias-surface);
+    position: absolute;
+    top: calc(var(--o-ui-tooltip-arrow-dimension) / 2);
+    left: calc(-1 * var(--o-ui-tooltip-arrow-dimension) / 2);
+    z-index: 10;
+}
+
 /* LEFT ICON */
-.o-ui-tooltip .o-ui-icon {
+.o-ui-tooltip-wrapper .o-ui-icon {
     margin-right: var(--o-ui-sp-1);
 }
 
 /* RIGHT ICON */
-.o-ui-tooltip .o-ui-text + .o-ui-icon {
+.o-ui-tooltip-wrapper .o-ui-text + .o-ui-icon {
     margin-left: var(--o-ui-sp-1);
 }
 
 /* DISABLED WRAPPER */
 .o-ui-tooltip-disabled-wrapper {
     display: inline-block;
+}
+
+/* POSITION */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-tooltip-wrapper {
+    padding-bottom: var(--o-ui-tooltip-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-tooltip-wrapper {
+    padding-top: var(--o-ui-tooltip-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-tooltip-wrapper {
+    padding-right: var(--o-ui-tooltip-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-tooltip-wrapper {
+    padding-left: var(--o-ui-tooltip-spacing-with-trigger);
+}
+
+/* ARROW  */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-tooltip-arrow {
+    bottom: calc(var(--o-ui-tooltip-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-tooltip-arrow {
+    top: calc(var(--o-ui-tooltip-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-tooltip-arrow {
+    right: calc(var(--o-ui-tooltip-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-tooltip-arrow {
+    left: calc(var(--o-ui-tooltip-lozenge-dimension) / 2);
+}
+
+/* ARROW | BORDER */
+/* BOTTOM ARROW */
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-tooltip-arrow::after {
+    top: calc(var(--o-ui-tooltip-arrow-dimension) / 2);
+}
+
+/* TOP ARROW */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-tooltip-arrow::after {
+    top: calc(-1 * (var(--o-ui-tooltip-arrow-dimension) / 2));
+}
+
+/* RIGHT ARROW */
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-tooltip-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: calc(var(--o-ui-tooltip-arrow-dimension) / 2);
+    top: calc(-1 * (var(--o-ui-tooltip-arrow-dimension) / 2));
+}
+
+/* LEFT ARROW */
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-tooltip-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: calc(-1 * (var(--o-ui-tooltip-arrow-dimension) / 2));
+    top: calc(-1 * (var(--o-ui-tooltip-arrow-dimension) / 2));
 }

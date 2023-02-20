@@ -1,13 +1,14 @@
-import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, RefObject } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback, useFocusScope, useMergedRefs } from "../../shared";
 
 import { Text } from "../../typography";
+import { Div } from "../../html";
 import { useOverlayLightDismiss } from "../../overlay";
 import { useTooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
-
 export interface InnerTooltipProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
+    arrowRef?: RefObject<HTMLDivElement>;
     /**
      * React children.
      */
@@ -17,6 +18,7 @@ export interface InnerTooltipProps extends InternalProps, StyledComponentProps<t
 export function InnerTooltip({
     as = DefaultElement,
     children,
+    arrowRef,
     forwardedRef,
     ...rest
 }: InnerTooltipProps) {
@@ -41,20 +43,27 @@ export function InnerTooltip({
     });
 
     return (
-        <Text
+        <Div
             {...mergeProps(
                 rest,
                 {
                     as,
-                    className: "o-ui-tooltip",
+                    className: "o-ui-tooltip-wrapper",
                     ref: tooltipRef,
                     role: "tooltip"
                 },
                 overlayDismissProps
             )}
         >
-            {children}
-        </Text>
+            <Div className="o-ui-tooltip">
+                <Text>{children}</Text>
+            </Div>
+            <Div
+                className="o-ui-tooltip-arrow"
+                ref={arrowRef}
+                zIndex={100}
+            />
+        </Div>
     );
 }
 

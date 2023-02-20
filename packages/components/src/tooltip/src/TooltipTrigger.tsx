@@ -12,8 +12,8 @@ import {
     useId,
     useMergedRefs
 } from "../../shared";
-import { Overlay, OverlayArrow, OverlayPositionProp, isTargetParent, useOverlayPosition, useOverlayTrigger } from "../../overlay";
-import { useResponsiveValue, useThemeContext } from "../../styling";
+import { Overlay, OverlayPositionProp, isTargetParent, useOverlayPosition, useOverlayTrigger } from "../../overlay";
+import { useResponsiveValue } from "../../styling";
 
 import { Div } from "../../html";
 import { TooltipTriggerContext } from "./TooltipTriggerContext";
@@ -93,8 +93,6 @@ export function InnerTooltipTrigger({
 }: InnerTooltipTriggerProps) {
     const positionValue = useResponsiveValue(positionProp);
 
-    const { themeAccessor } = useThemeContext();
-
     const [isOpen, setIsOpen] = useControllableState(open, defaultOpen, false);
 
     const updateIsOpen = useCallback((event: SyntheticEvent, newValue: boolean) => {
@@ -159,6 +157,7 @@ export function InnerTooltipTrigger({
     ));
 
     const tooltipMarkup = augmentElement(tooltip, {
+        arrowRef,
         id: tooltipId
     });
 
@@ -175,7 +174,6 @@ export function InnerTooltipTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: themeAccessor.getSpace(3),
                         ref: overlayRef,
                         show: isOpen,
                         zIndex
@@ -183,10 +181,6 @@ export function InnerTooltipTrigger({
                 )}
             >
                 {tooltipMarkup}
-                <OverlayArrow
-                    ref={arrowRef}
-                    zIndex={zIndex + 100}
-                />
             </Overlay>
         </TooltipTriggerContext.Provider>
     );
