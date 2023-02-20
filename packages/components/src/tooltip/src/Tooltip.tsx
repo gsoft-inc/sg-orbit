@@ -1,4 +1,4 @@
-import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, RefObject } from "react";
+import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, Ref } from "react";
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback, useFocusScope, useMergedRefs } from "../../shared";
 
 import { Text } from "../../typography";
@@ -8,7 +8,7 @@ import { useTooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 export interface InnerTooltipProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
-    arrowRef?: RefObject<HTMLDivElement>;
+    arrowProps?: { ref?: Ref<HTMLDivElement> };
     /**
      * React children.
      */
@@ -18,7 +18,7 @@ export interface InnerTooltipProps extends InternalProps, StyledComponentProps<t
 export function InnerTooltip({
     as = DefaultElement,
     children,
-    arrowRef,
+    arrowProps,
     forwardedRef,
     ...rest
 }: InnerTooltipProps) {
@@ -60,8 +60,8 @@ export function InnerTooltip({
             </Div>
             <Div
                 className="o-ui-tooltip-arrow"
-                ref={arrowRef}
                 zIndex={100}
+                {...arrowProps}
             />
         </Div>
     );

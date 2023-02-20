@@ -157,7 +157,9 @@ export function InnerTooltipTrigger({
     ));
 
     const tooltipMarkup = augmentElement(tooltip, {
-        arrowRef,
+        arrowProps: {
+            ref: arrowRef
+        },
         id: tooltipId
     });
 
