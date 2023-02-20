@@ -1,7 +1,6 @@
 .o-ui-tooltip-wrapper {
     max-width: var(--o-ui-sz-16);
 
-    --o-ui-tooltip-arrow-border-color: var(--o-ui-focus-ring-color-alias-default);
     --o-ui-tooltip-arrow-dimension: 10px;
     /* since we take a 10px by 10px and add a transformation of 45, we get a lozenge. the height of that lozenge can be calculated using
        sqrt(var(--o-ui-tooltip-arrow-dimension) ^ 2 + var(--o-ui-tooltip-arrow-dimension) ^ 2) = 14.142135623730951. Since calc doesn't
