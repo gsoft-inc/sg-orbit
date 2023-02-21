@@ -56,7 +56,7 @@ jobs:
                   restore-keys: |
                     ${{ runner.ox }}-yarn-
             - name: Lint Eslint
-              run: yarn lint-ci:eslint
+              run: yarn lint-ci-eslint
 
     stylelint:
         name: "Stylelint"
@@ -77,7 +77,7 @@ jobs:
                   restore-keys: |
                     ${{ runner.ox }}-yarn-
             - name: Lint Stylelint
-              run: yarn lint-ci:style
+              run: yarn lint-ci-style
 
     build_and_tests:
         name: "Build and Tests"
