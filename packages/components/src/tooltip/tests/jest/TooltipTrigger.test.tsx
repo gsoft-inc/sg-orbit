@@ -62,17 +62,11 @@ test("when hovering the overlay arrow, close on overlay leave", async () => {
 
     expect(await screen.findByRole("tooltip")).toBeInTheDocument();
 
-    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
-    fireEvent.mouseLeave(screen.getByTestId("trigger"), {
-        relatedTarget: getOverlayArrow(screen.getByTestId("overlay"))
-    });
+    await userEvent.hover(getOverlayArrow(screen.getByTestId("overlay")));
 
     expect(await screen.findByRole("tooltip")).toBeInTheDocument();
 
-    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
-    fireEvent.mouseLeave(getOverlayArrow(screen.getByTestId("overlay")), {
-        relatedTarget:document.body
-    });
+    await userEvent.unhover(getOverlayArrow(screen.getByTestId("overlay")));
 
     expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
 });
@@ -89,17 +83,11 @@ test("when hovering the tooltip, do not close if hovering the trigger", async ()
 
     expect(await screen.findByRole("tooltip")).toBeInTheDocument();
 
-    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
-    fireEvent.mouseLeave(screen.getByTestId("trigger"), {
-        relatedTarget: screen.getByRole("tooltip")
-    });
+    await userEvent.hover(screen.getByRole("tooltip"));
 
     expect(await screen.findByRole("tooltip")).toBeInTheDocument();
 
-    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
-    fireEvent.mouseLeave(screen.getByRole("tooltip"), {
-        relatedTarget: screen.getByTestId("trigger")
-    });
+    await userEvent.hover(screen.getByTestId("trigger"));
 
     expect(screen.getByRole("tooltip")).toBeInTheDocument();
 });
