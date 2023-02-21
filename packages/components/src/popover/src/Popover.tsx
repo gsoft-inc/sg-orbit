@@ -75,7 +75,7 @@ export function InnerPopover({
     const popoverRef = useMergedRefs(forwardedRef, setFocusRef);
     const dismissButtonRef = useRef<HTMLButtonElement>();
 
-    const { close: triggerClose } = usePopoverTriggerContext();
+    const [{ close: triggerClose }, isInPopoverTrigger] = usePopoverTriggerContext();
 
     const close = useCallback(event => {
         if (!isNil(triggerClose)) {
@@ -222,7 +222,7 @@ export function InnerPopover({
                     {footerSectionMarkup}
                 </Box>
 
-                {arrowProps && <Div
+                {isInPopoverTrigger && <Div
                     className="o-ui-popover-arrow"
                     {...mergeProps(
                         {

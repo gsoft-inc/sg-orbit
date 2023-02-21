@@ -1,5 +1,5 @@
 const HighlightedTrigger = forwardRef(({ children, ...rest }, ref) => {
-    const { isOpen } = usePopoverTriggerContext();
+    const [{ isOpen }] = usePopoverTriggerContext();
 
     return (
         <Button

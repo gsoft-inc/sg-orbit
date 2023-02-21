@@ -137,7 +137,7 @@ test("when a popover is not dismissable, do not hide the popover on trigger togg
 
 test("when the context close function is called, close the dialog", async () => {
     const CustomDialog = forwardRef<HTMLElement, Omit<PopoverProps, "children">>((props, ref) => {
-        const { close } = usePopoverTriggerContext();
+        const [{ close }] = usePopoverTriggerContext();
 
         return (
             <Popover

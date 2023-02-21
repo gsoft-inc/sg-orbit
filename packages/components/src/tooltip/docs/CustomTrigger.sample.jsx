@@ -1,5 +1,5 @@
 const CustomTrigger = forwardRef((props, ref) => {
-    const { isOpen } = useTooltipTriggerContext();
+    const [{ isOpen }] = useTooltipTriggerContext();
 
     return (
         <IconButton

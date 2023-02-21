@@ -29,7 +29,7 @@ export function InnerTooltip({
     zIndex,
     ...rest
 }: InnerTooltipProps) {
-    const { close } = useTooltipTriggerContext();
+    const [{ close }, isInTooltipTrigger] = useTooltipTriggerContext();
 
     const [focusScope, setFocusRef] = useFocusScope();
 
@@ -73,7 +73,7 @@ export function InnerTooltip({
             >
                 <Text>{children}</Text>
             </Box>
-            {arrowProps && <Div
+            {isInTooltipTrigger && <Div
                 className="o-ui-tooltip-arrow"
                 zIndex={100}
                 {...arrowProps}

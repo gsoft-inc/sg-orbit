@@ -1,5 +1,5 @@
 const CustomClosePopover = forwardRef(({ children, ...rest }, ref) => {
-    const { close } = usePopoverTriggerContext();
+    const [{ close }] = usePopoverTriggerContext();
 
     return (
         <Popover
