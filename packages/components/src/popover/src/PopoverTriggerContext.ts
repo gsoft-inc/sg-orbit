@@ -9,8 +9,6 @@ export interface PopoverTriggerContextType {
 export const PopoverTriggerContext = createContext<PopoverTriggerContextType>(null);
 
 export function usePopoverTriggerContext(): [PopoverTriggerContextType, boolean] {
-    // return useContext(PopoverTriggerContext);
-
     const context = useContext(PopoverTriggerContext);
 
     return !isNil(context)
