@@ -106,7 +106,7 @@ Any updates to the packages or Storybook's stories will automatically re-compile
 To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
-yarn start:sb-docs
+yarn start-sb-docs
 ```
 
 Basically the only difference is that the process will be start with the `--docs` arguments.
@@ -218,12 +218,12 @@ A Netlify deploy can be started locally with a CLI command. This is useful if yo
 To deploy a draft to the **sg-storybook** site, open a terminal at the root of the workspace and execute the following commands:
 
 ```bash
-yarn deploy:netlify-storybook-preview
+yarn deploy-netlify-sb-preview
 ```
 
 The draft link will be available in the terminal (ex. https://616dab5c22680800ccd47d6f--sg-storybook.netlify.app).
 
-If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy:netlify-storybook-preview` in the [package.json](package.json) file.
+If you encountered any problem with the CLI command, make sure the site `App ID` of **sg-storybook** site match the `--site` parameter of the script `deploy-netlify-sb-preview` in the [package.json](package.json) file.
 
 ## Commands
 
@@ -237,12 +237,12 @@ Compile all the packages & start Storybook.
 yarn start
 ```
 
-### start:sb-docs
+### start-sb-docs
 
 Compile all the packages & start Storybook in docs mode.
 
 ```bash
-yarn start:sb-docs
+yarn start-sb-docs
 ```
 
 ### build
@@ -309,12 +309,12 @@ Manually deploy Storybook to Netlify from any branch.
 yarn deploy-sb-preview
 ```
 
-### release:alpha
+### release-alpha
 
 Deploy an alpha version of the packages.
 
 ```bash
-yarn release:alpha
+yarn release-alpha
 ```
 
 ## Testing
@@ -500,9 +500,9 @@ Example:
 
 ```bash
 "scripts": {
-    "build": "run-p build:*",
-    "build:pkg": "...",
-    "build:sb": "..."
+    "clean": "run-p clean:*",
+    "clean:pkg": "...",
+    "clean:sb": "..."
 }
 ```
 
