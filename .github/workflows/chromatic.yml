@@ -40,6 +40,6 @@ jobs:
               uses: chromaui/action@v1
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-                  buildScriptName: build:sb-chroma
+                  buildScriptName: build-sb-chroma
 
             
