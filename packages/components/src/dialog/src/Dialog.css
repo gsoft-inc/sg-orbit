@@ -152,3 +152,26 @@
     right: var(--o-ui-sp-4);
     top: var(--o-ui-sp-4);
 }
+
+/* STATE | FOCUS */
+.o-ui-dialog-focus-ring:focus-visible,
+.o-ui-dialog-focus-ring-focus {
+    outline: transparent;
+}
+
+.o-ui-dialog-focus-ring::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color-alias-default);
+    opacity: 0;
+}
+
+.o-ui-dialog-focus-ring:focus-visible::before {
+    opacity: 1;
+}

@@ -329,7 +329,13 @@ export function InnerDialog({
                             tabIndex: -1
                         },
                         overlayDismissProps,
-                        restoreFocusProps
+                        restoreFocusProps,
+                        {
+                            className: cssModule(
+                                "o-ui-dialog-focus-ring",
+                                focus && "focus"
+                            )
+                        }
                     )}
                 >
                     {dismissButtonMarkup}
