@@ -108,7 +108,6 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    height: 100%;
 }
 
 /* ASIDE | HORIZONTAL */
@@ -138,7 +137,12 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
+    /* align-self: stretch; */
+}
+
+.o-ui-card-image {
     align-self: stretch;
+    display: flex;
 }
 
 /* IMAGE | PADDING */
@@ -168,10 +172,6 @@
     grid-area: image;
     border-bottom-left-radius: inherit;
     border-top-left-radius: inherit;
-}
-
-.o-ui-card-horizontal > .o-ui-card-image img {
-    height: 100%;
 }
 
 /* IMAGE | HORIZONTAL | SIZES */
