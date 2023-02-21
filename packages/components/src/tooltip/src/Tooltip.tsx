@@ -58,11 +58,11 @@ export function InnerTooltip({
             <Div className="o-ui-tooltip">
                 <Text>{children}</Text>
             </Div>
-            <Div
+            {arrowProps && <Div
                 className="o-ui-tooltip-arrow"
                 zIndex={100}
                 {...arrowProps}
-            />
+            />}
         </Div>
     );
 }

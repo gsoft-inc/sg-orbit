@@ -209,7 +209,7 @@ export function InnerPopover({
                     {footerSectionMarkup}
                 </Div>
 
-                <Div
+                {arrowProps && <Div
                     className="o-ui-popover-arrow"
                     {...mergeProps(
                         {
@@ -217,7 +217,7 @@ export function InnerPopover({
                         },
                         { ...arrowProps }
                     )}
-                />
+                />}
             </Box>
         </FocusScopeContext.Provider>
     );
