@@ -2,6 +2,7 @@ import { ComponentProps, ReactNode, SyntheticEvent, forwardRef, Ref } from "reac
 import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback, useFocusScope, useMergedRefs } from "../../shared";
 
 import { Text } from "../../typography";
+import { Box, BoxProps } from "../../box";
 import { Div } from "../../html";
 import { useOverlayLightDismiss } from "../../overlay";
 import { useTooltipTriggerContext } from "./TooltipTriggerContext";
@@ -13,6 +14,10 @@ export interface InnerTooltipProps extends InternalProps, StyledComponentProps<t
      * React children.
      */
     children: ReactNode;
+    /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
 }
 
 export function InnerTooltip({
@@ -20,6 +25,8 @@ export function InnerTooltip({
     children,
     arrowProps,
     forwardedRef,
+    wrapperProps,
+    zIndex,
     ...rest
 }: InnerTooltipProps) {
     const { close } = useTooltipTriggerContext();
@@ -45,19 +52,27 @@ export function InnerTooltip({
     return (
         <Div
             {...mergeProps(
-                rest,
+                wrapperProps ?? {},
                 {
-                    as,
                     className: "o-ui-tooltip-wrapper",
-                    ref: tooltipRef,
-                    role: "tooltip"
-                },
-                overlayDismissProps
+                    zIndex
+                }
             )}
         >
-            <Div className="o-ui-tooltip">
+            <Box
+                {...mergeProps(
+                    rest,
+                    {
+                        as,
+                        className: "o-ui-tooltip",
+                        ref: tooltipRef,
+                        role: "tooltip"
+                    },
+                    overlayDismissProps
+                )}
+            >
                 <Text>{children}</Text>
-            </Div>
+            </Box>
             {arrowProps && <Div
                 className="o-ui-tooltip-arrow"
                 zIndex={100}
