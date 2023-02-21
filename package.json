@@ -45,7 +45,7 @@
     "serve-sb": "serve storybook-static/sb",
     "serve-sb-chroma": "serve storybook-static/chromatic",
     "serve-sb-docs": "serve storybook-static/docs",
-    "chromatic": "chromatic -b=build-sb-for-chroma --debug"
+    "chromatic": "chromatic -b=build-sb-chroma --debug"
   },
   "devDependencies": {
     "@babel/cli": "7.16.8",
