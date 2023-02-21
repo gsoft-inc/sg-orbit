@@ -106,7 +106,7 @@ Any updates to the packages or Storybook's stories will automatically re-compile
 To start developing in docs mode, [open a terminal in VSCode](https://code.visualstudio.com/docs/editor/integrated-terminal#_managing-multiple-terminals) and execute the following command at the root of the workspace:
 
 ```bash
-yarn start-docs
+yarn start:sb-docs
 ```
 
 Basically the only difference is that the process will be start with the `--docs` arguments.
@@ -185,7 +185,7 @@ If you are using 2FA, make sure you specified a valid OTP.
 If the packages failed to compile, it's easier to debug without executing the full release flow everytime. To do so, instead, execute the following command:
 
 ```bash
-yarn build-pkg
+yarn build
 ```
 
 By default, packages compilation output will be in their respective *dist* directory. For more details, read the [packages](/packages) README file.
@@ -237,12 +237,12 @@ Compile all the packages & start Storybook.
 yarn start
 ```
 
-### start-docs
+### start:sb-docs
 
 Compile all the packages & start Storybook in docs mode.
 
 ```bash
-yarn start-docs
+yarn start:sb-docs
 ```
 
 ### build
@@ -309,12 +309,12 @@ Manually deploy Storybook to Netlify from any branch.
 yarn deploy-sb-preview
 ```
 
-### release-alpha
+### release:alpha
 
 Deploy an alpha version of the packages.
 
 ```bash
-yarn release-alpha
+yarn release:alpha
 ```
 
 ## Testing
