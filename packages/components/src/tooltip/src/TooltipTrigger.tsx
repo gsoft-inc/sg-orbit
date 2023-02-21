@@ -166,11 +166,10 @@ export function InnerTooltipTrigger({
         hideOnLeave: true,
         hideOnOutsideClick: false,
         onHide: useEventCallback((event: SyntheticEvent) => {
-            close(event);
             // Ignore events related to the trigger.
-            // if (!isTargetParent(event.target, triggerRef) && (event as FocusEvent).relatedTarget !== triggerRef.current) {
-            //     close(event);
-            // }
+            if ((event as FocusEvent).relatedTarget !== triggerRef.current) {
+                close(event);
+            }
         }),
         trigger: "hover"
     });
