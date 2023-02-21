@@ -56,7 +56,8 @@ export function InnerTooltip({
                 {
                     className: "o-ui-tooltip-wrapper",
                     zIndex
-                }
+                },
+                overlayDismissProps
             )}
         >
             <Box
@@ -67,8 +68,7 @@ export function InnerTooltip({
                         className: "o-ui-tooltip",
                         ref: tooltipRef,
                         role: "tooltip"
-                    },
-                    overlayDismissProps
+                    }
                 )}
             >
                 <Text>{children}</Text>
