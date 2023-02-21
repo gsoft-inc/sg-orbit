@@ -1,9 +1,7 @@
-import { ComponentProps, ReactNode, SyntheticEvent, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps, useEventCallback, useFocusScope, useMergedRefs } from "../../shared";
+import { ComponentProps, ReactNode, forwardRef } from "react";
+import { InternalProps, OmitInternalProps, StyledComponentProps, mergeProps } from "../../shared";
 
 import { Text } from "../../typography";
-import { useOverlayLightDismiss } from "../../overlay";
-import { useTooltipTriggerContext } from "./TooltipTriggerContext";
 
 const DefaultElement = "div";
 
