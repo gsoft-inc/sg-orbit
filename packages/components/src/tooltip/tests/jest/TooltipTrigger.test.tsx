@@ -46,6 +46,64 @@ test("when the trigger is disabled, close on trigger leave", async () => {
     await waitFor(() => expect(screen.queryByTestId("tooltip")).not.toBeInTheDocument());
 });
 
+function getOverlayArrow(element: HTMLElement) {
+    return element.querySelector(".o-ui-overlay-arrow");
+}
+
+test("when hovering the overlay arrow, close on overlay leave", async () => {
+    renderWithTheme(
+        <TooltipTrigger data-testid="overlay">
+            <Button data-testid="trigger">Trigger</Button>
+            <Tooltip>Content</Tooltip>
+        </TooltipTrigger>
+    );
+
+    await userEvent.hover(screen.getByTestId("trigger"));
+
+    expect(await screen.findByRole("tooltip")).toBeInTheDocument();
+
+    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
+    fireEvent.mouseLeave(screen.getByTestId("trigger"), {
+        relatedTarget: getOverlayArrow(screen.getByTestId("overlay"))
+    });
+
+    expect(await screen.findByRole("tooltip")).toBeInTheDocument();
+
+    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
+    fireEvent.mouseLeave(getOverlayArrow(screen.getByTestId("overlay")), {
+        relatedTarget:document.body
+    });
+
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+});
+
+test("when hovering the tooltip, do not close if hovering the trigger", async () => {
+    renderWithTheme(
+        <TooltipTrigger>
+            <Button data-testid="trigger">Trigger</Button>
+            <Tooltip>Content</Tooltip>
+        </TooltipTrigger>
+    );
+
+    await userEvent.hover(screen.getByTestId("trigger"));
+
+    expect(await screen.findByRole("tooltip")).toBeInTheDocument();
+
+    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
+    fireEvent.mouseLeave(screen.getByTestId("trigger"), {
+        relatedTarget: screen.getByRole("tooltip")
+    });
+
+    expect(await screen.findByRole("tooltip")).toBeInTheDocument();
+
+    // fireEvent.mouseLeave() since we need to specify the relatedTarget.
+    fireEvent.mouseLeave(screen.getByRole("tooltip"), {
+        relatedTarget: screen.getByTestId("trigger")
+    });
+
+    expect(screen.getByRole("tooltip")).toBeInTheDocument();
+});
+
 // ***** Aria *****
 
 test("when an id is provided for the tooltip, it is used as the tooltip id", async () => {
@@ -179,4 +237,3 @@ test("set ref once", async () => {
 
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
 });
-
