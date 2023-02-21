@@ -1,4 +1,4 @@
-import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useMemo, useRef, RefObject, Ref } from "react";
+import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useMemo, useRef, Ref } from "react";
 import {
     FocusScopeContext,
     InteractionProps,
