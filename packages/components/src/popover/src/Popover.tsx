@@ -61,6 +61,7 @@ export function InnerPopover({
     as = DefaultElement,
     children,
     dismissable = true,
+    focus,
     forwardedRef,
     id,
     onClose,
@@ -205,6 +206,12 @@ export function InnerPopover({
                             ref: popoverRef,
                             role: "dialog",
                             tabIndex: -1
+                        },
+                        {
+                            className: cssModule(
+                                "o-ui-popover-focus-ring",
+                                focus && "focus"
+                            )
                         }
                     )}
 

@@ -157,3 +157,67 @@
     left: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
     top: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
 }
+
+/* ARROW | BORDER | STATE | FOCUS */
+/* RIGHT ARROW */
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    left: 8px;
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-bottom: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-left: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* BOTTOM ARROW */
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    top: 8px;
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-top: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-left: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* LEFT ARROW */
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    left: -8px;
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-top: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-right: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* TOP ARROW */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    top: -8px;
+}
+
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-popover-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-bottom: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-right: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* STATE | FOCUS */
+.o-ui-popover-focus-ring:focus-visible,
+.o-ui-popover-focus-ring-focus {
+    outline: transparent;
+}
+
+.o-ui-popover-focus-ring::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: inherit;
+    border: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-focus-ring-color-alias-default);
+    opacity: 0;
+}
+
+.o-ui-popover-focus-ring:focus-visible::before {
+    opacity: 1;
+}
