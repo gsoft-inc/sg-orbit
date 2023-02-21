@@ -19,7 +19,7 @@ import {
 } from "../../shared";
 import { useTrapFocus } from "../../overlay";
 
-import { Box } from "../../box";
+import { Box, BoxProps } from "../../box";
 import { Div } from "../../html";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
@@ -46,6 +46,10 @@ export interface InnerPopoverProps extends InternalProps, InteractionProps, Styl
      */
     onClose?: (event: SyntheticEvent) => void;
     /**
+     * Additional props to render on the wrapper element.
+     */
+    wrapperProps?: Partial<BoxProps>;
+    /**
      * The z-index of the dialog.
      */
     zIndex?: number;
@@ -57,12 +61,12 @@ export function InnerPopover({
     as = DefaultElement,
     children,
     dismissable = true,
-    focus,
     forwardedRef,
     id,
     onClose,
     zIndex = 10000,
     arrowProps,
+    wrapperProps,
     ...rest
 }: InnerPopoverProps) {
     const [focusScope, setFocusRef] = useFocusScope();
@@ -177,34 +181,39 @@ export function InnerPopover({
 
     return (
         <FocusScopeContext.Provider value={{ scope: focusScope }}>
-            <Box
+            <Div
                 {...mergeProps(
-                    rest,
+                    wrapperProps ?? {},
                     {
-                        "aria-label": ariaLabel,
-                        "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
-                        as,
-                        className: cssModule(
-                            "o-ui-popover-wrapper"
-                        ),
-                        id,
-                        ref: popoverRef,
-                        role: "dialog",
-                        tabIndex: -1,
-                        zIndex
+                        className: "o-ui-popover-wrapper",
+                        zIndex: zIndex
                     }
                 )}
             >
-                <Div className={cssModule(
-                    "o-ui-popover",
-                    dismissable && "dismissable"
-                )}
+                <Box
+                    {...mergeProps(
+                        rest,
+                        {
+                            "aria-label": ariaLabel,
+                            "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
+                            as,
+                            className: cssModule(
+                                "o-ui-popover",
+                                dismissable && "dismissable"
+                            ),
+                            id,
+                            ref: popoverRef,
+                            role: "dialog",
+                            tabIndex: -1
+                        }
+                    )}
+
                 >
                     {dismissButtonMarkup}
                     {headerSectionMarkup}
                     {content}
                     {footerSectionMarkup}
-                </Div>
+                </Box>
 
                 {arrowProps && <Div
                     className="o-ui-popover-arrow"
@@ -215,7 +224,7 @@ export function InnerPopover({
                         { ...arrowProps }
                     )}
                 />}
-            </Box>
+            </Div>
         </FocusScopeContext.Provider>
     );
 }

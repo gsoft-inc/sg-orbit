@@ -7,7 +7,6 @@
         */
     --o-ui-popover-lozenge-dimension: 14px;
     --o-ui-popover-spacing-with-trigger: var(--o-ui-sp-3);
-    outline: none;
 }
 
 .o-ui-popover {
@@ -19,6 +18,7 @@
     max-width: var(--o-ui-sz-16);
     width: 100%;
     position: relative;
+    outline: none;
 }
 
 /* HEADER | SECTION */
