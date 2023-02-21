@@ -17,7 +17,7 @@ import {
     useMergedRefs,
     useSlots
 } from "../../shared";
-import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
+import { useTrapFocus } from "../../overlay";
 
 import { Box } from "../../box";
 import { Div } from "../../html";
@@ -111,8 +111,6 @@ export function InnerPopover({
         tabbableOnly: true
     });
 
-    const focusRingProps = useOverlayFocusRing({ focus });
-
     const handleDismissButtonClick = useEventCallback((event: MouseEvent) => {
         close(event);
     });
@@ -194,8 +192,7 @@ export function InnerPopover({
                         role: "dialog",
                         tabIndex: -1,
                         zIndex
-                    },
-                    focusRingProps
+                    }
                 )}
             >
                 <Div className={cssModule(

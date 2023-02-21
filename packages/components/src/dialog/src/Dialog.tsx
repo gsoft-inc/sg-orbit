@@ -24,7 +24,7 @@ import {
     useSlots
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";
-import { Underlay, isElementInViewport, useOverlayFocusRing, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
+import { Underlay, isElementInViewport, useOverlayLightDismiss, useRestoreFocus, useTrapFocus } from "../../overlay";
 
 import { CrossButton } from "../../button";
 import { Div } from "../../html";
@@ -194,7 +194,6 @@ export function InnerDialog({
         tabbableOnly: true
     });
 
-    const focusRingProps = useOverlayFocusRing({ focus });
 
     // For convenience (well and because a popup light dismiss need a trigger ref), the other overlay components are calling their light dismiss hook in the trigger.
     // A dialog is different because it could be used without Orbit trigger. For example, an app could show a dialog trigger by a Redux event.
@@ -330,7 +329,6 @@ export function InnerDialog({
                             tabIndex: -1
                         },
                         overlayDismissProps,
-                        focusRingProps,
                         restoreFocusProps
                     )}
                 >
