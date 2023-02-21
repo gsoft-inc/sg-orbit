@@ -9,11 +9,6 @@ const DefaultElement = "div";
 
 export interface InnerOverlayProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "zIndex"> {
     /**
-     * Hacky offset utility to apply a transparent CSS border to the overlay.
-     * It's useful to prevent the overlay from closing when the mouse goes from the trigger to the overlay.
-     */
-    borderOffset?: string | number;
-    /**
      * React children.
      */
     children: ReactNode;
@@ -33,7 +28,6 @@ export interface InnerOverlayProps extends InternalProps, Omit<StyledComponentPr
 
 export function InnerOverlay({
     as = DefaultElement,
-    borderOffset,
     children,
     containerElement,
     forwardedRef,
@@ -56,16 +50,12 @@ export function InnerOverlay({
                         // Since the transition component use the "o-ui-fade-in" and "o-ui-fade-out" classes which are using CSS variables declared inside an ".o-ui" class
                         // we must render the class somewhere.
                         "o-ui",
-                        "overlay",
-                        borderOffset && "overlay-has-border-offset"
+                        "overlay"
                     ),
                     enter: "o-ui-fade-in",
                     leave: "o-ui-fade-out",
                     ref: forwardedRef,
                     show,
-                    style: {
-                        "--o-ui-overlay-border-offset": borderOffset
-                    },
                     zIndex
                 }
             )}

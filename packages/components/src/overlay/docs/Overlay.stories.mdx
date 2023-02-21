@@ -1,6 +1,6 @@
 import { ArgsTable, Meta } from "@storybook/addon-docs";
 import { ComponentInfo, Tagline } from "@stories/components";
-import { InnerOverlay, InnerOverlayArrow } from "@components/overlay";
+import { InnerOverlay } from "@components/overlay";
 
 <Meta
     title="Components/Overlay"
@@ -40,15 +40,5 @@ The visibility of the overlay can be toggled by providing a `show` prop.
 />
 
 <ArgsTable of={InnerOverlay} sort="alpha" />
-
-### OverlayArrow
-
-<ComponentInfo
-    usage={"import { OverlayArrow } from \"@sharegate/orbit-ui\";"}
-    inherits={[InnerOverlayArrow.defaultElement, "styled-component"]}
-    compact
-/>
-
-<ArgsTable of={InnerOverlayArrow} sort="alpha" />
 
 

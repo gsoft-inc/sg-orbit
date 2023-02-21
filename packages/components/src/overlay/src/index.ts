@@ -1,5 +1,4 @@
 export * from "./Overlay";
-export * from "./OverlayArrow";
 export * from "./Underlay";
 export * from "./useOverlayTrigger";
 export * from "./useOverlayPosition";

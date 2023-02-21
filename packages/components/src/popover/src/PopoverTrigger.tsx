@@ -8,8 +8,8 @@ import {
     mergeProps,
     resolveChildren
 } from "../../shared";
-import { Overlay, OverlayArrow, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
-import { useResponsiveValue, useThemeContext } from "../../styling";
+import { Overlay, PopupPositionProp, PopupProps, usePopup } from "../../overlay";
+import { useResponsiveValue } from "../../styling";
 
 import { PopoverTriggerContext } from "./PopoverTriggerContext";
 
@@ -55,8 +55,6 @@ export function InnerPopoverTrigger({
 }: InnerPopoverTriggerProps) {
     const positionValue = useResponsiveValue(positionProp);
 
-    const { themeAccessor } = useThemeContext();
-
     const [trigger, popover] = Children.toArray(resolveChildren(children)) as [ReactElement, ReactElement];
 
     if (isNil(trigger) || isNil(popover)) {
@@ -88,6 +86,7 @@ export function InnerPopoverTrigger({
     const triggerMarkup = augmentElement(trigger, triggerProps);
 
     const popoverMarkup = augmentElement(popover, {
+        arrowProps,
         dismissable,
         zIndex: zIndex + 1
     });
@@ -105,7 +104,6 @@ export function InnerPopoverTrigger({
                     rest,
                     {
                         as,
-                        borderOffset: themeAccessor.getSpace(3),
                         ref: forwardedRef,
                         show: isOpen,
                         zIndex
@@ -114,14 +112,6 @@ export function InnerPopoverTrigger({
                 )}
             >
                 {popoverMarkup}
-                <OverlayArrow
-                    {...mergeProps(
-                        {
-                            zIndex: zIndex + 100
-                        },
-                        arrowProps
-                    )}
-                />
             </Overlay>
         </PopoverTriggerContext.Provider>
     );

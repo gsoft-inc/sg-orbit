@@ -1,3 +1,15 @@
+.o-ui-popover-wrapper {
+    --o-ui-popover-arrow-border-color: var(--o-ui-focus-ring-color-alias-default);
+    --o-ui-popover-arrow-dimension: 10px;
+    /* since we take a 10px by 10px and add a transformation of 45, we get a lozenge. the height of that lozenge can be calculated using
+            sqrt(var(--o-ui-tooltip-arrow-dimension) ^ 2 + var(--o-ui-tooltip-arrow-dimension) ^ 2) = 14.142135623730951. Since calc doesn't
+            allow complex calculation like this, we pre-compute it in --o-ui-tooltip-lozenge-dimension
+        */
+    --o-ui-popover-lozenge-dimension: 14px;
+    --o-ui-popover-spacing-with-trigger: var(--o-ui-sp-3);
+    outline: none;
+}
+
 .o-ui-popover {
     background-color: var(--o-ui-bg-alias-surface);
     padding: var(--o-ui-sp-4);
@@ -7,7 +19,6 @@
     max-width: var(--o-ui-sz-16);
     width: 100%;
     position: relative;
-    outline: transparent;
 }
 
 /* HEADER | SECTION */
@@ -57,4 +68,133 @@
 /* DISMISSABLE */
 .o-ui-popover-dismissable .o-ui-popover-header-section {
     padding-right: var(--o-ui-sp-6);
+}
+
+/* POSITION */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-popover-wrapper {
+    padding-bottom: var(--o-ui-popover-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-popover-wrapper {
+    padding-top: var(--o-ui-popover-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-popover-wrapper {
+    padding-right: var(--o-ui-popover-spacing-with-trigger);
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-popover-wrapper {
+    padding-left: var(--o-ui-popover-spacing-with-trigger);
+}
+
+/* ARROW */
+.o-ui-popover-arrow,
+.o-ui-popover-arrow::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+}
+
+.o-ui-popover-arrow::before {
+    content: "";
+    transform: rotate(45deg);
+    background-color: var(--o-ui-bg-alias-surface);
+    box-shadow: var(--o-ui-bs-alias-floating);
+}
+
+.o-ui-popover-arrow::after {
+    content: "";
+    width: 20px;
+    height: 10px;
+    background-color: var(--o-ui-bg-alias-surface);
+    position: absolute;
+    top: calc(var(--o-ui-popover-arrow-dimension) / 2);
+    left: calc(-1 * var(--o-ui-popover-arrow-dimension) / 2);
+    z-index: 10;
+}
+
+/* ARROW  */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-popover-arrow {
+    bottom: calc(var(--o-ui-popover-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-popover-arrow {
+    top: calc(var(--o-ui-popover-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-popover-arrow {
+    right: calc(var(--o-ui-popover-lozenge-dimension) / 2);
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-popover-arrow {
+    left: calc(var(--o-ui-popover-lozenge-dimension) / 2);
+}
+
+/* ARROW | BORDER */
+/* BOTTOM ARROW */
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-popover-arrow::after {
+    top: calc(var(--o-ui-popover-arrow-dimension) / 2);
+}
+
+/* TOP ARROW */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-popover-arrow::after {
+    top: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
+}
+
+/* RIGHT ARROW */
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-popover-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: calc(var(--o-ui-popover-arrow-dimension) / 2);
+    top: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
+}
+
+/* LEFT ARROW */
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-popover-arrow::after {
+    width: 10px;
+    height: 20px;
+    left: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
+    top: calc(-1 * (var(--o-ui-popover-arrow-dimension) / 2));
+}
+
+/* ARROW | BORDER | STATE | FOCUS */
+/* RIGHT ARROW */
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    left: 8px;
+}
+
+.o-ui-overlay[data-popper-placement^="right"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-bottom: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-left: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* BOTTOM ARROW */
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    top: 8px;
+}
+
+.o-ui-overlay[data-popper-placement^="bottom"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-top: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-left: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* LEFT ARROW */
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    left: -8px;
+}
+
+.o-ui-overlay[data-popper-placement^="left"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-top: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-right: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+}
+
+/* TOP ARROW */
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::after {
+    top: -8px;
+}
+
+.o-ui-overlay[data-popper-placement^="top"] .o-ui-overlay-focus-ring:focus-visible + .o-ui-popover-arrow::before {
+    border-bottom: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
+    border-right: var(--o-ui-focus-ring-thickness-md) solid var(--o-ui-popover-arrow-border-color);
 }

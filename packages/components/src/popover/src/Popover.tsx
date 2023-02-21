@@ -1,4 +1,4 @@
-import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useMemo, useRef } from "react";
+import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, cloneElement, forwardRef, useCallback, useMemo, useRef, RefObject, Ref } from "react";
 import {
     FocusScopeContext,
     InteractionProps,
@@ -20,6 +20,7 @@ import {
 import { useOverlayFocusRing, useTrapFocus } from "../../overlay";
 
 import { Box } from "../../box";
+import { Div } from "../../html";
 import { CrossButton } from "../../button";
 import { Text } from "../../typography";
 import { usePopoverTriggerContext } from "./PopoverTriggerContext";
@@ -27,6 +28,9 @@ import { usePopoverTriggerContext } from "./PopoverTriggerContext";
 const DefaultElement = "section";
 
 export interface InnerPopoverProps extends InternalProps, InteractionProps, StyledComponentProps<typeof DefaultElement> {
+    arrowProps?: {
+        ref?: Ref<HTMLDivElement>;
+    };
     /**
      * React children.
      */
@@ -58,6 +62,7 @@ export function InnerPopover({
     id,
     onClose,
     zIndex = 10000,
+    arrowProps,
     ...rest
 }: InnerPopoverProps) {
     const [focusScope, setFocusRef] = useFocusScope();
@@ -182,8 +187,7 @@ export function InnerPopover({
                         "aria-labelledby": isNil(ariaLabel) ? ariaLabelledBy ?? headingId : undefined,
                         as,
                         className: cssModule(
-                            "o-ui-popover",
-                            dismissable && "dismissable"
+                            "o-ui-popover-wrapper"
                         ),
                         id,
                         ref: popoverRef,
@@ -194,10 +198,26 @@ export function InnerPopover({
                     focusRingProps
                 )}
             >
-                {dismissButtonMarkup}
-                {headerSectionMarkup}
-                {content}
-                {footerSectionMarkup}
+                <Div className={cssModule(
+                    "o-ui-popover",
+                    dismissable && "dismissable"
+                )}
+                >
+                    {dismissButtonMarkup}
+                    {headerSectionMarkup}
+                    {content}
+                    {footerSectionMarkup}
+                </Div>
+
+                <Div
+                    className="o-ui-popover-arrow"
+                    {...mergeProps(
+                        {
+                            zIndex: zIndex + 100
+                        },
+                        { ...arrowProps }
+                    )}
+                />
             </Box>
         </FocusScopeContext.Provider>
     );

@@ -1,6 +1,6 @@
 import { OverlayPosition, useOverlayPosition } from "./useOverlayPosition";
 import { PopupType, usePopupAriaProps } from "./usePopupAriaProps";
-import { SyntheticEvent, useCallback } from "react";
+import { Ref, SyntheticEvent, useCallback } from "react";
 import { isNil, mergeProps, useControllableState, useEventCallback, useFocusManager, useFocusScope, useMergedRefs } from "../../shared";
 
 import { ResponsiveProp } from "../../styling";
@@ -148,10 +148,10 @@ export function usePopup(type: PopupType, {
     const focusManager = useFocusManager(focusScope, { keyProp });
     const restoreFocusProps = useRestoreFocus(focusScope, { isDisabled: !isOpen });
 
+    const arrowProps: { ref?: Ref<HTMLDivElement> } = !hasArrow ? {} : { ref: arrowRef };
+
     return {
-        arrowProps: !hasArrow ? {} : {
-            ref: arrowRef
-        },
+        arrowProps,
         focusManager,
         focusScope,
         isOpen,

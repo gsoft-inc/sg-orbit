@@ -26,6 +26,7 @@
     align-items: stretch;
     grid-template-areas: "image image" "aside aside";
     grid-template-rows: min-content auto;
+    outline: none;
 }
 
 @media screen and (min-width: 768px) {
