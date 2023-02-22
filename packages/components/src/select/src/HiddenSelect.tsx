@@ -47,4 +47,4 @@ export const HiddenSelect = forwardRef<any, OmitInternalProps<InnerHiddenSelectP
     <InnerHiddenSelect {...props} forwardedRef={ref} />
 ));
 
-export type ThemeProviderProps = ComponentProps<typeof InnerHiddenSelect>;
+export type HiddenSelectProps = ComponentProps<typeof InnerHiddenSelect>;
