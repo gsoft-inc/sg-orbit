@@ -1,6 +1,6 @@
 import { ColorScheme, ColorSchemeOrSystem, useColorScheme } from "../useColorScheme";
 import { InternalProps, StyledComponentProps, mergeClasses, mergeProps, OmitInternalProps } from "../../../shared";
-import { ComponentProps, forwardRef, ReactNode, Ref, useCallback, useState } from "react";
+import { ComponentProps, forwardRef, ReactNode, useCallback, useState } from "react";
 import { getColorSchemeClassName, getThemeClassName } from "./createThemeVars";
 
 import { Box } from "../../../box";
