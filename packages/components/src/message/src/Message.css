@@ -19,6 +19,7 @@
     position: absolute;
     left: var(--o-ui-sp-3);
     top: calc(var(--o-ui-sp-2) + calc(var(--o-ui-sp-2) / 2));
+    margin-top: 0.125rem;
 }
 
 .o-ui-message-content {

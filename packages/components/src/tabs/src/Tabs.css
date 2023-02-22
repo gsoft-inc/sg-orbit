@@ -231,7 +231,7 @@
 }
 
 .o-ui-tab-icon + .o-ui-tab-text {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
 }
 
 /* TAB | ICON */

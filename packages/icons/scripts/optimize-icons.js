@@ -24,38 +24,7 @@ const ensureUniqueNames = data => {
     });
 };
 
-const validateSize = (width, height, sizeInTheName, name) => {
-    const sizes = ICONS_SIZES;
-
-    if (sizes.includes(Number(width)) && sizes.includes(Number(height))) {
-        if (sizeInTheName !== Number(width) && sizeInTheName !== Number(height)) {
-            console.error(
-                `The size of ${name} is not the same as the one in its name. width: ${width} height: ${height}, name: ${sizeInTheName}`
-            );
-            process.exit(1);
-        }
-
-        if (Number(width) !== Number(height)) {
-            console.error(
-                `The size of ${name} is not square. width: ${width} height: ${height}`
-            );
-            process.exit(1);
-        }
-
-        return true;
-    } else {
-        console.error(
-            `The size of ${name} is not correct. width: ${width} height: ${height}`
-        );
-        process.exit(1);
-    }
-};
-
 const validateIcons = icons => {
-    icons.forEach(icon => {
-        validateSize(icon.size.width, icon.size.height, icon.sizeInTheName, icon.name);
-    });
-
     ensureUniqueNames(icons);
 };
 
@@ -74,17 +43,6 @@ const optimizeIcon = icon => {
     };
 };
 
-// remove the size props, and rename sizeInTheName to size
-function mergeSizeProps(icons) {
-    // eslint-disable-next-line no-unused-vars
-    return icons.map(({ size, sizeInTheName, ...rest }) => {
-        return {
-            ...rest,
-            size: sizeInTheName
-        };
-    });
-}
-
 function optimizeIcons(icons) {
     const result = icons.map(icon => {
         return optimizeIcon(icon);
@@ -92,7 +50,7 @@ function optimizeIcons(icons) {
 
     validateIcons(result);
 
-    return mergeSizeProps(result);
+    return result;
 }
 
 module.exports = {

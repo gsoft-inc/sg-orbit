@@ -22,6 +22,7 @@
 .o-ui-accordion-borderless .o-ui-accordion-header .o-ui-accordion-trigger {
     padding-top: var(--o-ui-sp-2);
     padding-bottom: var(--o-ui-sp-2);
+    height: var(--o-ui-sz-6);
 }
 
 .o-ui-accordion-header:first-child {
@@ -53,6 +54,7 @@
 .o-ui-accordion-bordered .o-ui-accordion-trigger {
     background-color: var(--o-ui-bg-alias-surface);
     padding: calc(var(--o-ui-sp-4) - 1px) var(--o-ui-sp-5) var(--o-ui-sp-4) var(--o-ui-sp-6);
+    min-height: var(--o-ui-sz-8);
     border-top: 1px solid var(--o-ui-b-alias-low-break);
 }
 
@@ -78,6 +80,11 @@
 /* TRIGGER | BORDERED | HAS ICON */
 .o-ui-accordion-bordered .o-ui-accordion-trigger.o-ui-accordion-trigger-has-icon {
     padding-left: var(--o-ui-sp-4);
+}
+
+.o-ui-accordion-icon {
+    margin-left: 0.125rem;
+    margin-right: 0.125rem;
 }
 
 .o-ui-accordion-icon + .o-ui-accordion-title {

@@ -6,7 +6,6 @@ import { NewTabIndicator } from "./NewTabIndicator";
 import { OmitInternalProps, as, augmentElement, mergeProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 
 const DefaultElement = "a";
@@ -85,8 +84,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         },
         icon: null,
         "start-icon": {
-            className: "o-ui-link-start-icon",
-            size: embeddedIconSize(sizeValue)
+            className: "o-ui-link-start-icon"
         },
         text: {
             className: "o-ui-link-text",
@@ -95,8 +93,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     }), [sizeValue]));
 
     const iconMarkup = icon && augmentElement(icon, {
-        className: "o-ui-link-end-icon",
-        size: embeddedIconSize(sizeValue)
+        className: "o-ui-link-end-icon"
     });
 
     return (

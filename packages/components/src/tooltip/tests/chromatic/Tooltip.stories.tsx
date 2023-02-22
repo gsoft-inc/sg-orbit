@@ -1,5 +1,5 @@
 import { IconButton, Button } from "@components/button";
-import { EmailIcon } from "@components/icons";
+import { EmailMajorIcon } from "@components/icons";
 import { Image } from "@components/image";
 import { Launch } from "./assets";
 import { TextLink } from "@components/link";
@@ -60,7 +60,7 @@ export const IconTrigger: TooltipStory = {
     storyName: "icon trigger",
     render: () => (
         <TooltipTrigger open>
-            <EmailIcon />
+            <EmailMajorIcon />
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>
     )
@@ -71,7 +71,7 @@ export const IconButtonTrigger: TooltipStory = {
     render: () => (
         <TooltipTrigger open>
             <IconButton variant="secondary" aria-label="Email">
-                <EmailIcon />
+                <EmailMajorIcon />
             </IconButton>
             <Tooltip>Man must rise above the Earth</Tooltip>
         </TooltipTrigger>

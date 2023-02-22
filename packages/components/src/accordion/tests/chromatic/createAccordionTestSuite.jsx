@@ -3,7 +3,7 @@ import { Content } from "@components/placeholders";
 import { Counter } from "@components/counter";
 import { Div } from "@components/html";
 import { H1, H3, Text } from "@components/typography";
-import { InfoIcon } from "@components/icons";
+import { InfoCircleMajorIcon } from "@components/icons";
 import { Item } from "@components/collection";
 import { Stack } from "@components/layout";
 import { cloneElement } from "react";
@@ -57,21 +57,21 @@ export function createAccordionTestSuite(element, stories) {
             <Accordion element={element}>
                 <Item>
                     <H3>
-                        <InfoIcon />
+                        <InfoCircleMajorIcon />
                         <Text>Mars</Text>
                     </H3>
                     <Content>Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System.</Content>
                 </Item>
                 <Item>
                     <H3>
-                        <InfoIcon />
+                        <InfoCircleMajorIcon />
                         <Text>Jupiter</Text>
                     </H3>
                     <Content>Jupiter is the fifth planet from the Sun and the largest in the Solar System.</Content>
                 </Item>
                 <Item>
                     <H3>
-                        <InfoIcon />
+                        <InfoCircleMajorIcon />
                         <Text>Venus</Text>
                     </H3>
                     <Content>Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty.</Content>

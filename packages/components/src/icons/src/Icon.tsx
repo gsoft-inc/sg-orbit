@@ -4,7 +4,7 @@ import { ResponsiveProp, StyledSystemProps, useResponsiveValue, useStyleProps } 
 
 import { Box } from "../../box";
 
-export type IconSize = "2xs" | "xs" | "sm" | "md" | "lg" | "xl" | "inherit";
+export type IconSize = "inherit";
 
 export interface InnerIconProps extends
     StyledSystemProps,
@@ -72,8 +72,10 @@ export type IconProps = ComponentProps<typeof Icon>;
 
 ////////
 
+export type CreatedIconProps = OmitInternalProps<InnerIconProps, "src">;
+
 export function createIcon(src: ElementType) {
-    return slot("icon", forwardRef<SVGSVGElement, OmitInternalProps<InnerIconProps, "src">>((props, ref) =>
+    return slot("icon", forwardRef<SVGSVGElement, CreatedIconProps>((props, ref) =>
         <InnerIcon
             {...props}
             forwardedRef={ref}

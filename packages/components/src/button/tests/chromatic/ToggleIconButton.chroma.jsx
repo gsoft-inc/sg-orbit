@@ -1,4 +1,4 @@
-import { CheckIcon } from "@components/icons";
+import { CheckMajorIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { ToggleIconButton } from "@components/button";
 import { createToggleIconButtonTestSuite } from "./createToggleIconButtonTestSuite";
@@ -17,8 +17,8 @@ createToggleIconButtonTestSuite(<ToggleIconButton variant="secondary" />, storie
 stories()
     .add("styling", () =>
         <Inline>
-            <ToggleIconButton border="warning-6" variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton className="bg-red" variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
-            <ToggleIconButton style={{ backgroundColor: "red" }} variant="secondary" aria-label="Activate"><CheckIcon /></ToggleIconButton>
+            <ToggleIconButton border="warning-6" variant="secondary" aria-label="Activate"><CheckMajorIcon /></ToggleIconButton>
+            <ToggleIconButton className="bg-red" variant="secondary" aria-label="Activate"><CheckMajorIcon /></ToggleIconButton>
+            <ToggleIconButton style={{ backgroundColor: "red" }} variant="secondary" aria-label="Activate"><CheckMajorIcon /></ToggleIconButton>
         </Inline>
     );
