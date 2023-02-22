@@ -4,9 +4,7 @@
 name: Chromatic
 
 on:
-    schedule:
-        - cron:  '0 0 * * 1-5'    
-    pull_request:
+    push:
         branches-ignore:
           - changeset-release/*
 
@@ -41,5 +39,6 @@ jobs:
               with:
                   projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
                   buildScriptName: build-sb-chroma
+                  onlyChanged: true # TurboSnap
 
             
