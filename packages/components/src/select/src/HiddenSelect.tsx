@@ -1,15 +1,11 @@
 import { HtmlInput } from "../../html";
-import { Ref } from "react";
-import { StyledComponentProps, isNil, mergeProps } from "../../shared";
+import { StyledComponentProps, isNil, mergeProps, InternalProps, OmitInternalProps } from "../../shared";
 import { ValidationState } from "../../input";
+import { ComponentProps, forwardRef } from "react";
 
 const DefaultElement = "input";
 
-export interface HiddenSelectProps extends Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
-    /**
-     * @ignore
-     */
-    ref?: Ref<HTMLInputElement>;
+export interface InnerHiddenSelectProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * Whether or not a user input is required before form submission.
      */
@@ -24,7 +20,7 @@ export interface HiddenSelectProps extends Omit<StyledComponentProps<typeof Defa
     validationState?: ValidationState;
 }
 
-export function HiddenSelect({ name, required, selectedKey, validationState, ...rest }: HiddenSelectProps) {
+export function InnerHiddenSelect({ forwardedRef, name, required, selectedKey, validationState, ...rest }: InnerHiddenSelectProps) {
     if (isNil(name)) {
         return null;
     }
@@ -36,6 +32,7 @@ export function HiddenSelect({ name, required, selectedKey, validationState, ...
                 {
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     "aria-required": required ? true : undefined,
+                    ref: forwardedRef,
                     type: "hidden",
                     value: selectedKey ?? ""
                 }
@@ -44,4 +41,10 @@ export function HiddenSelect({ name, required, selectedKey, validationState, ...
     );
 }
 
-HiddenSelect.defaultElement = DefaultElement;
+InnerHiddenSelect.defaultElement = DefaultElement;
+
+export const HiddenSelect = forwardRef<any, OmitInternalProps<InnerHiddenSelectProps>>((props, ref) => (
+    <InnerHiddenSelect {...props} forwardedRef={ref} />
+));
+
+export type ThemeProviderProps = ComponentProps<typeof InnerHiddenSelect>;
