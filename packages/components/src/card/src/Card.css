@@ -115,6 +115,7 @@
     grid-area: aside;
     align-content: start;
     padding: var(--o-ui-sp-6);
+    height: 100%;
 }
 
 .o-ui-card-horizontal > .o-ui-card-illustration + .o-ui-card-aside {
@@ -137,11 +138,10 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
-    /* align-self: stretch; */
+    align-self: stretch;
 }
 
 .o-ui-card-image {
-    align-self: stretch;
     display: flex;
 }
 
