@@ -2,27 +2,27 @@ const Tags = [
     {
         title: "1950",
         items: [
-            { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> }
+            { key: "mercury", value: "Mercury Program", icon: <PlaceholderMajorIcon /> }
         ]
     },
     {
         title: "1960",
         items: [
-            { key: "gemini", value: "Gemini Program", icon: <EmailIcon /> }
+            { key: "gemini", value: "Gemini Program", icon: <EmailMajorIcon /> }
         ]
     },
     {
         title: "1970",
         items: [
-            { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
-            { key: "skylab", value: "Skylab", icon: <FileIcon /> },
-            { key: "soyuz", value: "Apollo–Soyuz Test Project", icon: <GearIcon /> }
+            { key: "apollo", value: "Apollo Program", icon: <NotificationMajorIcon /> },
+            { key: "skylab", value: "Skylab", icon: <FileMajorIcon /> },
+            { key: "soyuz", value: "Apollo–Soyuz Test Project", icon: <GearMajorIcon /> }
         ]
     },
     {
         title: "2010",
         items: [
-            { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
+            { key: "artemis", value: "Artemis Program", icon: <LightbulbMajorIcon /> }
         ]
     }
 ];

@@ -1,6 +1,6 @@
 import { Inline, Stack } from "@components/layout";
 import { Div } from "@components/html";
-import { EditIcon } from "@components/icons";
+import { PencilMajorIcon } from "@components/icons";
 import { NumberInput } from "@components/number-input";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
@@ -55,15 +55,15 @@ export const Icon: NumberInputStory = {
     storyName: "icon",
     render: () => (
         <Stack>
-            <NumberInput icon={<EditIcon />} placeholder="Age" />
-            <NumberInput loading icon={<EditIcon />} placeholder="Age" />
-            <NumberInput disabled icon={<EditIcon />} placeholder="Age" />
-            <NumberInput readOnly icon={<EditIcon />} placeholder="Age" />
-            <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
+            <NumberInput icon={<PencilMajorIcon />} placeholder="Age" />
+            <NumberInput loading icon={<PencilMajorIcon />} placeholder="Age" />
+            <NumberInput disabled icon={<PencilMajorIcon />} placeholder="Age" />
+            <NumberInput readOnly icon={<PencilMajorIcon />} placeholder="Age" />
+            <NumberInput fluid icon={<PencilMajorIcon />} placeholder="Age" />
             <Div width="10%">
-                <NumberInput fluid icon={<EditIcon />} placeholder="Age" />
+                <NumberInput fluid icon={<PencilMajorIcon />} placeholder="Age" />
             </Div>
-            <NumberInput loading fluid icon={<EditIcon />} placeholder="Age" />
+            <NumberInput loading fluid icon={<PencilMajorIcon />} placeholder="Age" />
         </Stack>
     )
 };

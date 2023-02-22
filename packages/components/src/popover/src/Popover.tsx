@@ -151,7 +151,6 @@ export function InnerPopover({
         <CrossButton
             aria-label="Dismiss"
             className="o-ui-popover-dismiss-button"
-            condensed
             onClick={handleDismissButtonClick}
             ref={dismissButtonRef}
             size="xs"

@@ -1,7 +1,7 @@
 import { Box } from "../../box";
 import { ButtonVariant, useButton } from "./useButton";
 import { Children, ComponentProps, ElementType, ReactElement, ReactNode, forwardRef } from "react";
-import { EmbeddedIcon } from "../../icons";
+
 import {
     InteractionProps,
     InternalProps,
@@ -28,10 +28,6 @@ export type AbstractIconButtonProps<T extends ElementType> = InternalProps & Int
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * Whether or not the button content should takes additional space.
-     */
-    condensed?: boolean;
     /**
      * Whether or not the button take up the width of its container.
      */
@@ -77,7 +73,6 @@ export function InnerIconButton(props: InnerIconButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        condensed,
         fluid,
         focus,
         forwardedRef,
@@ -117,7 +112,7 @@ export function InnerIconButton(props: InnerIconButtonProps) {
 
     const icon = Children.only(children) as ReactElement;
 
-    const iconMarkup = augmentElement(condensed ? icon : <EmbeddedIcon>{icon}</EmbeddedIcon>, {
+    const iconMarkup = augmentElement(icon, {
         className: "o-ui-button-icon",
         size: sizeValue
     });

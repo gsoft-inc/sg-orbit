@@ -366,7 +366,6 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
                     <CrossButton
                         aria-label="Clear dates"
                         className="o-ui-date-range-input-clear-button"
-                        condensed
                         onClick={handleClearDates}
                         size="xs"
                     />

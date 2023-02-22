@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Button, IconButton } from "@components/button"
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { EmailIcon, LightbulbIcon } from "@components/icons";
+import { EmailMajorIcon, LightbulbMajorIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { InnerTooltip, InnerTooltipTrigger, Tooltip, TooltipTrigger } from "@components/tooltip";
 
@@ -53,13 +53,13 @@ A tooltip trigger can be anything.
     <Story name="trigger">
         <Inline gap={10} alignY="center">
             <TooltipTrigger>
-                <IconButton variant="secondary" condensed aria-label="An awesome quote">
-                    <LightbulbIcon />
+                <IconButton variant="secondary" aria-label="An awesome quote">
+                    <LightbulbMajorIcon />
                 </IconButton>
                 <Tooltip>Earth is a small town with many neighborhoods in a very big universe.</Tooltip>
             </TooltipTrigger>
             <TooltipTrigger>
-                <EmailIcon />
+                <EmailMajorIcon />
                 <Tooltip>Send an email to the orbital space station.</Tooltip>
             </TooltipTrigger>
         </Inline>

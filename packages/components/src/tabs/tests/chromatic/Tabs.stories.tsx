@@ -1,4 +1,4 @@
-import { CheckCircleIcon, CrossIcon, NotificationIcon } from "@components/icons";
+import { PlaceholderMajorIcon, CrossMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { Content, Header } from "@components/placeholders";
 import { Inline, Stack } from "@components/layout";
 import { Tab, TabPanel, TabPanelProps, TabProps, Tabs, useTabsContext } from "@components/tabs";
@@ -163,7 +163,7 @@ export const TabWithIcon: TabsStory = {
         <Tabs aria-label="Planets">
             <Item>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -189,7 +189,7 @@ export const TabWithLozenge: TabsStory = {
             </Item>
             <Item>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Jupiter</Text>
                     <Lozenge>New</Lozenge>
                 </Header>
@@ -325,7 +325,7 @@ export const DisabledTabIsNotTheDefaultTab: TabsStory = {
         <Tabs aria-label="Planets">
             <Item disabled>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -344,7 +344,7 @@ export const DisabledSelectedTabIsNotTheDefaultTab: TabsStory = {
         <Tabs selectedKey="0" aria-label="Planets">
             <Item disabled>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -383,7 +383,7 @@ export const Overflow: TabsStory = {
                 </Item>
                 <Item key="saturn">
                     <Header>
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                         <Text>Saturn</Text>
                     </Header>
                     <Content>Adorned with a dazzling, complex system of icy rings, Saturn is unique in our solar system. The other giant planets have rings, but none are as spectacular as Saturn's.</Content>
@@ -391,13 +391,13 @@ export const Overflow: TabsStory = {
                 <Item key="uranus">
                     <Header>
                         <Text>Uranus</Text>
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                     </Header>
                     <Content>Uranus—seventh planet from the Sun—rotates at a nearly 90-degree angle from the plane of its orbit. This unique tilt makes Uranus appear to spin on its side.</Content>
                 </Item>
                 <Item key="neptune">
                     <Header>
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                         <Text>Neptune</Text>
                         <Lozenge>New</Lozenge>
                     </Header>
@@ -515,7 +515,7 @@ const ActiveHeader = ({ tab, children, onSelect, ...rest }: SetOptional<TabProps
             {...rest}
             tab={tab}
         >
-            {key === selectedKey ? <CheckCircleIcon /> : <CrossIcon />}
+            {key === selectedKey ? <PlaceholderMajorIcon /> : <CrossMajorIcon />}
             <Text>{children}</Text>
         </Tab>
     );

@@ -13,7 +13,7 @@
         <>
             <MenuTrigger>
                 <IconButton variant="secondary" aria-label="View tasks">
-                    <VerticalDotsIcon />
+                    <VerticalDotsMajorIcon />
                 </IconButton>
                 <Menu onSelectionChange={handleSelectionChange}>
                     <Item key="launch">Launch...</Item>

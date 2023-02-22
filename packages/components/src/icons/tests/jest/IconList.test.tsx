@@ -1,4 +1,4 @@
-import { CheckIcon, IconList, IconListProps } from "@components/icons";
+import { CheckMajorIcon, IconList, IconListProps } from "@components/icons";
 import { createRef, forwardRef } from "react";
 import { renderWithTheme, waitFor } from "@test-utils";
 
@@ -8,8 +8,8 @@ const Icons = forwardRef<HTMLElement, Omit<IconListProps, "children">>((props, r
             {...props}
             ref={ref}
         >
-            <CheckIcon />
-            <CheckIcon />
+            <CheckMajorIcon />
+            <CheckMajorIcon />
         </IconList>
     );
 });

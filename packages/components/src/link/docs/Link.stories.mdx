@@ -1,4 +1,4 @@
-import { AddIcon, WarningIcon } from "@components/icons";
+import { AddMajorIcon, WarningMajorIcon } from "@components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { GalaxyLargeImage } from "./assets";
@@ -35,14 +35,20 @@ A link style can optimized for text.
 
 ### Icon
 
-A text link can contain [icons](#).
+A text link can contain [icons](#). Use `size="inherit"` on icons when used in a small TextLink.
 
 <Preview>
     <Story name="icon">
-        <TextLink href="#">
-            <Text>Flight details</Text>
-            <WarningIcon />
-        </TextLink>
+        <Inline alignY="center">
+            <TextLink size="sm" href="#">
+                <Text>Flight details</Text>
+                <WarningMajorIcon size="inherit"/>
+            </TextLink>
+            <TextLink href="#">
+                <Text>Flight details</Text>
+                <WarningMajorIcon />
+            </TextLink>
+        </Inline>
     </Story>
 </Preview>
 
@@ -53,7 +59,7 @@ A text link can contain [icons](#).
 <Preview>
     <Story name="start icon">
         <TextLink href="#">
-            <WarningIcon slot="start-icon" />
+            <WarningMajorIcon slot="start-icon" />
             <Text>Flight details</Text>
         </TextLink>
     </Story>
@@ -132,8 +138,7 @@ A link content can be a single icon.
 <Preview>
     <Story name="icon link">
         <Inline alignY="center">
-            <IconLink size="sm" aria-label="Add" href="#"><AddIcon /></IconLink>
-            <IconLink aria-label="Add" href="#"><AddIcon /></IconLink>
+            <IconLink aria-label="Add" href="#"><AddMajorIcon /></IconLink>
         </Inline>
     </Story>
 </Preview>
@@ -144,7 +149,7 @@ An icon link can behave like a button by using the `IconLinkAsButton` component.
 
 <Preview>
     <Story name="icon link button">
-        <IconLinkAsButton><AddIcon /></IconLinkAsButton>
+        <IconLinkAsButton><AddMajorIcon /></IconLinkAsButton>
     </Story>
 </Preview>
 

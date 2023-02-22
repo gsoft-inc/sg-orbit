@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { CheckCircleIcon, IconList, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { PlaceholderMajorIcon, IconList, LightbulbMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
 import { Dot } from "@components/dot";
@@ -63,7 +63,7 @@ A tag can contain [icons](?path=/docs/icon-gallery--page). An icon is used when 
 <Preview>
     <Story name="icon">
         <Tag>
-            <CheckCircleIcon />
+            <PlaceholderMajorIcon />
             <Text>Falcon 9</Text>
         </Tag>
     </Story>
@@ -78,9 +78,9 @@ A tag can contain [icons](?path=/docs/icon-gallery--page). An icon is used when 
         <Tag>
             <Text>Falcon 9</Text>
             <IconList slot="end-icon">
-                <CheckCircleIcon />
-                <LightbulbIcon />
-                <NotificationIcon />
+                <PlaceholderMajorIcon />
+                <LightbulbMajorIcon />
+                <NotificationMajorIcon />
             </IconList>
         </Tag>
     </Story>
@@ -124,7 +124,7 @@ A tag can be removable by specifying an `onRemove` handler.
 
 ### Size
 
-A tag can vary in size. When a lot of tags can be seen side by side, prefer the small size. The tag can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the lozenge should not contain an icon.
+A tag can vary in size. When a lot of tags can be seen side by side, prefer the small size. The tag can be used in small version to accommodate smaller spaces, such as a column row. When used in small format, the tag should not contain an icon.
 
 <Preview>
     <Story name="size">
@@ -142,7 +142,7 @@ A tag can take the width of its container.
 <Preview>
     <Story name="fluid">
         <Tag fluid>
-            <CheckCircleIcon />
+            <PlaceholderMajorIcon />
             <Text>Falcon 9</Text>
             <Counter>6</Counter>
         </Tag>
@@ -238,10 +238,10 @@ A tag list items can be rendered dynamically.
     <Story name="tag list dynamic items">
         <TagList>
             {[
-                { key: "mercury", value: "Mercury Program", icon: <CheckCircleIcon /> },
+                { key: "mercury", value: "Mercury Program", icon: <PlaceholderMajorIcon /> },
                 { key: "gemini", value: "Gemini Program" },
-                { key: "apollo", value: "Apollo Program", icon: <NotificationIcon /> },
-                { key: "artemis", value: "Artemis Program", icon: <LightbulbIcon /> }
+                { key: "apollo", value: "Apollo Program", icon: <NotificationMajorIcon /> },
+                { key: "artemis", value: "Artemis Program", icon: <LightbulbMajorIcon /> }
             ].map(x => (
                 <Item key={x.key}>
                     {x.icon}

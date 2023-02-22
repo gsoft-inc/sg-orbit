@@ -1,4 +1,4 @@
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { IconButtonAsLink } from "@components/button";
 import { Inline } from "@components/layout";
 import { createIconButtonTestSuite } from "./createIconButtonTestSuite";
@@ -21,8 +21,8 @@ createIconButtonTestSuite(<IconButtonAsLink variant="negative" />, stories("/neg
 stories()
     .add("styling", () =>
         <Inline>
-            <IconButtonAsLink border="warning-6" variant="secondary"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink className="bg-red" variant="secondary"><AddIcon /></IconButtonAsLink>
-            <IconButtonAsLink style={{ backgroundColor: "red" }} variant="secondary"><AddIcon /></IconButtonAsLink>
+            <IconButtonAsLink border="warning-6" variant="secondary"><AddMajorIcon /></IconButtonAsLink>
+            <IconButtonAsLink className="bg-red" variant="secondary"><AddMajorIcon /></IconButtonAsLink>
+            <IconButtonAsLink style={{ backgroundColor: "red" }} variant="secondary"><AddMajorIcon /></IconButtonAsLink>
         </Inline>
     );

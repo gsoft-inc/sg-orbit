@@ -1,4 +1,4 @@
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { Button, ButtonGroup, IconButton } from "@components/button";
 import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
@@ -36,26 +36,26 @@ export const ButtonGroupIconButton: ButtonGroupStory = {
         <Inline gap={13}>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
             <Stack>
                 <ButtonGroup size="sm">
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
                 </ButtonGroup>
                 <ButtonGroup>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
-                    <IconButton variant="secondary" aria-label="Add"><AddIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Add"><AddMajorIcon /></IconButton>
                 </ButtonGroup>
             </Stack>
         </Inline>
