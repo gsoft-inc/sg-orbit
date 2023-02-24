@@ -115,7 +115,6 @@
     grid-area: aside;
     align-content: start;
     padding: var(--o-ui-sp-6);
-    height: 100%;
 }
 
 .o-ui-card-horizontal > .o-ui-card-illustration + .o-ui-card-aside {
@@ -138,11 +137,16 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
-    align-self: stretch;
 }
 
 .o-ui-card-image {
-    display: flex;
+    align-self: stretch;
+}
+
+.o-ui-card-image img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
 }
 
 /* IMAGE | PADDING */
@@ -198,6 +202,10 @@
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration,
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-image {
     width: 8rem;
+}
+
+.o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration {
+    height: auto;
 }
 
 /* IMAGE | VERTICAL */
