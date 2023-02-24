@@ -119,7 +119,7 @@ a.o-ui-button {
 }
 
 /* PRIMARY | ACTIVE */
-.o-ui-button-primary:not(.o-ui-button-loading):active,
+.o-ui-button-primary:not(.o-ui-button-loading):not([disabled]):active,
 :not([disabled]).o-ui-button-primary.o-ui-button-active {
     background-color: var(--o-ui-bg-alias-accent-active);
 }
@@ -145,8 +145,8 @@ a.o-ui-button {
 }
 
 /* SECONDARY | ACTIVE */
-.o-ui-button-secondary:not(.o-ui-button-loading):active,
-.o-ui-button-secondary:not(.o-ui-button-loading):active:hover,
+.o-ui-button-secondary:not(.o-ui-button-loading):not([disabled]):active,
+.o-ui-button-secondary:not(.o-ui-button-loading):not([disabled]):active:hover,
 .o-ui-button-secondary:not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
     border-color: var(--o-ui-b-alias-accent-active);
@@ -193,8 +193,8 @@ a.o-ui-button {
 }
 
 /* TERTIARY | ACTIVE */
-.o-ui-button-tertiary:not(.o-ui-button-inherit-style):not(.o-ui-button-loading):active,
-.o-ui-button-tertiary:not(.o-ui-button-inherit-style):not(.o-ui-button-loading):active:hover,
+.o-ui-button-tertiary:not(.o-ui-button-inherit-style):not([disabled]):not(.o-ui-button-loading):active,
+.o-ui-button-tertiary:not(.o-ui-button-inherit-style):not([disabled]):not(.o-ui-button-loading):active:hover,
 .o-ui-button-tertiary:not(.o-ui-button-inherit-style):not([disabled]):not(.o-ui-button-loading).o-ui-button-active {
     background-color: var(--o-ui-bg-alias-accent-transparent-active);
     color: var(--o-ui-text-alias-accent-active);
