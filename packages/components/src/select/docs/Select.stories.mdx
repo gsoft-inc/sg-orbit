@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { HelpMajorIcon, IconList, LightbulbMajorIcon, MagnifierMajorIcon, NotificationMajorIcon } from "@components/icons";
-import { HiddenSelect, InnerSelect, Select } from "@components/select";
+import { HiddenSelect, InnerHiddenSelect, InnerSelect, Select } from "@components/select";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { Text } from "@components/typography";
 import { Tooltip, TooltipTrigger } from "@components/tooltip";
@@ -413,10 +413,10 @@ Make sure your trigger accepts a `ref` and any other props returned by the hook.
 
 <ComponentInfo
     usage={"import { HiddenSelect } from \"@sharegate/orbit-ui\";"}
-    inherits={[HiddenSelect.defaultElement, "styled-component"]}
+    inherits={[InnerHiddenSelect.defaultElement, "styled-component"]}
     compact
 />
 
-<ArgsTable of={HiddenSelect} sort="alpha" />
+<ArgsTable of={InnerHiddenSelect} sort="alpha" />
 
 
