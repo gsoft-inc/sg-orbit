@@ -206,6 +206,7 @@
 
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration {
     height: auto;
+    align-self: stretch;
 }
 
 /* IMAGE | VERTICAL */
