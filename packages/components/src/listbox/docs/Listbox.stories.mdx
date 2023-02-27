@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { IconList, PlaceholderMajorIcon } from "@components/icons";
+import { IconList, PlaceholderMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@components/listbox";
@@ -136,7 +136,9 @@ However, think twice before adding *end* icons, *start* icons should be your go 
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
                     <PlaceholderMajorIcon />
-                    <PlaceholderMajorIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
             <Item key="jupiter">
@@ -145,7 +147,12 @@ However, think twice before adding *end* icons, *start* icons should be your go 
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <PlaceholderMajorIcon slot="end-icon" />
+                <IconList slot="end-icon">
+                    <PlaceholderMajorIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
+                </IconList>
             </Item>
         </Listbox>
     </Story>

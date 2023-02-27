@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Autocomplete, InnerAutocomplete } from "@components/autocomplete";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { IconList, PlaceholderMajorIcon, MagnifierMajorIcon } from "@components/icons";
+import { IconList, PlaceholderMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon, MagnifierMajorIcon } from "@components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { Text } from "@components/typography";
 
@@ -96,8 +96,9 @@ An autocomplete item can have *non standard* end [icons](?path=/docs/icon-galler
             <Item key="earth">
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
-                    <PlaceholderMajorIcon />
-                    <PlaceholderMajorIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
             <Item key="jupiter">
@@ -106,7 +107,11 @@ An autocomplete item can have *non standard* end [icons](?path=/docs/icon-galler
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <PlaceholderMajorIcon slot="end-icon" />
+                <IconList slot="end-icon">
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
+                </IconList>
             </Item>
         </Autocomplete>
     </Story>

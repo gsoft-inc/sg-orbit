@@ -4,7 +4,7 @@ import { Button, IconButton } from "@components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@components/disclosure";
 import { Divider, InnerDivider } from "@components/divider";
-import { PlaceholderMajorIcon, IconList, VerticalDotsMajorIcon } from "@components/icons";
+import { PlaceholderMajorIcon, IconList, VerticalDotsMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon } from "@components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@components/menu";
 import { Text } from "@components/typography";
@@ -140,7 +140,9 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
                     <Text>Launch...</Text>
                     <IconList slot="end-icon">
                         <PlaceholderMajorIcon />
-                        <PlaceholderMajorIcon />
+                        <UfoMajorIcon />
+                        <TelescopeMajorIcon />
+                        <RocketMajorIcon />
                     </IconList>
                 </Item>
                 <Item key="eject">
@@ -149,7 +151,12 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
                 </Item>
                 <Item key="land">
                     <Text>Land...</Text>
-                    <PlaceholderMajorIcon slot="end-icon" />
+                    <IconList slot="end-icon">
+                        <PlaceholderMajorIcon />
+                        <UfoMajorIcon />
+                        <TelescopeMajorIcon />
+                        <RocketMajorIcon />
+                    </IconList>
                 </Item>
             </Menu>
         </MenuTrigger>
