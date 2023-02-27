@@ -4,7 +4,7 @@ import { Button, IconButton } from "@components/button";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { DisclosureArrow } from "@components/disclosure";
 import { Divider, InnerDivider } from "@components/divider";
-import { HelpMajorIcon, IconList, LightbulbMajorIcon, NotificationMajorIcon, VerticalDotsMajorIcon } from "@components/icons";
+import { PlaceholderMajorIcon, IconList, VerticalDotsMajorIcon } from "@components/icons";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { InnerMenu, InnerMenuItem, InnerMenuSection, InnerMenuTrigger, Menu, MenuTrigger } from "@components/menu";
 import { Text } from "@components/typography";
@@ -109,15 +109,15 @@ A menu item can have [icons](?path=/docs/icon-gallery--page).
             </IconButton>
             <Menu>
                 <Item key="launch">
-                    <NotificationMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Launch...</Text>
                 </Item>
                 <Item key="eject">
-                    <HelpMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Eject...</Text>
                 </Item>
                 <Item key="land">
-                    <LightbulbMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Land...</Text>
                 </Item>
             </Menu>
@@ -139,22 +139,17 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
                 <Item key="launch">
                     <Text>Launch...</Text>
                     <IconList slot="end-icon">
-                        <NotificationMajorIcon />
-                        <HelpMajorIcon />
-                        <LightbulbMajorIcon />
+                        <PlaceholderMajorIcon />
+                        <PlaceholderMajorIcon />
                     </IconList>
                 </Item>
                 <Item key="eject">
                     <Text>Eject...</Text>
-                    <HelpMajorIcon slot="end-icon" />
+                    <PlaceholderMajorIcon slot="end-icon" />
                 </Item>
                 <Item key="land">
                     <Text>Land...</Text>
-                    <IconList slot="end-icon">
-                        <NotificationMajorIcon />
-                        <HelpMajorIcon />
-                        <LightbulbMajorIcon />
-                    </IconList>
+                    <PlaceholderMajorIcon slot="end-icon" />
                 </Item>
             </Menu>
         </MenuTrigger>
@@ -199,17 +194,17 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
             </IconButton>
             <Menu>
                 <Item key="launch">
-                    <NotificationMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Launch...</Text>
                     <Text slot="description">Launch...</Text>
                 </Item>
                 <Item key="eject">
-                    <HelpMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Eject...</Text>
                     <Text slot="description">Eject...</Text>
                 </Item>
                 <Item key="land">
-                    <LightbulbMajorIcon />
+                    <PlaceholderMajorIcon />
                     <Text>Land...</Text>
                     <Text slot="description">Land on Of Course I Still Love You</Text>
                 </Item>
