@@ -21,7 +21,6 @@ import { ReactComponent as InnerChevronUpDownMajorIcon } from "./ChevronUpDownMa
 import { ReactComponent as InnerChevronUpDownMinorIcon } from "./ChevronUpDownMinorIcon";
 import { ReactComponent as InnerCrossMajorIcon } from "./CrossMajorIcon";
 import { ReactComponent as InnerCrossMinorIcon } from "./CrossMinorIcon";
-import { ReactComponent as InnerDotMajorIcon } from "./DotMajorIcon";
 import { ReactComponent as InnerDownloadMajorIcon } from "./DownloadMajorIcon";
 import { ReactComponent as InnerDuplicateMajorIcon } from "./DuplicateMajorIcon";
 import { ReactComponent as InnerEmailMajorIcon } from "./EmailMajorIcon";
@@ -94,7 +93,6 @@ export const ChevronUpDownMajorIcon = createOrbitIcon(InnerChevronUpDownMajorIco
 export const ChevronUpDownMinorIcon = createOrbitIcon(InnerChevronUpDownMinorIcon, "ChevronUpDownMinorIcon");
 export const CrossMajorIcon = createOrbitIcon(InnerCrossMajorIcon, "CrossMajorIcon");
 export const CrossMinorIcon = createOrbitIcon(InnerCrossMinorIcon, "CrossMinorIcon");
-export const DotMajorIcon = createOrbitIcon(InnerDotMajorIcon, "DotMajorIcon");
 export const DownloadMajorIcon = createOrbitIcon(InnerDownloadMajorIcon, "DownloadMajorIcon");
 export const DuplicateMajorIcon = createOrbitIcon(InnerDuplicateMajorIcon, "DuplicateMajorIcon");
 export const EmailMajorIcon = createOrbitIcon(InnerEmailMajorIcon, "EmailMajorIcon");
