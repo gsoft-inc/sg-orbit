@@ -153,6 +153,7 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     "aria-required": required ? true : undefined,
                     className: "o-ui-date-range-input-date-input",
+                    "data-form-type" : "other",
                     disabled,
                     placeholder,
                     readOnly,
