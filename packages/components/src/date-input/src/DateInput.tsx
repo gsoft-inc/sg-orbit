@@ -200,6 +200,7 @@ export function InnerDateInput({
             {...mergeProps(
                 rest,
                 {
+                    "data-form-type" : "other",
                     onDateChange: handleDateChange,
                     placeholder,
                     ref: inputRef,

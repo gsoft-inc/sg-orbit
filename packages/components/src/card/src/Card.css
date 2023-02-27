@@ -107,8 +107,7 @@
 .o-ui-card-aside {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    height: 100%;
+    align-self: stretch;
 }
 
 /* ASIDE | HORIZONTAL */
@@ -138,7 +137,16 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
+}
+
+.o-ui-card-image {
     align-self: stretch;
+}
+
+.o-ui-card-image img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
 }
 
 /* IMAGE | PADDING */
@@ -170,10 +178,6 @@
     border-top-left-radius: inherit;
 }
 
-.o-ui-card-horizontal > .o-ui-card-image img {
-    height: 100%;
-}
-
 /* IMAGE | HORIZONTAL | SIZES */
 .o-ui-card-sm.o-ui-card-horizontal > .o-ui-card-illustration,
 .o-ui-card-sm.o-ui-card-horizontal > .o-ui-card-image {
@@ -198,6 +202,11 @@
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration,
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-image {
     width: 8rem;
+}
+
+.o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration {
+    height: auto;
+    align-self: stretch;
 }
 
 /* IMAGE | VERTICAL */
