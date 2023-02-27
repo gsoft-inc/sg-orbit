@@ -3,7 +3,7 @@ import { Box } from "../../box";
 import { ComponentProps, ReactNode, forwardRef, useMemo } from "react";
 import { LinkVariant, useLink } from "./useLink";
 import { NewTabIndicator } from "./NewTabIndicator";
-import { OmitInternalProps, as, augmentElement, mergeProps, useSlots } from "../../shared";
+import { OmitInternalProps, as, augmentElement, normalizeSize, cssModule, mergeProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
 import { useFormButton } from "../../form";
@@ -65,7 +65,10 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     const { linkProps, showNewTabIndicator } = useLink({
         active,
         autoFocus,
-        cssModule: "o-ui-text-link",
+        cssModule: cssModule(
+            "o-ui-text-link",
+            normalizeSize(sizeValue)
+        ),
         disabled,
         external,
         focus,
@@ -84,7 +87,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
         },
         icon: null,
         "start-icon": {
-            className: "o-ui-link-start-icon"
+            className: "o-ui-text-link-start-icon"
         },
         text: {
             className: "o-ui-link-text",
@@ -93,7 +96,7 @@ export function InnerTextLink(props: InnerTextLinkProps) {
     }), [sizeValue]));
 
     const iconMarkup = icon && augmentElement(icon, {
-        className: "o-ui-link-end-icon"
+        className: "o-ui-text-link-end-icon"
     });
 
     return (

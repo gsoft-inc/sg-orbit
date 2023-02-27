@@ -16,10 +16,6 @@ export interface InnerIconProps extends
      */
     disabled?: boolean;
     /**
-     * An icon can vary in size.
-     */
-    size?: ResponsiveProp<IconSize>;
-    /**
      * An icon as a component.
      */
     src: ElementType;
@@ -32,15 +28,12 @@ export const InnerIcon = ((props: InnerIconProps) => {
         "aria-label": ariaLabel,
         disabled,
         forwardedRef,
-        size,
         src,
         ...rest
     } = mergeProps(
         props,
         styleProps
     );
-
-    const sizeValue = useResponsiveValue(size);
 
     return (
         <Box
@@ -53,7 +46,6 @@ export const InnerIcon = ((props: InnerIconProps) => {
                     className: cssModule(
                         "o-ui-icon",
                         disabled && "disabled",
-                        sizeValue && sizeValue === "inherit" ? "inherit-size" : normalizeSize(sizeValue)
                     ),
                     // View https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html#svgs-that-are-decorative
                     focusable: false,
