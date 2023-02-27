@@ -3,7 +3,6 @@
     "baseUrl": ".",
     "compilerOptions": {
         "noEmit": true,
-        "emitDeclarationOnly": false,
         "paths": {
             "@test-utils": ["./tooling/test-utils"],
             "@components": ["./packages/components/src"],

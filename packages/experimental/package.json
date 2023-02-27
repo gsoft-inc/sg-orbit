@@ -18,20 +18,16 @@
         "access": "public"
     },
     "scripts": {
-        "prebuild": "yarn clean && yarn create-dist",
-        "build": "run-s build:*",
+        "prebuild": "yarn clean",
+        "build": "run-s build:* copy-files",
         "build:types": "tsc --build ./tsconfig.build.json",
-        "build:js": "babel src -d dist --config-file ../../babel.config.js --copy-files --extensions .js,.jsx,.ts,.tsx ",
-        "clean": "rimraf dist tsconfig.build.tsbuildinfo",
-        "create-dist": "node ../../scripts/create-dir dist"
+        "copy-files": "copyfiles -u 1 \"src/**/*.css\" dist",
+        "clean": "rimraf dist tsconfig.build.tsbuildinfo"
     },
     "peerDependencies": {
         "@sharegate/orbit-ui": ">=32.1.0",
         "react": "^18.0.0",
         "react-dom": "^18.0.0"
-    },
-    "dependencies": {
-        "@babel/runtime-corejs3": "*"
     },
     "devDependencies": {
         "@sharegate/orbit-ui": "33.0.0"
