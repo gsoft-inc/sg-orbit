@@ -1,4 +1,4 @@
-import { AddMajorIcon, CheckMajorIcon, LightbulbMajorIcon } from "@components/icons";
+import { PlaceholderMajorIcon, PlaceholderMinorIcon } from "@components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import {
     Button,
@@ -75,7 +75,7 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
 <Preview>
     <Story name="icon">
         <Button variant="secondary">
-            <LightbulbMajorIcon />
+            <PlaceholderMajorIcon />
             <Text>Cutoff</Text>
         </Button>
     </Story>
@@ -89,7 +89,7 @@ A button can contain [icons](?path=/docs/icon-gallery--page).
     <Story name="end icon">
         <Button variant="secondary">
             <Text>Cutoff</Text>
-            <LightbulbMajorIcon slot="end-icon" />
+            <PlaceholderMajorIcon slot="end-icon" />
         </Button>
     </Story>
 </Preview>
@@ -147,7 +147,7 @@ A button can be expanded to full width to fill its parent container.
 <Preview>
     <Story name="fluid">
         <Button fluid variant="secondary">
-            <LightbulbMajorIcon />
+            <PlaceholderMajorIcon />
             <Text>To infinity and beyond</Text>
         </Button>
     </Story>
@@ -224,9 +224,9 @@ The content of a button can be a single icon. An accessible name must be provide
 <Preview>
     <Story name="icon button">
         <Inline alignY="center">
-            <IconButton size="xs" variant="secondary" aria-label="Add owner"><AddMajorIcon /></IconButton>
-            <IconButton size="sm" variant="secondary" aria-label="Add owner"><AddMajorIcon /></IconButton>
-            <IconButton variant="secondary" aria-label="Add owner"><AddMajorIcon /></IconButton>
+            <IconButton size="xs" variant="secondary" aria-label="Add owner"><PlaceholderMinorIcon /></IconButton>
+            <IconButton size="sm" variant="secondary" aria-label="Add owner"><PlaceholderMajorIcon /></IconButton>
+            <IconButton variant="secondary" aria-label="Add owner"><PlaceholderMajorIcon /></IconButton>
         </Inline>
     </Story>
 </Preview>
@@ -237,7 +237,7 @@ An icon button can be rendered as a link by using the IconButtonAsLink component
 
 <Preview>
     <Story name="icon link button">
-        <IconButtonAsLink variant="secondary" aria-label="Add owner"><AddMajorIcon /></IconButtonAsLink>
+        <IconButtonAsLink variant="secondary" aria-label="Add owner"><PlaceholderMajorIcon /></IconButtonAsLink>
     </Story>
 </Preview>
 
@@ -292,7 +292,7 @@ Offer a similar experience as a checkbox or radio with the appearance of a butto
         <Inline>
             <ToggleButton variant="secondary">On</ToggleButton>
             <ToggleButton variant="secondary">
-                <LightbulbMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Cutoff</Text>
             </ToggleButton>
         </Inline>
@@ -306,7 +306,7 @@ A toggle button content can be a single icon. An accessible name must be provide
 <Preview>
     <Story name="toggle icon button">
         <ToggleIconButton variant="secondary" aria-label="Activate">
-            <CheckMajorIcon />
+            <PlaceholderMajorIcon />
         </ToggleIconButton>
     </Story>
 </Preview>
