@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/components",
-    "version": "13.0.0",
+    "version": "13.1.0",
     "description": "Orbit components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -30,7 +30,7 @@
         "react-dom": "^18.0.0"
     },
     "dependencies": {
-        "@orbit-ui/icons": "12.0.0",
+        "@orbit-ui/icons": "12.1.0",
         "@popperjs/core": "2.11.2",
         "react-is": "17.0.2",
         "text-mask-core": "5.1.2",
