@@ -63,6 +63,7 @@ import {
 } from "@components/icons";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 import { TestSuite } from "./TestSuite";
+import { Flex } from "@components/layout";
 
 export default {
     title: "Chromatic/Icons",
@@ -619,3 +620,71 @@ export const IconWarningMajor: IconsStory = {
 };
 
 IconWarningMajor.storyName = "Warning Major";
+
+export const IconFill: IconsStory = {
+    storyName: "Fill over background",
+    render: () => (
+        <Flex inline backgroundColor="#008000" wrap="wrap" width="32rem">
+            <WarningMajorIcon fill="#FFFF00" />
+            <AddMajorIcon fill="#FFFF00" />
+            <AlertMajorIcon fill="#FFFF00" />
+            <ArrowMajorIcon fill="#FFFF00" />
+            <ArrowMinorIcon fill="#FFFF00" />
+            <BurgerMajorIcon fill="#FFFF00" />
+            <CalendarMajorIcon fill="#FFFF00" />
+            <CheckMajorIcon fill="#FFFF00" />
+            <ChevronMajorIcon fill="#FFFF00" />
+            <ChevronMinorIcon fill="#FFFF00" />
+            <ChevronUpDownMajorIcon fill="#FFFF00" />
+            <ChevronUpDownMinorIcon fill="#FFFF00" />
+            <CrossMajorIcon fill="#FFFF00" />
+            <CrossMinorIcon fill="#FFFF00" />
+            <DuplicateMajorIcon fill="#FFFF00" />
+            <DownloadMajorIcon fill="#FFFF00" />
+            <EmailMajorIcon fill="#FFFF00" />
+            <ExternalLinkMajorIcon fill="#FFFF00" />
+            <ExternalLinkMinorIcon fill="#FFFF00" />
+            <EyeMajorIcon fill="#FFFF00" />
+            <FileMajorIcon fill="#FFFF00" />
+            <FileCsvMajorIcon fill="#FFFF00" />
+            <FileMusicMajorIcon fill="#FFFF00" />
+            <FilePdfMajorIcon fill="#FFFF00" />
+            <FileVideoMajorIcon fill="#FFFF00" />
+            <FileZipMajorIcon fill="#FFFF00" />
+            <FilterMajorIcon fill="#FFFF00" />
+            <FolderMajorIcon fill="#FFFF00" />
+            <GearMajorIcon fill="#FFFF00" />
+            <GrabMajorIcon fill="#FFFF00" />
+            <GroupMajorIcon fill="#FFFF00" />
+            <HelpMajorIcon fill="#FFFF00" />
+            <HomeMajorIcon fill="#FFFF00" />
+            <HorizontalDotsMajorIcon fill="#FFFF00" />
+            <ImageMajorIcon fill="#FFFF00" />
+            <InfoCircleMajorIcon fill="#FFFF00" />
+            <InfoCircleMinorIcon fill="#FFFF00" />
+            <LightbulbMajorIcon fill="#FFFF00" />
+            <LinkMajorIcon fill="#FFFF00" />
+            <LinkRemoveMajorIcon fill="#FFFF00" />
+            <MagnifierMajorIcon fill="#FFFF00" />
+            <NotificationMajorIcon fill="#FFFF00" />
+            <NotificationOffMajorIcon fill="#FFFF00" />
+            <PencilMajorIcon fill="#FFFF00" />
+            <PlaceholderMajorIcon fill="#FFFF00" />
+            <PlaceholderMinorIcon fill="#FFFF00" />
+            <PadlockLockedMajorIcon fill="#FFFF00" />
+            <PadlockUnlockedMajorIcon fill="#FFFF00" />
+            <RevertMajorIcon fill="#FFFF00" />
+            <SigninMajorIcon fill="#FFFF00" />
+            <SignoutMajorIcon fill="#FFFF00" />
+            <StarFillMajorIcon fill="#FFFF00" />
+            <StarOutlineMajorIcon fill="#FFFF00" />
+            <TrashMajorIcon fill="#FFFF00" />
+            <TrashMinorIcon fill="#FFFF00" />
+            <UserAddMajorIcon fill="#FFFF00" />
+            <UserAddMinorIcon fill="#FFFF00" />
+            <VerticalDotsMajorIcon fill="#FFFF00" />
+        </Flex>
+    )
+};
+
+IconFill.storyName = "Fill";

@@ -1,4 +1,4 @@
-import { AddMajorIcon, WarningMajorIcon } from "@components/icons";
+import { PlaceholderMajorIcon } from "@components/icons";
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { GalaxyLargeImage } from "./assets";
@@ -42,11 +42,11 @@ A text link can contain [icons](#). Use `size="inherit"` on icons when used in a
         <Inline alignY="center">
             <TextLink size="sm" href="#">
                 <Text>Flight details</Text>
-                <WarningMajorIcon size="inherit"/>
+                <PlaceholderMajorIcon size="inherit"/>
             </TextLink>
             <TextLink href="#">
                 <Text>Flight details</Text>
-                <WarningMajorIcon />
+                <PlaceholderMajorIcon />
             </TextLink>
         </Inline>
     </Story>
@@ -59,7 +59,7 @@ A text link can contain [icons](#). Use `size="inherit"` on icons when used in a
 <Preview>
     <Story name="start icon">
         <TextLink href="#">
-            <WarningMajorIcon slot="start-icon" />
+            <PlaceholderMajorIcon slot="start-icon" />
             <Text>Flight details</Text>
         </TextLink>
     </Story>
@@ -138,7 +138,7 @@ A link content can be a single icon.
 <Preview>
     <Story name="icon link">
         <Inline alignY="center">
-            <IconLink aria-label="Add" href="#"><AddMajorIcon /></IconLink>
+            <IconLink aria-label="Add" href="#"><PlaceholderMajorIcon /></IconLink>
         </Inline>
     </Story>
 </Preview>
@@ -149,7 +149,7 @@ An icon link can behave like a button by using the `IconLinkAsButton` component.
 
 <Preview>
     <Story name="icon link button">
-        <IconLinkAsButton><AddMajorIcon /></IconLinkAsButton>
+        <IconLinkAsButton><PlaceholderMajorIcon /></IconLinkAsButton>
     </Story>
 </Preview>
 
