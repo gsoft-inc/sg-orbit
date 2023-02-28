@@ -622,7 +622,7 @@ export const IconWarningMajor: IconsStory = {
 IconWarningMajor.storyName = "Warning Major";
 
 export const IconFill: IconsStory = {
-    storyName: "Fill",
+    storyName: "Fill over background",
     render: () => (
         <Flex inline backgroundColor="#008000" wrap="wrap" width="32rem">
             <WarningMajorIcon fill="#FFFF00" />
