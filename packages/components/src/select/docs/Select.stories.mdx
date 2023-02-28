@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { HelpMajorIcon, IconList, LightbulbMajorIcon, MagnifierMajorIcon, NotificationMajorIcon } from "@components/icons";
+import { PlaceholderMajorIcon, IconList, MagnifierMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon } from "@components/icons";
 import { HiddenSelect, InnerHiddenSelect, InnerSelect, Select } from "@components/select";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { Text } from "@components/typography";
@@ -78,15 +78,15 @@ A select item can have [icons](?path=/docs/icon-gallery--page).
     <Story name="item icon">
         <Select placeholder="Planets">
             <Item key="earth">
-                <NotificationMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <HelpMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LightbulbMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
             </Item>
         </Select>
@@ -103,21 +103,21 @@ A select item can have *non standard* end [icons](?path=/docs/icon-gallery--page
             <Item key="earth">
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
-                    <NotificationMajorIcon />
-                    <HelpMajorIcon />
-                    <LightbulbMajorIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
             <Item key="jupiter">
                 <Text>Jupiter</Text>
-                <HelpMajorIcon slot="end-icon" />
+                <PlaceholderMajorIcon slot="end-icon" />
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
                 <IconList slot="end-icon">
-                    <NotificationMajorIcon />
-                    <HelpMajorIcon />
-                    <LightbulbMajorIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
         </Select>
@@ -153,17 +153,17 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     <Story name="item description + icon">
         <Select placeholder="Planets">
             <Item key="earth">
-                <NotificationMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <HelpMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
                 <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <LightbulbMajorIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>
