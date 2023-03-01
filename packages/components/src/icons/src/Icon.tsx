@@ -1,10 +1,8 @@
 import { ComponentProps, ElementType, SVGProps, forwardRef } from "react";
-import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, normalizeSize, slot } from "../../shared";
-import { ResponsiveProp, StyledSystemProps, useResponsiveValue, useStyleProps } from "../../styling";
+import { InternalProps, OmitInternalProps, SlotProps, cssModule, isNil, mergeProps, slot } from "../../shared";
+import { StyledSystemProps, useStyleProps } from "../../styling";
 
 import { Box } from "../../box";
-
-export type IconSize = "inherit";
 
 export interface InnerIconProps extends
     StyledSystemProps,
