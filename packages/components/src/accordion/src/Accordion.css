@@ -82,13 +82,8 @@
     padding-left: var(--o-ui-sp-4);
 }
 
-.o-ui-accordion-icon {
-    margin-left: 0.125rem;
-    margin-right: 0.125rem;
-}
-
 .o-ui-accordion-icon + .o-ui-accordion-title {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: var(--o-ui-sp-2);
 }
 
 /* PANEL */
