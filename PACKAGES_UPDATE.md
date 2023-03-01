@@ -11,10 +11,6 @@ In a terminal, use the followings commands
 - Then type `npx --yes npm-check-updates -u` to bump the versions in the `package.json` file
 - Install the new packages with `yarn update`
 
-## @svgr/webpack
-
-Cannot update `@svgr/webpack` to version 6 until Storybook have been updated to use webpack@5.
-
 ## ESLint
 
 Cannot update `eslint` to version 8. We get the following error when opening an MDX file.
