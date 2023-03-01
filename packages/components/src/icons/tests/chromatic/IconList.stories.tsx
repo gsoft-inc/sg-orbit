@@ -26,13 +26,6 @@ export const Default: IconListStory = {
     )
 };
 
-export const Size: IconListStory = {
-    storyName: "size",
-    render: () => (
-        <Icons />
-    )
-};
-
 export const Styling: IconListStory = {
     storyName: "styling",
     render: () => (
