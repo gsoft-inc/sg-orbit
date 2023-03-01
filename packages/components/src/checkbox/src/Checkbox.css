@@ -104,13 +104,13 @@
 
 /* CONTENT | ICON */
 .o-ui-checkbox-icon {
-    margin-left: calc(var(--o-ui-sp-1) + 0.125rem);
+    margin-left: var(--o-ui-sp-1);
 }
 
 /* CONTENT | ICON | REVERSE */
 .o-ui-checkbox-reverse .o-ui-checkbox-icon {
     margin-left: 0;
-    margin-right: calc(var(--o-ui-sp-1) + 0.125rem);
+    margin-right: var(--o-ui-sp-1);
 }
 
 /* REVERSE */
