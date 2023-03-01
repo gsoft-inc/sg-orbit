@@ -1,6 +1,6 @@
 {
     "name": "@orbit-ui/experimental",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "Orbit experimental components",
     "repository": "https://github.com/gsoft-inc/sg-orbit.git",
     "author": "Groupe Sharegate inc.",
@@ -30,7 +30,7 @@
         "react-dom": "^18.0.0"
     },
     "devDependencies": {
-        "@sharegate/orbit-ui": "34.0.0"
+        "@sharegate/orbit-ui": "34.0.1"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
