@@ -131,7 +131,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 /* OPTION | ICONS */
 /* OPTION | ICONS | START ICON */
 .o-ui-listbox-option-start-icon {
-    margin-right: calc(var(--o-ui-sp-1) + 0.125rem);
+    margin-right: var(--o-ui-sp-1);
     grid-area: aside;
 }
 
@@ -143,7 +143,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* OPTION | ICONS | END ICON */
 .o-ui-listbox-option-end-icon {
-    margin-left: calc(var(--o-ui-sp-2) + 0.125rem);
+    margin-left: var(--o-ui-sp-2);
 }
 
 /* SECTION */
