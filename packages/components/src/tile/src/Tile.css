@@ -113,12 +113,16 @@
     z-index: 1;
     right: 0.5rem;
     top: 0.5rem;
-    background-color: var(--o-ui-bg-alias-accent-faint);
 }
 
 .o-ui-tile[aria-checked="true"] .o-ui-tile-main::before,
 .o-ui-tile[aria-pressed="true"] .o-ui-tile-main::before {
     opacity: 1;
+}
+
+.o-ui-tile[aria-checked="true"] .o-ui-tile-main::after,
+.o-ui-tile[aria-pressed="true"] .o-ui-tile-main::after {
+    background-color: var(--o-ui-bg-alias-accent-faint);
 }
 
 /* DISABLED */
