@@ -72,6 +72,7 @@ const config = {
 // Disable Typescript during Chromatic tests, otherwise we use too much RAM in our CI
 if (isChromatic) {
     config.typescript = {
+        ...config.typescript,
         check: false,
         reactDocgen: false
     };
@@ -80,6 +81,7 @@ if (isChromatic) {
 // An optimized version of the components props will be visibile in the production build. It's available for debug & chromatic because the performance cost is too big.
 if (!isChromatic && !isDebug) {
     config.typescript = {
+        ...config.typescript,
         reactDocgenTypescriptOptions: {
         // Slow down Storybook initial rendering by 3x but his essential to render a union values instead of a named export (e.g. will render "top" | "bottom" instead of PositionProp).
             shouldExtractValuesFromUnion: true,
