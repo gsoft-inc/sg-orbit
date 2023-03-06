@@ -1,5 +1,6 @@
 const { customizeWebpack } = require("./webpack.config");
 const { includeChromatic, includeDocs, printEnvironment, isChromatic, isDebug } = require("./env");
+const path = require("path");
 
 printEnvironment();
 
@@ -30,7 +31,20 @@ const config = {
     stories: stories,
     addons: [
         {
+            name: "@storybook/addon-postcss",
+            /** @type {import("@storybook/addon-postcss").PresetOptions} */
+            options: {
+                postcssLoaderOptions: {
+                    implementation: require('postcss'),
+                    postcssOptions: {
+                        config: path.resolve(__dirname, "postcss.config.js"),
+                    }
+                },
+            }
+        },
+        {
             name: "@storybook/addon-essentials",
+            /** @type {import("@storybook/addon-essentials").PresetOptions} */
             options: {
                 actions: false,
                 backgrounds: false,
