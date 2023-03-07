@@ -115,42 +115,12 @@ Any updates to the packages or Storybook's stories will automatically re-compile
 
 ## Release the packages
 
-Releasing the packages includes several steps:
-
-1. Compile the packages code for production
-2. Identifies packages that have been updated since the previous release (Read the [Lerna](#lerna) section.)
-3. Bump the version of the identified packages
-4. Modifies package metadata to reflect new release
-5. Publish the packages to npm
-6. Push those changes to Git with a tag
-7. Create a new Github release associated to the tag created previously
-8. Optionally deploy Storybook and the document Website 
-
-Fortunately, this is all automated with a few commands!
-
-Before you release, make sure you are in the `master` branch, have **write access** to every selected npm packages and that you are [logged in to npm](https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line).
-
-To release, open a terminal at the root of the workspace and execute the following commands:
-
-```bash
-yarn new-version
-yarn release
-yarn push-release <VERSION> (e.g. yarn push-release 22.0.2)
-Release docs
-Release Storybook
-```
-
-Ex:
-
-```bash
-yarn new-version
-yarn release
-yarn push-release 19.0.1
-```
-
-After you released the packages, create a [Github release](https://github.com/gsoft-inc/sg-orbit/releases) for the Git annotated tag [@sharegate/orbit-ui package version] created earlier by the `push-release` command and list all the changes that has been published.
-
-Don't forget to **publish** the release.
+When you are ready to release the packages, you must follow the following steps:
+1. Run `yarn new-version` to bump the version of the packages that have been updated since the previous release. You will be prompted to select the type of release (major, minor or patch) for each package and to enter release notes. If you prefer writing the release notes in a text editor, enter a placeholder line in the command line, and the you can modify the file generated before committing it.
+2. Commit the newly generated file in your branch and submit a new Pull Request(PR). Changesets will automatically detect the changes and post a message in your pull request telling you that once the PR closes, the versions will be released. 
+3. Merge the Pull request into master. A Github action will automatically trigger and update the version of the packages and publish them to npm.
+4. Create a new Github release associated to the tag created previously
+5. Optionally deploy Storybook and the document Website 
 
 ### Alpha release
 
