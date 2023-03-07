@@ -160,6 +160,12 @@ export function InnerAccordion({
 
 InnerAccordion.defaultElement = DefaultElement;
 
+/**
+ * Accordions are commonly used to reduce the need to scroll when presenting multiple sections of content on a single page.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/accordion--default-story)
+*/
+
 export const Accordion = forwardRef<any, OmitInternalProps<InnerAccordionProps>>((props, ref) => (
     <InnerAccordion {...props} forwardedRef={ref} />
 ));

@@ -147,6 +147,12 @@ export function InnerDisclosure({
 
 InnerDisclosure.defaultElement = DefaultElement;
 
+/**
+ * Demos:
+ *
+ * - [Disclosure](https://orbit.sharegate.design/?path=/docs/disclosure--default-story)
+*/
+
 export const Disclosure = forwardRef<any, OmitInternalProps<InnerDisclosureProps>>((props, ref) => (
     <InnerDisclosure {...props} forwardedRef={ref} />
 ));

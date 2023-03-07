@@ -452,6 +452,12 @@ export function InnerAutocomplete(props: InnerAutocompleteProps) {
 
 InnerAutocomplete.defaultElement = DefaultElement;
 
+/**
+ * An autocomplete is a normal text input enhanced by a panel of suggested options.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/autocomplete--default-story)
+*/
+
 export const Autocomplete = forwardRef<HTMLInputElement, OmitInternalProps<InnerAutocompleteProps>>((props, ref) => (
     <InnerAutocomplete {...props} forwardedRef={ref} />
 ));

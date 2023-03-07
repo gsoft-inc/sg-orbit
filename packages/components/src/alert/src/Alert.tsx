@@ -181,6 +181,12 @@ export function InnerAlert({
 
 InnerAlert.defaultElement = DefaultElement;
 
+/**
+ * An alert is a modal dialog that interrupts the user's workflow to communicate an important message and acquire a response.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/alert--default-story)
+*/
+
 export const Alert = forwardRef<any, OmitInternalProps<InnerAlertProps>>((props, ref) => (
     <InnerAlert {...props} forwardedRef={ref} />
 ));
