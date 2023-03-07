@@ -124,7 +124,7 @@ export function InnerMenuItem({
             {text}
             {description}
             {endIcon}
-            <CheckMajorIcon aria-hidden="true" className="o-ui-menu-item-checkmark" />
+            {selectionMode !== "none" && <CheckMajorIcon aria-hidden="true" className="o-ui-menu-item-checkmark" />}
         </Box>
     );
 
