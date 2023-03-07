@@ -1,4 +1,5 @@
 import { Box } from "../../box";
+import { CheckMajorIcon } from "@components/icons";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import {
@@ -168,6 +169,7 @@ export function InnerListboxOption({
             {text}
             {description}
             {endIcon}
+            <CheckMajorIcon aria-hidden="true" className="o-ui-listbox-option-checkmark" />
         </Box>
     );
 

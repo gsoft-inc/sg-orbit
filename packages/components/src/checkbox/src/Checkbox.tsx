@@ -182,7 +182,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
         >
             <VisuallyHidden {...inputProps} />
             <Span className="o-ui-checkbox-box">
-                <CheckMajorIcon className="o-ui-checkbox-checkmark" />
+                <CheckMajorIcon aria-hidden="true" className="o-ui-checkbox-checkmark" />
             </Span>
             {text}
             {icon}

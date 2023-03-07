@@ -1,4 +1,5 @@
 import { Box } from "../../box";
+import { CheckMajorIcon } from "@components/icons";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { InteractionProps, InternalProps, OmitInternalProps, SlotElements, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
@@ -123,6 +124,7 @@ export function InnerMenuItem({
             {text}
             {description}
             {endIcon}
+            <CheckMajorIcon aria-hidden="true" className="o-ui-menu-item-checkmark" />
         </Box>
     );
 
