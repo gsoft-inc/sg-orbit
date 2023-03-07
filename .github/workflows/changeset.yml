@@ -4,10 +4,6 @@ on:
   push:
     branches: ["master"]
 
-concurrency:
-    group: ${{ github.ref }}
-    cancel-in-progress: true
-
 jobs:
   release:
     name: Release
