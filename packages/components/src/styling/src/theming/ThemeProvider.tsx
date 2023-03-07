@@ -1,6 +1,6 @@
 import { ColorScheme, ColorSchemeOrSystem, useColorScheme } from "../useColorScheme";
-import { InternalProps, StyledComponentProps, mergeClasses, mergeProps } from "../../../shared";
-import { ReactNode, Ref, useCallback, useState } from "react";
+import { InternalProps, StyledComponentProps, mergeClasses, mergeProps, OmitInternalProps } from "../../../shared";
+import { ComponentProps, forwardRef, ReactNode, useCallback, useState } from "react";
 import { getColorSchemeClassName, getThemeClassName } from "./createThemeVars";
 
 import { Box } from "../../../box";
@@ -11,7 +11,7 @@ import { ThemeContext } from "./ThemeContext";
 
 const DefaultElement = "div";
 
-export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">, Omit<StyledComponentProps<typeof DefaultElement>, "ref"> {
+export interface InnerThemeProviderProps extends InternalProps, StyledComponentProps<typeof DefaultElement> {
     /**
      * React children
      */
@@ -21,27 +21,24 @@ export interface ThemeProviderProps extends Omit<InternalProps, "forwardedRef">,
      */
     colorScheme: ColorSchemeOrSystem;
     /**
-     * Default color scheme to use when a user prefered color scheme (system) is not available.
+     * Default color scheme to use when a user preferred color scheme (system) is not available.
      */
     defaultColorScheme?: ColorScheme;
-    /**
-     * @ignore
-     */
-    ref?: Ref<any>;
     /**
      * The theme to use.
      */
     theme: OrbitTheme;
 }
 
-export function ThemeProvider({
+export function InnerThemeProvider({
     as = DefaultElement,
     children,
     colorScheme,
     defaultColorScheme,
     theme,
+    forwardedRef,
     ...rest
-}: ThemeProviderProps) {
+}: InnerThemeProviderProps) {
     const [remoteColorScheme, setRemoteColorScheme] = useState();
 
     const computedColorScheme = useColorScheme(remoteColorScheme ?? colorScheme, defaultColorScheme);
@@ -64,6 +61,7 @@ export function ThemeProvider({
                             rest,
                             {
                                 as,
+                                ref: forwardedRef,
                                 className: mergeClasses(
                                     "o-ui",
                                     `o-ui-${computedColorScheme}`,
@@ -80,3 +78,11 @@ export function ThemeProvider({
         </ThemeContext.Provider>
     );
 }
+
+InnerThemeProvider.defaultElement = DefaultElement;
+
+export const ThemeProvider = forwardRef<any, OmitInternalProps<InnerThemeProviderProps>>((props, ref) => (
+    <InnerThemeProvider {...props} forwardedRef={ref} />
+));
+
+export type ThemeProviderProps = ComponentProps<typeof ThemeProvider>;

@@ -6,7 +6,7 @@ import { Div } from "@components/html";
 import { Inline, Stack } from "@components/layout";
 import { InputGroup } from "@components/input-group";
 import { Item } from "@components/collection";
-import { LightbulbIcon } from "@components/icons";
+import { LightbulbMajorIcon } from "@components/icons";
 import { Menu, MenuTrigger } from "@components/menu";
 import { NumberInput } from "@components/number-input";
 import { PasswordInput, SearchInput, TextInput } from "@components/text-input";
@@ -148,70 +148,70 @@ export const IconButtonAddon: InputGroupStory = {
         <Stack>
             <Inline>
                 <InputGroup>
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                     <TextInput aria-label="Duration" />
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="primary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="primary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="negative" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="negative" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup disabled>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup readOnly>
                     <TextInput aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton active variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton active variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton focus variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton focus variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton hover variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton hover variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput aria-label="Duration" />
-                    <IconButton focus hover variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton focus hover variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
             </Inline>
             <Inline>
                 <InputGroup>
                     <TextInput validationState="invalid" aria-label="Duration" />
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                 </InputGroup>
                 <InputGroup>
-                    <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                    <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                     <TextInput validationState="invalid" aria-label="Duration" />
                 </InputGroup>
             </Inline>
@@ -912,7 +912,7 @@ export const Zoom: InputGroupStory = {
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
@@ -947,7 +947,7 @@ export const Zoom: InputGroupStory = {
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>
-                        <IconButton variant="secondary" aria-label="Icon"><LightbulbIcon /></IconButton>
+                        <IconButton variant="secondary" aria-label="Icon"><LightbulbMajorIcon /></IconButton>
                         <TextInput aria-label="Duration" />
                     </InputGroup>
                     <InputGroup>

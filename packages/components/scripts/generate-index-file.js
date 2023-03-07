@@ -8,34 +8,24 @@ const GENERATED_HEADER = `/*
 */
 `;
 
-const indexFileTemplate = (iconNames, groupedIcons) => `${GENERATED_HEADER}
+const indexFileTemplate = iconNames => `${GENERATED_HEADER}
 /* eslint-disable */
-import { createOrbitIcon, createOrbitMultiVariantIcon } from "../createOrbitIcon";
+import { createOrbitIcon } from "../createOrbitIcon";
 
 ${iconNames.map(icon => `import { ReactComponent as Inner${icon} } from "./${icon}";`).join("\n")}
 
 ${iconNames.map(icon => `export const ${icon} = createOrbitIcon(Inner${icon}, "${icon}");`).join("\n")}
-
-${Object.entries(groupedIcons).map(([key, group]) => {
-        const name = getComponentName(key);
-
-        return `export const ${name} = createOrbitMultiVariantIcon(${group.map(icon => `Inner${getComponentName(icon.name, icon.size)}`).join(", ")}, "${name}");`;
-    }).join("\n")}
 /* eslint-enable */
 `;
 
-function getComponentName(fileName, size) {
+function getComponentName(fileName) {
     const name = fileName.replace(/\.svg$/, "");
 
     const options = { pascalCase: true };
     let formatedName = camelCase(name, options);
 
     formatedName = formatedName.replace(/^(Icon)/, "");
-    if (size) {
-        formatedName = formatedName.replace(new RegExp(`${size}$`, "g"), `Icon${size}`);
-    } else {
-        formatedName += "Icon";
-    }
+    formatedName += "Icon";
 
     return formatedName;
 }

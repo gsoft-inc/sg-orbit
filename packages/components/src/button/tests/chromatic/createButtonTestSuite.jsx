@@ -1,6 +1,6 @@
 import { Counter } from "@components/counter";
 import { Div } from "@components/html";
-import { IconList, SignoutIcon } from "@components/icons";
+import { IconList, SignoutMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Text } from "@components/typography";
 import { cloneElement } from "react";
@@ -21,10 +21,6 @@ export function createButtonTestSuite(element, stories) {
                     <Button loading size="sm" element={element}>Button</Button>
                     <Button loading element={element}>Button</Button>
                 </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>Button</Button>
-                    <Button condensed element={element}>Button</Button>
-                </Inline>
                 <Div>
                     <Button fluid element={element}>Button</Button>
                 </Div>
@@ -40,57 +36,47 @@ export function createButtonTestSuite(element, stories) {
             <Stack>
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                     <Button element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <IconList>
-                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                            <SignoutMajorIcon /><SignoutMajorIcon /><SignoutMajorIcon />
                         </IconList>
                         <Text>Button</Text>
                     </Button>
                     <Button element={element}>
                         <IconList>
-                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                            <SignoutMajorIcon /><SignoutMajorIcon /><SignoutMajorIcon />
                         </IconList>
                         <Text>Button</Text>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button loading size="sm" element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                     <Button loading element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <SignoutIcon />
-                        <Text>Button</Text>
-                    </Button>
-                    <Button condensed element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                 </Inline>
                 <Div>
                     <Button disabled element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                 </Div>
                 <Stack>
                     <Button fluid element={element}>
-                        <SignoutIcon />
+                        <SignoutMajorIcon />
                         <Text>Button</Text>
                     </Button>
                     <Button fluid element={element}>
@@ -104,57 +90,47 @@ export function createButtonTestSuite(element, stories) {
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
                         <IconList slot="end-icon">
-                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                            <SignoutMajorIcon /><SignoutMajorIcon /><SignoutMajorIcon />
                         </IconList>
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
                         <IconList slot="end-icon">
-                            <SignoutIcon /><SignoutIcon /><SignoutIcon />
+                            <SignoutMajorIcon /><SignoutMajorIcon /><SignoutMajorIcon />
                         </IconList>
                     </Button>
                 </Inline>
                 <Inline alignY="end">
                     <Button loading size="sm" element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                     <Button loading element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
-                    </Button>
-                    <Button condensed element={element}>
-                        <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Div>
                     <Button disabled element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                 </Div>
                 <Stack>
                     <Button fluid element={element}>
                         <Text>Button</Text>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                     <Button fluid element={element}>
                         <Text>Button</Text>
@@ -178,12 +154,12 @@ export function createButtonTestSuite(element, stories) {
                     <Button size="sm" element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                     <Button element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
-                        <SignoutIcon slot="end-icon" />
+                        <SignoutMajorIcon slot="end-icon" />
                     </Button>
                 </Inline>
                 <Inline alignY="end">
@@ -192,16 +168,6 @@ export function createButtonTestSuite(element, stories) {
                         <Counter variant="divider">15</Counter>
                     </Button>
                     <Button loading element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                </Inline>
-                <Inline alignY="end">
-                    <Button condensed size="sm" element={element}>
-                        <Text>Button</Text>
-                        <Counter variant="divider">15</Counter>
-                    </Button>
-                    <Button condensed element={element}>
                         <Text>Button</Text>
                         <Counter variant="divider">15</Counter>
                     </Button>

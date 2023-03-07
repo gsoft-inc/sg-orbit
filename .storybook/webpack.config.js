@@ -11,6 +11,7 @@ function addWebpackAliases(config) {
         "@css": path.resolve(__dirname, "../packages/css/src"),
         "@components": path.resolve(__dirname, "../packages/components/src"),
         "@orbit-ui/components": path.resolve(__dirname, "../packages/components/src"),
+        "@sharegate/orbit-ui": path.resolve(__dirname, "../packages/bundle/src"),
         "@experimental": path.resolve(__dirname, "../packages/experimental/src"),
         "@stories/components": path.resolve(__dirname, "./components"),
         "@stories/mdx": path.resolve(__dirname, "./mdx"),

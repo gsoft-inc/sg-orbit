@@ -1,4 +1,4 @@
-import { NotificationIcon } from "@components/icons";
+import { NotificationMajorIcon } from "@components/icons";
 import { Content, Header } from "@components/placeholders";
 import { Inline } from "@components/layout";
 import { Tabs } from "@components/tabs";
@@ -66,7 +66,7 @@ export const TabWithIcon: TabsStory = {
         <Tabs orientation="vertical" aria-label="Planets">
             <Item>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Mars</Text>
                 </Header>
                 <Content>Mars is the fourth planet from the Sun and the second-smallest planet.</Content>
@@ -92,7 +92,7 @@ export const TabWithLozenge: TabsStory = {
             </Item>
             <Item>
                 <Header>
-                    <NotificationIcon />
+                    <NotificationMajorIcon />
                     <Text>Jupiter</Text>
                     <Lozenge>New</Lozenge>
                 </Header>

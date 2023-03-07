@@ -1,9 +1,9 @@
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { InfoIcon, HelpIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps, TooltipProps, TooltipTriggerProps } from "@sharegate/orbit-ui";
+import { InfoCircleMajorIcon, HelpCircleMajorIcon, Tooltip, TooltipTrigger, OmitInternalProps, SlotProps, InternalProps, mergeProps, TooltipProps, TooltipTriggerProps } from "@sharegate/orbit-ui";
 
 const DefaultElement = "svg";
 
-export interface InnerContextualHelpProps extends ComponentProps<typeof InfoIcon>, SlotProps, InternalProps{
+export interface InnerContextualHelpProps extends ComponentProps<typeof InfoCircleMajorIcon>, SlotProps, InternalProps{
     children: ReactNode;
     tooltipProps?: Partial<TooltipProps>;
     tooltipTriggerProps?: Partial<TooltipTriggerProps>;
@@ -11,7 +11,7 @@ export interface InnerContextualHelpProps extends ComponentProps<typeof InfoIcon
 }
 
 export function InnerContextualHelp({ children, forwardedRef, tooltipProps, tooltipTriggerProps, variant, ...rest }: InnerContextualHelpProps) {
-    const Icon = variant === "help" ? HelpIcon : InfoIcon;
+    const Icon = variant === "help" ? HelpCircleMajorIcon : InfoCircleMajorIcon;
     const label = variant === "help" ? "Help" : "Information";
 
     return (

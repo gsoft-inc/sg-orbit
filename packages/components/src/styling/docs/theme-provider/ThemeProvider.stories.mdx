@@ -1,6 +1,6 @@
 import { ArgsTable, Meta } from "@storybook/addon-docs";
 import { ComponentInfo, Tagline } from "@stories/components";
-import { ThemeProvider } from "@components/styling"
+import { ThemeProvider, InnerThemeProvider } from "@components/styling"
 
 <Meta
     title="Components/ThemeProvider"
@@ -32,7 +32,8 @@ Orbit components rely on the `ThemeProvider` to define the [theme](?path=/docs/t
 
 <ComponentInfo
     usage={"import { ThemeProvider } from \"@sharegate/orbit-ui\";"}
+    inherits={[InnerThemeProvider.defaultElement, "styled-component"]}
     compact
 />
 
-<ArgsTable of={ThemeProvider} sort="alpha" />
+<ArgsTable of={InnerThemeProvider} sort="alpha" />

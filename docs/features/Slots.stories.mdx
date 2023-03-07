@@ -13,12 +13,12 @@ Slots allows a component to support multiple layouts in a declarative way by def
 
 In Orbit, component placeholders are fulfilled through his children and slots are defined [implicitly](#implicit-slots) or [explicitly](#explicit-slots) on the child component.
 
-In the following example, the `<Text>` component *implicitly* fulfill the `text` slot of the button and the `<LightbulbIcon>` component *explicitly* fulfill the `end-icon` slot of the button.
+In the following example, the `<Text>` component *implicitly* fulfill the `text` slot of the button and the `<LightbulbMajorIcon>` component *explicitly* fulfill the `end-icon` slot of the button.
 
 ```jsx
 <Button variant="secondary">
     <Text>Cutoff</Text>
-    <LightbulbIcon slot="end-icon" />
+    <LightbulbMajorIcon slot="end-icon" />
 </Button>
 ```
 
@@ -32,7 +32,7 @@ For example, an `<Icon>` component will implicitly fulfill the `icon` slot of a 
 
 ```jsx
 <Button variant="secondary">
-    <LightbulbIcon />
+    <LightbulbMajorIcon />
     <Text>Cutoff</Text>
 </Button>
 ```
@@ -54,7 +54,7 @@ Sometimes, we want to force a component into a specific placeholder of a compone
 ```jsx
 <Button variant="secondary">
     <Text>Cutoff</Text>
-    <LightbulbIcon slot="end-icon" />
+    <LightbulbMajorIcon slot="end-icon" />
 </Button>
 ```
 

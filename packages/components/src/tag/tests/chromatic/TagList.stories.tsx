@@ -1,7 +1,7 @@
 import { Counter } from "@components/counter";
 import { Div } from "@components/html";
 import { Dot } from "@components/dot";
-import { HelpIcon, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { HelpCircleMajorIcon, LightbulbMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Item } from "@components/collection";
 import { TagList } from "@components/tag";
@@ -38,15 +38,15 @@ export const ItemWithIicon: TagListStory = {
     render: () => (
         <TagList>
             <Item key="mercury">
-                <LightbulbIcon />
+                <LightbulbMajorIcon />
                 <Text>Mercury Program</Text>
             </Item>
             <Item key="gemini">
-                <NotificationIcon />
+                <NotificationMajorIcon />
                 <Text>Gemini Program</Text>
             </Item>
             <Item key="apollo">
-                <HelpIcon />
+                <HelpCircleMajorIcon />
                 <Text>Apollo Program</Text>
             </Item>
         </TagList>

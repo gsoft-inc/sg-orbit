@@ -6,7 +6,6 @@ import { ResponsiveProp, useResponsiveValue } from "../../styling";
 import { Span } from "../../html";
 import { Text } from "../../typography";
 import { VisuallyHidden } from "../../visually-hidden";
-import { embeddedIconSize } from "../../icons";
 import { useCheckbox } from "./useCheckbox";
 import { useFieldInputProps } from "../../field";
 import { useToolbarProps } from "../../toolbar";
@@ -161,8 +160,7 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
             variant: "divider"
         },
         icon: {
-            className: "o-ui-checkbox-icon",
-            size: embeddedIconSize(sizeValue)
+            className: "o-ui-checkbox-icon"
         },
         text: {
             className: "o-ui-checkbox-label",

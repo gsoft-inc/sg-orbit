@@ -1,6 +1,7 @@
 node_modules
 dist
 *.js
+*.jsx
 *.ts
 *.tsx
 *.md

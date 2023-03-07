@@ -51,28 +51,28 @@
     left: 50%;
     width: var(--o-ui-sz-3);
     height: var(--o-ui-sz-3);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-sz-3) var(--o-ui-sz-3);
+    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
+    mask-size: contain;
     background-color: var(--o-ui-white);
-    transform: translate(-50%, -50%) scale(0) rotate(2deg);
+    transform: translate(-50%, -50%);
     transition: all var(--o-ui-easing-duration-1) var(--o-ui-easing-productive);
     border-radius: var(--o-ui-br-2);
 }
 
 .o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    transform: translate(-50%, -50%) scale(1) rotate(2deg);
+    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
+    transform: translate(-50%, -50%);
 }
 
 /* CHECKED | SMALL */
 .o-ui-checkbox-sm.o-ui-checkbox-checked .o-ui-checkbox-box:after {
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    transform: translate(-50%, -50%) scale(0.75) rotate(2deg);
+    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
+    transform: translate(-50%, -50%);
 }
 
 /* BOX | INDETERMINATE */
 .o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
-    transform: translate(-50%, -50%) scale(0.33) rotate(2deg);
+    transform: translate(-50%, -50%) scale(0.33);
     mask: none;
     background-color: var(--o-ui-bg-alias-accent);
 }
@@ -202,7 +202,7 @@
 .o-ui-checkbox-checked.o-ui-checkbox-sm .o-ui-checkbox-box:after {
     width: var(--o-ui-sz-2);
     height: var(--o-ui-sz-2);
-    mask-size: var(--o-ui-sz-2) var(--o-ui-sz-2);
+    mask-size: contain;
 }
 
 /* SIZING | MEDIUM */

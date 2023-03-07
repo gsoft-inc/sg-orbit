@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Avatar } from "@components/avatar";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
-import { HelpIcon, IconList, LightbulbIcon, NotificationIcon } from "@components/icons";
+import { IconList, PlaceholderMajorIcon, UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { InnerItem, InnerSection, Item, Section } from "@components/collection";
 import { InnerListbox, InnerListboxOption, InnerListboxSection, Listbox } from "@components/listbox";
@@ -108,15 +108,15 @@ A listbox item can have [icons](?path=/docs/icon-gallery--page).
     <Story name="item icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <NotificationIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
             </Item>
             <Item key="jupiter">
-                <HelpIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
             </Item>
             <Item key="mars">
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
             </Item>
         </Listbox>
@@ -135,18 +135,22 @@ However, think twice before adding *end* icons, *start* icons should be your go 
             <Item key="earth">
                 <Text>Earth</Text>
                 <IconList slot="end-icon">
-                    <NotificationIcon />
-                    <HelpIcon />
-                    <LightbulbIcon />
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
                 </IconList>
             </Item>
             <Item key="jupiter">
                 <Text>Jupiter</Text>
-                <HelpIcon slot="end-icon" />
+                <PlaceholderMajorIcon slot="end-icon" />
             </Item>
             <Item key="mars">
                 <Text>Mars</Text>
-                <LightbulbIcon slot="end-icon" />
+                <IconList slot="end-icon">
+                    <UfoMajorIcon />
+                    <TelescopeMajorIcon />
+                    <RocketMajorIcon />
+                </IconList>
             </Item>
         </Listbox>
     </Story>
@@ -181,17 +185,17 @@ A description can be paired with an [icon](?path=/docs/icon-gallery--page).
     <Story name="item description + icon">
         <Listbox aria-label="Planets">
             <Item key="earth">
-                <NotificationIcon />
+                <PlaceholderMajorIcon />
                 <Text>Earth</Text>
                 <Text slot="description">Home sweet home!</Text>
             </Item>
             <Item key="jupiter">
-                <HelpIcon />
+                <PlaceholderMajorIcon />
                 <Text>Jupiter</Text>
                 <Text slot="description">The fourth-brightest object in the sky</Text>
             </Item>
             <Item key="mars">
-                <LightbulbIcon />
+                <PlaceholderMajorIcon />
                 <Text>Mars</Text>
                 <Text slot="description">See you in 2026</Text>
             </Item>

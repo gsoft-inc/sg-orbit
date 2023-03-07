@@ -1,4 +1,4 @@
-import { EditIcon, IconList, IconListProps } from "@components/icons";
+import { UfoMajorIcon, TelescopeMajorIcon, RocketMajorIcon, IconList, IconListProps } from "@components/icons";
 import { Stack } from "@components/layout";
 import { ComponentMeta, ComponentStoryObj } from "@storybook/react";
 
@@ -12,9 +12,9 @@ type IconListStory = ComponentStoryObj<typeof IconList>;
 function Icons(props: Omit<IconListProps, "children">) {
     return (
         <IconList {...props}>
-            <EditIcon />
-            <EditIcon />
-            <EditIcon />
+            <UfoMajorIcon />
+            <TelescopeMajorIcon />
+            <RocketMajorIcon />
         </IconList>
     );
 }
@@ -23,19 +23,6 @@ export const Default: IconListStory = {
     storyName: "default",
     render: () => (
         <Icons />
-    )
-};
-
-export const Size: IconListStory = {
-    storyName: "size",
-    render: () => (
-        <Stack>
-            <Icons size="2xs" />
-            <Icons size="xs" />
-            <Icons size="sm" />
-            <Icons />
-            <Icons size="lg" />
-        </Stack>
     )
 };
 

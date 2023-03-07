@@ -6,7 +6,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui {
     --o-ui-menu-border-size: 1px;
     --o-ui-menu-item-height: var(--o-ui-sz-5);
-    --o-ui-menu-item-checkmark-size: var(--o-ui-sz-1);
+    --o-ui-menu-item-checkmark-size: var(--o-ui-sz-2);
 }
 
 .o-ui-menu {
@@ -55,7 +55,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* ITEM | ICON | START  */
 .o-ui-menu-item-start-icon {
-    margin-right: var(--o-ui-sp-1);
+    margin-right: var(--o-ui-sp-2);
     grid-row-start: 1;
     grid-row-end: 3;
 }
@@ -75,11 +75,11 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     content: "";
     width: var(--o-ui-menu-item-checkmark-size);
     height: var(--o-ui-menu-item-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-32.svg") center center no-repeat;
-    mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
+    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
+    mask-size: contain;
     background-color: var(--o-ui-bg-alias-accent);
     position: absolute;
-    right: 1rem;
+    right: 0.875rem;
 }
 
 /* ITEM | STATE | FOCUS */
