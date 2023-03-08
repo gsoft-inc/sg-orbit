@@ -153,9 +153,9 @@ export function InnerButton(props: InnerButtonProps) {
     const loadingMarkup = loading && (
         <Spinner
             className="o-ui-button-spinner"
+            color={variant === "primary" ? "alias-static-white" : undefined}
             role="presentation"
             size={spinnerSize(sizeValue)}
-            variant={variant === "primary" ? "overBackground" : undefined}
         />
     );
 
