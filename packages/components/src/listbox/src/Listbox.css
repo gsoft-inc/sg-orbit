@@ -63,7 +63,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 }
 
 /* OPTION | STATE | SELECTED */
-.o-ui-listbox-option .o-ui-listbox-option-checkmark {
+.o-ui-listbox-option-checkmark {
     opacity: 0;
     width: var(--o-ui-listbox-option-checkmark-size);
     height: var(--o-ui-listbox-option-checkmark-size);

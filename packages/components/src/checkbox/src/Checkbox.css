@@ -44,7 +44,7 @@
     transition: var(--o-ui-focus-ring-transition);
 }
 
-.o-ui-checkbox .o-ui-checkbox-box .o-ui-checkbox-checkmark {
+.o-ui-checkbox-checkmark {
     opacity: 0;
     position: absolute;
     top: -1px;
