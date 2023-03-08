@@ -1,5 +1,16 @@
 # @orbit-ui/components
 
+## 14.3.0
+
+### Minor Changes
+
+- b1d6039e9: added a new icon
+
+### Patch Changes
+
+- Updated dependencies [b1d6039e9]
+  - @orbit-ui/icons@12.2.0
+
 ## 14.2.0
 
 ### Minor Changes
