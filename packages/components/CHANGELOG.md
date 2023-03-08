@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 14.2.0
+
+### Minor Changes
+
+- 6be00c049: text inputs and textarea inherits the app font-family and font-size
+
 ## 14.1.0
 
 ### Minor Changes
