@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { CheckMajorIcon } from "@components/icons";
+import { CheckMajorIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, SyntheticEvent, forwardRef } from "react";
 import {
     InteractionProps,

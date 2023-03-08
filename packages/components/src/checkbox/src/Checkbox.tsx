@@ -1,6 +1,6 @@
 import { AbstractInputProps } from "../../input";
 import { Box } from "../../box";
-import { CheckMajorIcon } from "@components/icons";
+import { CheckMajorIcon } from "../../icons";
 import { ChangeEvent, ChangeEventHandler, ComponentProps, forwardRef, useMemo } from "react";
 import { OmitInternalProps, isNil, mergeProps, omitProps, resolveChildren, useChainedEventCallback, useCheckableProps, useSlots } from "../../shared";
 import { ResponsiveProp, useResponsiveValue } from "../../styling";

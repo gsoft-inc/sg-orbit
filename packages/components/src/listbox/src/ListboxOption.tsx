@@ -1,5 +1,5 @@
 import { Box } from "../../box";
-import { CheckMajorIcon } from "@components/icons";
+import { CheckMajorIcon } from "../../icons";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, FocusEvent, KeyboardEvent, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import {

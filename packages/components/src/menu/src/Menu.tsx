@@ -30,7 +30,7 @@ import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { ValidationState } from "../../input";
 
-export type SelectionMode = "none" | "single" | "multiple";
+export type MenuSelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
@@ -79,7 +79,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: MenuSelectionMode;
     /**
      * Whether or not the menu should display as "valid" or "invalid".
      */

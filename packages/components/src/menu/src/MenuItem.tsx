@@ -1,9 +1,9 @@
 import { Box } from "../../box";
-import { CheckMajorIcon } from "@components/icons";
+import { CheckMajorIcon } from "../../icons";
 import { CollectionItem } from "../../collection";
 import { ComponentProps, MouseEvent, ReactElement, ReactNode, forwardRef, useMemo } from "react";
 import { InteractionProps, InternalProps, OmitInternalProps, SlotElements, StyledComponentProps, cssModule, isNil, mergeProps, useEventCallback, useSlots } from "../../shared";
-import { SelectionMode, ItemKeyProp } from "./Menu";
+import { MenuSelectionMode, ItemKeyProp } from "./Menu";
 import { Text } from "../../typography";
 import { TooltipTrigger } from "../../tooltip";
 import { useMenuContext } from "./MenuContext";
@@ -25,7 +25,7 @@ export interface InnerMenuItemProps extends InternalProps, InteractionProps, Sty
     item: CollectionItem;
 }
 
-const RoleBySelectionMode: Record<SelectionMode, string> = {
+const RoleBySelectionMode: Record<MenuSelectionMode, string> = {
     multiple: "menuitemcheckbox",
     none: "menuitem",
     single: "menuitemradio"
