@@ -10,7 +10,6 @@
 .o-ui-spinner-wheel {
     position: relative;
     flex-shrink: 0;
-    border: 1px solid;
 }
 
 .o-ui-spinner-wheel::before {
