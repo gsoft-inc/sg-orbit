@@ -69,7 +69,7 @@
 }
 
 /* BOX | INDETERMINATE | STATE | INVALID */
-.o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box {
+.o-ui-checkbox-invalid.o-ui-checkbox-indeterminate .o-ui-checkbox-box:after {
     background-color: var(--o-ui-bg-alias-alert);
 }
 
