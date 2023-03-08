@@ -41,6 +41,7 @@ import {
     MagnifierMajorIcon,
     NotificationMajorIcon,
     NotificationOffMajorIcon,
+    NotificationRingingMajorIcon,
     PencilMajorIcon,
     PlaceholderMajorIcon,
     PlaceholderMinorIcon,
@@ -450,6 +451,15 @@ export const IconNotificationOffMajor: IconsStory = {
 
 IconNotificationOffMajor.storyName = "NotificationOff Major";
 
+export const IconNotificationRingingMajor: IconsStory = {
+    storyName: "Notification Ringing Major",
+    render: () => (
+        <TestSuite icon={NotificationRingingMajorIcon} />
+    )
+};
+
+IconNotificationRingingMajor.storyName = "Notification Ringing Major";
+
 export const IconPencilMajor: IconsStory = {
     storyName: "Pencil Major",
     render: () => (
@@ -668,6 +678,7 @@ export const IconFill: IconsStory = {
             <MagnifierMajorIcon fill="#FFFF00" />
             <NotificationMajorIcon fill="#FFFF00" />
             <NotificationOffMajorIcon fill="#FFFF00" />
+            <NotificationRingingMajorIcon fill="#FFFF00" />
             <PencilMajorIcon fill="#FFFF00" />
             <PlaceholderMajorIcon fill="#FFFF00" />
             <PlaceholderMinorIcon fill="#FFFF00" />
