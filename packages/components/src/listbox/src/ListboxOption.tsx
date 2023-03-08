@@ -55,7 +55,8 @@ export function InnerListboxOption({
         focusOnHover,
         onFocus,
         onSelect,
-        selectedKeys
+        selectedKeys,
+        selectionMode
     } = useListboxContext();
 
     // TODO: should we use debouncing instead?
@@ -169,7 +170,7 @@ export function InnerListboxOption({
             {text}
             {description}
             {endIcon}
-            <CheckMajorIcon aria-hidden="true" className="o-ui-listbox-option-checkmark" />
+            {selectionMode !== "none" && <CheckMajorIcon aria-hidden="true" className="o-ui-listbox-option-checkmark" />}
         </Box>
     );
 

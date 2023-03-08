@@ -34,7 +34,7 @@ import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
 
-type SelectionMode = "none" | "single" | "multiple";
+export type SelectionMode = "none" | "single" | "multiple";
 
 const DefaultElement = "div";
 
@@ -456,7 +456,8 @@ export function InnerListbox({
                     focusOnHover,
                     onFocus: handleFocusOption,
                     onSelect: handleSelectOption,
-                    selectedKeys: selectionManager.selectedKeys
+                    selectedKeys: selectionManager.selectedKeys,
+                    selectionMode
                 }}
             >
                 {nodes.map(node => {
