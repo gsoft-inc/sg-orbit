@@ -63,15 +63,17 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 }
 
 /* OPTION | STATE | SELECTED */
-.o-ui-listbox-option[aria-selected="true"]::before {
-    content: "";
+.o-ui-listbox-option-checkmark {
+    opacity: 0;
     width: var(--o-ui-listbox-option-checkmark-size);
     height: var(--o-ui-listbox-option-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
-    mask-size: contain;
-    background-color: var(--o-ui-bg-alias-accent);
+    fill: var(--o-ui-bg-alias-accent);
     position: absolute;
     right: calc((var(--o-ui-sp-8) - var(--o-ui-listbox-option-checkmark-size)) / 2);
+}
+
+.o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-checkmark {
+    opacity: 1;
 }
 
 /* OPTION | STATE | DISABLED */
@@ -117,8 +119,8 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     fill: var(--o-ui-text-alias-alert);
 }
 
-.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"]::before {
-    background-color: var(--o-ui-text-alias-alert);
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-checkmark {
+    fill: var(--o-ui-text-alias-alert);
 }
 
 /* OPTION | STATE | INVALID | FOCUS | SELECTOR BAR */

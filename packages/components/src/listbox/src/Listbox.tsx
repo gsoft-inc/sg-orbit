@@ -34,7 +34,7 @@ import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
 
-type SelectionMode = "none" | "single" | "multiple";
+export type ListboxSelectionMode = "none" | "single" | "multiple";
 
 const DefaultElement = "div";
 
@@ -88,7 +88,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: ListboxSelectionMode;
     /**
      * Whether or not the listbox option should be reachable with tabs.
      */
@@ -456,7 +456,8 @@ export function InnerListbox({
                     focusOnHover,
                     onFocus: handleFocusOption,
                     onSelect: handleSelectOption,
-                    selectedKeys: selectionManager.selectedKeys
+                    selectedKeys: selectionManager.selectedKeys,
+                    selectionMode
                 }}
             >
                 {nodes.map(node => {
