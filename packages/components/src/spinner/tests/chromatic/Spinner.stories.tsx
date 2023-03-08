@@ -25,12 +25,12 @@ export const Default: SpinnerStory = {
     )
 };
 
-export const Variant: SpinnerStory = {
-    storyName: "variant",
+export const InheritColor: SpinnerStory = {
+    storyName: "inherit color",
     render: () => (
         <Inline alignY="end" backgroundColor="alias-accent">
-            <InactiveSpinner variant="overBackground" aria-label="Crawling in progress" />
-            <InactiveSpinner variant="overBackground">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner color="alias-static-white" aria-label="Crawling in progress" />
+            <InactiveSpinner color="alias-static-white">Crawling in progress</InactiveSpinner>
         </Inline>
     )
 };
