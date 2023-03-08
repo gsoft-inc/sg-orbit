@@ -1,8 +1,7 @@
 import { Keys } from "@components/shared";
 import { SearchInput } from "@components/text-input";
-import { act, fireEvent, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
@@ -11,7 +10,7 @@ function getInput(element: Element) {
 }
 
 test("clear value on clear button click", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -22,31 +21,27 @@ test("clear value on clear button click", async () => {
         />
     );
 
-    await waitFor(() => expect(getInput(getByTestId("input")).value).toBe("Mars"));
+    await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
-    });
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
-    await waitFor(() => expect(getInput(getByTestId("input")).value).toBe(""));
+    await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
 
 test("clear value on esc", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SearchInput data-testid="input" defaultValue="Mars" aria-label="Label" />
     );
 
-    await waitFor(() => expect(getInput(getByTestId("input")).value).toBe("Mars"));
+    await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe("Mars"));
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("input"), { key: Keys.esc });
-    });
+    fireEvent.keyDown(screen.getByTestId("input"), { key: Keys.esc });
 
-    await waitFor(() => expect(getInput(getByTestId("input")).value).toBe(""));
+    await waitFor(() => expect(getInput(screen.getByTestId("input")).value).toBe(""));
 });
 
 test("focus input on clear", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SearchInput
             data-testid="input"
             wrapperProps={{
@@ -57,11 +52,9 @@ test("focus input on clear", async () => {
         />
     );
 
-    act(() => {
-        fireEvent.click(getByTestId("input-wrapper").querySelector(":scope button"));
-    });
+    fireEvent.click(screen.getByLabelText("Clear value"));
 
-    await waitFor(() => expect(getByTestId("input")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("input")).toHaveFocus());
 });
 
 // ***** Api *****
@@ -88,13 +81,11 @@ test("can focus the input with the focus api", async () => {
 test("call onChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SearchInput onChange={handler} aria-label="Label" data-testid="input" />
     );
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -103,17 +94,15 @@ test("call onChange when the value change", async () => {
 test("call onValueChange when the value change", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
-    act(() => {
-        userEvent.type(getByTestId("input"), "a");
-    });
+    await userEvent.type(screen.getByTestId("input"), "a");
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), "a"));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -122,17 +111,17 @@ test("call onValueChange when the value change", async () => {
 test("call onValueChange when the value is cleared", async () => {
     const handler = jest.fn();
 
-    const { getByTestId, container } = renderWithTheme(
+    renderWithTheme(
         <SearchInput onValueChange={handler} aria-label="Label" data-testid="input" />
     );
 
     act(() => {
-        getByTestId("input").focus();
+        screen.getByTestId("input").focus();
     });
 
-    await act(() => userEvent.type(getByTestId("input"), "a"));
+    await userEvent.type(screen.getByTestId("input"), "a");
 
-    await act(() => userEvent.click(container.querySelector(".o-ui-search-input-clear-button")));
+    await userEvent.click(screen.getByLabelText("Clear value"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), ""));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

@@ -1,33 +1,32 @@
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { IconLink } from "@components/link";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Behaviors *****
 
 test("when external, add rel=\"noopener noreferrer\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconLink external href="#" aria-label="Add" data-testid="icon-link">
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
-    await waitFor(() => expect(getByTestId("icon-link")).toHaveAttribute("rel", "noopener noreferrer"));
+    await waitFor(() => expect(screen.getByTestId("icon-link")).toHaveAttribute("rel", "noopener noreferrer"));
 });
 
 test("when autofocus is true, the icon link is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconLink autoFocus href="#" aria-label="Add" data-testid="icon-link">
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
-    await waitFor(() => expect(getByTestId("icon-link")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("icon-link")).toHaveFocus());
 });
 
 test("when autofocus is true and the link is disabled, the icon link is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconLink
             disabled
             autoFocus
@@ -35,28 +34,28 @@ test("when autofocus is true and the link is disabled, the icon link is not focu
             aria-label="Add"
             data-testid="icon-link"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
-    await waitFor(() => expect(getByTestId("icon-link")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("icon-link")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the link is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconLink
             autoFocus={10}
             href="#"
             aria-label="Add"
             data-testid="icon-link"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
-    expect(getByTestId("icon-link")).not.toHaveFocus();
+    expect(screen.getByTestId("icon-link")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("icon-link")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("icon-link")).toHaveFocus());
 });
 
 // ***** Refs *****
@@ -66,7 +65,7 @@ test("ref is a DOM element", async () => {
 
     renderWithTheme(
         <IconLink ref={ref} href="#" aria-label="Add">
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
@@ -87,7 +86,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             href="#"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 
@@ -102,7 +101,7 @@ test("set ref once", async () => {
 
     renderWithTheme(
         <IconLink ref={handler} href="#" aria-label="Add">
-            <AddIcon />
+            <AddMajorIcon />
         </IconLink>
     );
 

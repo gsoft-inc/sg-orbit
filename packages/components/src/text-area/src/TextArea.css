@@ -21,7 +21,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    right: calc( (var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2 );
+    right: calc((var(--o-ui-input-padding-with-button) - var(--o-ui-sp-5)) / 2);
 }
 
 .o-ui-input-has-button.o-ui-text-area textarea {

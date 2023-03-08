@@ -1,40 +1,39 @@
 import { Message } from "@components/message";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 // ***** Aria *****
 
 test("when a message variant is \"informative\", role is \"status\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Message variant="informative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(screen.getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
 test("when a message variant is \"warning\", role is \"alert\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Message variant="warning" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(screen.getByTestId("message")).toHaveAttribute("role", "alert"));
 });
 
 test("when a message variant is \"positive\", role is \"status\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Message variant="positive" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "status"));
+    await waitFor(() => expect(screen.getByTestId("message")).toHaveAttribute("role", "status"));
 });
 
 test("when a message variant is \"negative\", role is \"alert\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Message variant="negative" data-testid="message">Scheduled launch today at 1PM.</Message>
     );
 
-    await waitFor(() => expect(getByTestId("message")).toHaveAttribute("role", "alert"));
+    await waitFor(() => expect(screen.getByTestId("message")).toHaveAttribute("role", "alert"));
 });
 
 // ***** Refs *****

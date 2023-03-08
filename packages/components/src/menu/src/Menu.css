@@ -6,21 +6,20 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 .o-ui {
     --o-ui-menu-border-size: 1px;
     --o-ui-menu-item-height: var(--o-ui-sz-5);
-    --o-ui-menu-item-checkmark-size: var(--o-ui-sz-1);
+    --o-ui-menu-item-checkmark-size: var(--o-ui-sz-2);
 }
 
 .o-ui-menu {
-    background-color: var(--o-ui-bg-alias-default);
-    border: var(--o-ui-menu-border-size) solid var(--o-ui-b-alias-low-break);
+    background-color: var(--o-ui-bg-alias-surface);
     list-style-type: none;
     padding: 0;
     margin: 0;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     width: max-content;
     min-width: 200px;
     max-width: var(--o-ui-sz-16);
     height: max-content;
-    box-shadow: var(--o-ui-bs-alias-lifted);
+    box-shadow: var(--o-ui-bs-alias-floating);
     overflow-y: auto;
 }
 
@@ -56,7 +55,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 
 /* ITEM | ICON | START  */
 .o-ui-menu-item-start-icon {
-    margin-right: var(--o-ui-sp-1);
+    margin-right: var(--o-ui-sp-2);
     grid-row-start: 1;
     grid-row-end: 3;
 }
@@ -72,15 +71,17 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 /* ITEM | STATE | SELECTED */
-.o-ui-menu-item[aria-checked="true"]::before {
-    content: "";
-    width: var(--o-ui-menu-item-checkmark-size);
-    height: var(--o-ui-menu-item-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-32.svg") center center no-repeat;
-    mask-size: var(--o-ui-menu-item-checkmark-size) var(--o-ui-menu-item-checkmark-size);
-    background-color: var(--o-ui-bg-alias-accent);
+.o-ui-menu-item .o-ui-menu-item-checkmark {
+    opacity: 0;
+    width: var(--o-ui-listbox-option-checkmark-size);
+    height: var(--o-ui-listbox-option-checkmark-size);
+    fill: var(--o-ui-bg-alias-accent);
     position: absolute;
-    right: 1rem;
+    right: 0.875rem;
+}
+
+.o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-checkmark {
+    opacity: 1;
 }
 
 /* ITEM | STATE | FOCUS */
@@ -99,7 +100,7 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     height: 100%;
     width: 2px;
     opacity: 0;
-    background-color: var(--o-ui-focus-ring-color-alias-default);
+    background-color: var(--o-ui-bg-alias-accent);
 }
 
 .o-ui-menu-item:focus::after {
@@ -129,8 +130,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     fill: var(--o-ui-text-alias-alert);
 }
 
-.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
-    background-color: var(--o-ui-text-alias-alert);
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-checkmark {
+    fill: var(--o-ui-text-alias-alert);
 }
 
 /* ITEM | DESCRIPTION */

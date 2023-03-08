@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const shell = require("shelljs");
-const { ICONS_SIZES } = require("./constants");
 
 const getAllFiles = (dirPath, arrayOfFiles = []) => {
     const files = fs.readdirSync(dirPath);
@@ -33,8 +32,7 @@ const getFiles = dir => {
 const parseName = file => {
     const splitPath = file.split(path.sep);
     const fileName = splitPath[splitPath.length - 1];
-    const size = ICONS_SIZES.find(s => fileName.replace(".svg", "").endsWith(s))?.toString(); // find the icon size
-    const group = fileName.replace(`-${size}.svg`, "");
+    const group = fileName.replace(".svg", "");
 
     if (!fileName.startsWith("icon-")) {
         console.error(
@@ -44,27 +42,18 @@ const parseName = file => {
         process.exit(1);
     }
 
-    if (!size) {
-        console.error(
-            "The icon name must contain its size: ",
-            file
-        );
-        process.exit(1);
-    }
-
-    return { name: fileName, size: Number(size), group };
+    return { name: fileName, group };
 };
 
 const loadFiles = async dir => {
     const files = await getFiles(dir);
 
     return files.map(file => {
-        const { name, size, group } = parseName(file);
+        const { name, group } = parseName(file);
         const content = fs.readFileSync(file, "utf-8");
 
         return {
             name,
-            sizeInTheName: size,
             group,
             filePath: file,
             content

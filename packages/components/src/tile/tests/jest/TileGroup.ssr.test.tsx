@@ -5,11 +5,11 @@ import { Content } from "@components/placeholders";
 import { Heading } from "@components/typography";
 import { Tile, TileGroup } from "@components/tile";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();
-    
+
     const renderOnServer = () =>
         renderToString(
             <TileGroup value={["2"]} selectionMode="single">

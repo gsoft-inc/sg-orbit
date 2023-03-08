@@ -1,7 +1,6 @@
 import { Divider } from "@components/divider";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, waitFor } from "@test-utils";
 
 // ***** Refs *****
 

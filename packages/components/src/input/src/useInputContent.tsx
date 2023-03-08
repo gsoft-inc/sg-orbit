@@ -1,26 +1,22 @@
-import { EmbeddedIcon, EmbeddedIconProps } from "../../icons";
-import { ReactElement, ReactNode } from "react";
 import { embedIconButton } from "../../button";
 import { Spinner } from "../../spinner";
+import { CreatedIconProps } from "../../icons";
+import { ReactElement } from "react";
+import { augmentElement } from "../../shared";
 
-type UseInputIconProps = Omit<EmbeddedIconProps, "className" | "children">;
+type UseInputIconProps = Omit<CreatedIconProps, "className" | "children">;
 
-export function useInputIcon(icon: ReactNode, props: UseInputIconProps = {}) {
-    return icon && (
-        <EmbeddedIcon
-            {...props}
-            className="o-ui-input-icon"
-        >
-            {icon}
-        </EmbeddedIcon>
-    );
+export function useInputIcon(icon: ReactElement, props: UseInputIconProps = {}) {
+    return icon && augmentElement(icon, {
+        className: "o-ui-input-icon",
+        ...props
+    });
 }
 
 export function useInputButton(button: ReactElement, isActive: boolean, props: Record<string, any> = {}) {
     return button && isActive && embedIconButton(button, {
         ...props,
         className: "o-ui-input-button",
-        condensed: true,
         variant: "tertiary"
     });
 }

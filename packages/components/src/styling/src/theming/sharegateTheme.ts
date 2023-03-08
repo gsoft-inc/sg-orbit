@@ -20,7 +20,8 @@ export const ShareGateTheme = createTheme({
         ],
         light: {
             // Background
-            "bg-alias-default": "$white",
+            "bg-alias-body": "$gray",
+            "bg-alias-surface": "$white",
             "bg-alias-soft-break": "$gray",
             "bg-alias-mid-break": "$neutral-1",
             "bg-alias-hard-break": "$neutral-3",
@@ -61,13 +62,12 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-2",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-3",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-2",
             "b-alias-mid-break": "$neutral-4",
             "b-alias-high-break": "$neutral-6",
-            "b-alias-accent": "$purple-4",
-            "b-alias-accent-hover": "$purple-8",
-            "b-alias-accent-active": "$purple-9",
+            "b-alias-accent-active": "$purple-6",
             "b-alias-alert": "$alert-6",
             "b-alias-alert-hover": "$alert-7",
             "b-alias-alert-active": "$alert-8",
@@ -85,6 +85,7 @@ export const ShareGateTheme = createTheme({
             "icon-alias-faint": "$neutral-5",
             "icon-alias-accent": "$purple-6",
             "icon-alias-accent-hover": "$purple-8",
+            "icon-alias-accent-active": "$purple-8",
             "icon-alias-alert": "$alert-6",
             "icon-alias-alert-hover": "$alert-8",
             "icon-alias-warning": "$warning-5",
@@ -99,6 +100,7 @@ export const ShareGateTheme = createTheme({
             "text-alias-faint": "$neutral-5",
             "text-alias-accent": "$purple-6",
             "text-alias-accent-hover": "$purple-8",
+            "text-alias-accent-active": "$purple-8",
             "text-alias-alert": "$alert-7",
             "text-alias-warning": "$warning-5",
             "text-alias-success": "$success-6",
@@ -109,10 +111,11 @@ export const ShareGateTheme = createTheme({
         },
         dark: {
             // Background
-            "bg-alias-default": "$neutral-9",
+            "bg-alias-body": "$neutral-10",
+            "bg-alias-surface": "$neutral-9",
             "bg-alias-soft-break": "$neutral-10",
-            "bg-alias-hard-break": "$neutral-6",
             "bg-alias-mid-break": "$neutral-8",
+            "bg-alias-hard-break": "$neutral-6",
             "bg-alias-basic": "$neutral-5",
             "bg-alias-basic-hover": "$neutral-6",
             "bg-alias-basic-active": "$neutral-7",
@@ -127,7 +130,7 @@ export const ShareGateTheme = createTheme({
             "bg-alias-accent-active": "$purple-9",
             "bg-alias-accent-faint": "$purple-9",
             "bg-alias-accent-transparent": "$transparent",
-            "bg-alias-accent-transparent-hover": "$purple-8",
+            "bg-alias-accent-transparent-hover": "$purple-9",
             "bg-alias-accent-transparent-active": "$purple-9",
             "bg-alias-accent-light": "$purple-8",
             "bg-alias-alert": "$alert-6",
@@ -150,12 +153,11 @@ export const ShareGateTheme = createTheme({
             "bg-alias-success-light": "$success-8",
             "bg-alias-transparent": "transparent",
             "bg-alias-input-selection": "$accent-5",
+            "bg-alias-underlay": "rgba(31, 33, 81, 0.5)",
             // Border
             "b-alias-low-break": "$neutral-8",
             "b-alias-mid-break": "$neutral-7",
             "b-alias-high-break": "$neutral-5",
-            "b-alias-accent": "$purple-6",
-            "b-alias-accent-hover": "$purple-7",
             "b-alias-accent-active": "$purple-8",
             "b-alias-alert": "$alert-6",
             "b-alias-alert-hover": "$alert-7",
@@ -172,8 +174,9 @@ export const ShareGateTheme = createTheme({
             "icon-alias-secondary": "$neutral-1",
             "icon-alias-tertiary": "$neutral-2",
             "icon-alias-faint": "$neutral-3",
-            "icon-alias-accent": "$purple-5",
-            "icon-alias-accent-hover": "$purple-8",
+            "icon-alias-accent": "$purple-6",
+            "icon-alias-accent-hover": "$purple-2",
+            "icon-alias-accent-active": "$purple-2",
             "icon-alias-alert": "$alert-4",
             "icon-alias-alert-hover": "$alert-8",
             "icon-alias-warning": "$warning-3",
@@ -186,8 +189,9 @@ export const ShareGateTheme = createTheme({
             "text-alias-secondary": "$neutral-1",
             "text-alias-tertiary": "$neutral-2",
             "text-alias-faint": "$neutral-3",
-            "text-alias-accent": "$purple-5",
-            "text-alias-accent-hover": "$purple-6",
+            "text-alias-accent": "$purple-6",
+            "text-alias-accent-hover": "$purple-2",
+            "text-alias-accent-active": "$purple-2",
             "text-alias-alert": "$alert-6",
             "text-alias-warning": "$warning-3",
             "text-alias-success": "$success-5",
@@ -196,5 +200,37 @@ export const ShareGateTheme = createTheme({
             // Focus
             "focus-ring-color-alias-default": "rgba(53, 144, 221, .35)"
         }
+    },
+    boxShadows: {
+        common: {
+            "alias-lifted": "$bs-1",
+            "alias-floating": "$bs-2"
+        },
+        light: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0 0 0 1px rgba(93, 101, 246, 0.05),
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ],
+        dark: [ `
+            0 0 0 1px rgba(93, 101, 246, 0.15),
+            0px 5px 10px rgba(93, 101, 246, 0.1)
+            `, `
+            0 0 0 1px rgba(93, 101, 246, 0.15),
+            0px 0.1px 0.3px rgba(93, 101, 246, 0.022),
+            0px 0.3px 0.7px rgba(93, 101, 246, 0.032),
+            0px 0.6px 1.3px rgba(93, 101, 246, 0.04),
+            0px 1.1px 2.2px rgba(93, 101, 246, 0.048),
+            0px 2.1px 4.2px rgba(93, 101, 246, 0.058),
+            0px 5px 10px rgba(93, 101, 246, 0.08);
+            `
+        ]
     }
 });

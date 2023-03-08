@@ -1,8 +1,17 @@
 .o-ui-card {
     display: grid;
-    background-color: var(--o-ui-bg-alias-default);
-    border-radius: var(--o-ui-br-rounded);
+    background-color: var(--o-ui-bg-alias-surface);
+}
+
+/* VARIANT */
+.o-ui-card-elevated {
+    box-shadow: var(--o-ui-bs-alias-lifted);
+    border-radius: var(--o-ui-br-4);
+}
+
+.o-ui-card-outline {
     border: 1px solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-br-3);
 }
 
 /* SIZES */
@@ -98,8 +107,7 @@
 .o-ui-card-aside {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    height: 100%;
+    align-self: stretch;
 }
 
 /* ASIDE | HORIZONTAL */
@@ -109,7 +117,7 @@
     padding: var(--o-ui-sp-6);
 }
 
-.o-ui-card-horizontal > .o-ui-card-illustration+.o-ui-card-aside {
+.o-ui-card-horizontal > .o-ui-card-illustration + .o-ui-card-aside {
     padding-left: var(--o-ui-sp-6);
 }
 
@@ -120,8 +128,8 @@
     padding: var(--o-ui-sp-5);
 }
 
-.o-ui-card-vertical > .o-ui-card-illustration+.o-ui-card-aside,
-.o-ui-card-vertical > .o-ui-card-image+.o-ui-card-aside {
+.o-ui-card-vertical > .o-ui-card-illustration + .o-ui-card-aside,
+.o-ui-card-vertical > .o-ui-card-image + .o-ui-card-aside {
     padding: var(--o-ui-sp-4) var(--o-ui-sp-5) var(--o-ui-sp-5) var(--o-ui-sp-5);
 }
 
@@ -129,7 +137,16 @@
 .o-ui-card-image,
 .o-ui-card-illustration {
     overflow: hidden;
+}
+
+.o-ui-card-image {
     align-self: stretch;
+}
+
+.o-ui-card-image img {
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
 }
 
 /* IMAGE | PADDING */
@@ -161,10 +178,6 @@
     border-top-left-radius: inherit;
 }
 
-.o-ui-card-horizontal > .o-ui-card-image img {
-    height: 100%;
-}
-
 /* IMAGE | HORIZONTAL | SIZES */
 .o-ui-card-sm.o-ui-card-horizontal > .o-ui-card-illustration,
 .o-ui-card-sm.o-ui-card-horizontal > .o-ui-card-image {
@@ -189,6 +202,11 @@
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration,
 .o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-image {
     width: 8rem;
+}
+
+.o-ui-card-fluid.o-ui-card-horizontal > .o-ui-card-illustration {
+    height: auto;
+    align-self: stretch;
 }
 
 /* IMAGE | VERTICAL */

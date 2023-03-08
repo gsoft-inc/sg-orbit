@@ -1,4 +1,4 @@
-import { CheckIcon, InfoIcon, WarningIcon } from "../../icons";
+import { AlertMajorIcon, CheckMajorIcon, InfoCircleMajorIcon, WarningMajorIcon } from "../../icons";
 import { ComponentProps, MouseEvent, ReactNode, forwardRef, useMemo } from "react";
 import { Content } from "../../placeholders";
 import { CrossButton } from "../../button";
@@ -67,10 +67,10 @@ const Role = {
 };
 
 const Icon = {
-    informative: <InfoIcon />,
-    negative: <InfoIcon />,
-    positive: <CheckIcon />,
-    warning: <WarningIcon />
+    informative: <InfoCircleMajorIcon />,
+    negative: <AlertMajorIcon />,
+    positive: <CheckMajorIcon />,
+    warning: <WarningMajorIcon />
 };
 
 export function InnerMessage({
@@ -91,7 +91,6 @@ export function InnerMessage({
         },
         button: {
             className: "o-ui-message-action",
-            condensed: true,
             inherit: true,
             size: "sm",
             variant: "secondary"

@@ -1,18 +1,16 @@
 import { Content, Footer, Header } from "@components/placeholders";
-import { act, fireEvent, waitFor } from "@testing-library/react";
-
+import { act, fireEvent, screen, waitFor, renderWithTheme } from "@test-utils";
 import { Button } from "@components/button";
 import { Dialog } from "@components/dialog";
 import { Heading } from "@components/typography";
 import { Keys } from "@components/shared";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when an element is manually autofocus, keep the focus on this element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -23,11 +21,11 @@ test("when an element is manually autofocus, keep the focus on this element", as
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("submit-button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("submit-button")).toHaveFocus());
 });
 
 test("when no element is focused, autofocus the first focusable element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -37,22 +35,22 @@ test("when no element is focused, autofocus the first focusable element", async 
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("focusable-element")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("focusable-element")).toHaveFocus());
 });
 
 test("when no element is focused and there are no focusable element, autofocus the dialog element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveFocus());
 });
 
 test("do not autofocus an anchor element", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Header>
@@ -67,11 +65,11 @@ test("do not autofocus an anchor element", async () => {
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveFocus());
 });
 
 test("when dismissable is true, tabbing the last focusable element of the dialog will move the focus to the dismiss button", async () => {
-    const { getByTestId, getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>
@@ -82,116 +80,114 @@ test("when dismissable is true, tabbing the last focusable element of the dialog
     );
 
     act(() => {
-        getByTestId("focusable-element").focus();
+        screen.getByTestId("focusable-element").focus();
     });
 
-    act(() => {
-        userEvent.tab();
-    });
+    await userEvent.tab();
 
-    await waitFor(() => expect(getByLabelText("Dismiss")).toHaveFocus());
+    await waitFor(() => expect(screen.getByLabelText("Dismiss")).toHaveFocus());
 });
 
 // ***** Aria *****
 
 test("when an id is provided, the dialog id attribute match the provided id value.", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog id="foo" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("id", "foo"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("id", "foo"));
 });
 
 test("when no role are provided role, the dialog role is \"dialog\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("role", "dialog"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("role", "dialog"));
 });
 
 test("when the role \"alertdialog\" is provided, the dialog role is \"alertdialog\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog role="alertdialog" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("role", "alertdialog"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("role", "alertdialog"));
 });
 
 test("a dialog aria-modal attribute value is \"true\"", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-modal", "true"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-modal", "true"));
 });
 
 test("when an aria-label attribute and an aria-labelledby attribute are provided, do not set aria-labelledby on the dialog", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog aria-label="Iconic Arecibo Observatory" aria-labelledby="heading-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-label", "Iconic Arecibo Observatory"));
-    await waitFor(() => expect(getByTestId("dialog")).not.toHaveAttribute("aria-labelledby"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-label", "Iconic Arecibo Observatory"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).not.toHaveAttribute("aria-labelledby"));
 });
 
 test("when an aria-labelledby attribute is provided, the dialog aria-labelledby attribute value match the provided value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog aria-labelledby="heading-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-labelledby", "heading-1"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-labelledby", "heading-1"));
 });
 
 test("when no aria-label or aria-labelledby attributes are provided, the dialog aria-labelledby attribute value match the heading id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading id="heading-1">Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-labelledby", "heading-1"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-labelledby", "heading-1"));
 });
 
 test("when an aria-describedby attribute is provided, the dialog aria-describedby attribute value match the provided value", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog aria-describedby="content-1" data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
 });
 
 test("when no aria-describedby attributes is provided, the dialog aria-describedby attribute value match the content id", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content id="content-1">This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    await waitFor(() => expect(getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
+    await waitFor(() => expect(screen.getByTestId("dialog")).toHaveAttribute("aria-describedby", "content-1"));
 });
 
 // ***** Api *****
@@ -199,16 +195,14 @@ test("when no aria-describedby attributes is provided, the dialog aria-described
 test("call onClose when the dismiss button is clicked", async () => {
     const handler = jest.fn();
 
-    const { getByLabelText } = renderWithTheme(
+    renderWithTheme(
         <Dialog onClose={handler}>
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    act(() => {
-        userEvent.click(getByLabelText("Dismiss"));
-    });
+    await userEvent.click(screen.getByLabelText("Dismiss"));
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -217,16 +211,14 @@ test("call onClose when the dismiss button is clicked", async () => {
 test("call onClose on esc keypress", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Dialog onClose={handler} data-testid="dialog">
             <Heading>Iconic Arecibo Observatory collapses</Heading>
             <Content>This year, the National Science Foundation (NSF) said farewell to the iconic Arecibo Observatory in Puerto Rico after two major cable failures led to the radio telescope's collapse.</Content>
         </Dialog>
     );
 
-    act(() => {
-        fireEvent.keyDown(getByTestId("dialog"), { key: Keys.esc });
-    });
+    fireEvent.keyDown(screen.getByTestId("dialog"), { key: Keys.esc });
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -242,9 +234,7 @@ test("call onClose on outside click", async () => {
         </Dialog>
     );
 
-    act(() => {
-        userEvent.click(document.body);
-    });
+    await userEvent.click(document.body);
 
     await waitFor(() => expect(handler).toHaveBeenCalledWith(expect.anything()));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));

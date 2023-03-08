@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
-import { AzureIcon32, FilterIcon24, FilterIcon32 } from "./assets";
+import { AzureIcon, FilterMajorIcon } from "./assets";
 import { CheckeredBackground, ComponentInfo, Preview, Tagline } from "@stories/components";
-import { Icon, IconList, InnerIcon, InnerIconList, InnerMultiVariantIcon, MultiVariantIcon } from "@components/icons";
+import { Icon, IconList, InnerIcon, InnerIconList } from "@components/icons";
 import { Inline } from "@components/layout";
 import IndexFileUsage from "./IndexFileUsage.mdx";
 
@@ -12,10 +12,10 @@ import IndexFileUsage from "./IndexFileUsage.mdx";
 
 # Icon
 
-<Tagline>An icon component allow you to render a custom icon (e.g. Azure specific icons) with Orbit Design standardize sizes.</Tagline>
+<Tagline>An icon component allow you to render a custom icon.</Tagline>
 
 <ComponentInfo
-    usage="import { Icon, MultiVariantIcon, IconList } from @components"
+    usage="import { Icon, IconList } from @components"
     githubPath="/packages/components/src/icons/src"
 />
 
@@ -37,25 +37,25 @@ To use an icon component you must first import your SVG icon as a component by u
 To import your SVG icon as a component:
 
 ```jsx
-import { ReactComponent as AzureIcon32 } from "./icon-azure-32.svg";
+import { ReactComponent as AzureIcon } from "./icon-azure.svg";
 ```
 
-Then you can either wrap your icon with an `<Icon />` or `<MultiVariantIcon />` component:
+Then you can wrap your icon with an `<Icon />` component:
 
 ```jsx
 import { Icon } from "@sharegate/orbit-ui";
-import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+import { ReactComponent as Azure } from "./icon-azure.svg";
 
-<Icon type={Azure32} />
+<Icon src={Azure} />
 ```
 
 Or export your icon as an HOC and render it at a later time:
 
 ```jsx
 import { createIcon } from "@sharegate/orbit-ui";
-import { ReactComponent as Azure32 } from "./icon-azure-32.svg";
+import { ReactComponent as Azure } from "./icon-azure.svg";
 
-export const AzureIcon32 = createIcon(Azure32);
+export const AzureIcon = createIcon(Azure);
 ```
 
 <IndexFileUsage />
@@ -64,29 +64,10 @@ export const AzureIcon32 = createIcon(Azure32);
 
 A default icon will render as an `md` sized icon.
 
-<Preview scope={{ AzureIcon32 }}>
+<Preview scope={{ AzureIcon }}>
     <Story name="default">
         <CheckeredBackground>
-            <Icon src={AzureIcon32} />
-        </CheckeredBackground>
-    </Story>
-</Preview>
-
-### Size
-
-An icon can vary in size.
-
-<Preview scope={{ AzureIcon32 }}>
-    <Story name="size">
-        <CheckeredBackground>
-            <Inline alignY="center" gap={2}>
-                <Icon fillHover="alias-primary" src={AzureIcon32} size="2xs" />
-                <Icon src={AzureIcon32} size="xs" />
-                <Icon src={AzureIcon32} size="sm" />
-                <Icon src={AzureIcon32} />
-                <Icon src={AzureIcon32} size="lg" />
-                <Icon src={AzureIcon32} size="xl" />
-            </Inline>
+            <Icon src={AzureIcon} />
         </CheckeredBackground>
     </Story>
 </Preview>
@@ -95,50 +76,13 @@ An icon can vary in size.
 
 An icon color can be altered with `fill`.
 
-<Preview scope={{ AzureIcon32 }}>
+<Preview scope={{ AzureIcon }}>
     <Story name="color">
         <CheckeredBackground>
             <Inline alignY="end" gap={2}>
-                <Icon src={AzureIcon32} size="lg" fill="accent-2" />
-                <Icon src={AzureIcon32} size="lg" fill="accent-6" />
-                <Icon src={AzureIcon32} size="lg" fill="accent-10" />
-            </Inline>
-        </CheckeredBackground>
-    </Story>
-</Preview>
-
-## Multi-variants
-
-If your custom icon support multiple variants, you should use the `<MultiVariantIcon />` component. A multi-variants components will decide which variant of an icon to render based on the size you specified.
-
-A multi variants icon support the same props as `<Icon />`.
-
-### Size
-
-<Preview scope={{ FilterIcon24, FilterIcon32 }}>
-    <Story name="multi-variants size">
-        <CheckeredBackground>
-            <Inline alignY="center" gap={2}>
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="2xs" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="xs" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="sm" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="xl" />
-            </Inline>
-        </CheckeredBackground>
-    </Story>
-</Preview>
-
-### Color
-
-<Preview scope={{ FilterIcon24, FilterIcon32 }}>
-    <Story name="multi-variants color">
-        <CheckeredBackground>
-            <Inline alignY="end" gap={2}>
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-2" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-6" />
-                <MultiVariantIcon src24={FilterIcon24} src32={FilterIcon32} size="lg" fill="accent-10" />
+                <Icon src={AzureIcon} fill="accent-2" />
+                <Icon src={AzureIcon} fill="accent-6" />
+                <Icon src={AzureIcon} fill="accent-10" />
             </Inline>
         </CheckeredBackground>
     </Story>
@@ -148,11 +92,11 @@ A multi variants icon support the same props as `<Icon />`.
 
 To inline multiple icons in a component, wrap your icons in an icon list component.
 
-<Preview scope={{ AzureIcon32 }}>
+<Preview scope={{ AzureIcon }}>
     <Story name="icon list">
         <IconList>
-            <Icon src={AzureIcon32} />
-            <Icon src={FilterIcon32} />
+            <Icon src={AzureIcon} />
+            <Icon src={FilterMajorIcon} />
         </IconList>
     </Story>
 </Preview>
@@ -168,16 +112,6 @@ To inline multiple icons in a component, wrap your icons in an icon list compone
 />
 
 <ArgsTable of={InnerIcon} sort="alpha" />
-
-### MultiVariantIcon
-
-<ComponentInfo
-    usage="import { MultiVariantIcon } from @components"
-    inherits={["svg", "styled-component"]}
-    compact
-/>
-
-<ArgsTable of={InnerMultiVariantIcon} sort="alpha" />
 
 ### IconList
 

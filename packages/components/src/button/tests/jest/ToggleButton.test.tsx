@@ -1,22 +1,20 @@
-import { act, waitFor } from "@testing-library/react";
-
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { ToggleButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleButton autoFocus variant="secondary" data-testid="button">Cutoff</ToggleButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleButton
             disabled
             autoFocus
@@ -25,11 +23,11 @@ test("when autofocus is true and the button is disabled, the button is not focus
         >Cutoff</ToggleButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleButton
             autoFocus={10}
             variant="secondary"
@@ -37,9 +35,9 @@ test("when autofocus is specified with a delay, the button is focused after the 
         >Cutoff</ToggleButton>
     );
 
-    expect(getByTestId("button")).not.toHaveFocus();
+    expect(screen.getByTestId("button")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 // ***** Api *****
@@ -47,7 +45,7 @@ test("when autofocus is specified with a delay, the button is focused after the 
 test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleButton
             onChange={handler}
             value="any"
@@ -58,9 +56,7 @@ test("call onChange when the button is selected", async () => {
         </ToggleButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -69,7 +65,7 @@ test("call onChange when the button is selected", async () => {
 test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleButton
             onChange={handler}
             value="any"
@@ -80,13 +76,9 @@ test("call onChange when the button is unselected", async () => {
         </ToggleButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));

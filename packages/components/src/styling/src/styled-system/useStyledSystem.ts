@@ -182,7 +182,8 @@ const OrbitColors = [
 ] as const;
 
 const BackgroundColorAliases = [
-    "alias-default",
+    "alias-body",
+    "alias-surface",
     "alias-soft-break",
     "alias-hard-break",
     "alias-mid-break",
@@ -222,6 +223,7 @@ const BackgroundColorAliases = [
     "alias-success-faint",
     "alias-success-light",
     "alias-transparent",
+    "alias-underlay",
     "alias-input-selection"
 ] as const;
 
@@ -231,8 +233,6 @@ const BorderColorAliases = [
     "alias-low-break",
     "alias-mid-break",
     "alias-high-break",
-    "alias-accent",
-    "alias-accent-hover",
     "alias-accent-active",
     "alias-alert",
     "alias-alert-hover",
@@ -253,6 +253,7 @@ const IconColorAliases = [
     "alias-faint",
     "alias-accent",
     "alias-accent-hover",
+    "alias-accent-active",
     "alias-alert",
     "alias-alert-hover",
     "alias-warning",
@@ -269,6 +270,7 @@ const TextColorAliases = [
     "alias-faint",
     "alias-accent",
     "alias-accent-hover",
+    "alias-accent-active",
     "alias-alert",
     "alias-alert-hover",
     "alias-warning",
@@ -283,22 +285,17 @@ const BorderRadiusScale = [
     3,
     4,
     "pill",
-    "rounded",
     "circular"
 ] as const;
 
 const BoxShadowScale = [
     1,
-    2,
-    3,
-    4
+    2
 ] as const;
 
 const BoxShadowAliases = [
     "alias-floating",
-    "alias-lifted",
-    "alias-raised",
-    "alias-skim"
+    "alias-lifted"
 ] as const;
 
 const FontSizeScale = [

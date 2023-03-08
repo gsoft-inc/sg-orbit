@@ -42,30 +42,32 @@ This makes their intended use clear and intentional, and allows us to develop a 
 
 <TokenTable
     colors={[
-        { token: "alias-default", variable: "--o-ui-bg-alias-default", valueLight: "#FFFFFF", valueDark: "#272626", itemRenderer: backgroundRenderer },
-        { token: "alias-soft-break", variable: "--o-ui-alias-bg-soft-break", valueLight: "#F9F9F9", valueDark: "#111010", itemRenderer: backgroundRenderer},
-        { token: "alias-mid-break", variable: "--o-ui-bg-alias-mid-break", valueLight: "#F4F4F4", valueDark: "#434342", itemRenderer: backgroundRenderer },
-        { token: "alias-hard-break", variable: "--o-ui-bg-alias-hard-break", valueLight: "#C4C3C3", valueDark: "#777676", itemRenderer: backgroundRenderer },
-        { token: "alias-basic", variable: "--o-ui-bg-alias-basic", valueLight: "#434342", valueDark: "#929292", itemRenderer: backgroundRenderer },
-        { token: "alias-basic-transparent-hover", variable: "--o-ui-bg-alias-basic-transparent-hover", valueLight: "#E5E5E5", valueDark: "#555454", itemRenderer: backgroundRenderer },
-        { token: "alias-basic-transparent-active", variable: "--o-ui-bg-alias-basic-transparent-active", valueLight: "#C4C3C3", valueDark: "#434342", itemRenderer: backgroundRenderer },
-        { token: "alias-static-white", variable: "--o-ui-bg-alias-static-white", valueLight: "#FFFFFF", valueDark: "#FFFFFF", itemRenderer: backgroundRenderer },
-        { token: "alias-accent", variable: "--o-ui-bg-alias-accent", valueLight: "#5D65F6", valueDark: "#5D65F6", itemRenderer: backgroundRenderer },
-        { token: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", valueLight: "#EEF3FD", valueDark: "#1F2151", itemRenderer: backgroundRenderer },
-        { token: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", valueLight: "#DBE6FD", valueDark: "#362AAE", itemRenderer: backgroundRenderer },
-        { token: "alias-accent-transparent-hover", variable: "--o-ui-bg-alias-accent-transparent-hover", valueLight: "#EEF3FD", valueDark: "#362AAEX", itemRenderer: backgroundRenderer },
-        { token: "alias-accent-transparent-active", variable: "--o-ui-bg-alias-accent-transparent-active", valueLight: "#DBE6FD", valueDark: "#1F2151", itemRenderer: backgroundRenderer },
-        { token: "alias-alert", variable: "--o-ui-bg-alias-alert", valueLight: "#D93C37", valueDark: "#D93C37", itemRenderer: backgroundRenderer },
-        { token: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", valueLight: "#FBF1F1", valueDark: "#461812", itemRenderer: backgroundRenderer },
-        { token: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", valueLight: "#FADFDF", valueDark: "#811B15", itemRenderer: backgroundRenderer },
-        { token: "alias-alert-transparent-hover", variable: "--o-ui-bg-alias-alert-transparent-hover", valueLight: "#FBF1F1", valueDark: "#811B15", itemRenderer: backgroundRenderer },
-        { token: "alias-alert-transparent-active", variable: "--o-ui-bg-alias-alert-transparent-active", valueLight: "#FADFDF", valueDark: "#461812", itemRenderer: backgroundRenderer },
-        { token: "alias-warning", variable: "--o-ui-bg-alias-warning", valueLight: "#F6BA42", valueDark: "#F6BA42", itemRenderer: backgroundRenderer },
-        { token: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", valueLight: "#FCF3DF", valueDark: "#4E4027", itemRenderer: backgroundRenderer },
-        { token: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", valueLight: "#FBE3B5", valueDark: "#65522F", itemRenderer: backgroundRenderer },
-        { token: "alias-success", variable: "--o-ui-bg-alias-success", valueLight: "#2D8739", valueDark: "#2D8739", itemRenderer: backgroundRenderer },
-        { token: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", valueLight: "#E3F8EC", valueDark: "#1B2A1A", itemRenderer: backgroundRenderer },
-        { token: "alias-success-light", variable: "--o-ui-bg-alias-success-light", valueLight: "#CEEDD7", valueDark: "#284929", itemRenderer: backgroundRenderer },
+        { token: "alias-body", variable: "--o-ui-bg-alias-body", valueLight: "$gray | #F9F9F9", valueDark: "$neutral-10 | #111010", itemRenderer: backgroundRenderer },
+        { token: "alias-surface", variable: "--o-ui-bg-alias-surface", valueLight: "$white | #FFFFFF", valueDark: "$neutral-9 | #272626", itemRenderer: backgroundRenderer },
+        { token: "alias-soft-break", variable: "--o-ui-alias-bg-soft-break", valueLight: "$gray | #F9F9F9", valueDark: "$neutral-10 | #111010", itemRenderer: backgroundRenderer},
+        { token: "alias-mid-break", variable: "--o-ui-bg-alias-mid-break", valueLight: "$neutral-1 | #F4F4F4", valueDark: "$neutral-8 | #434342", itemRenderer: backgroundRenderer },
+        { token: "alias-hard-break", variable: "--o-ui-bg-alias-hard-break", valueLight: "$neutral-3 | #C4C3C3", valueDark: "$neutral-6 | #777676", itemRenderer: backgroundRenderer },
+        { token: "alias-basic", variable: "--o-ui-bg-alias-basic", valueLight: "$neutral-8 | #434342", valueDark: "$neutral-5 | #929292", itemRenderer: backgroundRenderer },
+        { token: "alias-basic-transparent-hover", variable: "--o-ui-bg-alias-basic-transparent-hover", valueLight: "$neutral-2 | #E5E5E5", valueDark: "$neutral-7 | #555454", itemRenderer: backgroundRenderer },
+        { token: "alias-basic-transparent-active", variable: "--o-ui-bg-alias-basic-transparent-active", valueLight: "$neutral-3 | #C4C3C3", valueDark: "$neutral-8 | #434342", itemRenderer: backgroundRenderer },
+        { token: "alias-static-white", variable: "--o-ui-bg-alias-static-white", valueLight: "$white | #FFFFFF", valueDark: "$white | #FFFFFF", itemRenderer: backgroundRenderer },
+        { token: "alias-accent", variable: "--o-ui-bg-alias-accent", valueLight: "$purple-6 | #5D65F6", valueDark: "$purple-6 | #5D65F6", itemRenderer: backgroundRenderer },
+        { token: "alias-accent-faint", variable: "--o-ui-bg-alias-accent-faint", valueLight: "$purple-1 | #EEF3FD", valueDark: "$purple-9 | #1F2151", itemRenderer: backgroundRenderer },
+        { token: "alias-accent-light", variable: "--o-ui-bg-alias-accent-light", valueLight: "$purple-2 | #DBE6FD", valueDark: "$purple-8 | #362AAE", itemRenderer: backgroundRenderer },
+        { token: "alias-accent-transparent-hover", variable: "--o-ui-bg-alias-accent-transparent-hover", valueLight: "$purple-1 | #EEF3FD", valueDark: "$purple-9 | #1F2151", itemRenderer: backgroundRenderer },
+        { token: "alias-accent-transparent-active", variable: "--o-ui-bg-alias-accent-transparent-active", valueLight: "$purple-2 | #DBE6FD", valueDark: "$purple-9 | #1F2151", itemRenderer: backgroundRenderer },
+        { token: "alias-alert", variable: "--o-ui-bg-alias-alert", valueLight: "$alert-6 | #D93C37", valueDark: "$alert-6 | #D93C37", itemRenderer: backgroundRenderer },
+        { token: "alias-alert-faint", variable: "--o-ui-bg-alias-alert-faint", valueLight: "$alert-1 | #FBF1F1", valueDark: "$alert-9 | #461812", itemRenderer: backgroundRenderer },
+        { token: "alias-alert-light", variable: "--o-ui-bg-alias-alert-light", valueLight: "$alert-2 | #FADFDF", valueDark: "$alert-8 | #811B15", itemRenderer: backgroundRenderer },
+        { token: "alias-alert-transparent-hover", variable: "--o-ui-bg-alias-alert-transparent-hover", valueLight: "$alert-1 | #FBF1F1", valueDark: "$alert-8 | #811B15", itemRenderer: backgroundRenderer },
+        { token: "alias-alert-transparent-active", variable: "--o-ui-bg-alias-alert-transparent-active", valueLight: "$alert-2 | #FADFDF", valueDark: "$alert-9 | #461812", itemRenderer: backgroundRenderer },
+        { token: "alias-warning", variable: "--o-ui-bg-alias-warning", valueLight: "$warning-3 | #F6BA42", valueDark: "$warning-3 | #F6BA42", itemRenderer: backgroundRenderer },
+        { token: "alias-warning-faint", variable: "--o-ui-bg-alias-warning-faint", valueLight: "$warning-1 | #FCF3DF", valueDark: "warning-8 | #4E4027", itemRenderer: backgroundRenderer },
+        { token: "alias-warning-light", variable: "--o-ui-bg-alias-warning-light", valueLight: "$warning-2 | #FBE3B5", valueDark: "warning-9 | #65522F", itemRenderer: backgroundRenderer },
+        { token: "alias-success", variable: "--o-ui-bg-alias-success", valueLight: "$success-6 | #2D8739", valueDark: "$success-6 | #2D8739", itemRenderer: backgroundRenderer },
+        { token: "alias-success-faint", variable: "--o-ui-bg-alias-success-faint", valueLight: "$success-1 | #E3F8EC", valueDark: "$success-9 | #1B2A1A", itemRenderer: backgroundRenderer },
+        { token: "alias-success-light", variable: "--o-ui-bg-alias-success-light", valueLight: "$success-2 | #CEEDD7", valueDark: "$success-8 | #284929", itemRenderer: backgroundRenderer },
+        { token: "alias-underlay", variable: "--o-ui-bg-alias-underlay", valueLight: "rgba(31, 33, 81, 0.5)", valueDark: "rgba(31, 33, 81, 0.5)", itemRenderer: backgroundRenderer },
         { token: "alias-transparent", variable: "--o-ui-bg-alias-transparent", valueLight: "transparent", valueDark: "transparent", itemRenderer: backgroundRenderer }
     ]}
 />
@@ -74,21 +76,19 @@ This makes their intended use clear and intentional, and allows us to develop a 
 
 <TokenTable
     colors={[
-        { token: "alias-low-break", variable: "--o-ui-b-alias-low-break", valueLight: "#E5E5E5", valueDark: "#434342", itemRenderer: borderRenderer},
-        { token: "alias-mid-break", variable: "--o-ui-b-alias-mid-break", valueLight: "#ADACAC", valueDark: "#555454", itemRenderer: borderRenderer},
-        { token: "alias-high-break", variable: "--o-ui-b-alias-high-break", valueLight: "#777676", valueDark: "#929292", itemRenderer: borderRenderer},
-        { token: "alias-accent", variable: "--o-ui-b-alias-accent" , valueLight: "#95A9F5", valueDark: "#5D65F6", itemRenderer: borderRenderer},
-        { token: "alias-accent-hover", variable: "--o-ui-b-alias-accent-hover", valueLight: "#362AAE", valueDark: "#4B11FD", itemRenderer: borderRenderer},
-        { token: "alias-accent-active", variable: "--o-ui-b-alias-accent-active", valueLight: "#1F2151", valueDark: "#362AAE", itemRenderer: borderRenderer},
-        { token: "alias-alert", variable: "--o-ui-b-alias-alert", valueLight: "#F88F8D", valueDark: "#D93C37", itemRenderer: borderRenderer},
-        { token: "alias-alert-hover", variable: "--o-ui-b-alias-alert-hover", valueLight: "#811B15", valueDark: "#A91414", itemRenderer: borderRenderer},
-        { token: "alias-alert-active", variable: "--o-ui-b-alias-alert-active", valueLight: "#461812", valueDark: "#811B15", itemRenderer: borderRenderer},
-        { token: "alias-warning", variable: "--o-ui-b-alias-warning", valueLight: "#D7A541", valueDark: "#B48C3F", itemRenderer: borderRenderer},
-        { token: "alias-warning-hover", variable: "--o-ui-b-alias-warning-hover", valueLight: "#4E4027", valueDark: "#65522F", itemRenderer: borderRenderer},
-        { token: "alias-warning-active", variable: "--o-ui-b-alias-warning-active", valueLight: "#2C2619", valueDark: "#4E4027", itemRenderer: borderRenderer},
-        { token: "alias-success", variable: "--o-ui-b-alias-success", valueLight: "#2D8739", valueDark: "#2D8739", itemRenderer: borderRenderer},
-        { token: "alias-success-hover", variable: "--o-ui-b-alias-success-hover", valueLight: "#284929", valueDark: "#2E5F30", itemRenderer: borderRenderer},
-        { token: "alias-success-active", variable: "--o-ui-b-alias-success-active", valueLight: "#1B2A1A", valueDark: "#284929", itemRenderer: borderRenderer }
+        { token: "alias-low-break", variable: "--o-ui-b-alias-low-break", valueLight: "$neutral-2 | #E5E5E5", valueDark: "$neutral-8 | #434342", itemRenderer: borderRenderer},
+        { token: "alias-mid-break", variable: "--o-ui-b-alias-mid-break", valueLight: "$neutral-4 | #ADACAC", valueDark: "$neutral-7 | #555454", itemRenderer: borderRenderer},
+        { token: "alias-high-break", variable: "--o-ui-b-alias-high-break", valueLight: "$neutral-6 | #777676", valueDark: "$neutral-5 | #929292", itemRenderer: borderRenderer},
+        { token: "alias-accent-active", variable: "--o-ui-b-alias-accent-active", valueLight: "$purple-6 | #1F2151", valueDark: "$purple-8 | #362AAE", itemRenderer: borderRenderer},
+        { token: "alias-alert", variable: "--o-ui-b-alias-alert", valueLight: "$alert-6 | #F88F8D", valueDark: "$alert-6 | #D93C37", itemRenderer: borderRenderer},
+        { token: "alias-alert-hover", variable: "--o-ui-b-alias-alert-hover", valueLight: "$alert-7 | #811B15", valueDark: "$alert-7 | #A91414", itemRenderer: borderRenderer},
+        { token: "alias-alert-active", variable: "--o-ui-b-alias-alert-active", valueLight: "$alert-8 | #461812", valueDark: "$alert-8 | #811B15", itemRenderer: borderRenderer},
+        { token: "alias-warning", variable: "--o-ui-b-alias-warning", valueLight: "$warning-4 | #D7A541", valueDark: "#B48C3F", itemRenderer: borderRenderer},
+        { token: "alias-warning-hover", variable: "--o-ui-b-alias-warning-hover", valueLight: "$warning-8 | #4E4027", valueDark: "#65522F", itemRenderer: borderRenderer},
+        { token: "alias-warning-active", variable: "--o-ui-b-alias-warning-active", valueLight: "$warning-9 | #2C2619", valueDark: "#4E4027", itemRenderer: borderRenderer},
+        { token: "alias-success", variable: "--o-ui-b-alias-success", valueLight: "$success-4 | #2D8739", valueDark: "#2D8739", itemRenderer: borderRenderer},
+        { token: "alias-success-hover", variable: "--o-ui-b-alias-success-hover", valueLight: "$success-8 | #284929", valueDark: "#2E5F30", itemRenderer: borderRenderer},
+        { token: "alias-success-active", variable: "--o-ui-b-alias-success-active", valueLight: "$success-9 | #1B2A1A", valueDark: "#284929", itemRenderer: borderRenderer }
     ]}
 />
 
@@ -96,10 +96,8 @@ This makes their intended use clear and intentional, and allows us to develop a 
 
 <TokenTable
     colors={[
-        { token: "alias-skim", variable: "--o-ui-bs-alias-skim", valueLight: "bs-1", valueDark: "bs-1", itemRenderer: boxShadowRenderer},
-        { token: "alias-lifted", variable: "--o-ui-bs-alias-lifted", valueLight: "bs-2", valueDark: "bs-2" , itemRenderer: boxShadowRenderer},
-        { token: "alias-raised", variable: "--o-ui-bs-alias-raised", valueLight: "bs-3", valueDark: "bs-3", itemRenderer: boxShadowRenderer},
-        { token: "alias-floating", variable: "--o-ui-bs-alias-floated" , valueLight: "bs-4", valueDark: "bs-4", itemRenderer: boxShadowRenderer}
+        { token: "alias-lifted", variable: "--o-ui-bs-alias-lifted", valueLight: "$bs-1", valueDark: "$bs-1" , itemRenderer: boxShadowRenderer},
+        { token: "alias-floating", variable: "--o-ui-bs-alias-floating" , valueLight: "$bs-2", valueDark: "$bs-2", itemRenderer: boxShadowRenderer}
     ]}
 />
 
@@ -131,15 +129,15 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "alias-primary", variable: "--o-ui-icon-alias-primary", valueLight: "#111010", valueDark: "#FFFFFF", itemRenderer: iconRenderer },
-        { token: "alias-secondary", variable: "--o-ui-icon-alias-secondary", valueLight: "#434342", valueDark: "#F4F4F4", itemRenderer: iconRenderer },
-        { token: "alias-tertiary", variable: "--o-ui-icon-alias-tertiary", valueLight: "#777676", valueDark: "#E5E5E5", itemRenderer: iconRenderer },
-        { token: "alias-faint", variable: "--o-ui-icon-alias-faint", valueLight: "#929292", valueDark: "#C4C3C3", itemRenderer: iconRenderer },
-        { token: "alias-accent", variable: "--o-ui-icon-alias-accent", valueLight: "#5D65F6", valueDark: "#7689FD", itemRenderer: iconRenderer },
-        { token: "alias-alert", variable: "--o-ui-icon-alias-alert", valueLight: "#D93C37", valueDark: "#F88F8D", itemRenderer: iconRenderer },
-        { token: "alias-warning", variable: "--o-ui-icon-alias-warning", valueLight: "#F6BA42", valueDark: "#F6BA42", itemRenderer: iconRenderer },
-        { token: "alias-success", variable: "--o-ui-icon-alias-success", valueLight: "#2D8739", valueDark: "#17A93C", itemRenderer: iconRenderer },
-        { token: "alias-static-white", variable: "--o-ui-icon-alias-static-white", valueLight: "#FFFFFF", valueDark: "#FFFFFF", itemRenderer: iconRenderer }
+        { token: "alias-primary", variable: "--o-ui-icon-alias-primary", valueLight: "$neutral-10 | #111010", valueDark: "$white | #FFFFFF", itemRenderer: iconRenderer },
+        { token: "alias-secondary", variable: "--o-ui-icon-alias-secondary", valueLight: "$neutral-8 | #434342", valueDark: "$neutral-1 | #F4F4F4", itemRenderer: iconRenderer },
+        { token: "alias-tertiary", variable: "--o-ui-icon-alias-tertiary", valueLight: "$neutral-6 | #777676", valueDark: "$neutral-2 | #E5E5E5", itemRenderer: iconRenderer },
+        { token: "alias-faint", variable: "--o-ui-icon-alias-faint", valueLight: "$neutral-5 | #929292", valueDark: "$neutral-3 | #C4C3C3", itemRenderer: iconRenderer },
+        { token: "alias-accent", variable: "--o-ui-icon-alias-accent", valueLight: "$purple-6 | #5D65F6", valueDark: "$purple-6 | #7689FD", itemRenderer: iconRenderer },
+        { token: "alias-alert", variable: "--o-ui-icon-alias-alert", valueLight: "$alert-6 | #D93C37", valueDark: "$alert-4 | #F88F8D", itemRenderer: iconRenderer },
+        { token: "alias-warning", variable: "--o-ui-icon-alias-warning", valueLight: "$warning-5 | #F6BA42", valueDark: "$warning-3 | #F6BA42", itemRenderer: iconRenderer },
+        { token: "alias-success", variable: "--o-ui-icon-alias-success", valueLight: "$success-6 | #2D8739", valueDark: "$success-5 | #17A93C", itemRenderer: iconRenderer },
+        { token: "alias-static-white", variable: "--o-ui-icon-alias-static-white", valueLight: "$white | #FFFFFF", valueDark: "$white | #FFFFFF", itemRenderer: iconRenderer }
     ]}
 />
 
@@ -147,17 +145,17 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "1", variable: "--o-ui-fs-1", valueLight: "0.625rem (10px)", valueDark: "0.625rem (10px)", itemRenderer: fontSizeRenderer },
-        { token: "2", variable: "--o-ui-fs-2", valueLight: "0.75rem (12px)", valueDark: "0.75rem (12px)", itemRenderer: fontSizeRenderer },
-        { token: "3", variable: "--o-ui-fs-3", valueLight: "0.875rem (14px)", valueDark: "0.875rem (14px)", itemRenderer: fontSizeRenderer },
-        { token: "4", variable: "--o-ui-fs-4", valueLight: "1rem (16px)", valueDark: "1rem (16px)",  itemRenderer: fontSizeRenderer },
-        { token: "5", variable: "--o-ui-fs-5", valueLight: "1.125rem (18px)", valueDark: "1.125rem (18px)", itemRenderer: fontSizeRenderer },
-        { token: "6", variable: "--o-ui-fs-6", valueLight: "1.375rem (22px)", valueDark: "1.375rem (22px)", itemRenderer: fontSizeRenderer },
-        { token: "7", variable: "--o-ui-fs-7", valueLight: "1.75rem (28px)", valueDark: "1.75rem (28px)", itemRenderer: fontSizeRenderer },
-        { token: "8", variable: "--o-ui-fs-8", valueLight: "2rem (32px)", valueDark: "2rem (32px)",  itemRenderer: fontSizeRenderer },
-        { token: "9", variable: "--o-ui-fs-9", valueLight: "2.5rem (40px)", valueDark: "2.5rem (40px)", itemRenderer: fontSizeRenderer },
-        { token: "10", variable: "--o-ui-fs-10", valueLight: "3.75rem (60px)", valueDark: "3.75rem (60px)", itemRenderer: fontSizeRenderer },
-        { token: "11", variable: "--o-ui-fs-11", valueLight: "5rem (80px)", valueDark: "5rem (80px)",  itemRenderer: fontSizeRenderer }
+        { token: "1", variable: "--o-ui-fs-1", valueLight: "0.625rem | 10px", valueDark: "0.625rem | 10px", itemRenderer: fontSizeRenderer },
+        { token: "2", variable: "--o-ui-fs-2", valueLight: "0.75rem | 12px", valueDark: "0.75rem | 12px", itemRenderer: fontSizeRenderer },
+        { token: "3", variable: "--o-ui-fs-3", valueLight: "0.875rem | 14px", valueDark: "0.875rem | 14px", itemRenderer: fontSizeRenderer },
+        { token: "4", variable: "--o-ui-fs-4", valueLight: "1rem | 16px", valueDark: "1rem | 16px",  itemRenderer: fontSizeRenderer },
+        { token: "5", variable: "--o-ui-fs-5", valueLight: "1.125rem | 18px", valueDark: "1.125rem | 18px", itemRenderer: fontSizeRenderer },
+        { token: "6", variable: "--o-ui-fs-6", valueLight: "1.375rem | 22px", valueDark: "1.375rem | 22px", itemRenderer: fontSizeRenderer },
+        { token: "7", variable: "--o-ui-fs-7", valueLight: "1.75rem | 28px", valueDark: "1.75rem | 28px", itemRenderer: fontSizeRenderer },
+        { token: "8", variable: "--o-ui-fs-8", valueLight: "2rem | 32px", valueDark: "2rem | 32px",  itemRenderer: fontSizeRenderer },
+        { token: "9", variable: "--o-ui-fs-9", valueLight: "2.5rem | 40px", valueDark: "2.5rem | 40px", itemRenderer: fontSizeRenderer },
+        { token: "10", variable: "--o-ui-fs-10", valueLight: "3.75rem | 60px", valueDark: "3.75rem | 60px", itemRenderer: fontSizeRenderer },
+        { token: "11", variable: "--o-ui-fs-11", valueLight: "5rem | 80px", valueDark: "5rem | 80px",  itemRenderer: fontSizeRenderer }
     ]}
 />
 
@@ -188,11 +186,10 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "1", variable: "--o-ui-br-1", valueLight: "0.125rem (2px)", valueDark: "0.125rem (2px)", itemRenderer: radiiRenderer },
-        { token: "2", variable: "--o-ui-br-2", valueLight: "0.25rem (4px)", valueDark: "0.25rem (4px)", itemRenderer: radiiRenderer },
-        { token: "3", variable: "--o-ui-br-3", valueLight: "0.5rem (8px)", valueDark: "0.5rem (8px)", itemRenderer: radiiRenderer },
-        { token: "4", variable: "--o-ui-br-4", valueLight: "1rem (16px)", valueDark: "1rem (16px)", itemRenderer: radiiRenderer },
-        { token: "rounded", variable: "--o-ui-br-rounded", valueLight: ".25rem (4px)", valueDark: ".25rem (4px)", itemRenderer: radiiRenderer },
+        { token: "1", variable: "--o-ui-br-1", valueLight: "0.125rem | 2px", valueDark: "0.125rem | 2px", itemRenderer: radiiRenderer },
+        { token: "2", variable: "--o-ui-br-2", valueLight: "0.25rem | 4px", valueDark: "0.25rem | 4px", itemRenderer: radiiRenderer },
+        { token: "3", variable: "--o-ui-br-3", valueLight: "0.5rem | 8px", valueDark: "0.5rem | 8px", itemRenderer: radiiRenderer },
+        { token: "4", variable: "--o-ui-br-4", valueLight: "1rem | 16px", valueDark: "1rem | 16px", itemRenderer: radiiRenderer },
         { token: "pill", variable: "--o-ui-br-pill", valueLight: "999px", valueDark: "999px", itemRenderer: radiiRenderer },
         { token: "circular", variable: "--o-ui-br-circular", valueLight: "100%", valueDark: "100%", itemRenderer: radiiRenderer }
     ]}
@@ -202,24 +199,24 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "1", variable: "--o-ui-sz-1", valueLight: "0.75rem (12px)", valueDark: "0.75rem (12px)", itemRenderer: sizingRenderer },
-        { token: "2", variable: "--o-ui-sz-2", valueLight: "1rem (16px)", valueDark: "1rem (16px)", itemRenderer: sizingRenderer },
-        { token: "3", variable: "--o-ui-sz-3", valueLight: "1.25rem (20px)", valueDark: "1.25rem (20px)", itemRenderer: sizingRenderer },
-        { token: "4", variable: "--o-ui-sz-4", valueLight: "1.50rem (24px)", valueDark: "1.50rem (24px)", itemRenderer: sizingRenderer },
-        { token: "5", variable: "--o-ui-sz-5", valueLight: "2rem (32px)", valueDark: "2rem (32px)", itemRenderer: sizingRenderer },
-        { token: "6", variable: "--o-ui-sz-6", valueLight: "2.5rem (40px)", valueDark: "2.5rem (40px)", itemRenderer: sizingRenderer },
-        { token: "7", variable: "--o-ui-sz-7", valueLight: "3rem (48px)", valueDark: "3rem (48px)", itemRenderer: sizingRenderer },
-        { token: "8", variable: "--o-ui-sz-8", valueLight: "3.5rem (56px)", valueDark: "3.5rem (56px)", itemRenderer: sizingRenderer },
-        { token: "9", variable: "--o-ui-sz-9", valueLight: "4rem (64px)", valueDark: "4rem (64px)", itemRenderer: sizingRenderer },
-        { token: "10", variable: "--o-ui-sz-10", valueLight: "4.5rem (72px)", valueDark: "4.5rem (72px)", itemRenderer: sizingRenderer },
-        { token: "11", variable: "--o-ui-sz-11", valueLight: "5rem (80px)", valueDark: "5rem (80px)", itemRenderer: sizingRenderer },
-        { token: "12", variable: "--o-ui-sz-12", valueLight: "6rem (96px)", valueDark: "6rem (96px)", itemRenderer: sizingRenderer },
-        { token: "13", variable: "--o-ui-sz-13", valueLight: "8rem (128px)", valueDark: "8rem (128px)", itemRenderer: sizingRenderer },
-        { token: "14", variable: "--o-ui-sz-14", valueLight: "12rem (192px)", valueDark: "12rem (192px)", itemRenderer: sizingRenderer },
-        { token: "15", variable: "--o-ui-sz-15", valueLight: "16rem (256px)", valueDark: "16rem (256px)", itemRenderer: sizingRenderer },
-        { token: "16", variable: "--o-ui-sz-16", valueLight: "20rem (320px)", valueDark: "20rem (320px)", itemRenderer: sizingRenderer },
-        { token: "17", variable: "--o-ui-sz-17", valueLight: "24rem (384px)", valueDark: "24rem (384px)", itemRenderer: sizingRenderer },
-        { token: "18", variable: "--o-ui-sz-18", valueLight: "30rem (480px)", valueDark: "30rem (480px)", itemRenderer: sizingRenderer }
+        { token: "1", variable: "--o-ui-sz-1", valueLight: "0.75rem | 12px", valueDark: "0.75rem | 12px", itemRenderer: sizingRenderer },
+        { token: "2", variable: "--o-ui-sz-2", valueLight: "1rem | 16px", valueDark: "1rem | 16px", itemRenderer: sizingRenderer },
+        { token: "3", variable: "--o-ui-sz-3", valueLight: "1.25rem | 20px", valueDark: "1.25rem | 20px", itemRenderer: sizingRenderer },
+        { token: "4", variable: "--o-ui-sz-4", valueLight: "1.50rem | 24px", valueDark: "1.50rem | 24px", itemRenderer: sizingRenderer },
+        { token: "5", variable: "--o-ui-sz-5", valueLight: "2rem | 32px", valueDark: "2rem | 32px", itemRenderer: sizingRenderer },
+        { token: "6", variable: "--o-ui-sz-6", valueLight: "2.5rem | 40px", valueDark: "2.5rem | 40px", itemRenderer: sizingRenderer },
+        { token: "7", variable: "--o-ui-sz-7", valueLight: "3rem | 48px", valueDark: "3rem | 48px", itemRenderer: sizingRenderer },
+        { token: "8", variable: "--o-ui-sz-8", valueLight: "3.5rem | 56px", valueDark: "3.5rem | 56px", itemRenderer: sizingRenderer },
+        { token: "9", variable: "--o-ui-sz-9", valueLight: "4rem | 64px", valueDark: "4rem | 64px", itemRenderer: sizingRenderer },
+        { token: "10", variable: "--o-ui-sz-10", valueLight: "4.5rem | 72px", valueDark: "4.5rem | 72px", itemRenderer: sizingRenderer },
+        { token: "11", variable: "--o-ui-sz-11", valueLight: "5rem | 80px", valueDark: "5rem | 80px", itemRenderer: sizingRenderer },
+        { token: "12", variable: "--o-ui-sz-12", valueLight: "6rem | 96px", valueDark: "6rem | 96px", itemRenderer: sizingRenderer },
+        { token: "13", variable: "--o-ui-sz-13", valueLight: "8rem | 128px", valueDark: "8rem | 128px", itemRenderer: sizingRenderer },
+        { token: "14", variable: "--o-ui-sz-14", valueLight: "12rem | 192px", valueDark: "12rem | 192px", itemRenderer: sizingRenderer },
+        { token: "15", variable: "--o-ui-sz-15", valueLight: "16rem | 256px", valueDark: "16rem | 256px", itemRenderer: sizingRenderer },
+        { token: "16", variable: "--o-ui-sz-16", valueLight: "20rem | 320px", valueDark: "20rem | 320px", itemRenderer: sizingRenderer },
+        { token: "17", variable: "--o-ui-sz-17", valueLight: "24rem | 384px", valueDark: "24rem | 384px", itemRenderer: sizingRenderer },
+        { token: "18", variable: "--o-ui-sz-18", valueLight: "30rem | 480px", valueDark: "30rem | 480px", itemRenderer: sizingRenderer }
     ]}
 />
 
@@ -227,19 +224,19 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "1", variable: "--o-ui-sp-1", valueLight: "0.25rem (4px)", valueDark: "0.25rem (4px)", itemRenderer: spacingRenderer },
-        { token: "2", variable: "--o-ui-sp-2", valueLight: "0.5rem (8px)", valueDark: "0.5rem (8px)", itemRenderer: spacingRenderer },
-        { token: "3", variable: "--o-ui-sp-3", valueLight: "0.75rem (12px)", valueDark: "0.75rem (12px)", itemRenderer: spacingRenderer },
-        { token: "4", variable: "--o-ui-sp-4", valueLight: "1rem (16px)", valueDark: "1rem (16px)", itemRenderer: spacingRenderer },
-        { token: "5", variable: "--o-ui-sp-5", valueLight: "1.25rem (20px)", valueDark: "1.25rem (20px)", itemRenderer: spacingRenderer },
-        { token: "6", variable: "--o-ui-sp-6", valueLight: "1.5rem (24px)", valueDark: "1.5rem (24px)", itemRenderer: spacingRenderer },
-        { token: "7", variable: "--o-ui-sp-7", valueLight: "2rem (32px)", valueDark: "2rem (32px)", itemRenderer: spacingRenderer },
-        { token: "8", variable: "--o-ui-sp-8", valueLight: "2.5rem (40px)", valueDark: "2.5rem (40px)", itemRenderer: spacingRenderer },
-        { token: "9", variable: "--o-ui-sp-9", valueLight: "3rem (48px)", valueDark: "3rem (48px)", itemRenderer: spacingRenderer },
-        { token: "10", variable: "--o-ui-sp-10", valueLight: "3.5rem (56px)", valueDark: "3.5rem (56px)", itemRenderer: spacingRenderer },
-        { token: "11", variable: "--o-ui-sp-11", valueLight: "4rem (64px)", valueDark: "4rem (64px)", itemRenderer: spacingRenderer },
-        { token: "12", variable: "--o-ui-sp-12", valueLight: "4.5rem (72px)", valueDark: "4.5rem (72px)", itemRenderer: spacingRenderer },
-        { token: "13", variable: "--o-ui-sp-13", valueLight: "5rem (80px)", valueDark: "5rem (80px)", itemRenderer: spacingRenderer }
+        { token: "1", variable: "--o-ui-sp-1", valueLight: "0.25rem | 4px", valueDark: "0.25rem | 4px", itemRenderer: spacingRenderer },
+        { token: "2", variable: "--o-ui-sp-2", valueLight: "0.5rem | 8px", valueDark: "0.5rem | 8px", itemRenderer: spacingRenderer },
+        { token: "3", variable: "--o-ui-sp-3", valueLight: "0.75rem | 12px", valueDark: "0.75rem | 12px", itemRenderer: spacingRenderer },
+        { token: "4", variable: "--o-ui-sp-4", valueLight: "1rem | 16px", valueDark: "1rem | 16px", itemRenderer: spacingRenderer },
+        { token: "5", variable: "--o-ui-sp-5", valueLight: "1.25rem | 20px", valueDark: "1.25rem | 20px", itemRenderer: spacingRenderer },
+        { token: "6", variable: "--o-ui-sp-6", valueLight: "1.5rem | 24px", valueDark: "1.5rem | 24px", itemRenderer: spacingRenderer },
+        { token: "7", variable: "--o-ui-sp-7", valueLight: "2rem | 32px", valueDark: "2rem | 32px", itemRenderer: spacingRenderer },
+        { token: "8", variable: "--o-ui-sp-8", valueLight: "2.5rem | 40px", valueDark: "2.5rem | 40px", itemRenderer: spacingRenderer },
+        { token: "9", variable: "--o-ui-sp-9", valueLight: "3rem | 48px", valueDark: "3rem | 48px", itemRenderer: spacingRenderer },
+        { token: "10", variable: "--o-ui-sp-10", valueLight: "3.5rem | 56px", valueDark: "3.5rem | 56px", itemRenderer: spacingRenderer },
+        { token: "11", variable: "--o-ui-sp-11", valueLight: "4rem | 64px", valueDark: "4rem | 64px", itemRenderer: spacingRenderer },
+        { token: "12", variable: "--o-ui-sp-12", valueLight: "4.5rem | 72px", valueDark: "4.5rem | 72px", itemRenderer: spacingRenderer },
+        { token: "13", variable: "--o-ui-sp-13", valueLight: "5rem | 80px", valueDark: "5rem | 80px", itemRenderer: spacingRenderer }
     ]}
 />
 
@@ -247,14 +244,14 @@ Only usable as `CSS` variables
 
 <TokenTable
     colors={[
-        { token: "alias-primary", variable: "--o-ui-text-alias-primary", valueLight: "#111010", valueDark: "#FFFFFF", itemRenderer: textRenderer },
-        { token: "alias-secondary", variable: "--o-ui-text-alias-secondary", valueLight: "#434342", valueDark: "#F4F4F4", itemRenderer: textRenderer },
-        { token: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", valueLight: "#777676", valueDark: "#E5E5E5", itemRenderer: textRenderer },
-        { token: "alias-faint", variable: "--o-ui-text-alias-faint", valueLight: "#929292", valueDark: "#C4C3C3", itemRenderer: textRenderer },
-        { token: "alias-accent", variable: "--o-ui-text-alias-accent", valueLight: "#5D65F6", valueDark: "#7689FD", itemRenderer: textRenderer },
-        { token: "alias-alert", variable: "--o-ui-text-alias-alert", valueLight: "#D93C37", valueDark: "#F88F8D", itemRenderer: textRenderer },
-        { token: "alias-warning", variable: "--o-ui-text-alias-warning", valueLight: "#F6BA42", valueDark: "#F6BA42", itemRenderer: textRenderer },
-        { token: "alias-success", variable: "--o-ui-text-alias-success", valueLight: "#2D8739", valueDark: "#17A93C", itemRenderer: textRenderer },
-        { token: "alias-static-white", variable: "--o-ui-text-alias-static-white", valueLight: "#FFFFFF", valueDark: "#FFFFFF", itemRenderer: textRenderer }
+        { token: "alias-primary", variable: "--o-ui-text-alias-primary", valueLight: "$neutral-10 | #111010", valueDark: "$white | #FFFFFF", itemRenderer: textRenderer },
+        { token: "alias-secondary", variable: "--o-ui-text-alias-secondary", valueLight: "$neutral-8 | #434342", valueDark: "$neutral-1 | #F4F4F4", itemRenderer: textRenderer },
+        { token: "alias-tertiary", variable: "--o-ui-text-alias-tertiary", valueLight: "$neutral-6 | #777676", valueDark: "$neutral-2 | #E5E5E5", itemRenderer: textRenderer },
+        { token: "alias-faint", variable: "--o-ui-text-alias-faint", valueLight: "$neutral-5 | #929292", valueDark: "$neutral-3 | #C4C3C3", itemRenderer: textRenderer },
+        { token: "alias-accent", variable: "--o-ui-text-alias-accent", valueLight: "$purple-6 | #5D65F6", valueDark: "$purple-6 | #7689FD", itemRenderer: textRenderer },
+        { token: "alias-alert", variable: "--o-ui-text-alias-alert", valueLight: "$alert-6 | #D93C37", valueDark: "$alert-6 | #F88F8D", itemRenderer: textRenderer },
+        { token: "alias-warning", variable: "--o-ui-text-alias-warning", valueLight: "$warning-5 | #F6BA42", valueDark: "$warning-3 | #F6BA42", itemRenderer: textRenderer },
+        { token: "alias-success", variable: "--o-ui-text-alias-success", valueLight: "$success-6 | #2D8739", valueDark: "$success-5 | #17A93C", itemRenderer: textRenderer },
+        { token: "alias-static-white", variable: "--o-ui-text-alias-static-white", valueLight: "$white | #FFFFFF", valueDark: "$white | #FFFFFF", itemRenderer: textRenderer }
     ]}
 />

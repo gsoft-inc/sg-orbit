@@ -3,11 +3,11 @@
  */
 import { TextArea } from "@components/text-area";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();
-    
+
     const renderOnServer = () =>
         renderToString(
             <TextArea autoFocus aria-label="Label" />

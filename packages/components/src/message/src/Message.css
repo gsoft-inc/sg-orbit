@@ -2,10 +2,10 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: var(--o-ui-sp-2) var(--o-ui-sp-3) var(--o-ui-sp-2) var(--o-ui-sp-9);
+    padding: var(--o-ui-sp-2) var(--o-ui-sp-3) var(--o-ui-sp-2) var(--o-ui-sp-8);
     width: 100%;
     height: max-content;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-3);
     position: relative;
     gap: var(--o-ui-sp-2);
 }
@@ -19,6 +19,7 @@
     position: absolute;
     left: var(--o-ui-sp-3);
     top: calc(var(--o-ui-sp-2) + calc(var(--o-ui-sp-2) / 2));
+    margin-top: 0.125rem;
 }
 
 .o-ui-message-content {

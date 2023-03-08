@@ -17,7 +17,6 @@ import {
 } from "../../shared";
 import { ResponsiveProp, useResponsiveValue, useStyleProps } from "../../styling";
 import { Text } from "../../typography";
-import { embeddedIconSize } from "../../icons";
 import { useFormButton } from "../../form";
 import { useInputGroupButtonAddonProps } from "../../input-group";
 import { useToolbarProps } from "../../toolbar";
@@ -28,10 +27,6 @@ export type AbstractButtonProps<T extends ElementType> = InternalProps & Interac
      * Whether or not the button should autoFocus on render.
      */
     autoFocus?: boolean | number;
-    /**
-     * Whether or not the button content should takes additional space.
-     */
-    condensed?: boolean;
     /**
      * Whether or not the button take up the width of its container.
      */
@@ -68,13 +63,6 @@ export interface InnerButtonProps extends AbstractButtonProps<typeof DefaultElem
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
-const condensedTextSize = createSizeAdapter({
-    "sm": "md",
-    "md": "lg"
-});
-/* eslint-enable sort-keys, sort-keys-fix/sort-keys-fix */
-
-/* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
 const textSize = createSizeAdapter({
     "sm": "md",
     "md": "md"
@@ -99,7 +87,6 @@ export function InnerButton(props: InnerButtonProps) {
         as: asProp = DefaultElement,
         autoFocus,
         children,
-        condensed,
         disabled,
         fluid,
         focus,
@@ -110,6 +97,7 @@ export function InnerButton(props: InnerButtonProps) {
         type,
         variant = "primary",
         inherit,
+        onClick,
         ...rest
     } = mergeProps(
         props,
@@ -133,6 +121,7 @@ export function InnerButton(props: InnerButtonProps) {
         hover,
         inherit,
         loading,
+        onClick,
         size: sizeValue,
         type,
         variant
@@ -146,22 +135,20 @@ export function InnerButton(props: InnerButtonProps) {
             className: "o-ui-button-counter",
             disabled,
             pushed: true,
-            size: condensed ? condensedTextSize(sizeValue) : sizeValue
+            size: sizeValue
         },
         "end-icon": {
-            className: "o-ui-button-end-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            className: "o-ui-button-end-icon"
         },
         icon: {
-            className: "o-ui-button-icon o-ui-button-start-icon",
-            size: condensed ? sizeValue : embeddedIconSize(sizeValue)
+            className: "o-ui-button-icon o-ui-button-start-icon"
         },
         text: {
             "aria-hidden": loading,
             className: "o-ui-button-text",
-            size: condensed ? condensedTextSize(sizeValue) : textSize(sizeValue)
+            size: textSize(sizeValue)
         }
-    }), [sizeValue, disabled, condensed, loading]));
+    }), [sizeValue, disabled, loading]));
 
     const loadingMarkup = loading && (
         <Spinner
@@ -209,3 +196,4 @@ export type ButtonProps = ComponentProps<typeof Button>;
 ///////////
 
 export const ButtonAsLink = slot("button", as(Button, "a"));
+export type ButtonAsLinkProps = ComponentProps<typeof ButtonAsLink>;

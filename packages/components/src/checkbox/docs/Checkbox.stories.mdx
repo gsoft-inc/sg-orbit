@@ -2,7 +2,7 @@ import { ArgsTable, Meta, Story } from "@storybook/addon-docs";
 import { Checkbox, CheckboxGroup, InnerCheckbox, InnerCheckboxGroup } from "@components/checkbox";
 import { ComponentInfo, Preview, Tagline } from "@stories/components";
 import { Counter } from "@components/counter";
-import { InfoIcon } from "@components/icons";
+import { PlaceholderMajorIcon } from "@components/icons";
 import { Inline } from "@components/layout";
 import { Text } from "@components/typography";
 
@@ -81,7 +81,7 @@ A checkbox can have [icons](?path=/docs/icon-gallery--page) after his label.
     <Story name="icon">
         <Checkbox>
             <Text>Milky Way</Text>
-            <InfoIcon />
+            <PlaceholderMajorIcon />
         </Checkbox>
     </Story>
 </Preview>
@@ -120,7 +120,7 @@ A checkbox checkmark can be to the left or to the right of his label.
     <Story name="reverse">
         <Checkbox reverse>
             <Text>Milky Way</Text>
-            <InfoIcon />
+            <PlaceholderMajorIcon />
             <Counter variant="divider">6</Counter>
         </Checkbox>
     </Story>

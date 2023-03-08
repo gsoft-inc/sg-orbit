@@ -10,7 +10,7 @@ const ScaleLinks = {
     "color-scale": <Link href="?path=/docs/tokens--page#background-colors">[color]-[1..10] / alias</Link>,
     "sizing-scale": <Link href="?path=/docs/tokens--page#sizings">1..18</Link>,
     "spacing-scale": <Link href="?path=/docs/tokens--page#spacings">1..13</Link>
-}
+};
 
 function toScaleLink(scale) {
     return ScaleLinks[scale] ?? scale;
@@ -22,7 +22,7 @@ function toRowValues([propName, cssProperty, themeKey, scale, supports]) {
         cssProperty,
         themeKey,
         toScaleLink(scale),
-        supports,
+        supports
     ];
 }
 
@@ -34,7 +34,7 @@ export function PropsReferenceTable({ rows }) {
                 { title: "CSS property", headerStyle: { width: "250px" }, rowClassName: "code" },
                 { title: "Theme key", headerStyle: { width: "125px" }, rowClassName: "code" },
                 { title: "Scale", headerStyle: { width: "200px" }, rowClassName: "code" },
-                { title: "Supports", headerStyle: { width: "300px" }, rowClassName: "code" },
+                { title: "Supports", headerStyle: { width: "300px" }, rowClassName: "code" }
             ]}
             rows={rows.map(x => toRowValues(x))}
         />

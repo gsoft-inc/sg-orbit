@@ -19,9 +19,8 @@ import {
 } from "@components/styling";
 
 import { ComponentProps } from "react";
-import { renderWithTheme } from "@jest-utils";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 import renderer from "react-test-renderer";
-import { waitFor } from "@testing-library/react";
 
 const AlignmentSampling = [
     "start",
@@ -329,18 +328,18 @@ describe("breakpoints", () => {
 });
 
 test("do not add inline style when a prop value is undefined", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             width={undefined}
             data-testid="box"
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("style"));
+    await waitFor(() => expect(screen.getByTestId("box")).not.toHaveAttribute("style"));
 });
 
 test("when inline style is provided, append new style", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             style={{ display: "block" }}
             width={1}
@@ -348,14 +347,14 @@ test("when inline style is provided, append new style", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveStyle({
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveStyle({
         display: "block",
         width: normalizeVariable("1", SpacePrefix)
     }));
 });
 
 test("when hover prop is specified and there are already a class, append hover class", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             className="toto"
             borderHover="#fff"
@@ -363,22 +362,22 @@ test("when hover prop is specified and there are already a class, append hover c
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveClass("toto o-ui-b-hover"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveClass("toto o-ui-b-hover"));
 });
 
 test("do not add style when a prop value is undefined", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             bottom={undefined}
             data-testid="box"
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).not.toHaveAttribute("style"));
+    await waitFor(() => expect(screen.getByTestId("box")).not.toHaveAttribute("style"));
 });
 
 test("when style is provided, append new style values", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             style={{ top: "1px" }}
             bottom="2px"
@@ -386,11 +385,11 @@ test("when style is provided, append new style values", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px; bottom: 2px;"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveStyle("top: 1px; bottom: 2px;"));
 });
 
 test("when style is provided with a value matching a provided style prop, do not override the existing style", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <Box
             style={{ top: "1px" }}
             top="2px"
@@ -398,11 +397,11 @@ test("when style is provided with a value matching a provided style prop, do not
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveStyle("top: 1px;"));
 });
 
 test("when className is updated, update the rendered className", async () => {
-    const { getByTestId, rerender } = renderWithTheme(
+    const { rerender } = renderWithTheme(
         <Box
             className="toto"
             top="2px"
@@ -410,7 +409,7 @@ test("when className is updated, update the rendered className", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveClass("toto"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveClass("toto"));
 
     rerender(
         <Box
@@ -420,11 +419,11 @@ test("when className is updated, update the rendered className", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveClass("tata"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveClass("tata"));
 });
 
 test("when style is updated, update the rendered inline style", async () => {
-    const { getByTestId, rerender } = renderWithTheme(
+    const { rerender } = renderWithTheme(
         <Box
             style={{ top: "1px" }}
             top="2px"
@@ -432,7 +431,7 @@ test("when style is updated, update the rendered inline style", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 1px;"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveStyle("top: 1px;"));
 
     rerender(
         <Box
@@ -442,5 +441,5 @@ test("when style is updated, update the rendered inline style", async () => {
         />
     );
 
-    await waitFor(() => expect(getByTestId("box")).toHaveStyle("top: 2px;"));
+    await waitFor(() => expect(screen.getByTestId("box")).toHaveStyle("top: 2px;"));
 });

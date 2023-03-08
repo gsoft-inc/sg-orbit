@@ -1,9 +1,8 @@
-import { ErrorBoundary, muteConsoleErrors } from "@jest-utils";
+import { ErrorBoundary, muteConsoleErrors, act, renderHook } from "@test-utils";
 import { ReactNode } from "react";
-import { act, renderHook } from "@testing-library/react";
 import { useControllableState } from "@components/shared";
 
-// Errors in useEffect are not catch by @testing-library/react-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
+// Errors in useEffect are not catch by @test-utils-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
 function withErrorBoundary(onError: (error: Error) => void) {
     return {
         wrapper: ({ children }: { children?: ReactNode }) => <ErrorBoundary onError={onError}>{children}</ErrorBoundary>
@@ -30,13 +29,13 @@ test("state is the initial value when an initial value is provided", () => {
 
 test("throw an error when a controlled value and an initial value are provided", () => {
     let error = false;
-    
+
     try {
         renderHook(() => useControllableState(true, true, false));
     } catch {
         error = true;
     }
-    
+
     expect(error).toBeTruthy();
 });
 
@@ -81,6 +80,7 @@ test("state is updated when a new controlled value is provided on a subsequent r
 test("throw an error when a controlled value is not provided on the first run but is provided on a subsequent run", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {
@@ -104,6 +104,7 @@ test("throw an error when a controlled value is not provided on the first run bu
 test("throw an error when a controlled value is provided on the first run but is not provided on a subsequent run", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     const { rerender } = renderHook(({ controlledValue }) => useControllableState(controlledValue, undefined, false), {

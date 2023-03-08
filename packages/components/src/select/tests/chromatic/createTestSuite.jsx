@@ -1,4 +1,4 @@
-import { GroupIcon, NotificationIcon } from "@components/icons";
+import { GroupMajorIcon, NotificationMajorIcon } from "@components/icons";
 import { Inline, Stack } from "@components/layout";
 import { Item, Section } from "@components/collection";
 
@@ -109,7 +109,7 @@ export function createTestSuite(element, stories) {
             <Stack>
                 <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                         <Text>Earth</Text>
                     </Item>
                     <Item key="mars">Mars</Item>
@@ -117,7 +117,7 @@ export function createTestSuite(element, stories) {
                 </Select>
                 <Select disabled defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                         <Text>Earth</Text>
                     </Item>
                     <Item key="mars">Mars</Item>
@@ -125,7 +125,7 @@ export function createTestSuite(element, stories) {
                 </Select>
                 <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
-                        <NotificationIcon />
+                        <NotificationMajorIcon />
                         <Text>Earth</Text>
                     </Item>
                     <Item key="mars">Mars</Item>
@@ -134,7 +134,7 @@ export function createTestSuite(element, stories) {
                 <Div width="10%">
                     <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">
-                            <NotificationIcon />
+                            <NotificationMajorIcon />
                             <Text>Earth</Text>
                         </Item>
                         <Item key="mars">Mars</Item>
@@ -148,7 +148,7 @@ export function createTestSuite(element, stories) {
                 <Select defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
                         <Text>Earth</Text>
-                        <NotificationIcon slot="end-icon" />
+                        <NotificationMajorIcon slot="end-icon" />
                     </Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
@@ -156,7 +156,7 @@ export function createTestSuite(element, stories) {
                 <Select disabled defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
                         <Text>Earth</Text>
-                        <NotificationIcon slot="end-icon" />
+                        <NotificationMajorIcon slot="end-icon" />
                     </Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
@@ -164,7 +164,7 @@ export function createTestSuite(element, stories) {
                 <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">
                         <Text>Earth</Text>
-                        <NotificationIcon slot="end-icon" />
+                        <NotificationMajorIcon slot="end-icon" />
                     </Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
@@ -173,7 +173,7 @@ export function createTestSuite(element, stories) {
                     <Select fluid defaultSelectedKey="earth" placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">
                             <Text>Earth</Text>
-                            <NotificationIcon slot="end-icon" />
+                            <NotificationMajorIcon slot="end-icon" />
                         </Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>
@@ -200,23 +200,23 @@ export function createTestSuite(element, stories) {
         )
         .add("trigger icon", () =>
             <Stack>
-                <Select icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Select icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <Select disabled icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Select disabled icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
-                <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                <Select fluid icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                     <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                     <Item key="mars">Mars</Item>
                     <Item key="saturn">Saturn</Item>
                 </Select>
                 <Div width="10%">
-                    <Select fluid icon={<GroupIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
+                    <Select fluid icon={<GroupMajorIcon />} placeholder="Select a planet" aria-label="Planets" element={element}>
                         <Item key="earth">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Item>
                         <Item key="mars">Mars</Item>
                         <Item key="saturn">Saturn</Item>

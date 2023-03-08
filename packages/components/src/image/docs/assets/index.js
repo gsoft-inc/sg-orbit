@@ -1,4 +1,4 @@
-import { ReactComponent as NoResults } from "./no-results.svg";
+import { ReactComponent as NoResults } from "./NoResults";
 import GalaxyImage from "./galaxy.png";
 import GalaxyImage2x from "./galaxy@2x.png";
 import GalaxyImageLg from "./galaxy-lg.png";

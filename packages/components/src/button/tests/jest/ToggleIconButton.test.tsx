@@ -1,8 +1,7 @@
-import { AddIcon } from "@components/icons";
+import { AddMajorIcon } from "@components/icons";
 import { ToggleIconButton } from "@components/button";
-import { act, waitFor } from "@testing-library/react";
+import { screen, waitFor, renderWithTheme } from "@test-utils";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
 import userEvent from "@testing-library/user-event";
 
 // ***** Api *****
@@ -10,7 +9,7 @@ import userEvent from "@testing-library/user-event";
 test("call onChange when the button is selected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleIconButton
             onChange={handler}
             value="any"
@@ -18,13 +17,11 @@ test("call onChange when the button is selected", async () => {
             aria-label="Add"
             data-testid="toggle-icon-button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </ToggleIconButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-icon-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), true));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(1));
@@ -33,7 +30,7 @@ test("call onChange when the button is selected", async () => {
 test("call onChange when the button is unselected", async () => {
     const handler = jest.fn();
 
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <ToggleIconButton
             onChange={handler}
             value="any"
@@ -41,17 +38,13 @@ test("call onChange when the button is unselected", async () => {
             aria-label="Add"
             data-testid="toggle-icon-button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </ToggleIconButton>
     );
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-icon-button"));
 
-    act(() => {
-        userEvent.click(getByTestId("toggle-icon-button"));
-    });
+    await userEvent.click(screen.getByTestId("toggle-icon-button"));
 
     await waitFor(() => expect(handler).toHaveBeenLastCalledWith(expect.anything(), false));
     await waitFor(() => expect(handler).toHaveBeenCalledTimes(2));
@@ -69,7 +62,7 @@ test("ref is a DOM element", async () => {
             value="any"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </ToggleIconButton>
     );
 
@@ -91,7 +84,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             value="any"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </ToggleIconButton>
     );
 
@@ -111,7 +104,7 @@ test("set ref once", async () => {
             value="any"
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </ToggleIconButton>
     );
 

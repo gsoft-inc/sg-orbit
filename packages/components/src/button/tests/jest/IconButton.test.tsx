@@ -1,29 +1,28 @@
-import { act, waitFor } from "@testing-library/react";
-
-import { AddIcon } from "@components/icons";
+import { act, screen, waitFor, renderWithTheme } from "@test-utils";
+import { AddMajorIcon } from "@components/icons";
 import { IconButton } from "@components/button";
 import { createRef } from "react";
-import { renderWithTheme } from "@jest-utils";
+import userEvent from "@testing-library/user-event";
 
 // ***** Behaviors *****
 
 test("when autofocus is true, the button is focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             autoFocus
             variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
 });
 
 test("when autofocus is true and the button is disabled, the button is not focused on render", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             disabled
             autoFocus
@@ -31,28 +30,47 @@ test("when autofocus is true and the button is disabled, the button is not focus
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
-    await waitFor(() => expect(getByTestId("button")).not.toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).not.toHaveFocus());
 });
 
 test("when autofocus is specified with a delay, the button is focused after the delay", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <IconButton
             autoFocus={10}
             variant="secondary"
             aria-label="Add"
             data-testid="button"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
-    expect(getByTestId("button")).not.toHaveFocus();
+    expect(screen.getByTestId("button")).not.toHaveFocus();
 
-    await waitFor(() => expect(getByTestId("button")).toHaveFocus());
+    await waitFor(() => expect(screen.getByTestId("button")).toHaveFocus());
+});
+
+test("when loading is true, the button should prevent onClick", async () => {
+    const handler = jest.fn();
+
+    renderWithTheme(
+        <IconButton
+            loading
+            onClick={handler}
+            data-testid="button"
+            aria-label="Add"
+        >
+            <AddMajorIcon />
+        </IconButton>
+    );
+
+    await userEvent.click(screen.getByTestId("button"));
+
+    await waitFor(() => expect(handler).not.toHaveBeenCalled());
 });
 
 // ***** Api *****
@@ -68,7 +86,7 @@ test("can focus the button with the focus api", async () => {
             }}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -90,7 +108,7 @@ test("ref is a DOM element", async () => {
             ref={ref}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -111,7 +129,7 @@ test("when using a callback ref, ref is a DOM element", async () => {
             }}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 
@@ -130,7 +148,7 @@ test("set ref once", async () => {
             ref={handler}
             aria-label="Add"
         >
-            <AddIcon />
+            <AddMajorIcon />
         </IconButton>
     );
 

@@ -153,6 +153,7 @@ const DateInput = forwardRef<HTMLInputElement, any>(({
                     "aria-invalid": validationState === "invalid" ? true : undefined,
                     "aria-required": required ? true : undefined,
                     className: "o-ui-date-range-input-date-input",
+                    "data-form-type" : "other",
                     disabled,
                     placeholder,
                     readOnly,
@@ -366,7 +367,6 @@ const RangeInput = forwardRef<any, any>((props, ref) => {
                     <CrossButton
                         aria-label="Clear dates"
                         className="o-ui-date-range-input-clear-button"
-                        condensed
                         onClick={handleClearDates}
                         size="xs"
                     />

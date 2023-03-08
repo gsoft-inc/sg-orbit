@@ -4,7 +4,6 @@
 
 import { renderToString } from "react-dom/server";
 import { useId } from "@components/shared";
-import React from "react";
 
 function Test() {
     const id = useId();
@@ -18,8 +17,6 @@ describe("useId SSR", () => {
 
         expect(renderOnServer).not.toThrow();
 
-        const markup = renderOnServer();
-
-        expect(markup.includes("id=\"")).toBeTruthy();
+        expect(renderOnServer().includes("id=\"")).toBeTruthy();
     });
 });

@@ -30,7 +30,7 @@ import { MenuItem } from "./MenuItem";
 import { MenuSection } from "./MenuSection";
 import { ValidationState } from "../../input";
 
-export type SelectionMode = "none" | "single" | "multiple";
+export type MenuSelectionMode = "none" | "single" | "multiple";
 
 export const ItemKeyProp = "data-o-ui-key";
 
@@ -79,7 +79,7 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: MenuSelectionMode;
     /**
      * Whether or not the menu should display as "valid" or "invalid".
      */
@@ -87,8 +87,6 @@ export interface InnerMenuProps extends InternalProps, StyledComponentProps<type
 }
 
 const MenuItemHeight = 32;
-
-const MenuBorderSize = 1;
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
@@ -207,7 +205,6 @@ export function InnerMenu({
         dividerSelector: ".o-ui-menu-divider",
         itemSelector: ".o-ui-menu-item",
         maxHeight: 12 * MenuItemHeight,
-        paddingHeight: 2 * MenuBorderSize,
         sectionSelector: ".o-ui-menu-section-title"
     });
 

@@ -7,7 +7,6 @@ import { Image } from "@components/image";
 import { Inline } from "@components/layout";
 import { InnerTile, InnerTileGroup, InnerTileLink, Tile, TileGroup, TileLink } from "@components/tile";
 import { Planet, SpacePortraitHorizontal, SpacePortrait } from "./assets";
-import { RouterLink } from "./RouterLink";
 
 <Meta
     title="Components/Tile"
@@ -151,16 +150,23 @@ A tile can also be navigable. It is similar to a [link](?path=/docs/link--defaul
 
 ### React router
 
-To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/web/api/Link) or as any other custom component.
+To integrate with a third-party routing library like [React Router](https://reactrouter.com) any link component can be rendered as a [React Router Link](https://reactrouter.com/en/main/components/link) or as any other custom component.
 
-<Preview scope={{ RouterLink }} width={16}>
-    <Story name="react router">
-        <TileLink as={RouterLink} to="/buy">
+```jsx
+import { Link } from "react-router-dom";
+
+const RouterTileLink = as(TileLink, Link);
+
+() => {
+    return (
+        <RouterTileLink to="/buy">
             <Heading>Buy a ticket</Heading>
             <Content>Purchase a ticket for any of our space travel adventure.</Content>
-        </TileLink>
-    </Story>
-</Preview>
+        </RouterTileLink>
+    );
+};
+
+```
 
 ## TileGroup
 

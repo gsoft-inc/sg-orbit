@@ -21,12 +21,12 @@
                 placeholder="Age"
                 onValueChange={handleValueChange}
             />
-            <TextLink
-                as="button"
+            <Button
+                variant="tertiary"
                 onClick={handleClearClick}
             >
-                clear
-            </TextLink>
+                Clear
+            </Button>
         </Inline>
     );
 };

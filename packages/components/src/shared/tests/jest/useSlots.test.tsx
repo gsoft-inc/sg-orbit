@@ -1,10 +1,9 @@
 import { Div, DivProps } from "@components/html";
-import { ErrorBoundary, muteConsoleErrors } from "@jest-utils";
+import { ErrorBoundary, muteConsoleErrors, render, screen, waitFor } from "@test-utils";
 import { ReactNode, createRef, forwardRef } from "react";
-import { render, waitFor } from "@testing-library/react";
 import { slot, useSlots } from "@components/shared";
 
-// Errors in useEffect are not catch by @testing-library/react-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
+// Errors in useEffect are not catch by @test-utils-hooks error handling code. Therefore we must catch those errors with a custom ErrorBoundary.
 function withErrorBoundary(onError: (error: Error) => void) {
     return {
         wrapper: ({ children }: { children?: ReactNode }) => <ErrorBoundary onError={onError}>{children}</ErrorBoundary>
@@ -90,6 +89,7 @@ function DefaultedCard({ children, ...rest }: DivProps) {
 test("throw an exception when a required slot is not fulfilled", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     render(
@@ -124,6 +124,7 @@ test("do not throw an exception when a required slot is fulfilled", () => {
 test("throw an exception when required is a function and unfilled slots are returned", () => {
     let hasError = false;
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const unmuteErrors = muteReactTestRendererConsoleErrors();
 
     render(
@@ -156,11 +157,11 @@ test("do not throw an exception when required is a function and no unfilled slot
 });
 
 test("do not wrap when there are no children", () => {
-    const { queryByTestId } = render(
+    render(
         <DefaultedCard />
     );
 
-    expect(queryByTestId("wrapper")).toBeNull();
+    expect(screen.queryByTestId("wrapper")).toBeNull();
 });
 
 test("support ref", async () => {

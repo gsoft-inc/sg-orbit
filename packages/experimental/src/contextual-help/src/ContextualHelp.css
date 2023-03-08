@@ -1,0 +1,10 @@
+.o-ui-contextual-help {
+    outline: 0;
+    border-radius: var(--o-ui-br-2);
+    color: inherit;
+}
+
+/* STATE | FOCUS */
+.o-ui-contextual-help:focus-visible {
+    box-shadow: 0 0 0 var(--o-ui-focus-ring-thickness-md) var(--o-ui-focus-ring-color-alias-default);
+}

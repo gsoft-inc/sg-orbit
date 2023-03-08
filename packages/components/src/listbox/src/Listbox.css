@@ -6,18 +6,17 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 .o-ui {
     --o-ui-listbox-border-size: 1px;
     --o-ui-listbox-option-height: var(--o-ui-sz-5);
-    --o-ui-listbox-option-checkmark-size: var(--o-ui-sz-1);
+    --o-ui-listbox-option-checkmark-size: var(--o-ui-sz-3);
 }
 
 .o-ui-listbox {
     width: max-content;
     max-width: var(--o-ui-sz-16);
     overflow-y: auto;
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     outline: transparent;
-    border-radius: var(--o-ui-br-rounded);
-    box-shadow: var(--o-ui-bs-alias-lifted);
-    border: var(--o-ui-listbox-border-size) solid var(--o-ui-b-alias-low-break);
+    border-radius: var(--o-ui-br-2);
+    box-shadow: var(--o-ui-bs-alias-floating);
 }
 
 /* FLUID */
@@ -64,15 +63,17 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 }
 
 /* OPTION | STATE | SELECTED */
-.o-ui-listbox-option[aria-selected="true"]::before {
-    content: "";
+.o-ui-listbox-option-checkmark {
+    opacity: 0;
     width: var(--o-ui-listbox-option-checkmark-size);
     height: var(--o-ui-listbox-option-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-24.svg") center center no-repeat;
-    mask-size: var(--o-ui-listbox-option-checkmark-size) var(--o-ui-listbox-option-checkmark-size);
-    background-color: var(--o-ui-bg-alias-accent);
+    fill: var(--o-ui-bg-alias-accent);
     position: absolute;
-    right: 1rem;
+    right: calc((var(--o-ui-sp-8) - var(--o-ui-listbox-option-checkmark-size)) / 2);
+}
+
+.o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-checkmark {
+    opacity: 1;
 }
 
 /* OPTION | STATE | DISABLED */
@@ -98,7 +99,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     left: 0;
     height: var(--o-ui-listbox-option-height);
     width: 2px;
-    background-color: var(--o-ui-focus-ring-color-alias-default);
+    background-color: var(--o-ui-bg-alias-accent);
 }
 
 /* OPTION | STATE | HOVER */
@@ -118,8 +119,8 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
     fill: var(--o-ui-text-alias-alert);
 }
 
-.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"]::before {
-    background-color: var(--o-ui-text-alias-alert);
+.o-ui-listbox-invalid .o-ui-listbox-option[aria-selected="true"] .o-ui-listbox-option-checkmark {
+    fill: var(--o-ui-text-alias-alert);
 }
 
 /* OPTION | STATE | INVALID | FOCUS | SELECTOR BAR */
@@ -144,7 +145,7 @@ IMPORTANT: The Listbox component hardcoded a few CSS values to enable dynamic sc
 
 /* OPTION | ICONS | END ICON */
 .o-ui-listbox-option-end-icon {
-    margin-left: var(--o-ui-sp-1);
+    margin-left: var(--o-ui-sp-2);
 }
 
 /* SECTION */

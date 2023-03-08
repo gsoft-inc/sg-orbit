@@ -6,7 +6,7 @@ import { Content } from "@components/placeholders";
 import { H3 } from "@components/typography";
 import { Item } from "@components/collection";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();

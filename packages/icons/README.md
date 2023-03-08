@@ -28,16 +28,6 @@ In order to be included in Orbit an icon must satisfy the following guidelines
 
 - Although not ideal when an svg has to be coloured add the colour name (refer to sg-orbit colour names) after it's name and before it's size (e.g. trash-empty-_accent-4_-24x24.svg)
 
-### Internal usage
-
-If you add an icon as a CSS background to a package of the monorepo, you must add the `/dist` segment to the path.
-
-```css
-.cancel-icon: {
-    background: url("~@orbit-ui/icons/dist/icon-cancel.svg");
-}
-```
-
 ## License
 
-Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.

@@ -1,0 +1,36 @@
+{
+    "name": "@orbit-ui/experimental",
+    "version": "4.0.0",
+    "description": "Orbit experimental components",
+    "repository": "https://github.com/gsoft-inc/sg-orbit.git",
+    "author": "Groupe Sharegate inc.",
+    "license": "Apache-2.0",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "style": "dist/index.css",
+    "files": [
+        "/dist",
+        "!/dist/**/docs/*",
+        "!/dist/**/tests/*",
+        "index.css"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "prebuild": "yarn clean",
+        "build": "run-s build:* copy-files",
+        "build:types": "tsc --build ./tsconfig.build.json",
+        "copy-files": "copyfiles -u 1 \"src/**/*.css\" dist",
+        "clean": "rimraf dist tsconfig.build.tsbuildinfo"
+    },
+    "peerDependencies": {
+        "@sharegate/orbit-ui": ">=34.1.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@sharegate/orbit-ui": "34.1.0"
+    },
+    "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
+}

@@ -8,7 +8,6 @@
 
 <p align=center>
     <a href="https://circleci.com/gh/gsoft-inc/sg-orbit/tree/master"><img alt="build" src="https://img.shields.io/circleci/build/github/gsoft-inc/sg-orbit/master"></a>
-    <a href="https://david-dm.org/gsoft-inc/sg-orbit?type=dev" title="devDependencies"><img src="https://david-dm.org/gsoft-inc/sg-orbit/dev-status.svg"/></a>
 </p>
 
 <p align=center>
@@ -41,5 +40,5 @@ View the [contributors documentation](CONTRIBUTING.md).
 
 ## License
 
-Copyright © 2019, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
+Copyright © 2023, GSoft inc. This code is licensed under the Apache License, Version 2.0. You may obtain a copy of this license at https://github.com/gsoft-inc/gsoft-license/blob/master/LICENSE.
 

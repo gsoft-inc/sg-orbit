@@ -1,6 +1,7 @@
 /* TABS */
 .o-ui-tabs {
     height: max-content;
+    --o-ui-tab-stroke-width: 4px;
 }
 
 /* TABS | ORIENTATION | VERTICAL */
@@ -11,25 +12,24 @@
 /* TAB LIST */
 .o-ui-tab-list {
     display: flex;
-    gap: var(--o-ui-sp-2);
 }
 
 /* TAB LIST | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab-list {
-    border-bottom: 2px solid var(--o-ui-b-alias-low-break);
+    border-bottom: var(--o-ui-tab-stroke-width) solid var(--o-ui-b-alias-low-break);
     align-items: center;
 }
 
 /* TAB LIST | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab-list {
     flex-direction: column;
-    border-left: 2px solid var(--o-ui-b-alias-low-break);
+    border-left: var(--o-ui-tab-stroke-width) solid var(--o-ui-b-alias-low-break);
 }
 
 /* TAB LIST | POPOVER | TRIGGER */
 .o-ui-tab-list-popover-trigger {
     border: none;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     color: var(--o-ui-text-alias-secondary);
     font-size: var(--o-ui-fs-3);
     position: relative;
@@ -50,10 +50,10 @@
 
 /* TAB LIST | POPOVER */
 .o-ui-tab-list-popover {
-    background-color: var(--o-ui-bg-alias-default);
+    background-color: var(--o-ui-bg-alias-surface);
     border: 1px solid var(--o-ui-b-alias-low-break);
-    border-radius: var(--o-ui-br-rounded);
-    box-shadow: var(--o-ui-bs-alias-lifted);
+    border-radius: var(--o-ui-br-3);
+    box-shadow: var(--o-ui-bs-alias-floating);
     margin-top: var(--o-ui-sp-2);
 }
 
@@ -101,7 +101,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: calc(var(--o-ui-sp-3) + 1px);
+    padding: var(--o-ui-sp-3);
     border: transparent;
     transition: all var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     min-width: max-content;
@@ -122,14 +122,14 @@
 }
 
 /* TAB | STATE | FOCUS */
-.o-ui-tab::before{
+.o-ui-tab::before {
     content: "";
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    bottom: calc(0.5rem - 2px);
+    bottom: calc(0.5rem - var(--o-ui-tab-stroke-width));
     border: var(--o-ui-focus-ring-thickness-md) transparent solid;
-    border-radius: var(--o-ui-br-rounded);
+    border-radius: var(--o-ui-br-2);
     pointer-events: none;
     height: calc(var(--o-ui-sz-3) + 0.25rem);
     transition: var(--o-ui-focus-ring-transition);
@@ -142,8 +142,8 @@
 }
 
 .o-ui-tabs-horizontal .o-ui-tab {
-    border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
+    border-bottom: var(--o-ui-tab-stroke-width)  solid transparent;
+    margin-bottom: calc(-1 * var(--o-ui-tab-stroke-width));
 }
 
 /* TAB | STATE | FOCUS | ORIENTATION | VERTICAL */
@@ -153,8 +153,8 @@
 }
 
 .o-ui-tabs-vertical .o-ui-tab {
-    border-left: 2px solid transparent;
-    margin-left: -2px;
+    border-left: var(--o-ui-tab-stroke-width)  solid transparent;
+    margin-left: calc(-1 * var(--o-ui-tab-stroke-width));
     width: 100%;
     justify-content: start;
 }
@@ -183,24 +183,24 @@
 
 .o-ui-tabs-horizontal .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
 .o-ui-tabs-horizontal .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
-    border-bottom: 2px solid var(--o-ui-b-alias-mid-break);
+    border-bottom: var(--o-ui-tab-stroke-width) solid var(--o-ui-b-alias-mid-break);
 }
 
 .o-ui-tabs-vertical .o-ui-tab:not([disabled]):not([aria-selected="true"]):hover,
 .o-ui-tabs-vertical .o-ui-tab-hover:not([disabled]):not([aria-selected="true"]) {
-    border-left: 2px solid var(--o-ui-b-alias-mid-break);
+    border-left: var(--o-ui-tab-stroke-width) solid var(--o-ui-b-alias-mid-break);
 }
 
 /* TAB | STATE | SELECTED */
 /* TAB | STATE | SELECTED | ORIENTATION | HORIZONTAL */
 .o-ui-tabs-horizontal .o-ui-tab[aria-selected="true"] {
-    border-bottom: 2px solid var(--o-ui-bg-alias-accent);
+    border-bottom: var(--o-ui-tab-stroke-width) solid var(--o-ui-bg-alias-accent);
     color: var(--o-ui-text-alias-primary);
 }
 
 /* TAB | STATE | SELECTED | ORIENTATION | VERTICAL */
 .o-ui-tabs-vertical .o-ui-tab[aria-selected="true"] {
-    border-left: 2px solid var(--o-ui-bg-alias-accent);
+    border-left: var(--o-ui-tab-stroke-width) solid var(--o-ui-bg-alias-accent);
 }
 
 /* TAB | FLUID */

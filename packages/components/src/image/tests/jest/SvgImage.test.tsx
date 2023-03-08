@@ -1,7 +1,6 @@
 import { ComponentProps, createRef, forwardRef } from "react";
 import { SvgImage } from "@components/image";
-import { renderWithTheme } from "@jest-utils";
-import { waitFor } from "@testing-library/react";
+import { renderWithTheme, screen, waitFor } from "@test-utils";
 
 const BasicSvg = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, ref) => {
     return (
@@ -41,11 +40,13 @@ const SvgWithTitle = forwardRef<SVGSVGElement, ComponentProps<"svg">>((props, re
 // ***** Behaviors *****
 
 test("an aria-hidden attribute is added to all the path elements of the svg", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SvgImage data-testid="svg" src={BasicSvg} aria-label="Basic SVG" />
     );
 
-    const paths = getByTestId("svg").querySelectorAll("path");
+    // In this specific case, we really want to iterate over the path elements
+    // eslint-disable-next-line testing-library/no-node-access
+    const paths = screen.getByTestId("svg").querySelectorAll("path");
 
     await waitFor(() => expect(paths[0]).toHaveAttribute("aria-hidden", "true"));
     await waitFor(() => expect(paths[1]).toHaveAttribute("aria-hidden", "true"));
@@ -53,11 +54,13 @@ test("an aria-hidden attribute is added to all the path elements of the svg", as
 });
 
 test("remove the title element of the svg", async () => {
-    const { getByTestId } = renderWithTheme(
+    renderWithTheme(
         <SvgImage data-testid="svg" src={SvgWithTitle} aria-label="Basic SVG" />
     );
 
-    await waitFor(() => expect(getByTestId("svg").querySelector("title")).toBeNull());
+    // In this specific case, we really want find a child element of the svg via its DOM type
+    // eslint-disable-next-line testing-library/no-node-access
+    await waitFor(() => expect(screen.queryByTestId("svg").querySelector("title")).toBeNull());
 });
 
 // ***** Refs *****

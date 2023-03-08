@@ -19,18 +19,28 @@ To install Orbit, open a terminal at the root of your project workspace and run 
 
 <PackageInstallationSnippet packageName="bundle" />
 
-The command will install all Orbit packages in the `node_modules` folder of your application.
+To install Orbit's experimental components, open a terminal at the root of your project workspace and run the following command:
+
+<PackageInstallationSnippet packageName="experimental" />
 
 ## Import styles
 
 Orbit styles include the ShareGate font, a [CSS bootstrap](https://github.com/gsoft-inc/sg-orbit/tree/master/packages/css/src) and of course the component's styles.
 
-To import Orbit styles add the following import declaration to your root stylesheet:
+To import Orbit styles, add the following import declaration to your root stylesheet:
 
 ```css
 /* index.css */
 
-@import "~@sharegate/orbit-ui/index.css";
+@import "@sharegate/orbit-ui/index.css";
+```
+
+To import Orbit experimental components styles, also add the following import declaration to your root stylesheet:
+
+```css
+/* index.css */
+
+@import "@orbit-ui/experimental/index.css";
 ```
 
 ## Configure your application

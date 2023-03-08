@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { expectAssignable } from "@typescript/tests";
+import { expectAssignable } from "@test-utils";
 import { getSlots } from "@components/shared";
 
 const node: ReactNode = null;

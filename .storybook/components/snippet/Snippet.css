@@ -1,0 +1,11 @@
+.o-ui-sb-snippet {
+    border-radius: var(--o-ui-br-4);
+}
+
+.o-ui-sb-snippet pre.prism-code {
+    padding: var(--o-ui-sp-5) !important;
+    font-size: 15px;
+    border-radius: var(--o-ui-br-4);
+    overflow-x: auto;
+    margin: 0;
+}

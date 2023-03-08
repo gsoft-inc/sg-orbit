@@ -1,10 +1,10 @@
 /**
  * @jest-environment node
  */
-import { AzureIcon32 } from "./assets";
+import { AzureIcon } from "./assets";
 import { Icon } from "@components/icons";
 import { renderToString } from "react-dom/server";
-import { throwOnConsoleLogs } from "@jest-utils";
+import { throwOnConsoleLogs } from "@test-utils";
 
 test("can render on the server", () => {
     throwOnConsoleLogs();
@@ -12,7 +12,7 @@ test("can render on the server", () => {
     const renderOnServer = () =>
         renderToString(
             <Icon
-                src={AzureIcon32}
+                src={AzureIcon}
             />
         );
 

@@ -77,6 +77,7 @@ export interface ControllableStateOptions<T> {
 export function useControllableState<T>(controlledValue: T | undefined, initialValue: T | undefined, defaultValue: T | undefined, { onChange }: ControllableStateOptions<T> = {}): [T, (maybeState: T) => void, boolean] {
     validatePrerequisites(controlledValue, initialValue);
 
+    // eslint-disable-next-line prefer-const
     let { isControlled: isControlledProp, isInitialState, state: initialState } = useComputeInitialState(controlledValue, initialValue, defaultValue);
 
     const [isControlledRef] = useRefState(isControlledProp);

@@ -34,7 +34,7 @@ import { ValidationState } from "../../input";
 
 export const OptionKeyProp = "data-o-ui-key";
 
-type SelectionMode = "none" | "single" | "multiple";
+export type ListboxSelectionMode = "none" | "single" | "multiple";
 
 const DefaultElement = "div";
 
@@ -88,7 +88,7 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
     /**
      * The type of selection that is allowed.
      */
-    selectionMode?: SelectionMode;
+    selectionMode?: ListboxSelectionMode;
     /**
      * Whether or not the listbox option should be reachable with tabs.
      */
@@ -104,8 +104,6 @@ export interface InnerListboxProps extends InternalProps, StyledComponentProps<t
 }
 
 const ListboxItemHeight = 32;
-
-const ListboxBorderSize = 1;
 
 function useCollectionNodes(children: ReactNode, nodes: CollectionNode[]) {
     const collectionNodes = useCollection(children);
@@ -369,7 +367,6 @@ export function InnerListbox({
     const scrollableProps = useScrollableCollection(containerRef, nodes, {
         itemSelector: ".o-ui-listbox-option",
         maxHeight: 12 * ListboxItemHeight + 2 * ListboxItemHeight,
-        paddingHeight: 2 * ListboxBorderSize,
         sectionSelector: ".o-ui-listbox-section"
     });
 
@@ -459,7 +456,8 @@ export function InnerListbox({
                     focusOnHover,
                     onFocus: handleFocusOption,
                     onSelect: handleSelectOption,
-                    selectedKeys: selectionManager.selectedKeys
+                    selectedKeys: selectionManager.selectedKeys,
+                    selectionMode
                 }}
             >
                 {nodes.map(node => {
