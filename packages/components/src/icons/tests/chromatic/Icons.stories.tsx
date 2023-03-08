@@ -80,16 +80,12 @@ export const IconAddMajor: IconsStory = {
     )
 };
 
-IconAddMajor.storyName = "Add Major";
-
 export const IconAlertMajor: IconsStory = {
     storyName: "Alert Major",
     render: () => (
         <TestSuite icon={AlertMajorIcon} />
     )
 };
-
-IconAlertMajor.storyName = "Alert Major";
 
 export const IconArrowMajor: IconsStory = {
     storyName: "Arrow Major",
@@ -98,16 +94,12 @@ export const IconArrowMajor: IconsStory = {
     )
 };
 
-IconArrowMajor.storyName = "Arrow Major";
-
 export const IconArrowMinor: IconsStory = {
     storyName: "Arrow Minor",
     render: () => (
         <TestSuite icon={ArrowMinorIcon} />
     )
 };
-
-IconArrowMinor.storyName = "Arrow Minor";
 
 export const IconBurgerMajor: IconsStory = {
     storyName: "Burger Major",
@@ -116,16 +108,12 @@ export const IconBurgerMajor: IconsStory = {
     )
 };
 
-IconBurgerMajor.storyName = "Burger Major";
-
 export const IconCalendarMajor: IconsStory = {
     storyName: "Calendar Major",
     render: () => (
         <TestSuite icon={CalendarMajorIcon} />
     )
 };
-
-IconCalendarMajor.storyName = "Calendar Major";
 
 export const IconCheckMajor: IconsStory = {
     storyName: "Check Major",
@@ -134,16 +122,12 @@ export const IconCheckMajor: IconsStory = {
     )
 };
 
-IconCheckMajor.storyName = "Check Major";
-
 export const IconChevronMajor: IconsStory = {
     storyName: "Chevron Major",
     render: () => (
         <TestSuite icon={ChevronMajorIcon} />
     )
 };
-
-IconChevronMajor.storyName = "Chevron Major";
 
 export const IconChevronMinor: IconsStory = {
     storyName: "Chevron Minor",
@@ -152,16 +136,12 @@ export const IconChevronMinor: IconsStory = {
     )
 };
 
-IconChevronMinor.storyName = "Chevron Minor";
-
 export const IconChevronUpDownMajor: IconsStory = {
     storyName: "ChevronUpDown Major",
     render: () => (
         <TestSuite icon={ChevronUpDownMajorIcon} />
     )
 };
-
-IconChevronUpDownMajor.storyName = "ChevronUpDown Major";
 
 export const IconChevronUpDownMinor: IconsStory = {
     storyName: "ChevronUpDown Minor",
@@ -170,16 +150,12 @@ export const IconChevronUpDownMinor: IconsStory = {
     )
 };
 
-IconChevronUpDownMinor.storyName = "ChevronUpDown Minor";
-
 export const IconCrossMajor: IconsStory = {
     storyName: "Cross Major",
     render: () => (
         <TestSuite icon={CrossMajorIcon} />
     )
 };
-
-IconCrossMajor.storyName = "Cross Major";
 
 export const IconCrossMinor: IconsStory = {
     storyName: "Cross Minor",
@@ -188,16 +164,12 @@ export const IconCrossMinor: IconsStory = {
     )
 };
 
-IconCrossMinor.storyName = "Cross Minor";
-
 export const IconDuplicateMajor: IconsStory = {
     storyName: "Duplicate Major",
     render: () => (
         <TestSuite icon={DuplicateMajorIcon} />
     )
 };
-
-IconDuplicateMajor.storyName = "Duplicate Major";
 
 export const IconDownloadMajor: IconsStory = {
     storyName: "Download Major",
@@ -206,16 +178,12 @@ export const IconDownloadMajor: IconsStory = {
     )
 };
 
-IconDownloadMajor.storyName = "Download Major";
-
 export const IconEmailMajor: IconsStory = {
     storyName: "Email Major",
     render: () => (
         <TestSuite icon={EmailMajorIcon} />
     )
 };
-
-IconEmailMajor.storyName = "Email Major";
 
 export const IconExternalLinkMajor: IconsStory = {
     storyName: "ExternalLink Major",
@@ -224,16 +192,12 @@ export const IconExternalLinkMajor: IconsStory = {
     )
 };
 
-IconExternalLinkMajor.storyName = "ExternalLink Major";
-
 export const IconExternalLinkMinor: IconsStory = {
     storyName: "ExternalLink Minor",
     render: () => (
         <TestSuite icon={ExternalLinkMinorIcon} />
     )
 };
-
-IconExternalLinkMajor.storyName = "ExternalLink Minor";
 
 export const IconEyeMajor: IconsStory = {
     storyName: "Eye Major",
@@ -242,16 +206,12 @@ export const IconEyeMajor: IconsStory = {
     )
 };
 
-IconEyeMajor.storyName = "Eye Major";
-
 export const IconFileMajor: IconsStory = {
     storyName: "File Major",
     render: () => (
         <TestSuite icon={FileMajorIcon} />
     )
 };
-
-IconFileMajor.storyName = "File Major";
 
 export const IconFileCsvMajor: IconsStory = {
     storyName: "FileCsv Major",
@@ -260,16 +220,12 @@ export const IconFileCsvMajor: IconsStory = {
     )
 };
 
-IconFileCsvMajor.storyName = "FileCsv Major";
-
 export const IconFileMusicMajor: IconsStory = {
     storyName: "FileMusic Major",
     render: () => (
         <TestSuite icon={FileMusicMajorIcon} />
     )
 };
-
-IconFileMusicMajor.storyName = "FileMusic Major";
 
 export const IconFilePdfMajor: IconsStory = {
     storyName: "FilePdf Major",
@@ -278,16 +234,12 @@ export const IconFilePdfMajor: IconsStory = {
     )
 };
 
-IconFilePdfMajor.storyName = "FilePdf Major";
-
 export const IconFileVideoMajor: IconsStory = {
     storyName: "FileVideo Major",
     render: () => (
         <TestSuite icon={FileVideoMajorIcon} />
     )
 };
-
-IconFileVideoMajor.storyName = "FileVideo Major";
 
 export const IconFileZipMajor: IconsStory = {
     storyName: "FileZip Major",
@@ -296,16 +248,12 @@ export const IconFileZipMajor: IconsStory = {
     )
 };
 
-IconFileZipMajor.storyName = "FileZip Major";
-
 export const IconFilterMajor: IconsStory = {
     storyName: "Filter Major",
     render: () => (
         <TestSuite icon={FilterMajorIcon} />
     )
 };
-
-IconFilterMajor.storyName = "Filter Major";
 
 export const IconFolderMajor: IconsStory = {
     storyName: "Folder Major",
@@ -314,16 +262,12 @@ export const IconFolderMajor: IconsStory = {
     )
 };
 
-IconFolderMajor.storyName = "Folder Major";
-
 export const IconGearMajor: IconsStory = {
     storyName: "Gear Major",
     render: () => (
         <TestSuite icon={GearMajorIcon} />
     )
 };
-
-IconGearMajor.storyName = "Gear Major";
 
 export const IconGrabMajor: IconsStory = {
     storyName: "Grab Major",
@@ -332,16 +276,12 @@ export const IconGrabMajor: IconsStory = {
     )
 };
 
-IconGrabMajor.storyName = "Grab Major";
-
 export const IconGroupMajor: IconsStory = {
     storyName: "Group Major",
     render: () => (
         <TestSuite icon={GroupMajorIcon} />
     )
 };
-
-IconGroupMajor.storyName = "Group Major";
 
 export const IconHelpMajor: IconsStory = {
     storyName: "Help Major",
@@ -350,16 +290,12 @@ export const IconHelpMajor: IconsStory = {
     )
 };
 
-IconHelpMajor.storyName = "Help Major";
-
 export const IconHomeMajor: IconsStory = {
     storyName: "Home Major",
     render: () => (
         <TestSuite icon={HomeMajorIcon} />
     )
 };
-
-IconHomeMajor.storyName = "Home Major";
 
 export const IconHorizontalDotsMajor: IconsStory = {
     storyName: "HorizontalDots Major",
@@ -368,16 +304,12 @@ export const IconHorizontalDotsMajor: IconsStory = {
     )
 };
 
-IconHorizontalDotsMajor.storyName = "HorizontalDots Major";
-
 export const IconImageMajor: IconsStory = {
     storyName: "Image Major",
     render: () => (
         <TestSuite icon={ImageMajorIcon} />
     )
 };
-
-IconImageMajor.storyName = "Image Major";
 
 export const IconInfoCircleMajor: IconsStory = {
     storyName: "InfoCircle Major",
@@ -386,16 +318,12 @@ export const IconInfoCircleMajor: IconsStory = {
     )
 };
 
-IconInfoCircleMajor.storyName = "InfoCircle Major";
-
 export const IconInfoCircleMinor: IconsStory = {
     storyName: "InfoCircle Minor",
     render: () => (
         <TestSuite icon={InfoCircleMinorIcon} />
     )
 };
-
-IconInfoCircleMinor.storyName = "InfoCircle Minor";
 
 export const IconLightbulbMajor: IconsStory = {
     storyName: "Lightbulb Major",
@@ -404,16 +332,12 @@ export const IconLightbulbMajor: IconsStory = {
     )
 };
 
-IconLightbulbMajor.storyName = "Lightbulb Major";
-
 export const IconLinkMajor: IconsStory = {
     storyName: "Link Major",
     render: () => (
         <TestSuite icon={LinkMajorIcon} />
     )
 };
-
-IconLinkMajor.storyName = "Link Major";
 
 export const IconLinkRemoveMajor: IconsStory = {
     storyName: "LinkRemove Major",
@@ -422,16 +346,12 @@ export const IconLinkRemoveMajor: IconsStory = {
     )
 };
 
-IconLinkRemoveMajor.storyName = "LinkRemove Major";
-
 export const IconMagnifierMajor: IconsStory = {
     storyName: "Magnifier Major",
     render: () => (
         <TestSuite icon={MagnifierMajorIcon} />
     )
 };
-
-IconMagnifierMajor.storyName = "Magnifier Major";
 
 export const IconNotificationMajor: IconsStory = {
     storyName: "Notification Major",
@@ -440,16 +360,12 @@ export const IconNotificationMajor: IconsStory = {
     )
 };
 
-IconNotificationMajor.storyName = "Notification Major";
-
 export const IconNotificationOffMajor: IconsStory = {
     storyName: "NotificationOff Major",
     render: () => (
         <TestSuite icon={NotificationOffMajorIcon} />
     )
 };
-
-IconNotificationOffMajor.storyName = "NotificationOff Major";
 
 export const IconNotificationRingingMajor: IconsStory = {
     storyName: "Notification Ringing Major",
@@ -458,16 +374,12 @@ export const IconNotificationRingingMajor: IconsStory = {
     )
 };
 
-IconNotificationRingingMajor.storyName = "Notification Ringing Major";
-
 export const IconPencilMajor: IconsStory = {
     storyName: "Pencil Major",
     render: () => (
         <TestSuite icon={PencilMajorIcon} />
     )
 };
-
-IconPencilMajor.storyName = "Pencil Major";
 
 export const IconPlaceholderMajor: IconsStory = {
     storyName: "Placeholder Major",
@@ -476,16 +388,12 @@ export const IconPlaceholderMajor: IconsStory = {
     )
 };
 
-IconPlaceholderMajor.storyName = "Placeholder Major";
-
 export const IconPlaceholderMinor: IconsStory = {
     storyName: "Placeholder Minor",
     render: () => (
         <TestSuite icon={PlaceholderMinorIcon} />
     )
 };
-
-IconPlaceholderMinor.storyName = "Placeholder Minor";
 
 export const IconPrivacyPrivateMajor: IconsStory = {
     storyName: "PrivacyPrivate Major",
@@ -494,16 +402,12 @@ export const IconPrivacyPrivateMajor: IconsStory = {
     )
 };
 
-IconPrivacyPrivateMajor.storyName = "PrivacyPrivate Major";
-
 export const IconPrivacyPublicMajor: IconsStory = {
     storyName: "PrivacyPublic Major",
     render: () => (
         <TestSuite icon={PadlockUnlockedMajorIcon} />
     )
 };
-
-IconPrivacyPublicMajor.storyName = "PrivacyPublic Major";
 
 export const IconRevertMajor: IconsStory = {
     storyName: "Revert Major",
@@ -512,16 +416,12 @@ export const IconRevertMajor: IconsStory = {
     )
 };
 
-IconRevertMajor.storyName = "Revert Major";
-
 export const IconRocketMajor: IconsStory = {
     storyName: "Rocket Major",
     render: () => (
         <TestSuite icon={RocketMajorIcon} />
     )
 };
-
-IconRocketMajor.storyName = "Rocket Major";
 
 export const IconSigninMajor: IconsStory = {
     storyName: "Signin Major",
@@ -530,16 +430,12 @@ export const IconSigninMajor: IconsStory = {
     )
 };
 
-IconSigninMajor.storyName = "Signin Major";
-
 export const IconSignoutMajor: IconsStory = {
     storyName: "Signout Major",
     render: () => (
         <TestSuite icon={SignoutMajorIcon} />
     )
 };
-
-IconSignoutMajor.storyName = "Signout Major";
 
 export const IconStarFillMajor: IconsStory = {
     storyName: "Star Major",
@@ -548,16 +444,12 @@ export const IconStarFillMajor: IconsStory = {
     )
 };
 
-IconStarFillMajor.storyName = "Star Major";
-
 export const IconStarOutlineMajor: IconsStory = {
     storyName: "StarOutline Major",
     render: () => (
         <TestSuite icon={StarOutlineMajorIcon} />
     )
 };
-
-IconStarOutlineMajor.storyName = "StarOutline Major";
 
 export const IconTelescopeMajor: IconsStory = {
     storyName: "Telescope Major",
@@ -566,16 +458,12 @@ export const IconTelescopeMajor: IconsStory = {
     )
 };
 
-IconTelescopeMajor.storyName = "Telescope Major";
-
 export const IconTrashMajor: IconsStory = {
     storyName: "Trash Major",
     render: () => (
         <TestSuite icon={TrashMajorIcon} />
     )
 };
-
-IconTrashMajor.storyName = "Trash Major";
 
 export const IconTrashMinor: IconsStory = {
     storyName: "Trash Minor",
@@ -584,16 +472,12 @@ export const IconTrashMinor: IconsStory = {
     )
 };
 
-IconTrashMinor.storyName = "Trash Minor";
-
 export const IconUfoMajor: IconsStory = {
     storyName: "Ufo Major",
     render: () => (
         <TestSuite icon={UfoMajorIcon} />
     )
 };
-
-IconUfoMajor.storyName = "Ufo Major";
 
 export const IconUserAddMajor: IconsStory = {
     storyName: "UserAdd Major",
@@ -602,16 +486,12 @@ export const IconUserAddMajor: IconsStory = {
     )
 };
 
-IconUserAddMajor.storyName = "UserAdd Major";
-
 export const IconUserAddMinor: IconsStory = {
     storyName: "UserAdd Minor",
     render: () => (
         <TestSuite icon={UserAddMinorIcon} />
     )
 };
-
-IconUserAddMinor.storyName = "UserAdd Minor";
 
 export const IconVerticalDotsMajor: IconsStory = {
     storyName: "VerticalDots Major",
@@ -620,16 +500,12 @@ export const IconVerticalDotsMajor: IconsStory = {
     )
 };
 
-IconVerticalDotsMajor.storyName = "VerticalDots Major";
-
 export const IconWarningMajor: IconsStory = {
     storyName: "Warning Major",
     render: () => (
         <TestSuite icon={WarningMajorIcon} />
     )
 };
-
-IconWarningMajor.storyName = "Warning Major";
 
 export const IconFill: IconsStory = {
     storyName: "Fill over background",
@@ -697,5 +573,3 @@ export const IconFill: IconsStory = {
         </Flex>
     )
 };
-
-IconFill.storyName = "Fill";
