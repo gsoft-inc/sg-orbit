@@ -15,8 +15,6 @@ export interface InnerSpinnerProps extends InternalProps, StyledComponentProps<t
      * A spinner can vary in size.
      */
     size?: ResponsiveProp<"sm" | "md" | "lg">;
-
-    variant?: "overBackground";
 }
 
 /* eslint-disable sort-keys, sort-keys-fix/sort-keys-fix */
@@ -33,7 +31,6 @@ export function InnerSpinner({
     active = true,
     forwardedRef,
     children,
-    variant,
     "aria-label": ariaLabel,
     "aria-labelledby": ariaLabelledBy,
     ...rest
@@ -63,8 +60,7 @@ export function InnerSpinner({
                     className: cssModule(
                         "o-ui-spinner",
                         normalizeSize(sizeValue),
-                        active && "active",
-                        variant && "over-background"
+                        active && "active"
                     ),
                     ref: forwardedRef,
                     role: "status"

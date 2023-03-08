@@ -25,11 +25,6 @@
     animation: spinner .6s linear infinite;
 }
 
-/* VARIANT | OVERBACKGROUND */
-.o-ui-spinner-over-background {
-    color: var(--o-ui-text-alias-static-white);
-}
-
 /* CONTENT | LABEL */
 .o-ui-spinner-label {
     margin-left: var(--o-ui-sp-2);
