@@ -25,12 +25,12 @@
         "clean": "rimraf dist tsconfig.build.tsbuildinfo"
     },
     "peerDependencies": {
-        "@sharegate/orbit-ui": ">=34.1.0",
+        "@sharegate/orbit-ui": ">=34.1.1",
         "react": "^18.0.0",
         "react-dom": "^18.0.0"
     },
     "devDependencies": {
-        "@sharegate/orbit-ui": "34.1.0"
+        "@sharegate/orbit-ui": "34.1.1"
     },
     "gitHead": "f8b5019bdc53f68abe27e931387aeec7f0747d85"
 }
