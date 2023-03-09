@@ -19,7 +19,7 @@ export const Default: SpinnerStory = {
     render: () => (
         <Inline alignY="end">
             <InactiveSpinner size="sm" aria-label="Crawling in progress" />
-            <InactiveSpinner size="md" aria-label="Crawling in progress" />
+            <InactiveSpinner aria-label="Crawling in progress" />
             <InactiveSpinner size="lg" aria-label="Crawling in progress" />
         </Inline>
     )
@@ -52,12 +52,12 @@ export const Zoom: SpinnerStory = {
         <Stack>
             <Inline alignY="end" className="zoom-in">
                 <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
-                <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+                <InactiveSpinner>Crawling in progress</InactiveSpinner>
                 <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
             </Inline>
             <Inline alignY="end" className="zoom-out">
                 <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
-                <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+                <InactiveSpinner>Crawling in progress</InactiveSpinner>
                 <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
             </Inline>
         </Stack>
@@ -69,7 +69,7 @@ export const Label: SpinnerStory = {
     render: () => (
         <Inline alignY="end" >
             <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
-            <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner>Crawling in progress</InactiveSpinner>
             <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
         </Inline>
     )
@@ -80,7 +80,7 @@ export const Overflow: SpinnerStory = {
     render: () => (
         <Stack width={10}>
             <InactiveSpinner size="sm">Crawling in progress</InactiveSpinner>
-            <InactiveSpinner size="md">Crawling in progress</InactiveSpinner>
+            <InactiveSpinner>Crawling in progress</InactiveSpinner>
             <InactiveSpinner size="lg">Crawling in progress</InactiveSpinner>
         </Stack>
     )

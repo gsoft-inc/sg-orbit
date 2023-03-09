@@ -51,7 +51,7 @@ A spinner can vary in size.
     <Story name="size">
         <Inline alignY="end">
             <Spinner size="sm" aria-label="Loading..."/>
-            <Spinner size="md" aria-label="Loading..."/>
+            <Spinner aria-label="Loading..."/>
             <Spinner size="lg" aria-label="Loading..."/>
         </Inline>
     </Story>
@@ -65,7 +65,7 @@ A spinner can have a label.
     <Story name="label">
         <Inline alignY="end">
             <Spinner size="sm">Loading...</Spinner>
-            <Spinner size="md">Loading...</Spinner>
+            <Spinner>Loading...</Spinner>
             <Spinner size="lg">Loading...</Spinner>
         </Inline>
     </Story>
@@ -78,9 +78,9 @@ You can change a spinner style when over a background by setting a color propert
 
 <Preview>
     <Story name="over background">
-        <Inline alignY="end" backgroundColor="alias-accent" padding={4}>
+        <Div backgroundColor="alias-accent" padding={4}>
             <Spinner color="alias-static-white">Loading...</Spinner>
-        </Inline>
+        </Div>
     </Story>
 </Preview>
 
