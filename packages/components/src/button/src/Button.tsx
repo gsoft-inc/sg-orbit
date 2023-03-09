@@ -152,6 +152,7 @@ export function InnerButton(props: InnerButtonProps) {
 
     const loadingMarkup = loading && (
         <Spinner
+            aria-label="Loading..."
             className="o-ui-button-spinner"
             color={variant === "primary" ? "alias-static-white" : undefined}
             role="presentation"
