@@ -25,14 +25,14 @@ export function InnerLoader({
     forwardedRef,
     ...rest
 }: InnerLoaderProps) {
-    const [show, setShow] = useState<boolean>(isNil(delay) || delay === false);
+    const [isShown, setIsShown] = useState<boolean>(isNil(delay) || delay === false);
 
     useEffect(() => {
         if (isNil(delay) || delay === false) {
             return;
         }
 
-        const showTimer = setTimeout(() => setShow(true), isNumber(delay) ? delay : DefaultLoaderDelay);
+        const showTimer = setTimeout(() => setIsShown(true), isNumber(delay) ? delay : DefaultLoaderDelay);
 
         return () => clearTimeout(showTimer);
     }, [delay]);
@@ -45,7 +45,7 @@ export function InnerLoader({
                     as,
                     className:cssModule(
                         "o-ui-loader",
-                        show && "show"
+                        isShown && "show"
                     ),
                     ref: forwardedRef,
                     role: "status"
