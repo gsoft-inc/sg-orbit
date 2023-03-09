@@ -151,6 +151,11 @@ export function InnerMenuItem({
 
 InnerMenuItem.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/menu--default-story)
+*/
+
 export const MenuItem = forwardRef<any, OmitInternalProps<InnerMenuItemProps>>((props, ref) => (
     <InnerMenuItem {...props} forwardedRef={ref} />
 ));

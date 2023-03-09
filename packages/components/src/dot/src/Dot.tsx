@@ -70,6 +70,11 @@ export function InnerDot(props: InnerDotProps) {
 
 InnerDot.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Dot](https://orbit.sharegate.design/?path=/docs/dot--default-story)
+*/
+
 export const Dot = slot("dot", forwardRef<any, OmitInternalProps<InnerDotProps>>((props, ref) => (
     <InnerDot {...props} forwardedRef={ref} />
 )));

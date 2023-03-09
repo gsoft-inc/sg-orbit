@@ -71,6 +71,11 @@ export function InnerPasswordInput(props: InnerPasswordInputProps) {
 
 InnerPasswordInput.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/text-input--default-story)
+*/
+
 export const PasswordInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerPasswordInputProps>>((props, ref) => (
     <InnerPasswordInput {...props} forwardedRef={ref} />
 ));

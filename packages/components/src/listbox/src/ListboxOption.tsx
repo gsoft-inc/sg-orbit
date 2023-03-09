@@ -197,6 +197,11 @@ export function InnerListboxOption({
 
 InnerListboxOption.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/listbox--default-story)
+*/
+
 export const ListboxOption = forwardRef<any, OmitInternalProps<InnerListboxOptionProps>>((props, ref) => (
     <InnerListboxOption {...props} forwardedRef={ref} />
 ));

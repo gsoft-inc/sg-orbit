@@ -41,6 +41,11 @@ export function InnerIconList({
 
 InnerIconList.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/icon--default-story)
+*/
+
 export const IconList = slot("icon", forwardRef<any, OmitInternalProps<InnerIconListProps>>((props, ref) => (
     <InnerIconList {...props} forwardedRef={ref} />
 )));

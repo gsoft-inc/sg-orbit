@@ -27,6 +27,11 @@ export function InnerOverlayArrow({
 
 InnerOverlayArrow.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/overlay--page)
+*/
+
 export const OverlayArrow = forwardRef<any, OmitInternalProps<InnerOverlayArrowProps>>((props, ref) => (
     <InnerOverlayArrow {...props} forwardedRef={ref} />
 ));

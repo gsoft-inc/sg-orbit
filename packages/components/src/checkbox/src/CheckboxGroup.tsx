@@ -150,6 +150,11 @@ export function InnerCheckboxGroup(props: InnerCheckboxGroupProps) {
 
 InnerCheckboxGroup.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/checkbox--default-story)
+*/
+
 export const CheckboxGroup = forwardRef<any, OmitInternalProps<InnerCheckboxGroupProps>>((props, ref) => (
     <InnerCheckboxGroup {...props} forwardedRef={ref} />
 ));

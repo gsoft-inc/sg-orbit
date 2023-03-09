@@ -56,6 +56,11 @@ export function InnerLabel(props: InnerLabelProps) {
 
 InnerLabel.defaultElement = DefaultElement;
 
+/**
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
+*/
+
 export const Label = forwardRef<any, OmitInternalProps<InnerLabelProps>>((props, ref) => (
     <InnerLabel {...props} forwardedRef={ref} />
 ));

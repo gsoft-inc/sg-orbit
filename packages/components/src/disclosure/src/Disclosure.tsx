@@ -148,7 +148,7 @@ export function InnerDisclosure({
 InnerDisclosure.defaultElement = DefaultElement;
 
 /**
- * Demos:
+ * The disclosure component is used to create regions of content that can expand/collapse with a simple animation.
  *
  * - [Disclosure](https://orbit.sharegate.design/?path=/docs/disclosure--default-story)
 */
