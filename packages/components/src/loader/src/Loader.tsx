@@ -5,7 +5,7 @@ import { Div } from "../../html";
 
 const DefaultElement = "div";
 
-const DEFAULT_LOADER_DELAY = 300;
+const DefaultLoaderDelay = 300;
 
 export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "children"> {
     /**
@@ -37,7 +37,7 @@ export function InnerLoader({
             return;
         }
 
-        const showTimer = setTimeout(() => setShow(true), isNumber(delay) ? delay : DEFAULT_LOADER_DELAY);
+        const showTimer = setTimeout(() => setShow(true), isNumber(delay) ? delay : DefaultLoaderDelay);
 
         return () => clearTimeout(showTimer);
     }, [delay]);
