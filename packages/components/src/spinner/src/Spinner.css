@@ -74,7 +74,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .o-ui-spinner-wheel-circle::before {
+    .o-ui-spinner-wheel::before {
         animation: none;
         border-right-color: currentColor;
         border-left-color: currentColor;
