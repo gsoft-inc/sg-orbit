@@ -21,7 +21,7 @@
     border-radius: var(--o-ui-br-circular);
     border: 2px solid transparent;
     border-top-color: currentColor;
-    animation: spinner .6s linear infinite;
+    animation: spinner var(--o-ui-easing-duration-5) linear infinite;
 }
 
 /* CONTENT | LABEL */
