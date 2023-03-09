@@ -48,6 +48,8 @@ export function InnerSpinner({
             {...mergeProps(
                 rest,
                 {
+                    "aria-label": ariaLabel,
+                    "aria-labelledby": ariaLabelledBy,
                     as,
                     className: cssModule(
                         "o-ui-spinner",

@@ -10,7 +10,7 @@ import { InnerSpinner, Spinner } from "@components/spinner";
 
 # Spinner
 
-<Tagline>A spinner indicates that a part of the product is currently loading or performing a task, and the duration of this process is unknown.</Tagline>
+<Tagline>A spinner indicates that a part of the product is currently performing a task, and the duration of this process is unknown.</Tagline>
 
 <ComponentInfo
     usage={"import { Spinner } from \"@sharegate/orbit-ui\";"}
@@ -21,15 +21,15 @@ import { InnerSpinner, Spinner } from "@components/spinner";
 
 ### When to use
 
-- To notify users that their request has been received and the action will soon complete.
+- To notify users that an action is in progress.
 
 ### Accessibility
 
-- The spinner has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default. When inside a parent component that is focusable, the spinner should have a role of `presentation` to prevent the screen reader from reading the spinner.
+- The spinner component has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default. When inside a parent component that is focusable, the spinner should have a role of `presentation` to prevent the screen reader from reading the spinner.
 
 ### Spinner vs Loader
 
-- Use Spinner inside a component. When the whole page is waiting for data, use a [loader](?path=/docs/loader--default-story) instead.
+- Use the spinner component insider another component. When the whole page is waiting for data, use a [loader](?path=/docs/loader--default-story) instead.
 
 ## Usage
 
@@ -74,7 +74,7 @@ A spinner can have a label.
 
 ### Over Background
 
-You can change a spinner style when over a background by setting a color property on the Spinner.
+You can change a spinner style when over a background by setting a color property on the spinner.
 
 <Preview>
     <Story name="over background">
