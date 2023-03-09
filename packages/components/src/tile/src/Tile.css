@@ -87,6 +87,17 @@
 }
 
 /* CHECKED | CHECKMARK */
+.o-ui-tile-checkmark {
+    position: absolute;
+    width: var(--o-ui-sz-3);
+    height: var(--o-ui-sz-3);
+    z-index: 1;
+    right: 0.5rem;
+    top: 0.5rem;
+    fill: var(--o-ui-bg-alias-accent-faint);
+    opacity: 0;
+}
+
 .o-ui-tile-main::before {
     content: "";
     opacity: 0;
@@ -102,27 +113,14 @@
     background-color: var(--o-ui-text-alias-accent);
 }
 
-.o-ui-tile-main::after {
-    content: "";
-    opacity: 1;
-    position: absolute;
-    width: var(--o-ui-sz-3);
-    height: var(--o-ui-sz-3);
-    mask-size: contain;
-    mask-image: url("~@orbit-ui/icons/dist/icon-check-major.svg");
-    z-index: 1;
-    right: 0.5rem;
-    top: 0.5rem;
-}
-
 .o-ui-tile[aria-checked="true"] .o-ui-tile-main::before,
 .o-ui-tile[aria-pressed="true"] .o-ui-tile-main::before {
     opacity: 1;
 }
 
-.o-ui-tile[aria-checked="true"] .o-ui-tile-main::after,
-.o-ui-tile[aria-pressed="true"] .o-ui-tile-main::after {
-    background-color: var(--o-ui-bg-alias-accent-faint);
+.o-ui-tile[aria-checked="true"] .o-ui-tile-checkmark,
+.o-ui-tile[aria-pressed="true"] .o-ui-tile-checkmark {
+    opacity: 1;
 }
 
 /* DISABLED */

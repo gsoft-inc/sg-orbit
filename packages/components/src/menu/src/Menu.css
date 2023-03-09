@@ -71,15 +71,17 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
 }
 
 /* ITEM | STATE | SELECTED */
-.o-ui-menu-item[aria-checked="true"]::before {
-    content: "";
-    width: var(--o-ui-menu-item-checkmark-size);
-    height: var(--o-ui-menu-item-checkmark-size);
-    mask: url("~@orbit-ui/icons/dist/icon-check-major.svg") center center no-repeat;
-    mask-size: contain;
-    background-color: var(--o-ui-bg-alias-accent);
+.o-ui-menu-item .o-ui-menu-item-checkmark {
+    opacity: 0;
+    width: var(--o-ui-listbox-option-checkmark-size);
+    height: var(--o-ui-listbox-option-checkmark-size);
+    fill: var(--o-ui-bg-alias-accent);
     position: absolute;
     right: 0.875rem;
+}
+
+.o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-checkmark {
+    opacity: 1;
 }
 
 /* ITEM | STATE | FOCUS */
@@ -128,8 +130,8 @@ IMPORTANT: The Menu component hardcoded a few CSS values to enable dynamic scrol
     fill: var(--o-ui-text-alias-alert);
 }
 
-.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"]::before {
-    background-color: var(--o-ui-text-alias-alert);
+.o-ui-menu-invalid .o-ui-menu-item[aria-checked="true"] .o-ui-menu-item-checkmark {
+    fill: var(--o-ui-text-alias-alert);
 }
 
 /* ITEM | DESCRIPTION */

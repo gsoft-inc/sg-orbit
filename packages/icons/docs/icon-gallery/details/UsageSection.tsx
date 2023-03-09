@@ -27,7 +27,6 @@ export function UsageSection({ iconDisplayName, iconFileName, iconComponent }: U
             <Div paddingTop={4}>
                 <IconComponent componentType={componentType} />
                 <ImageSource componentType={componentType} iconFileName={iconFileName} iconDisplayName={iconDisplayName} />
-                <CssBackground iconFileName={iconFileName} iconDisplayName={iconDisplayName} />
             </Div>
         </>
     );
@@ -84,27 +83,6 @@ function ImageSource({ componentType, iconFileName, iconDisplayName }: ImageSour
                 <H4>Usage</H4>
                 <Snippet language="jsx" code={`<img src={${componentType}} alt="${iconDisplayName}" />`} />
                 <LearnUsageLink className="o-ui-sb-gallery-item-variant-usage" />
-            </>
-        </DisclosableSection>
-    );
-}
-interface CssBackgroundProps {
-    iconFileName: string;
-    iconDisplayName: string;
-}
-
-function CssBackground({ iconFileName, iconDisplayName }: CssBackgroundProps) {
-    const code = `.${iconDisplayName.replace(/\s+/g, "-").toLowerCase()} {
-    background: url("~@orbit-ui/icons/${iconFileName}");
-    width: var(--o-ui-sz-4);
-    height: var(--o-ui-sz-4);
-}`;
-
-    return (
-        <DisclosableSection name="As a CSS background">
-            <>
-                <Snippet language="css" code={code} />
-                <LearnUsageLink />
             </>
         </DisclosableSection>
     );
