@@ -73,14 +73,6 @@
     margin-left: calc(-1 * var(--o-ui-spinner-lg-wheel-size) / 2);
 }
 
-/* STATES */
-.o-ui-spinner:not(.o-ui-spinner-active) .o-ui-spinner-wheel::before {
-    animation: none;
-    border-right-color: currentColor;
-    border-left-color: currentColor;
-    transform: rotate(130deg);
-}
-
 @media (prefers-reduced-motion: reduce) {
     .o-ui-spinner-wheel-circle::before {
         animation: none;

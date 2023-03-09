@@ -9,10 +9,6 @@ const DefaultLoaderDelay = 300;
 
 export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentProps<typeof DefaultElement>, "children"> {
     /**
-     * Specify whether you want the Loader to be animating or not.
-     */
-    active?: boolean;
-    /**
      * See [WCAG](https://www.w3.org/TR/WCAG20-TECHS/ARIA14.html).
      */
     "aria-label": string;
@@ -25,7 +21,6 @@ export interface InnerLoaderProps extends InternalProps, Omit<StyledComponentPro
 
 export function InnerLoader({
     as = DefaultElement,
-    active = true,
     delay,
     forwardedRef,
     ...rest
@@ -50,8 +45,7 @@ export function InnerLoader({
                     as,
                     className:cssModule(
                         "o-ui-loader",
-                        show && "show",
-                        active && "active"
+                        show && "show"
                     ),
                     ref: forwardedRef,
                     role: "status"
