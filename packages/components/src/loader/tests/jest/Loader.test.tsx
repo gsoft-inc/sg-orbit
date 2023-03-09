@@ -1,7 +1,29 @@
 import { Loader } from "@components/loader";
 import { createRef } from "react";
 import { renderWithTheme } from "@test-utils";
-import { waitFor } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
+
+// ***** Api *****
+test("when delay is specified, the spinner is not visible during that time", async () => {
+    renderWithTheme(
+        <Loader delay={800} aria-label="Loading..." />
+    );
+
+    const spinner = await screen.findByLabelText("Loading...");
+    expect(spinner).not.toHaveClass("o-ui-loader-show");
+
+    await waitFor(() => expect(spinner).toHaveClass("o-ui-loader-show"), { timeout: 1000 });
+});
+
+test("when no delay, the spinner is visible during that time instantly", async () => {
+    renderWithTheme(
+        <Loader aria-label="Loading..." />
+    );
+
+    const spinner = await screen.findByLabelText("Loading...");
+    expect(spinner).toHaveClass("o-ui-loader-show");
+});
+
 
 // ***** Refs *****
 
