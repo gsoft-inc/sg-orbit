@@ -4,6 +4,7 @@
     transition: opacity var(--o-ui-easing-duration-2) var(--o-ui-easing-productive);
     width: var(--o-ui-sz-5);
     height: var(--o-ui-sz-5);
+    position: relative;
 }
 
 .o-ui-loader-dot-1,
@@ -38,8 +39,16 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .o-ui-loader-show {
+    .o-ui-loader-show,
+    .o-ui-loader .o-ui-loader-dot-1,
+    .o-ui-loader .o-ui-loader-dot-2 {
         animation-iteration-count: 1;
+    }
+    .o-ui-loader .o-ui-loader-dot-1 {
+        transform: scale(1);
+    }
+    .o-ui-loader .o-ui-loader-dot-2 {
+        transform: scale(.3);
     }
 }
 
