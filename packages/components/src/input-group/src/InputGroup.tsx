@@ -126,6 +126,12 @@ export function InnerInputGroup({
 
 InnerInputGroup.defaultElement = DefaultElement;
 
+/**
+ * An input group combines an input component with addons.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/input-group--default-story)
+*/
+
 export const InputGroup = forwardRef<any, OmitInternalProps<InnerInputGroupProps>>((props, ref) => (
     <InnerInputGroup {...props} forwardedRef={ref} />
 ));

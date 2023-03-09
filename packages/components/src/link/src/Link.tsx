@@ -107,6 +107,12 @@ export function InnerLink(props: InnerLinkProps) {
 
 InnerLink.defaultElement = DefaultElement;
 
+/**
+ * Links allow a user to navigate between pages, scroll to a have page section, access files, or even to handle email addresses.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/link--default-story)
+*/
+
 export const Link = forwardRef<any, OmitInternalProps<InnerLinkProps>>((props, ref) => (
     <InnerLink {...props} forwardedRef={ref} />
 ));

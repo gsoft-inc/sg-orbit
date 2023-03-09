@@ -262,6 +262,12 @@ export function InnerDateInput({
 
 InnerDateInput.defaultElement = DefaultElement;
 
+/**
+ * An input to enter a single date value.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/date-input--default-story)
+*/
+
 export const DateInput = forwardRef<HTMLInputElement, OmitInternalProps<InnerDateInputProps>>((props, ref) => (
     <InnerDateInput {...props} forwardedRef={ref} />
 ));

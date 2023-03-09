@@ -30,6 +30,12 @@ export function InnerHeader({
 
 InnerHeader.defaultElement = DefaultElement;
 
+/**
+ * A placeholder for an header section.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/header--example)
+*/
+
 export const Header = slot("header", forwardRef<any, OmitInternalProps<InnerHeaderProps>>((props, ref) => (
     <InnerHeader {...props} forwardedRef={ref} />
 )));

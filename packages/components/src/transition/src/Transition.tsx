@@ -89,6 +89,12 @@ export function InnerTransition({
 
 InnerTransition.defaultElement = DefaultElement;
 
+/**
+ * A transition component allow enter/leave CSS transitions for React elements.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/transition--page)
+*/
+
 export const Transition = forwardRef<any, OmitInternalProps<InnerTransitionProps>>((props, ref) => (
     <InnerTransition {...props} forwardedRef={ref} />
 ));

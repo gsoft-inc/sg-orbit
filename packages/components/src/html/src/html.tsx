@@ -5,11 +5,35 @@ import { isNil } from "../../shared";
 
 // Sectioning & Content sectioning
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML address element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-address--example)
+*/
+
 export const Address = htmlElement("html-address", "address");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML article element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-article--page)
+*/
 
 export const Article = htmlElement("html-article", "article");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML aside element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-aside--page)
+*/
+
 export const Aside = htmlElement("html-aside", "aside");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML footer element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-footer--page)
+*/
 
 export const HtmlFooter = htmlElement("html-footer", "footer");
 
@@ -20,11 +44,35 @@ export const HtmlH4 = htmlElement("html-h4", "h4");
 export const HtmlH5 = htmlElement("html-h5", "h5");
 export const HtmlH6 = htmlElement("html-h6", "h6");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML header element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-header--page)
+*/
+
 export const HtmlHeader = htmlElement("html-header", "header");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML main element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-main--page)
+*/
 
 export const Main = htmlElement("html-main", "main");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML nav element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-nav--page)
+*/
+
 export const Nav = htmlElement("html-nav", "nav");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML section element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-section--page)
+*/
 
 export const HtmlSection = htmlElement("html-section", "section");
 
@@ -45,6 +93,12 @@ export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
 
 // Text content
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML div element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-div--example)
+*/
+
 export const Div = htmlElement("html-div", "div");
 
 export const HtmlParagraph = htmlElement("html-p", "p");
@@ -61,7 +115,19 @@ export type LIProps = ComponentProps<typeof LI>;
 
 // Inline text semantics
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML anchor element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-anchor--example)
+*/
+
 export const A = htmlElement("html-a", "a");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML span element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-span--example)
+*/
 
 export const Span = htmlElement("html-span", "span");
 
@@ -70,20 +136,72 @@ export type SpanProps = ComponentProps<typeof Span>;
 
 // Image and multimedia
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML img element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-img--example)
+*/
+
 export const Img = htmlElement("html-img", "img");
 
 export type ImgProps = ComponentProps<typeof Img>;
 
 // Table content
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML table element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-span--example)
+*/
+
 export const Table = htmlElement("html-table", "table");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML thead element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const THead = htmlElement("html-thead", "thead");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML tbody element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const TBody = htmlElement("html-tbody", "tbody");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML tfoot element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const TFoot = htmlElement("html-tfoot", "tfoot");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML th element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const TH = htmlElement("html-th", "th");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML tr element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const TR = htmlElement("html-tr", "tr");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML td element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-table--example)
+*/
+
 export const TD = htmlElement("html-td", "td");
 
 export type TableProps = ComponentProps<typeof Table>;
@@ -95,10 +213,21 @@ export type TRProps = ComponentProps<typeof TR>;
 export type TDProps = ComponentProps<typeof TD>;
 
 // Forms
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML button element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-button--example)
+*/
 
 export const HtmlButton = htmlElement("html-button", "button");
 
 export const HtmlForm = htmlElement("html-form", "form");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML input element.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/html-input--example)
+*/
 
 export const HtmlInput = htmlElement("html-input", "input");
 

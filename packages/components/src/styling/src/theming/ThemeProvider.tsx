@@ -81,6 +81,12 @@ export function InnerThemeProvider({
 
 InnerThemeProvider.defaultElement = DefaultElement;
 
+/**
+ * Container used to define the theme and color scheme to use.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/theme-provider--page)
+*/
+
 export const ThemeProvider = forwardRef<any, OmitInternalProps<InnerThemeProviderProps>>((props, ref) => (
     <InnerThemeProvider {...props} forwardedRef={ref} />
 ));

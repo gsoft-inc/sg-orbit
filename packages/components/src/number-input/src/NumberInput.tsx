@@ -397,6 +397,12 @@ export function InnerNumberInput(props: InnerNumberInputProps) {
 
 InnerNumberInput.defaultElement = DefaultElement;
 
+/**
+ * A number input is used to let the user enter a numeric value.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/number-input--default-story)
+*/
+
 export const NumberInput = forwardRef<any, OmitInternalProps<InnerNumberInputProps>>((props, ref) => (
     <InnerNumberInput {...props} forwardedRef={ref} />
 ));

@@ -55,6 +55,12 @@ export function InnerHeading(props: InnerHeadingProps) {
 
 InnerHeading.defaultElement = DefaultElement;
 
+/**
+ * Heading is used to create various levels of typographic hierarchies.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/heading--default-story)
+*/
+
 export const Heading = slot("heading", forwardRef<any, OmitInternalProps<InnerHeadingProps>>((props, ref) => (
     <InnerHeading {...props} forwardedRef={ref} />
 )));

@@ -193,6 +193,12 @@ export function InnerCheckbox(props: InnerCheckboxProps) {
 
 InnerCheckbox.defaultElement = DefaultElement;
 
+/**
+ * A checkbox allows the user to toggle between 2 or 3 (indeterminate) choices.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/checkbox--default-story)
+*/
+
 export const Checkbox = forwardRef<any, OmitInternalProps<InnerCheckboxProps>>((props, ref) => (
     <InnerCheckbox {...props} forwardedRef={ref} />
 ));

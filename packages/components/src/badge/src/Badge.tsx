@@ -83,6 +83,12 @@ export function InnerBadge({
 
 InnerBadge.defaultElement = DefaultElement;
 
+/**
+ * A badge is a floating component displaying a notification such as a count.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/badge--default-story)
+*/
+
 export const Badge = forwardRef<any, OmitInternalProps<InnerBadgeProps>>((props, ref) => (
     <InnerBadge {...props} forwardedRef={ref} />
 ));
