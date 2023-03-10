@@ -3,7 +3,7 @@
   "changelog": "@changesets/cli/changelog",
   "commit": false,
   "fixed": [],
-  "linked": [],
+  "linked": [["@sharegate/orbit-ui", "@orbit-ui/components"]],
   "access": "public",
   "baseBranch": "master",
   "updateInternalDependencies": "patch"
