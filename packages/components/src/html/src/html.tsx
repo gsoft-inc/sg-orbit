@@ -33,11 +33,34 @@ export const Aside = htmlElement("html-aside", "aside");
 */
 export const HtmlFooter = htmlElement("html-footer", "footer");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h1 element.
+*/
 export const HtmlH1 = htmlElement("html-h1", "h1");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h2 element.
+*/
 export const HtmlH2 = htmlElement("html-h2", "h2");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h3 element.
+*/
 export const HtmlH3 = htmlElement("html-h3", "h3");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h4 element.
+*/
 export const HtmlH4 = htmlElement("html-h4", "h4");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h5 element.
+*/
 export const HtmlH5 = htmlElement("html-h5", "h5");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML h6 element.
+*/
 export const HtmlH6 = htmlElement("html-h6", "h6");
 
 /**
@@ -92,10 +115,24 @@ export type HtmlSectionProps = ComponentProps<typeof HtmlSection>;
 */
 export const Div = htmlElement("html-div", "div");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML p element.
+*/
 export const HtmlParagraph = htmlElement("html-p", "p");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML ol element.
+*/
 export const OL = htmlElement("html-ol", "ol");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML ul element.
+*/
 export const UL = htmlElement("html-ul", "ul");
+
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML li element.
+*/
 export const LI = htmlElement("html-li", "li");
 
 export type DivProps = ComponentProps<typeof Div>;
@@ -201,6 +238,9 @@ export type TDProps = ComponentProps<typeof TD>;
 */
 export const HtmlButton = htmlElement("html-button", "button");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML form element.
+*/
 export const HtmlForm = htmlElement("html-form", "form");
 
 /**
@@ -210,8 +250,14 @@ export const HtmlForm = htmlElement("html-form", "form");
 */
 export const HtmlInput = htmlElement("html-input", "input");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML label element.
+*/
 export const HtmlLabel = htmlElement("html-label", "label");
 
+/**
+ * A specialized [box](https://orbit.sharegate.design/?path=/docs/box--page) component for HTML textarea element.
+*/
 export const HtmlTextArea = htmlElement("html-textarea", "textarea");
 
 export type HtmlButtonProps = ComponentProps<typeof HtmlButton>;
