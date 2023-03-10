@@ -27,6 +27,8 @@ import { InnerLoader, Loader } from "@components/loader";
 ### Accessibility
 
 - The loader has a [role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) of `status` by default.
+- The parent component should have a `aria-busy` attribute set to `true` when the loader is visible.
+- The parent component should have a `aria-live` attribute set to `polite`.
 
 ### Loader vs Spinner
 
