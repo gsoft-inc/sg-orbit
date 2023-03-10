@@ -1,5 +1,11 @@
 # @orbit-ui/experimental
 
+## 5.0.1
+
+### Patch Changes
+
+- 1477431b7: Changes to peer dependencies
+
 ## 5.0.0
 
 ### Patch Changes
