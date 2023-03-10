@@ -1,5 +1,11 @@
 # @orbit-ui/components
 
+## 34.2.0
+
+### Minor Changes
+
+- 2b0f7ec46: added jsdoc documentation of components
+
 ## 14.3.0
 
 ### Minor Changes
