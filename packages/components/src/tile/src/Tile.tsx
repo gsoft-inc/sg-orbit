@@ -135,6 +135,11 @@ export function InnerTile(props: InnerTileProps) {
 
 InnerTile.defaultElement = DefaultElement;
 
+/**
+ * A tile groups information into an interactive element to let users browse and take action on a group of related items.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tile--tile)
+*/
 export const Tile = forwardRef<any, OmitInternalProps<InnerTileProps>>((props, ref) => (
     <InnerTile {...props} forwardedRef={ref} />
 ));

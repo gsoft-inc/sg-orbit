@@ -31,6 +31,9 @@ export function InnerErrorMessage(props: SharedFieldMessageProps) {
 
 InnerErrorMessage.defaultElement = FieldMessageDefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
+*/
 export const ErrorMessage = forwardRef<any, OmitInternalProps<SharedFieldMessageProps>>((props, ref) => (
     <InnerErrorMessage {...props} forwardedRef={ref} />
 ));

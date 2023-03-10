@@ -334,6 +334,11 @@ export function InnerMenu({
 
 InnerMenu.defaultElement = DefaultElement;
 
+/**
+ * A menu offers a list of choices to the user, such as a set of actions or functions.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/menu--default-story)
+*/
 export const Menu = forwardRef<any, OmitInternalProps<InnerMenuProps>>((props, ref) => (
     <InnerMenu {...props} forwardedRef={ref} />
 ));

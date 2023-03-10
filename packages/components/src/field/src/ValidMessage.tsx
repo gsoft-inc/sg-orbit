@@ -31,6 +31,9 @@ export function InnerValidMessage(props: SharedFieldMessageProps) {
 
 InnerValidMessage.defaultElement = FieldMessageDefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/field--input)
+*/
 export const ValidMessage = forwardRef<any, OmitInternalProps<SharedFieldMessageProps>>((props, ref) => (
     <InnerValidMessage {...props} forwardedRef={ref} />
 ));

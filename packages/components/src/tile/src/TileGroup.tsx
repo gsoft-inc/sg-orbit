@@ -162,6 +162,9 @@ export function InnerTileGroup({
 
 InnerTileGroup.defaultElement = DefaultElement;
 
+/**
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tile--tile)
+*/
 export const TileGroup = forwardRef<any, OmitInternalProps<InnerTileGroupProps>>((props, ref) => (
     <InnerTileGroup {...props} forwardedRef={ref} />
 ));

@@ -132,6 +132,11 @@ export function InnerTag({
 
 InnerTag.defaultElement = DefaultElement;
 
+/**
+ * A tag represents a keyword that helps label, organize and categorize content.
+ *
+ * [Documentation](https://orbit.sharegate.design/?path=/docs/tag--default-story)
+*/
 export const Tag = forwardRef<any, OmitInternalProps<InnerTagProps>>((props, ref) => (
     <InnerTag {...props} forwardedRef={ref} />
 ));
