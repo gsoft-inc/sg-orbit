@@ -60,6 +60,11 @@ export function InnerLoader({
 
 InnerLoader.defaultElement = DefaultElement;
 
+/**
+* A loader provides reassurance that content is currently being loaded, processing, or that change will occur on the page.
+*
+* [Documentation](https://orbit.sharegate.design/?path=/docs/loader--default-story)
+*/
 export const Loader = forwardRef<any, OmitInternalProps<InnerLoaderProps>>((props, ref) => (
     <InnerLoader {...props} forwardedRef={ref} />
 ));
